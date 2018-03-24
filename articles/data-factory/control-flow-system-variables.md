@@ -1,11 +1,11 @@
 ---
-title: "Azure veri fabrikası'nda Sistem değişkenleri | Microsoft Docs"
-description: "Bu makalede Azure Data Factory ile desteklenen sistem değişkenleri açıklanmaktadır. Data Factory varlıklarını tanımlarken ifadelerde bu değişkenleri kullanabilirsiniz."
+title: Azure veri fabrikası'nda Sistem değişkenleri | Microsoft Docs
+description: Bu makalede Azure Data Factory ile desteklenen sistem değişkenleri açıklanmaktadır. Data Factory varlıklarını tanımlarken ifadelerde bu değişkenleri kullanabilirsiniz.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: bdf1754226852145e9bf5597256339549f253071
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 77285692846d2a301e091426801e20203816181a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen sistem değişkenleri
 Bu makalede Azure Data Factory ile desteklenen sistem değişkenleri açıklanmaktadır. Data Factory varlıklarını tanımlarken ifadelerde bu değişkenleri kullanabilirsiniz. 
@@ -36,7 +36,7 @@ Bu makalede Azure Data Factory ile desteklenen sistem değişkenleri açıklanma
 | @pipeline().TriggerType | (El ile Zamanlayıcı) ardışık düzen çağrılan tetikleyici türü | 
 | @pipeline().TriggerId| Ardışık Düzen çağırır Tetikleyici kimliği |
 | @pipeline().TriggerName| Ardışık Düzen çağırır Tetikleyici adı |
-| @pipeline().TriggerTime| Saati ardışık çağrılan tetikleyici. Tetikleyici gerçek Mazotlu süresi olan zamanlanan saat dır. Örneğin, `13:20:08.0149599Z` yerine döndürülür`13:20:00.00Z` |
+| @pipeline().TriggerTime| Saati ardışık çağrılan tetikleyici. Tetikleyici gerçek Mazotlu süresi olan zamanlanan saat dır. Örneğin, `13:20:08.0149599Z` yerine döndürülür `13:20:00.00Z` |
 
 ## <a name="trigger-scope"></a>Tetikleyici kapsamı:
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Backup sunucusu v2 yükleme | Microsoft Docs"
-description: "Azure yedekleme sunucusu v2, VM'ler, dosyalar ve klasörler, iş yükleri ve daha fazla korunması için geliştirilmiş yedekleme özellikleri sunar. Yüklemek veya yükseltmek için Azure yedekleme sunucusu v2 öğrenin."
+title: Azure Backup sunucusu v2 yükleme | Microsoft Docs
+description: Azure yedekleme sunucusu v2, VM'ler, dosyalar ve klasörler, iş yükleri ve daha fazla korunması için geliştirilmiş yedekleme özellikleri sunar. Yüklemek veya yükseltmek için Azure yedekleme sunucusu v2 öğrenin.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup sunucusu v2 yükleyin
 
@@ -36,7 +36,7 @@ Windows Server 2012 R2 veya Windows Server 2016 yedekleme sunucusu v2 yükleyebi
 ## <a name="upgrade-backup-server-to-v2"></a>Yedek sunucu v2'ye yükseltme
 Yedekleme sunucusu v1 ile yedekleme sunucusu v2'ye yükseltmek için gerekli güncelleştirmeleri yüklemenizi olduğundan emin olun:
 
-- [Koruma aracılarını güncelleştirme](backup-mabs-upgrade-to-v2.md#update-the-dpm-protection-agent) korumalı sunuculardaki.
+- [Koruma aracılarını güncelleştirme](backup-mabs-upgrade-to-v2.md#update-the-data-protection-manager-protection-agent) korumalı sunuculardaki.
 - Windows Server 2012 R2, Windows Server 2016 yükseltme.
 - Azure yedekleme sunucusu uzak yönetici tüm üretim sunucularında yükseltin.
 - Yedeklemeleri üretim sunucunuzu yeniden başlatmanıza gerek kalmadan devam etmek için ayarlandığından emin olun.
@@ -74,7 +74,7 @@ Yedekleme sunucusu v1 ile yedekleme sunucusu v2'ye yükseltmek için gerekli gü
 
   ![Kurulum Yükleyici - SQL ayarlarını denetleyin ve Yükle düğmesini](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
 
-8. Üzerinde **yükleme ayarları** sayfasında, yedekleme sunucusu yüklü olduğu bir konuma ya da sıfırdan konuma değişiklikleri yapın. Seçin **sonraki**.
+8. Üzerinde **yükleme ayarları** sayfasında, yedekleme sunucusu yüklü olduğu bir konuma ya da sıfırdan konuma değişiklikleri yapın. **İleri**’yi seçin.
 
   ![Kurulum Yükleyici - yükleme ayarları sayfası](./media/backup-mabs-upgrade-to-v2/mabs-installer-s6-installation-settings.png)
 
@@ -115,7 +115,7 @@ Yönetici konsolunda bir birim eklemek için:
 
 Yedekleme Server'da hangi iş yükleri için hangi birimlerin atanan belirtin. Örneğin, sık kullanılan, yüksek hacimli yedeklemeler gerektiren iş yüklerini depolamak için çok sayıda giriş/çıkış işlemi (IOPS) saniyede destekleyen pahalı birimler ayarlayabilirsiniz. SQL Server ile işlem günlükleri örneğidir.
 
-#### <a name="update-dpmdiskstorage"></a>Güncelleştirme DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
 Yedekleme sunucusu depolama havuzu biriminde özelliklerini güncelleştirmek için güncelleştirme DPMDiskStorage PowerShell cmdlet'ini kullanın.
 
@@ -143,12 +143,12 @@ Bir koruma grubu oluşturmak için:
 
   ![Yeni koruma grubu oluşturma Sihirbazı](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-1.png)
 
-3. Üzerinde **Hoş Geldiniz** sayfasında, **sonraki**.
+3. **Hoş Geldiniz** sayfasında, **İleri**’yi seçin.
 4. Üzerinde **koruma grubu türünü seçin** sayfasında, oluşturmak ve ardından istediğiniz koruma grubu türünü seçin **sonraki**.
 
   ![Koruma grubu seç türü sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-2.png)
 
-5. Üzerinde **grup üyelerini seçin** sayfasında **kullanılabilir üyeler** bölmesinde, koruma aracılarını listelenen üyeleriyle. Bu örnekte, D:\ birimi seçin ve E:\ ve bunları Ekle **seçili üyeleri** bölmesi. Seçin **sonraki**.
+5. Üzerinde **grup üyelerini seçin** sayfasında **kullanılabilir üyeler** bölmesinde, koruma aracılarını listelenen üyeleriyle. Bu örnekte, D:\ birimi seçin ve E:\ ve bunları Ekle **seçili üyeleri** bölmesi. **İleri**’yi seçin.
 
   ![Grup Seç üyeleri sayfası](./media/backup-mabs-upgrade-to-v2/create-a-protection-group-3.png)
 
@@ -181,7 +181,7 @@ Modern yedekleme depolama kullanmak için koruma grupları güncelleştirme iste
 
   ![Üyenin korumasını Durdur](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Disk üzerinde kurtarma noktaları bırakın ve bunları kendi ilişkili bekletme ilkesi süresi dolacak şekilde izin vermek için varsayılandır. **Tamam** düğmesine tıklayın.
+2. İçinde **grubundan** iletişim kutusunda, kullanılan disk alanı ve depolama havuzu için kullanılabilir boş alanı gözden geçirin. Disk üzerinde kurtarma noktaları bırakın ve bunları kendi ilişkili bekletme ilkesi süresi dolacak şekilde izin vermek için varsayılandır. **Tamam**’a tıklayın.
 
   Kullanılan disk alanı boş depolama havuzuna derhal döndürülmesini istiyorsanız seçin **diskteki çoğaltmayı Sil** yedekleme verilerini (ve kurtarma noktaları) silmek için onay kutusunu bu üye ile ilişkili.
 
@@ -276,8 +276,8 @@ Azure için yedekleme Çalıştır DPMSYNC-SYNC
 ## <a name="new-powershell-cmdlets-in-v2"></a>V2 yeni PowerShell cmdlet'leri
 
 Azure yedekleme sunucusu v2 yüklediğinizde, iki yeni cmdlet'leri kullanılabilir: 
-* [Bağlama DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
-* [Çıkarma DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
+* [Mount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787159.aspx)
+* [Dismount-DPMRecoveryPoint](https://technet.microsoft.com/library/mt787158.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

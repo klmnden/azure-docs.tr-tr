@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning için R dil için hızlı başlangıç Öğreticisi | Microsoft Docs"
-description: "Hızlı bir şekilde tahmin bir çözüm oluşturmak için Azure Machine Learning Studio ile R dili ile çalışmaya başlamak için bu R programlama öğreticiyi kullanın."
-keywords: "Hızlı Başlangıç, r dil, r programlama dili, r programlama Öğreticisi"
+title: Machine Learning için R dil için hızlı başlangıç Öğreticisi | Microsoft Docs
+description: Hızlı bir şekilde tahmin bir çözüm oluşturmak için Azure Machine Learning Studio ile R dili ile çalışmaya başlamak için bu R programlama öğreticiyi kullanın.
+keywords: Hızlı Başlangıç, r dil, r programlama dili, r programlama Öğreticisi
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 231d505e91fc036b30344e2fd9971db8ba2fdf05
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning için R programlama diline yönelik hızlı başlangıç öğreticisi
 
@@ -39,7 +39,7 @@ Zaman serisi veri değerlerin bir zaman dizine sahip verilerdir. Örneğin, her 
 
 Bu Hızlı Başlangıç Kılavuzu'nda biz California Süt ürün çalışma ve veri fiyatlandırma. Bu veriler, birkaç süt ürünleri üretim ve sütlü fat, kıyaslama Emtia fiyat aylık bilgi içerir.
 
-Bu makalede, R betiklerini birlikte kullanılan veri [burada indirilen][download]. Bu veriler University Wisconsin http://future.aae.wisc.edu/tab/production.html adresindeki gelen bilgilerden başlangıçta oluşturulan.
+Bu makalede, R betiklerini birlikte kullanılan veri [burada indirilen][download]. Bu veriler University Wisconsin gelen bilgilerden başlangıçta oluşturulan http://future.aae.wisc.edu/tab/production.html.
 
 ### <a name="organization"></a>Kuruluş
 Oluşturma, test ve Azure Machine Learning ortamında analizi ve veri işleme R kod yürütmek öğrenirken size çeşitli adımlarda ilerleyeceğini.  
@@ -60,7 +60,7 @@ Machine Learning Studio içinde içinde R komut dosyaları çalıştırılır [R
 
  ![Programlama dili R: Machine Learning Studio'da seçili R betiği yürütün Modülü][1]
 
-*Şekil 1 '. Seçili R betiği yürütün modülü gösteren Machine Learning Studio ortam.*
+*Şekil 1. Seçili R betiği yürütün modülü gösteren Machine Learning Studio ortam.*
 
 Şekil 1'e başvuran, anahtar bölümleri ile çalışmak için Machine Learning Studio ortamının bazıları bakalım [R betiği yürütün] [ execute-r-script] modülü.
 
@@ -96,7 +96,7 @@ Bu kod yürütmek bir hata durumuna neden başarısız olur. Tıklayarak **hata 
 
   ![Hata iletisi açılır][2]
 
-*Şekil 2 '. Hata iletisi açılır.*
+*Şekil 2. Hata iletisi açılır.*
 
 R hata iletisini görmek için içeren aramak ihtiyacımız gibi görünüyor. Tıklayın [R betiği yürütün] [ execute-r-script] tıklayın **içeren görüntülemek** üzerinde öğesi **Özellikler bölmesinde** sağındaki. Yeni bir tarayıcı penceresi açar ve ı aşağıdaki konulara bakın.
 
@@ -123,11 +123,11 @@ Azure Machine Learning 350'den önceden yüklenmiş R dil paketleriyle birlikte 
 ### <a name="introduction-to-rstudio"></a>Rstudio'dan giriş
 R için yaygın olarak kullanılan bir IDE Rstudio'dan olduğu Rstudio'dan düzenleme, test ve bu Hızlı Başlangıç Kılavuzu'nda kullanılan R kodu bazıları hata ayıklama için kullanır. R kodu test edilmiş ve hazır olduğunda size kesip Rstudio'dan Düzenleyicisi'nden bir Machine Learning Studio'ya [R betiği yürütün] [ execute-r-script] modülü.  
 
-Masaüstü makinenize yüklü R programlama dili yoksa, bunu şimdi yapın ı öneririz. Açık kaynak R dilinin ücretsiz indirme en kapsamlı R arşiv ağ (CRAN), kullanılabilir [http://www.r-project.org/](http://www.r-project.org/). Windows, Mac OS ve Linux/UNIX için kullanılabilir yüklemeler vardır. Yakındaki bir yansıtma seçin ve yükleme yönergeleri izleyin. Ayrıca, CRAN bol miktarda yararlı analizi ve veri işleme paketleri içerir.
+Masaüstü makinenize yüklü R programlama dili yoksa, bunu şimdi yapın ı öneririz. Açık kaynak R dilinin ücretsiz indirme en kapsamlı R arşiv ağ (CRAN), kullanılabilir [ http://www.r-project.org/ ](http://www.r-project.org/). Windows, Mac OS ve Linux/UNIX için kullanılabilir yüklemeler vardır. Yakındaki bir yansıtma seçin ve yükleme yönergeleri izleyin. Ayrıca, CRAN bol miktarda yararlı analizi ve veri işleme paketleri içerir.
 
-İçin Rstudio'dan yeniyseniz, indirin ve Masaüstü sürümünü yükleyin. Rstudio'dan http://www.rstudio.com/products/RStudio/ Windows, Mac OS ve Linux/UNIX indirmeleri bulabilirsiniz. Masaüstü makinenizde Rstudio'dan yüklemek için sağlanan yönergeleri izleyin.  
+İçin Rstudio'dan yeniyseniz, indirin ve Masaüstü sürümünü yükleyin. Rstudio'dan yüklemeler için Windows, Mac OS ve Linux/UNIX konumunda bulabilirsiniz http://www.rstudio.com/products/RStudio/. Masaüstü makinenizde Rstudio'dan yüklemek için sağlanan yönergeleri izleyin.  
 
-Bir öğretici giriş Rstudio'dan https://support.rstudio.com/hc/sections/200107586-Using-RStudio kullanılabilir.
+Rstudio'dan öğretici bir giriş şu adresten edinilebilir https://support.rstudio.com/hc/sections/200107586-Using-RStudio.
 
 I içinde Rstudio'dan kullanarak bazı ek bilgiler sağlayan [ek A][appendixa].  
 
@@ -163,14 +163,14 @@ Bu noktada denemenizi Şekil 3 gibi görünmelidir.
 
 ![CA günlük analizi denemeler veri kümesi ve R betiği yürütün Modülü][3]
 
-*Şekil 3 '. CA günlük analizi veri kümesi ve R betiği yürütün modülü ile deneyin.*
+*Şekil 3. CA günlük analizi veri kümesi ve R betiği yürütün modülü ile deneyin.*
 
 #### <a name="check-on-the-data"></a>Veriyi denetle
 Şimdi bizim deneme yüklemiş olduğunuz veri bir görünüme sahiptir. Denemesinde çıktısını tıklatın **cadairydata.csv dataset** seçip **görselleştirmek**. Şekil 4 gibi bir şey görmeniz gerekir.  
 
 ![Cadairydata.csv dataset özeti][4]
 
-*Şekil 4 '. Cadairydata.csv dataset özeti.*
+*Şekil 4. Cadairydata.csv dataset özeti.*
 
 Bu görünümde çok sayıda yararlı bilgiler bakın. Bu veri kümesinin ilk birkaç satır görebiliriz. Biz bir sütun seçerseniz, istatistikleri bölüm sütunu hakkında daha fazla bilgi gösterir. Örneğin, özellik türü satır bize Azure Machine Learning Studio atanmış bir sütun için hangi veri türlerini gösterir. Herhangi bir önemli iş yapmak başlamadan önce bu gibi hızlı bir bakış sahip bir iyi sağlamlık olup olmadığını denetler.
 
@@ -312,7 +312,7 @@ Bkz: Şekil 8'deki bizim R betiği grafik çıktısı biz kaydırma.
 
 ![R aygıtı bağlantı noktası grafik çıktısı][9]
 
-*Şekil 8'de. R aygıtı bağlantı noktasından çıktı grafik.*  
+*Şekil 8. R aygıtı bağlantı noktasından çıktı grafik.*  
 
 ## <a id="filtering"></a>Verileri filtreleme ve dönüştürme
 Bu bölümde biz bazı temel verileri filtreleme ve California Süt veriler üzerinde dönüştürme işlemleri gerçekleştirir. Bu bölümde sonuna analitik bir model oluşturmak için uygun bir biçim biz veri sahip olur.  
@@ -463,7 +463,7 @@ Denemenizde bu kodu çalıştırmak ve çıkış günlüğü sonucundan denetley
 
 *Şekil 11. İki sütunlarla dataframe özetini kaldırıldı.*
 
-İyi haber! Biz beklenen sonuçları alın.
+Güzel bir haberimiz var! Biz beklenen sonuçları alın.
 
 ### <a name="add-a-new-column"></a>Yeni bir sütun ekleyin
 Zaman serisi modelleri oluşturmak için zaman serisi başladığından bu yana ay içeren bir sütun için uygun olacaktır. Yeni bir sütun 'Month.Count' oluşturacağız.
@@ -521,7 +521,7 @@ Bizim dataframe özetlerini değerlerde bakarsanız tek bir şey burada görmeni
 
 Tahmin modelimiz için çarpma modeli eğilim ve bu verileri Mevsimlik düzeltilmesi için kullanırız. Bir günlük dönüştürmesi bize bu işlem basitleştirme doğrusal bir model kullanılacak sağlar. Biz çarpanı burada uygulanan aynı işlev günlük dönüşümünde uygulayabilirsiniz.
 
-Aşağıdaki kodda ı yeni bir işlev tanımlayın `log.transform()`ve sayısal değerleri içeren satırları uygulayın. R `Map()` işlevi uygulamak için kullanılan `log.transform()` dataframe seçilen sütunlarda işlevi. `Map()`benzer `apply()` ancak işlevi bağımsız değişken birden fazla listesini sağlar. Çarpanları listesini ikinci bağımsız değişkeni sağlayan Not `log.transform()` işlevi. `na.omit()` İşlevi değil sahibiz eksik veya tanımsız değerler dataframe emin olmak için temizleme biraz kullanılır.
+Aşağıdaki kodda ı yeni bir işlev tanımlayın `log.transform()`ve sayısal değerleri içeren satırları uygulayın. R `Map()` işlevi uygulamak için kullanılan `log.transform()` dataframe seçilen sütunlarda işlevi. `Map()` benzer `apply()` ancak işlevi bağımsız değişken birden fazla listesini sağlar. Çarpanları listesini ikinci bağımsız değişkeni sağlayan Not `log.transform()` işlevi. `na.omit()` İşlevi değil sahibiz eksik veya tanımsız değerler dataframe emin olmak için temizleme biraz kullanılır.
 
     log.transform <- function(invec, multiplier = 1) {
       ## Function for the transformation, which is the log
@@ -1213,31 +1213,31 @@ Bu ekte ı başlamanıza yardımcı olmak için Rstudio'dan belgelerine anahtar 
 
 1. Proje oluşturma
    
-   Düzenleyebilir ve Rstudio'dan kullanarak R kodunuzu projelere yönetin. Projeleri kullanan belgelerine https://support.rstudio.com/hc/articles/200526207-Using-Projects bulunabilir.
+   Düzenleyebilir ve Rstudio'dan kullanarak R kodunuzu projelere yönetin. Projeleri kullanan belgeleri şu adreste bulunabilir: https://support.rstudio.com/hc/articles/200526207-Using-Projects.
    
    I bu yönergeleri izleyin ve bu belgede R kod örnekleri için bir proje oluşturun öneririz.  
 2. Düzenleme ve R kodu çalıştırma
    
-   Rstudio'dan düzenleme ve R kod yürütmek için tümleşik bir ortam sağlar. Belge https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code bulunabilir.
+   Rstudio'dan düzenleme ve R kod yürütmek için tümleşik bir ortam sağlar. Belgeler bulunabilir https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code.
 3. Hata ayıklama
    
-   Rstudio'dan güçlü hata ayıklama özellikleri içerir. Bu özellikler için belgeleri https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio ' dir.
+   Rstudio'dan güçlü hata ayıklama özellikleri içerir. Bu özellikler için belgesidir adresindeki https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio.
    
-   Kesme noktası sorun giderme özellikleri https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting belgelenmiştir.
+   Kesme noktası sorun giderme özellikleri adresinde belgelenen https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting.
 
 ## <a id="appendixb"></a>Ek B: Daha fazla bilgi
 Bu R programlama öğretici R dil Azure Machine Learning Studio ile kullanmak ihtiyacınız olan temel bilgiler yer almaktadır. R ile bilmiyorsanız, iki tanıtımları CRAN üzerinde kullanılabilir:
 
-* R Emmanuel Paradis tarafından yeni başlayanlar için http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf başlatmak için uygun bir yerdir.  
-* W. n R giriş Venables et. Al. biraz daha derinliğinde, http://cran.r-project.org/doc/manuals/R-intro.html geçer.
+* R Emmanuel Paradis tarafından yeni başlayanlar için başlangıç için iyi bir yerdir http://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf.  
+* W. n R giriş Venables et. Al. konumundaki biraz daha kapsamlı giden http://cran.r-project.org/doc/manuals/R-intro.html.
 
 Başlamanıza yardımcı olabilecek R birçok books vardır. Yararlı bulabilirim birkaç şunlardır:
 
 * R programlama resim: bir tur, istatistiksel yazılım Norman Matloff tarafından r programlamada mükemmel giriş tasarımdır  
 * R Kılavuzu Paul Teetor tarafından r kullanarak bir sorun ve çözümü yaklaşım sağlar  
-* Eylem Robert Kabacoff tarafından R başka yararlı tanıtım Rehberi ' dir. Yardımcı hızlı R Web sitesi http://www.statmethods.net/ en kullanışlı bir kaynaktır.
-* R Inferno CAN yanıklara tarafından r'de programlamada karşılaştı hassas ve zor konular sayısıyla ilgilidir şaşırtıcı esprili bir kitap olduğu Defteri ücretsiz http://www.burns-stat.com/documents/books/the-r-inferno/ kullanılabilir.
-* Derinlemesine Gelişmiş konular R, içine istiyorsanız Gelişmiş R Hadley Wickham tarafından kitap bakmak gerekir. Bu kitap çevrimiçi sürümünü ücretsiz http://adv-r.had.co.nz/ kullanılabilir.
+* Eylem Robert Kabacoff tarafından R başka yararlı tanıtım Rehberi ' dir. Yardımcı hızlı R Web sitesi yararlı kaynaktır http://www.statmethods.net/.
+* R Inferno CAN yanıklara tarafından r'de programlamada karşılaştı hassas ve zor konular sayısıyla ilgilidir şaşırtıcı esprili bir kitap olduğu Kitap ücretsiz adresten edinilebilir http://www.burns-stat.com/documents/books/the-r-inferno/.
+* Derinlemesine Gelişmiş konular R, içine istiyorsanız Gelişmiş R Hadley Wickham tarafından kitap bakmak gerekir. Bu kitap çevrimiçi sürümünü ücretsiz adresten edinilebilir http://adv-r.had.co.nz/.
 
 Zaman serisi çözümleme için CRAN görev görünümünde Kataloğu R zaman serisi paketlerin bulunabilir: http://cran.r-project.org/web/views/TimeSeries.html. Paketleri serisi nesne belirli bir zaman hakkında bilgi için bu paket için belgelerine başvurmalıdır.
 
@@ -1245,10 +1245,10 @@ Paul Cowpertwait ve Barış Metcalfe r Giriş zaman serisi defteri R zaman seris
 
 Harika bazı Internet kaynakların:
 
-* DataCamp: DataCamp video dersleri ve kodlama alıştırmaları tarayıcınızla rahatlık içinde R öğretir. En son R teknikleri ve paketleri etkileşimli öğreticileri vardır. Ücretsiz etkileşimli R https://www.datacamp.com/courses/introduction-to-r Öğreticisi
-* Bir alma üzerinde R ile Programiz https://www.programiz.com/r-programming Kılavuzu
-* Bir hızlı R Öğreticisi tarafından Kelly siyah Clarkson University http://www.cyclismo.org/tutorial/R/ gelen
-* R http://www.ComputerWorld.com/article/2497464/Business-intelligence-60-r-Resources-to-improve-Your-Data-skills.HTML listelenen 60 + kaynakları
+* DataCamp: DataCamp video dersleri ve kodlama alıştırmaları tarayıcınızla rahatlık içinde R öğretir. En son R teknikleri ve paketleri etkileşimli öğreticileri vardır. Ücretsiz etkileşimli R adresindeki Öğreticisi https://www.datacamp.com/courses/introduction-to-r
+* Bir alma üzerinde r ile Programiz gelen Kılavuzu https://www.programiz.com/r-programming
+* Hızlı bir R öğretici Kelly siyah Clarkson University gelen tarafından http://www.cyclismo.org/tutorial/R/
+* R adresinde listelenmiş 60 + kaynakları http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html
 
 <!--Image references-->
 [1]: ./media/r-quickstart/fig1.png

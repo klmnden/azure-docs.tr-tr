@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı hizmetinin | Microsoft Docs"
-description: "Tek hizmet katmanları ve performans düzeyleri ve depolama boyutları sağlamak için havuz veritabanları hakkında bilgi edinin."
+title: Azure SQL veritabanı hizmetinin | Microsoft Docs
+description: Tek hizmet katmanları ve performans düzeyleri ve depolama boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
 services: sql-database
 author: CarlRabeler
-manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/21/2018
+manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6153616de763eee1b20fff40d38816eca8b455de
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3fe7add4ad4c5563a6307db0dec27c658913429b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database hizmet katmanları nelerdir?
 
@@ -33,7 +33,8 @@ Bir hizmet katmanı seçme özelliği öncelikle iş sürekliliği, depolama ve 
 |CPU|Düşük|Düşük, Orta, yüksek|Orta, yüksek|
 |G/ç işleme (yaklaşık) |2.5 DTU başına IOPS  | 2.5 DTU başına IOPS | DTU başına 48 IOPS|
 |G/ç gecikmesi (yaklaşık)|5 (okuma), ms 10 ms (yazma)|5 (okuma), ms 10 ms (yazma)|2 ms (okuma/yazma)|
-|Columnstore dizinini ve bellek içi OLTP|Yok|Yok|Desteklenen|
+|Columnstore dizini oluşturma |Yok|S3 ve üstü|Desteklenen|
+|Bellek içi OLTP|Yok|Yok|Desteklenen|
 |||||
 
 ## <a name="performance-level-and-storage-size-limits"></a>Performans düzeyini ve depolama boyutu sınırları

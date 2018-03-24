@@ -1,8 +1,8 @@
 ---
-title: "Birleştirilmiş alt düzey cihazlar Azure Active Directory karma sorunlarını giderme | Microsoft Docs"
-description: "Karma Azure Active Directory sorun giderme alt düzey aygıtları katıldı."
+title: Birleştirilmiş alt düzey cihazlar Azure Active Directory karma sorunlarını giderme | Microsoft Docs
+description: Karma Azure Active Directory sorun giderme alt düzey aygıtları katıldı.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 03/20/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ecf77a614922ef58cdfb2b2c8174f66e01ea9b46
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0d21a8848222c4b09723e22d2d51ec43b2154553
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
@@ -88,10 +88,10 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
     
     2. Herhangi bir nedenle Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması yapamıyorsa. Birkaç olası nedenleri (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantısı sorunları olabilir veya kullanıcı için etkin/yapılandırılan MFA, ancak WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Başka bir olasılık, bu giriş bölgesi bulma (HRD) sayfasını Autoworkplace.exe sessizce bir belirteç elde etmesini engelleyen bir kullanıcı etkileşimi bekliyor olabilir.
     
-    3. Kuruluş Azure AD kullanıyorsanız sorunsuz çoklu oturum açma, aşağıdaki URL'ler cihazın IE intranet ayarlarını yok:
+    3. Azure AD sorunsuz çoklu oturum açma kuruluş kullanıyorsanız, aşağıdaki URL'yi cihazın IE intranet ayarlarını mevcut değil:
     
        - https://autologon.microsoftazuread-sso.com
-       - https://aadg.windows.net.nsatc.net
+
     
        ve Intranet bölgesi için "Durum çubuğunda komut dosyası aracılığıyla izin güncelleştirmeler" ayarının etkinleştirilmesi gerekir.
 

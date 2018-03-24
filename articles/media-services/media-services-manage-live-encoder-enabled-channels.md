@@ -1,11 +1,11 @@
 ---
-title: "Canlı çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services'ı kullanarak akış | Microsoft Docs"
-description: "Bu konuda, bir şirket içi kodlayıcıdan tek bit hızlı bir canlı akışı alıp ardından bit hızı Uyarlamalı akışa Media Services ile gerçek zamanlı kodlama gerçekleştiren bir kanalı açıklar. Akış sonra istemci kayıttan yürütme uygulamaları bir veya daha fazla akış uç noktaları, aracılığıyla için aşağıdaki Uyarlamalı akış protokollerden birini kullanılarak alınabilir: HLS, kesintisiz akış, MPEG DASH."
+title: Canlı çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services'ı kullanarak akış | Microsoft Docs
+description: 'Bu konuda, bir şirket içi kodlayıcıdan tek bit hızlı bir canlı akışı alıp ardından bit hızı Uyarlamalı akışa Media Services ile gerçek zamanlı kodlama gerçekleştiren bir kanalı açıklar. Akış sonra istemci kayıttan yürütme uygulamaları bir veya daha fazla akış uç noktaları, aracılığıyla için aşağıdaki Uyarlamalı akış protokollerden birini kullanılarak alınabilir: HLS, kesintisiz akış, MPEG DASH.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: anilmur
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: f7cd457fe0660718c3939d39ec1825009c5e4d17
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 9d89849bb982804515b21de8c251859591dbf6ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
+
+> [!NOTE]
+> 12 May 2018 Canlı kanallar başlayarak artık destek RTP/MPEG-2 aktarım akışı alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) protokolleri alma.
+
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services (AMS) bir **kanal** canlı akış içeriğinin işlemek için bir işlem hattını temsil eder. A **kanal** Canlı giriş akışları iki yoldan biriyle alır:
 
@@ -45,7 +49,7 @@ Bir kanal oluşturduğunuzda Media Services 2.10 sürümünden başlayarak, hang
 > 
 
 ## <a name="billing-implications"></a>Faturalama etkileri
-Canlı bir kodlama kanal durumu geçişleri "Çalışır" için API üzerinden olduğunda hemen faturalama başlar.   Azure portalında veya Azure Media Services Gezgini aracını (http://aka.ms/amse) durumunu da görüntüleyebilirsiniz.
+Canlı bir kodlama kanal durumu geçişleri "Çalışır" için API üzerinden olduğunda hemen faturalama başlar.   Azure portalında veya Azure Media Services Gezgini aracı durumunu da görüntüleyebilirsiniz (http://aka.ms/amse).
 
 Aşağıdaki tabloda, API ve Azure portalındaki Faturalama durumları nasıl kanal durumları Eşle gösterir. Durumları API ve Portal UX arasında biraz farklı olduğuna dikkat edin API aracılığıyla "Çalışır" durumda ya da Azure Portalı'ndaki "Hazır" veya "Akış" durumdaki bir kanaldır hemen faturalama etkin olacaktır.
 Daha fazla faturalama gelen kanal durdurmak için Azure portalında veya API aracılığıyla kanalı durdurun sahip.
@@ -64,7 +68,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalama mi? |
 | --- | --- | --- |
-| Başlangıç |Başlangıç |Hayır (geçici durum) |
+| Başlatılıyor |Başlatılıyor |Hayır (geçici durum) |
 | Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |EVET |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
@@ -217,7 +221,7 @@ Kanal oluşturduğunuzda Önizleme URL'sini alabilirsiniz. URL almak için kanal
 Veri alma kanal başladıktan sonra akışınızın önizlemesini.
 
 > [!NOTE]
-> Şu anda Önizleme akış yalnızca parçalanmış MP4 alınabilir (kesintisiz akış) biçimi belirtilen giriş türü ne olursa olsun. Kullanabileceğiniz [http://smf.cloudapp.net/healthmonitor](http://smf.cloudapp.net/healthmonitor) kesintisiz akış test etmek için player. Azure Portalı'nda barındırılan bir oynatıcı, akışınızı görüntülemek için de kullanabilirsiniz.
+> Şu anda Önizleme akış yalnızca parçalanmış MP4 alınabilir (kesintisiz akış) biçimi belirtilen giriş türü ne olursa olsun. Kullanabileceğiniz [ http://smf.cloudapp.net/healthmonitor ](http://smf.cloudapp.net/healthmonitor) kesintisiz akış test etmek için player. Azure Portalı'nda barındırılan bir oynatıcı, akışınızı görüntülemek için de kullanabilirsiniz.
 > 
 > 
 
@@ -363,7 +367,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalandırılmış mı? |
 | --- | --- | --- |
-| Başlangıç |Başlangıç |Hayır (geçici durum) |
+| Başlatılıyor |Başlatılıyor |Hayır (geçici durum) |
 | Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |Evet |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
@@ -381,7 +385,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 * Varsayılan olarak 5 kanalları Media Services hesabınıza yalnızca ekleyebilirsiniz. Tüm yeni hesaplarda Esnek kota budur. Daha fazla bilgi için bkz: [kotaları ve kısıtlamaları](media-services-quotas-and-limitations.md).
 * Kanal veya ilişkili programları çalışıyorken giriş protokolünü değiştiremezsiniz. Farklı protokollere ihtiyacınız varsa her bir giriş protokolü için farklı bir kanal oluşturmalısınız.
 * Kanalınızı olduğunda, yalnızca faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz [bu](media-services-manage-live-encoder-enabled-channels.md#states) bölümü.
-* Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Temasa amslived@microsoft.com uzun süreler için bir kanal çalıştırmanız gerekiyorsa.
+* Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 * İçinde içerik akışı sağlamak istediğiniz akış uç bulunduğundan emin olun **çalıştıran** durumu.
 * Zaman birden çok dil parçaları giriş yapma ve Azure ile gerçek zamanlı kodlama yapılması, yalnızca RTP çok dilli giriş için desteklenir. 8 adete kadar ses akışları RTP MPEG-2 TS kullanarak tanımlayabilirsiniz. RTMP veya kesintisiz akış ile birden çok ses izleri alma şu anda desteklenmiyor. Yaparken ile gerçek zamanlı kodlama [şirket içi Canlı kodlar](media-services-live-streaming-with-onprem-encoders.md), ne olursa olsun AMS için gönderilen bir kanal herhangi başka bir işleme olmadan geçirdiği için böyle bir kısıtlama değil.
 * Kodlama hazır 30 fps "max kare hızı" kavramı kullanır. Giriş 60 fps ise bunu / 59.97i, giriş çerçeveleri bırakılan/Kaldır-30/29.97 fps interlaced. Giriş 50 fps/50i ise, giriş çerçeveleri bırakılan/Kaldır-25 fps interlaced. Giriş 25 fps ise, çıktı 25 fps ile kalır.

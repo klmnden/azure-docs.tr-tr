@@ -1,6 +1,6 @@
 ---
-title: "Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel bakış | Microsoft Docs"
-description: "Paylaşım anlık bir noktada paylaşımını yedekleme için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür."
+title: Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel bakış | Microsoft Docs
+description: Paylaşım anlık bir noktada paylaşımını yedekleme için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: c309804f33fc0e5b2091e18dfe5fe3c9849a2709
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: a6b80c134351429ec85a20f7ab83b7674b8b7352
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files-preview"></a>Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel bakış
 Azure dosyaları dosya paylaşımları paylaşımı anlık görüntüsünü olanağı sunar. Anlık görüntüler (Önizleme) yakalama paylaşım durumu zamandaki o noktada paylaşır. Bu makalede, paylaşım anlık görüntüleri sağlamak hangi özelliklere ve nasıl, bunları özel kullanım durumda yararlanabilir açıklanmaktadır.
@@ -48,7 +48,7 @@ Paylaşım anlık görüntü oluşturulduktan sonra okumak, kopyalanan, veya sil
 
 Paylaşım anlık görüntü özelliği dosya paylaşımı düzeyinde sağlanır. Alma, tek tek dosyaların geri yüklemek için izin vermek için tek tek dosya düzeyinde sağlanır. SMB, REST API, portal, istemci kitaplığı veya PowerShell/CLI araçları kullanarak, bir tam dosya paylaşımı geri yükleyebilirsiniz.
 
-Dosya paylaşımının paylaşım anlık görüntü, temel dosya paylaşımına aynıdır. Tek fark bir **DateTime** değeri paylaşımına paylaşımı anlık görüntünün alındığı zaman belirtmek için URI eklenir. Bir dosya paylaşımı URI http://storagesample.core.file.windows.net/myshare ise, örneğin, paylaşım anlık görüntü URI benzer:
+Dosya paylaşımının paylaşım anlık görüntü, temel dosya paylaşımına aynıdır. Tek fark bir **DateTime** değeri paylaşımına paylaşımı anlık görüntünün alındığı zaman belirtmek için URI eklenir. Örneğin, URI bir dosya paylaşımı ise http://storagesample.core.file.windows.net/myshare, URI benzer paylaşımı anlık görüntü:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -98,5 +98,5 @@ Paylaşım anlık görüntüleri yalnızca dosya düzeyinde korumasını sağlar
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Paylaşım anlık görüntüleri ile çalışma](storage-how-to-use-files-snapshots.md)
-* [Anlık görüntü SSS paylaşma](storage-files-faq.md)
+* [Anlık görüntü SSS paylaşma](storage-files-faq.md#share-snapshots)
 

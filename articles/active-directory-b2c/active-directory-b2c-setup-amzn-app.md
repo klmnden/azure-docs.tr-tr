@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: Amazon yapılandırma | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Amazon hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Amazon yapılandırma | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Amazon hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 77c099bb-a005-4d75-87f9-f61e3de48725
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: df69b075717e6b4311e336f5bd2d385c5f0e1f52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Amazon hesaplarıyla tüketicileri sağlayın
 ## <a name="create-an-amazon-application"></a>Amazon uygulama oluşturma
-Amazon Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için Amazon uygulama oluşturma ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Amazon hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [http://www.amazon.com/](http://www.amazon.com/).
+Amazon Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için Amazon uygulama oluşturma ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Amazon hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ http://www.amazon.com/ ](http://www.amazon.com/).
 
 1. Git [Amazon Geliştirici Merkezi](https://login.amazon.com/) ve Amazon hesabı kimlik bilgilerinizle oturum açın.
 2. Zaten yapmadıysanız, tıklatın **kaydolun**, geliştirici kayıt adımları izleyin ve ilke kabul edin.
@@ -35,7 +32,7 @@ Amazon Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak k
 5. İçinde **Web ayarları** bölümünde, değerlerini kopyalamayı **istemci kimliği** ve **gizli**. (Tıklamanız gerekir **Göster gizli** bu düğmeyi.) Her ikisi de kiracınızda kimlik sağlayıcısı Amazon yapılandırmak için gerekir. Tıklatın **Düzenle** bölümünün altındaki. **İstemci parolası** önemli güvenlik kimlik bilgileri.
    
     ![Yeni uygulamanızı Amazon için istemci kimliği ve istemci parolası sağlama](./media/active-directory-b2c-setup-amzn-app/amzn-client-secret.png)
-6. Girin `https://login.microsoftonline.com` içinde **izin JavaScript çıkış** alan ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **dönüş URL'leri izin** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contoso.onmicrosoft.com). **Kaydet** düğmesine tıklayın. **{Tenant}** duyarlıdır.
+6. Girin `https://login.microsoftonline.com` içinde **izin JavaScript çıkış** alan ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **dönüş URL'leri izin** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contoso.onmicrosoft.com). **Kaydet**’e tıklayın. **{Tenant}** duyarlıdır.
    
     ![Yeni uygulamanızı Amazon için JavaScript kaynakları ve dönüş URL'leri sağlama](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 

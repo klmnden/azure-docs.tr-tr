@@ -1,11 +1,10 @@
 ---
-title: "Veri kopyalama/Azure SQL veri ambarından | Microsoft Docs"
-description: "Azure Data Factory kullanarak Azure SQL Data Warehouse öğesine/öğesinden veri kopyalama öğrenin"
+title: Veri kopyalama/Azure SQL veri ambarından | Microsoft Docs
+description: Azure Data Factory kullanarak Azure SQL Data Warehouse öğesine/öğesinden veri kopyalama öğrenin
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: d90fa9bd-4b79-458a-8d40-e896835cfd4a
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 97782d1437f47a5ec403a98464d38961874d7575
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 709a178d99a34adb9c77086e55270fe41ed84551
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>İçin ve Azure Data Factory kullanarak Azure SQL veri ambarından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -166,10 +165,10 @@ GO
 ```
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'a veri yüklemek için Polybase'i kullanın
-Kullanarak  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yükleme etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak büyük kazanç verimliliği de görebilirsiniz. Bkz: [kopyalama performans başvuru numarası](data-factory-copy-activity-performance.md#performance-reference) ayrıntılı karşılaştırması ile. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](data-factory-load-sql-data-warehouse.md).
+Kullanarak **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yükleme etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak büyük kazanç verimliliği de görebilirsiniz. Bkz: [kopyalama performans başvuru numarası](data-factory-copy-activity-performance.md#performance-reference) ayrıntılı karşılaştırması ile. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](data-factory-load-sql-data-warehouse.md).
 
-* Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve biçimini PolyBase ile uyumlu ise, doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Bkz:  **[Polybase'i kullanarak doğrudan kopyalama](#direct-copy-using-polybase)**  ayrıntılarla.
-* Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase tarafından kullanabileceğiniz  **[Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase)**  yerine özellik. Ayrıca, daha iyi verim otomatik olarak veri PolyBase uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob depolama alanına veri depolayarak sağlar. Ardından verileri SQL Data Warehouse'a veri yükler.
+* Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve biçimini PolyBase ile uyumlu ise, doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Bkz: **[Polybase'i kullanarak doğrudan kopyalama](#direct-copy-using-polybase)** ayrıntılarla.
+* Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase tarafından kullanabileceğiniz **[Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase)** yerine özellik. Ayrıca, daha iyi verim otomatik olarak veri PolyBase uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob depolama alanına veri depolayarak sağlar. Ardından verileri SQL Data Warehouse'a veri yükler.
 
 Ayarlama `allowPolyBase` özelliğine **true** Azure SQL Data Warehouse'a veri kopyalamak için PolyBase kullanmak Azure Data Factory için aşağıdaki örnekte gösterildiği gibi. Bulunan'allowpolybase true olarak ayarladığınızda, kullanarak PolyBase belirli özelliklerini belirtebilirsiniz `polyBaseSettings` özellik grubu. bkz: [SqlDWSink](#SqlDWSink) polyBaseSettings ile kullanabileceğiniz özellikleri hakkında ayrıntılı bilgi için bölüm.
 
@@ -198,11 +197,11 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
 1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore hizmet asıl kimlik doğrulaması ile**.  
 2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStore**ve altında yazın biçimi `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
 
-   1. `rowDelimiter`olmalıdır  **\n** .
-   2. `nullValue`ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
-   3. `encodingName`ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
+   1. `rowDelimiter` olmalıdır **\n**.
+   2. `nullValue` ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
+   3. `encodingName` ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
-   5. `compression`olabilir **sıkıştırma yok**, **GZip**, veya **Deflate**.
+   5. `compression` olabilir **sıkıştırma yok**, **GZip**, veya **Deflate**.
 
     ```JSON
     "typeProperties": {
@@ -310,14 +309,14 @@ Veri Fabrikası aynı tablo adı kaynak veri deposundaki ile hedef deposunda bir
 | bit | bit |
 | Ondalık | Ondalık |
 | sayısal | Ondalık |
-| Kayan | Kayan |
+| Kayan nokta | Kayan nokta |
 | para | para |
 | Real | Real |
 | Küçük para | Küçük para |
 | İkili | İkili |
 | varbinary | Varbinary (en fazla 8000) |
 | Tarih | Tarih |
-| Tarih Saat | Tarih Saat |
+| DateTime | DateTime |
 | DateTime2 | DateTime2 |
 | Zaman | Zaman |
 | DateTimeOffset | DateTimeOffset |
@@ -350,13 +349,13 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | İkili |Byte] |
 | bit |Boole |
 | char |Dize, Char] |
-| tarih |Tarih Saat |
-| Tarih saat |Tarih Saat |
-| datetime2 |Tarih Saat |
+| tarih |DateTime |
+| Tarih saat |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan |Çift |
+| Kayan nokta |Çift |
 | görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
@@ -366,7 +365,7 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | nvarchar |Dize, Char] |
 | Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih Saat |
+| smalldatetime |DateTime |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |

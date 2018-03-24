@@ -1,12 +1,12 @@
 ---
-title: "Yakın gerçek zamanlı ölçüm uyarıları Azure İzleyicisi'nde | Microsoft Docs"
-description: "Azure kaynak ölçümleri Sıklık 1 dakika küçük izlemek için gerçek zamanlı ölçüm uyarıları kullanmayı öğrenin."
+title: Yakın gerçek zamanlı ölçüm uyarıları Azure İzleyicisi'nde | Microsoft Docs
+description: Azure kaynak ölçümleri Sıklık 1 dakika küçük izlemek için gerçek zamanlı ölçüm uyarıları kullanmayı öğrenin.
 author: snehithm
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,59 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: snmuvva, vinagara
-ms.custom: 
-ms.openlocfilehash: 88995b1f3350fe485e28efccc93779ae0a42eb97
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="near-real-time-metric-alerts-preview"></a>Gerçek zamanlı ölçüm uyarıları (Önizleme)
-Azure İzleyicisi gerçek zamanlı ölçüm uyarıları (Önizleme) adlı yeni bir uyarı türünü destekler. Bu özellik şu anda genel önizlemede değil.
+# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Azure portalında Azure Hizmetleri için yeni ölçüm uyarıları kullanın
+Azure İzleyici gerçek zamanlı ölçüm uyarıları adlı yeni bir uyarı türünü destekler. 
 
-Gerçek zamanlı ölçüm birkaç şekilde normal ölçüm uyarıları uyarılar farklıdır:
+Uyarıları gerçek zamanlı ölçüm farklı [Klasik ölçüm uyarıları](insights-alerts-portal.md) birkaç şekilde:
 
-- **Geliştirilmiş gecikme**: Gerçek zamanlı ölçüm uyarılar ölçüm değerleri bir dakika kadar küçük bir sıklıkta değişiklikleri izleyebilirsiniz.
+- **Geliştirilmiş gecikme**: Gerçek zamanlı ölçüm uyarıları gibi bir sıklıkla bir dakikada çalıştırabilirsiniz. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır.
+- **Çok boyutlu ölçümleri desteği**: ölçüm ilginç bir parçasını izlemenizi sağlayan boyutlu ölçülerine uyarabilir.
 - **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin uyarı kurallarında yakın gerçek zamanlı ölçüm uyarıları tanımlayabilirsiniz. Uyarıları maksimum, minimum, ortalama ve toplam değerler ölçümleri izleme destekler.
-- **Ölçümleri günlüklerinden**: giren popüler günlük verilerden [günlük analizi](../log-analytics/log-analytics-overview.md), ölçümleri Azure izleyicisine ayıklanabilir ve en gerçek zamanlı olarak uyarılmak
 - **Birden çok ölçümlerini izleme birleştirilmiş**: Gerçek zamanlı ölçüm uyarıları (şu anda en fazla iki ölçümleri) birden çok ölçümleri tek bir kural ile izleyebilirsiniz. Her iki ölçümleri belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal varsa bir uyarı tetiklenir.
 - **Modüler bildirim sistemi**: uyarıları gerçek zamanlı ölçüm kullanmak [Eylem grupları](monitoring-action-groups.md). Modüler eylemlerini oluşturmak için eylem gruplarını kullanabilirsiniz. Birden çok uyarı kuralları Eylem grupları yeniden kullanabilirsiniz.
+- **Ölçümleri günlüklerinden**: giren popüler günlük verilerden [günlük analizi](../log-analytics/log-analytics-overview.md), ölçümleri Azure izleyicisine ayıklanabilir ve en gerçek zamanlı olarak uyarılmak.
 
-> [!NOTE]
-> Yakın gerçek zamanlı ölçüm şu anda uyarısıdır genel önizlemede. Ve ölçümleri günlükleri özelliklerinden olan *sınırlı* genel Önizleme. İşlevsellik ve kullanıcı deneyimi değiştirilebilir ' dir.
->
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümleri ve desteklenen boyutlar
 Gerçek zamanlı ölçüm uyarılar için Boyutlar kullanmak ölçümleri uyarı destekler. Boyutları, ölçüm sağ düzeyine filtrelemek için kullanabilirsiniz. Geçerli boyutlar yanı sıra tüm desteklenen ölçümleri incelediniz ve gelen görselleştirilen [Azure İzleyicisi - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).
 
 Gerçek zamanlı ölçüm uyarılar için desteklenen tabanlı Azure İzleyici ölçüm kaynaklarının tam listesi aşağıdadır:
 
-|Ölçüm adı/ayrıntıları  |Desteklenen boyutlar  |
-|---------|---------|
-|Microsoft.ApiManagement/service     | Evet        |
-|Microsoft.Automation/automationAccounts     |     Yok    |
-|Microsoft.Automation/automationAccounts     |   Yok      |
-|Microsoft.Cache/Redis     |    Yok     |
-|Microsoft.Compute/virtualMachines     |    Yok     |
-|Microsoft.Compute/virtualMachineScaleSets     |   Yok      |
-|Microsoft.DataFactory/factories     |   Yok      |
-|Microsoft.DBforMySQL/servers     |   Yok      |
-|Microsoft.DBforPostgreSQL/servers     |    Yok     |
-|Microsoft.EventHub/namespaces     |   Yok      |
-|Microsoft.Logic/workflows     |     Yok    |
-|Microsoft.Network/applicationGateways     |    Yok     |
-|Microsoft.Network/publicipaddresses     |  Yok       |
-|Microsoft.Search/searchServices     |   Yok      |
-|Microsoft.ServiceBus/namespaces     |  Yok       |
-|Microsoft.Storage/storageAccounts     |    Evet     |
-|Microsoft.Storage/storageAccounts/services     |     Evet    |
-|Microsoft.StreamAnalytics/streamingjobs     |  Yok       |
-|Microsoft.CognitiveServices/accounts     |    Yok     |
+|Kaynak türü  |Desteklenen boyutlar  | Kullanılabilir ölçümler|
+|---------|---------|----------------|
+|Microsoft.ApiManagement/service     | Evet        | [API Management](monitoring-supported-metrics.md#microsoftapimanagementservice)|
+|Microsoft.Automation/automationAccounts     |     Evet   | [Automation hesapları](monitoring-supported-metrics.md#microsoftautomationautomationaccounts)|
+|Microsoft.Batch/batchAccounts | Yok| [Toplu hesaplar](monitoring-supported-metrics.md#microsoftbatchbatchaccounts)|
+|Microsoft.Cache/Redis     |    Yok     |[Redis Önbelleği](monitoring-supported-metrics.md#microsoftcacheredis)|
+|Microsoft.Compute/virtualMachines     |    Yok     | [Sanal Makineler](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
+|Microsoft.Compute/virtualMachineScaleSets     |   Yok      |[Sanal makine ölçekleme kümeleri](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.DataFactory/factories     |   Evet     |[Veri fabrikaları V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
+|Microsoft.DBforMySQL/servers     |   Yok      |[MySQL veritabanı](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
+|Microsoft.DBforPostgreSQL/servers     |    Yok     | [DB PostgreSQL için](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
+|Microsoft.EventHub/namespaces     |  Evet      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.Logic/workflows     |     Yok    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
+|Microsoft.Network/applicationGateways     |    Yok     | [Uygulama ağ geçitleri](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
+|Microsoft.Network/publicipaddresses     |  Yok       |[Genel IP adresi](monitoring-supported-metrics.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Search/searchServices     |   Yok      |[Arama Hizmetleri](monitoring-supported-metrics.md#microsoftsearchsearchservices)|
+|Microsoft.ServiceBus/namespaces     |  Evet       |[Service Bus](monitoring-supported-metrics.md#microsoftservicebusnamespaces)|
+|Microsoft.Storage/storageAccounts     |    Evet     | [Depolama hesapları](monitoring-supported-metrics.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAccounts/services     |     Evet    | [BLOB Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Dosya Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kuyruk Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) ve [Tablo Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
+|Microsoft.StreamAnalytics/streamingjobs     |  Yok       | [Akış Analizi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
+|Microsoft.CognitiveServices/accounts     |    Yok     | [Bilişsel Hizmetler](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
+|Microsoft.OperationalInsights/workspaces (Preview) | Evet|[Günlük analizi çalışma alanları](#support-for-oms-logs-as-metrics-for-alerting)|
 
 
-Günlükleri, ölçümleri şu anda popüler OMS günlükleri destekler:
+## <a name="create-a-newer-metric-alert"></a>Daha yeni bir ölçüm uyarısı oluştur
+Şu anda yalnızca Azure portalı veya REST API'sini yeni ölçüm uyarılar oluşturabilirsiniz. PowerShell, Azure komut satırı arabirimi (Azure CLI) kullanarak gerçek zamanlı ölçüm uyarıları yapılandırma desteği yakında geliyor.
+
+Azure portalında yeni bir ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
+
+## <a name="manage-newer-metric-alerts"></a>Yeni ölçüm Uyarıları yönetme
+Yakın gerçek zamanlı ölçüm uyarı oluşturduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
+
+## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Uyarı verme ölçümleri olarak OMS günlükleri için destek
+
+Gerçek zamanlı ölçüm ölçümleri günlükleri Önizleme ölçümleri bir parçası olarak olarak ayıklanan popüler OMS günlükleri uyarılar yakın kullanabilirsiniz.  
 - [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
-- Makineler için sinyal kayıtları
+- [Aracı sistem durumu için sinyal kayıtları](../operations-management-suite/oms-solution-agenthealth.md)
 - [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md) kayıtları
 
 Gerçek zamanlı ölçüm uyarılar için desteklenen OMS günlük tabanlı ölçüm kaynaklarının tam listesi aşağıdadır:
@@ -143,17 +152,8 @@ Gerçek zamanlı ölçüm uyarılar için desteklenen OMS günlük tabanlı öl�
 |    Güncelleştirme |     Evet - bilgisayar, ürün, Sınıflandırma, UpdateState, isteğe bağlı & onaylanan    |   Güncelleştirme Yönetimi |
 
 > [!NOTE]
-> Belirli ölçüm ve/veya boyut yalnızca veri onun için seçilen dönemde var olup olmadığını gösterilir.
+> Belirli ölçüm ve/veya boyut yalnızca veri onun için seçilen dönemde var olup olmadığını gösterilir. Bu ölçümler Önizleme çevirdiniz çalışma alanları Doğu ABD, Batı Orta ABD ve Batı Avrupa'da sahip müşteriler için kullanılabilir. Bu önizleme parçası olmasını istiyorsanız, kullanarak kaydolma [anket](https://aka.ms/MetricLogPreview).
 
-## <a name="create-a-near-real-time-metric-alert"></a>Yakın gerçek zamanlı ölçüm uyarısı oluştur
-Şu anda yalnızca Azure portalında gerçek zamanlı ölçüm uyarıları yakın oluşturabilirsiniz. PowerShell, Azure komut satırı arabirimi (Azure CLI) ve Azure İzleyici REST API'lerini kullanarak gerçek zamanlı ölçüm uyarıları yapılandırma desteği yakında geliyor.
-
-Yakın gerçek zamanlı ölçüm uyarı oluşturma için deneyimi yeni taşındı **uyarıları (Önizleme)** sayfası. Geçerli uyarıları görüntüler sayfa olsa bile **eklemek yakın gerçek zamanlı ölçüm uyarı**, yönlendirilirsiniz **uyarıları (Önizleme)** sayfası.
-
-Yakın gerçek zamanlı ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-near-real-time-metric-alerts"></a>Gerçek zamanlı ölçüm Uyarıları yönetme
-Yakın gerçek zamanlı ölçüm uyarı oluşturduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
 ## <a name="payload-schema"></a>Yükü şeması
 
@@ -209,6 +209,6 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve şema tüm uygun şekilde yapıl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yeni hakkında daha fazla bilgi [(Önizleme) deneyimi uyarıları](monitoring-overview-unified-alerts.md).
-* Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda (Önizleme) oturum](monitor-alerts-unified-log.md).
+* Yeni hakkında daha fazla bilgi [uyarıları deneyimi](monitoring-overview-unified-alerts.md).
+* Hakkında bilgi edinin [uyarıları Azure'da oturum](monitor-alerts-unified-log.md).
 * Hakkında bilgi edinin [Azure içindeki uyarıları](monitoring-overview-alerts.md).

@@ -1,11 +1,11 @@
 ---
-title: "Şirket içi Azure bağlantıları için VPN ağ geçidi ayarları | Microsoft Docs"
-description: "Azure sanal ağ geçitleri için VPN ağ geçidi ayarları hakkında bilgi edinin."
+title: Şirket içi Azure bağlantıları için VPN ağ geçidi ayarları | Microsoft Docs
+description: Azure sanal ağ geçitleri için VPN ağ geçidi ayarları hakkında bilgi edinin.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: 
+manager: jpconnock
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: e4f02e2b001b6821e732cead660aa0b758f1133e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN ağ geçidi yapılandırma ayarları hakkında
 
@@ -28,7 +28,9 @@ Bir VPN ağ geçidi, sanal ağınızı ve şirket içi konumunuz arasındaki şi
 Bir VPN gateway bağlantısı her biri yapılandırılabilir ayarları içeren yapılandırmasına göre birden fazla kaynağı kullanır. Bu makalede bölümlerde kaynakları ve Resource Manager dağıtım modelinde oluşturulmuş bir sanal ağ için bir VPN ağ geçidi ile ilgili ayarları açıklanmaktadır. Her bağlantı çözümünüz için açıklamaları ve topoloji diyagramları bulabilirsiniz [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md) makalesi.
 
 >[!NOTE]
-> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. VPN ağ geçidi olarak adlandırılır nedeni budur. -GatewayType için 'ExpressRoute' uygulamak değerleri için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md). ExpressRoute ağ geçidi değerlerini VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
+> Bu makalede değerleri - GatewayType 'Vpn' kullanan sanal ağ geçitleri için geçerlidir. Bu belirli sanal ağ geçitlerini VPN ağ geçidi olarak adlandırılır nedeni budur. ExpressRoute ağ geçidi değerlerini VPN ağ geçitleri için kullandığınız aynı değerleri değildir.
+>
+>-GatewayType için 'ExpressRoute' uygulamak değerleri için bkz: [ExpressRoute için sanal ağ geçitleri](../expressroute/expressroute-about-virtual-network-gateways.md).
 >
 >
 
@@ -55,7 +57,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-### <a name="configure-the-gateway-sku"></a>Ağ geçidi SKU'su yapılandırın
+### <a name="configure-a-gateway-sku"></a>Bir ağ geçidi SKU'su yapılandırın
 
 #### <a name="azure-portal"></a>Azure portalına
 
@@ -63,24 +65,35 @@ Bir Resource Manager sanal ağ geçidi oluşturmak için Azure portalını kulla
 
 #### <a name="powershell"></a>PowerShell
 
-Aşağıdaki PowerShell örnek belirtir `-GatewaySku` VpnGw1 olarak.
+Aşağıdaki PowerShell örnek belirtir `-GatewaySku` VpnGw1 olarak. Bir ağ geçidi oluşturmak için PowerShell kullanılırken ilk IP yapılandırması oluşturun ve sonra başvurduğu için bir değişken kullanmak zorunda. Bu örnekte, $gwipconfig yapılandırma değişkenidir.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
+New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
+-Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
 -GatewayType Vpn -VpnType RouteBased
 ```
 
-#### <a name="resize"></a>Değişiklik (boyutlandırma) bir ağ geçidi SKU'su
+#### <a name="azure-cli"></a>Azure CLI
 
-Daha güçlü bir SKU, ağ geçidi SKU'su yükseltmek istiyorsanız, kullanabileceğiniz `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet'i. Ayrıca ağ geçidi Bu cmdlet'i kullanarak SKU boyutunu düşürmek.
-
-Aşağıdaki PowerShell örnek bir ağ geçidi için VpnGw2 yeniden boyutlandırılan SKU gösterir.
-
-```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
-Resize-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku VpnGw2
+```azurecli
+az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
+
+###  <a name="resizechange"></a>Bir SKU değiştirme ve yeniden boyutlandırma
+
+Bir ağ geçidi yeniden boyutlandırma SKU oldukça kolaydır. Ağ geçidi yeniden boyutlandırır olarak çok az kapalı kalma süresi gerekir. Ancak, kuralları vardır yeniden boyutlandırma ile ilgili:
+
+1. VpnGw1, VpnGw2 ve VpnGw3 SKU'ları arasında yeniden boyutlandırma gerçekleştirebilirsiniz.
+2. Eski ağ geçidi SKU'larıyla çalışırken Temel, Standart ve Yüksek Performanslı SKU'lar arasında yeniden boyutlandırma yapabilirsiniz.
+3. Temel/Standart/Yüksek Performanslı SKU'ları yeni VpnGw1/VpnGw2/VpnGw3 SKU'larıyla aynı olacak şekilde **yeniden boyutlandıramazsınız**. Bunun yerine, gerekir [değiştirmek](#change) yeni SKU'ları için.
+
+#### <a name="resizegwsku"></a>Bir ağ geçidi yeniden boyutlandırmak için
+
+[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
+
+####  <a name="change"></a>Eski (eski) SKU için yeni bir SKU değiştirmek için
+
+[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
 
 ## <a name="connectiontype"></a>Bağlantı türleri
 
@@ -150,7 +163,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Bazen yerel ağ geçidi ayarlarını değiştirmeniz gerekir. Örneğin, eklediğinizde veya adres aralığını değiştirmek veya VPN cihazının IP adresi değişip değişmediğini. Bkz: [PowerShell kullanarak yerel ağ geçidi ayarlarını değiştirmek](vpn-gateway-modify-local-network-gateway.md).
 
-## <a name="resources"></a>REST API ve PowerShell cmdlet'leri
+## <a name="resources"></a>REST API'ları, PowerShell cmdlet'leri ve CLI
 
 Ek teknik kaynaklar ve REST API'leri, PowerShell cmdlet'lerini veya Azure CLI için VPN ağ geçidi yapılandırmaları kullanırken belirli sözdizimi gereksinimleri için aşağıdaki sayfalarına bakın:
 

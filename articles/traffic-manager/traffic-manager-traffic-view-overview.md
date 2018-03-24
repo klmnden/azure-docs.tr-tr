@@ -1,31 +1,28 @@
 ---
-title: "Trafiği Azure trafik Yöneticisi görünümü | Microsoft Docs"
-description: "Trafik Yöneticisi trafiği görünüm giriş"
+title: Trafiği Azure trafik Yöneticisi görünümü | Microsoft Docs
+description: Trafik Yöneticisi trafiği görünüm giriş
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 11/11/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 6b4378cb293824702dd52dcdeb86619f957b83ea
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.custom: ''
+ms.openlocfilehash: 7ce51017fdee92e5589c06b398c9650930d5436d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-traffic-view"></a>Trafik Yöneticisi trafiği görünümü
-
->[!NOTE]
->Trafik Yöneticisi'nde trafiği görünümü özelliği genel önizlemede ve genel kullanılabilirlik özellikleri sürüm gibi aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Özellik desteklenmiyor, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure trafik Yöneticisi'ni güncelleştirir](https://azure.microsoft.com/updates/?product=traffic-manager) sayfası.
 
 Trafik Yöneticisi, böylece son kullanıcılarınızın yönlendirme yöntemini esas alarak sağlıklı uç noktalar yönlendirilir DNS düzeyi yönlendirme profili oluşturduğunuzda belirttiğiniz sağlar. Trafik görünümü trafik Yöneticisi, kullanıcı tabanları (düzeyinde bir DNS Çözümleyicisi ayrıntı düzeyi) ve bunların trafiğini desen bir görünüm sağlar. Trafik görünüm etkinleştirdiğinizde, bu bilgileri ile eyleme dönüştürülebilir Öngörüler sağlamak için işlenir. 
 
@@ -43,7 +40,7 @@ Trafik Yöneticisi bu özelliği etkinleştirilmiş bir profili karşı son yedi
 Sonraki adımda, trafik Yöneticisi Azure bölgesi eşleme bu bölgelerdeki kullanıcılar tarafından yaşadı ortalama gecikme süresi anlamak farklı son kullanıcı ağlar için tutar ağ Intelligence gecikme tablolar ile kullanıcı temel bölgesine karşılık gelen zaman Azure bölgeleri bağlanılıyor. Bu hesaplamalar adresindeki birleştirilir bir gerçekleştiriliyordu size görüntülenmeden önce yerel DNS Çözümleyicisi IP. Çeşitli şekillerde bilgileri kullanabilir.
 
 >[!NOTE]
->Trafik görünümünde açıklanan gecikme son kullanıcı ve kendisine bağlı Azure bölgeleri arasındaki temsili bir gecikme süresi ve DNS Arama gecikme değil.
+>Trafik görünümünde açıklanan gecikme son kullanıcı ve kendisine bağlı Azure bölgeleri arasındaki temsili bir gecikme süresi ve DNS Arama gecikme değil. Yerel DNS Çözümleyicisi ve kullanılabilir yeterli veri ise sorgu için yönlendirildi Azure bölgesi arasındaki gecikme süresi daha sonra gecikme süresini en iyi çaba tahmin döndürülen trafiği görünüm yapar null olur. 
 
 ## <a name="visual-overview"></a>Görsel genel bakış
 
@@ -61,12 +58,12 @@ Harita DNS Çözümleyicisi konumda üzerine getirirseniz gösterir:
 
 ### <a name="endpoint-information"></a>Uç nokta bilgileri
 
-Uç noktaları bulunduğu Azure bölgeleri eşlemesindeki mavi noktalar olarak gösterilir. (Kullanılan DNS Çözümleyicisi göre) farklı konumlara görmek için herhangi bir uç nokta gelen trafik Bu uç noktasına burada yönlendirilmiş olan tıklayın. Bağlantı uç nokta ve DNS Çözümleyicisi konum arasında bir çizgi olarak gösterilir ve bu çifti arasındaki temsilcisi gecikme süresi göre renkli. Buna ek olarak, uç nokta, içinde çalıştığı Azure bölgesi ve bu trafik Yöneticisi profili tarafından yönlendirilen isteklerini kendisine toplam hacmini adını görebilirsiniz.
+Uç noktaları bulunduğu Azure bölgeleri eşlemesindeki mavi noktalar olarak gösterilir. Uç noktanız dış ve eşlenmiş bir Azure bölgesi yoksa harita üstünde gösterilir. (Kullanılan DNS Çözümleyicisi göre) farklı konumlara görmek için herhangi bir uç nokta gelen trafik Bu uç noktasına burada yönlendirilmiş olan tıklayın. Bağlantı uç nokta ve DNS Çözümleyicisi konum arasında bir çizgi olarak gösterilir ve bu çifti arasındaki temsilcisi gecikme süresi göre renkli. Buna ek olarak, uç nokta, içinde çalıştığı Azure bölgesi ve bu trafik Yöneticisi profili tarafından yönlendirilen isteklerini kendisine toplam hacmini adını görebilirsiniz.
 
 
 ## <a name="tabular-listing-and-raw-data-download"></a>Tablo listesi ve ham verileri yükleme
 
-Tablo biçiminde Azure portalında trafik görünüm verilerini görüntüleyebilir. Her DNS Çözümleyicisi IP için bir giriş veya DNS Çözümleyicisi (varsa), coğrafi konumunu gösterir uç noktası çifti adı uç nokta bulunduğu Azure bölgesi, istek hacmini ilişkili o DNS Çözümleyicisi ve temsilci ile Bu DNS (kullanılabiliyorsa) kullanarak son kullanıcılar ile ilişkili bir gecikme süresi. Tercih ettiğiniz bir analytics iş akışının bir parçası olarak kullanılabilir bir CSV dosyası olarak trafik görünüm verileri de yükleyebilirsiniz.
+Tablo biçiminde Azure portalında trafik görünüm verilerini görüntüleyebilir. Her DNS Çözümleyicisi IP için bir giriş veya uç nokta eşleştirin IP adresini ve DNS Çözümleyicisi, adı Azure bölgesinde coğrafi konumunu gösterir, uç nokta (varsa) bulunur, bu DNS Çözümleyicisi ile ilişkili istek hacmini Bu uç ve son kullanıcılara bu DNS (kullanılabiliyorsa) kullanarak ilgili temsili gecikmeyi. Tercih ettiğiniz bir analytics iş akışının bir parçası olarak kullanılabilir bir CSV dosyası olarak trafik görünüm verileri de yükleyebilirsiniz.
 
 ## <a name="billing"></a>Faturalandırma
 

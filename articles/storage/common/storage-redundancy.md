@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage veri çoğaltması | Microsoft Docs"
-description: "Microsoft Azure depolama hesabınızdaki veriler dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Çoğaltma seçenekleri yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) içerir."
+title: Azure Storage veri çoğaltması | Microsoft Docs
+description: Microsoft Azure depolama hesabınızdaki veriler dayanıklılık ve yüksek kullanılabilirlik için çoğaltılır. Çoğaltma seçenekleri yerel olarak yedekli depolama (LRS), bölge olarak yedekli depolama (ZRS), coğrafi olarak yedekli depolama (GRS) ve okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) içerir.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.workload: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 18d0e8bc6cc1559f9ae1a1a4457aa85d2a206597
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 600b66af3b7da24c5a40d09d5cdf76f2d5be67ac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-storage-replication"></a>Azure Storage çoğaltma
 
@@ -30,7 +30,7 @@ Bir depolama hesabı oluşturduğunuzda şu çoğaltma seçeneklerinden birini s
 * [Coğrafi olarak yedekli depolama (GRS)](#geo-redundant-storage)
 * [Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](#read-access-geo-redundant-storage)
 
-Bir depolama hesabı oluşturduğunuzda okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) varsayılan seçenektir.
+Bir depolama hesabı oluşturduğunuzda, yerel olarak yedekli depolama (LRS) varsayılan seçenektir.
 
 Aşağıdaki tabloda LRS, ZRS, GRS ve RA-GRS arasındaki farklar hızlı bir bakış sağlar. Bu makalenin sonraki bölümlerinde daha ayrıntılı çoğaltma her türünü adres.
 
@@ -54,9 +54,9 @@ Bkz: [Azure Storage fiyatlandırması](https://azure.microsoft.com/pricing/detai
 
 ### <a name="zrs-classic-accounts"></a>ZRS Klasik hesapları
 
-Artık mevcut ZRS özelliği için ZRS Klasik adlandırılır. ZRS Klasik hesapları yalnızca blok bloblar genel amaçlı V1 depolama hesapları için kullanılabilir. 
+Artık mevcut ZRS özelliği için ZRS Klasik adlandırılır. ZRS Klasik hesapları yalnızca blok blob’larına ve genel amaçlı V1 depolama hesaplarında sunulur. 
 
-ZRS Klasik verilerini zaman uyumsuz olarak bir veya iki bölgeleri içindeki veri merkezleri arasında çoğaltır. İkincil bir yük devretme Microsoft başlatır sürece, bir çoğaltma kullanılamıyor olabilir. 
+ZRS Klasik, verileri zaman uyumsuz olarak bir veya iki bölge içindeki veri merkezleri arasında çoğaltır. Çoğaltma, Microsoft ikincil birime yük devretme işlemini başlatana kadar kullanılamayabilir. 
 
 ZRS Klasik hesapları için veya LRS, GRS veya RA-GRS dönüştürülemez. ZRS Klasik hesapları, ölçümleri veya günlük kaydı da desteklemez.   
 
@@ -148,5 +148,5 @@ Blok blobları, sayfa blobları (dışında bu yedekleme VM diskleri), tablolar,
 * [Azure Depolama fiyatlandırması](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure storage hesapları hakkında](../storage-create-storage-account.md)
 * [Azure Storage ölçeklenebilirlik ve performans hedefleri](storage-scalability-targets.md)
-* [Microsoft Azure Depolama artıklık seçenekleri ve okuma erişimi coğrafi olarak yedekli depolama](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+* [Microsoft Azure Depolama artıklık seçenekleri ve okuma erişimi coğrafi olarak yedekli depolama ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 * [SOSP belgesi - Azure Storage: Yüksek oranda kullanılabilir depolama sahip bulut hizmeti güçlü tutarlılık](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

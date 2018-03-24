@@ -1,24 +1,24 @@
 ---
-title: "Dayanıklı işlevleri uzantısı ve örnekler - Azure yükleyin"
-description: "Dayanıklı işlevleri uzantısı için Azure işlevleri, portal geliştirme veya Visual Studio geliştirme için nasıl yükleneceğini öğrenin."
+title: Dayanıklı işlevleri uzantısı ve örnekler - Azure yükleyin
+description: Dayanıklı işlevleri uzantısı için Azure işlevleri, portal geliştirme veya Visual Studio geliştirme için nasıl yükleneceğini öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e1e8b019fe4632b0b6ac02888b562d6718c14fcc
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
 
@@ -77,12 +77,17 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
 3. Bir komut aşağıdakini çalıştırarak Azure işlevleri dayanıklı uzantısını yükleyin komut istemi / terminal penceresi:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.1.0-beta2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.2.0-beta3
     ```
-4. Azure Storage öykünücüsü veya güncelleştirme çalışması *local.appsettings.json* gerçek Azure depolama bağlantı dizesini içeren dosya.
-3. Visual Studio kodda projeyi açın. 
-5. Örneği çalıştırmak yönergeler için başlayın [işlev zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'a yayımlanmalıdır.
-6. Proje komutta komut istemi / terminal aşağıdaki komutu çalıştırarak işe başlayın:
+4. Bir komut aşağıdakini çalıştırarak Azure işlevleri Twilio uzantısını yükleyin komut istemi / terminal penceresi:
+
+    ```bash
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta4
+    ```
+5. Azure Storage öykünücüsü veya güncelleştirme çalışması *local.appsettings.json* gerçek Azure depolama bağlantı dizesini içeren dosya.
+6. Visual Studio kodda projeyi açın. 
+7. Örneği çalıştırmak yönergeler için başlayın [işlev zincirleme - Hello dizisi örnek](durable-functions-sequence.md). Örnek, yerel olarak çalıştırmak veya Azure'a yayımlanmalıdır.
+8. Proje komutta komut istemi / terminal aşağıdaki komutu çalıştırarak işe başlayın:
     ```bash
     func host start
     ```

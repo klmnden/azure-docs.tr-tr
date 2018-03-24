@@ -1,12 +1,12 @@
 ---
-title: "Bir Web kancası kullanarak var olan sorunu yönetim sistemleri için sistem durumu bildirimleri yapılandırma | Microsoft Docs"
-description: "Varolan sorun yönetimi sisteminiz için hizmet sistem durumu olayları hakkında Kişiselleştirilmiş bildirimler alın."
+title: Bir Web kancası kullanarak var olan sorunu yönetim sistemleri için sistem durumu bildirimleri yapılandırma | Microsoft Docs
+description: Varolan sorun yönetimi sisteminiz için hizmet sistem durumu olayları hakkında Kişiselleştirilmiş bildirimler alın.
 author: shawntabrizi
 manager: scotthit
-editor: 
+editor: ''
 services: service-health
 documentationcenter: service-health
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-health
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: b6a5f61f61675b825dcfe9c706c80944f5890538
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 0e233fe537ea37da97ebe5d4e8221d24f656fd10
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>Bir Web kancası kullanarak var olan sorunu yönetim sistemleri için sistem durumu bildirimleri yapılandırma
 
@@ -36,7 +36,7 @@ Bu belge Web kancası yükü ve hizmet sorunları, etkilerse bildirim almak içi
 ## <a name="configuring-a-custom-notification-using-the-service-health-webhook-payload"></a>Hizmet durumu Web kancası yükü kullanarak özel bir bildirim yapılandırma
 Kendi özel Web kancası tümleştirmeyi ayarlamak istiyorsanız, hizmet durumu bildirimlerine sırasında gönderilen JSON yükü ayrıştırılamıyor gerekir.
 
-Ara [bir örnek görmek için buraya](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) ne `Service Health` Web kancası yükü gibi görünüyor.
+Ara [bir örnek görmek için buraya](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) ne `ServiceHealth` Web kancası yükü gibi görünüyor.
 
 Bu olan bir hizmet Sistem Durumu Uyarısı bakarak algılayabilir `context.eventSource == "ServiceHealth"`. Buradan, alma en uygun olan özellikleri şunlardır:
  * `data.context.activityLog.status`
@@ -48,13 +48,13 @@ Bu olan bir hizmet Sistem Durumu Uyarısı bakarak algılayabilir `context.event
  * `data.context.activityLog.properties.impactedServices`
  * `data.context.activityLog.properties.trackingId`
 
-## <a name="creating-a-direct-link-to-azure-service-health-for-an-incident"></a>Azure hizmet durumu olay için doğrudan bağlantı oluşturma
-Özel bir URL oluşturarak, kişiselleştirilmiş Azure hizmet durumu olay masaüstünde veya mobil için doğrudan bir bağlantı oluşturabilirsiniz. Kullanım `trackingId`, ilk ve son üç rakamı yanı sıra, `subscriptionId`, oluşturmak için:
+## <a name="creating-a-direct-link-to-the-service-health-dashboard-for-an-incident"></a>Bir olay hizmet sağlığı panosunu doğrudan bağlantı oluşturma
+Özel bir URL oluşturarak, hizmet durumu panonuza masaüstünde veya mobil doğrudan bir bağlantı oluşturabilirsiniz. Kullanım `trackingId`, ilk ve son üç rakamı yanı sıra, `subscriptionId`, oluşturmak için:
 ```
 https://app.azure.com/h/<trackingId>/<first and last three digits of subscriptionId>
 ```
 
-Örneğin, varsa, `subscriptionId` olan `bba14129-e895-429b-8809-278e836ecdb3` ve `trackingId` olan `0DET-URB`, kişiselleştirilmiş Azure hizmet durumu URL'niz ise:
+Örneğin, varsa, `subscriptionId` olan `bba14129-e895-429b-8809-278e836ecdb3` ve `trackingId` olan `0DET-URB`, hizmet durumu URL'niz ise:
 
 ```
 https://app.azure.com/h/0DET-URB/bbadb3
@@ -101,7 +101,7 @@ Bu, "App Service'te" Avustralya Güneydoğu sorunları yanı sıra, Avustralya D
 
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Bir HTTP POST isteği üzerinden, Web kancası tümleştirme sınaması
-1. Göndermek istediğiniz hizmet durumu yükü oluşturun. Bir örnek hizmet durumu Web kancası yükü sırasında bulduğunuz [Azure etkinlik için Web kancası oturum uyarıları](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
+1. Göndermek istediğiniz hizmet sistem durumu yükü oluşturun. Bir örnek hizmet sistem durumu Web kancası yükü sırasında bulduğunuz [Azure etkinlik için Web kancası oturum uyarıları](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
 2. Bir HTTP POST isteği gibi oluşturun:
 
@@ -110,7 +110,7 @@ Bu, "App Service'te" Avustralya Güneydoğu sorunları yanı sıra, Avustralya D
 
     HEADERS     Content-Type: application/json
 
-    BODY        <Service Health payload>
+    BODY        <service health payload>
     ```
 3. Alması gereken bir `2XX - Successful` yanıt.
 

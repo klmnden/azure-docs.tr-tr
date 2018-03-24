@@ -1,32 +1,32 @@
 ---
-title: "Dayanıklı işlevleri - Azure zincirleme işlevi"
-description: "Bir dizi işlevleri yürütür dayanıklı işlevleri örneği çalıştırmak öğrenin."
+title: Dayanıklı işlevleri - Azure zincirleme işlevi
+description: Bir dizi işlevleri yürütür dayanıklı işlevleri örneği çalıştırmak öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9ba1cdc5c72e04802d29794fa6cb40a29cc1d353
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 0020f19e00f3365c4a0d80ebb67aeeedd7fe76df
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Dayanıklı işlevleri - Hello sırası örneği zincirleme işlevi
 
 İşlev zincirleme işlevleri bir dizi belirli bir sırada yürütmenin düzeni ifade eder. Genellikle bir işlev çıktısını başka bir işlevin giriş uygulanması gerekir. Bu makalede kullanan bir örneğin açıklanmaktadır [dayanıklı işlevleri](durable-functions-overview.md) işlevi zincirleme uygulamak için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
-* ' Ndaki yönergeleri izleyin [yükleme dayanıklı işlevleri](durable-functions-install.md) örneğini kurmak için.
+* [Dayanıklı işlevleri yüklemek](durable-functions-install.md).
 
 ## <a name="the-functions"></a>İşlevler
 
@@ -35,7 +35,7 @@ Bu makalede örnek uygulamasında aşağıdaki işlevleri açıklanmaktadır:
 * `E1_HelloSequence`: Çağırır bir orchestrator işlevi `E1_SayHello` birden çok kez sırayla. Çıkışlarından depolar `E1_SayHello` çağıran ve sonuçları kaydeder.
 * `E1_SayHello`: "Hello" dizesiyle başına bir etkinlik işlevi.
 
-Aşağıdaki bölümlerde, Azure portal geliştirme için kullanılan kod ve yapılandırma açıklanmaktadır. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
+Aşağıdaki bölümlerde kullanılan kod ve yapılandırma açıklanmaktadır C# kodlama için. Visual Studio geliştirme için kod makalenin sonunda gösterilir.
  
 ## <a name="functionjson-file"></a>Function.JSON dosyası
 
@@ -71,7 +71,7 @@ Uygulaması `E1_SayHello` işlemini biçimlendirme oldukça basit bir dize.
 
 Bu işlev türünde bir parametreye sahiptir [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html), orchestrator işlev çağrısı tarafından kendisine geçirilen giriş almak için kullandığı [ `CallActivityAsync<T>` ](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_).
 
-## <a name="run-the-sample"></a>Örnek çalıştırın
+## <a name="run-the-sample"></a>Örneği çalıştırma
 
 Yürütülecek `E1_HelloSequence` orchestration, aşağıdaki HTTP POST isteği gönder.
 

@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery ile azure'a VMware Vm'lerini ve fiziksel sunucuları çoğaltma için destek matrisi | Microsoft Docs"
-description: "Azure Site RECOVERY'yi kullanarak Azure'da VMware Vm'lerini ve fiziksel sunucu çoğaltma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir."
+title: Azure Site Recovery ile azure'a VMware Vm'lerini ve fiziksel sunucuları çoğaltma için destek matrisi | Microsoft Docs
+description: Azure Site RECOVERY'yi kullanarak Azure'da VMware Vm'lerini ve fiziksel sunucu çoğaltma için bileşenleri ve desteklenen işletim sistemleri özetlenmektedir.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/20/2018
 ms.author: raynew
-ms.openlocfilehash: c4fb466443e2f29fb79c3707ce142895f140f9a7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6f2f28b36fdb3751a469d66f242f9fa2119f9ae8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -175,7 +175,7 @@ Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olu
 İşletim sistemi disk boyutu | 2.048 GB'a kadar. | Onay desteklenmeyen başarısız olur. 
 İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.  
 Veri diski sayısı | 64 veya daha az. | Onay desteklenmeyen başarısız olur.  
-Veri diski VHD boyutu | 4.095 GB'a kadar | Onay desteklenmeyen başarısız olur. 
+Veri diski boyutu | 4.095 GB'a kadar | Onay desteklenmeyen başarısız olur. 
 Ağ bağdaştırıcıları | Birden çok bağdaştırıcı desteklenir. | 
 Paylaşılan VHD | Desteklenmiyor. | Onay desteklenmeyen başarısız olur. 
 FC disk | Desteklenmiyor. | Onay desteklenmeyen başarısız olur. 

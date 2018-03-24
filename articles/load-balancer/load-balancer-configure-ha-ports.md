@@ -1,32 +1,32 @@
 ---
-title: "Yüksek kullanılabilirlik bağlantı noktalarını Azure yük dengeleyici için yapılandırma | Microsoft Docs"
-description: "Yük Dengeleme tüm bağlantı noktalarındaki iç trafiğini için yüksek kullanılabilirlik bağlantı noktalarını kullanmayı öğrenin"
+title: Yüksek kullanılabilirlik bağlantı noktalarını Azure yük dengeleyici için yapılandırma | Microsoft Docs
+description: Yük Dengeleme tüm bağlantı noktalarındaki iç trafiğini için yüksek kullanılabilirlik bağlantı noktalarını kullanmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: rdhillon
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2017
+ms.date: 03/21/20178
 ms.author: kumud
-ms.openlocfilehash: 36bc3d7a35f41384706cbc7101457d00848639b2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f7f8e254e0ed0556446e7b08eaf46ec59977f62
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-high-availability-ports-for-an-internal-load-balancer"></a>Bir iç yük dengeleyici için yüksek kullanılabilirlik bağlantı noktalarını yapılandırma
 
 Bu makale, bir iç yük dengeleyici örnek dağıtımı için yüksek kullanılabilirlik bağlantı noktaları sağlar. Sanal gereçler (NVAs) ağ özgü yapılandırmalar hakkında daha fazla bilgi için karşılık gelen sağlayıcı Web sitelerine bakın.
 
 >[!NOTE]
-> Yüksek kullanılabilirlik bağlantı noktalarını özelliği şu anda önizlemede değil. Genel kullanılabilirlik özellikleri yayın gibi Önizleme süresince aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede, standart yük dengeleyici anlatılmaktadır. Temel yük dengeleyici hakkında daha fazla bilgi için bkz: [yük dengeleyici genel bakış](load-balancer-overview.md).
 
 Çizim, bu makalede açıklanan dağıtım örneği aşağıdaki yapılandırması gösterilmektedir:
 

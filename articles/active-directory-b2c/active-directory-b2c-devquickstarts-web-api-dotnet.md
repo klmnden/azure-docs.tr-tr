@@ -1,25 +1,21 @@
 ---
-title: "Güvenli bir çağrı web API'si ASP.NET Azure Active Directory B2C | Microsoft Docs"
-description: ".NET Web uygulaması oluşturma ve bir web çağırmak nasıl Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API."
+title: Güvenli bir çağrı web API'si ASP.NET Azure Active Directory B2C | Microsoft Docs
+description: .NET Web uygulaması oluşturma ve bir web çağırmak nasıl Azure Active Directory B2C ve OAuth 2.0 erişim belirteçleri kullanarak API.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: d3888556-2647-4a42-b068-027f9374aa61
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: d81976988a26ce264dd7b9ed24f43aed21d4ee99
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.author: davidmu
+ms.openlocfilehash: 75ae88898d3d6b275ec462e865347056305fd666
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C: bir .NET web uygulamasından .NET web API'si çağırma
 
@@ -52,7 +48,7 @@ Bu öğretici için kod [GitHub](https://github.com/Azure-Samples/active-directo
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi.git
 ```
 
-Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp`kullanıcı ile etkileşime giren bir MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yapı kapsamaz `TaskWebApp` web uygulaması veya `TaskService` web API'si. Azure AD B2C kullanarak .NET web uygulaması oluşturmayı öğrenmek için bkz: bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). .NET web API'si Azure AD B2C kullanarak güvenliği oluşturma konusunda bilgi almak için bkz: bizim [.NET web API'si Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
+Örnek kodu indirdikten sonra başlamak için Visual Studio .sln dosyasını açın. Çözüm dosyası iki proje içerir: `TaskWebApp` ve `TaskService`. `TaskWebApp` kullanıcı ile etkileşime giren bir MVC bir web uygulamasıdır. `TaskService`, uygulamanın, her kullanıcının yapılacaklar listesini depolayan arka uç web API'sidir. Bu makalede yapı kapsamaz `TaskWebApp` web uygulaması veya `TaskService` web API'si. Azure AD B2C kullanarak .NET web uygulaması oluşturmayı öğrenmek için bkz: bizim [.NET web uygulaması Öğreticisi](active-directory-b2c-devquickstarts-web-dotnet-susi.md). .NET web API'si Azure AD B2C kullanarak güvenliği oluşturma konusunda bilgi almak için bkz: bizim [.NET web API'si Öğreticisi](active-directory-b2c-devquickstarts-api-dotnet.md).
 
 ### <a name="update-the-azure-ad-b2c-configuration"></a>Azure AD B2C yapılandırmasını güncelleştirme
 
@@ -61,7 +57,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 1. `TaskService` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:
 
     * kiracı adınızla `ida:Tenant`
-    * `ida:ClientId`web API uygulama Kimliğinizle
+    * `ida:ClientId` web API uygulama Kimliğinizle
     * "Kaydolma veya Oturum açma" ilkenizin adıyla `ida:SignUpSignInPolicyId`
 
 2. `TaskWebApp` projesinde `web.config` öğesini açın ve şu değerleri değiştirin:

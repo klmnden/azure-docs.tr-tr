@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile GoToMeeting | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile GoToMeeting arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile GoToMeeting | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile GoToMeeting arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 4826dee82e62ffac70d7ca3d6dcfe005129de764
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: d26b78fb5be96e979fb7b375acf6e907d858b706
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Öğretici: Azure Active Directory Tümleştirme GoToMeeting ile
 
@@ -108,77 +108,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![GoToMeeting etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_url.png)
 
-    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:`https://login.citrixonline.com/saml/sp`
+    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://authentication.logmeininc.com/saml/sp`
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Tıklatın **Gelişmiş URL Göster yapılandırma** ve yapılandırma URL'leri aşağıda
 
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_certificate.png) 
-
+    **URL üzerinde oturum** (bunu boş bırakın)
+    
+    **Yanıt URL'si**: `https://authentication.logmeininc.com/saml/acs`
+    
+    **RelayState**:
+    
+    - GoToMeeting uygulaması için kullanın `https://global.gotomeeting.com`
+    
+    - GoToTraining için kullanın `https://global.gototraining.com`
+    
+    - GoToWebinar için kullanın `https://global.gotowebinar.com` 
+    
+    - GoToAssist için kullanın `https://app.gotoassist.com`
+    
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-gotomeeting-tutorial/tutorial_general_400.png)
 
-6. Oluşturulacak **meta veri** url, aşağıdaki adımları gerçekleştirin:
+6. Farklı bir tarayıcı penceresinde oturum açın, [GoToMeeting kuruluş Merkezi](https://organization.logmeininc.com/). IDP güncellenmiş olduğunu onaylamanız istenir
 
-    a. Tıklatın **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpointicon.png)
+7. "Benim kimlik sağlayıcısı yeni etki alanı ile güncelleştirildi" onay kutusunu etkinleştirin. Tıklatın **Bitti** bitirdikten sonra.
 
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_endpoint.png)
-     
-    d. Şimdi özellik sayfasına gidin **GoToMeeting** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak:`<FEDERATION METADATA DOCUMENT url>?appid=<application id>`   
-
-7. Üzerinde **GoToMeeting yapılandırma** 'yi tıklatın **yapılandırma GoToMeeting** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
-
-    ![GoToMeeting yapılandırma](./media/active-directory-saas-gotomeeting-tutorial/tutorial_gotomeeting_configure.png) 
-
-8. Farklı bir tarayıcı penceresinde oturum açın, [GoToMeeting kuruluş Merkezi](https://organization.logmeininc.com/)
-
-9. Altında **kimlik sağlayıcısı** sekmesinde ya da tarafından oluşturulan sağlayan Azure ayarları yapılandırabilir **meta veri URL'sini** veya indirilen **meta veri dosyası** veya **El ile**.
-
-10. İçin **meta veri URL'sini** aşağıdaki adımları gerçekleştirin:
-
-    ![GoToMeeting yapılandırma](./media/active-directory-saas-gotomeeting-tutorial/config1.png)
-
-    a. İçinde **nasıl SAML IDP yapılandırmak ister?**seçin **otomatik** gelen açılır.
-
-    b. Yapıştır **meta veri URL'sini**, bir önceki adımda oluşturulan **meta veri URL'sini** metin kutusu.
-
-    c. **Kaydet**’e tıklayın.
-
-11. İçin **meta veri dosyası** aşağıdaki adımları gerçekleştirin:
-
-    ![GoToMeeting yapılandırma](./media/active-directory-saas-gotomeeting-tutorial/config2.png)
-
-    a. İçinde **nasıl SAML IDP yapılandırmak ister?**seçin **karşıya SAML meta veri dosyası** gelen açılır.
-
-    b. İndirilen meta veri dosyanızı karşıya yüklemek için tıklayın **karşıya yükleme meta veri dosyası**.
-
-    c. **Kaydet**’e tıklayın.
-
-12. İçin **el ile** aşağıdaki adımları gerçekleştirin:
-
-    ![GoToMeeting yapılandırma](./media/active-directory-saas-gotomeeting-tutorial/config3.png)
-
-    a.  İçinde **oturum açma sayfası URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
-
-    b.  İçinde **oturum kapatma sayfası URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
-
-    c.  İçinde **kimlik sağlayıcısı varlık kimliği** metin değerini yapıştırın **SAML varlık kimliği** Azure portalından kopyalanan.
-
-    d. X509Certificate indirilen meta veri dosyasından ayıklayıp tıklayarak bu sertifikayı karşıya **karşıya yükleme sertifika**.
-
-    e. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

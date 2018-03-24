@@ -1,20 +1,20 @@
 ---
 title: Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama | Microsoft Docs
-description: "Verileri Amazon Basit Depolama hizmetinden (S3) desteklenen havuz veri depoları için Azure Data Factory kullanarak kopyalama hakkında bilgi edinin."
+description: Verileri Amazon Basit Depolama hizmetinden (S3) desteklenen havuz veri depoları için Azure Data Factory kullanarak kopyalama hakkında bilgi edinin.
 services: data-factory
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b5dbf4b7ae0fc1f8871fbf6df1a29f0f7324d83a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 82d46d29b1e75995c5436b985717f45104dad955
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +36,8 @@ Azure Data Lake Store için tüm desteklenen kaynak veri deposundan veri kopyala
 
 Amazon S3'ten verileri kopyalamak için aşağıdaki izinleri verilmiş olan emin olun:
 
-- `s3:GetObject`ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
-- `s3:ListBucket`veya `s3:GetBucketLocation` Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
+- `s3:GetObject` ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
+- `s3:ListBucket` veya `s3:GetBucketLocation` Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
 
 Amazon S3 izinlerin tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

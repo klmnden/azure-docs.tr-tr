@@ -1,19 +1,19 @@
 ---
-title: "Kapsayıcı grupları Azure kapsayıcı örnekleri"
-description: "Kapsayıcı grupları Azure kapsayıcı durumlarda nasıl çalıştığını anlamak"
+title: Azure kapsayıcı örnekleri kapsayıcı grupları
+description: Kapsayıcı grupları Azure kapsayıcı durumlarda nasıl çalıştığını anlamak
 services: container-instances
 author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 6f7f0d9aea86594140c302e6d12e6528e802b9e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3b1eeebacb55ffc7af4e2014f26dd9d5643f5478
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcı grupları
 
@@ -21,7 +21,7 @@ Azure kapsayıcı durumlarda en üst düzey kaynak *kapsayıcı grubu*. Bu makal
 
 ## <a name="how-a-container-group-works"></a>Kapsayıcı grubu nasıl çalışır?
 
-Kapsayıcı grubu, aynı ana bilgisayar makinesinde zamanlanmış kapsayıcıları koleksiyonudur. Kapsayıcı grubu kapsayıcılarında bir yaşam döngüsü, yerel ağ ve depolama birimleri paylaşır. Kavramı, benzer bir *pod* içinde [Kubernetes] [ kubernetes-pod] ve [DC/OS][dcos-pod].
+Kapsayıcı grubu, aynı ana bilgisayar makinesinde zamanlanmış kapsayıcıları koleksiyonudur. Kapsayıcı grubu kapsayıcılarında bir yaşam döngüsü, yerel ağ ve depolama birimleri paylaşır. Kavramsal için benzer bir *pod* içinde [Kubernetes] [ kubernetes-pod] ve [DC/OS][dcos-pod].
 
 Aşağıdaki diyagramda, birden çok kapsayıcı içeren bir kapsayıcı grubu örneği gösterilmektedir:
 
@@ -38,15 +38,15 @@ Bu örnek kapsayıcı grubu:
 > [!NOTE]
 > Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
-### <a name="deployment"></a>Dağıtım
+## <a name="deployment"></a>Dağıtım
 
-**Kapsayıcı grupları** 1 vCPU ve 1 GB bellek en düşük kaynak ayırma vardır. Tek tek **kapsayıcıları** değerinden 1 vCPU ve 1 GB bellek kullanılarak sağlanabilir. İçindeki bir kapsayıcı grubun kaynakları dağıtımını kapsayıcı grup düzeyinde ayarlanan sınırlar içinde birden çok kapsayıcı için özelleştirilebilir. Örneğin, iki kapsayıcı her bir kapsayıcı grubu içinde bulunan 0,5 vCPU ile 1 vCPU tahsis edilir.
+Kapsayıcı *grupları* 1 vCPU ve 1 GB bellek en düşük kaynak ayırma vardır. Tek tek *kapsayıcıları* Grup değerinden 1 vCPU ve 1 GB belleği olan bir kapsayıcıda sağlanabilir. Bir kapsayıcı grubu içindeki kaynakların dağıtılması kapsayıcı grubu düzeyinde belirlenen sınırlar içinde birden çok kapsayıcı için özelleştirilebilir. Örneğin, iki kapsayıcı her 1 vCPU ayırdığı bir kapsayıcı grubunda bulunan 0,5 vCPU ile.
 
-### <a name="networking"></a>Ağ
+## <a name="networking"></a>Ağ
 
 Kapsayıcı grupları, bir IP adresi ve bağlantı noktası ad alanı, IP adresi üzerinde paylaşır. Grup içindeki bir kapsayıcı erişmek dış istemcileri etkinleştirmek için bağlantı noktası üzerinde IP adresi ve kapsayıcısından kullanıma gerekir. Grup kapsayıcılara bir bağlantı noktası ad alanı paylaştığından, bağlantı noktası eşlemesi desteklenmiyor. Bu bağlantı noktalarını grubun IP adresinde dışarıdan gösterilmeyen olsa bile bir grup kapsayıcılara bunlar sunulan bağlantı noktalarında localhost aracılığıyla birbirine ulaşabilirsiniz.
 
-### <a name="storage"></a>Depolama
+## <a name="storage"></a>Depolama
 
 İçindeki bir kapsayıcı grubun bağlamak için dış birimleri belirtebilirsiniz. Tek bir grup kapsayıcılarında içindeki belirli yollara içine bu birimlerin eşleyebilirsiniz.
 
@@ -57,12 +57,15 @@ Birden çok kapsayıcı grupları tek bir işlev görev küçük bir kapsayıcı
 Örnek Kullanım dahil olabilir:
 
 * Bir uygulama kapsayıcısı ve günlüğe kaydetme kapsayıcı. Günlüğe kaydetme kapsayıcısı ana uygulama tarafından çıktısı günlükler ve ölçümleri toplar ve uzun vadeli depolama için yazar.
-* Bir uygulama ve izleme kapsayıcı. İzleme kapsayıcı düzenli aralıklarla bu çalıştığını ve düzgün yanıt ve değilse bir uyarı başlatır emin olmak için uygulamaya istekte bulunur.
+* Bir uygulama kapsayıcısı ve izleme kapsayıcı. İzleme kapsayıcı düzenli aralıklarla bu çalıştığını ve düzgün yanıt ve değilse bir uyarı başlatır emin olmak için uygulamaya istekte bulunur.
 * Bir web uygulaması hizmet veren bir kapsayıcı ve en yeni içerik kaynak denetiminden çekme kapsayıcı.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi nasıl [çok kapsayıcı grubu dağıtma](container-instances-multi-container-group.md) bir Azure Resource Manager şablonu ile.
+Bir Azure Resource Manager şablonu ile birden çok kapsayıcı kapsayıcı grubu dağıtmayı öğrenin:
+
+> [!div class="nextstepaction"]
+> [Kapsayıcı grubu dağıtma](container-instances-multi-container-group.md)
 
 <!-- IMAGES -->
 [container-groups-example]: ./media/container-instances-container-groups/container-groups-example.png

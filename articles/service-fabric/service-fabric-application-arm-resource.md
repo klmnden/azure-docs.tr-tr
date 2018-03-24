@@ -1,12 +1,12 @@
 ---
-title: "Dağıtma ve yükseltme uygulamaları ve Hizmetleri Azure Resource Manager ile | Microsoft Docs"
-description: "Uygulamaları ve Hizmetleri Azure Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıtmayı öğrenin."
+title: Dağıtma ve yükseltme uygulamaları ve Hizmetleri Azure Resource Manager ile | Microsoft Docs
+description: Uygulamaları ve Hizmetleri Azure Resource Manager şablonu kullanarak bir Service Fabric kümesi dağıtmayı öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: ca11199e51774e766113309150d8a260427cb4b4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: a49c40efd1bab83dd274fd126c383a2d68354f75
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Uygulamalar ve hizmetler Azure Resource Manager kaynaklarını yönetme
 
@@ -109,7 +109,7 @@ Aşağıdaki kod parçacığını bir şablon yönetilen kaynaklar farklı türd
       },
       "serviceName": {
         "type": "string",
-        "defaultValue": "Service1",
+        "defaultValue": "Application1~Service1",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }
@@ -123,7 +123,7 @@ Aşağıdaki kod parçacığını bir şablon yönetilen kaynaklar farklı türd
       },
       "serviceName2": {
         "type": "string",
-        "defaultValue": "Service2",
+        "defaultValue": "Application1~Service2",
         "metadata": {
           "description": "The name of the service resource in the format of {applicationName}~{serviceName}."
         }

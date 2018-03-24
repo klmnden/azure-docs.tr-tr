@@ -1,11 +1,11 @@
 ---
-title: "Azure - Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış | Microsoft Docs"
-description: "Bu konuda, bir şirket içi kodlayıcıdan Çoklu bit hızlı canlı akış alan bir kanalı açıklar. Akış sonra istemci kayıttan yürütme uygulamaları aşağıdaki Uyarlamalı akış protokollerden birini kullanarak bir veya daha fazla akış uç noktalarını, aracılığıyla alınabilir: HLS, kesintisiz akış, tire."
+title: Azure - Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış | Microsoft Docs
+description: 'Bu konuda, bir şirket içi kodlayıcıdan Çoklu bit hızlı canlı akış alan bir kanalı açıklar. Akış sonra istemci kayıttan yürütme uygulamaları aşağıdaki Uyarlamalı akış protokollerden birini kullanarak bir veya daha fazla akış uç noktalarını, aracılığıyla alınabilir: HLS, kesintisiz akış, tire.'
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
 ms.workload: media
@@ -14,13 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 1266c7b6c1539f84eafea1007999fb4360184857
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fae123d2cc594bb741fb1cdb0da62bef05a2a8c2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
+
+> [!NOTE]
+> 12 May 2018 Canlı kanallar başlayarak artık destek RTP/MPEG-2 aktarım akışı alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) protokolleri alma.
+
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services, bir *kanal* canlı akış içeriği işlemek için bir işlem hattını temsil eder. Bir kanal Canlı giriş akışları iki yoldan biriyle alır:
 

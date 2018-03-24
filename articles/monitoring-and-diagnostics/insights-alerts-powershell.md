@@ -1,9 +1,9 @@
 ---
-title: "Azure Hizmetleri - PowerShell için uyarı oluşturma | Microsoft Docs"
-description: "Belirttiğiniz koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın."
+title: Azure Hizmetleri - PowerShell için uyarı oluşturma | Microsoft Docs
+description: Belirttiğiniz koşullar karşılandığında tetikleyici e-postalar, bildirimler, Web siteleri URL'leri (Web kancaları) ya da Otomasyon çağırın.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d26ab15b-7b7e-42a9-81c8-3ce9ead5d252
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2016
 ms.author: robb
-ms.openlocfilehash: d3fca8675c1f15b8fd0f952cfbf520f5c68478b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Ölçüm uyarılar Azure İzleyicisi'nde Azure Hizmetleri - PowerShell oluşturabilir.
+# <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure Hizmetleri - PowerShell Azure İzleyicisi'nde Klasik ölçüm uyarılar oluştur
 > [!div class="op_single_selector"]
 > * [Portal](insights-alerts-portal.md)
 > * [PowerShell](insights-alerts-powershell.md)
@@ -29,12 +29,18 @@ ms.lasthandoff: 12/21/2017
 >
 
 ## <a name="overview"></a>Genel Bakış
+
+> [!NOTE]
+> Bu makalede, eski ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni, daha iyi ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Yeni ölçüm uyarılar için PowerShell desteği yakında geliyor.
+>
+>
+
 Bu makalede PowerShell kullanarak Azure ölçüm uyarılarını ayarlama gösterilmiştir.  
 
 İzleme ölçümlerini ya da olayları, Azure hizmetlerinizi göre bir uyarı alabilirsiniz.
 
 * **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
-* **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olaylar oluşur. Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi edinmek için [burayı tıklatın](monitoring-activity-log-alerts.md)
+* **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olay meydana gelir. Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi edinmek için [burayı tıklatın](monitoring-activity-log-alerts.md)
 
 Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabilirsiniz:
 
@@ -45,9 +51,9 @@ Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabili
 
 Yapılandırma ve uyarı kuralları kullanma hakkında bilgi edinin
 
-* [Azure portalı](insights-alerts-portal.md)
+* [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
-* [komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
+* [Komut satırı arabirimi (CLI)](insights-alerts-command-line-interface.md)
 * [Azure monitör REST API'si](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 Ek bilgi için her zaman yazabilirsiniz ```Get-Help``` ve ardından hakkında Yardım istediğiniz PowerShell komutu.

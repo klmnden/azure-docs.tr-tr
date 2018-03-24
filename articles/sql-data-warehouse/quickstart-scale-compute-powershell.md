@@ -1,24 +1,24 @@
 ---
-title: "Hızlı Başlangıç: Ölçek genişletme Azure SQL Data Warehouse - PowerShell işlem | Microsoft Docs"
-description: "Data warehouse birimleri ayarlayarak işlem kaynaklarını genişletmek için Powershell görevleri."
+title: 'Hızlı Başlangıç: Ölçek genişletme Azure SQL Data Warehouse - PowerShell işlem | Microsoft Docs'
+description: Data warehouse birimleri ayarlayarak işlem kaynaklarını genişletmek için Powershell görevleri.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 01/31/2018
+ms.date: 03/16/2018
 ms.author: elbutter;barbkess
-ms.openlocfilehash: a3a435d6bdb0d35c96349540d5e9f9b5be61bd9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3236c0ad9676712afd220a3c8a9326f3ea1f59d5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: Azure SQL Data warehouse'da PowerShell'de işlem ölçeklendirme
 
@@ -64,7 +64,7 @@ Veri ambarınız için konum bilgilerini bulmak için aşağıdaki adımları iz
 
     ![Sunucu adı ve kaynak grubu](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Veritabanı adı olarak kullanılacak veri ambarı adını yazın. Ayrıca sunucu adını ve kaynak grubunu not alın. Bu Duraklat kullanabilir ve komutları sürdürün.
+4. Veritabanı adı olarak kullanılacak veri ambarı adını yazın. Veri ambarı veritabanı bir türü olduğunu unutmayın. Ayrıca sunucu adını ve kaynak grubunu not alın. Bu Duraklat kullanabilir ve komutları sürdürün.
 5. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'leri sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde newserver 20171113.database.windows.net tam sunucu adıdır. Kullanırız **newserver 20171113** PowerShell cmdlet sunucu adı olarak.
 
 ## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
@@ -77,12 +77,13 @@ Data warehouse birimleri değiştirmek için kullanın [Set-AzureRmSqlDatabase](
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
 ```
 
-## <a name="check-database-state"></a>Veritabanı durumunu kontrol edin
+## <a name="check-data-warehouse-state"></a>Veri ambarı durumunu denetle
 
 Veri ambarı geçerli durumunu görmek için [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet'i. Bu durumunu alır **mySampleDataWarehouse** ResourceGroup veritabanında **myResourceGroup** ve sunucu **mynewserver 20171113.database.windows.net**.
 
 ```powershell
-Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse
+$database
 ```
 
 Hangi şöyle bir şey neden olur:
@@ -113,7 +114,13 @@ ReadScale                     : Disabled
 ZoneRedundant                 : False
 ```
 
-Ardından görmek için denetleyebilirsiniz **durum** veritabanı. Bu durumda, bu veritabanının çevrimiçi olduğunu görebilirsiniz.  Bu komutu çalıştırdığınızda, çevrimiçi, duraklatma, devam ettirmek, ölçeklendirme veya duraklatıldı durum değeri almanız gerekir.
+Gördüğünüz **durum** veritabanının çıkışı. Bu durumda, bu veritabanının çevrimiçi olduğunu görebilirsiniz.  Bu komutu çalıştırdığınızda, çevrimiçi, duraklatma, devam ettirmek, ölçeklendirme veya duraklatıldı durum değeri almanız gerekir. 
+
+Tek başına durumunu görmek için aşağıdaki komutu kullanın:
+
+```powershell
+$database | Select-Object DatabaseName,Status
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şimdi, veri ambarı için işlem ölçeklendirmek öğrendiniz. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.

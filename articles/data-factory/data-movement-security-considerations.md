@@ -1,11 +1,11 @@
 ---
-title: "Azure veri fabrikası'nda güvenlik değerlendirmeleri | Microsoft Docs"
-description: "Verilerinizi güvenli hale getirmek için Azure Data Factory veri taşıma hizmetleri kullanan temel güvenlik altyapısı açıklar."
+title: Azure veri fabrikası'nda güvenlik değerlendirmeleri | Microsoft Docs
+description: Verilerinizi güvenli hale getirmek için Azure Data Factory veri taşıma hizmetleri kullanan temel güvenlik altyapısı açıklar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 3c8215ab4a1759efef3c2c13a5ac44f6944b53d7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı ilgili güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,9 +49,10 @@ Bu makalede, aşağıdaki iki veri taşıma senaryolarda güvenlik konuları inc
 - **Karma senaryo**: Bu senaryoda, kaynak ya da hedefiniz bir güvenlik duvarının arkasında veya şirket içi kurumsal ağ içinde değil. Veya veri deposu özel bir ağ veya sanal ağ (çoğunlukla kaynağı) ve genel olarak erişilebilir değil. Sanal makineler üzerinde barındırılan veritabanı sunucularını da bu senaryoya ayrılır.
 
 ## <a name="cloud-scenarios"></a>Bulut senaryoları
-### <a name="secure-data-store-credentials"></a>Güvenli veri deposu kimlik
-- **Şifrelenmiş kimlik bilgileri bir Azure Data Factory yönetilen deposunda depola**. Veri Fabrikası Microsoft tarafından yönetilen sertifikaları ile şifreleyerek veri deposu kimlik bilgilerinizi korumaya yardımcı olur. Bu sertifikaları (içeren sertifika yenileme ve kimlik bilgilerini geçişini) her iki yıllık döndürülür. Şifrelenmiş kimlik bilgileri güvenli bir şekilde Azure Data Factory Yönetim Hizmetleri tarafından yönetilen bir Azure depolama hesabında depolanır. Azure Storage güvenliği hakkında daha fazla bilgi için bkz: [Azure Storage güvenliğine genel bakış](../security/security-storage-overview.md).
 
+### <a name="securing-data-store-credentials"></a>Veri deposu kimlik güvenliğini sağlama
+
+- **Şifrelenmiş kimlik bilgileri bir Azure Data Factory yönetilen deposunda depola**. Veri Fabrikası Microsoft tarafından yönetilen sertifikaları ile şifreleyerek veri deposu kimlik bilgilerinizi korumaya yardımcı olur. Bu sertifikaları (içeren sertifika yenileme ve kimlik bilgilerini geçişini) her iki yıllık döndürülür. Şifrelenmiş kimlik bilgileri güvenli bir şekilde Azure Data Factory Yönetim Hizmetleri tarafından yönetilen bir Azure depolama hesabında depolanır. Azure Storage güvenliği hakkında daha fazla bilgi için bkz: [Azure Storage güvenliğine genel bakış](../security/security-storage-overview.md).
 - **Azure anahtar kasası kimlik bilgilerini saklamak**. Veri deposunun kimlik bilgisi de depolayabilir [Azure anahtar kasası](https://azure.microsoft.com/services/key-vault/). Veri Fabrikası bir etkinlik yürütme sırasında kimlik bilgisi alır. Daha fazla bilgi için bkz: [Azure anahtar kasası kimlik bilgisi deposu](store-credentials-in-key-vault.md).
 
 ### <a name="data-encryption-in-transit"></a>Aktarımdaki verileri şifreleme
@@ -144,7 +145,7 @@ Aşağıdaki tabloda, güvenlik duvarları için giden bağlantı noktası ve et
 
 | Etki alanı adları                  | Giden bağlantı noktaları | Açıklama                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443, 80        | Kendini barındıran tümleştirmesi çalışma zamanı tarafından veri fabrikasında veri taşıma hizmetleri bağlanmak için gerekli. |
+| `*.servicebus.windows.net`    | 443            | Kendini barındıran tümleştirmesi çalışma zamanı tarafından veri fabrikasında veri taşıma hizmetleri bağlanmak için gerekli. |
 | `*.core.windows.net`          | 443            | Kendini barındıran tümleştirmesi çalışma zamanı tarafından kullandığınızda Azure depolama hesabına bağlanmak için kullanılan [kopyalama hazırlanan](copy-activity-performance.md#staged-copy) özelliği. |
 | `*.frontend.clouddatahub.net` | 443            | Kendini barındıran tümleştirmesi çalışma zamanı tarafından veri fabrikası hizmetine bağlanmak için gerekli. |
 | `*.database.windows.net`      | 1433           | (İsteğe bağlı) Veya Azure SQL veritabanına veya Azure SQL Data Warehouse kopyalayın gereklidir. Bağlantı noktası 1433 açmadan Azure SQL Database veya Azure SQL Data Warehouse veri kopyalamak için hazırlanmış kopyalama özelliğini kullanın. |

@@ -1,11 +1,12 @@
 ---
-title: "Machine Learning için PowerShell Modülü | Microsoft Docs"
-description: "Azure Machine Learning için PowerShell modülü genel önizleme modunda kullanılabilir. Çalışma alanları, denemeler, web hizmetleri ve daha fazlasını oluşturmak ve yönetmek için PowerShell kullanın."
-keywords: "deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi"
+title: Machine Learning için PowerShell Modülü | Microsoft Docs
+description: Azure Machine Learning için PowerShell modülü genel önizleme modunda kullanılabilir. Çalışma alanları, denemeler, web hizmetleri ve daha fazlasını oluşturmak ve yönetmek için PowerShell kullanın.
+keywords: deneme,doğrusal regresyon,makine öğrenimi algoritmaları,makine öğrenimi öğreticisi,tahmine dayalı modelleme teknikleri,veri bilimi deneyi
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: hning86
-manager: jhubbard
+ms.author: haining
+manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -14,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: garye;haining
-ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9553e372f4d1cb5c60935fae5a7af61806ea6d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning için PowerShell modülü
 Azure Machine Learning için PowerShell modülü çalışma alanları, denemeler, veri kümeleri, Klasik web hizmetleri ve daha fazlasını yönetmek için Windows PowerShell'i kullanmanıza olanak sağlayan güçlü bir araçtır.
 
-[https://aka.ms/amlps](https://aka.ms/amlps) adresinden belgelerin tamamını görüntüleyebilir ve modülü tam kaynak koduyla birlikte indirebilirsiniz. 
+Belgeleri görüntülemek ve konumundaki tam kaynak kodu ile birlikte modülünü indirin [ https://aka.ms/amlps ](https://aka.ms/amlps). 
 
 > [!NOTE]
 > Azure Machine Learning PowerShell modülü şu anda Önizleme modundadır. Modül geliştirilmiş ve bu Önizleme dönemi boyunca genişletilmiş devam eder. Takip [Cortana Intelligence ve makine öğrenme Blog](https://blogs.technet.microsoft.com/machinelearning/) Haberler ve bilgiler için.
@@ -59,6 +59,6 @@ Machine Learning PowerShell’i kullanmaya başlamak için GitHub’dan [yayın 
 Ve, git ağaç kopyalamak istiyorsanız kodu değiştirin ve yerel olarak Visual Studio'yu kullanarak derleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-PowerShell modülü tam belgelerine bulabilirsiniz [https://aka.ms/amlps](https://aka.ms/amlps). 
+PowerShell modülü tam belgelerine bulabilirsiniz [ https://aka.ms/amlps ](https://aka.ms/amlps). 
 
 Gerçek dünya senaryoda modülü kullanmak nasıl genişletilmiş bir örneği için ayrıntılı kullanım örneği denetleyin [birçok Machine Learning modellerini ve web hizmeti uç noktalarını PowerShell kullanarak bir deneme oluşturma](create-models-and-endpoints-with-powershell.md).

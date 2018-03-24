@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning Web Hizmeti uç noktalarını oluşturma | Microsoft Docs"
-description: "Azure Machine Learning Web Hizmeti uç noktaları oluşturma"
+title: Machine Learning Web Hizmeti uç noktalarını oluşturma | Microsoft Docs
+description: Azure Machine Learning Web Hizmeti uç noktaları oluşturma
 services: machine-learning
-documentationcenter: 
-author: hiteshmadan
-manager: padou
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.author: himad
-ms.openlocfilehash: 6de83042779a1a4edae57499f108dcddc9d68309
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: fac284e9f0c852306d99733a879fc13c85f07768
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="creating-endpoints"></a>Uç noktaları oluşturma
 > [!NOTE]
@@ -35,7 +35,7 @@ Bunu başarmak için Azure Machine Learning, dağıtılan Web hizmeti için bird
 ## <a name="adding-endpoints-to-a-web-service"></a>Web hizmeti için uç noktaları ekleme
 Bir Web hizmeti için bir uç noktası eklemek için iki yolu vardır.
 
-* Programlama yoluyla
+* Programlı olarak
 * Azure Machine Learning Web Hizmetleri Portalı aracılığıyla
 
 Uç nokta oluşturulduktan sonra zaman uyumlu API'leri, batch API'leri aracılığıyla kullanabilir ve excel çalışma sayfaları. Bu kullanıcı Arabirimi aracılığıyla uç noktaları ekleme ek olarak, uç nokta yönetim API'ları program aracılığıyla uç noktalarını eklemek için de kullanabilirsiniz.

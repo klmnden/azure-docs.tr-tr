@@ -1,11 +1,11 @@
 ---
-title: "Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma sorunu | Microsoft Docs"
-description: "Azure AD uygulama galerisinde listelenen yapılandırma kullanıcı bir uygulama zaten sağlama genişlettiklerinde karşılaştığı yaygın sorunlar nasıl giderilir"
+title: Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma sorunu | Microsoft Docs
+description: Azure AD uygulama galerisinde listelenen yapılandırma kullanıcı bir uygulama zaten sağlama genişlettiklerinde karşılaştığı yaygın sorunlar nasıl giderilir
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: 3a19169effad54e26cd2061bffae369cd31e9a9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma sorunu
 
@@ -31,7 +31,7 @@ Hizmet yapılandırıldıktan sonra hizmet işlemi çoğu Öngörüler iki yerde
 
 -   **Denetim günlükleri** – sağlama denetim günlüklerini kaydı için Azure AD Sorgulama dahil olmak üzere sağlama hizmeti tarafından gerçekleştirilen tüm işlemler atanan sağlama kapsamında olan kullanıcılar. Hedef uygulama sistem arasında kullanıcı nesneleri karşılaştırma kullanıcılarla varlığı için sorgu. Ardından ekleme, güncelleştirme veya karşılaştırma üzerine dayalı hedef sistem kullanıcı hesabı devre dışı bırakın. Sağlama denetim günlüklerini Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlüklerini** sekmesi. Günlükleri filtre **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori.
 
--   **Sağlama durumu –** son sağlama Özet çalıştırmak için belirli bir uygulamanın görülebilir **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; Sağlama** kısmına ekranın alt kısmındaki hizmet ayarları altında. Bu bölümde kaç kullanıcıların (ve/veya grupları) şu anda iki sistem arasında eşitlendiğini özetler ve herhangi bir hata varsa. Hata ayrıntıları denetim günlüklerini olabilir. Azure AD arasında bir tam ilk eşitleme işlemi tamamlanana kadar sağlama durumu doldurulması değil olduğunu unutmayın ve uygulama.
+-   **Sağlama durumu –** son sağlama Özet çalıştırmak için belirli bir uygulamanın görülebilir **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt;Sağlama** kısmına ekranın alt kısmındaki hizmet ayarları altında. Bu bölümde kaç kullanıcıların (ve/veya grupları) şu anda iki sistem arasında eşitlendiğini özetler ve herhangi bir hata varsa. Hata ayrıntıları denetim günlüklerini olabilir. Azure AD arasında bir tam ilk eşitleme işlemi tamamlanana kadar sağlama durumu doldurulması değil olduğunu unutmayın ve uygulama.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Dikkate alınması gereken sağlama ile genel sorunlu alanları
 
@@ -66,5 +66,5 @@ Bir kullanıcı "denetim günlüklerini atlandı"olarak görünür, genişletilm
 
    * **Öznitelik grupları için eşlemeleri:** grup adı ve bazı uygulamalar için destekleniyorsa üyelerin yanı sıra Grup ayrıntılarını sağlama. Etkinleştirmek veya bu işlevi etkinleştirmek veya devre dışı bırakarak devre dışı **eşleme** gösterilen grubu nesnelerinin **sağlama** sekmesi. Grupları sağlama etkinse, uygun bir alan "Eşleşen kimliği" kullanıldığından emin olmak için öznitelik eşlemelerini gözden geçirmeyi unutmayın. Bu olabilir görünen ad veya e-posta diğer adı), boş veya bir grup için doldurulan eşleşen özellik Azure AD içinde ise, Grup ve üyelerini sağlanması değil olarak.
 
-#<a name="next-steps"></a>Sonraki adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 [Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme](active-directory-saas-app-provisioning.md)

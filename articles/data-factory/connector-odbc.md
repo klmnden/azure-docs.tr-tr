@@ -1,11 +1,11 @@
 ---
 title: Azure Data Factory kullanarak ODBC kaynaklardan veri kopyalama | Microsoft Docs
-description: "Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak OData kaynaklardan desteklenen havuz veri depolarına kopyalama öğrenin."
+description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak OData kaynaklardan desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ab29338b5ce2090166e75f3860744562aa9f6b01
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8b8a200fb7234feeac8679b657c8d4be6ee8b748
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak ODBC veri depolarını veri Kopyala
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

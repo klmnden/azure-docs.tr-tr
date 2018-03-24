@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: özel ilke sorunlarını giderme | Microsoft Docs"
-description: "Azure Active Directory'de özel ilkelerle çalışırken hataları çözmek yaklaşımlar hakkında bilgi edinin."
+title: 'Azure Active Directory B2C: özel ilke sorunlarını giderme | Microsoft Docs'
+description: Azure Active Directory'de özel ilkelerle çalışırken hataları çözmek yaklaşımlar hakkında bilgi edinin.
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2017
-ms.author: joroja
-ms.openlocfilehash: 8718f9c1dfce81682174eec11e8cbb731cbdf796
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi Framework sorun giderme
 
@@ -44,23 +41,23 @@ XML kuralları gözden yararlı bulabilirsiniz. Azure AD B2C algıladığı hata
  
  Sık karşılaşılan doğrulama hataları aşağıda verilmiştir.
 
-Hata parçacığını:`... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Hata parçacığını: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * ClaimType değeri yanlış yazılmış veya şemada yok.
 * ClaimType değerleri en az bir ilke dosyalarında tanımlanmalıdır. 
     Örneğin, ` <ClaimType Id="socialIdpUserId">`
 * ClaimType uzantıları dosyasında tanımlı, ancak ayrıca temel dosyanın TechnicalProfile değerindeki kullanılır, temel dosyanın karşıya bir hatayla sonuçlanır.
 
-Hata parçacığını:`...makes a reference to a ClaimsTransformation with id...`
+Hata parçacığını: `...makes a reference to a ClaimsTransformation with id...`
 * Hatanın nedeni ClaimType hata aynı olması.
 
-Hata parçacığını:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
-* Tenantıd değeri onay  **\<TrustFrameworkPolicy\>**  ve  **\<BasePolicy\>**  öğeleri eşleşen hedef Azure AD B2C kiracınızın.  
+Hata parçacığını: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+* Tenantıd değeri onay **\<TrustFrameworkPolicy\>** ve **\<BasePolicy\>** öğeleri eşleşen hedef Azure AD B2C kiracınızın.  
 
 ## <a name="troubleshoot-the-runtime"></a>Çalışma zamanı sorun giderme
 
 * Kullanım `Run Now` ve `https://jwt.io` ilkelerinizi bağımsız olarak, web veya mobil uygulamanızı test etmek için. Bu Web sitesine bir bağlı olan taraf uygulaması gibi davranır. İçeriği, JSON Web Token (Azure AD B2C İlkesi tarafından oluşturulan JWT) görüntüler. Kimlik deneyimi Framework bir test uygulaması oluşturmak için aşağıdaki değerleri kullanın:
     * Ad: TestApp
-    * Web uygulaması/Web API: Hayır
+    * Web App/Web API: No
     * Yerel istemci: Hayır
 
 * İstemci tarayıcısına ve Azure AD B2C arasında ileti alışverişi izlemek için kullanımı [Fiddler](http://www.telerik.com/fiddler). Kullanıcı Yolculuğunuzun orchestration adımlarınızı nerede başarısız bir gösterge size yardımcı olabilir.
@@ -77,4 +74,4 @@ Hata parçacığını:`Reason: User is currently logged as a user of 'yourtenant
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Github'da, [active-directory-b2c-custom-policy-starterpack] (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip dosyasını indirin.
+* Github'da, [active-directory-b2c-custom-policy-starterpack] indirin (https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) .zip dosyası.

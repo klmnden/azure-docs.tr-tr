@@ -1,24 +1,19 @@
 ---
-title: "Azure Otomasyonu Visual Stuido Team Services kaynak denetimi ile Birleşen | Microsoft Docs"
-description: "Senaryo, bir Azure Otomasyonu hesabı ve Visual Stuido Team Services kaynak denetimi tümleştirmesi kurma açıklanmaktadır."
+title: Azure Otomasyonu ile Visual Stuido Team Services kaynak denetimini Tümleştir
+description: Senaryo, bir Azure Otomasyonu hesabı ve Visual Stuido Team Services kaynak denetimi tümleştirmesi kurma açıklanmaktadır.
 services: automation
-documentationcenter: 
-author: eamono
-manager: 
-editor: 
+documentationcenter: ''
+author: eamonoreilly
+ms.author: eamono
 keywords: Azure powershell, VSTS, kaynak denetimi, Otomasyon
-ms.assetid: a43b395a-e740-41a3-ae62-40eac9d0ec00
 ms.service: automation
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2017
-ms.openlocfilehash: 5afccc4aa7b751958952d1401182f93109cff358
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 03/19/2017
+ms.openlocfilehash: a60143db03e5f89685a25f26789003de30d91f4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure otomasyonu senaryosu - Visual Studio Team Services ile Otomasyon kaynak denetimi tümleştirme
 

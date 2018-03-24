@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: ADFS özel ilkelerini kullanma SAML kimlik sağlayıcısı ekleyin."
-description: "ADFS SAML protokolü ve özel ilkeler kullanılarak 2016 ayarlama nasıl yapılır makalesi"
+title: 'Azure Active Directory B2C: ADFS özel ilkelerini kullanma SAML kimlik sağlayıcısı ekleyin.'
+description: ADFS SAML protokolü ve özel ilkeler kullanılarak 2016 ayarlama nasıl yapılır makalesi
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: 22b360aec8878925ebe8d2c67c76d275a42ca7a8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: af102bbc3bc7608fe641db19f4af8c760907a564
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: ADFS özel ilkelerini kullanma SAML kimlik sağlayıcısı ekleyin.
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede, oturum açma kullanılarak ADFS hesabından kullanıcılar için etkinleştirme gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bölümündeki adımları tamamlamanız [özel ilkeleri ile çalışmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
@@ -63,7 +60,7 @@ AD FS Yönetimi ek bileşenini kullanarak yeni bir bağlı olan taraf güveni ek
 7.  Üzerinde **URL Yapılandır** sayfasında, **SAML 2.0 WebSSO protokolü için desteği etkinleştir** onay kutusu. Altında **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**, bu bağlı olan taraf güveni için güvenlik onaylama işlemi biçimlendirme dili (SAML) Hizmeti uç nokta URL'sini yazın ve ardından **sonraki**.  İçin **bağlı olan taraf SAML 2.0 SSO hizmet URL'si**, yapıştırma `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. {Tenant} (örneğin, contosob2c.onmicrosoft.com), kiracının adıyla değiştirin ve {İlkesi} uzantıları ilke adı (örneğin, B2C_1A_TrustFrameworkExtensions) ile değiştirin.
     > [!IMPORTANT]
     >İlke adı signup_or_signin ilke, çünkü bu durumda devraldığı bilgisayardır: `B2C_1A_TrustFrameworkExtensions`.
-    >Örneğin bir URL olabilir: https://login.microsoftonline.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Örneğin bir URL olabilir: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Bağlı olan taraf SAML 2.0 SSO hizmet URL'si](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Üzerinde **tanımlayıcıları yapılandırma** sayfasında, önceki adımı olarak aynı URL'yi belirtin, **Ekle** bunları listeye ekleyin ve ardından **sonraki**.
@@ -163,10 +160,10 @@ Bu noktada, kimlik sağlayıcısı ayarlandığına.  Ancak, oturumu-up/oturum a
 4.  Tüm içeriğini yapıştırın `<UserJournesy>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
 
 ### <a name="display-the-button"></a>Görüntü düğmesi
-`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>`öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi ADFS hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
+`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>` öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi ADFS hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
 
 1.  Bul `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"` kopyaladığınız kullanıcı gezisine içinde.
-2.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+2.  Bulun `<OrchestrationStep>` içeren düğümü `Order="1"`
 3.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml
@@ -206,7 +203,7 @@ ADFS hesabı kimlik sağlayıcısı Ayrıca, kullanıcı eklemek isteyebilirsini
 ### <a name="display-the-button"></a>Görüntü düğmesi
 1.  Uzantı dosyası ilkenizin (örneğin, TrustFrameworkExtensions.xml) açın.
 2.  Bul `<UserJourney>` içeren düğüm `Id="ProfileEdit"` kopyaladığınız kullanıcı gezisine içinde.
-3.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+3.  Bulun `<OrchestrationStep>` içeren düğümü `Order="1"`
 4.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml

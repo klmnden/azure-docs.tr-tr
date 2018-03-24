@@ -1,12 +1,13 @@
 ---
-title: "Machine learning algoritmaları seçme | Microsoft Docs"
-description: "Azure Machine Learning algoritmaları denetimli ve Denetimsiz öğrenme için kümeleme, sınıflandırma veya regresyon denemeler seçmek nasıl."
+title: Machine learning algoritmaları seçme | Microsoft Docs
+description: Azure Machine Learning algoritmaları denetimli ve Denetimsiz öğrenme için kümeleme, sınıflandırma veya regresyon denemeler seçmek nasıl.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: pakalra
+ms.author: pakalra
+manager: cgronlun
 editor: cgronlun
-tags: 
+tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.devlang: na
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 1b30e4dbf20cac653c323720de779aa5f8edba68
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning için algoritma seçme
 "Ne makine öğrenme algoritmasının kullanmalıyım?" sorusunun yanıtını her zaman "Bu bağlıdır." olur Boyut, kalite ve veri yapısını bağlıdır. Bu Yanıtla yapmak istediğiniz yere bağlıdır. Bu, nasıl algoritma matematik yönergeler için kullanmakta olduğunuz bilgisayar içine çevrilmiştir üzerinde bağlıdır. Ve bağlı olduğu üzerinde ne kadar süre sahip. Hatta çoğu deneyimli veri bilimcilerine algoritmayı en iyi denemeden önce gerçekleştirecek bildiremez.
@@ -102,7 +102,7 @@ Belirli veri türleri, özellik sayısı veri noktası sayısı kıyasla çok b�
 ### <a name="special-cases"></a>Özel durumlar
 Bazı learning algoritmaları veri ya da istenen sonuçları yapısı hakkında belirli varsayımlar olun. Gereksinimlerinize uyan bir fark ederseniz, bu, daha yararlı sonuçlar, daha doğru tahminleri ya da daha hızlı eğitim süreleri verebilirsiniz.
 
-| **Algoritması** | **Doğruluk** | **Eğitim süresini** | **Doğrusallık** | **Parametreler** | **Notlar** |
+| **Algoritma** | **Doğruluk** | **Eğitim süresini** | **Doğrusallık** | **Parametreler** | **Notlar** |
 | --- |:---:|:---:|:---:|:---:| --- |
 | **İki sınıflı sınıflandırma** | | | | | |
 | [Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905994.aspx) | |● |● |5 | |
@@ -117,10 +117,10 @@ Bazı learning algoritmaları veri ya da istenen sonuçları yapısı hakkında 
 | **Birden çok sınıf sınıflandırma** | | | | | |
 | [Lojistik regresyon](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [karar orman](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
-| [karar jungle](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Düşük bellek alanı |
+| [karar jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Düşük bellek alanı |
 | [sinir ağı](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Ek özelleştirme mümkündür](http://go.microsoft.com/fwlink/?LinkId=402867) |
 | [biri v tümü](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Seçilen iki sınıflı yöntemi özelliklerini bakın |
-| **Regresyon** | | | | | |
+| **regresyon** | | | | | |
 | [Doğrusal](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
 | [Bayesian doğrusal](https://msdn.microsoft.com/library/azure/dn906022.aspx) | |○ |● |2 | |
 | [karar orman](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
@@ -187,7 +187,7 @@ Destek vektör makineleri (SVMs) geniş bir kenar boşluğu mümkün olduğunca 
 
 ***Normal destek vektör makinesi sınıfı sınır iki sınıf ayırarak kenar boşluğu en üst düzeye çıkarır.***
 
-Microsoft Research'ün başka bir ürün [iki sınıflı yerel olarak derin SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) doğrusal olmayan bir doğrusal sürüm hızı ve bellek verimliliğini çoğunu korur SVM çeşididir. Doğrusal yaklaşım yeterince doğru yanıtlar burada vermediğinin durumları için idealdir. Geliştiriciler, bir grup küçük doğrusal SVM sorunları sorunla hızlı bölmek tarafından tutulur. Okuma [tam açıklama](http://research.microsoft.com/um/people/manik/pubs/Jose13.pdf) nasıl bunlar bu eli çekilen hakkında bilgi.
+Microsoft Research'ün başka bir ürün [iki sınıflı yerel olarak derin SVM](https://msdn.microsoft.com/library/azure/dn913070.aspx) doğrusal olmayan bir doğrusal sürüm hızı ve bellek verimliliğini çoğunu korur SVM çeşididir. Doğrusal yaklaşım yeterince doğru yanıtlar burada vermediğinin durumları için idealdir. Geliştiriciler, bir grup küçük doğrusal SVM sorunları sorunla hızlı bölmek tarafından tutulur. Okuma [tam açıklama](http://proceedings.mlr.press/v28/jose13.html) nasıl bunlar bu eli çekilen hakkında bilgi.
 
 Doğrusal SVMs, akıllı uzantısını kullanarak [bir sınıf SVM](https://msdn.microsoft.com/library/azure/dn913103.aspx) sıkı bir şekilde tüm veri kümesinin özetlenmektedir bir sınır çizer. Anomali algılama için yararlı olacaktır. Şu ana kadar bu sınırının dışında kalan herhangi bir yeni veri noktaları dikkate değer olacak şekilde alışılmadık.
 

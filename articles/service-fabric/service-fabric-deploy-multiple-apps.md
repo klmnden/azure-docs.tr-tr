@@ -1,24 +1,24 @@
 ---
-title: "MongoDB kullanan bir Node.js uygulaması dağıtma | Microsoft Docs"
-description: "Bir Azure Service Fabric kümesi dağıtmak için birden çok Konuk yürütülebilir dosyalar paketini konusunda gözden geçirme"
+title: Azure Service Fabric MongoDB kullanan bir Node.js uygulaması dağıtma | Microsoft Docs
+description: Bir Azure Service Fabric kümesi dağıtmak için birden çok Konuk yürütülebilir dosyalar paketini konusunda gözden geçirme
 services: service-fabric
 documentationcenter: .net
-author: msfussell
+author: mikkelhegn
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b76bb756-c1ba-49f9-9666-e9807cf8f92f
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: msfussell;mikhegn
-ms.openlocfilehash: d7a37d7c04f85e9031cab52fa86026e56315c882
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 02/23/2018
+ms.author: mikhegn
+ms.openlocfilehash: 4987cc271a3e3d8a1a69c4c7fbd213d73ca2eb96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-multiple-guest-executables"></a>Konuk tarafından yürütülebilir birden çok uygulama dağıtma
 Bu makalede, paket ve birden çok Konuk yürütülebilir dosyalar için Azure Service Fabric dağıtma gösterilmektedir. Derleme ve tek bir Service Fabric paketi dağıtmak için okuma nasıl için [yürütülebilir Konuk dağıtmak için Service Fabric](service-fabric-deploy-existing-app.md).
@@ -32,7 +32,7 @@ Birden çok Konuk yürütülebilir dosyaları içeren uygulama paketini oluştur
 * [İki Konuk yürütülebilir dosyalar (C# ve nodejs) iletişim REST kullanarak Adlandırma Hizmeti örnek](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>El ile birden çok Konuk yürütülebilir uygulama paketi
-Bunun yerine el ile yürütülebilir Konuk paketleyebilirsiniz. El ile paketleme için bu makalede şu adresten edinilebilir Service Fabric paketleme aracı kullanan [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Bunun yerine el ile yürütülebilir Konuk paketleyebilirsiniz. El ile paketleme için bu makalede şu adresten edinilebilir Service Fabric paketleme aracı kullanan [ http://aka.ms/servicefabricpacktool ](http://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Node.js Uygulama paketleme
 Bu makale, Node.js Service Fabric kümesindeki düğümlere yüklü olmadığını varsayar. Sonuç olarak paketlemeden önce düğüm uygulamanızın kök dizinine Node.exe eklemeniz gerekir. (Express web çerçevesi ve Jade şablon motoru kullanarak) Node.js uygulaması dizin yapısını birine benzer görünmelidir:
@@ -72,7 +72,7 @@ Kullanılmakta olan parametreleri açıklamasını aşağıdadır:
 * **/ target** içinde paket oluşturulmalıdır dizin tanımlar. Bu dizin kaynak dizinden farklı olması gerekir.
 * **Appname** var olan uygulamaya uygulama adını tanımlar. Bu hizmet adı bildiriminde ve değil Service Fabric uygulama adı dönüşür anlamak önemlidir.
 * **/ exe** Service Fabric başlatın, bu durumda olması yürütülebilir tanımlar `node.exe`.
-* **/ma** yürütülebilir başlatmak için kullanılan bağımsız değişken tanımlar. Node.js yüklenmemiş gibi Service Fabric yürüterek Node.js web sunucusu başlatmak gereken `node.exe bin/www`.  `/ma:'bin/www'`kullanılacak paketleme aracı söyler `bin/www` node.exe bağımsız değişkeni olarak.
+* **/ma** yürütülebilir başlatmak için kullanılan bağımsız değişken tanımlar. Node.js yüklenmemiş gibi Service Fabric yürüterek Node.js web sunucusu başlatmak gereken `node.exe bin/www`.  `/ma:'bin/www'` kullanılacak paketleme aracı söyler `bin/www` node.exe bağımsız değişkeni olarak.
 * **/ Uygulama türü** Service Fabric uygulaması türü adını tanımlar.
 
 / Target parametresinde belirtilen dizine göz atarsanız, araç tümüyle işlevsel bir Service Fabric paketi aşağıda gösterildiği gibi oluşturdu görebilirsiniz:

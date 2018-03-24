@@ -1,10 +1,10 @@
 ---
-title: "Azure Service Fabric yapılandırma dosyalarında Parametreleştirme nasıl | Microsoft Docs"
-description: "Service Fabric yapılandırma dosyalarında Parametreleştirme gösterilmektedir"
+title: Azure Service Fabric yapılandırma dosyalarında Parametreleştirme nasıl | Microsoft Docs
+description: Service Fabric yapılandırma dosyalarında Parametreleştirme gösterilmektedir
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 1e7d59ecb231440711b8ed3dc0b27a2b105890c4
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 14fbdf27b8735bb3f2dc91ce0891711e9aaf2af3
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Service Fabric yapılandırma dosyalarında Parametreleştirme nasıl
 
@@ -35,7 +35,7 @@ Bu örnekte, uygulama dağıtımınızı parametrelerini kullanarak bir yapılan
       </Section>
     ```
 
-1. Dosyasını kaydedin ve kapatın.
+1. Dosyayı kaydedin ve kapatın.
 1. `ApplicationManifest.xml` dosyasını açın.
 1. Ekleme bir `ConfigOverride` öğesi, bir yapılandırma paketi, bölüm ve parametresi başvuruyor.
 
@@ -59,7 +59,7 @@ Bu örnekte, uygulama dağıtımınızı parametrelerini kullanarak bir yapılan
       </Parameters>
     ```
 
-1. Ve tanımlayan bir`DefaultValue`
+1. Ve tanımlayan bir `DefaultValue`
 
     ```xml
       <Parameters>
@@ -71,8 +71,6 @@ Bu örnekte, uygulama dağıtımınızı parametrelerini kullanarak bir yapılan
 > Bir ConfigOverride eklediğiniz durumda Service Fabric uygulama parametreleri ya da uygulama bildiriminde belirtilen varsayılan değer her zaman seçer.
 >
 >
-
-Profil uygulamanızı Cloud.xml kullanarak Visual Studio'dan yayımlamak yayımladığınızda, hizmetiniz 80 numaralı bağlantı noktasını kullanacak şekilde yapılandırılır. Uygulama MyWebAPI_PortNumber parametresini belirtmeden dağıtırsanız, hizmet bağlantı noktası 8080 kullanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede açıklanan kavramları bazıları hakkında daha fazla bilgi için bkz: [birden çok ortamları makaleler için uygulamaları yönetmek](service-fabric-manage-multiple-environment-app-configuration.md).

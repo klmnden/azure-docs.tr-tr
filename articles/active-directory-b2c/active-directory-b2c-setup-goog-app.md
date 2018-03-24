@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: Google + yapılandırma | Microsoft Docs"
-description: "Tüketiciye hesaplarıyla Google + uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Google + yapılandırma | Microsoft Docs'
+description: Tüketiciye hesaplarıyla Google + uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 4dcca66f-29e4-4b4d-8840-50baad736bd7
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: 93589352094fdd556811ba906ee27e7b8ac1d8b5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: db3044754e0c1316b49eda0600d41e3009c1ba16
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C: tüketicileri Google + hesapları ile kaydolma ve oturum açma sağlar
 ## <a name="create-a-google-application"></a>Bir Google + uygulama oluşturma
-Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Google + uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Google + hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
+Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Google + uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Google + hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ https://accounts.google.com/SignUp ](https://accounts.google.com/SignUp).
 
 1. Git [Google geliştiriciler konsol](https://console.developers.google.com/) ve Google + hesabı kimlik bilgilerinizle oturum açın.
 2. Tıklatın **proje oluştur**, girin bir **proje adı**ve ardından **oluşturma**.
@@ -43,7 +40,7 @@ Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
 7. Altında **uygulama türü**seçin **Web uygulaması**.
    
     ![Google + - OAuth onay ekranı](./media/active-directory-b2c-setup-goog-app/google-web-app.png)
-8. Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili URI'ler yeniden yönlendirme** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). **{Tenant}** duyarlıdır. **Oluştur**'a tıklayın.
+8. Sağlayan bir **adı** uygulamanız için girin `https://login.microsoftonline.com` içinde **yetkili JavaScript çıkış** alan, ve `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yetkili URI'ler yeniden yönlendirme** alan. Değiştir **{tenant}** , kiracının adlı (örneğin, contosob2c.onmicrosoft.com). **{Tenant}** duyarlıdır. **Oluştur**’a tıklayın.
    
     ![Google + - istemci kodu oluştur](./media/active-directory-b2c-setup-goog-app/google-create-client-id.png)
 9. Değerleri kopyalamak **istemci kimliği** ve **gizli**. Her ikisi de Google + kimlik sağlayıcısı kiracınızda yapılandırmak için gerekir. **İstemci parolası** önemli güvenlik kimlik bilgileri.

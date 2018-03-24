@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Spacio | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Spacio arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Spacio | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Spacio arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: jeedes
-ms.openlocfilehash: faf4b2ff24ef733b740a5b65864941a10de64ed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 604249151f3c1ca206f64a178b25ea1dae5b5023
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>Öğretici: Azure Active Directory Tümleştirme Spacio ile
 
@@ -112,18 +112,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Spacio istemci destek ekibi](mailto:support@spac.io) bu değerleri almak için. 
- 
 
-
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
-
-    ![Sertifika indirme bağlantısı](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_certificate.png) 
-
-5. Tıklatın **kaydetmek** düğmesi.
+4. **Kaydet** düğmesine tıklayın.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-spacio-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **Spacio** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Spacio destek ekibi](mailto:support@spac.io). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+5. Oluşturulacak **meta veri URL'sini**, aşağıdaki adımları gerçekleştirin:
+
+    a. Tıklatın **uygulama kayıtlar**.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appregistrations.png)
+   
+    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpointicon.png)
+
+    c. Tıklatın **kopya** kopyalamak için düğmesi **FEDERASYON meta veri belgesi** URL ve Not Defteri'ne yapıştırın.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_endpoint.png)
+     
+    d. Şimdi özellik sayfasına gidin **Spacio** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
+ 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-spacio-tutorial/tutorial_spacio_appid.png)
+
+    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
+
+6. Çoklu oturum açma yapılandırmak için **Spacio** yan, oluşturulan göndermek için ihtiyacınız **meta veri URL'sini** için [Spacio destek ekibi](mailto:support@spac.io). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

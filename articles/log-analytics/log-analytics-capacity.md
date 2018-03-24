@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi kapasite ve performans çözümde | Microsoft Docs"
-description: "Kapasite ve performans çözümü günlük analizi kapasite, Hyper-V sunucularının anlamanıza yardımcı olması için kullanın."
+title: Azure günlük analizi kapasite ve performans çözümde | Microsoft Docs
+description: Kapasite ve performans çözümü günlük analizi kapasite, Hyper-V sunucularının anlamanıza yardımcı olması için kullanın.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 51617a6f-ffdd-4ed2-8b74-1257149ce3d4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 26e87da60dc02dce8122c82a2208477a8b1813a7
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 99c29afec7d06a458ed6d34071f1b6acbba1f03b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Kapasite ve performans çözümü (Önizleme) ile Hyper-V sanal makine kapasite planlaması
 
@@ -120,29 +120,17 @@ Kapasite ve performans panosunu açmak için kapasite ve performans kutucuğuna 
 
 Aşağıdaki tabloda, toplanan ve bu çözümü tarafından hesaplanan kapasite ve performans verileri için örnek günlük aramaları sağlar.
 
+
 | Sorgu | Açıklama |
-|---|---|
-| Tüm ana bilgisayar bellek yapılandırmaları | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="Host Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Tüm VM bellek yapılandırmaları | <code>Type=Perf ObjectName="Capacity and Performance" CounterName="VM Assigned Memory MB" &#124; measure avg(CounterValue) as MB by InstanceName</code> |
-| Toplam Disk IOPS tüm VM'ler arasında dökümü | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Reads/s" OR CounterName="VHD Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Toplam Disk verim tüm VM'ler arasında dökümü | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="VHD Read MB/s" OR CounterName="VHD Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Tüm CSV'lerin boyunca toplam IOPS dökümü | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Reads/s" OR CounterName="CSV Writes/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Tüm CSV'lerin boyunca toplam verimlilik dökümü | <code>Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read MB/s" OR CounterName="CSV Write MB/s") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-| Tüm CSV'lerin boyunca toplam gecikme dökümü | <code> Type=Perf ObjectName="Capacity and Performance" (CounterName="CSV Read Latency" OR CounterName="CSV Write Latency") &#124; top 2500 &#124; measure avg(CounterValue) by CounterName, InstanceName interval 1HOUR</code> |
-
->[!NOTE]
-> Çalışma alanınız [yeni Log Analytics sorgu diline](log-analytics-log-search-upgrade.md) yükseltilmişse, yukarıdaki sorguların aşağıdaki gibi değiştirilmesi gerekir.
-
-> | Sorgu | Açıklama |
 |:--- |:--- |
-| Tüm ana bilgisayar bellek yapılandırmaları | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve CounterName "Atanan bellek MB ana bilgisayar" &#124; == MB özetlemek InstanceName tarafından avg(CounterValue) = |
-| Tüm VM bellek yapılandırmaları | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve CounterName "VM atanan bellek MB" &#124; == MB özetlemek InstanceName tarafından avg(CounterValue) = |
-| Toplam Disk IOPS tüm VM'ler arasında dökümü | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve (CounterName "VHD okuma/s" ya da CounterName == "VHD yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
-| Toplam Disk verim tüm VM'ler arasında dökümü | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve (CounterName "VHD okuma MB/s" ya da CounterName == "VHD yazma MB/sn" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
-| Tüm CSV'lerin boyunca toplam IOPS dökümü | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma/s" ya da CounterName == "CSV yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
-| Tüm CSV'lerin boyunca toplam verimlilik dökümü | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma/s" ya da CounterName == "CSV yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
-| Tüm CSV'lerin boyunca toplam gecikme dökümü | Perf &#124; Burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma gecikme" veya CounterName == "CSV yazma gecikmesi" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
+| Tüm ana bilgisayar bellek yapılandırmaları | Perf &#124; burada ObjectName "Kapasite ve performans" ve CounterName == "Atanan bellek MB ana bilgisayar" == &#124; MB özetlemek InstanceName tarafından avg(CounterValue) = |
+| Tüm VM bellek yapılandırmaları | Perf &#124; burada ObjectName "Kapasite ve performans" ve CounterName == "Atanan bellek MB VM" == &#124; MB özetlemek InstanceName tarafından avg(CounterValue) = |
+| Toplam Disk IOPS tüm VM'ler arasında dökümü | Perf &#124; burada ObjectName "Kapasite ve performans" == ve (CounterName "VHD okuma/s" ya da CounterName == "VHD yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
+| Toplam Disk verim tüm VM'ler arasında dökümü | Perf &#124; burada ObjectName "Kapasite ve performans" == ve (CounterName "VHD okuma MB/s" ya da CounterName == "VHD yazma MB/sn" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
+| Tüm CSV'lerin boyunca toplam IOPS dökümü | Perf &#124; burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma/s" ya da CounterName == "CSV yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
+| Tüm CSV'lerin boyunca toplam verimlilik dökümü | Perf &#124; burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma/s" ya da CounterName == "CSV yazma/s" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
+| Tüm CSV'lerin boyunca toplam gecikme dökümü | Perf &#124; burada ObjectName "Kapasite ve performans" == ve (CounterName "CSV okuma gecikme" veya CounterName == "CSV yazma gecikmesi" ==) &#124; AggregatedValue özetlemek bin (TimeGenerated, 1 h), tarafından avg(CounterValue) = CounterName, InstanceName |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Kullanım [günlük analizi aramaları oturum](log-analytics-log-searches.md) ayrıntılı kapasite ve performans verilerini görüntülemek için.
+* Kullanım [günlük analizi aramaları oturum](log-analytics-log-search.md) ayrıntılı kapasite ve performans verilerini görüntülemek için.

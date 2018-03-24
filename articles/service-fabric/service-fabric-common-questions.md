@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure Service Fabric hakkında sık sorulan sorular | Microsoft Docs"
-description: "Service Fabric ve yanıtlarını hakkında sık sorulan sorular"
+title: Microsoft Azure Service Fabric hakkında sık sorulan sorular | Microsoft Docs
+description: Service Fabric ve yanıtlarını hakkında sık sorulan sorular
 services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: facbb980f57b4e70c34b238a8b8fbd988cb20d57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan soruları Service Fabric
 
@@ -89,17 +89,7 @@ Gelişmiş bir deneyim üzerinde bugün çalışıyoruz ancak yükseltme için s
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Bir küme düğümü türü (sanal makine ölçek kümesi) bağlı veri diskleri şifreleyebilir mi?
 Evet.  Daha fazla bilgi için bkz: [eklenen veri disklerini ile küme oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [şifrelemek diskler (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), ve [şifrelemek diskleri (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
-## <a name="container-support"></a>Kapsayıcı desteği
-
-### <a name="why-are-my-containers-that-are-deployed-to-sf-unable-to-resolve-dns-addresses"></a>Neden BT DNS adreslerini çözümleyemiyor dağıtılan my kapsayıcıları misiniz?
-
-Bu sorun üzerinde 5.6.204.9494 kümelerinin üzerinde bildirilen sürüm 
-
-**Azaltma**: izleyin [bu belgeyi](service-fabric-dnsservice.md) kümenizdeki DNS service fabric hizmeti etkinleştirmek için.
-
-**Düzeltme**: kullanılabilir olduğunda, 5.6.204.9494 yüksek bir desteklenen küme sürüme yükseltin. Kümeniz için Otomatik yükseltme ayarlarsanız, küme otomatik olarak sabit Bu sorun var. en sürümüne yükseltin.
-
-  
+ 
 ## <a name="application-design"></a>Uygulama tasarımı
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Güvenilir bir koleksiyonun bölümler sorgu veri en iyi yolu nedir?
@@ -146,9 +136,11 @@ Tutarlı bir şekilde tüm ortamlarda çalıştırın ve tek bir makinede yalıt
 
 ### <a name="are-you-planning-to-open-source-service-fabric"></a>Açık kaynak Service Fabric planlıyor musunuz?
 
-Biz açık kaynaklı Güvenilir düşündüğünüz Hizmetleri ve güvenilir aktörler çerçeveleri github'da ve topluluk katkılarına bu projelerine kabul edin. İzleyin [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) duyurdu gibi daha fazla ayrıntı için.
+Service Fabric açık kaynaklıdır bölümlerini sahibiz ([güvenilir hizmetler framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [güvenilir aktörler framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core tümleştirme kitaplıkları](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), ve [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) github'da ve topluluk katkılarına bu projelerine kabul edin. 
 
-Şu anda hiçbir açık kaynak için Service Fabric çalışma zamanı planlarının.
+Biz [son duyurdu](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) biz açık kaynaklı Service Fabric çalışma zamanını planlayın. Bu noktada sahibiz [Service Fabric depodaki](https://github.com/Microsoft/service-fabric/) kadar Linux github'da yapı ve test araçları, hangi depoyu kopyalama, Service Fabric Linux için derleme, temel testleri çalıştırmak, açabilir sorunları ve çekme istekleri gönderme anlamına gelir. Katı derleme ortamı üzerinden de yanı sıra eksiksiz bir CI ortamı geçirilen Windows almak için çalışıyoruz.
+
+İzleyin [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefabric/) duyurdu gibi daha fazla ayrıntı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

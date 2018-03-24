@@ -1,23 +1,23 @@
 ---
-title: "Microsoft uygulamaları ve Hizmetleri Azure Active Directory'de LinkedIn bağlantılarında etkinleştirme | Microsoft Docs"
-description: "Etkinleştirmek veya devre dışı LinkedIn hesabı Azure Active Directory'de Microsoft uygulamaları bağlantılarında açıklanmaktadır"
+title: Microsoft uygulamaları ve Hizmetleri Azure Active Directory'de LinkedIn bağlantılarında etkinleştirme | Microsoft Docs
+description: Etkinleştirmek veya devre dışı LinkedIn hesabı Azure Active Directory'de Microsoft uygulamaları bağlantılarında açıklanmaktadır
 services: active-directory
 author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/22/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 3bf224edea9e6da0d0eadb6fb6a409248de3d0e3
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 33e3305288edc3990ed88b39c819293a8adc2dfe
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft uygulamaları ve Hizmetleri için LinkedIn hesap bağlantıları
 Bu makalede, Azure Active Directory (Azure AD) Yönetim Merkezi'nden kiracınız için LinkedIn hesap bağlantıları yönetmek nasıl öğrenebilirsiniz. 
@@ -56,9 +56,9 @@ LinkedIn hesabı bağlantıları işlevi tüm kiracınız için varsayılan olar
 ### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Etkinleştirmek veya devre dışı LinkedIn hesap bağlantıları için Grup İlkesi kullanarak, kuruluşunuzun Office 2016 uygulamaları
 
 1. Karşıdan [Office 2016 Yönetim Şablonu dosyalarını (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
-2. Extract **ADMX** dosyaları ve kopyalamak için **merkezi bir depoya**.
+2. Extract **ADMX** dosyaları ve bunları merkezi deponuza kopyalayın.
 3. Açık Grup İlkesi Yönetimi.
-4. Aşağıdaki ayarlarla bir Grup İlkesi nesnesi oluşturmak: **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Microsoft Office 2016**  >  **Çeşitli** > **LinkedIn tümleştirme izin**.
+4. Aşağıdaki ayarlarla bir Grup İlkesi nesnesi oluşturmak: **Kullanıcı Yapılandırması** > **Yönetim Şablonları** > **Microsoft Office 2016**  >  **Çeşitli** > **Göster LinkedIn özellikleri Office uygulamalarında**.
 5. Seçin **etkin** veya **devre dışı**.
   * İlke olduğunda **etkin**, **Göster LinkedIn özellikleri Office uygulamalarında** Office 2016 Seçenekleri iletişim kutusunda bulunan ayarı etkindir. Bu ayrıca kuruluşunuzdaki kullanıcıların Office uygulamalarında LinkedIn özellikleri kullanabileceğiniz anlamına gelir.
   * İlke olduğunda **devre dışı**, **Göster LinkedIn özellikleri Office uygulamalarında** bulunan ayarlama Office 2016 seçeneklerinde iletişim devre dışı durumuna ayarlanır ve son kullanıcılar, bu ayar değiştiremiyor. Kuruluşunuzdaki kullanıcılar, Office 2016 uygulamalarında LinkedIn özellikleri kullanamazsınız. 

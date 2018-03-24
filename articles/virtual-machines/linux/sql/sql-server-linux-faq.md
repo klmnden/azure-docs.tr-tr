@@ -1,8 +1,8 @@
 ---
 title: SQL Server Linux Azure sanal makinelerinde SSS | Microsoft Docs
-description: "Bu makalede, Linux Azure Vm'lerinde SQL Server çalıştıran hakkında sık sorulan soruların yanıtlarını sağlar."
+description: Bu makalede, Linux Azure Vm'lerinde SQL Server çalıştıran hakkında sık sorulan soruların yanıtlarını sağlar.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -12,11 +12,11 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 8b556b01aa47aeb3588138dfa61e517c00dc44dc
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Sık Sorulan Sorular SQL Server için Linux Azure sanal makineleri
 
@@ -31,7 +31,7 @@ Bu makalede çalıştırma hakkında en yaygın sorulara yanıtlar sağlayan [Li
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
-## <a id="images"></a>Görüntüleri
+## <a id="images"></a> Görüntüleri
 
 1. **Hangi SQL Server sanal makineye Galerisi görüntüleri var mı?**
 
@@ -71,13 +71,17 @@ Bu makalede çalıştırma hakkında en yaygın sorulara yanıtlar sağlayan [Li
 
 1. **Kullandıkça Öde galeri görüntülerden birini oluşturulduysa, kendi SQL Server lisansınızı kullanmak için bir VM değiştirebilir miyim?**
 
-   Hayır. Kendi lisansınızı kullanmak için dakika başına ödeme lisans geçemezsiniz. Yeni bir Linux VM oluşturun, SQL Server yükleyin ve verilerinizi taşımanız gerekir. Kendi lisansını getirme hakkında daha fazla ayrıntı için önceki soruya bakın.
+   Hayır. Kendi lisansınızı kullanmak için saniye başına ödeme lisans geçemezsiniz. Yeni bir Linux VM oluşturun, SQL Server yükleyin ve verilerinizi taşımanız gerekir. Kendi lisansını getirme hakkında daha fazla ayrıntı için önceki soruya bakın.
 
 ## <a name="administration"></a>Yönetim
 
 1. **Bir Linux SQL Server sanal makine SQL Server Management Studio (SSMS) yönetebilir miyim?**
 
    Evet, ancak SSMS şu anda yalnızca Windows aracı. Uzaktan SSMS Linux SQL Server VM ile birlikte kullanmak için bir Windows makineden bağlanmanız gerekir. Linux üzerinde yerel olarak yeni [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) araç, birçok yönetim görevleri gerçekleştirebilir. Platformlar arası veritabanı yönetim aracı önizlemek için bkz: [SQL Server işlemleri Studio (Önizleme)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+
+1. **Bir SQL VM SQL Server tamamen kaldırabilirim?**
+
+   Evet, ancak açıklandığı gibi SQL VM için uygulanacak sürdürecektir [Kılavuzu SQL Server Azure VM'ler için fiyatlandırma](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). SQL Server artık ihtiyacınız varsa, yeni bir sanal makine dağıtın ve veri ve uygulamaları yeni bir sanal makine geçirin. Ardından, SQL Server sanal makine kaldırabilirsiniz.
 
 ## <a name="updating-and-patching"></a>Güncelleştirme ve düzeltme eki uygulama
 

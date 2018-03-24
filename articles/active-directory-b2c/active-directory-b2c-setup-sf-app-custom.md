@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: özel ilkeler kullanılarak Salesforce SAML sağlayıcı ekleme | Microsoft Docs"
-description: "Azure Active Directory B2C özel ilkeleri oluşturun ve yönetin hakkında bilgi edinin."
+title: 'Azure Active Directory B2C: özel ilkeler kullanılarak Salesforce SAML sağlayıcı ekleme | Microsoft Docs'
+description: Azure Active Directory B2C özel ilkeleri oluşturun ve yönetin hakkında bilgi edinin.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: d7f4143f-cd7c-4939-91a8-231a4104dc2c
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 06/11/2017
-ms.author: parakhj
-ms.openlocfilehash: 16f7c5708b479f18de17a612a733a2be6e97ad01
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: SAML aracılığıyla Salesforce hesaplarını kullanarak oturum açın
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 12/11/2017
 
 Bu makalede nasıl kullanılacağı gösterilmektedir [özel ilkeler](active-directory-b2c-overview-custom.md) oturum açma kullanıcıların belirli bir Salesforce kuruluştan ayarlamak için.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-ad-b2c-setup"></a>Azure AD B2C Kurulumu
 
@@ -59,7 +56,7 @@ Azure AD B2C ile Salesforce iletişim yardımcı olmak için Salesforce meta ver
 1. [Salesforce oturum](https://login.salesforce.com/). 
 2. Sol menüde altında **ayarları**, genişletin **kimlik**ve ardından **kimlik sağlayıcısı**.
 3. Tıklatın **etkinleştirme kimlik sağlayıcısı**.
-4. Altında **sertifikayı seçin**, Salesforce Azure AD B2C ile iletişim kurmak için kullanmak istediğiniz sertifikayı seçin. (Varsayılan sertifikayı kullanabilirsiniz.) **Kaydet** düğmesine tıklayın. 
+4. Altında **sertifikayı seçin**, Salesforce Azure AD B2C ile iletişim kurmak için kullanmak istediğiniz sertifikayı seçin. (Varsayılan sertifikayı kullanabilirsiniz.) **Kaydet**’e tıklayın. 
 
 ### <a name="create-a-connected-app-in-salesforce"></a>Salesforce'ta bağlı bir uygulama oluşturma
 
@@ -117,7 +114,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
     2. Girin bir **adı** (örneğin, SAMLSigningCert). Önek *B2C_1A_* anahtarınızı adına otomatik olarak eklenir.
     3. Sertifikanızı seçmek için **dosya denetimi karşıya**. 
     4. PowerShell komut dosyasında ayarlanan sertifikanın parolasını girin.
-3. **Oluştur**'a tıklayın.
+3. **Oluştur**’a tıklayın.
 4. Bir anahtar (örneğin, B2C_1A_SAMLSigningCert) oluşturduğunuzdan emin olun. Tam adını not edin (de dahil olmak üzere *B2C_1A_*). Daha sonra ilkesinde bu anahtara başvurur.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>Temel ilkenizde Salesforce SAML Talep sağlayıcı oluşturma

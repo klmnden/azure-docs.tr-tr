@@ -1,11 +1,10 @@
 ---
-title: "Veri Fabrikası kullanarak Amazon Basit Depolama hizmetinden veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Amazon Basit Depolama hizmetinden (S3) veri taşıma hakkında bilgi edinin."
+title: Veri Fabrikası kullanarak Amazon Basit Depolama hizmetinden veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak Amazon Basit Depolama hizmetinden (S3) veri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb2b534955a2cd0e1294df5425550ac6958ff3c2
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 455c1247ee68c4841647d942a1ac210b1b91694a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Basit Depolama hizmetinden veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,8 +35,8 @@ Verileri Amazon S3'ten herhangi desteklenen havuz veri deposuna kopyalayabilirsi
 ## <a name="required-permissions"></a>Gerekli izinler
 Amazon S3'ten verileri kopyalamak için aşağıdaki izinleri verilmiş olan emin olun:
 
-* `s3:GetObject`ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
-* `s3:ListBucket`Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
+* `s3:GetObject` ve `s3:GetObjectVersion` Amazon S3 nesne işlemleri için.
+* `s3:ListBucket` Amazon S3 Demetini işlemleri için. Data Factory Kopyalama Sihirbazı'nı kullanıyorsanız `s3:ListAllMyBuckets` de gereklidir.
 
 Amazon S3 izinlerin tam listesi hakkında daha fazla ayrıntı için bkz: [belirleyen izinleri bir ilke](http://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -66,7 +65,7 @@ Bağlı hizmet, veri fabrikası için bir veri deposu bağlar. Bağlı hizmet t�
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
-| accessKeyID |Gizli erişim anahtarı kimliği. |dize |Evet |
+| accessKeyID |Gizli erişim anahtarı kimliği. |string |Evet |
 | secretAccessKey |Gizli erişim anahtar kendisi. |Şifrelenmiş gizli dize |Evet |
 
 >[!NOTE]

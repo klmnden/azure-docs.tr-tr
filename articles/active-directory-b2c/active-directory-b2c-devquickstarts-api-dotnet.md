@@ -1,25 +1,21 @@
 ---
-title: "Bir web API’nin güvenliğini sağlama - ASP.NET - Azure Active Directory B2C | Microsoft Docs"
-description: "Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API'si oluşturma."
+title: Bir web API’nin güvenliğini sağlama - ASP.NET - Azure Active Directory B2C | Microsoft Docs
+description: Kimlik doğrulaması için OAuth 2.0 erişim belirteçleri ile güvenliği sağlanan Azure Active Directory B2C kullanarak .NET Web API'si oluşturma.
 services: active-directory-b2c
 documentationcenter: .net
-author: parakhj
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 7146ed7f-2eb5-49e9-8d8b-ea1a895e1966
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: article
 ms.date: 01/14/2018
-ms.author: parakhj
-ms.custom: seohack1
-ms.openlocfilehash: 68c0f50e20b5a1a44ff2cb1bc5df35d60928b911
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
-ms.translationtype: HT
+ms.author: davidmu
+ms.openlocfilehash: c64ca3546c5c2d21b00b379c297c9265b264cb9a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET web API'si oluşturma
 

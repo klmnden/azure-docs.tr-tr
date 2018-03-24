@@ -1,11 +1,11 @@
 ---
-title: "Oluşturma, değiştirme veya silme Azure genel bir IP adresi | Microsoft Docs"
-description: "Oluşturma, değiştirme veya genel bir IP adresi silme öğrenin."
+title: Oluşturma, değiştirme veya silme Azure genel bir IP adresi | Microsoft Docs
+description: Oluşturma, değiştirme veya genel bir IP adresi silme öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 8efc0bff4764a7265a5f1bcdd995979af0b22234
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
@@ -32,9 +32,9 @@ Bir ortak IP adresi ve oluşturmak, değiştirmek ve silmek nasıl hakkında bil
 Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 Nominal bir ücret ortak IP adresine sahip. Fiyatlandırma görüntülemek için okuma [IP adresi fiyatlandırma](https://azure.microsoft.com/pricing/details/ip-addresses) sayfası. 
 
@@ -46,7 +46,7 @@ Nominal bir ücret ortak IP adresine sahip. Fiyatlandırma görüntülemek için
 
     |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
-    |SKU|Evet|SKU'ları giriş önce oluşturulan tüm genel IP adresleri **temel** SKU genel IP adresleri.  Genel IP adresi oluşturulduktan sonra SKU değiştirilemiyor. Tek başına sanal makine, sanal makinelerin bir kullanılabilirlik kümesi ya da sanal makine ölçek kümeleri içinde temel veya standart SKU'ları kullanabilirsiniz.  Kullanılabilirlik kümeleri veya ölçek kümeleri içinde sanal makineler arasında SKU'ları karıştırma izin verilmiyor. **Temel** SKU: kullanılabilirlik bölgeyi destekleyen bir bölgede bir ortak IP adresi oluşturuyorsanız **kullanılabilirlik bölge** ayar *hiçbiri* varsayılan olarak. Ortak IP adresi için belirli bir bölgenin güvence altına almak için bir kullanılabilirlik bölgeyi seçmek seçebilirsiniz. **Standart** SKU: A standart SKU genel IP sanal makine ya da bir yük dengeleyici ön uç ilişkili olabilir. Kullanılabilirlik bölgeyi destekleyen bir bölgede bir ortak IP adresi oluşturuyorsanız **kullanılabilirlik bölge** ayar *bölge olarak yedekli* varsayılan olarak. Kullanılabilirlik bölgeler hakkında daha fazla bilgi için bkz: **kullanılabilirlik bölge** ayarı. Standart SKU, standart yük dengeleyici adresine ilişkilendirirseniz gereklidir. Standart yük Dengeleyiciler hakkında daha fazla bilgi için bkz: [Azure yük dengeleyici standart SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Standart SKU Önizleme sürümünde ' dir. Standart SKU genel bir IP adresi oluşturmadan önce ilk adımları tamamlamanız gerekir [standart SKU Önizleme için kaydetmek](#register-for-the-standard-sku-preview) ve genel IP adresi (bölge) desteklenen bir konumda oluşturun. Desteklenen konumlar listesi için bkz: [bölge kullanılabilirliği](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region-availability) ve izleme [Azure sanal ağı güncelleştirir](https://azure.microsoft.com/updates/?product=virtual-network) ek bölge desteği için sayfa. Standart bir SKU genel IP adresini bir sanal makinenin ağ arabirimine atadığınızda amaçlanan trafiğe bir [ağ güvenlik grubuyla](security-overview.md#network-security-groups) açıkça izin vermeniz gerekir. Bir ağ güvenlik grubu oluşturup ilişkilendirene ve istenen trafiğe açıkça izin verene kadar kaynakla erişim kurma girişimleri başarısız olur.|
+    |SKU|Evet|SKU'ları giriş önce oluşturulan tüm genel IP adresleri **temel** SKU genel IP adresleri.  Genel IP adresi oluşturulduktan sonra SKU değiştirilemiyor. Tek başına sanal makine, sanal makinelerin bir kullanılabilirlik kümesi ya da sanal makine ölçek kümeleri içinde temel veya standart SKU'ları kullanabilirsiniz.  Kullanılabilirlik kümeleri veya ölçek kümeleri içinde sanal makineler arasında SKU'ları karıştırma izin verilmiyor. **Temel** SKU: kullanılabilirlik bölgeyi destekleyen bir bölgede bir ortak IP adresi oluşturuyorsanız **kullanılabilirlik bölge** ayar *hiçbiri* varsayılan olarak. Ortak IP adresi için belirli bir bölgenin güvence altına almak için bir kullanılabilirlik bölgeyi seçmek seçebilirsiniz. **Standart** SKU: A standart SKU genel IP sanal makine ya da bir yük dengeleyici ön uç ilişkili olabilir. Kullanılabilirlik bölgeyi destekleyen bir bölgede bir ortak IP adresi oluşturuyorsanız **kullanılabilirlik bölge** ayar *bölge olarak yedekli* varsayılan olarak. Kullanılabilirlik bölgeler hakkında daha fazla bilgi için bkz: **kullanılabilirlik bölge** ayarı. Standart SKU, standart yük dengeleyici adresine ilişkilendirirseniz gereklidir. Standart yük Dengeleyiciler hakkında daha fazla bilgi için bkz: [Azure yük dengeleyici standart SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Standart bir SKU genel IP adresini bir sanal makinenin ağ arabirimine atadığınızda amaçlanan trafiğe bir [ağ güvenlik grubuyla](security-overview.md#network-security-groups) açıkça izin vermeniz gerekir. Bir ağ güvenlik grubu oluşturup ilişkilendirene ve istenen trafiğe açıkça izin verene kadar kaynakla erişim kurma girişimleri başarısız olur.|
     |Ad|Evet|Adı kaynak grubun içinde benzersiz olmalıdır.|
     |IP sürümü|Evet| IPv4 veya IPv6 seçin. Ortak IPv4 adreslerinin bazı Azure kaynakları atanabilir olsa da, bir IPv6 ortak IP adresi yalnızca bir Internet'e yönelik Yük Dengeleyici atanabilir. Yük Dengeleyici Yük Dengelemesi IPv6 trafiği için Azure sanal makineler. Daha fazla bilgi edinmek [Yük Dengeleme IPv6 trafiğini sanal makinelere](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Seçtiyseniz **standart SKU**, seçmek için seçeneğinden yararlanamazsınız *IPv6*. Yalnızca bir IPv4 adresi kullanırken oluşturabileceğiniz **standart SKU**.|
     |IP adresi ataması|Evet|**Dinamik:** genel IP adresi için ilişkili tamamlandıktan sonra bir sanal makine ve sanal makineye bağlı bir ağ arabirimi ilk kez başlatıldığında yalnızca dinamik adresler atanır. Ağ arabiriminin bağlı olduğu sanal makine (serbest bırakıldığında) durdurulursa dinamik adresler değiştirebilirsiniz. Sanal makine yeniden veya durduruldu (ancak değil serbest) adresi aynı kalır. **Statik:** statik adresleri genel IP adresi oluşturulduğu zaman atanır. Sanal makine durduruldu (serbest bırakıldığında) durumda yerleştirirseniz bile statik adresleri değiştirmeyin. Ağ arabirimi silindiğinde adresi yalnızca yayımlanır. Ağ arabirimi oluşturulduktan sonra atama yöntemi değiştirebilirsiniz. Seçerseniz *IPv6* için **IP sürüm**, atama yöntemi *dinamik*. Seçerseniz *standart* için **SKU**, atama yöntemi *statik*.|
@@ -67,7 +67,7 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ genel IP oluşturun](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>Görüntüleme, ayarlarını değiştirmek veya bir ortak IP adresini Sil
@@ -88,24 +88,6 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 |---|---|
 |CLI|[az ağ ortak IP listesi](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_list) listesi genel IP adresleri için [az ağ ortak IP Göster](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_show) ayarları; göstermek için [az ağ ortak IP güncelleştirmesi](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_update) güncelleştirmek için; [az ağ ortak IP silme](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_delete) silmek için|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) bir ortak IP adres nesnesini almak ve ayarlarını görüntülemek için [kümesi AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress?toc=%2fazure%2fvirtual-network%2ftoc.json) ayarlarını; güncelleştirmek için [Kaldır AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) silmek için|
-
-## <a name="register-for-the-standard-sku-preview"></a>Standart SKU Önizleme için kaydolun
-
-> [!NOTE]
-> Genel kullanılabilirlik özellikleri sürüm gibi özellikleri Önizleme sürümde aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Önizleme özellikleri desteklenmez, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. 
-
-Standart SKU genel bir IP adresi oluşturabilmeniz için önce önizleme için kaydetmeniz gerekir. Önizleme için kaydetmek için aşağıdaki adımları tamamlayın:
-
-1. Powershell'den, Önizleme için kaydetmek için aşağıdaki komutu girin:
-   
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
-2. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
-
-    ```powershell
-    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Genel IP adresleri aşağıdaki Azure kaynakları oluşturulurken ata:

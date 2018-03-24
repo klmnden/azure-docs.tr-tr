@@ -1,11 +1,11 @@
 ---
-title: "Azure'da Windows sanal makineleri hakkında SSS | Microsoft Docs"
-description: "Bazı Windows sanal makineleri Resource Manager modeli kullanılarak oluşturulmuş ilgili sık sorulan soruların yanıtlarını içerir."
+title: Azure'da Windows sanal makineleri hakkında SSS | Microsoft Docs
+description: Bazı Windows sanal makineleri Resource Manager modeli kullanılarak oluşturulmuş ilgili sık sorulan soruların yanıtlarını içerir.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: 9aa316e59fb78373cc044f8e18f5d24ea9c5258f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineler hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineler hakkında bazı sık sorulan soruları giderir. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan bir soru](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -75,7 +75,7 @@ Evet. Hızlı şekilde denemek için bir Linux VM oluşturmak için bkz: [Portal
 Evet, bu artık mümkündür. VM ilk durdurulması deallocated gerekir. Ardından ekleyebilir veya bir NIC (son NIC VM üzerinde olmadığı sürece) kaldırabilirsiniz. 
 
 ## <a name="are-there-any-computer-name-requirements"></a>Herhangi bir bilgisayar adı gereksinimleri var mı?
-Evet. Bilgisayar adı en fazla 15 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) kaynaklarınızı adlandırma geçici daha fazla bilgi için.
+Evet. Bilgisayar adı en fazla 15 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/azure/architecture/best-practices/naming-conventions#compute) kaynaklarınızı adlandırma geçici daha fazla bilgi için.
 
 ## <a name="are-there-any-resource-group-name-requirements"></a>Herhangi bir kaynak grubu adı gereksinimleri var mı?
 Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) kaynak grupları hakkında daha fazla bilgi için.

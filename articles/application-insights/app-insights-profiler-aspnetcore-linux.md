@@ -1,8 +1,8 @@
 ---
-title: "Profil ASP.NET core Azure Linux web apps uygulama Öngörüler Profil Oluşturucu ile | Microsoft Docs"
-description: "Kavram genel bakış ve onu etkinleştirme hakkında adım adım öğretici"
+title: Profil ASP.NET core Azure Linux web apps uygulama Öngörüler Profil Oluşturucu ile | Microsoft Docs
+description: Kavram genel bakış ve onu etkinleştirme hakkında adım adım öğretici
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 2d7405baee84b53311f01e748ca7975147c107d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 63a7ceacffe1ee33227d3a8272dda7de7b3b1135
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Profil ASP.NET Core Azure Linux Web uygulamaları ile uygulama Öngörüler Profil Oluşturucu
 
@@ -143,6 +143,18 @@ Aşağıdakine benzer bir çıktı görürsünüz:
 5. Azure portalında Application Insights performans bölmesine gidin. Profil Oluşturucu izlemeleri sağ alt köşedeki kullanılabilir görürsünüz.
 
     ![Görünüm izlemeleri](./media/app-insights-profiler-aspnetcore-linux/view-traces.png)
+
+## <a name="known-issues"></a>Bilinen sorunlar
+
+### <a name="enable-button-in-profiler-configuration-pane-does-not-work"></a>Profil Oluşturucu bölmesi çalışmıyor yapılandırma düğmesini etkinleştir
+**Uygulama Hizmetleri Linux kullanarak uygulamanızı barındırıyorsanız, profil oluşturucu App Insights portalında performans bölmesinde tekrar etkinleştirmeniz gerekmez. Proje ve App Insights ayarı NuGet paketine dahil olmak üzere uygulama ayarları'nda iKey profil oluşturucu etkinleştirmek yeterli**.
+
+İzlerseniz [için App Insights profil oluşturucu Windows](./app-insights-profiler.md) tıklattığınızdan etkinleştirme iş akışı **etkinleştirmek** yapılandırma profil oluşturucu bölmesinde düğmesi Windows sürümünü yüklemeye çalışır gibi bir hata alacaksınız Profil Oluşturucu Aracısı'nı Linux ortamı.
+
+Etkinleştirme deneyiminde bu sorunu çözümlemek için çalışıyoruz.
+
+![Linux App Services üzerinde çalışan profil oluşturucu yapmak profil oluşturucu performans bölmesinde tekrar etkinleştirmeniz gerekmez](./media/app-insights-profiler-aspnetcore-linux/issue-enable-profiler.png)
+
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 App Services tarafından barındırılan özel kapsayıcılar kullanıyorsanız, makalesindeki yönergeleri izleyin [ kapsayıcılı ASP.NET Core uygulama için hizmet profil oluşturucu etkinleştirmek](https://github.com/Microsoft/ApplicationInsights-Profiler-AspNetCore/tree/master/examples/EnableServiceProfilerForContainerApp) App Insights profil oluşturucu etkinleştirmek için

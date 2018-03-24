@@ -1,20 +1,20 @@
 ---
-title: "Azure maliyeti yönetim maliyeti yönetim raporları anlama | Microsoft Docs"
-description: "Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur."
+title: Azure maliyeti yönetim maliyeti yönetim raporları anlama | Microsoft Docs
+description: Bu makalede, Cloudyn maliyet yönetim raporları temel yapısını ve işlevlerini anlamanıza yardımcı olur.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 03/07/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: bc2c696dceb3ed4741c10a5c611bd2d438b71bd5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
 

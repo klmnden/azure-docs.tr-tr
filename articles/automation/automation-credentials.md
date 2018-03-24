@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu kimlik bilgisi varlıkları"
-description: "Azure Otomasyonu kimlik bilgisi varlıkları runbook veya DSC yapılandırması tarafından erişilen kaynaklar için kimlik doğrulaması için kullanılan güvenlik kimlik bilgilerini içerir. Bu makalede kimlik bilgisi varlıkları oluşturma ve bir runbook veya DSC yapılandırması kullanın."
+title: Azure Otomasyonu kimlik bilgisi varlıkları
+description: Azure Otomasyonu kimlik bilgisi varlıkları runbook veya DSC yapılandırması tarafından erişilen kaynaklar için kimlik doğrulaması için kullanılan güvenlik kimlik bilgilerini içerir. Bu makalede kimlik bilgisi varlıkları oluşturma ve bir runbook veya DSC yapılandırması kullanın.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: bb6aec41813930cbf74ab989cc4ce6b526b9c6b6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c56758012fc09287d0abb887db9148bd093a678a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Otomasyonu kimlik bilgisi varlıkları
 Bir Otomasyon kimlik bilgisi varlığı tutan bir [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) bir kullanıcı adı ve parola gibi güvenlik kimlik bilgileri içeren bir nesne. Kullanıcı adı ve parola için bazı uygulama veya hizmet kimlik doğrulaması gerektiren sağlamak için PSCredential nesnesinin ayıklamak veya runbook'ları ve DSC yapılandırmaları kimlik doğrulaması için bir PSCredential nesnesi kabul cmdlet'leri kullanabilir. Kimlik bilgileri özellikleri Azure Otomasyonu'nda güvenli bir şekilde depolanır ve runbook veya DSC yapılandırması ile erişilen [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) etkinlik.

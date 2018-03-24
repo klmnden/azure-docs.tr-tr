@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos veritabanı benzersiz anahtarlar | Microsoft Docs"
-description: "Azure Cosmos DB veritabanınızda benzersiz anahtarları kullanmayı öğrenin."
+title: Azure Cosmos veritabanı benzersiz anahtarlar | Microsoft Docs
+description: Azure Cosmos DB veritabanınızda benzersiz anahtarları kullanmayı öğrenin.
 services: cosmos-db
-keywords: "benzersiz anahtar kısıtlaması, benzersiz anahtar kısıtlaması ihlali"
+keywords: benzersiz anahtar kısıtlaması, benzersiz anahtar kısıtlaması ihlali
 author: rafats
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: c530b34edf9bfa0651b7b114dcf7e8add0d906ed
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 0c80ee13298c2c749c5f7eb7e55d1d77a8d6a34e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos veritabanı benzersiz anahtar
 
@@ -42,7 +42,7 @@ Kullanıcıların oluşturmak istiyorsanız birden fazla kayıt aynı aynı ad, 
 |---|---|---|
 |Gaby|Duperre|gaby@contoso.com |
 |Gaby|Duperre|gaby@fabrikam.com|
-|Çalışan Ivan|Duperre|gaby@fabrikam.com|
+|Ivan|Duperre|gaby@fabrikam.com|
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
@@ -58,7 +58,7 @@ Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra ilkeyi ka
 
 Her benzersiz anahtarında en fazla 16 yol değerleri (örneğin /firstName, /lastName, /address/zipCode, vb.) dahil edilebilir. 
 
-Her benzersiz bir anahtar ilke en fazla 10 benzersiz anahtar kısıtlamalarını veya birleşimleri olabilir. Böylece kullanan önceki örnek adı, Soyadı, e-posta adresi yalnızca bir kısıtlamadır ve üç kullanılabilir 16 olası yolları kullanır. 
+Her benzersiz bir anahtar ilke en fazla 10 benzersiz anahtar kısıtlamalarını olabilir veya birleşimleri ve tüm benzersiz dizin özelliklerinin birleşik yolları 60 karakteri aşamaz. Böylece kullanan önceki örnek adı, Soyadı, e-posta adresi yalnızca bir kısıtlamadır ve üç kullanılabilir 16 olası yolları kullanır. 
 
 Birim oluşturmak için güncelleştirme, ücretler ve öğe silme biraz daha yüksek kapsayıcıya ilişkin benzersiz bir anahtar ilke olduğunda isteyin. 
 

@@ -1,10 +1,26 @@
-### <a name="gwipnoconnection"></a>Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
+### <a name="gwipnoconnection"></a> Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
 
 Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için örneği kullanın. Bu değeri değiştirirken aynı zamanda adres ön eklerini de değiştirebilirsiniz.
 
 1. Yerel ağ geçidi kaynağına içinde **ayarları** 'yi tıklatın **yapılandırma**.
 2. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-3. Tıklatın **kaydetmek** ayarları kaydetmek için.
+3. Ayarları kaydetmek için **Kaydet**’e tıklayın.
 
 ### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için
 
@@ -21,7 +37,7 @@ Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlant�
 Aynı zamanda adres ön eklerini de değiştirebilirsiniz.
 
 1. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
-2. Tıklatın **kaydetmek** ayarları kaydetmek için.
+2. Ayarları kaydetmek için **Kaydet**’e tıklayın.
 
 #### <a name="3-recreate-the-connection"></a>3. Bağlantısını yeniden oluşturun.
 

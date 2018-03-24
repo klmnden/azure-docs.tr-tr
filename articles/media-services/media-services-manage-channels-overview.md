@@ -1,26 +1,30 @@
 ---
-title: "Azure Media Services'i kullanarak canlı akış bakış | Microsoft Docs"
-description: "Bu konu Azure Media Services kullanarak canlı akış genel bir bakış sağlar."
+title: Azure Media Services'i kullanarak canlı akış bakış | Microsoft Docs
+description: Bu konu Azure Media Services kullanarak canlı akış genel bir bakış sağlar.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6f500f25129470a679c75cae6cd1abc9d71b72a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 451513c364978348eba922f5cf42b6e6c79f8700
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Azure Media Services'i kullanarak canlı akış genel bakış
+
+> [!NOTE]
+> 12 May 2018 Canlı kanallar başlayarak artık destek RTP/MPEG-2 aktarım akışı alma protokolü. Lütfen RTP/MPEG-2'den RTMP veya parçalanmış MP4'e geçiş (kesintisiz akış) protokolleri alma.
+
 ## <a name="overview"></a>Genel Bakış
 Azure Media Services ile etkinliklerin canlı akış teslim edilirken aşağıdaki bileşenler yaygın olarak kullanılır:
 
@@ -66,7 +70,7 @@ Aşağıdaki tabloda Media Services ile desteklenen iki kanallı türleri karş�
 | Maksimum çözünürlük, Katmanlar sayısı |1080p, 8 Katmanlar 60 + fps |720p, 6 Katmanlar 30 fps |
 | Giriş protokolleri |RTMP, kesintisiz akış |RTMP, kesintisiz akış ve RTP |
 | Fiyat |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) ve "Canlı Video" sekmesini tıklatın |Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/media-services/) |
-| En fazla çalışma süresi |7 x 24 |8 saat |
+| En fazla çalışma süresi |7/24 |8 saat |
 | Maskeleme görüntülerini ekleme desteği |Hayır |Evet |
 | Ad sinyal desteği |Hayır |Evet |
 | Doğrudan CEA 608/708 resim yazıları |Evet |Evet |
@@ -133,8 +137,8 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 
 | Kanal durumu | Portal Arabirimi Göstergeleri | Faturalama mi? |
 | --- | --- | --- |
-| Başlangıç |Başlangıç |Hayır (geçici durum) |
-| Çalışıyor |Hazır (çalışan program yok)<br/>veya<br/>Akış (en az bir program çalışıyor) |EVET |
+| Başlatılıyor |Başlatılıyor |Hayır (geçici durum) |
+| Çalışıyor |Hazır (çalışan program yok)<br/>or<br/>Akış (en az bir program çalışıyor) |EVET |
 | Durduruluyor |Durduruluyor |Hayır (geçici durum) |
 | Durduruldu |Durduruldu |Hayır |
 

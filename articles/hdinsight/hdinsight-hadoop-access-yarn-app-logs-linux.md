@@ -1,11 +1,11 @@
 ---
-title: "Erişim Hadoop YARN uygulama günlüklerini Linux tabanlı Hdınsight üzerinde - Azure | Microsoft Docs"
-description: "YARN uygulama günlükleri komut satırı ve bir web tarayıcısı kullanarak bir Linux tabanlı Hdınsight (Hadoop) kümesine erişim öğrenin."
+title: Erişim Hadoop YARN uygulama günlüklerini Linux tabanlı Hdınsight üzerinde - Azure | Microsoft Docs
+description: YARN uygulama günlükleri komut satırı ve bir web tarayıcısı kullanarak bir Linux tabanlı Hdınsight (Hadoop) kümesine erişim öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
 ms.service: hdinsight
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 5f61e94d37a5e5f958a706f0db82526996a4ec02
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4d3157441777cc7e39c3ede65a6d90a0f9a163aa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Linux tabanlı Hdınsight üzerinde erişim YARN uygulama günlükleri
 
@@ -72,7 +72,7 @@ Belirtin &lt;ApplicationId >, &lt;kullanıcı-kim-başlatıldı--uygulama >, &lt
 
 YARN ResourceManager UI küme headnode üzerinde çalışır. Ambari web kullanıcı Arabirimi erişilir. YARN günlüklerini görüntülemek için aşağıdaki adımları kullanın:
 
-1. Web tarayıcınızda için https://CLUSTERNAME.azurehdinsight.net gidin. CLUSTERNAME Hdınsight kümenizin adıyla değiştirin.
+1. Web tarayıcınızda gidin https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAME Hdınsight kümenizin adıyla değiştirin.
 2. Sol taraftaki Hizmetleri listesinden seçin **YARN**.
 
     ![Seçili yarn hizmeti](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)

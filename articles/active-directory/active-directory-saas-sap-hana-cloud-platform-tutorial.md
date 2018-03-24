@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme SAP bulut platformu ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve SAP bulut platformu arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme SAP bulut platformu ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve SAP bulut platformu arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 309415a68308943f638195303ceb236569519472
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: a578a732efa3d2b91240ef0f4c02670aea8e547f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Öğretici: SAP bulut platformu Azure Active Directory Tümleştirme
 
@@ -32,7 +32,7 @@ SAP bulut platformu Azure AD ile tümleştirme ile aşağıdaki avantajları sa�
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme SAP bulut platformu ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -111,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![SAP bulut platformu etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_sapcloudplatform_url.png)
 
-    a. İçinde **oturum üzerinde URL'si** metin kutusuna, türü URL kullanılan kullanıcılarınız tarafından oturumu açmak için **SAP bulut platformu** uygulama. Korunan bir kaynağa SAP bulut platformu uygulamanızda hesaplarına özgü URL'sidir. URL aşağıdaki desenine dayanır:`https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. İçinde **oturum üzerinde URL'si** metin kutusuna, türü URL kullanılan kullanıcılarınız tarafından oturumu açmak için **SAP bulut platformu** uygulama. Korunan bir kaynağa SAP bulut platformu uygulamanızda hesaplarına özgü URL'sidir. URL aşağıdaki desenine dayanır: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Bu kullanıcının kimlik doğrulamasını gerektirir, SAP bulut platformu uygulamanızda URL'dir.
@@ -177,7 +177,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     f. Olarak **zorla kimlik doğrulama**seçin **devre dışı**.
 
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
 9. Kaydettikten sonra **yerel hizmet sağlayıcısı** ayarlarını, yanıt URL'si edinmek için aşağıdakileri gerçekleştirin:
    
@@ -228,7 +228,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     c. Adları ve değerleri için **asıl özniteliği** ekran görüntüsünde gösterilen uygulama nasıl geliştirilen bağlıdır. Uygulamanızın farklı eşlemeleri gerektirdiği mümkündür.
 
-###<a name="assertion-based-groups"></a>Onaylama işlemi tabanlı grupları
+### <a name="assertion-based-groups"></a>Onaylama işlemi tabanlı grupları
 
 İsteğe bağlı bir adım, Azure Active Directory kimlik sağlayıcısı için onaylama tabanlı grupları yapılandırabilirsiniz.
 
@@ -272,7 +272,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-sap-cloud-platform-test-user"></a>SAP bulut platformu test kullanıcısı oluşturma
 
@@ -294,7 +294,7 @@ SAP bulut platformu oturum açmak Azure AD kullanıcıları etkinleştirmek içi
 
     d. Tıklatın **atamak** kullanıcı role atamak için.
 
-    e. **Kaydet** düğmesine tıklayın.
+    e. **Kaydet**’e tıklayın.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

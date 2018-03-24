@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Linux VM erişimi sıfırlama | Microsoft Docs"
-description: "Yönetici kullanıcıları yönetme ve Linux VM'ler VMAccess uzantısını ve Azure CLI 2.0 kullanarak erişimi sıfırlama"
+title: Bir Azure Linux VM erişimi sıfırlama | Microsoft Docs
+description: Yönetici kullanıcıları yönetme ve Linux VM'ler VMAccess uzantısını ve Azure CLI 2.0 kullanarak erişimi sıfırlama
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 261a9646-1f93-407e-951e-0be7226b3064
 ms.service: virtual-machines-linux
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
-ms.openlocfilehash: 235a6367ad317945cfeaaa6aae4e060208fb8e8e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a5467722b347e68693b335da6b3ac3c5d1a3a441
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Yönetici kullanıcılar, SSH ve onay yönetmek veya Azure CLI 2.0 ile VMAccess uzantısını kullanarak Linux VM'ler disklerde onarın
 Linux VM diskte hata gösteriliyor. Şekilde Linux VM için kök parola sıfırlama veya yanlışlıkla SSH özel anahtarınızı silinemez. Veri Merkezi gün sonra yeniden oluştuysa, sürücü vardır ve sunucu konsolunda almak için KVM açmak gerekir. Azure VMAccess uzantısını erişim için Linux sıfırlamak veya disk düzeyinde bakım gerçekleştirmek için konsol erişmenize olanak tanır, KVM anahtar düşünün.
 
-Bu makalede Azure VMAccess uzantısını denetleyin veya bir disk onarım, kullanıcı erişimi sıfırlama, yönetici kullanıcı hesaplarını yönetme veya Linux üzerinde SSH yapılandırmasını sıfırlamak için nasıl kullanılacağı gösterilmektedir. Bu adımları [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
+Bu makalede Azure VMAccess uzantısını denetleyin veya bir disk onarım, kullanıcı erişimi sıfırlama, yönetici kullanıcı hesaplarını yönetme veya Linux üzerinde SSH yapılandırmasını güncelleştirmek için nasıl kullanılacağı gösterilmektedir. Bu adımları [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>VMAccess uzantısını kullanmanın yolları
@@ -35,8 +35,8 @@ Linux Vm'leriniz VMAccess uzantısını kullanmanın iki yolu vardır:
 
 Aşağıdaki örneklerde [az vm kullanıcı](/cli/azure/vm/user) komutları. Bu adımları gerçekleştirmek için en son gerekir [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/reference-index#az_login).
 
-## <a name="reset-ssh-key"></a>SSH anahtarını Sıfırla
-Aşağıdaki örnekte kullanıcı için SSH anahtarı sıfırlar `azureuser` adlı VM üzerinde `myVM`:
+## <a name="update-ssh-key"></a>SSH anahtarını güncelleştir
+Aşağıdaki örnekte kullanıcı için SSH anahtarını güncelleştirir `azureuser` adlı VM üzerinde `myVM`:
 
 ```azurecli
 az vm user update \
@@ -45,6 +45,8 @@ az vm user update \
   --username azureuser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+> **Not:** `az vm user update` komut ekler için yeni ortak anahtar metin `~/.ssh/authorized_keys` VM üzerinde yönetici kullanıcı için dosya. Bunun yerine veya mevcut bir SSH anahtarınız kaldırın. Bu dağıtım süresini ya da sonraki güncelleştirmeler VMAccess uzantısını aracılığıyla ayarlanan önceki anahtarlar kaldırmaz.
 
 ## <a name="reset-password"></a>Parola sıfırlama
 Aşağıdaki örnek kullanıcının parolasını sıfırlar `azureuser` adlı VM üzerinde `myVM`:
@@ -94,9 +96,9 @@ az vm user delete \
 Aşağıdaki örnekler ham JSON dosyaları kullanın. Kullanım [az vm uzantısı kümesi](/cli/azure/vm/extension#az_vm_extension_set) , JSON dosyalarınızın çağırmak için. Bu JSON dosyaları da Azure şablonlardan çağrılabilir. 
 
 ### <a name="reset-user-access"></a>Kullanıcı erişimi sıfırlama
-Linux VM üzerinde kök dizinine erişim kaybettiyseniz, bir kullanıcının SSH anahtarı veya parolayı sıfırlamak için VMAccess betik başlatabilirsiniz.
+Linux VM üzerinde kök dizinine erişim kaybettiyseniz, bir kullanıcının SSH anahtarı veya parolayı güncelleştirmek için VMAccess betik başlatabilirsiniz.
 
-Kullanıcı SSH ortak anahtarını sıfırlamak için adlı bir dosya oluşturun `reset_ssh_key.json` ve şu biçimde ayarları ekleyin. İçin kendi değerlerinizi yerleştirin `username` ve `ssh_key` Parametreler:
+Kullanıcı SSH ortak anahtarını güncelleştirmek için adlı bir dosya oluşturun `update_ssh_key.json` ve şu biçimde ayarları ekleyin. İçin kendi değerlerinizi yerleştirin `username` ve `ssh_key` Parametreler:
 
 ```json
 {
@@ -114,7 +116,7 @@ az vm extension set \
   --name VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.4 \
-  --protected-settings reset_ssh_key.json
+  --protected-settings update_ssh_key.json
 ```
 
 Bir kullanıcı parolasını sıfırlamak için adlı bir dosya oluşturun `reset_user_password.json` ve şu biçimde ayarları ekleyin. İçin kendi değerlerinizi yerleştirin `username` ve `password` Parametreler:

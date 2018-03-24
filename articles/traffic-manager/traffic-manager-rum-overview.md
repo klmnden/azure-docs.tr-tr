@@ -1,31 +1,28 @@
 ---
-title: "Gerçek kullanıcı ölçümleri Azure trafik Yöneticisi'nde | Microsoft Docs"
-description: "Gerçek kullanıcı ölçümleri trafik Yöneticisi'nde giriş"
+title: Gerçek kullanıcı ölçümleri Azure trafik Yöneticisi'nde | Microsoft Docs
+description: Gerçek kullanıcı ölçümleri trafik Yöneticisi'nde giriş
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: a7e8ae605b6234341d9ab8b790f4c54d8627f29f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 4e8d808d65c9898d230455d128e3ffc50db303d6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="traffic-manager-real-user-measurements-overview"></a>Trafik Yöneticisi gerçek kullanıcı ölçümleri genel bakış
-
->[!NOTE]
->Trafik Yöneticisi'nde gerçek kullanıcı ölçümleri özellik genel önizlemede ve genel kullanılabilirlik özellikleri sürüm gibi aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Özellik desteklenmiyor, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure trafik Yöneticisi'ni güncelleştirir](https://azure.microsoft.com/updates/?product=traffic-manager) sayfası.
 
 Performans yönlendirme yöntemini kullanmak için bir trafik Yöneticisi profili ayarladığınızda, hizmet burada DNS sorgu isteği'ten gelen ve bu istek sahipleri en düşük gecikme sağlar Azure bölgesine yönlendirmek için yönlendirme kararlarını verir bakar. Bu trafik Yöneticisi için farklı son kullanıcı ağları tutar ağ gecikmesi Intelligence yararlanarak gerçekleştirilir.
 

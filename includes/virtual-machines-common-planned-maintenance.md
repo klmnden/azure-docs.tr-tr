@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 193003cef0aed464596e913c0df86e6123292b9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e484dac645ff2e5867d2e652c389a9950e8bac12
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 Azure güvenilirliği, performansı ve sanal makineler için konak altyapısının güvenliğini artırmak için güncelleştirmeleri düzenli olarak gerçekleştirir. Bu güncelleştirmeleri aralığı (örneğin, işletim sistemi, hiper yönetici ve konakta dağıtılan çeşitli aracılar), bir barındırma ortamında yazılım bileşenleri düzeltme eki uygulama gelen donanım yetkisini için ağ bileşenleri yükseltiliyor. Bu güncelleştirmeler çoğunluğu barındırılan sanal makineler için herhangi bir etkisi olmadan gerçekleştirilir. Ancak, güncelleştirmeler bir etkiye sahip olduğu durumlar vardır:
 
-- Bakım yeniden başlatma gerektirmez, Azure VM konak güncelleştirilirken duraklatmak için yerinde geçiş kullanır.
+- Bir yeniden başlatma daha az güncelleştirmesi olası ise, Azure VM konak güncelleştirilmiş ya da VM zaten güncelleştirilmiş bir ana bilgisayara tamamen taşınır duraklatmak için bakım koruma bellek kullanır.
 
 - Bakım bir yeniden başlatma gerektirirse, ne zaman bunu planlı bakım, bir bildirim alın. Bu durumlarda, ayrıca bakım kendiniz, uygun bir zaman başlayabileceğiniz bir zaman penceresi verilir.
 
@@ -24,15 +24,15 @@ Bu sayfa Microsoft Azure bakım her iki tür nasıl gerçekleştireceğini açı
 
 Bir sanal makinede çalışan uygulamalar için Azure meta veri hizmeti kullanarak gelecek güncelleştirmeleri hakkında bilgi toplayabilir [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) veya [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md).
 
-"Nasıl yapılır" yönetme planlanan maintence üzerinde "İşleme planlı bakım bildirimleri" için bilgi için [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+Planlı bakım yönetme "nasıl yapılır" için "İşleme planlı bakım bildirimleri" için bilgi [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
 
-## <a name="in-place-vm-migration"></a>Yerinde VM geçiş
+## <a name="memory-preserving-maintenance"></a>Bakım koruma bellek
 
-Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bir yerinde dinamik geçiş kullanılır. Güncelleştirme sırasında yaklaşık 30 barındırma ortamı gerekli güncelleştirmeleri ve düzeltme eklerini uygularken RAM bellek koruma saniye için sanal makine duraklatıldı. Sanal makine sonra sürdürülür ve sanal makine saati otomatik olarak eşitlenir.
+Güncelleştirmeleri tam bir yeniden başlatma gerektirmez, bellek koruma bakım mekanizmaları sanal makine etkisini sınırlamak için kullanılır. Sanal makine en fazla 30 barındırma ortamı gerekli güncelleştirmeleri ve düzeltme eklerini geçerlidir ya da VM zaten güncelleştirilmiş bir ana bilgisayara taşır RAM bellek koruma saniye duraklatıldı. Sanal makine sonra sürdürülür ve sanal makine saati otomatik olarak eşitlenir. 
 
 Kullanılabilirlik kümelerinde VM'ler için güncelleştirilmiş birer birer güncelleştirme etki alanlarıdır. Bir güncelleştirme etki alanında (UD) tüm sanal makineleri duraklatıldı, güncelleştirilmiş ve planlı bakım için sonraki UD taşıyan önce sonra sürdürüldü.
 
-Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları 30 saniyelik duraklamalar tolerans için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> 
+Bazı uygulamalar, bu tür güncelleştirmeler tarafından etkilenebilir. Gerçek zamanlı Olay işleme, akış veya kod veya yüksek verimlilik senaryoları, ağ gibi gerçekleştiren uygulamaları 30 saniyelik duraklamalar tolerans için tasarlanmamış olabilir. <!-- sooooo, what should they do? --> VM taşımak için farklı bir konak olması durumunda, bazı önemli iş yükleri için sanal makine duraklatma baştaki birkaç dakika içinde küçük bir performans düşüşü görebilirsiniz. 
 
 
 ## <a name="maintenance-requiring-a-reboot"></a>Yeniden başlatma gerektiren bakım
@@ -47,9 +47,11 @@ Self Servis bakım başlatın ve işlemi sırasında bir hata ise, işlem durdur
 
 Self Servis penceresi geçtiğinde **zamanlanmış bakım penceresi** başlar. Bu zaman penceresi sırasında hala sorgu için bakım penceresi, ancak artık bakım kendiniz başlatılamaz.
 
+Görmek için yeniden başlatma gerektiren bakım yönetme hakkında daha fazla bilgi için "İşleme planlı bakım bildirimleri" [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) veya [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+
 ## <a name="availability-considerations-during-planned-maintenance"></a>Planlı bakım sırasında kullanılabilirlik konuları 
 
-Planlı Bakım penceresini beklemek karar verirseniz, VM'lerin yüksek availabilty sürdürmek için dikkate alınması gereken birkaç şey vardır. 
+Planlı Bakım penceresini beklemek karar verirseniz, Vm'leriniz için en yüksek kullanılabilirliği sürdürmek için dikkate alınması gereken birkaç nokta vardır. 
 
 ### <a name="paired-regions"></a>Eşleştirilmiş bölgeleri
 

@@ -1,11 +1,11 @@
 ---
-title: "Veri kopyalama/Data Factory kullanarak Azure SQL veri ambarından | Microsoft Docs"
-description: "Azure SQL Data Warehouse için desteklenen kaynak depoları (veya) SQL veri ambarından veri kopyalamak için desteklenen havuz depoları Data Factory kullanarak öğrenin."
+title: Veri kopyalama/Data Factory kullanarak Azure SQL veri ambarından | Microsoft Docs
+description: Azure SQL Data Warehouse için desteklenen kaynak depoları (veya) SQL veri ambarından veri kopyalamak için desteklenen havuz depoları Data Factory kullanarak öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 2601d386bdacbe005b2930a44db531a0b58fb7b5
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 5d284277f600465345be0058468192f2f5609d89
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarından veri kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -375,10 +375,10 @@ PolyBase SQL Data Warehouse sonraki bölümünden verimli bir şekilde yüklemek
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'a veri yüklemek için Polybase'i kullanın
 
-Kullanarak  **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)**  büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yükleme etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak büyük kazanç verimliliği de görebilirsiniz. Bkz: [kopyalama performans başvuru numarası](copy-activity-performance.md#performance-reference) ayrıntılı karşılaştırması ile. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](connector-azure-sql-data-warehouse.md).
+Kullanarak **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yükleme etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak büyük kazanç verimliliği de görebilirsiniz. Bkz: [kopyalama performans başvuru numarası](copy-activity-performance.md#performance-reference) ayrıntılı karşılaştırması ile. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](connector-azure-sql-data-warehouse.md).
 
-* Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve biçimini PolyBase ile uyumlu ise, doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Bkz:  **[Polybase'i kullanarak doğrudan kopyalama](#direct-copy-using-polybase)**  ayrıntılarla.
-* Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase tarafından kullanabileceğiniz  **[Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase)**  yerine özellik. Ayrıca, daha iyi verim otomatik olarak veri PolyBase uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob depolama alanına veri depolayarak sağlar. Ardından verileri SQL Data Warehouse'a veri yükler.
+* Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve biçimini PolyBase ile uyumlu ise, doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Bkz: **[Polybase'i kullanarak doğrudan kopyalama](#direct-copy-using-polybase)** ayrıntılarla.
+* Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase tarafından kullanabileceğiniz **[Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase)** yerine özellik. Ayrıca, daha iyi verim otomatik olarak veri PolyBase uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob depolama alanına veri depolayarak sağlar. Ardından verileri SQL Data Warehouse'a veri yükler.
 
 > [!IMPORTANT]
 > Not PolyBase, Azure SQL veri ambarı SQL authentcation ancak değil Azure Active Directory kimlik doğrulaması yalnızca destekler.
@@ -395,7 +395,7 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
 1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore** hizmet asıl kimlik doğrulamasına sahip.
 2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStoreFile**ve altında yazın biçimi `type` özellikleri **OrcFormat** , **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
 
-   1. `rowDelimiter` olmalıdır  **\n** .
+   1. `rowDelimiter` olmalıdır **\n**.
    2. `nullValue` ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
    3. `encodingName` ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
@@ -510,7 +510,7 @@ Kaynak verileri satır boyutu 1 MB'tan fazla ile varsa, kaynak tabloları dikey 
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL veri ambarı kaynak sınıfı
 
-Olası en iyi verime ulaşmak için PolyBase aracılığıyla SQL veri ambarında verileri yüklemek için kullanılan kullanıcı büyük kaynak sınıfı atamak için göz önünde bulundurun. Aşağıdaki kullanarak bunu öğrenin [kullanıcı kaynak sınıfı örneğini değiştirmek](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example).
+Olası en iyi verime ulaşmak için daha büyük bir kaynak sınıfı PolyBase aracılığıyla SQL veri ambarında verileri yüklemek için kullanılan kullanıcı atama göz önünde bulundurun.
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tableName
 

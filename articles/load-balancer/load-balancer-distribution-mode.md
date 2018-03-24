@@ -1,6 +1,6 @@
 ---
-title: "Azure yük dengeleyici dağıtım modunu yapılandırmak | Microsoft Docs"
-description: "Kaynak IP benzeşimini desteklemek Azure yük dengeleyici için dağıtım modunu yapılandırmak nasıl."
+title: Azure yük dengeleyici dağıtım modunu yapılandırmak | Microsoft Docs
+description: Kaynak IP benzeşimini desteklemek Azure yük dengeleyici için dağıtım modunu yapılandırmak nasıl.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Dağıtım modunu Azure yük dengeleyici için yapılandırma
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>Karma tabanlı dağıtım modu
 

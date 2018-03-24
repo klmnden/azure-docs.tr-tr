@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN kuralları altyapısı özellikleri | Microsoft Docs"
-description: "Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları."
+title: Azure CDN kuralları altyapısı özellikleri | Microsoft Docs
+description: Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 949b957716af2d7dfd704b4fca48afb78d0fed1e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -46,28 +46,28 @@ Bu özellikler, ne zaman ve nasıl içeriğin önbellekte özelleştirmek için 
 Ad | Amaç
 -----|--------
 [Bant genişliği parametreleri](#bandwidth-parameters) | Bant genişliği azaltma parametreler (örneğin, ec_rate ve ec_prebuf) etkin olup olmadığını belirler.
-[Bant genişliği azaltma](#bandwidth-throttling) | Edge sunucuları tarafından sağlanan yanıt için bant genişliği kısıtlar.
+[Bant genişliği azaltma](#bandwidth-throttling) | Noktası bulunma tarafından (POP) sağlanan yanıt için bant genişliği kısıtlar.
 [Önbelleği atlama](#bypass-cache) | İstek önbelleğe almayı Atla gerekmediğini belirler.
-[Cache-Control üstbilgisi işleme](#cache-control-header-treatment) | Nesil denetimleri `Cache-Control` dış Max-Age özelliği etkin olduğunda uç sunucusu tarafından üstbilgileri.
+[Cache-Control üstbilgisi işleme](#cache-control-header-treatment) | Nesil denetimleri `Cache-Control` dış Max-Age özelliği etkin olduğunda POP tarafından üstbilgileri.
 [Önbellek anahtarı sorgu dizesi](#cache-key-query-string) | Önbellek anahtarını içerir veya dışlar bir istekle ilişkili sorgu dizesi parametreleri belirler.
 [Önbellek anahtarı yeniden yazma](#cache-key-rewrite) | Bir istekle ilişkili önbellek anahtarını yeniden yazar.
-[Önbellek dolgu tamamlayın](#complete-cache-fill) | Uç sunucusunda isteği sonuçları yokken Kısmi önbellek isabetsizliği ne olacağını belirler.
+[Önbellek dolgu tamamlayın](#complete-cache-fill) | POP üzerinde istek sonuçları yokken Kısmi önbellek isabetsizliği ne olacağını belirler.
 [Sıkıştırma dosya türleri](#compress-file-types) | Sıkıştırılmış dosya için dosya biçimlerini sunucuda tanımlar.
-[Varsayılan iç Max-Age](#default-internal-max-age) | Kaynak sunucu önbelleği yeniden doğrulanması için uç sunucusu için varsayılan max-age aralığı belirler.
-[Üstbilgi işleme süresi](#expires-header-treatment) | Nesil denetimleri `Expires` dış Max-Age özelliği etkinken bir uç sunucusu tarafından üstbilgileri.
-[Dış Maksimum yaş](#external-max-age) | Edge sunucusu önbellek COLLECTION tarayıcıya max-age aralığını belirler.
-[İç Max-Age zorla](#force-internal-max-age) | Kaynak sunucu önbelleği COLLECTION uç sunucuya, max-age aralığını belirler.
+[Varsayılan iç Max-Age](#default-internal-max-age) | Varsayılan, max-age aralığı POP için kaynak sunucusu önbellek COLLECTION belirler.
+[Üstbilgi işleme süresi](#expires-header-treatment) | Nesil denetimleri `Expires` dış Max-Age özelliği etkin olduğunda POP tarafından üstbilgileri.
+[Dış Maksimum yaş](#external-max-age) | POP önbellek COLLECTION tarayıcıya max-age aralığını belirler.
+[İç Max-Age zorla](#force-internal-max-age) | Max-age aralığı POP için kaynak sunucusu önbellek COLLECTION belirler.
 [H.264 desteği (HTTP aşamalı indirme)](#h264-support-http-progressive-download) | İçerik akışını sağlamak için kullanılabilir H.264 dosya biçimleri türlerini belirler.
 [Uy No Cache isteği](#honor-no-cache-request) | Bir HTTP istemcinin no-cache istekleri kaynak sunucuya iletilip iletilmeyeceğini belirler.
 [Kaynak No-Cache yoksay](#ignore-origin-no-cache) | CDN bir kaynak sunucudan sunulan belirli yönergeleri yoksayar olup olmadığını belirler.
 [Unsatisfiable aralıkları yoksay](#ignore-unsatisfiable-ranges) | Bir istek 416 İstenen aralık değil sağlanabilir durum kodu oluşturduğunda istemcilere döndürülen yanıt belirler.
-[İç Max-eski](#internal-max-stale) | Uç sunucu kaynak sunucu ile önbelleğe alınmış varlık düzeltin erişemediğinde bir kenar sunucusundan denetimleri normal sona erme süresini geçen ne kadar süreyle önbelleğe alınan varlık hizmet edilebilir.
+[İç Max-eski](#internal-max-stale) | POP kaynak sunucu ile önbelleğe alınmış varlık düzeltin erişemediğinde POP denetimleri normal sona erme süresini geçen ne kadar süreyle önbelleğe alınan varlık hizmet edilebilir.
 [Kısmi önbellek paylaşımı](#partial-cache-sharing) | İstek kısmen önbelleğe alınmış içeriği oluşturmak olup olmadığını belirler.
 [Önbelleğe alınmış içeriği prevalidate](#prevalidate-cached-content) | TTL'si süresi dolmadan önce önbelleğe alınmış içeriği erken yeniden doğrulanması için uygun olup olmadığını belirler.
-[Sıfır bayt önbellek dosyaları Yenile](#refresh-zero-byte-cache-files) | 0-bayt önbellek varlık için bir HTTP istemcinin isteğini kenar sunucuları tarafından nasıl işleneceğini belirler.
+[Sıfır bayt önbellek dosyaları Yenile](#refresh-zero-byte-cache-files) | 0-bayt önbellek varlık için bir HTTP istemcinin isteğini POP tarafından nasıl işleneceğini belirler.
 [Önbelleğe alınabilir durum kodları](#set-cacheable-status-codes) | Önbelleğe alınmış içeriği sonuçlanabilir durum kodları kümesini tanımlar.
 [Eski içerik teslim hata](#stale-content-delivery-on-error) | İstenen içerik müşteri kaynak sunucudan alınırken bir hata önbellek yeniden doğrulanması sırasında veya ortaya çıktığında önbelleğe alınan içerik teslim süresi olup olmadığını belirler.
-[Revalidate sırasında eski](#stale-while-revalidate) | Eski istemci yeniden doğrulanması gerçekleştirilirken istemciye hizmet uç sunucuların sağlayarak performansı geliştirir.
+[Revalidate sırasında eski](#stale-while-revalidate) | POP COLLECTION gerçekleştirilirken eski istemci istemciye hizmet sağlayarak performansı geliştirir.
 
 ## <a name="comment-feature"></a>Açıklama özelliği
 
@@ -110,7 +110,7 @@ Name | Purpose
 Edge Optimizer | Determines whether Edge Optimizer can be applied to a request.
 Edge Optimizer – Instantiate Configuration | Instantiates or activates the Edge Optimizer configuration associated with a site.
 
-###Edge Optimizer
+### Edge Optimizer
 **Purpose:** Determines whether Edge Optimizer can be applied to a request.
 
 If this feature has been enabled, then the following criteria must also be met before the request will be processed by Edge Optimizer:
@@ -128,7 +128,7 @@ Disabled|Restores the default behavior. The default behavior is to deliver conte
 **Default Behavior:** Disabled
  
 
-###Edge Optimizer - Instantiate Configuration
+### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
 
 This feature requires the ADN platform and the Edge Optimizer feature.
@@ -151,7 +151,7 @@ Bu özellikler, CDN kaynak sunucu ile nasıl iletişim kurduğu denetlemek için
 Ad | Amaç
 -----|--------
 [En fazla tutma isteği](#maximum-keep-alive-requests) | Kapalı olduğu önce en fazla istek tutma bağlantı sayısını tanımlar.
-[Proxy özel üstbilgileri](#proxy-special-headers) | Kaynak sunucu için bir sınır sunucusundan iletilen CDN özgü istek üstbilgileri kümesini tanımlar.
+[Proxy özel üstbilgileri](#proxy-special-headers) | POP bir kaynak sunucuya iletilir CDN özgü istek üstbilgileri kümesini tanımlar.
 
 
 ## <a name="specialty-features"></a>Özel Özellikler
@@ -201,8 +201,8 @@ Bant genişliği azaltma parametreleri, bir istemcinin isteğini için veri akta
 
 Değer|Sonuç
 --|--
-Etkin|Bant genişliği azaltma isteklerini kabul etmeniz uç sunucuların sağlar.
-Devre dışı|Bant genişliği azaltma parametreleri yoksaymak uç sunucuların neden olur. İstenen içerik normalde hizmet (diğer bir deyişle, bant genişliği azaltma olmadan).
+Etkin|Bant genişliği azaltma isteklerini kabul etmeniz POP sağlar.
+Devre dışı|Bant genişliği azaltma parametreleri yoksaymak POP neden olur. İstenen içerik normalde hizmet (diğer bir deyişle, bant genişliği azaltma olmadan).
 
 **Varsayılan davranış:** etkin.
  
@@ -212,14 +212,14 @@ Devre dışı|Bant genişliği azaltma parametreleri yoksaymak uç sunucuların 
 
 ---
 ### <a name="bandwidth-throttling"></a>Bant genişliği azaltma
-**Amaç:** kenar sunucuları tarafından sağlanan yanıt için bant genişliği kısıtlar.
+**Amaç:** POP tarafından sağlanan yanıt için bant genişliği kısıtlar.
 
 Aşağıdaki seçeneklerden her ikisinin bant genişliği azaltma yukarı doğru şekilde ayarlamak için tanımlanmalıdır.
 
 Seçenek|Açıklama
 --|--
 KB / saniye|Bu seçeneği yanıt sunmak için kullanılabilecek en fazla bant genişliğiyle (Kb / saniye) ayarlayın.
-Prebuf saniye|Bu seçeneği uç sunucuları için bant genişliği daraltma kadar beklenecek saniye sayısını ayarlayın. Bu süre sınırsız bant genişliği amacı, bant genişliği azaltma nedeniyle görüntüsü gidip gelir veya arabelleğe alma sorunları yaşayan bir medya oynatıcı engellemektir.
+Prebuf saniye|POP bant genişliği daraltma kadar beklenecek saniye sayısı için bu seçeneği belirleyin. Bu süre sınırsız bant genişliği amacı, bant genişliği azaltma nedeniyle görüntüsü gidip gelir veya arabelleğe alma sorunları yaşayan bir medya oynatıcı engellemektir.
 
 **Varsayılan davranış:** devre dışı bırakılmış.
 
@@ -233,8 +233,8 @@ Prebuf saniye|Bu seçeneği uç sunucuları için bant genişliği daraltma kada
 
 Değer|Sonuç
 --|--
-Etkin|İçerik, daha önce uç sunucularda önbelleğe olsa bile kaynak sunucuya atlayabilir tüm istekleri neden olur.
-Devre dışı|Uç sunucuların önbellek varlıklar, yanıt üstbilgilerini tanımlanmış önbellek İlkesi göre neden olur.
+Etkin|İçerik, daha önce üzerinde POP önbelleğe olsa bile kaynak sunucuya atlayabilir tüm istekleri neden olur.
+Devre dışı|POP önbellek varlıklar, yanıt üstbilgilerini tanımlanmış önbellek İlkesi göre neden olur.
 
 **Varsayılan davranış:**
 
@@ -289,7 +289,7 @@ Anahtar bilgileri:
 
 ---
 ### <a name="cache-control-header-treatment"></a>Cache-Control üstbilgisi işleme
-**Amaç:** oluşturulmasını denetler `Cache-Control` dış Max-Age özelliği etkin olduğunda uç sunucusu tarafından üstbilgileri.
+**Amaç:** oluşturulmasını denetler `Cache-Control` dış Max-Age özelliği etkin olduğunda POP tarafından üstbilgileri.
 
 Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve Cache-Control üstbilgisi işleme özellikleri aynı deyiminde yerleştirmektir.
 
@@ -415,9 +415,9 @@ Anahtar bilgileri:
 
 ---
 ### <a name="complete-cache-fill"></a>Önbellek dolgu tamamlayın
-**Amaç:** Kısmi önbellek isabetsizliği bir uç sunucusu üzerinde bir istek sonuçlanır ne olacağını belirler.
+**Amaç:** Kısmi önbellek isabetsizliği POP üzerinde bir istek sonuçlanır ne olacağını belirler.
 
-Kısmi önbellek isabetsizliği tamamen bir uç sunucusu yüklenmedi bir varlık için önbellek durumunu açıklar. Bir varlığı kısmen uç sunucusunda önbelleğe alınmışsa, varlık için bir sonraki istekte yeniden kaynak sunucuya iletilir.
+Kısmi önbellek isabetsizliği tamamen POP'a yüklenmedi bir varlık için önbellek durumunu açıklar. Bir varlık üzerinde POP yalnızca kısmen önbelleğe alınmışsa, bu varlık için bir sonraki istekte yeniden kaynak sunucuya iletilir.
 <!---
 This feature is not available for the ADN platform. The typical traffic on this platform consists of relatively small assets. The size of the assets served through these platforms helps mitigate the effects of partial cache misses, since the next request will typically result in the asset being cached on that POP.
 
@@ -430,8 +430,8 @@ Hangi önbelleğinde ayarları izlenir şekilde nedeniyle, bu özellik aşağıd
 
 Değer|Sonuç
 --|--
-Etkin|Varsayılan davranışını geri yükler. Varlık kaynak sunucusundan bir arka planda getirmeye başlatmak için uç sunucusunu zorlamak için varsayılan davranıştır. Sonrasında, varlık kenar sunucunun yerel önbellekteki olacaktır.
-Devre dışı|Bir uç sunucusu, varlık için bir arka planda getirmeye gerçekleştirmesini engeller. Sonuç, bu bölgedeki bu varlık için bir sonraki istekte müşteri kaynak sunucudan istemek bir uç sunucusu neden olur.
+Etkin|Varsayılan davranışını geri yükler. Varlık kaynak sunucusundan bir arka planda getirmeye başlatmak için POP zorlamak için varsayılan davranıştır. Sonrasında, varlık POP'ın yerel önbellekteki olacaktır.
+Devre dışı|POP varlık için bir arka planda getirmeye gerçekleştirmesini engeller. Sonuç, bu bölgedeki bu varlık için bir sonraki istekte müşteri kaynak sunucudan istemek POP neden olur.
 
 **Varsayılan davranış:** etkin.
 
@@ -523,14 +523,14 @@ Devre dışı|X EC Debug yanıt üstbilgisi yanıttan edilmeyecek.
 
 ---
 ### <a name="default-internal-max-age"></a>Varsayılan iç Max-Age
-**Amaç:** uç sunucu kaynak sunucu önbelleği yeniden doğrulanması için varsayılan Maksimum yaş aralığını belirler. Diğer bir deyişle, bir uç sunucusu önce geçecek süreyi önbelleğe alınmış bir varlık kaynak sunucuda depolanan varlık eşleşip eşleşmediğini kontrol eder.
+**Amaç:** varsayılan max-age aralığı POP için kaynak sunucusu önbellek COLLECTION belirler. Diğer bir deyişle, POP önce geçecek süreyi önbelleğe alınmış bir varlık kaynak sunucuda depolanan varlık eşleşip eşleşmediğini kontrol eder.
 
 Anahtar bilgileri:
 
 - Bu eylem yalnızca yanıtlar için bir kaynak sunucudan bir max-age göstergesi atamadığınız gerçekleşecek `Cache-Control` veya `Expires` üstbilgi.
 - Bu eylem bağlantısı alınabilir olarak kabul edilen olmayan varlıklar için olmayacaktır.
-- Bu eylem, kenar sunucusu önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` veya `Expires` dış Max-Age özelliğiyle özelleştirilebilir tarayıcıya gönderilen üstbilgileri.
-- Bu eylem sonuçlarını bir observable yanıt üstbilgileri üzerinde etkisi ve içeriğiniz için uç sunuculardan içerik döndürdü, ancak kaynak sunucunuz uç sunuculardan gönderilen COLLECTION trafik miktarı üzerinde bir etkisi olabilir.
+- Bu eylem, POP önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` veya `Expires` dış Max-Age özelliğiyle özelleştirilebilir tarayıcıya gönderilen üstbilgileri.
+- Bu eylem sonuçlarını bir observable yanıt üstbilgileri ve içeriğiniz için POP döndürülen içeriği üzerindeki etkisi, ancak kaynak sunucunuz POP gönderilen COLLECTION trafik miktarı üzerinde bir etkisi olabilir.
 - Bu özellik tarafından yapılandırın:
     - Bir varsayılan iç Maksimum yaş uygulanabilir durum kodu seçme.
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer varsayılan iç max-age aralığı tanımlar.
@@ -571,7 +571,7 @@ Devre dışı| Varsayılan davranışını geri yükler. Döndürülecek yanıt 
 
 ---
 ### <a name="expires-header-treatment"></a>Üstbilgi işleme süresi
-**Amaç:** oluşturulmasını denetler `Expires` dış Max-Age özelliği etkinken bir uç sunucusu tarafından üstbilgileri.
+**Amaç:** oluşturulmasını denetler `Expires` dış Max-Age özelliği etkin olduğunda POP tarafından üstbilgileri.
 
 Bu tür bir yapılandırma elde etmek için en kolay yolu dış Max-Age ve üstbilgisi işleme süresi özellikleri aynı deyiminde yerleştirmektir.
 
@@ -590,15 +590,15 @@ Kaldır| Sağlar bir `Expires` başlık üstbilgisi Yanıtla dahil değildir. Va
 
 ---
 ### <a name="external-max-age"></a>Dış Maksimum yaş
-**Amaç:** uç sunucusu önbellek COLLECTION tarayıcıya max-age aralığını belirler. Diğer bir deyişle, bir tarayıcı önce geçecek süreyi uç sunucusundan bir varlığı yeni bir sürümünü denetleyebilir.
+**Amaç:** POP önbellek COLLECTION tarayıcıya max-age aralığını belirler. Diğer bir deyişle, bir tarayıcı önce geçecek süreyi POP öğesinden bir varlık yeni bir sürümünü denetleyebilir.
 
-Bu özelliği etkinleştirmek oluşturacağını `Cache-Control: max-age` ve `Expires` uç sunuculardan üstbilgileri ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucu tarafından oluşturulanlar üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
+Bu özelliği etkinleştirmek oluşturacağını `Cache-Control: max-age` ve `Expires` POP üstbilgileri ve HTTP istemciye göndermek. Varsayılan olarak, bu üstbilgileri kaynak sunucu tarafından oluşturulanlar üzerine yazar. Ancak, Cache-Control üstbilgisi işleme ve üstbilgisi işleme süresi özellikleri bu davranışı değiştirmek için kullanılabilir.
 
 Anahtar bilgileri:
 
-- Bu eylem, kaynak sunucu önbelleği revalidations uç sunucuya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` ve `Expires` üstbilgi kaynak sunucudan alınan ve varsayılan iç Max-Age ve zorla iç Max-Age özelliklerle özelleştirilebilir.
+- Bu eylem, kaynak sunucu önbelleği revalidations POP etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` ve `Expires` üstbilgi kaynak sunucudan alınan ve varsayılan iç Max-Age ve zorla iç Max-Age özelliklerle özelleştirilebilir.
 - Bu özellik bir tamsayı değeri belirterek ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçerek yapılandırın.
-- Bu özelliği negatif bir değere ayarlama neden göndermek uç sunucuların bir `Cache-Control: no-cache` ve bir `Expires` her yanıtı tarayıcıya ile geçmişte ayarlamak zaman. Bir HTTP istemci yanıt önbelleğe almaz karşın, bu ayar uç sunucuların kaynak sunucudan yanıt önbelleğe alma yeteneğini etkilemez.
+- Neden olan POP göndermek bu özelliği negatif bir değere ayarlama bir `Cache-Control: no-cache` ve bir `Expires` her yanıtı tarayıcıya ile geçmişte ayarlamak zaman. Bir HTTP istemci yanıt önbelleğe almaz karşın, bu ayar POP kaynak sunucudan yanıt önbelleğe alma yeteneğini etkilemez.
 - Zaman birimi "Off" ayarı, bu özellik devre dışı bırakır. `Cache-Control` Ve `Expires` kaynak sunucunun yanıt ile önbelleğe alınmış üstbilgileri geçecek aracılığıyla tarayıcıya.
 
 **Varsayılan davranış:** devre dışı
@@ -628,13 +628,13 @@ Devre dışı|İstekleri yönlendirilir değil.
 
 ---
 ### <a name="force-internal-max-age"></a>İç Max-Age zorla
-**Amaç:** uç sunucu kaynak sunucu önbelleği yeniden doğrulanması için max-age aralığını belirler. Diğer bir deyişle, bir uç sunucusu önce geçecek süreyi önbelleğe alınmış bir varlık kaynak sunucuda depolanan varlık eşleşip eşleşmediğini kontrol edebilirsiniz.
+**Amaç:** , max-age aralığı POP için kaynak sunucusu önbellek COLLECTION belirler. Diğer bir deyişle, POP önce geçecek süreyi önbelleğe alınmış bir varlık kaynak sunucuda depolanan varlık eşleşip eşleşmediğini kontrol edebilirsiniz.
 
 Anahtar bilgileri:
 
 - Bu özellik, max-age aralığı içinde tanımlı geçersiz kılar `Cache-Control` veya `Expires` bir kaynak sunucudan oluşturulan üstbilgileri.
-- Bu özellik, kenar sunucusu önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` veya `Expires` tarayıcıya gönderilen üstbilgileri.
-- Bu özellik yanıtta bir uç sunucusu tarafından istemciye teslim observable bir etkisi yoktur. Bununla birlikte, uç sunuculardan kaynak sunucuya gönderilen COLLECTION trafik miktarı üzerinde bir etkisi olabilir.
+- Bu özellik, POP önbellek revalidations tarayıcıya etkilemez. Bu tür revalidations tarafından belirlenen `Cache-Control` veya `Expires` tarayıcıya gönderilen üstbilgileri.
+- Bu özellik tarafından POP istemciye teslim yanıtta observable bir etkisi yoktur. Bununla birlikte, POP kaynak sunucuya gönderilen COLLECTION trafik miktarı üzerinde bir etkisi olabilir.
 - Bu özellik tarafından yapılandırın:
     - Bir iç max-age uygulanır durum kodu seçme.
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer isteğin, max-age aralığı tanımlar.
@@ -678,10 +678,10 @@ HTTP istemcisi gönderdiğinde no-cache isteği gerçekleştiği bir `Cache-Cont
 
 Değer|Sonuç
 --|--
-Etkin|Kaynak sunucusuna yönlendirmek için bir HTTP istemcinin no-önbellek ister ve kaynak sunucunun yanıt üstbilgileri ve uç sunucusu üzerinden gövde HTTP istemciye döndürülecek sağlar.
+Etkin|Kaynak sunucusuna yönlendirmek için bir HTTP istemcinin no-önbellek ister ve kaynak sunucunun yanıt üstbilgileri ve gövde POP aracılığıyla HTTP istemciye döndürülecek sağlar.
 Devre dışı|Varsayılan davranışını geri yükler. Kaynak sunucusuna iletilen no-cache isteklerini engellemek için varsayılan davranıştır.
 
-Tüm üretim trafiği için bu özellik devre dışı varsayılan durumundayken bırakmayı kullanmamanız önerilir. Aksi halde, kaynak sunucuları birçok Hayır önbellek isteği web sayfaları yenilerken yanlışlıkla tetikleyebilir son kullanıcılar veya no-cache üstbilgisi video her istek ile göndermek için kodlanmış birçok popüler medya oynatıcıları tam korumalı değil. Bununla birlikte, bu özellik belirli hazırlama veya isteğe bağlı kaynak sunucudan alınmasını yeni içerik izin vermek üzere dizinleri, sınama üretim dışı uygulamak yararlı olabilir.
+Tüm üretim trafiği için bu özellik devre dışı varsayılan durumundayken bırakmayı kullanmamanız önerilir. Aksi halde, kaynak sunucuları son kullanıcılardan, web sayfaları yenilerken birçok Hayır önbellek isteği yanlışlıkla tetikleyebilir veya no-cache üstbilgisi video her istek ile göndermek için kodlanmış birçok popüler medya oynatıcıları tam korumalı değil. Bununla birlikte, bu özellik belirli hazırlama veya isteğe bağlı kaynak sunucudan alınmasını yeni içerik izin vermek üzere dizinleri, sınama üretim dışı uygulamak yararlı olabilir.
 
 Bu özellik nedeniyle bir kaynak sunucuya iletilebilmesi için izin verilen bir istek için bildirilen önbellek durumu TCP_Client_Refresh_Miss olur. Modül raporlama çekirdek kullanılabilir önbellek durumları rapor istatistiksel bilgileri önbelleği durumuna göre sağlar. Bu, bu özellik nedeniyle bir kaynak sunucuya sayısını ve iletilen isteklerin izlemenize olanak sağlar.
 
@@ -724,11 +724,11 @@ Anahtar bilgileri:
 ### <a name="ignore-unsatisfiable-ranges"></a>Unsatisfiable aralıkları yoksay 
 **Amaç:** bir istek 416 İstenen aralık değil sağlanabilir durum kodu oluşturduğunda istemcilere döndürülen yanıt belirler.
 
-Varsayılan olarak, bir uç sunucusu tarafından belirtilen bayt aralığı istek yerine getirilemiyor ve IF-Range isteği üstbilgisi alanının belirtilmemiş olduğunda bu durum kodu döndürülür.
+Belirtilen bayt aralığı isteği POP tarafından karşılanamayan ve IF-Range isteği üstbilgisi alanının belirtilmedi varsayılan olarak, bu durum kodu döndürülür.
 
 Değer|Sonuç
 -|-
-Etkin|Uç sunucuların 416 İstenen aralık yeterli değil bir durum koduna sahip bir geçersiz bayt aralığı isteğine yanıt vermesini engeller. Bunun yerine sunucuları istenen varlık teslim etmek ve bir 200 Tamam istemciye döndür.
+Etkin|POP 416 İstenen aralık yeterli değil bir durum koduna sahip bir geçersiz bayt aralığı isteğine yanıt vermesini engeller. Bunun yerine sunucuları istenen varlık teslim etmek ve bir 200 Tamam istemciye döndür.
 Devre dışı|Varsayılan davranışını geri yükler. 416 İstenen aralık değil sağlanabilir durum kodu vermenizin varsayılan davranıştır.
 
 **Varsayılan davranış:** devre dışı bırakılmış.
@@ -739,15 +739,15 @@ Devre dışı|Varsayılan davranışını geri yükler. 416 İstenen aralık de�
 
 ---
 ### <a name="internal-max-stale"></a>İç Max-eski
-**Amaç:** ne kadar süreyle önbelleğe alınan varlık sunulan bir kenar sunucusundan uç sunucu kaynak sunucu ile önbelleğe alınmış varlık düzeltin erişemediğinde normal sona erme süresini geçen kontrol eder.
+**Amaç:** ne kadar süreyle önbelleğe alınan varlık sunulan POP POP kaynak sunucu ile önbelleğe alınmış varlık düzeltin erişemediğinde normal sona erme süresini geçen kontrol eder.
 
-Normalde, bir varlığın, max-age süresi dolduğunda, uç sunucu kaynak sunucuya yeniden doğrulanması isteği gönderir. Kaynak sunucu sonra ya da bir 304 ile Yanıtla uç sunucusunu baştan vermek için değişiklik kira önbelleğe alınan varlık üzerinde or else 200 Tamam uç sunucusunu önbelleğe alınan varlık güncelleştirilmiş bir sürümünü sağlamak için.
+Normalde, bir varlığın, max-age süresi dolduğunda, POP kaynak sunucuya yeniden doğrulanması isteği gönderir. Kaynak sunucu sonra ya da bir 304 ile Yanıtla POP baştan vermek için değişiklik kira önbelleğe alınan varlık üzerinde or else 200 Tamam POP önbelleğe alınan varlık güncelleştirilmiş bir sürümünü sağlamak için.
 
-Uç sunucusunu bu tür bir yeniden doğrulanması çalışırken kaynak sunucu ile bağlantı kuramadı ise, bu dahili Max eski özelliği olup olmadığı ve ne kadar bir kenar için sunucu şimdi eski varlık sunmaya devam edebilir denetler.
+POP bu dahili Max eski özellik olup, nasıl uzun denetler ve ardından bu tür bir COLLECTION çalışırken kaynak sunucu ile bağlantı kuramadı ise, POP şimdi eski varlık sunmaya devam edebilir.
 
 Varlığın, max-age dolduğunda değil başarısız COLLECTION oluştuğunda bu zaman aralığı başlatır. Bu nedenle, hangi sırasında başarılı COLLECTION bir varlık sunulabilecek en uzun süresi, max-age artı max eski birleşimi tarafından belirtilen zaman miktarıdır. Bir varlık 9:00 30 dakika cinsinden maksimum yaş ve en çok eski 15 dakika ile önbelleğe alınmışsa, örneğin, ardından 9:44 başarısız COLLECTION teşebbüs 9:46 başarısız COLLECTION teşebbüs tr oluşturacağı sırada eski önbelleğe alınan varlık alma bir son kullanıcı neden olacak d kullanıcı 504 ağ geçidi zaman aşımı alma.
 
-Bu özellik yerine geçen için yapılandırılan herhangi bir değer `Cache-Control: must-revalidate` veya `Cache-Control: proxy-revalidate` kaynak sunucudan alınan üstbilgileri. Bu üstbilgiler birini alındığında, kaynak sunucudan bir varlık başlangıçta önbelleğe alındığında sonra uç sunucu eski bir önbelleğe alınan varlık hizmet vermeyecek. Uç sunucusunu varlığın, max-age aralığı sona erdiğinde kaynağa düzeltin kaydedemediği böyle bir durumda uç sunucu 504 ağ geçidi zaman aşımı hatası döndürür.
+Bu özellik yerine geçen için yapılandırılan herhangi bir değer `Cache-Control: must-revalidate` veya `Cache-Control: proxy-revalidate` kaynak sunucudan alınan üstbilgileri. Bu üstbilgiler birini alındığında, kaynak sunucudan bir varlık başlangıçta önbelleğe alındığında POP eski bir önbelleğe alınan varlık görecek değil. POP varlığın, max-age aralığı sona erdiğinde kaynağa düzeltin kaydedemediği böyle bir durumda, POP 504 ağ geçidi zaman aşımı hatası döndürür.
 
 Anahtar bilgileri:
 
@@ -828,7 +828,7 @@ Anahtar bilgileri:
     - CACHE-CONTROL
     - cachE-Control
 - Bir üstbilgi adı belirtirken, yalnızca alfasayısal karakterler, tire ve alt çizgiler kullanın.
-- Üstbilgi silme kenar sunucuları tarafından bir kaynak sunucusuna iletilen engeller.
+- Üstbilgi silme POP'ları bir kaynak sunucusuna iletilen engeller.
 - Aşağıdaki üst bilgiler ayrılmış ve bu özellik tarafından değiştirilemez:
     - iletilen
     - konak
@@ -848,7 +848,7 @@ Her yanıtı açıkladığı yanıt üstbilgilerini kümesini içerir. Bu özell
 - Append veya bir yanıt üstbilgisi atanan değer üzerine yazabilirsiniz. Belirtilen yanıt üstbilgisi mevcut değilse, sonra bu özellik, yanıta ekler.
 - Bir yanıt üstbilgisi yanıttan silin.
 
-Varsayılan olarak, yanıt üstbilgi değerleri uç sunucuların ve kaynak sunucu tarafından tanımlanır.
+Varsayılan olarak, yanıt üstbilgi değerleri POP ve kaynak sunucu tarafından tanımlanır.
 
 Aşağıdaki eylemlerden birini bir yanıt üstbilgisi gerçekleştirilebilir:
 
@@ -912,7 +912,7 @@ Devre dışı|İstekleri, istenen içerik tam olarak önbelleğe alınan bir sü
 
 Anahtar bilgileri:
 
-- "Kapalı" zaman birimi önbelleğe alınan içeriğin sonra gerçekleşmesi COLLECTION gerektirdiğinden seçerek TTL süresi doldu. Zaman belirtilmemesi gerekir ve göz ardı edilir.
+- "Kapalı" zaman birimi önbelleğe alınan içeriğin sonra gerçekleşmesi COLLECTION gerektirdiğinden seçerek TTL süresi doldu. Saat belirtilmemesi gerekir ve göz ardı edilir.
 
 **Varsayılan davranış:** devre dışı. Önbelleğe alınan içeriğin TTL süresi dolduktan sonra yeniden doğrulanması yalnızca yer alabilir.
 
@@ -922,7 +922,7 @@ Anahtar bilgileri:
 
 ---
 ### <a name="proxy-special-headers"></a>Proxy özel üstbilgileri
-**Amaç:** bir kenar sunucudan kaynak sunucuya iletilir CDN özgü istek üstbilgileri kümesini tanımlar.
+**Amaç:** POP bir kaynak sunucuya iletilir CDN özgü istek üstbilgileri kümesini tanımlar.
 
 Anahtar bilgileri:
 
@@ -937,15 +937,15 @@ Anahtar bilgileri:
 
 ---
 ### <a name="refresh-zero-byte-cache-files"></a>Sıfır bayt önbellek dosyaları Yenile
-**Amaç:** 0 bayt önbellek varlık için bir HTTP istemcinin isteğini kenar sunucuları tarafından nasıl işlendiğini belirler.
+**Amaç:** 0 bayt önbellek varlık için bir HTTP istemcinin isteğini POP tarafından nasıl işlendiğini belirler.
 
 Geçerli değerler şunlardır:
 
 Değer|Sonuç
 --|--
-Etkin|Uç sunucusunu kaynak sunucudan varlık yeniden getirmesi neden olur.
+Etkin|Varlık ve kaynak sunucudan yeniden getirmesi POP'a neden olur.
 Devre dışı|Varsayılan davranışını geri yükler. İstek üzerine geçerli önbellek varlıklar sunmak için varsayılan davranıştır.
-Bu özellik doğru önbelleğe alma ve içerik dağıtımı için gerekli değildir, ancak geçici bir çözüm olarak yararlı olabilir. Örneğin, kaynak sunucularda dinamik içerik oluşturucuları yanlışlıkla 0 baytlık yanıtları kenar sunucuya gönderilen neden olabilir. Bu tür yanıtları genellikle kenar sunucuları tarafından önbelleğe alınır. 0-bayt yanıt hiçbir zaman geçerli bir yanıt olduğunu biliyorsanız 
+Bu özellik doğru önbelleğe alma ve içerik dağıtımı için gerekli değildir, ancak geçici bir çözüm olarak yararlı olabilir. Örneğin, kaynak sunucularda dinamik içerik oluşturucuları yanlışlıkla 0 baytlık yanıtları Pop'lere gönderilen neden olabilir. Bu tür yanıtları genellikle POP tarafından önbelleğe alınır. 0-bayt yanıt hiçbir zaman geçerli bir yanıt olduğunu biliyorsanız 
 
 Bu tür içerik için daha sonra bu özellik Varlık türlerinin istemcilerinize hizmet engelleyebilir.
 
@@ -1016,12 +1016,12 @@ Devre dışı|Kaynak sunucunun hata istemciye iletilir.
 
 ---
 ### <a name="stale-while-revalidate"></a>Revalidate sırasında eski
-**Amaç:** uç sunucuların yeniden doğrulanması gerçekleştirilirken istemciye eski içerik sunmanızı sağlayarak performansı geliştirir.
+**Amaç:** POP COLLECTION gerçekleştirilirken istemciye eski içerik sunmanızı sağlayarak performansı geliştirir.
 
 Anahtar bilgileri:
 
 - Bu özellik davranışını seçilen zaman birimi göre değişir.
-    - **Zaman birimi:** eski içerik teslim izin vermek için bir zaman birimi (örneğin, saniye, dakika, saat, vb.) seçin ve bir süre belirtin. Bu tür kurulum teslim edebilir süreyi uzatmak CDN doğrulama aşağıdaki formülü göre istemeden önce içerik verir:**TTL** + **eski sırada düzeltin zaman** 
+    - **Zaman birimi:** eski içerik teslim izin vermek için bir zaman birimi (örneğin, saniye, dakika, saat, vb.) seçin ve bir süre belirtin. Bu tür kurulum teslim edebilir süreyi uzatmak CDN doğrulama aşağıdaki formülü göre istemeden önce içerik verir: **TTL** + **eski sırada düzeltin zaman** 
     - **Kapalı:** seçin "kapalı" Eski içerik sunulması için önce bir isteği yeniden doğrulanması gerektirir.
         - Uygulanamaz ve yok sayılacak bu yana bir süre boyunca belirtmeyin.
 
@@ -1109,7 +1109,7 @@ Geçerli değerler şunlardır:
 
 Değer|Sonuç
 ---|----
-Etkin|Uç sunucu URL'leri için belirteç tabanlı kimlik doğrulama parametreleri karşılaştırılırken durumu yoksay neden olur.
+Etkin|POP durumu URL'ler için belirteç tabanlı kimlik doğrulama parametreleri karşılaştırılırken yoksay neden olur.
 Devre dışı|Varsayılan davranışını geri yükler. Belirteç kimlik doğrulamasının büyük küçük harfe duyarlı olması URL karşılaştırmaları için varsayılan davranıştır.
 
 **Varsayılan davranış:** devre dışı bırakılmış.
@@ -1149,14 +1149,14 @@ Seçenek|Açıklama
 -|-
 Kod|İstemciye döndürülecek yanıt kodu seçin.
 Kaynak & düzeni| Bu ayarları yeniden yönlendirilen istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yönlendirilir: <br/> <br/> **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. "/XXXX/" bölümü ve uç nokta adınız budur. <br/> **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> -Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlı hiçbir eşleşme koşullarla emin olun. <br/> -Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir.
-Hedef| Yukarıdaki istekleri yönlendirilecek URL tanımlayın. <br/> Dinamik olarak bu URL'yi kullanarak oluşturun: <br/> -Bir normal ifade deseni <br/>-HTTP değişkenleri <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin _n_  nerede  _n_  onu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. <br/> 
+Hedef| Yukarıdaki istekleri yönlendirilecek URL tanımlayın. <br/> Dinamik olarak bu URL'yi kullanarak oluşturun: <br/> -Bir normal ifade deseni <br/>-HTTP değişkenleri <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. <br/> 
 Mutlak bir URL kullanmak için önerilir. Göreli bir URL kullanımı için geçersiz bir yol CDN URL'leri yönlendirmek.
 
 **Örnek senaryo**
 
 Bu örnek, bir sınır bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme hakkında gösterir: http://marketing.azureedge.net/brochures
 
-İstekleri uygun bu temel kenar CNAME URL yönlendirilirsiniz: http://cdn.mydomain.com/resources
+Bu temel kenar CNAME URL istekleri uygun yönlendirilir: http://cdn.mydomain.com/resources
 
 Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-redirect.png)
 
@@ -1166,13 +1166,13 @@ Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./m
 - Eşleşen tüm istekleri hedef seçeneğinde CNAME URL tanımlanan ucunu yönlendirilir. 
     - Örnek Senaryo #1: 
         - Örnek istek (CDN URL): http://marketing.azureedge.net/brochures/widgets.pdf 
-        - (Sonra yeniden yönlendirme) istek URL'si: http://cdn.mydomain.com/resources/widgets.pdf  
+        - İstek URL'si (sonra yeniden yönlendirme): http://cdn.mydomain.com/resources/widgets.pdf  
     - Örnek Senaryo #2: 
         - Örnek istek (Kenar CNAME URL): http://marketing.mydomain.com/brochures/widgets.pdf 
         - (Sonra yeniden yönlendirme) istek URL'si: http://cdn.mydomain.com/resources/widgets.pdf örnek senaryosu
     - Örnek Senaryo #3: 
         - Örnek istek (Kenar CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
-        - (Sonra yeniden yönlendirme) istek URL'si: http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
+        - İstek URL'si (sonra yeniden yönlendirme): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
 - İstek düzeni (% {Şeması}) değişkeni hedef seçeneğinde de. Bu isteğin düzenini yeniden yönlendirmeden sonra değişmeden kalmasını sağlar.
 - İstekten yakalanan URL kesimleri "$1." aracılığıyla yeni bir URL'ye eklenir
 
@@ -1191,14 +1191,14 @@ Anahtar bilgileri:
 Seçenek|Açıklama
 -|-
  Kaynak & düzeni | Bu ayarları yeniden yazılmıştır istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/>     - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. "/XXXX/" bölümü ve uç nokta adınız budur. <br/> - **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> Önceden tanımlanmış istek URI ölçütleri (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
- Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Göreli yolu kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        -HTTP değişkenleri <br/> <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin _n_  nerede  _n_  onu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. 
- Bu özellik, geleneksel bir yeniden yönlendirme yapmadan URL yeniden yazma uç sunucuların sağlar. Başka bir deyişle, yeniden URL istenen sanki istek sahibinin aynı yanıt kodu alırsınız.
+ Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Göreli yolu kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        -HTTP değişkenleri <br/> <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. 
+ Bu özellik, geleneksel bir yeniden yönlendirme yapmadan URL yeniden yazma POP sağlar. Başka bir deyişle, yeniden URL istenen sanki istek sahibinin aynı yanıt kodu alırsınız.
 
 **Örnek Senaryo 1**
 
-Bu örnek bir kenar bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme gösterilmiştir: http://marketing.azureedge.net/brochures/
+Bu örnek, bir sınır bu temel CDN URL'ye çözümler CNAME URL yeniden yönlendirme gösterilmiştir: http://marketing.azureedge.net/brochures/
 
-İstekleri uygun bu temel kenar CNAME URL yönlendirilirsiniz: http://MyOrigin.azureedge.net/resources/
+Bu temel kenar CNAME URL istekleri uygun yönlendirilir: http://MyOrigin.azureedge.net/resources/
 
 Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./media/cdn-rules-engine-reference/cdn-rules-engine-rewrite.png)
 
@@ -1248,8 +1248,8 @@ Bu özellik için bir istek uygulanmadan önce karşılanması gereken ölçütl
 </br>
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* [Kuralları altyapısı başvurusu](cdn-rules-engine-reference.md)
-* [Kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-conditional-expressions.md)
-* [Kurallar altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
+* [Kural altyapısı başvurusu](cdn-rules-engine-reference.md)
+* [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+* [Kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md)
 * [Kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma](cdn-rules-engine.md)
 * [Azure CDN'ye genel bakış](cdn-overview.md)

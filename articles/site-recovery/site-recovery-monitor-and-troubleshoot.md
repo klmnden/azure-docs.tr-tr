@@ -1,12 +1,12 @@
 ---
 title: Azure Site Recovery izleyebilir ve | Microsoft Docs
-description: "İzleme ve Azure Site Recovery çoğaltma sorunlarını ve Portalı'nı kullanarak işlemleri sorun giderme"
+description: İzleme ve Azure Site Recovery çoğaltma sorunlarını ve Portalı'nı kullanarak işlemleri sorun giderme
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: bsiva
 manager: abhemraj
 editor: raynew
-ms.assetid: 
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/22/2018
 ms.author: bsiva
-ms.openlocfilehash: bb453f6c16440fae8a12cc1c4890a473ce541f45
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>İzleme ve Azure Site Recovery sorun giderme
 
@@ -145,7 +145,7 @@ Tek bir çoğaltma makine bağlamı için kapsamlı bir altyapı görünümü ç
 **C.** Altyapı görünümü özelliği yalnızca Azure'a çoğaltma sanal makineler için kullanılabilir. Bu özellik şu anda şirket içi siteler arasında çoğaltma sanal makineler için kullanılabilir değil.
 
 **S.** Neden kasası altyapı görünümünde toplam sayısını farklı sanal makinelerin sayısı çoğaltılan öğeler halka gösterilir?</br>
-**C.** Kasa altyapı görünümü çoğaltma senaryolarla kapsamlıdır. Şu anda seçili çoğaltma senaryoda katılan yalnızca sanal makineler altyapı görünümde gösterilen sanal makinelerin sayısı dahil edilmiştir. Ayrıca, seçili senaryo için yalnızca şu anda Azure'a çoğaltma için yapılandırılmış makineleri altyapı görünümde gösterilen sanal makinelerin sayısı dahil edilen (için örneğin: devredilen sanal makinelerin, çoğaltılan sanal makineler bir şirket içi siteye altyapı görünümünde dahil edilmez.)
+**C.** Kasa altyapı görünümü çoğaltma senaryolarla kapsamlıdır. Şu anda seçili çoğaltma senaryoda katılan yalnızca sanal makineler altyapı görünümde gösterilen sanal makinelerin sayısı dahil edilmiştir. Ayrıca, seçili senaryo için yalnızca şu anda Azure'a çoğaltma için yapılandırılmış makineleri altyapı görünümde gösterilen sanal makinelerin sayısı dahil edilen (Fo örnek: sanal makineler üzerinde başarısız oldu, çoğaltılan sanal makineler yedekleme bir şirket içi siteye altyapı görünümünde dahil edilmez.)
 
 **S.** Genel bakış sayfasında halka grafik Panoda gösterilen çoğaltılan öğeler toplam hata sayısı farklı essentials çekmecesini gösterilen çoğaltılan öğe sayısı neden oluyor?</br>
 **C.** Yalnızca sanal makineleri hangi başlangıç çoğaltmasını tamamlamış için essentials bölmesinde gösterilen sayı eklenir. Toplam çoğaltılan öğeler halka kasaya sunucuları dahil olmak üzere tüm sanal makineleri içerir hangi ilk çoğaltma için şu anda devam ediyor.

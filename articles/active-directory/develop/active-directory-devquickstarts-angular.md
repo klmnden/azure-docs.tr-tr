@@ -1,11 +1,11 @@
 ---
-title: "Azure AD AngularJS Başlarken | Microsoft Docs"
-description: "Oturum açma için Azure AD ile tümleşir ve OAuth kullanarak Azure AD korumalı API çağıran bir AngularJS tek sayfalı uygulama oluşturma."
+title: Azure AD AngularJS Başlarken | Microsoft Docs
+description: Oturum açma için Azure AD ile tümleşir ve OAuth kullanarak Azure AD korumalı API çağıran bir AngularJS tek sayfalı uygulama oluşturma.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: jmprieur
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f2991054-8146-4718-a5f7-59b892230ad7
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 51734f5b39e9ca8af65048f2a7efd5c61cd53204
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2f78a6b17a512ab54ffab4554ccc0f3f1486f27a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-angularjs-getting-started"></a>Azure AD AngularJS Başlarken
 
@@ -52,13 +52,13 @@ Kullanıcıların kimliğini doğrulamak ve belirteçleri almak uygulamanızı e
 4. Tıklatın **uygulama kayıtlar**ve ardından **Ekle**.
 5. Komut istemlerini izleyin ve yeni web uygulaması ve/veya web API oluşturun:
   * **Ad** kullanıcılar uygulamanıza açıklar.
-  * **Yeniden yönlendirme URI'si** için Azure AD belirteçleri döndürecektir konumdur. Bu örnek için varsayılan konum `https://localhost:44326/`.
+  * **URL oturum açma** için Azure AD belirteçleri döndürecektir konumdur. Bu örnek için varsayılan konum `https://localhost:44326/`.
 6. Kayıt işlemini tamamladıktan sonra Azure AD benzersiz uygulama kimliği uygulamanıza atar.  Bu değer gerekir sonraki bölümlerde, bu nedenle uygulama sekmesinden kopyalayın.
 7. Adal.js OAuth örtük akış Azure AD ile iletişim kurmak için kullanır. Uygulamanız için örtük akış etkinleştirmeniz gerekir:
   1. Uygulama tıklayın ve **bildirim** satır içi bildirim Düzenleyicisi'ni açın.
   2. Bulun `oauth2AllowImplicitFlow` özelliği. Değerini ayarlamak `true`.
   3. Tıklatın **kaydetmek** bildirimi kaydetmek için.
-8. Uygulamanız için Kiracı arasında izinleri verin. Gidin **ayarları** > **özellikleri** > **gerekli izinler**, tıklatıp **izinler** üst çubukta düğmesi. Onaylamak için **Evet**’e tıklayın.
+8. Uygulamanız için Kiracı arasında izinleri verin. Git **ayarları** > **gerekli izinler**, tıklatıp **izinler** düğmesi üst çubukta. Onaylamak için **Evet**’e tıklayın.
 
 ## <a name="step-2-install-adal-and-configure-the-single-page-app"></a>2. adım: Yükleme ADAL ve tek sayfalı uygulama yapılandırma
 Azure AD'de bir uygulamanız varsa, adal.js yükleyin ve kimlikle ilgili kodunuzu yazın.

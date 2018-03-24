@@ -1,11 +1,11 @@
 ---
-title: "Kullanıcı Yönetimi Azure Active Directory'de kurumsal uygulamalar için hazırlama | Microsoft Docs"
-description: "Kullanıcı hesabı için Azure Active Directory'yi kullanarak kurumsal uygulamalar sağlama yönetmeyi öğrenin"
+title: Kullanıcı Yönetimi Azure Active Directory'de kurumsal uygulamalar için hazırlama | Microsoft Docs
+description: Kullanıcı hesabı için Azure Active Directory'yi kullanarak kurumsal uygulamalar sağlama yönetmeyi öğrenin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: asmalser
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 846ec63d47ebc787fa1edbf1968f1a843e96ac9d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bded73b4a335dc85a84691f5edabac5055f43cca
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
 Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](active-directory-appssoaccess-whatis.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](active-directory-saas-app-provisioning.md).
@@ -76,7 +76,7 @@ Bu bölümde uygulama ve kaç kullanıcı ve Grup nesneleri yönetilmekte olan k
 
 Bağlantılar için sağlanan **Etkinlik Raporu sağlama**, tüm kullanıcıların ve grupların güncelleştirilmiş ve arasında kaldırılan Azure AD oluşturulmuş bir günlük sağlar ve hedef uygulama ve **hata raporu sağlama** daha ayrıntılı hata iletilerini kullanıcı ve okumak için oluşturduğunuz grubu nesneler sağlayan güncelleştirilmiş veya kaldırılamaz. 
 
-##<a name="feedback"></a>Geri Bildirim
+## <a name="feedback"></a>Geri Bildirim
 
 Azure AD deneyiminizi gibi umuyoruz. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
 

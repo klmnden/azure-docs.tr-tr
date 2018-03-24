@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma"
-description: "Bu makalede, Azure Automation'da yeni bir runbook oluşturmak veya bir dosyadan içe açıklar."
+title: Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma
+description: Bu makalede, Azure Automation'da yeni bir runbook oluşturmak veya bir dosyadan içe açıklar.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,13 +8,11 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: 61fd58e21c8afce141f17f39da9ff6f77070c7a8
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c49b2f19da7f59e413dedbd757ca8b6fc6c7e674
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma
 Bir runbook'un Azure Otomasyon ya da ekleyebilirsiniz [yenisini oluşturmadan](#creating-a-new-runbook) veya bir dosya ya da mevcut bir runbook'u alarak [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişme hakkında bilgi almak [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).

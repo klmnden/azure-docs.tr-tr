@@ -1,6 +1,6 @@
 ---
-title: "Düşük maliyetli düşük öncelikli sanal makinelerin Azure Batch iş yüklerini çalıştırmak | Microsoft Docs"
-description: "Düşük öncelikli sanal makineleri Azure Batch iş yükü maliyetini azaltmak için hazırlamayı öğrenin."
+title: Düşük maliyetli düşük öncelikli sanal makinelerin Azure Batch iş yüklerini çalıştırmak | Microsoft Docs
+description: Düşük öncelikli sanal makineleri Azure Batch iş yükü maliyetini azaltmak için hazırlamayı öğrenin.
 services: batch
 author: mscurrell
 manager: timlt
@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 03/19/2018
 ms.author: markscu
-ms.openlocfilehash: 7e4f37ca6997f1770de8acbc10eeeb25ddf87deb
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 68240e29429b4c6321e8627b62ad65ce7ecb468e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Düşük öncelikli sanal makineleri Batch ile kullanma
 
@@ -26,12 +26,6 @@ Düşük öncelikli sanal makineleri Azure'da fazlalık kapasite yararlanın. D�
 Düşük öncelikli sanal makineleri kullanma kolaylığını bu VM'lerin ayrılacak kullanılabilir durumda olmayabilir veya kullanılabilir kapasite bağlı olarak herhangi bir zamanda etkisiz değil. Bu nedenle, düşük öncelikli sanal makineleri belirli türde bir iş yükleri için en uygun. Düşük öncelikli sanal makineleri toplu ve burada iş tamamlanma zamanı esnek ve iş üzerinde birçok VM dağıtılmış zaman uyumsuz işleme iş yükleri için kullanın.
  
 Düşük öncelikli sanal makineleri özel VM'ler ile kıyasla önemli ölçüde azaltılmış fiyatla sunulur. Fiyatlandırma ayrıntıları için bkz: [Batch fiyatlandırması](https://azure.microsoft.com/pricing/details/batch/).
-
-
-> [!IMPORTANT]
-> Düşük öncelikli VM'ler yalnızca toplu işlemde çalışan iş yükleri için şu anda kullanılabilir. 
->
->
 
 ## <a name="use-cases-for-low-priority-vms"></a>Düşük öncelikli VM'ler için kullanım örnekleri
 

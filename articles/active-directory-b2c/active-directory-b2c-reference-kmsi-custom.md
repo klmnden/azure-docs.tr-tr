@@ -2,22 +2,20 @@
 title: 'Azure Active Directory B2C: KMSI | Microsoft Docs'
 description: "'Bana imzalı koru' kurma gösteren bir konu"
 services: active-directory-b2c
-documentationcenter: 
-author: vigunase
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-ms.assetid: 926e9711-71c0-49e8-b658-146ffb7386c0
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2016
-ms.author: vigunase
-ms.openlocfilehash: a3d78945f862d1ae12cec05da0cf0ea7df511f43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 073ba8eef7f2f42d1c308fb20d3bfdbfc8d321b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: '(KMSI) içinde imzalı tut' etkinleştir  
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -29,7 +27,7 @@ Bu seçenek ortak bilgisayarlardaki denetleme kullanıcılara karşı öneririz.
 ![görüntü](images/kmsi.PNG)
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Yerel izin verecek şekilde yapılandırılmış bir Azure AD B2C kiracısı hesap oturumu-up/oturum açma, açıklandığı gibi [Başlarken](active-directory-b2c-get-started-custom.md).
 
@@ -94,7 +92,7 @@ Bir talep sağlayıcısı olarak yerel hesap oturum açma tanımlayabilirsiniz `
 
 Uygulama kimlikleri uzantıları dosyasına ekleyin (`TrustFrameworkExtensions.xml`):
 
-1. Uzantıları dosyasında (TrustFrameworkExtensions.xml) öğesi bulunamıyor `<TechnicalProfile Id="login-NonInteractive">` ve`<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+1. Uzantıları dosyasında (TrustFrameworkExtensions.xml) öğesi bulunamıyor `<TechnicalProfile Id="login-NonInteractive">` ve `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
 
 2. Tüm örneklerinin yerine `IdentityExperienceFrameworkAppId` açıklandığı gibi kimlik deneyimi Framework uygulamanın uygulama Kimliğine sahip [Başlarken](active-directory-b2c-get-started-custom.md). Örnek aşağıda verilmiştir:
 
@@ -166,11 +164,11 @@ Ardından, oluşturduğunuz kullanıcı gezisine başlatır bağlı olan taraf (
 
 4. KMSI yapılandırılmıştır `UserJourneyBehaviors`. 
 
-5. **`KeepAliveInDays`**Kullanıcı oturum açmış durumda kalır ne kadar süreyle denetler. Aşağıdaki örnekte, KMSI oturumu otomatik olarak ne sıklıkta kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde bakılmaksızın 14 gün sonra süresi dolar.
+5. **`KeepAliveInDays`** Kullanıcı oturum açmış durumda kalır ne kadar süreyle denetler. Aşağıdaki örnekte, KMSI oturumu otomatik olarak ne sıklıkta kullanıcı sessiz kimlik doğrulaması gerçekleştirdiğinde bakılmaksızın 14 gün sonra süresi dolar.
 
    Ayarı `KeepAliveInDays` değeri 0 KMSI işlevselliği devre dışı bırakır. Varsayılan olarak, bu değer 0'dır
 
-6. Varsa  **`SessionExpiryType`**  olan *çalışırken*, KMSI oturum kullanıcı sessiz kimlik doğrulama işlemini her gerçekleştirdiğinde 14 gün tarafından Genişletilmiş sonra.  Varsa *çalışırken* olan seçili gün sayısını azda tutmanızı öneririz. 
+6. Varsa **`SessionExpiryType`** olan *çalışırken*, KMSI oturum kullanıcı sessiz kimlik doğrulama işlemini her gerçekleştirdiğinde 14 gün tarafından Genişletilmiş sonra.  Varsa *çalışırken* olan seçili gün sayısını azda tutmanızı öneririz. 
 
        <RelyingParty>
        <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />

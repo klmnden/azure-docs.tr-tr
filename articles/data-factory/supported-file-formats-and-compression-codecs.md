@@ -1,19 +1,19 @@
 ---
-title: "Azure Data Factory'de desteklenen dosya biçimleri | Microsoft Docs"
-description: "Bu konuda dosya biçimlerini ve Azure veri fabrikası'nda dosya tabanlı bağlayıcılar tarafından desteklenen sıkıştırma kodları açıklanmaktadır."
+title: Azure Data Factory'de desteklenen dosya biçimleri | Microsoft Docs
+description: Bu konuda dosya biçimlerini ve Azure veri fabrikası'nda dosya tabanlı bağlayıcılar tarafından desteklenen sıkıştırma kodları açıklanmaktadır.
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 26f29355f53a586ea21551831f48ddf8898d3c9f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure veri fabrikası'nda sıkıştırma codec bileşenleri
 

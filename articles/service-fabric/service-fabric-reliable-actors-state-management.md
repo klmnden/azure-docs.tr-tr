@@ -1,11 +1,11 @@
 ---
-title: "Güvenilir aktörler durum yönetimi | Microsoft Docs"
-description: "Nasıl Reliable Actors durumu yönetilen kalıcı ve yüksek kullanılabilirlik için çoğaltılan açıklar."
+title: Güvenilir aktörler durum yönetimi | Microsoft Docs
+description: Nasıl Reliable Actors durumu yönetilen kalıcı ve yüksek kullanılabilirlik için çoğaltılan açıklar.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: f196b2e54efc5ecbbd93e48e1f115edb99e5c858
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d5d38e7fa80db3484c397d9840bbc6092e4f18bb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="reliable-actors-state-management"></a>Güvenilir aktörler durum yönetimi
 Güvenilir aktörler mantığı ve durumu sarmalayabilen tek iş parçacıklı nesneleridir. Aktör Reliable Services üzerinde çalıştığından, bunlar durum güvenilir bir şekilde aynı kalıcılığını ve çoğaltma mekanizmalarını kullanarak koruyabilirsiniz. Bu şekilde çöp toplamadan sonra veya kaynak Dengeleme ya da yükseltme nedeniyle kümedeki düğümler arasında taşındıklarında yeniden etkinleştirme sırasında hatadan sonra durumlarına aktörler kaybetmeyin.
@@ -111,299 +111,7 @@ Durum Yöneticisi anahtarları dize olmalıdır. Değerler genel ve herhangi bir
 
 Durum Yöneticisi durum, güvenilir sözlükte bulunan benzer yönetmek için ortak sözlüğü yöntemlerini gösterir.
 
-## <a name="accessing-state"></a>Erişim durumu
-Durum anahtarının durum Yöneticisi aracılığıyla erişilebilir. Durum Yöneticisi yöntemlerini tüm zaman uyumsuz olduklarından aktörler durumu kalıcı olduğunda disk g/ç gerektirebilir. İlk erişim kaybedilmez durum nesneleri bellekte önbelleğe alınır. Erişim işlemleri erişimi nesneleri doğrudan bellekten yineleyin ve disk g/ç veya zaman uyumsuz bağlam geçişi yükü yansıtılmasını olmadan zaman uyumlu olarak döndürür. Bir durum nesnesi, aşağıdaki durumlarda önbellekten kaldırılır:
-
-* Durum Yöneticisi'nden bir nesneyi alır sonra aktör yöntemi işlenmeyen bir özel durum oluşturur.
-* Bir aktör, devre dışı bırakılan sonra veya hatadan sonra yeniden başlatılır.
-* Disk durumu sağlayıcısı sayfaları durumu. Bu davranışı üzerinde durumu sağlayıcısı uygulaması bağlıdır. Varsayılan durum sağlayıcısı için `Persisted` ayarının bu davranışı.
-
-Standart bir kullanarak durumu alabilirsiniz *almak* oluşturur işlemi `KeyNotFoundException`(C#) veya `NoSuchElementException`(bir girdi için anahtar mevcut değilse Java):
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task<int> GetCountAsync()
-    {
-        return this.StateManager.GetStateAsync<int>("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().getStateAsync("MyState");
-    }
-}
-```
-
-Kullanarak durumu alabilirsiniz bir *TryGet* bir girdi için bir anahtar mevcut değilse oluşturmadığını yöntemi:
-
-```csharp
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task<int> GetCountAsync()
-    {
-        ConditionalValue<int> result = await this.StateManager.TryGetStateAsync<int>("MyState");
-        if (result.HasValue)
-        {
-            return result.Value;
-        }
-
-        return 0;
-    }
-}
-```
-```Java
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture<Integer> getCountAsync()
-    {
-        return this.stateManager().<Integer>tryGetStateAsync("MyState").thenApply(result -> {
-            if (result.hasValue()) {
-                return result.getValue();
-            } else {
-                return 0;
-            });
-    }
-}
-```
-
-## <a name="saving-state"></a>Durum kaydetme
-Durum Yöneticisi Alma yöntemlerini yerel bellekte bir nesneye başvuru döndürür. Bu nesne yerel bellek tek başına değiştirme işlemi kaydedilmesi için neden olmaz. Bir nesnenin durumu Yöneticisi'nden alınan ve değişiklik olduğunda işlemi kaydedilecek durumu Manager'a yeniden gerekir.
-
-Bir koşulsuz kullanarak durumu ekleyebilirsiniz *ayarlamak*, denk olduğu `dictionary["key"] = value` sözdizimi:
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task SetCountAsync(int value)
-    {
-        return this.StateManager.SetStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture setCountAsync(int value)
-    {
-        return this.stateManager().setStateAsync("MyState", value);
-    }
-}
-```
-
-Kullanarak durumu ekleyebilirsiniz bir *Ekle* yöntemi. Bu yöntem oluşturulur `InvalidOperationException`(C#) veya `IllegalStateException`(anahtar zaten eklemek çalıştığında Java) bulunmaktadır.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task AddCountAsync(int value)
-    {
-        return this.StateManager.AddStateAsync<int>("MyState", value);
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().addOrUpdateStateAsync("MyState", value, (key, old_value) -> old_value + value);
-    }
-}
-```
-
-Kullanarak durumu ekleyebilirsiniz bir *TryAdd* yöntemi. Zaten bir anahtar eklemek çalıştığında, bu yöntem oluşturmadığını.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task AddCountAsync(int value)
-    {
-        bool result = await this.StateManager.TryAddStateAsync<int>("MyState", value);
-
-        if (result)
-        {
-            // Added successfully!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture addCountAsync(int value)
-    {
-        return this.stateManager().tryAddStateAsync("MyState", value).thenApply((result)->{
-            if(result)
-            {
-                // Added successfully!
-            }
-        });
-    }
-}
-```
-
-Aktör yöntemi sonunda, durum Yöneticisi'ni otomatik olarak eklenen veya bir INSERT veya update işlem tarafından değiştirilmiş tüm değerleri kaydeder. "Kaydet" diske ve kullanılan ayarlarına bağlı olarak çoğaltma kalıcı içerebilir. Değiştirilmemiş değerleri kalıcı veya çoğaltılan değil. Hiçbir değer değiştirildi, kaydetme işlemi hiçbir şey yapmaz. Başarısız kaydetme, değiştirilmiş durum atılır ve özgün duruma geri yüklenir.
-
-Ayrıca durumu el ile çağırarak kaydedebilirsiniz `SaveStateAsync` aktör tabanında yöntemi:
-
-```csharp
-async Task IMyActor.SetCountAsync(int count)
-{
-    await this.StateManager.AddOrUpdateStateAsync("count", count, (key, value) => count > value ? count : value);
-
-    await this.SaveStateAsync();
-}
-```
-```Java
-interface MyActor {
-    CompletableFuture setCountAsync(int count)
-    {
-        this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value).thenApply();
-
-        this.stateManager().saveStateAsync().thenApply();
-    }
-}
-```
-
-## <a name="removing-state"></a>Durum kaldırma
-Durum kalıcı olarak bir aktör'ın durum Yöneticisi'nden çağırarak kaldırabilirsiniz *kaldırmak* yöntemi. Bu yöntem oluşturulur `KeyNotFoundException`(C#) veya `NoSuchElementException`(mevcut olmayan bir anahtarı kaldırmak çalıştığında Java).
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public Task RemoveCountAsync()
-    {
-        return this.StateManager.RemoveStateAsync("MyState");
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().removeStateAsync("MyState");
-    }
-}
-```
-
-Ayrıca durumu kalıcı olarak kullanarak kaldırabilirsiniz *TryRemove* yöntemi. Mevcut bir anahtarı kaldırmak çalıştığında, bu yöntem oluşturmadığını.
-
-```csharp
-[StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
-{
-    public MyActor(ActorService actorService, ActorId actorId)
-        : base(actorService, actorId)
-    {
-    }
-
-    public async Task RemoveCountAsync()
-    {
-        bool result = await this.StateManager.TryRemoveStateAsync("MyState");
-
-        if (result)
-        {
-            // State removed!
-        }
-    }
-}
-```
-```Java
-@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
-class MyActorImpl extends FabricActor implements  MyActor
-{
-    public MyActorImpl(ActorService actorService, ActorId actorId)
-    {
-        super(actorService, actorId);
-    }
-
-    public CompletableFuture removeCountAsync()
-    {
-        return this.stateManager().tryRemoveStateAsync("MyState").thenApply((result)->{
-            if(result)
-            {
-                // State removed!
-            }
-        });
-    }
-}
-```
+Aktör durumunu yönetme örnekler için okuma [erişimi kaydedin ve Reliable Actors durumu kaldırmak](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Bazı önerilen yöntemler ve sorun giderme ipuçları aktör durumunu yönetmek için aşağıda verilmiştir.
@@ -412,7 +120,7 @@ Bazı önerilen yöntemler ve sorun giderme ipuçları aktör durumunu yönetmek
 Bu, performans ve kaynak kullanımını uygulamanız için önemlidir. Tüm yazma / "durumu bir aktör adında" için güncelleştirme olduğunda, "adlandırılmış durumuna" karşılık gelen tüm değer sıralanabilir ve ikincil çoğaltmaları ağ üzerinden gönderilen.  İkincil kopya yerel diske ve birincil çoğaltma Yanıtla geri yazma. Birincil bir ikincil çoğaltmaları çekirdek onayları aldığında, durum yerel diske yazar. Örneğin, değeri 20 üyeleri ve boyutu 1 MB olan bir sınıf olduğunu varsayın. Aşağıdakilerden biri olan sınıf üyeleri yalnızca değiştirilmiş olsa bile tam 1 MB için seri hale getirme ve ağ ve disk yazma maliyetini ödeme yukarı son 1 KB Boyutunda boyut. Değer bir koleksiyon (örneğin, liste, dizi veya sözlük) ise, onun üyeleri birini değiştirirseniz, bile benzer şekilde, maliyet tam koleksiyon için ücret ödersiniz. Aktör sınıfının StateManager gibi bir sözlük arabirimidir. Her zaman bu sözlük üstünde aktör durumunu temsil eden veri yapısı model.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Aktör'ın ömrü doğru yönetme
-Aktör hizmeti her bölüm durumda boyutunu yönetmeyle ilgili Temizle ilke olması gerekir. Aktör hizmeti aktörler sabit sayıda ve mümkün olduğunca çok yeniden gerekir. Sürekli yeni aktörler oluşturursanız, kendi çalışma tamamladıktan sonra silmeniz gerekir. Aktör framework var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silinmesi bu aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörler ve durumlarına silme](service-fabric-reliable-actors-lifecycle.md#deleting-actors-and-their-state)) tüm bilgileri kaldırmak için yaklaşık sistemde depolanmış. Ek bir onay aktör Hizmeti sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-platform.md)) arada bir numara aktörler beklenen aralıkta emin olmak için.
+Aktör hizmeti her bölüm durumda boyutunu yönetmeyle ilgili Temizle ilke olması gerekir. Aktör hizmeti aktörler sabit sayıda ve mümkün olduğunca çok yeniden gerekir. Sürekli yeni aktörler oluşturursanız, kendi çalışma tamamladıktan sonra silmeniz gerekir. Aktör framework var. her aktör hakkında bazı meta verileri depolar. Bir aktör durumunu silinmesi bu aktör hakkındaki meta verileri kaldırmaz. Aktör silmeniz gerekir (bkz [aktörler ve durumlarına silme](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) tüm bilgileri kaldırmak için yaklaşık sistemde depolanmış. Ek bir onay aktör Hizmeti sorgu (bkz [aktörler numaralandırma](service-fabric-reliable-actors-platform.md)) arada bir numara aktörler beklenen aralıkta emin olmak için.
  
 Şimdiye kadar bir aktör hizmeti veritabanı dosya boyutunu beklenen boyutu artmaktadır görürseniz, yukarıdaki yönergeleri izleyerek emin olun. Bu yönergeleri izleyerek ve hala veritabanı dosya boyutu sorunlarından olan durumunda [bir destek bileti açmanız](service-fabric-support.md) Yardım almak için ürün ekibi ile.
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu DSC için günlük analizi veri raporlama ilet"
-description: "Bu makalede nasıl istenen durum yapılandırması (DSC) ek bilgiler ve Yönetim için günlük analizi veri raporlama göndereceğinizi gösterir."
+title: Azure Otomasyonu DSC için günlük analizi veri raporlama ilet
+description: Bu makalede nasıl istenen durum yapılandırması (DSC) ek bilgiler ve Yönetim için günlük analizi veri raporlama göndereceğinizi gösterir.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,17 +8,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: d06ec240477c2defca7a463b2e9338bc5e3930ab
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: ac0da2b73341f0c6ed4f1e99e077996525890ab7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Azure Automation DSC raporlama verilerini OMS Log Analytics’e iletme
+# <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Azure Otomasyonu DSC için günlük analizi veri raporlama ilet
 
-Automation DSC düğüm durumu verilerinin, Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanına gönderebilirsiniz.  
+Automation DSC düğümü durumu verileri için günlük analizi çalışma alanınız gönderebilirsiniz.  
 Uyumluluk durumu Azure portalında veya PowerShell DSC düğüm yapılandırmaları kaynaklarında tek tek ve düğümler için görülebilir. Günlük analizi ile şunları yapabilirsiniz:
 
 * Yönetilen düğümler ve ayrı ayrı kaynaklar için uyumluluk bilgilerini alma
@@ -34,7 +32,7 @@ Automation DSC raporlarınızı günlük analizi için göndermeye başlayın, g
 * Kasım 2016 veya sonraki sürümünün [Azure PowerShell](/powershell/azure/overview) (v2.3.0).
 * Azure Otomasyonu hesabı. Daha fazla bilgi için bkz: [Azure Automation ile çalışmaya başlama](automation-offering-get-started.md)
 * Günlük analizi çalışma alanı ile bir **otomasyon ve Denetim** hizmet teklifi. Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md).
-* En az bir Azure Otomasyonu DSC düğümü. Daha fazla bilgi için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md) 
+* En az bir Azure Otomasyonu DSC düğümü. Daha fazla bilgi için bkz: [Azure Otomasyonu DSC tarafından Yönetim için hazırlama makineler](automation-dsc-onboarding.md)
 
 ## <a name="set-up-integration-with-log-analytics"></a>Günlük analizi ile tümleştirmeyi ayarlamak
 
@@ -191,5 +189,5 @@ Günlük analizi Automation DSC verilerinize büyük işletimsel görünürlük 
 
 * Farklı arama sorguları oluşturmak ve günlük analizi ile Automation DSC günlükleri gözden geçirmek hakkında daha fazla bilgi için bkz: [oturum aramaları günlük analizi](../log-analytics/log-analytics-log-searches.md)
 * Azure Otomasyonu DSC kullanma hakkında daha fazla bilgi edinmek için [Azure Otomasyonu DSC ile çalışmaya başlama](automation-dsc-getting-started.md)
-* OMS Log Analytics ve veri toplama kaynakları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te Azure depolama verileri toplamaya genel bakış](../log-analytics/log-analytics-azure-storage.md)
+* Günlük analizi ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md)
 

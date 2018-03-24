@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Özel ilkelerini kullanma OAuth2 kimlik sağlayıcısı Google + Ekle"
-description: "Örnek Google + OAuth2 protokolünü kullanarak kimlik sağlayıcısı kullanma"
+title: 'Azure Active Directory B2C: Özel ilkelerini kullanma OAuth2 kimlik sağlayıcısı Google + Ekle'
+description: Örnek Google + OAuth2 protokolünü kullanarak kimlik sağlayıcısı kullanma
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 08/04/2017
-ms.author: yoelh
-ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.author: davidmu
+ms.openlocfilehash: f12bbc2472aa2d83088c7d4d7b8f173744fb36b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Özel ilkelerini kullanma OAuth2 kimlik sağlayıcısı Google + Ekle
 
@@ -48,7 +45,7 @@ Google + Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
 
     ![Google + hesabı - proje'yi seçin](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
 
-4.  Tıklayın  **+**  düğmesi.
+4.  Tıklayın **+** düğmesi.
 
     ![Google + hesap - yeni proje oluşturma](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
@@ -178,10 +175,10 @@ Kimlik sağlayıcısı ayarlandığına.  Ancak, oturumu-up/oturum açma ekranla
 4.  Tüm içeriğini yapıştırın `<UserJourney>` bir alt öğesi olarak kopyaladığınız düğümü `<UserJourneys>` öğesi.
 
 ### <a name="display-the-button"></a>Görüntü düğmesi
-`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>`öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Google + hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
+`<ClaimsProviderSelections>` Öğesi talep sağlayıcısı seçme seçenekleri ve bunların sırası listesini tanımlar.  `<ClaimsProviderSelection>` öğesi, bir oturumu-up/oturum açma sayfasında bir kimlik sağlayıcısı düğmesini benzerdir. Eklerseniz bir `<ClaimsProviderSelection>` öğesi Google + hesap için yeni bir düğme görüntülenir sayfasında bir kullanıcı adlandırıldığını olduğunda. Bu öğe eklemek için:
 
 1.  Bul `<UserJourney>` içeren düğüm `Id="SignUpOrSignIn"` kopyaladığınız kullanıcı gezisine içinde.
-2.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+2.  Bulun `<OrchestrationStep>` içeren düğümü `Order="1"`
 3.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml
@@ -229,7 +226,7 @@ Google + hesabı kimlik sağlayıcısı Ayrıca, kullanıcı eklemek isteyebilir
 ### <a name="display-the-button"></a>Görüntü düğmesi
 1.  Uzantı dosyası ilkenizin (örneğin, TrustFrameworkExtensions.xml) açın.
 2.  Bul `<UserJourney>` içeren düğüm `Id="ProfileEdit"` kopyaladığınız kullanıcı gezisine içinde.
-3.  Bulun `<OrchestrationStep>` içeren düğümü`Order="1"`
+3.  Bulun `<OrchestrationStep>` içeren düğümü `Order="1"`
 4.  Aşağıdaki XML parçacığını altında ekleyin `<ClaimsProviderSelections>` düğümü:
 
 ```xml

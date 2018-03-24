@@ -1,29 +1,26 @@
 ---
-title: "Azure Active Directory B2C: Twitter yapılandırma | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Twitter hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Twitter yapılandırma | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Twitter hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 579a6841-9329-45b8-a351-da4315a6634e
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
-ms.author: parakhj
-ms.openlocfilehash: 4dbc70d866a728a63102bd169a124bd26990aeb2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: davidmu
+ms.openlocfilehash: ee2d82f8c90b88a898428973a1febaa21034a14f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Twitter hesaplarıyla tüketicileri sağlayın
 
 ## <a name="create-a-twitter-application"></a>Bir Twitter uygulaması oluşturma
-Twitter Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Twitter uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Twitter Geliştirici hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://dev.twitter.com/](https://dev.twitter.com/).
+Twitter Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak kullanmak için bir Twitter uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Twitter Geliştirici hesabınızın olması gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ https://dev.twitter.com/ ](https://dev.twitter.com/).
 
 1. Git [Geliştirici Web sitesi Twitter](https://dev.twitter.com/) ve kimlik bilgilerinizle oturum açın.
 2. Tıklatın **uygulamalarım** altında **araçları ve Destek** ve ardından **yeni uygulama oluşturma**. 

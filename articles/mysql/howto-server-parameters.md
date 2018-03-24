@@ -1,6 +1,6 @@
 ---
-title: "Sunucu parametreleri Azure veritabanında MySQL için yapılandırma"
-description: "Bu makalede, Azure portalını kullanarak MySQL için Azure veritabanı'nda MySQL server parametreleri yapılandırmak açıklar."
+title: Sunucu parametreleri Azure veritabanında MySQL için yapılandırma
+description: Bu makalede, Azure portalını kullanarak MySQL için Azure veritabanı'nda MySQL server parametreleri yapılandırmak açıklar.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b3510c616d2a9ba66cb83cb998c42e03fdbb0f2b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6865663bebc84df288f4c7e2564ddb4870667c6f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Sunucu parametreleri Azure veritabanı'nda MySQL için Azure portalını kullanarak nasıl yapılandırılır
 
@@ -40,25 +40,24 @@ InnoDB arabellek havuzu ve en fazla bağlantı olmayan yapılandırılabilir ve 
 
 |**Fiyatlandırma Katmanı**| **İşlem oluşturma**|**vCore(s)**|**InnoDB arabellek havuzu (MB)**| **En fazla bağlantı**|
 |---|---|---|---|--|
-|Temel| Gen 4| 1| 1024| 50 |
-|Temel| Gen 4| 2| 2560| 100 |
-|Temel| Gen 5| 1| 1024| 50 |
-|Temel| Gen 5| 2| 2560| 100 |
-|Genel Amaçlı| Gen 4| 2| 2560| 200|
-|Genel Amaçlı| Gen 4| 4| 5120| 400|
-|Genel Amaçlı| Gen 4| 8| 10240| 800|
-|Genel Amaçlı| Gen 4| 16| 20480| 1600|
-|Genel Amaçlı| Gen 4| 32| 40960| 3200|
-|Genel Amaçlı| Gen 5| 2| 2560| 200|
-|Genel Amaçlı| Gen 5| 4| 5120| 400|
-|Genel Amaçlı| Gen 5| 8| 10240| 800|
-|Genel Amaçlı| Gen 5| 16| 20480| 1600|
-|Genel Amaçlı| Gen 5| 32| 40960| 3200|
-|Bellek için İyileştirilmiş| Gen 5| 2| 7168| 600|
-|Bellek için İyileştirilmiş| Gen 5| 4| 15360| 1250|
-|Bellek için İyileştirilmiş| Gen 5| 8| 30720| 2500|
-|Bellek için İyileştirilmiş| Gen 5| 16| 62464| 5000|
-|Bellek için İyileştirilmiş| Gen 5| 32| 125952| 10000| 
+|Temel| 4. Nesil| 1| 1024| 50|
+|Temel| 4. Nesil| 2| 2560| 100|
+|Temel| 5. Nesil| 1| 1024| 50|
+|Temel| 5. Nesil| 2| 2560| 100|
+|Genel Amaçlı| 4. Nesil| 2| 3584| 300|
+|Genel Amaçlı| 4. Nesil| 4| 7680| 625|
+|Genel Amaçlı| 4. Nesil| 8| 15360| 1250|
+|Genel Amaçlı| 4. Nesil| 16| 31232| 2500|
+|Genel Amaçlı| 4. Nesil| 32| 62976| 5000|
+|Genel Amaçlı| 5. Nesil| 2| 3584| 300|
+|Genel Amaçlı| 5. Nesil| 4| 7680| 625|
+|Genel Amaçlı| 5. Nesil| 8| 15360| 1250|
+|Genel Amaçlı| 5. Nesil| 16| 31232| 2500|
+|Genel Amaçlı| 5. Nesil| 32| 62976| 5000|
+|Bellek için İyileştirilmiş| 5. Nesil| 2| 7168| 600|
+|Bellek için İyileştirilmiş| 5. Nesil| 4| 15360| 1250|
+|Bellek için İyileştirilmiş| 5. Nesil| 8| 30720| 2500|
+|Bellek için İyileştirilmiş| 5. Nesil| 16| 62464| 5000|
 
 Bu ek sunucu parametreler sistemde yapılandırılabilir değildir:
 

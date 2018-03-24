@@ -1,24 +1,24 @@
 ---
-title: "Azure maliyeti Management maliyet yönetim raporları kullanma | Microsoft Docs"
-description: "Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanmayı açıklar."
+title: Azure maliyeti Management maliyet yönetim raporları kullanma | Microsoft Docs
+description: Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanmayı açıklar.
 services: cost-management
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
-ms.custom: 
-ms.openlocfilehash: 8078591b1e2ad120190a23dd29800bd0f1ae33ea
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: fa263a4b6f41e2b31328f46b8d1341d0d74c9a85
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-cost-management-reports"></a>Maliyet Yönetimi raporlarını kullanma
 
-Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanmayı açıklar. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Cloudyn raporlar hakkında bir genel bakış için bkz: [anlama maliyet raporları](understading-cost-reports.md). Makale ayrıca çeşitli seçenekler ve çoğu raporlarda kullanılan alanları açıklar.
+Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanmayı açıklar. Çoğu Cloudyn raporlar sezgisel ve Tekdüzen bir görünümüne sahip. Cloudyn raporlar hakkında bir genel bakış için bkz: [anlama maliyet raporları](understanding-cost-reports.md). Makale ayrıca çeşitli seçenekler ve çoğu raporlarda kullanılan alanları açıklar.
 
 ## <a name="cost-analysis-reports"></a>Maliyet analiz raporları
 

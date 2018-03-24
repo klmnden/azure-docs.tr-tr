@@ -1,19 +1,19 @@
 ---
-title: "Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama | Microsoft Docs"
-description: "Azure SQL veritabanı'nda zamana bağlı tablolarda kullanmaya başlamanıza öğrenin."
+title: Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama | Microsoft Docs
+description: Azure SQL veritabanı'nda zamana bağlı tablolarda kullanmaya başlamanıza öğrenin.
 services: sql-database
 author: bonova
+ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 01/10/2017
 ms.author: bonova
-ms.openlocfilehash: 8e76d78e402d2cdc58ca26767c55c413f83226d9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
 Zamana bağlı tablolarda, izlemek ve özel kodlama için gerek kalmadan, verilerde yapılan değişiklikler tam geçmişini çözümlemek izin veren Azure SQL veritabanı'nın yeni bir programlama özelliğidir. Zamana bağlı tablolarda yalnızca belirli bir dönem içinde depolanan bulguları yorumlanabilen böylece zaman bağlamına yakından ilgili veriler geçerli olarak tutun. Zamana bağlı tablolarda, bu özellik etkili zamana dayalı çözümleme ve veri evrimi alma ilişkin bilgiler sağlar.
@@ -64,7 +64,7 @@ Sistem sürümü tutulan zamana bağlı tablo oluşturduğunuzda eşlik eden ge�
 Bu özel durumda biz depolama için geçmiş tablosu kümelenmiş columnstore dizini seçimdir şekilde zamana dayalı eğilim analizi üzerinden uzun bir veri geçmişini ve büyük veri kümeleriyle gerçekleştirmek için hedefleyin. Kümelenmiş columnstore çok iyi sıkıştırma ve analitik sorguları için performans sağlar. Zamana bağlı tablolarda geçerli ve zamana bağlı tablolarda tamamen bağımsız olarak Dizinleri'ni esnekliği sağlar. 
 
 > [!NOTE]
-> Columnstore dizinleri yalnızca premium hizmet katmanında kullanılabilir.
+> Columnstore dizinleri, Premium katmanındaki ve standart katmanındaki S3 ve üstü kullanılabilir.
 >
 
 Aşağıdaki komut dosyasında varsayılan dizini geçmiş tablosu kümelenmiş columnstore nasıl değiştirilebilir gösterir:

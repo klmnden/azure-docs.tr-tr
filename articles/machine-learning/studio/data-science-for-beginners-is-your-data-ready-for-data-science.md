@@ -1,11 +1,12 @@
 ---
-title: "Verileriniz veri bilimi için hazır mı? Veri değerlendirmesi - Azure Machine Learning | Microsoft Docs"
-description: "Dört ölçüt verilerinizi veri bilimi için hazır olmasını gereksinimlerini karşılamak için. Bu görüntü ile temel veri değerlendirme yardımcı olmak için somut örnekler vardır."
-keywords: "ilgili verileri verileri değerlendirmek, verileri, veri ölçütlerini, veri hazır hazırlayın"
+title: Verileriniz veri bilimi için hazır mı? Veri değerlendirmesi - Azure Machine Learning | Microsoft Docs
+description: Dört ölçüt verilerinizi veri bilimi için hazır olmasını gereksinimlerini karşılamak için. Bu görüntü ile temel veri değerlendirme yardımcı olmak için somut örnekler vardır.
+keywords: ilgili verileri verileri değerlendirmek, verileri, veri ölçütlerini, veri hazır hazırlayın
 services: machine-learning
 documentationcenter: na
-author: cjgronlund
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.author: cgronlun
-ms.openlocfilehash: 4ab9462c4cc4573717450ce48028807960cecee9
-ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
+ms.openlocfilehash: 2d9c66d89b82c63561b147f3d2537ba6ad07c511
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Verileriniz veri bilimi için hazır mı?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: Veri bilimi yeni başlayanlar seri için
@@ -47,9 +47,7 @@ Hoş Geldiniz "verileriniz için veri bilimi hazır mı?" serideki ikinci video 
 Veri bilimi istediğiniz yanıt vermeden önce bazı yüksek kaliteli hammaddeleri çalışmak için vermeniz gerekir. Daha iyi bir pizza daha iyi son ürünle, başlangıç malzemeleri yalnızca yapma gibi. 
 
 ## <a name="criteria-for-data"></a>Veriler için ölçüt
-Bu nedenle, veri bilimi durumunda birlikte çıkarmak için ihtiyacımız bazı malzemeleri vardır.
-
-Verileri ihtiyacımız var:
+Veri bilimi içinde birlikte dahil olmak üzere çekebilir gereken belirli malzemeleri vardır:
 
 * İlgili
 * Bağlı
@@ -57,15 +55,15 @@ Verileri ihtiyacımız var:
 * Yeterli çalışmak için
 
 ## <a name="is-your-data-relevant"></a>Verilerinizi ilgili mi?
-Bu nedenle ilk tarifi - ilgili olan verileri ihtiyacımız var.
+Bu nedenle ilk tarifi - ilgili olan verileri gerekir.
 
 ![İlgili verileri ilgisiz verilerin - karşılaştırması veri değerlendir](./media/data-science-for-beginners-is-your-data-ready-for-data-science/relevant-and-irrelevant-data.png)
 
-Sol tarafta tabloya bakın. Biz Boston çubukları dışında yedi kişi yerine, kan Alkol düzeylerini, son kullanıcıların oyun kırmızı Sox batting ortalama ve en yakın Market sütlü fiyat ölçülür.
+Sol bölmede, tablo dışında Boston çubuğu, son kullanıcıların oyun kırmızı Sox batting ortalama ve en yakın Market sütlü fiyat test yedi kişi kan Alkol düzeyini gösterir.
 
-Bu tüm mükemmel yasal verilerdir. İlgili değil, yalnızca hataya değildir. Bu sayılar arasında belirgin ilişkisi yoktur. I sütlü ve kırmızı Sox batting ortalama geçerli fiyat vermiş, kan Alkol İçeriğim tahmin edebilir yolu yoktur.
+Bu tüm mükemmel yasal verilerdir. İlgili değil, yalnızca hataya değildir. Bu sayılar arasında belirgin ilişkisi yoktur. Birisi size geçerli fiyat sütlü ve kırmızı Sox batting ortalama verdiyse kan Alkol içeriklerini tahmin edebilir yolu yoktur.
 
-Şimdi sağ tarafta tabloya bakın. Bu süre, biz ölçülen her birinin gövde yığın ve sayılan sahip oldukları İçecekler sayısı.  Her satır numaraları şimdi birbiriyle ilgili olur. I size my gövde verdiyse yığın ve ı vardı Margaritas sayısı, yaptığınız my kan konumundaki tahmin Alkol içerik.
+Şimdi sağ tarafta tabloya bakın. Bu sefer her birinin gövde yığın sahip oldukları İçecekler sayısını yanı sıra ölçülen.  Her satır numaraları şimdi birbiriyle ilgili olur. I size my gövde verdiyse yığın ve ı vardı Margaritas sayısı, yaptığınız my kan konumundaki tahmin Alkol içerik.
 
 ## <a name="do-you-have-connected-data"></a>Sahip bağlı veri?
 Sonraki tarifi bağlı verilerdir.
@@ -76,35 +74,35 @@ Hamburgers kalitesini bazı ilgili bilgiler aşağıdadır: sıcaklık, patty a�
 
 Çoğu veri kümelerini bazı değerler eksik. Böyle delik sağlamak için yaygın bir durumdur ve etrafında çalışmaya yolu vardır. Ancak, verilerinizi varsa çok fazla eksik, İsviçre Peynir gibi ara başlar.
 
-Sol tarafta tabloya bakarsanız, olmadığından eksik kadar veri grill sıcaklık ve patty ağırlık ilişkiyi her türlü gündeme sabit. Bu, bağlantısı kesilmiş veri örneğidir.
+Sol tarafta tabloya bakarsanız, olmadığından eksik kadar veri grill sıcaklık ve patty ağırlık ilişkiyi her türlü gündeme sabit. Bu örnek, bağlantısı kesilmiş veri gösterir.
 
 Ancak sağ taraftaki tablo dolu olduğunda ve tamamlandı - bağlı veri örneği.
 
 ## <a name="is-your-data-accurate"></a>Verilerinizi geçerli mi?
-İhtiyacımız sonraki tarifi doğruluğu ' dir. Oklarla isabet isteriz dört hedefleri şunlardır.
+Sonraki tarifi doğruluğu ' dir. İsabet dört hedefleri şunlardır.
 
 ![Doğru verileri yanlış data - veri ölçütlerini karşılaştırması](./media/data-science-for-beginners-is-your-data-ready-for-data-science/inaccurate-vs-accurate-data.png)
 
-Sağ üst hedef bakın. Biz sağ hedefe tam isabet etmiş göz etrafında sıkı bir gruplandırma açıyor. Doğal olarak, doğru olur. Arasında veri bilimi dilde altındaki hedef sağdaki bizim performans da doğru olarak değerlendirilir.
+Sağ üst hedef bakın. Şu hedefe tam isabet etmiş göz etrafında sıkı bir gruplandırma yok. Doğal olarak, doğru olur. Arasında veri bilimi dilde altındaki hedef sağdaki performans da doğru olarak değerlendirilir.
 
-Bu okları merkezi eşlemek için olsaydı, bu çok hedefe tam isabet etmiş göz yakın olduğunu görürsünüz. Oklar, tüm hedef geçici kesin olmayan kabul ancak doğru kabul şekilde hedefe tam isabet etmiş göz ortalanmış yayılır.
+Bu okları merkezi eşlenmiş, bu çok hedefe tam isabet etmiş göz yakın olduğunu görürsünüz. Oklar, tüm hedef geçici kesin olmayan kabul ancak doğru kabul şekilde hedefe tam isabet etmiş göz ortalanmış yayılır.
 
-Artık sol üst hedefe arayın. Burada bizim okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin, ancak merkezi şekilde hedefe tam isabet etmiş göz devre dışı olduğundan, bunlar yanlış. Ve Elbette, sol alt hedef okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
+Artık sol üst hedefe arayın. Burada okları çok birbirine sıkı bir gruplandırma ulaştı. Kesin, ancak merkezi şekilde hedefe tam isabet etmiş göz devre dışı olduğundan, bunlar yanlış. Sol alt hedef okları yanlış ve kesin. Bu archer daha fazla uygulama gerekir.
 
 ## <a name="do-you-have-enough-data-to-work-with"></a>Çalışmak için yeterli veri var mı?
-Son olarak, malzeme #4 - biz yeterli veri olması gerekir.
+Son olarak, malzeme #4 yeterli verilerdir.
 
 ![Analiz için yeterli veri var mı? Veri değerlendirme](./media/data-science-for-beginners-is-your-data-ready-for-data-science/barely-enough-data.png)
 
-Her veri noktası tablosundaki boyama içinde fırça vuruş olarak düşünün. Yalnızca birkaç tanesi varsa, boyama oldukça benzer - ne olduğunu ayırt etmek zordur.
+Her veri noktası tablosundaki boyama içinde fırça vuruş olarak düşünün. Yalnızca birkaç tanesi varsa, boyama benzer - ne olduğunu ayırt etmek zordur.
 
 Daha fazla bazı fırça vuruşları eklerseniz, boyama biraz daha net alma başlar.
 
-Neredeyse hiç yeterli vuruşları olduğunda yetecek kadar geniş bazı kararlar almak için görebilirsiniz. Bu bir yere ziyaret etmek istediğiniz mi? Açık görünüyor, temiz su gibi – Evet, burada tatile kullanacağım olan arar.
+Neredeyse hiç yeterli vuruşları sahip olduğunuzda, yalnızca bazı geniş kararlar almak için yeterli görürsünüz. Bu bir yere ziyaret etmek istediğiniz mi? Açık görünüyor, temiz su gibi – Evet, burada tatile kullanacağım olan arar.
 
-Daha fazla veri ekleme gibi resmi daha anlaşılır olur ve daha ayrıntılı kararlarını verebilir. Artık sol bank üzerinde üç Oteller adresindeki gözden geçirebilirsiniz. Bildiğiniz ı gerçekten mimari ön planda biri gibi özellikler. Üçüncü kat üzerinde kalır,.
+Daha fazla veri ekleme gibi resmi daha anlaşılır olur ve daha ayrıntılı kararlarını verebilir. Artık sol bank üzerinde üç Oteller bakabilirsiniz. Ön planda biri mimari özelliklere dikkat edin. Görünüm nedeniyle üzerinde üçüncü kat kalmak bile seçebilirsiniz.
 
-İlgili, bağlı, doğru veri ve yeterli, biz ile sahip ihtiyacımız için tüm malzemeleri yapmak bazı yüksek kaliteli veri bilimi.
+İlgili, bağlı, doğru veri ve yeterli ile sahip tüm malzemeleri gereken bazı yüksek kaliteli veri bilimi yapmak.
 
 Diğer dört videoları kullanıma özen *yeni başlayanlar için veri bilimi* Microsoft Azure Machine learning'in.
 

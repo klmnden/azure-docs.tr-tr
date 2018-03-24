@@ -1,13 +1,13 @@
 ---
-title: "Maliyetleri SQL Server için Azure sanal makinelerde etkili şekilde yönetebilmek. | Microsoft Docs"
-description: "Doğru SQL Server sanal makine fiyatlandırma modeli seçmek için en iyi yöntemler sağlar."
+title: Maliyetleri SQL Server için Azure sanal makinelerde etkili şekilde yönetebilmek. | Microsoft Docs
+description: Doğru SQL Server sanal makine fiyatlandırma modeli seçmek için en iyi yöntemler sağlar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/20/2018
 ms.author: jroth
-ms.openlocfilehash: 3103ca2c659e40fd945b597ed4671fe96daf1905
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a275df84ce784147b5fd4f09afe4995417affffd
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM'ler için fiyatlandırma Kılavuzu
 
@@ -63,7 +63,7 @@ Bu sürümleri için SQL Server Lisans için ödeme yapmak için iki seçeneğin
 
 ### <a name="pay-per-usage"></a>Kullanım Öde
 
-**SQL Server Lisansı kullanım başına ödeme** dakika başına maliyeti Azure VM çalışan SQL Server Lisans maliyetini içerdiği anlamına gelir. İçinde farklı SQL Server sürümleri için (Web, Standard, Enterprise) fiyatlandırma görebilirsiniz [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Maliyet (2012 SP3 için 2017) SQL Server'ın tüm sürümleri için aynıdır. SQL Server, gibi genel lisans, dakika başına lisanslama ücreti VM çekirdek sayısına bağlıdır.
+**SQL Server Lisansı kullanım başına ödeme** saniyede maliyeti Azure VM çalışan SQL Server Lisans maliyetini içerdiği anlamına gelir. İçinde farklı SQL Server sürümleri için (Web, Standard, Enterprise) fiyatlandırma görebilirsiniz [Azure VM fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Maliyet (2012 SP3 için 2017) SQL Server'ın tüm sürümleri için aynıdır. SQL Server, gibi genel lisans, saniye başına lisanslama ücreti VM çekirdek sayısına bağlıdır.
 
 SQL Server ödeme kullanım lisansı için önerilir:
 
@@ -113,7 +113,7 @@ Bu Getir bilgisayarınızı-kendi-lisans görüntülerden birini bir SQL Server 
 > Bize 10 gün içinde Azure'da kullanacağınız kaç SQL Server lisansları bildirin. Önceki görüntüleri bağlantılara bunun nasıl yapılacağı hakkında yönergeler vardır.
 
 > [!NOTE]
-> Dakika başına ödemeli SQL Server VM'nin lisanslama modelini kendi lisansınızı kullanacak şekilde değiştirmezsiniz. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
+> Bir ödeme saniyede kendi lisansınızı kullanmak için SQL Server VM lisans modelini değiştirmek mümkün değil. Bu durumda yeni bir KLG VM oluşturmanız ve veritabanlarınızı yeni VM'ye geçirmeniz gerekir. 
 
 ## <a name="avoid-unnecessary-costs"></a>Gereksiz maliyetleri kaçının
 

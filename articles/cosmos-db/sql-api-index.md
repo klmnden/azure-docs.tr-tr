@@ -1,10 +1,10 @@
 ---
 title: 'Azure Cosmos DB: SQL API makaleleri | Microsoft Docs'
-description: "Azure Cosmos veritabanı SQL API ile belge veritabanları oluşturma için belirli tüm makalelerin bir listesi."
+description: Azure Cosmos veritabanı SQL API ile belge veritabanları oluşturma için belirli tüm makalelerin bir listesi.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 82bec99a-ac2b-474e-b41f-d2fb296c8feb
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2017
 ms.author: mimig
-ms.openlocfilehash: 8faa8a08d4a5bc323951a594049002fc61eb56b8
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: f30f089ea7a12ef54b255368f38c8ec11a8c11da
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-sql-api-documentation"></a>Azure Cosmos DB: SQL API belgeleri
 
@@ -34,7 +34,7 @@ Gereken bunlar konuları ve SQL API'yi öğrenmeye Azure Cosmos DB için başlat
 - [SQL API giriş](sql-api-introduction.md)
 - [Veritabanı kaynak modeli](sql-api-resources.md)
 - Web sitesi: [Query playground](https://www.documentdb.com/sql/demo)
-- Kopya sayfası: [SQL dilbilgisi](sql-api-sql-query-cheat-sheet.md)
+- Kopya sayfası: [SQL dilbilgisi](query-cheat-sheet.md)
 
 ## <a name="quickstarts"></a>Hızlı Başlangıçlar
 
@@ -71,7 +71,7 @@ Bu öğreticiler bir Quickstarts derin düzeyindedir. Öğreticiler karalama ve 
 
 ### <a name="work-with-data"></a>Verilerle çalışma
 
-- [Veri alma](import-data.md)
+- [Veri içeri aktarma](import-data.md)
 - [Sorgu](tutorial-query-sql-api.md)
 - [Genel veri Dağıt](tutorial-global-distribution-sql-api.md)
 

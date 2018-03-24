@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz olay şeması"
-description: "Azure olay kılavuz olan olaylar için sağlanan özellikler açıklar"
+title: Azure olay kılavuz olay şeması
+description: Azure olay kılavuz olan olaylar için sağlanan özellikler açıklar
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 9d1f0eed28a1c1c6776ddba89480adcedfc599a5
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7af0e1cc8ae36774ef1cebf1bada6477888860d0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure olay kılavuz olay şeması
 
@@ -84,7 +84,7 @@ Tüm olaylar aynı aşağıdaki üst düzey veri içerir:
 | eventType | string | Bu olay kaynağı için kayıtlı olay türünden biri. |
 | EventTime | string | Olayı oluşturan zaman sağlayıcının UTC zamanı temel alınarak. |
 | id | string | Olay için benzersiz tanımlayıcı. |
-| veriler | nesne | Olay verileri kaynak sağlayıcıya özel. |
+| veriler | object | Olay verileri kaynak sağlayıcıya özel. |
 | dataVersion | string | Veri nesnesi şema sürümü. Yayımcı şema sürümü tanımlar. |
 | metadataVersion | string | Olay meta veri şema sürümü. Olay kılavuz, şemanın en üst düzey özellikleri tanımlar. Bu değer olay kılavuz sağlar. |
 
@@ -97,7 +97,11 @@ Veri nesnesi özellikleri hakkında bilgi edinmek için olay kaynağı bakın:
 * [IoT Hub’ı](event-schema-iot-hub.md)
 * [Kaynak grupları (yönetim işlemlerini)](event-schema-resource-groups.md)
 
-Özel konular için olay yayımcısı veri nesnesi belirler. Üst düzey veri standart kaynak tarafından tanımlanan olayları aynı alanları içermelidir. Olaylar için özel konular yayımlarken, Yönlendirme ve filtreleme yardımcı olmak üzere, olayların konu modelleme düşünmelisiniz.
+Özel konular için olay yayımcısı veri nesnesi belirler. Üst düzey veri standart kaynak tarafından tanımlanan olayları aynı alanları içermelidir.
+
+Olaylar için özel konular yayımlarken konularla ilgili olayda ilgilenen olup olmadıklarını öğrenmek aboneleri için kolaylaştıran olaylarınızı oluşturun. Aboneler konu filtre ve rota olaylar için kullanın. Böylece aboneleri yol kesimleri göre filtre uygulayabilirsiniz olay yapıldığı için yolun belirtmeyi deneyin. Yolun dar veya geniş çapta olayları filtrelemek aboneleri sağlar. Örneğin, bir üç segment yolu gibi sağlarsanız, `/A/B/C` Bu konu, aboneler ilk segmente göre filtreleyebilirsiniz `/A` olayların geniş kapsamlı bir kümesini almak için. Bu aboneleri konularıyla gibi olayları Al `/A/B/C` veya `/A/D/E`. Diğer aboneleri göre filtre uygulayabilirsiniz `/A/B` olayları daha dar bir dizi alınamıyor.
+
+Bazen Konunuzu ne hakkında daha fazla ayrıntı gerekir. Örneğin, **depolama hesapları** publisher sağlar konu `/blobServices/default/containers/<container-name>/blobs/<file>` bir dosya için bir kapsayıcı eklendiğinde. Bir abonenin yoluyla filtre uygulayabilirsiniz `/blobServices/default/containers/testcontainer` bu kapsayıcı, ancak diğer kapsayıcılar değil depolama hesabındaki tüm olayları alınamıyor. Bir abonenin de filtre uygulayabilirsiniz veya rota soneki tarafından `.txt` yalnızca metin dosyalarıyla çalışmak üzere.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

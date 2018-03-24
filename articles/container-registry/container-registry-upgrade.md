@@ -1,18 +1,18 @@
 ---
-title: "Klasik Azure kapsayıcı kayıt defteri yükseltme"
-description: "Genişletilmiş yararlanmak özellik kümesini temel, standart ve Premium yönetilmeyen Klasik kapsayıcı kaydınız yükselterek kapsayıcı kayıt defterleri yönetilen."
+title: Klasik Azure kapsayıcı kayıt defteri yükseltme
+description: Genişletilmiş yararlanmak özellik kümesini temel, standart ve Premium yönetilmeyen Klasik kapsayıcı kaydınız yükselterek kapsayıcı kayıt defterleri yönetilen.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 19090bb69d7165c1e904450dc93b925e23e44782
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c5a61941bab2aa49cd8205e0a07dd2b5f7378ce9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Klasik kapsayıcı kayıt defteri yükseltme
 
@@ -29,14 +29,16 @@ Yönetilen kayıt defterleri sağlar:
 * [Coğrafi çoğaltma](container-registry-geo-replication.md)
 * [Web kancaları](container-registry-webhook.md)
 
-En önemlisi, Klasik kayıt defteri kayıt oluşturduğunuzda otomatik olarak Azure aboneliğinizde sağlanan bu Azure depolama hesabında bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları yararlanmak *yönetilen depolama*. Diğer bir deyişle, Azure depolama saydam yönetir,--görüntülerinizin ayrı bir depolama hesabı kendi abonelikte oluşturulmaz.
+En önemlisi, Klasik kayıt defteri kayıt oluşturduğunuzda Azure, Azure aboneliğinizde otomatik olarak sağlar depolama hesabındaki bağlıdır. Bunun aksine, temel, standart ve Premium SKU'ları Azure'nın yararlanmak [gelişmiş depolama özellikleri](container-registry-storage.md) saydam görüntülerinizin depolama, işleme göre. Ayrı bir depolama hesabı kendi abonelikte oluşturulmaz.
 
 Yönetilen kayıt defteri depolama aşağıdaki avantajları sağlar:
 
-* Kapsayıcı görüntüleri [şifrelenen](../storage/common/storage-service-encryption.md).
-* Görüntüleri kullanılarak depolanmış olan [coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#geo-redundant-storage), modemlerin yedekleme bölgeli çoğaltma ile görüntüler.
+* Kapsayıcı görüntüleri [şifrelenen](container-registry-storage.md#encryption-at-rest).
+* Görüntüleri kullanılarak depolanmış olan [coğrafi olarak yedekli depolama](container-registry-storage.md#geo-redundant-storage), modemlerin yedekleme bölgeli çoğaltma ile görüntüler.
 * Özelliğine ücretsiz [SKU'ları arasında taşıma](container-registry-skus.md#changing-skus), üst düzey bir SKU seçtiğinizde daha yüksek verimlilik etkinleştirme. Gereksinimlerinize arttıkça her SKU ile üretilen iş gereksinimlerinizi ACR karşılayabilir.
 * Birleşik güvenlik modeli kayıt defteri ve depolama alanı için Basitleştirilmiş hak yönetimi sağlar. Ayrıca ayrı bir depolama hesabı için izinleri yönetmek zorunda kalmadan yalnızca kapsayıcı kayıt defteri izinlerini yönetin.
+
+ACR görüntü depolama hakkında daha fazla ayrıntı için bkz: [kapsayıcı görüntü depolama Azure kapsayıcı kayıt defterinde](container-registry-storage.md).
 
 ## <a name="migration-considerations"></a>Geçiş konuları
 

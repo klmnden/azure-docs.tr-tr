@@ -1,24 +1,24 @@
 ---
-title: "Azure'da giden bağlantılar | Microsoft Docs"
-description: "Bu makalede, Azure ortak Internet Hizmetleri ile iletişim kurmak sanal makineleri nasıl sağladığını açıklar."
+title: Azure'da giden bağlantılar | Microsoft Docs
+description: Bu makalede, Azure ortak Internet Hizmetleri ile iletişim kurmak sanal makineleri nasıl sağladığını açıklar.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 32661ad4d647f266273c4c94a5ba177a348c5431
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3fc9810f2f7f86b4c795a7f008e8e1bd174a84db
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/16/2018
 > Yük Dengeleyici standart SKU şu anda önizlemede değil. Genel kullanılabilirlik özellikleri serbest olarak Önizleme sırasında aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel olarak kullanılabilir kullanmak [yük dengeleyici temel SKU](load-balancer-overview.md) üretim hizmetleriniz için. Kullanmak için [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) bu önizlemede gerektiren bir [ayrı kaydolma](https://aka.ms/availabilityzones), yük dengeleyici için kaydolan yanı sıra [Standard Önizleme](#preview-sign-up).
 
 Azure müşteri dağıtımları için giden bağlantı birkaç farklı yollarla sağlar. Bu makalede senaryolar nelerdir, bunlar uygulandığında, nasıl çalıştığını ve bunların nasıl yönetileceğini açıklar.
+
+>[!NOTE] 
+>Bu makalede, Resource Manager dağıtımları yalnızca yer almaktadır. Gözden geçirme [giden bağlantılar (Klasik)](load-balancer-outbound-connections-classic.md) azure'da tüm Klasik dağıtım senaryoları için.
 
 Bir dağıtımda Azure dışında Azure ortak IP adres alanındaki uç noktalar ile iletişim kurabilir. Bir örneği ortak IP adresi alanı içindeki bir hedefe giden bir akışı başlattığında, Azure özel IP adresi genel bir IP adresi dinamik olarak eşler. Bu eşleme oluşturulduktan sonra bu giden kaynaklı akışı dönüş trafiği de özel IP adresi akış geldiği ulaşabilir.
 
@@ -38,11 +41,7 @@ Vardır birden çok [giden senaryoları](#scenarios). Bu senaryolar, gerektiğin
 
 ## <a name="scenarios"></a>Senaryoya genel bakış
 
-Azure iki ana dağıtım modeline sahiptir: Azure Resource Manager ve klasik. Azure yük dengeleyici ve ilgili kaynakları açıkça tanımlanmış kullanırken [Azure Resource Manager](#arm). Klasik dağıtımlar bir yük dengeleyici kavramı soyut ve uç noktaları tanımını aracılığıyla benzer bir işlev hızlı bir [bulut hizmeti](#classic). Geçerli [senaryoları](#scenarios) bağımlı dağıtımınız için hangi dağıtım modeli kullanırsınız.
-
-### <a name="arm"></a>Azure Resource Manager
-
-Azure şu anda Azure Resource Manager kaynakları için giden bağlantı ulaşmak için üç farklı yöntem sağlar. [Klasik](#classic) dağıtımları sahip bir alt kümesini bu senaryoları.
+Azure yük dengeleyici ve ilgili kaynakları açıkça tanımlanmış kullanırken [Azure Resource Manager](#arm).  Azure şu anda Azure Resource Manager kaynakları için giden bağlantı ulaşmak için üç farklı yöntem sağlar. 
 
 | Senaryo | Yöntem | Açıklama |
 | --- | --- | --- |
@@ -51,14 +50,6 @@ Azure şu anda Azure Resource Manager kaynakları için giden bağlantı ulaşma
 | [3. Tek başına VM (yük dengeleyici, örnek düzeyinde ortak IP adresi yok)](#defaultsnat) | Bağlantı noktası (PAT) maskelemeyi ile SNAT | Azure otomatik olarak snat Uygulamanız için bir ortak IP adresi atar, bu ortak IP adresi birden fazla özel IP adreslerini kullanılabilirlik kümesi ile paylaşır ve bu genel IP adresi kısa ömürlü bağlantı noktalarını kullanır. Bu, önceki senaryoları için geri dönüş bir senaryodur. Görünürlük ve denetim gerekiyorsa bunu yapmanız önerilmez. |
 
 Azure ortak IP adres alanındaki dışında uç noktalar ile iletişim kurmak için bir VM istemiyorsanız, gerektiğinde erişimi engellemek için ağ güvenlik grupları (Nsg'ler) kullanabilirsiniz. Bölüm [giden bağlantıyı engelliyor](#preventoutbound) Nsg'ler daha ayrıntılı olarak anlatılmaktadır. Tasarım Kılavuzu, uygulama, herhangi bir giden erişim olmadan bir sanal ağ yönetme bu makalenin kapsamı dışındadır ise.
-
-### <a name="classic"></a>Klasik (bulut Hizmetleri)
-
-Klasik dağıtımlar için kullanılabilir bir alt kümesi için kullanılabilir senaryoları senaryolardır [Azure Resource Manager](#arm) dağıtımları ve yük dengeleyici temel.
-
-Klasik sanal makine için Azure Resource Manager kaynakları açıklandığı gibi aynı üç temel senaryo vardır ([1](#ilpip), [2](#lb), [3](#defaultsnat)). Klasik web çalışanı rolü yalnızca iki senaryo vardır ([2](#lb), [3](#defaultsnat)). [Hafifletme stratejileri](#snatexhaust) de aynı farklar vardır.
-
-İçin kullanılan algoritma [kısa ömürlü bağlantı noktaları ön tahsis](#ephemeralprots) için PAT Klasik dağıtımlar için Azure Resource Manager kaynak dağıtımları ile aynıdır.  
 
 ### <a name="ilpip"></a>Senaryo 1: VM bir örnek düzeyinde ortak IP adresi ile
 
@@ -97,15 +88,11 @@ Bölümünde açıklandığı gibi SNAT bağlantı noktalarını önceden ayrıl
 
 ### <a name="combinations"></a>Birden çok, birleştirilmiş senaryoları
 
-Belirli bir sonucu elde etmek için önceki bölümlerde açıklanan senaryoları birleştirebilirsiniz. Birden fazla senaryoyu mevcut olduğunda bir öncelik sırası geçerlidir: [Senaryo 1](#ilpip) önceliklidir [Senaryo 2](#lb) ve [3](#defaultsnat) (yalnızca Azure Resource Manager). [Senaryo 2](#lb) geçersiz kılmaları [Senaryo 3](#defaultsnat) (Azure Resource Manager ve klasik).
+Belirli bir sonucu elde etmek için önceki bölümlerde açıklanan senaryoları birleştirebilirsiniz. Birden fazla senaryoyu mevcut olduğunda bir öncelik sırası geçerlidir: [Senaryo 1](#ilpip) önceliklidir [Senaryo 2](#lb) ve [3](#defaultsnat). [Senaryo 2](#lb) geçersiz kılmaları [Senaryo 3](#defaultsnat).
 
 Burada uygulama yoğun hedefleri sınırlı sayıda giden bağlantılar kullanır, ancak Ayrıca, bir yük dengeleyici ön gelen akışları alır Azure Resource Manager dağıtım örneğidir. Bu durumda, senaryoları Tahliye için 1 ve 2 birleştirebilirsiniz. Ek desenler için gözden [yönetme SNAT Tükenme](#snatexhaust).
 
 ### <a name="multife"></a> Giden trafik akışları için birden çok ön Uçlar
-
-#### <a name="load-balancer-basic"></a>Yük Dengeleyici Basic
-
-Yük Dengeleyici temel seçer giden akışlar için kullanılacak tek bir ön uç zaman [birden çok (Genel) IP ön uçlar](load-balancer-multivip-overview.md) giden trafik akışları için aday değildir. Bu seçim yapılandırılabilir değildir ve rastgele seçimi algoritmasının göz önünde bulundurmanız gerekir. Giden trafik akışları için belirli bir IP adresi açıklandığı gibi atayabilirsiniz [birden çok, birleştirilmiş senaryoları](#combinations).
 
 #### <a name="load-balancer-standard"></a>Load Balancer Standart
 
@@ -122,6 +109,10 @@ Bir ön uç IP adresi ile yeni bir Yük Dengeleme kuralı seçeneği giden bağl
 ```
 
 Bu seçenek normalde, varsayılan olarak _false_ ve bu kural Yük Dengeleme kuralını arka uç havuzundaki ilişkili VM'ler için giden SNAT programları belirtir.  Bu şekilde değiştirilebilir _true_ yük dengeleyici VM için giden bağlantılar için ilişkili ön uç IP adresini kullanmasını önlemek için bu Yük Dengeleme kuralı arka uç havuzunda kullanıcının.  Ve yine de açıklandığı gibi giden trafik akışları için belirli bir IP adresi atayabilirsiniz [birden çok, birleştirilmiş senaryoları](#combinations) de.
+
+#### <a name="load-balancer-basic"></a>Yük Dengeleyici Basic
+
+Yük Dengeleyici temel seçer giden akışlar için kullanılacak tek bir ön uç zaman [birden çok (Genel) IP ön uçlar](load-balancer-multivip-overview.md) giden trafik akışları için aday değildir. Bu seçim yapılandırılabilir değildir ve rastgele seçimi algoritmasının göz önünde bulundurmanız gerekir. Giden trafik akışları için belirli bir IP adresi açıklandığı gibi atayabilirsiniz [birden çok, birleştirilmiş senaryoları](#combinations).
 
 ### <a name="az"></a> Kullanılabilirlik bölgeleri
 
@@ -147,7 +138,12 @@ Yaygın olarak SNAT bağlantı noktası tükenmesine yol koşulları azaltmak de
 
 Sayısı, önceden ayrılmış SNAT kullanılabilir bağlantı noktası sayısını belirlemek için bir algoritma kullanırken arka uç havuzu boyutuna göre azure kullandığı bağlantı noktası maskelenmiş SNAT ([PAT](#pat)). Belirli bir ortak IP kaynak adresi için kullanılabilir kısa ömürlü bağlantı noktaları SNAT bağlantı noktalarıdır.
 
-Azure bağlantı noktalarına her VM NIC IP yapılandırmasını SNAT preallocates. Bir IP yapılandırması havuza eklendiğinde, SNAT bağlantı noktaları arka uç havuzu boyutuna göre bu IP yapılandırması için önceden ayrılmış. Klasik web çalışanı rolleri için ayırma rol örneğidir. Giden trafik akışları oluşturduğunuzda, [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktaları serbest veya [boş durma zaman aşımlarını](#ideltimeout) gerçekleşir.
+SNAT bağlantı noktalarını aynı sayıda UDP ve TCP için sırasıyla önceden ayrılmış ve bağımsız olarak her IP Aktarım Protokolü tüketilen. 
+
+>[!IMPORTANT]
+>Standart SKU programlama SNAT IP Aktarım Protokolü ve Yük Dengeleme kuralının türetilmiş.  SNAT yalnızca TCP Yük Dengeleme kuralı varsa, yalnızca TCP için kullanılabilir. Yalnızca bir Yük Dengeleme kuralı TCP sahip ve için UDP Giden SNAT ihtiyacınız varsa bir UDP Yük Dengeleme aynı arka uç havuzuna aynı ön uç gelen kuralı oluşturun.  Bu işlem için UDP programlama SNAT tetikler.  Bir çalışan kural veya sistem durumu araştırması gerekli değildir.  Temel SKU SNAT SNAT Yük Dengeleme kuralını belirtilen Aktarım Protokolü'ne olursa olsun, her iki IP aktarım protokolü için her zaman programlar.
+
+Azure bağlantı noktalarına her VM NIC IP yapılandırmasını SNAT preallocates. Bir IP yapılandırması havuza eklendiğinde, SNAT bağlantı noktaları arka uç havuzu boyutuna göre bu IP yapılandırması için önceden ayrılmış. Giden trafik akışları oluşturduğunuzda, [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktaları serbest veya [boş durma zaman aşımlarını](#ideltimeout) gerçekleşir.
 
 Aşağıdaki tabloda SNAT bağlantı noktası preallocations arka uç havuzu boyutlarda katmanları gösterilmektedir:
 
@@ -168,6 +164,18 @@ Kullanılabilir SNAT bağlantı noktası sayısını doğrudan akışları sayı
 Arka uç havuzu boyutunu değiştirme bazı yerleşik akışlarının etkileyebilir. Arka uç havuzu boyutunu artırır ve sonraki katmanla geçişleri, ön tahsis SNAT bağlantı noktalarını yarısı sonraki daha büyük arka uç havuzu katmanına geçiş sırasında geri kazanılır. Reclaimed SNAT bağlantı noktasıyla ilişkili akışlar zaman aşımına uğrar ve kurulmaları gerekir. Yeni bir akış bulamazsa, ön tahsis bağlantı noktaları kullanılabilir olduğu sürece, akış hemen başarılı olur.
 
 Arka uç havuzu boyutunu azaltır ve daha düşük bir katman geçişleri, kullanılabilir SNAT bağlantı noktalarının sayısını artırır. Bu durumda, varolan SNAT bağlantı noktalarını ayrılmış ve bunların ilgili akışları etkilenmez.
+
+SNAT bağlantı noktalarını ayırmaları olan belirli IP Aktarım Protokolü (TCP ve UDP korunur ayrı ayrı) ve aşağıdaki koşullar altında serbest bırakılır:
+
+### <a name="tcp-snat-port-release"></a>TCP SNAT bağlantı noktası sürüm
+
+- Her iki sunucu/istemci FIN/ACK gönderirse SNAT bağlantı noktası 240 saniye sonra kullanıma sunulacaktır.
+- Bir RST görülen, SNAT bağlantı noktası 15 saniye sonra kullanıma sunulacaktır.
+- boşta kalma zaman aşımı ulaşıldı
+
+### <a name="udp-snat-port-release"></a>UDP SNAT bağlantı noktası sürüm
+
+- boşta kalma zaman aşımı ulaşıldı
 
 ## <a name="problemsolving"></a> Sorun giderme 
 
@@ -208,9 +216,19 @@ Ortak standart yük dengeleyici kullanırken atadığınız [giden bağlantılar
 >[!NOTE]
 >Çoğu durumda, SNAT bağlantı noktalarının Tükenme hatalı tasarımının işaretidir.  Neden SNAT bağlantı noktaları eklemek için daha fazla ön uçlar kullanmadan önce tükettiğini bağlantı noktalarının anladığınızdan emin olun.  İçin daha sonra açabilir bir sorunun maskeleme.
 
+#### <a name="scaleout"></a>Ölçeği genişletme
+
+[Bağlantı noktaları önceden ayrılmış](#preallocatedports) arka uç havuzu boyutuna göre ve bağlantı noktalarından bazılarını sonraki daha büyük arka uç havuzu boyutu katmanı karşılamak için ayrılabilecek gerektiğinde kesintiyi en aza indirmek için katmanları içine gruplandırılmış atanır.  Belirli bir katman için en büyük boyutu, arka uç havuzuna ölçeklendirme tarafından verilen bir ön uç için SNAT bağlantı noktası kullanımını yoğunluğunu artırmak için bir seçenek olabilir.  Bu uygulamayı verimli bir şekilde genişletmek için gerektirir.
+
+Örneğin, arka uç havuzundaki 2 sanal makine 1024 SNAT kullanılabilir bağlantı noktası başına 2048 SNAT toplam dağıtım için bağlantı noktalarını izin vererek, IP yapılandırması gerekir.  Dağıtım 50 sanal artırılacak olsaydı makineler, sayısı, sanal makine, 51,200 (50 x 1024) toplam başına bağlantı noktalarını kalır sabiti SNAT bağlantı noktalarını önceden ayrılmış olsa bile dağıtım tarafından kullanılabilir.  Dağıtımınızı genişletmek istiyorsanız, sayısını denetleyin [bağlantı noktalarını önceden ayrılmış](#preallocatedports) emin olmak için katman, Ölçek genişletme ilgili katmanı için en fazla şekil.  Önceki örnekte 50 örnek yerine 51 için ölçeği genişletme seçtiyseniz, sonraki katmanı ve son yukarı de VM başına toplam olduğu gibi daha az SNAT bağlantı ilerleme.
+
+Buna karşılık, bağlantı noktaları ayırdığınızda sonraki daha büyük arka uç havuzu boyutu katmanı olası giden bağlantılar için ölçek genişletme zorunda ayrılabilecek.  Bunun gerçekleşmesi için istemiyorsanız, dağıtımınız için katman boyutu şekil gerekir.  Veya gerektiğinde uygulamanız algılamak ve yeniden deneyin emin olun.  TCP ayarlandığında Canlı tutmalar yardımcı olabilir SNAT bırakılan nedeniyle işlevi artık bağlantı noktalarını algılayabilir içinde.
+
 ### <a name="idletimeout"></a>Giden boşta kalma zaman aşımı sıfırlamak için ayarlandığında Canlı tutmalar kullanın
 
-Giden bağlantılar 4 dakikalık boşta kalma zaman aşımı vardır. Bu zaman aşımı ayarlanabilir değil. Ancak, boş bir akış yenileyin ve gerekirse bu boşta kalma zaman aşımı sıfırlamak için Aktarım (örneğin, TCP ayarlandığında Canlı tutmalar) veya uygulama katmanı ayarlandığında Canlı tutmalar kullanabilirsiniz.
+Giden bağlantılar 4 dakikalık boşta kalma zaman aşımı vardır. Bu zaman aşımı ayarlanabilir değil. Ancak, boş bir akış yenileyin ve gerekirse bu boşta kalma zaman aşımı sıfırlamak için Aktarım (örneğin, TCP ayarlandığında Canlı tutmalar) veya uygulama katmanı ayarlandığında Canlı tutmalar kullanabilirsiniz.  
+
+TCP ayarlandığında Canlı tutmalar kullanırken, bir bağlantı tarafında etkinleştirmek yeterli olur. Örneğin, yalnızca boşta süreölçeri akışının sıfırlamak için sunucu tarafında etkinleştirmek yeterli olduğundan ve ayarlandığında için başlatılan TCP canlı tutmalar iki tarafı için gerekli değildir.  Benzer kavram veritabanı istemci-sunucu yapılandırmaları da dahil olmak üzere uygulama katmanı için mevcut.  Uygulama için belirli ayarlandığında Canlı tutmalar hangi seçenekler mevcuttur için sunucu tarafı denetleyin.
 
 ## <a name="discoveroutbound"></a>Bir VM kullandığı genel IP bulma
 Giden bir bağlantıyı ortak kaynak IP adresi belirlemek için birçok yolu vardır. OpenDNS VM ortak IP adresini gösteren bir hizmet sunar. 
@@ -231,6 +249,7 @@ Bir NSG'yi sistem durumu araştırma AZURE_LOADBALANCER varsayılan etiket istek
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla bilgi edinmek [yük dengeleyici temel](load-balancer-overview.md).
+- Daha fazla bilgi edinmek [yük dengeleyici](load-balancer-overview.md).
+- Daha fazla bilgi edinmek [standart yük dengeleyici](load-balancer-standard-overview.md).
 - Daha fazla bilgi edinmek [ağ güvenlik grubu](../virtual-network/virtual-networks-nsg.md).
 - Başka bir anahtar bazıları hakkında bilgi edinin [ağı yetenekleri](../networking/networking-overview.md) azure'da.

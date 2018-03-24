@@ -1,22 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Kullanım raporlama API örnekleri ve tanımları | Microsoft Docs"
-description: "Kılavuzu ve kullanıcıları, kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları Azure AD B2C kiracısı üzerinde raporları almayı örnekleri"
+title: 'Azure Active Directory B2C: Kullanım raporlama API örnekleri ve tanımları | Microsoft Docs'
+description: Kılavuzu ve kullanıcıları, kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları Azure AD B2C kiracısı üzerinde raporları almayı örnekleri
 services: active-directory-b2c
 documentationcenter: dev-center-name
-author: rojasja
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/04/2017
-ms.author: joroja
-ms.openlocfilehash: 6014301a026d60775634138cbdfe56bfa625508f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 3470f45683ea508dfe338c313a5307eb6c1164d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Raporlama API'si aracılığıyla Azure AD B2C kullanım raporlarında erişme
 
@@ -29,7 +28,7 @@ Azure Active Directory B2C (Azure AD B2C) kullanıcı oturum açma ve Azure mult
 Bu makalede, kullanıcılar, Faturalanabilir oturum bileşen tabanlı kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları sayısına göre fatura etkinliğine bağlı raporları odaklanır.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce bölümündeki adımları tamamlamanız gerekir [Azure AD API'leri raporlama erişmek için Önkoşullar](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/). Bir uygulama oluşturmak, bir gizlilik elde ve erişim izni Azure AD B2C kiracınızın raporları hakkı. *Komut dosyası bash* ve *Python betiği* örnekler da sağlanmıştır burada. 
 
 ## <a name="powershell-script"></a>PowerShell betiği

@@ -1,11 +1,11 @@
 ---
-title: "BT Hizmet Yönetimi Bağlayıcısı Azure günlük analizi | Microsoft Docs"
-description: "Bu çözüm merkezi olarak izlemek ve ITSM yönetmek için nasıl kullanılacağı hakkında bilgi Azure günlük analizi çalışma öğeleri ve hızlı bir şekilde tüm sorunları giderin ve bu makalede BT Hizmet Yönetimi Bağlayıcısı (ITSMC) genel bakış sağlar."
+title: BT Hizmet Yönetimi Bağlayıcısı Azure günlük analizi | Microsoft Docs
+description: Bu çözüm merkezi olarak izlemek ve ITSM yönetmek için nasıl kullanılacağı hakkında bilgi Azure günlük analizi çalışma öğeleri ve hızlı bir şekilde tüm sorunları giderin ve bu makalede BT Hizmet Yönetimi Bağlayıcısı (ITSMC) genel bakış sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: 56da2d4349a4a32eed783045381e504b529b1a1c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a51b96641c80a6575c64f58fa09e0bf6078e4185
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçları Azure connect
 
@@ -191,7 +191,7 @@ Altında oluşturulan günlük analizi uyarı görüntüleyebilirsiniz **ayarlar
 4. Uygun değerleri sağlayın **kişi türündeki**, **etkisi**, **aciliyet**, **kategori**, ve **alt kategori** metin kutuları ve ardından **oluşturma**.
 
 
-##<a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Görselleştirme ve olayı çözümlemek ve istek verileri değiştirme
+## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Görselleştirme ve olayı çözümlemek ve istek verileri değiştirme
 
 Bağlantı kurma ayarlarken yapılandırmanızı temel alarak, ITSM bağlayıcı en fazla 120 gün olay ve değişiklik isteği verileri eşitleyebilirsiniz. Bu veri günlük kaydı şeması sağlanan [sonraki bölümde](#additional-information).
 
@@ -234,7 +234,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Aciliyet
 - Etki
 - Öncelik
-- Yükseltme
+- Önem Yükseltme
 - Oluşturan
 - Çözümleyen
 - Tarafından kapatıldı
@@ -265,7 +265,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Tür
 - Kategori
 - Durum
-- Yükseltme
+- Önem Yükseltme
 - Çakışma durumu
 - Aciliyet
 - Öncelik
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Kategori |
 | Title_s|  Kısa açıklama |
 | Description_s|  Notlar |
-| CreatedDate_t|  Açıldı |
+| CreatedDate_t|  Opened |
 | ClosedDate_t| kapalı|
 | ResolvedDate_t|Çözümlendi|
 | Bilgisayar  | Yapılandırma öğesi |

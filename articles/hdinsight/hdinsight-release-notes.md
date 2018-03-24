@@ -1,8 +1,8 @@
 ---
-title: "Azure hdınsight'ta Hadoop bileşenleri için sürüm notları | Microsoft Docs"
-description: "En son sürüm notları ve Azure Hdınsight için Hadoop bileşenleri sürümleri. Geliştirme ipuçları ve ayrıntıları Spark, R Server, Hive ve daha fazla bilgi edinin."
+title: Azure hdınsight'ta Hadoop bileşenleri için sürüm notları | Microsoft Docs
+description: En son sürüm notları ve Azure Hdınsight için Hadoop bileşenleri sürümleri. Geliştirme ipuçları ve ayrıntıları Spark, R Server, Hive ve daha fazla bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 editor: cgronlun
 manager: jhubbard
 author: nitinme
@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 38a33056ccd908b43319125b3fe517988b1507c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf0bfa052c8cd7589af40972fda1e1802b4d1acb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure hdınsight'ta Hadoop bileşenleri için sürüm notları
 
@@ -29,9 +29,10 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight sürüm makale](hdinsight-component-versioning.md).
 
-## <a name="notes-for-03082018---release-of-spark-22-on-hdinsight-36"></a>Notları 03/08/2018 - 2.2 Hdınsight'ta Spark, 3.6 sürümü
+## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Notları 03/20/2018 - 2.2 Hdınsight'ta Spark, 3.6 sürümü
 
 - Spark 2.2.0 Spark Core, SQL, ML arasında kararlılığını artırır ve yapılandırılmış akış GA duruma getirir. Spark 2.2.0 üzerinde Hdınsight 3.6 kullanıma sunulmuştur.
+
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Hdınsight 08/01/2017 sürümünün notları
 

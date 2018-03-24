@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning Studio'daki örnek veri kümelerini kullanan | Microsoft Docs"
-description: "Machine Learning Studio'da bulunan örnek modellerindeki kullanılan veri kümelerindeki açıklamaları. Bu örnek veri kümeleri denemelerinizi için kullanabilirsiniz."
+title: Machine Learning Studio'daki örnek veri kümelerini kullanan | Microsoft Docs
+description: Machine Learning Studio'da bulunan örnek modellerindeki kullanılan veri kümelerindeki açıklamaları. Bu örnek veri kümeleri denemelerinizi için kullanabilirsiniz.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.author: garye
-ms.openlocfilehash: 3339d3b3bab2c0ce210950c178ef03fc6c0ecab9
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -47,7 +47,7 @@ Bir alt kümesini 16 yaş > 100 ayarlandı geliri dizini ile üzerinden çalış
 <p></p>
 <b>Kullanım:</b> bir kişi üzerinde 50 K yılda kazandığı olup olmadığını tahmin etmek için demografisine kullanan kişilerin sınıflandırmak.
 <p></p>
-<b>İlgili araştırma:</b> Kohavi, r, Becker, b, (1996). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Kohavi, r, Becker, b, (1996). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -68,7 +68,7 @@ Risk puanını başlangıçta otomatik fiyat ile ilişkilidir. Ardından, gerçe
 <p></p>
 <b>Kullanım:</b> risk puanı regresyon veya multivariate sınıflandırmasını kullanan özellikler tarafından tahmin. 
 <p></p>
-<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Schlimmer, J.C. (1987). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -99,9 +99,9 @@ Bağış verileri içeren ay boyunca son Bağış itibaren) ve sıklığı veya 
 <p></p>
 <b>Kullanım:</b> Bağış kan Mart 2007, burada 1 gösteren bir Bağış hedef dönemi ve 0 sırasında Bağış olmayan bağışlanır olup olmadığını sınıflandırma tahmin etmek için belirtilir. 
 <p></p>
-<b>İlgili araştırma:</b> Yeh, I.C., (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
+<b>İlgili araştırma:</b> Yeh, I.C., (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
 <p></p>
-Yeh, t-Cheng, Yang, Jang Kol-gönderdi ve toplantı, Tao-msiexec, "bilgi bulma Bernoulli dizisi kullanılarak RFM model üzerinde" uygulamaları, 2008, Uzman sistemleriyle <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
+Yeh, t-Cheng, Yang, Jang Kol-gönderdi ve toplantı, Tao msiexec, "bilgi bulmayı Bernoulli dizisi,"Uzman sistemler uygulamalarla 2008 kullanılarak RFM modeli <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
 </tr>
 
@@ -112,7 +112,7 @@ Machine learning belgeleri sık görüntülenen Oncology Enstitüsü'nün taraf�
 <p></p>
 <b>Kullanım:</b> kanseri türünü sınıflandırmak ve 9 özniteliklerini temel alarak, bazıları doğrusal kategorik bazılarıdır. 
 <p></p>
-<b>İlgili araştırma:</b> Wohlberg, W.H., Sokak, W.N. ve Mangasarian, O.L. (1995). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Wohlberg, W.H., Sokak, W.N. ve Mangasarian, O.L. (1995). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -165,7 +165,7 @@ Benzetimli enerji profilleri, 12 farklı yapı şekillerine göre koleksiyonu. B
 <p></p>
 <b>Kullanım:</b> regresyon veya sınıflandırma iki gerçek değerli yanıtları biri olarak tabanlı derecelendirme enerji verimliliğine tahmin etmek için kullanın. Çok sınıfı için en yakın tamsayıya yanıt değişkeni round sınıflandırmasıdır. 
 <p></p>
-<b>İlgili araştırma:</b> Xifara, a & Tsanas, A. (2012). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Xifara, a & Tsanas, A. (2012). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -190,7 +190,7 @@ Uçak uçuş gelişleri ve departures Ekim 2011 Birleşik Devletler içinde kayd
 <p></p>
 <b>Kullanım:</b> uçuş gecikmeler tahmin etmek. 
 <p></p>
-<b>İlgili araştırma:</b> , ABD bölüm taşıma gelen <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>İlgili araştırma:</b> , ABD bölüm taşıma gelen <a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time"> http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time </a>.
   </td>
 </tr>
 
@@ -201,9 +201,9 @@ Sıcaklık ve nem dizinlerini ve Rüzgar hızı gibi hava durumu verilerini içe
 <p></p>
 <b>Kullanım:</b> AIM orman ateşlenir yazılan alanını tahmin olduğu zor regresyon görev budur. 
 <p></p>
-<b>İlgili araştırma:</b> Cortez, P. & Morais, A. (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
+<b>İlgili araştırma:</b> Cortez, P. & Morais, A. (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 
@@ -230,7 +230,7 @@ Desen tanıma belgelerinde bulunması için en iyi bilinen bir veritabanı belki
 <p></p>
 <b>Kullanım:</b> ölçümleri iris türünden tahmin etmek.  
 <p></p>
-<b>İlgili araştırma:</b> Fisher, R.A. (1988). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Fisher, R.A. (1988). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -249,7 +249,7 @@ Verileri galon başına mil içinde çeşitli otomobiller için yakıt tüketimi
 <p></p>
 <b>Kullanım:</b> üç birden çok değerli ayrık öznitelikleri ve beş sürekli öznitelikleri temel alınarak yakıt ekonomi tahmin etmek. 
 <p></p>
-<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University (1993). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> StatLib, Carnegie Mellon University (1993). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -259,7 +259,7 @@ Bir veri alt kümesini National Institute Diabetes ve Digestive ve serbest Disea
 <p></p>
 <b>Kullanım:</b> konu diabetes (ikili sınıflandırma) sahip olup olmadığını tahmin etmek. 
 <p></p>
-<b>İlgili araştırma:</b> Sigillito, V. (1990). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml "</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
+<b>İlgili araştırma:</b> Sigillito, V. (1990). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml"</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi </td>
 </tr>
 
 <tr>
@@ -269,7 +269,7 @@ Müşteriler, demografisine ve tercihleri de dahil olmak üzere ilgili meta veri
 <p></p>
 <b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
   </td>
 </tr>
 
@@ -280,7 +280,7 @@ Restoran ve yemek türü, yerinizi stil ve konum gibi özelliklerine hakkındaki
 <p></p>
 <b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
   </td>
 </tr>
 
@@ -291,7 +291,7 @@ Bir ölçekte kullanıcılar tarafından Restoran için 2'ye 0'dan verilen derec
 <p></p>
 <b>Kullanım:</b> eğitmek ve öneren sistem test etmek için diğer iki Restoran veri kümeleri ile birlikte bu veri kümesi kullanın. 
 <p></p>
-<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
+<b>İlgili araştırma:</b> Bache, k ve Lichman, M. (2013). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi.
   </td>
 </tr>
 
@@ -304,9 +304,9 @@ Bu veri kümesi denemeler annealing çelik kayıtlarından bir dizi içeriyor. F
 <p></p>
 Çelik dereceleri izleyin kümesi standart SAE ve diğer kuruluşlar tarafından tanımlanan. Özel bir 'düzeyde' (sınıf değişkeni) aradığınız ve gerekli değerleri öğrenmek istiyorsanız. 
 <p></p>
-<b>İlgili araştırma:</b> sterlin, d & Buntine, W. (NA). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
+<b>İlgili araştırma:</b> sterlin, d & Buntine, W. (NA). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
 <p></p>
-Çelik derece yararlı bir kılavuz şurada bulunabilir: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+Dereceleri çelik için yararlı bir kılavuz şurada bulunabilir: <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -325,7 +325,7 @@ Verileri önceden işlenmiş elongated bir küme ile uzun ekseni kamera merkezi 
 <p></p>
 Ayrıca, arka plan olayları (hadronic duşlar için y) sayısı önemsemedi olduğunu unutmayın. Gerçek ölçüleri olayları çoğunluğu h veya gürültü sınıfı temsil eder. 
 <p></p>
-<b>İlgili araştırma:</b> Bock, R.K. (1995). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California Okul daha fazla bilgi </td>
+<b>İlgili araştırma:</b> Bock, R.K. (1995). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: University of California Okul daha fazla bilgi </td>
 </tr>
 
 <tr>

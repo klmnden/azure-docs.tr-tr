@@ -1,25 +1,25 @@
 ---
-title: "Azure toplu işlem için kotalar ve sınırlar hizmet | Microsoft Docs"
-description: "Varsayılan Azure Batch kotalar, sınırlar ve kısıtlamalar hakkında bilgi edinin ve kota istemek nasıl artırır"
+title: Azure toplu işlem için kotalar ve sınırlar hizmet | Microsoft Docs
+description: Varsayılan Azure Batch kotalar, sınırlar ve kısıtlamalar hakkında bilgi edinin ve kota istemek nasıl artırır
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/16/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 775db415e667729f6eecf8223a84f5ac0aa45c4c
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 3cc833e456571b63fa03574808529c8c501d7ab5
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -53,6 +53,7 @@ Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturduysanız **kullanıc
 | Uygulama paketi boyutu (her) |Yaklaşık 195 GB'den<sup>1</sup> |
 | En fazla başlangıç görevi boyutu | 32768 karakter<sup>2</sup> |
 | En fazla görev yaşam süresi | 7 gün<sup>3</sup> |
+| İşlem düğümleri havuzunda etkin düğümler arası iletişim | 100 |
 
 <sup>1</sup> en büyük blok blob boyutu için azure depolama sınırı<br />
 <sup>2</sup> kaynak dosyaları ve ortam değişkenleri içerir<br />

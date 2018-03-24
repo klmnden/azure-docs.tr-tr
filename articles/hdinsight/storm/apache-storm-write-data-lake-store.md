@@ -1,6 +1,6 @@
 ---
-title: "Depolama/Data Lake Store - Azure Hdınsight'ta Apache Storm yazma | Microsoft Docs"
-description: "Apache Storm için Hdınsight HDFS uyumlu depolama alanına yazmak için nasıl kullanılacağını öğrenin. Azure Storage veya Azure Data Lake Store için Hdınsight HDFS comptabile depolama sağlar. Bu belge ve ilişkili örnek HdfsBolt bileşen Hdınsight kümesinde bir Storm varsayılan depolama alanına yazmak için nasıl kullanılabileceğini gösterir."
+title: Depolama/Data Lake Store - Azure Hdınsight'ta Apache Storm yazma | Microsoft Docs
+description: Apache Storm için Hdınsight HDFS uyumlu depolama alanına yazmak için nasıl kullanılacağını öğrenin. Azure Storage veya Azure Data Lake Store için Hdınsight HDFS comptabile depolama sağlar. Bu belge ve ilişkili örnek HdfsBolt bileşen Hdınsight kümesinde bir Storm varsayılan depolama alanına yazmak için nasıl kullanılabileceğini gösterir.
 services: hdinsight
 documentationcenter: na
 author: Blackmist
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 908a1130171cc091b4d95d4532cc3bb95edb44f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 2310894e7257d0ddb919406a8f297089189a9484
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Hdınsight üzerinde Apache Storm HDFS için yazma
 
-Storm hdınsight'ta Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak için nasıl kullanılacağını öğrenin. Hdınsight kullanma her ikisi de Azure depolama ve Azure Data Lake depolama HDFS comptabile depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) HDFS için verileri yazar bileşeni. Bu belge, her iki tür depolama alanını HdfsBolt yazma konusunda bilgi sağlar. 
+Storm hdınsight'ta Apache Storm tarafından kullanılan HDFS uyumlu depolama verileri yazmak için nasıl kullanılacağını öğrenin. Hdınsight kullanma her ikisi de Azure depolama ve Azure Data Lake depolama HDFS uyumlu depolama. Storm sağlayan bir [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) HDFS için verileri yazar bileşeni. Bu belge, her iki tür depolama alanını HdfsBolt yazma konusunda bilgi sağlar. 
 
 > [!IMPORTANT]
 > Bu belgede kullanılan örnek topoloji Hdınsight üzerinde Storm ile dahil olan bileşenleri kullanır. Diğer Apache Storm kümeleri ile kullanıldığında Azure Data Lake Store ile çalışmak için değişiklik gerektirebilir.
 
 ## <a name="get-the-code"></a>Kodu alma
 
-Bu topoloji içeren projeyi yükleme yoluyla kullanılabilir [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
+Bu topoloji içeren projeyi yükleme yoluyla kullanılabilir [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
 
@@ -134,7 +134,7 @@ Aşağıdaki öğeler bu YAML tanımlar:
 * `rotationPolicy`: Dosyalarını döndürmek ne zaman tanımlar. Bu örnekte, hiçbir döndürme gerçekleştirilir.
 * `hdfs-bolt`: Önceki bileşenleri için yapılandırma parametreleri kullanan `HdfsBolt` sınıfı.
 
-Flux framework hakkında daha fazla bilgi için bkz: [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html).
+Flux framework hakkında daha fazla bilgi için bkz: [ https://storm.apache.org/releases/1.1.0/flux.html ](https://storm.apache.org/releases/1.1.0/flux.html).
 
 ## <a name="configure-the-cluster"></a>Kümeyi yapılandırma
 
@@ -148,7 +148,7 @@ Bu komut dosyası kullanmayı hakkında daha fazla bilgi için bkz: [özelleşti
 
 ## <a name="build-and-package-the-topology"></a>Derleme ve topoloji paket
 
-1. Örnek projesinden indirmeniz [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) geliştirme ortamınız için.
+1. Örnek projesinden indirmeniz [ https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store ](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store) geliştirme ortamınız için.
 
 2. Bir komut istemi, terminal veya kabuk oturumundan, indirilen proje kökündeki dizinlere Değiştir. Derleme ve topoloji paket için aşağıdaki komutu kullanın:
    

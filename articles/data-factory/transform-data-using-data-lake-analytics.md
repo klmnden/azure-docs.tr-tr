@@ -1,11 +1,11 @@
 ---
-title: "U-SQL betiği - Azure kullanarak veri dönüştürme | Microsoft Docs"
-description: "Azure Data Lake Analytics işlem hizmette U-SQL betiklerini çalıştırarak nasıl işleneceğini veya dönüştürme veri öğrenin."
+title: U-SQL betiği - Azure kullanarak veri dönüştürme | Microsoft Docs
+description: Azure Data Lake Analytics işlem hizmette U-SQL betiklerini çalıştırarak nasıl işleneceğini veya dönüştürme veri öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: nabhishek
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: a2cf2ac8ac099a92e1534c72d80be6c9647bec59
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açı
 
 | Özellik                 | Açıklama                              | Gerekli                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **türü**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
+| **Türü**                 | Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. | Evet                                      |
 | **accountName**          | Azure Data Lake Analytics hesap adı.  | Evet                                      |
 | **dataLakeAnalyticsUri** | Azure Data Lake Analytics URI.           | Hayır                                       |
 | **subscriptionId**       | Azure abonelik kimliği                    | Hayır (belirtilmezse, data Factory abonelik kullanılır). |
@@ -165,7 +165,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-İçinde Yukarıdaki örnek komut dosyası, giriş ve çıkış komut tanımlanmış  **@in**  ve  **@out**  parametreleri. Değerleri  **@in**  ve  **@out**  U-SQL betiği parametrelerinde geçirilir dinamik olarak tarafından veri fabrikası 'parameters' bölümünü kullanarak. 
+İçinde Yukarıdaki örnek komut dosyası, giriş ve çıkış komut tanımlanmış **@in** ve **@out** parametreleri. Değerleri **@in** ve **@out** U-SQL betiği parametrelerinde geçirilir dinamik olarak tarafından veri fabrikası 'parameters' bölümünü kullanarak. 
 
 DegreeOfParallelism ve öncelik gibi diğer özellikleri ardışık düzen tanımınızı Azure Data Lake Analytics hizmeti Çalıştır işleri için de belirtebilirsiniz.
 

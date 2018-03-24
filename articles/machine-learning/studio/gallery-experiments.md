@@ -1,10 +1,11 @@
 ---
 title: Azure AI galeri denemelerini | Microsoft Docs
-description: "Bul ve Azure AI galerisinde denemeler paylaşın."
+description: Bul ve Azure AI galerisinde denemeler paylaşın.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.author: garye
-ms.openlocfilehash: 80c2ab0cd97ce5afef7e38bad9f0fa0e4f3f363c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: d6de7aa6d16196f415688d68251e8c1b0a4b9aee
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>Azure AI galerisinde denemeler Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -34,7 +34,7 @@ ms.lasthandoff: 02/03/2018
 ## <a name="discover"></a>Keşif
 Denemelere gözatmak için [galerisinde](http://gallery.cortanaintelligence.com), galeri giriş sayfasının en üstünde seçin **denemeler**.
 
-**[Denemeler](https://gallery.cortanaintelligence.com/experiments)**  sayfa yakın zamanda eklenen ve popüler denemeler listesini görüntüler. Tüm denemeleri görmek için seçin **tümünü görmek** düğmesi. Belirli bir deneme için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
+**[Denemeler](https://gallery.cortanaintelligence.com/experiments)** sayfa yakın zamanda eklenen ve popüler denemeler listesini görüntüler. Tüm denemeleri görmek için seçin **tümünü görmek** düğmesi. Belirli bir deneme için aranacak seçin **tümünü görmek**ve ardından filtre ölçütlerini. Arama terimlerini da girebilirsiniz **arama** kutusunu sayfanın üst kısmındaki Galerisi.
 
 Deneme Ayrıntıları sayfasında bir denemeyi hakkında daha fazla bilgi edinebilirsiniz. Bir deneme Ayrıntılar sayfasını açmak için denemeyi seçin. Bir deneme üzerinde Ayrıntıları sayfasında **açıklamaları** bölümünde, açıklama, geri bildirim sağlamak veya için denemeler hakkında soru sorun. Arkadaş veya iş arkadaşlarınızı Twitter ya da LinkedIn deneme bile paylaşabilirsiniz. Ayrıca sayfasını görüntülemek için diğer kullanıcıların davet etmek için deneme ayrıntıları sayfasına bağlantı posta.
 
@@ -172,7 +172,7 @@ Galeriden deneme silmek için seçin **silmek**.
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 **Gönderme veya denememe için görüntü düzenleme gereksinimleri nelerdir?**
 
-İle denemenizi gönderme görüntüleri katkılarınız için bir deneme kutucuğu oluşturmak için kullanılır. Görüntüleri 3: 2'in bir aspect ratio ve 960 &#215;çözünürlüğü 500 KB daha küçük olmasını öneririz; 640.
+İle denemenizi gönderme görüntüleri katkılarınız için bir deneme kutucuğu oluşturmak için kullanılır. Görüntüleri 3: 2'in bir aspect ratio ve 960 çözünürlüğü 500 KB daha küçük olmasını öneririz &#215; 640.
 
 **Deneme içinde kullanılan veri kümesi ne olur? Veri kümesi de galeride yayımlandı mı?**
 

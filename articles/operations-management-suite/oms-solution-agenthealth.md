@@ -1,24 +1,24 @@
 ---
-title: "OMS’de Aracı Durumu çözümü | Microsoft Docs"
-description: "Bu makale, doğrudan OMS veya System Center Operations Manager’a bildirimde bulunan aracılarınızın durumunu izlemek için bu çözümü nasıl kullanabileceğinizi anlamanıza yardımcı olmak için hazırlanmıştır."
+title: OMS’de Aracı Durumu çözümü | Microsoft Docs
+description: Bu makale, doğrudan OMS veya System Center Operations Manager’a bildirimde bulunan aracılarınızın durumunu izlemek için bu çözümü nasıl kullanabileceğinizi anlamanıza yardımcı olmak için hazırlanmıştır.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: d7eb1550a21e66d4ae4cc4932b30a90956c60d1e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>OMS’de Aracı Durumu çözümü
 OMS’deki Aracı Durumu çözümü, doğrudan bir OMS çalışma alanına veya OMS’ye bağlı bir System Center Operations Manager yönetim grubuna bildirimde bulunan, yanıt vermeyen ve işletimsel veriler gönderen tüm aracıları anlamanıza yardımcı olur.  Ayrıca, kaç aracının dağıtıldığını, bunların coğrafi olarak nerelere dağıtıldığını da izleyebilir ve Azure’da, diğer bulut ortamlarında ya da şirket içinde dağıtılmış aracıların dağılımından her zaman haberdar olmaya yönelik diğer sorguları gerçekleştirebilirsiniz.    
@@ -98,25 +98,6 @@ Bir Operations Manager yönetim sunucusuna bildirimde bulunan her bir aracı iki
 Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örnek günlük aramaları sunulmaktadır.
 
 | Sorgu | Açıklama |
-| --- | --- |
-| Type=Heartbeat &#124; distinct Computer |Toplam aracı sayısı |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Son 24 saat içinde yanıt vermeyen aracı sayısı |
-| Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-15MINUTES |Son 15 dakika içinde yanıt vermeyen aracı sayısı |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer IN {Type=Heartbeat TimeGenerated>NOW-24HOURS &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Çevrimiçi olan bilgisayarlar (son 24 saat) |
-| Type=Heartbeat TimeGenerated>NOW-24HOURS Computer NOT IN {Type=Heartbeat TimeGenerated>NOW-30MINUTES &#124; distinct Computer} &#124; measure max(TimeGenerated) as LastCall by Computer |Son 30 dakika içinde Toplam Çevrimdışı Aracı Sayısı (son 24 saat için) |
-| Type=Heartbeat &#124; measure countdistinct(Computer) by OSType |İşletim sistemi türüne göre zaman içinde aracı sayısı eğilimini görün|
-| Type=Heartbeat&#124;measure countdistinct(Computer) by OSType |İşletim Sistemi Türüne Göre Dağılım |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by Version |Aracı Sürümüne Göre Dağılım |
-| Type=Heartbeat&#124;measure count() by Category |Aracı Kategorisine Göre Dağılım |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by ManagementGroupName | Yönetim Grubuna Göre Dağılım |
-| Type=Heartbeat&#124;measure countdistinct(Computer) by RemoteIPCountry |Aracıların coğrafi konumu |
-| Type=Heartbeat IsGatewayInstalled=true&#124;Distinct Computer |Yüklü OMS Ağ Geçidi Sayısı |
-
-
->[!NOTE]
-> Çalışma alanınız [yeni Log Analytics sorgu diline](../log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse, yukarıdaki sorguların aşağıdaki gibi değiştirilmesi gerekir.
->
->| Sorgu | Açıklama |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Toplam aracı sayısı |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Son 24 saat içinde yanıt vermeyen aracı sayısı |
@@ -130,6 +111,9 @@ Aşağıdaki tabloda, bu çözüm tarafından toplanan kayıtlara ilişkin örne
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Yönetim Grubuna Göre Dağılım |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Aracıların coğrafi konumu |
 | Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Yüklü OMS Ağ Geçidi Sayısı |
+
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

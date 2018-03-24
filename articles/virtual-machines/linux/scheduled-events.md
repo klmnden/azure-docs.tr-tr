@@ -1,13 +1,13 @@
 ---
-title: "Azure Linux VM'ler için olayları zamanlanmış | Microsoft Docs"
-description: "Olaylar, Linux sanal makineleriniz için Azure meta veri hizmeti kullanarak zamanlayabilirsiniz."
+title: Azure Linux VM'ler için olayları zamanlanmış | Microsoft Docs
+description: Olaylar, Linux sanal makineleriniz için Azure meta veri hizmeti kullanarak zamanlayabilirsiniz.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ericrad
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e697a8f1160aff5774dc416c81819220c316707a
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: c87dd5bdbdc87bf238f34d145bd7380a61b90cb6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure meta veri hizmeti: Linux VM'ler için zamanlanmış olaylar
 
@@ -129,7 +129,7 @@ Durumda Zamanlanmış olaylar olduğu yanıtı olaylar dizisini içerir.
 | ResourceType | Bu olay etkiler kaynak türü. <br><br> Değerler: <ul><li>`VirtualMachine`|
 | Kaynaklar| Bu olay etkiler kaynakların listesi. Listenin en fazla bir makinelerden içeren garanti [güncelleştirme etki alanı](manage-availability.md), ancak tüm makinelerde UD içermeyebilir. <br><br> Örnek: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Bu olay durumu. <br><br> Değerler: <ul><li>`Scheduled`: Bu olay belirtilen süre sonra başlayacak şekilde zamanlanırsa `NotBefore` özelliği.<li>`Started`: Bu olay başlatıldı.</ul> Hayır `Completed` veya benzer durumu hiç sağlanır. Olayın sona erdiğinde olay artık döndürülür.
-| NotBefore| Daha sonra bu olay başlangıç saati. <br><br> Örnek: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Daha sonra bu olay başlangıç saati. <br><br> Örnek: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Olay planlama
 Her olay zamanlanmış bir minimum süre gelecekte olay türüne bağlı. Bu süre bir olayın içinde yansıtılır `NotBefore` özelliği. 

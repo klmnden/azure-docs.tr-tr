@@ -1,31 +1,28 @@
 ---
-title: "Gerçek kullanıcı ölçümler için Azure Traffic Manager ile Visual Studio mobil Merkezi | Microsoft Docs"
-description: "Trafik Yöneticisi için gerçek kullanıcı ölçümleri göndermek için Visual Studio mobil merkezi kullanılarak geliştirilen mobil uygulamanızı ayarlama"
+title: Gerçek kullanıcı ölçümler için Azure Traffic Manager ile Visual Studio mobil Merkezi | Microsoft Docs
+description: Trafik Yöneticisi için gerçek kullanıcı ölçümleri göndermek için Visual Studio mobil merkezi kullanılarak geliştirilen mobil uygulamanızı ayarlama
 services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 09/29/2017
+ms.date: 03/16/2018
 ms.author: kumud
-ms.custom: 
-ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: ''
+ms.openlocfilehash: 893e84b07b365fb0b534e0ddc021b2249c4174cf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Visual Studio mobil Center'la trafik Yöneticisi için gerçek kullanıcı ölçümleri gönderme
-
->[!NOTE]
->Trafik Yöneticisi'nde gerçek kullanıcı ölçümleri özellik genel önizlemede ve genel kullanılabilirlik özellikleri sürüm gibi aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Özellik desteklenmiyor, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure trafik Yöneticisi'ni güncelleştirir](https://azure.microsoft.com/updates/?product=traffic-manager) sayfası.
 
 Aşağıdaki adımları izleyerek trafik Yöneticisi için gerçek kullanıcı ölçümleri göndermek için Visual Studio mobil merkezi kullanılarak geliştirilen mobil uygulamanız ayarlayabilirsiniz:
 

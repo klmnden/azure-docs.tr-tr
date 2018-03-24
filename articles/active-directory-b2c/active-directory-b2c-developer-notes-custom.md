@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: özel ilkelerini kullanma Geliştirici Notları | Microsoft Docs"
-description: "Yapılandırma ve Azure AD B2C ile özel ilkeler koruma geliştiriciler için Notlar"
+title: 'Azure Active Directory B2C: özel ilkelerini kullanma Geliştirici Notları | Microsoft Docs'
+description: Yapılandırma ve Azure AD B2C ile özel ilkeler koruma geliştiriciler için Notlar
 services: active-directory-b2c
-documentationcenter: 
-author: rojasja
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: rojasja
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/13/2017
-ms.author: joroja
-ms.openlocfilehash: 7f65ad324e1bf0887ea293254621466a2f1ddaff
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: davidmu
+ms.openlocfilehash: cf76f158d7e87a2f2f902551fdc751b295b6915b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Azure Active Directory B2C özel ilke genel Önizleme için sürüm notları
 Özel ilke özellik kümesi artık genel Önizleme için tüm Azure Active Directory B2C altında değerlendirme için kullanılabilir (Azure AD B2C) müşteriler. Bu özellik kümesi, Gelişmiş kimlik geliştiricileri en karmaşık kimlik çözümleri oluşturma yöneliktir.  
@@ -60,7 +57,7 @@ Genel Önizlemesi'nden tam olarak yararlanmak için özel İlkesi özellik küme
 ## <a name="features-by-stage-and-known-issues"></a>Özellikler tarafından aşama ve bilinen sorunlar
 Özel ilke/kimlik deneyimi Framework yeteneklerini sabit ve hızlı geliştirilme aşamasındadır.  Bu tablo, Özellikler/bileşen kullanılabilirliği dizinidir.
 
-Yığın taşması içinde soruları sonrası [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
+Yığın taşması içinde sorularınızı [https://aka.ms/aadb2cso](https://aka.ms/aadb2cso)
 
 
 ### <a name="identity-providers-tokens-protocols"></a>Kimlik sağlayıcılar, belirteçleri, protokolleri

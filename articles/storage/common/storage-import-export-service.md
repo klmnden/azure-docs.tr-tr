@@ -1,18 +1,18 @@
 ---
-title: "Azure Storage gelen ve giden veri aktarımı için Azure içeri/dışarı aktarma kullanma | Microsoft Docs"
-description: "Alma oluşturma ve işleri Azure portalında Azure Storage veri aktarma için dışarı aktarma hakkında bilgi edinin."
+title: Azure Storage gelen ve giden veri aktarımı için Azure içeri/dışarı aktarma kullanma | Microsoft Docs
+description: Alma oluşturma ve işleri Azure portalında Azure Storage veri aktarma için dışarı aktarma hakkında bilgi edinin.
 author: muralikk
 manager: syadav
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: d096d6fd4664fecc9c759d683ed79e76cda9b6af
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -151,7 +151,7 @@ Verilerinizi sürücülere kopyalandıktan sonra dışarı aktarma işleri için
 ### <a name="operating-system"></a>İşletim Sistemi
 Azure sürücüye göndermeden önce WAImportExport aracını kullanarak sabit sürücü hazırlamak için aşağıdaki 64-bit işletim sistemlerinden birini kullanabilirsiniz:
 
-Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10<sup>1</sup>, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. BitLocker Sürücü Şifrelemesi bu işletim sistemlerini desteklemez.
+Windows 7 Enterprise, Windows 7 Ultimate, Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2. BitLocker Sürücü Şifrelemesi bu işletim sistemlerini desteklemez.
 
 ### <a name="locations"></a>Konumlar
 Azure içeri/dışarı aktarma hizmeti için ve tüm ortak Azure depolama hesapları arasından veri kopyalamayı destekler. Sabit disk sürücülerinin listelenen konumlardan birine gönderebilirsiniz. Depolama hesabınız, burada, Azure portal veya içeri/dışarı aktarma REST API'sini kullanarak işini oluştururken bir alternatif sevkiyat konumu sağlanan belirtilmemiş bir ortak Azure konumda ise.

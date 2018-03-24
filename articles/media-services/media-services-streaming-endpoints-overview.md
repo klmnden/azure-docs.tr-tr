@@ -1,12 +1,12 @@
 ---
-title: "Azure Media Services akış uç genel bakış | Microsoft Docs"
-description: "Bu konu, akış uç noktaları Azure Media Services genel bakış sağlar."
+title: Azure Media Services akış uç genel bakış | Microsoft Docs
+description: Bu konu, akış uç noktaları Azure Media Services genel bakış sağlar.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 writer: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.openlocfilehash: 80d625a6ab2d3c6d5de0a90fbff0760888154d70
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: f923a2fb328ee62ce4dc73669fd922f275ba34a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="streaming-endpoints-overview"></a>Akış uç noktaları genel bakış 
 
-##<a name="overview"></a>Genel Bakış
+## <a name="overview"></a>Genel Bakış
 
 Microsoft Azure Media Services (AMS) içinde bir **akış uç noktası** istemci oynatıcı uygulaması için doğrudan veya bir içerik teslim ağı (CDN) için daha fazla dağıtım için içerik ileten bir akış hizmetini temsil eder. Media Services, ayrıca Azure CDN entegrasyon sağlar. Giden akış StreamingEndpoint hizmetinden bir canlı akış, isteğe bağlı veya aşamalı indirme Media Services hesabınızda, varlık, bir video olabilir. Her Azure Media Services hesabı varsayılan StreamingEndpoint içerir. Ek akış hesabı altında oluşturulabilir. Akış, 1.0 ve 2. 0'ın iki sürümü vardır. 10 Ocak 2017 ile başlayarak, yeni oluşturulan tüm AMS hesapları sürüm 2.0 içerecektir **varsayılan** StreamingEndpoint. Bu hesaba eklediğiniz ek akış uç noktalarını de sürüm 2.0. Bu değişiklik, var olan hesapları etkilemez; Varolan akış sürüm 1.0 olacaktır ve 2.0 sürümüne yükseltilebilir. Bu değişiklikle olacaktır davranışı, faturalama ve özellik değişiklikleri (daha fazla bilgi için bkz: **türleri ve sürümleri akış** bölümünde belgelenen aşağıda).
 
@@ -91,7 +91,7 @@ Aşamalı indirme|Evet|Evet
 
 ## <a name="migration-between-types"></a>Türleri arasında geçiş
 
-Başlangıç | Alıcı | Eylem
+Kaynak | Alıcı | Eylem
 ---|---|---
 Klasik|Standart|Katılımı gerekir
 Klasik|Premium| Ölçek (ek akış birimleri)

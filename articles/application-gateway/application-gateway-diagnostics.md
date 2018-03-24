@@ -1,6 +1,6 @@
 ---
-title: "Uygulama ağ geçidi için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme | Microsoft Docs"
-description: "Etkinleştirme ve uygulama ağ geçidi için erişim günlüklerini ve performans günlüklerini yönetme hakkında bilgi edinin"
+title: Uygulama ağ geçidi için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme | Microsoft Docs
+description: Etkinleştirme ve uygulama ağ geçidi için erişim günlüklerini ve performans günlüklerini yönetme hakkında bilgi edinin
 services: application-gateway
 documentationcenter: na
 author: amitsriva
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.openlocfilehash: 12c252340b82aba5ee69b12db83353750782e7c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri
 
@@ -152,9 +152,9 @@ Etkinlik günlüğü her Resource Manager kaynak için otomatik olarak etkinleş
 
    ![Yapılandırma işlemi başlatılıyor][2]
 
-4. Varolan bir Operations Management Suite (OMS) çalışma alanını seçin veya yeni bir tane oluşturun. Bu örnek, mevcut bir kullanır.
+4. Varolan bir günlük analizi çalışma alanını seçin veya yeni bir tane oluşturun. Bu örnek, mevcut bir kullanır.
 
-   ![OMS çalışma alanları için seçenekleri][3]
+   ![Günlük analizi çalışma alanları için seçenekleri][3]
 
 5. Ayarları onaylayın ve tıklatın **kaydetmek**.
 
@@ -171,7 +171,7 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri 90 gün b
 
 |Değer  |Açıklama  |
 |---------|---------|
-|örnek kimliği     | İsteği sunan uygulama ağ geçidi örneği.        |
+|instanceId     | İsteği sunan uygulama ağ geçidi örneği.        |
 |ClientIP     | İstek için kaynak IP.        |
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
@@ -182,7 +182,7 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri 90 gün b
 |httpVersion     | İstek HTTP sürümü.        |
 |ReceivedBytes     | Paket, alınan bayt cinsinden boyutu.        |
 |SentBytes| Paket, gönderilen bayt cinsinden boyutu.|
-|TimeTaken| Bir isteğin işlenmesi için ve gönderilecek yanıt için geçen süre (milisaniye cinsinden) uzunluğu. Bu, uygulama ağ geçidi bir HTTP isteğinin yanıtı gönderdiğinizde, işlem tamamlanmadan zaman için ilk baytını alır zaman aralığından olarak hesaplanır. Time-Taken alanı genellikle isteği ve yanıt paketlerin ağ üzerinden yolculuk zaman içerir dikkate almak önemlidir. |
+|timeTaken| Bir isteğin işlenmesi için ve gönderilecek yanıt için geçen süre (milisaniye cinsinden) uzunluğu. Bu, uygulama ağ geçidi bir HTTP isteğinin yanıtı gönderdiğinizde, işlem tamamlanmadan zaman için ilk baytını alır zaman aralığından olarak hesaplanır. Time-Taken alanı genellikle isteği ve yanıt paketlerin ağ üzerinden yolculuk zaman içerir dikkate almak önemlidir. |
 |sslEnabled| Arka uç havuzları iletişimin SSL kullanılıp. Açma ve kapatma değerler geçerlidir.|
 ```json
 {
@@ -215,11 +215,11 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri 90 gün b
 
 |Değer  |Açıklama  |
 |---------|---------|
-|örnek kimliği     |  Uygulama ağ geçidi örneği performans verileri oluşturuluyor. Birden çok örnekli uygulama ağ geçidi için örneği başına bir satır yok.        |
+|instanceId     |  Uygulama ağ geçidi örneği performans verileri oluşturuluyor. Birden çok örnekli uygulama ağ geçidi için örneği başına bir satır yok.        |
 |healthyHostCount     | Arka uç havuzundaki sağlıklı ana bilgisayar sayısı.        |
 |unHealthyHostCount     | Arka uç havuzundaki sağlıksız ana bilgisayar sayısı.        |
-|RequestCount     | Hizmet isteği sayısı.        |
-|Gecikme süresi | İsteklere hizmet arka uç örneğinden isteklerinin gecikme süresi (milisaniye cinsinden). |
+|requestCount     | Hizmet isteği sayısı.        |
+|gecikme | İsteklere hizmet arka uç örneğinden isteklerinin gecikme süresi (milisaniye cinsinden). |
 |failedRequestCount| Başarısız istek sayısı.|
 |Üretilen iş| Saniyedeki bayt cinsinden son günlük itibaren ortalama performansıdır.|
 
@@ -252,21 +252,21 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri 90 gün b
 
 |Değer  |Açıklama  |
 |---------|---------|
-|örnek kimliği     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Birden çok örnekli uygulama ağ geçidi için örneği başına bir satır yok.         |
+|instanceId     | Uygulama ağ geçidi örneği için hangi güvenlik duvarı veri oluşturuluyor. Birden çok örnekli uygulama ağ geçidi için örneği başına bir satır yok.         |
 |clientIp     |   İstek için kaynak IP.      |
 |clientPort     |  İstek için kaynak bağlantı noktası.       |
 |requestUri     | Alınan istek URL'si.       |
 |ruleSetType     | Kural türünü ayarlayın. Kullanılabilir OWASP değerdir.        |
 |ruleSetVersion     | Kural kullanılan sürümünü ayarlayın. Değerleri 2.2.9 ve 3.0 kullanılabilir.     |
-|RuleId     | Tetikleyici olay kimliği kuralı.        |
-|İleti     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
-|Eylem     |  İstek üzerinde gerçekleştirilecek eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
-|Site     | Günlük oluşturulduğu site. Şu anda, yalnızca genel kurallar genel olduğundan listelenir.|
-|Ayrıntıları     | Olay Ayrıntıları.        |
+|ruleId     | Tetikleyici olay kimliği kuralı.        |
+|message     | Tetikleyici olay kullanıcı dostu iletisi. Ayrıntılar bölümünde daha ayrıntılı bilgi sağlanır.        |
+|action     |  İstek üzerinde gerçekleştirilecek eylem. Engellenen ve izin verilen değerleri kullanılabilir.      |
+|site     | Günlük oluşturulduğu site. Şu anda, yalnızca genel kurallar genel olduğundan listelenir.|
+|ayrıntılar     | Olay Ayrıntıları.        |
 |details.Message     | Kural açıklaması.        |
-|details.Data     | Belirli veri kural eşleşen isteğinde bulundu.         |
-|details.File     | Kural bulunan yapılandırma dosyası.        |
-|details.Line     | Satır numarası yapılandırma dosyasında olay tetiklenir.       |
+|details.data     | Belirli veri kural eşleşen isteğinde bulundu.         |
+|details.file     | Kural bulunan yapılandırma dosyası.        |
+|details.line     | Satır numarası yapılandırma dosyasında olay tetiklenir.       |
 
 ```json
 {

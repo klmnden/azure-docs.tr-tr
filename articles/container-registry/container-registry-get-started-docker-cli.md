@@ -1,6 +1,6 @@
 ---
-title: "Anında iletme Docker görüntüsüne özel Azure kayıt defteri"
-description: "Docker CLI’yı kullanarak Azure’da özel bir kapsayıcı kayıt defterine Docker görüntüleri itme ve kapsayıcıdan görüntü çekme"
+title: Anında iletme Docker görüntüsüne özel Azure kayıt defteri
+description: Docker CLI’yı kullanarak Azure’da özel bir kapsayıcı kayıt defterine Docker görüntüleri itme ve kapsayıcıdan görüntü çekme
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21d1abfbb49eaeae654a600d35ab350b96a12fd3
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 8fc04ec77a101e08bfde22df76e845b87f8c316e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI’yı kullanarak özel bir Dockler kapsayıcı kayıt defterine ilk görüntünüzü itme
 
@@ -21,7 +21,7 @@ Azure kapsayıcısı kayıt defteri, [Docker Hub](https://hub.docker.com/)’ın
 
 Aşağıdaki adımlarda resmi karşıdan [Nginx görüntü](https://store.docker.com/images/nginx) ortak Docker hub'a kayıt defterinden özel Azure kapsayıcı kaydınız etiketi, kayıt defterine itme ve kayıt defterinden çekme.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure kapsayıcısı kayıt defteri** -Azure aboneliğinizde bir kapsayıcı kayıt defteri oluşturun. Örneğin, [Azure portalını](container-registry-get-started-portal.md) veya [Azure CLI 2.0](container-registry-get-started-azure-cli.md)’ı kullanın.
 * **Docker CLI** - yerel bilgisayarınıza Docker ana bilgisayar olarak ayarlayın ve Docker CLI komutlara erişmek için yükleme [Docker](https://docs.docker.com/engine/installation/).
@@ -40,7 +40,7 @@ az acr login --name myregistry
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
 ```
 
-Her iki komutlar döner `Login Succeeded` tamamlandıktan sonra. Kullanırsanız `docker login`, ayrıca, kullanımını öneren bir güvenlik uyarısı görebilirsiniz `--password-stdin` parametresi. Kullanımı, bu makalenin kapsamı dışında olsa da, bu en iyi yöntem öneririz. Daha fazla bilgi için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusu.
+Her iki komutlar döner `Login Succeeded` tamamlandıktan sonra. Kullanırsanız `docker login`, ayrıca, kullanımını öneren bir güvenlik uyarısı görebilirsiniz `--password-stdin` parametresi. Bunun kullanımı bu makalenin kapsamında olmasa da bu en iyi yöntemin izlenmesi önerilir. Daha fazla bilgi için bkz: [docker oturum açma](https://docs.docker.com/engine/reference/commandline/login/) komut başvurusu.
 
 > [!TIP]
 > Her zaman tam kayıt adı (tümü küçük harf) belirtmeniz kullandığınızda `docker login` ve etiket zaman, kayıt defterine gönderilmesi için görüntüler. Bu makaledeki örneklerde, tam ad olduğundan *myregistry.azurecr.io*.
@@ -123,4 +123,8 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Temel bilgileri artık bildiğinize göre kayıt defteri kullanmaya başlamak hazırsınız! Örneğin, kayıt defterine kapsayıcı görüntüleri dağıtmak bir [Azure kapsayıcı hizmeti (AKS)](../aks/tutorial-kubernetes-prepare-app.md) küme.
+Temel bilgileri artık bildiğinize göre kayıt defteri kullanmaya başlamak hazırsınız! Kayıt defterine kapsayıcı görüntülerden dağıtın:
+
+* [Azure kapsayıcı hizmeti (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
+* [Azure kapsayıcı örnekleri](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)

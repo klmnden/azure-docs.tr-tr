@@ -1,11 +1,11 @@
 ---
 title: Azure IOT Hub MQTT destek anlama | Microsoft Docs
-description: "Geliştirici Kılavuzu - MQTT protokolünü kullanarak bir IOT Hub cihaz'e yönelik uç noktasına bağlanan cihazlar için destek. Yerleşik MQTT destekleyen Azure IOT cihaz SDK'ları hakkında bilgi içerir."
+description: Geliştirici Kılavuzu - MQTT protokolünü kullanarak bir IOT Hub cihaz'e yönelik uç noktasına bağlanan cihazlar için destek. Yerleşik MQTT destekleyen Azure IOT cihaz SDK'ları hakkında bilgi içerir.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1d71c27c-b466-4a40-b95b-d6550cf85144
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9acda980583319414cc9e8668424907947a257db
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: d119cc4c4053a737e48739c17ae586abd51f3efa
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT protokolünü kullanarak, IOT hub ile iletişim
 
@@ -181,7 +181,7 @@ IOT Hub'ından iletileri almak için bir cihaz kullanarak abone olmalısınız `
 
 Cihaz herhangi bir ileti almazsa, cihaza özel uç noktasında başarıyla abone kadar IOT Hub'ından tarafından temsil edilen `devices/{device_id}/messages/devicebound/#` konu filtre. Bir abonelik kurulduktan sonra cihaz için abonelik süresi sonra gönderilen bulut-cihaz iletilerini alır. Aygıt ile bağlanıyorsa **CleanSession** bayrağı ayarlanmış **0**, abonelik farklı oturumlarında kalıcıdır. Bu durumda, sonraki cihaz bağlandığında ile **CleanSession 0** kendisine bağlı değilken gönderilen tüm bekleyen iletileri alır. Aygıt kullanıyorsa **CleanSession** bayrağı ayarlanmış **1** kendi cihaz uç noktasına abone kadar yine de, tüm iletileri IOT Hub'ından almaz.
 
-IOT hub'ı sunar iletilerle **konu adı** `devices/{device_id}/messages/devicebound/`, veya `devices/{device_id}/messages/devicebound/{property_bag}` ileti özellikleri olduğunda. `{property_bag}` İleti özelliklerini URL kodlanmış anahtar/değer çiftleri içerir. Yalnızca uygulama özellikleri ve kullanıcı ayarlanabilir Sistem Özellikleri (gibi **MessageID** veya **correlationıd değeri**) özellik paketindeki dahil edilir. Sistem özelliği adlara sahip önek  **$** , uygulama özellikleri ile önek özgün özellik adı kullanın.
+IOT hub'ı sunar iletilerle **konu adı** `devices/{device_id}/messages/devicebound/`, veya `devices/{device_id}/messages/devicebound/{property_bag}` ileti özellikleri olduğunda. `{property_bag}` İleti özelliklerini URL kodlanmış anahtar/değer çiftleri içerir. Yalnızca uygulama özellikleri ve kullanıcı ayarlanabilir Sistem Özellikleri (gibi **MessageID** veya **correlationıd değeri**) özellik paketindeki dahil edilir. Sistem özelliği adlara sahip önek **$**, uygulama özellikleri ile önek özgün özellik adı kullanın.
 
 Bir konu ile cihaz uygulamasının ne zaman aboneliği **QoS 2**, IOT hub'ı verir maksimum QoS düzey 1 **SUBACK** paket. Bundan sonra IOT Hub aygıtına QoS 1 kullanarak iletileri sunar.
 
@@ -300,7 +300,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 [lnk-mqtt-docs]: http://mqtt.org/documentation
 [lnk-sample-node]: https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js
 [lnk-sample-java]: https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java
-[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt
+[lnk-sample-c]: https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm
 [lnk-sample-csharp]: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/device/samples
 [lnk-sample-python]: https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples
 [lnk-device-explorer]: https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer

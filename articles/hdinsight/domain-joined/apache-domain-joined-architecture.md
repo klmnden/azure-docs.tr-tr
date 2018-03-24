@@ -1,8 +1,8 @@
 ---
-title: "Etki alanına katılmış Azure Hdınsight mimarisi | Microsoft Docs"
-description: "Etki alanına katılmış HDInsight planlama hakkında bilgi edinin."
+title: Etki alanına katılmış Azure Hdınsight mimarisi | Microsoft Docs
+description: Etki alanına katılmış HDInsight planlama hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/14/2017
+ms.date: 03/20/2018
 ms.author: bprakash
-ms.openlocfilehash: 5285199d22528ed6b9fa3b7dbc85e382e7b28569
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b4f79388e45e24dc906a3a03dc0c0e51df52160d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Azure etki alanına katılmış Hadoop kümeleri planlama
 
@@ -47,16 +47,14 @@ Aşağıdaki ekran görüntüsünde contoso.com oluşturulan bir OU gösterir. B
 
 ![Ou etki alanına katılmış Hdınsight kümeleri](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
-### <a name="two-ways-of-bringing-your-own-active-directory-domain-controllers"></a>Kendi Active Directory etki alanı denetleyicileri getiren iki yolu
-
-Etki alanına katılmış Hdınsight kümeleri oluşturmak için Active Directory etki alanı denetleyicileri getirebilirsiniz iki yolu vardır. 
+### <a name="the-way-of-bringing-your-own-active-directory-domain-controllers"></a>Kendi Active Directory etki alanı denetleyicileri getiren yolu
 
 - **Azure Active Directory etki alanı Hizmetleri**: Bu hizmet, Windows Server Active Directory ile tamamen uyumlu olan bir yönetilen Active Directory etki alanı sağlar. Microsoft, geçen yönetme, düzeltme eki uygulama ve AD etki alanı izleme dikkat edin. Etki alanı denetleyicilerinin bakımını yapmak hakkında endişelenmeden kümenizi dağıtabilirsiniz. Kullanıcılar, gruplar ve parolalar, Azure Active Directory'den şirket kimlik bilgilerini kullanarak kümeye oturum açmalarını etkinleştirme eşitlenir. Daha fazla bilgi için bkz: [Azure Active Directory etki alanı Hizmetleri kullanarak yapılandırma etki alanına katılmış Hdınsight kümelerini](./apache-domain-joined-configure-using-azure-adds.md).
 
-- **Azure Iaas Vm'leri üzerinde Active Directory**: Bu seçenekte, dağıtma ve Azure Iaas Vm'leri kendi Windows Server Active Directory etki alanında yönetme. Daha fazla bilgi için bkz: [yapılandırma etki alanına katılmış korumalı alan ortamıdır](./apache-domain-joined-configure.md).
+> [!NOTE]
+> Azure Iaas Vm'leri üzerinde Active Directory artık desteklenmiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Etki alanına katılmış bir HDInsight kümesi yapılandırmak için bkz. [Etki alanına katılmış HDInsight kümelerini yapılandırma](apache-domain-joined-configure.md).
 * Etki alanına katılmış HDInsight kümelerini yönetmek için bkz. [Etki alanına katılmış HDInsight kümelerini yönetme](apache-domain-joined-manage.md).
 * Hive ilkelerini yapılandırmak ve Hive sorgularını çalıştırmak için bkz. [Etki alanına katılmış HDInsight kümeleri için Hive ilkelerini yapılandırma](apache-domain-joined-run-hive.md).
 * Etki alanına katılmış Hdınsight kümelerinde SSH kullanarak Hive sorguları çalıştırmak için bkz: [Hdınsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).

@@ -1,11 +1,11 @@
 ---
-title: "Azure Media Services telemetri ile REST yapılandırma | Microsoft Docs"
-description: "Bu makalede REST API kullanarak Azure Media Services telemetri kullanmayı gösterir.."
+title: Azure Media Services telemetri ile REST yapılandırma | Microsoft Docs
+description: Bu makalede REST API kullanarak Azure Media Services telemetri kullanmayı gösterir..
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: e1a314fb-cc05-4a82-a41b-d1c9888aab09
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 7d785c6eb9a9e16ae4853cded3c7c142080c7a09
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abd093a0b8408e9dcffd4eb9765a767f78fd6fc1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Azure Media Services telemetri REST ile yapılandırma
 
@@ -33,7 +33,7 @@ Bu konuda açıklanan adımlar şunlardır:
 - Bildirim uç noktalarını alma
 - İzleme için bir bildirim uç noktası oluşturuluyor. 
 
-    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tablonun (örneğin, https://telemetryvalidationstore.table.core.windows.net/) ayarlamak endPontAddress EndPointType ayarlayın.
+    Bildirim uç noktası oluşturmak için AzureTable (2) ve depolama tabloya ayarlamak endPontAddress EndPointType ayarlayın (örneğin, https://telemetryvalidationstore.table.core.windows.net/).
   
 - İzleme yapılandırmalarını alma
 
@@ -45,7 +45,7 @@ Bu konuda açıklanan adımlar şunlardır:
  
 ## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Bir Media Services hesabı ile ilişkilendirilmiş depolama hesabına Al
 
-###<a name="request"></a>İstek
+### <a name="request"></a>İstek
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
     x-ms-version: 2.13
@@ -73,7 +73,7 @@ Bu konuda açıklanan adımlar şunlardır:
 
 ## <a name="get-the-notification-endpoints"></a>Bildirim uç noktalarını alma
 
-###<a name="request"></a>İstek
+### <a name="request"></a>İstek
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -83,7 +83,7 @@ Bu konuda açıklanan adımlar şunlardır:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-###<a name="response"></a>Yanıt
+### <a name="response"></a>Yanıt
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -106,7 +106,7 @@ Bu konuda açıklanan adımlar şunlardır:
  
 ## <a name="create-a-notification-endpoint-for-monitoring"></a>İzleme için bir bildirim uç noktası oluşturma
 
-###<a name="request"></a>İstek
+### <a name="request"></a>İstek
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
     x-ms-version: 2.13
@@ -125,9 +125,9 @@ Bu konuda açıklanan adımlar şunlardır:
     }
 
 >[!NOTE]
->Depolama hesabınıza "https://telemetryvalidationstore.table.core.windows.net" değerini değiştirmeyi unutmayın.
+>Değiştirmeyi unutmayın "https://telemetryvalidationstore.table.core.windows.net" değeri, depolama hesabı.
 
-###<a name="response"></a>Yanıt
+### <a name="response"></a>Yanıt
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -158,7 +158,7 @@ Bu konuda açıklanan adımlar şunlardır:
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-###<a name="response"></a>Yanıt
+### <a name="response"></a>Yanıt
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -221,7 +221,7 @@ Bu konuda açıklanan adımlar şunlardır:
 
 ## <a name="stop-telemetry"></a>Telemetriyi Durdur
 
-###<a name="request"></a>İstek
+### <a name="request"></a>İstek
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
     x-ms-version: 2.13

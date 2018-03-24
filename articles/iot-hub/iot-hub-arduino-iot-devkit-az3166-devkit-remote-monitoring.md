@@ -1,12 +1,12 @@
 ---
-title: "Bulut için IOT DevKit: IOT DevKit AZ3166 Azure IOT Hub'ına bağlanmak | Microsoft Docs"
-description: "Bu öğreticide, algılayıcılar durumunu izleme ve görselleştirme için IOT DevKit AZ3166 üzerinde Azure IOT paketi için gönderme konusunda bilgi edinin."
+title: "Bulut için IOT DevKit: IOT MXChip DevKit Azure IOT Hub'ına bağlanmak | Microsoft Docs"
+description: Bu öğreticide, algılayıcılar durumunu izleme ve görselleştirme için IOT DevKit AZ3166 üzerinde Azure IOT paketi için gönderme konusunda bilgi edinin.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: liydu
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: b43061f5af3e836ba3f0b37eb11b351a769890be
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 92efd0970bcf516c4210f831a0c2f23b3ee7b5d8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="connect-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring"></a>Azure IOT paketi Uzaktan izleme için IOT DevKit AZ3166 Bağlan
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-suite-for-remote-monitoring"></a>Azure IOT paketi Uzaktan izleme için MXChip IOT DevKit Bağlan
 
 Bu öğreticide, Azure IOT paketi algılayıcı verileri göndermek için DevKit üzerinde bir örnek uygulamayı çalıştırma öğrenin.
 
@@ -42,7 +42,7 @@ Etkin bir Azure aboneliği. Bir yoksa, bu iki yöntemden biri kaydedebilirsiniz:
 
 1. Git [Azure IOT paketi site](https://www.azureiotsuite.com/) tıklatıp **yeni bir çözüm oluşturmak**.
   ![Azure IOT paketi türünü seçin](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!NOTE]
+  > [!WARNING]
   > Bir IOT paketi oluşturduktan sonra varsayılan olarak, bu örnek S2 IOT hub'ı oluşturur. Bu IOT hub cihaz yoğun sayısı kullanılmazsa, S1 için S2 düşürmek ve artık ihtiyacınız olduğunda ilgili IOT hub'ı aynı zamanda, silinebilir şekilde IOT paketi silmek öneririz. 
 
 2. Seçin **Uzaktan izleme**.

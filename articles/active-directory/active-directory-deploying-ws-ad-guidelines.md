@@ -1,24 +1,24 @@
 ---
-title: "Windows Server Active Directory, Azure sanal makinelerde dağıtmak için yönergeler | Microsoft Docs"
-description: "AD etki alanı Hizmetleri ve şirket içi AD Federasyon Hizmetleri dağıtma biliyorsanız, Azure sanal makinelerde nasıl çalıştığını öğrenin."
+title: Windows Server Active Directory, Azure sanal makinelerde dağıtmak için yönergeler | Microsoft Docs
+description: AD etki alanı Hizmetleri ve şirket içi AD Federasyon Hizmetleri dağıtma biliyorsanız, Azure sanal makinelerde nasıl çalıştığını öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 04df4c46-e6b6-4754-960a-57b823d617fa
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 03/20/2018
 ms.author: femila
-ms.openlocfilehash: 7a56876dfa545d273807444b105de3645dd79d34
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c2d58e056cdb285be51d259492e11e6ae37b253e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>Windows Server Active Directory Azure sanal makinelerde dağıtmak için yönergeler
 Bu makalede dağıtma Windows Server Active Directory etki alanı Hizmetleri (AD DS) ve Active Directory Federasyon Hizmetleri (AD FS) Microsoft Azure sanal makinelerde dağıtmak ve şirket arasındaki önemli farklılıklar açıklanır.
@@ -71,8 +71,10 @@ Bkz: [sanal ağ](http://azure.microsoft.com/documentation/services/virtual-netwo
 > 
 > 
 
-### <a name="static-ip-addresses-must-be-configured-with-azure-powershell"></a>Statik IP adreslerini Azure PowerShell ile yapılandırılması gerekir.
-Dinamik adresler varsayılan olarak ayrılmış, ancak bunun yerine bir statik IP adresi atamak için Set-AzureStaticVNetIP cmdlet'ini kullanın. Hizmet onarma ve VM kapatma/restart aracılığıyla kalıcı statik bir IP adresi ayarlar. Daha fazla bilgi için bkz: [sanal makineler için statik iç IP adresi](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/).
+### <a name="static-ip-addresses-can-be-configured-with-azure-powershell"></a>Statik IP adreslerini Azure PowerShell ile yapılandırılabilir
+Dinamik adresler varsayılan olarak ayrılmış, ancak bunun yerine bir statik IP adresi atamak istiyorsanız, Set-AzureStaticVNetIP cmdlet'ini kullanın. Bu cmdlet'i VM kapatma/restart hizmet onarma ve kalıcı statik bir IP adresi ayarlar. Daha fazla bilgi için bkz: [sanal makineler için statik iç IP adresi](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/). Ayrıca bir statik IP adresi Azure portalında, VM oluşturulurken aşağıda gösterildiği gibi yapılandırabilirsiniz. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir statik genel IP adresiyle bir VM oluşturma](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md).
+
+![bir VM oluştururken, statik IP adresi eklemek için adım ekran görüntüsü](media/active-directory-deploying-ws-ad-guidelines/static-ip.png)
 
 ## <a name="BKMK_Glossary"></a>Terimleri ve tanımları
 Bu makalede başvuran çeşitli Azure teknolojileri koşullarına kapsamlı olmayan bir listesi verilmiştir.
@@ -408,7 +410,7 @@ Salt okunur veya yazılabilir DC'leri dağıtılıp dağıtılmayacağını seç
 
 Azure bir şube ofisi fiziksel güvenlik riskini mevcut olmayan, ancak RODC'ler hala sağladıkları özellikleri barındırabilir çok farklı nedenlerle bu ortamlar için oldukça uygun olduğundan daha uygun maliyetli olması kanıtlamak. Örneğin, RODC'ler giden çoğaltma varsa ve gizli anahtarları (Parolalar) seçmeli olarak doldurabilir. Dezavantajı, bu Sırları eksikliği isteğe bağlı bir kullanıcı olarak doğrulamak için giden trafiği gerektirebilir veya bilgisayarın kimliğini doğrular. Ancak gizli seçerek önceden doldurulmaz ve önbelleğe alınmış.
 
-RODC için hassas verileri içeren öznitelikler öznitelik kümesi (SK'lar) filtre eklemek için RODC'ler içinde ve HBI ve PII sorunları çevresinde ek bir avantaj sağlar. SK'lar RODC'ler için çoğaltılmamış öznitelikleri özelleştirilebilir kümesidir. İzin verilmez veya PII veya HBI Azure üzerinde depolamak istemediğiniz durumunda SK'lar koruyucu olarak kullanabilirsiniz. [[(Https://technet.microsoft.com/library/cc753459)] ayarlamak RODC filtrelenmiş bir öznitelik. daha fazla bilgi için bkz.
+RODC için hassas verileri içeren öznitelikler öznitelik kümesi (SK'lar) filtre eklemek için RODC'ler içinde ve HBI ve PII sorunları çevresinde ek bir avantaj sağlar. SK'lar RODC'ler için çoğaltılmamış öznitelikleri özelleştirilebilir kümesidir. İzin verilmez veya PII veya HBI Azure üzerinde depolamak istemediğiniz durumunda SK'lar koruyucu olarak kullanabilirsiniz. Daha fazla bilgi için [RODC filtrelenmiş öznitelik kümesi [(https://technet.microsoft.com/library/cc753459)].
 
 Uygulamaları ile kullanmayı planlıyorsanız RODC'ler uyumlu olduğundan emin olun. Çoğu Windows Server Active Directory özellikli uygulamalar da RODC'ler ile çalışır, ancak bazı uygulamalar inefficiently gerçekleştirin veya yazılabilir DC erişiminiz yoksa başarısız. Daha fazla bilgi için bkz: [salt okunur DC'leri uygulama uyumluluk Kılavuzu](https://technet.microsoft.com/library/cc755190).
 

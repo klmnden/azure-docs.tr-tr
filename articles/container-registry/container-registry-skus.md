@@ -1,18 +1,18 @@
 ---
-title: "Azure kapsayıcı kayıt defteri SKU'ları"
-description: "Azure kapsayıcı kayıt defterinde farklı hizmet katmanlarındaki karşılaştırın."
+title: Azure kapsayıcı kayıt defteri SKU'ları
+description: Azure kapsayıcı kayıt defterinde farklı hizmet katmanlarındaki karşılaştırın.
 services: container-registry
 author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 15179fa3e3567f92a5eae69ba9a684addc3138dd
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: c9b8e072b5ccd89c27d9c46407e472d6bf1e1e84
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-container-registry-skus"></a>Azure kapsayıcı kayıt defteri SKU'ları
 
@@ -37,11 +37,11 @@ Temel, standart ve Premium SKU'ları topluca olarak bilinen *yönetilen* registr
 
 ### <a name="managed-basic-standard-premium"></a>Yönetilen (temel, standart, Premium)
 
-Yönetilen kayıt defterleri, Azure tarafından yönetilen bir Azure Storage hesabı tarafından desteklenir. Diğer bir deyişle, görüntüleri depolayan depolama hesabı Azure aboneliğinizi içinde görünmez. Çeşitli avantajları vardır yönetilen kayıt defteri SKU'ları birini kullanarak elde edilen, ayrıntılı olarak ele alınan [Klasik kayıt defteri yükseltme][container-registry-upgrade]. Bu makalede, yönetilen kayıt defteri SKU'ları ve yeteneklerini odaklanır.
+Görüntü depolama tamamen Azure tarafından yönetilen kayıt defterleri avantajı yönetilen. Diğer bir deyişle, görüntüleri depolayan bir depolama hesabı Azure aboneliğinizi içinde görünmez. Çeşitli avantajları vardır yönetilen kayıt defteri SKU'ları birini kullanarak elde edilen, ayrıntılı olarak ele alınan [kapsayıcı görüntü depolama Azure kapsayıcı kayıt defterinde][container-registry-storage]. Bu makalede, yönetilen kayıt defteri SKU'ları ve yeteneklerini odaklanır.
 
 ### <a name="unmanaged-classic"></a>Yönetilmeyen (Klasik)
 
-Klasik kayıt defterleri "yönetilmeyen" içinde bir Klasik kayıt defteri yedekler depolama hesabının bulunduğu herkese açık *,* Azure aboneliği. Bu nedenle, kapsayıcı görüntülerinizi depolandığı depolama hesabını yönetimi için sorumlu. Yönetilmeyen kayıt defterleri ile gereksinimleriniz değiştikçe SKU'ları arasında geçiş yapamazsınız (dışında [yükseltme] [ container-registry-upgrade] yönetilen bir kayıt defteri), ve yönetilen kayıt defterleri birkaç özelliklerinin (örneğin, kullanılamaz kapsayıcı görüntü silme işlemi, [coğrafi çoğaltma] [ container-registry-geo-replication] ve [kancalarını][container-registry-webhook]).
+Klasik kayıt defterleri "yönetilmeyen" içinde bir Klasik kayıt defteri yedekler depolama hesabının bulunduğu herkese açık *,* Azure aboneliği. Bu nedenle, kapsayıcı görüntülerinizi depolandığı depolama hesabını yönetimi için sorumlu. Yönetilmeyen kayıt defterleri ile gereksinimleriniz değiştikçe SKU'ları arasında geçiş yapamazsınız (dışında [yükseltme] [ container-registry-upgrade] yönetilen bir kayıt defteri), ve yönetilen kayıt defterleri birkaç özelliklerinin (örneğin, kullanılamaz kapsayıcı görüntü silme işlemi, [coğrafi çoğaltma][container-registry-geo-replication], ve [kancalarını][container-registry-webhook]).
 
 Klasik kayıt defteri yönetilen SKU'ları birine yükseltme hakkında daha fazla bilgi için bkz: [Klasik kayıt defteri yükseltme][container-registry-upgrade].
 
@@ -103,4 +103,5 @@ Gönderir ve yeni özellik önerileri içinde oylamak [ACR UserVoice][container-
 [az-acr-update]: /cli/azure/acr#az_acr_update
 [container-registry-geo-replication]: container-registry-geo-replication.md
 [container-registry-upgrade]: container-registry-upgrade.md
+[container-registry-storage]: container-registry-storage.md
 [container-registry-webhook]: container-registry-webhook.md

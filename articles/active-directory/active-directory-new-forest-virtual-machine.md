@@ -1,12 +1,12 @@
 ---
-title: "Bir Azure sanal ağ üzerinde bir Active Directory ormanı yükleme | Microsoft Docs"
-description: "Bir sanal makine (VM) yeni bir Active Directory ormanı oluşturmak bir Azure sanal ağında açıklanmaktadır Öğreticisi."
+title: Bir Azure sanal ağ üzerinde bir Active Directory ormanı yükleme | Microsoft Docs
+description: Bir sanal makine (VM) yeni bir Active Directory ormanı oluşturmak bir Azure sanal ağında açıklanmaktadır Öğreticisi.
 services: active-directory, virtual-network
-keywords: "Active directory sanal makine, yükleme active directory ormanı, azure active directory videolarını "
-documentationcenter: 
+keywords: 'Active directory sanal makine, yükleme active directory ormanı, azure active directory videolarını '
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
-tags: 
+tags: ''
 ms.assetid: eb7170d0-266a-4caa-adce-1855589d65d1
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
 ms.author: joflore
-ms.openlocfilehash: c98082b7d839490410132f19fdbf653c61d7165c
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 0b98b475f49847589398ca743fc3ac3b8bcbb381
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Bir Azure sanal ağ üzerinde yeni bir Active Directory ormanı yüklemek
 Bu makalede, bir sanal makine (VM) üzerinde yeni bir Windows Server Active Directory ortamı oluşturmak gösterilmiştir bir [Azure sanal ağı](../virtual-network/virtual-networks-overview.md). Bu durumda, Azure sanal ağı bir şirket ağına bağlı değil.
@@ -31,7 +31,7 @@ Bu ilgili makalelerde ilginizi çekebilir:
 * Active Directory etki alanı Hizmetleri (AD DS) bir Azure sanal ağ üzerinde yükleme ilgili kavramsal kılavuzlar için bkz: [yönergeleri dağıtma Windows Server Active Directory için Azure sanal makineler üzerinde](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
 ## <a name="scenario-diagram"></a>Senaryo diyagramı
-Bu senaryoda, dış kullanıcılar etki alanına katılmış sunucularda çalışan uygulamalara erişmek için gereklidir. Uygulama sunucusu çalıştırabilir VM'ler ve etki alanı denetleyicileri çalışan sanal makineleri, kendi Azure sanal ağı bulut hizmetinde yüklü yüklenir. Ayrıca kullanılabilirlik geliştirilmiş hataya dayanıklılık için kümesi içinde dahil edilir.
+Bu senaryoda, dış kullanıcılar etki alanına katılmış sunucularda çalışan uygulamalara erişmek için gereklidir. Uygulama sunucusu çalıştırabilir VM'ler ve etki alanı denetleyicileri çalışan sanal makineleri, kendi Azure sanal ağı bulut hizmetinde yüklenir. Ayrıca kullanılabilirlik geliştirilmiş hataya dayanıklılık için kümesi içinde dahil edilir.
 
 ![Azure sanal ağındaki sanal makinelerde Active Directory ormanı ][1] 7
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: Hizmet asıl yapılandırmasıyla ilgili sorunları giderme | Microsoft Docs"
-description: "Azure AD etki alanı Hizmetleri için hizmet asıl yapılandırmasıyla ilgili sorunları giderme"
+title: 'Azure Active Directory etki alanı Hizmetleri: Hizmet asıl yapılandırmasıyla ilgili sorunları giderme | Microsoft Docs'
+description: Azure AD etki alanı Hizmetleri için hizmet asıl yapılandırmasıyla ilgili sorunları giderme
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: eringreenlee
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory-ds
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: e1be075ba2d3e6ae7512ccc030073fd7f1862502
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz hizmet asıl yapılandırma sorunlarını giderme
 
@@ -93,7 +93,7 @@ Bir hizmet sorumlusu IF kimliği ile adımları ```d87dcbc6-a371-462e-88e3-28ad1
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Uyarı AADDS105: Parola eşitleme uygulama güncel değil
 
-**Uyarı iletisi:** uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silindi ve Microsoft şuna yeniden oluşturun. Bu hizmet sorumlusu başka bir hizmet sorumlusu ve parola eşitleme için kullanılan bir uygulama yönetir. Yönetilen hizmet sorumlusu ve uygulama altında yeni oluşturulan hizmet asıl yetkili değil ve eşitleme sertifikasının süresi sona erdiğinde güncel olmayan hale gelir. Bu yeni oluşturulan hizmet asıl eski yönetilen uygulamaların güncelleştiremiyor ve eşitlemeyi aad'den nesnelerinin etkileneceğini anlamına gelir.
+**Uyarı iletisi:** uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silinir ve yeniden oluşturulur. Bu hizmet sorumlusu başka bir hizmet sorumlusu ve parola eşitleme için kullanılan bir uygulama yönetir. Yönetilen hizmet sorumlusu ve/veya uygulama yetkilendirilmemiş altında yeni oluşturulan hizmet asıl şekilde hizmetimizi tarafından yönetilemez. Bu, yeni oluşturulan hizmet asıl eski yönetilen uygulamaların güncelleştiremiyor olacaktır ve parola eşitleme etkileneceğini anlamına gelir.
 
 
 **Çözüm:** bu adımları tamamlamak için Azure AD PowerShell gerekir. Azure AD PowerShell yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
@@ -108,7 +108,7 @@ Bu sorunu gidermek için bir PowerShell penceresinde aşağıdaki komutları yaz
 2. Eski uygulama ve aşağıdaki PowerShell komutlarını kullanarak nesnesini silme
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
     Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId

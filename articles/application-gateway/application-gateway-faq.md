@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama ağ geçidi için sık sorulan sorular | Microsoft Docs"
-description: "Bu sayfa, Azure uygulama ağ geçidi hakkında sık sorulan soruların yanıtlarını sağlar."
+title: Azure uygulama ağ geçidi için sık sorulan sorular | Microsoft Docs
+description: Bu sayfa, Azure uygulama ağ geçidi hakkında sık sorulan soruların yanıtlarını sağlar.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
-ms.openlocfilehash: f92af44df9863bbf48abb4afcf9b1505c843fadc
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -135,10 +135,6 @@ Mikro hizmet mimarisi desteklenir. Farklı bağlantı noktalarında araştırmas
 **Q. Kuralları nasıl işlenir?**
 
 Yapılandırılmış olan sırada işlenir. Temel kural değerlendirilen çok siteli kural önce bağlantı noktası göre trafiği eşleşecek şekilde bu trafiğin olasılığını azaltmak için uygun arka ucuna yönlendirilir basic kuralları önce çok siteli kuralları yapılandırılır önerilir.
-
-**Q. Kuralları nasıl işlenir?**
-
-Oluşturuldukları sırada işlenir. Çok siteli kuralları önce temel kurallar yapılandırılır önerilir. Çok siteli dinleyicileri ilk yapılandırarak, bu yapılandırma ihtimalini azaltır trafik uygun arka ucuna yönlendirilir. Temel kural değerlendirilen çok siteli kural önce bağlantı noktası göre trafiği eşleşecek şekilde yönlendirme Bu sorun ortaya çıkabilir.
 
 **Q. Hangi özel araştırmalara için ana bilgisayar adı alanı belirtmek?**
 
@@ -274,7 +270,7 @@ Evet, WAF kuralları ziyaret özelleştirme hakkında daha fazla bilgi için öz
 
 **Q. Hangi kuralları şu anda kullanılabilir?**
 
-WAF şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), açık Web uygulaması güvenlik proje (burada bulunan OWASP tarafından) tanımlanan ilk 10 güvenlik açıklarını çoğunu karşı temel güvenlik sağlayan [OWASP ilk 10 güvenlik açıkları](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
+WAF şu anda CRS destekler [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) ve [3.0](application-gateway-crs-rulegroups-rules.md#owasp30), açık Web uygulaması güvenlik proje (OWASP) tarafından tanımlanan en iyi 10 güvenlik açıklarını çoğunu karşı temel güvenlik sağlayan burada bulundu[ OWASP ilk 10 güvenlik açıkları](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)
 
 * SQL ekleme koruması
 
@@ -301,7 +297,7 @@ Hayır, WAF DDoS önleme sağlamaz.
 Uygulama ağ geçidi için üç günlükleri vardır. Bu günlükler ve diğer tanılama yetenekleri hakkında daha fazla bilgi için ziyaret [arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri](application-gateway-diagnostics.md).
 
 - **ApplicationGatewayAccessLog** -erişim günlüğü, her istek için uygulama ağ geçidi ön uç gönderildi içerir. Dönüş kodu, bayt giriş ve çıkış, çağıranın IP, istenen URL yanıt gecikme verileri içerir. Erişim günlüğüne 300 saniyede toplanır. Bu günlük, uygulama ağ geçidi örneği başına bir kayıt içerir.
-- **ApplicationGatewayPerformanceLog** -performans günlüğü hizmet edilen toplam istek dahil olmak üzere her örneği bazında, üretilen iş bayt sayısı, toplam istek sayısı sunulacak, başarısız istek sayısı, sağlıklı ve sağlıksız arka uç örnek sayısı performans bilgilerini yakalar.
+- **ApplicationGatewayPerformanceLog** -performans günlüğü sunulan, toplam istek dahil olmak üzere her örneği bazında üretilen iş bayt performans bilgilerini yakalar, toplam istek sayısı sunulan, başarısız istek sayısı, sağlıklı ve sağlıksız arka uç örnek sayısı.
 - **ApplicationGatewayFirewallLog** -Güvenlik Duvarı günlük algılama veya önleme modu web uygulaması güvenlik duvarı ile yapılandırılmış bir uygulama ağ geçidi üzerinden oturum isteklerini içerir.
 
 **Q. My arka uç havuzu üyeleri sağlıklı olup olmadığını nasıl anlayabilirim?**

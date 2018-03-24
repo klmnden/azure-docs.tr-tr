@@ -1,24 +1,21 @@
 ---
-title: "Özel ilkeler - Azure AD B2C kullanarak bir UI Özelleştirme | Microsoft Docs"
-description: "Azure AD B2C'de özel ilkeler kullanırken bir kullanıcı arabirimi (UI) özelleştirme hakkında bilgi edinin."
+title: Özel ilkeler - Azure AD B2C kullanarak bir UI Özelleştirme | Microsoft Docs
+description: Azure AD B2C'de özel ilkeler kullanırken bir kullanıcı arabirimi (UI) özelleştirme hakkında bilgi edinin.
 services: active-directory-b2c
-documentationcenter: 
-author: saeedakhter-msft
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 658c597e-3787-465e-b377-26aebc94e46d
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 04/04/2017
-ms.author: saeedakhter-msft
-ms.openlocfilehash: dcd8b6df68a68f5feb428b4fd98aee938b3bfe6c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: davidmu
+ms.openlocfilehash: 659910f239087a1d87d650c05af157c085e8c72c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: Kullanıcı Arabirimi özelleştirme özel bir ilke yapılandırın.
 
@@ -40,7 +37,7 @@ Sayfanın UI Özelleştirme özelliğini kullanarak, herhangi bir özel ilke gö
 
 HTML başlığında ürününüzün marka adıyla içerik oluşturun.
 
-1. Aşağıdaki HTML kod parçası kopyalayın. Doğru biçimlendirilmiş boş bir öğesiyle HTML5 adlı  *\<div ID "API" =\>\</div\>*  içinde bulunan  *\<gövde\>*  etiketler. Bu öğe, Azure AD B2C içerik eklenecek nerede gösterir.
+1. Aşağıdaki HTML kod parçası kopyalayın. Doğru biçimlendirilmiş boş bir öğesiyle HTML5 adlı *\<div ID "API" =\>\</div\>* içinde bulunan *\<gövde\>* etiketler. Bu öğe, Azure AD B2C içerik eklenecek nerede gösterir.
 
    ```html
    <!DOCTYPE html>
@@ -124,7 +121,7 @@ Aşağıdakileri yaparak hazırsınız olduğunu doğrulama:
 
 ## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Oturum açma veya kaydolma özel ilkesini değiştirme
 
-Üst düzey altında  *\<TrustFrameworkPolicy\>*  etiketi, bulmanız gerekir  *\<BuildingBlocks\>*  etiketi. İçinde  *\<BuildingBlocks\>*  etiketler eklemek bir  *\<ContentDefinitions\>*  aşağıdaki örnekte kopyalayarak etiketi. Değiştir *your_storage_account* depolama hesabınızın adı.
+Üst düzey altında *\<TrustFrameworkPolicy\>* etiketi, bulmanız gerekir *\<BuildingBlocks\>* etiketi. İçinde *\<BuildingBlocks\>* etiketler eklemek bir *\<ContentDefinitions\>* aşağıdaki örnekte kopyalayarak etiketi. Değiştir *your_storage_account* depolama hesabınızın adı.
 
   ```xml
   <BuildingBlocks>
@@ -141,7 +138,7 @@ Aşağıdakileri yaparak hazırsınız olduğunu doğrulama:
 1. İçinde [Azure portal](https://portal.azure.com), [geçiş Azure AD B2C kiracınızın bağlamına](active-directory-b2c-navigate-to-b2c-context.md)ve ardından açın **Azure AD B2C** dikey.
 2. Tıklatın **tüm ilkeleri**.
 3. Tıklatın **karşıya İlkesi**.
-4. Karşıya yükleme `SignUpOrSignin.xml` ile  *\<ContentDefinitions\>*  daha önce eklediğiniz etiketi.
+4. Karşıya yükleme `SignUpOrSignin.xml` ile *\<ContentDefinitions\>* daha önce eklediğiniz etiketi.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Özel ilke kullanarak test **Şimdi Çalıştır**
 

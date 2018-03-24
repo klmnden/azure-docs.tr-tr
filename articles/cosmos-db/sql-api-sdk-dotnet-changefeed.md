@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: .NET değişiklik akış işlemci API, SDK & kaynakları | Microsoft Docs"
-description: "Tüm değişiklik akış işlemci API ve yayın tarih, sona erme tarihlerini ve .NET değişiklik akış işlemci SDK'sı her sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: 'Azure Cosmos DB: .NET değişiklik akış işlemci API, SDK & kaynakları | Microsoft Docs'
+description: Tüm değişiklik akış işlemci API ve yayın tarih, sona erme tarihlerini ve .NET değişiklik akış işlemci SDK'sı her sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 7e53cf67bc6e03a5f45de5ad4e23ff91624874f4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7008261a4bca118648662fe7beeff5e375086880
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ ms.lasthandoff: 03/08/2018
 
 ## <a name="release-notes"></a>Sürüm notları
 
-### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
 * İstikrara yönelik iyileştirmeler.
 * El ile denetim noktası oluşturma desteği.
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.21 ve üstü.
@@ -77,7 +77,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
-| [1.3.0](#1.3.0) |07 Mart 2018 |--- |
+| [1.3.1](#1.3.1) |13 Mart 2018 |--- |
 | [1.2.0](#1.2.0) |31 Ekim 2017 |--- |
 | [1.1.1](#1.1.1) |29 Ağustos 2017 |--- |
 | [1.1.0](#1.1.0) |13 Ağustos 2017 |--- |

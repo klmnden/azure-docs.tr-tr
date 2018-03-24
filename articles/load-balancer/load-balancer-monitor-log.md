@@ -1,6 +1,6 @@
 ---
-title: "Yük Dengeleyici için işlemleri, olayları ve sayaçları izleme | Microsoft Docs"
-description: "Uyarı olayları etkinleştir ve Azure yük dengeleyici için sistem durumu günlüğü araştırma hakkında bilgi edinin"
+title: Yük Dengeleyici için işlemleri, olayları ve sayaçları izleme | Microsoft Docs
+description: Uyarı olayları etkinleştir ve Azure yük dengeleyici için sistem durumu günlüğü araştırma hakkında bilgi edinin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4388a1e933a0ebf211b5a7621c74b0622be41a4c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure Load Balancer için günlük analizi
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+>[!NOTE] 
+>Azure Load Balancer iki farklı türü destekler: Temel ve Standart. Bu makalede Temel Yük Dengeleyici anlatılmaktadır. Standart yük dengeleyici hakkında daha fazla bilgi için bkz: [standart yük dengeleyici genel bakış](load-balancer-standard-overview.md).
 
 Azure'da günlükleri farklı türlerde yönetmek ve yük dengeleyici sorunlarını gidermek için kullanabilirsiniz. Bu günlükler bazıları Portalı aracılığıyla erişilebilir. Tüm günlükleri Azure blob depolama alanından ayıklanan ve farklı araçlar, Excel ve Powerbı gibi görüntülenebilir. Aşağıdaki listeden günlükleri farklı türleri hakkında daha fazla bilgi edinebilirsiniz.
 

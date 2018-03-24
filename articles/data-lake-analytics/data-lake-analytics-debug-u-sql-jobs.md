@@ -1,8 +1,8 @@
 ---
-title: "Hata ayıklama başarısız Azure Data Lake U-SQL işleri için kullanıcı tanımlı C# kodu | Microsoft Docs"
-description: "Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL başarısız köşe hata ayıklama öğrenin."
+title: Hata ayıklama başarısız Azure Data Lake U-SQL işleri için kullanıcı tanımlı C# kodu | Microsoft Docs
+description: Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL başarısız köşe hata ayıklama öğrenin.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yanancai
 manager: jhubbard
 editor: cgronlun
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
-ms.translationtype: HT
+ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Hata ayıklama başarısız U-SQL işleri için kullanıcı tanımlı C# kodu
 
-U-SQL C# kullanarak genişletilebilirlik modeli sağlar. U-SQL komut dosyaları, C# işlevleri çağırmak ve SQL benzeri tanımlayıcı dil desteği olmayan analitik işlevleri gerçekleştirmek kolaydır. U-SQL genişletilebilirliği için daha fazla bilgi için bkz: [U-SQL Programlama Kılavuzu](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL C# kullanarak genişletilebilirlik modeli sağlar. U-SQL komut dosyaları, C# işlevleri çağırmak ve SQL benzeri tanımlayıcı dil desteği olmayan analitik işlevleri gerçekleştirmek kolaydır. U-SQL genişletilebilirliği için daha fazla bilgi için bkz: [U-SQL Programlama Kılavuzu](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 Uygulamada, herhangi bir kod hata ayıklama gerekebilir, ancak özel kod bulut üzerinde dağıtılmış işlemle sınırlı günlük dosyalarıyla hata ayıklama zordur. [Visual Studio için Azure Data Lake Araçları](http://aka.ms/adltoolsvs) adlı bir özelliği sağlar **köşe hata ayıklama başarısız**, yardımcı olan, daha kolay oluşan hataları özel kodda hata ayıklama. U-SQL işi başarısız olduğunda, hizmet başarısız durumu tutar ve aracı, bulut hatası ortamı hata ayıklama için yerel makineye indirmek için yardımcı olur. Yerel Yükleme herhangi bir giriş veri ve kullanıcı kodu da dahil olmak üzere tüm bulut ortamı yakalar.
 
@@ -41,7 +41,7 @@ Visual Studio için Azure Data Lake araçları başarısız bir işi açtığın
 
 1. Tıklatın **karşıdan** tüm gerekli kaynakları ve giriş akışları karşıdan yüklemek için. Karşıdan yükleme tamamlanmazsa, tıklatın **yeniden**.
 
-2. Tıklatın **açık** yerel hata ayıklama ortamı oluşturmak için indirme tamamlandıktan sonra. Hata ayıklama çözümü olan yeni bir Visual Studio örneği otomatik olarak oluşturulan ve açılır.
+2. Tıklatın **açık** yerel hata ayıklama ortamı oluşturmak için indirme tamamlandıktan sonra. Yeni bir hata ayıklama çözüm açılacak ve varolan varsa çözümü Visual Studio'da kaydetmek ve hata ayıklama önce kapatmak emin olun Lütfen açılır.
 
 ![Azure Data Lake Analytics U-SQL hata ayıklama visual studio indirme köşe](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos veritabanı tutarlılık düzeylerini | Microsoft Docs"
-description: "Azure Cosmos DB Bakiye nihai tutarlılık, kullanılabilirlik ve gecikme dengelemeler yardımcı olmak üzere beş tutarlılık düzeyleri vardır."
-keywords: "Nihai tutarlılık, azure cosmos db, azure, Microsoft azure"
+title: Azure Cosmos veritabanı tutarlılık düzeylerini | Microsoft Docs
+description: Azure Cosmos DB Bakiye nihai tutarlılık, kullanılabilirlik ve gecikme dengelemeler yardımcı olmak üzere beş tutarlılık düzeyleri vardır.
+keywords: Nihai tutarlılık, azure cosmos db, azure, Microsoft azure
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: cgronlun
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3fe51cfa-a889-4a4a-b320-16bf871fe74c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3bd28316e3d2e7596021d6964594002d47d160a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı
 Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garanti ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. En yüksek oranda tutarlı bir model kullanılabilir olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime durumu, oturum, tutarlı öneki ve nihai olan "gevşek tutarlılık modelleri olarak" gösteriyor. 
@@ -60,6 +60,7 @@ Tutarlılık kesinliği tek bir kullanıcı isteğine kapsamlıdır. Yazma iste�
 ## <a name="consistency-levels"></a>Tutarlılık düzeyleri
 Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar (ve veritabanları için) geçerli bir varsayılan tutarlılık düzeyi yapılandırabilirsiniz. Varsayılan olarak, tüm okuma ve kullanıcı tanımlı kaynaklarına karşı verilen sorguları veritabanı hesabındaki belirtilen varsayılan tutarlılık düzeyi kullanın. Belirli okuma/kullanarak bir sorgu isteği her desteklenen API'leri tutarlılık düzeyi hafifletin. Bu bölümde açıklandığı gibi belirli tutarlılık ve performans arasında NET bir denge sağlayan Azure Cosmos DB çoğaltma protokolü tarafından desteklenen tutarlılık düzeylerini beş türü vardır.
 
+<a id="strong"></a>
 **Güçlü**: 
 
 * Güçlü tutarlılık sunan bir [linearizability](https://aphyr.com/posts/313-strong-consistency-models) garanti öğeyi en son sürümüne geri dönmek için garanti okuma ile. 
@@ -67,6 +68,7 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 * Güçlü tutarlılık kullanmak üzere yapılandırılmış azure Cosmos DB hesapları birden fazla Azure bölgesine Azure Cosmos DB hesaplarıyla ilişkilendiremezsiniz.  
 * Okuma işlemi maliyetini (cinsinden [istek birimleri](request-units.md) tüketilen) ile güçlü tutarlılık oturum daha yüksek ya da Sonuçta, olan ancak sınırlanmış eskime durumu ile aynı.
 
+<a id="bounded-staleness"></a>
 **Sınırlanmış eskime durumu**: 
 
 * Okuma yazma tarafından arkasında en fazla geri kalabilir eskime durumu tutarlılığı garanti ilişkisindeki *K* sürümleri veya bir öğenin önekleri veya *t* zaman aralığı. 
@@ -76,6 +78,7 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 * Sınırlanmış eskime durumu tutarlılığı ile yapılandırılmış olan azure Cosmos DB hesapları Azure bölgeleri herhangi bir sayıda Azure Cosmos DB hesaplarıyla ilişkilendirebilirsiniz. 
 * Okuma işlemi (RUs tüketilen) bakımından maliyetini sınırlanmış eskime durumu ile oturum ve nihai tutarlılık, ancak güçlü tutarlılık aynı daha yüksektir.
 
+<a id="session"></a>
 **Oturum**: 
 
 * Güçlü ve sınırlanmış eskime durumu tutarlılığı düzeyleri tarafından sunulan genel tutarlılık modeller, bir istemci oturumundan oturum tutarlılığı kapsamlıdır. 
@@ -91,6 +94,7 @@ Cosmos DB hesabınızın altında veritabanı hesabınızdaki tüm koleksiyonlar
 * Tutarlı önek okuma hiçbir zaman bozuk yazma bkz güvence altına alır. Yazma sırayla gerçekleştirilen varsa `A, B, C`, bir istemci ya da görür sonra `A`, `A,B`, veya `A,B,C`, ancak hiçbir zaman bozuk gibi `A,C` veya `B,A,C`.
 * Tutarlı önek tutarlılık ile yapılandırılmış olan azure Cosmos DB hesapları Azure bölgeleri herhangi bir sayıda Azure Cosmos DB hesaplarıyla ilişkilendirebilirsiniz. 
 
+<a id="eventual"></a>
 **Son**: 
 
 * Nihai tutarlılık, daha fazla yazma olmaması durumunda, Grup içerisinde bulunan çoğaltmalar sonunda yakınsamasını garanti eder. 
@@ -114,7 +118,7 @@ Varsayılan olarak, kullanıcı tanımlı, kaynaklar için sorgular için tutarl
 | --- | --- | --- |
 | CONSISTENT (varsayılan) |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Güçlü, sınırlanmış eskime durumu, seçim oturumu veya son |
 | Lazy |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Nihai |
-| Hiçbiri |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Uygulanamaz |
+| None |Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek arasından seçin ya da son |Uygulanamaz |
 
 Olarak okuma istekleri ile her API belirli sorgu istekte tutarlılık düzeyine düşürebilirsiniz.
 
@@ -125,19 +129,12 @@ Azure Cosmos DB MongoDB iki tutarlılık ayarları, güçlü ve nihai olan sür�
 ## <a name="next-steps"></a>Sonraki adımlar
 Tutarlılık düzeyleri ve bileşim hakkında daha fazla okuma yapmak istiyorsanız, aşağıdaki kaynaklara öneririz:
 
-* Doug Terry. Çoğaltılan verilerin tutarlılık Beyzbol (video) açıklanmıştır.   
-  [https://www.youtube.com/watch?v=gluIh8zd26I](https://www.youtube.com/watch?v=gluIh8zd26I)
-* Doug Terry. Çoğaltılan verilerin tutarlılık Beyzbol açıklanmıştır.   
-  [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
-* Doug Terry. Oturum garanti zayıf tutarlı çoğaltılan veriler için.   
-  [http://dl.acm.org/citation.cfm?id=383631](http://dl.acm.org/citation.cfm?id=383631)
-* Daniel Abadi. Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık bileşim: CAP Öykü yalnızca bir parçası olan ".   
-  [http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein, Ion Stoica. İçin pratik kısmi çekirdekleri sınırlanmış eskime durumu (PBS) probabilistic.   
-  [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
-* Werner Vogels. Son tutarlı - tekrar ziyaret.    
-  [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
-* Moni Naor, Avishai Wool, yükü, kapasitesi ve çekirdek sistemleri, bilgi işlem, v.27 n.2, p.423 447, Nisan 1998 SIAM günlük kullanılabilirliği.
-  [http://epubs.siam.org/doi/abs/10.1137/S0097539795281232](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
-* Sebastian Burckhardt, Chris Dern, Macanal Musuvathi, Roy Tan, Line-up: bir tam ve otomatik linearizability denetleyicisi, dil tasarım ve uygulama, Haziran 05-10, 2010, Toronto, Ontario programlama 2010 ACM SIGPLAN konferans bildirileri, Kanada [DOI > 10.1145/1806596.1806634] [http://dl.acm.org/citation.cfm?id=1806634](http://dl.acm.org/citation.cfm?id=1806634)
-* Peter Bailis, Shivaram Venkataraman, Michael J. Franklin, Joseph M. Hellerstein , Ion Stoica, Probabilistically bounded staleness for practical partial quorums, Proceedings of the VLDB Endowment, v.5 n.8, p.776-787, April 2012 [http://dl.acm.org/citation.cfm?id=2212359](http://dl.acm.org/citation.cfm?id=2212359)
+* [Çoğaltılan verilerin tutarlılık Doug Terry tarafından Beyzbol (video) aracılığıyla açıklanan](https://www.youtube.com/watch?v=gluIh8zd26I)
+* [Çoğaltılan verilerin tutarlılık Doug Terry tarafından Beyzbol (Teknik İnceleme) aracılığıyla açıklanan](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
+* [Oturum garanti zayıf tutarlı çoğaltılan veriler için](http://dl.acm.org/citation.cfm?id=383631)
+* [Modern dağıtılmış veritabanı sistemleri tasarım tutarlılık bileşim: CAP Öykü yalnızca bir parçası olan](http://computer.org/csdl/mags/co/2012/02/mco2012020037-abs.html)
+* [Probabilistic sınırlanmış eskime durumu (PBS) pratik kısmi çekirdekleri için](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
+* [Son tutarlı - tekrar ziyaret](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+* [Yükü, kapasitesi ve çekirdek sistemleri, bilgi işlem üzerinde SIAM günlük kullanılabilirliğini](http://epubs.siam.org/doi/abs/10.1137/S0097539795281232)
+* [Line-Up: bir tam ve otomatik linearizability denetleyicisi, dil tasarım ve uygulama programlama 2010 ACM SIGPLAN konferans bildirileri](http://dl.acm.org/citation.cfm?id=1806634)
+* [Pratik kısmi çekirdekleri için probabilistically sınırlanmış eskime durumu](http://dl.acm.org/citation.cfm?id=2212359)

@@ -1,11 +1,10 @@
 ---
-title: "Veri Fabrikası kullanım örneği - ürün önerileri"
-description: "Diğer hizmetlerin yanı sıra Azure Data Factory kullanarak uygulanan bir kullanım durumu hakkında bilgi edinin."
+title: Veri Fabrikası kullanım örneği - ürün önerileri
+description: Diğer hizmetlerin yanı sıra Azure Data Factory kullanarak uygulanan bir kullanım durumu hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 6f1523c7-46c3-4b8d-9ed6-b847ae5ec4ae
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 04504d1e32243f752e488a24e04ec5ba73fbadc1
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 41948d8141d0f3c0e41b95f169bcec6c4b641106
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="use-case---product-recommendations"></a>Kullanım Örneği - Ürün Önerileri
 Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uygulamak için kullanılan birçok hizmetlerden biridir.  Bkz: [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) bu paketi hakkında ayrıntılar için sayfa. Bu belgede, Azure kullanıcıların zaten Çözüldü ve Azure Data Factory ve diğer Cortana Intelligence Bileşen Hizmetleri kullanılarak uygulanan ortak bir kullanım örneği açıklanmaktadır.
@@ -29,7 +28,7 @@ Azure Data Factory Çözüm Hızlandırıcıları Cortana Intelligence Suite uyg
 
 Kullanıcı tıklatın satış dönüştürmeleri için en iyi duruma getirme ve daha yüksek satış gelirinin kazanmak için bu perakende belirtilir.  Bunlar, bu dönüştürme Müşteri ilgi alanları ve Eylemler dayalı olarak bağlamsal, davranış tabanlı ürün öneriler sunarak elde edin. Bu kullanım durumu için örnek olarak, müşterileri için en iyi duruma getirmek istediğiniz işletmeler çevrimiçi Perakendeciler kullanın. Ancak, bu ilkeler, müşterilerinin kendi mal ve hizmet geçici devreye ve müşterilerin satın alma kişiselleştirilmiş ürün önerilerini deneyiminizi geliştirmek için istediği herhangi bir işletme için geçerlidir.
 
-## <a name="challenges"></a>Zorlukları
+## <a name="challenges"></a>Zorluklar
 Birçok zorluklar mevcuttur, çevrimiçi Perakendeciler yüz bu tür bir kullanım örneği çalışırken. 
 
 İlk olarak, farklı boyutlarda ve şekiller verilerin birden çok veri kaynaklarından alınan gerekir hem şirket içinde ve bulutta. Kullanıcının çevrimiçi perakende site gözatar olarak bu veriler ürün verilerini, geçmiş müşteri davranışı verileri ve kullanıcı verilerini içerir. 

@@ -1,24 +1,18 @@
 ---
 title: Azure Dosya Eşitleme aracısı sürüm notları (önizleme) | Microsoft Docs
-description: Azure Dosya Eşitleme aracısı sürüm notları (önizleme)
+description: Azure dosya eşitleme Aracı (Önizleme) için sürüm notları.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: tamram
-ms.assetid: ''
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/08/2017
+ms.topic: article
+ms.date: 03/12/2018
 ms.author: wgries
-ms.openlocfilehash: fabfb02a199744c63c3a2191589fd450cfdd0304
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
-ms.translationtype: HT
+ms.openlocfilehash: bb7fa68809341b5132d551ff1cab187bd4d7eeac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure Dosya Eşitleme aracısı sürüm notları (önizleme)
 Azure Dosya Eşitleme aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Windows Server yüklemeleriniz, Azure dosya paylaşımınızın hızlı bir önbelleğine dönüştürülür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilirsiniz. Dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
@@ -28,14 +22,25 @@ Bu makalede Azure Dosya Eşitleme aracısının desteklenen sürümleri için s�
 ## <a name="supported-versions"></a>Desteklenen sürümler
 Azure Dosya Eşitleme aracısı aşağıdaki sürümleri destekler:
 
-| Sürüm | Sürüm tarihi | Destek bitiş tarihi |
-|---------|--------------|------------------|
-| 2.1.0.0 | 28 Şubat 2018 | Geçerli sürüm |
-| 2.0.11.0 | 8 Şubat 2018 | Geçerli sürüm |
-| 1.1.0.0 | 26 Eylül 2017 | 30 Temmuz 2018 |
+| Kilometre Taşı | Aracı sürüm numarası | Sürüm tarihi | Durum |
+|----|----------------------|--------------|------------------|
+| Mart güncelleştirme paketi | 2.2.0.0 | 12 Mart 2018 | (Önerilen) sürümünü destekliyor |
+| Şubat güncelleştirme paketi | 2.1.0.0 | 28 Şubat 2018 | Desteklenen |
+| 1 Yenile | 2.0.11.0 | 8 Şubat 2018 | Desteklenen |
+| Ocak güncelleştirme paketi | 1.4.0.0 | 8 Ocak 2018 | 8 Mayıs 2018 kadar desteklenen<sup>1</sup> |
+| Kasım güncelleştirme paketi | 1.3.0.0 | 30 Kasım 2017 | 8 Mayıs 2018 kadar desteklenen<sup>1</sup> |
+| Ekim güncelleştirme paketi | 1.2.0.0 | 31 Ekim 2017 | 8 Mayıs 2018 kadar desteklenen<sup>1</sup> |
+| İlk önizleme yayını | 1.1.0.0 | 26 Eylül 2017 | 8 Mayıs 2018 kadar desteklenen<sup>1</sup> |
+
+\[1\]: Önizleme sırasında Azure dosya eşitleme Aracı sürümleri bilerek uygun değil güncelleştirme ilkesi. Azure dosya eşitleme genel olarak kullanılabilir bildirildikten sonra ilk Aracısı sürümünden başlayarak güncelleştirme ilkesi uygulanır.
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure Dosya Eşitleme aracısı güncelleştirme ilkesi
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-2200"></a>Aracı sürümü 2.2.0.0
+Aşağıdaki sürüm notları 12 Mart 2018 yayımlanan sürümü Azure dosya eşitleme aracısı için 2.2.0.0 ' dir.  Sürüm 2.1.0.0 ve 2.0.11.0 listelenen sürüm notları yanı sıra bu notlar olan
+
+V2.1.0.0 yükleme bazı müşteriler için değil durdurma FileSyncSvc nedeniyle başarısız olur. Sorun bu güncelleştirme giderir.
 
 ## <a name="agent-version-2100"></a>Aracı sürümü 2.1.0.0
 Aşağıdaki sürüm notları Azure Dosya Eşitleme aracısının 28 Şubat 2018’de yayınlanan 2.1.0.0 sürümü için geçerlidir. Bu notlar 2.0.11.0 sürümü için listelenen sürüm notlarına ek niteliğindedir.
@@ -88,11 +93,12 @@ Aşağıdaki öğeler eşitlenmez ancak sistem normal şekilde çalışmaya deva
 - Sunucu uç noktası, sistem birimi üzerinde olamaz. Örneğin, C:\MyFolder bir bağlama noktasıysa C:\MyFolder kabul edilebilir bir yol değildir.
 - Yük Devretme Kümelemesi yalnızca kümelenmiş disklerle desteklenir, Küme Paylaşılan Birimleri (CSV) ile desteklenmez.
 - Sunucu uç noktası iç içe olamaz. Aynı birim üzerinde başka bir uç noktaya paralel olarak birlikte bulunabilir.
-- Bir sunucudan tek seferde çok sayıda (10.000’den fazla) dizinin silinmesi eşitleme hatalarına neden olabilir. Dizinleri 10. 000'den küçük toplu işler halinde silin. Sonraki toplu işi silmeden önce silme işlemlerinin başarıyla eşitlendiğinden emin olun.
 - Bu sürüm, bir birimin kökündeki eşitleme köküne yönelik destek ekler.
 - Bir işletim sistemini veya uygulama disk belleğini sunucu uç noktasının içinde depolamayın.
 - Bu yayındaki değişiklik: Bulut katmanlaması (EventID 9016), eşitleme karşıya yükleme durumu (EventID 9302) ve eşitlenmeyen dosyaların (EventID 9900) toplam çalışma zamanlarını izlemek için yeni olaylar eklendi.
-- Bu yayındaki değişiklik: Hızlı DR ad alanı eşitleme performansı önemli ölçüde arttı.
+- Bu sürümde geliştirilmiş: 
+- Hızlı DR ad eşitleme performansı önemli ölçüde artar.
+- Dizinleri çok sayıda (üzerinde 10.000) silme v2 * ile yığınlardaki yapılması gerekmez.
  
 ### <a name="cloud-tiering"></a>Bulut katmanlaması
 - Bu sürümde yapılan değişiklik: Katmanlama ilkesi ayarına bağlı olarak yeni dosyalar 1 saat içinde (daha önce 32 saatti) katmanlanır. Talep üzerine bir PowerShell cmdlet'i sunuyoruz. Cmdlet’i kullanarak, arka plan işlemini beklemeden katmanlamayı daha verimli bir şekilde değerlendirebilirsiniz.

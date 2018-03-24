@@ -1,31 +1,31 @@
 ---
-title: "Azure Analysis Services için Diganostic günlüğü | Microsoft Docs"
-description: "Azure Analysis Services için tanılama günlük kaydını ayarlama hakkında bilgi edinin."
+title: Azure Analysis Services için Diganostic günlüğü | Microsoft Docs
+description: Azure Analysis Services için tanılama günlük kaydını ayarlama hakkında bilgi edinin.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 02/14/2018
 ms.author: owend
-ms.openlocfilehash: cadd47d2e5f490f82846ea562803fcd60f5405a7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 20e2e76e8df9421ee97671000f9557f5db34f1b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="setup-diagnostic-logging"></a>Tanılama Günlüğü Kurulumu
 
-Sunucularınızın nasıl performans gösterdiğini herhangi bir Analysis Services çözümü önemli bir kısmını izlemektedir. İle [Azure kaynak tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), izlemek ve günlükleri şuraya gönderin: [Azure Storage](https://azure.microsoft.com/services/storage/), bunları akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [günlük Analytics](https://azure.microsoft.com/services/log-analytics/), parçası [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite). 
+Sunucularınızın nasıl performans gösterdiğini herhangi bir Analysis Services çözümü önemli bir kısmını izlemektedir. İle [Azure kaynak tanılama günlüklerini](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md), izlemek ve günlükleri şuraya gönderin: [Azure Storage](https://azure.microsoft.com/services/storage/), bunları akış [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve bunları dışarı aktarma [günlük Analytics](https://azure.microsoft.com/services/log-analytics/), bir hizmet olarak [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). 
 
-![Tanılama günlük depolama, olay hub'ları veya günlük analizi aracılığıyla Operations Management Suite](./media/analysis-services-logging/aas-logging-overview.png)
+![Depolama, olay hub'ları veya günlük analizi için tanılama günlükleri](./media/analysis-services-logging/aas-logging-overview.png)
 
 
 ## <a name="whats-logged"></a>Ne kaydedilir?
@@ -171,7 +171,7 @@ Günlük analizi tanılama verilerini görüntülemek için günlük arama sayfa
 
 Tıklatın **EventClass\_s** veya bir olay adları ve günlük analizi devam bir sorgu oluşturma. Daha sonra yeniden kullanmak için sorgularınızı kaydettiğinizden emin olun.
 
-Bir Web sitesi Gelişmiş sorgu, dashboarding ve günlük analizi veri uyarı verme yetenekleri sağlayan Operations Management Suite görmek emin olun.
+Bir Web sitesi Gelişmiş sorgu, dashboarding ve toplanan verileri uyarı verme yetenekleri sağlar günlük analizi görmek emin olun.
 
 ### <a name="queries"></a>Sorgular
 

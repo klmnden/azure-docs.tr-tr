@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: RESTful hizmetlerinizi HTTP temel kimlik doğrulaması kullanarak güvenli hale getirme"
-description: "Azure AD B2C özel, REST API talep alışverişlerine HTTP temel kimlik doğrulaması kullanarak güvenli hale getirme"
+title: 'Azure Active Directory B2C: RESTful hizmetlerinizi HTTP temel kimlik doğrulaması kullanarak güvenli hale getirme'
+description: Azure AD B2C özel, REST API talep alışverişlerine HTTP temel kimlik doğrulaması kullanarak güvenli hale getirme
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/25/2017
-ms.author: yoelh
-ms.openlocfilehash: 0d4594f5e7c0a13d50993dd42d4780c1ba703140
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: 90bbcc865f13a1d048ea12fdccd3ca848cf362ba
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP temel kimlik doğrulaması kullanarak RESTful hizmetlerinizi güvenli hale getirme
 İçinde bir [ilişkili Azure AD B2C makale](active-directory-b2c-custom-rest-api-netfw.md), Azure Active Directory (Azure AD B2C) kullanıcı Yolculuklar kimlik doğrulaması olmadan B2C ile tümleşen bir RESTful hizmeti (web API) oluşturun. 

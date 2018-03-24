@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: özel ilkeler kullanarak Azure AD B2C kullanıcı arabirimi (UI) dinamik olarak özelleştirebilirsiniz."
-description: "Çalışma zamanında dinamik olarak değişir HTML5/CSS içeriğe sahip birden çok marka deneyimlerini destekler."
+title: 'Azure Active Directory B2C: özel ilkeler kullanarak Azure AD B2C kullanıcı arabirimi (UI) dinamik olarak özelleştirebilirsiniz.'
+description: Çalışma zamanında dinamik olarak değişir HTML5/CSS içeriğe sahip birden çok marka deneyimlerini destekler.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 09/20/2017
-ms.author: yoelh
-ms.openlocfilehash: 3a2310ae6266709df6677c55f11b15239c0425a2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: davidmu
+ms.openlocfilehash: d8aaf0ef8cefdc0cb1c4ff3dec656d31c32f664f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: kullanıcı Arabirimi ile dinamik içerik özel ilkeler kullanarak yapılandırma
 Azure Active Directory B2C kullanarak (Azure AD B2C) özel ilkeler, bir parametre bir sorgu dizesi olarak gönderebilirsiniz. HTML uç noktanızı parametresini geçirerek, sayfa içeriği dinamik olarak değiştirebilirsiniz. Örneğin, web ya da mobil uygulama geçirdiğiniz parametre temel Azure AD B2C kaydolma veya oturum açma sayfasında, arka plan resmi değiştirebilirsiniz. 
@@ -121,7 +118,7 @@ Bu kılavuzda:
 
 ### <a name="step-23-change-the-background-image"></a>2.3. adım: arka plan resmi değiştirme
 
-Bulun `<img>` içeren öğeyi `ID` değeri *background_background_image*ve ardından Değiştir `src` değerini **https://kbdevstorage1.blob.core.windows.net/ Varlık-BLOB'lar/19889_en_1** veya kullanmak istediğiniz başka bir arka plan görüntü.
+Bulun `<img>` içeren öğeyi `ID` değeri *background_background_image*ve ardından Değiştir `src` değerini **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** veya diğer kullanmak istediğiniz arka plan resmi.
 
 ![Sayfa arka planını değiştirin](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 

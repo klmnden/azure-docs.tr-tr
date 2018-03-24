@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Sürüm yayımlama geçmişi | Microsoft Docs"
-description: "Bu makalede Azure AD Connect ve Azure AD eşitleme'nin tüm sürümlerinde listeler"
+title: 'Azure AD Connect: Sürüm yayımlama geçmişi | Microsoft Docs'
+description: Bu makalede Azure AD Connect ve Azure AD eşitleme'nin tüm sürümlerinde listeler
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 0c6a0c43eb7d0187120c3264f1f439af66d73978
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0fd653b1a4058ce4284bf87b0b9152a264581e5c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -40,6 +40,10 @@ Karşıdan yükleme | [Azure AD Connect'i indirme](http://go.microsoft.com/fwlin
 Durum: Bu sürüm otomatik yükseltme etkinleştirdiyseniz AADConnect kiracılar için bir küçük ve rastgele seçimi şu anda dağıtılmış müşterileri seçmek üzere'yi yayınladı. Biz kiracılar bu grubu otomatik yükseltme müşterilerimizin % 100 bu sürümde aldığınız kadar önümüzdeki haftalarda genişletin. Bundan sonra biz derleme genel indirmek için yukarıdaki indirme bağlantıyı gönderecek.
 >[!NOTE]
 >Bu yeni sürüme yükseltme işlemi tamamlandığında, bir tam eşitleme ve Azure AD Bağlayıcısı için tam içeri aktarma ve tam bir eşitleme AD Bağlayıcısı için otomatik olarak tetikler. Bu Azure AD Connect ortamınızın boyutuna bağlı olarak biraz zaman alabilir bu yana Bunu desteklemek veya bunu yapmak için kullanışlı bir dakikanızı bulduğunuz kadar yükseltmeye bekletir için gerekli adımları gerçekleştirdiğinizden emin olun.
+
+>[!NOTE]
+>"AutoUpgrade işlevselliği yanlış bazı kiracılar için derlemeleri tarafından 1.1.524.0 daha sonra devre dışı bırakıldı. Azure AD Connect Örneğiniz için AutoUpgrade hala uygun olduğundan emin olmak için aşağıdaki PowerShell cmdlet'ini çalıştırın: "Set-ADSyncAutoUpgrade - AutoupGradeState AutoUpgradeConfigurationState.Enabled"?
+
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 #### <a name="fixed-issues"></a>Giderilen sorunlar

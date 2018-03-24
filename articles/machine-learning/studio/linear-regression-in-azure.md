@@ -1,11 +1,12 @@
 ---
-title: "Doğrusal regresyon Machine Learning kullanarak | Microsoft Docs"
-description: "Excel'de ve Azure Machine Learning Studio'da doğrusal regresyon modellerin karşılaştırması"
-metakeywords: 
+title: Doğrusal regresyon Machine Learning kullanarak | Microsoft Docs
+description: Excel'de ve Azure Machine Learning Studio'da doğrusal regresyon modellerin karşılaştırması
+metakeywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: kbaroni;garye
-ms.openlocfilehash: 218f2b141e3551180a2152570f99fdb427980dd7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Azure Machine Learning’de doğrusal regresyonu kullanma
 > *Kate Baroni* ve *Ben Boatman* Microsoft'un veri Öngörüler mükemmel merkezi çözüm mimarları Kurumsal şunlardır. Bu makalede, bunlar Azure Machine Learning kullanarak bulut tabanlı bir çözüme varolan bir Regresyon çözümleme paketini geçirme deneyimlerini açıklanmaktadır. 
@@ -77,14 +77,14 @@ Bizim işlemi ve sonuçları veri bilimcilerine ve geliştiricilere Machine Lear
 ### <a name="mystery-solved"></a>Çözülen sırrı!
 Biz önerileri uygulandığında, Machine Learning Studio'daki Excel ile aynı temel performans elde: 
 
-|  | Excel | Studio (Başlangıç) | Studio kareler içeren |
+|  | Excel | Studio (Başlangıç) | Studio w/ Least Squares |
 | --- |:---:|:---:|:---:|
 | Etiketli değer |Fiili (sayı) |Aynı |Aynı |
 | Öğrenen |Excel -> veri analizi regresyon -> |Doğrusal regresyon. |Doğrusal regresyon |
 | Öğrenen seçenekleri |Yok |Varsayılan olarak |sıradan kareler<br />L2 0.005 = |
 | Veri kümesi |26 satır, 3 özellikleri, 1 etiketi. Tüm sayısal. |Aynı |Aynı |
 | Böl: eğitimi |İlk 18 satırda son 8 satırlarda test Excel eğitildi. |Aynı |Aynı |
-| Böl: Test |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
+| Split: Test |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
 | **Performans** | | | |
 | R kare ayarlandı |0.96 |Yok | |
 | Katsayısı |Yok |0.78 |0.952049 |
@@ -123,7 +123,7 @@ Ek algoritmalar gibi planlıyoruz sonraki [Bayesian] [ bayesian-linear-regressio
 
 Regresyon ile denemek istiyorsanız, denemek için iyi bir veri kümesi çok sayıda sayısal özniteliklere sahip enerji verimliliği regresyon örnek veri kümesi ' dir. Veri kümesi, Machine Learning Studio'daki örnek veri kümesi bir parçası olarak sağlanır. Modülleri öğrenme çeşitli ısıtma yük ya da yük soğutma tahmin etmek için kullanabilirsiniz. Grafik, enerji verimliliğine dataset hedef değişkeni soğutma yükü için tahmin etmeye karşı farklı regresyon performans karşılaştırması öğrenir şöyledir: 
 
-| modeli | Mutlak hata anlama | Kök ortalama karesi alınmış hata | Göreli mutlak hata | Göreli karesi alınmış hata | Katsayısı |
+| Model | Mutlak hata anlama | Kök ortalama karesi alınmış hata | Göreli mutlak hata | Göreli karesi alınmış hata | Katsayısı |
 | --- | --- | --- | --- | --- | --- |
 | Artırılmış karar ağacı |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | Doğrusal regresyon (gradyan düşüşü) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
@@ -141,8 +141,8 @@ Tahmine dayalı analitik Machine Learning Excel'e systemically tahmin aktarma ye
 Regresyon ile çalışmanıza yardımcı olacak bazı kaynaklar aşağıda verilmiştir: 
 
 * Excel'de regresyon. Excel'de regresyon hiçbir zaman denediyseniz, Bu öğretici kolaylaştırır: [http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
-* Tahmin regresyon vs. Tyler Chessman doğrusal regresyon iyi bir başlangıç açıklamasını içerir Excel'de tahmin serisi süreyi açıklayan bir blog makale yazıldı. [http://sqlmag.com/SQL-Server-Analysis-Services/Understanding-Time-Series-forecasting-Concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* Sıradan kareler doğrusal regresyon: Açıkları, sorunları ve Tuzaklar. Bir giriş ve regresyon tartışması: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* Tahmin regresyon vs. Tyler Chessman doğrusal regresyon iyi bir başlangıç açıklamasını içerir Excel'de tahmin serisi süreyi açıklayan bir blog makale yazıldı. [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
+* Sıradan kareler doğrusal regresyon: Açıkları, sorunları ve Tuzaklar. Bir giriş ve regresyon tartışma için: [http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

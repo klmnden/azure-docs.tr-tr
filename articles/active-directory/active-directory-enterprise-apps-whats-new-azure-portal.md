@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler | Microsoft Docs"
-description: "Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikleri öğrenin."
+title: Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler | Microsoft Docs
+description: Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikleri öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 34ac4028-a5aa-40d9-a93b-0db4e0abd793
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 949eae51c469205489153c271a7c20fcc843ad46
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8d1b24708380aeed6055912fcf3538f0e5319e2d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler 
 
@@ -147,7 +147,7 @@ Her uygulama kutunun sağ dışında Federasyon desteklediğini biliyoruz. Örne
 1. Başlamak için seçebileceğiniz **Self Servis** uygulama seçeneğinden sol gezinti menüsünde ve ayarlama **bu uygulamaya erişmek kullanıcıların?** için seçenek '**Evet**'. 
 2. Bu, bu uygulamaya erişim onaylama yetkisi olan kişileri ve hangi grubu Self Servis kullanıcıları eklenecek yapılandırmanıza olanak sağlar. Ayrıca, uygulama parolası çoklu oturum açma için yapılandırılmışsa, isteğe bağlı olarak uygulamaya atanan parolaları yönetmek bu onaylayanlar olanak sağlayan başka bir seçenek de görürsünüz.
 
-##<a name="feedback"></a>Geri Bildirim
+## <a name="feedback"></a>Geri Bildirim
 
 Geliştirilmiş kullanarak gibi umuyoruz Azure AD deneyimi. Gelen geri bildirim unutmayın! Geri bildirim ve fikir geliştirme için post **Yönetici portalı** bölümünü bizim [geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  Biz, her gün harika yeni hizmetler oluşturma hakkında heyecan ve şekil, kılavuzlar kullanabilir ve sonraki geliştirmemiz ne tanımlayın.
 

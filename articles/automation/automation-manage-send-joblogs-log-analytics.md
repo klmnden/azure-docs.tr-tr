@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu işi veri OMS günlük analizi ilet"
-description: "Bu makalede iş durumu ve runbook iş akışları için ek bilgiler sunmak için Microsoft Operations Management Suite günlük analizi ve Yönetimi nasıl gönderileceğini gösterir."
+title: Azure Otomasyonu iş verilerini Log Analytics’e iletme
+description: Bu makalede iş durumu ve runbook iş akışları için ek bilgiler sunmak için Microsoft Operations Management Suite günlük analizi ve Yönetimi nasıl gönderileceğini gösterir.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,16 +8,14 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.openlocfilehash: c73a523f1239fb7d549b573ea6105168f4a63144
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>İş durumu ve iş akışları Otomasyon günlük analizi (OMS) iletme
-Otomasyon runbook iş durumu ve iş akışları için Microsoft Operations Management Suite (OMS) günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
+# <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
+Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
 
 * Otomasyon işleriniz hakkında bilgi edinme.
 * Bir e-posta veya uyarı (örneğin, başarısız veya askıya alınmış), runbook işi durumlarına dayalı tetikleyici.
@@ -157,7 +155,7 @@ Bir işi hatalarını ayıkladığınız, iş akışları aramak isteyebilirsini
 Son olarak, zaman içinde iş geçmişi görselleştirmek isteyebilirsiniz. Zaman içinde işlerin durumunu aramak için bu sorguyu kullanın.
 
 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and ResultType != "started" | summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h)`  
-<br> ![OMS geçmiş iş durumu grafiği](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
+<br> ![Günlük analizi geçmiş iş durumu grafiği](media/automation-manage-send-joblogs-log-analytics/historical-job-status-chart.png)<br>
 
 ## <a name="summary"></a>Özet
 Günlük analizi için Otomasyon iş durumu ve akış veri göndererek Otomasyon işlerinizin tarafından durumunu daha iyi bir anlayış alabilirsiniz:
@@ -170,4 +168,4 @@ Günlük analizi Otomasyon işleriniz için daha fazla işlem görünürlük sa�
 * Farklı arama sorguları oluşturmak ve günlük analizi ile Otomasyon iş günlükleri gözden geçirmek hakkında daha fazla bilgi için bkz: [günlük analizi aramaları oturum](../log-analytics/log-analytics-log-searches.md).
 * Oluşturmak ve runbook'lardan çıkış ve hata iletileri almak nasıl anlamak için bkz: [Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md).
 * Runbook yürütme, runbook işlerini izleme ve diğer teknik ayrıntılar hakkında daha fazla bilgi edinmek için bkz. [Runbook işi izleme](automation-runbook-execution.md).
-* OMS günlük analizi ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md).
+* Günlük analizi ve veri toplama kaynakları hakkında daha fazla bilgi için bkz: [toplama Azure storage veri günlük analizi genel bakış](../log-analytics/log-analytics-azure-storage.md).

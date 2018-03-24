@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory'de dönen pencere Tetikleyicileri oluşturma | Microsoft Docs"
-description: "Azure veri fabrikasında ardışık atlayan pencere üzerinde çalışan bir tetikleyici oluşturmayı öğrenin."
+title: Azure Data Factory'de dönen pencere Tetikleyicileri oluşturma | Microsoft Docs
+description: Azure veri fabrikasında ardışık atlayan pencere üzerinde çalışan bir tetikleyici oluşturmayı öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 1f026683ebc9b3d2bc935cd78aa9d16684e7db40
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 312072a5de21ff1c6b602fed93b77c564b15a9f1
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir işlem hattı atlayan pencere üzerinde çalışan bir Tetikleyici oluşturma
 Bu makalede oluşturma, başlatma ve dönen pencere tetikleyici izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türlerden hakkında genel bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
 
 > [!NOTE]
-> Bu makale, Azure Data Factory şu anda önizlemede olan sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
-Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Dönen windows sabit boyutlu çakışmayan ve bitişik zaman aralıkları bir dizi var. Dönen pencere tetikleyici bir ardışık düzen ile bire bir ilişkisi vardır ve yalnızca tekil bir ardışık düzen başvuruda bulunabilir.
+Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir. Dönen pencere tetikleyici bir ardışık düzen ile bire bir ilişkisi vardır ve yalnızca tekil bir ardışık düzen başvuruda bulunabilir.
 
 ## <a name="tumbling-window-trigger-type-properties"></a>Dönen pencere tetikleyici türü özellikleri
 Atlayan pencere tetikleyici türü özellikleri şunlardır:
@@ -72,14 +72,14 @@ Atlayan pencere tetikleyici türü özellikleri şunlardır:
 
 Aşağıdaki tabloda, yineleme ile ilgili ve zamanlama dönen pencere tetikleyici temel JSON öğe üst düzey bir genel bakış sağlar:
 
-| JSON element | Açıklama | Tür | İzin verilen değerler | Gerekli |
+| JSON öğesi | Açıklama | Tür | İzin verilen değerler | Gerekli |
 |:--- |:--- |:--- |:--- |:--- |
-| **türü** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
+| **Türü** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
 | **runtimeState** | Çalışma zamanı tetikleyici geçerli durumu.<br/>**Not**: Bu öğe \<readOnly >. | Dize | "Başlatıldı" "Stopped" "Disabled" | Evet |
-| **Sıklık** | Tetikleyici yineleneceği sıklığı (dakika veya birimi saatleri) temsil eden bir dize. Varsa **startTime** tarih değerlerini daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanan değerlendirilir. Örneğin, varsa **sıklığı** değerdir saatlik ve **startTime** değerdir 2016-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "dakika", "saat"  | Evet |
-| **interval** | İçin bir aralığı gösterir pozitif bir tamsayı **sıklığı** tetikleyici ne sıklıkta çalıştırılacağını belirler değeri. Örneğin, varsa **aralığı** 3 ve **sıklığı** "," saattir 3 saatte bir tetikleyici yinelenen. | Tamsayı | Pozitif bir tamsayı. | Evet |
-| **startTime**| Geçmişte olabilen ilk örneğin. İlk tetikleyici aralığı (**startTime**, **startTime** + **aralığı**). | Tarih Saat | Bir tarih saat değeri. | Evet |
-| **endTime**| Geçmişte olabilen son a geçişi. | Tarih Saat | Bir tarih saat değeri. | Evet |
+| **frequency** | Tetikleyici yineleneceği sıklığı (dakika veya birimi saatleri) temsil eden bir dize. Varsa **startTime** tarih değerlerini daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanan değerlendirilir. Örneğin, varsa **sıklığı** değerdir saatlik ve **startTime** değerdir 2016-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "dakika", "saat"  | Evet |
+| **interval** | Tetikleyicinin çalışma sıklığını belirten **frequency** değerinin aralığını gösteren bir pozitif tamsayı. Örneğin, varsa **aralığı** 3 ve **sıklığı** "," saattir 3 saatte bir tetikleyici yinelenen. | Tamsayı | Pozitif bir tamsayı. | Evet |
+| **startTime**| Geçmişte olabilen ilk örneğin. İlk tetikleyici aralığı (**startTime**, **startTime** + **aralığı**). | DateTime | Bir tarih saat değeri. | Evet |
+| **endTime**| Geçmişte olabilen son a geçişi. | DateTime | Bir tarih saat değeri. | Evet |
 | **gecikme** | Veri işleme penceresi başlangıcı geciktirmek için süre miktarı. Çalıştırma ardışık düzen beklenen yürütme süresi ve miktarını sonra başlatıldığında **gecikme**. **Gecikme** tetikleyici yeni çalıştırma tetiklemeden önce son süresini geçen bekleyeceği süreyi tanımlar. **Gecikme** penceresi değiştirmez **startTime**. Örneğin, bir **gecikme** 00:10:00 değerini 10 dakikalık bir gecikme anlamına gelir. | Timespan  | Varsayılan değer 00:00:00 olduğu bir saat değeri. | Hayır |
 | **maxConcurrency** | Hazır olan windows harekete eşzamanlı tetikleyici çalıştırmalarının sayısı. Örneğin, dolgu yedeklemek için 24 Windows dün sonuçlar için saatlik çalışır. Varsa **maxConcurrency** = 10, olaylar yalnızca ilk 10 windows için tetikleyici (00:00-01:00 - 09:00-10:00). İlk 10 tetiklenen ardışık düzen çalıştırır tamamlandıktan sonra tetikleyici çalıştırır sonraki 10 windows (10:00-11:00-19:00-20:00) tetiklenir. Bu örnekle devam edersek **maxConcurrency** = 10, 10 windows 10 toplam ardışık düzen çalıştırır vardır, hazır olduğunda. Varsa yalnızca 1 penceresi hazır, da yalnızca 1 ardışık düzen Çalıştır yoktur. | Tamsayı | 1 ve 50 arasında bir tamsayı. | Evet |
 | **retryPolicy: sayısı** | "Başarısız" işaretlenmiş ardışık düzen Çalıştır önce yeniden deneme sayısı  | Tamsayı | Varsayılan değer 0 (yeniden deneme) bulunduğu bir tamsayı. | Hayır |

@@ -1,30 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Kullanıcı geçiş yaklaşımlar"
-description: "Temel ve Gelişmiş kavramları grafik API'sini kullanarak ve isteğe bağlı olarak Azure AD B2C özel ilkelerini kullanarak kullanıcı geçişi tartışın."
+title: 'Azure Active Directory B2C: Kullanıcı geçiş yaklaşımlar'
+description: Temel ve Gelişmiş kavramları grafik API'sini kullanarak ve isteğe bağlı olarak Azure AD B2C özel ilkelerini kullanarak kullanıcı geçişi tartışın.
 services: active-directory-b2c
-documentationcenter: 
-author: yoelhor
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: article
-ms.devlang: na
 ms.date: 10/04/2017
-ms.author: yoelh
-<<<<<<< HEAD
-ms.openlocfilehash: f98f1826b492b8596f352b403b3b12775814c399
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 25023359e3f1eeb241f6f0e70bcb179aa32974af
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: be80ea534be6de4fad2b072cf531669f45eda527
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C, kimlik sağlayıcısı geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makaleyi Düzenleyici olmasını değildir ancak bunun yerine, iki çeşitli yaklaşımlar açıklar. Geliştirici, her iki yaklaşımın uygunluğuna sorumludur.
@@ -40,7 +31,7 @@ Azure AD B2C ile kullanıcılara geçirebilirsiniz [grafik API'si](https://docs.
 
 Her iki akışlar, ilk geçiş öncesi süreci çalıştırmak, kullanıcıların eski kimlik sağlayıcınızdan okuma ve yeni hesapları Azure AD B2C dizini oluşturun. Parola yoksa rastgele oluşturulan bir parola kullanarak hesabı oluşturun. Ardından parolayı değiştirmek için kullanıcıya sor ya da kullanıcı ilk kez oturum açtığında, Azure AD B2C sıfırlayın kullanıcıya sorar.
 
-## <a name="password-policy"></a>Parola İlkesi
+## <a name="password-policy"></a>Parola ilkesi
 Azure AD B2C parola ilkesini (yerel hesaplar için) Azure AD ilkesini temel alır. Azure AD B2C kaydolma veya oturum açma ve parola ilkelerini kullanma "güçlü" parola gücünü sıfırlamak ve parolaları süresi sona ermiyor. Daha fazla bilgi için bkz: [Azure AD parola ilkesi](https://msdn.microsoft.com/library/azure/jj943764.aspx).
 
 Geçirmek istediğiniz hesapları daha zayıf bir parola gücünü kullanıyorsanız [Azure AD B2C tarafından zorlanan güçlü parola gücünü](https://msdn.microsoft.com/library/azure/jj943764.aspx), güçlü parola gereksinimini devre dışı bırakabilirsiniz. Varsayılan Parola İlkesi değiştirmek için ayarlayın `passwordPolicies` özelliğine `DisableStrongPassword`. Örneğin, oluşturma Kullanıcı isteği aşağıdaki gibi değiştirebilirsiniz: 
@@ -103,7 +94,7 @@ Grafik API'si ile iletişim kurmak için bir hizmet hesabı yönetici ayrıcalı
 Okuma ve yazma dizin veri izinlerini yapmak *değil* kullanıcıların silip hakka sahiptir. Uygulamanız (ortamınızı temizlemek için) kullanıcıları silme olanağı vermek için kullanıcı hesabı yönetici izinleri ayarlamak için PowerShell çalıştırılmasını içerir fazladan bir adım gerçekleştirmeniz gerekir. Aksi halde, sonraki bölüme atlayabilirsiniz.
 
 > [!IMPORTANT]
-> Bir B2C Kiracı yönetici hesabı kullanmanız gerekir *yerel* B2C kiracısına. Hesap adı sözdizimi  *admin@contosob2c.onmicrosoft.com* .
+> Bir B2C Kiracı yönetici hesabı kullanmanız gerekir *yerel* B2C kiracısına. Hesap adı sözdizimi *admin@contosob2c.onmicrosoft.com*.
 
 >[!NOTE]
 > Aşağıdaki PowerShell betiğini gerektirir [Azure Active Directory PowerShell sürüm 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
@@ -155,8 +146,8 @@ JSON dosyasının düzenlemek için açın `AADB2C.UserMigration.sln` Visual Stu
 
 Gördüğünüz gibi dosya kullanıcı varlıkları listesini içerir. Her kullanıcı varlık aşağıdaki özelliklere sahiptir:
 * e-posta
-* Görünen adı
-* FirstName
+* displayName
+* firstName
 * Soyadı
 * Parola (boş olabilir)
 
@@ -220,7 +211,7 @@ Geçişi doğrulamak için aşağıdaki yöntemlerden birini kullanın:
 
     b. Açık *UserProfile.json* JSON Düzenleyicisi'nde dosya. Visual Studio Code ile bir JSON belgesi seçerek veya Shift + Alt + F seçerek biçimlendirebilirsiniz **belgeyi Biçimlendir** bağlam menüsünde.
 
-    ![UserProfile.json dosyası](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
+    ![The UserProfile.json file](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
 
 ### <a name="step-25-optional-environment-cleanup"></a>2.5. adım: (İsteğe bağlı) ortam temizleme
 Temiz istiyorsanız yukarı Azure AD kiracınıza ve Çalıştır Azure AD dizininden kaldırmasına `UserMigration.exe 5` komutu.

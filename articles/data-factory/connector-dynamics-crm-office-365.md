@@ -1,25 +1,25 @@
 ---
-title: Azure Data Factory kullanarak ilk ve son Dynamics CRM veya Dynamics 365 veri kopyalama | Microsoft Docs
-description: "Microsoft Dynamics CRM'den veri kopyalama öğrenin veya desteklenen için Microsoft Dynamics 365 veri depolarına havuzu veya gelen kaynak desteklenen veri depoları Dynamics CRM veya Dynamics 365 bir data factory işlem hattı kopyalama etkinliği kullanarak."
+title: Azure Data Factory kullanarak gelen ve Dynamics CRM veya Dynamics 365 (ortak veri hizmeti) için veri kopyalama | Microsoft Docs
+description: Microsoft Dynamics CRM'den veri kopyalama öğrenin veya Microsoft Dynamics 365 (ortak veri desteklenen hizmeti) veri depolarına havuzu veya gelen kaynak desteklenen veri depoları Dynamics CRM veya Dynamics 365 bir data factory işlem hattı kopyalama etkinliği kullanarak.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 03/16/2018
 ms.author: jingwang
-ms.openlocfilehash: dc0b01e23ebb2695fd0365f054b3cacd2573f3c6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea69fdab9ec510f6060b280db3afffb7533a4bda
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="copy-data-from-and-to-dynamics-365-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Dynamics 365 veya Dynamics CRM veri kopyalama
+# <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory kullanarak ilk ve son Dynamics 365 (ortak veri hizmeti) veya Dynamics CRM veri kopyalama
 
 Bu makalede kopya etkinliği Azure Data Factory'de gelen ve Microsoft Dynamics 365 veya Microsoft Dynamics CRM veri kopyalamak için nasıl kullanılacağını açıklar. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de gelen ve Microsoft Dynamics 3
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Verileri herhangi bir desteklenen havuz veri deposuna Dynamics 365 veya Dynamics CRM kopyalayabilirsiniz. Tüm desteklenen kaynak veri deposundan Dynamics 365 veya Dynamics CRM veri kopyalayabilirsiniz. Kaynakları veya havuzlarını olarak kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Verileri herhangi bir desteklenen havuz veri deposuna Dynamics 365 (ortak veri hizmeti) veya Dynamics CRM kopyalayabilirsiniz. Tüm desteklenen kaynak veri deposundan Dynamics 365 (ortak veri hizmeti) veya Dynamics CRM veri kopyalayabilirsiniz. Kaynakları veya havuzlarını olarak kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
 Bu Dynamics bağlayıcı aşağıdaki Dynamics sürümleri ve kimlik doğrulama türlerini destekler. (IFD kısaltması Internet'e dağıtımıdır.)
 

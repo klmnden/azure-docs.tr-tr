@@ -1,11 +1,11 @@
 ---
 title: Veri kopyalama/Azure Cosmos Data Factory kullanarak DB'den | Microsoft Docs
-description: "Desteklenen kaynak veri depolarına Azure Cosmos DB'de (veya) Cosmos DB verileri kopyalamak için Data Factory kullanarak desteklenen havuz depolarını öğrenin."
+description: Desteklenen kaynak veri depolarına Azure Cosmos DB'de (veya) Cosmos DB verileri kopyalamak için Data Factory kullanarak desteklenen havuz depolarını öğrenin.
 services: data-factory, cosmosdb
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b54aba19ecb92867bc817cbbb921f4e6537ef70c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 01de1020cd485b3cf91e5d5bc2e175df2bcad111
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 

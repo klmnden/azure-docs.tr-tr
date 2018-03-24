@@ -1,22 +1,22 @@
 ---
-title: "Azure Yönetim grupları ile kaynaklarınızı düzenleme | Microsoft Docs"
-description: "Yönetim grupları ve bunları nasıl kullanacağınızı öğrenin."
+title: Azure Yönetim grupları ile kaynaklarınızı düzenleme | Microsoft Docs
+description: Yönetim grupları ve bunları nasıl kullanacağınızı öğrenin.
 author: rthorn17
 manager: rithorn
-editor: 
+editor: ''
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2018
+ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a86fc568a0c7f4ada0b853cda8a7b2e06ed7dfcb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
@@ -24,15 +24,13 @@ Kuruluşunuzun fazla aboneliğiniz varsa, verimli bir şekilde erişim, ilkeleri
 
 Yönetim grubu özelliğini genel önizleme olarak kullanılabilir. Management'ı kullanmaya başlamak için gruplar, oturum açma [Azure portal](https://portal.azure.com) arayın ve **Yönetim grupları** içinde **tüm hizmetleri** bölümü. 
 
-Yönetim grupları Azure İlkesi desteğini genel Önizleme ve bunu aşağıdaki hafta içinde geliyor henüz kullanılabilir değil.  
-
 Örnek olarak, sanal makine (VM) oluşturmak için kullanılabilir bölgeleri sınırlar bir yönetim grubuna ilkelerini uygulayabilirsiniz. Bu ilke tüm Yönetim grupları, abonelikleri ve bu yönetim grubu altında kaynaklar yalnızca bu bölgede oluşturulan VM'ler vererek uygulanması.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Yönetim grupları ve abonelikleri hiyerarşisi 
 
 Esnek yapısını Yönetim grupları ve Abonelikleri birleşik İlkesi ve erişim yönetimi için bir hiyerarşiye kaynaklarınızı düzenleme oluşturabilirsiniz. Aşağıdaki diyagramda Yönetim grupları ve abonelikleri departmanlara göre düzenlenmiş oluşan bir örnek hiyerarşisini gösterir.    
 
-![hiyerarşi](media/management-groups/MG_overview.png)
+![Ağaç](media/management-groups/MG_overview.png)
 
 Departmanlara göre gruplandırılmış bir hiyerarşi oluşturarak, atayabilirsiniz [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) rolleri, *devral* departmanlara bu yönetim grubu altında. Yönetim gruplarını kullanarak, iş yükünü azaltabilir ve rol kez atamak yalnızca sağlayarak hata riskini azaltır. 
 
@@ -42,6 +40,14 @@ Departmanlara göre gruplandırılmış bir hiyerarşi oluşturarak, atayabilirs
     - Bu sınır, kök düzeyinde veya abonelik düzeyinde içermez.
 - Her yönetim grubu yalnızca bir üst destekleyebilir.
 - Her bir yönetim grubunda birden çok alt bulunabilir. 
+
+### <a name="preview-subscription-visibility-limitation"></a>Önizleme abonelik görünürlüğü kısıtlama 
+Şu anda bir sınırlama vardır önizleme içinde erişimi devralmış abonelikleri görmeye olduğunuz değil. Erişim için abonelik devralınan ancak Azure Resource Manager devralma erişim henüz dikkate mümkün değildir.  
+
+Abonelik hakkında bilgi almak için REST API kullanarak erişebilirsiniz, ancak Azure portalı ve Azure Powershell içinde abonelikleri gösterme devam ayrıntılarını döndürür. 
+
+Bu öğe üzerinde çalışılan ve "Genel kullanılabilirlik" duyurdu Yönetim grupları önce çözülmüş  
+
 
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu
 

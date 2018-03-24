@@ -1,11 +1,12 @@
 ---
-title: "Bilgi grafiği: Machine learning temelleri - algoritması örnekleri | Microsoft Docs"
-description: "Machine learning temelleri kolay anlaşılır bir bakış algoritması örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar."
-keywords: "Machine learning temelleri, algoritma örnekler, yeni başlayanlar, machine learning soruları, popüler algoritmalar, algoritması bilgi grafiği için makine"
+title: 'Bilgi grafiği: Machine learning temelleri - algoritması örnekleri | Microsoft Docs'
+description: Machine learning temelleri kolay anlaşılır bir bakış algoritması örnekleri içerir. İndirilebilir bilgi grafiği çoğu machine learning soruları kapsar.
+keywords: Machine learning temelleri, algoritma örnekler, yeni başlayanlar, machine learning soruları, popüler algoritmalar, algoritması bilgi grafiği için makine
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
-ms.openlocfilehash: 8c392740eb0c06b7a3c47e07e5beb667b17117ae
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 4f07defd3df3a7933a69463729240d856f6282d4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>İndirilebilir Bilgi Grafiği: Algoritma örnekleri ile machine learning temel bilgileri
 Bu ortak makine öğrenimi soruları yanıtlamak için kullanılan yaygın olarak kullanılan algoritmalar hakkında bilgi edinmek için makine öğrenme temelleri kolay anlaşılır bilgi grafiği bakış indirin. Algoritma örnekler hangi algoritmaları ve kullanıldıkları anlamak machine learning başlangıç yardımcı olur.

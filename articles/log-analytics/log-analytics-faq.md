@@ -1,24 +1,24 @@
 ---
-title: "Günlük analizi ile ilgili SSS | Microsoft Docs"
-description: "Azure günlük analizi hizmeti ile ilgili sık sorulan soruların yanıtları."
+title: Günlük analizi ile ilgili SSS | Microsoft Docs
+description: Azure günlük analizi hizmeti ile ilgili sık sorulan soruların yanıtları.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 03/21/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ Microsoft Azure Log Analytics hakkında sık sorulan soruların listesidir. Günlük analizi hakkında ek herhangi bir sorunuz varsa, Git [tartışma Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -47,23 +47,25 @@ Metin dizesini güncelleştirmeye *OMS* el ile içeri aktarılacak gereken bir y
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>S: günlük analizi şirket içi sürümü var mı?
 
-Y: No Günlük analizi, işler ve büyük miktarlarda veri depolayan bir ölçeklenebilir bulut hizmetidir. 
+A: No. Günlük analizi, işler ve büyük miktarlarda veri depolayan bir ölçeklenebilir bulut hizmetidir. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Günlük analizi artık veri toplama, nasıl giderebilirim?
 
-A: üzerinde ücretsiz fiyatlandırma katmanı ve birden fazla veri 500 MB günde göndermiş varsa, veri toplama gün geri kalanı için durur. Günlük sınıra ulaşması günlük analizi veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.
+A: üzerinde ücretsiz fiyatlandırma katmanı ve birden fazla veri 500 MB günde göndermiş varsa, veri toplama gün geri kalanı için durur. Günlük sınıra ulaşması günlük analizi veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
 
-Günlük analizi oluşturur olay türü *işlemi* ne zaman veri toplamayı başlatır ve durdurur. 
+Günlük analizi oluşturur olay türü *sinyal* ve veri toplama vermediğinde belirlemek için kullanılabilir. 
 
-Aramada, günlük sınıra ulaşması ve eksik veri varsa denetlemek için aşağıdaki sorguyu çalıştırın:`Type=Operation OperationCategory="Data Collection Status"`
+Aramada, günlük sınıra ulaşması ve eksik veri varsa denetlemek için aşağıdaki sorguyu çalıştırın: `Heartbeat | summarize max(TimeGenerated)`
 
-Veri toplama durduğunda *OperationStatus* olan **uyarı**. Veri toplama başladığında, *OperationStatus* olan **başarılı**. 
+Belirli bir bilgisayarı denetlemek için aşağıdaki sorguyu çalıştırın: `Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
+
+Veri toplama durduğunda seçili zaman aralığına bağlı döndürülen kayıt görmezsiniz.   
 
 Aşağıdaki tabloda veri toplamayı durdurur nedenleri açıklanmaktadır ve veri toplama sürdürmek için önerilen eylem:
 
 | Neden veri toplamayı durdurur                       | Veri toplama sürdürmek için |
 | -------------------------------------------------- | ----------------  |
-| Boş veri günlük sınırına<sup>1</sup>       | Koleksiyonun otomatik olarak yeniden başlatmak sonraki güne kadar bekleyin veya<br> Ücretli bir fiyatlandırma katmanı değiştirme |
+| Boş veri sınırına<sup>1</sup>       | Koleksiyonun otomatik olarak yeniden başlatmak aşağıdaki aya kadar bekleyin veya<br> Ücretli bir fiyatlandırma katmanı değiştirme |
 | Azure aboneliği nedeniyle askıya alınmış durumda olduğundan: <br> Ücretsiz deneme sürümü sona erdi <br> Azure geçiş süresi <br> Aylık harcama sınırı (örneğin bir MSDN veya Visual Studio abonelikte) ulaşıldı                          | Ücretli bir aboneliğe Dönüştür <br> Ücretli bir aboneliğe Dönüştür <br> Sınırı kaldırın veya sınırı sıfırlar kadar bekleyin |
 
 <sup>1</sup> çalışma alanınızı ücretsiz fiyatlandırma katmanını ise, hizmete 500 MB günde veri göndermeye sınırlı. Günlük sınıra ulaştığınızda, sonraki güne kadar veri toplamayı durdurur. Veri toplama durdurulduğunda gönderilen veriler dizinli değil ve arama amacıyla kullanılamıyor. Veri toplama çıktığında işleme gönderilen yalnızca yeni verileri oluşur. 
@@ -77,14 +79,13 @@ Y: açıklanan adımları kullanın [bir uyarı kuralı oluştur](log-analytics-
 Veri toplama durduğunda için uyarı oluşturulurken ayarlayın:
 - **Ad** için *veri toplama durdu*
 - **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Type=Operation OperationCategory="Data Collection Status" OperationStatus=Warning`
-- **Zaman penceresi** için *2 saat*.
-- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
+- **Arama sorgusu**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+- **Zaman penceresi** için *30 dakika*.
+- **Uyarı sıklığı** her *on* dakika.
 - **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
 - **Sonuç sayısı**: *Şundan büyüktür: 0*
 
-Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
-
+Sorgu sonuçları döndürdüğünde yalnızca 15 dakikadan fazla bir süre için eksik sinyal varsa bu uyarı ateşlenir.  Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
 
 ## <a name="configuration"></a>Yapılandırma
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Azure tanılama (WAD) okumak için kullanılan tablo/blob kapsayıcısının adını değiştirebilir miyim?
@@ -141,9 +142,9 @@ Her iki Azure aboneliklerini izninizin olduğundan emin olun.
 ### <a name="q-how-much-data-can-i-send-through-the-agent-to-log-analytics-is-there-a-maximum-amount-of-data-per-customer"></a>Q. Ne kadar veri için günlük analizi ile aracıyı gönderebilirim? Yüksek miktarda verinin müşteri başına var mı?
 A. Ücretsiz planı çalışma alanı bir günlük sınır 500 MB'lık ayarlar. Standart ve premium planları sınır karşıya veri miktarına sahip. Otomatik ölçek tanıtıcı birim kadar üzere tasarlanmış bir bulut hizmeti olarak günlük analizi günde terabayt olsa bile, müşteriden – geliyor.
 
-Günlük analizi aracı, küçük bir yer olan emin olmak için tasarlanmıştır. Müşterilerimizin birini bizim aracısı ve oldukları nasıl devam etmesini karşı gerçekleştirilen testleri hakkında bir blog yazıldı. Veri birimi etkinleştirmeniz çözümleri göre değişir. Veri birimi ile ilgili ayrıntılı bilgiler bulmak ve çözümde tarafından paketlerdeki bkz [kullanım](log-analytics-usage.md) sayfası.
+Günlük analizi aracı, küçük bir yer olan emin olmak için tasarlanmıştır. Veri birimi etkinleştirmeniz çözümleri göre değişir. Veri birimi ile ilgili ayrıntılı bilgiler bulmak ve çözümde tarafından dökümünü görmek [kullanım](log-analytics-usage.md) sayfası.
 
-Daha fazla bilgi için okuduğunuz bir [müşteri blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) az alan kaplaması OMS Aracısı'nın hakkında.
+Daha fazla bilgi için okuduğunuz bir [müşteri blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) OMS Aracısı'nın küçük ayak hakkında.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Ne kadar ağ bant genişliği için günlük analizi veri gönderirken, Microsoft Yönetim Aracısı (MMA) tarafından kullanılıyor?
 

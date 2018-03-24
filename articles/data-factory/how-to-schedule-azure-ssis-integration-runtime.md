@@ -1,23 +1,23 @@
 ---
-title: "Azure SSIS tümleştirmesi çalışma zamanı zamanlama | Microsoft Docs"
-description: "Bu makalede, başlatma ve Azure Automation ve Data Factory kullanarak bir Azure SSIS tümleştirme çalışma zamanını durdurma zamanlama açıklar."
+title: Azure SSIS tümleştirmesi çalışma zamanı zamanlama | Microsoft Docs
+description: Bu makalede, başlatma ve Azure Automation ve Data Factory kullanarak bir Azure SSIS tümleştirme çalışma zamanını durdurma zamanlama açıklar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 5a9d1ba4d72bc6d4b297695c478438079d34c6e7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc9ab244c784cab608a75092b542dea0a6f69f22
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
 Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
@@ -340,7 +340,7 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
 4. Bağlantı **saklı yordam** son etkinlik **Web** etkinlik.
 
     ![Tam ardışık düzen](./media/how-to-schedule-azure-ssis-integration-runtime/full-pipeline.png)
-5. Ardışık düzen ayarlarını tıklayarak doğrula **doğrulama** araç çubuğunda. Kapat **ardışık düzen doğrulama raporu** tıklayarak  **>>**  düğmesi. 
+5. Ardışık düzen ayarlarını tıklayarak doğrula **doğrulama** araç çubuğunda. Kapat **ardışık düzen doğrulama raporu** tıklayarak **>>** düğmesi. 
 
     ![İşlem hattını doğrulama](./media/how-to-schedule-azure-ssis-integration-runtime/validate-pipeline.png)
 

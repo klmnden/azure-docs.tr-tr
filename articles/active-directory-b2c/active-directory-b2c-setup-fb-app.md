@@ -1,28 +1,25 @@
 ---
-title: "Azure Active Directory B2C: Facebook yapılandırma | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Facebook hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Facebook yapılandırma | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Facebook hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: sromeroz
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: sromeroz
-ms.assetid: b875f235-a1d2-4abb-b9f0-b89beac38a32
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 8/7/2017
-ms.author: sromeroz
-ms.openlocfilehash: 7f551a7ba9b7ddbb373e6b6418ab43fe7ce9be36
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 899677500b0d33b5f98807a341449199b6b3dcac
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Facebook hesaplarıyla tüketicileri sağlayın
 ## <a name="create-a-facebook-application"></a>Bir Facebook uygulaması oluşturma
-Facebook kimlik sağlayıcısı Azure Active Directory (Azure AD) B2C içinde kullanmak için bir Facebook uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Facebook hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [https://www.facebook.com/](https://www.facebook.com/).
+Facebook kimlik sağlayıcısı Azure Active Directory (Azure AD) B2C içinde kullanmak için bir Facebook uygulaması oluşturmak ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Facebook hesabı gerekir. Bir sahip değilseniz, yerinde edinebilirsiniz [ https://www.facebook.com/ ](https://www.facebook.com/).
 
 1. Git [geliştiriciler için Facebook](https://developers.facebook.com/) hesap kimlik bilgileri Web sitesi ve, Facebook ile oturum açın.
 2. Zaten yapmadıysanız, Facebook geliştirici olarak kaydetmeniz gerekir. Bunu yapmak için tıklatın **kaydetmek** (sağ üst köşesinde sayfasının) Facebook'ın ilkeleri kabul edin ve kayıt adımları tamamlayın.

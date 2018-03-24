@@ -1,11 +1,11 @@
 ---
-title: "Farklı belirtecin hakkında bilgi edinin ve talep türleri Azure AD tarafından desteklenen | Microsoft Docs"
-description: "Anlama ve Azure Active Directory (AAD tarafından) yayınlanan SAML 2.0 ve JSON Web belirteçleri (JWT) belirteçleri Taleplerde değerlendirme kılavuzu"
+title: Farklı belirtecin hakkında bilgi edinin ve talep türleri Azure AD tarafından desteklenen | Microsoft Docs
+description: Anlama ve Azure Active Directory (AAD tarafından) yayınlanan SAML 2.0 ve JSON Web belirteçleri (JWT) belirteçleri Taleplerde değerlendirme kılavuzu
 documentationcenter: na
 author: hpsin
 services: active-directory
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ca8a34c0a29ffad21e6384feac055d7a292311a5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f9eb95f49e0d2bd01d9ead7eda7d13288bfd573
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır.
@@ -321,3 +321,4 @@ Talepler ek olarak, bir sürüm numarası belirteci içeren **ver** ve **appidac
 ## <a name="related-content"></a>İlgili içerik
 * Azure AD grafik bkz [İlkesi işlemleri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) ve [İlkesi varlık](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity), belirteç ömrü ilkesi Azure AD grafik API'si aracılığıyla yönetme hakkında daha fazla bilgi edinmek için.
 * Daha fazla bilgi ve örnekler dahil olmak üzere, PowerShell cmdlet'leri aracılığıyla ilkelerini yönetme örnekleri için bkz: [yapılandırılabilir belirteci yaşam süreleri Azure AD'de](../active-directory-configurable-token-lifetimes.md). 
+* Ekleme [özel ve isteğe bağlı talep](active-directory-optional-claims.md) üzere uygulamanız için belirteç. 

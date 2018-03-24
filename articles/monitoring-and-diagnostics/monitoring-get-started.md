@@ -1,9 +1,9 @@
 ---
-title: "Azure İzleyicisi ile çalışmaya başlama | Microsoft Docs"
-description: "Kaynaklarınızın çalışmasını anlamak ve verilere dayalı işlem yapmak için Azure İzleyici kullanmaya başlayın."
+title: Azure İzleyicisi ile çalışmaya başlama | Microsoft Docs
+description: Kaynaklarınızın çalışmasını anlamak ve verilere dayalı işlem yapmak için Azure İzleyici kullanmaya başlayın.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: 9c352c67aa0e9392c9e9d68822abeb27344bd8b7
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 69ec5392f034ffe94315c17366a9242d86c69d6d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure İzleyici’yi kullanmaya başlama
-Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan platform hizmetidir. Azure İzleyici ile Azure’daki kaynaklardan gelen ölçüm ve günlükleri görüntüleyebilir, sorgulayabilir, yönlendirebilir ve bunlar üzerinde işlem yapabilirsiniz. Bu verileri Azure portal kullanarak ile çalışabilirsiniz [İzleyici PowerShell cmdlet'leri](insights-powershell-samples.md), [platformlar arası CLI](insights-cli-samples.md), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/dn931943.aspx). Bu makalede portal gösterim amacıyla kullanılarak Azure İzleyici’nin temel bileşenlerinden birkaç tanesi gösterilecektir.
+Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan platform hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yol, arşiv ve aksi halde ölçümleri ve Azure kaynaklarında'ten gelen günlükleri eylemi gerçekleştirin. Bu verileri Azure portal kullanarak ile çalışabilirsiniz [İzleyici PowerShell cmdlet'leri](insights-powershell-samples.md), [platformlar arası CLI](insights-cli-samples.md), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/dn931943.aspx). Bu makalede portal gösterim amacıyla kullanılarak Azure İzleyici’nin temel bileşenlerinden birkaç tanesi gösterilecektir.
 
 ## <a name="walkthrough"></a>Kılavuz
 1. Portalı'nda gidin **tüm hizmetleri** ve Bul **İzleyici** seçeneği. Bu seçeneği sol gezinti çubuğundan kolayca erişilebilmesi için sık kullanılanlar listenize eklemek üzere yıldız simgesine tıklayın.
@@ -39,7 +39,7 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
     [**Etkinlik günlüğü**](monitoring-overview-activity-logs.md), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen tüm işlemleri açıklar. Etkinlik Günlüğü’nü kullanarak aboneliğinizdeki kaynaklarla ilgili herhangi bir oluşturma, güncelleştirme veya silme işlemine ilişkin ‘ne, kim ve ne zaman’ sorularına yanıt bulabilirsiniz. Örneğin, Etkinlik Günlüğü bir web uygulamasının ne zaman ve kim tarafından durdurulduğunu söyler. Etkinlik Günlüğü olayları platforma depolanır ve 90 gün boyunca sorgulanabilir.
 
     Ortak filtrelere yönelik sorgular oluşturup kaydedebilir ve sonra ölçütlerinizi karşılayan olayların gerçekleşip gerçekleşmediğinden her zaman haberdar olmak için en önemli sorguları bir portal panosuna sabitleyebilirsiniz.
-4. Görünümü son bir haftadaki belirli bir kaynak grubu ile filtreleyin, ardından **Kaydet** düğmesine tıklayın.
+4. Görünümü son bir haftadaki belirli bir kaynak grubu ile filtreleyin, ardından **Kaydet** düğmesine tıklayın. Sorgunuz bir ad verin. 
 
     ![Etkinlik günlüğü sorgusunu kaydedin](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Şimdi **Sabitle** düğmesine tıklayın.

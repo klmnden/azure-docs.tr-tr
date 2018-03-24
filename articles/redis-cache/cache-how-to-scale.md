@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis önbelleği ölçeklendirme | Microsoft Docs"
-description: "Azure Redis önbelleği örneklerinizi ölçeklendirin öğrenin"
+title: Azure Redis önbelleği ölçeklendirme | Microsoft Docs
+description: Azure Redis önbelleği örneklerinizi ölçeklendirin öğrenin
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 350db214-3b7c-4877-bd43-fef6df2db96c
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: b0a9208681b164fe7be33bf9ef5f635358284ba3
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0cf0e41fe03bf3be7ecf2172cff3e6ab5f3eb65d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis önbelleği ölçeklendirme
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir önbellek oluşturulduktan sonra uygulamanızın gereksinimlerine değiştirirseniz boyutu ve önbellek fiyatlandırma katmanı ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak önbelleğiniz ölçeklendirme gösterilmektedir.
@@ -111,6 +111,7 @@ Aşağıdaki listede, Azure Redis önbelleği ölçeklendirme hakkında sık sor
 * [Ölçeklendirme sırasında ı my önbellekten veri kaybedersiniz?](#will-i-lose-data-from-my-cache-during-scaling)
 * [My özel veritabanlarını ölçeklendirme sırasında etkilenen ayarlıyor?](#is-my-custom-databases-setting-affected-during-scaling)
 * [My önbellek ölçeklendirme sırasında kullanılabilir olacak?](#will-my-cache-be-available-during-scaling)
+* [Coğrafi çoğaltma yapılandırılmış, ile neden my önbellek ölçeklendirme veya bir kümede parça değiştirmek mümkün değilim?](#scaling-limitations-with-geo-relication)
 * [Desteklenmeyen işlemleri](#operations-that-are-not-supported)
 * [Ne kadar ölçeklendirme sürer?](#how-long-does-scaling-take)
 * [Ölçeklendirme tamamlandığında nasıl anlayabilirim?](#how-can-i-tell-when-scaling-is-complete)
@@ -151,6 +152,12 @@ Hayır, önbellek adı ve anahtarları bir ölçeklendirme işlemi sırasında d
 * **Standart** ve **Premium** önbellekleri kullanılabilir olmaya devam eder ölçekleme işlemi sırasında. Ancak, bağlantı blips, standart ve Premium önbellekleri ölçekleme sırasında ve ayrıca standart önbellekleri Basic'ten ölçekleme sırasında ortaya çıkabilir. Bu bağlantı blips küçük olması beklenen ve redis istemcileri kendi hemen yeniden bağlantı kurabilmesi.
 * **Temel** önbellekleri çevrimdışı işlemleri farklı bir boyut ölçeklendirme sırasında. Temel önbellekleri kullanılabilir olmaya devam eder gelen ölçeklendirdiğinizde **temel** için **standart** ancak, bir küçük bağlantı blip karşılaşabilirsiniz. Bir bağlantı blip meydana gelirse, redis istemcileri kendi hemen yeniden bağlantı mümkün olması gerekir.
 
+
+### <a name="scaling-limitations-with-geo-relication"></a>Coğrafi relication kısıtlamalarla ölçeklendirme
+
+İki önbellekleri arasında bir coğrafi çoğaltma bağlantı ekledikten sonra bir ölçeklendirme işlemi başlatın ya da bir kümedeki parça sayısını değiştirme erişemezsiniz. Bu komutlar vermek için önbellek bağlantısını gerekir. Daha fazla bilgi için bkz: [yapılandırma coğrafi çoğaltma](cache-how-to-geo-replication.md).
+
+
 ### <a name="operations-that-are-not-supported"></a>Desteklenmeyen işlemleri
 * Daha yüksek bir fiyatlandırma Katmanı'ndan daha düşük bir fiyatlandırma katmanı ölçek olamaz.
   * Ölçeklendirme olamaz bir **Premium** aşağı önbelleğe bir **standart** veya **temel** önbelleği.
@@ -160,6 +167,7 @@ Hayır, önbellek adı ve anahtarları bir ölçeklendirme işlemi sırasında d
 * Büyük bir değerden aşağı ölçeklendirme olamaz **C0 (250 MB)** boyutu.
 
 Bir ölçeklendirme işlemi başarısız olursa, hizmet işlemini geri döndürmeyi dener ve önbellek özgün durumuna döner.
+
 
 ### <a name="how-long-does-scaling-take"></a>Ne kadar ölçeklendirme sürer?
 Yaklaşık 20 önbellekte ne kadar veri bağlı olarak dakika sürer ölçeklendirme.

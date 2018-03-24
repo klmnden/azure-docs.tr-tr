@@ -1,10 +1,10 @@
 ---
-title: "Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama | Microsoft Docs"
-description: "Bir etkinlik günlüğü uyarı etkinleştirdiğinde, bir Web kancası URL'si gönderilen JSON şeması hakkında bilgi edinin."
+title: Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama | Microsoft Docs
+description: Bir etkinlik günlüğü uyarı etkinleştirdiğinde, bir Web kancası URL'si gönderilen JSON şeması hakkında bilgi edinin.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarılar için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimlerini almak için Web kancası uç noktalarını yapılandırabilirsiniz. Web kancası ile işlem sonrası ya da özel eylemler için diğer sistemlere bu bildirimler yönlendirebilirsiniz. Bu makalede, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir.
@@ -31,7 +31,7 @@ Web kancası kimlik doğrulaması için isteğe bağlı olarak belirteç tabanl�
 ## <a name="payload-schema"></a>Yükü şeması
 POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSource alana göre farklılık gösterir.
 
-###<a name="common"></a>Common
+### <a name="common"></a>Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -58,7 +58,7 @@ POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSou
     }
 }
 ```
-###<a name="administrative"></a>Yönetim
+### <a name="administrative"></a>Yönetim
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -85,7 +85,7 @@ POST işleminde yer alan JSON yükü yükü 's data.context.activityLog.eventSou
 }
 
 ```
-###<a name="servicehealth"></a>ServiceHealth
+### <a name="servicehealth"></a>ServiceHealth
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -136,7 +136,7 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | durum |Ölçüm uyarılar için kullanılır. Her zaman "etkinlik günlüğü uyarıları için etkinleştirilmiş" olarak ayarlayın. |
 | bağlam |Olayın bağlamı. |
 | resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
-| Koşul türü |Her zaman "olayını." |
+| conditionType |Her zaman "olayını." |
 | ad |Uyarı kuralı adı. |
 | id |Uyarının kaynak kimliği. |
 | açıklama |Uyarı açıklaması uyarı oluşturulduğunda ayarlayın. |
@@ -152,10 +152,10 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
 | eventDescription |Olay açıklaması statik metin. |
 | eventDataId |Olay için benzersiz tanımlayıcı. |
-| EventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
+| eventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
 | httpRequest |İstek genellikle clientRequestId, clientIpAddress ve HTTP yöntemini içerir (örneğin, PUT). |
 | düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı ve bilgi. |
-| Operationıd |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
+| operationId |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Olay Özellikleri. |
 | durum |Dize. İşlem durumu. Ortak değerleri başlatıldı, devam eden, başarılı, başarısız, etkin ve Çözümlenmiş içerir. |

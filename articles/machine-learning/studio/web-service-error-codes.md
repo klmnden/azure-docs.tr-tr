@@ -1,11 +1,12 @@
 ---
-title: "Azure Machine Learning REST API'si hata kodları | Microsoft Docs"
-description: "Bu hata kodları, bir Azure Machine Learning web hizmeti üzerinde bir işlemi tarafından döndürülebilir."
-keywords: 
+title: Azure Machine Learning REST API'si hata kodları | Microsoft Docs
+description: Bu hata kodları, bir Azure Machine Learning web hizmeti üzerinde bir işlemi tarafından döndürülebilir.
+keywords: ''
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.author: garye
-ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API hata kodları
  
@@ -158,7 +158,7 @@ Kaynak zaten var.
 | ---------- |--------------|
 | ModelOutputMetadataMismatch | Geçersiz çıkış parametre adı. Sütunları yeniden adlandırın ve yeniden denemek için meta veriler Düzenleyicisi modülü kullanmayı deneyin. |
  
-## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP durum kodu 413)
+## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP status code 413)
  
 Model, kendisine atanmış bellek kotasını aştı.
  
@@ -214,7 +214,7 @@ Yürütme bir iç hatayla karşılaştı.
 Yürütme bir iç hatayla karşılaştı. Sistem bellek yetersiz. Lütfen yeniden deneyin.
  
  
-## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP durum kodu 500)
+## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP status code 500)
  
 Geçersiz model paketi. Sağlanan modeli paketi doğru olduğunu doğrulayıp yeniden deneyin.
  

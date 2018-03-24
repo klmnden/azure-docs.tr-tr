@@ -1,33 +1,32 @@
 ---
-title: "Etkinlik günlüğü uyarı oluşturma | Microsoft Docs"
-description: "Etkinlik günlüğünde belirli olaylar meydana geldiğinde, SMS, Web kancası ve e-posta bildirilmesi."
+title: Günlük uyarı Klasik etkinlik oluşturma | Microsoft Docs
+description: Etkinlik günlüğünde belirli olaylar meydana geldiğinde, SMS, Web kancası ve e-posta bildirilmesi.
 author: johnkemnetz
-manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: c8a2ce3ca90895262e77c3895867d29c9d3530a2
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-activity-log-alerts"></a>Etkinlik günlüğü uyarı oluşturma
+# <a name="create-activity-log-alerts-classic"></a>Etkinlik günlüğü uyarıları (Klasik) oluşturun
 
 ## <a name="overview"></a>Genel Bakış
 Etkinlik günlüğü uyarıları uyarıda belirtilen koşullara uyan yeni bir etkinlik günlüğü olay ortaya çıktığında, etkinleştirme uyarılar. Bunlar Azure kaynaklarını; dolayısıyla bir Azure Resource Manager şablonu kullanılarak oluşturulabilir. Bunlar ayrıca oluşturulabilir, güncelleştirilmiş veya Azure portalında silindi. Bu makalede, etkinlik günlüğü uyarıları kavramları tanıtır. Bunu daha sonra etkinlik günlüğü olaylarını üzerinde bir uyarı ayarlamak için Azure Portalı'nı kullanmayı gösterir.
 
 > [!NOTE]
 
->  [Uyarıları (Önizleme)](monitoring-overview-unified-alerts.md) şu anda oluşturma ve etkinliği günlüklerini yönetme Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
+>  Yeni [uyarıları](monitoring-overview-unified-alerts.md) deneyimi bu yordamı yerini almıştır. Bu makalede, önceki deneyimi için referans olarak sağlanır. [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
 Genellikle, etkinlik bildirimleri almak için günlük uyarı oluşturma zaman:
 
@@ -59,11 +58,11 @@ Eylem grupları hakkında daha fazla bilgi için bkz: [oluşturma ve Eylem grupl
 
 Hizmet durumu bildirimlerine hakkında daha fazla bilgi için bkz: [hizmet durumu bildirimlerine etkinlik günlüğü uyarılar alırsınız](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yeni bir eylem grubu ile etkinlik günlüğü olay bir uyarı oluştur
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Bir uyarı (Klasik) yeni bir eylem grubu olan bir etkinlik günlüğü olayı Azure portalını kullanarak oluşturma
 1. İçinde [portal](https://portal.azure.com)seçin **İzleyici**.
 
     !["İzleme" hizmeti](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. İçinde **etkinlik günlüğü** bölümünde, select **uyarıları**.
+2. İçinde **etkinlik günlüğü** bölümünde, select **uyarıları (Klasik)**.
 
     !["Uyarılar" sekmesi](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. Seçin **etkinlik günlüğü uyarı Ekle**ve alanları doldurun.

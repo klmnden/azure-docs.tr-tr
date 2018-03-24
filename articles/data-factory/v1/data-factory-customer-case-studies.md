@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory - müşteri örnek olay incelemeleri | Microsoft Docs"
-description: "Nasıl müşterilerimizin bazıları Azure Data Factory kullanmakta olduğunuz hakkında bilgi edinin."
+title: Azure Data Factory - müşteri örnek olay incelemeleri | Microsoft Docs
+description: Nasıl müşterilerimizin bazıları Azure Data Factory kullanmakta olduğunuz hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b388aa0257877446cfec5be1252c0a740f9d478c
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 89e01eaddcc2ecb8408e0f8fbdee8d1019c69822
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - müşteri örnek olay incelemeleri
 Veri Fabrikası taşınmasını ve dönüştürülmesini veri otomatikleştiren bir bulut tabanlı bilgi yönetimi hizmetidir. Birçok endüstriler müşteriler, kendi analiz işlem hatları oluşturabilir ve kendi iş sorunlarını çözmek için veri fabrikası ve diğer Azure hizmetleriyle kullanın.  Doğrudan müşterilerimizden aldığımız neden ve nasıl veri fabrikası kullandıkları öğrenin.

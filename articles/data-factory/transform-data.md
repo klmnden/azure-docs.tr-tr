@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory kullanarak veri dönüştürme | Microsoft Docs"
-description: "Veri ya da Hadoop, Machine Learning veya Azure Data Lake Analytics kullanarak Azure Data Factory işlem verilerde dönüştürme öğrenin."
+title: Azure Data Factory kullanarak veri dönüştürme | Microsoft Docs
+description: Veri ya da Hadoop, Machine Learning veya Azure Data Lake Analytics kullanarak Azure Data Factory işlem verilerde dönüştürme öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: de9b054a9ef7d6efc64049059f581741eef39035
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 639a464a73000648b2f70cc7fe4aa0864d90efbc
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory veri dönüştürme
 > [!div class="op_single_selector"]

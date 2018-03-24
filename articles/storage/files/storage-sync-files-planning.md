@@ -1,8 +1,8 @@
 ---
-title: "Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama | Microsoft Docs"
-description: "Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin."
+title: Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama | Microsoft Docs
+description: Azure dosyaları dağıtımı için planlama yaparken göz önünde bulundurmanız gerekenler hakkında bilgi edinin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: wmgries
 manager: klaasl
 editor: jgerend
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 5f42bee31e3bc1a23c9b0c6de9d6748e23c94713
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 097c1719ffc493539276cd98edc761eba20f3751
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -160,9 +160,14 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 |--------|---------------------|
 | Avustralya Doğu | New South Wales |
 | Orta Kanada | Toronto |
+| Orta ABD | Iowa |
+| Doğu Asya | Hong Kong |
 | Doğu ABD | Virginia |
+| Doğu US2 | Virginia |
+| Kuzey Avrupa | İrlanda |
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
+| ABD Batı Cental |
 | Batı Avrupa | Hollanda |
 | Batı ABD | Kaliforniya |
 

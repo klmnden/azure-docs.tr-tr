@@ -1,11 +1,12 @@
 ---
-title: "Çevrimiçi veri kaynaklarından Machine Learning Studio uygulamasına veri içeri aktarma | Microsoft Docs"
-description: "Eğitim verilerinizi Azure Machine Learning Studio çevrimiçi çeşitli kaynaklardan içeri aktarmak nasıl."
-keywords: "veriler, veri biçimi, veri türleri, veri kaynakları, eğitim verilerini içeri aktarma"
+title: Çevrimiçi veri kaynaklarından Machine Learning Studio uygulamasına veri içeri aktarma | Microsoft Docs
+description: Eğitim verilerinizi Azure Machine Learning Studio çevrimiçi çeşitli kaynaklardan içeri aktarmak nasıl.
+keywords: veriler, veri biçimi, veri türleri, veri kaynakları, eğitim verilerini içeri aktarma
 services: machine-learning
-documentationcenter: 
-author: bradsev
-manager: jhubbard
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: 701b93fe-765b-4d15-a1cf-9b607f17add6
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: c6185cd240d1c040c993e581c27624e1f170f709
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 5882f79b6479f71cfd1df503f55703e6177c072b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>Veri Alma modülü ile çeşitli çevrimiçi veri kaynaklarından Azure Machine Learning Studio’ya veri alma
 Bu makalede verileri çevrimiçi çeşitli kaynakları ve Azure Machine Learning deneme bu kaynaklardan veri taşımak için gereken bilgileri alma desteği açıklanmaktadır.

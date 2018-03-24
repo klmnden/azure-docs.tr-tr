@@ -1,11 +1,11 @@
 ---
-title: "Machine Learning modellerini program aracılığıyla yeniden eğitme | Microsoft Docs"
-description: "Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning ile yeni eğitilen modelini kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin."
+title: Machine Learning modellerini program aracılığıyla yeniden eğitme | Microsoft Docs
+description: Program aracılığıyla bir modeli yeniden eğitme ve Azure Machine Learning ile yeni eğitilen modelini kullanmak için web hizmetini güncelleştirmek hakkında bilgi edinin.
 services: machine-learning
-documentationcenter: 
-author: serinakaye
-ms.author: serinak
-manager: mwinkle
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a986d8c500eb994af81ad535568fbbd8364f4244
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Machine Learning modellerini programlı olarak yeniden eğitme
 Bu kılavuzda, bir Azure Machine Learning Web hizmeti C# ve makine öğrenme toplu yürütme hizmeti kullanarak program aracılığıyla yeniden eğitme öğreneceksiniz.
@@ -61,7 +61,7 @@ Ardından bir Predicative deneme oluşturun.
 > Yeni bir web hizmeti dağıtmak için yeterli izinleri olan Abonelikteki, web hizmetini dağıtma olmalıdır. Daha fazla bilgi için [Azure Machine Learning Web Hizmetleri Portalı'nı kullanarak bir Web hizmetini yönetmek](manage-new-webservice.md). 
 
 ## <a name="deploy-the-training-experiment-as-a-training-web-service"></a>Eğitim denemenizi eğitim web hizmeti olarak dağıtma
-Eğitim modeli yeniden eğitme Retraining web hizmeti olarak oluşturulan eğitim denemenizi dağıtmanız gerekir. Bu web hizmeti gereken bir *Web hizmeti çıkış* bağlı Modülü  *[Train Model] [ train-model]*  yeni üretmek için modülü, eğitilmiş modeller.
+Eğitim modeli yeniden eğitme Retraining web hizmeti olarak oluşturulan eğitim denemenizi dağıtmanız gerekir. Bu web hizmeti gereken bir *Web hizmeti çıkış* bağlı Modülü *[Train Model] [ train-model]* yeni üretmek için modülü, eğitilmiş modeller.
 
 1. Eğitim denemenizi dönmek için sol bölmede denemeler simgesini tıklatın, sonra Census modeli adlı denemeye tıklayın.  
 2. Web hizmeti arama deneme öğeleri arama kutusuna yazın. 

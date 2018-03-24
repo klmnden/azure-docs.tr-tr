@@ -1,24 +1,21 @@
 ---
 title: 'Azure Active Directory B2C: Destek | Microsoft Docs'
-description: "Azure Active Directory B2C için dosya desteği istekleri nasıl"
+description: Azure Active Directory B2C için dosya desteği istekleri nasıl
 services: active-directory-b2c
-documentationcenter: 
-author: swkrish
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: bryanla
-ms.assetid: 51922008-6fbd-487c-b2c7-a5db57d154b4
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
-ms.author: swkrish
-ms.openlocfilehash: b37575d636356304ca94a55736e7f69605cf8218
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: 2cb881e50b9a08c99b59796a23107bfafb847b75
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Dosya desteği istekleri
 Aşağıdaki adımları kullanarak Azure portalında Azure Active Directory (Azure AD) B2C için destek istekleri dosya:
@@ -51,7 +48,7 @@ Aşağıdaki adımları kullanarak Azure portalında Azure Active Directory (Azu
    * Altında **karşıya dosya yükleme**, tüm ekran görüntüleri karşıya yükleme ve düşündüğünüz dosyaları sorunun çözümlenmesinde yardımcı.
      
      ![Destek - sorun](./media/active-directory-b2c-support/support-problem.png)
-7. İçinde **kişi bilgileri** dikey pencere, iletişim bilgilerinizi ekleyin. **Oluştur**'a tıklayın.
+7. İçinde **kişi bilgileri** dikey pencere, iletişim bilgilerinizi ekleyin. **Oluştur**’a tıklayın.
    
     ![Destek - başvurun](./media/active-directory-b2c-support/support-contact.png)
 8. Destek İsteği gönderdikten sonra onu tıklayarak izleyebilirsiniz **Yardım + Destek** başlangıç panosunda ve ardından **destek isteklerini yönetin**.

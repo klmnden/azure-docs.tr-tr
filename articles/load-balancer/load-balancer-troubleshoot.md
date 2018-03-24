@@ -1,12 +1,12 @@
 ---
-title: "Azure yük dengeleyici sorunlarını giderme | Microsoft Docs"
-description: "Azure yük dengeleyici ile ilgili bilinen sorunlar sorun giderme"
+title: Azure yük dengeleyici sorunlarını giderme | Microsoft Docs
+description: Azure yük dengeleyici ile ilgili bilinen sorunlar sorun giderme
 services: load-balancer
 documentationcenter: na
 author: RamanDhillon
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: bc059221656a695bb43af0dca06df941ca77c73d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure yük dengeleyici sorun giderme
 
@@ -54,7 +54,7 @@ VM'yi sağlıklı olduğundan, ancak yoklama yanıt vermiyor, ardından bir ara�
 3. Bağlantı noktası durumu olarak listelenmemişse **DİNLEME**, doğru bağlantı noktasını yapılandırın. 
 4. Alternatif olarak, olarak listelenen başka bir bağlantı noktası seçin **DİNLEME**ve dengeleyici yapılandırması uygun şekilde yük güncelleştirme.              
 
-###<a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3. neden: Güvenlik duvarı ya da bir ağ güvenlik grubu bağlantı noktası üzerinde yük dengeleyici arka uç havuzu VM'ler engelliyor  
+### <a name="cause-3-firewall-or-a-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vms"></a>3. neden: Güvenlik duvarı ya da bir ağ güvenlik grubu bağlantı noktası üzerinde yük dengeleyici arka uç havuzu VM'ler engelliyor  
 VM üzerindeki güvenlik duvarında sonda bağlantı noktası engelliyor veya bir veya daha fazla ağ güvenlik grubu veya VM alt ağ üzerinde yapılandırılmış, bağlantı noktası ulaşmak araştırma izin vermeyen, VM durumu araştırması yanıt alamıyor.          
 
 **Doğrulama ve çözümleme**

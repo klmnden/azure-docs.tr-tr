@@ -1,24 +1,21 @@
 ---
-title: "Azure Active Directory B2C: Weibo yapılandırma | Microsoft Docs"
-description: "Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Weibo hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar."
+title: 'Azure Active Directory B2C: Weibo yapılandırma | Microsoft Docs'
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Weibo hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+documentationcenter: ''
+author: davidmu1
 manager: mtillman
-editor: parakhj
-ms.assetid: 1860de34-94cb-4ceb-851e-102f930f7230
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
-ms.author: parakhj
-ms.openlocfilehash: 320d7c57035d3b3ecdb4e03d80141a58cf429461
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: davidmu
+ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Weibo hesaplarıyla tüketicileri sağlayın
 
@@ -28,7 +25,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="create-a-weibo-application"></a>Weibo uygulaması oluşturma
 
-Azure Active Directory (Azure AD) B2C içinde kimlik sağlayıcısı Weibo kullanmak için Weibo uygulama oluşturabilir ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Weibo hesabı gerekir. Yoksa, her seferde alabilirsiniz [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us).
+Azure Active Directory (Azure AD) B2C içinde kimlik sağlayıcısı Weibo kullanmak için Weibo uygulama oluşturabilir ve doğru parametrelerle sağlamanız gerekir. Bunu yapmak için bir Weibo hesabı gerekir. Yoksa, her seferde alabilirsiniz [ http://weibo.com/signup/signup.php?lang=en-us ](http://weibo.com/signup/signup.php?lang=en-us).
 
 ### <a name="register-for-the-weibo-developer-program"></a>Weibo developer program kaydolun
 

@@ -1,24 +1,24 @@
 ---
-title: "Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme | Microsoft Docs"
-description: "Bu konuda, bir güncelleştirme için yalnızca SQL dbo izinleri olan bir hesabı kullanarak yüklemeye olanak sağlar. Azure AD Connect açıklanmaktadır."
-documentationcenter: 
+title: Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme | Microsoft Docs
+description: Bu konuda, bir güncelleştirme için yalnızca SQL dbo izinleri olan bir hesabı kullanarak yüklemeye olanak sağlar. Azure AD Connect açıklanmaktadır.
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: jparsons
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: c2d77c37f2f65c9a7db1fd5c4010fc43bcbc7ebf
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2686bdef9c25f4540f9b2a21594b18cbe0404e08
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect yapı önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi desteklenmiyordu.  Azure AD Connect'i yüklemek isteyen kullanıcılara SQL server üzerinde Sistem Yöneticisi (SA) izinlerine sahip gerekirdi.
@@ -51,6 +51,8 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibinin izinleriyle Azure
 
 ## <a name="additional-information"></a>Ek bilgiler
 Veritabanı sağlandıktan sonra Azure AD Connect yönetici yükleyin ve şirket içi eşitlemesi sırasında kolaylık yapılandırın.  
+
+**/UseExistingDatabase** bayrağı, önceden oluşturulmuş bir veritabanı kullanılırken gereklidir.  Yalnızca kurtarma durumlarda kullanılmaz.
 
 Her senaryo ilgili Azure AD Connect yeni yüklemeler destekleyen ek olarak, bu özellik ayrıca temsilci sağlar **/UseExistingDatabase** bayrağı.  Var olan bir veritabanı Azure AD Connect'i yükleme hakkında daha fazla bilgi için bkz: [var olan bir ADSync veritabanı kullanarak Azure AD Connect'i yükleme](active-directory-aadconnect-existing-database.md)
 

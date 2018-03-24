@@ -1,24 +1,24 @@
 ---
-title: "Windows Azure VM görüntülerini ile Packer oluşturma | Microsoft Docs"
-description: "Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanmayı öğrenin"
+title: Windows Azure VM görüntülerini ile Packer oluşturma | Microsoft Docs
+description: Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanmayı öğrenin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: b5030e12743ca81b74502e31767eb6b2e05e444f
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanma
 Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure Market birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturabilirsiniz. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -27,7 +27,7 @@ Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tan
 ## <a name="create-azure-resource-group"></a>Azure kaynak grubu oluşturun
 Kaynak VM oluştururken oluşturma işlemi sırasında geçici Azure kaynaklarını Packer oluşturur. Bir görüntü olarak kullanmak için bu kaynak VM yakalamak için bir kaynak grubu tanımlamanız gerekir. Çıktısı Packer oluşturma işlemi, bu kaynak grubunda depolanır.
 
-Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+Bir kaynak grubu ile oluşturmak [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -59,17 +59,17 @@ Sonraki adımda bu iki kimlikleri kullanın.
 
 
 ## <a name="define-packer-template"></a>Packer şablon oluştur
-Görüntüleri oluşturmak için bir şablon bir JSON dosyası oluşturun. Şablonda oluşturucular ve gerçek derleme işlemini yürütmek provisioners tanımlayın. Packer sahip bir [Azure sağlayıcısı](https://www.packer.io/docs/builders/azure.html) sağlayan Azure kaynaklarını tanımlamak önceki oluşturulan hizmet asıl kimlik bilgilerini adım gibi.
+Görüntüleri oluşturmak için bir şablon bir JSON dosyası oluşturun. Şablonda oluşturucular ve gerçek derleme işlemini yürütmek provisioners tanımlayın. Packer sahip bir [Azure için Oluşturucusu](https://www.packer.io/docs/builders/azure.html) sağlayan Azure kaynaklarını tanımlamak önceki oluşturulan hizmet asıl kimlik bilgilerini adım gibi.
 
 Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştırın. Aşağıdakiler için kendi değerlerinizi girin:
 
 | Parametre                           | Nereden |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | Görünüm hizmet asıl kimliği ile`$sp.applicationId` |
-| *client_secret*                     | Belirttiğiniz parola`$securePassword` |
+| *client_id*                         | Görünüm hizmet asıl kimliği ile `$sp.applicationId` |
+| *client_secret*                     | Belirttiğiniz parola `$securePassword` |
 | *tenant_id*                         | Çıktı `$sub.TenantId` komutu |
-| *ABONELİK_KİMLİĞİ*                   | Çıktı `$sub.SubscriptionId` komutu |
-| *object_id*                         | Görünüm hizmet asıl nesne kimliği ile`$sp.Id` |
+| *subscription_id*                   | Çıktı `$sub.SubscriptionId` komutu |
+| *object_id*                         | Görünüm hizmet asıl nesne kimliği ile `$sp.Id` |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
 | *managed_image_name*                | Oluşturulan yönetilen disk görüntüsü için adı |
 
@@ -110,8 +110,8 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
     "type": "powershell",
     "inline": [
       "Add-WindowsFeature Web-Server",
-      "if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force}",
-      "& $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /shutdown /quiet"
+      "& $env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit",
+      "while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 10  } else { break } }"
     ]
   }]
 }
@@ -281,7 +281,7 @@ VM Packer görüntünüzü oluşturmak için birkaç dakika sürer.
 
 
 ## <a name="test-vm-and-iis"></a>Test VM ve IIS
-VM ile genel IP adresi elde [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek IP adresi alacağı *myPublicIP* daha önce oluşturduğunuz:
+[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ile VM’nizin genel IP adresini alın. Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
@@ -289,7 +289,7 @@ Get-AzureRmPublicIPAddress `
     -Name "myPublicIP" | select "IpAddress"
 ```
 
-Bir web tarayıcısı ortak IP adresi girebilirsiniz.
+Daha sonra genel IP adresini bir web tarayıcısına girebilirsiniz.
 
 ![Varsayılan IIS sitesi](./media/build-image-with-packer/iis.png) 
 

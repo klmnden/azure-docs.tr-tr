@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory etkinliğinde Web | Microsoft Docs"
-description: "Bir REST uç noktasından bir ardışık düzen çağrılacak Web etkinlik, bir Data Factory ile desteklenen kontrol akışı etkinlikleri nasıl kullanabileceğinizi öğrenin."
+title: Azure Data Factory etkinliğinde Web | Microsoft Docs
+description: Bir REST uç noktasından bir ardışık düzen çağrılacak Web etkinlik, bir Data Factory ile desteklenen kontrol akışı etkinlikleri nasıl kullanabileceğinizi öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 510f9ac95245580cb7f2f51487b5aeacc2a4825c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6846661370fcad139730fc0443d9df54fa12a70
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory Web etkinlik
 Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 

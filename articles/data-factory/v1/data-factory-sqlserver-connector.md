@@ -1,11 +1,10 @@
 ---
-title: "SQL Server gelen ve veri taşıma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Azure VM'deki veya şirket içi SQL Server veritabanı için/gelen verileri taşıma hakkında bilgi edinin."
+title: SQL Server gelen ve veri taşıma | Microsoft Docs
+description: Azure Data Factory kullanarak Azure VM'deki veya şirket içi SQL Server veritabanı için/gelen verileri taşıma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: monicar
+manager: craigg
 ms.assetid: 864ece28-93b5-4309-9873-b095bbe6fedd
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 19398a33e17bde7f496070d1f1c84e61dbe65855
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 1f1a2ec3bdf77e6f4f433c88b470e108b734fc4c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="move-data-to-and-from-sql-server-on-premises-or-on-iaas-azure-vm-using-azure-data-factory"></a>Azure Data Factory kullanarak verileri ve SQL Server şirket içi veya Iaas (Azure VM) üzerinde taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -658,13 +657,13 @@ ADO.NET için SQL Server veri türü eşlemesi aynı eşlemedir.
 | İkili |Byte] |
 | bit |Boole |
 | char |Dize, Char] |
-| tarih |Tarih Saat |
-| Tarih saat |Tarih Saat |
-| datetime2 |Tarih Saat |
+| tarih |DateTime |
+| Tarih saat |DateTime |
+| datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan |Çift |
+| Kayan nokta |Çift |
 | görüntü |Byte] |
 | Int |Int32 |
 | para |Ondalık |
@@ -674,7 +673,7 @@ ADO.NET için SQL Server veri türü eşlemesi aynı eşlemedir.
 | nvarchar |Dize, Char] |
 | Gerçek |Bekar |
 | rowVersion |Byte] |
-| smalldatetime |Tarih Saat |
+| smalldatetime |DateTime |
 | tamsayı |Int16 |
 | küçük para |Ondalık |
 | sql_variant |Nesne * |

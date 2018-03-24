@@ -1,11 +1,11 @@
 ---
 title: DB2 veri Azure Data Factory kullanarak kopyalamak | Microsoft Docs
-description: "Desteklenen havuz veri depolarına DB2'den bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin."
+description: Desteklenen havuz veri depolarına DB2'den bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 865e6fe1dd13736c1899c72b4e49612d970d45cd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0ef1ce8b4949c908595473f0183f585a6fd3da80
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak DB2'den veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Tüm desteklenen havuz veri deposuna DB2 veritabanından veri kopyalayabilirsini
 
 > [!TIP]
 > "Bir SQL deyimi yürütme isteğine karşılık gelen paket bulunamadı. bildiren bir hata iletisi alırsanız SQLSTATE 51002 SQLCODE =-805 = ", gerekli paket oluşturulmadı, bu tür işletim sistemine normal bir kullanıcı için nedenidir. DB2 Sunucu türünüz göre aşağıdaki yönergeleri izleyin:
-> - DB2 için i (AS400): güç kullanıcı oturum açma kullanıcısı için kopyalama etkinliği kullanmadan önce Koleksiyonu Oluştur olanak tanır. Komut:`create collection <username>`
+> - DB2 için i (AS400): güç kullanıcı oturum açma kullanıcısı için kopyalama etkinliği kullanmadan önce Koleksiyonu Oluştur olanak tanır. komut: `create collection <username>`
 > - DB2 için z/OS veya LUW: kopyalama etkinliği çalışmak üzere yüksek ayrıcalıklı bir hesap - power user veya Yönetim Paketi yetkilileri ve bağlama, BINDADD, GRANT YÜRÜTMEK için genel izinleri - kullanın ve sonra gerekli paket kopyalama sırasında otomatik olarak oluşturulur. Daha sonra geri normal bir kullanıcı için sonraki kopyalama çalışmalarınız için geçiş yapabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -198,7 +198,7 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemelerini DB2 veri t
 | Real |Bekar |
 | Tamsayı |Int16 |
 | Zaman |TimeSpan |
-| Zaman damgası |Tarih Saat |
+| Zaman damgası |DateTime |
 | VarBinary |Byte] |
 | VarChar |Dize |
 | VarGraphic |Dize |

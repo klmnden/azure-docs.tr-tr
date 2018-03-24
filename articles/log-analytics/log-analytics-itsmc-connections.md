@@ -1,10 +1,10 @@
 ---
-title: "BT Hizmet Yönetimi Bağlayıcısı bağlantılarla Azure günlük analizi desteklenen | Microsoft Docs"
-description: "Bu makale, merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için OMS günlük analizi, BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile ITSM ürünler/hizmetler bağlanma hakkında bilgi sağlar."
-documentationcenter: 
+title: BT Hizmet Yönetimi Bağlayıcısı bağlantılarla Azure günlük analizi desteklenen | Microsoft Docs
+description: Bu makale, merkezi olarak izlemek ve ITSM iş öğelerini yönetmek için OMS günlük analizi, BT Hizmet Yönetimi Bağlayıcısı (ITSMC) ile ITSM ürünler/hizmetler bağlanma hakkında bilgi sağlar.
+documentationcenter: ''
 author: JYOTHIRMAISURI
 manager: riyazp
-editor: 
+editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
 ms.service: log-analytics
 ms.workload: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.openlocfilehash: e0cae844e8b7f3eab68ed02dbcd17f4d1cebfd25
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 35d04fabc66ede309fe91969c5bec3131a282afb
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
 Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -200,7 +200,7 @@ Aşağıdaki önkoşulların karşılandığından emin olun:
 - Microsoft OMS tümleştirme (ServiceNow uygulama) için kullanıcı uygulamasını yükleyin. [Daha fazla bilgi edinin](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - Yüklenen kullanıcı uygulaması için tümleştirme kullanıcı rolü oluşturun. Tümleştirme kullanıcı rolü oluşturma konusunda bilgiler [burada](#create-integration-user-role-in-servicenow-app).
 
-### <a name="connection-procedure"></a>Bağlantı yordamı
+### <a name="connection-procedure"></a>**Bağlantı yordamı**
 ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 
@@ -271,13 +271,7 @@ Kullanıcı başarıyla oluşturduktan sonra durumu **denetleyin yükleme Yapıl
 
 > [!NOTE]
 
-> Bir kullanıcı oluşturmak izin vermek için **uyarıları** ve **olayları** azure'dan ServiceNow içinde:
-
-> - Olay Yönetimi Modülü yüklü ServiceNow örneğinde olduğundan emin olun.
-
-> - Aşağıdaki roller için tümleştirme kullanıcı ekleyin:
->      - evt_mgmt_integration
->      - evt_mgmt_operator  
+> ITSM bağlayıcı olayları ServiceNow örnek üzerinde yüklü modülleri olmadan ServiceNow gönderin. ServiceNow örneğinizi EventManagement modülünü kullanıyorsanız ve olayları veya uyarı Bağlayıcısı'nı kullanarak ServiceNow içinde oluşturmak istediğiniz, aşağıdaki rollerin tümleştirme kullanıcıyı eklemek: - evt_mgmt_integration - evt_mgmt_operator  
 
 
 ## <a name="connect-provance-to-it-service-management-connector-in-azure"></a>Provance BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı

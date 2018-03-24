@@ -1,6 +1,6 @@
 ---
-title: "Gerçek dünya senaryoları için Tahmine dayalı bakım | Microsoft Docs"
-description: "PySpark kullanarak gerçek dünya senaryoları için Tahmine dayalı bakım"
+title: Gerçek dünya senaryoları için Tahmine dayalı bakım | Microsoft Docs
+description: PySpark kullanarak gerçek dünya senaryoları için Tahmine dayalı bakım
 services: machine-learning
 author: ehrlinger
 ms.author: jehrling
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 81e227194ff64d7b7af842a208349ccc63528ab8
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: bb6e4f9f147db2fb70d991922cf0bb8d16b29671
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Gerçek dünya senaryoları için Tahmine dayalı bakım
 
@@ -25,7 +25,7 @@ Bu senaryoyu ele bir görece [büyük ölçekli benzetimli veri kümesi](https:/
 
 ### <a name="cortana-intelligence-gallery-github-repository"></a>Cortana Intelligence Galerisi GitHub deposunu
 
-Cortana Intelligence Galerisi'nde PM öğretici için ortak GitHub deposudur ([https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance)) burada rapor sorunları ve olun katkı.
+Cortana Intelligence Galerisi'nde PM öğretici için ortak GitHub deposudur ([https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance)) burada rapor sorunları ve katkı yapın.
 
 
 ## <a name="use-case-overview"></a>Kullanım örneği'ne genel bakış
@@ -49,8 +49,8 @@ Model operationalization sürüm 0.1.0a22, Azure Machine Learning CLI kullanarak
 ## <a name="create-a-new-workbench-project"></a>Yeni bir çalışma ekranı projesi oluşturma
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
-1.  Machine Learning çalışma ekranı açın.
-2.  Üzerinde **projeleri** sayfasında,  **+** ve ardından **yeni proje**.
+1.  Machine Learning Workbench’i açın.
+2.  Üzerinde **projeleri** sayfasında, **+**ve ardından **yeni proje**.
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun.
 4.  İçinde **arama proje şablonları** arama kutusu, "Tahmine dayalı bakım" yazın ve seçin **Tahmine dayalı Bakım** şablonu.
 5.  **Oluştur**’u seçin.

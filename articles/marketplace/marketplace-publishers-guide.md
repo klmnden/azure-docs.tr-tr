@@ -1,24 +1,24 @@
 ---
-title: "Azure Market ve AppSource yayımcı Kılavuzu"
-description: "Adım Adım Kılavuzu ve denetim listeleri yeni yayımcılar Azure Marketi'nde yayımlama"
+title: Azure Market ve AppSource yayımcı Kılavuzu
+description: Adım Adım Kılavuzu ve denetim listeleri yeni yayımcılar Azure Marketi'nde yayımlama
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: 
+documentationcenter: ''
 author: ellacroi
 manager: msmbaldwin
-editor: 
+editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7faa34b5528c53c06aeda25be17cbc5f3db2acdf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0abf25726936a3d5e69c809c9714965936c7c64c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -34,7 +34,7 @@ Hoş Geldiniz [Azure Market](https://azuremarketplace.microsoft.com) ve [AppSour
 - Bir yayımcı olmaya
 - Oluşturma ve yayımlama nereye sunar
 - Bir liste en iyi duruma getirme ve sürücü etkisi Go Market kaynaklara kullanma
-- Yardım ve Destek yeri AppSource, Azure Marketi hakkında sorular veya bu yayımlama Kılavuzu Market Ekibi temasa  **cloudmarketplace@microsoft.com** . 
+- Yardım ve Destek yeri AppSource, Azure Marketi hakkında sorular veya bu yayımlama Kılavuzu Market Ekibi temasa **cloudmarketplace@microsoft.com**. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Market katılan avantajları
 
@@ -59,10 +59,10 @@ Market veriş gereksinim duydukları şeyleri bulmalarına müşterilere yardım
 |          |Azure Market |AppSource  |
 |---------|---------|---------|
 |Hedef kitle     |BT uzmanları, geliştiricilerin (uzmanı rolleri dahil DBAs, SecOps, DevOps, vs.)    | Satırı iş karar verenler (uzmanı rolleri dahil tedarik, üretim, hesap, vs.)      |
-|İle oluşturulan veya genişletmek için     |Azure         | Azure, Dynamics 365, Office 365, Power BI ve Güç uygulamaları       |
+|İle oluşturulan veya genişletmek için     |Azure         | Azure, Dynamics 365, Office 365, Power BI ve Power Apps       |
 |Çözümler ve Hizmetleri türleri     |  Altyapı çözümleri ve Profesyonel Hizmetler   | Tamamlanmış satır iş bulut uygulamaları, Office 365 eklentiler ve Profesyonel Hizmetler        |
 |Yayımlama seçenekleri     |  Benimle iletişim, danışmanlık hizmetleri, deneme, sanal makine, çözüm şablonları sunar ve yönetilen uygulamalar       |  Ücretsiz deneme, danışmanlık hizmetleri teklif bana şimdi, Test sürücü kişiyi Al      |
-|Kullanıcılara erişim uygulamaları ve Hizmetleri bağlamında kendi uygulama için uygulama deneyimi sağlar  | Azure portalı ve CLI         | Office 365, Dynamics 365, Power BI, Office istemci uygulamaları       |
+|Kullanıcılara erişim uygulamaları ve Hizmetleri bağlamında kendi uygulama için uygulama deneyimi sağlar  | Azure Portal ve CLI         | Office 365, Dynamics 365, Power BI, Office istemci uygulamaları       |
 
 ## <a name="leveraging-these-storefronts"></a>Bu veriş yararlanarak
 
@@ -112,9 +112,9 @@ Bu bölümde, kullanılabilir seçenekler arasında her iki veriş yol gösterir
 
 |**Yayımlama seçeneği**  | **Teklif türü** | **Mağaza**  |
 |---------|---------|---------|
-|**List**    |    Hizmet danışmanlık benimle iletişim     |  Azure Market, AppSource       |
-|**Deneme**   |     Ücretsiz deneme sürümü, SaaS deneme, etkileşimli Demo, Test sürücü    |  Azure Market, AppSource       |
-|**Transact**     |   Sanal makine, çözüm şablonu, uygulama yönetilen      |    Azure Market     |
+|**List**    |    Benimle İletişim Kurun, Danışmanlık Hizmeti     |  Azure Market, AppSource       |
+|**Deneme**   |     Ücretsiz Deneme, SaaS Denemesi, Etkileşimli Tanıtım, Test Sürüşü    |  Azure Market, AppSource       |
+|**Transact**     |   Sanal Makine, Çözüm Şablonu, Yönetilen Uygulama      |    Azure Market     |
 
 ### <a name="list"></a>LİSTE
 
@@ -259,8 +259,8 @@ Tüm Kurumsal Anlaşma müşterileri, Azure'a önceden parasal taahhütte buluna
 
 |**Gereksinim**  |**Ayrıntılar** |**Yayımlama seçeneği**  |
 |---------|---------|---------|
-|**Faturalama ve ölçümü**    |  Sanal makine ya da kendi lisansını Getir desteklemesi gerekir veya kullanım tabanlı, aylık faturalama.       |    Transact    |
-|**Azure ile uyumlu sanal sabit disk (VHD)**     |   [Windows] sanal makineler yerleşik (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) veya [Linux] ()https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   Transact      |
+|**Faturalama ve ölçümü**    |  Sanal makine ya da kendi lisansını Getir desteklemesi gerekir veya kullanım tabanlı, aylık faturalama.       |    İşlem    |
+|**Azure ile uyumlu sanal sabit disk (VHD)**     |   [Windows] sanal makineler yerleşik (https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation) veya [Linux] ()https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-vm-image-creation)    |   İşlem      |
 
 ### <a name="prerequisites-specific-to-consulting-services-publishing"></a>Danışmanlık için Önkoşullar belirli hizmetleri yayımlama
 
@@ -308,7 +308,7 @@ Tek bir kiracı uygulamalar için birden çok seçenek vardır:
 - Geliştirme bir müşteri 'Test sürücü' başına
 - Çok kiracılı örnek Tanıtım uygulamasını SSO ile derleme
 
-##<a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics ve Power BI için ürün yayımlama işlemler
+## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics ve Power BI için ürün yayımlama işlemler
 Office, Dynamics ve Power BI genişletmek AppSource uygulamalar için bu bölümde ürün belirli belgelerinde belirli gereksinimleri hakkında daha fazla bilgi edinebilirsiniz. 
 
 
@@ -519,7 +519,7 @@ Ek Geliştirici hesabı yönergeleri ve güvenlik hakkında daha fazla bilgi iç
 
 Şirket hesabınızı kullanarak Federasyon [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/), ve bir şirket e-posta adresiyle a Microsoft ID oluşturmayı denerseniz bir hata döndürecektir. İlk olarak bir hata alırsanız, bu durumda olduğundan emin olmak için BT ekibiniz denetleyin. Bu bilinen bir sorundur ve çözümlemek için çalışıyoruz. Geçici çözüm aşağıda verilmiştir:
 
-Yeni bir e-posta adresi oluşturun öneririz  **@outlook.com**  etki alanı. Şu adımları uygulayın:
+Yeni bir e-posta adresi oluşturun öneririz **@outlook.com** etki alanı. Şu adımları uygulayın:
 
 1. Git [ https://signup.live.com/signup ](https://signup.live.com/signup) seçip **yeni bir e-posta adresi alın**
 

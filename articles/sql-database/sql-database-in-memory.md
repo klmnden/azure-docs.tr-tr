@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı bellek içi teknolojileri | Microsoft Docs"
-description: "Azure SQL veritabanı bellek içi teknolojileri analytics iş yükleri ve işlem performansını önemli ölçüde artırır."
+title: Azure SQL veritabanı bellek içi teknolojileri | Microsoft Docs
+description: Azure SQL veritabanı bellek içi teknolojileri analytics iş yükleri ve işlem performansını önemli ölçüde artırır.
 services: sql-database
 author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 03/21/2018
 ms.author: jodebrui
-ms.openlocfilehash: 107df78f0ec6ce924785f5027958ee66f2a86c7c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanı'nda Bellek içi teknolojileri kullanılarak performansı en iyi duruma getirme
 
@@ -104,7 +104,7 @@ Kümelenmemiş columnstore dizinleri kullandığınızda, temel tablo hala gelen
 
 Hiçbir zaman uyumsuzlukları ya da diğer sorunlar için daha yüksek bir fiyatlandırma katmanı, gibi standart Premium'a yükseltme, vardır. Kullanılabilir işlevler ve kaynakları yalnızca artırın.
 
-Ancak, fiyatlandırma katmanı eski sürüme düşürmeyi veritabanınızı olumsuz yönde etkileyebilir. Veritabanı bellek içi OLTP nesneler içerdiğinde, Premium'dan standart ya da temel düşürmek olduğunda özellikle belirgin bir etkisidir. (Bunların görünür kalmasını olsa bile), sonra indirgeme bellek için iyileştirilmiş tablolar ve columnstore dizinleri kullanılamaz. Bir esnek havuzun fiyatlandırma katmanı düşürmeyi veya bir veritabanı bellek içi teknolojilerle birlikte, standart veya temel esnek havuz taşıma ilgili noktaların aynısı geçerlidir.
+Ancak, fiyatlandırma katmanı eski sürüme düşürmeyi veritabanınızı olumsuz yönde etkileyebilir. Veritabanı bellek içi OLTP nesneler içerdiğinde, Premium'dan standart ya da temel düşürmek olduğunda özellikle belirgin bir etkisidir. (Bunların görünür kalmasını olsa bile) bellek için iyileştirilmiş tablolar indirgeme sonra kullanılamaz. Bir esnek havuzun fiyatlandırma katmanı düşürmeyi veya bir veritabanı bellek içi teknolojilerle birlikte, standart veya temel esnek havuz taşıma ilgili noktaların aynısı geçerlidir.
 
 ### <a name="in-memory-oltp"></a>Bellek içi OLTP
 
@@ -130,11 +130,11 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 ### <a name="columnstore-indexes"></a>Columnstore dizinleri
 
-*Temel veya standart eski sürüme düşürmeyi*: Columnstore dizinleri yalnızca Premium fiyatlandırma katmanı ve standart ya da Basic katmanları üzerinde desteklenir. Veritabanınıza standart ya da temel düşürmek, columnstore dizini kullanılamaz duruma gelir. Columnstore dizini sistem korur ancak hiç dizini yararlanır. Daha sonra geri Premium yükseltirseniz, columnstore dizini yeniden işlevden hemen hazırdır.
+*Temel veya standart eski sürüme düşürmeyi*: Columnstore dizinleri yalnızca Premium fiyatlandırma katmanı ve S3 standart katmanında ve yukarıda ve temel katmanı üzerinde desteklenir. Veritabanınızı desteklenmeyen katmanı veya düzeyini düşürmek, columnstore dizini kullanılamaz duruma gelir. Columnstore dizini sistem korur ancak hiç dizini yararlanır. Daha sonra desteklenen katmanı veya düzeyinde geri yükseltirseniz, columnstore dizini yeniden işlevden hemen hazırdır.
 
-Varsa bir **kümelenmiş** columnstore dizini, tüm tablo olur kullanılamaz katmanı indirgeme sonra. Bu nedenle tüm bırakma öneririz *kümelenmiş* veritabanınızı Premium katmanı aşağıda düşürmek önce columnstore dizinini oluşturur.
+Varsa bir **kümelenmiş** columnstore dizini, tüm tablo olur kullanılamaz indirgeme sonra. Bu nedenle tüm bırakma öneririz *kümelenmiş* veritabanınızı desteklenmeyen katmanı veya düzeyini düşürmek önce columnstore dizinini oluşturur.
 
-*Daha düşük bir Premium katmanına eski sürüme düşürmeyi*: tüm veritabanını esnek Havuzda kullanılabilir depolama alanı veya fiyatlandırma katmanı hedef için en büyük veritabanı boyutu içinde uyuyorsa bu indirgeme başarılı olur. Columnstore dizinleri gelen belirli üzerinde etkisi yoktur.
+*Bir alt desteklenen katmanı veya düzeyi eski sürüme düşürmeyi*: tüm veritabanını esnek Havuzda kullanılabilir depolama alanı veya fiyatlandırma katmanı hedef için en büyük veritabanı boyutu içinde uyuyorsa bu indirgeme başarılı olur. Columnstore dizinleri gelen belirli üzerinde etkisi yoktur.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>

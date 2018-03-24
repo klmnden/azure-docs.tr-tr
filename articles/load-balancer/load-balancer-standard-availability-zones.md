@@ -1,24 +1,24 @@
 ---
-title: "Azure standart yük dengeleyici ve kullanılabilirlik bölgeleri | Microsoft Docs"
-description: "Standart yük dengeleyici ve kullanılabilirlik bölgeleri"
+title: Azure standart yük dengeleyici ve kullanılabilirlik bölgeleri | Microsoft Docs
+description: Standart yük dengeleyici ve kullanılabilirlik bölgeleri
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/13/2018
+ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 61e0e7cf960d7eb2294bc294ec1eec9d80428a81
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standart yük dengeleyici ve kullanılabilirlik bölgeleri
 
@@ -151,7 +151,7 @@ Yapılandırmanızda varolan Resource Manager şablonları kullanıyorsanız, ek
 
 Çapraz bölge Yük Dengeleme herhangi bir bölgedeki bir arka uç noktası ulaşmak için yük dengeleyici özelliğidir ve ön uç ve kendi zonality bağımsızdır.
 
-Hizalama ve tek bir bölge dağıtımınıza garanti etmek istiyorsanız, zonal ön uç ve aynı bölge zonal arka uç kaynaklarına hizalayın. Başka bir eylem gerekli değildir.
+Hizalama ve dağıtımınız tek bir bölge içinde garanti etmek istiyorsanız, zonal ön uç ve aynı bölge zonal arka uç kaynaklarına hizalayın. Başka bir eylem gerekli değildir.
 
 ### <a name="backend"></a>Arka uç
 
@@ -210,7 +210,7 @@ Bölge olarak yedekli bölge belirsiz sağlayın ve hizmet için aynı zaman day
 
 Zonal açık bir garanti bir bölge için bölge durumunu kader paylaşımı sağlar. Özellikle, ekli olan kaynak aynı bölgedeki zonal bir VM ise ilişkilendirme zonal bir IP adresi veya zonal yük dengeleyici ön uç arzu veya makul bir öznitelik olabilir.  Veya belki de uygulamanız hakkında hangi bölgede kaynak bulunan açık bilgi gerektirir ve ayrı bölgelerde kullanılabilirliği hakkında açıkça neden istiyor.  Birden çok zonal ön uçlar dilimlerinde dağıtılmış bir uçtan uca hizmet için kullanıma sunmak seçebilirsiniz (diğer bir deyişle, her bölge için birden çok zonal sanal makine ölçek zonal ön uçlar ayarlar).  Ve zonal, ön uçlar genel IP adresi varsa, bu birden çok zonal ön uçlar hizmetiniz ile gösterme için kullanabileceğiniz [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Veya üçüncü taraf çözümleri izleme aracılığıyla bölge sağlık ve performans Öngörüler başına kazanmak ve bölge olarak yedekli bir ön uç genel hizmetiyle kullanıma sunmak için birden çok zonal ön uçlar kullanabilirsiniz. Yalnızca aynı bölgeye hizalı zonal ön uçlar ile zonal kaynakları sunar ve zonal kaynaklar için zararlı çapraz bölge senaryolarını önlemek gerekir.  Zonal kaynakları yalnızca kullanılabilirlik bölgeleri var olduğu bölgelerde mevcut.
 
-Uçtan uca hizmet bilerek olmadan diğer daha iyi bir seçim biridir genel bir yönerge yoktur.
+Diğer hizmet mimarisi bilerek olmadan daha iyi bir seçim biridir genel bir yönerge yoktur.
 
 ## <a name="limitations"></a>Sınırlamalar
 

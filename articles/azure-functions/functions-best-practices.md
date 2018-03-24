@@ -1,13 +1,13 @@
 ---
-title: "En iyi uygulamalar için Azure işlevleri | Microsoft Docs"
-description: "Azure işlevleri için en iyi yöntemler ve yaklaşımlar öğrenin."
+title: En iyi uygulamalar için Azure işlevleri | Microsoft Docs
+description: Azure işlevleri için en iyi yöntemler ve yaklaşımlar öğrenin.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, desenleri, en iyi uygulama, işlemler ve olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, desenleri, en iyi uygulama, işlemler ve olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d8088a8a83bcaefce17ac2756360a46119c8eb27
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri güvenilirliğini ve performansını en iyi duruma getirme
 
@@ -99,7 +99,7 @@ Zaman uyumsuz programlama önerilen en iyi uygulamadır. Bununla birlikte, her z
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Mümkün olduğunda toplu işlemde ileti alma
 
-Olay hub'ı gibi bazı tetikleyiciler tek çağırma iletilerde toplu almayı etkinleştirin.  Toplu ileti işleme çok daha iyi performans sahiptir.  Maksimum toplu iş boyutu yapılandırabilirsiniz `functions.json` dosya içinde ayrıntılı olarak [host.json başvuru belgeleri](functions-host-json.md)
+Olay hub'ı gibi bazı tetikleyiciler tek çağırma iletilerde toplu almayı etkinleştirin.  Toplu ileti işleme çok daha iyi performans sahiptir.  Maksimum toplu iş boyutu yapılandırabilirsiniz `host.json` dosya içinde ayrıntılı olarak [host.json başvuru belgeleri](functions-host-json.md)
 
 C# işlevleri için kesin türü belirtilmiş bir dizi türünü değiştirebilirsiniz.  Örneğin, yerine, `EventData sensorEvent` yöntem imzası olabilir `EventData[] sensorEvent`.  Diğer diller için açıkça kardinalite özelliği kümesinde gerekir, `function.json` için `many` toplu işleme etkinleştirmek için [aşağıda gösterildiği gibi](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 

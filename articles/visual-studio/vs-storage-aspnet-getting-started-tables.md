@@ -1,11 +1,11 @@
 ---
-title: "Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure tablo depolaması ile çalışmaya başlamak nasıl"
+title: Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs
+description: Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure tablo depolaması ile çalışmaya başlamak nasıl
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: kraigb
-ms.openlocfilehash: 32a57e77bf6fe3cff88b9d6772ede9e6669ec75f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 646ff3a12d1b28f99376ea67af25f1b6858d675a
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Azure tablo depolaması ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,7 +29,7 @@ Azure Table storage, büyük miktarlarda yapılandırılmış verileri depolamak
 
 Bu öğretici Azure tablo depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bu senaryolar, tablo oluşturma ve ekleme, sorgulama ve tablo varlıkları silme içerir. 
 
-##<a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure depolama hesabı](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -172,7 +172,7 @@ Aşağıdaki adımlar bir tablo oluşturulacağını gösterir:
 
 1. Uygulamayı çalıştırmak ve seçmek **Create table** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
   
-    ![Tablo oluşturma](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
+    ![Tablo oluştur](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
     Daha önce belirtildiği gibi **CloudTable.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca tablo mevcut değil ve oluşturulur. Bu nedenle, tablo mevcut olduğunda uygulama çalıştırırsanız, yöntem **false**. Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce tabloyu silmeniz gerekir. Aracılığıyla tablo silinirken yapılabilir **CloudTable.Delete** yöntemi. Tabloyu kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 

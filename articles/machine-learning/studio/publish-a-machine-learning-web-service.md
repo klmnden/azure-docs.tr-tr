@@ -1,10 +1,11 @@
 ---
-title: "Machine Learning web hizmetini dağıtma | Microsoft Docs"
-description: "Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek, dağıtım için hazırlanma, sonra bir Azure Machine Learning web hizmeti olarak dağıtabilir nasıl."
+title: Machine Learning web hizmetini dağıtma | Microsoft Docs
+description: Tahmine dayalı bir deneme eğitim denemenizi dönüştürmek, dağıtım için hazırlanma, sonra bir Azure Machine Learning web hizmeti olarak dağıtabilir nasıl.
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: jhubbard
+documentationcenter: ''
+author: YasinMSFT
+ms.author: yahajiza
+manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
 ms.service: machine-learning
@@ -13,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.author: garye
-ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 3ce4104040e90a4740442d7692b3bf4a0789bde0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
 Azure Machine Learning, derleme, test ve Tahmine dayalı analitik çözümleri dağıtmanızı sağlar.
@@ -34,7 +34,7 @@ Bir üst düzey noktası-in-görünümden, bu üç adımda gerçekleştirilir:
 ## <a name="create-a-training-experiment"></a>Eğitim denemenizi oluşturma
 Tahmine dayalı bir analiz modeli eğitmek için Azure Machine Learning Studio'da eğitim denemenizi oluşturmak için eğitim verileri yüklemek, verileri gereken şekilde hazırlama, machine learning algoritmaları uygulamak ve sonuçları değerlendirin çeşitli modülleri dahil olduğu kullanın. Bir deneme üzerinde yinelemek ve karşılaştırmak ve sonuçları değerlendirmek için başka bir makine öğrenimi algoritmalarını deneyin.
 
-Oluşturma ve eğitim denemeler yönetme sürecini daha kapsamlı başka bir yere ele alınmıştır. Daha fazla bilgi için bu makalelere bakın:
+Oluşturma ve eğitim denemeler yönetme sürecini daha kapsamlı başka bir yere ele alınmıştır. Daha fazla bilgi için şu makalelere bakın:
 
 * [Azure Machine Learning Studio'da basit bir deneme oluşturma](create-experiment.md)
 * [Azure Machine Learning ile Tahmine dayalı bir çözüm geliştirme](walkthrough-develop-predictive-solution.md)

@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri için Azure Blob Depolama bağlamaları"
-description: "Azure Blob Depolama Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın."
+title: Azure işlevleri için Azure Blob Depolama bağlamaları
+description: Azure Blob Depolama Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 221a049ae37cc6934d04e90b6b8035e2a020e811
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf2c4a12d1344ec17ce9688e1c7192f57104dc7b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -233,12 +233,12 @@ C# ve C# betiği aşağıdaki parametre türleri için tetikleyici blob kullanab
 * `string`
 * `Byte[]`
 * JSON olarak serileştirilebilir bir POCO
-* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
+<sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
 
 Bağlama `string`, `Byte[]`, veya POCO yalnızca önerilen blob boyutu küçükse, tüm blob olarak belleğe içeriği yüklenir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin ilerisinde yer.
 
@@ -364,7 +364,7 @@ Dile özgü örneğe bakın:
 
 ### <a name="input---c-example"></a>Giriş - C# örnek
 
-Aşağıdaki örnek bir [C# işlevi](functions-dotnet-class-library.md) sıra tetikleyici ve bir giriş blob bağlama kullanır. Sıra messagge blob adını içerir ve işlev blob'unun boyutu günlüğe kaydeder.
+Aşağıdaki örnek bir [C# işlevi](functions-dotnet-class-library.md) sıra tetikleyici ve bir giriş blob bağlama kullanır. Blob'unun boyutu işlevi kaydeder ve kuyruk iletisini blob adını içerir.
 
 ```csharp
 [FunctionName("BlobInput")]
@@ -374,7 +374,6 @@ public static void Run(
     TraceWriter log)
 {
     log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
-
 }
 ```        
 
@@ -534,12 +533,12 @@ C# ve C# betiği aşağıdaki parametre türleri için blob giriş bağlama kull
 * `Byte[]`
 * `CloudBlobContainer`
 * `CloudBlobDirectory`
-* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
 
-Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
+<sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
 
 Bağlama `string` veya `Byte[]` yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçük olup olmadığını önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin önceki.
 
@@ -737,21 +736,23 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="output---usage"></a>Çıktı - kullanım
 
-C# ve C# betik aşağıdakileri kullanabilirsiniz parametre türleri blob'a bağlama çıktı:
+C# ve C# betik BLOB'ları yazmak için aşağıdaki türlerine bağlayabilirsiniz:
 
 * `TextWriter`
 * `out string`
 * `out Byte[]`
 * `CloudBlobStream`
 * `Stream`
-* `CloudBlobContainer`
+* `CloudBlobContainer`<sup>1</sup>
 * `CloudBlobDirectory`
-* `ICloudBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudBlockBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudPageBlob` ("ınout" bağlama yönde gerektirir *function.json*)
-* `CloudAppendBlob` ("ınout" bağlama yönde gerektirir *function.json*)
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
 
-Belirtildiği gibi bazı bu türleri gerektiren bir `inout` yönde bağlama *function.json*. Gelişmiş Düzenleyicisi'ni kullanmanız gerekir böylece bu yönünü Azure portalında standart Düzenleyicisi tarafından desteklenmiyor.
+<sup>1</sup> "içindeki" bağlamayı gerektirir `direction` içinde *function.json* veya `FileAccess.Read` C# sınıf kitaplığı'nda.
+
+<sup>2</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
 
 Zaman uyumsuz işlevlerde dönüş değerini kullanın veya `IAsyncCollector` yerine bir `out` parametresi.
 
