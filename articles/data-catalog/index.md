@@ -1,24 +1,24 @@
 ---
-title: "Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler."
+title: Azure Veri Kataloğu Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Kurumunuzun veri kaynaklarını bulabileceği, anlayabileceği ve tüketebileceği bir veri kataloğu oluşturma hakkında bilgi edinin. Öğreticiler, API başvurusu ve diğer belgeler.
 services: data-catalog
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: data-catalog
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/25/2017
 ms.author: carolz
-ms.openlocfilehash: c901562753be86613ac4ca4dec1e727d1383e626
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ec21b9b55015c247cef3f216dbb14f4ddc30e8d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
+# <a name="data-catalog-documentation"></a>Veri Kataloğu Belgeleri
 
 Veri Kataloğu’nu kullanarak kurumunuzun ve takımınızın veri kaynaklarınızı bulmasına, anlamasına ve tüketmesine nasıl yardımcı olabileceğinizi öğrenin. Öğreticiler, REST API başvurusu ve diğer belgeler, veri tüketicilerinin kullanılabilir veri kaynaklarını bulabileceği ve konunun uzmanları tarafından sağlanan bilgileri edinebileceği veri deponuzu nasıl planlayıp ayarlayabileceğinize ilişkin bilgiler içerir.
 

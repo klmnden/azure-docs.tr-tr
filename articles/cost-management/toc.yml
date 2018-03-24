@@ -28,7 +28,7 @@
 - name: Kavramlar
   items:
     - name: Maliyet raporlarını anlama
-      href: understading-cost-reports.md
+      href: understanding-cost-reports.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure aboneliklerini ve hesaplarını etkinleştirme
