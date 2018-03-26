@@ -40,6 +40,7 @@
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-infrastructure-wsfc-file-share.md)
 #### [(A)SCS Örneği için NFS ile SUSE Linux](high-availability-guide-suse.md)
+#### [SLES üzerinde Pacemaker](high-availability-guide-suse-pacemaker.md)
 ### SAP Yüklemesi
 #### [(A)SCS Örneği için Paylaşılan Disk ile Windows](sap-high-availability-installation-wsfc-shared-disk.md)
 #### [(A)SCS Örneği için SOFS Dosya Paylaşımı ile Windows](sap-high-availability-installation-wsfc-file-share.md)

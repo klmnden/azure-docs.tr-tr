@@ -131,6 +131,8 @@
           items:
             - name: Mimari
               href: service-fabric-reliable-actors-platform.md
+            - name: Hizmet düzeyi özelliklerini uygulama
+              href: service-fabric-reliable-actors-using.md
             - name: Yaşam döngüsü ve atık toplama
               href: service-fabric-reliable-actors-lifecycle.md
             - name: Durum yönetimi
@@ -389,7 +391,15 @@
               href: service-fabric-reliable-services-backup-restore.md
         - name: Reliable Actors hizmeti oluşturma
           items:
-            - name: Bildirim gönderme
+            - name: 'Aktör durumunu kaydetme, kaldırma ve bu duruma erişme'
+              href: service-fabric-reliable-actors-access-save-remove-state.md
+            - name: Aktörleri listeleme
+              href: service-fabric-reliable-actors-enumerate.md
+            - name: Aktörleri ve durumlarını silme
+              href: service-fabric-reliable-actors-delete-actors.md
+            - name: Aktörleri yedekleme ve geri yükleme
+              href: service-fabric-reliable-actors-backup-and-restore.md
+            - name: Aktör bildirimleri gönderme
               href: service-fabric-reliable-actors-events.md
             - name: Zamanlayıcı ve anımsatıcı ayarlama
               href: service-fabric-reliable-actors-timers-reminders.md

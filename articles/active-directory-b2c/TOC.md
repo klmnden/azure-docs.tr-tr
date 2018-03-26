@@ -91,7 +91,8 @@
 #### [Parola karmaşıklığı](active-directory-b2c-reference-password-complexity-custom.md)
 #### [Parola değiştirme](active-directory-b2c-reference-password-change-custom.md)
 #### [Oturumumu açık bırak seçeneğini etkinleştirme](active-directory-b2c-reference-kmsi-custom.md)
-### Sorun giderme
+### Sorun Giderme ve Olay Günlükleri
+#### [Application Insights ile özel olaylar oluşturma](active-directory-b2c-custom-guide-eventlogger-appins.md)
 #### [Application Insights’ı kullanarak günlük toplama](active-directory-b2c-troubleshoot-custom.md)
 ## Başvuru
 ### [Sürüm notları](active-directory-b2c-developer-notes-custom.md)

@@ -1,0 +1,25 @@
+- name: Chef Belgeleri
+  href: index.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: 'Otomatikleştirme: Hızlı Başlangıç şablonu'
+      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/chef-software.chef-automate?tab=Overview'
+- name: Öğreticiler
+  items:
+    - name: VM’leri otomatikleştirme
+      href: /azure/virtual-machines/windows/chef-automation
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 'Blog: VSTS ve Chef'
+      href: 'https://blog.chef.io/2017/05/10/integrate-chef-into-your-build-and-release-pipelines-with-microsoft-visual-studio-team-services/'
+    - name: Chef ve Azure PS
+      href: 'https://docs.microsoft.com/powershell/module/azure/get-azurevmchefextension?view=azuresmps-4.0.0'
+    - name: Chef ve VSTS
+      href: 'https://github.com/chef-partners/vsts-chef/wiki/Getting-Started'
+    - name: Chef sitesi
+      href: 'https://www.chef.io'
+    - name: 'Video: Chef ve VSTS'
+      href: 'https://channel9.msdn.com/Events/TechDaysOnline/UK-TechDays-Online-2016/Release-Management-with-VSTS--integration-with-Azure--Chef-Deployment'

@@ -3,47 +3,41 @@
 # Genel Bakış
 ## [Yük Dengeleyici nedir?](load-balancer-overview.md)
 ## [Load Balancer Standard nedir?](load-balancer-standard-overview.md)
-## [Genel Load Balancer](load-balancer-internet-overview.md)
-## [İç yük dengeleyici](load-balancer-internal-overview.md)
-## [Yük dengeleyici araştırmalarını anlama](load-balancer-custom-probe-overview.md)
-## [Yüksek Kullanılabilirliğe Sahip Bağlantı Noktalarını anlama](load-balancer-ha-ports-overview.md)
-## [Azure Resource Manager desteği](load-balancer-arm.md)
+## [Load Balancer araştırmaları](load-balancer-custom-probe-overview.md)
+## [Yüksek Kullanılabilirlik bağlantı noktaları](load-balancer-ha-ports-overview.md)
 ## [IPv6 desteği](load-balancer-ipv6-overview.md)
-## [Birden çok VIP](load-balancer-multivip-overview.md)
-## [Giden bağlantılar hakkında bilgi edinme](load-balancer-outbound-connections.md)
+## [Birden çok ön uç](load-balancer-multivip-overview.md)
+## [Giden bağlantılar](load-balancer-outbound-connections.md)
 ## [Standart Load Balancer ve Kullanılabilirlik Bölgeleri](load-balancer-standard-availability-zones.md)
+## [Standard Loan Balancer ölçümleri ve tanılama](load-balancer-standard-diagnostics.md)
 
 # Başlarken
+## [Basic Load Balancer oluşturma](load-balancer-get-started-internet-portal.md)
+### [Basic Load Balancer (CLI) oluşturma](load-balancer-get-started-internet-arm-cli.md)
+### [Basic Load Balancer (PowerShell) oluşturma](load-balancer-get-started-internet-arm-ps.md)
+## [Standard Load Balancer oluşturma](load-balancer-standard-public-portal.md)
+### [Standard Load Balancer (CLI) oluşturma](load-balancer-standard-public-cli.md)
 
-## [İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-arm-portal.md)
-### [İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
-### [İç Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-ilb-arm-cli.md)
-### [İç Load Balancer’ı yapılandırma (Şablon)](load-balancer-get-started-ilb-arm-template.md)
-
-## [Genel Load Balancer’ı yapılandırma](load-balancer-get-started-internet-portal.md)
-### [Genel Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-internet-arm-ps.md)
-### [Genel Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-internet-arm-cli.md)
-### [Genel Load Balancer’ı yapılandırma (Şablon)](load-balancer-get-started-internet-arm-template.md)
+# Nasıl yapılır
 
 ## [IPv6 ile genel Load Balancer oluşturma](load-balancer-ipv6-internet-ps.md)
 ### [IPv6 ile genel Load Balancer oluşturma (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [IPv6 ile genel Load Balancer oluşturma (Şablon)](load-balancer-ipv6-internet-template.md)
-
 ## [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](load-balancer-get-started-internet-az-portal.md)
 ### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
-
-# Nasıl yapılır
+## [Basic Load Balancer (Şablon) oluşturma](load-balancer-get-started-internet-arm-template.md)
+## [İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-arm-portal.md)
+### [İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
+### [İç Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-ilb-arm-cli.md)
+### [İç Load Balancer’ı yapılandırma (Şablon)](load-balancer-get-started-ilb-arm-template.md)
 ## [Yük Dengeleyici için TCP boşta kalma zaman aşımı yapılandırma](load-balancer-tcp-idle-timeout.md)
-## [Yük Dengeleyici için Dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
-## [SQL AlwaysOn için İç Yük Dengeleyiciyi yapılandırma](load-balancer-configure-sqlao.md)
-## [Bulut hizmeti için birden çok VIP yapılandırma](load-balancer-multivip.md)
+## [Load Balancer için dağıtım modunu yapılandırma](load-balancer-distribution-mode.md)
 ## [Yük dengeleme hizmetlerini birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fload-balancer%2ftoc.json)
 ## [Birden fazla IP yapılandırması kullanma](load-balancer-multiple-ip.md)
 ### [Birden fazla IP yapılandırması kullanma (CLI)](load-balancer-multiple-ip-cli.md)
 ### [Birden fazla IP yapılandırması kullanma (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure Load Balancer için Log Analytics](load-balancer-monitor-log.md)
-## [Linux VM’leri için DHCPv6’yı yapılandırma](load-balancer-ipv6-for-linux.md)
 ## [İç Load Balancer için Yüksek Kullanılabilirliğe Sahip Bağlantı Noktalarını Yapılandırma](load-balancer-configure-ha-ports.md)
 
 ## Sorun giderme
@@ -51,6 +45,7 @@
 
 ## Klasik dağıtım modeli makaleleri
 ### [Giden bağlantılar (klasik)](load-balancer-outbound-connections-classic.md)
+## [Bulut hizmeti için birden çok VIP yapılandırma](load-balancer-multivip.md)
 ### [Cloud Services için İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-classic-cloud.md)
 #### [Cloud Services için İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-classic-ps.md)
 #### [Cloud Services için İç Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-ilb-classic-cli.md)

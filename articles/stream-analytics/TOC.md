@@ -41,6 +41,7 @@
 ### [Twitter yaklaşım analizi](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
 ### [IOT Edge üzerinde iş çalıştırma](stream-analytics-edge.md) 
+### [Ücretli geçiş algılayıcısı veri analizi](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [JavaScript UDA çalıştırma](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Yüksek frekanslı alım-satım](stream-analytics-high-frequency-trading.md)
 ### [Azure İşlevleri’ni çalıştırma](stream-analytics-with-azure-functions.md)

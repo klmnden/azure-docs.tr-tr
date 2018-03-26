@@ -208,7 +208,9 @@
       href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Olayları özel bir uç noktaya yönlendirme
       href: storage-blob-event-quickstart.md
-    - name: Özel etki alanları
+    - name: Silinen blobları kurtarma
+      href: storage-blob-soft-delete.md
+    - name: Özel etki alanı yapılandırma
       href: storage-custom-domain-name.md
     - name: Azure Search ile Blob deposu arama
       href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

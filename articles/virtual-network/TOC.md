@@ -56,7 +56,10 @@
 #### [Farklı dağıtım modelleri - aynı abonelik](create-peering-different-deployment-models.md)
 #### [Farklı dağıtım modelleri - farklı abonelikler](create-peering-different-deployment-models-subscriptions.md)
 
-### [Sanal ağ hizmeti uç noktaları](virtual-network-service-endpoints-configure.md)
+### Sanal ağ hizmeti uç noktaları
+#### [Azure Portal](tutorial-restrict-network-access-to-resources.md)
+#### [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)
+#### [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md)
 
 ### Sanal makineler
 #### [Sanal makine ağ aktarım hızı](virtual-machine-network-throughput.md)
@@ -176,8 +179,12 @@
 ### [VM’den VM’ye bağlantı sorunları](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 ### [PTR’yi SMTP Başlık Denetimi için yapılandırma](create-ptr-for-smtp-service.md)
 
+## Örnek komut dosyaları
+### [Azure CLI](cli-samples.md)
+### [Azure PowerShell](powershell-samples.md)
+
 # Başvuru
-## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
+## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=virtual-network)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.network)
 ## [Azure PowerShell (Klasik)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)

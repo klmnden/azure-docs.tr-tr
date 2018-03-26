@@ -7,28 +7,31 @@
 ## [Azure DNS ile DNS temsilcisi atama](dns-domain-delegation.md)
 ## [DNS SSS](dns-faq.md)
 ## [Özel DNS bölgelerini kullanma](private-dns-overview.md)
+## [Özel DNS senaryoları](private-dns-scenarios.md)
+
 
 # Başlarken
 
 ## DNS bölgesi ve kaydı oluşturma
-### [Azure portalı](dns-getstarted-portal.md)
+### [Azure Portal](dns-getstarted-portal.md)
 ### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI](dns-getstarted-cli.md)
 
 ## Özel DNS bölgesi ve kaydı oluşturma
 ### [PowerShell](private-dns-getstarted-powershell.md)
+### [Azure CLI](private-dns-getstarted-cli.md)
 ## [Etki alanınızı Azure DNS'e atama](dns-delegate-domain-azure-dns.md)
 ## [Bir web uygulaması için özel DNS kayıtları oluşturma](dns-web-sites-custom-domain.md)
 
 # Nasıl yapılır
 
 ## DNS bölgelerini yönetme
-### [Azure portalı](dns-operations-dnszones-portal.md)
+### [Azure Portal](dns-operations-dnszones-portal.md)
 ### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## DNS kayıtlarını yönetme
-### [Azure portalı](dns-operations-recordsets-portal.md)
+### [Azure Portal](dns-operations-recordsets-portal.md)
 ### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI](dns-operations-recordsets-cli.md)
 
