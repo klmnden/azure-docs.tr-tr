@@ -1,11 +1,11 @@
 ---
-title: "Ağ Azure Performans İzleyicisi çözümde | Microsoft Docs"
-description: "Ağ Performans İzleyicisi'nde Azure ağları eklentinizi gerçek zaman için yakın performansını izlemenizi sağlar algılamak ve ağ performans sorunları bulun."
+title: Ağ Azure Performans İzleyicisi çözümde | Microsoft Docs
+description: Ağ Performans İzleyicisi'nde Azure ağları eklentinizi gerçek zaman için yakın performansını izlemenizi sağlar algılamak ve ağ performans sorunları bulun.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 399fe552d5c7d9a96cdabc2a1dfafe99635d4a61
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 90fd9b09f90d5b209e0eb8cc6996ef7fb1e7e0b4
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Performans İzleyicisi çözümde Azure ağ
 
@@ -38,6 +38,8 @@ NPM üç geniş yetenekleri sunar:
 Bu özellik http gerçekleştirmenize yardımcı olur, HTTPS, TCP ve ICMP de yakın gerçek zamanlı veya geçmişte kullanılabilirlik ve hizmetinizin yanıt süresi ve paket kaybı ve gecikme süresi ağında katkı izlemek için testleri göre. Ağ topolojisi haritası ile ağ yol boyunca her atlama gecikme verileriyle hizmetine düğümden oluşan sorun noktalar belirleyerek ağ yavaşlamalara ayırabilirsiniz. Yerleşik testleriyle Office365 ve Dynamics CRM herhangi bir ön yapılandırma olmadan ağ bağlantısını izleyin. Bu özellik ile ağ bağlantısı izleyebilirsiniz Web siteleri, SaaS, PaaS uygulamaları, veritabanları gibi tüm TCP özellikli uç vb.  
 
 [ExpressRoute İzleyici](log-analytics-network-performance-monitor-expressroute.md): Azure ExpressRoute uçtan uca bağlantı ve şube ofislerinde ve Azure arasında performans izleme.  
+
+Tarafından desteklenen çeşitli özellikleri hakkında daha fazla bilgi [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) çevrimiçidir.
  
 
 ## <a name="set-up-and-configure"></a>Ayarlama ve yapılandırma
