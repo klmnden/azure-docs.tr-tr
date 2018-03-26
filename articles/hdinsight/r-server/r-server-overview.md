@@ -1,8 +1,8 @@
 ---
-title: "Azure hdınsight'ta R Server Giriş | Microsoft Docs"
-description: "R Server Hdınsight'ta büyük veri analizi için uygulamalar oluşturmak için nasıl kullanılacağını öğrenin."
+title: Azure hdınsight'ta R Server Giriş | Microsoft Docs
+description: R Server Hdınsight'ta büyük veri analizi için uygulamalar oluşturmak için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 860099b2634765f3088199c89341f0b48b20b801
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 2106e5f0c9b6a27da3747bc67aad0937f2356873
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
+# <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
 
 Azure Hdınsight kümeleri oluşturduğunuzda Microsoft R Server bir dağıtım seçeneği olarak kullanılabilir. Bu yeni özellik, veri bilimcileri, istatistikçiler ve ölçeklenebilir, isteğe bağlı erişimi olan R programcıları hdınsight'ta analytics yöntemlerinin dağıtılmış sağlar.
 
@@ -53,7 +53,7 @@ Ayrıca, R Server R konsoluna erişmek için SSH/PuTTY kullanarak komut satırı
 ## <a name="develop-and-run-r-scripts"></a>Geliştirme ve R komut dosyalarını çalıştır
 Oluşturma ve çalıştırma R betiklerini paralel birkaç ölçeklendirin ve dağıtılmış yordamları yanı sıra 8000 + R açık kaynak paketlerinden birini ScaleR Kitaplığı'nda kullanabilirsiniz. Genel olarak, R Server edge düğümü üzerinde çalışacak bir betik içinde R yorumlayıcı bu düğüm üzerinde çalışır. Ayarlanmış bir işlem bağlamına sahip ScaleR işlevi çağırmak için gereken adımları istisnaları Hadoop harita azaltmak (RxHadoopMR) veya Spark (RxSpark). Bu durumda, işlevi başvurulan veri ile ilişkili olan bu verileri (görev) kümenin düğümleri arasında dağıtılmış bir şekilde çalışır. Farklı işlem bağlamı seçenekleri hakkında daha fazla bilgi için bkz: [işlem hdınsight'ta R Server için içerik seçeneklerini](r-server-compute-contexts.md).
 
-## <a name="operationalize-a-model"></a>Bir model faaliyete
+## <a name="operationalize-a-model"></a>Bir modeli kullanıma hazır hale getirme
 Veri modellemesi tamamlandığında, Azure ve şirket içi'nden ya da yeni veriler için tahminlerde modelini faaliyete geçirebilirsiniz. Bu işlem Puanlama olarak bilinir. Puanlama Hdınsight, Azure Machine Learning veya şirket içi yapılabilir.
 
 ### <a name="score-in-hdinsight"></a>Hdınsight'ta puan

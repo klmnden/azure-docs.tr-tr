@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs"
-description: "Data Factory varlıkları için JSON şemaları sağlar."
+title: Azure Data Factory - JSON betik oluşturma başvurusu | Microsoft Docs
+description: Data Factory varlıkları için JSON şemaları sağlar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: 
+manager: craigg
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 519a762e5f89533f4425d38e4a1ca76d8e3dd40f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 198fa15b7ee8cce6781e6a2575844a9666185be9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
@@ -493,13 +493,13 @@ Bir Azure Blob veri kümesini tanımlamak için **türü** için veri kümesinin
 Daha fazla bilgi için bkz: [Azure Blob bağlayıcı](data-factory-azure-blob-connector.md#dataset-properties) makalesi.
 
 ### <a name="blobsource-in-copy-activity"></a>Kopyalama etkinliğinde BlobSource
-Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **BlobSource**ve aşağıdaki özellikleri belirtin ** kaynak ** bölümü:
+Bir Azure Blob depolama alanından veri kopyalıyorsanız ayarlamak **kaynak türünü** kopyalama etkinliği **BlobSource**ve aşağıdaki özellikleri belirtin **kaynak** bölümü:
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | --- | --- | --- | --- |
 | Özyinelemeli |Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. |(Varsayılan değer) false değerini true |Hayır |
 
-#### <a name="example-blobsource"></a>Örnek: BlobSource **
+#### <a name="example-blobsource"></a>Örnek: **BlobSource**
 ```json
 {
     "name": "SamplePipeline",
@@ -3898,7 +3898,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>Örnek: Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri **
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>Örnek: **şifrelenmiş kimlik bilgileri ile temel kimlik doğrulaması**
 
 ```json
 {
@@ -3919,7 +3919,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="using-ssh-public-key-authentication"></a>SSH ortak anahtar kimlik doğrulaması kullanarak: **
+#### <a name="using-ssh-public-key-authentication"></a>**SSH ortak anahtar kimlik doğrulaması kullanma:**
 
 Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` olarak `SshPublicKey`ve SFTP bağlayıcı son bölümde sunulan genel kaynakların yanı sıra aşağıdaki özellikleri belirtin:
 
@@ -3949,7 +3949,7 @@ Temel kimlik doğrulaması kullanmak üzere ayarlanmış `authenticationType` ol
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: kullanarak özel anahtar içerik ** SshPublicKey kimlik doğrulaması
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>Örnek: **özel anahtar içeriği kullanarak SshPublicKey kimlik doğrulaması**
 
 ```json
 {
@@ -4591,7 +4591,7 @@ Bağlantılı hizmetinin bir Salesforce tanımlamak için Ayarla **türü** bağ
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com" dir. <br> Korumalı alan veri kopyalamak için "https://test.salesforce.com" belirtin. <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
+| environmentUrl | URL, Salesforce örneği belirtin. <br><br> -Varsayılan değer "https://login.salesforce.com". <br> -Korumalı alan veri kopyalamak için belirtin "https://test.salesforce.com". <br> Özel etki alanından veri kopyalamak için örneğin, "https://[domain].my.salesforce.com" belirtin. |Hayır |
 | kullanıcı adı |Kullanıcı hesabı için bir kullanıcı adı belirtin. |Evet |
 | password |Kullanıcı hesabı için bir parola belirtin. |Evet |
 | securityToken |Kullanıcı hesabı için bir güvenlik belirteci belirtin. Bkz: [güvenlik belirteci alma getirin](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) bir güvenlik belirteci sıfırlama/get ilgili yönergeler için. Güvenlik belirteçleri hakkında genel bilgi edinmek için [güvenlik ve API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Evet |
