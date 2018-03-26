@@ -77,11 +77,15 @@
           href: search-performance-optimization.md
     - name: Güvenlik
       items:
-        - name: Veri ve işletimsel güvenlik
+        - name: Güvenliğe genel bakış
           href: search-security-overview.md
-        - name: Kimlik filtreleri kullanarak güvenli hale getirme
+        - name: Hizmet anahtar yönetimi
+          href: search-security-api-keys.md
+        - name: Rol tabanlı yönetici erişimi
+          href: search-security-rbac.md
+        - name: Güvenlik filtreleri
           href: search-security-trimming-for-azure-search.md
-        - name: Active Directory kullanarak güvenli hale getirme
+        - name: AAD kimlikleri üzerinde filtreleme
           href: search-security-trimming-for-azure-search-with-aad.md
     - name: Geliştirme
       items:

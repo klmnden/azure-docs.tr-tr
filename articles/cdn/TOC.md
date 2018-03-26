@@ -74,7 +74,9 @@
 ## [REST](/rest/api/cdn/)
 
 # Kaynaklar
-## [Azure CDN POP konumları](cdn-pop-locations.md)
+## Azure CDN POP konumları
+### [Bölgeye göre POP konumları](cdn-pop-locations.md)
+### [Kısaltmaya göre POP konumları](cdn-pop-abbreviations.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)
 ## [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/)

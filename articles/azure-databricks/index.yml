@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Databricks Önizleme Belgeleri"
+title: Azure Databricks Belgeleri
 metadata:
-  title: "Azure Databricks Belgeleri - Öğreticiler | Microsoft Docs"
-  description: "Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur."
+  title: Azure Databricks Belgeleri - Öğreticiler | Microsoft Docs
+  description: Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur.
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -11,47 +11,56 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/15/2017
+  ms.date: 03/19/2018
   ms.author: nitinme
-  ms.openlocfilehash: 8bbb8bb020c8c64e11d072729b59074a406a03ca
-  ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+  ms.openlocfilehash: 2c0bbbe6d9799258b983723c5d6980754a9908ae
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 03/17/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir."
+  description: Burada verilen hızlı başlangıç kılavuzunu ve diğer bağlantıları kullanarak, Azure Databricks’i kullanma hakkında bilgi edinin. Azure Databricks, Microsoft Azure bulut hizmetleri platformu için iyileştirilen Apache Spark tabanlı bir analiz platformudur. Apache Spark’ın kurucuları ile birlikte tasarlanan Databricks, tek tıklama ile kurulum olanağı ve kolaylaştırılmış iş akışlarının yanı sıra veri uzmanları, veri mühendisleri ve iş analistleri arasında işbirliği sağlayan etkileşimli bir çalışma alanı sunmak amacıyla Azure ile tümleştirilmiştir.
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Azure Databricks’e Giriş (3:38)"
+    title: Azure Databricks’e Giriş (3:38)
     href: https://azure.microsoft.com/resources/videos/connect-2017-introduction-to-azure-databricks/
     width: 250
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Azure Databricks çalışma alanı ve Spark kümesi oluşturmayı, ardından aşağıdakileri kullanarak işleri çalıştırmayı öğrenin:"
+    text: 'Azure Databricks çalışma alanı ve Spark kümesi oluşturmayı, ardından aşağıdakileri kullanarak işleri çalıştırmayı öğrenin:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/azure-databricks/media/index/portal.svg
-      text: "Azure portalına"
+      text: Azure portalına
       href: /azure/azure-databricks/quickstart-create-databricks-workspace-portal
-- title: "Adım Adım Öğreticiler"
+    - image:
+        src: /azure/azure-databricks/media/index/logo_azure_resource_manager.svg
+      text: Resource Manager şablonu
+      href: /azure/azure-databricks/quickstart-create-databricks-workspace-resource-manager-template
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Azure Databricks ile çalışma hakkında bilgi edinin:"
+    text: 'Azure Databricks ile çalışma hakkında bilgi edinin:'
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/azure-databricks/databricks-stream-from-eventhubs\">Azure Databricks kullanarak Event Hubs’dan veri akışı sağlama</a>"
-    - html: "<a href=\"/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services\">Azure Databricks ve Bilişsel Hizmetler kullanarak yaklaşım analizi</a>"
-    - html: "<a href=\"https://go.microsoft.com/fwlink/?linkid=864083\" target=\"_blank\">Azure Depolama’dan veri aktarma</a>"
-    - hmtl: <a href="https://go.microsoft.com/fwlink/?linkid=864084" target="_blank">Import data from Azure Data Lake Store</a>
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/notebooks/index.html\" target=\"_blank\">Not defterleri ile çalışma</a>"
-    - html: "<a href=\"https://docs.azuredatabricks.net/user-guide/jobs.html\" target=\"_blank\">Spark işleri çalıştırma</a>"
-    - html: "<a href=\"https://docs.azuredatabricks.net/spark/latest/data-sources/index.html\" target=\"_blank\">Spark veri kaynaklarını kullanma</a>"
+    - html: <a href="/azure/azure-databricks/databricks-extract-load-sql-data-warehouse">Veri ayıklama, dönüştürme ve yükleme</a>
+    - html: <a href="/azure/azure-databricks/databricks-stream-from-eventhubs">Event Hubs’dan veri akışı sağlama</a>
+    - html: <a href="/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services">Bilişsel Hizmetler kullanarak yaklaşım analizi</a>
+    - html: <a href="https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html" target="_blank">HDInsight Kafka’dan veri akışı sağlama</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: <p><a href="/rest/api/databricks">REST API</a></p>

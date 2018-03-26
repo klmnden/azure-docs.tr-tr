@@ -103,6 +103,8 @@
               href: hyper-v-vmm-architecture.md
     - name: Uygulamalar için olağanüstü durum kurtarma
       href: site-recovery-workload.md
+    - name: Kurtarma planları hakkında
+      href: recovery-plan-overview.md
     - name: Geçiş hakkında
       href: migrate-overview.md
     - name: Site Recovery ile rol tabanlı erişim denetimi hakkında
@@ -273,6 +275,12 @@
           items:
             - name: Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
               href: site-recovery-test-failover-to-azure.md
+            - name: Kurtarma planları oluşturma
+              href: site-recovery-create-recovery-plans.md
+            - name: Kurtarma planlarına VMM betikleri ekleme
+              href: hyper-v-vmm-recovery-script.md
+            - name: Kurtarma planlarına Azure runbook ekleme
+              href: site-recovery-runbook-automation.md
             - name: Azure'a yük devretme işlemini çalıştırma
               href: site-recovery-failover.md
             - name: Azure’dan Hyper-V’ye geçerek yeniden çalışma

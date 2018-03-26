@@ -19,6 +19,8 @@
       items:
         - name: SSMS
           href: sql-database-connect-query-ssms.md
+        - name: SQL Operations Studio
+          href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
         - name: Azure portalına
           href: sql-database-connect-query-portal.md
         - name: VS Code
@@ -101,8 +103,10 @@
           href: sql-database-manage-logins.md
         - name: Multi-Factor Authentication
           href: sql-database-ssms-mfa-authentication.md
-        - name: Denetim
+        - name: Denetim - SQL Veritabanı
           href: sql-database-auditing.md
+        - name: Denetim - Yönetilen Örnek
+          href: sql-database-managed-instance-auditing.md
         - name: Tehdit algılama - SQL Veritabanı
           href: sql-database-threat-detection.md
         - name: Tehdit algılama - Yönetilen Örnek

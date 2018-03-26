@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Container Instances Belgeleri
 metadata:
-  title: "Azure Container Instances Belgeleri - Öğreticileri | Microsoft Docs"
-  description: "Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur."
+  title: Azure Container Instances Belgeleri - Öğreticileri | Microsoft Docs
+  description: Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur.
   services: container-instances
   author: czeumault
   manager: carolz
@@ -13,23 +13,23 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: 251ce769ce9d43d7706cd7ba5d0c0f47cde36d3f
-  ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+  ms.openlocfilehash: 77bf10c4cdb0acf2ef324b14de0d3ae153543bdc
+  ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 01/24/2018
+  ms.lasthandoff: 03/23/2018
 abstract:
-  description: "Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur. Eksiksiz bir kapsayıcı düzenleme çözümüne ihtiyaç duyuyorsanız bkz. <a href=\"/azure/container-service/kubernetes/\">Azure Container Service belgelerinde Kubernetes kümesi</a>. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle kapsayıcı örneklerini oluşturmayı ve yönetmeyi öğrenin."
+  description: Azure Container Instances, herhangi bir sanal makine sağlamak ve daha yüksek düzeyde bir hizmeti benimsemek zorunda kalmadan Azure içinde kapsayıcı çalıştırmanızın en hızlı ve en kolay yoludur. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle kapsayıcı örneklerini oluşturmayı ve yönetmeyi öğrenin.<p>Eksiksiz bir kapsayıcı düzenleme çözümüne ihtiyaç duyuyorsanız bkz. <a href="/azure/aks/">Azure Container Service (AKS) belgeleri</a>.</p>
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Azure Container Instances ile kapsayıcı görüntülerini nasıl dağıtacağınızı öğrenin."
+    text: Azure Container Instances ile kapsayıcı görüntülerini nasıl dağıtacağınızı öğrenin.
   - type: list
     style: icon48
     items:
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
       text: Azure CLI
       href: /azure/container-instances/container-instances-quickstart
     - image:
@@ -37,28 +37,28 @@ sections:
       text: Azure Portal
       href: /azure/container-instances/container-instances-quickstart-portal
     - image:
-        src: /azure/virtual-machines/linux/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/container-instances/container-instances-quickstart-powershell
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Bir kapsayıcı görüntüsüne nasıl kod paketleyeceğinizi ve bu görüntüyü Azure Container Instance üzerinde nasıl çalıştıracağınızı öğrenin."
+    text: Bir kapsayıcı görüntüsüne nasıl kod paketleyeceğinizi ve bu görüntüyü Azure Container Instance üzerinde nasıl çalıştıracağınızı öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-app\">Kapsayıcı görüntüsüne uygulama paketleme</a>"
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-prepare-acr\">Bir Azure Container Registry oluşturma ve kapsayıcı görüntüsünü karşıya yükleme</a>"
-    - html: "<a href=\"/azure/container-instances/container-instances-tutorial-deploy-app\">Azure Container Instance üzerinde kapsayıcı görüntüsünü dağıtma</a>"
-- title: "Başvuru"
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Kapsayıcı görüntüsüne uygulama paketleme</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Bir Azure Container Registry oluşturma ve kapsayıcı görüntüsünü karşıya yükleme</a>
+    - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Azure Container Instance üzerinde kapsayıcı görüntüsünü dağıtma</a>
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>
     - title: Diller
       html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/container-instances\">REST API başvurusu</a></p><p><a href=\"/azure/templates/microsoft.containerinstance/containergroups\">Resource Manager Şablonu</a></p>"
+      html: <p><a href="/rest/api/container-instances">REST API başvurusu</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager Şablonu</a></p>

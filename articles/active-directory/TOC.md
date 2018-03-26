@@ -77,7 +77,8 @@
 ## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
 ### Grupları yönetme
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell Resource Manager modeli](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure PowerShell klasik dağıtım modeli](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
@@ -94,9 +95,8 @@
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
-### Grup ayarlarını yönetme
-#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Grup ayarlarını yönetme](active-directory-groups-settings-azure-portal.md)
+
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
@@ -215,12 +215,12 @@
 ##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
 ##### [Satır içi bağlantıları çevirme](application-proxy-link-translation.md)
 ##### [Joker uygulamalar](active-directory-application-proxy-wildcard.md)
-
+##### [Azure AD Uygulama Ara Sunucusu ve Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
-#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)
+#### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 
 

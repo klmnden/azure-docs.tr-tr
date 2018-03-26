@@ -7,18 +7,40 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Databricks çalışma alanı oluşturma
+    - name: Databricks çalışma alanı oluşturma - Portal
       href: quickstart-create-databricks-workspace-portal.md
+    - name: Databricks çalışma alanı oluşturma - Kaynak Yöneticisi şablonu
+      href: quickstart-create-databricks-workspace-resource-manager-template.md
 - name: Öğreticiler
   items:
-    - name: Event Hubs kullanarak olay akışı sağlama
+    - name: ETL işlemleri gerçekleştirme
+      href: databricks-extract-load-sql-data-warehouse.md
+    - name: Event Hubs kullanarak veri akışı sağlama
       href: databricks-stream-from-eventhubs.md
+    - name: Bilişsel Hizmetler kullanarak yaklaşım analizi
+      href: databricks-sentiment-analysis-cognitive-services.md
+    - name: HDInsight Kafka’dan veri akışı sağlama
+      href: 'https://docs.azuredatabricks.net/spark/latest/structured-streaming/kafka.html'
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Spark kümesi oluşturma
+      href: 'https://docs.azuredatabricks.net/user-guide/clusters/index.html'
+    - name: Not defterleri ile çalışma
+      href: 'https://docs.azuredatabricks.net/user-guide/notebooks/index.html'
+    - name: Spark işleri çalıştırma
+      href: 'https://docs.azuredatabricks.net/user-guide/jobs.html'
+    - name: Veri kaynaklarına bağlanma
+      href: databricks-connect-to-data-sources.md
     - name: 'Excel, R ve Python ile bağlanma'
       href: connect-databricks-excel-python-r.md
     - name: Azure Cloud Shell’den Databricks CLI kullanma
       href: databricks-cli-from-azure-cloud-shell.md
+    - name: BI araçları kullanma
+      href: 'https://docs.azuredatabricks.net/user-guide/bi/index.html'
+- name: Başvuru
+  items:
+    - name: REST API
+      href: /rest/api/databricks
 - name: Kaynaklar
   items:
     - name: Sık sorulan sorular
