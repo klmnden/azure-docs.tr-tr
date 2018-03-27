@@ -1,27 +1,27 @@
 ---
-title: "Visual Studio’yu kullanarak Azure’da ilk işlevinizi oluşturma | Microsoft Docs"
-description: "Visual Studio için Azure İşlevleri Araçları’nı kullanarak basit bir HTTP ile tetiklenen işlev oluşturun ve yayımlayın."
+title: Visual Studio’yu kullanarak Azure’da ilk işlevinizi oluşturma | Microsoft Docs
+description: Visual Studio için Azure İşlevleri Araçları’nı kullanarak basit bir HTTP ile tetiklenen işlev oluşturun ve yayımlayın.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari"
+editor: ''
+tags: ''
+keywords: azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/17/2018
+ms.date: 03/13/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fa17a021526a728c6fabc9607b1d00f5521cbb21
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9b43ec7106c70b7d9b326208043d2fe874fb7e20
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio kullanarak ilk işlevinizi oluşturma
 
@@ -37,11 +37,13 @@ Bu konuda bazı temel adımları anlatan [bir video](#watch-the-video) yer alır
 
 Bu öğreticiyi tamamlamak için:
 
-* **Azure geliştirme** iş yükünü içeren [Visual Studio 2017 sürüm 15.4](https://www.visualstudio.com/vs/) veya sonraki bir sürümünü yükleyin.
+* **Azure geliştirme** iş yükünü içeren [Visual Studio 2017 sürüm 15.5](https://www.visualstudio.com/vs/) veya sonraki bir sürümünü yükleyin.
 
     ![Azure geliştirme iş yüküyle Visual Studio 2017’yi yükleyin](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-* Azure İşlevleri ve Web İşleri Araçları’nın güncel sürümlerine sahip olduğunuzdan emin olun. Bunu **Uzantılar ve Güncelleştirmeler**’de **Güncelleştirmeler** > **Visual Studio Market**’e giderek yapabilirsiniz.
+    Visual Studio’yu önceden yüklediyseniz beklemedeki güncelleştirmeleri yüklediğinizden emin olun. 
+
+* Visual Studio 2017 sürüm 15.4 veya öncesi ile Azure geliştirme iş yükünü yüklediyseniz [Azure İşlevleri araçlarınızı güncelleştirmeniz](functions-develop-vs.md#check-your-tools-version) de gerekebilir. 
     
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

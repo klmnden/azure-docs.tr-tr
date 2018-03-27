@@ -1,6 +1,6 @@
 ---
-title: "Öğretici - Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama"
-description: "Bu öğreticide Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı sunucunuzu oluşturma, yapılandırma ve sorgulama işlemleri gösterilmiştir."
+title: 'Öğretici: Azure CLI kullanarak PostgreSQL için Azure Veritabanı tasarlama'
+description: Bu öğreticide Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı sunucunuzu oluşturma, yapılandırma ve sorgulama işlemleri gösterilmiştir.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -11,13 +11,13 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eeb3b01ddaea56b1e11fc37bbeba7d3f328772d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 56425ec7ccb1d6629b82db6683a02a57ab9999b4
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak ilk PostgreSQL için Azure Veritabanı’nızı tasarlayın 
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Öğretici: Azure CLI kullanarak PostgreSQL için Azure Veritabanı tasarlama 
 Bu öğreticide, şunları nasıl yapacağınızı öğrenmek için Azure CLI (komut satırı arabirimi) ve diğer yardımcı programları kullanırsınız:
 > [!div class="checklist"]
 > * PostgreSQL için Azure Veritabanı sunucusu oluşturma
@@ -32,7 +32,7 @@ Bu öğreticideki komutları çalıştırmak için tarayıcıda Azure Cloud Shel
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu konu, Azure CLI 2.0 veya sonraki bir sürümünü kullanmanızı gerektirir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu makale için Azure CLI 2.0 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
 Birden fazla aboneliğiniz varsa kaynağın mevcut olduğu ve faturalandırıldığı uygun aboneliği seçin. [az account set](/cli/azure/account#az_account_set) komutunu kullanarak hesabınız altındaki belirli bir abonelik kimliğini seçin.
 ```azurecli-interactive
@@ -163,9 +163,9 @@ CREATE DATABASE mypgsqldb;
 ```
 
 ## <a name="create-tables-in-the-database"></a>Veritabanında tablo oluşturma
-Artık PostgreSQL için Azure Veritabanı’na nasıl bağlanacağınızı öğrendiğinize göre bazı temel görevlerin nasıl gerçekleştirileceği konusuna geçebiliriz.
+Artık PostgreSQL için Azure Veritabanına nasıl bağlanacağınızı bildiğinize göre bazı temel görevleri tamamlayabilirsiniz:
 
-İlk olarak, bir tablo oluşturabilir ve bu tabloya bazı veriler yükleyebiliriz. Envanter bilgilerini izleyen bir tablo oluşturalım:
+İlk olarak, bir tablo oluşturun ve bu tabloya bazı veriler yükleyin. Örneğin, stok bilgilerini izleyen bir tablo oluşturun:
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -180,7 +180,7 @@ CREATE TABLE inventory (
 ```
 
 ## <a name="load-data-into-the-table"></a>Tabloya veri yükleme
-Artık bir tablonuz olduğuna göre içine bazı veriler ekleyebiliriz. Açık olan komut istemi penceresinde şu sorguyu çalıştırarak birkaç veri satırı ekleyin:
+Şimdi oluşturulan bir tablo olmadığından buna bazı veriler ekleyin. Açık olan komut istemi penceresinde şu sorguyu çalıştırarak birkaç veri satırı ekleyin:
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);

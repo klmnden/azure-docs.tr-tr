@@ -10,11 +10,11 @@ ms.date: 12/15/2017
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7b9f9f8295aac0920ae4726289c535aae12c4482
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -30,10 +30,16 @@ Bir sorunla karşılaştığınızda, cihaza gelen ve cihazdan giden iletileri v
    docker logs <container name>
    ```
 
-* Edge Hub’ı aracılığıyla giden iletileri görüntüleyin ve çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin öngörüler toplayın. Hızlı başlangıç makalelerini takip ediyorsanız "--auto-cert-gen-force-no-passwords" seçeneğini eklemek isteyebilirsiniz.
+* Edge Hub’ı aracılığıyla giden iletileri görüntüleyin ve çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin öngörüler toplayın.
 
    ```cmd
    iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
+   ```
+   
+* iotedgectl komutlarından ayrıntılı günlükleri görüntüleyin:
+
+   ```cmd
+   iotedgectl --verbose DEBUG <command>
    ```
 
 * Bağlantı sorunları yaşıyorsanız cihaz bağlantısı dizeniz gibi edge cihazı ortam değişkenlerinizi inceleyin:

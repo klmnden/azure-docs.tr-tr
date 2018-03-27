@@ -1,25 +1,23 @@
 ---
-title: "Hızlı Başlangıç - PowerShell ile ilk Azure Container Instances kapsayıcınızı oluşturma"
-description: "PowerShell ile bir Windows kapsayıcı örneği oluşturarak Azure Container Instances kullanmaya başlayın."
+title: Hızlı Başlangıç - PowerShell ile ilk Azure Container Instances kapsayıcınızı oluşturma
+description: Bu hızlı başlangıçta, Azure Container Instances’da bir Windows kapsayıcısını dağıtmak için Azure PowerShell kullanacaksınız
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 6e43a525010ac57a75f6db4c43f6f1407dab93a8
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
-Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır.
-
-Bu hızlı başlangıç içeriğinde, bir Windows kapsayıcısı oluşturacak ve bu kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem tek bir komutla tamamlanır. Birkaç dakika içinde, çalışan uygulamayı tarayıcınızda görüntüleyebilirsiniz:
+Azure Container Instances, sanal makine sağlamak veya daha yüksek düzey bir hizmet benimsemek zorunda kalmadan Azure’da Docker kapsayıcıları oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıçta, Azure’da bir Windows kapsayıcısı oluşturacak ve bu kapsayıcıyı tam etki alanı adı (FQDN) ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem tek bir komutla tamamlanır. Birkaç dakika içinde, çalışan uygulamayı tarayıcınızda görüntüleyebilirsiniz:
 
 ![Azure Container Instances kullanılarak dağıtılmış uygulama tarayıcıda görüntüleniyor][qs-powershell-01]
 
@@ -27,7 +25,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.5 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -39,23 +37,28 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Bir kapsayıcı oluşturma
 
-[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet’ine bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunabilirsiniz. Bu durumda, Internet Information Services (IIS) çalıştıran bir Nano Sunucu kullanacağız.
+[New-AzureRmContainerGroup][New-AzureRmContainerGroup] cmdlet’ine bir ad, Docker görüntüsü ve bir Azure kaynak grubu sağlayarak kapsayıcı oluşturabilirsiniz. İsteğe bağlı olarak, bir DNS ad etiketi ile kapsayıcıyı internet üzerinden kullanıma sunabilirsiniz.
+
+Internet Information Services (IIS) çalıştıran bir Nano Sunucu kapsayıcısı başlatmak için aşağıdaki komutu yürütün. `-DnsNameLabel` değeri, örneği oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır, bu yüzden benzersizliği sağlamak için bu değeri değiştirmeniz gerekebilir.
 
  ```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
+New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
-Birkaç saniye içinde isteğinize yanıt alırsınız. Kapsayıcı başlangıçta **Oluşturuluyor** durumunda olacaktır ancak bir veya iki dakika içinde başlar. [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet’ini kullanarak durumu denetleyebilirsiniz:
+Birkaç saniye içinde isteğinize yanıt almanız gerekir. Kapsayıcı başlangıçta **Oluşturuluyor** durumunda olacaktır ancak bir veya iki dakika içinde başlar. [Get-AzureRmContainerGroup][Get-AzureRmContainerGroup] cmdlet’ini kullanarak dağıtım durumunu denetleyebilirsiniz:
 
  ```azurepowershell-interactive
 Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
 ```
 
-Kapsayıcının sağlama durumu ve IP adresi cmdlet çıkışında görüntülenir:
+Kapsayıcının sağlama durumu, tam etki alanı adı (FQDN) ve IP adresi, cmdlet çıkışında görüntülenir:
 
-```
+```console
+PS Azure:\> Get-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer
+
+
 ResourceGroupName        : myResourceGroup
-Id                       : /subscriptions/12345678-1234-1234-1234-12345678abcd/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
+Id                       : /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerInstance/containerGroups/mycontainer
 Name                     : mycontainer
 Type                     : Microsoft.ContainerInstance/containerGroups
 Location                 : eastus
@@ -63,14 +66,18 @@ Tags                     :
 ProvisioningState        : Creating
 Containers               : {mycontainer}
 ImageRegistryCredentials :
-RestartPolicy            :
-IpAddress                : 40.71.248.73
+RestartPolicy            : Always
+IpAddress                : 52.226.19.87
+DnsNameLabel             : aci-demo-win
+Fqdn                     : aci-demo-win.eastus.azurecontainer.io
 Ports                    : {80}
 OsType                   : Windows
 Volumes                  :
+State                    : Pending
+Events                   : {}
 ```
 
-Kapsayıcı **ProvisioningState** `Succeeded` durumuna geçtiğinde, sağlanan IP adresini kullanarak tarayıcınızdan kapsayıcıya ulaşabilirsiniz.
+**ProvisioningState** kapsayıcısı, `Succeeded` hedefine gittikten sonra tarayıcınızda `Fqdn`‘sine gidin:
 
 ![Azure Container Instances kullanılarak dağıtılmış IIS tarayıcıda görüntüleniyor][qs-powershell-01]
 

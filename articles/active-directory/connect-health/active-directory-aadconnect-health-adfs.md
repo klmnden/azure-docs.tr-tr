@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f363119ae75a1adb5a01d584de70fba0f3852dfc
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4e82b1364593ff70ed87efcaa24c135277002904
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -78,10 +78,7 @@ Azure AD Connect Health Performans İzleme, ölçümlere ilişkin izleme bilgile
 
 Dikey pencerenin üst kısmındaki Filtre seçeneğini işaretlediğinizde her bir sunucunun ölçümlerini görmek için sunucuya göre filtreleme yapabilirsiniz. Ölçümü değiştirmek için, izleme dikey penceresinin altındaki izleme grafiğine sağ tıklayıp Grafiği Düzenle’yi seçin (veya Grafiği Düzenle düğmesini seçin). Açılan yeni dikey pencerede, açılan menüden başka ölçümler seçebilir veya performans verilerini görüntülemek istediğiniz zaman aralığını belirleyebilirsiniz.
 
-## <a name="reports-for-ad-fs"></a>AD FS raporları
-Azure AD Connect Health, AD FS'nin etkinlik ve performansı hakkında raporlar sağlar. Bu raporlar, yöneticilerin AD FS sunucularındaki etkinlikler hakkında öngörü edinmelerine yardımcı olur.
-
-### <a name="top-50-users-with-failed-usernamepassword-logins"></a>Hatalı Kullanıcı Adı/Parola kullanarak oturum açamayan İlk 50 Kullanıcı
+## <a name="top-50-users-with-failed-usernamepassword-logins"></a>Hatalı Kullanıcı Adı/Parola kullanarak oturum açamayan İlk 50 Kullanıcı
 Bir AD FS sunucusunda gerçekleşen başarısız kimlik doğrulama isteğinin en yaygın nedenlerinden biri geçersiz kimlik bilgileri ile ilgili isteklerdir, yani yanlış kullanıcı adı veya şifre istekleridir. Genellikle karmaşık parolalar, unutulan parolalar veya yazım hatalar nedeniyle oluşur.
 
 Ancak, AD FS sunucularınızın beklenmeyen sayıda isteği işlemesiyle sonuçlanabilen diğer nedenlerle de mevcuttur, örneğin: Kullanıcı kimlik bilgilerini önbelleğe alan bir uygulama ve kimlik bilgilerinin süresinin dolması ya da kötü amaçlı bir kullanıcının bir dizi iyi bilinen parola ile hesapta oturum açmaya çalışması. Bu iki örnek, isteklerde ani bir artışa neden olabilecek geçerli nedenlerdir.
@@ -95,7 +92,7 @@ Bu raporda şu bilgilere kolayca erişebilirsiniz:
 * Son 30 gün içinde yanlış kullanıcı adı/parola ile başarısız olmuş isteklerin toplam sayısı
 * Her gün hatalı kullanıcı adı/parola ile oturum açarak başarısız olan kullanıcıların ortalama sayısı.
 
-Bu bölüme tıkladığınızda, ek ayrıntılı bilgi görüntüleyebileceğiniz ana rapor dikey penceresine yönlendirilirsiniz. Bu dikey pencere, yanlış kullanıcı adı veya parola ile yapılan isteklere ilişkin bir temel oluşturmaya yardımcı olan eğilim bilgileriyle birlikte grafik içerir. Ayrıca, geçen hafta boyunca en fazla başarısız girişim sayısına sahip ilk 50 kullanıcının listesini verir.
+Bu bölüme tıkladığınızda, ek ayrıntılı bilgi görüntüleyebileceğiniz ana rapor dikey penceresine yönlendirilirsiniz. Bu dikey pencere, yanlış kullanıcı adı veya parola ile yapılan isteklere ilişkin bir temel oluşturmaya yardımcı olan eğilim bilgileriyle birlikte grafik içerir. Ayrıca, geçen hafta boyunca en fazla başarısız girişim sayısına sahip ilk 50 kullanıcının listesini verir. Önceki haftanın ilk 50 kullanıcısı, hatalı parola artışlarını belirlemeye yardımcı olabilir.  
 
 Grafta şu bilgiler yer alır:
 
@@ -119,8 +116,90 @@ Raporda şu bilgiler yer alır:
 >
 >
 
-### <a name="risky-ip-report"></a>Riskli IP Raporu 
-Önizleme çok yakında.
+## <a name="risky-ip-report"></a>Riskli IP Raporu 
+AD FS müşterileri, son kullanıcıların Office 365 gibi SaaS uygulamalarına erişmelerini sağlamak için İnternet’te parola kimlik doğrulama uç noktalarını kullanıma sunabilir. Bu durumda kötü bir aktör, bir son kullanıcı parolasını tahmin etmek ve uygulama kaynaklarına erişmek amacıyla AD FS sisteminize karşı oturum açma girişimlerinde bulunabilir. AD FS, Windows Server 2012 R2'de AD FS’den itibaren bu tür saldırıları önlemek için extranet hesap kilitleme işlevselliği sağlamaktadır. Daha düşük bir sürüm kullanıyorsanız, AD FS sisteminizi Windows Server 2016’ya yükseltmeniz kesinlikle önerilir. <br />
+Ayrıca, tek bir IP adresinin birden fazla kullanıcıya karşı birden çok oturum açma girişiminde bulunması mümkündür. Böyle durumlarda kullanıcı başına deneme sayısı, AD FS’deki hesap kilitleme korumasına ilişkin eşiğin altında olabilir. Azure AD Connect Health artık bu durumu algılayıp durum gerçekleştiğinde yöneticileri bilgilendiren "Riskli IP raporu" özelliğini sağlamaktadır. Bu raporun başlıca yararları şunlardır: 
+- Parola tabanlı başarısız girişimler eşiğini aşan IP adreslerini algılama
+- Hatalı parola veya extranet kilitleme durumu nedeniyle başarısız olan oturum açma işlemlerini destekler
+- Bu durum oluşur oluşmaz özelleştirilebilir e-posta ayarlarıyla yöneticileri uyarmak üzere e-posta bildirimi gönderme
+- Bir kuruluşun güvenlik ilkesi ile eşleşen özelleştirilebilir eşik ayarları
+- Otomasyon aracılığıyla çevrimdışı analiz ve diğer sistemlerle tümleştirme için indirilebilir raporlar
+
+> [!NOTE]
+> Bu raporu kullanmak için AD FS denetiminin etkin olduğundan emin olmanız gerekir. Daha fazla bilgi için bkz. [AD FS için Denetimi Etkinleştirme](active-directory-aadconnect-health-agent-install.md#enable-auditing-for-ad-fs).
+>
+>
+
+### <a name="what-is-in-the-report"></a>Raporun içeriği
+Riskli IP raporundaki her bir öğe, belirlenmiş eşiği aşan başarısız AD FS oturum açma etkinlikleri hakkında toplu bilgiler gösterir. Şu bilgileri sağlar: ![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report4a.png)
+
+| Rapor Öğesi | Açıklama |
+| ------- | ----------- |
+| Zaman Damgası | Algılama zaman penceresi başladığında Azure portalı yerel saatini temel alan zaman damgasını gösterir.<br /> Tüm günlük olaylar UTC saat diliminde gece yarısı oluşturulur. <br />Saatlik olayların zaman damgası saat başına yuvarlanır. Birinci etkinlik başlangıç saatini dışarı aktarılan dosyadaki "firstAuditTimestamp" içinde bulabilirsiniz. |
+| Tetikleyici Türü | Algılama zaman penceresinin türünü gösterir. Toplama tetikleyici türleri saat veya gün başınadır. Bu türler, yüksek sıklıktaki bir deneme yanılma saldırısı ile deneme sayısının gün geneline dağıtıldığı yavaş bir saldırı arasında karşılaştırmalı algılamaya yardımcı olur. |
+| IP Adresi | Hatalı parola veya extranet kilitleme oturum açma etkinlikleri olan tek riskli IP adresi. Bu bir IPv4 veya IPv6 adresi olabilir. |
+| Hatalı Parola Hata Sayısı | Algılama zaman penceresi boyunca IP adresinden kaynaklanan Hatalı Parola hatalarının sayısı. Hatalı Parola hataları belirli kullanıcılar için birden çok kez gerçekleşebilir. Buna süresi dolan parolalar nedeniyle başarısız olan denemelerin dahil olmadığına dikkat edin. |
+| Extranet Kilitleme Hatası Sayısı | Algılama zaman penceresi boyunca IP adresinden kaynaklanan Extranet Kilitleme hatalarının sayısı. Extranet Kilitleme hataları belirli kullanıcılar için birden çok kez gerçekleşebilir. Bu durum yalnızca AD FS’de Extranet Kilitleme yapılandırılmışsa (sürüm 2012 R2 veya üstü) görülür. <b>Not</b> Parola kullanarak extranet oturumu açmaya izin veriyorsanız bu özelliği açmanız kesinlikle önerilir. |
+| Deneme Yapan Benzersiz Kullanıcı Sayısı | Algılama zaman penceresi boyunca IP adresinden deneme yapan benzersiz kullanıcı hesaplarının sayısı. Tek ullanıcı saldırı deseni ile çoklu kullanıcı saldırı desenini birbirinden ayırt etmeye yönelik bir mekanizma sağlar.  |
+
+Örneğin, aşağıdaki rapor öğesi 28.02.2018 tarihinde 18 ile 19 arasındaki saat penceresinde <i>104.2XX.2XX.9</i> IP adresinin parola hatası içermediğini ve 284 extranet kilitleme hatası içerdiğini gösterir. Ölçütler dahilinde 14 benzersiz kullanıcı etkilenmiştir. Etkinlik olayı, belirlenen saatlik rapor eşiğini aşmıştır. 
+
+![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report4b.png)
+
+> [!NOTE]
+> - Rapor listesinde yalnızca belirlenen eşiği aşan etkinlikler gösterilecektir. 
+> - Bu rapor en fazla 30 gün geriye kadar izlenebilir.
+> - Bu uyarı raporu, Exchange IP adreslerini veya özel IP adreslerini göstermez. Bunlar yine de dışarı aktarma listesine eklenir. 
+>
+
+
+![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report4c.png)
+
+### <a name="download-risky-ip-report"></a>Riskli IP raporu indirme
+**İndirme** işlevi kullanılarak, son 30 gün içindeki tüm riskli IP adresi listesi Connect Health Portalından dışarı aktarılabilir. Dışarı aktarma sonucu, her bir algılama zaman penceresindeki tüm başarısız AD FS oturum açma girişimlerini içerir, böylece dışarı aktarma sonrasında filtrelemeyi özelleştirebilirsiniz. Dışarı aktarma sonucunda, portalda vurgulanan toplamaların yanı sıra her bir IP adresi için başarısız oturum açma etkinliklerine ilişkin daha fazla ayrıntı gösterilmektedir:
+
+|  Rapor Öğesi  |  Açıklama  | 
+| ------- | ----------- | 
+| firstAuditTimestamp | Algılama zaman penceresi sırasında başarısız etkinlikler başlatıldığında ilk zaman damgasını gösterir.  | 
+| lastAuditTimestamp | Algılama zaman penceresi sırasında başarısız etkinlikler sonlandırıldığında son zaman damgasını gösterir.  | 
+| attemptCountThresholdIsExceeded | Geçerli etkinlikler uyarı eşiğini aşıyorsa gösterilen bayrak.  | 
+| isWhitelistedIpAddress | IP adresine uyarı ve raporlama filtresi uygulanmışsa gösterilen bayrak. Özel IP adresleri (<i>10.x.x.x, 172.x.x.x ve 192.168.x.x</i>) ile Exchange IP adresleri filtrelenir ve True olarak işaretlenir. Özel IP adresi aralıkları görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir.  | 
+
+### <a name="configure-notification-settings"></a>Bildirim Ayarlarını Yapılandırma
+Raporun yönetim kişileri **Bildirim Ayarları** üzerinden güncelleştirilebilir. Varsayılan olarak, riskli IP uyarısı e-posta bildirimi kapalı durumdadır. “Başarısız etkinlik eşiği raporunu aşan IP adresleri için e-posta bildirimleri alın” altındaki düğmeyi açarak bildirimi etkinleştirebilir. Connect Health uygulamasındaki genel uyarı bildirimi ayarları gibi bu seçenek de riskli IP raporu hakkında belirlenmiş bildirim alıcısını özelleştirmenize olanak tanır. Ayrıca, değişikliği yaparken tüm genel yöneticilere bildirebilirsiniz. 
+
+### <a name="configure-threshold-settings"></a>Eşik ayarlarını yapılandırma
+Uyarı eşiği, Eşik Ayarları üzerinden güncelleştirilebilir. Başlangıç için, sistemin varsayılan olarak ayarlanmış bir eşiği vardır. Riskli IP raporu eşik ayarları dört kategoriye ayrılır:
+
+![Azure AD Connect Health Portalı](./media/active-directory-aadconnect-health-adfs/report4d.png)
+
+| Eşik Öğesi | Açıklama |
+| --- | --- |
+| (Hatalı U/P + Extranet Kilitleme) / Gün  | Hatalı Parola sayısı ile Extranet Kilitleme sayısının **gün** başına toplamı daha fazla olduğunda etkinliği bildirme ve uyarı bildirimini tetikleme eşiği ayarı. |
+| (Hatalı U/P + Extranet Kilitleme) / Saat | Hatalı Parola sayısı ile Extranet Kilitleme sayısının **saat** başına toplamı daha fazla olduğunda etkinliği bildirme ve uyarı bildirimini tetikleme eşiği ayarı. |
+| Extranet Kilitleme / Gün | **Gün** başına Extranet Kilitleme sayısı daha fazla olduğunda etkinliği bildirme ve uyarı bildirimini tetikleme eşiği ayarı. |
+| Extranet Kilitleme / Saat| **Saat** başına Extranet Kilitleme sayısı daha fazla olduğunda etkinliği bildirme ve uyarı bildirimini tetikleme eşiği ayarı. |
+
+> [!NOTE]
+> - Rapor eşiği değişikliği, ayar değişikliğinden bir saat sonra uygulanır. 
+> - Bildirilmiş mevcut öğeler eşik değişikliğinden etkilenmez. 
+> - Ortamınızda görülen olayların sayısının çözümlemeniz ve eşiği buna uygun şekilde ayarlamanız önerilir. 
+>
+>
+
+### <a name="faq"></a>SSS
+1. Neden raporda özel IP adresi aralıkları görüyorum?  <br />
+Özel IP adresleri (<i>10.x.x.x, 172.x.x.x ve 192.168.x.x</i>) ile Exchange IP adresleri filtrelenir ve IP güvenilir listesinde True olarak işaretlenir. Özel IP adresi aralıkları görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir.
+
+2. IP adresini engellemek için ne yapmalıyım?  <br />
+Tanımlanmış kötü amaçlı IP adreslerini güvenlik duvarına eklemeniz veya Exchange’de engellemeniz gerekir.   <br />
+AD FS 2016 + 1803.C+ QFE IP adresini doğrudan AD FS’de engelleyebilirsiniz. 
+
+3. Neden bu raporda hiçbir öğe görmüyorum? <br />
+   - Başarısız oturum açma etkinlikleri eşik ayarlarını aşmıyor. 
+   - AD FS sunucu listenizde etkin bir "Sistem durumu hizmeti güncel değil" uyarısı olmadığından emin olun.  [Bu uyarıyla ilgili sorunları giderme](active-directory-aadconnect-health-data-freshness.md) hakkında daha fazla bilgi edinin.
+   - AD FS gruplarınde denetimler etkin değildir.
+
 
 ## <a name="related-links"></a>İlgili bağlantılar
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07f62775c9286250d33635febe01dbad4362df12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6898f725d1d3cbf3f8d9d90faeafc13fbc8cb201
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Şirket içi VMware sunucularını Azure’a olağanüstü durum kurtarmaya hazırlama
 
@@ -59,34 +59,16 @@ Hesabı aşağıdaki gibi oluşturun:
 3. Linux VM üzerinde yüklemek için, kaynak Linux sunucusunda bir kök hesabı hazırlayın.
 
 
-## <a name="check-vmware-server-requirements"></a>VMware sunucu gereksinimlerini denetleme
+## <a name="check-vmware-requirements"></a>VMware gereksinimlerini denetleme
 
-VMware sunucularının aşağıdaki gereksinimleri karşıladığından emin olun.
+VMware sunucularının ve sanal makinelerin gereksinimlerle uyumlu olduğundan emin olun.
 
-**Bileşen** | **Gereksinim**
---- | ---
-**vCenter sunucusu** | vCenter 6.5, 6.0 veya 5.5
-**vSphere ana bilgisayarı** | vSphere 6.5, 6.0, 5.5
+1. VMware sunucusu gereksinimlerini [doğrulayın](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers).
+2. Linux için dosya sistemini ve depolama gereksinimlerini [denetleyin](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage). 
+3. Şirket içi [ağ](vmware-physical-azure-support-matrix.md#network) ve [depolama](vmware-physical-azure-support-matrix.md#storage) desteğini denetleyin. 
+4. Yük devretmenin ardından [Azure ağ](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [depolama](vmware-physical-azure-support-matrix.md#azure-storage) ve [işlem](vmware-physical-azure-support-matrix.md#azure-compute) için nelerin desteklendiğini denetleyin.
+5. Azure’a çoğalttığınız şirket içi sanal makineleriniz, [Azure sanal makinesi gereksinimleri](vmware-physical-azure-support-matrix.md#azure-vm-requirements) ile uyumlu olmalıdır.
 
-## <a name="check-vmware-vm-requirements"></a>VMware VM gereksinimlerini denetleme
-
-VM’nin aşağıdaki tabloda belirtilen Azure gereksinimlerine uygun olduğundan emin olun.
-
-**VM Gereksinimi** | **Ayrıntılar**
---- | ---
-**İşletim sistemi disk boyutu** | 2048 GB'a kadar.
-**İşletim sistemi disk sayısı** | 1
-**Veri diski sayısı** | 64 veya daha az
-**Veri diski VHD boyutu** | 4095 GB'a kadar
-**Ağ bağdaştırıcıları** | Birden çok bağdaştırıcı desteklenir
-**Paylaşılan VHD** | Desteklenmiyor
-**FC diski** | Desteklenmiyor
-**Sabit disk biçimi** | VHD veya VHDX.<br/><br/> VHDX şu anda Azure’da desteklenmiyor olsa da, Site Recovery Azure’a yük devrettiğinizde VHDX’i otomatik olarak VHD’ye dönüştürür. Şirket içi VM’leri yeniden çalıştırdığınızda, VM’ler VHDX biçimini kullanmaya devam eder.
-**Bitlocker** | Desteklenmiyor. Bir VM için çoğaltmayı etkinleştirmeden önce devre dışı bırakın.
-**VM adı** | 1-63 karakter.<br/><br/> Harfler, sayılar ve kısa çizgilerden oluşabilir. VM adı bir harf veya sayıyla başlamalı ve bitmelidir.
-**VM türü** | 1. Nesil - Linux veya Windows<br/><br/>2. Nesil - Yalnızca Windows
-
-VM ayrıca desteklenen bir işletim sistemini çalıştırmalıdır. Desteklenen sürümlerin tam listesini görmek için bkz. [VMware ve fiziksel sunucu destek matrisi](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Yük devretmeden sonra Azure VM'lerine bağlanmak için hazırlık yapma
 

@@ -1,25 +1,25 @@
 ---
-title: "Apache Kafka'yı Kullanmaya Başlama - Azure HDInsight | Microsoft Docs"
-description: "Azure HDInsight üzerinde Apache Kafka kümesi oluşturmayı öğrenin. Konu başlığı, abonelik ve tüketici oluşturmayı öğrenin."
+title: Apache Kafka'yı Kullanmaya Başlama - Azure HDInsight | Microsoft Docs
+description: Azure HDInsight üzerinde Apache Kafka kümesi oluşturmayı öğrenin. Konu başlığı, abonelik ve tüketici oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
+ms.devlang: ''
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: e00ab06a26d60dd5beca11362df58f35812491d9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 27e6472480dac104de799ebf0e7579a7987f6c4c
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="start-with-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka'yı kullanmaya başlama
 
@@ -39,6 +39,15 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
 
     * **Küme Adı**: HDInsight kümesinin adı. Bu ad benzersiz olmalıdır.
     * **Abonelik**: Kullanılacak abonelik.
+    * **Küme Türü**: Bu girişi seçin ve sonra **Küme yapılandırması**’ndan aşağıdaki değerleri ayarlayın:
+
+        * **Küme Türü**: Kafka
+        * **Sürüm**: Kafka 0.10.0 (HDI 3.6)
+
+        **Seç** düğmesini kullanarak küme türü ayarlarını kaydedin.
+
+        ![Küme türü seçme](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
+
     * **Küme oturumu kullanıcı adı** ve **Küme oturumu parolası**: HTTPS üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Ambari Web kullanıcı arabirimi veya REST API gibi hizmetlere erişmek için bu kimlik bilgilerini kullanın.
     * **Güvenli Kabuk (SSH) kullanıcı adı**: SSH üzerinden kümeye erişirken kullanılan oturum açma bilgileri. Varsayılan olarak parola, küme oturum açma parolası ile aynıdır.
     * **Kaynak Grubu**: Kümenin oluşturulduğu kaynak grubu.
@@ -49,24 +58,15 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
    
  ![Abonelik seçme](./media/apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. **Küme türü**’nü seçin, sonra **Küme yapılandırması**’ndan aşağıdaki değerleri ayarlayın:
-   
-    * **Küme Türü**: Kafka
-    * **Sürüm**: Kafka 0.10.0 (HDI 3.6)
+3. __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
 
-    Son olarak, **Seç** düğmesini kullanarak ayarları kaydedin.
-     
- ![Küme türü seçme](./media/apache-kafka-get-started/set-hdinsight-cluster-type.png)
-
-4. Küme türünü seçtikten sonra __Seç__ düğmesini kullanarak küme türünü ayarlayın. Ardından, __İleri__ düğmesini kullanarak temel yapılandırmayı tamamlayın.
-
-5. **Depolama**’dan bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
+4. **Depolama**’dan bir depolama hesabı seçin veya oluşturun. Bu belgedeki adımlar için diğer alanları varsayılan değerlerinde bırakın. __İleri__ düğmesini kullanarak depolama yapılandırmasını kaydedin.
 
     ![HDInsight depolama hesabı ayarlarını belirleme](./media/apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. Devam etmek için __Uygulamalar (isteğe bağlı)__ bölümünden __İleri__'yi seçin. Bu örnek için uygulama gerekmez.
+5. Devam etmek için __Uygulamalar (isteğe bağlı)__ bölümünden __İleri__'yi seçin. Bu örnek için uygulama gerekmez.
 
-7. Devam etmek için __Küme boyutu__’ndan __İleri__'yi seçin.
+6. Devam etmek için __Küme boyutu__’ndan __İleri__'yi seçin.
 
     > [!WARNING]
     > HDInsight üzerinde Kafka'yı kullanabilmeniz için kümenizin en az üç çalışan düğümü içermesi gerekir. Daha fazla bilgi için [Verilerin yüksek kullanılabilirliği](#data-high-availability) bölümüne bakın.
@@ -76,9 +76,9 @@ HDInsight kümesinde Kafka oluşturmak için aşağıdaki adımları kullanın:
     > [!IMPORTANT]
     > **Çalışan düğümü başına disk sayısı** girdisi, HDInsight üzerinde Kafka'nın ölçeklenebilirliğini yapılandırır. HDInsight üzerinde Kafka, kümedeki sanal makinelerin yerel diskini kullanır. Kafka G/Ç açısından yoğun olduğundan, yüksek aktarım hızı ve düğüm başına daha fazla depolama alanı sağlamak için [Azure Yönetilen Diskler](../../virtual-machines/windows/managed-disks-overview.md) kullanılır. Yönetilen diskin türü __Standart__ (HDD) veya __Premium__ (SSD) olabilir. Premium diskler, DS ve GS serisi VM'lerle kullanılır. Diğer tüm VM türleri standart disk kullanır.
 
-8. Devam etmek için __Gelişmiş ayarlar__’dan __İleri__'yi seçin.
+7. Devam etmek için __Gelişmiş ayarlar__’dan __İleri__'yi seçin.
 
-9. **Özet**’ten kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
+8. **Özet**’ten kümenin yapılandırmasını gözden geçirin. Yanlış olan ayarları değiştirmek için __Düzenle__ bağlantılarını kullanın. Son olarak, __Oluştur__ düğmesini kullanarak kümeyi oluşturun.
    
     ![Küme yapılandırma özeti](./media/apache-kafka-get-started/hdinsight-configuration-summary.png)
    

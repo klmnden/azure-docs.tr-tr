@@ -1,43 +1,43 @@
 ---
-title: "Grafik verileri Azure Cosmos veritabanı nasıl? | Microsoft Docs"
-description: "Sorgu grafik verileri Azure Cosmos veritabanı hakkında bilgi edinin"
+title: Azure Cosmos DB’de graf verilerini sorgulama | Microsoft Docs
+description: Azure Cosmos DB’de graf verilerini sorgulamayı öğrenin
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: luisbosquez
 manager: jhubbard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: 5a635abfa9fa10cd8c8498e3c95a17af997cea3e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: eb1da11c8b27a429ffcf9ea8fb50b6c7cee26ec0
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-the-graph-api"></a>Azure Cosmos DB: grafik API'si ile nasıl?
+# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Öğretici: Gremlin kullanarak Azure Cosmos DB Graph API’yi sorgulama
 
-Azure Cosmos DB [grafik API'si](graph-introduction.md) destekleyen [Gremlin](https://github.com/tinkerpop/gremlin/wiki) sorgular. Bu makalede örnek belgelerdeki ve sorgulardaki başlamanıza yardımcı olmak için sunulmaktadır. A ayrıntılı başvuru sağlanır Gremlin [Gremlin Destek](gremlin-support.md) makalesi.
+Azure Cosmos DB [Graph API](graph-introduction.md), [Gremlin](https://github.com/tinkerpop/gremlin/wiki) sorgularını destekler. Bu makalede, başlamanıza yardımcı olmak için örnek belgeler ve sorgular sunulmaktadır. [Gremlin desteği](gremlin-support.md) makalesinde ayrıntılı bir Gremlin başvurusu sağlanmıştır.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * Gremlin verilerle sorgulama
+> * Gremlin ile verileri sorgulama
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu sorguları çalışmak bir Azure Cosmos DB hesabınız varsa ve grafik verileri kapsayıcısında sahip. Bu yok? Tamamlamak [5 dakikalık quickstart](create-graph-dotnet.md) veya [Geliştirici öğretici](tutorial-query-graph.md) bir hesap oluşturun ve veritabanınızı doldurmak için. Kullanarak aşağıdaki sorguları çalıştırabilirsiniz [Azure Cosmos DB .NET grafik Kitaplığı](graph-sdk-dotnet.md), [Gremlin konsol](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console), veya sık kullanılan Gremlin sürücünüzü.
+Bu sorguların çalışması için bir Azure Cosmos DB hesabınız ve kapsayıcıda graf verileriniz olmalıdır. Bunlardan biri yok mu? Bir hesap oluşturmak ve veritabanınızı doldurmak için [5 dakikalık hızlı başlangıç](create-graph-dotnet.md) veya [geliştirici öğreticisini](tutorial-query-graph.md) tamamlayın. [Azure Cosmos DB .NET graf kitaplığını](graph-sdk-dotnet.md), [Gremlin konsolunu](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) veya sık kullandığınız Gremlin sürücüsünü kullanarak aşağıdaki sorguları çalıştırabilirsiniz.
 
-## <a name="count-vertices-in-the-graph"></a>Grafik tepe sayısı
+## <a name="count-vertices-in-the-graph"></a>Graftaki köşeleri sayma
 
-Aşağıdaki kod parçacığında, grafik tepe sayısı gösterilmektedir:
+Aşağıdaki kod parçacığı, graftaki köşe sayısının nasıl hesaplanacağını gösterir:
 
 ```
 g.V().count()
@@ -45,7 +45,7 @@ g.V().count()
 
 ## <a name="filters"></a>Filtreler
 
-Gremlin'ın kullanarak filtreler gerçekleştirebilirsiniz `has` ve `hasLabel` adımları ve bunları birleştirmek kullanarak `and`, `or`, ve `not` daha karmaşık filtreler oluşturmak için. Azure Cosmos DB köşeleri ve derece hızlı sorgular için içindeki tüm özelliklerinin şema belirsiz dizin oluşturma sağlar:
+Gremlin’in `has` ve `hasLabel` etiketlerini kullanarak filtreler gerçekleştirebilir ve daha karmaşık filtreler derlemek için `and`, `or` ve `not` kullanarak bunları birleştirebilirsiniz. Azure Cosmos DB, hızlı sorgular için köşeleriniz ve dereceleriniz içindeki tüm özelliklerin şemadan bağımsız dizinlemesini sağlar:
 
 ```
 g.V().hasLabel('person').has('age', gt(40))
@@ -53,36 +53,36 @@ g.V().hasLabel('person').has('age', gt(40))
 
 ## <a name="projection"></a>Yansıtma
 
-Belirli özellikleri kullanarak sorgu sonuçlarındaki proje `values` . adım:
+`values` adımını kullanarak sorgu sonuçlarında belirli özellikleri yansıtabilirsiniz:
 
 ```
 g.V().hasLabel('person').values('firstName')
 ```
 
-## <a name="find-related-edges-and-vertices"></a>İlgili kenarları ve köşeleri Bul
+## <a name="find-related-edges-and-vertices"></a>İlgili kenarları ve köşeleri bulma
 
-Şu ana kadar yalnızca tüm veritabanındaki iş sorgu işleçleri gördük. İlgili kenarları ve köşeleri gitmek gerektiğinde grafikleri hızlı ve verimli çapraz geçiş işlemleri için. Şimdi tüm arkadaşların Thomas bulun. Biz Gremlin'ın kullanarak bunu `outE` tüm bulmak için adım Thomas silip Gremlin'ın kullanarak bu kenarlarından içinde-köşeleri için çapraz geçiş yapan dışarı kenarları `inV` . adım:
+Şu ana kadar yalnızca tüm veritabanlarında çalışan sorgu işleçlerini gördük. Graflar, ilgili kenarlara ve köşelere gitmeniz gerektiğinde çapraz geçiş işlemleri için hızlı ve etkilidir. Şimdi Thomas’ın tüm arkadaşlarını bulalım. Thomas’taki tüm dış kenarları bulmak için Gremlin’in `outE` adımını kullanıp sonra Gremlin’in `inV` adımını kullanarak bu kenarlardan iç köşelere çapraz geçiş yaparak bunu gerçekleştiririz:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
 ```
 
-Tüm Thomas' "arkadaş arkadaş", çağırarak bulmak için iki atlama sonraki sorgu gerçekleştirir `outE` ve `inV` iki kez. 
+Sonraki sorgu, `outE` ve `inV` öğelerini iki kez çağırarak Thomas’ın tüm “arkadaşlarının arkadaşlarını” bulmak için iki atlama gerçekleştirir. 
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Daha karmaşık sorgular derlemek ve döngü kullanarak gerçekleştirmeden, filtre ifadeleri karıştırma dahil olmak üzere Gremlin kullanan güçlü grafik geçişi mantığı uygulamanıza `loop` adım ve uygulama koşullu Gezinti kullanarak `choose` adım. İle yapabilecekleriniz hakkında daha fazla bilgi [Gremlin Destek](gremlin-support.md)!
+Gremlin kullanarak, filtre ifadelerini karıştırma, `loop` adımını kullanarak döngü gerçekleştirme ve `choose` adımını kullanarak koşullu gezinti uygulama gibi güçlü grafik çapraz geçişi mantığı uygulayabilir ve daha karmaşık sorgular derleyebilirsiniz. [Gremlin desteği](gremlin-support.md) ile neler yapabileceğiniz hakkında daha fazla bilgi edinin!
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Grafik kullanarak sorgu öğrendiniz 
+> * Graf kullanarak sorgulamayı öğrendiniz 
 
-Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
+Artık verilerinizi genel olarak nasıl dağıtacağınızı öğrenmek için sonraki öğreticiye ilerleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-sql-api.md)
+> [Verilerinizi genel olarak dağıtma](tutorial-global-distribution-sql-api.md)

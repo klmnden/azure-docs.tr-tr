@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus - Event Grid tümleştirmesi örnekleri | Microsoft Docs
-description: Service Bus mesajlaşma ve Event Grid tümleştirmesi örnekleri
+description: Bu makalede, Service Bus mesajlaşma ve Event Grid tümleştirmesi örnekleri sağlanmaktadır.
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
@@ -14,186 +14,215 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: 3819a274696762861fbe76a9684b8495f1724f6a
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: fd30a8eb5149647a24ff04e099bf5c3e187459ef
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-examples"></a>Azure Service Bus - Azure Event Grid örnekleri
+# <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure Service Bus - Azure Event Grid tümleştirmesi örnekleri
 
-Bu belgede, Event Grid’den gelen bir olayın alınmasına dayalı iletiler alan bir mantıksal uygulamanın ve Azure işlevlerinin nasıl ayarlanacağını öğreneceksiniz. Örnekte, iki aboneliği olan bir Service Bus konusu olduğu ve yalnızca bir Service Bus aboneliğine ilişkin olaylar göndermek için bir şekilde Event Grid aboneliği oluşturulduğu varsayılır. Daha sonra Service Bus konusuna iletiler gönderir, bu Service Bus aboneliği için olayın oluşturulduğunu ve işlev veya mantıksal uygulamanın o Service Bus aboneliğinden iletiler aldığını doğrular ve işlemi tamamlarsınız.
+Bu makalede, Azure Event Grid’den gelen bir olayın alınmasına dayalı iletiler alan bir Azure işlevi ve mantıksal uygulamanın nasıl ayarlanacağını öğreneceksiniz. Yapacaklarınız:
+ 
+* Hata ayıklamaya ve Event Grid’den olayların ilk akışını görüntülemeye ilişkin basit bir [test Azure işlevi](#test-function-setup) oluşturun. Diğer adımları gerçekleştirip gerçekleştirmediğinize bakmaksızın bu adımı gerçekleştirin.
+* Event Grid olaylarına dayalı olarak [Azure Service Bus iletileri almak ve işlemek için bir Azure işlevi](#receive-messages-using-azure-function) oluşturun.
+* [Azure App Service’in Logic Apps özelliğini](#receive-messages-using-azure-logic-app) kullanın.
 
-* Lütfen önce tüm [Önkoşulların](#prerequisites) mevcut olduğundan emin olun.
-* Hata ayıklamaya ve Event Grid’den olayların ilk akışını görmeye ilişkin [basit bir test Azure İşlevi](#test-function-setup) oluşturun.  **3. veya 4. adımın yürütülüp yürütülmediğine bakılmaksızın bu adım uygulanmalıdır.**
-* Event Grid olaylarını temel alarak [Service Bus iletilerini almak ve işlemek için bir Azure İşlevi](#receive-messages-using-azure-function) oluşturun.
-* [Logic Apps](#receive-messages-using-azure-logic-app)’i kullanın.
+Oluşturduğunuz örnekte, Service Bus konusunun iki aboneliğinin olduğu varsayılır. Ayrıca bu örnekte yalnızca bir Service Bus aboneliğine yönelik olaylar göndermek için Event Grid aboneliğinin oluşturulduğu da varsayılır. 
+
+Örnekte, Service Bus konusuna iletiler gönderir ve sonra bu Service Bus aboneliği için olayın oluşturulduğunu doğrularsınız. İşlev veya mantıksal uygulama, Service Bus aboneliğinden iletileri alır ve tamamlar.
 
 ## <a name="prerequisites"></a>Ön koşullar
+Başlamadan önce, sonraki iki bölümde yer alan adımları tamamladığınızdan emin olun.
 
-### <a name="service-bus-namespace"></a>Service Bus Ad Alanı
+### <a name="create-a-service-bus-namespace"></a>Service Bus ad alanı oluşturma
 
-Bir Service Bus Premium Ad Alanı oluşturun. İki aboneliği olan bir Service Bus Konusu oluşturun.
+Bir Service Bus Premium ad alanı oluşturun ve iki abonelik içeren bir Service Bus konusu oluşturun.
 
-### <a name="code-to-send-message-to-the-service-bus-topic"></a>Service Bus konusuna İleti Göndermek için kod
+### <a name="send-a-message-to-the-service-bus-topic"></a>Service Bus konusuna ileti gönderme
 
-Service Bus konusuna ileti göndermek için herhangi bir yöntemi kullanabilirsiniz. Alternatif olarak aşağıdaki örneği kullanabilirsiniz. Örnek kod, Visual Studio 2017 kullandığınızı varsayar.
+Service Bus konunuza ileti göndermek için herhangi bir yöntemi kullanabilirsiniz. Bu yordamın sonundaki örnek kod, Visual Studio 2017 kullandığınızı varsayar.
 
-[Bu GitHub deposunu](https://github.com/Azure/azure-service-bus/) kopyalayın.
+1. [GitHub azure-service-bus deposunu](https://github.com/Azure/azure-service-bus/) kopyalayın.
 
-Şu klasöre gidin:
+2. Visual Studio’da *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* klasörüne gidin ve *SBEventGridIntegration.sln* dosyasını açın.
 
-\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration ve şu dosyayı açın: SBEventGridIntegration.sln.
+3. **MessageSender** projesine gidin ve **Program.cs** öğesini seçin.
 
-Ardından MessageSender projesine gidin ve Program.cs’yi açın.
+   ![8][]
 
-![8][]
+4. Konu adınızı ve bağlantı dizenizi doldurup aşağıdaki konsol uygulama kodunu yürütün:
 
-Konu adınızı ve bağlantı dizenizi doldurup konsol uygulamasını yürütün:
+    ```CSharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    const string TopicName = "YOUR TOPIC NAME";
+    ```
 
-```CSharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-const string TopicName = "YOUR TOPIC NAME";
-```
+## <a name="set-up-a-test-function"></a>Bir test işlevi ayarlama
 
-## <a name="test-function-setup"></a>Test işlevi kurulumu
+Senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayların akışa alındığını görmek için kullanabileceğiniz en az bir küçük test işlevi ayarlayın.
 
-Uçtan uca senaryonun tamamı üzerinde çalışmadan önce, hata ayıklamak ve hangi olayların akışa alındığını görmek için kullanabileceğiniz en az bir küçük test işlevine sahip olmak istersiniz.
+1. Azure portalında yeni bir Azure İşlevleri uygulaması oluşturun. Azure İşlevlerinin temel bilgilerini öğrenmek için [Azure İşlevleri belgelerine](https://docs.microsoft.com/en-us/azure/azure-functions/) bakın.
 
-Portalda yeni bir Azure İşlevi Uygulaması oluşturun. Azure İşlevleri’nin temel bilgilerini öğrenmek için şu [bağlantıyı](https://docs.microsoft.com/en-us/azure/azure-functions/) izleyin.
+2. Yeni oluşturduğunuz işlevde artı işaretini (+) seçerek bir HTTP tetikleyici işlevi ekleyin:
 
-Yeni oluşturduğunuz işlevde bir http tetikleyici işlevi eklemek için küçük artı işaretine tıklayın:
+    ![2][]
+    
+    **Önceden hazırlanmış bir işlev ile hızlıca çalışmaya başlayın** penceresi açılır.
 
-![2][]
+    ![3][]
 
-![3][]
+3. Sırayla **Web Kancası + API** düğmesini, **CSharp** öğesini seçin ve **Bu işlevi oluştur** seçeneğini belirleyin.
+ 
+4. Aşağıdaki kodu işleve yapıştırın:
 
-Ardından işleve şu kodu kopyalayın:
+    ```CSharp
+    #r "Newtonsoft.Json"
+    using System.Net;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info("C# HTTP trigger function processed a request.");
+        // parse query parameter
+        var content = req.Content;
+    
+        string jsonContent = await content.ReadAsStringAsync(); 
+        log.Info($"Received Event with payload: {jsonContent}");
+    
+    IEnumerable<string> headerValues;
+    if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
+    {
+    var validationHeaderValue = headerValues.FirstOrDefault();
+    if(validationHeaderValue == "SubscriptionValidation")
+    {
+    var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
+         var code = events[0].Data["validationCode"];
+         return req.CreateResponse(HttpStatusCode.OK,
+         new { validationResponse = code });
+    }
+    }
+    
+        return jsonContent == null
+        ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
+        : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
+    }
+    
+    public class GridEvent
+    {
+        public string Id { get; set; }
+        public string EventType { get; set; }
+        public string Subject { get; set; }
+        public DateTime EventTime { get; set; }
+        public Dictionary<string, string> Data { get; set; }
+        public string Topic { get; set; }
+    }
+    ```
 
-```CSharp
-#r "Newtonsoft.Json"
-using System.Net;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+5. **Kaydet ve çalıştır**’ı seçin.
 
-public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-{
-    log.Info("C# HTTP trigger function processed a request.");
-    // parse query parameter
-    var content = req.Content;
+## <a name="connect-the-function-and-namespace-via-event-grid"></a>Event Grid aracılığıyla işlev ve ad alanını bağlama
 
-    string jsonContent = await content.ReadAsStringAsync(); 
-    log.Info($"Received Event with payload: {jsonContent}");
+Bu bölümde, işlevi ve Service Bus ad alanını birbirine bağlarsınız. Bu örnek için Azure portalını kullanın. Bu yordamı gerçekleştirmek için PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için bkz. [Azure Service Bus - Azure Event Grid tümleştirmesine genel bakış](service-bus-to-event-grid-integration-concept.md).
 
-IEnumerable<string> headerValues;
-if (req.Headers.TryGetValues("Aeg-Event-Type", out headerValues))
-{
-var validationHeaderValue = headerValues.FirstOrDefault();
-if(validationHeaderValue == "SubscriptionValidation")
-{
-var events = JsonConvert.DeserializeObject<GridEvent[]>(jsonContent);
-     var code = events[0].Data["validationCode"];
-     return req.CreateResponse(HttpStatusCode.OK,
-     new { validationResponse = code });
-}
-}
+Azure Event Grid aboneliği oluşturmak için aşağıdakileri yapın:
+1. Azure portalında ad alanınıza gidin ve ardından sol bölmede **Event Grid**’i seçin.  
+    Ad alanı pencereniz açılır ve sağ bölmede iki Event Grid aboneliği görüntülenir.
 
-    return jsonContent == null
-    ? req.CreateResponse(HttpStatusCode.BadRequest, "Pass a name on the query string or in the request body")
-    : req.CreateResponse(HttpStatusCode.OK, "Hello " + jsonContent);
-}
+    ![20][]
 
-public class GridEvent
-{
-    public string Id { get; set; }
-    public string EventType { get; set; }
-    public string Subject { get; set; }
-    public DateTime EventTime { get; set; }
-    public Dictionary<string, string> Data { get; set; }
-    public string Topic { get; set; }
-}
-```
+2. **Olay Aboneliği**’ni seçin.  
+    **Olay Aboneliği** penceresi açılır. Aşağıdaki resimde, filtreler uygulamadan bir Azure işlevine veya web kancasına abone olmanın bir formu görüntülenir.
 
-Kaydet ve çalıştır’a tıklayın.
+    ![21][]
 
-## <a name="connect-function-and-namespace-via-event-grid"></a>Event Grid Aracılığıyla İşlev ve Ad Alanını Bağlama
+3. Gösterildiği gibi formu doldurun ve **Sonek Filtresi** kutusuna ilgili filtreyi girmeyi unutmayın.
 
-Bir sonraki adım, işlevi ve Service Bus ad alanını birbirine bağlamaktır. Bu örnek için Azure portalını kullanın. Aynı şeyi elde etmek amacıyla PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için [kavramlar](service-bus-to-event-grid-integration-concept.md) sayfasına bakın.
+4. **Oluştur**’u seçin.
 
-Yeni bir Azure Event Grid aboneliği oluşturmak için, Azure portalındaki ad alanınıza gidin ve Event Grid kamasını seçin. “+ Olay Aboneliği”ne tıklayın.
+5. "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin ve Azure İşlevleri İzleme özelliği aracılığıyla olayların akışa alındığını doğrulayın.
 
-Ekran görüntüsünün ardından, önceden birkaç Event Grid aboneliği olan bir ad alanı gösterilir.
-
-![20][]
-
-Ekran görüntüsünün ardından, belirli bir filtreleme olmadan bir Azure İşlevine veya Web Kancasına nasıl abone olunacağı gösterilir. Service Bus aboneliğiniz için "Sonek Filtresi" olarak ilgili filtreyi eklemeyi unutmayın:
-
-![21][]
-
-Önkoşullarda belirtildiği gibi Service Bus konunuza bir ileti gönderin ve Azure İşlevinin İzleme özelliği aracılığıyla olayların akışa alındığını doğrulayın.
+Bir sonraki adım, işlevi ve Service Bus ad alanını birbirine bağlamaktır. Bu örnek için Azure portalını kullanın. Bu adımı gerçekleştirmek için PowerShell veya Azure CLI’nın nasıl kullanılacağını anlamak için bkz. [Azure Service Bus - Azure Event Grid tümleştirmesine genel bakış](service-bus-to-event-grid-integration-concept.md).
 
 ![9][]
 
-### <a name="receive-messages-using-azure-function"></a>Azure İşlevini kullanarak ileti alma
+### <a name="receive-messages-by-using-azure-functions"></a>Azure İşlevleri’ni kullanarak ileti alma
 
-Önceki bölümde, basit bir test ve hata ayıklama senaryosuna baktınız ve olayların akışa alındığından emin oldunuz. Bu bölümdeyse, bir olay aldıktan sonra iletileri nasıl alacağınıza ve işleyeceğinize bakacaksınız.
+Önceki bölümde, basit bir test ve hata ayıklama senaryosuna baktınız ve olayların akışa alındığından emin oldunuz. 
 
-Aşağıdaki şekilde bir Azure İşlevi eklenmesinin nedeni, Azure İşlevleri içindeki Service Bus İşlevlerinin henüz yerel olarak yeni Event Grid tümleştirmesini desteklemiyor oluşudur.
+Bu bölümde, bir olay aldıktan sonra nasıl ileti alınacağını ve işleneceğini öğreneceksiniz.
 
-Önkoşullarda açtığınız Visual Studio Çözümünde ReceiveMessagesOnEvent.cs öğesini seçin. Koda bağlantı dizenizi girin:
+Azure İşlevleri içindeki Service Bus işlevleri henüz yeni Event Grid tümleştirmesini yerel ortamda desteklemediğinden aşağıdaki örnekte gösterildiği gibi bir Azure işlevi eklersiniz.
 
-![10][]
+1. Önkoşullarda açtığınız Visual Studio Çözümünde **ReceiveMessagesOnEvent.cs** öğesini seçin. 
 
-```Csharp
-const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
-```
+    ![10][]
 
-Ardından Azure portalına gidin ve daha önce [2. Test işlevi kurulumu](#2-test-function-setup) bölümünde oluşturduğunuz Azure İşlevi için yayımlama profilini indirin.
+2. Aşağıdaki koda bağlantı dizenizi girin:
 
-![11][]
+    ```Csharp
+    const string ServiceBusConnectionString = "YOUR CONNECTION STRING";
+    ```
 
-Daha sonra Visual Studio'da SBEventGridIntegration öğesine sağ tıklayın ve Yayımla’yı seçin. Daha önceden indirdiğiniz yayımlama profilini kullanın, içeri aktarma profilini seçin ve Yayımla'ya tıklayın.
+3. Azure portalında, "Test işlevi ayarlama" bölümünde oluşturduğunuz Azure işlevi için yayımlama profilini indirin.
 
-![12][]
+    ![11][]
 
-Yeni Azure işlevini yayımladıktan sonra yeni Azure İşlevini işaret eden yeni bir Azure Event Grid Aboneliği oluşturun. Doğru “İle biter” filtresini uyguladığınızdan emin olun. Bu filtre, Service Bus Aboneliği Adınız olmalıdır.
+4. Visual Studio’da **SBEventGridIntegration** öğesine sağ tıklayın ve **Yayımla**’yı seçin. 
 
-Ardından, daha önce oluşturduğunuz Azure Service Bus konusuna bir ileti gönderin ve portaldaki Azure İşlevi günlüğünde, olayların akışa alınıp alınmadığını ve iletilerin alınıp alınmadığını inceleyin.
+5. Önceden indirdiğiniz yayımlama profilinin **Yayımla** bölmesinde **Profili içeri aktar**’ı ve sonra **Yayımla**’yı seçin.
 
-![12-1][]
+    ![12][]
 
-### <a name="receive-messages-using-azure-logic-app"></a>Azure Logic App kullanarak ileti alma
+6. Yeni Azure işlevini yayımladıktan sonra, yeni Azure işlevini işaret eden yeni bir Azure Event Grid aboneliği oluşturun.  
+    **İle biter** kutusunda, doğru filtreyi uyguladığınızdan emin olun. Bu, Service Bus abonelik adınız olmalıdır.
 
-Aşağıdaki yönergeler, Azure Service Bus ve Azure Event Grid ile birlikte bir Azure Logic App’e nasıl bağlanacağınızı göstermektedir:
+7. Daha önce oluşturduğunuz Azure Service Bus konusuna bir ileti gönderin ve olayların akışa alındığından ve iletilerin alındığından emin olmak için Azure portalında Azure İşlevleri günlüğünü izleyin.
 
-İlk olarak, Azure portalında yeni bir Mantıksal Uygulama oluşturun ve başlangıç eylemi olarak Event Grid’i seçin.
+    ![12-1][]
 
-![13][]
+### <a name="receive-messages-by-using-logic-apps"></a>Logic Apps’i kullanarak ileti alma
 
-Logic Apps tasarımcısında başlangıç görünümü aşağıdaki Ekran Görüntüsüne benzer şekilde görünmelidir. Ancak “Kaynak Adı”nı kendi ad alanı adınızla değiştirmeniz gerekir. Ayrıca gelişmiş seçenekleri genişlettiğinizden ve aboneliğiniz için sonek filtresini eklediğinizden de emin olun:
+Aşağıdakileri yaparak Azure Service Bus ve Azure Event Grid ile bir mantıksal uygulamayı bağlayın:
 
-![14][]
+1. Azure portalında yeni bir mantıksal uygulama oluşturun ve başlangıç eylemi olarak **Event Grid**’i seçin.
 
-Ardından bir konu aboneliğinden alınacak bir hizmet veri yolu Alma eylemi ekleyin. Son eylem şu Ekran Görüntüsüne benzer şekilde görünmelidir.
+    ![13][]
 
-![15][]
+    Logic Apps tasarımcı penceresi açılır.
 
-Ardından bir tamamlanma olayı ekleyin. Olay aşağıdaki gibi görünmelidir.
+    ![14][]
 
-![16][]
+2. Aşağıdakileri yaparak bilgilerinizi ekleyin:
 
-Mantıksal uygulamayı kaydedin ve önkoşullarda belirtildiği gibi Service Bus konunuza bir ileti gönderin. Ardından Mantıksal uygulamaların yürütülmesini gözlemleyin. "Genel Bakış" seçeneğine ve sonra da "Çalıştırma geçmişi"ne tıklarsanız yürütme ile ilgili daha fazla veri de alabilirsiniz.
+    a. **Kaynak Adı** kutusuna kendi ad alanı adınızı girin. 
 
-![17][]
+    b. **Gelişmiş seçenekler** bölümünde **Sonek Filtresi** kutusuna aboneliğiniz için filtre girin.
 
-![18][]
+3. Bir konu aboneliğinden iletiler almak için Service Bus alma eylemi ekleyin.  
+    Aşağıdaki resimde son eylem gösterilmektedir:
+
+    ![15][]
+
+4. Aşağıdaki resimde gösterildiği gibi tam bir olay ekleyin:
+
+    ![16][]
+
+5. Mantıksal uygulamayı kaydedin ve "Önkoşullar" bölümünde belirtildiği gibi Service Bus konunuza bir ileti gönderin.  
+    Mantıksal uygulamanın yürütülmesini gözlemleyin. Yürütmeye ilişkin daha fazla veri görüntülemek için **Genel Bakış**’ı seçin ve **Çalıştırma geçmişi** bölümünde verileri görüntüleyin.
+
+    ![17][]
+
+    ![18][]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) hakkında daha fazla bilgi edinin.
 * [Azure İşlevleri](https://docs.microsoft.com/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) hakkında daha fazla bilgi edinin.
+* [Azure App Service’in Logic Apps özelliği](https://docs.microsoft.com/azure/logic-apps/) hakkında daha fazla bilgi edinin.
 * [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/) hakkında daha fazla bilgi edinin.
+
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png
 [3]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid3.png

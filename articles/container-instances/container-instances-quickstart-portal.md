@@ -1,21 +1,21 @@
 ---
-title: "Hızlı Başlangıç - Azure portalı ile ilk Azure Container Instances kapsayıcınızı oluşturma"
-description: "Azure Container Instances’ı dağıtma ve kullanmaya başlama"
+title: Hızlı Başlangıç - Azure portalı ile ilk Azure Container Instances kapsayıcınızı oluşturma
+description: Bu hızlı başlangıçta, Azure Container Instances’da bir kapsayıcı dağıtmak için Azure portalını kullanacaksınız
 services: container-instances
 author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 01/02/2018
+ms.date: 03/19/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 63f22544276da07ec98e779cc524879603655db6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18238c94ba9acff15497a666a63b65b95779d4ac
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="create-your-first-container-in-azure-container-instances"></a>Azure Container Instances’da ilk kapsayıcınızı oluşturma
+# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Hızlı başlangıç: Azure Container Instances’da ilk kapsayıcınızı oluşturma
 
 Azure Container Instances, Azure’da kapsayıcı oluşturmayı ve yönetmeyi kolaylaştırır. Bu hızlı başlangıç içeriğinde, bir kapsayıcı oluşturacak ve bu kapsayıcıyı genel IP adresi ile İnternet üzerinden kullanıma sunacaksınız. Bu işlem Azure portal kullanarak tamamlanır. Yalnızca birkaç tıklama ile tarayıcınızda şunu görürsünüz:
 
@@ -23,7 +23,7 @@ Azure Container Instances, Azure’da kapsayıcı oluşturmayı ve yönetmeyi ko
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-container-instance"></a>Kapsayıcı örneği oluşturma
 

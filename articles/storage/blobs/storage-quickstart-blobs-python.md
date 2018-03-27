@@ -1,19 +1,19 @@
 ---
-title: "Azure Hızlı Başlangıç - Python kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
-description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Python için depolama istemcisi kitaplığını kullanırsınız."
+title: Azure Hızlı Başlangıç - Python kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs
+description: Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Python için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: a82ec92449730a784e7cd36d7f364a9a4516c15f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: d4c489bc41a9c04b15e2ee28b944edc1f15ef81c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-python"></a>Hızlı Başlangıç: Python kullanarak blobları yükleme, indirme ve listeleme
 
@@ -23,7 +23,7 @@ Bu hızlı başlangıçta, Azure Blob depolamadaki bir kapsayıcıda blok blobla
 
 Bu hızlı başlangıcı tamamlamak için: 
 * [Python](https://www.python.org/downloads/)’ı yükleyin
-* [Python için Azure Depolama SDK](storage-python-how-to-use-blob-storage.md#download-and-install-azure-storage-sdk-for-python)’yı indirin ve yükleyin. 
+* [Python için Azure Depolama SDK](storage-python-how-to-use-blob-storage.md)’yı indirin ve yükleyin. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -160,6 +160,18 @@ block_blob_service.delete_container(container_name)
 os.remove(full_path_to_file)
 os.remove(full_path_to_file2)
 ```
+## <a name="resources-for-developing-python-applications-with-blobs"></a>Bloblarla Python uygulamaları geliştirme kaynakları
+
+Blob depolama ile Python geliştirmeye yönelik şu ek kaynaklara bakın:
+
+### <a name="binaries-and-source-code"></a>İkili dosyalar ve kaynak kodu
+
+- GitHub’da Azure Depolama için [Python istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-python) görüntüleyin, indirin ve yükleyin.
+
+### <a name="client-library-reference-and-samples"></a>İstemci kitaplığı başvurusu ve örnekleri
+
+- Python istemci kitaplığı hakkında daha fazla bilgi için bkz. [Python API başvurusu](https://docs.microsoft.com/python/api/overview/azure/storage).
+- Python istemci kitaplığı kullanılarak yazılmış [Blob depolama örneklerini](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=python&term=blob) araştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
  
@@ -168,5 +180,4 @@ Bu hızlı başlangıçta, dosyaları Python kullanarak yerel bir disk ve Azure 
 > [!div class="nextstepaction"]
 > [Blob Depolama İşlemleri Nasıl Yapılır](./storage-python-how-to-use-blob-storage.md)
  
-
 Depolama Gezgini ve Bloblar hakkında daha fazla bilgi için bkz. [Azure Blob depolama kaynaklarını Depolama Gezgini'yle yönetme](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).

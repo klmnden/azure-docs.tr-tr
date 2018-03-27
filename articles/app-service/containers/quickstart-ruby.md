@@ -1,12 +1,12 @@
 ---
-title: "Ruby Uygulaması oluşturma ve Linux’ta App Service’e dağıtma | Microsoft Docs"
-description: "Linux’ta App Service ile Ruby uygulamaları oluşturmayı öğrenin."
+title: Ruby Uygulaması oluşturma ve Linux’ta App Service’e dağıtma | Microsoft Docs
+description: Linux’ta App Service ile Ruby uygulamaları oluşturmayı öğrenin.
 keywords: azure app service, linux, oss, ruby
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: SyntaxC4
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.service: app-service
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: db3086724c22e485e2a9a69c36a990fc5b8016a9
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux’ta App Service’te Ruby Uygulaması oluşturma
 
@@ -88,37 +88,23 @@ Uygulamanız artık yapılandırılmıştır. Kök giriş sayfasını doğrulama
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-## <a name="create-a-ruby-web-app-on-azure"></a>Azure’da Ruby web uygulaması oluşturma
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
-Web uygulamanız için gerekli varlıkları içeren bir kaynak grubu gerekir. Kaynak grubu oluşturmak için [`az group create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanın.
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-```azurecli-interactive
-az group create --location westeurope --name myResourceGroup
-```
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutunu kullanarak web uygulamanız için bir uygulama hizmeti planı oluşturun.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-ruby-linux-no-h.md)] 
 
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
-```
-
-Sonra, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu uygulayarak yeni oluşturulan hizmet planını kullanan web uygulamasını oluşturun. Çalışma zamanının `ruby|2.3` olarak ayarlandığına dikkat edin. `<app name>` değerini benzersiz bir uygulama adıyla değiştirmeyi unutmayın.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> \
---runtime "ruby|2.3" --deployment-local-git
-```
-
-Komut çıktısı, yeni oluşturulan web uygulamasıyla ilgili bilgilerin yanı sıra dağıtım URL’sini gösterir. Aşağıda yer alan örnekteki gibi görünmelidir. Bu öğreticide daha sonra kullanmak üzere URL’yi kopyalayın.
+Yerleşik görüntü ile yeni oluşturduğunuz web uygulamasını görmek için siteye göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
 
 ```bash
-https://<deployment user name>@<app name>.scm.azurewebsites.net/<app name>.git
+http://<app_name>.azurewebsites.net
 ```
 
-Web uygulaması oluşturulduğunda bir **Genel Bakış** sayfası görüntülenebilir. Bu sayfaya gidin. Aşağıdaki karşılama sayfası görüntülenir:
+Yeni web uygulamanız aşağıdaki gibi görünmelidir:
 
 ![Karşılama sayfası](./media/quickstart-ruby/splash-page.png)
-
 
 ## <a name="deploy-your-application"></a>Uygulamanızı dağıtma
 

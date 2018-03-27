@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması| Microsoft Docs"
-description: "Web uygulamalarını barındırmak için Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services’dan hangisini seçeceğinizi öğrenin."
+title: Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması| Microsoft Docs
+description: Web uygulamalarını barındırmak için Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services’dan hangisini seçeceğinizi öğrenin.
 services: app-service\web, virtual-machines, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: erikre
 editor: jimbe
@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 627782d3d6dd9f2eeff1b79e9cf721f9a4eb4ac2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
@@ -49,7 +49,7 @@ Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Servi
 | Web sitesini veya çok katmanlı mimarinin Web hizmetleri katmanını barındırma |X |X |X |X | |
 | Çok katmanlı mimarinin orta katmanını barındırma |X |X |X |X |App Service Web uygulamaları kolayca REST API orta katmanını, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) özelliği de arka planda işlenen işleri barındırabilir. Katmana yönelik olarak bağımsız ölçeklenebilirlik elde etmek için WebJobs’ı ayrılmış bir Web sitesinde çalıştırabilirsiniz. |
 | Tümleşik Hizmet Olarak MySQL desteği |X |X | | | |
-| ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric, [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) kullanarak bir Web ön ucu oluşturmayı destekler veya her türden uygulamayı (Node.js, Java vb.) [konuk yürütülebilir dosyası](../service-fabric/service-fabric-deploy-existing-app.md) olarak dağıtabilirsiniz. |
+| ASP.NET, klasik ASP, Node.js, PHP, Python desteği |X |X |X |X |Service Fabric, [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) kullanarak bir Web ön ucu oluşturmayı destekler veya her türden uygulamayı (Node.js, Java vb.) [konuk yürütülebilir dosyası](../service-fabric/service-fabric-guest-executables-introduction.md) olarak dağıtabilirsiniz. |
 | Yeniden dağıtmadan ölçeği birden fazla örneğe genişletme |X |X |X |X |Sanal Makineler, ölçeği birden fazla örneğe genişletebilir ancak bunlar üzerinde çalışan hizmetler, bu ölçek genişletmeyi kullanabilecek şekilde yazılmış olmalıdır. İstekleri makinelere yönlendirmek için bir yük dengeleyici yapılandırmanız ve bakım ya da donanım hataları nedeniyle tüm örneklerin aynı anda yeniden başlatılmalarına engel olmak için de Benzeşim Grubu oluşturmanız gerekir. |
 | SSL desteği |X |X |X |X |App Service Web uygulamalarında özel etki alanı adlarına yönelik SSL yalnızca Temel ve Standart modlarında desteklenir. Web uygulamalarında SSL kullanma hakkında bilgi için bkz. [Azure Web sitesi için SSL sertifikası yapılandırma](app-service-web-tutorial-custom-ssl.md). |
 | Visual Studio ile tümleştirme |X |X |X |X | |
@@ -59,7 +59,7 @@ Aşağıdaki tabloda, en iyi seçimi yapmanıza yardımcı olmak için App Servi
 | [Azure Traffic Manager](/azure/traffic-manager/) desteği |X |X |X |X | |
 | Tümleşik Uç Nokta İzleme |X |X |X | | |
 | Sunuculara uzak masaüstü erişimi | |X |X |X | |
-| Herhangi bir özel MSI’yi yükleme | |X |X |X |Service Fabric, tüm yürütülebilir dosyaları [konuk yürütülebilir dosyası](../service-fabric/service-fabric-deploy-existing-app.md) olarak barındırmanıza olanak tanır veya istediğiniz uygulamayı Vm'lere yükleyebilirsiniz. |
+| Herhangi bir özel MSI’yi yükleme | |X |X |X |Service Fabric, tüm yürütülebilir dosyaları [konuk yürütülebilir dosyası](../service-fabric/service-fabric-guest-executables-introduction.md) olarak barındırmanıza olanak tanır veya istediğiniz uygulamayı Vm'lere yükleyebilirsiniz. |
 | Başlangıç görevleri tanımlama/yürütme yeteneği | |X |X |X | |
 | ETW olayları dinlenebilir | |X |X |X | |
 

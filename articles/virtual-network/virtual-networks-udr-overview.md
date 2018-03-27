@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal ağ trafiğini yönlendirme | Microsoft Docs"
-description: "Azure’ın sanal ağ trafiğini nasıl yönlendirdiğini ve bu yönlendirmeyi nasıl özelleştirebileceğinizi öğrenin."
+title: Azure sanal ağ trafiğini yönlendirme | Microsoft Docs
+description: Azure’ın sanal ağ trafiğini nasıl yönlendirdiğini ve bu yönlendirmeyi nasıl özelleştirebileceğinizi öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 4f4c4e9749eb5f0f6ba1950521f459f140cb5221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.custom: ''
+ms.openlocfilehash: 9afaa7d34665f5c8ef4c4c819fe3b7e995bd71d3
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -40,8 +40,8 @@ Her yol, bir adres ön eki ve sonraki atlama türünü içerir. Alt ağdan ayrı
 |Varsayılan|0.0.0.0/0                                               |Internet       |
 |Varsayılan|10.0.0.0/8                                              |Yok           |
 |Varsayılan|172.16.0.0/12                                           |None           |
-|Varsayılan|192.168.0.0/16                                          |Yok           |
-|Varsayılan|100.64.0.0/10                                           |Yok           |
+|Varsayılan|192.168.0.0/16                                          |None           |
+|Varsayılan|100.64.0.0/10                                           |None           |
 
 Önceki tabloda listelenen sonraki atlama türleri, Azure’ın listelenen adres ön ekine yönelik giden trafiği nasıl yönlendirdiğini göstermektedir. Sonraki atlama türlerinin açıklamaları:
 
@@ -132,6 +132,9 @@ Birden fazla yol aynı adres ön ekini içeriyorsa, Azure aşağıdaki öncelik 
 1. Kullanıcı tanımlı yol
 2. BGP yolu
 3. Sistem yolu
+
+> [!NOTE]
+> BGP rotaları daha belirli olsa bile, sanal ağ, sanal ağ eşlemesi veya sanal ağ hizmet uç noktaları ile ilgili trafik için sistem rotaları, tercih edilen rotalardır.
 
 Örneğin, bir yol tablosu aşağıdaki yolları içerir:
 
@@ -241,10 +244,10 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 |Varsayılan |Etkin |10.2.0.0/16         |VNet eşlemesi              |                   |
 |Varsayılan |Etkin |10.10.0.0/16        |Sanal ağ geçidi   |[X.X.X.X]          |
 |Varsayılan |Etkin |0.0.0.0/0           |Internet                  |                   |
-|Varsayılan |Etkin |10.0.0.0/8          |None                      |                   |
+|Varsayılan |Etkin |10.0.0.0/8          |Yok                      |                   |
 |Varsayılan |Etkin |100.64.0.0/10       |Yok                      |                   |
 |Varsayılan |Etkin |172.16.0.0/12       |None                      |                   |
-|Varsayılan |Etkin |192.168.0.0/16      |Yok                      |                   |
+|Varsayılan |Etkin |192.168.0.0/16      |None                      |                   |
 
 *Subnet2* yol tablosu Azure tarafından oluşturulan tüm varsayılan yolları ve isteğe bağlı VNet eşlemesi ile Sanal ağ geçidi isteğe bağlı yollarını içerir. Sanal ağa ağ geçidi ve eşleme eklendiğinde Azure, sanal ağ içindeki tüm alt ağlara isteğe bağlı yollar eklemiştir. 0.0.0.0/0 adres ön eki için kullanıcı tanımlı yol *Subnet1*’e eklendiğinde Azure, 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 ve 100.64.0.0/10 adres ön eklerine ait yolları *Subnet1* yol tablosundan kaldırmıştır.  
 
