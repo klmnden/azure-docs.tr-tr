@@ -1,12 +1,12 @@
 ---
-title: "Azure'da .NET Service Fabric uygulaması oluşturma | Microsoft Docs"
-description: "Bu hızlı başlangıçta, Service Fabric güvenilir hizmetler örnek uygulaması kullanarak Azure için .NET uygulaması oluşturursunuz."
+title: Azure'da .NET Service Fabric uygulaması oluşturma | Microsoft Docs
+description: Bu hızlı başlangıçta, Service Fabric güvenilir hizmetler örnek uygulaması kullanarak Azure için .NET uygulaması oluşturursunuz.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 01/25/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5187aadf686a49f6d78fc4f5c2b2c42487e56c13
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c81baec0c047b551e1bdac2152b330f010baa18
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Hızlı Başlangıç: Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -125,15 +125,19 @@ Uygulamayı Azure'a dağıtmak için, uygulamayı çalıştıran bir Service Fab
 ### <a name="join-a-party-cluster"></a>Grup kümesine katılma
 Grup kümeleri, Azure üzerinde barındırılan ve Service Fabric ekibi tarafından sunulan ücretsiz, sınırlı süreli Service Fabric kümeleridir. Bu kümelerde herkes uygulama dağıtabilir ve platform hakkında bilgi edinebilir. Küme, düğümden düğüme ve istemciden düğüme güvenlik için tek bir otomatik olarak imzalanan sertifika kullanır. 
 
-Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. Sonraki adımlarda sertifika ve **Bağlantı uç noktası** değeri kullanılır.
+Oturum açın ve [bir Windows kümesine katılın](http://aka.ms/tryservicefabric). **PFX** bağlantısına tıklayarak PFX sertifikasını bilgisayarınıza indirin. **Güvenli Grup kümesine bağlanma** bağlantısına tıklayın ve sertifika parolasını kopyalayın. Aşağıdaki adımlarda sertifika, sertifika parolası ve **Bağlantı uç noktası** değeri kullanılır.
 
 ![PFX ve bağlantı uç noktası](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 
-Bir Windows makinede PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
+> [!Note]
+> Saat başına sınırlı sayıda Grup kümesi vardır. Bir Grup kümesine kaydolmaya çalıştığınızda hata alırsanız bir süre bekleyebilir ve tekrar deneyebilirsiniz veya [.NET uygulaması dağıtma](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster#deploy-the-sample-application) öğreticisindeki adımları izleyerek Azure aboneliğinizde bir Service Fabric kümesi oluşturabilir ve bu kümede uygulamayı dağıtabilirsiniz. Mevcut bir Azure aboneliğiniz yoksa [ücretsiz hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturabilirsiniz. Kümenizde uygulamayı dağıtıp doğruladıktan sonra, bu hızlı başlangıçtaki [Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme](#scale-applications-and-services-in-a-cluster) kısmına atlayabilirsiniz.
+>
+
+
+Windows makinenizde PFX’i *CurrentUser\My* sertifika deposuna yükleyin.
 
 ```powershell
-PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:
-\CurrentUser\My
+PS C:\mycertificates> Import-PfxCertificate -FilePath .\party-cluster-873689604-client-cert.pfx -CertStoreLocation Cert:\CurrentUser\My -Password (ConvertTo-SecureString 873689604 -AsPlainText -Force)
 
 
    PSParentPath: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
@@ -155,7 +159,7 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 1. Çözüm Gezgini'nde **Oylama**’ya sağ tıklayın ve **Yayımla**’yı seçin. Yayımla iletişim kutusu görüntülenir.
 
 
-2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayıp ve aşağıdaki bilgileri doldurun.  *FindValue* ve *ServerCertThumbprint* değerleri bir önceki adımda yüklenen sertifikanın parmak iziyle eşleşmelidir. 
+2. Grup kümesi sayfasındaki **Bağlantı Uç Noktası**'nı **Bağlantı Uç Noktası** alanına kopyalayın. Örneğin, `zwin7fh14scd.westus.cloudapp.azure.com:19000`. **Gelişmiş Bağlantı Parametreleri**’ne tıklayın ve *FindValue* ve *ServerCertThumbprint* değerlerinin bir önceki adımda yüklenen sertifikanın parmak iziyle eşleştiğinden emin olun. 
 
     ![Yayımla İletişim Kutusu](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
@@ -165,7 +169,7 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 
 4. Tarayıcıyı açın, küme adresini yazın ve kümedeki uygulamaya gelmek için arkasına ':8080' ekleyin; örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:8080`. Artık Azure'da kümede çalıştırılan uygulamayı görüyor olmalısınız.
 
-![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
+    ![Uygulama ön ucu](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
 Hizmet yükündeki bir değişikliği karşılamak için kümedeki Service Fabric hizmetleri kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; PowerShell veya Service Fabric CLI'den (sfctl) betikler veya komutlar kullanabilirsiniz. Bu örnekte, Service Fabric Explorer'ı kullanın.

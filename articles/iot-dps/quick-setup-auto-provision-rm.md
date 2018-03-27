@@ -1,22 +1,22 @@
 ---
-title: "Bir Azure Resource Manager şablonu kullanarak Cihaz Sağlama’yı ayarlama | Microsoft Docs"
-description: "Azure Hızlı Başlangıç - Şablon kullanarak Azure IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama"
+title: Bir Azure Resource Manager şablonu kullanarak Cihaz Sağlama’yı ayarlama | Microsoft Docs
+description: Azure Hızlı Başlangıç - Şablon kullanarak Azure IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 02/26/2018
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 827be2be6915b0f0c9892e73b8f0a293a9659b6e
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 389691bddf1a7d6cab0845ca0a0cf1bde1152507
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu ile IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
 
@@ -340,7 +340,7 @@ Bir kaynak grubuyla birlikte bu kaynak grubunun tüm kaynaklarını silmek için
 az group delete --name {your resource group name}
 ```
 
-Ayrıca Azure portalını, PowerShell’i, REST API’lerini veya Azure Resource Manager ya da IoT Hub’ı ve Cihaz Sağlama Hizmeti için yayımlanmış desteklenen platform SDK’larını kullanarak kaynak gruplarını ve ayrı kaynakları da silebilirsiniz.
+Ayrıca Azure portalını, PowerShell’i, REST API’lerini veya Azure Resource Manager ya da IoT Hub Cihazı Sağlama Hizmeti için yayımlanmış desteklenen platform SDK’larını kullanarak kaynak gruplarını ve ayrı kaynakları da silebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

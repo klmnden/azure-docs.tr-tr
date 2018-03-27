@@ -1,23 +1,23 @@
 ---
-title: "Azure Data Factory ile verileri Blob Depolama’ya kopyalama | Microsoft Docs"
-description: "Aynı Azure Blob Depolama alanındaki bir klasörden başka bir klasöre veri kopyalamak için bir Azure veri fabrikası oluşturun."
+title: Azure Data Factory ile verileri Blob Depolama’ya kopyalama | Microsoft Docs
+description: Azure Blob depolamadaki bir konumdan başka bir konuma veri kopyalamak için bir Azure veri fabrikası oluşturun.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 40a8e3a0ac0130eb12193a07c4bf367efe29b9d9
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 45b41b62f11f46421ebb8ce72e6ec775dca7b7de
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-an-azure-data-factory-using-powershell"></a>PowerShell kullanarak Azure veri fabrikası oluşturma 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

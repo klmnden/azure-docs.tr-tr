@@ -1,8 +1,8 @@
 ---
-title: "Azure Sanal Ağ’da Hive kullanarak verileri dönüştürme | Microsoft Docs"
-description: "Bu öğretici, Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürmeye ilişkin adım adım yönergeler sağlar."
+title: Azure Sanal Ağ’da Hive kullanarak verileri dönüştürme | Microsoft Docs
+description: Bu öğretici, Azure Data Factory'de Hive etkinliğini kullanarak verileri dönüştürmeye ilişkin adım adım yönergeler sağlar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: shengcmsft
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: a7575549225d47e5266ca7e1778c3e61835de1cc
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
 Bu öğreticide, Azure portalını kullanarak Azure Sanal Ağ’daki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturursunuz. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
@@ -114,7 +114,7 @@ Hadoop kümesi bir sanal ağın içinde olduğundan, aynı sanal ağa şirket i�
 2. **Tümleştirme Çalışma Zamanı Kurulumu** penceresinde **Dış işlemlere veri taşıma ve dağıtım etkinlikleri gerçekleştir** seçeneğini belirleyip **İleri**’ye tıklayın. 
 
    ![Veri taşıma ve dağıtım etkinlikleri gerçekleştir seçeneği](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-perform-data-movement-compute-option.png)
-3. **Ortak Ağ**’ı seçip **İleri**’ye tıklayın.
+3. **Özel Ağ** seçeneğini belirleyip **İleri**’ye tıklayın.
     
    ![Özel ağı seçin](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-private-network.png)
 4. **Ad** için **MySelfHostedIR** adını girip **İleri**’ye tıklayın. 

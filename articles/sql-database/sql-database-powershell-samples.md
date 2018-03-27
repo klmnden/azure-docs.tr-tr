@@ -1,51 +1,48 @@
 ---
-title: "SQL veritabanı için Azure PowerShell komut dosyası örnekleri | Microsoft Docs"
-description: "Azure PowerShell komut dosyası oluşturma ve Azure SQL veritabanı sunucularının, esnek havuzlar, veritabanları ve güvenlik duvarları yönetmenize yardımcı olmak için örnekler."
+title: SQL Veritabanı için Azure PowerShell betik örnekleri | Microsoft Docs
+description: Azure SQL Veritabanı sunucuları, elastik havuzlar, veritabanları ve güvenlik duvarları oluşturmanıza ve yönetmenize yardımcı olacak Azure PowerShell betik örnekleri.
 services: sql-database
 documentationcenter: sql-database
 author: CarlRabeler
-manager: jhubbard
+manager: craigg
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
 ms.custom: overview-samples, mvc
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: On Demand
 ms.date: 06/23/2017
-ms.author: janeng
-ms.openlocfilehash: fd60a8987e6c57cf72eb7766f6a1b784e46a894d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.author: carlrab
+ms.openlocfilehash: 63be3858bf159195acb99821a17447b7f05d7917
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL veritabanı için Azure PowerShell örnekleri
+# <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Veritabanı için Azure PowerShell örnekleri
 
-Aşağıdaki tabloda, Azure SQL veritabanı için örnek Azure PowerShell betikleri bağlantılarını içerir.
+Aşağıdaki tablo, Azure SQL Veritabanı’na yönelik örnek Azure PowerShell betiklerinin bağlantılarını içerir.
 
 | |  |
 |---|---|
-|**Tek bir veritabanı ve esnek havuz oluşturma**||
-| [Tek bir veritabanı oluşturun ve bir güvenlik duvarı kuralı yapılandırma](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği tek bir Azure SQL veritabanı oluşturur ve bir sunucu düzeyinde güvenlik duvarı kuralı yapılandırır. |
-| [Esnek havuzları oluşturma ve havuza alınmış veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği Azure SQL Database esnek havuzları, oluşturur ve havuza alınmış veritabanları taşır ve performans düzeyleri değiştirir.|
-|**Coğrafi çoğaltma ve yük devretme yapılandırma**||
-| [Yapılandırma ve yük devretme aktif coğrafi çoğaltma kullanarak tek bir veritabanı](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell komut dosyası etkin coğrafi çoğaltma tek bir Azure SQL veritabanı için yapılandırır ve ikincil çoğaltma üzerinden başarısız. |
-| [Yapılandırma ve yük devretme aktif coğrafi çoğaltma kullanarak havuza alınmış bir veritabanı](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell Betiği SQL esnek havuzu içinde bir Azure SQL veritabanı için etkin coğrafi çoğaltma yapılandırır ve ikincil çoğaltma üzerinden başarısız. |
-| [Yapılandırma ve yük devretme yük devretme bir grup için tek bir veritabanına (Önizleme)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell komut dosyasını bir Azure SQL veritabanı sunucusu örneği için bir yük devretme grubu yapılandırır, bir veritabanı yük devretme grubuna ekler ve ikincil sunucusu üzerinden başarısız |
-|**Tek veritabanları ve esnek havuz ölçekleme**||
-| [Tek bir veritabanı ölçekleme](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell komut dosyası izleyicileri bir Azure SQL veritabanı performans ölçümleri daha yüksek bir performans düzeyine ölçeklendirir ve performans ölçümleri birinde bir uyarı kuralı oluşturur. |
-| [Ölçek bir esnek havuz](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell komut dosyası izleyicileri bir Azure SQL Database esnek havuzunu performans ölçümlerini daha yüksek bir performans düzeyine ölçeklendirir ve performans ölçümleri birinde bir uyarı kuralı oluşturur.  |
+|**Tek bir veritabanı ve elastik havuz oluşturma**||
+| [Tek bir veritabanı oluşturma ve güvenlik duvarı kuralını yapılandırma](scripts/sql-database-create-and-configure-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, tek bir Azure SQL veritabanı oluşturur ve sunucu düzeyinde güvenlik duvarı kuralı yapılandırır. |
+| [Elastik havuzlar oluşturma ve havuza alınmış veritabanlarını taşıma](scripts/sql-database-move-database-between-pools-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Azure SQL Veritabanı elastik havuzları oluşturur, havuza alınmış veritabanlarını taşır ve performans düzeylerini değiştirir.|
+|**Coğrafi çoğaltmayı ve yük devretmeyi yapılandırma**||
+| [Etkin coğrafi çoğaltmayı kullanarak tek bir veritabanını yapılandırma ve tek bir veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği, tek bir Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırır ve ikincil bir çoğaltmaya yük devreder. |
+| [Etkin coğrafi çoğaltmayı kullanarak havuza alınmış veritabanını yapılandırma ve havuza alınmış veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği, SQL elastik havuzundaki bir Azure SQL veritabanı için etkin coğrafi çoğaltmayı yapılandırır ve ikincil bir çoğaltmaya yük devreder. |
+| [Tek bir veritabanı için bir yük devretme grubunu yapılandırma ve yük devretme grubunun yükünü devretme (önizleme)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Azure SQL Veritabanı sunucu örneği için bir yük devretme grubu yapılandırır, yük devretme grubuna bir veritabanı ekler ve ikincil sunucuya yük devreder |
+|**Tek bir veritabanını ve elastik havuzu ölçekleme**||
+| [Tek bir veritabanını ölçekleme](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Azure SQL veritabanının performans ölçümlerini izler, veritabanını daha yüksek bir performans düzeyine ölçekler ve performans ölçümlerinden birinde bir uyarı kuralı oluşturur. |
+| [Elastik havuzu ölçekleme](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Azure SQL Veritabanı elastik havuzunun performans ölçümlerini izler, veritabanını daha yüksek bir performans düzeyine ölçekler ve performans ölçümlerinden birinde bir uyarı kuralı oluşturur.  |
 | **Denetim ve tehdit algılama** |
-| [Denetim ve tehdit algılama yapılandırın](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell komut dosyasını bir Azure SQL veritabanı için Denetim ve tehdit algılama ilkeleri yapılandırır. |
-| **Geri yükleme, kopyalama ve veritabanı alma**||
-| [Bir veritabanını geri yükle](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell komut dosyasını bir Azure SQL veritabanı coğrafi olarak yedekli bir yedekten geri yükler ve son yedekleme silinen bir Azure SQL veritabanını geri yükler. |
-| [Bir veritabanını yeni bir sunucuya kopyalayın](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell Betiği yeni bir Azure SQL Server'da mevcut bir Azure SQL veritabanının bir kopyasını oluşturur. |
-| [Bir veritabanı bir bacpac Dosyadan İçeri Aktar](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell komut dosyasını bir veritabanı bir bacpac dosyasından bir Azure SQL sunucusuna aktarır. |
-| **Veritabanları arasında eşitleme verileri**||
-| [SQL veritabanları arasında eşitleme verileri](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği veri birden çok Azure SQL veritabanları arasında eşitlemek için eşitleme yapılandırır. |
-| [Şirket içi SQL Database ve SQL Server arasında veri eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği veri bir Azure SQL veritabanı ile bir SQL Server içi veritabanı arasında eşitlemek için eşitleme yapılandırır. |
-| [SQL veri eşitleme eşitleme Şeması'nı güncelleştirme](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell Betiği ekler veya öğeleri veri eşitleme eşitleme şemasından kaldırır. |
+| [Denetim ve tehdit algılamayı yapılandırma](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği, Azure SQL veritabanı için denetim ve tehdit algılama ilkelerini yapılandırır. |
+| **Veritabanını geri yükleme, kopyalama ve içeri aktarma**||
+| [Veritabanını geri yükleme](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği, coğrafi olarak yedekli bir yedeklemeden Azure SQL veritabanını geri yükler ve silinmiş bir Azure SQL veritabanını en son yedeklemeye geri yükler. |
+| [Bir veritabanını yeni bir sunucuya kopyalama](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği, yeni Azure SQL sunucusunda mevcut bir Azure SQL veritabanının kopyasını oluşturur. |
+| [Bacpac dosyasından veritabanını içeri aktarma](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Bu PowerShell betiği bir veritabanını bacpac dosyasından Azure SQL sunucusuna içeri aktarır. |
+| **Veritabanları arasında verileri eşitleme**||
+| [SQL veritabanları arasında verileri eşitleme](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Veri Eşitleme’yi birden çok Azure SQL veritabanı arasında eşitlenecek şekilde yapılandırır. |
+| [SQL Veritabanı ile şirket içi SQL Server arasında verileri eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, bir Azure SQL veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme yapmak için Veri Eşitleme’yi yapılandırır. |
+| [SQL Data Sync için eşitleme şemasını güncelleştirme](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Bu PowerShell betiği, Veri Eşitleme için eşitleme şemasından öğeler ekler veya öğeleri kaldırır. |
 |||

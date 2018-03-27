@@ -1,26 +1,19 @@
 ---
-title: "SQL Server DB'yi Azure SQL Veritabanına geçirme | Microsoft Docs"
-description: "SQL Server veritabanını Azure SQL Veritabanına geçirmeyi öğrenin."
+title: SQL Server DB'yi Azure SQL Veritabanına geçirme | Microsoft Docs
+description: SQL Server veritabanını Azure SQL Veritabanına geçirmeyi öğrenin.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: Active
-ms.date: 01/29/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: acba1aff0af8d54fca44af62ab46e1fd1a9d607e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c333fd4f87f30d9aa1ace755c7414423ab348e03
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server veritabanını Azure SQL Veritabanına geçirme
 
@@ -91,7 +84,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    > [!IMPORTANT]
    > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Birleşik Krallık Güney, Birleşik Krallık Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  

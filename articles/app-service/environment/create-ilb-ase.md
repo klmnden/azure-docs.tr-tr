@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma"
-description: "İnternet’ten yalıtılmış bir Azure App Service ortamı oluşturma ve kullanma ayrıntıları"
+title: Bir Azure App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma
+description: İnternet’ten yalıtılmış bir Azure App Service ortamı oluşturma ve kullanma ayrıntıları
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 7480c1f71a64e31b65cc76f28734df6f424a6b3f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
@@ -139,7 +139,7 @@ SSL sertifikasını .pfx dosyası olarak dönüştürün/kaydedin. .pfx dosyası
 
 Otomatik olarak imzalanan bir sertifika oluşturmak isterseniz, burada PowerShell komutlarını kullanabilirsiniz. *internal.contoso.com* yerine ILB ASE etki alanı adınızı kullandığınızdan emin olun: 
 
-    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "\*.internal-contoso.com","\*.scm.internal-contoso.com"
+    $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
     
     $certThumbprint = "cert:\localMachine\my\" +$certificate.Thumbprint
     $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
@@ -174,9 +174,9 @@ Kendi sertifikalarınızı yüklemek ve erişimi test etmek için:
 
     b. Web dağıtımı yayımlamayı veya gelişmiş konsola erişimi test etmek için bir _mytestapp.scm.ilbase.com_ kaydı oluşturun.
 
-7. Bu VM’de bir tarayıcı kullanın ve http://mytestapp.ilbase.com adresine gidin. (Veya etki alanınızda web uygulamanızın adına gidin.)
+7. Veya bu sanal makinedeki bir tarayıcıyı kullanıp http://mytestapp.ilbase.com sayfasına gidin. (Veya etki alanınızda web uygulamanızın adına gidin.)
 
-8. Bu VM’de bir tarayıcı kullanın ve https://mytestapp.ilbase.com adresine gidin. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
+8. Veya bu sanal makinedeki bir tarayıcıyı kullanıp https://mytestapp.ilbase.com sayfasına gidin. Otomatik olarak imzalanan sertifika kullanıyorsanız, güvenlik eksikliğini kabul edin.
 
     ILB’nizin IP adresi, **IP adresleri** altında listelenir. Bu listede ayrıca dış VIP tarafından ve gelen yönetim trafiği için kullanılan IP adresleri bulunur.
 

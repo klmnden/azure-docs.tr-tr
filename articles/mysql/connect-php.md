@@ -1,6 +1,6 @@
 ---
-title: "PHP’den MySQL için Azure Veritabanı'na bağlanma"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç PHP kod örneği sağlanmıştır."
+title: PHP’den MySQL için Azure Veritabanı'na bağlanma
+description: Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç PHP kod örneği sağlanmıştır.
 services: mysql
 author: mswutao
 ms.author: wuta
@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: d20aaf8a4cabd4e013e7ff43010c0f463eaccb79
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 581d3f181f5237d2cb3e469295b06eacd31b784f
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: PHP'yi kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta [PHP](http://php.net/manual/intro-whatis.php) uygulaması kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, PHP kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -230,4 +230,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Sonraki adımlar
 > [!div class="nextstepaction"]
-> [SSL aracılığıyla MySQL için Azure Veritabanı'na bağlanma] (howto-configure-ssl.md)
+> [SSL aracılığıyla MySQL için Azure Veritabanı'na bağlanma](howto-configure-ssl.md)

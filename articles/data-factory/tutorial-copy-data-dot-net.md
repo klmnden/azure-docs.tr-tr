@@ -1,8 +1,8 @@
 ---
-title: "Azure Blob Depolama alanından SQL Veritabanına veri kopyalama | Microsoft Docs"
-description: "Bu öğretici, Azure Blob Depolama alanından Azure SQL Veritabanına veri kopyalamaya ilişkin adım adım yönergeler sağlar."
+title: Azure Blob Depolama alanından SQL Veritabanına veri kopyalama | Microsoft Docs
+description: Bu öğretici, Azure Blob Depolama alanından Azure SQL Veritabanına veri kopyalamaya ilişkin adım adım yönergeler sağlar.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
 manager: jhubbard
 editor: spelluru
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0747ba79529bc2f12f1c5d74cbfcb7b62a62baa8
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 86ceb395a6605b77b1f8594dbf153ac800b501b9
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob’dan Azure SQL Veritabanına veri kopyalama
 Bu öğreticide, Azure Blob Depolama alanından Azure SQL Veritabanına veri kopyalayan bir Data Factory işlem hattı oluşturacaksınız. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -120,8 +120,9 @@ Visual Studio 2015/2017'yi kullanarak bir C# .NET konsol uygulaması oluşturun.
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
-
-2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. Currently, Data Factory V2 allows you to create data factories only in the East US, East US2, and West Europe regions. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+    ```
+    
+2. Aşağıdaki kodu, değişkenleri ayarlayan **Main** yöntemine ekleyin. Yer tutucuları kendi değerlerinizle değiştirin. Data Factory V2 şu anda Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgelerinde veri fabrikası oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
     ```csharp
     // Set variables

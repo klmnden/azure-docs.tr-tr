@@ -1,26 +1,20 @@
 ---
-title: "Azure portalı: SQL veritabanı oluşturma | Microsoft Docs"
-description: "Azure portalında SQL Veritabanı mantıksal sunucusu, sunucu düzeyi güvenlik duvarı kuralı ve veritabanı oluşturun ve sorgulayın."
-keywords: "sql veritabanı öğreticisi, sql veritabanı oluşturma"
+title: 'Azure portalı: SQL veritabanı oluşturma | Microsoft Docs'
+description: Azure portalında SQL Veritabanı mantıksal sunucusu, sunucu düzeyi güvenlik duvarı kuralı ve veritabanı oluşturun ve sorgulayın.
+keywords: sql veritabanı öğreticisi, sql veritabanı oluşturma
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/16/2018
+ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: 56fb52cb2dbca1939aac2eb9dd4971a93bf8c0dc
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2c1e8d8f59e42e75a5895b58e4e7500a2fa2c9a2
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
@@ -93,7 +87,7 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
    > [!IMPORTANT]
    > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Orta, Orta Almanya, Doğu Japonya, Batı Japonya, Orta Kore, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  

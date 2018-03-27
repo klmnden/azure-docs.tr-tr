@@ -1,39 +1,39 @@
 ---
-title: "Azure Cosmos DB: MongoDB API kullanarak nasıl? | Microsoft Belgeleri"
-description: "MongoDB API'si ile Azure Cosmos DB için sorgu öğrenin"
+title: 'Azure Cosmos DB: MongoDB API’sini kullanarak sorgulama | Microsoft Docs'
+description: Azure Cosmos DB için MongoDB API’si ile sorgulamayı öğreneceksiniz
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 05/10/2017
+ms.workload: ''
+ms.date: 03/16/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 1818476a95ddf373701ad93860b02ea4c2ad761d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/17/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: İle API MongoDB için nasıl?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Öğretici: MongoDB API’sini kullanarak Azure Cosmos DB’yi sorgulama
 
-Azure Cosmos DB [API MongoDB için](mongodb-introduction.md) destekleyen [MongoDB Kabuk sorguları](https://docs.mongodb.com/manual/tutorial/query-documents/). 
+[MongoDB için Azure Cosmos DB API’si](mongodb-introduction.md), [MongoDB kabuk sorgularını](https://docs.mongodb.com/manual/tutorial/query-documents/) destekler. 
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * MongoDB ile verileri Sorgulama
+> * MongoDB ile verileri sorgulama
 
-## <a name="sample-document"></a>Örnek bir belge
+## <a name="sample-document"></a>Örnek belge
 
-Bu makalede sorgularda aşağıdaki örnek belge kullanın.
+Bu makaledeki sorgular aşağıdaki örnek belgeyi kullanır.
 
 ```json
 {
@@ -63,15 +63,15 @@ Bu makalede sorgularda aşağıdaki örnek belge kullanın.
   "isRegistered": false
 }
 ```
-## <a id="examplequery1"></a>Örnek sorgu 1 
+## <a id="examplequery1"></a> Örnek sorgu 1 
 
-Yukarıdaki örnek ailesi belge verilen, aşağıdaki sorguyu belgeleri ID alanı eşleştiği döndürür `WakefieldFamily`.
+Yukarıda verilen örnek aile belgesiyle aşağıdaki sorgu, kimlik alanının `WakefieldFamily` ile eşleştiği belgeleri döndürür.
 
 **Sorgu**
     
     db.families.find({ id: “WakefieldFamily”})
 
-**Sonuçları**
+**Sonuçlar**
 
     {
     "_id": "ObjectId(\"58f65e1198f3a12c7090e68c\")",
@@ -113,15 +113,15 @@ Yukarıdaki örnek ailesi belge verilen, aşağıdaki sorguyu belgeleri ID alan�
     "isRegistered": false
     }
 
-## <a id="examplequery2"></a>Örnek Sorgu 2 
+## <a id="examplequery2"></a>Örnek sorgu 2 
 
-Sonraki sorgu ailesinde tüm alt öğelerini döndürür. 
+Sonraki sorgu, ailedeki tüm çocukları döndürür. 
 
 **Sorgu**
     
-    db.familes.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: “WakefieldFamily” }, { children: true } )
 
-**Sonuçları**
+**Sonuçlar**
 
     {
     "_id": "ObjectId("58f65e1198f3a12c7090e68c")",
@@ -148,21 +148,21 @@ Sonraki sorgu ailesinde tüm alt öğelerini döndürür.
 
 ## <a id="examplequery3"></a>Örnek sorgu 3 
 
-Sonraki sorgu kayıtlı tüm aileleri döndürür. 
+Sonraki sorgu, kayıtlı olan tüm aileleri döndürür. 
 
 **Sorgu**
     
     db.families.find( { "isRegistered" : true })
-**Sonuçları** hiçbir belge döndürülür. 
+**Sonuçlar** Herhangi bir belge döndürülmez. 
 
 ## <a id="examplequery4"></a>Örnek sorgu 4
 
-Sonraki sorgu kayıtlı değil tüm aileleri döndürür. 
+Sonraki sorgu, kayıtlı olmayan tüm aileleri döndürür. 
 
 **Sorgu**
     
     db.families.find( { "isRegistered" : false })
-**Sonuçları**
+**Sonuçlar**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -201,13 +201,13 @@ Sonraki sorgu kayıtlı değil tüm aileleri döndürür.
 
 ## <a id="examplequery5"></a>Örnek sorgu 5
 
-Tüm kayıtlı değil aileleri ve durumudur NY sonraki sorgu döndürür. 
+Sonraki sorgu, kayıtlı olmayan ve durumu NY olan tüm aileleri döndürür. 
 
 **Sorgu**
     
      db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 
-**Sonuçları**
+**Sonuçlar**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -247,13 +247,13 @@ Tüm kayıtlı değil aileleri ve durumudur NY sonraki sorgu döndürür.
 
 ## <a id="examplequery6"></a>Örnek sorgu 6
 
-Sonraki sorgu alt dereceleri 8 olduğu tüm aileleri döndürür.
+Sonraki sorgu, çocukları 8. sınıfta olan tüm aileleri döndürür.
 
 **Sorgu**
   
      db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 
-**Sonuçları**
+**Sonuçlar**
 
      {
     "_id": ObjectId("58f65e1198f3a12c7090e68c"),
@@ -292,25 +292,25 @@ Sonraki sorgu alt dereceleri 8 olduğu tüm aileleri döndürür.
 
 ## <a id="examplequery7"></a>Örnek sorgu 7
 
-Sonraki sorgu alt dizinin boyutu 3 olduğu tüm aileleri döndürür.
+Sonraki sorgu, çocuk dizisi boyutu 3 olan tüm aileleri döndürür.
 
 **Sorgu**
   
       db.Family.find( {children: { $size:3} } )
 
-**Sonuçları**
+**Sonuçlar**
 
-2'den fazla alt öğe yok gibi sonuç döndürülür. Yalnızca parametresi 2 olduğunda bu sorgu başarılı ve tam belgenin döndürür.
+2'den fazla çocuğumuz olmadığından bir sonuç döndürülmez. Yalnızca parametre 2 olduğunda bu sorgu başarılı olur ve tam belgeyi döndürür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * MongoDB kullanarak sorgu öğrendiniz 
+> * MongoDB kullanarak sorgulamayı öğrendiniz 
 
-Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
+Artık verilerinizi genel olarak nasıl dağıtacağınızı öğrenmek için sonraki öğreticiye ilerleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-sql-api.md)
+> [Verilerinizi genel olarak dağıtma](tutorial-global-distribution-sql-api.md)
 

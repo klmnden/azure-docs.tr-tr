@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell Betiği örnek - bir web uygulaması oluşturma ve yerel bir Git deposu koddan dağıtma | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir web uygulaması oluşturma ve yerel bir Git deposu koddan dağıtma"
+title: Azure PowerShell Betik Örneği - Bir web uygulaması oluşturma ve yerel Git deposundan kod dağıtma | Microsoft Docs
+description: Azure PowerShell Betik Örneği - Bir web uygulaması oluşturma ve yerel Git deposundan kod dağıtma
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 5a927f23-8e70-45fd-9aae-980d4e7a007d
 ms.service: app-service-web
@@ -15,44 +15,40 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c54dcd1869af0c5f3aac69bbd20d23b79ca669cf
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
-ms.translationtype: MT
+ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Bir web uygulaması oluşturma ve yerel bir Git deposu koddan dağıtma
+# <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Bir web uygulaması oluşturma ve yerel Git deposundan kod dağıtma
 
-Bu örnek komut dosyası ile ilgili kaynaklarını App Service'te bir web uygulaması oluşturur ve web uygulama kodunuzdan yerel bir Git deposu dağıtır.
+Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra web uygulaması kodunuzu yerel bir Git deposundan dağıtır.
 
-Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell Kılavuzu](/powershell/azure/overview)ve ardından çalıştırın `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için. Ayrıca, uygulama kodunuz yerel bir Git deposu kaydedilmiş gerekir.
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak en son Azure PowerShell’e güncelleştirin ve sonra Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` çalıştırın. Ayrıca uygulama kodunuzun yerel bir Git deposuna yürütülmesi gerekir.
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/app-service/deploy-local-git/deploy-local-git.ps1?highlight=1 "Create a web app and deploy code from a local Git repository")]
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Komut dosyası örneği çalıştırdıktan sonra kaynak grubu, web uygulaması ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanılabilir.
+Betik örneği çalıştırıldıktan sonra, kaynak grubunu, web uygulamasını ve ilişkili tüm kaynakları kaldırmak için aşağıdaki komut kullanılabilir.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzureRmResourceGroup -Name $webappname -Force
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur. |
-| [AzureRmAppServicePlan yeni](/powershell/module/azurerm.websites/new-azurermappserviceplan) | App Service planı oluşturur. |
-| [AzureRmWebApp yeni](/powershell/module/azurerm.websites/new-azurermwebapp) | Bir web uygulaması oluşturur. |
-| [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Bir kaynak bir kaynak grubu olarak değiştirir. |
-| [Get-AzureRmWebAppPublishingProfile](/powershell/module/azurerm.websites/get-azurermwebapppublishingprofile) | Web uygulamanızın yayımlama profili alın. |
+| [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Gerekli kaynak grubu ve App Service grubu ile bir web uygulaması oluşturur. Geçerli dizin bir Git deposu içerdiğinde ayrıca uzak bir `azure` ekleyin. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Azure App Service Web Apps ek Azure Powershell örnekleri bulunabilir [Azure PowerShell örnekleri](../app-service-powershell-samples.md).
+Azure App Service Web Apps için ek Azure PowerShell örneklerini [Azure PowerShell örnekleri](../app-service-powershell-samples.md) bölümünde bulabilirsiniz.

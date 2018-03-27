@@ -1,25 +1,25 @@
 ---
 title: "Azure Cosmos DB: Java ve MongoDB API'siyle bir konsol uygulaması derleme | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar"
+description: Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.openlocfilehash: 81bf338d3be18905fd04e07a53284432b5feb491
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 199ea35d7df405ebc148185094a6865a1c373941
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalıyla bir MongoDB API'si konsol uygulaması derleme
 
@@ -48,7 +48,7 @@ Yeni veritabanınıza **db**, yeni koleksiyonunuza da **coll** adını verin.
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle programlı bir şekilde çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi GitHub'dan bir MongoDB API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
 
 1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.  
 
@@ -58,11 +58,11 @@ Yeni veritabanınıza **db**, yeni koleksiyonunuza da **coll** adını verin.
     git clone https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-getting-started.git
     ```
 
-3. Ardından çözüm dosyasını Visual Studio'da açın. 
+3. Daha sonra kodu sık kullandığınız düzenleyicinizde açın. 
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.cs` dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
+Uygulamada gerçekleşen işlemleri hızlıca gözden geçirelim. `Program.java` dosyasını açtığınızda Azure Cosmos DB kaynaklarını bu kod satırlarının oluşturduğunu göreceksiniz. 
 
 * DocumentClient başlatılır.
 

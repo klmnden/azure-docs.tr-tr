@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus - Event Grid tümleştirmesine genel bakış | Microsoft Docs"
-description: "Service Bus mesajlaşması ve Event Grid tümleştirmesinin açıklaması"
+title: Azure Service Bus - Event Grid tümleştirmesine genel bakış | Microsoft Docs
+description: Service Bus mesajlaşması ve Event Grid tümleştirmesinin açıklaması
 services: service-bus-messaging
 documentationcenter: .net
 author: ChristianWolf42
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
 ms.workload: na
@@ -14,46 +14,48 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 02/15/2018
 ms.author: chwolf
-ms.openlocfilehash: bf771428505081cb60ca4417f87a4f6c2afbd25d
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 8bd1c431788d78ae937cc047e82cb41504a19075
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-service-bus-to-azure-event-grid-integration-overview"></a>Azure Service Bus - Azure Event Grid tümleştirmesine Genel Bakış
+# <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure Service Bus - Event Grid tümleştirmesine Genel Bakış
 
-Azure Service Bus, Azure Event Grid’e yeni bir tümleştirme başlatmıştır. Bu özellik, düşük ileti hacmine sahip Service Bus Kuyruklarının veya Aboneliklerinin her zaman iletiler için bir alıcı yoklamasının olmasına gerek kalmamasını sağlar. Service Bus artık bir alıcı mevcut olmadığında ve bir Kuyrukta veya Abonelikte iletiler olduğunda olayları Azure Event Grid’e gönderebilir. Service Bus ad alanlarınıza Azure Event Grid abonelikleri oluşturabilir ve bu olayları dinleyip bir alıcı başlatarak olaylara tepki verebilirsiniz. Bu özellik sayesinde Service Bus, reaktif programlama modellerinde kullanılabilir.
+Azure Service Bus, Azure Event Grid’e yeni bir tümleştirme başlatmıştır. Bu özelliğin temel kullanım modelinde, düşük ileti hacmine sahip Service Bus kuyruklarının veya aboneliklerinin sürekli olarak iletiler için yoklama yapan bir alıcısının olması gerekmez. 
 
-Özelliği etkinleştirmek için gerekenler:
+Service Bus artık bir alıcı mevcut olmadığında ve bir kuyrukta veya abonelikte iletiler olduğunda olayları Event Grid’e gönderebilir. Service Bus ad alanlarınıza Event Grid abonelikleri oluşturabilir, bu olayları dinleyebilir ve bir alıcı başlatarak olaylara tepki verebilirsiniz. Bu özellik sayesinde Service Bus’ı reaktif programlama modellerinde kullanabilirsiniz.
 
-* En az bir Service Bus Kuyruğu olan bir Azure Service Bus Premium ad alanı veya en az bir Aboneliği olan bir Service Bus Konusu.
-* Azure Service Bus Ad Alanına katkıda bulunan erişimi.
-* Ek olarak, Service Bus Ad Alanı için bir Azure Event Grid aboneliğiniz olması da gerekir. Bu abonelik, alınacak iletiler olduğuna dair Azure Event Grid’den bildirim alır. Normalde aboneler, daha sonra iletileri işleyecek bir Web Uygulaması ile iletişim kuran bir Web Kancası, Azure İşlevleri veya Mantıksal Uygulamalar olabilir. 
+Özelliği etkinleştirmek için gereken öğeler:
+
+* En az bir Service Bus kuyruğu olan bir Service Bus Premium ad alanı veya en az bir aboneliği olan bir Service Bus konusu.
+* Service Bus ad alanına katkıda bulunan erişimi.
+* Ek olarak, Service Bus ad alanı için bir Event Grid aboneliğiniz olması da gerekir. Bu abonelik, alınacak iletiler olduğuna dair Event Grid’den bildirim alır. Normalde aboneler, web uygulaması ile iletişim kuran bir web kancası, Azure İşlevleri veya Azure App Service’in Logic Apps özelliği olabilir. Daha sonra abone iletileri işler. 
 
 ![19][]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Katkıda bulunan erişimine sahip olduğunuzu doğrulama
 
-Service Bus Ad Alanınıza gidin ve aşağıda gösterildiği gibi "Erişim denetimi (IAM)" seçeneğini belirleyin:
+Service Bus ad alanınıza gidin ve burada gösterildiği gibi **Erişim denetimi (IAM)** seçeneğini belirleyin:
 
 ![1][]
 
-### <a name="events-and-event-schemas"></a>Olaylar ve Olay Şemaları
+### <a name="events-and-event-schemas"></a>Olaylar ve olay şemaları
 
-Azure Service Bus şu anda iki senaryo için olaylar gönderir.
+Service Bus şu anda iki senaryo için olaylar gönderir:
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * [DeadletterMessagesAvailable](#dead-lettered-messages-available-event)
 
-Ayrıca standart Azure Event Grid Güvenliğini ve [kimlik doğrulaması mekanizmalarını](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) da kullanır.
+Ayrıca Service Bus, standart Event Grid güvenliğini ve [kimlik doğrulaması mekanizmalarını](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication) da kullanır.
 
-Event Grid Olay Şemaları hakkında daha fazla bilgi edinmek için [bu](https://docs.microsoft.com/en-us/azure/event-grid/event-schema) bağlantıyı izleyin.
+Daha fazla bilgi için bkz. [Azure Event Grid olay şemaları](https://docs.microsoft.com/en-us/azure/event-grid/event-schema).
 
-#### <a name="active-messages-available-event"></a>Etkin İletiler Kullanılabilir Olayı
+#### <a name="active-messages-available-event"></a>Etkin İletiler Kullanılabilir olayı
 
-Bir Kuyrukta veya Abonelikte etkin iletileriniz varsa ve bir alıcı dinleme gerçekleştirmiyorsa bu Olay oluşturulur.
+Bir kuyrukta veya abonelikte etkin iletileriniz varsa ve bir alıcı dinleme gerçekleştirmiyorsa bu olay oluşturulur.
 
-Bu Olayın şeması:
+Bu olayın şeması:
 
 ```JSON
 {
@@ -75,11 +77,11 @@ Bu Olayın şeması:
 }
 ```
 
-#### <a name="dead-lettered-messages-available-event"></a>Geçerliliğini Yitirmiş İletiler Kullanılabilir Olayı
+#### <a name="dead-letter-messages-available-event"></a>Geçerliliğini Yitirmiş İletiler Kullanılabilir olayı
 
-İletiler içeren ve etkin alıcılar içermeyen Geçerliliğini Yitirmiş Kuyruk başına en az bir olay alırsınız.
+İletiler içeren ve etkin alıcılar içermeyen Geçerliliğini Yitirmiş kuyruk başına en az bir olay alırsınız.
 
-Bu Olayın şeması:
+Bu olayın şeması:
 
 ```JSON
 [{
@@ -101,44 +103,49 @@ Bu Olayın şeması:
 }]
 ```
 
-### <a name="how-often-and-how-many-events-are-emitted"></a>Ne sıklıkla ve kaç tane olay gönderilir?
+### <a name="how-many-events-are-emitted-and-how-often"></a>Ne sıklıkla ve kaç tane olay gönderilir?
 
-Ad alanında birden fazla Kuyruk ve Konu / Abonelik varsa, Kuyruk başına en az bir ve Abonelik başına bir olay alırsınız. Service Bus varlığında bir ileti yoksa ve yeni bir ileti gelirse hemen veya Azure Service Bus etkin bir alıcı algılamadığı sürece her iki dakikada bir olaylar gönderilir. İleti taraması, olayları kesintiye uğratmaz.
+Ad alanında birden fazla kuyruk ve konu veya abonelik varsa, kuyruk başına en az bir ve abonelik başına bir olay alırsınız. Service Bus varlığında bir ileti yoksa ve yeni bir ileti gelirse olaylar hemen gönderilir. Alternatif olarak, Service Bus etkin bir alıcı algılamazsa iki dakikada bir olaylar gönderilir. İleti taraması, olayları kesintiye uğratmaz.
 
-Varsayılan olarak Azure Service Bus, ad alanındaki tüm varlıklar için olaylar gönderir. Yalnızca belirli varlıklar için olaylar almak istiyorsanız aşağıdaki filtreleme bölümüne bakın.
+Varsayılan olarak Service Bus, ad alanındaki tüm varlıklar için olaylar gönderir. Yalnızca belirli varlıklar için olaylar almak istiyorsanız sonraki bölüme bakın.
 
-### <a name="filtering-limiting-from-where-you-get-events"></a>Olayları aldığınız yeri sınırlayarak filtreleme
+### <a name="use-filters-to-limit-where-you-get-events-from"></a>Olayları aldığınız yeri sınırlamak için filtreleri kullanma
 
-Örneğin, yalnızca ad alanınızdaki bir Kuyruk veya bir Abonelik için olaylar almak istiyorsanız, Azure Event Grid tarafından sağlanan “ile başlar” veya “ile biter” filtrelerini kullanabilirsiniz. Bazı arabirimlerde filtrelere, “Ön” ve “Sonek” filtreleri adı verilir. Tümü için değil, birden fazla Kuyruk ve Abonelik için olaylar almak istiyorsanız, birden fazla farklı Azure Event Grid Aboneliği oluşturabilir ve her birine ilişkin bir filtre sağlayabilirsiniz.
+Örneğin, yalnızca ad alanınızdaki bir abonelik veya kuyruktan olaylar almak istiyorsanız, Event Grid tarafından sağlanan *ile başlar* veya *ile biter* filtrelerini kullanabilirsiniz. Bazı arabirimlerde filtrelere, *Ön* ve *Sonek* filtreleri adı verilir. Tümü için değil, birden fazla kuyruk ve abonelik için olaylar almak istiyorsanız, birden fazla Event Grid aboneliği oluşturabilir ve her birine ilişkin bir filtre sağlayabilirsiniz.
 
-## <a name="how-to-create-azure-event-grid-subscriptions-for-service-bus-namespaces"></a>Service Bus Ad Alanları için Azure Event Grid Abonelikleri oluşturma
+## <a name="create-event-grid-subscriptions-for-service-bus-namespaces"></a>Service Bus ad alanları için Event Grid abonelikleri oluşturma
 
-Service Bus Ad Alanları için Event Grid Abonelikleri oluşturmanın üç farklı yolu vardır.
+Service Bus ad alanları için Event Grid abonelikleri oluşturmanın üç farklı yolu vardır:
 
-* [Azure portalı](#portal-instructions)
-* [Azure CLI](#azure-cli-instructions)
-* [PowerShell](#powershell-instructions)
+* [Azure portalında](#portal-instructions)
+* [Azure CLI](#azure-cli-instructions)’da
+* [PowerShell](#powershell-instructions)’de
 
-## <a name="portal-instructions"></a>Portal yönergeleri
+## <a name="azure-portal-instructions"></a>Azure portalı yönergeleri
 
-Yeni bir Azure Event Grid aboneliği oluşturmak için, Azure portalındaki ad alanınıza gidin ve Event Grid kamasını seçin. Aşağıdaki “+ Olay Aboneliği”ne tıklandığında, önceden birkaç Event Grid aboneliği olan bir ad alanı gösterilir.
+Yeni Event Grid aboneliği oluşturmak için aşağıdakileri yapın:
+1. Azure portalında ad alanınıza gidin.
+2. Sol bölmede **Event Grid**’i seçin. 
+3. **Olay Aboneliği**’ni seçin.  
 
-![20][]
+   Aşağıdaki resimde, birkaç Event Grid aboneliği içeren bir ad alanı gösterilmektedir:
 
-Aşağıdaki ekran görüntüsü, belirli bir filtreleme olmadan bir Azure İşlevi’ne veya Web Kancası’na abone olma işlemi örneğini gösterir:
+   ![20][]
 
-![21][]
+   Aşağıdaki resimde, belirli bir filtreleme olmadan bir işleve veya web kancasına nasıl abone olunacağı gösterilmektedir:
+
+   ![21][]
 
 ## <a name="azure-cli-instructions"></a>Azure CLI yönergeleri
 
-İlk olarak en azından Azure CLI 2.0 sürümünün yüklenmiş olduğundan emin olun. Yükleyiciyi buradan indirebilirsiniz. Daha sonra “Windows + X” tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu da kullanabilirsiniz.
+İlk olarak, Azure CLI sürüm 2.0 veya üzerinin yüklü olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest). **Windows + X** tuşlarına basın ve yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
 
 Şu kodu yürütün:
 
-```PowerShell
+```PowerShell-interactive
 Az login
 
-Aa account set -s “THE SUBSCRIPTION YOU WANT TO USE”
+Az account set -s “THE SUBSCRIPTION YOU WANT TO USE”
 
 $namespaceid=(az resource show --namespace Microsoft.ServiceBus --resource-type namespaces --name “<yourNamespace>“--resource-group “<Your Resource Group Name>” --query id --output tsv)
 
@@ -147,9 +154,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell yönergeleri
 
-Azure PowerShell’in yüklenmiş olduğundan emin olun. Buradan bulabilirsiniz. Daha sonra “Windows + X” tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu da kullanabilirsiniz.
+Azure PowerShell’in yüklenmiş olduğundan emin olun. [Yükleyiciyi indirin](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.4.0). **Windows + X** tuşlarına basın ve Yönetici izinleriyle yeni bir PowerShell konsolu açın. Alternatif olarak Azure portalındaki bir komut kabuğunu kullanabilirsiniz.
 
-```PowerShell
+```PowerShell-interactive
 Login-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
@@ -167,11 +174,11 @@ Buradan diğer kurulum seçeneklerini keşfedebilir veya [olayların akışa al�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Service Bus ve Event Grid [örnekleri](service-bus-to-event-grid-integration-example.md).
-* [Azure Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* Service Bus ve Event Grid [örnekleri](service-bus-to-event-grid-integration-example.md) alın.
+* [Event Grid](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
 * [Azure İşlevleri](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
-* [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/) hakkında daha fazla bilgi edinin.
-* [Azure Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
+* [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/) hakkında daha fazla bilgi edinin.
+* [Service Bus](https://docs.microsoft.com/en-us/azure/azure-functions/) hakkında daha fazla bilgi edinin.
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

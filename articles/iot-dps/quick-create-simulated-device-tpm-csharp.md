@@ -1,22 +1,22 @@
 ---
-title: "C# kullanarak Azure IOT Hub'a sanal bir TPM cihazı sağlama | Microsoft Docs"
-description: "Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama"
+title: C# kullanarak Azure IOT Hub'a sanal bir TPM cihazı sağlama | Microsoft Docs
+description: Azure Hızlı Başlangıcı - Azure IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 services: iot-dps
-keywords: 
+keywords: ''
 author: JimacoMS2
 ms.author: v-jamebr
 ms.date: 12/21/2017
 ms.topic: hero-article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 6b13f95f00883a12ff0e922567829fa6fac06642
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 7dd8d90ca3201fce0680b88b5530712126997efe
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>IoT Hub Cihazı Sağlama Hizmeti için C# cihaz SDK'sını kullanarak sanal bir TPM cihazı oluşturma ve sağlama
 
@@ -80,7 +80,7 @@ Devam etmeden önce [IoT Hub Cihazı Sağlama Hizmetini Azure portalıyla ayarla
 
    Kayıt başarıyla tamamlanınca cihazınızın *Kayıt Kimliği* listenin altında *Tek Tek Kayıtlar* sekmesinde görünür. 
 
-6. Sanal cihazı kaydetmek için Enter'a basın. IoT hub bilgilerinizi almak için cihaz önyüklemesi ve Cihaz Sağlama Hizmetine bağlanma benzetimi gerçekleştiren iletilere dikkat edin. 
+6. Komut penceresinde (**_Onay Anahtarı_**’nı, **_Kayıt Kimliği_**’ni ve önerilen **_Cihaz Kimliği_**’ni görüntüleyen) Enter tuşuna basarak benzetimi yapılan cihazı kaydedin. IoT hub bilgilerinizi almak için cihaz önyüklemesi ve Cihaz Sağlama Hizmetine bağlanma benzetimi gerçekleştiren iletilere dikkat edin. 
 
 1. Cihazın sağlandığını doğrulayın. Sanal cihazın, sağlama hizmetinizle bağlantılı IoT hub ile başarıyla sağlanmasından sonra cihaz kimliği hub'ın **IoT Cihazları** dikey penceresinde görünür. 
 

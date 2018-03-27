@@ -14,11 +14,11 @@ ms.topic: quickstart
 ms.date: 03/09/2018
 ms.author: nitinme
 ms.custom: mvc
-ms.openlocfilehash: 6a0e69e1ab2c52586b447d8a249b52b09bbff705
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9eff06934eefa44db94de3d01be470ca69a2d88c
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak Databricks üzerinde bir Spark işi çalıştırma
 
@@ -40,17 +40,21 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
 
 2. **Azure Databricks (Önizleme)** altında **Oluştur**’a tıklayın.
 
-3. **Azure Databricks Hizmeti** altında aşağıdaki değerleri sağlayın:
+3. **Azure Databricks Hizmeti** bölümünde, Databricks çalışma alanı oluşturmak için değerler sağlayın.
 
     ![Azure Databricks çalışma alanı oluşturma](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    * **Çalışma alanı adı** altında Databricks çalışma alanınız için bir ad sağlayın.
-    * **Abonelik** için açılan listeden Azure aboneliğinizi seçin.
-    * **Kaynak grubu** için yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../azure-resource-manager/resource-group-overview.md).
-    * **Konum** için **Doğu ABD 2**’yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).
-    * **Fiyatlandırma Katmanı** için **Standart** veya **Premium**’u seçin. Bu katmanlar hakkında daha fazla bilgi için bkz. [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).
+    Aşağıdaki değerleri sağlayın: 
+     
+    |Özellik  |Açıklama  |
+    |---------|---------|
+    |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın        |
+    |**Abonelik**     | Açılan listeden Azure aboneliğinizi seçin.        |
+    |**Kaynak grubu**     | Yeni bir kaynak grubu oluşturmayı veya mevcut bir kaynak grubunu kullanmayı seçin. Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Daha fazla bilgi için bkz. [Azure Kaynak Grubuna genel bakış](../azure-resource-manager/resource-group-overview.md). |
+    |**Konum**     | **Doğu ABD 2**’yi seçin. Kullanılabilir diğer bölgeler için bkz. [Bölgeye göre kullanılabilir Azure hizmetleri](https://azure.microsoft.com/regions/services/).        |
+    |**Fiyatlandırma Katmanı**     |  **Standart** veya **Premium** arasında seçim yapın. Bu katmanlar hakkında daha fazla bilgi için bkz. [Databricks fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    **Oluştur**’a tıklayın.
+    **Panoya sabitle**’yi seçin ve sonra **Oluştur**’a tıklayın.
 
 4. Hesabın oluşturulması birkaç dakika sürer. Hesap oluşturma sırasında portal sağ tarafta **Azure Databricks için dağıtım gönderiliyor** kutucuğunu gösterir. Kutucuğu görmek için panonuzu sağa kaydırmanız gerekebilir. Ayrıca, ekranın üst kısmında gösterilen bir ilerleme çubuğu vardır. İlerleme durumu için her iki alanı da izleyebilirsiniz.
 
@@ -84,7 +88,7 @@ Bu bölüme başlamadan önce aşağıdaki önkoşulları tamamlamanız gerekir:
 * Örnek JSON dosyasını [Github'dan](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) indirin. 
 * Örnek JSON dosyasını, oluşturduğunuz Azure depolama hesabına yükleyin. Dosyaları karşıya yüklemek için [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md)’ni kullanabilirsiniz.
 
-Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob depolama hesabındaki verileri okuyacak şekilde yapılandırmak ve sonra veriler üzerinde bir Spark SQL işi çalıştırmak için aşağıdaki adımları gerçekleştirin.
+Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob depolama hesabındaki verileri okuyacak şekilde yapılandırmak ve sonra veriler üzerinde bir Spark SQL işi çalıştırmak için aşağıdaki görevleri gerçekleştirin.
 
 1. Sol bölmedeki **Çalışma Alanı**'na tıklayın. **Çalışma Alanı** açılır listesinden **Oluştur**’a ve sonra **Not Defteri**’ne tıklayın.
 
@@ -96,7 +100,7 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
     **Oluştur**’a tıklayın.
 
-3. Bu adımda Azure Depolama hesabını Databricks Spark kümesiyle ilişkilendirin. Bunu başarmanın iki yolu vardır: Azure Depolama hesabını Databricks Dosya Sistemine (DBFS) bağlama veya Azure Depolama hesabına doğrudan oluşturduğunuz uygulamadan erişme.  
+3. Bu adımda Azure Depolama hesabını Databricks Spark kümesiyle ilişkilendirin. Bu ilişkilendirmeyi gerçekleştirmenin iki yolu vardır. Azure Depolama hesabını Databricks Dosya Sistemine (DBFS) bağlayabilir veya Azure Depolama hesabına doğrudan oluşturduğunuz uygulamadan erişebilirsiniz.  
 
     > [!IMPORTANT]
     >Bu makalede **depolamayı DBFS'ye bağlama yaklaşımı** kullanılır. Bu yaklaşım, bağlı deponun küme dosya sistemiyle ilişkilendirilmesini sağlar. Bu sayede kümeye erişen tüm uygulamalar ilişkilendirilmiş depolamayı da kullanabilir. Doğrudan erişim yaklaşımı, erişimi yapılandırdığınız uygulamayla kısıtlıdır.
@@ -171,15 +175,15 @@ Databricks içinde bir not defteri oluşturmak, not defterini bir Azure Blob dep
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Spark kümesini oluştururken **__ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiyseniz, küme belirtilen süre boyunca etkin olmazsa otomatik olarak sona erer.
+Makaleyi tamamladıktan sonra kümeyi sonlandırabilirsiniz. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’i seçin. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesini seçin.
 
-Onay kutusunu seçmediyseniz kümeyi el ile sonlandırmanız gerekir. Bunu yapmak için Azure Databricks çalışma alanında sol bölmedeki **Kümeler**’e tıklayın. Sonlandırmak istediğiniz küme için imleci **Eylemler** sütunu altındaki üç noktanın üzerine taşıyın ve **Sonlandır** simgesine tıklayın.
+![Databricks kümesini durdurma](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Databricks kümesini durdurma")
 
-![Databricks kümesini sonlandırma](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Terminate Databricks cluster")
+Kümeyi oluştururken **__ dakika etkinsizlik süresinden sonra sonlandır** onay kutusunu seçtiyseniz, kümeyi kendiniz sonlandırmazsanız küme otomatik olarak durdurulur. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Azure depolama alanındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. Azure Data Lake Store’u Azure Databricks ile kullanma hakkında bilgi için sonraki makaleye geçin.
+Bu makalede, Azure Databricks’te bir Spark kümesi oluşturdunuz ve Azure depolama alanındaki verileri kullanarak bir Spark işi çalıştırdınız. Diğer veri kaynaklarından Azure Databricks’e verileri aktarma hakkında bilgi almak için [Spark veri kaynakları](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) bölümüne de bakabilirsiniz. Event Hubs kullanarak Azure Databricks’e nasıl veri akışı sağlanacağını öğrenmek için sonraki makaleye geçin.
 
 > [!div class="nextstepaction"]
->[Data Lake Store’u Azure Databricks ile Kullanma](https://go.microsoft.com/fwlink/?linkid=864084)
+>[Event Hubs kullanarak Azure Databricks’e veri akışı sağlama](databricks-stream-from-eventhubs.md)

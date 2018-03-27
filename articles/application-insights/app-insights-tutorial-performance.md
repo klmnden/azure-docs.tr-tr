@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights kullanarak performans sorunlarını tanılama | Microsoft Docs"
-description: "Azure Application Insights kullanarak uygulamanızdaki performans sorunlarını bulma ve tanılama hakkındaki öğretici."
+title: Azure Application Insights kullanarak performans sorunlarını tanılama | Microsoft Docs
+description: Azure Application Insights kullanarak uygulamanızdaki performans sorunlarını bulma ve tanılama hakkındaki öğretici.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/18/2017
@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 26f5acf369dd80d7877ab760806e0e08a49cfe6d
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 8489992303425cc00c15994b55ade958d77549e4
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Azure Application Insights ile performans sorunlarını bulma ve tanılama
 
@@ -38,10 +38,10 @@ Bu öğreticiyi tamamlamak için:
 - Uygulamanız için [Application Insights profil oluşturucuyu etkinleştirme](app-insights-profiler.md#installation).
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
-[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="identify-slow-server-operations"></a>Yavaş sunucu işlemlerini belirleme
-Application Insights, uygulamanızdaki farklı işlemlerin performans ayrıntılarını toplar.  Süresi en uzun olan işlemleri belirleyerek olası sorunları veya sürmekte olan geliştirme sürecinizin en iyi hedefini tanılayabilir ve uygulamanın genel performansını geliştirebilirsiniz.
+Application Insights, uygulamanızdaki farklı işlemlerin performans ayrıntılarını toplar. Süresi en uzun olan işlemleri belirleyerek olası sorunları veya sürmekte olan geliştirme sürecinizin en iyi hedefini tanılayabilir ve uygulamanın genel performansını geliştirebilirsiniz.
 
 1. **Application Insights**’ı ve sonra aboneliğinizi seçin.  
 1. **Performans** panelini açmak için **Araştır** menüsü altından **Performans**’ı seçin veya **Sunucu Yanıt Süresi** grafiğine tıklayın.

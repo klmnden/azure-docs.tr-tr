@@ -1,68 +1,61 @@
 ---
-title: "Coğrafi olarak dağıtılan Azure SQL veritabanı çözümü | Microsoft Docs"
-description: "Azure SQL Database ve bir çoğaltılmış veritabanı yük devretme için uygulamaya yapılandırmak ve yük devretme sınamasını öğrenin."
+title: Coğrafi olarak dağıtılan Azure SQL Veritabanı çözümü uygulama | Microsoft Docs
+description: Çoğaltılan bir veritabanına yük devretme için Azure SQL Veritabanınızı ve uygulamanızı yapılandırmayı ve test yük devretme işlemi gerçekleştirmeyi öğreneceksiniz.
 services: sql-database
-documentationcenter: 
 author: CarlRabeler
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+manager: craigg
 ms.service: sql-database
 ms.custom: mvc,business continuity
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: On Demand
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.openlocfilehash: 910be8ff5f9a882c7bb8ae875b8bf5fc74d1fb9a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.openlocfilehash: ea94a311d409d8c5d6142746dc1009ff67ef3a82
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="implement-a-geo-distributed-database"></a>Coğrafi olarak dağıtılan bir veritabanı uygulaması
+# <a name="implement-a-geo-distributed-database"></a>Coğrafi olarak dağıtılmış bir veritabanı uygulama
 
-Bu öğreticide bir Azure SQL veritabanı ve bir uzak bölge için yük devretme için uygulamayı yapılandırma ve yük devretme planınız sınayın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz: 
+Bu öğreticide, uzak bir bölgeye yük devretme için Azure SQL veritabanı ve uygulamasını yapılandırır ve sonra yük devretme planınızı test edersiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz: 
 
 > [!div class="checklist"]
-> * Veritabanı kullanıcıları oluşturun ve bunları izinleri
-> * Bir veritabanı düzeyinde güvenlik duvarı kuralı ayarlamak
-> * Oluşturma bir [coğrafi çoğaltma yük devretme grubu](sql-database-geo-replication-overview.md)
-> * Oluşturma ve Azure SQL veritabanını sorgulamak için bir Java uygulaması derleme
-> * Bir olağanüstü durum kurtarma ayrıntıya gerçekleştirin
+> * Veritabanı kullanıcıları oluşturma ve bu kullanıcılara izinler verme
+> * Veritabanı düzeyinde güvenlik duvarı kuralı ayarlama
+> * [Coğrafi çoğaltma yük devretme grubu](sql-database-geo-replication-overview.md) oluşturma
+> * Azure SQL veritabanını sorgulamak için Java uygulaması oluşturma ve derleme
+> * Olağanüstü durum kurtarma tatbikatı gerçekleştirme
 
-Bir Azure aboneliğiniz yoksa [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/) başlamadan önce.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
 
-- En son yüklenen [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs). 
-- Bir Azure SQL veritabanını yüklediniz. Bu öğretici AdventureWorksLT örnek veritabanı adı ile kullanır **mySampleDatabase** Bu hızlı başlangıçlar birinden:
+- En son [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) yüklenmiş olmalıdır. 
+- Bir Azure SQL veritabanı yüklenmiş olmalıdır. Bu öğreticide, şu hızlı başlangıçlardan birinde yer alan **mySampleDatabase** adıyla AdventureWorksLT örnek veritabanı kullanılmaktadır:
 
    - [DB Oluşturma - Portal](sql-database-get-started-portal.md)
    - [DB oluşturma - CLI](sql-database-get-started-cli.md)
    - [DB Oluşturma - PowerShell](sql-database-get-started-powershell.md)
 
-- SQL komut dosyaları, veritabanında yürütmek için bir yöntem tanımladınız aşağıdaki sorgu araçları birini kullanabilirsiniz:
-   - Sorgu Düzenleyicisi'nde [Azure portal](https://portal.azure.com). Azure portalında sorgu Düzenleyicisi'ni kullanma hakkında daha fazla bilgi için bkz: [bağlanma ve sorgu Düzenleyicisi'ni kullanarak sorgu](sql-database-get-started-portal.md#query-the-sql-database).
-   - En yeni sürümünü [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms), Windows için Microsoft SQL veritabanı için SQL Server'dan herhangi bir SQL altyapı yönetmek için tümleşik bir ortam olduğu.
-   - En yeni sürümünü [Visual Studio Code](https://code.visualstudio.com/docs), Linux, macOS, için bir grafik kod düzenleyicisini olduğu ve Windows destekleyen uzantılar da dahil olmak üzere [mssql uzantısı](https://aka.ms/mssql-marketplace) Microsoft SQL Server'ı sorgulamak için Azure SQL Database ve SQL veri ambarı. Bu aracı kullanarak Azure SQL veritabanı ile ilgili daha fazla bilgi için bkz: [Connect ve VS Code sorguyla](sql-database-connect-query-vscode.md). 
+- SQL betiklerini veritabanına karşı yürütme yöntemini belirledikten sonra aşağıdaki sorgu araçlarından birini kullanabilirsiniz:
+   - [Azure portalındaki](https://portal.azure.com) sorgu düzenleyici. Azure portalındaki sorgu düzenleyiciyi kullanma hakkında daha fazla bilgi için bkz. [Sorgu Düzenleyiciyi kullanarak bağlanma ve sorgulama](sql-database-get-started-portal.md#query-the-sql-database).
+   - Microsoft Windows için SQL Server’dan SQL Veritabanı’na tüm SQL altyapılarını yönetebileceğiniz tümleşik bir ortam olan [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)’nun en yeni sürümü.
+   - Linux, macOS ve Windows’a yönelik bir grafik kod düzenleyicisi olan ve Microsoft SQL Server, Azure SQL Veritabanı ve SQL Veri Ambarı’nı sorgulamak için kullanılabilen [mssql uzantısı](https://aka.ms/mssql-marketplace) gibi uzantıları destekleyen [Visual Studio Code](https://code.visualstudio.com/docs)’un en yeni sürümü. Azure SQL Veritabanı ile bu aracı kullanma hakkında daha fazla bilgi için bkz. [VS Code ile bağlanma ve sorgulama](sql-database-connect-query-vscode.md). 
 
-## <a name="create-database-users-and-grant-permissions"></a>Veritabanı kullanıcıları oluşturun ve izinleri
+## <a name="create-database-users-and-grant-permissions"></a>Veritabanı kullanıcıları oluşturma ve izinler verme
 
-Veritabanınıza bağlanmak ve aşağıdaki sorgu araçlarından birini kullanarak kullanıcı hesapları oluşturun:
+Aşağıdaki sorgu araçlarından birini kullanarak veritabanınıza bağlanın ve kullanıcı hesapları oluşturun:
 
-- Azure portalında sorgu Düzenleyicisi
+- Azure portalındaki Sorgu düzenleyici
 - SQL Server Management Studio
 - Visual Studio Code
 
-Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltmak (ve eşitleme tutulması). SQL Server Management Studio veya Visual Studio Code kullanmak için kendisi için henüz bir güvenlik duvarı yapılandırdığınız olmayan bir IP adresinde bir istemciden bağlanıyorsanız, bir güvenlik duvarını yapılandırmanız gerekebilir. Ayrıntılı adımlar için bkz: [sunucu düzeyinde güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltılır (ve eşitlenmiş şekilde tutulur). SQL Server Management Studio veya Visual Studio Code’u kullanmak için, henüz güvenlik duvarı yapılandırmadığınız bir IP adresindeki istemciden bağlanmanız durumunda bir güvenlik duvarı kuralı yapılandırmanız gerekebilir. Ayrıntılı adımlar için bkz. [Sunucu düzeyinde bir güvenlik duvarı kuralı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
 
-- Sorgu penceresinde, veritabanınızdaki iki kullanıcı hesapları oluşturmak için aşağıdaki sorguyu çalıştırın. Bu komut dosyası verir **db_owner** izinleri **app_admin** hesabı ve verir **seçin** ve **güncelleştirme** izinleri**app_user** hesabı. 
+- Sorgu penceresinde aşağıdaki sorguyu yürüterek veritabanınızda iki kullanıcı hesabı oluşturun. Bu betik, **app_admin** hesabına **db_owner** izinleri verir ve **app_user** hesabına da **SELECT** ve **UPDATE** izinleri verir. 
 
    ```sql
    CREATE USER app_admin WITH PASSWORD = 'ChangeYourPassword1';
@@ -76,24 +69,24 @@ Bu kullanıcı hesapları otomatik olarak ikincil sunucunuza çoğaltmak (ve eş
 
 ## <a name="create-database-level-firewall"></a>Veritabanı düzeyinde güvenlik duvarı oluşturma
 
-Oluşturma bir [veritabanı düzeyinde güvenlik duvarı kuralı](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) SQL veritabanınız için. Bu veritabanı düzeyinde güvenlik duvarı kuralı, bu öğreticide oluşturduğunuz ikincil sunucuya otomatik olarak çoğaltır. (Bu öğreticide) kolaylık sağlamak için Bu öğreticide adımları gerçekleştiriyorsanız bilgisayarın ortak IP adresi kullanın. Geçerli bilgisayarınız için sunucu düzeyinde güvenlik duvarı kuralı için kullanılan IP adresi belirlemek için bkz: [sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+SQL veritabanınız için [veritabanı düzeyinde güvenlik duvarı kuralı](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) oluşturun. Bu veritabanı düzeyinde güvenlik duvarı kuralı, bu öğreticide oluşturduğunuz ikincil sunucuya otomatik olarak çoğaltma yapar. (Bu öğreticide) kolaylık sağlamak için, bu öğreticideki adımları gerçekleştirdiğiniz bilgisayarın genel IP adresini kullanın. Geçerli bilgisayarınıza yönelik sunucu düzeyinde güvenlik duvarı kuralı için kullanılan IP adresini belirlemek için bkz. [Sunucu düzeyinde güvenlik duvarı oluşturma](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
 
-- Açık sorgu penceresinde, önceki sorgu ortamınız için uygun IP adreslerine sahip IP adreslerini değiştirerek aşağıdaki sorguyla değiştirin.  
+- Açık sorgu pencerenizde, IP adreslerini ortamınız için uygun IP adresleriyle değiştirerek önceki sorguyu aşağıdaki sorguyla değiştirin.  
 
    ```sql
    -- Create database-level firewall setting for your public IP address
    EXECUTE sp_set_database_firewall_rule @name = N'myGeoReplicationFirewallRule',@start_ip_address = '0.0.0.0', @end_ip_address = '0.0.0.0';
    ```
 
-## <a name="create-an-active-geo-replication-auto-failover-group"></a>Aktif coğrafi çoğaltma otomatik yük devretme grubu oluşturma 
+## <a name="create-an-active-geo-replication-auto-failover-group"></a>Etkin coğrafi çoğaltma otomatik yük devretme grubu oluşturma 
 
-Azure PowerShell kullanarak oluşturduğunuz bir [aktif coğrafi çoğaltma otomatik yük devretme grubu](sql-database-geo-replication-overview.md) mevcut Azure SQL server'ınızı ve yeni arasında boş bir Azure bölgesi Azure SQL Server'da ve ardından örnek veritabanınızdaki yük devretme grubuna ekleyin.
+Azure PowerShell kullanarak, mevcut Azure SQL sunucunuz ile bir Azure bölgesindeki yeni boş Azure SQL sunucusu arasında [etkin coğrafi çoğaltma otomatik yük devretme grubu](sql-database-geo-replication-overview.md) oluşturun ve sonra örnek veritabanınızı yük devretme grubuna ekleyin.
 
 > [!IMPORTANT]
-> Bu cmdlet'ler Azure PowerShell 4.0 gerektirir. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
+> Bu cmdlet’ler için Azure PowerShell 4.0 gerekir. [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 >
 
-1. Var olan sunucu ve örnek veritabanı için değerleri kullanarak, bir PowerShell komut dosyası değişkenleri doldurun ve yük devretme grup adı için bir genel benzersiz değer belirtin.
+1. Mevcut sunucunuz ve örnek veritabanı için değerleri kullanarak PowerShell betikleriniz için değişkenleri doldurun ve yük devretme grubu adı için genel olarak benzersiz bir değer sağlayın.
 
    ```powershell
    $adminlogin = "ServerAdmin"
@@ -107,7 +100,7 @@ Azure PowerShell kullanarak oluşturduğunuz bir [aktif coğrafi çoğaltma otom
    $myfailovergroupname = "<your unique failover group name>"
    ```
 
-2. Boş bir yedek sunucu yük devretme bölgenizde oluşturun.
+2. Yük devretme bölgenizde boş bir yedekleme sunucusu oluşturun.
 
    ```powershell
    $mydrserver = New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
@@ -130,7 +123,7 @@ Azure PowerShell kullanarak oluşturduğunuz bir [aktif coğrafi çoğaltma otom
    $myfailovergroup   
    ```
 
-4. Veritabanınız yük devretme grubuna ekleyin.
+4. Veritabanınızı yük devretme grubuna ekleyin.
 
    ```powershell
    $myfailovergroup = Get-AzureRmSqlDatabase `
@@ -157,7 +150,7 @@ brew update
 brew install maven
 ```
 
-Yükleme ve Java ve Maven ortam yapılandırma konusunda ayrıntılı yönergeler için Git [SQL Server'ı kullanarak bir uygulama oluşturmak](https://www.microsoft.com/sql-server/developer-get-started/)seçin **Java**seçin **MacOS**ve ardından izleyin Java ve Maven 1.2 ve 1.3 adımda yapılandırmaya yönelik ayrıntılı yönergeler için.
+Java ve Maven ortamını yükleme ve yapılandırma konusunda ayrıntılı yönergeler için [SQL Server kullanarak uygulama derleme](https://www.microsoft.com/sql-server/developer-get-started/) bölümüne gidin, **Java**’yı, **MacOS**’yi seçin ve sonra adım 1.2 ve 1.3’teki Java ve Maven’i yapılandırmaya yönelik ayrıntılı yönergeleri izleyin.
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 Terminalinizi açın ve Java projenizi oluşturmayı planladığınız dizine gidin. Aşağıdaki komutları girerek **Maven** aracını yükleyin:
@@ -166,27 +159,27 @@ Terminalinizi açın ve Java projenizi oluşturmayı planladığınız dizine gi
 sudo apt-get install maven
 ```
 
-Yükleme ve Java ve Maven ortam yapılandırma konusunda ayrıntılı yönergeler için Git [SQL Server'ı kullanarak bir uygulama oluşturmak](https://www.microsoft.com/sql-server/developer-get-started/)seçin **Java**seçin **Ubuntu**ve ardından izleyin Java ve Maven 1.2, 1,3 ve 1.4 adımda yapılandırmaya yönelik ayrıntılı yönergeler.
+Java ve Maven ortamını yükleme ve yapılandırma konusunda ayrıntılı yönergeler için [SQL Server kullanarak uygulama derleme](https://www.microsoft.com/sql-server/developer-get-started/) bölümüne gidin, **Java**’yı, **Ubuntu**’yu seçin ve sonra adım 1.2, 1.3 ve 1.4’teki Java ve Maven’i yapılandırmaya yönelik ayrıntılı yönergeleri izleyin.
 
 ### <a name="windows"></a>**Windows**
-Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) aracını yükleyin. Maven bağımlılıklarını yönetme, derleme, test ve Java projenizi çalıştırma yardımcı olması için kullanın. Yükleme ve Java ve Maven ortam yapılandırma konusunda ayrıntılı yönergeler için Git [SQL Server'ı kullanarak bir uygulama oluşturmak](https://www.microsoft.com/sql-server/developer-get-started/)seçin **Java**Windows seçin ve ardından ayrıntılı yönergeler için izleyin Java ve Maven 1.2 ve 1.3 adımda yapılandırma.
+Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) aracını yükleyin. Bağımlılıkları yönetmede, Java projenizi derlemede, test etmede ve çalıştırmada yardımcı olması için Maven'i kullanın. Java ve Maven ortamını yükleme ve yapılandırma konusunda ayrıntılı yönergeler için [SQL Server kullanarak uygulama derleme](https://www.microsoft.com/sql-server/developer-get-started/) bölümüne gidin, **Java**’yı, Windows’u seçin ve sonra adım 1.2 ve 1.3’teki Java ve Maven’i yapılandırmaya yönelik ayrıntılı yönergeleri izleyin.
 
 ## <a name="create-sqldbsample-project"></a>SqlDbSample projesi oluşturma
 
-1. (Örneğin, Bash) komut konsolunda bir Maven projesi oluşturun. 
+1. Komut konsolunda (örn. Bash) bir Maven projesi oluşturun. 
    ```bash
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
-2. Tür **Y** tıklatıp **Enter**.
-3. Yeni oluşturulan projenize dizinleri değiştirin.
+2. **Y** yazın ve **Enter** tuşuna basın.
+3. Yeni oluşturulan projenizin dizinlerini değiştirin.
 
    ```bash
    cd SqlDbSamples
    ```
 
-4. Tercih ettiğiniz düzenleyicisi kullanarak proje klasöründe pom.xml dosyasını açın. 
+4. Tercih ettiğiniz düzenleyiciyi kullanarak proje klasörünüzden pom.xml dosyasını açın. 
 
-5. SQL Server bağımlılığı için Microsoft JDBC sürücüsü, sık kullandığınız metin düzenleyiciyi açmak ve kopyalayıp aşağıdaki satırları pom.xml dosyanıza yapıştırarak Maven projenize ekleyin. Dosyada önceden doldurulmaz var olan değerlerin üzerine yazmaz. JDBC bağımlılık yapıştırılmasına gerekir büyük "bağımlılıkları" bölümüne (') içinde.   
+5. Tercih ettiğiniz metin düzenleyiciyi açıp aşağıdaki satırları pom.xml dosyanıza kopyalayıp yapıştırarak Maven projenize SQL Server için Microsoft JDBC Sürücüsü bağımlılığını ekleyin. Dosyada önceden doldurulmuş olan mevcut değerlerin üzerine yazmayın. JDBC bağımlılığı, daha büyük “bağımlılıklar” bölümünün ( ) içine yapıştırılmalıdır.   
 
    ```xml
    <dependency>
@@ -196,7 +189,7 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    </dependency>
    ```
 
-6. Aşağıdaki "Özellikler" bölümü pom.xml dosyasına sonra "bağımlılıkları" bölümünde ekleyerek karşı Projeyi derlemek için Java sürümünü belirtin. 
+6. Aşağıdaki “özellikler” bölümünü, pom.xml dosyasında "bağımlılıklar" bölümünün sonrasına ekleyerek projenin derleneceği Java sürümünü belirtin. 
 
    ```xml
    <properties>
@@ -204,7 +197,7 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
      <maven.compiler.target>1.8</maven.compiler.target>
    </properties>
    ```
-7. Aşağıdaki "oluşturma" bölümünde Kavanoz içinde bildirim dosyaları desteklemek için "Özellikler" bölümüne pom.xml dosyasına ekleyin.       
+7. Jar’lar içinde bildirim dosyalarını desteklemek için pom.xml dosyasında "özellikler" bölümünün sonrasına şu "derleme" bölümünü ekleyin.       
 
    ```xml
    <build>
@@ -225,7 +218,7 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    </build>
    ```
 8. pom.xml dosyasını kaydedin ve kapatın.
-9. App.java dosyasını (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) açın ve aşağıdaki içeriğiyle Değiştir. Yük devretme grubu adı, yük devretme grubunun adını değiştirin. Veritabanı adı, kullanıcı veya parola değerlerini değiştirdiyseniz, bu değerleri de değiştirin.
+9. App.java dosyasını (C:\apache-maven-3.5.0\SqlDbSample\src\main\java\com\sqldbsamples\App.java) açın ve içerikleri aşağıdaki içeriklerle değiştirin. Yük devretme grubu adını, yük devretme grubunuzun adıyla değiştirin. Veritabanı adı, kullanıcı veya parola değerlerini değiştirdiyseniz, bu değerleri de değiştirin.
 
    ```java
    package com.sqldbsamples;
@@ -324,14 +317,14 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    ```
 6. App.java dosyasını kaydedin ve kapatın.
 
-## <a name="compile-and-run-the-sqldbsample-project"></a>Derleme ve SqlDbSample projesi çalıştırma
+## <a name="compile-and-run-the-sqldbsample-project"></a>SqlDbSample projesini derleme ve çalıştırma
 
-1. Komut konsolunda şu komutu yürütün.
+1. Komut konsolunda aşağıdaki komutu yürütün.
 
    ```bash
    mvn package
    ```
-2. Bitirdikten sonra (el ile durdurun sürece, yaklaşık 1 saat boyunca çalışır) uygulamayı çalıştırmak için aşağıdaki komutu yürütün:
+2. İşiniz bittiğinde, uygulamayı çalıştırmak için aşağıdaki komutu yürütün (kendiniz durdurmazsanız yaklaşık 1 saat boyunca çalıştırılır):
 
    ```bash
    mvn -q -e exec:java "-Dexec.mainClass=com.sqldbsamples.App"
@@ -345,9 +338,9 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    3. insert on primary successful, read from secondary successful
    ```
 
-## <a name="perform-disaster-recovery-drill"></a>Olağanüstü durum kurtarma ayrıntıya gerçekleştirin
+## <a name="perform-disaster-recovery-drill"></a>Olağanüstü durum kurtarma tatbikatı gerçekleştirme
 
-1. Yük devretme grubu el ile yük devretme çağırın. 
+1. Yük devretme grubunun el ile yük devretmesini çağırın. 
 
    ```powershell
    Switch-AzureRMSqlDatabaseFailoverGroup `
@@ -356,9 +349,9 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    -FailoverGroupName $myfailovergroupname
    ```
 
-2. Yük devretme sırasında uygulama sonuçlarını inceleyin. DNS Önbellek yenileme sırasında bazı eklemeleri başarısız.     
+2. Yük devretme sırasında uygulama sonuçlarını gözlemleyin. DNS önbelleği yenilenirken bazı eklemeler başarısız olur.     
 
-3. Olağanüstü durum kurtarma sunucunuzun performansının hangi rolünün ölçeğini bulun.
+3. Olağanüstü durum kurtarma sunucunuzun hangi rolü gerçekleştirdiğini öğrenin.
 
    ```powershell
    $mydrserver.ReplicationRole
@@ -373,9 +366,9 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
    -FailoverGroupName $myfailovergroupname
    ```
 
-5. Uygulama sonuçları yeniden çalışma sırasında gözlemleyin. DNS Önbellek yenileme sırasında bazı eklemeleri başarısız.     
+5. Yeniden çalışma sırasında uygulama sonuçlarını gözlemleyin. DNS önbelleği yenilenirken bazı eklemeler başarısız olur.     
 
-6. Olağanüstü durum kurtarma sunucunuzun performansının hangi rolünün ölçeğini bulun.
+6. Olağanüstü durum kurtarma sunucunuzun hangi rolü gerçekleştirdiğini öğrenin.
 
    ```powershell
    $fileovergroup = Get-AzureRMSqlDatabaseFailoverGroup `
@@ -387,4 +380,4 @@ Resmi yükleyiciyi kullanarak [Maven](https://maven.apache.org/download.cgi) ara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Daha fazla bilgi için bkz: [etkin coğrafi çoğaltma ve yük devretme gruplar](sql-database-geo-replication-overview.md).
+Daha fazla bilgi için bkz. [Etkin coğrafi çoğaltma ve yük devretme grupları](sql-database-geo-replication-overview.md).
