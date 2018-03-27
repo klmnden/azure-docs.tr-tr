@@ -1,41 +1,41 @@
 ---
-title: "SQL Azure Cosmos veritabanı ile nasıl? | Microsoft Belgeleri"
-description: "SQL Azure Cosmos veritabanı ile sorgu öğrenin"
+title: Azure Cosmos DB’de SQL ile sorgulama | Microsoft Docs
+description: Azure Cosmos DB’de SQL ile sorgulamayı öğrenin
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: ffef6ec2120a80d907449470efb7b4ab6dca8037
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 60910b602f9386738f9d8895fd151d15f3ebf058
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB: SQL kullanarak nasıl?
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Öğretici: SQL API’sini kullanarak Azure Cosmos DB’yi sorgulama
 
 [!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
-Azure Cosmos DB [SQL API](documentdb-introduction.md) belgeleri SQL kullanarak sorgulama destekler. Bu makalede, örnek bir belge ve iki örnek SQL sorguları ve sonuçları sağlar.
+Azure Cosmos DB [SQL API’si](documentdb-introduction.md), SQL kullanılarak belgelerin sorgulanmasını destekler. Bu makalede, örnek bir belge ve iki örnek SQL sorgusu ve sonuçları sağlanmaktadır.
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * SQL ile veri sorgulama
+> * SQL ile verileri sorgulama
 
-## <a name="sample-document"></a>Örnek bir belge
+## <a name="sample-document"></a>Örnek belge
 
-Bu makalede SQL sorguları aşağıdaki örnek belge kullanın.
+Bu makaledeki SQL sorguları aşağıdaki örnek belgeyi kullanır.
 
 ```json
 {
@@ -65,20 +65,20 @@ Bu makalede SQL sorguları aşağıdaki örnek belge kullanın.
   "isRegistered": false
 }
 ```
-## <a name="where-can-i-run-sql-queries"></a>SQL sorguları yeri çalıştırabilir miyim?
+## <a name="where-can-i-run-sql-queries"></a>SQL sorgularını nerede çalıştırabilirim?
 
-Aracılığıyla Azure portalında Veri Gezgini'ni kullanarak sorguları çalıştırabilirsiniz [REST API ve SDK](sql-api-sdk-dotnet.md)ve hatta [Query playground](https://www.documentdb.com/sql/demo), var olan bir örnek veri kümesini temel sorguları çalıştırır.
+Mevcut örnek veri kümesinde sorgular çalıştıran [Sorgu oyun alanı](https://www.documentdb.com/sql/demo) ve [REST API’si ve SDK’ları](sql-api-sdk-dotnet.md) aracılığıyla, Azure portalındaki Veri Gezgini’ni kullanarak sorgular çalıştırabilirsiniz.
 
 SQL sorguları hakkında daha fazla bilgi için bkz:
-* [SQL sorgusu ve SQL söz dizimi](sql-api-sql-query.md)
+* [SQL sorgusu ve SQL sözdizimi](sql-api-sql-query.md)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğretici bir Azure Cosmos DB hesap ve koleksiyon olduğunu varsayar. Bu yok? Tamamlamak [5 dakikalık quickstart](create-mongodb-nodejs.md) veya [Geliştirici öğretici](tutorial-develop-mongodb.md) bir hesap ve koleksiyonu oluşturmak için.
+Bu öğreticide, bir Azure Cosmos DB hesabınız ve koleksiyonunuz olduğu varsayılır. Bunlardan biri yok mu? Bir hesap ve koleksiyon oluşturmak için [5 dakikalık hızlı başlangıç](create-mongodb-nodejs.md) veya [geliştirici öğreticisini](tutorial-develop-mongodb.md) tamamlayın.
 
 ## <a name="example-query-1"></a>Örnek sorgu 1
 
-Yukarıdaki örnek ailesi belge verilen, SQL sorgusu aşağıdaki belgeleri ID alanı eşleştiği döndürür `WakefieldFamily`. Olduğundan bir `SELECT *` ifadesi, sorgu çıktısı tam JSON belgesi şöyledir:
+Yukarıda verilen örnek aile belgesiyle aşağıdaki SQL sorgusu, kimlik alanının `WakefieldFamily` ile eşleştiği belgeleri döndürür. Bu bir `SELECT *` deyimi olduğundan, sorgunun çıkışı eksiksiz JSON belgesidir:
 
 **Sorgu**
 
@@ -86,7 +86,7 @@ Yukarıdaki örnek ailesi belge verilen, SQL sorgusu aşağıdaki belgeleri ID a
     FROM Families f 
     WHERE f.id = "WakefieldFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
 ```json
 {
@@ -117,9 +117,9 @@ Yukarıdaki örnek ailesi belge verilen, SQL sorgusu aşağıdaki belgeleri ID a
 }
 ```
 
-## <a name="example-query-2"></a>Örnek Sorgu 2
+## <a name="example-query-2"></a>Örnek sorgu 2
 
-Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndürür `WakefieldFamily` kendi sınıf tarafından sıralanan.
+Sonraki sorgu, ailede kimlikleri `WakefieldFamily` ile eşleşen çocukların tüm adlarını, çocukların sınıfına göre sıralanmış şekilde döndürür.
 
 **Sorgu**
 
@@ -129,7 +129,7 @@ Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndü
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.children.grade ASC
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       { "givenName": "Jesse" }, 
@@ -139,13 +139,13 @@ Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * SQL kullanarak sorgulamak öğrendiniz  
+> * SQL kullanarak sorgulamayı öğrendiniz  
 
-Verilerinizi Genel dağıtma konusunda bilgi almak için sonraki öğretici şimdi devam edebilirsiniz.
+Artık verilerinizi genel olarak nasıl dağıtacağınızı öğrenmek için sonraki öğreticiye ilerleyebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Verilerinizi genel Dağıt](tutorial-global-distribution-sql-api.md)
+> [Verilerinizi genel olarak dağıtma](tutorial-global-distribution-sql-api.md)
 

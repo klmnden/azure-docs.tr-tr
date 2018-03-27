@@ -1,12 +1,12 @@
 ---
-title: "İlk otomatik iş akışınızı oluşturma - Azure Logic Apps | Microsoft Docs"
-description: "Bu hızlı başlangıçta, sistemleri ve bulut hizmetlerini tümleştiren sistem tümleştirmesi ve kuruluş uygulaması tümleştirme (EAI) senaryoları için Azure Logic Apps ile ilk iş akışınızı nasıl otomatikleştirebileceğiniz açıklanır"
+title: İlk otomatik iş akışınızı oluşturma - Azure Logic Apps | Microsoft Docs
+description: Bu hızlı başlangıçta, sistemleri ve bulut hizmetlerini tümleştiren sistem tümleştirmesi ve kuruluş uygulaması tümleştirme (EAI) senaryoları için Azure Logic Apps ile ilk iş akışınızı nasıl otomatikleştirebileceğiniz açıklanır
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-keywords: "iş akışı, bulut hizmetleri, sistem tümleştirmesi, kuruluş uygulaması tümleştirme, EAI"
-documentationcenter: 
+keywords: iş akışı, bulut hizmetleri, sistem tümleştirmesi, kuruluş uygulaması tümleştirme, EAI
+documentationcenter: ''
 ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 1/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: d382144c202b2b7f5623f2cca2a82c384387e8ca
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Hızlı Başlangıç: İlk Logic Apps iş akışınızı oluşturma - Azure portalı
 
@@ -60,6 +60,8 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
    ![Boş mantıksal uygulama şablonunu seçin](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Sonra, yeni bir RSS akışı öğesi göründüğünde tetiklenen bir [tetikleyici](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyin. Her mantıksal uygulama, belirli bir olay gerçekleştiğinde ya da belirli bir koşul karşılandığında tetiklenen bir tetikleyiciyle başlamalıdır. Tetikleyici her etkinleştirildiğinde Logic Apps altyapısı iş akışınızı başlatan ve çalıştıran bir mantıksal uygulama örneği oluşturur.
+
+<a name="add-rss-trigger"></a>
 
 ## <a name="check-rss-feed-with-a-trigger"></a>Bir tetikleyici ile RSS akışı denetleme
 
@@ -144,7 +146,7 @@ Mantıksal uygulamanız çalışıyor ancak RSS akışını kontrol etme dışı
       ![E-posta gövdesi için içerik ekleme](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Ayar | Açıklama | 
-      | ----- | ----------- | 
+      | ------- | ----------- | 
       | **Akış başlığı** | Öğenin başlığı | 
       | **Akış yayımlanma zamanı** | Öğenin yayımlandığı tarih ve saat | 
       | **Birincil akış bağlantısı** | Öğenin URL'si | 
@@ -156,15 +158,16 @@ Daha sonra, mantıksal uygulamanızı test edin.
 
 ## <a name="run-your-logic-app"></a>Mantıksal uygulamanızı çalıştırın
 
-Mantıksal uygulamanızı el ile başlatmak için tasarımcı araç çubuğundan **Çalıştır**'ı seçin. Veya mantıksal uygulamanızın belirlediğiniz zamanlamaya (dakika başı) çalışmasını bekleyin. RSS akışında yeni öğeler olduğunda mantıksal uygulamanız her yeni öğe için bir e-posta gönderir. Bununla birlikte, akışta yeni öğe yoksa mantıksal uygulamanız tetikleme adımını atlar ve belirlenen aralık boyunca bekledikten sonra tekrar denetleme gerçekleştirir. 
+Mantıksal uygulamanızı el ile başlatmak için tasarımcı araç çubuğundan **Çalıştır**'ı seçin. Veya mantıksal uygulamanızın belirttiğiniz zamanlamaya (dakika başı) göre RSS akışını denetlemesini bekleyin. RSS akışında yeni öğeler olduğunda mantıksal uygulamanız her yeni öğe için bir e-posta gönderir. Aksi takdirde mantıksal uygulamanız yeniden denetlemek için bir sonraki zaman aralığını bekler. 
 
-Bu mantıksal uygulamanın gönderdiği örnek ileti aşağıda verilmiştir:
+Örneğin, bu mantıksal uygulamanın gönderdiği örnek bir e-posta aşağıda verilmiştir. E-posta gelmezse istenmeyen e-posta klasörüne bakın.
 
 ![Yeni RSS akışı öğesi için gönderilen e-posta](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-E-posta gelmezse istenmeyen e-posta klasörüne bakın. E-postanızın istenmeyen posta filtresi bu tür postaları yeniden yönlendirebilir. 
+Teknik olarak tetikleyici, RSS akışını denetleyip yeni öğeler bulduğunda tetikleyici etkinleşir ve Logic Apps altyapısı, mantıksal uygulama iş akışınızın, iş akışında eylemleri çalıştıran bir örneğini oluşturur.
+Tetikleyici yeni öğeler bulmazsa tetikleyici etkinleşmez ve iş akışı örneğini oluşturma işlemini "atlar".
 
-Tebrikler, ilk mantıksal uygulamanızı oluşturup çalıştırdınız.
+Tebrikler, artık Azure portalı ile ilk mantıksal uygulamanızı başarıyla derleyip çalıştırdınız!
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

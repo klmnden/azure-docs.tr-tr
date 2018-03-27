@@ -1,6 +1,6 @@
 ---
-title: "Python’dan MySQL için Azure Veritabanı'na bağlanma"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Python kod örneği sağlanmıştır."
+title: Python’dan MySQL için Azure Veritabanı'na bağlanma
+description: Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Python kod örneği sağlanmıştır.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
@@ -11,11 +11,11 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 4003c1258fcc0a6d04c4ae8d234eba4d0224b8a0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 08725493f9d050da762a6527363b77af6eeed6e6
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Python'u kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta [Python](https://python.org) kullanarak MySQL için Azure Veritabanı'na nasıl bağlanacağınız gösterilmiştir. Mac OS, Ubuntu Linux ve Windows platformlarındaki veritabanında yer alan verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerini kullanır. Bu konuda, Python kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.
@@ -37,7 +37,7 @@ Bu hızlı başlangıçta, başlangıç noktası olarak şu kılavuzlardan birin
 1. Linux’ta (Ubuntu), Python normalde varsayılan yükleme kapsamında yüklenir.
 2. Bash kabuğunu başlatarak Python yüklemesini denetleyin. Sürüm numarasını görmek için büyük harf V anahtarını kullanarak `python -V` komutunu çalıştırın.
 3. Sürüm numarasını görmek için `pip show pip -V` komutunu çalıştırarak PIP yüklemesini denetleyin. 
-4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklenmediyse, `sudo apt-get install python-pip` komutunu çalıştırarak [PIP] (https://pip.pypa.io/en/stable/installing/) paketini yükleyebilirsiniz.
+4. PIP, Python’un bazı sürümlerine eklenmiş olabilir. PIP yüklü değilse, `sudo apt-get install python-pip` komutunu çalıştırarak [PIP](https://pip.pypa.io/en/stable/installing/) paketini yükleyebilirsiniz.
 5. `pip install -U pip` komutunu çalıştırarak PIP’yi en son sürüme güncelleştirin.
 6. Şu PIP komutunu kullanarak Python için MySQL bağlayıcısını ve onun bağımlılıklarını yükleyin:
 

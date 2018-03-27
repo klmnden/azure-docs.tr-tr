@@ -7,13 +7,13 @@ manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 03/01/2018
+ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 8d1f09a39e865500aa8e4d093473d4989f134c3d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak blobları yükleme, indirme ve listeleme
 
@@ -253,13 +253,13 @@ Blob depolama ile .NET geliştirmeye yönelik şu ek kaynaklara bakın:
 
 ### <a name="binaries-and-source-code"></a>İkili dosyalar ve kaynak kodu
 
-- [Depolama .NET istemci kitaplığının](https://www.nuget.org/packages/WindowsAzure.Storage/) en son sürümüne yönelik NuGet paketini indirin. 
-- GitHub üzerinde [Depolama .NET istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) görüntüleyin.
+- Azure Storage için [.NET istemci kitaplığının](https://www.nuget.org/packages/WindowsAzure.Storage/) en son sürümüne yönelik NuGet paketini indirin. 
+- GitHub üzerinde [.NET istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-net) görüntüleyin.
 
 ### <a name="client-library-reference-and-samples"></a>İstemci kitaplığı başvurusu ve örnekleri
 
-- İstemci kitaplığı hakkında daha fazla bilgi için bkz. [Depolama .NET API başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
-- Depolama .NET istemci kitaplığı kullanılarak yazılmış [Blob depolama örneklerini](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) araştırın.
+- .NET istemci kitaplığı hakkında daha fazla bilgi için bkz. [.NET API başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/storage).
+- .NET istemci kitaplığı kullanılarak yazılmış [Blob depolama örneklerini](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob) araştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

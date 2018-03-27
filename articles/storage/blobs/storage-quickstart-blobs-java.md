@@ -1,19 +1,19 @@
 ---
-title: "Azure Hızlı Başlangıç - Java kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
-description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Java için depolama istemcisi kitaplığını kullanırsınız."
+title: Azure Hızlı Başlangıç - Java kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs
+description: Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturursunuz. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek amacıyla Java için depolama istemcisi kitaplığını kullanırsınız.
 services: storage
 author: roygara
 manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 02/22/2018
+ms.date: 03/15/2018
 ms.author: rogarana
-ms.openlocfilehash: cde366e75e4111a911be67795a2ad4dfa73778ea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 44e5f921ca9303e680c76d439ab7503ea3c39680
+ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/17/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>Hızlı Başlangıç: Java kullanarak blobları yükleme, indirme ve listeleme
 
@@ -202,6 +202,19 @@ downloadedFile.deleteOnExit();
 if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
+
+## <a name="resources-for-developing-java-applications-with-blobs"></a>Bloblarla Java uygulamaları geliştirme kaynakları
+
+Blob depolama ile Java geliştirmeye yönelik şu ek kaynaklara bakın:
+
+### <a name="binaries-and-source-code"></a>İkili dosyalar ve kaynak kodu
+
+- GitHub’da Azure Depolama için [Java istemci kitaplığı kaynak kodunu](https://github.com/Azure/azure-storage-java) görüntüleyin ve indirin.
+
+### <a name="client-library-reference-and-samples"></a>İstemci kitaplığı başvurusu ve örnekleri
+
+- Java istemci kitaplığı hakkında daha fazla bilgi için bkz. [Java API başvurusu](https://docs.microsoft.com/en-us/java/api/overview/azure/storage).
+- Java istemci kitaplığı kullanılarak yazılmış [Blob depolama örneklerini](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob) araştırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

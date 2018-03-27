@@ -7,18 +7,15 @@ author: bonova
 ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
-ms.workload: Active
-ms.tgt_pltfrm: portal
-ms.devlang: ''
 ms.topic: tutorial
-ms.date: 03/07/2018
+ms.date: 03/14/2018
 ms.author: bonova
-manager: cguyer
-ms.openlocfilehash: 0d6261392dfdab0d48cb0c524d1fcf416c85d72c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+manager: craigg
+ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure portalında Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -26,6 +23,9 @@ Bu öğreticide, bir sanal ağın (VNet) ayrılmış bir alt ağında Azure port
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
+> [!IMPORTANT]
+> Yönetilen Örneğin şu anda kullanılabilir olduğu bölgelerin listesi için bkz. [Azure SQL Veritabanı Yönetilen Örneği ile tam yönetilen hizmete veritabanlarınızı geçirme](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+ 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 
 [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance)’da oturum açın.
@@ -204,8 +204,8 @@ Aşağıdaki adımlarda, SQL Server Management Studio yükleyip Yönetilen Örne
    |**Ad**|Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adres aralığı (CIDR bloğu)**|Sanal ağ içindeki geçerli bir adres aralığı (varsayılanı kullanın)||
    |**Ağ güvenlik grubu**|Yok||
-   |**Yol tablosu**|None||
-   |**Hizmet uç noktaları**|None||
+   |**Yol tablosu**|Yok||
+   |**Hizmet uç noktaları**|Yok||
 
    ![vm alt ağ ayrıntıları](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 
@@ -284,7 +284,7 @@ Aşağıdaki adımlar, SSMS indirip yükleme ve sonra Yönetilen Örneğinize ba
     ![internet explorer artırılmış güvenlik yapılandırması](./media/sql-database-managed-instance-tutorial/internet-explorer-security-configuration.png)  
 4. Görev çubuğundan **Internet Explorer**’ı açın.
 5. **Önerilen güvenlik ve uyumluluk ayarlarını kullan**’ı seçin ve sonra **Tamam**’a tıklayarak Internet Explorer 11 kurulumunu tamamlayın.
-6. URL adresi kutusuna https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms adresini girip **Enter**’a tıklayın. 
+6. URL adres kutusuna https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms adresini girin ve **Enter** tuşuna basın. 
 7. SQL Server Management Studio’nun en son sürümünü indirin ve sorulduğunda **Çalıştır**’a tıklayın.
 8. Sorulduğunda başlamak için **Yükle**’ye tıklayın.
 9. Yükleme tamamlandığında **Kapat**'a tıklayın.
@@ -299,7 +299,7 @@ Bağlandıktan sonra Veritabanları düğümündeki sistem ve kullanıcı verita
 
 Wide World Importers - Standart yedekleme dosyasını indirmek için aşağıdaki adımları kullanın.
 
-Internet Explorer’ı kullanarak URL adres kutusuna https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak girin ve sonra sorulduğunda **Kaydet**’e tıklayarak bu dosyayı **İndirilenler** klasörüne kaydedin.
+Internet Explorer’ı kullanarak URL adres kutusuna https://github.com/Microsoft/sql-server-samples/releases/download/wide-world-importers-v1.0/WideWorldImporters-Standard.bak adresini girin ve sonra istendiğinde bu dosyayı **İndirilenler** klasörüne kaydetmek için **Kaydet**’e tıklayın.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Azure depolama hesabı oluşturma ve yedekleme dosyasını karşıya yükleme
 

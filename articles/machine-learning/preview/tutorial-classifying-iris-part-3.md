@@ -1,23 +1,23 @@
 ---
-title: Azure Machine Learning hizmetleri için model öğreticisi dağıtma (önizleme) | Microsoft Docs
-description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin (önizleme) uçtan uca nasıl kullanılacağı gösterilmektedir. Bu üçüncü bölümde dağıtım modeli ele alınmaktadır.
+title: Azure Machine Learning hizmetleri için model öğreticisi dağıtma
+description: Bu eksiksiz öğreticide Azure Machine Learning hizmetlerinin uçtan uca nasıl kullanılacağı gösterilmektedir. Bu üçüncü bölümde dağıtım modeli ele alınmaktadır.
 services: machine-learning
-author: raymondl
-ms.author: raymondl, j-martens, aashishb
+author: aashishb
+ms.author: aashishb
 manager: mwinkle
-ms.reviewer: jmartens, jasonwhowell, mldocs, gcampanella
+ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 3/7/2018
-ms.openlocfilehash: 13ddc0ef8c7eac86e6cd7abb684ce35ae18fba84
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.date: 3/13/2018
+ms.openlocfilehash: 87d1e605bfd7603e4e07f6b427033fe2c1d2b83e
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-classify-iris-part-3-deploy-a-model"></a>Öğretici: Iris sınıflandırma bölüm 3: Model dağıtma
+# <a name="tutorial-3-classify-iris-deploy-a-model"></a>Öğretici 3: Iris Sınıflandırma: Model dağıtma
 Azure Machine Learning (önizleme) uzman veri bilimcilerine yönelik tümleşik, uçtan uca ve gelişmiş bir analiz çözümüdür. Veri bilimcileri bu çözümü kullanarak veri hazırlayabilir, denemeler geliştirebilir ve bulut ölçeğinde modeller dağıtabilir.
 
 Bu öğretici **üç bölümden oluşan bir serinin üçüncü bölümüdür**. Öğreticinin bu bölümünde aşağıdakileri yapmak için Machine Learning (önizleme) kullanırsınız:
@@ -30,17 +30,15 @@ Bu öğretici **üç bölümden oluşan bir serinin üçüncü bölümüdür**. 
 > * Gerçek zamanlı web hizmetini çalıştırma.
 > * Çıktı blob verilerini inceleme. 
 
-Bu öğreticide zamansız bir [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/iris_flower_data_set) kullanılmıştır. Ekran görüntüleri Windows'a özgüdür ancak Mac OS deneyimi de çok benzerdir.
-
-Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+Bu öğreticide zamansız [Iris çiçeği veri kümesi](https://en.wikipedia.org/wiki/Iris_flower_data_set) kullanılmıştır. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğretici serisinin ilk iki bölümünü tamamlayın:
 
-   * [Veri hazırlama öğreticisi](tutorial-classifying-iris-part-1.md) içindeki talimatları izleyerek Machine Learning kaynaklarını oluşturun ve Azure Machine Learning Workbench uygulamasını yükleyin.
-   * [Model derleme öğreticisi](tutorial-classifying-iris-part-2.md) adımlarını izleyerek Machine Learning'de bir lojistik regresyon modeli oluşturun.
-
-Yerel ortamda bir Docker altyapısının yüklenmiş ve çalışıyor olması gerekir. Alternatif olarak Azure'daki bir Azure Container Service kümesine dağıtım yapabilirsiniz.
+Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+- Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
+- Bu [hızlı başlangıçta](quickstart-installation.md) açıklandığı gibi, bir deneme hesabı ve Azure Machine Learning Workbench yüklenmiş olmalıdır
+- [Öğreticinin 2. bölümündeki](tutorial-classifying-iris-part-2.md) sınıflandırma modeli
+- Yerel ortamda Docker altyapısının yüklenmiş ve çalışıyor olması gerekir
 
 ## <a name="download-the-model-pickle-file"></a>Model pickle dosyasını indirme
 Öğreticinin önceki bölümünde **iris_sklearn.py** betiği Machine Learning Workbench'te yerel olarak çalıştırılmıştı. Bu eylem lojistik regresyon modelini popüler Python nesne seri hale getirme paketi olan [pickle](https://docs.python.org/3/library/pickle.html) kullanarak seri hale getirmişti. 
@@ -91,7 +89,7 @@ Model dosyası ile birlikte web hizmetini dağıtmak için bir Puanlama komut do
 
 4. Şema dosyasını almak için betiği çalıştırın. Komut çubuğundan **yerel** ortamını ve **score_iris.py** betiğini seçip **Çalıştır** seçeneğini belirleyin. 
 
-5. Bu betik modelin ihtiyaç duyduğu giriş verileri şemasını alan **çıktılar** bölümünde bir JSON dosyası oluşturur.
+   Bu betik modelin ihtiyaç duyduğu giriş verileri şemasını alan **çıktılar** bölümünde bir JSON dosyası oluşturur.
 
 6. **Proje Panosu** bölmesinin sağ tarafındaki **İşler** bölmesini inceleyin. En son **score_iris.py** işinin yeşil **Tamamlandı** durumunu göstermesini bekleyin. Ardından, çalıştırma ayrıntılarını görmek için en son iş çalıştırmasına ait **score_iris.py** bağlantısını seçin. 
 
@@ -128,7 +126,10 @@ Yerel bilgisayarınızdaki Docker kapsayıcılarında çalıştırmak için _yer
 Geliştirme ve test için _yerel modu_ kullanabilirsiniz. Modeli hazır hale getirmek için aşağıdaki adımları tamamlamak üzere Docker motorunun yerel ortamda çalışıyor olması gerekir. Karşılık gelen yardım iletisini görüntülemek için her bir komutun sonunda `-h` bayrağını kullanabilirsiniz.
 
 >[!NOTE]
->Yerel bir Docker altyapınız yoksa dağıtım için azure’da bir küme oluşturarak işleme devam edebilirsiniz. Ücret ödemeye devam etmemek için öğreticiden sonra kümeyi silmeyi unutmayın.
+>Yerel ortamınızda Docker altyapısı yoksa bile dağıtım için Azure’da bir küme oluşturarak işleme devam edebilirsiniz. Ücret ödemeye devam etmemek için öğreticiden sonra kümeyi silebilir veya yeniden kullanmak için tutabilirsiniz.
+
+>[!NOTE]
+>Yerel ortamda dağıtılan web hizmetleri, Azure Portal'ın hizmetler listesinde gösterilmez. Bunlar yerel makinede Docker’da çalıştırılır.
 
 1. Komut satırı arabirimini (CLI) açın.
    Machine Learning Workbench uygulamasının **Dosya** menüsünde **Komut İstemini Aç**’ı seçin.

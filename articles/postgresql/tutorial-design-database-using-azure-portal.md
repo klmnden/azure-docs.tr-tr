@@ -1,6 +1,6 @@
 ---
-title: "Öğretici - Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama"
-description: "Bu öğretici, Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı nasıl tasarlayacağınızı gösterir."
+title: 'Öğretici: Azure portalını kullanarak PostgreSQL için Azure Veritabanı tasarlama'
+description: Bu öğretici, Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı nasıl tasarlayacağınızı gösterir.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -10,13 +10,13 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 02/28/2018
-ms.openlocfilehash: df8f308b17879d7fd22d033fb535b59bd8a85086
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9f4d886bbbf2b9111d736e291e420b822de9766a
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/16/2018
 ---
-# <a name="tutorial-design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak ilk PostgreSQL için Azure Veritabanınızı tasarlama
+# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak PostgreSQL için Azure Veritabanı tasarlama
 
 PostgreSQL için Azure Veritabanı, bulutta son derece kullanılabilir olan PostgreSQL veritabanları çalıştırmanızı, yönetmenizi ve ölçeklendirmenizi sağlayan ve yönetilen bir hizmettir. Azure portalını kullanarak, sunucunuzu kolayca yönetebilir ve bir veritabanı tasarlayabilirsiniz.
 

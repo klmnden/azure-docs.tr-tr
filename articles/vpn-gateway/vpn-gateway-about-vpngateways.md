@@ -1,11 +1,11 @@
 ---
-title: "VPN Gateway’e Genel Bakış: Azure sanal ağları ile şirketler arası VPN bağlantıları oluşturma | Microsoft Docs"
-description: "Bu makalede, VPN Gateway’in ne olduğu ve İnternet üzerinden bir VPN bağlantısı kullanılarak Azure sanal ağlarına bağlanma yolları açıklanmaktadır. Temel bağlantı yapılandırmaları da buraya eklenmiştir."
+title: 'VPN Gateway’e Genel Bakış: Azure sanal ağları ile şirketler arası VPN bağlantıları oluşturma | Microsoft Docs'
+description: Bu makalede, VPN Gateway’in ne olduğu ve İnternet üzerinden bir VPN bağlantısı kullanılarak Azure sanal ağlarına bağlanma yolları açıklanmaktadır. Temel bağlantı yapılandırmaları da buraya eklenmiştir.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dadddeaac2a7856f8e249db981b018de070e1f3f
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef6d61e9dfc7c30910d897478f07dabc14136b48
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="about-vpn-gateway"></a>VPN Gateway hakkında
 
@@ -53,12 +53,15 @@ VPN Gateway'i yapılandırırken uygulayacağınız adımlar, sanal ağınızı 
 
 Aşağıdaki tablo çözümünüz için en iyi bağlantı seçeneğine karar vermenize yardımcı olabilir.
 
-[!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
-
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gwsku"></a>Ağ Geçidi SKU'ları
 
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
+Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmelisiniz. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin. Ağ geçidi SKU’ları hakkında; desteklenen özellikler, üretim ve geliştirme testi, yapılandırma adımları gibi diğer bilgileri edinmek için bkz. [Ağ Geçidi SKU’ları](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+
+### <a name="benchmark"></a>Tünele, bağlantıya ve performansa göre Ağ Geçidi SKU’ları
+
+[!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ## <a name="diagrams"></a>Bağlantı topolojisi diyagramları
 
@@ -86,7 +89,7 @@ Bu türden bir bağlantı, Siteden Siteye bağlantının bir çeşididir. Sanal 
 
 ### <a name="deployment-models-and-methods-for-site-to-site-and-multi-site"></a>Siteden Siteye ve Çok Siteli için dağıtım modelleri ve yöntemleri
 
-[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
+[!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
 ## <a name="P2S"></a>Noktadan Siteye (IKEv2 veya SSTP üzerinden VPN)
 
