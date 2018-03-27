@@ -1,11 +1,11 @@
 ---
-title: "Azure AD dizininize var olan bir Azure aboneliğini ekleme | Microsoft Docs"
-description: "Azure AD dizininize var olan bir aboneliği ekleme"
+title: Azure AD dizininize var olan bir Azure aboneliğini ekleme | Microsoft Docs
+description: Azure AD dizininize var olan bir aboneliği ekleme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
+ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme
 
@@ -34,6 +34,7 @@ Tüm kullanıcılar kimliklerini doğrulayan tek giriş dizinine sahiptir ancak 
 
 * Aboneliğe erişmek için RBAC Sahip erişimi olan hesapla oturum açmanız gerekir.
 * Hem aboneliğin ilişkili olduğu geçerli dizinde hem de eklemek istediğiniz dizinde olan bir hesapla oturum açmanız gerekir. Başka bir dizine erişim elde etme hakkında daha fazla bilgi için bkz. [Azure Active Directory yöneticileri B2B işbirliği kullanıcılarını nasıl ekler?](active-directory-b2b-admin-add-users.md)
+* Bu özellik, CSP (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) ve Microsoft Imagine (MS-AZR-0144P) abonelikleri için kullanılamaz.
 
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Var olan bir aboneliği Azure AD dizininizle ilişkilendirme
 
