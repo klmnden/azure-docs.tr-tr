@@ -1,6 +1,6 @@
 ---
-title: "Sprint 3 Ocak 2018 Azure ML çalışma ekranı sürüm notları"
-description: "Bu belgede Azure ML sprint 3 sürümü için güncelleştirmeler ayrıntıları"
+title: Sprint 3 Ocak 2018 Azure ML çalışma ekranı sürüm notları
+description: Bu belgede Azure ML sprint 3 sürümü için güncelleştirmeler ayrıntıları
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 01/22/2018
 ms.openlocfilehash: fa209ba2259ae82796556fc1229cd6944c7a2ae1
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-3---january-2018"></a>Sprint 3 - Ocak 2018 
 

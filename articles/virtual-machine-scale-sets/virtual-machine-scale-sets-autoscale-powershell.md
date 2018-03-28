@@ -1,11 +1,11 @@
 ---
-title: "Otomatik ölçeklendirme sanal makine ölçek ayarlar Azure PowerShell ile | Microsoft Docs"
-description: "Azure PowerShell ile nasıl sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak ayarlar"
+title: Otomatik ölçeklendirme sanal makine ölçek ayarlar Azure PowerShell ile | Microsoft Docs
+description: Azure PowerShell ile nasıl sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak ayarlar
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Bir sanal makineyi ölçeği Azure PowerShell ile Ayarla otomatik olarak ölçeklendirin
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
@@ -53,10 +53,10 @@ Bu kural için aşağıdaki parametreleri kullanılır:
 | *-TimeGrain*            | Ne sıklıkta ölçümleri analiz için toplanır.                                                                   | 1 dakika       |
 | *-MetricStatistic*      | Toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                                                | Ortalama        |
 | *-TimeWindow*           | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika      |
-| *-İşleci*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Büyüktür   |
+| *-Operator*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Büyüktür   |
 | *-Eşiği*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden değeri.                                                      | 70%            |
 | *-ScaleActionDirection* | Ölçek kümesini yukarı veya aşağı kuralın geçerli olduğunda ölçeklendirmeniz gerekir tanımlar.                                             | Artır       |
-| *– ScaleActionScaleType* | VM örneği sayısı yüzdesi miktarda değiştirilmesi gerektiğini belirtir.                                 | Yüzde değişikliği |
+| *–ScaleActionScaleType* | VM örneği sayısı yüzdesi miktarda değiştirilmesi gerektiğini belirtir.                                 | Yüzde değişikliği |
 | *-ScaleActionValue*     | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                            | 20             |
 | *-ScaleActionCooldown*  | Otomatik ölçeklendirme eylemleri etkili olması için zamanı sağlayacak şekilde kural önce beklenecek süreyi yeniden uygulanır. | 5 dakika      |
 
