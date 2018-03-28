@@ -1,11 +1,11 @@
 ---
-title: "Otomatik ölçeklendirme sanal makine ölçek ayarlar ile Azure CLI | Microsoft Docs"
-description: "Azure CLI 2.0 ile nasıl sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak ayarlar"
+title: Otomatik ölçeklendirme sanal makine ölçek ayarlar ile Azure CLI | Microsoft Docs
+description: Azure CLI 2.0 ile nasıl sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak ayarlar
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 83e93d9c-cac0-41d3-8316-6016f5ed0ce4
 ms.service: virtual-machine-scale-sets
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.openlocfilehash: 8552f6b2723fef2c61d49a34d2d60c2a6c209a32
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Bir sanal makineyi ölçeği ile Azure CLI 2.0 Ayarla otomatik olarak ölçeklendirin
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
@@ -69,11 +69,11 @@ Bu kural için aşağıdaki parametreleri kullanılır:
 | *timeGrain*       | Ne sıklıkta ölçümleri analiz için toplanır.                                                                   | 1 dakika        |
 | *timeAggregation* | Toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                                                | Ortalama         |
 | *timeWindow*      | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika      |
-| *işleci*        | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Büyüktür    |
+| *operator*        | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Büyüktür    |
 | *Eşik*       | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden değeri.                                                      | 70%             |
-| *yönü*       | Ölçek kümesini yukarı veya aşağı kuralın geçerli olduğunda ölçeklendirmeniz gerekir tanımlar.                                             | Artır        |
-| *türü*            | VM örneği sayısı yüzdesi miktarda değiştirilmesi gerektiğini belirtir.                                 | Yüzde değişikliği  |
-| *değer*           | Kuralın uygulandığı zaman kaç VM örnekleri yukarı veya aşağı ölçeklendirilmelidir.                                            | 20              |
+| *Yönü*       | Ölçek kümesini yukarı veya aşağı kuralın geçerli olduğunda ölçeklendirmeniz gerekir tanımlar.                                             | Artır        |
+| *Türü*            | VM örneği sayısı yüzdesi miktarda değiştirilmesi gerektiğini belirtir.                                 | Yüzde değişikliği  |
+| *Değer*           | Kuralın uygulandığı zaman kaç VM örnekleri yukarı veya aşağı ölçeklendirilmelidir.                                            | 20              |
 | *cooldown*        | Otomatik ölçeklendirme eylemleri etkili olması için zamanı sağlayacak şekilde kural önce beklenecek süreyi yeniden uygulanır. | 5 dakika       |
 
 Aşağıdaki örnek VM örnek sayısını ölçeklendirmek için kural tanımlar. *MetricResourceUri* abonelik kimliği, kaynak grubu adı ve ölçek kümesi adı için önceden tanımlanmış değişkenleri kullanır:

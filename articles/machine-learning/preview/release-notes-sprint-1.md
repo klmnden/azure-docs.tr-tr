@@ -1,6 +1,6 @@
 ---
-title: "Sprint 1 Kasım 2017 Azure ML çalışma ekranı sürüm notları"
-description: "Bu belgede Azure ML sprint 1 sürümü için güncelleştirmeler ayrıntıları"
+title: Sprint 1 Kasım 2017 Azure ML çalışma ekranı sürüm notları
+description: Bu belgede Azure ML sprint 1 sürümü için güncelleştirmeler ayrıntıları
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -11,10 +11,10 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
 ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 - Kasım 2017 
 
@@ -96,14 +96,14 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 - Sonlandırma uygulama artık CLI başlayacağı zamana işleriyle karışıklığa neden olabilir.
 - İçinde başlayacağı zamana işleri CLI şimdi standart dışı bile bir saat sonra yürütme bölme konumu devam eder.
 - Python/PySpark veri hazırlık paketi çalıştırmak başarısız olduğunda daha iyi hata iletileri gösterilir.
-- `az ml experiment clean`Şimdi de uzaktan VM Docker görüntülerinde temizler.
-- `az ml experiment clean`Şimdi düzgün için yerel hedef macOS üzerinde çalışır.
+- `az ml experiment clean` Şimdi de uzaktan VM Docker görüntülerinde temizler.
+- `az ml experiment clean` Şimdi düzgün için yerel hedef macOS üzerinde çalışır.
 - Yerel veya uzak Docker hedefleme çalıştığında, hata iletileri yedekleme ve kolay okunur temizlenir.
 - Bir yürütme hedef olarak bağlı olduğunda Hdınsight küme baş düğüm adı doğru şekilde biçimlendirilmemiş daha iyi hata iletisi görüntülenir.
 - Gizli anahtarı kimlik bilgisi hizmetinde bulunmadığında, daha iyi hata iletisi gösterilir. 
 - MMLSpark kitaplığı destek Apache Spark 2.2 yükseltilir.
 - MMLSpark artık konu kodlama dönüştürme (kafes kodlama) tıbbi belgeler için içerir.
-- `matplotlib`2.1.0 Şimdi sevk edilen çıkış-yepyeni çalışma ekranı ile sürümüdür.
+- `matplotlib` 2.1.0 Şimdi sevk edilen çıkış-yepyeni çalışma ekranı ile sürümüdür.
 
 ### <a name="jupyter-notebook"></a>Jupyter Notebook
 - Dizüstü bilgisayar adı arama şimdi not defterlerini görünümünde düzgün çalışır.
@@ -128,10 +128,10 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 
 ### <a name="sample-projects"></a>Örnek Proje
 - [_Iris sınıflandırma_ ](./tutorial-classifying-iris-part-1.md) örnek proje:
-    - `iris_pyspark.py`yeniden adlandırılır `iris_spark.py`.
-    - `iris_score.py`yeniden adlandırılır `score_iris.py`.
-    - `iris.dprep`ve `iris.dsource` en son verileri hazırlık Altyapısı güncelleştirmeleri yansıtacak şekilde güncelleştirilir.
-    - `iris.ipynb`Hdınsight kümesinde çalışmak için Not Defteri düzeltilir.
+    - `iris_pyspark.py` yeniden adlandırılır `iris_spark.py`.
+    - `iris_score.py` yeniden adlandırılır `score_iris.py`.
+    - `iris.dprep` ve `iris.dsource` en son verileri hazırlık Altyapısı güncelleştirmeleri yansıtacak şekilde güncelleştirilir.
+    - `iris.ipynb` Hdınsight kümesinde çalışmak için Not Defteri düzeltilir.
     - Çalıştırma geçmişi içinde açık `iris.ipynb` not defteri hücre.
 - [_Veri bisiklet paylaşımı verileri kullanarak hazırlığı Gelişmiş_ ](./tutorial-bikeshare-dataprep.md) "İşlemek hata değerini" adım örnek proje sabit.
 - [_Yetişkin Census verileri MMLSpark_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) örnek proje `docker.runconfig` JSON öğesinden YAML için güncelleştirilmiş biçimi.
