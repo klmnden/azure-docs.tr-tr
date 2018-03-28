@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7725c5a9a7b6359257efadcc46366a7a360ec69c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2b306cc9dc9bbf435eb70315cc46e7faf4268b47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Get Azure yığınında PowerShell ile çalışır
 
@@ -174,6 +174,9 @@ PowerShell yapılandırdıysanız, bir kaynak grubu oluşturarak yapılandırmay
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
+> [!note]  
+> Bir kaynak grubu belirtmek için aboneliğinizde bir kaynak grubu olması gerekir. Abonelikler hakkında daha fazla bilgi için bkz: [planı, teklif, kota ve abonelik genel bakış](azure-stack-plan-offer-quota-overview.md)
+
 Kaynak grubu oluşturulduktan sonra **sağlama durumu** özelliği ayarlanmış **başarılı**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
@@ -181,10 +184,3 @@ Kaynak grubu oluşturulduktan sonra **sağlama durumu** özelliği ayarlanmış 
 * [CLI'yi yükleme ve yapılandırma](azure-stack-connect-cli.md)
 
 * [Şablon geliştirme](user/azure-stack-develop-templates.md)
-
-
-
-
-
-
-

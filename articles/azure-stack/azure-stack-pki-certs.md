@@ -1,25 +1,25 @@
 ---
-title: "Azure yığın Azure yığın ortak anahtar altyapısı sertifika gereksinimleri tümleşik sistemleri | Microsoft Docs"
-description: "Azure tümleşik yığını sistemler için Azure yığın PKI sertifikası dağıtım gereksinimleri açıklanır."
+title: Azure yığın Azure yığın ortak anahtar altyapısı sertifika gereksinimleri tümleşik sistemleri | Microsoft Docs
+description: Azure tümleşik yığını sistemler için Azure yığın PKI sertifikası dağıtım gereksinimleri açıklanır.
 services: azure-stack
-documentationcenter: 
-author: jeffgilb
+documentationcenter: ''
+author: mabriggs
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f2f71372211dcc9db34beb3fa3fd788920f8bd45
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
@@ -39,6 +39,7 @@ Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksin
 - Ortak ve özel anahtarlar Azure yığın yükleme için gerekli olan sertifika biçimi PFX, olması gerekir. 
 - Sertifika pfx dosyaları bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.
 - Sertifika pfx dosyaları değerleri "Sunucu kimlik doğrulaması (1.3.6.1.5.5.7.3.1)" ve "İstemci kimlik doğrulaması (1.3.6.1.5.5.7.3.2)" "Gelişmiş anahtar kullanımı" alanında olması gerekir.
+- Sertifikanın "verilen:" alan aynı olmamalıdır, "tarafından verilen:" alanı.
 - Tüm sertifika pfx dosyalarını parolaların aynı dağıtım zamanında olmalıdır
 - Konu adları ve tüm sertifikaların konu alternatif adlarını dağıtımları başarısız önlemek için bu makalede açıklanan belirtimleri eşleştiğinden emin olun.
 
@@ -50,7 +51,7 @@ Her iki Azure AD için gerekli olan Azure yığın ortak uç nokta PKI sertifika
 
 Her Azure yığın ortak altyapısı uç noktası için uygun DNS adları olan sertifikaları gereklidir. Her uç noktanın DNS adı biçiminde ifade edilir:  *&lt;öneki >.&lt; bölge >. &lt;fqdn >*. 
 
-Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın sisteminiz için seçtiğiniz dış etki alanı adları eşleşmelidir. Bölge adı ise bir örnek olarak *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi olurdu  *&lt;öneki >. redmond.contoso.com* .  *&lt;Öneki >* değerleri sertifika tarafından güvenliği sağlanan uç nokta açıklamak için Microsoft tarafından predesignated. Ayrıca,  *&lt;öneki >* dış altyapı uç noktaları değerler belirli uç noktası kullanan Azure yığın hizmet bağlıdır. 
+Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın sisteminiz için seçtiğiniz dış etki alanı adları eşleşmelidir. Bölge adı ise bir örnek olarak *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi olurdu *&lt;öneki >. redmond.contoso.com*.  *&lt;Öneki >* değerleri sertifika tarafından güvenliği sağlanan uç nokta açıklamak için Microsoft tarafından predesignated. Ayrıca,  *&lt;öneki >* dış altyapı uç noktaları değerler belirli uç noktası kullanan Azure yığın hizmet bağlıdır. 
 
 |Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
@@ -58,8 +59,8 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 |Yönetim Portalı|adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
 |Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;. sıra.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. Tablo.  *&lt;bölge >.&lt; FQDN >*|Depolama|blob.*&lt;region>.&lt;fqdn>*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
-|KeyVault|&#42;. Kasa.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Anahtar Kasası|Kasa.  *&lt;bölge >.&lt; FQDN >*|
+|ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|Depolama|blob.*&lt;region>.&lt;fqdn>*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
+|KeyVault|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Anahtar Kasası|Kasa.  *&lt;bölge >.&lt; FQDN >*|
 |KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Joker SSL sertifikası)|İç Keyvault|adminvault.  *&lt;bölge >.&lt; FQDN >*|
 |
 <sup>1</sup> ACS sertifikası üç joker SAN'ları üzerinde tek bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir. 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: jeffgilb
 ms.reviewer: avishwan
-ms.openlocfilehash: e51a15b197e875c35997cfe2ac96d673c01a80f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1dc3d9a96b9b27927cc8cc66b5e80987fba4f8ea
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure ile Azure yığın kaydedin
 Kaydetme [Azure yığın](azure-stack-poc.md) Azure ile Azure Market öğesi indirmek ve ticaret veri geri Microsoft'a raporlama ayarlamak için sağlar. Azure yığın kaydettikten sonra kullanım için Azure ticaret bildirilir ve kayıt için kullanılan abonelik altında görebilirsiniz. 
@@ -58,7 +58,7 @@ Bağlantılı ortamlar, internet'e ve Azure erişebilir. Bu ortamlar için Azure
 
 ### <a name="register-the-azure-stack-resource-provider"></a>Azure yığın kaynak sağlayıcısını Kaydet
 Azure ile Azure yığın kaynak sağlayıcısını kaydetmek için Powershell ISE yönetici olarak başlatın ve aşağıdaki PowerShell komutlarını kullanın. Bu komutlar aşağıdakileri yapar:
-- Kullanılan ve ayarlamak için bir Azure aboneliğin sahibi oturum ister `EnvironmentName` parametresi **AzureCloud**.
+- Kullanılan ve ayarlamak için bir Azure aboneliğin sahibi oturum ister **EnvironmentName** parametresi **AzureCloud**.
 - Azure kaynak sağlayıcısı kaydetme **Microsoft.AzureStack**.
 
 1. Azure yığın kaydetmek için kullandığınız Azure hesabı ekleyin. Hesap eklemek için çalıştırın **Add-AzureRmAccount** cmdlet'i. Azure genel yönetici hesabı kimlik bilgilerinizi girmeniz istenir ve hesabınızın yapılandırmasına bağlı olarak 2 öğeli kimlik doğrulama kullanmak zorunda kalabilirsiniz.
@@ -95,7 +95,7 @@ Ardından, aynı PowerShell oturumunda çalıştırın **kümesi AzsRegistration
 
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
@@ -104,7 +104,7 @@ Set-AzsRegistration `
 
 |Parametre|Açıklama|
 |-----|-----|
-|CloudAdminCredential|Azure aboneliğinin sahibi kimlik bilgilerini (kullanıcı adı ve parola) içeren PowerShell nesnesi.|
+|CloudAdminCredential|PowerShell nesnesi ayrıcalıklı uç noktasına erişmek için kullanılan kimlik bilgileri (kullanıcı adı ve parola) içeriyor.|
 |PrivilegedEndpoint|Dağıtım görevleri günlük toplama ve diğer posta gibi özellikleriyle sağlayan bir önceden yapılandırılmış Uzaktan PowerShell Konsolu. Daha fazla bilgi edinmek için bkz [kullanan ayrıcalıklı uç noktasını](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint#access-the-privileged-endpoint) makalesi.|
 |BillingModel|Aboneliğinizi kullanan faturalama modeli. Bu parametre için değer izin verilen: kapasite, PayAsYouUse ve geliştirme.|
 
@@ -114,7 +114,7 @@ Set-AzsRegistration `
 Çalıştırılacak PowerShell:
 ```powershell
 $AzureContext = Get-AzureRmContext
-$CloudAdminCred = Get-Credential -UserName <Azure subscription owner>  -Message "Enter the cloud domain credentials to access the privileged endpoint"
+$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials>  -Message "Enter the credentials to access the privileged endpoint"
 Set-AzsRegistration `
     -CloudAdminCredential $CloudAdminCred `
     -PrivilegedEndpoint <PrivilegedEndPoint computer name> `

@@ -1,24 +1,24 @@
 ---
-title: "Raporu Azure yığın kullanım verilerini Azure'a | Microsoft Docs"
-description: "Azure yığınında raporlama Kullanım verilerinin ayarlanacağını öğrenin."
+title: Raporu Azure yığın kullanım verilerini Azure'a | Microsoft Docs
+description: Azure yığınında raporlama Kullanım verilerinin ayarlanacağını öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 29d53f63bf3d551823ca27df04f0e385a92cdec7
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9153efb73e84d7b84a732217b92a9c66617e90ae
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure yığın kullanım verileri Azure'a raporu 
 
@@ -27,7 +27,7 @@ Kullanım verileri Tüketim verileri olarak da bilinir kullanılan kaynakları m
 Tüketim tabanlı faturalama modelini kullanan azure yığını çok düğümlü sistemler için Azure fatura amaç için kullanım verilerini bildirmeniz gerekir.  Azure yığın işleçleri kendi Azure yığın örneği Azure kullanım verilerini raporlamaya yapılandırmanız gerekir.
 
 > [!NOTE]
-> Kullanım verileri raporlama, ödeme olarak-size-kullanım modeli altında lisans Azure yığını çok düğümlü kullanıcılar için gereklidir. Kapasite modeli altında lisans müşterileri için isteğe bağlı (bkz [sayfa satın alma](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Azure yığın Geliştirme Seti kullanıcılar için Azure yığın işleçleri kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcıların bunlar kullanan tüm kullanımı için ücret alınmaz. 
+> Kullanım verileri raporlama, ödeme olarak-size-kullanım modeli altında lisans Azure yığını çok düğümlü kullanıcılar için gereklidir. Kapasite modeli altında lisans müşterileri için isteğe bağlı (bkz [sayfa satın alma](https://azure.microsoft.com/en-us/overview/azure-stack/how-to-buy/). Azure yığın Geliştirme Seti kullanıcılar için Azure yığın işleçleri kullanım verileri rapor ve özelliği test etmek. Ancak, kullanıcıların bunlar kullanan tüm kullanımı için ücret alınmaz. 
 
 
 ![Fatura akışı](media/azure-stack-usage-reporting/billing-flow.png)
