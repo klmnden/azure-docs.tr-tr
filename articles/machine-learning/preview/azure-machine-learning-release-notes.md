@@ -9,18 +9,72 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: ac08baa6f478926a2c8dadd366049e9506272366
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9d16606665bf043e094bebdfbbce973910135f1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning’deki Yenilikler
 
-Bu makalede, yeni özellikler ve bilinen sorunlar hakkında bilgi edinin [Azure Machine Learning Hizmetleri](overview-what-is-azure-ml.md). 
+Bu makalede, yeni sürümleri hakkında bilgi edinin [Azure Machine Learning Hizmetleri](overview-what-is-azure-ml.md). 
+
+## <a name="2018-03-sprint-4"></a>2018-03 (Sprint 4)
+**Sürüm numarası**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+
+
+Azure Machine Learning çalışma ekranı beşinci güncelleştirmeye Hoş Geldiniz. Aşağıdaki güncelleştirmeler çoğunu görüşlerinizi doğrudan sonuçları olarak yapılır. Lütfen geliyor kalmalarını!
+
+**Önemli yeni özellikleri ve değişiklikleri**
+
+- Temelli yürütme komut dosyalarınızı uzak Ubuntu vm'lerde uzaktan docker yanı sıra ortamınızdaki üzerinde yerel olarak çalıştırma desteği.
+- Yeni ortam deneyimi çalışma ekranı uygulamasında işlem hedefleri oluşturmak ve yapılandırmaları CLI tabanlı deneyimi bizim ek olarak çalıştırmak sağlar.
+![Ortamlar sekmesi](media/azure-machine-learning-release-notes/environment-page.png)
+- Özelleştirilebilir çalıştırma geçmişi raporları ![yeni geçmiş raporları çalıştırmak görüntüsü](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+
+**Ayrıntılı güncelleştirmeleri**
+
+Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı güncelleştirmelerin bir listesi aşağıda verilmiştir.
+
+### <a name="workbench-ui"></a>Çalışma ekranı kullanıcı Arabirimi
+- Özelleştirilebilir çalıştırma geçmişi raporları
+  - Çalıştırma geçmişi raporları için geliştirilmiş grafik yapılandırma
+    - Kullanılan giriş noktaları değiştirilebilir.
+    - Üst düzey filtre eklenebilir ve değişiklik ![filtreler Ekle](media/azure-machine-learning-release-notes/add-filters.jpg)
+    - Grafikler ve istatistikleri eklenen değiştirilebilir veya (ve sürükle ve bırak düzenlenmeyecek).
+    ![Yeni grafikler oluşturma](media/azure-machine-learning-release-notes/configure-charts.png)
+
+  - CRUD çalıştırma geçmişi raporları
+  - Ardışık Düzen üzerinde gibi davranan yapılandırmalar sunucu tarafı raporlara, seçilen giriş noktalarından çalıştıran var olan tüm çalıştırma geçmişi liste görünümü taşındı.
+
+- Ortamlar sekmesi
+  - Kolayca yeni işlem hedef ekleme ve yapılandırma dosyalarını projenize çalıştırın ![yeni işlem hedefi](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - Yönetme ve yapılandırma dosyalarınızın basit, form tabanlı UX kullanarak güncelleştirme
+  - Yürütme için ortamınızı hazırlama yeni düğmesi
+
+- Kenar dosyaların listesi için performans iyileştirmeleri
+
+### <a name="data-preparation"></a>Veri hazırlama 
+- Azure Machine Learning çalışma ekranı artık bir sütun için bilinen bir sütunun adını kullanarak arayabilirsiniz izin verir.
+
+
+### <a name="experimentation"></a>Deneme
+- Azure Machine Learning çalışma ekranı şimdi komut dosyalarınızı yerel olarak kendi python veya pyspark ortamda çalıştırılmasını destekler. Bu özelliği, kullanıcı oluşturur ve uzak VM kendi ortamda yönetir ve Azure Machine Learning çalışma ekranı hedefleyen üzerinde betikleri çalıştırmak için kullanın. Lütfen bakın [Azure Machine Learning deneme hizmeti yapılandırma](experimentation-service-configuration.md) 
+
+### <a name="model-management"></a>Model Yönetimi
+- Dağıtılan kapsayıcıları özelleştirmek için destek: get apt vb. kullanarak dış kitaplıkları yüklenmesini sağlayarak kapsayıcı görüntü özelleştirme sağlar. Artık, PIP yüklenebilir kitaplıklara sınırlı değildir. Bkz: [belgelerine](model-management-custom-container.md) daha fazla bilgi için.
+  - Kullanım `--docker-file myDockerStepsFilename` bildirimi, görüntü veya hizmeti oluşturma komutlarını bayrağı ve dosya adı.
+  - Temel görüntü Ubuntu ve değiştirilemez olduğunu unutmayın.
+  - Örnek komut: 
+  
+      ```shell
+      $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
+      ```
+
+
 
 ## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Sürüm numarası**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md))
+**Sürüm numarası**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Güncelleştirmeleri ve bu sprint yenilikleri şunlardır: Bu güncelleştirmeler çoğunu doğrudan kullanıcı geri bildirim sonucu olarak yapılır. 
 
@@ -55,7 +109,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
   - Etkin yerel ortamı Kurulumu ücretsiz abonelikler 
 
 ## <a name="2017-12-sprint-2-qfe"></a>(2 QFE sprint) 2017-12 
-**Sürüm numarası**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md))
+**Sürüm numarası**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 QFE (hızlı düzeltme Mühendisliği) sürüm, küçük bir sürüm olmasıdır. Birkaç telemetri sorunları giderir ve ürünü nasıl kullanıldığını daha iyi anlamak için ürün ekibi yardımcı olur. Bilgi Bankası, ürün deneyimini geliştirmek için gelecekteki çaba içine gidebilirsiniz. 
 
@@ -65,8 +119,7 @@ Ayrıca, iki önemli güncelleştirmeleri vardır:
 - Komut satırı aracı, artık Machine Learning işlem ACS kümeleri sağlamak için bir Azure aboneliğine sahip olmanız gerekir. 
 
 ## <a name="2017-12-sprint-2"></a>2017-12 (Sprint 2)
-**Sürüm numarası**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md))
-
+**Sürüm numarası**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelleştirme, çalışma ekranı uygulamayı, komut satırı arabirimi (CLI) ve arka uç hizmetlerini geliştirmeleri içerir. Gülümsemeleri göndermek için çok teşekkür ederiz ve frowns. Aşağıdaki güncelleştirmeler çoğunu görüşlerinizi doğrudan sonuçları olarak yapılır. 
 
@@ -165,7 +218,7 @@ Azure Machine Learning üçüncü güncelleştirmeye Hoş Geldiniz. Bu güncelle
     - `az ml computetarget attach --type cluster` artık `az ml computetarget attach cluster`
 
 ## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md))
+**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Bu sürümde, güvenlik, kararlılık ve çalışma ekranı uygulama, CLI ve arka uç hizmetlerini katman Bakımı çevresinde geliştirmeler yaptık. Çok gülümsemeler gönderdiğiniz için teşekkür ederiz ve frowns. Çoğu güncelleştirmeler geri bildirim doğrudan sonuçları olarak hale getirilir. Gelen kalmalarını!
 
@@ -287,7 +340,7 @@ Azure Machine Learning bu sprint içinde her bileşen bölümünde ayrıntılı 
 
 
 ## <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
-**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md))
+**Sürüm numarası**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([sürümüne bulun](known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Bizim ilk genel Önizleme Microsoft Ignite 2017 konferansında aşağıdaki Azure Machine Learning ekranının ilk güncelleştirme Hoş Geldiniz. Ana bu sürümde güvenilirlik ve sabitlemeyi güncelleştirmelerin giderir.  Biz ele kritik sorunlardan bazıları şunlardır:
 

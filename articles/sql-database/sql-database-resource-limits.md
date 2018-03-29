@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı kaynak sınırları | Microsoft Docs"
-description: "Bu sayfa, Azure SQL veritabanı için bazı ortak kaynak sınırları açıklar."
+title: Azure SQL veritabanı kaynak sınırları | Microsoft Docs
+description: Bu sayfa, Azure SQL veritabanı için bazı ortak kaynak sınırları açıklar.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: carlrab
-ms.openlocfilehash: ba192b6dba68f01af796a1099b064d6ec0bd3f1b
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fb9cb15e96c4098151d220c2bd47fbb7f299687c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-sql-database-resource-limits"></a>Azure SQL veritabanı kaynak sınırları
 
@@ -113,7 +113,7 @@ Artırmak veya ihtiyaçlarını kullanarak kaynağını temel bir esnek havuz i�
 | Maksimum | Değer |
 | :--- | :--- |
 | Sunucu başına veritabanları | 5000 |
-| Her bölge abonelik başına sunucularının sayısı | 21 |
+| Her bölge abonelik başına sunucularının sayısı | 20 |
 |||
 
 > [!IMPORTANT]

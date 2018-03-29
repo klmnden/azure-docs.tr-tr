@@ -1,6 +1,6 @@
 ---
-title: "İç yük dengeleyicisi oluşturma - Azure şablonu | Microsoft Docs"
-description: "Resource Manager’da şablon kullanarak iç yük dengeleyici oluşturmayı öğrenin"
+title: İç yük dengeleyicisi oluşturma - Azure şablonu | Microsoft Docs
+description: Resource Manager’da şablon kullanarak iç yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 7abb8fb5064ca2ab1e4da6e0a32335f63d87ea02
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f92430cad52edc60a0ab69caec61cc6f20515f61
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-an-internal-load-balancer-using-a-template"></a>Şablon kullanarak iç yük dengeleyici oluşturma
 
@@ -28,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -42,7 +41,7 @@ Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için 
 
 PowerShell kullanarak yüklediğiniz şablonu dağıtmak için aşağıdaki adımları izleyin.
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 2. Parametre dosyasını yerel diskinize indirin.
 3. Dosyayı düzenleyin ve kaydedin.
 4. Şablonu kullanarak kaynak grubu oluşturmak için **New-AzureRmResourceGroupDeployment** cmdlet’ini çalıştırın.
@@ -64,12 +63,12 @@ Azure CLI’yi kullanarak şablonu dağıtmak için aşağıdaki adımları uygu
     azure config mode arm
     ```
 
-    Yukarıdaki komut için beklenen çıktı şu şekildedir:
+    Yukarıdaki komut için beklenen çıkış buradaki gibidir:
 
         info:    New mode is arm
 
 3. Parametre dosyasını açın, içeriğini seçin ve bilgisayarınızdaki bir dosyaya kaydedin. Bu örnekte parametre dosyasını *parameters.json* dosyasına kaydettik.
-4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni iç yük dengeleyiciyi dağıtmak için, **azure group deployment create** komutunu çalıştırın. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+4. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni iç yük dengeleyiciyi dağıtmak için, **azure group deployment create** komutunu çalıştırın. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 
     ```azurecli
     azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json

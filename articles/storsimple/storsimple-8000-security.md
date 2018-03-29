@@ -1,24 +1,24 @@
 ---
-title: "StorSimple 8000 serisi güvenlik | Microsoft Docs"
-description: "StorSimple hizmeti, cihaz ve şirket içinde ve bulutta veri koruma güvenlik ve gizlilik özellikleri açıklar."
+title: StorSimple 8000 serisi güvenlik | Microsoft Docs
+description: StorSimple hizmeti, cihaz ve şirket içinde ve bulutta veri koruma güvenlik ve gizlilik özellikleri açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 01/23/2018
+ms.date: 03/27/2018
 ms.author: alkohli
-ms.openlocfilehash: c14927f82ca01320206ccec83216777b7d1b8708
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruması
 
@@ -267,6 +267,20 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 **S:** kamu varlık verilerim için Microsoft isterse ne olur?
 
 **Y:** çünkü tüm verileri hizmette şifrelenir ve özel anahtarı aygıtla tutulur kamu varlık müşteri verilerini kaldırmasını isteyebilirsiniz.
+
+## <a name="gdpr-compliance"></a>GDPR uyumluluk
+
+[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz. 
+
+Fiziksel ve sanal seri için StorSimple Aygıt Yöneticisi'ni GDPR uyumlu değil. Burada kişisel bilgiler toplanır ve hizmetinde görüntülenen iki anahtar örnekleri şunlardır:
+
+- Uyarı kullanıcı ayarları kullanıcıların e-posta adresini nerede yapılandırılır. Bu bilgileri görüntülenebilir ve yönetici tarafından temizlendi. Bu StorSimple 8000 serisi cihazlar ve StorSimple sanal diziler için geçerlidir.
+ * Görüntülemek ve StorSimple 8000 serisi ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Görüntülemek ve StorSimple sanal dizinin ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve görüntülenebilir. Bu liste de silinir paylaşımları zaman silinir. Bu, yalnızca StorSimple sanal diziler için geçerlidir.
+ * Kimlerin erişebileceğini veya bir paylaşım silmek için adımları kullanıcı listesini görüntülemek için [StorSimple sanal dizinin paylaşımlarında yönetme](storsimple-virtual-array-manage-shares.md)
+
+Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
