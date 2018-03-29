@@ -1,11 +1,11 @@
 ---
-title: "Azure web uygulamaları için yapılandırma ile ilgili SSS | Microsoft Docs"
-description: "Azure App Service Web Apps özelliği için yapılandırması ve yönetimi sorunları hakkında sık sorulan soruların yanıtlarını alın."
+title: Azure web uygulamaları için yapılandırma ile ilgili SSS | Microsoft Docs
+description: Azure App Service Web Apps özelliği için yapılandırması ve yönetimi sorunları hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web uygulamalarının yapılandırması ve Yönetimi SSS
 
@@ -251,7 +251,7 @@ Zamanlanmış Web işleri hakkında daha fazla bilgi için bkz: [Cron ifade kull
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>Uygulama hizmeti Uygulamam için test sızma nasıl yaparım?
 
-Sızma test gerçekleştirmek için [bir istek göndermek](https://security-forms.azure.com/penetration-testing/terms).
+Sızma test gerçekleştirmek için [bir istek göndermek](https://portal.msrc.microsoft.com/en-us/engage/pentest).
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>Trafik Yöneticisi kullanan bir App Service web uygulaması için bir özel etki alanı adını nasıl yapılandırırım?
 

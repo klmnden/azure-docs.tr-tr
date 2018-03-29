@@ -1,6 +1,6 @@
 ---
 title: Power BI'da Azure günlük analizi veri içeri aktarma | Microsoft Docs
-description: Power BI bir zengin Görselleştirmelerini ve raporları farklı veri kümelerinin analize sağlayan bir Microsoft bulut tabanlı iş analiz hizmetidir.  Bu makalede nasıl yapılandırılacağını açıklar günlük analizi veri Power BI'a aktarın ve otomatik olarak yenilemek için yapılandırın.
+description: Power BI bir zengin Görselleştirmelerini ve raporları farklı veri kümelerinin analize sağlayan bir Microsoft bulut tabanlı iş analiz hizmetidir.  Bu makalede, yapılandırma ve günlük analizi veri Power BI'a aktarın ve bunu otomatik olarak yenilemek için yapılandırmak üzere açıklar.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
-ms.openlocfilehash: 6d7f8f89f90223dc5dd186a63b3912a13910cb34
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725828c2acc5ac4bb53c5e6af14d20578a3d3652
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure günlük analizi veri Power BI'a aktarın
 
 
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) bir bulut tabanlı İş analizi hizmeti Microsoft'tan farklı veri kümelerinin analize zengin Görselleştirmelerini ve raporlar sunar.  Farklı kaynaklardan veri combing ve raporları web ve mobil cihazlarda paylaşımı kendi özellikleri da yararlanabilir için günlük analizi günlük arama sonuçlarını bir Power BI veri kümesini içeri aktarabilirsiniz.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) bir bulut tabanlı İş analizi hizmeti Microsoft'tan farklı veri kümelerinin analize zengin Görselleştirmelerini ve raporlar sunar.  Farklı kaynaklardan veri birleştirme ve raporları web ve mobil cihazlarda paylaşımı gibi özelliklerinden yararlanabilir için günlük analizi günlük arama sonuçlarını bir Power BI veri kümesini içeri aktarabilirsiniz.
 
 ## <a name="overview"></a>Genel Bakış
 Günlük analizi çalışma alanından Power BI'a verileri almak için günlük analizi günlük arama sorgusu göre Power bı'da bir veri kümesi oluşturun.  Sorgu, veri kümesi her yenilendiğinde çalıştırılır.  Daha sonra verileri veri kümesini kullanarak Power BI raporları oluşturabilir.  Power BI'da veri kümesi oluşturmak için sorgunuz için günlük analizi verilecek [Power Query (M) dil](https://msdn.microsoft.com/library/mt807488.aspx).  Power BI bir veri kümesi olarak yayımlamayı ve bu Power BI Desktop'ta bir sorgu oluşturmak için kullanın.  Bu işlem ayrıntılarını, aşağıda açıklanmıştır.

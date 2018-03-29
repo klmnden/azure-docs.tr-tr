@@ -1,23 +1,20 @@
 ---
-title: "Azure AD B2C etkin bir web uygulaması için test sürüşü"
-description: "Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET web uygulamasını denemeye yönelik hızlı başlangıç."
+title: Azure AD B2C etkin bir web uygulaması için test sürüşü
+description: Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET web uygulamasını denemeye yönelik hızlı başlangıç.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
-ms.reviewer: saraford
+editor: ''
 ms.service: active-directory-b2c
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 87c180445038b1205e2f6aab1ce721765ecb35c9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 7d6744fe7ef82a6a4f54291cedd15d5b3d4ee242
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-web-app"></a>Hızlı Başlangıç: Azure AD B2C etkin bir web uygulaması için test sürüşü
 
@@ -46,9 +43,9 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 Örnek çözümde iki proje vardır:
 
-**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların kaydolması veya oturum açması için **kaydolma ya da oturum açma** ilkesini kullanır.
+**Örnek web uygulaması (TaskWebApp):** Görev listesi oluşturmak ve düzenlemek için kullanılan web uygulaması. Web uygulaması, kullanıcıların oturum açması için **kaydolma veya oturum açma** ilkesi kullanır.
 
-**Web API’si örnek uygulaması (TaskService):** Oluşturma, okuma, güncelleştirme ve silme görev listesi işlevini destekleyen web API’si. Web API’si, Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
+**Örnek web API’si uygulaması (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si, Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
 Bu hızlı başlangıç için aynı anda hem `TaskWebApp` hem de `TaskService` projesini çalıştırıyorsunuz. 
 
@@ -117,7 +114,7 @@ Azure AD B2C korumalı bir web API’si için yetkili bir çağrıda bulunmak ü
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Başka Azure AD B2C hızlı başlangıçlarını ve öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Diğer Azure AD B2C hızlı başlangıçlarını veya öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

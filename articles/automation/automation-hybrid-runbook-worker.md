@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b5dbc4cfd884538c8435371aa353b22cabef7400
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Veri merkezi veya karma Runbook çalışanı ile bulut kaynakları otomatikleştirme
 
@@ -73,7 +73,7 @@ Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale ge
      > Şu anda günlük analizi ile tümleştirme için desteklenen tek Otomasyon bölgeleri şunlardır: - **Avustralya Güneydoğu**, **Doğu ABD 2**, **Güneydoğu Asya**, ve  **Batı Avrupa**. Otomasyon hesabınızı bu bölgeler içinde değilse, komut dosyası günlük analizi çalışma alanı oluşturur ama, bunları birlikte bağlayamazsınız, sizi uyarır.
 
 2. Bilgisayarınızda Başlat **Windows PowerShell** gelen **Başlat** ekran Yönetici modunda.
-3. PowerShell komut satırı kabuğundan indirilir ve bu parametrelerin değerlerini değiştirme yürütmek komut dosyasını içeren klasöre gidin *- AutomationAccountName*, *- ResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*.
+3. PowerShell komut satırı kabuğundan indirilir ve bu parametrelerin değerlerini değiştirme yürütmek komut dosyasını içeren klasöre gidin *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- Subscriptionıd*, ve *- WorkspaceName*.
 
      > [!NOTE]
      > Betiği yürüttükten sonra Azure kimlik doğrulaması istenir. **Gerekir** abonelik Yöneticileri rolünün üyesi ve aboneliğin ortak yöneticisi olan bir hesapla oturum açın.

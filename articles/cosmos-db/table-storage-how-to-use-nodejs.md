@@ -1,6 +1,6 @@
 ---
-title: "Azure Table storage veya Azure Cosmos Node.js DB'den nasıl kullanılacağını | Microsoft Docs"
-description: "Azure Table storage veya Azure Cosmos DB kullanarak bulutta yapılandırılmış veri depolayın."
+title: Azure Table storage veya Azure Cosmos Node.js DB'den nasıl kullanılacağını | Microsoft Docs
+description: Azure Table storage veya Azure Cosmos DB kullanarak bulutta yapılandırılmış veri depolayın.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 03/23/2018
 ms.author: mimig
-ms.openlocfilehash: dcd729da0b9e913046da1ad5619594f5ce485bdb
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js'den Azure Table storage kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -361,8 +361,6 @@ dc.table.queryEntities(tableName,
 ```
 
 İnceleyin, `continuationToken` nesnesi bulacaksınız özellikler gibi `nextPartitionKey`, `nextRowKey` ve `targetLocation`, tüm sonuçları yinelemek için kullanılabilecek.
-
-Bulunmaktadır ayrıca devamlılık örnek (continuationsample.js) [azure Depolama düğümü deposu](https://github.com/Azure/azure-storage-node/tree/master/examples/samples) github'da. 
 
 ## <a name="work-with-shared-access-signatures"></a>Paylaşılan erişim imzaları ile çalışma
 Paylaşılan erişim imzaları (SAS) depolama hesabı adı veya anahtarları sağlamadan tabloları ayrıntılı erişim sağlamak için güvenli bir yoludur. SAS genellikle, verileri kayıtlarını sorgulamak için mobil uygulama izin verme gibi sınırlı erişim sağlamak için kullanılır.

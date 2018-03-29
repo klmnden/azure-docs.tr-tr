@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric izleme ve tanılama genel bakış | Microsoft Docs"
-description: "İzleme ve tanılama Azure Service Fabric kümeleri, uygulamalar ve hizmetler hakkında bilgi edinin."
+title: Azure Service Fabric izleme ve tanılama genel bakış | Microsoft Docs
+description: İzleme ve tanılama Azure Service Fabric kümeleri, uygulamalar ve hizmetler hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2018
 ms.author: dekapur
-ms.openlocfilehash: 1da2fab92c6fd51c5fc18589da5f8bbec2929503
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: f784576547f0d85a825ad9dd107c6c84cd261092
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>İzleme ve tanılama Azure Service Fabric için
 
@@ -86,7 +86,7 @@ Service Fabric platformundan bir küme içindeki varlıkların durumunu Genişle
 
 ![SFX sistem durumu Panosu](media/service-fabric-diagnostics-overview/sfx-healthstatus.png)
 
-SFX son durumu raporlarına görmenin yanı sıra, her rapor bir olayı olarak da kullanılabilir. Sistem durumu olayları işletimsel kanal aracılığıyla toplanan (bakın [Azure Tanılama Olay toplama](service-fabric-diagnostics-event-aggregation-wad.md#collect-health-and-load-events)) ve uyarı ve gelecekte sorgulama için OMS günlük analizi depolanır. Bu nedenle uygun hatası senaryoları (OMS aracılığıyla özel uyarılar) için uyarıları ayarlama öneririz, uygulamanın kullanılabilirliğini etkileyebilecek sorunları algılamak yardımcı olur.
+SFX son durumu raporlarına görmenin yanı sıra, her rapor bir olayı olarak da kullanılabilir. Sistem durumu olayları işletimsel kanal aracılığıyla toplanan (bakın [Azure Tanılama Olay toplama](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)) ve uyarı ve gelecekte sorgulama için OMS günlük analizi depolanır. Bu nedenle uygun hatası senaryoları (OMS aracılığıyla özel uyarılar) için uyarıları ayarlama öneririz, uygulamanın kullanılabilirliğini etkileyebilecek sorunları algılamak yardımcı olur.
 
 ## <a name="monitoring-workflow"></a>İş akışı izleme 
 

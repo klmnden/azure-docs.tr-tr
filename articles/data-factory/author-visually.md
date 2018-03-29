@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/9/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: bce74c80f53eda654bb0289a1ff8a6cb88fd13f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 977fd59b746d13e9bf331edc32c63dd5a21c69f7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de Visual yazma
 Görsel olarak yazar ve herhangi bir kod yazmak zorunda kalmadan veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi (UX) deneyimi sağlar. Etkinlikleri bir ardışık düzen tuvale sürükleyin, test çalışmalarını gerçekleştirmek, yinelemeli olarak, hata ayıklama ve dağıtabilir ve ardışık düzen çalışmalarınız izleyin. Görsel geliştirme gerçekleştirmek için kullanıcı Deneyimini kullanmak için iki yaklaşım vardır:
@@ -33,7 +33,7 @@ Data Factory hizmetiyle Visual yazma visual VSTS ile iki şekilde geliştirme fa
 
 ![Data Factory hizmetinin yapılandırma ](media/author-visually/configure-data-factory.png)
 
-UX kullandığınızda **tuvale yazma** doğrudan Data Factory hizmetiyle, yalnızca yazmak için **Yayımla** modu kullanılabilir. Yaptığınız tüm değişiklikler veri fabrikası hizmetine doğrudan yayımlanır.
+UX kullandığınızda **tuvale yazma** doğrudan Data Factory hizmetiyle, yalnızca yazmak için **tümünü Yayımla** modu kullanılabilir. Yaptığınız tüm değişiklikler veri fabrikası hizmetine doğrudan yayımlanır.
 
 ![Mod yayımlama](media/author-visually/data-factory-publish.png)
 
@@ -61,9 +61,12 @@ Bölmesinde aşağıdaki VSTS kod deposu ayarlarını gösterir:
 | Ayar | Açıklama | Değer |
 |:--- |:--- |:--- |
 | **Depo türü** | VSTS kod depo türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Visual Studio Team Services Git |
+| **Azure Active Directory** | Azure AD Kiracı adınız. | <your tenant name> |
 | **Visual Studio Team Services Account** | VSTS hesap adınızı. VSTS hesap adınızı bulabilir `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinizi erişip depoları ve proje bakın. | \<hesap adınız > |
 | **ProjectName** | VSTS projenizin adına. VSTS proje adınızı bulabilir `https://{account name}.visualstudio.com/{project name}`. | \<VSTS proje adı > |
 | **RepositoryName** | VSTS kod deposu adınız. VSTS projeleri projenizi büyüdükçe, kaynak kodunuzu yönetmek için Git depoları içerir. Yeni bir havuz oluşturabilir veya projenizde zaten varolan bir havuz kullanabilirsiniz. | \<VSTS kod depo adı > |
+| **İşbirliği şube** | Yayımlama için kullanılacak VSTS işbirliği dalı. Varsayılan olarak bu değer `master`. Başka bir şube kaynaklardan yayımlamak istediğiniz durumlarda bu değiştirin. | \<İşbirliği şube adı > |
+| **Kök klasör** | Kök klasörünüzde VSTS işbirliği dalı. | \<kök klasör adı > |
 | **Mevcut Veri Fabrikası Kaynakları depoya Al** | Mevcut Veri Fabrikası Kaynakları UX'dan alma belirtir **tuvale yazma** VSTS Git deposu içine. Veri Fabrikası Kaynakları ilişkili Git deposu JSON biçiminde aktarmak için kutuyu işaretleyin. Bu eylem her bir kaynağın ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlantılı Hizmetleri ayrı JSONs verilir). Bu kutu işaretli değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Yapılandırma yöntem 2: UX tuvale yazma
@@ -76,41 +79,41 @@ Bir yapılandırma bölmesinde görünür. Açıklamasında yapılandırma ayarl
 ### <a name="use-version-control"></a>Sürüm denetimini kullanma
 Sürüm denetim sistemleri (olarak da bilinen _kaynak denetimi_) koda temel yapılan kod ve izleme değişiklikleri üzerinde işbirliği geliştiriciler olanak tanır. Kaynak denetimi çok geliştirici projeleri için önemli bir araçtır.
 
-Data factory ile ilişkili her VSTS Git deposu ana dala sahiptir. VSTS Git deposuna erişimi olduğunda seçerek kodu değiştirebilirsiniz **eşitleme** veya **Yayımla**:
+Data factory ile ilişkili her VSTS Git deposu sahip bir işbirliği dal. (`master` varsayılan işbirliği dalının). Kullanıcılar da oluşturabilir özelliği dalları tıklayarak **+ dalı** ve özellik dalları geliştirme yapın.
 
 ![Eşitleniyor veya yayımlama kodunu değiştirme](media/author-visually/sync-publish.png)
 
-#### <a name="sync-code-changes"></a>Eşitleme kod değişiklikleri
-Siz seçtikten sonra **eşitleme**, değişiklikleri ana dala yerel dalı için çekme veya itme yerel dalınızdan ana dala değiştirir.
+Özellik dalında ile özelliği development hazır olduğunuzda tıklayabilirsiniz **oluşturma çekme isteği**. Bu sürecek VSTS nerede yükseltmeniz çekme GIT istekleri kod gözden geçirme ve birleştirme işbirliği dalınızdaki değiştirir. (`master` varsayılandır). Ancak veri fabrikası hizmetine işbirliği dalınızdan yayımlama izin verilir. 
 
-![Eşitleme kod değişiklikleri](media/author-visually/sync-change.png)
+![Yeni bir çekme isteği oluşturun](media/author-visually/create-pull-request.png)
 
 #### <a name="publish-code-changes"></a>Kod değişikliklerini yayımlama
-Seçin **Yayımla** kod değişiklikleri ana dala Data Factory hizmetine el ile yayımlamak için.
+İşbirliği şube değişiklikler birleştirilmiş sonra (`master` varsayılandır), select **Yayımla** kod değişiklikleri ana dala Data Factory hizmetine el ile yayımlamak için.
+
+![Data Factory hizmetinin değişiklikleri yayımlama](media/author-visually/publish-changes.png)
 
 > [!IMPORTANT]
 > Ana dala Data Factory hizmeti dağıtılan temsili değildir. Ana dala *gerekir* yayımlanacağı el ile veri fabrikası hizmetine.
 
 ## <a name="use-the-expression-language"></a>İfade dili kullanın
-Azure Data Factory ile desteklenen ifade dili kullanarak ifadeler için özellik değerlerini belirtebilirsiniz. Desteklenen ifadeler hakkında daha fazla bilgi için bkz: [ifadeleri ve Azure Data Factory işlevleri](control-flow-expression-language-functions.md).
+Azure Data Factory ile desteklenen ifade dili kullanarak ifadeler için özellik değerlerini belirtebilirsiniz. 
 
-Özellik değerleri için ifadeleri UX kullanarak belirtin **tuvale yazma**:
+Özellik değerleri için ifadeleri belirleyerek **dinamik içerik Ekle**:
 
-![İfade dili kullanın](media/author-visually/expression-language.png)
+![İfade dili kullanın](media/author-visually/dynamic-content-1.png)
 
-## <a name="specify-parameters"></a>Parametreleri belirtin
-Azure veri fabrikasında ardışık düzen ve veri kümeleri için parametreleri belirtebilirsiniz **parametreleri** sekmesi. Seçerek parametreleri özelliklerini kolayca kullanabilirsiniz **dinamik içerik Ekle**:
+## <a name="use-functions-and-parameters"></a>İşlevler kullanın ve parametreleri
 
-![Dinamik içerik ekleme](media/author-visually/dynamic-content.png)
+İşlevler kullanın ya da veri fabrikasında ardışık düzen ve veri kümeleri için parametre belirtin **ifade oluşturucusu**:
 
-Var olan parametreleri kullanın veya yeni parametreler, özellik değerlerini belirtin:
+Desteklenen ifadeler hakkında daha fazla bilgi için bkz: [ifadeleri ve Azure Data Factory işlevleri](control-flow-expression-language-functions.md).
 
-![Özellik değerleri için parametreleri belirtin](media/author-visually/parameters.png)
+![Dinamik içerik ekleme](media/author-visually/dynamic-content-2.png)
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma
 Seçin **geri bildirim** özellikleri hakkında yorum yapmak veya Microsoft aracı ile ilgili sorunları bildirmek için:
 
-![Geri Bildirim](media/monitor-visually/feedback.png)
+![Geri Bildirim](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Ve hakkında daha fazla izleme ardışık düzen yönetme öğrenmek için bkz [İzleyici ve ardışık düzen programlama yoluyla yönetilmesi](monitor-programmatically.md).

@@ -51,7 +51,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
    ![IP kaynağı](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
-    d. **Tamam** düğmesine tıklayın.
+    d. **Tamam**’a tıklayın.
 
 5. <a name="listname"></a>İstemci erişim noktası kaynak IP adresine bağımlı olun.
 
@@ -61,7 +61,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
 
    ![IP kaynağı](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
-    c. Tıklatın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Değilse, bir bağımlılık IP adresi ayarlayın. Listelenen birden fazla kaynak varsa, IP adreslerini veya değil olduğunu doğrulayın ve, bağımlılıkları. **Tamam** düğmesine tıklayın. 
+    c. Tıklatın **bağımlılıkları** sekmesi. IP adresi bir bağımlılığı olduğundan emin olun. Değilse, bir bağımlılık IP adresi ayarlayın. Listelenen birden fazla kaynak varsa, IP adreslerini veya değil olduğunu doğrulayın ve, bağımlılıkları. **Tamam**’a tıklayın. 
 
    ![IP kaynağı](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
@@ -78,7 +78,7 @@ Kullanılabilirlik grubu dinleyicisi SQL Server kullanılabilirlik grubu dinledi
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
     [int]$ProbePort = <nnnnn>
     
     Import-Module FailoverClusters

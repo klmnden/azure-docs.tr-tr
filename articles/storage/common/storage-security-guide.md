@@ -1,18 +1,18 @@
 ---
-title: "Azure depolama Güvenlik Kılavuzu | Microsoft Docs"
-description: "Azure Storage, ancak bunlarla sınırlı olmamak RBAC, depolama hizmeti şifrelemesi, istemci tarafı şifreleme, SMB 3.0 ve Azure Disk şifrelemesi dahil olmak üzere güvenlik altına almanın birçok yöntem ayrıntıları verilmektedir."
+title: Azure depolama Güvenlik Kılavuzu | Microsoft Docs
+description: Azure Storage, ancak bunlarla sınırlı olmamak RBAC, depolama hizmeti şifrelemesi, istemci tarafı şifreleme, SMB 3.0 ve Azure Disk şifrelemesi dahil olmak üzere güvenlik altına almanın birçok yöntem ayrıntıları verilmektedir.
 services: storage
-author: tamram
+author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: tamram
-ms.openlocfilehash: d1a81a9029f2e9b8a36ecebdcc4be44984e82515
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: cshoe
+ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -296,7 +296,7 @@ SSE tüm depolama hesapları için etkin ve devre dışı bırakılamaz. SSE ver
 
 SSE için kullanılan anahtarları Microsoft tarafından yönetilir. Microsoft anahtarları başlangıçta oluşturur ve iç Microsoft İlkesi tarafından tanımlanan normal kendi dönüş yanı sıra, güvenli depolama yönetir. Müşteri tarafından yönetilen anahtarları sonunda, müşteri tarafından yönetilen anahtarlarına anahtarlardan Microsoft tarafından yönetilen bir geçiş yolu ile birlikte kullanılabilir.
 
-SSE otomatik olarak tüm performans katmanları (standart ve Premium), tüm dağıtım modellerini (Azure Resource Manager ve klasik) ve tüm Azure Storage Hizmetleri (Blob, kuyruk, tablo ve dosya) verileri şifreler. 
+SSE tüm performans katmanları (Standart ve Premium), tüm dağıtım modelleri (Azure Resource Manager ve Klasik) ve tüm Azure Depolama hizmetlerinde (Blob, Kuyruk, Tablo ve Dosya) verileri otomatik olarak şifreler. 
 
 ### <a name="client-side-encryption"></a>İstemci tarafı şifreleme
 İstemci tarafı şifreleme Aktarımdaki verilerin şifrelenmesini ele alırken belirtiliyor. Bu özellik ağ üzerinden göndermeden önce bir istemci uygulaması Azure depolama alanına yazılmasını ve program aracılığıyla Azure depolama biriminden aldıktan sonra verilerin şifresini çözmek verilerinizdeki programlı olarak şifrelenecek sağlar.
@@ -376,7 +376,7 @@ Bir veri diski ekleyin ve VM bağlamak, bu veri diskte Azure Disk şifrelemesi k
 
 #### <a name="storage-service-encryption-sse"></a>Depolama hizmeti şifrelemesi (SSE)
 
-SSE Azure Storage tarafından yönetilir. SSE Aktarımdaki verileri güvenlik sağlamaz, ancak Azure depolama alanına yazılır gibi verileri şifreliyor. SSE Azure depolama performansını etkilemez.
+SSE Azure Storage tarafından yönetilir. SSE Aktarımdaki verileri güvenlik sağlamaz, ancak Azure depolama alanına yazılır gibi verileri şifreliyor. SSE, Azure Depolama performansını etkilemez.
 
 Her türlü veri SSE kullanarak depolama hesabının şifreleyebilir (blok blobları, ekleme blobları, sayfa BLOB'ları, tablo verileri, kuyruk verileri ve dosyaları).
 

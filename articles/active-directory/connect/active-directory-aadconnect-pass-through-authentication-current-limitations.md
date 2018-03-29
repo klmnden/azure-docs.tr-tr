@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Doğrudan kimlik doğrulama - geçerli sınırlamalar | Microsoft Docs"
-description: "Bu makalede Azure Active Directory (Azure AD) doğrudan kimlik doğrulaması'nın geçerli kısıtlamaları"
+title: 'Azure AD Connect: Doğrudan kimlik doğrulama - geçerli sınırlamalar | Microsoft Docs'
+description: Bu makalede Azure Active Directory (Azure AD) doğrudan kimlik doğrulaması'nın geçerli kısıtlamaları
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 3e533b8b23c095a3de845d9b26a96aea9d8ee086
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 680e9967010771b8e3651c6f4eed81237f8fb4c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory doğrudan kimlik doğrulaması: Geçerli sınırlamalar
 
@@ -50,7 +50,7 @@ Aşağıdaki senaryolar _değil_ desteklenir:
 - Apple cihaz kayıt iOS Kurulum Yardımcısı'nı kullanarak programı'nı (Apple DEP), modern kimlik doğrulamasını desteklemez. Bu Apple DEP cihazları doğrudan kimlik doğrulama kullanarak yönetilen etki alanları için Intune'a kaydetmek başarısız olur. Kullanmayı [Şirket portalı uygulamasını](https://blogs.technet.microsoft.com/intunesupport/2018/02/08/support-for-multi-token-dep-and-authentication-with-company-portal/) alternatif olarak.
 
 >[!IMPORTANT]
->Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirmek [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect Sihirbazı sayfasında.
+>Desteklenmeyen senaryolar için geçici bir çözüm olarak _yalnızca_, parola karma eşitlemesini etkinleştirmek [isteğe bağlı özellikler](active-directory-aadconnect-get-started-custom.md#optional-features) Azure AD Connect Sihirbazı sayfasında. Kullanıcılar oturum uygulamalara içinde "senaryoları desteklenmeyen" bölümünde listelenen, belirli bu oturum açma istekleri alındığında _değil_ doğrudan kimlik doğrulama aracı tarafından işlenen ve bu nedenle kaydedilecek değil [ Doğrudan kimlik doğrulama oturum](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Şirket içi altyapınızı kesintiye uğrarsa parola karma eşitlemesini etkinleştirmek için yük devretme kimlik doğrulama seçeneği sunar. Active Directory parola karma eşitlemesi için doğrudan kimlik doğrulaması'ndan bu yük devretme otomatik değildir. Azure AD Connect kullanarak el ile oturum açma yöntemi geçmeniz gerekir. Azure AD Connect çalıştıran sunucunun kullanılamaz hale gelirse Microsoft doğrudan kimlik doğrulamasını devre dışı bırakma Support yardım almanız.

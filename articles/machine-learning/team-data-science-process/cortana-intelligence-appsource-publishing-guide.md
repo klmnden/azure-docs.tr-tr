@@ -1,8 +1,8 @@
 ---
-title: "Cortana Intelligence AppSource yayımlama Kılavuzu | Microsoft Docs"
-description: "Microsoft Partner AppSource için Cortana Intelligence çözümünüzü yayımlamak için izlemeniz gereken adımlar şunlardır."
+title: Cortana Intelligence AppSource yayımlama Kılavuzu | Microsoft Docs
+description: Microsoft Partner AppSource için Cortana Intelligence çözümünüzü yayımlamak için izlemeniz gereken adımlar şunlardır.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: anupams
+ms.openlocfilehash: 1a5671eda967c1bba585d31b001bb465526709f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource yayımlama Kılavuzu
 
@@ -109,10 +109,10 @@ Son satış nasıl değer teklifinde teslim gösteren uygulama/çözüm gösteri
 ## <a name="publish-your-app-on-the-publishing-portal"></a>Uygulamanızı yayımlama portalında yayımlayın
 Biz, uygulamanız için yukarıdaki adımları hesaplanan sonra yayımlama portalına erişim alırsınız ve görebilirsiniz [Cortana Intelligence teklif bulut iş ortağı Portalı aracılığıyla yayımlamak nasıl](https://cloudpartner.azure.com/#documentation/cloud-partner-portal-publish-cortana-intelligence-app) sonraki adımlar hakkında ayrıntılı yönergeler için.
 
-Alanlar hakkında bilgi gerekiyorsa, e-posta < appsourcecissupport@microsoft.com >.
+Alanlar hakkında bilgi gerekiyorsa, e-posta <appsourcecissupport@microsoft.com>.
 ## <a name="my-app-is-published-on-appsource---now-what"></a>Uygulamam AppSource üzerinde - yayımlanan şimdi ne?
 İlk olarak, uygulamanızı alma Tebrikler yayımladı.
 Hedef kitle nasıl etkileyeceğini uygulamanıza AppSource yoğun yayımlama alma döndürür düzeyine bağlıdır. Bkz: [büyüme-korsan Cortana Intelligence uygulamanıza AppSource](http://aka.ms/aagrowthhackguide) nasıl, döndürür en üst düzeye hakkında daha fazla ayrıntı için.
 
-Herhangi bir sorunuz veya önerileri varsa, lütfen bizimle ulaşmak < appsourcecissupport@microsoft.com >.
+Herhangi bir sorunuz veya önerileri varsa, lütfen bizimle ulaşmak <appsourcecissupport@microsoft.com>.
 

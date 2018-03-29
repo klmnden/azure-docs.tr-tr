@@ -1,33 +1,33 @@
 ---
-title: "Sertifika kimlik bilgileri Azure AD içinde | Microsoft Docs"
-description: "Bu makalede kayıt ve uygulama kimlik doğrulaması için sertifika kimlik bilgileri kullanımını açıklanır"
+title: Sertifika kimlik bilgileri Azure AD içinde | Microsoft Docs
+description: Bu makalede kayıt ve uygulama kimlik doğrulaması için sertifika kimlik bilgileri kullanımını açıklanır
 services: active-directory
 documentationcenter: .net
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/02/2017
+ms.date: 03/15/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 68de6295b84385f54eaadd6d24e8309a32fae9ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7c58b4ebd840aca555b52a03cf44ace311b64e3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Uygulama kimlik doğrulaması için sertifika kimlik bilgileri
 
-Azure Active Directory OAuth 2.0 istemci kimlik bilgilerini verme akış içinde kimlik doğrulaması için örneğin, kendi kimlik bilgilerini kullanmak bir uygulama sağlar ([v1](active-directory-protocols-oauth-service-to-service.md) [v2](active-directory-v2-protocols-oauth-client-creds.md)) ve On-temsili akış ([v1](active-directory-protocols-oauth-on-behalf-of.md) [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
+Azure Active Directory kimlik doğrulaması için kendi kimlik bilgilerini kullanmak bir uygulama sağlar. Örneğin, OAuth 2.0 istemci kimlik bilgilerini verme akışında ([v1](active-directory-protocols-oauth-service-to-service.md), [v2](active-directory-v2-protocols-oauth-client-creds.md)) ve On-temsili akış ([v1](active-directory-protocols-oauth-on-behalf-of.md), [v2](active-directory-v2-protocols-oauth-on-behalf-of.md)).
 Bir kullanılabilir kimlik bilgisi uygulama sahip bir sertifika ile imzalanmış bir JSON Web Token(JWT) onaylama biçimidir.
 
 ## <a name="format-of-the-assertion"></a>Onaylama işlemi biçimi
-Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak istediğiniz [JSON Web belirteci](https://jwt.io/) kitaplıkları tercih ettiğiniz dilde. Belirtecin tarafından taşınan bilgiler verilmiştir:
+Onaylama işlemi hesaplamak için büyük olasılıkla çok birini kullanmak istediğiniz [JSON Web belirteci](https://jwt.ms/) kitaplıkları tercih ettiğiniz dilde. Belirtecin tarafından taşınan bilgiler verilmiştir:
 
 #### <a name="header"></a>Üst bilgi
 
@@ -85,7 +85,14 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
 
 ### <a name="register-your-certificate-with-azure-ad"></a>Azure AD ile sertifikanızı kaydedin
 
-Sertifika kimlik bilgileri Azure AD istemci uygulamasında ilişkilendirmek için uygulama bildirimi düzenlemeniz gerekir.
+Aşağıdaki yöntemlerden birini kullanarak Azure Portalı aracılığıyla Azure AD istemci uygulamasında sertifika kimlik bilgisi ilişkilendirebilirsiniz:
+
+**Sertifika dosyası karşıya yükleniyor**
+
+İstemci uygulaması için Azure uygulaması kaydında tıklayın **ayarları**, tıklatın **anahtarları** ve ardından **ortak anahtarı karşıya**. Önce karşıya yüklemek istediğiniz sertifika dosyası seçin **kaydetmek**. Kaydettiğiniz, sertifika karşıya yüklendi ve parmak izi başlangıç tarihi ve süresi dolduktan sonra değerler görüntülenir. 
+
+**Uygulama bildirimi güncelleştiriliyor**
+
 Bir sertifikanın tutma sahip, işlem gerekir:
 
 - `$base64Thumbprint`, base64 olduğu sertifikasını karma kodlama

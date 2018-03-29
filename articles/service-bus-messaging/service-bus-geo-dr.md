@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus coğrafi olağanüstü durum kurtarma | Microsoft Docs"
-description: "Coğrafi bölgeler için yük devretme kullanın ve Azure hizmet veri yolundaki olağanüstü durum kurtarma gerçekleştirmek nasıl"
+title: Azure Service Bus coğrafi olağanüstü durum kurtarma | Microsoft Docs
+description: Coğrafi bölgeler için yük devretme kullanın ve Azure hizmet veri yolundaki olağanüstü durum kurtarma gerçekleştirmek nasıl
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: christianwolf42
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: sethm
-ms.openlocfilehash: 9cbeff82f7a237c813ea91cd83e9273cad934991
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus coğrafi olağanüstü durum kurtarma
 
@@ -86,12 +86,13 @@ Hata yaptıysanız; Örneğin, yanlış bölgeler ilk kurulum sırasında eşlen
 
 ## <a name="samples"></a>Örnekler
 
-[Örnekler github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2) ayarlamak ve yük devretme işlemi gösterilmektedir. Bu örnekleri aşağıdaki kavramları göstermektedir:
+[Örnekler github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) ayarlamak ve yük devretme işlemi gösterilmektedir. Bu örnekleri aşağıdaki kavramları göstermektedir:
 
-- Azure Active Directory'de Azure Resource Manager Service Bus ile kullanmak için gerekli ayarları. 
-- Örnek kod yürütmek için gerekli adımlar. 
-- Geçerli birincil ad alanından gönderip yeniden açın. 
+- .Net örnek ve Azure Azure Resource Manager ile Service Bus kurulumunda ve coğrafi olağanüstü durum kurtarmayı etkinleştirmek için Active Directory'de gerekli ayarları.
+- Örnek kod yürütmek için gerekli adımlar.
 - Var olan bir ad alanı diğer ad olarak kullanma
+- Bunun yerine PowerShell veya CLI aracılığıyla coğrafi olağanüstü durum kurtarmayı etkinleştirmek için adımlar.
+- [Gönderme ve alma](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) diğer adı kullanarak geçerli birincil veya ikincil ad.
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 

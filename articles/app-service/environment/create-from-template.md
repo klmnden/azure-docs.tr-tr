@@ -1,6 +1,6 @@
 ---
-title: "Resource Manager şablonu kullanarak bir Azure uygulama hizmeti ortamı oluşturma"
-description: "Bir Resource Manager şablonu kullanarak bir dış veya ILB Azure uygulama hizmeti ortamı oluşturma açıklanmaktadır"
+title: Resource Manager şablonu kullanarak bir Azure uygulama hizmeti ortamı oluşturma
+description: Bir Resource Manager şablonu kullanarak bir dış veya ILB Azure uygulama hizmeti ortamı oluşturma açıklanmaktadır
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 015bf031aea6b79fcca0a416253e9aa47bb245b6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d85384620b2e4c7ba0de84e0fe82ef3e83376dd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak bir ana oluşturma
 
@@ -40,7 +40,7 @@ Ana oluşturmayı otomatikleştirmek için:
 
 2. ILB ana oluşturulduktan sonra ILB ana etki alanı ile eşleşen bir SSL sertifikası yüklenir.
 
-3. Karşıya yüklenen SSL sertifikası ILB ana "varsayılan" SSL sertifikasını atanır.  (Örneğin, https://someapp.mycustomrootdomain.com) ana için atanan ortak kök etki alanı kullanırken bu sertifikayı SSL trafiği ILB ana uygulamalar için kullanılır.
+3. Karşıya yüklenen SSL sertifikası ILB ana "varsayılan" SSL sertifikasını atanır.  Ana için atanan ortak kök etki alanı kullandığınızda, bu sertifika SSL trafiği ILB ana uygulamalar için kullanılır (örneğin, https://someapp.mycustomrootdomain.com).
 
 
 ## <a name="create-the-ase"></a>Ana oluşturma
@@ -54,15 +54,17 @@ Bir ILB ana yapmak istiyorsanız, bu Resource Manager şablonu kullanmak [örnek
 
 Sonra *azuredeploy.parameters.json* dosya doldurulur, ana PowerShell kod parçacığını kullanarak oluşturun. Dosya yolları makinenizde Resource Manager şablonu dosya konumlarını eşleşecek şekilde değiştirin. Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi sağlamayı unutmayın:
 
-    $templatePath="PATH\azuredeploy.json"
-    $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-    New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Yaklaşık bir saat oluşturulması ana alır. Ardından ana ASEs listesi dağıtım tetiklenen abonelik için portalda görüntülenir.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>Karşıya yükleme ve "varsayılan" SSL sertifikası yapılandırma
-Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası bir SSL sertifikası ana ile ilişkilendirilmiş olması gerekir. Ana'nın varsayılan DNS son eki ise *contoso.com iç*, https://some-random-app.internal-contoso.com bağlantı için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
+Uygulamalar için SSL bağlantıları kurmak için kullanılan "varsayılan" SSL sertifikası bir SSL sertifikası ana ile ilişkilendirilmiş olması gerekir. Ana'nın varsayılan DNS son eki ise *contoso.com iç*, bağlantı https://some-random-app.internal-contoso.com için geçerli bir SSL sertifikası gerektirir **.internal contoso.com*. 
 
 İç sertifika yetkilileri kullanarak, bir dış veren bir sertifika satın veya otomatik olarak imzalanan bir sertifika kullanarak geçerli bir SSL sertifikası alın. SSL sertifikası kaynak bağımsız olarak, aşağıdaki sertifika öznitelikleri düzgün şekilde yapılandırılmalıdır:
 
@@ -82,17 +84,19 @@ Aşağıdaki PowerShell kod parçacığını kullanın:
 
 Base64 kodlaması için bu PowerShell kodu gelen uyarlanmıştır [PowerShell komut dosyası blog][examplebase64encoding]:
 
-        $certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
+```powershell
+$certificate = New-SelfSignedCertificate -certstorelocation cert:\localmachine\my -dnsname "*.internal-contoso.com","*.scm.internal-contoso.com"
 
-        $certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
-        $password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
+$certThumbprint = "cert:\localMachine\my\" + $certificate.Thumbprint
+$password = ConvertTo-SecureString -String "CHANGETHISPASSWORD" -Force -AsPlainText
 
-        $fileName = "exportedcert.pfx"
-        Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
+$fileName = "exportedcert.pfx"
+Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password     
 
-        $fileContentBytes = get-content -encoding byte $fileName
-        $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
-        $fileContentEncoded | set-content ($fileName + ".b64")
+$fileContentBytes = get-content -encoding byte $fileName
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$fileContentEncoded | set-content ($fileName + ".b64")
+```
 
 SSL sertifikası başarıyla oluşturulur ve Base64 ile kodlanmış bir dize olarak dönüştürülen sonra örnek Resource Manager şablonu kullanmak [varsayılan SSL sertifikası yapılandırma] [ quickstartconfiguressl] github'da. 
 
@@ -107,37 +111,41 @@ Parametrelerde *azuredeploy.parameters.json* dosya burada listelenir:
 
 Kısaltılmış örneği *azuredeploy.parameters.json* burada gösterilir:
 
-    {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
-         "contentVersion": "1.0.0.0",
-         "parameters": {
-              "appServiceEnvironmentName": {
-                   "value": "yourASENameHere"
-              },
-              "existingAseLocation": {
-                   "value": "East US 2"
-              },
-              "pfxBlobString": {
-                   "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
-              },
-              "password": {
-                   "value": "PASSWORDGOESHERE"
-              },
-              "certificateThumbprint": {
-                   "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
-              },
-              "certificateName": {
-                   "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
-              }
-         }
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "appServiceEnvironmentName": {
+      "value": "yourASENameHere"
+    },
+    "existingAseLocation": {
+      "value": "East US 2"
+    },
+    "pfxBlobString": {
+      "value": "MIIKcAIBAz...snip...snip...pkCAgfQ"
+    },
+    "password": {
+      "value": "PASSWORDGOESHERE"
+    },
+    "certificateThumbprint": {
+      "value": "AF3143EB61D43F6727842115BB7F17BBCECAECAE"
+    },
+    "certificateName": {
+      "value": "DefaultCertificateFor_yourASENameHere_InternalLoadBalancingASE"
     }
+  }
+}
+```
 
 Sonra *azuredeploy.parameters.json* dosya doldurulur, PowerShell kod parçacığını kullanarak varsayılan SSL sertifikası yapılandırın. Dosya yolları Resource Manager şablonu dosyaları makinenizde bulunduğu eşleşecek şekilde değiştirin. Resource Manager dağıtım adını ve kaynak grubu adı için kendi değerlerinizi sağlamayı unutmayın:
 
-     $templatePath="PATH\azuredeploy.json"
-     $parameterPath="PATH\azuredeploy.parameters.json"
+```powershell
+$templatePath="PATH\azuredeploy.json"
+$parameterPath="PATH\azuredeploy.parameters.json"
 
-     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
+```
 
 Değişikliği uygulamak için ana ön uç başına kabaca 40 dakika sürer. Örneğin, iki ön uçlar kullanan bir varsayılan boyutlu ana için tamamlanması yaklaşık bir saat ve 20 dakika şablonunu alır. Şablon çalışırken, ana ölçeklendirme olamaz.  
 

@@ -1,24 +1,24 @@
 ---
-title: "Azure CosmosDB tablo API .NET SDK'sını & kaynakları | Microsoft Docs"
-description: "Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin."
+title: Azure CosmosDB tablo API .NET SDK'sını & kaynakları | Microsoft Docs
+description: Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin.
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: af14e9dbd5f65d5cefa3d9424b8628f10d8160da
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 2afd7df65e7b223845752fc6bea5bc0ab4d3efd8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tablo .NET API: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.lasthandoff: 02/23/2018
 >
 
 ## <a name="release-notes"></a>Sürüm notları
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* Hatalı biçimlendirilmiş Etag'ler doğrudan modunda için eklenen doğrulama.
+* Ağ geçidi modunda sabit LINQ Sorgu hata.
+* Zaman uyumlu API'leri artık iş parçacığı havuzu SynchronizationContext ile çalıştırın.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism ve TableQueryContinuationTokenLimitInKb TableRequestOptions için ekleme
@@ -63,6 +68,8 @@ Kullanımdan Kaldırılan SDK kullanarak Azure Cosmos DB yapılan tüm isteklere
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.1.1](#1.1.1) |26 Mart 2018|--- |
+| [1.1.0](#1.1.0) |21 Şubat 2018|--- |
 | [1.0.0](#1.0.0) |15 Kasım 2017|--- |
 | [0.9.0-Preview](#0.9.0-preview) |11 Kasım 2017 |--- |
 

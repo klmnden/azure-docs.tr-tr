@@ -1,11 +1,11 @@
 ---
-title: "Adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme | Microsoft Docs"
-description: "Adı veya logosu Azure Active Directory'de özel Kurumsal uygulama için nasıl değiştirileceğini"
+title: Adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme | Microsoft Docs
+description: Adı veya logosu Azure Active Directory'de özel Kurumsal uygulama için nasıl değiştirileceğini
 services: active-directory
-documentationcenter: 
-author: curtand
+documentationcenter: ''
+author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: d01303ce-e6cb-4f3b-a4d6-ec29dfd68146
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: curtand
+ms.author: markvi
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: fe03d2a8dcb39cb06679386959ac17354a543089
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 18e5555d4eaf49fceb5aec673eedce8ed90d46a3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Adını veya bir kuruluş uygulama Azure Active Directory'de logosunu değiştirme
 Ad veya Azure Active Directory'de (Azure AD) bir özel Kurumsal uygulama için logosunu değiştirmek çok kolaydır. Bu değişiklikleri yapmak için uygun izinlere sahip olmalıdır ve özel uygulama oluşturucusu olmalıdır.

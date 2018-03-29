@@ -1,25 +1,25 @@
 ---
-title: "Git - Azure Machine Learning ile işbirliği kodlama | Microsoft Docs"
-description: "Çevik planlama ile Git kullanarak veri bilimi projeleri için işbirliği kod geliştirme nasıl."
-documentationcenter: 
+title: Git - Azure Machine Learning ile işbirliği kodlama | Microsoft Docs
+description: Çevik planlama ile Git kullanarak veri bilimi projeleri için işbirliği kod geliştirme nasıl.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: e6808c0d9d4ca14101eeebe8b3e286d64e2328f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: f3eabf0b754f777f25811d30c158b647b1d3954e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="collaborative-coding-with-git"></a>İşbirlikçi Git ile kodlama
+# <a name="collaborative-coding-with-git"></a>Git ile işbirliği içinde kodlama
 
 Bu makalede işbirliği kod geliştirme paylaşılan kod geliştirme framework Git kullanarak veri bilimi projeleri için nasıl açıklanmaktadır. Bu etkinlikler, planlı işin kodlama bağlanma kapsayan [Çevik Geliştirme](agile-development.md) ve nasıl incelemeler kod.
 

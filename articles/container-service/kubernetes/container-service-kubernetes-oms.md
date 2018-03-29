@@ -1,6 +1,6 @@
 ---
-title: "Azure Kubernetes küme - Operations Management izleme"
-description: "Microsoft Operations Management Suite kullanarak Azure kapsayıcı hizmeti kümesinde Kubernetes izleme"
+title: Azure Kubernetes küme - Operations Management izleme
+description: Günlük analizi kullanarak Azure kapsayıcı hizmeti kümesinde Kubernetes izleme
 services: container-service
 author: bburns
 manager: timlt
@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: e8a68896c923d785fea84cef60f8d2015906f342
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: efe4b3a1a63fa1986682a2fdde1a20221dc5d93a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>İzleyici bir Azure kapsayıcı hizmeti kümesi Microsoft Operations Management Suite (OMS)
+# <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Azure kapsayıcı hizmeti kümesi günlük analizi ile izleme
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu kılavuz, sahibi olduğunuzu varsayar [Azure kapsayıcı hizmeti kullanarak Kubernetes küme oluşturulan](container-service-kubernetes-walkthrough.md).
 
 Ayrıca, sahibi olduğunuzu varsayar `az` Azure CLI ve `kubectl` araçları yüklü.
@@ -56,18 +56,19 @@ CLUSTER_NAME=my-acs-name
 az acs kubernetes get-credentials --resource-group=$RESOURCE_GROUP --name=$CLUSTER_NAME
 ```
 
-## <a name="monitoring-containers-with-operations-management-suite-oms"></a>Operations Management Suite (OMS) ile izleme kapsayıcıları
+## <a name="monitoring-containers-with-log-analytics"></a>Günlük analizi ile kapsayıcıları izleme
 
-Microsoft Operations Management (OMS) yönetmenize ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı OMS günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
+Günlük analizi, yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı olan günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
 
-## <a name="installing-oms-on-kubernetes"></a>OMS Kubernetes üzerinde yükleme
+## <a name="installing-log-analytics-on-kubernetes"></a>Günlük analizi üzerinde Kubernetes yükleme
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarı edinin
-İçin OMS aracısı hizmetine iletişim kurabilecek şekilde bir çalışma alanı kimliği ve çalışma alanı anahtarı ile yapılandırılması gerekir. Çalışma alanı kimliği ve anahtarı OMS hesabı oluşturmanız gerekir almak için <https://mms.microsoft.com>. Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde tıklayarak kimliği ve anahtarı elde etmeniz hesabı oluşturma, **ayarları**, sonra **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
+İçin OMS aracısı hizmetine iletişim kurabilecek şekilde bir çalışma alanı kimliği ve çalışma alanı anahtarı ile yapılandırılması gerekir. Çalışma alanı kimliği ve anahtarı hesabı oluşturmanız gerekir almak için <https://mms.microsoft.com>.
+Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde tıklayarak kimliği ve anahtarı elde etmeniz hesabı oluşturma, **ayarları**, sonra **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -84,18 +85,18 @@ $ kubectl create -f oms-daemonset.yaml
 ```
 
 ### <a name="installing-the-oms-agent-using-a-kubernetes-secret"></a>Kubernetes gizli anahtarı kullanarak OMS Aracısı yükleniyor
-OMS çalışma alanı Kimliğinizi korumak ve anahtarını Kubernetes gizli DaemonSet YAML dosyasının bir parçası olarak kullanabilirsiniz.
+Günlük analizi çalışma alanı Kimliğinizi ve anahtarınızı korumak için Kubernetes gizli DaemonSet YAML dosyasının bir parçası olarak kullanabilirsiniz.
 
  - Komut dosyası, gizli şablon dosyasını ve DaemonSet YAML dosyasını kopyalayın (gelen [depo](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) ve aynı dizinde olduklarından emin olun. 
       - Komut dosyası - gizli gen.sh üretiliyor gizli
       - Gizli şablon - gizli template.yaml
    - DaemonSet YAML dosyası - omsagent ds secrets.yaml
- - Betiği çalıştırın. Komut dosyası OMS çalışma alanı kimliği ve birincil anahtar için sorar. Lütfen, yerleştirin ve onu çalıştırabilmeniz için komut dosyasını bir gizli yaml dosyası oluşturulur.   
+ - Betiği çalıştırın. Komut dosyası günlük analizi çalışma alanı kimliği ve birincil anahtar için sorar. Lütfen, yerleştirin ve onu çalıştırabilmeniz için komut dosyasını bir gizli yaml dosyası oluşturulur.   
    ```
    #> sudo bash ./secret-gen.sh 
    ```
 
-   - Gizli pod aşağıdaki çalıştırarak oluşturun:``` kubectl create -f omsagentsecret.yaml ```
+   - Gizli pod aşağıdaki çalıştırarak oluşturun: ``` kubectl create -f omsagentsecret.yaml ```
  
    - Denetlemek için şu komutu çalıştırın: 
 
@@ -118,7 +119,7 @@ OMS çalışma alanı Kimliğinizi korumak ve anahtarını Kubernetes gizli Daem
    KEY:    88 bytes 
    ```
  
-  - Arka plan programı kümesi çalıştırarak, omsagent oluşturma``` kubectl create -f omsagent-ds-secrets.yaml ```
+  - Arka plan programı kümesi çalıştırarak, omsagent oluşturma ``` kubectl create -f omsagent-ds-secrets.yaml ```
 
 ### <a name="conclusion"></a>Sonuç
 İşte bu kadar! Birkaç dakika sonra OMS panonuz akan verileri görüyor olmalısınız.

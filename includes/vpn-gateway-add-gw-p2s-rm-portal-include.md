@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 8a5d05342a1db5f27d115364798885a278d09fc0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
 1. Portalda, sol tarafta **+ Kaynak oluştur**’a tıklayın ve arama alanına ‘Sanal Ağ Geçidi’ yazın. Arama sonuçlarında **Sanal ağ geçidi** seçeneğini bulun ve girişe tıklayın. **Sanal ağ geçidi** sayfasının en altındaki **Oluştur** seçeneğine tıklayarak **Sanal ağ geçidi oluştur** sayfasını açın.
 2. **Sanal ağ geçidi oluştur** sayfasında, sanal ağ geçidinize ait değerleri girin.
 

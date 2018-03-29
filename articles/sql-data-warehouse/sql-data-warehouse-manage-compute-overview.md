@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse işlem kaynak yönetme | Microsoft Docs"
-description: "Azure SQL veri ambarı özellikleri performans genişletme hakkında bilgi edinin. Dwu ya da daha düşük maliyetleri veri ambarı duraklatarak ayarlayarak ölçeğini."
+title: Azure SQL Data Warehouse işlem kaynak yönetme | Microsoft Docs
+description: Azure SQL veri ambarı özellikleri performans genişletme hakkında bilgi edinin. Dwu ya da daha düşük maliyetleri veri ambarı duraklatarak ayarlayarak ölçeğini.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: 
+editor: ''
 ms.assetid: e13a82b0-abfe-429f-ac3c-f2b6789a70c6
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: 7e6ae6e59b53dd79dab5e2504cf7a43a30e55353
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse işlem yönetme
 Azure SQL Data Warehouse işlem kaynakları yönetme hakkında bilgi edinin. Veri ambarı duraklatarak maliyetlerine veya performans taleplerini karşılamak üzere veri ambarına ölçeklendirin. 
@@ -36,7 +36,7 @@ Bir ölçeklendirme işlemi gerçekleştirmek için SQL Data Warehouse önce tü
 
 Aşağıdaki tabloda işlem düğümü değişiklikleri data warehouse birimleri olarak başına dağıtımların sayısı da nasıl değiştiğini gösterir.  DWU6000 60 işlem düğümleri sağlar ve DWU100 daha yüksek kadar sorgu performansı elde eder. 
 
-| Data warehouse birimleri  | \# İşlem düğümleri | \# Düğüm başına dağıtımları |
+| Veri ambarı birimleri  | \# İşlem düğümleri | \# Düğüm başına dağıtımları |
 | ---- | ------------------ | ---------------------------- |
 | 100  | 1                  | 60                           |
 | 200  | 2                  | 30                           |
@@ -110,7 +110,7 @@ Ayrıca bkz. [işlemleri anlama](sql-data-warehouse-develop-transactions.md)ve [
 
 Her genişleme, duraklatma ve sürdürme işlemleri tamamlanması birkaç dakika sürebilir. Duraklatma, ölçekleme veya otomatik olarak devam ettirme, emin olmak için mantığı uygulamak öneririz, başka bir eylem işlemine devam etmeden önce belirli işlemleri tamamladınız. Çeşitli uç noktaları aracılığıyla veri ambarı durumu denetleniyor doğru Otomasyon böyle işlemlerinin uygulamaya izin verir. 
 
-Veri ambarı durumu denetlemek için bkz: [PowerShell](quickstart-scale-compute-powershell.md#check-database-state) veya [T-SQL](quickstart-scale-compute-tsql.md#check-database-state) hızlı başlangıç. Veri ambarı durumunu kontrol edebilirsiniz bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Veri ambarı durumu se denetlemek için [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) veya [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) hızlı başlangıç. Veri ambarı durumunu kontrol edebilirsiniz bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>İzinler

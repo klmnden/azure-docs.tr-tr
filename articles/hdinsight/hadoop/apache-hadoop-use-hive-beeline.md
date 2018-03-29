@@ -1,8 +1,8 @@
 ---
-title: "Apache Hive - Azure Hdınsight ile Beeline kullanma | Microsoft Docs"
-description: "Hdınsight'ta Hadoop ile Hive sorguları çalıştırmak için Beeline istemci kullanmayı öğrenin. Beeline JDBC HiveServer2 ile çalışmaya yönelik bir yardımcı programdır."
+title: Apache Hive - Azure Hdınsight ile Beeline kullanma | Microsoft Docs
+description: Hdınsight'ta Hadoop ile Hive sorguları çalıştırmak için Beeline istemci kullanmayı öğrenin. Beeline JDBC HiveServer2 ile çalışmaya yönelik bir yardımcı programdır.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/02/2018
+ms.date: 03/26/2018
 ms.author: larryfr
-ms.openlocfilehash: 5d4e9d6ffb7fa0c2e4b69c5b534f0078aec5f68c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2beb42f51bbbf65abe7bb6d95579106cdf1857a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>Apache Hive ile Beeline İstemcisi'ni kullanın
 
@@ -110,7 +110,7 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
         | sessionpagevieworder  | bigint     |          |
         +-----------------------+------------+----------+--+
 
-    Bu bilgiler tablodaki sütunların açıklar. Biz bu verileri bazı sorgular gerçekleştirebilir olsa da, bunun yerine verileri Hive yüklemek ve bir şema uygulamak nasıl göstermek için yepyeni bir tablo oluşturalım.
+    Bu bilgiler tablodaki sütunların açıklar.
 
 4. Adlı bir tablo oluşturmak için aşağıdaki ifadeleri girin **log4jLogs** Hdınsight kümesi ile sağlanan örnek verileri kullanarak:
 
@@ -143,7 +143,7 @@ Beeline, Hdınsight kümesi baş düğümler üzerinde bulunan bir Hive istemcid
 
     * `SELECT` -Tüm satırların sayımını seçer Burada sütun **t4** değeri içeren **[Hata]**. Bu sorgunun döndürdüğü değeri **3** bu değeri içeren üç satır olarak.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive biz yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Dizindeki tüm dosyaları şema uygulamak hive çalışır. Bu durumda, dizin şeması eşleşmiyor dosyalarını içerir. Çöp veri sonuçlarında önlemek için bu bildirimi Hive, yalnızca veri biten dosyalarından döndürmesi gerektiğini bildirir. günlük.
 
   > [!NOTE]
   > Dış kaynak tarafından güncelleştirilecek temel alınan veri beklediğiniz dış tablolara kullanılmalıdır. Örneğin, bir otomatik veri karşıya yükleme işlemi veya bir MapReduce işlemi.

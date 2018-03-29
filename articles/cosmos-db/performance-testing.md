@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB ölçek ve performans testi | Microsoft Docs"
-description: "Ölçek ve performans ile Azure Cosmos DB testi gerçekleştirmek öğrenin"
+title: Azure Cosmos DB ölçek ve performans testi | Microsoft Docs
+description: Ölçek ve performans ile Azure Cosmos DB testi gerçekleştirmek öğrenin
 keywords: Performans testi
 services: cosmos-db
 author: arramac
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: f4c96ebd-f53c-427d-a500-3f28fe7b11d0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: f72a75f2750d4838566815bece5c2221359ece29
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36665c0c26dad4e3b667b341b63c5859ece7605b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Performansı ve ölçeği Azure Cosmos DB ile test etme
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Performans ve ölçek testi adımdır bir anahtar uygulama geliştirme. Birçok uygulama için veritabanı katmanı genel performans ve ölçeklenebilirlik üzerinde önemli bir etkiye sahiptir. Bu nedenle performans testi için kritik bir bileşen olur. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) esnek ölçek ve tahmin edilebilir performans için amaca değil. Bu özellikler bir yüksek performanslı veritabanı katmanı gereken uygulamalar için mükemmel bir sığdırma kolaylaştırır. 
 

@@ -1,8 +1,8 @@
 ---
-title: "Panda kullanarak Azure blob depolama verileri için özellikleri oluşturma | Microsoft Docs"
-description: "Azure blob kapsayıcısında Panda Python paket depolanan veriler için özellikleri oluşturma"
+title: Panda kullanarak Azure blob depolama verileri için özellikleri oluşturma | Microsoft Docs
+description: Azure blob kapsayıcısında Panda Python paket depolanan veriler için özellikleri oluşturma
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: bradsev;garye
-ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: a5a4b92f04fcb4683f792263f3477ecea4d7239e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Panda kullanarak Azure blob depolama verilerinin özelliklerini oluşturma
 Bu belgede Azure blob kapsayıcısını kullanarak depolanan veriler için özellikler oluşturmayı gösteren [Pandas](http://pandas.pydata.org/) Python paket. Veriler Panda veri çerçeveye yükleme anahat oluşturma sonra gösterge değerlerle Python komut dosyalarını kullanarak ve özellikleri binning kategorik özellikleri oluşturmak nasıl gösterir.
@@ -27,7 +27,7 @@ Bu belgede Azure blob kapsayıcısını kullanarak depolanan veriler için özel
 
 Bu **menü** özellikleri veriler için çeşitli ortamlar oluşturmak nasıl açıklayan konulara bağlantılar. Bu görev bir adımdır [takım veri bilimi işlem (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makale bir Azure blob storage hesabı oluşturduysanız ve verilerinizi var. depoladığınız varsayar. Bir hesabı ayarlamak için yönergeler gerekiyorsa bkz [bir Azure depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Pandas veri çerçeveye verileri yükleme

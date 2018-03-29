@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın | Microsoft Docs"
-description: "Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanmayı öğrenin. "
+title: Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın | Microsoft Docs
+description: 'Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanmayı öğrenin. '
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: jgao
-ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Azure Data lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın
 Azure Data Lake Analytics hizmeti gönderilen işler arşivler bir [sorgu deposu](#query-store). Bu makalede, iş tarayıcı ve iş görünümünde Visual Studio için Azure Data Lake araçları içinde geçmiş işi bilgileri bulmak için nasıl kullanılacağını öğrenin. 
 
 Varsayılan olarak, Data Lake Analytics hizmeti 30 gün boyunca işleri arşivler. Sona erme süresi özelleştirilmiş süre sonu ilkesi yapılandırarak Azure portalından yapılandırılabilir. İş bilgileri dolduktan sonra erişebilir olmaz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics-data-lake-tools-get-started.md#prerequisites).
 
 ## <a name="open-the-job-browser"></a>İş tarayıcıda aç
 İş tarayıcı yoluyla erişim **Sunucu Gezgini > Azure > Data Lake Analytics > işleri** Visual Studio.  İş tarayıcı kullanarak, bir Data Lake Analytics hesabı sorgu deposu erişebilir. İş tarayıcı Query Store sol tarafta, temel iş bilgilerini gösterir ve iş görünümünde sağ gösteren ayrıntılı iş bilgi.
 
-## <a name="job-view"></a>İşi görüntüle
+## <a name="job-view"></a>İş Görünümü
 İş, bir işin ayrıntılı bilgileri görüntüler. Bir işi'ni açmak için bir iş iş tarayıcıda çift tıklatın veya iş görünümünde tıklayarak Data Lake menüsünü açın. Proje URL'si ile doldurulan bir iletişim kutusu görmeniz gerekir.
 
 ![Visual Studio Proje tarayıcı Data Lake araçları](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view.png)
@@ -49,7 +49,7 @@ Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics
       ![Azure Data Lake Analytics işi aşamaları durumu](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Hazırlama: derleme ve derleme hizmetini kullanarak betik en iyi duruma getirme buluta komut dosyanızı karşıya yükleyin.
-    * Sıraya: Yeterli kaynağı için bekleyen sıraya alınan whey olan işleri ya da hesap sınırlaması başına en fazla eşzamanlı iş işleri aşan. Düşük öncelik ayarı sıraya alınan işleri - sırasını belirler sayısı, öncelik o kadar yüksektir.
+    * Sıraya alınan: İşleri için yeterli kaynakları bekliyor ya da hesap sınırlaması başına en fazla eşzamanlı iş işleri aşan sıralanır. Düşük öncelik ayarı sıraya alınan işleri - sırasını belirler sayısı, öncelik o kadar yüksektir.
     * Çalışan: İşi aslında Data Lake Analytics hesabınızı çalışıyor.
     * Sonlandırılıyor: İşi (örneğin dosya sonlandırılıyor) üzeredir.
       
@@ -73,7 +73,7 @@ Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics
     * Okuma ve yazılan bayt: çalışan iş, bu yana okunan ve yazılan silinmiş bayt sayısı.
     * Toplam köşeleri: iş çok parçalı bir işin ayrılır, her parça işin bir köşe denir. Bu değer kaç parçalı iş oluşan bir işin açıklar. Temel işlem birim olarak, diğer adıyla Azure Data Lake Analytics birim (ADLAU), bir köşe düşünebilirsiniz ve köşeleri paralellik çalıştırabilirsiniz. 
     * Tamamlanan/çalışan/başarısız oldu: Tamamlandı/çalışan/başarısız tepe sayısı. Köşeleri her iki kullanıcı kodu ve sistem hataları nedeniyle başarısız olabilir, ancak sistem yeniden deneme köşeleri otomatik olarak birkaç kez başarısız oldu. Köşe denedikten sonra yine başarısız olursa, tüm işi başarısız olur.
-* İş grafiği
+* İş Grafiği
   
     U-SQL betiği çıktı verileri için giriş verileri dönüştürme mantığı temsil eder. Betik derlenmiş ve bir fiziksel yürütme plana hazırlama aşamasında, en iyi duruma getirilmiş. İş grafiğinin fiziksel yürütme planı göstermektir.  Aşağıdaki diyagramda işlem gösterilmektedir:
   
@@ -135,12 +135,12 @@ Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics
     * Saat işlem: aşamasında tüm iş ile yalnızca 1 köşe yürütülürse uzun sürecektir nasıl ısı Haritası SUM (her köşe yürütme süresi), bu düşünebilirsiniz.
     * Düğüm başına ortalama yürütme süresi: ısı Haritası SUM (her köşe yürütme süresi) / (köşe numarası). Hangi paralellik içinde yürütülen tüm köşeleri atayabilir, tüm aşama bu zaman dilimi içinde gerçekleştirilmesi anlamına gelir.
     * Giriş/Çıkış işleme: giriş/çıkış işleme, her bir aşamaya ısı haritası, işinizi bir g/ç ilişkili işi bu aracılığıyla olup olmadığını doğrulayabilirsiniz.
-* Meta veri işlemleri
+* Meta Veri İşlemleri
   
     U-SQL komut dosyanıza bazı meta veri işlemleri, aşağıdaki gibi bir veritabanı oluşturmak, drop table, vb. Bu işlemlerin sonra derleme meta veri işlemi gösterilmektedir. Onaylar bulmak, varlıkları oluşturma, varlıkları buraya bırak.
   
     ![Azure Data Lake Analytics iş görünümünde meta veri işlemleri](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-view-metadata-operations.png)
-* Durum geçmişi
+* Durum Geçmişi
   
     Durum geçmişi ayrıca iş özeti görselleştirilen ancak burada daha fazla bilgi alabilirsiniz. İş, sıraya alındı, hazırlandığında başlatılan çalışması sona erdi gibi ayrıntılı bilgi bulabilirsiniz. Ayrıca iş derlenmiş kaç kez bulabilirsiniz (CcsAttempts: 1), ne zaman iş gönderilen kümeye gerçekte (ayrıntı: kümeye işi gönderdikten), vb.
   
@@ -156,7 +156,7 @@ Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics
   * Kaynak Kullanımı: gerekenden daha fazla veya yeterli paralellik ayırdığınızda, sorunları burada bulunacaktır. Daha fazla ayrıntı görmek ve daha iyi kaynak ayırma bulmak için durum senaryoları gerçekleştirmek için kaynak kullanımı tıklatabilirsiniz (daha fazla ayrıntı için bu Kılavuzu'na bakın).
   * Bellek onay: herhangi bir izdüşümünü 5 GB'den fazla bellek kullanıyorsa, sorunları burada bulunacaktır. Sistem sınırlaması daha fazla bellek kullanıyorsa, iş yürütme sistem tarafından sonlandırıldı.
 
-## <a name="job-detail"></a>İş ayrıntısı
+## <a name="job-detail"></a>İş Ayrıntısı
 İş ayrıntısı komut dosyası, kaynakları ve köşe yürütme görünümü de dahil olmak üzere işin ayrıntılı bilgilerini gösterir.
 
 ![Azure Data Lake Analytics iş ayrıntısı](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-details.png)

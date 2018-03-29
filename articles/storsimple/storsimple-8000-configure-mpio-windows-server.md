@@ -1,30 +1,30 @@
 ---
-title: "StorSimple cihazınız için MPIO yapılandırma | Microsoft Docs"
-description: "Windows Server 2012 R2 çalıştıran bir ana bilgisayara bağlı StorSimple cihazınız için çok yollu g/ç (MPIO) yapılandırılacağını açıklar."
+title: StorSimple cihazınız için MPIO yapılandırma | Microsoft Docs
+description: Windows Server 2012 R2 çalıştıran bir ana bilgisayara bağlı StorSimple cihazınız için çok yollu g/ç (MPIO) yapılandırılacağını açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Çok yollu g/ç StorSimple cihazınız için yapılandırma
 
 Bu öğretici yüklemek ve Windows Server 2012 R2 çalıştıran bir konağa çok yollu g/ç (MPIO) özelliğini kullanmak için izlemeniz gereken ve StorSimple fiziksel cihaza bağlı adımlar açıklanmaktadır. Bu makaledeki Kılavuzu yalnızca fiziksel cihazları StorSimple 8000 serisi için geçerlidir. MPIO, StorSimple bulut uygulaması üzerinde şu anda desteklenmiyor.
 
-Microsoft Windows Server Yardım derleme yüksek oranda kullanılabilir, hataya dayanıklı SAN yapılandırmaları için çok yollu g/ç (MPIO) özelliği için destek yerleşiktir. MPIO yedek fiziksel yol bileşenlerini kullanır — bağdaştırıcılar, kablolar ve anahtarlar — sunucu ile depolama cihazı arasında mantıksal yollar oluşturmak için. Bir mantıksal yol başarısız olmasına neden olan bir bileşen hata olduğunda çoklu yol oluşturma mantığı g/ç için alternatif bir yol böylece uygulamaların verilerine erişmeye devam kullanır. Ayrıca yapılandırmanıza bağlı olarak, MPIO de bu yollar genelinde yük dengelenmesi olarak performansı artırabilir. Daha fazla bilgi için bkz: [MPIO genel bakış](https://technet.microsoft.com/library/cc725907.aspx "MPIO genel bakış ve özellikleri").
+Microsoft Windows Server'ın yüksek oranda kullanılabilir, hataya dayanıklı iSCSI ağ yapılandırmaları oluşturmanıza yardımcı olmak üzere çok yollu g/ç (MPIO) özelliği için destek yerleşiktir. MPIO yedek fiziksel yol bileşenlerini kullanır — bağdaştırıcılar, kablolar ve anahtarlar — sunucu ile depolama cihazı arasında mantıksal yollar oluşturmak için. Bir mantıksal yol başarısız olmasına neden olan bir bileşen hata olduğunda çoklu yol oluşturma mantığı g/ç için alternatif bir yol böylece uygulamaların verilerine erişmeye devam kullanır. Ayrıca yapılandırmanıza bağlı olarak, MPIO de bu yollar genelinde yük dengelenmesi olarak performansı artırabilir. Daha fazla bilgi için bkz: [MPIO genel bakış](https://technet.microsoft.com/library/cc725907.aspx "MPIO genel bakış ve özellikleri").
 
 Yüksek kullanılabilirlik için StorSimple çözümünüzün, MPIO, StorSimple Cihazınızda yapılandırılması gerekir. Windows Server 2012 R2 çalıştıran, ana bilgisayar sunucuları üzerinde MPIO yüklendiğinde sunucuları bağlantı, ağ veya arabirim hatalarına sonra dayanabilir.
 
@@ -83,7 +83,7 @@ MPIO, StorSimple birimlerini tanımlamak için yapılandırılmalıdır. StorSim
 3. Seçin **iSCSI aygıtları için destek eklemek**ve ardından **Ekle**.  
    ![MPIO özellikleri çoklu yolları Bul](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. İstendiğinde sunucusunu yeniden başlatın.
-5. İçinde **MPIO Özellikleri** iletişim kutusu, tıklatın **MPIO cihazları** sekmesi. **Ekle**'ye tıklayın.
+5. İçinde **MPIO Özellikleri** iletişim kutusu, tıklatın **MPIO cihazları** sekmesi. Tıklatın **eklemek**.
     </br>![MPIO özellikleri MPIO cihazları](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. İçinde **MPIO desteği Ekle** iletişim kutusunda **aygıt donanım kimliği**, cihaz seri numarasını girin. Cihaz seri numarasını almak için StorSimple cihaz Yöneticisi hizmetinize erişmek. Gidin **cihazlar > Pano**. Cihaz seri numarasını sağa görüntülenir **Hızlı Bakış** cihaz Pano bölmesi.
     </br>
@@ -149,12 +149,12 @@ Windows Server'da MPIO yapılandırıldıktan sonra StorSimple cihazında oluşt
 
 ## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>4. adım: Yüksek kullanılabilirlik için MPIO yapılandırma ve Yük Dengelemesi
 
-Çok yollu tabanlı yüksek kullanılabilirlik ve Yük Dengeleme için kullanılabilir farklı yollar bildirmek için birden çok oturumu el ile eklenmesi gerekir. Örneğin, ana bilgisayar varsa, iki arabirim SAN'a bağlı ve SAN'a bağlı iki arabirim aygıtın ardından (her bir veri arabirimi ve ana bilgisayar arabirimi farklı bir IP alt ağda ise ve yönlendirilebilir değil yalnızca iki oturumları gerekli olacaktır) uygun yolu permütasyon ile yapılandırılmış dört oturumları gerekir.
+Çok yollu tabanlı yüksek kullanılabilirlik ve Yük Dengeleme için kullanılabilir farklı yollar bildirmek için birden çok oturumu el ile eklenmesi gerekir. Örneğin, ana bilgisayar varsa, iki arabirim iSCSI ağa bağlı ve iSCSI ağa bağlı iki arabirim aygıtın, ardından uygun yolu permütasyon ile yapılandırılmış dört oturumları gerekir (her, yalnızca iki oturumları gerekli olacaktır veri arabirimi ve ana bilgisayar arabirimi farklı bir IP alt ağda ve yönlendirilebilir değil).
 
 **Cihaz ve uygulama ana bilgisayarı arasındaki en az 8 etkin paralel oturumları sahip olmasını öneririz.** Bu, Windows Server sisteminizdeki 4 ağ arabirimleri etkinleştirerek elde edilebilir. Donanım veya işletim sistemi düzeyi, Windows Server ana bilgisayardaki fiziksel ağ arabirimlerine veya sanal arabirimleri aracılığıyla ağ sanallaştırma teknolojileri kullanın. Cihazda iki ağ arabirimi ile bu yapılandırmayı 8 etkin oturumlarını neden olur. Bu yapılandırma, aygıt ve bulut verimliliği en iyi duruma getirme yardımcı olur.
 
 > [!IMPORTANT]
-> **1 GbE ve 10 GbE ağ arabirimleri karıştırmamanızı öneririz. İki ağ arabirimi kullanırsanız, her iki arabirimde aynı türde olmalıdır.**
+> **1 GbE ve 10 GbE ağ arabirimleri karıştırmamanızı öneririz. İki ağ arabirimi kullanırsanız, her iki arabirimde bir aynı türde olmalıdır.**
 
 Aşağıdaki yordam, StorSimple cihazı iki ağ arabirimi ile iki ağ arabirimi ile bir ana bilgisayara bağlandığında oturumları eklemeyi açıklar. Bu, yalnızca 4 oturumları sağlar. Bu yordamı StorSimple cihazı ile dört ağ arabirimlerine sahip bir ana bilgisayara bağlı iki ağ arabirimi ile kullanın. Burada açıklanan 4 oturumları yerine 8 yapılandırmanız gerekir.
 
@@ -172,15 +172,15 @@ Aşağıdaki yordam, StorSimple cihazı iki ağ arabirimi ile iki ağ arabirimi 
 6. İçinde **Gelişmiş ayarları** iletişim kutusunda:
    
    1. Üzerinde **yerel bağdaştırıcı** aşağı açılan listesinden, **Microsoft iSCSI başlatıcısı**.
-   2. Üzerinde **Başlatıcı IP** aşağı açılan listesinde, ana bilgisayarın IP adresi seçin.
-   3. Üzerinde **Hedef Portal IP** veri arabiriminin IP adresini etkin cihazda aşağı açılan listesinde, seçin.
+   2. Üzerinde **Başlatıcı IP** aşağı açılan listesinde, ilk arabirimi (iSCSI arabirimi) ana bilgisayarda karşılık gelen IP adresi seçin.
+   3. Üzerinde **Hedef Portal IP** IP adresi cihazda etkin ilk veri arabirimi için aşağı açılan listesinde seçin.
    4. Tıklatın **Tamam** iSCSI başlatıcısı Özellikleri iletişim kutusuna geri dönmek için.
 7. ' I tıklatın **özellikleri**hem de **özellikleri** iletişim kutusu, tıklatın **oturum Ekle**.
 8. İçinde **hedef Bağlan** iletişim kutusunda **etkinleştir çok yollu** onay kutusunu işaretleyin ve ardından **Gelişmiş**.
 9. İçinde **Gelişmiş ayarları** iletişim kutusunda:
    
    1. Üzerinde **yerel bağdaştırıcı** aşağı açılan listesinden, **Microsoft iSCSI başlatıcısı**.
-   2. Üzerinde **Başlatıcı IP** aşağı açılan listesinde, ikinci arabirim ana bilgisayarda karşılık gelen IP adresi seçin.
+   2. Üzerinde **Başlatıcı IP** aşağı açılan listesinde, ikinci iSCSI arabirimi ana bilgisayarda karşılık gelen IP adresi seçin.
    3. Üzerinde **Hedef Portal IP** IP adresi cihazda etkin ikinci veri arabirimi için aşağı açılan listesinde seçin.
    4. Tıklatın **Tamam** geri dönmek için **iSCSI başlatıcısı özellikleri** iletişim kutusu. Şimdi, ikinci bir oturum hedef eklediniz.
 10. Hedef ek oturumlar (yol) eklemek için 8-10 adımları yineleyin. Ana bilgisayarda iki arabirim ve cihazda iki, dört oturumları toplam ekleyebilirsiniz.

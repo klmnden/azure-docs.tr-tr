@@ -1,24 +1,24 @@
 ---
-title: "Günlük analizi Azure ağ Analytics çözümde | Microsoft Docs"
-description: "Azure ağ güvenlik grubu ve Azure uygulama ağ geçidi günlükleri gözden geçirmek için günlük analizi Azure ağ analiz çözümü kullanabilirsiniz."
+title: Günlük analizi Azure ağ Analytics çözümde | Microsoft Docs
+description: Azure ağ güvenlik grubu ve Azure uygulama ağ geçidi günlükleri gözden geçirmek için günlük analizi Azure ağ analiz çözümü kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: ewinner
-editor: 
+editor: ''
 ms.assetid: 66a3b8a1-6c55-4533-9538-cad60c18f28b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2017
+ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 06b67322b3812a668a515ecc357171ede1d85441
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Günlük analizi çözümlerinde izleme azure ağ iletişimi
 
@@ -211,14 +211,14 @@ Güncelleştirilmiş çözümleri kullanmak için:
 
     | Onun yerine: | Kullanım: |
     | --- | --- |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayAccess`| `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayAccess` |
-    |`Type=NetworkApplicationgateways OperationName=ApplicationGatewayPerformance` | `Type=AzureDiagnostics ResourceType=APPLICATIONGATEWAYS OperationName=ApplicationGatewayPerformance` |
-    | `Type=NetworkSecuritygroups` | `Type=AzureDiagnostics ResourceType=NETWORKSECURITYGROUPS` |
+    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayAccess" == | AzureDiagnostics &#124; where ResourceType="APPLICATIONGATEWAYS" and OperationName=="ApplicationGatewayAccess" |
+    | NetworkApplicationgateways &#124; burada OperationName "ApplicationGatewayPerformance" == | AzureDiagnostics &#124; where ResourceType=="APPLICATIONGATEWAYS" and OperationName=ApplicationGatewayPerformance |
+    | NetworkSecuritygroups | AzureDiagnostics &#124; where ResourceType=="NETWORKSECURITYGROUPS" |
 
    + Sonekine sahip herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakter değiştirme
    + Sonekine sahip herhangi bir alan için \_adında, verileri o iç içe geçmiş alan adlarını temel alarak tek tek alanlara bölünür.
 4. Kaldırma *Azure ağ analizi (kullanım dışı)* çözümü.
-  + PowerShell kullanıyorsanız, kullanın`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+  + PowerShell kullanıyorsanız, kullanın `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Değişiklik yeni çözümde görünür değil önce veri toplanmadı. Eski türü ve alan adları kullanarak bu verileri sorgulamak devam edebilirsiniz.
 

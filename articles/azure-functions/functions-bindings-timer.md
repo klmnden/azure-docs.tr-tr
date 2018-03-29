@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 6f74dd4d9cb78c1316c87bd5a261e751b9b34923
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -52,6 +52,10 @@ Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-lib
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
+    if(myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
     log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
@@ -144,19 +148,19 @@ module.exports = function (context, myTimer) {
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TimerTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs).
 
-Aşağıdaki örnekte gösterildiği gibi özniteliğin Oluşturucusu CRON ifade alır:
+Özniteliğin Oluşturucusu CRON ifade alır veya `TimeSpan`. Kullanabileceğiniz `TimeSpan` yalnızca işlev uygulaması bir uygulama hizmeti plan üzerinde çalışıyorsa. Aşağıdaki örnek, bir CRON ifadesi gösterir:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
 {
-   ...
+    if (myTimer.IsPastDue)
+    {
+        log.Info("Timer is running late!");
+    }
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
-
-Belirleyebileceğiniz bir `TimeSpan` işlevi uygulamanıza bir uygulama hizmeti planı (tüketim plan değil) çalıştırıyorsa CRON ifade yerine.
-
-Tam bir örnek için bkz: [C# örnek](#c-example).
 
 ## <a name="configuration"></a>Yapılandırma
 
@@ -167,75 +171,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
 |**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**schedule**|**ScheduleExpression**|Tüketim plan üzerinde CRON ifade ile zamanlama tanımlayabilirsiniz. Bir uygulama hizmeti planı kullanıyorsanız, ayrıca kullanabileceğiniz bir `TimeSpan` dize. Aşağıdaki bölümlerde CRON ifadeler açıklanmaktadır. Bir uygulama ayarı zamanlama ifadeyi ve bu özellik sarmalanmış bir değere ayarlayın **%** Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithCRONExpression %". |
+|**schedule**|**ScheduleExpression**|A [CRON ifade](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarı zamanlama ifadeyi ve ayar adı sarmalanmış uygulama için bu özelliği ayarlamak **%** Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithScheduleExpression %". |
+|**runOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde. Zamanlayıcı zamanlama dışında işlevi tetiklemek gerekiyorsa, farklı tetikleyici türüyle ikinci bir işlev oluşturun ve kod iki işlevleri arasında paylaşın. Örneğin, dağıtımı tetiklemek için yapabilir [dağıtımınızı özelleştirme](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) dağıtım tamamlandığında, bir HTTP isteği yaparak ikinci işlevi çağırmak için.|
+|**useMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenen olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi app örnekleri yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak için yardımcı olmak için zamanlama yinelenme devam ettirir. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` yinelenme aralığı 1 dakikadan daha uzun olan tabloları için. Dakika başına birden çok kez tetiklemek zamanlamaları, varsayılan değer `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
-
-### <a name="cron-format"></a>CRON biçimi 
-
-A [CRON ifade](http://en.wikipedia.org/wiki/Cron#CRON_expression) için Azure işlevleri Zamanlayıcı tetikleyicisi bu altı alanları içerir: 
-
-```
-{second} {minute} {hour} {day} {month} {day-of-week}
-```
-
->[!NOTE]   
->Birçok çevrimiçi Bul CRON ifadelerin atlayın `{second}` alan. Bunlardan birini kopyalarsanız, eksik Ekle `{second}` alan.
-
-### <a name="cron-time-zones"></a>CRON saat dilimleri
-
-CRON ifadelerle kullanılan varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) ' dir. CRON İfadenizde başka bir saat dilimini temel olmasını adlı işlev uygulamanız için yeni bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE`. İstenen saat dilimini adına gösterildiği gibi değeri [Microsoft saat dilimi dizin](https://technet.microsoft.com/library/cc749073(v=ws.10).aspx). 
-
-Örneğin, *Doğu Standart Saati* olan UTC-05:00. 10:00 AM EST her gün yangın tetikleyin, UTC saat dilimi hesapları aşağıdaki CRON deyimi kullanın, Zamanlayıcı sağlamak için:
-
-```json
-"schedule": "0 0 15 * * *",
-``` 
-
-Alternatif olarak, adlı işlev uygulamanız için yeni bir uygulama ayarı ekleyebilirsiniz `WEBSITE_TIME_ZONE` ve değerine **Doğu Standart Saati**.  Ardından aşağıdaki CRON ifade 10:00 AM EST için kullanılabilir: 
-
-```json
-"schedule": "0 0 10 * * *",
-``` 
-### <a name="cron-examples"></a>CRON örnekleri
-
-CRON ifadeleri Azure işlevlerinde Zamanlayıcı tetikleyicisi için kullanabileceğiniz bazı örnekleri aşağıda verilmiştir. 
-
-Her beş dakikada tetiklemek için:
-
-```json
-"schedule": "0 */5 * * * *"
-```
-
-Bir kez saatte en üstte tetiklemek için:
-
-```json
-"schedule": "0 0 * * * *",
-```
-
-Her iki saatte tetiklemek için:
-
-```json
-"schedule": "0 0 */2 * * *",
-```
-
-Saatte 09: 00'dan 18: 00 için tetiklemek için:
-
-```json
-"schedule": "0 0 9-17 * * *",
-```
-
-09:30:00 her gün tetiklemek için:
-
-```json
-"schedule": "0 30 9 * * *",
-```
-
-09:30:00 her hafta içi günü tetiklemek için:
-
-```json
-"schedule": "0 30 9 * * 1-5",
-```
 
 ## <a name="usage"></a>Kullanım
 
@@ -246,20 +186,91 @@ Bir zamanlayıcı tetikleyicisi işlevi çağrıldığında, [Zamanlayıcı nesn
     "Schedule":{
     },
     "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00.012699+00:00",
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
         "Next":"2016-10-04T10:20:00+00:00"
     },
     "IsPastDue":false
 }
 ```
 
+`IsPastDue` Özelliği `true` geçerli işlev çağrısını olduğunda zamanlanmış zamanından sonra. Örneğin, bir işlev uygulamayı yeniden eksik bir çağrı neden olabilir.
+
+## <a name="cron-expressions"></a>CRON ifadeleri 
+
+Azure işlevleri Zamanlayıcı tetikleyicisi için CRON ifadesi altı alanları içerir: 
+
+`{second} {minute} {hour} {day} {month} {day-of-week}`
+
+Her bir alan değerleri aşağıdaki türlerden biri olabilir:
+
+|Tür  |Örnek  |Tetiklendiğinde  |
+|---------|---------|---------|
+|Belirli bir değer |<nobr>"0 5 * * * *"</nobr>|hh saatte (saatte bir kez) olduğu hh:05:00|
+|Tüm değerleri (`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm adresindeki: her gün 00 mm dakikada (60 günde kez) saat olduğu|
+|Bir aralığı (`-` işleci)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05, hh:mm:06 ve SS: dd saatte (3 kez dakika) dakikada olduğu hh:mm:07|  
+|Değer kümesini (`,` işleci)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 ve SS: dd saatte (3 kez dakika) dakikada olduğu hh:mm:10|
+|Bir aralık değeri (`/` işleci)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, vb. hh saatte (12 kat bir saat) olduğu hh:55:00 aracılığıyla hh:15:00|
+
+### <a name="cron-examples"></a>CRON örnekleri
+
+CRON ifadeleri Azure işlevlerinde Zamanlayıcı tetikleyicisi için kullanabileceğiniz bazı örnekleri aşağıda verilmiştir.
+
+|Örnek|Tetiklendiğinde  |
+|---------|---------|
+|"0 */5 * * * *"|her beş dakikada|
+|"0 0 * * * *"|bir kez saatte en üstünde|
+|"0 0 */2 * * *"|Her iki saatte|
+|"0 0 9-17 * * *"|saatte 09: 00'dan 18: 00 için|
+|"0 30 9 * * *"|09:30:00 her gün|
+|"0 30 9 * * 1-5"|09:30:00 her hafta içi günü|
+
+>[!NOTE]   
+>Çevrimiçi CRON ifade örnekleri bulabilirsiniz, ancak bunların kaç atlayın `{second}` alan. Bunlardan birini kopyalarsanız, eksik Ekle `{second}` alan. Genellikle bu alanda bir yıldız sıfır isteyeceksiniz.
+
+### <a name="cron-time-zones"></a>CRON saat dilimleri
+
+CRON ifade sayıları bir saat ve tarih, zaman aralığı bakın. Örneğin, 5'te `hour` alanı 5:00 arasında her 5 saat başvurur.
+
+CRON ifadelerle kullanılan varsayılan saat dilimini Eşgüdümlü Evrensel Saat (UTC) ' dir. CRON İfadenizde başka bir saat dilimini temel olmasını adlı işlev uygulamanız için bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE`. İstenen saat dilimini adına gösterildiği gibi değeri [Microsoft saat dilimi dizin](https://technet.microsoft.com/library/cc749073). 
+
+Örneğin, *Doğu Standart Saati* olan UTC-05:00. 10:00 AM EST her gün yangın tetikleyin, UTC saat dilimi hesapları aşağıdaki CRON deyimi kullanın, Zamanlayıcı sağlamak için:
+
+```json
+"schedule": "0 0 15 * * *",
+``` 
+
+Veya adlı işlev uygulamanız için bir uygulama ayarı oluşturmak `WEBSITE_TIME_ZONE` ve değerine **Doğu Standart Saati**.  Ardından aşağıdaki CRON ifade kullanır: 
+
+```json
+"schedule": "0 0 10 * * *",
+``` 
+
+## <a name="timespan"></a>TimeSpan
+
+ A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir.
+
+CRON ifade aksine bir `TimeSpan` değeri her işlev çağrısını arasındaki zaman aralığını belirtir. Bir işlev belirtilen aralığından daha uzun çalıştırdıktan sonra tamamlandığında Zamanlayıcı hemen işlevi yeniden çağırır.
+
+Bir dize olarak ifade edilen `TimeSpan` biçimi `hh:mm:ss` zaman `hh` değerinden 24 arasıdır. İlk iki basamak 24 veya daha büyük olduğunda biçimidir `dd:hh:mm`. İşte bazı örnekler:
+
+|Örnek |Tetiklendiğinde  |
+|---------|---------|
+|"01:00:00" | Her saat        |
+|"00:01:00"|dakikada         |
+|"24:00:00" | 24 her gün        |
+
 ## <a name="scale-out"></a>Ölçeklendirme
 
-Zamanlayıcı tetikleyicisi çok örnekli genişleme destekler. Belirli Zamanlayıcı işlevi tek bir örneğini boyunca tüm örneklerde çalıştırılır.
+Birden çok örneklerine giden bir işlev uygulaması ölçeklendirir ise Zamanlayıcı tetiklenen işlevi yalnızca tek bir örneğini boyunca tüm örneklerde çalıştırılır.
 
 ## <a name="function-apps-sharing-storage"></a>Depolama paylaşımı işlevi uygulamaları
 
 Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, her işlev uygulaması farklı bir sahip olduğundan emin olun `id` içinde *host.json*. Atlayabilirsiniz `id` özelliği veya elle her işlevi uygulamanın `id` için farklı bir değer. Zamanlayıcı tetikleyicisi depolama kilidi olacağını yalnızca bir zamanlayıcı örneğini birden çok örneklerine giden bir işlev uygulaması ölçeklendirir olduğunda emin olmak için kullanır. İki işlev uygulamalarının aynı paylaşıyorsanız `id` ve her bir zamanlayıcı tetikleyicisi kullanan, yalnızca bir zamanlayıcı çalışır.
+
+## <a name="retry-behavior"></a>Yeniden deneme davranışını
+
+Bir işlev başarısız olduktan sonra sıra tetikleyici Zamanlayıcı tetikleyicisi yeniden değil. Bir işlev başarısız olduğunda, onu is't zamanlamaya göre yeniden açana kadar çağrılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

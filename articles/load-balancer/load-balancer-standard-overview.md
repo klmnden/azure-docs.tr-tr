@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: cfc789b3768c21efc7a03c11370b17ac6c3985cd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -39,7 +39,7 @@ Sanal ağ kaynak için bir anahtar yönü kapsamıdır.  Temel yük dengeleyicis
 Yük Dengeleyici kaynaklar içerisinde, nasıl Azure oluşturmak istediğiniz senaryo elde etmek için çok kiracılı altyapı program ifade edebilirsiniz nesneleridir.  Yük Dengeleyici kaynakları ve gerçek altyapısı arasında doğrudan ilişkisi yoktur; bir yük dengeleyici oluşturma örneğini oluşturmaz, kapasite her zaman kullanılabilir olur ve hiçbir başlatma veya dikkate alınması gereken gecikmeler ölçeklendirme vardır. 
 
 >[!NOTE]
-> Azure tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için dizisi sağlar.  TLS sonlandırma ("SSL boşaltma") veya HTTP/HTTPS uygulama katmanı işleme için arıyorsanız, gözden [uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md).  Aradığınız, Genel DNS için Yük Dengeleme, gözden [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme yararlı.
+> Azure tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için dizisi sağlar.  TLS sonlandırma ("SSL boşaltma") veya HTTP/HTTPS isteği uygulama katmanı işleme başına arıyorsanız, gözden [uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md).  Aradığınız, Genel DNS için Yük Dengeleme, gözden [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme yararlı.
 
 ## <a name="why-use-standard-load-balancer"></a>Standart yük dengeleyici neden kullanılır?
 
@@ -58,7 +58,7 @@ Standart yük dengeleyici ve temel yük dengeleyici arasındaki farklar genel bi
 | Tanılama | Azure İzleyici bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümleri araştırma durumu, bağlantı denemeleri (TCP Eşitlemeye), giden bağlantı durumu (SNAT başarılı ve başarısız akışları), etkin veri düzlemi ölçümleri | Yalnızca ortak yük dengeleyici, SNAT tükenmesi Uyarısı, arka uç havuzu sistem durumu sayısı için Azure günlük analizi |
 | HA bağlantı noktaları | İç yük dengeleyici | / |
 | Varsayılan olarak güvenli | ortak IP ve yük dengeleyici uç noktaları ve ağ güvenlik grubu için kapalı varsayılan açıkça güvenilir listeye trafiği için akış için kullanılması gerekir | Varsayılan açın, ağ güvenlik grubu isteğe bağlı |
-| Giden bağlantılar | Kural başına birden çok ön uçlar ile çevirin. Giden bir senaryo _gerekir_ açıkça oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [VNet Hizmeti uç noktalarını](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantısı olmadan erişilebilir ve doğru işlenen veri sayılmaz.  VNet Hizmeti uç noktalar olarak kullanılamaz Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden ulaşılmalıdır. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. | Birden çok ön uçlar mevcut olduğunda rastgele seçili tek bir ön uç.  Bir sanal makine yalnızca iç yük dengeleyici hizmet veren, varsayılan SNAT kullanılır.  Giden SNAT programlama aktarım belirli protokolüdür. |
+| Giden bağlantılar | Kural başına birden çok ön uçlar ile çevirin. Giden bir senaryo _gerekir_ açıkça oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [VNet Hizmeti uç noktalarını](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantısı olmadan erişilebilir ve doğru işlenen veri sayılmaz.  VNet Hizmeti uç noktalar olarak kullanılamaz Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden ulaşılmalıdır. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. Giden SNAT programlama gelen Yük Dengeleme kuralını protokolünü temel aktarım belirli protokolüdür. | Birden çok ön uçlar mevcut olduğunda rastgele seçili tek bir ön uç.  Bir sanal makine yalnızca iç yük dengeleyici hizmet veren, varsayılan SNAT kullanılır. |
 | Birden çok ön Uçlar | Gelen ve giden | Yalnızca gelen |
 | Yönetim işlemleri | Çoğu işlemleri < 30 saniye | 60-90 saniye tipik |
 | SLA | iki sağlıklı sanal makinelerle veri yolu için % 99,99 | VM SLA örtülü | 
@@ -218,13 +218,9 @@ Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işl
 
 ## <a name="limitations"></a>Sınırlamalar
 
-Aşağıdaki sınırlamalar Önizleme aynı anda uygulamak ve değiştirilebilir:
-
 - Yük Dengeleyici arka uç örnekleri şu anda eşlenen sanal ağlarda yer alamaz. Arka uç hepsinin aynı bölgede olması gerekir.
 - SKU'ları değişebilir değildir. Mevcut bir kaynağı SKU'su değiştiremeyebilir.
 - Bir tek başına sanal makine kaynağı kaynak kullanılabilirlik kümesi veya sanal makine ölçek kümesi kaynağı hiçbir zaman hem de bir SKU başvuruda bulunabilir.
-- Sanal ağ üzerinde Azure DDoS koruması etkinleştirme yönetim işlemlerini süresini etkiler.
-- IPv6 desteklenmez.
 - [Azure uyarıları izleme](../monitoring-and-diagnostics/monitoring-overview-alerts.md) şu anda desteklenmiyor.
 - [Taşıma abonelik işlemlerini](../azure-resource-manager/resource-group-move-resources.md) standart SKU LB ve PIP kaynakları için desteklenmiyor.
 

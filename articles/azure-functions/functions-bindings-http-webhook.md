@@ -1,25 +1,25 @@
 ---
-title: "Azure işlevleri HTTP ve Web kancası bağlamaları"
-description: "HTTP ve Web kancası Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın."
+title: Azure işlevleri HTTP ve Web kancası bağlamaları
+description: HTTP ve Web kancası Tetikleyicileri ve bağlamaları Azure işlevlerinde nasıl kullanılacağını anlayın.
 services: functions
 documentationcenter: na
-author: mattchenderson
+author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik, sunucusuz mimarisi, HTTP, API REST işlem"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik, sunucusuz mimarisi, HTTP, API REST işlem
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: mahender
-ms.openlocfilehash: a46177183035a53128c5341a3ce4c63dbc3a7497
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: tdykstra
+ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -536,7 +536,7 @@ Web kancası yetkilendirme Web kancası alıcı bileşeni tarafından HTTP tetik
 
 ## <a name="trigger---limits"></a>Tetikleyici - sınırları
 
-HTTP istek uzunluğu (102,400) 100 K bayt ile sınırlı ve URL uzunluğu 4 k (4.096) bayt ile sınırlı olur. Bu sınırlar tarafından belirtilen `httpRuntime` zamanının öğesinin [Web.config dosyasında](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+HTTP istek uzunluğu 100 MB (104,857,600 bayt) sınırlıdır ve URL uzunluğu (4.096 bayt) 4 KB ile sınırlıdır. Bu sınırlar tarafından belirtilen `httpRuntime` zamanının öğesinin [Web.config dosyasında](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
 Kullanan bir işlev, HTTP tetikleyicisini değil yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımı tamamlayın ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder ancak bir HTTP yanıtı döndüremedi görüntülenir. Uzun süre çalışan işlevleri için zaman uyumsuz desenleri izleyin ve isteğin durumunu burada ping bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [ölçek ve barındırma - tüketim planlama](functions-scale.md#consumption-plan). 
 

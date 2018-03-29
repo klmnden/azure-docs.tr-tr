@@ -1,6 +1,6 @@
 ---
-title: Azure trafik Analytics sık sorulan sorular | Microsoft Docs
-description: Bazı trafiği Analytics hakkında sık sorulan soruların yanıtlarını alın.
+title: Azure trafik analytics sık sorulan sorular | Microsoft Docs
+description: Bazı trafiği analytics hakkında sık sorulan soruların yanıtlarını alın.
 services: network-watcher
 documentationcenter: na
 author: jimdial
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: b9090f91db11b5bde53f3652028030201f135fa5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="traffic-analytics-frequently-asked-questions"></a>Trafik Analytics sık sorulan sorular
+# <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
-1.  Trafik Analytics kullanmak için ön koşullar nelerdir?
+1.  Trafik analytics kullanmak için ön koşullar nelerdir?
 
     Trafik Analytics aşağıdaki önkoşulları gerektirir:
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 03/23/2018
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
 
-2.  Hangi Azure bölgeleri trafiği Analytics kullanılabilir?
+2.  Hangi Azure bölgeleri trafiği analytics kullanılabilir?
 
     Önizleme sürümde karşın, trafik analizi için Nsg'ler herhangi birini kullanabilirsiniz **bölgeler desteklenen**: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD-2, Batı Avrupa, Kuzey Avrupa , Batı İngiltere, Güney İngiltere, Avustralya Doğu ve Avustralya Güneydoğu. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Avustralya Güneydoğu veya Güney UK bölge içinde bulunmalıdır.
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 03/23/2018
 
     Hayır. Ham günlükleri depolamak bir NSG akış günlükleri için etkin olduğu tüm depolama hesabında ancak, depolama hesabı ve raw günlükleri aynı abonelikte ve bölgede olması gerekir.
 
-8.  I trafiği analizi için bir NSG yapılandırırken "Bulunamadı" hatasını alırsanız, nasıl ı çözebilmek?
+8.  I trafiğini analiz için bir NSG yapılandırırken "Bulunamadı" hatasını alırsanız, nasıl ı çözebilmek?
 
     Soru 2 listelenen desteklenen bir bölge seçin. Desteklenmeyen bir bölge seçerseniz, "Bulunamadı" hatasını alıyorsunuz.
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/23/2018
 12.  Aşağıdaki ileti alırsanız: "1), NSG çözümleme akış günlükleri ilk kez. Bu işlemin tamamlanması 20-30 dakika sürebilir. Bir süre sonra yeniden denetleyin. 2) yukarıdaki adım çalışmaz ve çalışma alanınızı ücretsiz SKU ardından bir kotanın üzerinde doğrulamak için çalışma alanı kullanımınızı denetleyin, aksi takdirde sık sorulan sorular için daha fazla bilgi için başvurun", nasıl onu giderebilirim?
 
         Aşağıdaki nedenlerle hata iletisini alabilirsiniz:
-        - Trafiği Analytics son etkinleştirilmiş ve bu herhangi bir raporu oluşturulmadan önce anlamlı bilgiler çıkarmaya için yeterli veri toplama. Bu durumda, 30 dakika sonra yeniden deneyin
+        - Trafiği analytics son etkinleştirilmiş ve bu herhangi bir raporu oluşturulmadan önce anlamlı bilgiler çıkarmaya için yeterli veri toplama. Bu durumda, 30 dakika sonra yeniden deneyin
         - Ücretsiz SKU OMS çalışma alanınız olduğundan ve kota sınırlarının ihlal. Bu durumda, bir çalışma alanında bir SKU daha büyük kapasitede kullanmanız gerekebilir.
     
         Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -104,9 +104,9 @@ ms.lasthandoff: 03/23/2018
 
         Panoda kaynak bilgileri görüyorsunuz; Ancak, hiçbir akışıyla ilgili istatistikleri mevcut değildir. Veri kaynakları arasında hiçbir iletişim akışını nedeniyle bulunmuyor olabilir. İçin 60 dakika bekleyin ve durum yeniden denetleyin. Kaynaklar arasında iletişimi akışları mevcut sonra içindeki sorunları Yükselt emin olduğunuzda [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14.  Trafik Analytics nasıl fiyatlandırılır?
+14.  Trafik analytics nasıl fiyatlandırılır?
 
-        Trafik Analytics ölçülen azaltılmış günlükleri, geliştirme için ve günlük analizi çalışma alanında Gelişmiş günlüklerini depolamak. Faturalama yayımlanan hızlarında bir çalışma alanında veri bekletme tabidir ancak Önizleme sırasında trafiği Analytics azaltılmış günlükleri, geliştirme için faturalandırılır değil. Bu yanıt için trafiği Analytics fiyatları kullanılabilir olduğunda güncelleştirilir.
+        Trafik analytics ölçülen azaltılmış günlükleri, geliştirme için ve günlük analizi çalışma alanında Gelişmiş günlüklerini depolamak. Faturalama yayımlanan hızlarında bir çalışma alanında veri bekletme tabidir ancak Önizleme sırasında trafiği analytics azaltılmış günlükleri, geliştirme için faturalandırılır değil. Bu yanıt için trafiği analytics fiyatları kullanılabilir olduğunda güncelleştirilir.
 
 15.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 

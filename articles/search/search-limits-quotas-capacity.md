@@ -1,11 +1,11 @@
 ---
-title: "Hizmet sınırları Azure Search'te | Microsoft Docs"
-description: "Kapasite planlama için kullanılan hizmet sınırları ve istekleri ve yanıtları Azure arama için en fazla sınırlandırır."
+title: Hizmet sınırları Azure Search'te | Microsoft Docs
+description: Kapasite planlama için kullanılan hizmet sınırları ve istekleri ve yanıtları Azure arama için en fazla sınırlandırır.
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: HeidiSteen
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-portal
 ms.assetid: 857a8606-c1bf-48f1-8758-8032bbe220ad
 ms.service: search
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/09/2017
+ms.date: 03/26/2018
 ms.author: heidist
-ms.openlocfilehash: 3deb0ff81114c840798c5927ad7311d7e603813d
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
 Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki bir **serbest**, **temel**, veya **Standart** fiyatlandırma katmanı.
@@ -32,35 +32,40 @@ Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve ba
 > Bir hizmeti belirli bir katman sağlanır. Kapasite sağlamak için katmanları atlama (hiçbir yerinde yükseltme yoktur) yeni bir hizmet sağlama içerir. Daha fazla bilgi için bkz: [bir SKU katmanı seçin veya](search-sku-tier.md). Zaten sağlanan hizmet kapasitesiyle ayarlama hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin oluşturma iş yükleri için kaynak düzeylerini](search-capacity-planning.md).
 >
 
-## <a name="per-subscription-limits"></a>Abonelik sınırları
+## <a name="subscription-limits"></a>Abonelik sınırları
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="per-service-limits"></a>Hizmet sınırları
+## <a name="service-limits"></a>Hizmet sınırlamaları
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
 
-## <a name="per-index-limits"></a>Dizin sınırları
-Dizinleri sınırları ve dizin oluşturucular sınırları arasında bire bir ilişkisi yok. 200 dizinleri sınırının verildiğinde, dizin oluşturucular sınırını da aynı hizmet için 200'dür.
+## <a name="index-limits"></a>Dizin sınırları
 
 | Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dizini: dizin başına en fazla alan |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
-| Dizin: dizin başına profilleri Puanlama maksimum |100 |100 |100 |100 |100 |100 |
-| Dizini: Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
-| Dizin oluşturucular: çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |YOK <sup>2</sup> |
-| Dizin oluşturucular: en fazla çalışma süresini | 1-3 dakika <sup>3</sup> |24 saat |24 saat |24 saat |24 saat |YOK <sup>2</sup> |
-| BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |YOK <sup>2</sup> |
-| BLOB dizin oluşturucu: blob üzerinden ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyon |4 milyon |4 milyon |YOK <sup>2</sup> |
+| Dizin başına en fazla alan |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| Dizin başına en fazla Puanlama profilleri |100 |100 |100 |100 |100 |100 |
+| Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> temel katman yalnızca SKU dizin başına 100 alanlarının alt sınırına sahip olduğunu.
 
-<sup>2</sup> S3 HD dizin oluşturucular şu anda desteklemiyor. Bu özellik için Acil bir gereksiniminiz varsa Azure desteğine başvurun.
+## <a name="indexer-limits"></a>Dizin Oluşturucu sınırları
 
-<sup>3</sup> ücretsiz katmanı için maksimum yürütme süresini dizin oluşturucu olan 3 dakika blob kaynaklarının ve diğer tüm veri kaynakları 1 dakikadır.
+| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
+| --- | --- | --- | --- | --- | --- | --- |
+| Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |YOK <sup>1</sup> |
+| En fazla çalışma süresini | 1-3 dakika <sup>2</sup> |24 saat |24 saat |24 saat |24 saat |YOK <sup>1</sup> |
+| BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |YOK <sup>1</sup> |
+| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 milyon |4 milyon |4 milyon |YOK <sup>1</sup> |
+
+<sup>1</sup> S3 HD dizin oluşturucular şu anda desteklemiyor. Bu özellik için Acil bir gereksiniminiz varsa Azure desteğine başvurun.
+
+<sup>2</sup> ücretsiz katmanı için maksimum yürütme süresini dizin oluşturucu olan 3 dakika blob kaynaklarının ve diğer tüm veri kaynakları 1 dakikadır.
+
 
 ## <a name="document-size-limits"></a>Belge boyutu sınırları
 | Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
-| Dizin API başına belgenin boyutu |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |< 16 MB |
+| Dizin API başına belgenin boyutu |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
 
 Bir dizin API çağrılırken en fazla belge boyutuna başvuruyor. Belge, aslında bir dizin API istek gövdesi boyutu sınırı boyutudur. Dizin API için aynı anda birden çok belge toplu geçirebilirsiniz olduğundan, boyut sınırını gerçekte kaç belgeleri toplu işlemde bağlıdır. Bir toplu işin için tek bir belgenin, JSON 16 MB maksimum belge boyutudur.
 

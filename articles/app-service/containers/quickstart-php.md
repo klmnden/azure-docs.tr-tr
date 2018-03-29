@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: a39e4ec68af70b7d189ac450f880a12b5397e4c4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1cbd29b480c80c93f750b97d47ccb3c09c984942
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Linux’ta App Service’te PHP web uygulaması oluşturma
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/16/2018
 
 [Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıç öğreticisinde, Linux’ta Azure App Service’e bir PHP uygulamasının nasıl dağıtılacağı gösterilmektedir. Cloud Shell’de [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak yerleşik görüntü ile web uygulamasını oluşturabilir ve PHP kodunu web uygulamasına dağıtmak için Git kullanabilirsiniz.
 
-![Azure'da çalışan örnek uygulama]](media/quickstart-php/hello-world-in-browser.png)
+![Azure'da çalışan örnek uygulama](media/quickstart-php/hello-world-in-browser.png)
 
 Mac, Windows veya Linux makinesi kullanarak bu makaledeki adımları izleyebilirsiniz.
 

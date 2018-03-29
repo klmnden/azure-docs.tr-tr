@@ -1,24 +1,24 @@
 ---
-title: "Azure günlük analizi DNS Analytics çözümde | Microsoft Docs"
-description: "Ayarlama ve güvenlik, performans ve işlem DNS altyapısı Öngörüler toplamak için günlük analizi DNS analiz çözümü kullanın."
+title: Azure günlük analizi DNS Analytics çözümde | Microsoft Docs
+description: Ayarlama ve güvenlik, performans ve işlem DNS altyapısı Öngörüler toplamak için günlük analizi DNS analiz çözümü kullanın.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f44a40c4-820a-406e-8c40-70bd8dc67ae7
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ead058108f39eca8682eccc296760d4b756d336
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6a59cf8b9444fe7cb197501c51d10dae81acb027
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS altyapınızın DNS Analytics Önizleme çözümü ile ilgili Öngörüler toplayın
 
@@ -145,7 +145,6 @@ Bilgileri belirlemenize yardımcı olabilir:
 
 **Örnek DDI analitik sorguları**. Ham analiz verileri doğrudan fetch en yaygın arama sorguları listesini içerir.
 
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Örnek sorgular](./media/log-analytics-dns/queries.png)
 
@@ -166,7 +165,7 @@ Bilgileri belirlemenize yardımcı olabilir:
 
 Günlük arama sayfasında, bir sorgu oluşturabilirsiniz. Model denetimlerini kullanarak arama sonuçlarınızı filtreleyebilirsiniz. Dönüştürme, filtre ve raporlamak için Gelişmiş sorgular sonuçlarınıza de oluşturabilirsiniz. Aşağıdaki sorgularda kullanarak başlatın:
 
-1. İçinde **arama sorgusu kutusunu**, türü `Type=DnsEvents` çözümü tarafından yönetilen DNS sunucuları tarafından oluşturulan tüm DNS olayları görüntülemek için. Sonuçlar arama sorguları, dinamik kayıtlar ve yapılandırma değişiklikleri ile ilgili tüm olaylar için günlük verileri listeler.
+1. İçinde **arama sorgusu kutusunu**, türü `DnsEvents` çözümü tarafından yönetilen DNS sunucuları tarafından oluşturulan tüm DNS olayları görüntülemek için. Sonuçlar arama sorguları, dinamik kayıtlar ve yapılandırma değişiklikleri ile ilgili tüm olaylar için günlük verileri listeler.
 
     ![DnsEvents günlük arama](./media/log-analytics-dns/log-search-dnsevents.png)  
 
@@ -176,7 +175,7 @@ Günlük arama sayfasında, bir sorgu oluşturabilirsiniz. Model denetimlerini k
 
     c. Yapılandırma değişiklikleri için günlük verileri görüntülemek için seçin **ConfigurationChange** olarak **alt** soldaki modeli denetiminden filtre. Seçilen zaman aralığı için tüm yapılandırma değişikliği olayları listeleyen bir tablo görüntülenir.
 
-2. İçinde **arama sorgusu kutusunu**, türü `Type=DnsInventory` tüm DNS envanterle ilişkili veri çözümü tarafından yönetilen DNS sunucuları görüntülemek için. Sonuçlar DNS sunucuları, DNS bölgeleri ve kaynak kayıtları için günlük verileri listeler.
+2. İçinde **arama sorgusu kutusunu**, türü `DnsInventory` tüm DNS envanterle ilişkili veri çözümü tarafından yönetilen DNS sunucuları görüntülemek için. Sonuçlar DNS sunucuları, DNS bölgeleri ve kaynak kayıtları için günlük verileri listeler.
 
     ![DnsInventory günlük arama](./media/log-analytics-dns/log-search-dnsinventory.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak Azure depolama hizmeti şifrelemesi | Microsoft Docs"
-description: "Müşteri tarafından yönetilen anahtarlar kullanılarak veri alınırken şifresini çözmek ve Azure depolama hizmeti şifrelemesi özelliği hizmet tarafında Azure Blob Depolama veri depolarken şifrelemek için kullanın."
+title: Müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak Azure depolama hizmeti şifrelemesi | Microsoft Docs
+description: Müşteri tarafından yönetilen anahtarlar kullanılarak veri alınırken şifresini çözmek ve Azure depolama hizmeti şifrelemesi özelliği hizmet tarafında Azure Blob Depolama veri depolarken şifrelemek için kullanın.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: lakasa
-ms.openlocfilehash: 1360d8bb0911c424747209c69b830fc1ee461798
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 04688f943ac9eba27ca193aa2054c69b6a94547d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Müşteri tarafından yönetilen anahtarları Azure anahtar kasası kullanarak depolama hizmeti şifrelemesi
 
@@ -111,11 +111,11 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 
 ### <a name="step-5-copy-data-to-storage-account"></a>5. adım: veri depolama alanına kopyalanmaya
 
-Böylece şifreli verileri yeni depolama hesabınızda aktarmak için adım 3'e başvurun [Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](storage-service-encryption.md#step-3-copy-data-to-storage-account).
+Böylece şifreli verileri yeni depolama hesabınızda aktarmak için. Daha fazla bilgi için bkz: [depolama hizmeti şifrelemesi SSS](storage-service-encryption.md#faq-for-storage-service-encryption).
 
 ### <a name="step-6-query-the-status-of-the-encrypted-data"></a>6. adım: şifrelenmiş verileri durumunu sorgulama
 
-Şifrelenmiş veriler durumunu sorgulamak için adım 4'e başvurun [Başlarken bölümünde kalan verileri için depolama hizmeti şifrelemesi](storage-service-encryption.md#step-4-query-the-status-of-the-encrypted-data).
+Şifrelenmiş veriler durumunu sorgular.
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>Müşteri yönetilen anahtarlara sahip SSE hakkında SSS
 
@@ -125,7 +125,7 @@ A: Evet Microsoft tarafından yönetilen ve müşteri tarafından yönetilen ana
 
 **S: yeni depolama hesapları ile SSE Azure PowerShell ve Azure CLI kullanarak etkin müşteri tarafından yönetilen anahtarlarla oluşturabiliyorum?**
 
-Y: Evet.
+C: Evet.
 
 **S: müşteri tarafından yönetilen anahtarları ile SSE kullanırsanız daha fazlasını nasıl Azure depolama maliyeti?**
 

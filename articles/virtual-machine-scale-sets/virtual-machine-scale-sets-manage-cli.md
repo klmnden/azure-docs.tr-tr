@@ -1,13 +1,13 @@
 ---
-title: "Sanal makine ölçek kümeleri Azure CLI 2.0 ile yönetme | Microsoft Docs"
-description: "Sanal makine ölçek kümeleri örneğini durdurmak ve başlatmak nasıl gibi yönetmek veya ölçeği değiştirmek için ortak Azure CLI 2.0 komutları kapasite ayarlayın."
+title: Sanal makine ölçek kümeleri Azure CLI 2.0 ile yönetme | Microsoft Docs
+description: Sanal makine ölçek kümeleri örneğini durdurmak ve başlatmak nasıl gibi yönetmek veya ölçeği değiştirmek için ortak Azure CLI 2.0 komutları kapasite ayarlayın.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: a484cf6734ff663a852be1a46e2b2ca2f75bb17d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1afb43b65203406a7d49b0e3f641bc22d164a4a9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ayarlanmış bir sanal makine ölçek yönetme
-Bir sanal makine ölçek kümesi yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure CLI 2.0 komutları bazıları ayrıntılarını verir.
+Bir sanal makine ölçek kümesi yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure CLI 2.0 komutları bazıları ayrıntılarını verir.
 
-Bu yönetim görevleri tamamlamak için en son Azure CLI 2.0 yapı gerekir. Yükleme ve en son sürümünü kullanma hakkında daha fazla bilgi için bkz: [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Bir sanal makine ölçek kümesi oluşturmanız gerekiyorsa, yapabilecekleriniz [ölçeği Azure portalında Ayarla oluşturma](virtual-machine-scale-sets-create-portal.md).
+Bu yönetim görevleri tamamlamak için en son Azure CLI 2.0 gerekir. Bilgi için bkz: [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Bir sanal makine ölçek kümesi oluşturmanız gerekiyorsa, yapabilecekleriniz [ile Azure CLI 2.0 ayarlama ölçeği oluşturmak](quick-create-cli.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Ölçek kümesi hakkında bilgi görüntüleyin
@@ -35,7 +35,7 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 ```
 
 
-## <a name="view-vms-in-a-scale-set"></a>Görünüm VM ölçek kümesindeki
+## <a name="view-vms-in-a-scale-set"></a>Ölçek kümesindeki VM’leri görüntüleme
 Ölçek kümesindeki VM örneği listesini görüntülemek için kullanın [az vmss listesi-örneklerini](/cli/azure/vmss#list-instances). Aşağıdaki örnek ölçeği adlandırılmış Ayarla tüm VM örnekleri listesi *myScaleSet* içinde *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi girin:
 
 ```azurecli
@@ -68,7 +68,7 @@ az vmss list-instance-connection-info \
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesi kapasitesi değiştirme
 Yukarıdaki komutlar, Ölçek kümesi ve VM örnekleri hakkında bilgi gösterdi. Artırmak veya ölçek kümesindeki örneklerinin sayısını azaltmak için kapasite değiştirebilirsiniz. Ölçek kümesi oluşturur veya VM'ler gereken sayıda kaldırır ve sonra uygulama trafiği almaya VM'ler yapılandırır.
 
-Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [az vmss Göster](/cli/azure/vmss#az_vmss_show) ve sorgulayın *sku.capacity*:
+Ölçek kümesinde şu anda yer alan örneklerin sayısını görmek için [az vmss show](/cli/azure/vmss#az_vmss_show) komutunu kullanarak *sku.capacity* üzerinde bir sorgu çalıştırın:
 
 ```azurecli
 az vmss show \
@@ -78,7 +78,7 @@ az vmss show \
     --output table
 ```
 
-Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [az vmss ölçek](/cli/azure/vmss#az_vmss_scale). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *5*:
+Ardından [az vmss scale](/cli/azure/vmss#az_vmss_scale) ile ölçek kümesindeki sanal makinelerin sayısını elle artırabilir veya azaltabilirsiniz. Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *5*:
 
 ```azurecli
 az vmss scale \

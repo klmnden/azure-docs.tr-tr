@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: bir Ubuntu VM yönetilen bir etki alanına katılın. | Microsoft Docs"
-description: "Azure AD Etki Alanı Hizmetleri'ne bir Ubuntu Linux sanal makine birleştirme"
+title: 'Azure Active Directory etki alanı Hizmetleri: bir Ubuntu VM yönetilen bir etki alanına katılın. | Microsoft Docs'
+description: Azure AD Etki Alanı Hizmetleri'ne bir Ubuntu Linux sanal makine birleştirme
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: a8a3610707ca7d00694779c4b3631e1483d6bbdd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ubuntu sanal makine Azure'da yönetilen bir etki alanına katılın.
 Bu makalede bir Ubuntu Linux sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -35,7 +35,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="provision-an-ubuntu-linux-virtual-machine"></a>Ubuntu Linux sanal makine sağlama
 Aşağıdaki yöntemlerden birini kullanarak azure'da bir Ubuntu Linux sanal makine sağlayın:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -127,7 +127,7 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
    >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın: 
+2. Initialize Kerberos. SSH terminalinizde aşağıdaki komutu yazın: 
 
     > [!TIP] 
     > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. 
@@ -217,7 +217,7 @@ Ubuntu VM üzerinde 'AAD DC Yöneticiler' grup yönetim ayrıcalıkları üyeler
 
 
 ## <a name="troubleshooting-domain-join"></a>Sorun giderme etki alanına katılma
-Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) makalesi.
+Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) makalesi.
 
 
 ## <a name="related-content"></a>İlgili İçerik

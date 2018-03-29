@@ -1,10 +1,10 @@
 ---
-title: "Paylaşılan erişim imzaları (SAS) Azure storage'da kullanma | Microsoft Docs"
-description: "BLOB, kuyruklar, tablolar ve dosyaları da dahil olmak üzere Azure Storage kaynaklarına erişimi devretmek için paylaşılan erişim imzaları (SAS) kullanmayı öğrenin."
+title: Paylaşılan erişim imzaları (SAS) Azure storage'da kullanma | Microsoft Docs
+description: BLOB, kuyruklar, tablolar ve dosyaları da dahil olmak üzere Azure Storage kaynaklarına erişimi devretmek için paylaşılan erişim imzaları (SAS) kullanmayı öğrenin.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: craigshoemaker
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: tamram
-ms.openlocfilehash: 32e92e6ffc376d27297810596691f0371770e86d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cshoe
+ms.openlocfilehash: d3f8b3261f9e2e86dbcaa41b92111545abeffe54
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-shared-access-signatures-sas"></a>Paylaşılan erişim imzaları (SAS) kullanma
 
@@ -27,7 +27,7 @@ Paylaşılan erişim imzası (SAS) hesap anahtarınızı sokmadan diğer istemci
 Burada sunulan olanlar SAS kullanarak ek kod örnekleri için bkz: [.NET içinde Azure Blob Storage ile çalışmaya başlama](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) ve diğer örnekleri kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/documentation/samples/?service=storage) kitaplığı. Örnek uygulamaları indir ve bunları çalıştırma veya github'daki kod göz atın.
 
 ## <a name="what-is-a-shared-access-signature"></a>Paylaşılan erişim imzası nedir?
-Paylaşılan erişim imzası temsilci depolama hesabınızdaki kaynaklara erişim sağlar. Bir SAS ile hesap anahtarlarınızı paylaşmadan depolama hesabınızdaki kaynaklara erişim istemcileri verebilirsiniz. Bu, paylaşılan erişim imzaları kullanma anahtar noktasıdır uygulamalarınızda--bir SAS depolama kaynaklarınıza hesap anahtarlarınızı ödün vermeden paylaşmak için bir güvenli bir yoludur.
+Paylaşılan erişim imzası temsilci depolama hesabınızdaki kaynaklara erişim sağlar. Bir SAS ile hesap anahtarlarınızı paylaşmadan depolama hesabınızdaki kaynaklara erişim istemcileri verebilirsiniz. Bu, uygulamalarınızda paylaşılan erişim imzaları kullanmanın anahtar noktasıdır. SAS, hesap anahtarlarınızı tehlikeye atmadan depolama kaynaklarınızı paylaşmanın güvenli bir yoludur.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -62,7 +62,7 @@ Ayrıca, belirli senaryolarda bir kopyalama işleminde kaynak nesne kimlik doğr
 ## <a name="types-of-shared-access-signatures"></a>Paylaşılan erişim imzaları türleri
 İki tür paylaşılan erişim imzası oluşturabilirsiniz:
 
-* **Hizmet SAS.** Hizmet SAS; Blob, Kuyruk, Tablo veya Dosya hizmeti olmak üzere yalnızca bir depolama hizmetindeki kaynağa erişim atar. Bkz: [hizmet SAS oluşturma](https://msdn.microsoft.com/library/dn140255.aspx) ve [hizmet SAS örnekler](https://msdn.microsoft.com/library/dn140256.aspx) hizmet SAS belirteci oluşturma hakkında ayrıntılı bilgi.
+* **Service SAS.** Hizmet SAS; Blob, Kuyruk, Tablo veya Dosya hizmeti olmak üzere yalnızca bir depolama hizmetindeki kaynağa erişim atar. Bkz: [hizmet SAS oluşturma](https://msdn.microsoft.com/library/dn140255.aspx) ve [hizmet SAS örnekler](https://msdn.microsoft.com/library/dn140256.aspx) hizmet SAS belirteci oluşturma hakkında ayrıntılı bilgi.
 * **Hesap SAS.** Hesap SAS Temsilciler, bir veya daha fazla depolama hizmetindeki kaynaklara erişim. Tüm hizmet SAS kullanılabilir işlemlerini de hesap SAS kullanılabilir. Buna ek olarak, hesap SAS ile belirli bir hizmeti gibi uygulama işlemlerine erişim devredebilirsiniz **Get/Set hizmet özellikleri** ve **hizmeti istatistikleri almak**. Bununla birlikte hizmet SAS ile izin verilmeyen blob kapsayıcılar, tablolar kuyruklar ve dosya paylaşımları üzerinde okuma, yazma ve silme işlemleri için yetkilendirme yapabilirsiniz. Bkz: [bir hesap SAS oluşturma](https://msdn.microsoft.com/library/mt584140.aspx) hesap SAS belirteci oluşturma hakkında ayrıntılı bilgi.
 
 ## <a name="how-a-shared-access-signature-works"></a>Paylaşılan erişim imzası nasıl çalışır?
@@ -118,7 +118,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | BLOB URI'si |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Blob adresi. HTTPS kullanarak önerilir unutmayın. |
 | Depolama Hizmetleri sürümü |`sv=2015-04-05` |Depolama Hizmetleri sürüm 2012-02-12 ve daha sonra bu parametre hangi sürümün kullanılacağını gösterir. |
 | Başlangıç zamanı |`st=2015-04-29T22%3A18%3A26Z` |UTC saati belirtilmiş. SA'ları hemen geçerli olmasını istiyorsanız, başlangıç saati atlayın. |
-| Sona erme saati |`se=2015-04-30T02%3A23%3A26Z` |UTC saati belirtilmiş. |
+| Süre sonu |`se=2015-04-30T02%3A23%3A26Z` |UTC saati belirtilmiş. |
 | Kaynak |`sr=b` |Bir blob kaynaktır. |
 | İzinler |`sp=rw` |SAS tarafından verilen izinler ve yazma (w) Read (r) içerir. |
 | IP aralığı |`sip=168.1.5.60-168.1.5.70` |Bir isteği kabul edilecek IP adresleri aralığı. |

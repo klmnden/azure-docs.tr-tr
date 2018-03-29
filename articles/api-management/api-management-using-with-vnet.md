@@ -1,11 +1,11 @@
 ---
-title: "Sanal ağlar ile Azure API Management kullanma"
-description: "Azure API Management ve erişim web Hizmetleri aracılığıyla sanal ağa bağlantısı kurma öğrenin."
+title: Sanal ağlar ile Azure API Management kullanma
+description: Azure API Management ve erişim web Hizmetleri aracılığıyla sanal ağa bağlantısı kurma öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: fe5e26a957d18f1f7f5ed360a27bb1f9c9826718
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: db0fab5b619ddbca4663a0f6afedfff373d406f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Sanal ağlar ile Azure API Management kullanma
 Azure sanal ağlar (Vnet'ler) herhangi birini Azure kaynaklarınızı erişimi denetlemek Internet olmayan routeable ağ yerleştirin olanak sağlar. Bu ağlar sonra çeşitli VPN teknolojileri kullanarak, şirket içi ağlara bağlanabilir. Buradaki bilgiler ile başlangıç Azure sanal ağlar hakkında daha fazla bilgi edinmek için: [Azure Virtual Network'e genel bakış](../virtual-network/virtual-networks-overview.md).
@@ -96,7 +96,7 @@ API Management hizmetiniz için VNET bağlandıktan sonra içindeki arka uç hiz
 ## <a name="network-configuration-issues"> </a>Ortak ağ yapılandırma sorunları
 Sanal ağınıza API Management hizmeti dağıtırken oluşabilecek yaygın yetersizliğini sorunların bir listesi verilmiştir.
 
-* **Özel DNS Sunucusu Kurulumu**: API Management hizmeti üzerinde çeşitli Azure hizmetlerine bağlıdır. API Management, özel bir DNS sunucusu ile bir VNET içinde barındırıldığında Azure hizmetlerin ana bilgisayar adları çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) özel DNS kurulumu hakkında yönergeler. Aşağıdaki bağlantı noktaları tablo ve diğer ağ gereksinimleri başvuru için bkz.
+* **Özel DNS Sunucusu Kurulumu**: API Management hizmeti üzerinde çeşitli Azure hizmetlerine bağlıdır. API Management, özel bir DNS sunucusu ile bir VNET içinde barındırıldığında Azure hizmetlerin ana bilgisayar adları çözümlemek gerekir. Lütfen izleyin [bu](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) özel DNS kurulumu hakkında yönergeler. Aşağıdaki bağlantı noktaları tablo ve diğer ağ gereksinimleri başvuru için bkz.
 
 > [!IMPORTANT]
 > VNET için bir özel DNS sunucularını kullanmayı planlıyorsanız, kurmalısınız **önce** içine bir API Management hizmeti dağıtma. Aksi takdirde, API Management hizmeti çalıştırarak DNS sunucuları değiştirdiğinizde güncelleştirmeniz gerekir [ağ yapılandırma işlemi Uygula](https://docs.microsoft.com/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)

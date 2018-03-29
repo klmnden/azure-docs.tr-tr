@@ -1,11 +1,11 @@
 ---
-title: "Otomatik ölçeklendirme Azure sanal makine ölçek kümeleri ile genel bakış | Microsoft Docs"
-description: "Bir Azure sanal makinesi ölçeği performans veya sabit bir zamanlama tabanlı Ayarla otomatik olarak ölçeklendirebilirsiniz farklı yolları hakkında bilgi edinin"
+title: Otomatik ölçeklendirme Azure sanal makine ölçek kümeleri ile genel bakış | Microsoft Docs
+description: Bir Azure sanal makinesi ölçeği performans veya sabit bir zamanlama tabanlı Ayarla otomatik olarak ölçeklendirebilirsiniz farklı yolları hakkında bilgi edinin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Otomatik ölçeklendirme Azure sanal makine ölçek ile genel bakış ayarlar
 Bir Azure sanal makine ölçek kümesini otomatik olarak artırın veya uygulamanızı çalıştıran VM örneği sayısını azaltın. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Bir pozitif müşteri deneyimi için en düşük düzeyde kabul edilebilir performans tanımlayan kurallar oluşturun. Bu tanımlanmış eşikleri karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümesi kapasitesi ayarlamak için adımları uygulayın. Ayrıca, Ölçek kümesinde kapasitesini kez sabit azaltın veya otomatik olarak artırmak için olayları zamanlayabilirsiniz. Bu makale, hangi performansını ölçümleri kullanılabilen genel bir bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilirsiniz sağlar.
@@ -39,9 +39,10 @@ Kullanılabilir bu yerleşik ana ölçümleri, VM örneklerinden otomatik ölçe
 
 Konak tabanlı ölçümleri kullanan otomatik ölçeklendirme kuralları aşağıdaki araçlarla oluşturulabilir:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure Portal](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure şablonu](tutorial-autoscale-template.md)
 
 Daha ayrıntılı performans ölçümleri kullanan otomatik ölçeklendirme kuralları oluşturmak için şunları yapabilirsiniz [Azure tanılama uzantısını yükleyip](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) VM örneklerinde veya [uygulama kullanımınız App Insights yapılandırma](#application-level-metrics-with-app-insights).
 
@@ -54,7 +55,7 @@ Otomatik ölçeklendirme kurallarını ölçümleri aşağıdaki kaynaklardan bi
 |----------------------|------------------------------------------------------------------------------------------------------------------------------|
 | Geçerli ölçek kümesi    | Ana bilgisayar tabanlı ölçümleri, yüklenmedi veya Yapılandırılmadı ek aracıları gerektirmez.                                  |
 | Depolama hesabı      | Azure tanılama uzantısını performans ölçümleri sonra otomatik ölçeklendirme kurallarını tetiklemek için kullanılan Azure depolama alanına yazar. |
-| Hizmet veri yolu kuyruğu    | Uygulamanızı veya diğer bileşenleri Tetikleyici kuralları Azure Service Bus kuyruğuna iletileri iletebilir.                   |
+| Service Bus Kuyruğu    | Uygulamanızı veya diğer bileşenleri Tetikleyici kuralları Azure Service Bus kuyruğuna iletileri iletebilir.                   |
 | Application Insights | Uygulamanızdaki ölçümleri doğrudan uygulama üzerinden akışlarını yüklü bir izleme paketi.                         |
 
 
@@ -63,15 +64,15 @@ Otomatik ölçeklendirme kuralları oluşturduğunuzda aşağıdaki ana bilgisay
 
 | Ölçüm adı               |
 |---------------------------|
-| CPU yüzdesi            |
-| Ağ içine                |
-| Ağ dışına               |
-| Disk okuma bayt           |
-| Disk yazma bayt          |
-| Disk okuma işlemleri/sn  |
-| Disk yazma işlemi/sn |
-| CPU kredi kaldı     |
-| Kullanılan CPU KREDİLERİ      |
+| CPU Yüzdesi            |
+| Ağ Girişi                |
+| Ağ Çıkışı               |
+| Diskten Okunan Bayt           |
+| Diske Yazılan Bayt          |
+| Disk Okuma İşlemi/Sn  |
+| Disk Yazma İşlemi/Sn |
+| Kalan CPU Kredisi     |
+| Tüketilen CPU Kredisi      |
 
 Belirli bir metrik izlemek için otomatik ölçeklendirme kuralları oluşturduğunuzda, kural aşağıdaki ölçümleri toplama eylemlerden birini arayın:
 
@@ -86,14 +87,14 @@ Belirli bir metrik izlemek için otomatik ölçeklendirme kuralları oluşturdu�
 
 Otomatik ölçeklendirme kurallarını ölçümleri tanımlı eşiğiniz karşı aşağıdaki işleçleri biri ile karşılaştırıldığında daha sonra tetiklenen:
 
-| işleci                 |
+| İşleç                 |
 |--------------------------|
 | Şu değerden fazla:             |
-| Büyüktür veya eşittir |
+| Büyük veya eşit |
 | Şu değerden az:                |
-| Küçük veya eşit    |
-| Eşit                 |
-| Eşit değil             |
+| Küçük veya eşittir    |
+| Eşittir                 |
+| Eşit değildir             |
 
 
 ### <a name="actions-when-rules-trigger"></a>Kuralları tetiklemek zaman Eylemler
@@ -101,12 +102,12 @@ Otomatik ölçeklendirme kural tetikleyicileri, Ölçek kümesini otomatik olara
 
 | Ölçeklendirme işlemi     | Kullanım örneği                                                                                                                               |
 |---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| Sayıya göre artırma   | VM örnekleri oluşturmak için sabit sayısı. VM'ler daha az sayıda ölçek kümeleri yararlıdır.                                           |
-| Yüzde Artır | Yüzde tabanlı bir artış VM örnekleri. Büyük ölçek için iyi olduğu sabit bir artış belirgin şekilde performansını artırabilir değil ayarlar. |
-| Artış sayısı   | İstenen en büyük bir miktarını ulaşmak için birçok VM örnekleri gerektiği şekilde oluşturun.                                                            |
-| Azaltma sayısı   | VM örnekleri kaldırmak için sabit sayısı. VM'ler daha az sayıda ölçek kümeleri yararlıdır.                                           |
-| Yüzde Azalt | Yüzde tabanlı bir düşüş VM örnekleri. Büyük ölçek için iyi olduğu sabit bir artış belirgin şekilde kaynak tüketimini ve maliyetleri azaltabilir değil ayarlar. |
-| Azaltma sayısı   | İstenen minimum tutar ulaşmak için birçok VM örnekleri gerektiği şekilde kaldırın.                                                            |
+| Sayıyı şu kadar artır:   | VM örnekleri oluşturmak için sabit sayısı. VM'ler daha az sayıda ölçek kümeleri yararlıdır.                                           |
+| Yüzdeyi şu kadar artır: | Yüzde tabanlı bir artış VM örnekleri. Büyük ölçek için iyi olduğu sabit bir artış belirgin şekilde performansını artırabilir değil ayarlar. |
+| Sayıyı şuna artır:   | İstenen en büyük bir miktarını ulaşmak için birçok VM örnekleri gerektiği şekilde oluşturun.                                                            |
+| Sayıyı şuna düşür:   | VM örnekleri kaldırmak için sabit sayısı. VM'ler daha az sayıda ölçek kümeleri yararlıdır.                                           |
+| Yüzdeyi şu kadar azalt: | Yüzde tabanlı bir düşüş VM örnekleri. Büyük ölçek için iyi olduğu sabit bir artış belirgin şekilde kaynak tüketimini ve maliyetleri azaltabilir değil ayarlar. |
+| Sayıyı şuna düşür:   | İstenen minimum tutar ulaşmak için birçok VM örnekleri gerektiği şekilde kaldırın.                                                            |
 
 
 ## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Azure tanılama uzantısını ile Konuk VM ölçümleri
@@ -136,9 +137,9 @@ Aşağıdaki örnekler, zamanlama tabanlı otomatik ölçeklendirme kuralların�
 ## <a name="next-steps"></a>Sonraki adımlar
 Ana bilgisayar tabanlı ölçümleri aşağıdaki araçlardan birini kullanın otomatik ölçeklendirme kurallar oluşturabilirsiniz:
 
-- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
-- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
-- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+- [Azure PowerShell](tutorial-autoscale-powershell.md)
+- [Azure CLI 2.0](tutorial-autoscale-cli.md)
+- [Azure şablonu](tutorial-autoscale-template.md)
 
 Bu genel bakışta otomatik ölçeklendirme kurallarını yatay olarak ölçekleme ve artırmak veya azaltmak için nasıl kullanılacağını ayrıntılı *numarası* , Ölçek VM örnekleri kümesi. Ayrıca dikey olarak artırmak veya azaltmak VM örneği için ölçeklendirmek *boyutu*. Daha fazla bilgi için bkz: [dikey otomatik ölçeklendirme sanal makine ölçek kümeleri ile](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 

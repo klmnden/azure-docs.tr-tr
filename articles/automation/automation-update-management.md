@@ -1,6 +1,6 @@
 ---
-title: "Güncelleştirme yönetimi çözümü Azure"
-description: "Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için bu çözümün nasıl kullanılacağına yönelik bilgiler verir."
+title: Güncelleştirme yönetimi çözümü Azure
+description: Bu makale, Windows ve Linux bilgisayarlarınızın güncelleştirmelerini yönetmek için bu çözümün nasıl kullanılacağına yönelik bilgiler verir.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 202c75366477ae3445f607f75d08faf0335de79f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -36,7 +36,7 @@ Aşağıdaki diyagramda davranışının kavramsal bir görünüm gösterir ve W
 
 Bir bilgisayarı güncelleştirme uyumluluğu için bir tarama yapar sonra aracı için günlük analizi toplu bilgi iletir. Window bilgisayarında, uyumluluk taraması varsayılan olarak her 12 saatte bir gerçekleştirilir. Tarama zamanlaması ek olarak, Microsoft İzleme Aracısı'nı (MMA) yeniden başlatılırsa 15 dakika içinde güncelleştirmeyi yüklemeden önce ve güncelleştirme yüklemesi sonrasında, güncelleştirme uyumluluğu taraması başlatılır. Linux bilgisayarıyla, uyumluluk taraması varsayılan olarak her 3 saatte bir gerçekleştirilir ve MMA aracısının yeniden başlatılması durumunda 15 dakika içinde uyumluluk taraması başlatılır.
 
-Çözüm, eşitlenmek üzere yapılandırdığınız kaynağa dayanarak bilgisayarınızın ne düzeyde güncel olduğunu raporlar. Windows bilgisayarı WSUS’a raporlayacak şekilde yapılandırıldıysa, WSUS’un Microsoft Update ile en son ne zaman eşitlendiğine bağlı olarak, sonuçlar Microsoft Update tarafından gösterilenlerden farklı olabilir. Genel depo yerine bir yerel depoya raporlayacak şekilde yapılandırılan Linux bilgisayarları için de aynı durum geçerlidir.
+Çözüm, eşitlenmek üzere yapılandırdığınız kaynağa dayanarak bilgisayarınızın ne düzeyde güncel olduğunu raporlar. Windows bilgisayarı WSUS’a raporlayacak şekilde yapılandırıldıysa, WSUS’un Microsoft Update ile en son ne zaman eşitlendiğine bağlı olarak, sonuçlar Microsoft Update tarafından gösterilenlerden farklı olabilir. Bu rapor Yerel Depodaki ortak depodaki karşılaştırması için yapılandırılmış olan Linux bilgisayarlar için aynıdır.
 
 Zamanlanmış bir dağıtım oluşturarak, yazılım güncelleştirmelerinin gerekli olduğu bilgisayarlara güncelleştirmeleri dağıtabilir ve yükleyebilirsiniz. *İsteğe Bağlı* olarak sınıflandırılmış güncelleştirmeler Windows bilgisayarları için dağıtım kapsamına alınmaz; yalnızca gerekli güncelleştirmeler alınır. Zamanlanmış dağıtım hangi hedef bilgisayarlara uygulanabilir, açıkça bilgisayar belirtilmesi veya seçerek güncelleştirmelerle tanımlayan bir [bilgisayar grubu](../log-analytics/log-analytics-computer-groups.md) belirli bir bilgisayar kümesi günlük aramaları dışına dayanır. Ayrıca, güncelleştirmelerin yüklenmesine izin verilen zaman aralığını onaylamak ve belirlemek için bir zamanlama da belirtebilirsiniz. Güncelleştirmeler Azure Automation’daki runbook'lar tarafından yüklenir. Bu runbook’ları görüntüleyemezsiniz ve bunlar için herhangi bir yapılandırma gerekmez. Bir Güncelleştirme Dağıtımı oluşturulduğunda, dahil edilen bilgisayarlar için belirtilen zamanda ana güncelleştirme runbook’unu başlatan bir zamanlama oluşturur. Bu ana runbook, gerekli güncelleştirmelerin yüklemesini gerçekleştiren her aracıda bir alt runbook başlatır.
 

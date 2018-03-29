@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery Azure VM'ler için çoğaltma yapılandırma | Microsoft Docs"
-description: "Bu makalede, başka bir Site Kurtarma'yı kullanarak bir Azure bölgesinden Azure VM'ler için çoğaltma yapılandırma açıklar."
+title: Azure Site Recovery Azure VM'ler için çoğaltma yapılandırma | Microsoft Docs
+description: Bu makalede, başka bir Site Kurtarma'yı kullanarak bir Azure bölgesinden Azure VM'ler için çoğaltma yapılandırma açıklar.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: asgang
-ms.openlocfilehash: 39d81ed6408e5f2c434a4fbaa681efc4c0b19a63
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5947242295a9c57b1c73e202c061d222cd0842f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Başka bir Azure bölgesine çoğaltma Azure sanal makineler
 
@@ -50,7 +50,8 @@ Bu makalede bu senaryo için Site Recovery önceden ayarladığınız açıkland
     - **Hedef konum**: Burada, kaynak sanal makine verilerinizi çoğaltılabilir konumu. Seçili makineler konumuna bağlı olarak, Site Recovery, uygun hedef bölgelerin listesini sağlar. Kurtarma Hizmetleri kasası konumu olarak aynı hedef konumu tutmanızı öneririz.
     - **Hedef kaynak grubu**: çoğaltılan sanal makineleriniz için tüm ait kaynak grubu. Varsayılan olarak Azure Site Recovery "asr" sonekine sahip adla hedef bölgede yeni bir kaynak grubu oluşturur. Azure Site Recovery tarafından önceden oluşturulmuş kaynak grubu mevcut olmaması durumunda, yeniden kullanılır. Aşağıdaki bölümde gösterildiği gibi özelleştirmek seçebilirsiniz.
     - **Hedef sanal ağ**: varsayılan olarak, Site Recovery yeni bir sanal ağ hedef bölgede "asr" sonekine sahip adıyla oluşturur. Bu kaynak ağınıza eşlenen ve gelecekteki tüm koruma için kullanılır. [Daha fazla bilgi edinin](site-recovery-network-mapping-azure-to-azure.md) ağ eşlemesi hakkında.
-    - **Depolama hesapları hedef**: varsayılan olarak, Site Recovery kaynak VM depolama yapılandırmanızı mimicking yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olmaması durumunda, yeniden kullanılır.
+    - **(VM kullanmaz, kaynak diskleri yönetiliyorsa) depolama hesapları hedef**: varsayılan olarak, Site Recovery kaynak VM depolama yapılandırmanızı mimicking yeni bir hedef depolama hesabı oluşturur. Depolama hesabı zaten mevcut olmaması durumunda, yeniden kullanılır.
+    - **Çoğaltma yönetilen diskleri (kaynağınız VM yönetilen diskleri kullanıyorsa)**: Site Recovery disk kaynağının VM yönetilen olarak kaynak VM'ın yönetilen diskleri aynı depolama türünü (standart veya premium) ile yansıtmak üzere hedef bölgede yeni yönetilen yinelemenin diskleri oluşturur.
     - **Depolama hesapları önbelleğe**: Site Recovery önbellek depolama kaynağı bölgede adlı ek depolama alanı hesabı gerekiyor. Kaynak sanal makinelerin gerçekleştiği tüm değişiklikleri izlenen ve bu hedef konumuna çoğaltma önce önbellek depolama hesabına gönderilir.
     - **Kullanılabilirlik kümesi**: varsayılan olarak, Azure Site Recovery hedef bölgede kümesi "asr" sonekine sahip adı ile yeni bir kullanılabilirlik oluşturur. Kullanılabilirlik kümesi zaten Azure Site Recovery tarafından oluşturulan mevcut olmaması durumunda, yeniden kullanılır.
     - **Çoğaltma İlkesi**: kurtarma noktası bekletme geçmişi ve uygulama tutarlılığı anlık görüntü sıklığı ayarlarını tanımlar. Varsayılan olarak, Azure Site Recovery ' 24 saattir kurtarma noktası bekletme ve ' 60 dakika uygulama tutarlılığı anlık görüntü sıklığı için varsayılan ayarlarla yeni bir çoğaltma ilkesi oluşturur.

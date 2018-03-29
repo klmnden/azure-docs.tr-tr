@@ -1,8 +1,8 @@
 ---
-title: "Betik eylemleri - Azure kullanarak Hdınsight kümelerini özelleştirme | Microsoft Docs"
-description: "Özel bileşenler için betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini ekleyin. Betik eylemleri küme yapılandırmasını özelleştirebilir veya ek hizmetleri ve yardımcı programları ton, Solr veya r gibi eklemek için kullanılan Bash betikleridir"
+title: Betik eylemleri - Azure kullanarak Hdınsight kümelerini özelleştirme | Microsoft Docs
+description: Özel bileşenler için betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini ekleyin. Betik eylemleri küme yapılandırmasını özelleştirebilir veya ek hizmetleri ve yardımcı programları ton, Solr veya r gibi eklemek için kullanılan Bash betikleridir
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 42bf760b793f3c035a766c4d39524e03c1cbe6ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: bc8078a1681b8977a0748f633df02beb2f2bdc8a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
@@ -210,17 +210,19 @@ Bu bölümde, betik eylemleri bir Hdınsight kümesi oluştururken kullanabilece
 
 ### <a name="use-a-script-action-from-azure-resource-manager-templates"></a>Azure Resource Manager şablonları bir betik eylemi kullanın
 
-Betik eylemleri Azure Resource Manager şablonları ile kullanılabilir. Bir örnek için bkz: [https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
+Betik eylemleri Azure Resource Manager şablonları ile kullanılabilir. Bir örnek için bkz: [ https://azure.microsoft.com/resources/templates/hdinsight-linux-run-script-action/ ](https://azure.microsoft.com/en-us/resources/templates/hdinsight-linux-run-script-action/).
 
 Bu örnekte, aşağıdaki kodu kullanarak betik eylemi eklenir:
 
-    "scriptActions": [
-        {
-            "name": "setenvironmentvariable",
-            "uri": "[parameters('scriptActionUri')]",
-            "parameters": "headnode"
-        }
-    ]
+```json
+"scriptActions": [
+    {
+        "name": "setenvironmentvariable",
+        "uri": "[parameters('scriptActionUri')]",
+        "parameters": "headnode"
+    }
+]
+```
 
 Şablon dağıtma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
@@ -305,15 +307,21 @@ Devam etmeden önce Azure CLI yükleyip yapılandırdığınızdan emin olun. Da
 
 1. Azure Resource Manager moduna geçmek için komut satırında aşağıdaki komutu kullanın:
 
-        azure config mode arm
+    ```bash
+    azure config mode arm
+    ```
 
 2. Azure aboneliğinize kimliğini doğrulamak için aşağıdakileri kullanın.
 
-        azure login
+    ```bash
+    azure login
+    ```
 
 3. Betik eylemi çalıştıran bir kümeye uygulamak için aşağıdaki komutu kullanın
 
-        azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```bash
+    azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
+    ```
 
     Bu komutun parametresini atlarsanız, bunlar için istenir. Komut dosyası ile belirtirseniz, `-u` parametreleri kabul belirtebilmeniz için kullanarak `-p` parametresi.
 
@@ -337,7 +345,7 @@ Bkz: [betik eylemleri çalıştıran bir kümede çalışan](https://msdn.micros
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-the-hdinsight-net-sdk"></a>Betik eylemi çalıştıran bir kümeye Hdınsight .NET SDK uygulayın.
 
-Bir kümeye betikleri uygulamak için .NET SDK kullanarak bir örnek için bkz: [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Bir kümeye betikleri uygulamak için .NET SDK kullanarak bir örnek için bkz: [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 ## <a name="view-history-promote-and-demote-script-actions"></a>Betik eylemleri indirgemek geçmişini görüntülemek ve Yükselt
 
@@ -396,7 +404,7 @@ Aşağıdaki örnek betik yükseltin, sonra bir komut dosyası indirgemek için 
 
 ### <a name="using-the-hdinsight-net-sdk"></a>Hdınsight .NET SDK kullanarak
 
-Bir kümeden betik geçmişi almak için .NET SDK kullanarak bir örnek için yükseltmek veya betikleri indirgemek, bkz: [https://github.com/Azure-Samples/hdinsight-dotnet-script-action](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
+Bir kümeden betik geçmişi almak için .NET SDK kullanarak bir örnek için yükseltmek veya betikleri indirgemek, bkz: [ https://github.com/Azure-Samples/hdinsight-dotnet-script-action ](https://github.com/Azure-Samples/hdinsight-dotnet-script-action).
 
 > [!NOTE]
 > Bu örnek ayrıca .NET SDK kullanarak bir Hdınsight uygulamasının nasıl yükleneceğini gösterir.
@@ -413,7 +421,7 @@ Hdınsight hizmetinde bulunan açık kaynak bileşenleri iki tür vardır:
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenmektedir. Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
 >
-> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Microsoft destek sorunu çözmek mümkün olabilir veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları gerçekleştirmesine olanak isteyebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenler, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Microsoft destek sorunu çözmek mümkün olabilir veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları gerçekleştirmesine olanak isteyebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 
 Hdınsight hizmeti özel bileşenleri kullanmak için çeşitli yöntemler sunar. Aynı düzeyde desteği nasıl bir bileşen kullanılan veya kümeye yüklü bağımsız olarak uygulanır. En sık karşılaşılan aşağıdaki listede açıklanmaktadır özel bileşenler Hdınsight kümelerinde kullanılabileceği yol vardır:
 
@@ -429,7 +437,7 @@ Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntülemek için Am
 
 ### <a name="using-the-ambari-web-ui"></a>Ambari Web kullanıcı Arabirimi kullanma
 
-1. Tarayıcınızda, https://CLUSTERNAME.azurehdinsight.net için gidin. CLUSTERNAME Hdınsight kümenizin adıyla değiştirin.
+1. Tarayıcınızda https://CLUSTERNAME.azurehdinsight.net adresine gidin. CLUSTERNAME Hdınsight kümenizin adıyla değiştirin.
 
     İstendiğinde, küme için yönetici hesabı adını (Yönetici) ve parolasını girin. Bir web formunda yönetici kimlik bilgilerinizi yeniden girmeniz gerekebilir.
 
@@ -493,7 +501,7 @@ __Neden__: Hdınsight kümesi ile birlikte Python Azure Storage istemcisi yükse
 
 __Çözümleme__: Bu hatayı gidermek için el ile her küme düğümünü kullanarak bağlanma `ssh` ve doğru depolama istemci sürümünü yeniden yüklemek için aşağıdaki komutu kullanın:
 
-```
+```bash
 sudo pip install azure-storage==0.20.0
 ```
 

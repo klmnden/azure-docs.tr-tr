@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric terminolojisi öğrenin | Microsoft Docs"
-description: "Service Fabric terminolojisi bakış. Önemli terminolojiyi kavramlar ve belgelere geri kalanı kullanılan terimler açıklanmaktadır."
+title: Azure Service Fabric terminolojisi öğrenin | Microsoft Docs
+description: Service Fabric terminolojisi bakış. Önemli terminolojiyi kavramlar ve belgelere geri kalanı kullanılan terimler açıklanmaktadır.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 03/26/2018
 ms.author: ryanwi
-ms.openlocfilehash: dc7e536ce40bf95e1950e1e44844cd8fe26ea1a1
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: bd57b6344baef3bdf97c850564ae2d3afa9c811e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric terminolojisi genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Bu makalede belgelerde kullanılan terimler anlamak için Service Fabric tarafından kullanılan terminolojiyi ayrıntılarını verir.
@@ -26,9 +26,9 @@ Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemey
 Bu bölümde listelenen kavramları aşağıdaki Microsoft Virtual Academy videoları ele alınmıştır: <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">temel kavramları</a>, <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">tasarım zamanı kavramları</a>, ve <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">çalışma zamanı kavramları</a>.
 
 ## <a name="infrastructure-concepts"></a>Altyapı kavramları
-**Küme**: içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler ağa bağlı bir dizi.  Kümeleri makineler binlerce ölçeklendirebilirsiniz.
+**Küme**: içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler ağa bağlı bir dizi.  Kümeler binlerce makine içerecek şekilde ölçeklendirilebilir.
 
-**Düğüm**: makine ya da bir kümenin parçasıysa VM adlı bir *düğümü*. Her düğüme bir düğüm adı (dize) atanır. Düğümleri yerleşim özellikleri gibi özelliklere sahiptir. Her makine ya da VM bir otomatik başlatılan Windows hizmet sahip `FabricHost.exe`, önyükleme sırasında çalışmaya başlar ve ardından iki yürütülebilir dosyalar başlatır: `Fabric.exe` ve `FabricGateway.exe`. Bu iki yürütülebilir dosyalar düğümü olun. Senaryoları test etmek için bir tek makine ya da VM birden çok düğümde birden çok örneğini çalıştırarak barındırabilir `Fabric.exe` ve `FabricGateway.exe`.
+**Düğüm**: makine ya da bir kümenin parçasıysa VM adlı bir *düğümü*. Her düğüme bir düğüm adı (bir dize) atanır. Düğümleri yerleşim özellikleri gibi özelliklere sahiptir. Her makine ya da VM bir otomatik başlatılan Windows hizmet sahip `FabricHost.exe`, önyükleme sırasında çalışmaya başlar ve ardından iki yürütülebilir dosyalar başlatır: `Fabric.exe` ve `FabricGateway.exe`. Bu iki yürütülebilir dosyalar düğümü olun. Senaryoları test etmek için bir tek makine ya da VM birden çok düğümde birden çok örneğini çalıştırarak barındırabilir `Fabric.exe` ve `FabricGateway.exe`.
 
 ## <a name="application-concepts"></a>Uygulama kavramları
 **Uygulama türü**: hizmet türlerinin bir koleksiyona atanan ad/sürüm. İçinde tanımlanan bir `ApplicationManifest.xml` dosyası ve bir uygulama paketi dizininde katıştırılmış. Dizin sonra Service Fabric kümenin görüntü deposuna kopyalanır. Bu uygulama türü küme içindeki bir adlandırılmış uygulama sonra oluşturabilirsiniz.
@@ -89,12 +89,22 @@ Okuma [bir uygulamayı dağıtmak](service-fabric-deploy-remove-applications.md)
    - Uygulama ve küme yükseltmeleri düzenler.
    - Diğer sistem bileşenlerini ile etkileşime girer.
 
+**Yöneticisi hizmetini Onar**: automatable ve saydam bir şekilde güvenli, küme üzerinde gerçekleştirilecek eylemleri onarım izin veren bir isteğe bağlı sistem hizmeti budur. Onarım Yöneticisi kullanılır:
+   - Azure bakım gerçekleştirme onarır [Gümüş ve altın dayanıklılık](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Azure Service Fabric kümeleri.
+   - Onarım eylemleri gerçekleştirmesini [düzeltme eki düzenleme uygulama](service-fabric-patch-orchestration-application.md)
+
 ## <a name="built-in-programming-models"></a>Yerleşik programlama modelleri
-Service Fabric hizmetleri oluşturmak için kullanılabilen .NET Framework programlama modeli vardır:
+Service Fabric hizmetleri oluşturmak için kullanılabilen .NET Framework ve Java programlama modeli vardır:
 
 **Güvenilir hizmetler**: durum bilgisiz ve durum bilgisi olan hizmetler oluşturmak için bir API. Durum bilgisi olan hizmetler durumlarına bir sözlük veya bir kuyruk gibi güvenilir koleksiyonlarında depolar. Web API ve Windows Communication Foundation (WCF) gibi çeşitli iletişim yığınlardaki ekleyebilirsiniz.
 
 **Güvenilir aktörler**: sanal aktör programlama modeli aracılığıyla durum bilgisiz ve durum bilgisi olan nesneleri oluşturmak için bir API. Bu model, çok sayıda hesaplama veya durumunu bağımsız bir birim olduğunda yararlıdır. Tüm giden istekleri tamamlanana kadar tek bir aktör diğer gelen istekleri işleyemiyor çünkü diğer aktörler veya hizmetleri çağıran kodu önlemek en iyisidir Bu model bir Aç tabanlı iş parçacığı modeli kullanır.
+
+Service Fabric mevcut uygulamalarınızı da çalıştırabilirsiniz:
+
+**Kapsayıcıları**: Service Fabric Hyper-V yalıtım modunu desteğinin yanı sıra Windows Server 2016, Linux ve Windows Server kapsayıcılarında Docker kapsayıcıları dağıtımını destekler. Service Fabric içinde [uygulama modeli](service-fabric-application-model.md), hangi birden çok çoğaltmaları hizmete bir uygulama konağı bir kapsayıcıyı temsil eder. Service Fabric herhangi bir kapsayıcıdaki çalıştırabilir ve kapsayıcı içinde var olan bir uygulama paketi burada Konuk yürütülebilir senaryosu benzer bir senaryodur. Buna ek olarak, şunları yapabilirsiniz [kapsayıcılar içinde Service Fabric hizmetlerini çalıştırmak](service-fabric-services-inside-containers.md) de.
+
+**Konuk yürütülebilir dosyalar**: hizmet olarak Azure Service Fabric kod, Node.js, Java ya da C++ gibi herhangi bir türde çalıştırabilirsiniz. Service Fabric Hizmetleri bu tür için durum bilgisi olmayan hizmetler davranılır Konuk yürütülebilir dosyalar olarak gösterir. Bir Service Fabric kümesi yürütülebilir Konuk çalıştırmak için yüksek kullanılabilirlik, sistem durumu izleme, uygulama yaşam döngüsü yönetimi, yüksek yoğunluklu ve bulunabilirlik sayılabilir.
 
 Okuma [hizmetiniz için programlama modelini seçin](service-fabric-choose-framework.md) daha fazla bilgi için makalenin.
 

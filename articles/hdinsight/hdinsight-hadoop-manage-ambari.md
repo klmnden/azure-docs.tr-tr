@@ -1,8 +1,8 @@
 ---
-title: "İzleme ve Azure Hdınsight Ambari Web kullanıcı arabirimini kullanarak yönetme | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Ambari Web kullanıcı arabirimini Hdınsight kümeleri ile dahil kullanmayı öğrenin."
+title: İzleme ve Azure Hdınsight Ambari Web kullanıcı arabirimini kullanarak yönetme | Microsoft Docs
+description: Linux tabanlı Hdınsight kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Ambari Web kullanıcı arabirimini Hdınsight kümeleri ile dahil kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/04/2018
+ms.date: 03/23/2018
 ms.author: larryfr
-ms.openlocfilehash: dc1265c7af011b92a9f862cf2e91b47c3998b2e4
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 922dfd475f27f182d8958887087fc2f4945cc43a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Ambari Web kullanıcı arabirimini kullanarak Hdınsight kümelerini yönetme
 
@@ -41,7 +41,7 @@ Ambari Web kullanıcı Arabirimi, varsayılan olarak Linux işletim sistemini Hd
 
 ## <a name="connectivity"></a>Bağlantı
 
-Ambari Web kullanıcı arabirimini HTTPS://CLUSTERNAME.azurehdidnsight.net, konumunda Hdınsight kümenize kullanılabilir olduğu **CLUSTERNAME** kümenizin adıdır.
+Ambari Web kullanıcı arabirimini konumunda Hdınsight kümenize kullanılabilir HTTPS://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** kümenizin adıdır.
 
 > [!IMPORTANT]
 > Hdınsight üzerinde Ambari bağlanma HTTPS gerektirir. Kimlik doğrulaması için istendiğinde, Yönetici hesap adı ve küme oluştururken verdiğiniz parolası'nı kullanın.
@@ -50,7 +50,7 @@ Ambari Web kullanıcı arabirimini HTTPS://CLUSTERNAME.azurehdidnsight.net, konu
 
 Kümeniz için Ambari doğrudan Internet üzerinden erişilebilir olsa da, bazı bağlantılar Ambari Web kullanıcı arabirimini (Jobtracker'a gibi) internet'te sunulmaz. Bu hizmetlere erişmek için bir SSH tüneli oluşturmanız gerekir. Daha fazla bilgi için bkz: [kullanım SSH tünel Hdınsight ile](hdinsight-linux-ambari-ssh-tunnel.md).
 
-## <a name="ambari-web-ui"></a>Ambari Web kullanıcı Arabirimi
+## <a name="ambari-web-ui"></a>Ambari Web UI
 
 > [!WARNING]
 > Ambari Web kullanıcı arabirimini tüm özelliklerini Hdınsight üzerinde desteklenir. Daha fazla bilgi için bkz: [desteklenmeyen işlemleri](#unsupported-operations) bu belgenin bölüm.
@@ -59,7 +59,7 @@ Ambari Web kullanıcı Arabirimi için bağlanırken sayfasına kimlik doğrulam
 
 Sayfayı açtığında çubuğunun üstündeki unutmayın. Bu çubuğu, aşağıdaki bilgileri ve denetimleri içerir:
 
-![ambari nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
+![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
 * **Ambari logosu** -küme izlemek için kullanılan Pano açar.
 

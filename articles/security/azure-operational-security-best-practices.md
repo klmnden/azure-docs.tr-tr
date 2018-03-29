@@ -1,12 +1,12 @@
 ---
-title: "Azure işletimsel güvenlik en iyi uygulamalar | Microsoft Docs"
-description: "Bu makale Azure işletimsel güvenlik için en iyi yöntemler kümesi sağlar."
+title: Azure işletimsel güvenlik en iyi uygulamalar | Microsoft Docs
+description: Bu makale Azure işletimsel güvenlik için en iyi yöntemler kümesi sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb7e0df046ecc2ffcd3fa59ac53edf36095933c7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-operational-security-best-practices"></a>Azure işletimsel güvenlik en iyi uygulamalar
 Azure işletimsel güvenlik hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikler verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için ifade eder. Azure işlem güvenliği Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center programı da dahil olmak üzere Microsoft'a özgü çeşitli özellikleri aracılığıyla elde edilen bilgilerden içerir çerçevesi üzerine inşa edilmiştir, ve siber güvenlik tehdit derin farkındalığınızı.
@@ -167,10 +167,10 @@ Ağ İzleyicisi'ni yapılandırmak ve etkinleştirmek hakkında daha fazla bilgi
 Bu liste, Azure DevOps uygulamalarının kuruluşlar ve ekipleri ve verimli hale getirir Microsoft Cloud alanındaki bazılarıdır.
 
 -   **Kod (IaC) olarak altyapı:** kod olarak altyapı teknikleri kümesidir ve BT uzmanlarının yardımcı yöntemler modüler altyapısının yönetim ve günlük yapı ile ilişkili yük kaldırın. BT uzmanlarının oluşturmasına ve bunların nasıl geliştiricilerine oluşturmasına ve uygulama kodu korumasına gibi olacak şekilde modern sunucu ortamında korumasına olanak tanır. Azure için sahip olduğumuz [Azure Resource Manager]( https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) , bildirim temelli bir şablon kullanarak uygulamalarınızı sağlamanıza izin verir. Tek bir şablonda birden çok hizmeti bağımlılıklarıyla birlikte dağıtabilirsiniz. Uygulama yaşam döngüsünün her aşamasında uygulamanızı tekrar tekrar dağıtmak için aynı şablonu kullanırsınız.
--   **Sürekli tümleştirme ve dağıtım:** Visual Studio Online takım projeleriniz yapılandırabilirsiniz [otomatik olarak oluşturma ve dağıtma](https://www.visualstudio.com/docs/build/overview) Azure web uygulamaları veya Bulut Hizmetleri. VSO kodu her iade sonra bir yapı için Azure yaptıktan sonra ikili dosyaları otomatik olarak dağıtır. Burada açıklanan paket oluşturma işlemi, Visual Studio Paketi komutu eşdeğerdir ve yayımlama adımlarını Visual Studio'da Yayımla komutunu eşdeğerdir.
+-   **Sürekli tümleştirme ve dağıtım:** Visual Studio Team Services (VSTS) takım projeleriniz yapılandırabilirsiniz [otomatik olarak oluşturma ve dağıtma](https://www.visualstudio.com/docs/build/overview) Azure web uygulamaları veya Bulut Hizmetleri. VSTS kodu her iade sonra bir yapı için Azure yaptıktan sonra ikili dosyaları otomatik olarak dağıtır. Burada açıklanan paket oluşturma işlemi, Visual Studio Paketi komutu eşdeğerdir ve yayımlama adımlarını Visual Studio'da Yayımla komutunu eşdeğerdir.
 -   **Yayın Yönetimi:** Visual Studio [yayın Yönetimi](https://msdn.microsoft.com/library/vs/alm/release/overview) çok aşamalı dağıtımı otomatikleştirme ve yayın işlemini yönetmek için harika bir çözümdür. Hızlı, kolay ve genellikle yayımlamayı yönetilen sürekli dağıtım komut zincirleri oluşturun. Sürüm yönetimi ile biz çok bizim yayın süreci otomatik hale getirebilirsiniz ve biz onay iş akışları önceden. Şirket içi dağıtma buluta genişletmek ve gerektiği gibi özelleştirin.
 -   **Uygulama performansı izleme:** sorunları algılamak, sorunları çözmek ve uygulamanızı sürekli geliştirin. Canlı uygulamanızdaki sorunları hemen tanılayın. Kullanıcılarınızın bununla neler yaptığını anlayın. Yapılandırma JS kod ve webconfig girişi ekleme kolay konudur ve tüm ayrıntılar portalıyla dakika içinde sonuçlarını görebilirsiniz. [App ınsights](https://azure.microsoft.com/documentation/articles/app-insights-start-monitoring-app-health-usage/) kuruluşlar sorunları & düzeltme daha hızlı algılanması için yardımcı olur.
--   **Test & otomatik ölçeklendirme yük:** performans sorunlarını dağıtım kalitesini artırmak için uygulamamıza bulabilirsiniz ve uygulamamıza her zaman yukarı ya da iş gereksinimini karşılamak kullanılabilir olduğundan emin olmak için gerekir. Uygulamanızı bir sonraki başlatma veya pazarlama kampanyanızı için trafiği işleyebilir emin olun. Bulut tabanlı çalıştırma başlatın [yük testleri](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) Visual Studio Online ile neredeyse hiçbir zaman.
+-   **Test & otomatik ölçeklendirme yük:** performans sorunlarını dağıtım kalitesini artırmak için uygulamamıza bulabilirsiniz ve uygulamamıza her zaman yukarı ya da iş gereksinimini karşılamak kullanılabilir olduğundan emin olmak için gerekir. Uygulamanızı bir sonraki başlatma veya pazarlama kampanyanızı için trafiği işleyebilir emin olun. Bulut tabanlı çalıştırma başlatın [yük testleri](https://www.visualstudio.com/docs/test/performance-testing/getting-started/getting-started-with-performance-testing) VSTS ile neredeyse hiçbir zaman.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [Azure işletimsel güvenlik](https://docs.microsoft.com/azure/security/azure-operational-security).

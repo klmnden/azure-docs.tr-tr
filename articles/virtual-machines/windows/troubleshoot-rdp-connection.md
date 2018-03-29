@@ -1,12 +1,12 @@
 ---
-title: "Azure Windows VM için RDP ile bağlantı kurulamıyor | Microsoft Docs"
-description: "Windows sanal makinenizde Uzak Masaüstü kullanarak Azure bağlanamadığınızda sorunlarını giderme"
-keywords: "Uzak Masaüstü hata, Uzak Masaüstü Bağlantısı hatası, VM için bağlantı kuramıyor Uzak Masaüstü sorunlarını giderme"
+title: Azure Windows VM için RDP ile bağlantı kurulamıyor | Microsoft Docs
+description: Windows sanal makinenizde Uzak Masaüstü kullanarak Azure bağlanamadığınızda sorunlarını giderme
+keywords: Uzak Masaüstü hata, Uzak Masaüstü Bağlantısı hatası, VM için bağlantı kuramıyor Uzak Masaüstü sorunlarını giderme
 services: virtual-machines-windows
-documentationcenter: 
-author: genlin
+documentationcenter: ''
+author: danielsollondon
 manager: timlt
-editor: 
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
 ms.service: virtual-machines-windows
@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
-ms.author: genli
-ms.openlocfilehash: 4731a34d143d402372aaff7c03f95dbf0bb508a4
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.date: 03/23/2018
+ms.author: danis
+ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Bir Azure sanal makinesi için Uzak Masaüstü bağlantı sorunlarını giderme
 Uzak Masaüstü Protokolü (RDP) bağlantısı, Windows tabanlı Azure sanal makine (VM), VM erişilemiyor bırakarak çeşitli nedenlerle başarısız olabilir. VM, ağ bağlantısı veya ana bilgisayarınızda Uzak Masaüstü İstemcisi Uzak Masaüstü hizmetiyle sorunu olabilir. Bu makalede, bazı RDP bağlantı sorunlarını gidermek için en yaygın yöntemleri size yol gösterir. 
@@ -77,7 +77,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
     Azure portalında, VM'yi seçin. Ayarları bölmesine aşağı **destek + sorun giderme** listenin alt kısmına. Tıklatın **kaynak durumu** düğmesi. Sağlıklı bir VM raporları olarak **kullanılabilir**:
    
     ![Azure portalında VM'nin kaynak sistem durumu denetimi](./media/troubleshoot-rdp-connection/check-resource-health.png)
-6. **Kullanıcı kimlik bilgilerini sıfırlama**. Bu sorun giderme adımı emin değilseniz veya kimlik bilgilerini unutmuş bir yerel yönetici hesabının parolasını sıfırlar.
+6. **Kullanıcı kimlik bilgilerini sıfırlama**. Bu sorun giderme adımı emin değilseniz veya kimlik bilgilerini unutmuş bir yerel yönetici hesabının parolasını sıfırlar.  VM oturum açtıktan sonra o kullanıcı için parola sıfırlama.
    
     Azure portalında, VM'yi seçin. Ayarları bölmesine aşağı **destek + sorun giderme** listenin alt kısmına. Tıklatın **parola sıfırlama** düğmesi. Emin olun **modu** ayarlanır **parola sıfırlama** ve kullanıcı adınızı ve yeni bir parola girin. Son olarak, tıklatın **güncelleştirme** düğmesi:
    
@@ -207,7 +207,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin.
     Azure portalında, VM'yi seçin. Ayarları bölmesine aşağı **destek + sorun giderme** listenin alt kısmına. Tıklatın **kaynak durumu** düğmesi. Sağlıklı bir VM raporları olarak **kullanılabilir**:
    
     ![Azure portalında VM'nin kaynak sistem durumu denetimi](./media/troubleshoot-rdp-connection/classic-check-resource-health.png)
-5. **Kullanıcı kimlik bilgilerini sıfırlama**. Bu sorun giderme adımı emin değilseniz veya kimlik bilgilerini unuttuysanız, belirttiğiniz yerel yönetici hesabının parolasını sıfırlar.
+5. **Kullanıcı kimlik bilgilerini sıfırlama**. Bu sorun giderme adımı emin değilseniz veya kimlik bilgilerini unuttuysanız, belirttiğiniz yerel yönetici hesabının parolasını sıfırlar.  VM oturum açtıktan sonra o kullanıcı için parola sıfırlama.
    
     Azure portalında, VM'yi seçin. Ayarları bölmesine aşağı **destek + sorun giderme** listenin alt kısmına. Tıklatın **parola sıfırlama** düğmesi. Kullanıcı adınızı ve yeni bir parola girin. Son olarak, tıklatın **kaydetmek** düğmesi:
    

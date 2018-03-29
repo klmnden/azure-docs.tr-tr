@@ -1,31 +1,31 @@
 ---
 title: "Öğretici: Polybase veri yükleme - Azure Depolama Blobu'ndan Azure SQL Veri Ambarı'na | Microsoft Docs"
-description: "Azure Portal'ı ve SQL Server Management Studio'yu kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyen öğretici."
+description: Azure Portal'ı ve SQL Server Management Studio'yu kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyen öğretici.
 services: sql-data-warehouse
-documentationcenter: 
+documentationcenter: ''
 author: ckarst
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-data-warehouse
 ms.custom: mvc,develop data warehouses
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 11/17/2017
+ms.date: 03/16/2018
 ms.author: cakarst
 ms.reviewer: barbkess
-ms.openlocfilehash: 4bb9b4a01d3efb90486e34d2b0eb5cfeef66e50c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 77e1666a5c8cc51495f2058ff76b2b99a3212db0
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="tutorial-use-polybase-to-load-data-from-azure-blob-storage-to-azure-sql-data-warehouse"></a>Öğretici: Azure blob depolamadan verileri Azure SQL Veri Ambarı’na yüklemek için PolyBase kullanma
 
-PolyBase, verileri SQL Veri Ambarı'na almaya yönelik standart bir yükleme teknolojisidir. Bu öğreticide, PolyBase kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyeceksiniz. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) kullanılır: 
+PolyBase, verileri SQL Veri Ambarı'na almaya yönelik standart bir yükleme teknolojisidir. Bu öğreticide, PolyBase kullanarak New York taksi verilerini Azure blob depolamadan Azure SQL Veri Ambarı'na yükleyeceksiniz. Öğreticide aşağıdaki işlemler için [Azure Portal](https://portal.azure.com) ve [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) kullanılır: 
 
 > [!div class="checklist"]
 > * Azure Portal'da veri ambarı oluşturma
@@ -41,7 +41,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
+Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
@@ -91,7 +91,7 @@ Boş bir SQL veri ambarı oluşturmak için aşağıdaki adımları izleyin.
     ![performansı yapılandırma](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
 8. **Uygula**'ya tıklayın.
-9. SQL Veri Ambarı sayfasında, boş veritabanı için bir **harmanlama** seçin. Bu öğreticide varsayılan değeri kullanın. Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](/sql/t-sql/statements/collations.md)
+9. SQL Veri Ambarı sayfasında, boş veritabanı için bir **harmanlama** seçin. Bu öğreticide varsayılan değeri kullanın. Harmanlamalar hakkında daha fazla bilgi için bkz. [Harmanlamalar](/sql/t-sql/statements/collations)
 
 11. SQL Veritabanı formunu tamamladıktan sonra veritabanını sağlamak için **Oluştur**’a tıklayın. Sağlama birkaç dakika sürer. 
 
@@ -146,7 +146,7 @@ SQL sunucunuzun tam sunucu adını Azure portalından alabilirsiniz. Daha sonra 
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Sunucu yöneticisi olarak sunucuya bağlanma
 
-Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md) (SSMS) kullanılmaktadır.
+Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) kullanılmaktadır.
 
 1. SQL Server Management Studio’yu açın.
 
@@ -221,7 +221,7 @@ Verileri yüklemenin ilk adımı LoaderRC20 olarak oturum açmaktır.
 
 ## <a name="create-external-tables-for-the-sample-data"></a>Örnek veriler için dış tablo oluşturma
 
-Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. Bu öğreticide, [Polybase](/sql/relational-databases/polybase/polybase-guide.md) kullanarak New York taksi verilerini Azure depolama blobundan nasıl yükleyeceğiniz gösterilir. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
+Verileri yeni veri ambarınıza yükleme işlemine başlamaya hazırsınız. Bu öğreticide, [Polybase](/sql/relational-databases/polybase/polybase-guide) kullanarak New York taksi verilerini Azure depolama blobundan nasıl yükleyeceğiniz gösterilir. [Yüklemeye genel bakış](sql-data-warehouse-overview-load.md) bölümünde, verilerinizi Azure blob depolama alanına alma veya doğrudan kaynağınızdan SQL Veri Ambarı’na yükleme konusunda ileride işinize yarayacak bilgiler edinebilirsiniz.
 
 Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hakkındaki bilgileri belirtin. Bu bilgiler verilerin konumu, verilerdeki içeriğin biçimi ve verilerin tablo tanımıdır. 
 
@@ -237,7 +237,7 @@ Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hak
     CREATE MASTER KEY;
     ```
 
-4. Aşağıdaki [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql.md) deyimini çalıştırarak Azure blobunun konumunu tanımlayın. Bu, dış taksi verilerinin konumudur.  Sorgu penceresine eklediğiniz komutları çalıştırmak için, çalıştırmak istediğiniz komutları vurgulayın ve **Yürüt**'e tıklayın.
+4. Aşağıdaki [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) deyimini çalıştırarak Azure blobunun konumunu tanımlayın. Bu, dış taksi verilerinin konumudur.  Sorgu penceresine eklediğiniz komutları çalıştırmak için, çalıştırmak istediğiniz komutları vurgulayın ve **Yürüt**'e tıklayın.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE NYTPublic
@@ -248,7 +248,7 @@ Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hak
     );
     ```
 
-5. Aşağıdaki [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql.md) T-SQL deyimini çalıştırarak dış veri dosyasının biçimlendirme özelliklerini ve seçeneklerini belirtin. Bu deyim dış verilerin metin olarak depolandığını ve değerlerin birbirinden dikey çizgi ('|') karakteriyle ayrıldığını belirtir. Dış dosya Gzip ile sıkıştırılır. 
+5. Aşağıdaki [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL deyimini çalıştırarak dış veri dosyasının biçimlendirme özelliklerini ve seçeneklerini belirtin. Bu deyim dış verilerin metin olarak depolandığını ve değerlerin birbirinden dikey çizgi ('|') karakteriyle ayrıldığını belirtir. Dış dosya Gzip ile sıkıştırılır. 
 
     ```sql
     CREATE EXTERNAL FILE FORMAT uncompressedcsv
@@ -273,7 +273,7 @@ Aşağıdaki SQL betiklerini çalıştırın, yüklemek istediğiniz veriler hak
     );
     ```
 
-6.  Aşağıdaki [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql.md) deyimini çalıştırarak dış dosya biçiminiz için bir şema oluşturun. Şema, oluşturmak üzere olduğunuz dış tabloları düzenlemek için bir yol sağlar.
+6.  Aşağıdaki [CREATE SCHEMA](/sql/t-sql/statements/create-schema-transact-sql) deyimini çalıştırarak dış dosya biçiminiz için bir şema oluşturun. Şema, oluşturmak üzere olduğunuz dış tabloları düzenlemek için bir yol sağlar.
 
     ```sql
     CREATE SCHEMA ext;
@@ -456,7 +456,7 @@ Bu bölümde, örnek verileri Azure Depolama Blobu'ndan SQL Veri Ambarı'na yük
 > Bu öğretici verileri doğrudan son tabloya yükler. Üretim ortamında, genellikle CREATE TABLE AS SELECT kullanarak bir hazırlama tablosuna yüklersiniz. Veriler hazırlama tablosundayken tüm gerekli dönüştürmeleri yapabilirsiniz. Hazırlama tablosundaki verileri üretim tablosuna eklemek için, INSERT...SELECT deyimini kullanabilirsiniz. Daha fazla bilgi için kz. [Üretim tablosuna veri ekleme](guidance-for-loading-data.md#inserting-data-into-a-production-table).
 > 
 
-Verileri Azure Depolama Blobu'ndan veri ambarınızdaki yeni tablolara yüklemek için, betikte [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL deyimi kullanılır. CTAS bir SELECT deyiminin sonuçlarına göre yeni tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir. SELECT deyimi bir dış tablodan seçim yaptığında, SQL Veri Ambarı verileri veri ambarındaki bir ilişkisel tabloya aktarır. 
+Verileri Azure Depolama Blobu'ndan veri ambarınızdaki yeni tablolara yüklemek için, betikte [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL deyimi kullanılır. CTAS bir SELECT deyiminin sonuçlarına göre yeni tablo oluşturur. Yeni tablo, select deyiminin sonuçları ile aynı sütunlara ve veri türlerine sahiptir. SELECT deyimi bir dış tablodan seçim yaptığında, SQL Veri Ambarı verileri veri ambarındaki bir ilişkisel tabloya aktarır. 
 
 1. Aşağıdaki betiği çalıştırarak verileri veri ambarınızdaki yeni tablolara yükleyin.
 

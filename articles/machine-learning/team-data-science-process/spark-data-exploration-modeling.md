@@ -1,8 +1,8 @@
 ---
-title: "Veri keşfi ve modelleme Spark ile | Microsoft Docs"
-description: "Azure üzerinde Spark Mllib'i Araç Seti veri keşfi ve modelleme yetenekleri gösterir."
+title: Veri keşfi ve modelleme Spark ile | Microsoft Docs
+description: Azure üzerinde Spark Mllib'i Araç Seti veri keşfi ve modelleme yetenekleri gösterir.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 078e1d209d0472051e2ec2804e67518a92285413
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: bradsev
+ms.openlocfilehash: c796cc5f19ac3a30d2cdf72b8fea2813a1586c1b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark ile veri keşfi ve modelleme
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -64,7 +64,7 @@ Bir Spark 2.0 kümesi kullanılarak uygulanan regresyon ve sınıflandırma gör
 > [!NOTE]
 > Uçak dataset sınıflandırma algoritmalarının kullanımını daha iyi anlamak için Spark 2.0 dizüstü bilgisayarlar için eklenmiştir. Aşağıdaki bağlantılar ayrılma dataset ve hava durumu dataset zamanında hava yolu hakkında bilgi için bkz:
 
->- Uçak zamanında ayrılma veri: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
+>- Uçak zamanında ayrılma verileri: [http://www.transtats.bts.gov/ONTIME/](http://www.transtats.bts.gov/ONTIME/)
 
 >- Havaalanı hava durumu verileri: [https://www.ncdc.noaa.gov/](https://www.ncdc.noaa.gov/) 
 > 
@@ -218,7 +218,7 @@ Veri Spark alındıktan sonra sonraki veri bilimi işlemi araştırması ve gör
 Bu kodu ve sonraki parçacıkları verileri çizmek için yerel Sihirli ve örnek sorgu için SQL Sihirli kullanın.
 
 * **SQL Sihirli (`%%sql`)** Hdınsight PySpark çekirdeği sqlContext kolay satır içi HiveQL sorguları destekler. (-O deðiþken_adý) bağımsız değişkeni devam ederse SQL sorgusu çıktısını Pandas DataFrame Jupyter sunucuda olarak. Bu, yerel modda kullanılabilir olduğu anlamına gelir.
-* **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` - o parametresiyle Sihirli. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı ve ardından %% yerel Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek
+*  **`%%local` Sihirli** kod Hdınsight kümesi headnode olan Jupyter sunucuda yerel olarak çalıştırmak için kullanılır. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` - o parametresiyle Sihirli. -O parametresiyle SQL sorgusu yerel olarak çıktısını kalıcı ve ardından %% yerel Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek
 
 Çıkış kodu çalıştırdıktan sonra otomatik olarak görünür.
 

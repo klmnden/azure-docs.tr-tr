@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sorunsuz çoklu oturum açma sık sorulan sorular özelliğini - | Microsoft Docs"
-description: "İlgili Azure Active Directory sorunsuz çoklu oturum açma sık sorulan soruların yanıtları."
+title: 'Azure AD Connect: Sorunsuz çoklu oturum açma sık sorulan sorular özelliğini - | Microsoft Docs'
+description: İlgili Azure Active Directory sorunsuz çoklu oturum açma sık sorulan soruların yanıtları.
 services: active-directory
-keywords: "Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 8a91960f150e9298515cd52fe192ec1abdd89f9c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c34293796860e0ab72eecedab9cd8b023237050d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sorunsuz çoklu oturum açma: sık sorulan sorular
 
@@ -38,16 +38,23 @@ Hayır. Sorunsuz SSO yalnızca Azure AD dünya çapındaki örneğini içinde ku
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Hangi uygulamaların yararlanmak `domain_hint` veya `login_hint` sorunsuz SSO parametre yeteneğini?
 
-Aşağıda, bu parametreler için Azure AD göndermek ve bu nedenle kullanıcılar sorunsuz SSO kullanarak bir sessiz oturum açma deneyimi sağlar uygulamalar kapsamlı olmayan bir listesidir:
+Aşağıda, bu parametreler için Azure AD göndermek ve bu nedenle kullanıcılar sorunsuz SSO (yani, kullanıcılarınız kendi kullanıcı adları giriş için gerekli) kullanarak bir sessiz oturum açma deneyimi sağlar uygulamalar kapsamlı olmayan bir listesidir:
 
 | Uygulama adı | Kullanılacak uygulama URL'si |
 | -- | -- |
 | Erişim paneli | myapps.microsoft.com/contoso.com |
 | Outlook Web üzerinde | outlook.office365.com/contoso.com |
 
-Yukarıdaki tabloda "contoso.com" kiracınız için doğru uygulama URL'lere almak için etki alanı adıyla değiştirin.
+Ayrıca, diğer bir deyişle, Azure AD kiralanan Uç noktalara - uygulama oturum açma isteği gönderirse, kullanıcılar sessiz bir oturum açma deneyimi alır https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD ortak bir uç - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>. Aşağıda listelenen, oturum açma isteği bu tür uygulamalar kapsamlı olmayan bir listesidir.
 
-İlgilendiğiniz diğer uygulamalarınız varsa, açıklamalar bölümünde bize bildirin.
+| Uygulama adı | Kullanılacak uygulama URL'si |
+| -- | -- |
+| SharePoint Online | contoso.sharepoint.com |
+| Azure portalına | portal.azure.com/contoso.com |
+
+Yukarıdaki tablolarda, "contoso.com" kiracınız için doğru uygulama URL'lere almak için etki alanı adıyla değiştirin.
+
+Sessiz oturum açma deneyimi bizim kullanan diğer uygulamalar istiyorsanız, bize geri bildirim bölümünde bildirin.
 
 ## <a name="does-seamless-sso-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Sorunsuz SSO desteklemiyor `Alternate ID` kullanıcı adı olarak yerine `userPrincipalName`?
 

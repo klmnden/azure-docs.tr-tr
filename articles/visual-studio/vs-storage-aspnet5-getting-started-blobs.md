@@ -1,11 +1,11 @@
 ---
-title: "BLOB ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET Core) | Microsoft Docs"
-description: "Visual Studio kullanarak bir depolama hesabı oluşturduktan sonra Azure Blob Depolama Visual Studio ASP.NET Core projede kullanmaya başlamak nasıl bağlı Hizmetleri"
+title: BLOB ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET Core) | Microsoft Docs
+description: Visual Studio kullanarak bir depolama hesabı oluşturduktan sonra Azure Blob Depolama Visual Studio ASP.NET Core projede kullanmaya başlamak nasıl bağlı Hizmetleri
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: kraigb
 manager: ghogen
-editor: 
+editor: ''
 ms.assetid: 094b596a-c92c-40c4-a0f5-86407ae79672
 ms.service: storage
 ms.workload: web
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: kraigb
-ms.openlocfilehash: afd73bd0fd041a53fbe31aa3a5c23b3e27d7a9ec
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: e3814533b955d5b6444692a7b565219d28002262
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET çekirdek)
 
@@ -28,7 +28,7 @@ Bu makale, oluşturduğunuz veya Visual Studio kullanarak bir ASP.NET Core proje
 
 Azure Blob Depolama büyük miktarda gelen yerden HTTP veya HTTPS aracılığıyla erişilebilir yapılandırılmamış veriyi depolamak için bir hizmettir. Tek bir blob herhangi bir boyutta olabilir. BLOB'ları görüntüleri, ses ve video dosyaları, ham verileri ve belge dosyaları gibi olabilir. Bu makalede, Visual Studio kullanarak Azure storage hesabı oluşturduktan sonra blob storage'ı kullanmaya başlamak açıklar **bağlantılı Hizmetler** ASP.NET Core projesinde.
 
-Dosyaları klasörlerde yalnızca dinamik olarak kapsayıcılarında depolama BLOB'ları dinamik. Bir blob oluşturduktan sonra bir veya daha fazla kapsayıcı, blob oluşturun. Örneğin, "Koleksiyon defteri" adlı bir blob resimleri depolamak için "görüntüleri" olarak adlandırılan kapsayıcılar oluşturabilirsiniz ve başka "ses dosyalarını depolamak için ses" denir. Kapsayıcılar oluşturduktan sonra bunları tek tek dosyaları karşıya yükleyebilir. Bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md) program aracılığıyla BLOB'lar düzenleme hakkında daha fazla bilgi.
+Dosyaları klasörlerde yalnızca dinamik olarak kapsayıcılarında depolama BLOB'ları dinamik. Bir blob oluşturduktan sonra bir veya daha fazla kapsayıcı, blob oluşturun. Örneğin, "Koleksiyon defteri" adlı bir blob resimleri depolamak için "görüntüleri" olarak adlandırılan kapsayıcılar oluşturabilirsiniz ve başka "ses dosyalarını depolamak için ses" denir. Kapsayıcılar oluşturduktan sonra bunları tek tek dosyaları karşıya yükleyebilir. Bkz: [hızlı başlangıç: karşıya yükleme, indirme ve .NET kullanarak listesi BLOB'ları](../storage/blobs/storage-quickstart-blobs-dotnet.md) program aracılığıyla BLOB'lar düzenleme hakkında daha fazla bilgi.
 
 Bazı Azure depolama API'leri zaman uyumsuz ve zaman uyumsuz yöntemleri kullanıldığı bu makaledeki kod varsayar. Bkz: [zaman uyumsuz programlama](https://docs.microsoft.com/dotnet/csharp/async) daha fazla bilgi için.
 
@@ -141,7 +141,7 @@ do
 } while (token != null);
 ```
 
-Bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container) bir blob kapsayıcı içeriğini listelemek diğer yolları için.
+Bkz: [hızlı başlangıç: karşıya yükleme, indirme ve .NET kullanarak listesi BLOB'ları](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) bir blob kapsayıcı içeriğini listelemek diğer yolları için.
 
 ## <a name="download-a-blob"></a>Blob indirme
 
@@ -158,7 +158,7 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Bkz: [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs) blobları dosya olarak kaydetmek diğer yolları için.
+Bkz: [hızlı başlangıç: karşıya yükleme, indirme ve .NET kullanarak listesi blob'lara](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) blobları dosya olarak kaydetmek diğer yolları için.
 
 ## <a name="delete-a-blob"></a>Blob silme
 

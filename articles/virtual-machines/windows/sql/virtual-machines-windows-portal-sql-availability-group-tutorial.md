@@ -1,6 +1,6 @@
 ---
-title: "SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - Öğreticisi | Microsoft Docs"
-description: "Bu öğretici Azure sanal makineler üzerinde bir SQL Server her zaman üzerinde kullanılabilirlik grubu oluşturulacağını gösterir."
+title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - Öğreticisi | Microsoft Docs
+description: Bu öğretici Azure sanal makineler üzerinde bir SQL Server her zaman üzerinde kullanılabilirlik grubu oluşturulacağını gösterir.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 70e483f8b64648200bd6f0898a2877c2bf95e590
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -356,7 +356,7 @@ Azure sanal makinelerde SQL Server kullanılabilirlik grubu yük dengeleyici ger
    | **Sanal ağ** |Azure sanal ağı adını kullanın. |
    | **Alt ağ** |Sanal makine alt ağ adını kullanın.  |
    | **IP adresi ataması** |Statik |
-   | **IP adresi** |Kullanılabilir bir alt ağ adresi kullanın. |
+   | **IP adresi** |Kullanılabilir bir alt ağ adresi kullanın. Bu, küme IP adresinden farklı olduğuna dikkat edin |
    | **Abonelik** |Aynı abonelikte sanal makine olarak kullanın. |
    | **Konum** |Aynı konumda sanal makine olarak kullanın. |
 

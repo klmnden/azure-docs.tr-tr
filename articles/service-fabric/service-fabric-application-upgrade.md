@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric uygulama yükseltme | Microsoft Docs"
-description: "Bu makalede seçme yükseltme modları ve gerçekleştirme durumu denetimleri de dahil olmak üzere bir Service Fabric uygulama yükseltme giriş bilgileri sağlar."
+title: Service Fabric uygulama yükseltme | Microsoft Docs
+description: Bu makalede seçme yükseltme modları ve gerçekleştirme durumu denetimleri de dahil olmak üzere bir Service Fabric uygulama yükseltme giriş bilgileri sağlar.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 803c9c63-373a-4d6a-8ef2-ea97e16e88dd
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 765931d8a888432e0cc77ff86d597b6e2a029a2a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 60bbd75496b6e835a76edb4251aac6ea249187b3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uygulaması yükseltme
 Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-and-service-manifests.md) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.
@@ -57,6 +57,13 @@ Uygulama yükseltme geri, varsayılan hizmet parametreleri yükseltme başladı,
 
 > [!TIP]
 > [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) küme yapılandırma ayarı olmalıdır *true* kurallarını 2 etkinleştirmek için) ve 3) (varsayılan hizmet güncelleştirme ve silme) üstünde. Bu özellik, Service Fabric sürüm 5.5 itibaren desteklenmektedir.
+
+## <a name="upgrading-multiple-applications-with-https-endpoints"></a>HTTPS uç noktaları birden çok uygulama yükseltme
+Kullanmamaya dikkat etmeniz gereken **aynı bağlantı noktasını** HTTP kullanırken aynı uygulamanın farklı örnekleri için**S**. Service Fabric uygulaması örneklerden birini için sertifika yükseltmeniz mümkün olmayacaktır nedenidir. Örneğin, 1 veya uygulama 2 hem uygulaması kendi sertifikası 1 cert 2 yükseltmek istiyorsanız. Yükseltme gerçekleştiğinde, diğer uygulama hala kullanarak olsa bile Service Fabric sertifikası 1 kayıt http.sys ile yukarı temizlendi. Bunu önlemek için Service Fabric olmadığını zaten başka bir uygulama örneği bağlantı noktası (http.sys) nedeniyle sertifika ile kayıtlı ve işlem başarısız algılar.
+
+Bu nedenle Service Fabric kullanan iki farklı hizmet yükseltmeyi desteklemez **aynı bağlantı noktasını** farklı uygulama durumlarda. Diğer bir deyişle, aynı bağlantı noktasında farklı Hizmetleri aynı sertifikayı kullanamazsınız. Aynı bağlantı noktasında paylaşılan bir sertifikanız gerekiyorsa, hizmetleri yerleştirme kısıtlamalarına sahip farklı makinelerde yerleştirilir emin olmak gerekir. Veya her uygulama örneği her hizmet için Service Fabric dinamik bağlantı noktaları mümkünse kullanmayı düşünün. 
+
+Https, "Windows HTTP sunucu API birden çok sertifika bir bağlantı noktasını paylaşmak uygulamalar için desteklemiyor." bildiren uyarı bir hata ile yükseltme bir hata görürseniz
 
 ## <a name="application-upgrade-flowchart"></a>Uygulama yükseltme akış çizelgesi
 Bu paragraf aşağıdaki akış çizelgesi, bir Service Fabric uygulama yükseltme işlemini anlamanıza yardımcı olabilir. Özellikle, akışını açıklar nasıl dahil olmak üzere zaman aşımlarını *HealthCheckStableDuration*, *HealthCheckRetryTimeout*, ve *UpgradeHealthCheckInterval*, Yardım Yükseltme tek bir güncelleştirme etki alanındaki bir başarı veya hata olarak kabul edildiğinde denetim.

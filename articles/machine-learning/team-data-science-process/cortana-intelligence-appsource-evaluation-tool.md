@@ -1,8 +1,8 @@
 ---
-title: "Cortana Intelligence çözüm Değerlendirme Aracı | Microsoft Docs"
-description: "Microsoft Partner AppSource için Cortana Intelligence çözümünüzü yayımlamak için izlemeniz gereken adımlar şunlardır."
+title: Cortana Intelligence çözüm Değerlendirme Aracı | Microsoft Docs
+description: Microsoft Partner AppSource için Cortana Intelligence çözümünüzü yayımlamak için izlemeniz gereken adımlar şunlardır.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: AnupamMicrosoft
 manager: jhubbard
 editor: cgronlun
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
-ms.author: anupams;v-bruham;garye
-ms.openlocfilehash: c9ea8164d5866662a7ed81672ee1ba776603b193
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: anupams
+ms.openlocfilehash: f678cb9819a2c03f97bcca5a2092160212779328
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence çözüm değerlendirme aracı
 ## <a name="overview"></a>Genel Bakış

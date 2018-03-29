@@ -1,9 +1,9 @@
 ---
-title: "SQL Azure Cosmos DB sorgularında | Microsoft Docs"
-description: "Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL Azure Cosmos veritabanı bir JSON sorgu dili olarak kullanabilir."
-keywords: "SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri"
+title: SQL Azure Cosmos DB sorgularında | Microsoft Docs
+description: Azure Cosmos DB SQL söz dizimi, veritabanı kavramlarını ve SQL sorguları hakkında bilgi edinin. SQL Azure Cosmos veritabanı bir JSON sorgu dili olarak kullanabilir.
+keywords: SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: LalithaMV
 manager: jhubbard
 editor: monicar
@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: 8425c9eae1bb7b50edec1d36d4e7c80b49b243ac
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a79b1a97909a38b4bfba06186db875d0c0c25f03
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB SQL sorguları
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Microsoft Azure Cosmos DB SQL (yapılandırılmış sorgu dili) kullanarak belgelerin sorgulanmasını SQL API hesapları bir JSON sorgu dili olarak destekler. Azure Cosmos DB gerçekten şemasız. Doğrudan veritabanı altyapısının içinde JSON veri modeli için kendi taahhüt, otomatik JSON belgelerinin dizinini gerektirmeden açık şema veya ikincil dizinlerin oluşturulmasını sağlar.
 
@@ -34,11 +32,17 @@ Cosmos DB için sorgu dili tasarlarken size iki hedefleri düşünerek vardı:
 
 Bu özellikler uygulama ve veritabanı arasında uyuşmazlık azaltmak için anahtar ve geliştirici üretkenliği için kritik önem taşıyan inanıyoruz.
 
-Burada Aravind Ramachandran gösterir Cosmos DB özellikleri sorgulama, aşağıdaki videoyu izlemeyi ve ziyaret tarafından Başlarken öneririz bizim [Query Playground](http://www.documentdb.com/sql/demo), burada Cosmos DB deneyin ve SQL sorguları çalıştırma bizim veri kümesi.
+Burada Azure Cosmos DB Program Yöneticisi Barış Liu Azure Cosmos veritabanı sorgulama özelliklerini gösterir ve çevrimiçi gösteren aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz [Query Playground](http://www.documentdb.com/sql/demo), Azure burada deneyin Cosmos DB ve kümemize videoda gösterildiği gibi SQL sorguları çalıştırma.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
-> 
-> 
+> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
+>
+>
+
+Daha gelişmiş sorgulama teknikler bu videoyu izleme gösterilmiştir:
+
+> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
+>
+>
 
 Ardından, bu makalede, burada size bazı basit JSON belgeleri ve SQL komutları anlatan bir SQL sorgusu öğretici başlayın döndür.
 
@@ -110,7 +114,7 @@ Artık Azure Cosmos veritabanı SQL sorgu dili anahtar yönlerini bazıları anl
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "id": "AndersenFamily",
@@ -139,7 +143,7 @@ Artık Azure Cosmos veritabanı SQL sorgu dili anahtar yönlerini bazıları anl
     FROM Families f 
     WHERE f.address.city = f.address.state
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "Family": {
@@ -159,7 +163,7 @@ Sonraki sorgu kimliğine eşleşen ailesinde alt tüm verilen adlarını döndü
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       { "givenName": "Jesse" }, 
@@ -215,7 +219,7 @@ Kaynak, aynı zamanda daha küçük bir alt azaltılabilir. Örneğin, yalnızca
     SELECT * 
     FROM Families.children
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       [
@@ -253,7 +257,7 @@ Yukarıdaki örnek kaynağı olarak bir dizi kullanılan olsa da, bir nesne de a
     SELECT * 
     FROM Families.address.state
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       "WA", 
@@ -272,7 +276,7 @@ Aşağıdaki sorgu, değeri olan bir ad özelliği içeren belgeleri istekleri `
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "address": {
@@ -611,7 +615,7 @@ Aşağıdaki örnek, tipik bir seçme sorgusu gösterir.
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "address": {
@@ -631,7 +635,7 @@ Aşağıdaki örnekte, biz iki iç içe özellikler yansıtma `f.address.state` 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "state": "WA", 
@@ -647,7 +651,7 @@ Projeksiyon ayrıca aşağıdaki örnekte gösterildiği gibi JSON ifadeleri des
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "$1": {
@@ -667,7 +671,7 @@ Rolü, bakalım `$1` burada. `SELECT` Yan tümcesi bir JSON nesnesi oluşturmak 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "$1": {
@@ -693,7 +697,7 @@ Aynı ada sahip iki özellik bir sorgu sahip olmaması durumunda, böylece bunla
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "AddressInfo": {
@@ -713,7 +717,7 @@ Aynı ada sahip iki özellik bir sorgu sahip olmaması durumunda, böylece bunla
 
     SELECT "Hello World"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "$1": "Hello World"
@@ -726,7 +730,7 @@ Burada, skaler bir ifade kullanır daha karmaşık bir örnek verilmiştir.
 
     SELECT ((2 + 11 % 7)-2)/3    
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "$1": 1.33333
@@ -740,7 +744,7 @@ Aşağıdaki örnekte, bir Boole değeri bir skaler ifade sonucudur.
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -760,7 +764,7 @@ Başka bir anahtar SQL API dizi/nesne oluşturma özelliğidir. Önceki örnekte
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       {
@@ -784,7 +788,7 @@ Başka bir anahtar SQL API dizi/nesne oluşturma özelliğidir. Önceki örnekte
 
     SELECT VALUE "Hello World"
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       "Hello World"
@@ -798,7 +802,7 @@ Aşağıdaki sorgu olmadan JSON değerini döndürür `"address"` sonuçları et
     SELECT VALUE f.address
     FROM Families f    
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       {
@@ -820,7 +824,7 @@ Aşağıdaki örnekte bu dönüş JSON ilkel değerlerini (yaprak düzeyi JSON a
     SELECT VALUE f.address.state
     FROM Families f    
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       "WA",
@@ -837,7 +841,7 @@ Aşağıdaki örnekte bu dönüş JSON ilkel değerlerini (yaprak düzeyi JSON a
     FROM Families f 
     WHERE f.id = "AndersenFamily"
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "id": "AndersenFamily",
@@ -865,7 +869,7 @@ Aşağıdaki örnekte bu dönüş JSON ilkel değerlerini (yaprak düzeyi JSON a
     SELECT TOP 1 * 
     FROM Families f 
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "id": "AndersenFamily",
@@ -895,7 +899,7 @@ Toplamalar de gerçekleştirebilirsiniz `SELECT` yan tümcesi. Toplama işlevler
     SELECT COUNT(1) 
     FROM Families f 
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "$1": 2
@@ -908,7 +912,7 @@ Kullanarak toplama skaler değer döndürebilir `VALUE` anahtar sözcüğü. Ör
     SELECT VALUE COUNT(1) 
     FROM Families f 
 
-**Sonuçları**
+**Sonuçlar**
 
     [ 2 ]
 
@@ -920,7 +924,7 @@ Filtrelerle birlikte toplamalar de gerçekleştirebilirsiniz. Örneğin, aşağ�
     FROM Families f
     WHERE f.address.state = "WA" 
 
-**Sonuçları**
+**Sonuçlar**
 
     [ 1 ]
 
@@ -953,7 +957,7 @@ Gibi ANSI-SQL'de, isteğe bağlı bir Order By yan tümcesi sorgularken ekleyebi
     FROM Families f 
     ORDER BY f.address.city
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -974,7 +978,7 @@ Ve aileleri dönem temsil eden bir sayı olarak depolanan oluşturma tarih sıra
     FROM Families f 
     ORDER BY f.creationDate DESC
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -997,7 +1001,7 @@ Yeni bir yapı aracılığıyla eklendi **IN** JSON diziler yineleme için deste
     SELECT * 
     FROM Families.children
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       [
@@ -1031,7 +1035,7 @@ Yeni bir yapı aracılığıyla eklendi **IN** JSON diziler yineleme için deste
     SELECT * 
     FROM c IN Families.children
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       {
@@ -1062,7 +1066,7 @@ Bu daha fazla dizi her bir giriş aşağıdaki örnekte gösterildiği gibi filt
     FROM c IN Families.children
     WHERE c.grade = 8
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [{
       "givenName": "Lisa"
@@ -1075,7 +1079,7 @@ Toplama dizi yineleme sonuç de gerçekleştirebilirsiniz. Örneğin, aşağıda
     SELECT COUNT(child) 
     FROM child IN Families.children
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [
       { 
@@ -1096,7 +1100,7 @@ Aşağıdaki örnekler, JOIN yan tümcesi nasıl çalıştığını gösterir. A
     FROM Families f
     JOIN f.NonExistent
 
-**Sonuçları**  
+**Sonuçlar**  
 
     [{
     }]
@@ -1110,7 +1114,7 @@ Aşağıdaki örnekte, birleştirme belge arasında köküdür ve `children` sub
     FROM Families f
     JOIN f.children
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -1130,7 +1134,7 @@ Aşağıdaki örnek, daha geleneksel bir birleştirme gösterir:
     FROM Families f
     JOIN c IN f.children 
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -1167,7 +1171,7 @@ Gerçek katılma form başlıkları, aksi takdirde projeye zor olan bir şekil i
     JOIN c IN f.children 
     JOIN p IN c.pets
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -1221,7 +1225,7 @@ Sonraki örnekte olduğundan bir ek filtre `pet`. Burada Evcil adı "Gölge" de�
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -1271,7 +1275,7 @@ Bir yansıtma sorgu Biz bu UDF artık kullanabilirsiniz. UDF'ler büyük küçü
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
 
-**Sonuçları**
+**Sonuçlar**
 
     [
       {
@@ -1290,7 +1294,7 @@ UDF de bir filtre içinde de "udf ile." tam aşağıdaki örnekte gösterildiği
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
         "id": "AndersenFamily",
@@ -1330,7 +1334,7 @@ UDF uygular örneği aşağıdadır.
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
 
-**Sonuçları**
+**Sonuçlar**
 
      [
       {
@@ -1436,7 +1440,7 @@ Matematik işlevleri her bağımsız değişken olarak sağlanır ve sayısal bi
 
     SELECT VALUE ABS(-4)
 
-**Sonuçları**
+**Sonuçlar**
 
     [4]
 
@@ -1491,7 +1495,7 @@ Bu işlevler kullanılarak, şimdi aşağıdaki gibi sorguları çalıştırabil
 
     SELECT VALUE IS_NUMBER(-4)
 
-**Sonuçları**
+**Sonuçlar**
 
     [true]
 
@@ -1524,7 +1528,7 @@ Bu işlevleri kullanarak, şimdi aşağıdaki gibi sorguları çalıştırabilir
     SELECT VALUE UPPER(Families.id)
     FROM Families
 
-**Sonuçları**
+**Sonuçlar**
 
     [
         "WAKEFIELDFAMILY", 
@@ -1538,7 +1542,7 @@ Veya bu örnekteki gibi dizeyi birleştirmek:
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily",
@@ -1558,7 +1562,7 @@ Dize işlevleri, WHERE yan tümcesinde aşağıdaki örnekte gibi sonuçları fi
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily",
@@ -1583,7 +1587,7 @@ Dizi işlevleri, JSON içinde diziler işlemek için kullanılabilir. Örneğin,
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily"
@@ -1597,7 +1601,7 @@ Dizi öğeleri eşleşen bir kısmi parça belirtebilirsiniz. Aşağıdaki sorgu
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily"
@@ -1611,7 +1615,7 @@ Burada, aile başına alt sayısını almak için ARRAY_LENGTH kullanan başka b
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily",
@@ -1660,7 +1664,7 @@ Uzamsal işlevleri uzamsal veriler yakınlaştırmalı sorguları gerçekleştir
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily"
@@ -2012,7 +2016,7 @@ Aşağıdaki örnekler, biz kadarki geçirdikten iki örnek belgeleri içeren bi
     }
 
 
-**Sonuçları**
+**Sonuçlar**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
@@ -2085,7 +2089,7 @@ Aşağıdaki örnekler, biz kadarki geçirdikten iki örnek belgeleri içeren bi
     }
 
 
-**Sonuçları**
+**Sonuçlar**
 
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
@@ -2260,7 +2264,7 @@ Aşağıdaki örnek queryDocuments JavaScript Sunucusu API sorgularından yapmak
 6. JSON [http://json.org/](http://json.org/)
 7. JavaScript belirtimi [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. Sorgu büyük veritabanları için değerlendirme teknikleri [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+9. Büyük veritabanları için sorgu değerlendirme teknikleri [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10. Sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayar topluluğu basın, işleme
 11. Lu, Ooi, Bronz, sorgu 1994 paralel ilişkisel veritabanı sistemleri, IEEE bilgisayar topluluğu basın, işleme.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Barış Tomkins: Pig Latin: veri işleme, SIGMOD 2008 için Not şekilde yabancı dil.

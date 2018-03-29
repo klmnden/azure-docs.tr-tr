@@ -1,25 +1,25 @@
 ---
-title: "Azure Service Fabric uygulamasını Visual Studio'dan bir kümeye dağıtma | Microsoft Docs"
-description: "Uygulamayı Visual Studio'dan bir kümeye dağıtmayı öğrenin"
+title: Azure Service Fabric uygulamasını Visual Studio'dan bir kümeye dağıtma | Microsoft Docs
+description: Uygulamayı Visual Studio'dan bir kümeye dağıtmayı öğrenin
 services: service-fabric
 documentationcenter: .net
 -author: mikkelhegn
 -manager: msfussell
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/21/2018
-ms.author: mikkelhegn
+ms.date: 02/23/2018
+ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 21c991a4e3f9ae19a4ad4a96427fdc1c91c55a1c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 1d8f8d903046f1d471f7abbe08a957b81522e391
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-deploy-an-application-to-a-service-fabric-cluster-in-azure"></a>Öğretici: Azure’da bir Service Fabric kümesine uygulama dağıtma
 Bir serinin ikinci kısmı olan bu öğreticide bir Azure Service Fabric uygulamasının doğrudan Visual Studio'dan Azure’da yeni bir kümeye nasıl dağıtılacağı gösterilir.
@@ -65,7 +65,6 @@ Bu öğreticide, Visual Studio'dan küme oluşturma adımları izlenir. Diğer s
 > Birçok hizmet birbiriyle iletişim kurmak için ters proxy kullanır. Visual Studio'dan oluşturulan kümelerde ve grup kümelerinde ters proxy varsayılan olarak etkindir.  Mevcut kümelerden birini kullanıyorsanız, [kümede ters proxy'yi etkinleştirmelisiniz](service-fabric-reverseproxy.md#setup-and-configuration).
 
 ### <a name="deploy-the-app-to-the-service-fabric-cluster"></a>Uygulamayı Service Fabric kümesine dağıtma
-
 1. Çözüm Gezgini'nde uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
 
 2. Aboneliklerinize erişebilmek için Azure hesabınızı kullanarak oturum açın. Grup kümesi kullanıyorsanız bu adım isteğe bağlıdır.

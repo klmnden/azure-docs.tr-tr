@@ -1,19 +1,19 @@
 ---
-title: "Azure kapsayıcı Hizmeti'nde Kubernetes ile Jenkins sürekli dağıtımı"
-description: "Jenkins dağıtmak ve Kubernetes Azure kapsayıcı Hizmeti'nde bir kapsayıcılı uygulamasını yükseltmek için sürekli dağıtım işlemine otomatikleştirme"
+title: Azure kapsayıcı Hizmeti'nde Kubernetes ile Jenkins sürekli dağıtımı
+description: Jenkins dağıtmak ve Kubernetes Azure kapsayıcı Hizmeti'nde bir kapsayıcılı uygulamasını yükseltmek için sürekli dağıtım işlemine otomatikleştirme
 services: container-service
 author: neilpeterson
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 1293fda45602203570a0f7f75481f67bdcb6edf3
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Jenkins ve Azure kapsayıcı hizmeti ile sürekli dağıtımı
 
@@ -57,7 +57,7 @@ https://github.com/Azure-Samples/azure-voting-app-redis
 git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 ```
 
-Dizinleri kopyalanan dizinden çalıştığınız şekilde değiştirin.
+Kopyalanan dizinden çalışabilmeniz için dizinleri değiştirin.
 
 ```bash
 cd azure-voting-app-redis
@@ -71,7 +71,7 @@ docker-compose up -d
 
 Tamamlandığında kullanmak [docker görüntüleri] [ docker-images] oluşturulan görüntü görmek için komutu.
 
-Üç görüntüleri indirilebilir veya oluşturulan dikkat edin. `azure-vote-front` Görüntü uygulama içerir ve kullandığı `nginx-flask` görüntüyü temel olarak. `redis` Görüntü bir Redis örneği başlatmak için kullanılır.
+İndirilen veya oluşturulan üç görüntü olduğunu göz önünde bulundurun. `azure-vote-front` görüntüsü uygulamayı içerir ve temel olarak `nginx-flask` görüntüsünü kullanır. `redis` görüntüsü bir Redis örneği başlatmak için kullanılır.
 
 ```console
 $ docker images
@@ -160,6 +160,20 @@ Open a browser to http://52.166.118.64:8080
 Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
+
+Jenkins oturum sorunlarla karşılaşırsanız, Jenkins VM ile bir SSH oturumu oluşturmak ve Jenkins hizmetini yeniden başlatın. VM IP adresini yapı komut dosyası tarafından sağlanan adrestir. VM yönetici kullanıcı adı `azureuser`.
+
+```bash
+ssh azureuser@52.166.118.64
+```
+
+Jenkins hizmetini yeniden başlatın.
+
+```bash
+sudo service jenkins restart
+```
+
+Tarayıcınızı yenileyin ve Jenkins oturum açma formu sunulacaktır.
 
 ## <a name="jenkins-environment-variables"></a>Jenkins ortam değişkenleri
 

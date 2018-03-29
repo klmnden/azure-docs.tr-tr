@@ -1,8 +1,8 @@
 ---
-title: "Azure kaynakları için yeni abonelik veya kaynak grubu taşıma | Microsoft Docs"
-description: "Yeni kaynak grubu ya da abonelik kaynaklarını taşımak için Azure Resource Manager kullanın."
+title: Azure kaynakları için yeni abonelik veya kaynak grubu taşıma | Microsoft Docs
+description: Yeni kaynak grubu ya da abonelik kaynaklarını taşımak için Azure Resource Manager kullanın.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 03/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4709ee707aa67c8de531b2b3e0b58dbed5c2667b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -87,6 +87,11 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
   az provider register --namespace Microsoft.Batch
   ```
 
+4. Kaynakları taşıma hesabı en az aşağıdaki izinlere sahip olmalıdır:
+
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+
 ## <a name="when-to-call-support"></a>Destek çağrısı yapıldığında
 
 Bu makalede gösterilen Self Servis işlemleri üzerinden en fazla kaynak taşıyabilirsiniz. Self Servis işlemleri için kullanın:
@@ -105,6 +110,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 
 * API Management
 * App Service uygulamalarının (web uygulamaları) - bkz [App Service sınırlamalar](#app-service-limitations)
+* App Service Sertifikaları
 * Application Insights
 * Otomasyon
 * Azure Cosmos DB
@@ -193,7 +199,9 @@ Sanal ağ alt ağı kaynak Gezinti bağlantılarıyla içeriyorsa, bir sanal ağ
 
 ## <a name="app-service-limitations"></a>App Service sınırlamalar
 
-Uygulama hizmeti kaynakları taşıma sınırlamalarını taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir.
+Uygulama hizmeti kaynakları taşıma sınırlamalarını taşıdığınız bir abonelik içindeki veya yeni bir abonelik için kaynaklara göre farklılık gösterir. 
+
+Bu bölümlerde açıklanan sınırlamalar karşıya yüklenen sertifikalar, uygulama hizmeti sertifikaları uygulanır. Yeni kaynak grubu veya abonelik kısıtlamaları olmadan, uygulama hizmeti sertifikaları taşıyabilirsiniz. Tüm web uygulamaları taşıyın aynı uygulama hizmet sertifikası kullanan birden çok web uygulamaları varsa sertifikayı taşıyın.
 
 ### <a name="moving-within-the-same-subscription"></a>Aynı abonelik içinde taşıma
 

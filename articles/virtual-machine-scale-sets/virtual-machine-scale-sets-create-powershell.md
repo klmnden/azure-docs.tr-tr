@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell ile Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Belgeleri"
-description: "Azure PowerShell ile hızlıca sanal makine ölçek kümesi oluşturmayı öğrenin"
+title: Azure PowerShell ile Sanal Makine Ölçek Kümesi Oluşturma | Microsoft Belgeleri
+description: Azure PowerShell ile hızlıca sanal makine ölçek kümesi oluşturmayı öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 12/19/2017
 ms.author: iainfou
 ms.openlocfilehash: c5ca90ae303d62c4ad453971f84da78866b0c599
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/27/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell ile Sanal Makine Ölçek Kümesi oluşturma
 Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu başlangıç makalesinde Azure PowerShell ile bir sanal makine ölçek kümesi oluşturacaksınız. Ölçek kümesi oluşturmak için [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md) veya [Azure portalı](virtual-machine-scale-sets-create-portal.md) da kullanabilirsiniz.

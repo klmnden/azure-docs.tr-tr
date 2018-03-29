@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi Azure anahtar kasası çözümde | Microsoft Docs"
-description: "Azure anahtar kasası günlükleri gözden geçirmek için günlük analizi Azure anahtar kasası çözüm kullanabilirsiniz."
+title: Günlük analizi Azure anahtar kasası çözümde | Microsoft Docs
+description: Azure anahtar kasası günlükleri gözden geçirmek için günlük analizi Azure anahtar kasası çözüm kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c4b16ec11d1990de687014c5385314f0e0c602a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Günlük analizi Azure anahtar kasası Analytics çözümde
 
@@ -118,8 +118,8 @@ Azure anahtar kasası çözüm türünü içeren kayıtları çözümler **KeyVa
 | Kaynak |Anahtar kasasının adı |
 | ResourceGroup |Anahtar kasasının kaynak grubu |
 | ResourceId |Azure Resource Manager Kaynak Kimliği. Anahtar kasası günlükleri için bu anahtar kasası kaynak kimliğidir. |
-| ResourceProvider |*MICROSOFT. KEYVAULT* |
-| ResourceType | *KASALARI* |
+| ResourceProvider |*MICROSOFT.KEYVAULT* |
+| ResourceType | *VAULTS* |
 | ResultSignature |HTTP durumu (örneğin, *Tamam*) |
 | ResultType |REST API isteğinin sonucunu (örneğin, *başarı*) |
 | SubscriptionId |Anahtar kasası içeren abonelik Azure abonelik kimliği |
@@ -137,13 +137,13 @@ Güncellenen çözümü kullanmak için:
 2. Azure anahtar kasası çözüm açıklanan işlemi kullanarak etkinleştirin [Çözümleri Galerisi çözümlerinden günlük analizi Ekle](log-analytics-add-solutions.md)
 3. Tüm kayıtlı sorgu, panolar veya yeni veri türünü kullanmak için uyarıları güncelleştirme
   + Değişikliği türüdür: AzureDiagnostics KeyVaults. Kaynak türü, anahtar kasası günlükleri için filtre uygulamak için kullanabilirsiniz.
-  - Yerine: `Type=KeyVaults`, kullanın`Type=AzureDiagnostics ResourceType=VAULTS`
+  - Yerine: `KeyVaults`, kullanın `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + Alanlar: (alan adları büyük küçük harfe duyarlı)
   - Sonekine sahip herhangi bir alan için \_s, \_d veya \_g adı küçük harflere ilk karakter değiştirme
-  - Sonekine sahip herhangi bir alan için \_adında, verileri o iç içe geçmiş alan adlarını temel alarak tek tek alanlara bölünür. Örneğin, çağıran UPN bir alanda depolanır`identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
+  - Sonekine sahip herhangi bir alan için \_adında, verileri o iç içe geçmiş alan adlarını temel alarak tek tek alanlara bölünür. Örneğin, çağıran UPN bir alanda depolanır `identity_claim_http_schemas_xmlsoap_org_ws_2005_05_identity_claims_upn_s`
    - Alan CallerIpAddress CallerIPAddress için değiştirildi
    - Alan RemoteIPCountry artık mevcut değil
-4. Kaldırma *anahtar kasası Analytics (kullanım dışı)* çözümü. PowerShell kullanıyorsanız, kullanın`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
+4. Kaldırma *anahtar kasası Analytics (kullanım dışı)* çözümü. PowerShell kullanıyorsanız, kullanın `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "KeyVault" -Enabled $false`
 
 Değişiklik yeni çözümde görünür değil önce veri toplanmadı. Eski türü ve alan adları kullanarak bu verileri sorgulamak devam edebilirsiniz.
 

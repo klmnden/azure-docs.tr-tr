@@ -1,11 +1,11 @@
 ---
 title: SQL Data Warehouse kapasite limitlerini | Microsoft Docs
-description: "Bağlantılar, veritabanları, tablolar ve SQL Data Warehouse için sorguları için en yüksek değerleri."
+description: Bağlantılar, veritabanları, tablolar ve SQL Data Warehouse için sorguları için en yüksek değerleri.
 services: sql-data-warehouse
 documentationcenter: NA
-author: kevinvngo
+author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: e1eac122-baee-4200-a2ed-f38bfa0f67ce
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 03/15/2018
+ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: b1ff33f80a8dd0a0861a5c39731c9f59689db101
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için izin verilen en yüksek değerleri içerir.
@@ -39,13 +39,13 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 |:--- |:--- |:--- |
 | Database |Maksimum boyut |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
 | Tablo |Maksimum boyut |60 disk üzerinde sıkıştırılmış TB |
-| Tablo |Her bir veritabanı tabloları |2 milyara |
+| Tablo |Her bir veritabanı tabloları |10,000 |
 | Tablo |Tablo başına sütun |1024 sütunları |
 | Tablo |Sütun başına bayt sayısı |Sütun bağımlı [veri türü][data type].  Karakter veri türleri için 8000 nvarchar 4000 ya da en büyük veri türleri için 2 GB sınırıdır. |
 | Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı etkinleştirir satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [veri satırı taşma aşan 8 KB'lik][Row-Overflow Data Exceeding 8 KB]. |
 | Tablo |Tablo başına bölüm |15,000<br/><br/>Yüksek performans, sayısını en aza indirmenizi öneririz bölümlerini hala iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, ek yükü veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için büyür ve performans neden olur. |
 | Tablo |Karakter başına bölüm sınır değeri. |4000 |
-| Dizin |Tablo başına olmayan Kümelenmiş dizinler. |999<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
+| Dizin |Tablo başına olmayan Kümelenmiş dizinler. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
 | Dizin |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore ve columnstore tabloları için geçerlidir. |
 | Dizin |Dizin anahtarı boyutu. |900 bayt sayısı.<br/><br/>Yalnızca rowstore dizinler için geçerlidir.<br/><br/>Dizin oluşturulduğunda sütunlardaki var olan verileri 900 bayt aşmayan, dizinleri birden fazla 900 bayt maksimum boyuta sahip varchar sütunlarda oluşturulabilir. Ancak, daha sonra ekleme veya güncelleştirme eylemleri toplam boyutu 900 baytı aşmasına neden sütunlar üzerinde başarısız olur. |
 | Dizin |Dizin başına anahtar sütun. |16<br/><br/>Yalnızca rowstore dizinler için geçerlidir. Kümelenmiş columnstore dizinleri tüm sütunları içerir. |
@@ -72,8 +72,9 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 | SEÇ |İç içe alt sorgular |32<br/><br/>Bu gibi durumlarda, 32'den fazla iç içe alt sorgulara hiçbir zaman bir SELECT deyimi içinde olabilir. 32 her zaman olabilir garantisi yoktur. Örneğin, bir birleştirme alt sorgu sorgu planı tanıtabilirsiniz. Sayı, alt sorgular tarafından kullanılabilir bellek sınırlı olabilir. |
 | SEÇ |BİRLEŞİM başına sütun |1024 sütunları<br/><br/>Bu gibi durumlarda, 1024'ten fazla sütun hiçbir zaman birleştirme olabilir. 1024 her zaman olabilir garantisi yoktur. BİRLEŞİM planı birleştirme sonucunu çok sütun içeren geçici bir tablo gerektiriyorsa, 1024 sınırı geçici tabloya uygulanır. |
 | SEÇ |GROUP BY sütun başına bayt sayısı. |8060<br/><br/>GROUP BY yan tümcesinde sütun en fazla Açıklama 8060 baytlık olabilir. |
-| SEÇ |ORDER BY sütun başına bayt sayısı |Açıklama 8060 baytlık.<br/><br/>ORDER BY yan tümcesinde sütun en fazla Açıklama 8060 baytlık olabilir. |
-| Tanımlayıcıları ve deyimi başına sabitleri |Başvurulan tanımlayıcıları ve sabitleri sayısı. |65,535<br/><br/>SQL veri ambarı tanımlayıcıları ve tek bir sorgu ifadesinde bulunan sabitler sayısını sınırlar. Bu sınırı 65. 535'dir. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için bkz: [iç hata: deyim Hizmetleri sınırına ulaşıldı][Internal error: An expression services limit has been reached]. |
+| SEÇ |ORDER BY sütun başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>ORDER BY yan tümcesinde sütun en fazla Açıklama 8060 baytlık olabilir |
+| Deyimi başına tanımlayıcıları |Başvurulan tanımlayıcıları sayısı |65,535<br/><br/>SQL veri ambarı tek bir sorgu ifadesinde bulunan tanımlayıcıları sayısını sınırlar. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için bkz: [iç hata: deyim Hizmetleri sınırına ulaşıldı][Internal error: An expression services limit has been reached]. |
+| Dize değişmez değerleri | Dize değişmez değerleri bir deyimde sayısı | 20,000 <br/><br/>SQL veri ambarı limites tek bir sorgu ifadesinde bulunan dize sabitleri sayısı. SQL Server hatası 8632 numara bu sonuçlarında aşıyor. Daha fazla bilgi için bkz: [iç hata: deyim Hizmetleri sınırına ulaşıldı][Internal error: An expression services limit has been reached]. |
 
 ## <a name="metadata"></a>Meta Veriler
 | Sistem Görünümü | En fazla satır |

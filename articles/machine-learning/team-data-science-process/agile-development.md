@@ -1,23 +1,23 @@
 ---
-title: "Veri bilimi projelerin - Azure Machine Learning Çevik Geliştirme | Microsoft Docs"
-description: "Nasıl geliştiriciler saat dilimi ve tarih takım veri bilimi işlemi kullanarak veri bilimi projesinde bir sistematik, sürüm denetimli ve proje ekibi içinde işbirliğine dayalı şekilde çalıştırabilirsiniz."
-documentationcenter: 
+title: Veri bilimi projelerin - Azure Machine Learning Çevik Geliştirme | Microsoft Docs
+description: Nasıl geliştiriciler saat dilimi ve tarih takım veri bilimi işlemi kullanarak veri bilimi projesinde bir sistematik, sürüm denetimli ve proje ekibi içinde işbirliğine dayalı şekilde çalıştırabilirsiniz.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: bradsev;
-ms.openlocfilehash: 686f751b241d49d116948711c683f4b504d5d5f9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.author: bradsev
+ms.openlocfilehash: dbaf2df0f5572c9b269000c741f1d736a7521d73
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="agile-development-of-data-science-projects"></a>Veri bilimi projelerinin Çevik Geliştirme
 
@@ -89,7 +89,7 @@ Ayrıca, bu özellik Proje depoya bağlayabilirsiniz. Tıklatın **Bağlantı Ek
 
 ## 4. <a name='AddStoryunderfeature-4'></a>Öykü altında Özellik Ekle 
 
-Özellik altında hikayeleri (özellik) proje tamamlamak için gereken önemli adımlar açıklamak için eklenebilir. Yeni Öykü eklemek için tıklatın  **+**  oturum biriktirme listesi görünümünde özellik solundaki.  
+Özellik altında hikayeleri (özellik) proje tamamlamak için gereken önemli adımlar açıklamak için eklenebilir. Yeni Öykü eklemek için tıklatın **+** oturum biriktirme listesi görünümünde özellik solundaki.  
 
 ![4](./media/agile-development/4-sprint-add-story.png)
 
@@ -106,7 +106,7 @@ Tıklayarak mevcut bir depoya bu hikayesine bağlayabilirsiniz **+ Ekle bağlant
 
 Her hikaye tamamlamak için gereken belirli ayrıntılı adımlar görevlerdir. Konunun tüm görevler tamamlandıktan sonra Öykü çok tamamlanmalıdır. 
 
-Bir hikayesine bir görev eklemek için tıklatın  **+**  select Öykü öğesinin yanındaki oturum **görev**ve ardından bu görevin açılır pencerede ayrıntılı bilgileri doldurun.
+Bir hikayesine bir görev eklemek için tıklatın **+** select Öykü öğesinin yanındaki oturum **görev**ve ardından bu görevin açılır pencerede ayrıntılı bilgileri doldurun.
 
 ![7](./media/agile-development/7-sprint-add-task.png)
 
@@ -117,7 +117,7 @@ Bir hikayesine bir görev eklemek için tıklatın  **+**  select Öykü öğesi
 ![9](./media/agile-development/9-link-to-a-new-branch.png)
 
 
-## 6. <a name='set-up-agile-dsp-6'></a>Bir Çevik TDSP iş şablonunda Visual Studio Online ayarlama
+## 6. <a name='set-up-agile-dsp-6'></a> Bir Çevik TDSP iş şablonunda Visual Studio Online ayarlama
 
 Bu makalede, TDSP veri bilimi yaşam döngüsünün aşamaları kullanan ve Visual Studio Online (vso) ile çalışma öğelerini izleyen bir Çevik veri bilimi işlem şablonu ayarlanacağı açıklanmaktadır. Veri bilimi özgü Çevik ayarlama örneği aracılığıyla ilerlemesi aşağıdaki adımları işlem şablonu *AgileDataScienceProcess* ve şablona dayalı veri bilimi iş öğelerinin nasıl oluşturulacağını gösterir.
 
@@ -184,8 +184,8 @@ Veri bilimi işlem şablonu oluşturulduktan sonra oluşturabilir ve TDSP yaşam
 
 Aşağıda, Çevik işlemleri üzerindeki kaynaklara bağlantılar verilmiştir.
 
-- Çevik işlem [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
-- Çevik işlem iş öğesi türleri ve iş akışı [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
+- Çevik işlem   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process)
+- Çevik işlem iş öğesi türleri ve iş akışı   [https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow](https://www.visualstudio.com/en-us/docs/work/guidance/agile-process-workflow)
 
 
 İşlem için tüm adımları gösteren talimatlara **belirli senaryolar** de sağlanır. Listelenen ve küçük resim açıklamasında ile bağlantılı [örnek izlenecek yollar](walkthroughs.md) makalesi. Bunlar, bulut, şirket içi araçları ve Hizmetleri bir iş akışı veya akıllı bir uygulama oluşturmak için ardışık düzen birleştirmek nasıl koruduğu gösterilmiştir. 

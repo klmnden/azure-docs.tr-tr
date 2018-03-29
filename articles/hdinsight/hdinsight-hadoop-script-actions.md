@@ -1,8 +1,8 @@
 ---
-title: "Betik eylemi geliştirme Hdınsight - Azure ile | Microsoft Docs"
-description: "Betik eylemi olan Hadoop kümeleri özelleştirmeyi öğrenin. Betik eylemi, Hadoop küme üzerinde çalışan ek yazılım yüklemesi veya bir kümeye yüklü uygulamalar yapılandırmasını değiştirmek için kullanılabilir."
+title: Betik eylemi geliştirme Hdınsight - Azure ile | Microsoft Docs
+description: Betik eylemi olan Hadoop kümeleri özelleştirmeyi öğrenin. Betik eylemi, Hadoop küme üzerinde çalışan ek yazılım yüklemesi veya bir kümeye yüklü uygulamalar yapılandırmasını değiştirmek için kullanılabilir.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d0e95014f6ebfc4e0286d3a12999c918f831b489
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Hdınsight Windows tabanlı kümeler için betik eylemi betikleri geliştirme
 Hdınsight için betik eylemi betikler yazma hakkında bilgi edinin. Betik eylemi komut dosyalarını kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı Hdınsight kümeleri için yazılmış aynı makale için bkz: [Hdınsight betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
@@ -39,7 +39,7 @@ Betik eylemi, Hadoop küme üzerinde çalışan ek yazılım yüklemesi veya bir
 > [!NOTE]
 > Aşağıdaki hata iletisini karşılaşırsanız:
 >
-> System.Management.Automation.CommandNotFoundException; ExceptionMessage: Terimi 'Kaydet-HDIFile' cmdlet, işlev, komut dosyası veya çalıştırılabilir program adı olarak tanınmıyor. Adının yazımını denetleyin veya bir yol dahilse, yolun doğru olduğundan emin olun ve yeniden deneyin.
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage : The term 'Save-HDIFile' is not recognized as the name of a cmdlet, function, script file, or operable program. Adının yazımını denetleyin veya bir yol dahilse, yolun doğru olduğundan emin olun ve yeniden deneyin.
 > Yardımcı yöntemler eklemediniz olmasıdır.  Bkz: [özel komut dosyaları için yardımcı yöntemleri](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
 >
 >
@@ -96,18 +96,18 @@ Komut dosyası, dört parametre, yapılandırma dosyasının adını, ayarlamak 
 
     hive-site.xml hive.metastore.client.socket.timeout 90
 
-Bu parametreler hive-site.xml dosyasında 90 ila hive.metastore.client.socket.timeout değeri ayarlar.  Varsayılan değer 60 saniyedir.
+Bu parametreler hive.metastore.client.socket.timeout değeri hive-site.xml dosyasında 90'a ayarlayın.  Varsayılan değer 60 saniyedir.
 
-Bu örnek komut dosyası ayrıca bulunabilir [https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
+Bu örnek komut dosyası ayrıca bulunabilir [ https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1 ](https://hditutorialdata.blob.core.windows.net/customizecluster/editSiteConfig.ps1).
 
 Hdınsight Hdınsight kümelerinde ek bileşenleri yüklemek için çeşitli komut dosyaları sağlar:
 
 | Ad | Betik |
 | --- | --- |
-| **Spark yükleyin** |https://hdiconfigactions.BLOB.Core.Windows.NET/sparkconfigactionv03/Spark-installer-v03.ps1. Bkz: [yükleme ve kullanma hdınsight'ta Spark kümeleri][hdinsight-install-spark]. |
-| **R yükleme** |https://hdiconfigactions.BLOB.Core.Windows.NET/rconfigactionv02/r-installer-v02.ps1. Bkz: [yükleme ve kullanma R Hdınsight kümelerinde][hdinsight-r-scripts]. |
-| **Solr yükleyin** |https://hdiconfigactions.BLOB.Core.Windows.NET/solrconfigactionv01/solr-installer-v01.ps1. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install.md). |
-| - **Giraph yükleyin** |https://hdiconfigactions.BLOB.Core.Windows.NET/giraphconfigactionv01/giraph-installer-v01.ps1. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install.md). |
+| **Spark yükleyin** |https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1. Bkz: [yükleme ve kullanma hdınsight'ta Spark kümeleri][hdinsight-install-spark]. |
+| **R yükleme** |https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1. Bkz: [yükleme ve kullanma R Hdınsight kümelerinde][hdinsight-r-scripts]. |
+| **Solr yükleyin** |https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1. Bkz: [yükleme ve kullanma Solr hdınsight kümeleri](hdinsight-hadoop-solr-install.md). |
+| - **Giraph yükleyin** |https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1. Bkz: [yükleme ve kullanma Giraph hdınsight kümeleri](hdinsight-hadoop-giraph-install.md). |
 
 Betik eylemi, Azure portalı, Azure PowerShell veya Hdınsight .NET SDK kullanarak dağıtılabilir.  Daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak][hdinsight-cluster-customize].
 
@@ -117,7 +117,7 @@ Betik eylemi, Azure portalı, Azure PowerShell veya Hdınsight .NET SDK kullanar
 >
 
 ## <a name="helper-methods-for-custom-scripts"></a>Özel komut dosyaları için yardımcı yöntemleri
-Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler tanımlanan [https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), komut dosyalarınızı aşağıdaki örneği kullanarak eklenebilir:
+Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler tanımlanan [ https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1 ](https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1), komut dosyalarınızı aşağıdaki örneği kullanarak eklenebilir:
 
     # Download config action module from a well-known directory.
     $CONFIGACTIONURI = "https://hdiconfigactions.blob.core.windows.net/configactionmodulev05/HDInsightUtilities-v05.psm1";
@@ -140,10 +140,10 @@ Bu komut dosyası tarafından sağlanan yardımcı yöntemler şunlardır:
 
 | Yardımcı yöntemi | Açıklama |
 | --- | --- |
-| **Kaydet-HDIFile** |Bir dosya belirtilen Tekdüzen Kaynak Tanımlayıcısı (URI) gelen kümeye atanan Azure VM düğümle ilişkilendirilen yerel diskteki bir konuma indirin. |
-| **Genişletme HDIZippedFile** |Sıkıştırılmış bir dosya sıkıştırmasını açın. |
-| **Çağırma HDICmdScript** |Bir komut dosyası cmd.exe çalıştırın. |
-| **Yazma HDILog** |Bir komut dosyası eylemi için kullanılan özel komut dosyasından çıkış yazma. |
+| **Save-HDIFile** |Bir dosya belirtilen Tekdüzen Kaynak Tanımlayıcısı (URI) gelen kümeye atanan Azure VM düğümle ilişkilendirilen yerel diskteki bir konuma indirin. |
+| **Expand-HDIZippedFile** |Sıkıştırılmış bir dosya sıkıştırmasını açın. |
+| **Invoke-HDICmdScript** |Bir komut dosyası cmd.exe çalıştırın. |
+| **Write-HDILog** |Bir komut dosyası eylemi için kullanılan özel komut dosyasından çıkış yazma. |
 | **Get-Services** |Burada betiği yürüten makinede çalışan hizmetlerin listesini alın. |
 | **Get-Service** |Giriş olarak belirli hizmet adı ile belirli bir hizmet için ayrıntılı bilgi almak (hizmet adı, işlem kimliği, durum, vb.) burada betiği yürüten makinede. |
 | **Get-HDIServices** |Burada betiği yürüten bilgisayarda çalışan Hdınsight hizmetlerin listesini alın. |
@@ -156,7 +156,7 @@ Bu komut dosyası tarafından sağlanan yardımcı yöntemler şunlardır:
 | **Test-IsHDIHeadNode** |Burada betiği yürüten bilgisayar bir baş düğüm olup olmadığını denetleyin. |
 | **Test-IsActiveHDIHeadNode** |Burada betiği yürüten bilgisayar etkin bir baş düğüm olup olmadığını denetleyin. |
 | **Test-IsHDIDataNode** |Burada betiği yürüten bilgisayar veri düğümü olup olmadığını denetleyin. |
-| **Düzen HDIConfigFile** |Yapılandırma dosyaları hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml veya yarn-site.xml düzenleyin. |
+| **Edit-HDIConfigFile** |Yapılandırma dosyaları hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml veya yarn-site.xml düzenleyin. |
 
 ## <a name="best-practices-for-script-development"></a>Komut dosyası geliştirme için en iyi yöntemler
 Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınması gereken birkaç en iyi yöntemler vardır:
@@ -166,14 +166,14 @@ Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınma
     Yalnızca Hdınsight sürüm 3.1 (Hadoop 2.4) ve bir kümede özel bileşenleri yüklemek için betik eylemi kullanarak destek üstünde. Özel betiğinizde kullanmalısınız **Get-HDIHadoopVersion** komut dosyasında diğer görevleri gerçekleştirme ile devam etmeden önce Hadoop sürümünü denetlemek için yardımcı yöntemi.
 * Komut dosyası kaynaklara kararlı bağlantılar sağlar
 
-    Kullanıcılar tüm betikler ve bir küme özelleştirmesinde kullanılan diğer yapıları kümenin kullanım ömrü kullanılabilir kalmasını ve bu dosyaların sürümleri süresince değiştirmeyin emin olmanız gerekir. Kümedeki düğümler yeniden görüntüleme gerekliyse, bu kaynakları gereklidir. Karşıdan yüklemek ve bir depolama hesabındaki kullanıcı denetimleri her şeyi arşivlemek için en iyi uygulamadır bakın. Bu, varsayılan depolama hesabı veya herhangi bir dağıtım zaman özelleştirilmiş bir küme için belirtilen ek depolama hesapları olabilir.
-    Belgelerde, örneğin, biz kaynakları yerel bir kopyasını bu depolama hesabında yapmış olduğunuz sağlanan küme örnekleri özelleştirilmiş Spark ve R: https://hdiconfigactions.blob.core.windows.net/.
+    Kullanıcılar tüm betikler ve bir küme özelleştirmesinde kullanılan diğer yapıları kümenin kullanım ömrü kullanılabilir kalmasını ve bu dosyaların sürümleri süresince değiştirmeyin emin olmanız gerekir. Kümedeki düğümler yeniden görüntüleme gerekliyse, bu kaynakları gereklidir. Karşıdan yüklemek ve bir depolama hesabındaki kullanıcı denetimleri her şeyi arşivlemek için en iyi uygulamadır bakın. Bu hesap, varsayılan depolama hesabı veya herhangi bir dağıtım zaman özelleştirilmiş bir küme için belirtilen ek depolama hesapları olabilir.
+    Belgelerde, örneğin, sağlanmış bu depolama hesabındaki kaynaklara yerel bir kopyasını küme örnekleri özelleştirilmiş Spark ve R: https://hdiconfigactions.blob.core.windows.net/.
 * Küme özelleştirme betik ıdempotent olduğundan emin olun
 
-    Hdınsight kümesi düğümleri küme ömrü boyunca yeniden olduğunu beklediğiniz gerekir. Bir küme yeniden her küme özelleştirme komut dosyasını çalıştırın. Bu komut dosyasını yeniden görüntüsünü oluşturuyor sonra komut dosyasını aynı küme döndürülür emin olması herkese açık ıdempotent yalnızca küme başlangıçta oluşturulduğu ilk kez betiği çalıştırdıktan sonra durumla durumu özelleştirilmiş olacak şekilde tasarlanmış olması gerekir. Özel bir komut dosyası ilk çalıştırılmasında D:\AppLocation uygulama yüklediyseniz, örneğin, sonra yeniden görüntüsünü oluşturuyor, bağlı her sonraki çalıştırmada betik adımları diğer işlemine devam etmeden önce uygulama D:\AppLocation konumda var olup olmadığını kontrol komut dosyası.
+    Hdınsight kümesi düğümleri küme ömrü boyunca görüntüsü yeniden beklediğiniz gerekir. Bir küme yeniden her küme özelleştirme komut dosyasını çalıştırın. Bu komut dosyasını yeniden görüntüsünü oluşturuyor sonra komut dosyasını aynı küme döndürülür emin olması herkese açık ıdempotent yalnızca küme başlangıçta oluşturulduğu ilk kez betiği çalıştırdıktan sonra durumla durumu özelleştirilmiş olacak şekilde tasarlanmış olması gerekir. Özel bir komut dosyası ilk çalıştırılmasında D:\AppLocation uygulama yüklediyseniz, örneğin, sonra yeniden görüntüsünü oluşturuyor, bağlı her sonraki çalıştırmada betik adımları diğer işlemine devam etmeden önce uygulama D:\AppLocation konumda var olup olmadığını kontrol komut dosyası.
 * En iyi konumda özel bileşenlerini yükle
 
-    Küme düğümleri yeniden, D:\ sistem sürücüsü ve C:\ kaynak sürücü, veri kaybına ve bu sürücülerde yüklemiş olduğu uygulamalar sonuçlanır yeniden biçimlendirilen. Kümenin parçası olan bir Azure sanal makine (VM) düğüm arıza ve yeni bir düğüm tarafından değiştirilirse bu de olabilir. Bileşenleri D:\ sürücüsüne veya küme C:\apps yerde yükleyebilirsiniz. C:\ sürücüsü üzerindeki diğer tüm konumlara ayrılmıştır. Burada uygulamalar veya kitaplıkları küme özelleştirme betik yüklenecek konumu belirtin.
+    Küme düğümleri yeniden, D:\ sistem sürücüsü ve C:\ kaynak sürücü, veri kaybına ve bu sürücülerde yüklemiş olduğu uygulamalar sonuçlanır yeniden biçimlendirilen. Kümesinin parçası olan bir Azure sanal makine (VM) düğüm arıza ve yeni bir düğüm tarafından değiştirilirse, bu kaybı da meydana gelmiş olabilir. Bileşenleri D:\ sürücüsüne veya küme C:\apps yerde yükleyebilirsiniz. C:\ sürücüsü üzerindeki diğer tüm konumlara ayrılmıştır. Burada uygulamalar veya kitaplıkları küme özelleştirme betik yüklenecek konumu belirtin.
 * Küme mimari yüksek kullanılabilirliğini sağlamak
 
     Hdınsight bir baş düğüm (Hdınsight Hizmetleri çalıştırdığınız) etkin modda bir baş düğüm olup (hangi Hdınsight'ta Hizmetleri çalışmıyor) bekleme modunda olduğundan, yüksek kullanılabilirlik için bir Aktif-Pasif mimarisi vardır. Hdınsight Hizmetleri kesilirse düğümleri etkin ve Pasif modları. Yüksek kullanılabilirlik için her iki baş düğümünde hizmetlerini yüklemek için bir betik eylemi kullandıysanız, Hdınsight yük devretme mekanizması otomatik olarak bu kullanıcı tarafından yüklenen hizmetleri başarısız mümkün olmadığını unutmayın. Bu nedenle kullanıcı yüklü hizmetler yüksek oranda kullanılabilir olması beklenen Hdınsight baş düğümler üzerinde kendi Aktif-Pasif modu, yük devretme yönteminde sahip veya etkin-etkin modunda olması.
@@ -186,7 +186,7 @@ Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınma
 ## <a name="common-usage-patterns"></a>Genel kullanım desenleri
 Bu bölümde, kendi özel bir komut dosyası yazılırken içine çalışabilir ortak kullanım desenlerini bazıları uygulama yönergeler sağlanmaktadır.
 
-### <a name="configure-environment-variables"></a>Ortam değişkenleri yapılandırın
+### <a name="configure-environment-variables"></a>Ortam değişkenlerini yapılandırma
 Genellikle betik eylemi geliştirme ortam değişkenlerini ayarlama gerek düşündüğünüz. Bir ikili dış sitesinden, kümede yüklemek ve, 'PATH' ortam değişkeni yüklendiği konumun eklediğinizde örneği için en olası senaryodur. Aşağıdaki kod parçacığında özel betik ortam değişkenlerini ayarlama gösterilmiştir.
 
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
@@ -246,7 +246,7 @@ Biz bu komut dosyaları dağıtmak hazırlarken sürdü adımlar şunlardır:
 ## <a name="debug-custom-scripts"></a>Özel komut dosyaları hata ayıklama
 Komut dosyası hata günlüklerini oluşturulduktan konumundaki küme için belirtilen varsayılan depolama hesabındaki diğer çıktı birlikte depolanır. Günlükler, adı olan bir tabloda depolanır *u < \cluster-name-fragment >< \time-stamp > setuplog*. Tüm betik kümede çalışan düğümleri (baş düğüm ve çalışan düğümleri) kayıtları toplanmış günlükleri şunlardır.
 
-Günlükleri denetlemek için kolay bir yol, Visual Studio için Hdınsight araçları kullanmaktır. Araçları yüklemek için bkz: [Visual Studio Hadoop araçlarını için Hdınsight kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-and-upgrade-data-lake-tools-for-visual-studio)
+Günlükleri denetlemek için kolay bir yol, Visual Studio için Hdınsight araçları kullanmaktır. Araçları yüklemek için bkz: [Visual Studio Hadoop araçlarını için Hdınsight kullanmaya başlama](hadoop/apache-hadoop-visual-studio-tools-get-started.md#install-or-update-data-lake-tools-for-visual-studio)
 
 **Visual Studio kullanarak günlüğünü denetlemek için**
 

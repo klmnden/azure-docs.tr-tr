@@ -1,10 +1,10 @@
 ---
-title: "Günlükleri ve ölçüm verilerini toplamak için Azure Storage Analytics kullanın | Microsoft Docs"
-description: "Storage Analytics Ölçüm verilerini tüm depolama hizmetlerini izlemenizi ve Blob, kuyruk ve tablo depolama için günlükleri toplamak için etkinleştirir."
+title: Günlükleri ve ölçüm verilerini toplamak için Azure Storage Analytics kullanın | Microsoft Docs
+description: Storage Analytics Ölçüm verilerini tüm depolama hizmetlerini izlemenizi ve Blob, kuyruk ve tablo depolama için günlükleri toplamak için etkinleştirir.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: tamram
-ms.openlocfilehash: 9ae9dd0b078911a695d441cd3891be720dc204ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: edda01cbfe1b53d934f9f4a7bb01c645fa680873
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="storage-analytics"></a>Depolama Analizi
 
@@ -79,7 +79,7 @@ Aşağıdaki tabloda günlük ad içindeki her bir öznitelik açıklanmaktadır
 
 | Öznitelik | Açıklama |
 | --- | --- |
-| < hizmet-adı > |Depolama hizmet adı. Örneğin: blob, tablo veya kuyruğu. |
+| <service-name> |Depolama hizmet adı. Örneğin: blob, tablo veya kuyruğu. |
 | YYYY |Günlük için dört rakamlı yıl. Örneğin: 2011. |
 | MM |Günlük için iki basamaklı ayı. Örneğin: 07. |
 | DD |Günlük için iki basamaklı ayı. Örneğin: 07. |
@@ -95,7 +95,7 @@ Aşağıdaki tabloda günlük ad içindeki her bir öznitelik açıklanmaktadır
 
     https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log
 
-Bir depolama istek günlüğe kaydedildiğinde, sonuçta elde edilen günlük adı tamamlanmış olduğunda istenen işlem saati hatalarla ilintilidir. Örneğin, bir GetBlob istek 6: 30'da tamamlandı 7/31/2011 ' günlük şu önek ile yazılmış:`blob/2011/07/31/1800/`
+Bir depolama istek günlüğe kaydedildiğinde, sonuçta elde edilen günlük adı tamamlanmış olduğunda istenen işlem saati hatalarla ilintilidir. Örneğin, bir GetBlob istek 6: 30'da tamamlandı 7/31/2011 ' günlük şu önek ile yazılmış: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Log meta verileri
 Tüm günlük BLOB'lar blob içerdiği günlük verileri tanımlamak için kullanılan meta verileriyle depolanır. Aşağıdaki tabloda, her meta veri özniteliğinin açıklanmaktadır.
@@ -109,9 +109,9 @@ Tüm günlük BLOB'lar blob içerdiği günlük verileri tanımlamak için kulla
 
 Aşağıdaki listede önceki örneklerde kullanarak tam örnek meta verilerini görüntüler.
 
-* LogType yazma =
-* StartTime 2011 =-07-31T18:21:46Z
-* EndTime 2011 =-07-31T18:22:09Z
+* LogType=write
+* StartTime=2011-07-31T18:21:46Z
+* EndTime=2011-07-31T18:22:09Z
 * LogVersion = 1.0
 
 ### <a name="accessing-logging-data"></a>Günlük verilerine erişme
@@ -157,7 +157,7 @@ Tüm ölçüm verilerini depolama hizmetlerinin her biri için bu hizmet için a
 | Dakika ölçümleri, ikincil konum |$MetricsMinuteSecondaryTransactionsBlob <br/>$MetricsMinuteSecondaryTransactionsTable <br/>$MetricsMinuteSecondaryTransactionsQueue |2013-08-15 dahil olmak üzere tüm sürümleri. Okuma erişimli coğrafi olarak yedekli çoğaltma etkinleştirilmiş olması gerekir. |
 | Kapasite (yalnızca Blob hizmeti) |$MetricsCapacityBlob |2013-08-15 dahil olmak üzere tüm sürümleri. |
 
-Storage Analytics bir depolama hesabı için etkinleştirildiğinde, bu tablolar otomatik olarak oluşturulur. Örneğin, depolama hesabı ad alanı erişilir:`https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
+Storage Analytics bir depolama hesabı için etkinleştirildiğinde, bu tablolar otomatik olarak oluşturulur. Örneğin, depolama hesabı ad alanı erişilir: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`
 
 ### <a name="accessing-metrics-data"></a>Ölçümleri verilerine erişme
 Ölçümleri tablolarındaki tüm verileri tablo hizmeti API'leri kullanılarak erişilebilir, Azure tarafından sağlanan .NET API'lerini de dahil olmak üzere kitaplığı yönetilen. Depolama hesabının yöneticisine okuyun ve tablo varlıkları silmek, ancak oluşturabilir veya bunları güncelleştirin.

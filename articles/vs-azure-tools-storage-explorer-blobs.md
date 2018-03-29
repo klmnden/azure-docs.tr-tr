@@ -1,11 +1,11 @@
 ---
-title: "Depolama Gezgini (Önizleme) ile Azure Blob Storage kaynaklarını yönetme | Microsoft Docs"
-description: "Azure Blob kapsayıcılar ve Bloblar Depolama Gezgini (Önizleme) ile yönetme"
+title: Depolama Gezgini (Önizleme) ile Azure Blob Storage kaynaklarını yönetme | Microsoft Docs
+description: Azure Blob kapsayıcılar ve Bloblar Depolama Gezgini (Önizleme) ile yönetme
 services: storage
 documentationcenter: na
 author: cawa
 manager: paulyuk
-editor: 
+editor: ''
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
 ms.devlang: multiple
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: c23b87cca66df0834a31494be7d8657ff9f2a865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98a1016f78587b4139041f140634b98fa47edfd1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>Depolama Gezgini (Önizleme) ile Azure Blob Storage kaynaklarını yönetme
 ## <a name="overview"></a>Genel Bakış
 [Azure Blob Storage](storage/blobs/storage-dotnet-how-to-use-blobs.md) büyük miktarda herhangi bir yere HTTP veya HTTPS aracılığıyla erişilebilen metin veya ikili veriler gibi yapılandırılmamış veriyi depolamak için bir hizmettir.
 Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz. Bu makalede, blob kapsayıcıları ile çalışmak için Depolama Gezgini (Önizleme) ve BLOB'ları nasıl kullanacağınızı öğreneceksiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 * [Depolama Gezgini (önizleme) indirip yükleme](http://www.storageexplorer.com)
 * [Bir Azure depolama hesabı veya hizmetine bağlanma](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
-## <a name="create-a-blob-container"></a>Bir blob kapsayıcı oluşturun
+## <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
 Tüm BLOB'lar BLOB'ları yalnızca mantıksal bir gruplandırması olan bir blob kapsayıcısında bulunmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir ve her kapsayıcı sınırsız sayıda BLOB depolayabilirsiniz.
 
 Aşağıdaki adımları Depolama Gezgini (Önizleme) içinde bir blob kapsayıcısını oluşturmak nasıl gösterilmektedir.
@@ -41,7 +41,7 @@ Aşağıdaki adımları Depolama Gezgini (Önizleme) içinde bir blob kapsayıc�
 3. Sağ **Blob kapsayıcıları**ve - bağlam menüsünden - seçin **Blob kapsayıcısı oluşturmak**.
 
    ![BLOB kapsayıcıları bağlam menüsü oluşturma][0]
-4. Bir metin kutusu altında görünür **Blob kapsayıcıları** klasör. Blob kapsayıcısı için ad girin. Bkz: [kapsayıcı adlandırma kurallarını](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) bölümünde bir liste için kurallar ve blob kapsayıcı adlandırma kısıtlamaları.
+4. Bir metin kutusu altında görünür **Blob kapsayıcıları** klasör. Blob kapsayıcınızın adını girin. Bkz: [kapsayıcı oluşturun ve izinleri ayarla](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) kuralları ve blob kapsayıcı adlandırma kısıtlamaları hakkında bilgi.
 
    ![BLOB kapsayıcıları metin kutusu oluşturma][1]
 5. Tuşuna **Enter** blob kapsayıcısı oluşturmak için yapıldığında veya **Esc** iptal etmek için. Blob kapsayıcısı başarıyla oluşturulduktan sonra uygulamanın altında görüntülenecek **Blob kapsayıcıları** seçili depolama hesabına için klasör.
@@ -170,11 +170,11 @@ Aşağıdaki adımları blob kapsayıcısı içinde BLOB'ları (ve klasörler) y
 
      1. Ana bölmedeki araç çubuğunda **Karşıya Yükle**’yi ve ardından açılır listedeki **Dosyaları Karşıya Yükle**’yi seçin.
 
-        ![Dosya menüsü karşıya yükle][15]
+        ![Dosyaları karşıya yükleme menüsü][15]
      2. **Dosyaları Karşıya Yükle** iletişim kutusunda, **Dosyalar** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek karşıya yüklemek istediğiniz dosyaları belirleyin.
 
         ![Karşıya yükleme seçenekleri dosyaları][16]
-     3. Türünü belirtin **Blob türü**. Makaleyi [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) çeşitli blob türleri arasındaki farklar açıklanmaktadır.
+     3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturun ve izinleri ayarla](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.
      4. İsteğe bağlı olarak, seçili dosyaları karşıya yüklenecek bir hedef klasör belirtin. Hedef klasör mevcut değilse, oluşturulur.
      5. **Karşıya Yükle**’yi seçin.
    * **Bir klasör bir blob kapsayıcıya karşıya yükle**
@@ -185,7 +185,7 @@ Aşağıdaki adımları blob kapsayıcısı içinde BLOB'ları (ve klasörler) y
      2. **Klasörü karşıya yükle** iletişim kutusunda, **Klasör** metin kutusunun sağ tarafındaki üç noktayı (**…**) seçerek içeriklerini karşıya yüklemek istediğiniz klasörü belirleyin.
 
         ![Klasör Seçenekleri karşıya yükle][18]
-     3. Türünü belirtin **Blob türü**. Makaleyi [.NET kullanarak Azure Blob storage'ı kullanmaya başlama](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) çeşitli blob türleri arasındaki farklar açıklanmaktadır.
+     3. Türünü belirtin **Blob türü**. Bkz: [kapsayıcı oluşturun ve izinleri ayarla](storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-the-container) daha fazla bilgi için.
      4. İsteğe bağlı olarak, seçili klasörün içeriklerinin yükleneceği bir hedef klasör belirtin. Hedef klasör mevcut değilse, oluşturulur.
      5. **Karşıya Yükle**’yi seçin.
    * **Bir blob yerel bilgisayarınıza indirin**
@@ -205,7 +205,7 @@ Aşağıdaki adımları blob kapsayıcısı içinde BLOB'ları (ve klasörler) y
      2. Ana bölmedeki araç çubuğunda **Kopyala**’yı seçin.
      3. Sol bölmede, başka bir blob kapsayıcısına gidin ve ana bölmede görüntülemek için çift tıklayın.
      4. Ana bölmede ait araç çubuğunda seçin **Yapıştır** blob bir kopyasını oluşturun.
-   * **Bir blob Sil**
+   * **Delete a blob**
 
      1. Silmek istediğiniz blob seçin.
      2. Ana bölmedeki araç çubuğunda **Sil**’i seçin.

@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makine ölçek ayarlar ile ilgili SSS | Microsoft Docs"
-description: "Sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıtlarını alın."
+title: Azure sanal makine ölçek ayarlar ile ilgili SSS | Microsoft Docs
+description: Sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıtlarını alın.
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -16,15 +16,55 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 52be84b73e70a02c43ef71917dc272060d82b42d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
 Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıtlarını alın.
+
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Üst ölçek kümeleri için sık sorulan sorular
+**S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?
+
+**C.** Ölçek kümeleri, platform görüntülerini temel alan 0 ila 1.000 VM’ye veya özel görüntüleri temel alan 0 ila 300 VM’ye sahip olabilir. 
+
+**S.** Ölçek kümelerinde veri diskleri destekleniyor mu?
+
+**C.** Evet. Bir ölçek kümesi, kümedeki tüm sanal makineler için geçerli olan bağlı veri diski yapılandırmasını tanımlayabilir. Daha fazla bilgi için bkz. [Azure ölçek kümeleri ve bağlı veri diskleri](virtual-machine-scale-sets-attached-disks.md). Veri depolamayla ilgili diğer seçenekler şunlardır:
+
+* Azure dosyaları (paylaşılan SMB sürücüleri)
+* İşletim sistemi sürücüsü
+* Geçici sürücü (yerel, Azure Depolama tarafından yedeklenmez)
+* Azure veri hizmeti (örneğin Azure tabloları, Azure blobları)
+* Dış veri hizmeti (örneğin, uzak veritabanı)
+
+**S.** Hangi Azure bölgeleri ölçek kümelerini destekler?
+
+**C.** Tüm bölgeler ölçek kümelerini destekler.
+
+**S.** Özel bir görüntü kullanarak nasıl ölçek kümesi oluşturabilirim?
+
+**C.** Özel görüntü VHD’nizi temel alan bir yönetilen disk oluşturun ve ölçek kümesi şablonunuzda başvurun. [Bir örneği aşağıda verilmiştir](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+
+**S.** Ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılır?
+
+**C.** Sanal makineler, ölçek kümesinden güncelleştirme etki alanları ve hata etki alanları arasında eşit olacak şekilde kaldırılır. En yüksek kimlik numarasına sahip VM’ler ilk önce kaldırılır.
+
+**S.** Kapasiteyi 15’ten 18’e yükseltirsem ne olur?
+
+**C.** Kapasiteyi 18’e artırırsanız 3 yeni VM oluşturulur. Her defasında VM örnek kimliği önceki en yüksek değerden artırılır (örneğin 20, 21, 22). VM’ler hata etki alanlarında ve güncelleştirme etki alanlarında dengelenir.
+
+**S.** Bir ölçek kümesinde birden fazla uzantı kullanırken bir yürütme sırası uygulamayı zorunlu kılabilir miyim?
+
+**C.** Doğrudan olmasa da customScript uzantısı için betiğiniz başka bir uzantının tamamlanmasını bekleyebilir. Uzantı sıralama hakkında ek yönergeleri şu blog gönderisinde bulabilirsiniz: [Azure sanal makine ölçek kümelerinde Uzantı Sıralama](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+
+**S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
+
+**C.** Evet. Bir ölçek kümesi, beş hata etki alanı ve beş güncelleştirme etki alanına sahip örtülü bir kullanılabilirlik kümesidir. 100’den fazla sanal makineden oluşan ölçek kümeleri, birden fazla kullanılabilirlik kümesine eşdeğer olan birden fazla *yerleştirme grubuna* yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
+
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
 
@@ -558,7 +598,7 @@ Bir sanal makine ölçek ile özel DNS yapılandırma kümesi oluşturmak için 
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Her VM için bir ortak IP adresi atamak için ayarlanmış bir ölçek nasıl yapılandırabilir miyim?
 
-Her VM için bir ortak IP adresi atar bir sanal makine ölçek kümesi oluşturmak için Microsoft.Compute/virtualMAchineScaleSets kaynak API sürümü 2017-03-30 olduğundan emin olun ve Ekle bir _publicipaddressconfiguration_ JSON Paket ölçeğe Ipconfigurations bölümünde ayarlayın. Örnek:
+Her VM için bir ortak IP adresi atar bir sanal makine ölçek kümesi oluşturmak için Microsoft.Compute/virtualMachineScaleSets kaynak API sürümü 2017-03-30 olduğundan emin olun ve Ekle bir _publicipaddressconfiguration_ JSON Paket ölçeğe Ipconfigurations bölümünde ayarlayın. Örnek:
 
 ```json
     "publicipaddressconfiguration": {
@@ -694,7 +734,7 @@ Birden fazla çağrı yapmadan her VM için özellik bilgilerini almak için ça
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Farklı uzantı bağımsız bir sanal makine ölçek kümesi farklı vm'lerinin geçirebilirsiniz?
 
-Hayır, bir sanal makine ölçek kümesi farklı vm'lerinin farklı uzantı bağımsız değişkenlerini geçiremezsiniz. Ancak, uzantıları gibi makine adı olarak çalışan VM benzersiz özelliklerine bağlı olarak çalışabilir. Uzantıları VM hakkında daha fazla bilgi almak için http://169.254.169.254 örneği meta verilerini de sorgulayabilirsiniz.
+Hayır, bir sanal makine ölçek kümesi farklı vm'lerinin farklı uzantı bağımsız değişkenlerini geçiremezsiniz. Ancak, uzantıları gibi makine adı olarak çalışan VM benzersiz özelliklerine bağlı olarak çalışabilir. Uzantıları ayrıca Sorgulayabileceğiniz örneği meta veriler üzerinde http://169.254.169.254 VM hakkında daha fazla bilgi almak için.
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Neden my sanal makine ölçek kümesi VM makine adları ve VM kimlikleri arasında boşluklar var mı? Örneğin: 0, 1, 3...
 

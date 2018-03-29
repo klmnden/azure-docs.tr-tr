@@ -1,19 +1,19 @@
 ---
-title: "Azure ilke tanımı yapısı | Microsoft Docs"
-description: "Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar."
+title: Azure ilke tanımı yapısı | Microsoft Docs
+description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi eylemin yapılacağını açıklayan, kuruluşunuzda kaynaklar için kuralları oluşturmak için Azure ilke tarafından nasıl kullanıldığını açıklar.
 services: azure-policy
-keywords: 
+keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
-ms.custom: 
-ms.openlocfilehash: ffff4a663b64342142f42a662905a290044e2dfb
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.custom: ''
+ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -70,7 +70,9 @@ Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-
 * `all`: kaynak grupları ve tüm kaynak türleri değerlendir 
 * `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
 
-Ayarlamanızı öneririz **modu** için `all`. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametre ve ayarlamak `all`. 
+Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametresi el ile.
+
+`indexed` ilkeleri oluşturma etiketler veya konumları zorunlu kılacak olduğunda kullanılmalıdır. Bu gerekli değildir ancak etiketleri ve konumları olarak uyumluluk sonuçlarını uyumlu olmayan göstermesini desteklemeyen kaynakları engeller. Bunun tek istisnası **kaynak grupları**. Konum veya bir kaynak grubu üzerinde etiketleri zorlamak için çalışıyorsunuz ilkeleri ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroup` türü. Bir örnek için bkz: [kaynak grubu etiketleri zorunlu](scripts/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametreler
 
@@ -126,7 +128,7 @@ Kullanabileceğiniz **displayName** ve **açıklama** ilke tanımı tanımlamak 
     <condition> | <logical operator>
   },
   "then": {
-    "effect": "deny | audit | append"
+    "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
   }
 }
 ```
@@ -165,16 +167,22 @@ Mantıksal işleçler yerleştirebilirsiniz. Aşağıdaki örnekte gösterildiğ
 Bir koşulu değerlendirir olup bir **alan** belirli kriterlere uyan. Desteklenen koşullar şunlardır:
 
 * `"equals": "value"`
+* `"notEquals": "value"`
 * `"like": "value"`
+* `"notLike": "value"`
 * `"match": "value"`
+* `"notMatch": "value"`
 * `"contains": "value"`
+* `"notContains": "value"`
 * `"in": ["value1","value2"]`
+* `"notIn": ["value1","value2"]`
 * `"containsKey": "keyName"`
+* `"notContainsKey": "keyName"`
 * `"exists": "bool"`
 
-Kullanırken **gibi** koşulu, bir joker (*) değer sağlayabilir.
+Kullanırken **gibi** ve **notLike** koşullar, bir joker (*) değer sağlayabilir.
 
-Kullanırken **eşleşen** koşul, sağlayın `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [onaylanmış VM görüntüleri](scripts/allowed-custom-images.md).
+Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [onaylanmış VM görüntüleri](scripts/allowed-custom-images.md).
 
 ### <a name="fields"></a>Alanlar
 Koşullar alanlar kullanılarak oluşturulur. Bir alan kaynağının durumu tanımlamak için kullanılan kaynak istek yükünde özelliklerini temsil eder.  
@@ -182,12 +190,28 @@ Koşullar alanlar kullanılarak oluşturulur. Bir alan kaynağının durumu tan�
 Aşağıdaki alanları desteklenir:
 
 * `name`
+* `fullName`
+  * Tüm üst (örneğin "myServer/Veritabanım") dahil olmak üzere kaynak tam adını döndürür
 * `kind`
 * `type`
 * `location`
 * `tags`
-* `tags.*`
+* `tags.tagName`
+* `tags[tagName]`
+  * Nokta içeren etiket adları bu köşeli ayraç sözdizimini destekler
 * özellik diğer adlar - bir listesi için bkz: [diğer adlar](#aliases).
+
+### <a name="alternative-accessors"></a>Alternatif erişimciler
+**Alan** olan ilke kurallarında kullanılan birincil erişimcisi. Doğrudan değerlendiriliyor kaynak olup olmadığını denetler. Ancak, diğer bir erişimci İlkesi destekler **kaynak**.
+
+```json
+"source": "action",
+"equals": "Microsoft.Compute/virtualMachines/write"
+```
+
+**Kaynak** yalnızca bir değeri destekleyen **eylem**. Eylem şu anda değerlendiriliyor isteğinin yetkilendirme eylem döndürür. Yetkilendirme Eylemler yetkilendirme bölümünde açığa [etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-activity-log-schema.md).
+
+Ne zaman değerlendirme İlkesi ayarlar arka planda var olan kaynakların **eylem** için bir `/write` kaynağın türünü yetkilendirme eylem.
 
 ### <a name="effect"></a>Etki
 İlke etkili aşağıdaki türlerini destekler:
@@ -212,7 +236,7 @@ Aşağıdaki alanları desteklenir:
 
 Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 
-İle **AuditIfNotExists** ve **DeployIfNotExists** alt kaynak varlığını değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
+İle **AuditIfNotExists** ve **DeployIfNotExists** ilişkili bir kaynak varlığını değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
 Bir sanal makine uzantısı değil dağıtıldığında denetim bir örnek için bkz: [uzantısı yoksa, Denetim](scripts/audit-ext-not-exist.md).
 
 
@@ -288,13 +312,13 @@ Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adla
 | Microsoft.Compute/VirtualMachineScaleSets/sku.name | Ölçek kümesindeki sanal makinelerin boyutunu ayarlayın. |
 | Microsoft.Compute/VirtualMachineScaleSets/sku.tier | Sanal makine ölçek kümesindeki kümesi. |
 
-Microsoft.Network/applicationGateways
+**Microsoft.Network/applicationGateways**
 
 | Diğer ad | Açıklama |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Ağ geçidi boyutunu ayarlayın. |
 
-Microsoft.Network/virtualNetworkGateways
+**Microsoft.Network/virtualNetworkGateways**
 
 | Diğer ad | Açıklama |
 | ----- | ----------- |

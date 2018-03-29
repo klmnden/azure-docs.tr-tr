@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: CoreOS Linux VM yönetilen bir etki alanına katılın. | Microsoft Docs"
-description: "Azure AD Etki Alanı Hizmetleri'ne CoreOS Linux sanal makine birleştirme"
+title: 'Azure Active Directory etki alanı Hizmetleri: CoreOS Linux VM yönetilen bir etki alanına katılın. | Microsoft Docs'
+description: Azure AD Etki Alanı Hizmetleri'ne CoreOS Linux sanal makine birleştirme
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: maheshu
-ms.openlocfilehash: 790ad85df0dbf68674e2b9c6254858100ddfd0fd
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c7290db73645a4e1e745142f266aabc6df735df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>CoreOS Linux sanal makinesini yönetilen bir etki alanına katma
 Bu makalede CoreOS Linux sanal makine Azure'da bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -34,7 +34,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>CoreOS Linux sanal makine sağlama
 Aşağıdaki yöntemlerden birini kullanarak azure'da bir CoreOS sanal makine sağlama:
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -140,7 +140,7 @@ Makine için yönetilen etki alanı başarıyla katıldı olup olmadığını do
 
 
 ## <a name="troubleshooting-domain-join"></a>Sorun giderme etki alanına katılma
-Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) makalesi.
+Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) makalesi.
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)

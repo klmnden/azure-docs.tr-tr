@@ -1,11 +1,11 @@
 ---
-title: "Performans İzleyicisi'ni Özelliği Azure günlük analizi Ağ Performansı İzleyicisi çözümünde | Microsoft Docs"
-description: "Ağ Performans İzleyicisi'nde Performans İzleyicisi yetenek ağınızda, bulut dağıtımları ve şirket içi konumları, birden çok veri merkezi ve şube ofisleri gibi kritik görev çeşitli noktaları arasında ağ bağlantısı izlemenize yardımcı olur çok katmanlı uygulamalar/mikro-hizmetler."
+title: Performans İzleyicisi'ni Özelliği Azure günlük analizi Ağ Performansı İzleyicisi çözümünde | Microsoft Docs
+description: Performans İzleyicisi yetenek ağ Performans İzleyicisi'nde, ağınızdaki çeşitli noktaları arasında ağ bağlantısı izlemenize yardımcı olur. Bulut dağıtımları ve şirket içi konumlara izleyebilirsiniz birden fazla veri merkezleri ve şube ofisleri ve kritik çok katmanlı uygulama veya mikro.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,123 +14,125 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: a90ab3bc857b704d9d94daf96d17611844abb1a6
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 65497548d0b8066627be25520c28d39491918d09
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="network-performance-monitor-solution---performance-monitoring"></a>Performans İzleyicisi çözüm - ağ performansını izleme
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>Ağ Performans İzleyicisi çözüm: performans izleme
 
-Performans İzleyicisi'ni özelliği [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) izlemenizi ağ bağlantısı çeşitli sağlar işaret bulut dağıtımları ve şirket içi konumlar gibi ağınızda birden çok veri merkezleri ve Şube ofislerinde, görev kritik çok katmanlı uygulamalar/mikro-hizmetler. Performans izleme ile kullanıcılarınız şikayetçi önce ağ sorunları algılayabilir. Anahtar avantajları şunlardır: 
+Performans İzleyicisi'ni özelliği [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) izlemenizi sağlar, ağınızdaki çeşitli noktaları arasında bağlantı ağ. Bulut dağıtımları ve şirket içi konumlara izleyebilirsiniz birden fazla veri merkezleri ve şube ofisleri ve kritik çok katmanlı uygulama veya mikro. Performans izleme ile kullanıcılarınız şikayetçi önce ağ sorunları algılayabilir. Anahtar avantajları şunlardır: 
 
-- Çeşitli alt ağları ve Uyarıları Ayarla kaybı ve gecikme izleme 
-- Ağdaki tüm yolları (yedekli yollar dahil) izleme 
-- Çoğaltma zor olan geçici & zaman içinde nokta ağ sorunlarını giderme 
-- İçin performans sorumlu olduğu ağ belirli kesiminde belirleme 
-- SNMP gerek kalmadan ağ durumunu izleyin 
+- Kaybı ve gecikme çeşitli alt ağlar arasında izlemek ve Uyarıları ayarlayın.
+- Ağdaki tüm yolları (yedekli yollar dahil) izleyin.
+- Çoğaltma zor olan geçici ve zaman içinde nokta ağ sorunları giderin.
+- İçin performans sorumlu olduğu ağ belirli kesiminde belirler.
+- SNMP gerek kalmadan ağ durumunu izleyin.
 
 
 ![Ağ Performansı İzleyicisi](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Yapılandırma
-Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md) tıklatıp **yapılandırma** düğmesi.
+Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md)seçip **yapılandırma**.
 
 ![Ağ Performans İzleyicisi'ni yapılandırma](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Yeni ağ oluşturma
 
-NPM bir ağda, alt ağlar için mantıksal bir kapsayıcısıdır. Ağ altyapınızın izleme gereksinimlerinize göre izleme düzenlemenize yardımcı olur. Bir kolay adla bir ağ oluşturun ve alt ağlarını iş mantığınızı göre ekleyin. Örneğin, Londra adlı bir ağ oluşturun ve tüm alt ağlar, Londra veri merkezinizde eklemek veya adlandırılmış bir ağ *ContosoFrontEnd* ve tüm alt ağlar bu ağa Contoso adlı, uygulamanızın ön uç hizmet veren ekleyin. Çözüm, ortamınızda bulunan tüm alt ağlar içeren bir varsayılan ağ otomatik olarak oluşturur. Her bir ağ oluşturduğunuzda, bir alt ağ ekleyin ve bu alt ağ varsayılan ağdan kaldırılır. Bir ağ silerseniz, tüm alt varsayılan ağa otomatik olarak döndürülür. Bu nedenle, varsayılan ağ herhangi bir kullanıcı tarafından tanımlanan ağ içinde yer almayan tüm alt ağlar için kapsayıcı görevi görür. Düzenleyemez veya varsayılan ağ silin. Her zaman, sistemde kalır. Ancak, gereksinim duyduğunuz kadar çok özel ağlar oluşturabilirsiniz. Çoğu durumda, alt ağlar, kuruluşunuzda birden fazla ağ düzenlenir ve iş mantığınızı için alt grup için bir veya daha fazla ağlar oluşturmanız gerekir.
+Ağ Performans İzleyicisi'nde bir ağ, alt ağlar için mantıksal bir kapsayıcısıdır. İhtiyaçlarınıza göre ağ altyapınızın izleme düzenlemenize yardımcı olur. Bir kolay adla bir ağ oluşturun ve alt ağlarını iş mantığınızı göre ekleyin. Örneğin, Londra adlı bir ağ oluşturun ve tüm alt Londra veri merkezinizde ekleyin. Veya adlı bir ağ oluşturabilirsiniz *ContosoFrontEnd* ve bu ağa, uygulamanızın ön uç hizmet Contoso adlı tüm alt ağlar ekleyin. Çözüm, ortamınızda bulunan tüm alt ağlar içeren bir varsayılan ağ otomatik olarak oluşturur. 
+
+Bir ağ oluşturduğunuzda, bir alt ağ ekleyin. Ardından bu alt ağ varsayılan ağdan kaldırılır. Bir ağ silerseniz, tüm alt varsayılan ağa otomatik olarak döndürülür. Varsayılan ağ herhangi bir kullanıcı tarafından tanımlanan ağ içinde yer alan olmayan tüm alt ağlar için kapsayıcı görevi görür. Düzenleyemez veya varsayılan ağ silin. Her zaman, sistemde kalır. Gereksinim duyduğunuz kadar çok özel ağlar oluşturabilirsiniz. Çoğu durumda, alt ağlar, kuruluşunuzda birden fazla ağ düzenlenir. İş mantığınızın için alt ağlar gruplandırmak için bir veya daha fazla ağ oluşturun.
 
 Yeni bir ağ oluşturmak için:
 
 
-1. Tıklayın **ağlar sekmesini**.
-1. Tıklatın **Ekle ağ** ve ağ adını ve açıklamasını yazın. 
+1. Seçin **ağlar** sekmesi.
+1. Seçin **Ekle ağ**ve ardından ağ adı ve açıklama girin. 
 2. Bir veya daha fazla alt ağ seçin ve ardından **Ekle**. 
-3. tıklatın **kaydetmek** yapılandırmayı kaydetmek için. 
+3. Seçin **kaydetmek** yapılandırmayı kaydetmek için. 
 
 
 ### <a name="create-monitoring-rules"></a>İzleme kuralları oluşturma 
 
-Performans İzleyicisi iki ağ arasında veya iki alt ağlar arasında ağ bağlantıları performans eşiği aşıldığında sistem durumu olayları oluşturur. Bu eşikler sistem tarafından otomatik olarak öğrenilebilecek veya özel eşikler sağlayabilir. Sistem, kayıp veya herhangi bir alt ağ/ağ çifti arasında gecikme ihlallerini bağlantılar her bir sistem durumu olayı oluşturan varsayılan bir kural sistem öğrenilen eşiği otomatik olarak oluşturur. Bu, tüm izleme kurallarını açıkça oluşturmadınız kadar ağ altyapınızı izlemek çözüm yardımcı olur. Varsa **varsayılan kural** olan etkinse, tüm düğümlere yapay işlemler izleme için etkinleştirilmiş olan tüm diğer düğümlere gönderin. Varsayılan kural küçük ağlar ile Örneğin, burada bir mikro hizmet çalıştıran sunucuların küçük bir sayıya sahip ve tüm sunucuların bağlantınız birbirlerine emin olmak istediğiniz bir senaryo yararlıdır. 
+Performans İzleyicisi iki ağ arasında veya iki alt ağlar arasında ağ bağlantıları performans eşiği aşıldığında sistem durumu olayları oluşturur. Sistem bu eşikler otomatik olarak bulabilir. Özel eşikler sağlar. Sistem, kayıp ya da ağ veya alt ağ herhangi bir çifti arasındaki gecikme süresi ihlallerini bağlantılar her bir sistem durumu olayı oluşturan varsayılan bir kural sistem öğrenilen eşiği otomatik olarak oluşturur. Bu işlem, ağ altyapınızın tüm izleme kurallarını açıkça oluşturmadınız kadar izleme çözüm yardımcı olur. Varsayılan kural etkinleştirilirse, tüm düğümlere yapay işlemler izleme için etkinleştirilmiş tüm diğer düğümlere gönderin. Varsayılan kural küçük ağlarla yararlıdır. Örneği burada bir mikro hizmet çalıştıran sunucuların küçük bir sayıya sahip ve tüm sunucuların bağlantınız birbirlerine emin olmak istediğiniz bir senaryodur.
 
 >[!NOTE]
-> Devre dışı bırakmanızı önerilen **varsayılan kural** ve burada kullandığınız çok sayıda düğümü izleme için özellikle büyük ağlar ile özel izleme kurallarını oluşturun. Bu çözüm ve ağınızı izleme düzenlemenize yardım tarafından oluşturulan trafiğin azaltır. 
+> Varsayılan kural devre dışı bırakın ve özellikle çok sayıda düğümü izleme için kullandığınız büyük ağlar ile özel izleme kurallarını oluşturun öneririz. Özel İzleme kurallarını çözüm ve ağınızı izleme düzenlemenize yardım tarafından oluşturulan trafiğin azaltabilir.
 
-İş mantığınızın göre izleme kurallarını oluşturun. Headquarter iki office sitelere ağ bağlantısını performansını izlemek isterseniz, örneğin, ardından office site1 O1 ağındaki tüm alt ağlar, office site2 O2 ağındaki tüm alt ağlar ve headquarter H. ağındaki tüm alt ağlar gruplandırma Kuralları-O1 ve H ve diğer O2 H. arasındaki arasında bir izleme 2 oluşturma 
+İş mantığınızın göre izleme kurallarını oluşturun. Genel merkez iki office sitelere ağ bağlantısını performansını izlemek istiyorsanız bir örnektir. Office site1 O1 ağındaki tüm alt ağlar grup. Sonra office site2 O2 ağındaki tüm alt gruplayın. Son olarak, Genel merkez ağ H. oluşturmak iki izleme kurallarında--O1 H arasındaki tek ve diğer O2 H. arasındaki tüm alt ağlar Grup 
 
 Özel İzleme kurallarını oluşturmak için:
 
-1. Tıklatın **Kuralı Ekle** içinde **İzleyici** sekmesinde ve kural ad ve açıklama girin. 
+1. Seçin **Kuralı Ekle** üzerinde **İzleyici** sekmesini tıklatın ve kural ad ve açıklama girin.
 2. Listelerden izlemek için ağ veya alt ağ bağlantıları çifti seçin. 
-3. İlk ilgi ilk alt ağ/s yer alan ağ ağ aşağı açılır listeden seçtikten sonra alt ağ/s karşılık gelen alt ağ aşağı açılır listeden seçin. Seçin **tüm alt ağlar** bir ağ bağlantısı tüm alt ağlar izlemek istiyorsanız. Benzer şekilde, diğer alt ağ/s ilgi seçin. Ve tıklayabilirsiniz **özel durum ekleyin** yaptığınız seçimden belirli alt ağ bağlantıları için izleme dışlanacak. 
-4. ICMP ve TCP arasında yapay işlemler yürütme için protokol seçin. 
-5. Seçtiğiniz, ardından öğeleri için sistem durumu olayları Temizle oluşturmak istemiyorsanız, **bu kural tarafından kapsanan bağlantılarında sistem durumu izlemeyi etkinleştir**. 
-6. İzleme koşulları seçin. Eşik değerleri yazarak, sistem olay oluşturma için özel eşikler ayarlayabilirsiniz. Seçilen ağ/alt ağ çifti için seçilen eşiğin üstünde koşul değerini gider olduğunda, bir sistem durumu olayı oluşturulur. 
-7. tıklatın **kaydetmek** yapılandırmayı kaydetmek için. 
+3. Ağ aşağı açılan listesinden istediğiniz ağlarla içeren ağ seçin. Ardından ağlarla ilgili alt ağ aşağı açılan listeden seçin. Bir ağ bağlantısı tüm alt ağlar izlemek istiyorsanız seçin **tüm alt ağlar**. Benzer şekilde, istediğiniz diğer ağlarla seçin. Yaptığınız seçimlerin gelen belirli alt ağ bağlantıları için izleme dışlamak için seçin **eklemek özel durum**. 
+4. ICMP ve TCP arasında yapay işlemleri yürütmek için protokolleri seçin. 
+5. Öğelerin sistem durumu olayları oluşturmak istemiyorsanız, Temizle seçtiğiniz **bağlantılarında sistem durumu izleme etkinleştirmek bu kural tarafından kapsanan**. 
+6. İzleme koşulları seçin. Sistem durumu olayı oluşturma için özel eşikler ayarlamak için eşik değerleri girin. Koşul değeri seçili ağ veya alt ağ çifti için seçilen eşiğini aştığında sistem durumu olayı oluşturulur. 
+7. Seçin **kaydetmek** yapılandırmayı kaydetmek için. 
 
-Bir izleme kuralı kaydettikten sonra bu kural uyarı yönetimi ile tıklayarak tümleştirebilirsiniz **oluşturma uyarı**. Bir uyarı kuralı arama sorgusu ve diğer gerekli ile otomatik olarak oluşturulan otomatik olarak doldurulmuş parametreler. Bir uyarı kuralı kullanarak NPM içinde var olan uyarılar ek olarak e-posta tabanlı uyarılar alabilir. Uyarılar ayrıca eylemlerden runbook'larla tetikleyebilir veya Web kancalarını kullanarak mevcut hizmet yönetimi çözümleriyle tümleştirilebilir. Tıklayabilirsiniz **yönetmek uyarı** uyarı ayarlarını düzenlemek için. 
+Bir izleme kuralı kaydettikten sonra bu kural uyarı yönetimi ile seçerek tümleştirebilirsiniz **oluşturma uyarı**. Bir uyarı kuralı arama sorgusu ile birlikte otomatik olarak oluşturulur. Diğer gerekli parametreleri otomatik olarak doldurulur. Bir uyarı kuralı kullanarak, Ağ Performansı İzleyicisi içinde var olan uyarılar ek olarak, e-posta tabanlı uyarılar alabilir. Uyarılar ayrıca eylemlerden runbook'larla tetikleyebilir veya Web kancalarını kullanarak mevcut hizmet yönetimi çözümleriyle tümleştirilebilir. Seçin **yönetmek uyarı** uyarı ayarlarını düzenlemek için. 
 
-Artık daha fazla Performans İzleyicisi kurallar oluşturabilir veya çözüm panosuna özelliği kullanarak başlangıcına Taşı 
+Şimdi, daha fazla Performans İzleyicisi kuralları oluşturun veya özellikten yararlanabilmek için çözüm panosuna taşıyın.
 
 ### <a name="choose-the-protocol"></a>Protokol seçin
 
-Ağ Performans İzleyicisi'ni (NPM) yapay işlemler paket kaybı ve bağlantı gecikme süresi gibi ağ performans ölçümlerini hesaplamak için kullanır. Bu daha iyi anlamak için bağlı bir NPM aracı göz önünde bulundurun. bir ağ bağlantısı ucunu. Bu NPM aracı başka bir ağ sonuna bağlı ikinci bir NPM aracı araştırma paketleri gönderir. İkinci aracı yanıt paketleri ile yanıtlar. Bu işlem birkaç kez yinelenir. Yanıtlar ve her yanıt almak için geçen süre sayısını ölçme, birinci NPM aracı bağlantı gecikme değerlendirir ve paket bırakma. 
+Ağ Performansı İzleyicisi yapay işlemler paket kaybı ve bağlantı gecikme süresi gibi ağ performans ölçümlerini hesaplamak için kullanır. Bu kavram daha iyi anlamak için bağlı bir ağ performansı İzleyicisi Aracısı göz önünde bulundurun. bir ağ bağlantısı ucunu. Bu Ağ Performansı İzleyicisi Aracısı başka bir ağ sonuna bağlı ikinci bir ağ performansı İzleyicisi Aracısı araştırma paketleri gönderir. İkinci aracı yanıt paketleri ile yanıtlar. Bu işlem birkaç kez yineler. Yanıtlar ve her yanıt almak için geçen süre sayısını ölçme, ilk ağ performansı İzleyicisi Aracısı bağlantı gecikme değerlendirir ve paket bırakma. 
 
-Biçim, boyutu ve bu paketlerin dizisini izleme kurallarını oluştururken seçtiğiniz protokolü tarafından belirlenir. Paketlerin protokolünü temel, ara ağ aygıtlarını (yönlendiriciler, anahtarlar vb.) bu paketleri farklı işlem. Sonuç olarak, Protokolü tercih ettiğiniz sonuçları doğruluğunu etkiler. Ve protokolü tercih ettiğiniz de NPM çözümü dağıttıktan sonra herhangi bir el ile adımlar atmanız gerekir olup olmadığını belirler. 
+Biçim, boyutu ve bu paketlerin dizisini izleme kurallarını oluştururken seçtiğiniz protokolü tarafından belirlenir. Paketlerin protokolünü temel, yönlendiriciler ve anahtarlar gibi ara ağ aygıtlarını bu paketleri farklı işlem. Sonuç olarak, Protokolü tercih ettiğiniz sonuçları doğruluğunu etkiler. Protokol seçiminiz Ayrıca Ağ Performansı İzleyicisi çözümü dağıttıktan sonra herhangi bir el ile adımlar atmanız gerekir olup olmadığını belirler. 
 
-NPM yapay işlemleri yürütmek ICMP ve TCP protokollerini arasında seçim sunar. Yapay işlem kuralı oluşturduğunuzda, ICMP seçerseniz, NPM aracıları ağ gecikme süresi ve paket kaybı hesaplamak için ICMP YANKI iletisi kullanın. ICMP YANKI geleneksel Ping yardımcı programı tarafından gönderilen aynı iletiyi kullanır. Protokol olarak TCP'yi kullandığınızda NPM aracıları ağ üzerinden TCP Eşitlemeye paket gönderin. Bu bir TCP anlaşması tarafından izlenir tamamlama ve RST paketlerini kullanarak bağlantı kaldırılıyor. 
+Ağ Performansı İzleyicisi yapay işlemleri yürütmek ICMP ve TCP protokollerini arasında seçim sunar. Yapay işlem kuralı oluşturduğunuzda, ICMP seçerseniz, Ağ Performansı İzleyicisi aracıları ağ gecikme süresi ve paket kaybı hesaplamak için ICMP YANKI iletisi kullanın. ICMP YANKI geleneksel ping yardımcı programı tarafından gönderilen aynı iletiyi kullanır. Protokol olarak TCP'yi kullandığınızda, Ağ Performansı İzleyicisi aracıları ağ üzerinden TCP Eşitlemeye paketleri gönderir. Bu adım bir TCP el sıkışma tamamlama tarafından izlenir ve bağlantı RST paketlerini kullanarak kaldırılır. 
 
-Kullanılacak protokol seçmeden önce aşağıdaki bilgileri göz önünde bulundurun: 
+Bir protokol seçmeden önce aşağıdaki bilgileri göz önünde bulundurun: 
 
-**Birden çok ağ yollarını keşfetme.**  Birden çok yol keşfederken TCP daha doğru olduğunu ve her alt ağda daha az aracıları gerekiyor. Örneğin, TCP kullanarak bir veya iki aracılarını alt ağlar arasındaki tüm yedekli yollar bulabilir. Ancak, benzer sonuçlar elde etmek için ICMP kullanarak birkaç aracılarını gerekir. ICMP, iki alt ağlar arasındaki yolları sayısı varsa kullanılarak, birden çok kaynak veya hedef alt ağdaki 5N aracıları gerekir. 
+* **Birden çok ağ yollarını bulma.** Birden çok yol keşfederken TCP daha doğru olduğunu ve her alt ağda daha az aracıları gerekiyor. Örneğin, TCP kullanan bir veya iki aracılar alt ağlar arasındaki tüm yedekli yollar bulabilir. Benzer sonuçlar elde etmek için ICMP kullanan birkaç aracılar gerekir. Rotaların iki alt ağlar arasında bir sayı varsa, ICMP, kullanmadan, birden çok kaynak veya hedef alt ağdaki 5N aracıları gerekir.
 
-**Sonuçları doğruluğunu.** Yönlendiriciler ve anahtarlar ICMP YANKI paketleri TCP paketleri karşılaştırıldığında daha düşük öncelikli atamak eğilimindedir. Ağ aygıtlarını yoğun olarak yüklendiğinde, belirli durumlarda daha yakından TCP tarafından alınan veri kaybı ve gecikme uygulamalar tarafından yaşadı yansıtır. Bu uygulama trafiğini çoğunu akışlar için TCP üzerinden oluşur. Böyle durumlarda, ICMP TCP'ye kıyasla daha az doğru sonuçlar sağlar. 
+* **Sonuçları doğruluğunu.** Yönlendiriciler ve anahtarlar ICMP YANKI paketleri TCP paketleri karşılaştırıldığında daha düşük öncelikli atamak eğilimindedir. Ağ aygıtlarını yoğun olarak yüklendiğinde, belirli durumlarda daha yakından TCP tarafından alınan veri kaybı ve gecikme uygulamalar tarafından yaşadı yansıtır. Bu uygulama trafiğini çoğunu akışlar için TCP üzerinden oluşur. Böyle durumlarda, ICMP TCP'ye kıyasla daha az doğru sonuçlar sağlar. 
 
-**Güvenlik duvarı yapılandırması.** TCP protokolü, bir hedef bağlantı noktasına gönderilen TCP paket gerektirir. Aracıları yapılandırdığınızda bu değiştirebilirsiniz ancak NPM aracıları tarafından kullanılan varsayılan bağlantı noktası 8084, ' dir. Bu nedenle, ağ güvenlik duvarları veya NSG kuralları (azure'da) bağlantı noktası üzerinde trafiğe izin emin olmak için gerekir. Aracıları yüklü bilgisayarda yerel güvenlik duvarı Bu bağlantı noktası üzerinde trafiğe izin verecek şekilde yapılandırıldığından emin olmanız gerekir. Ağ güvenlik duvarı el ile yapılandırmanız gerekiyor ancak Windows çalıştıran bilgisayarlarınızda güvenlik duvarı kurallarını yapılandırmak için PowerShell komut dosyalarını kullanabilirsiniz. Buna karşılık, ICMP bağlantı noktası kullanılarak çalışmaz. Çoğu Kurumsal senaryoda, ICMP trafiği güvenlik duvarları üzerinden Ping yardımcı programı gibi ağ tanılama araçları kullanmanıza izin verilir. Başka bir makineden Ping, bu nedenle, daha sonra ICMP Protokolü güvenlik duvarları el ile yapılandırmak zorunda kalmadan kullanabilirsiniz. 
+* **Güvenlik duvarı yapılandırması.** TCP protokolü, bir hedef bağlantı noktasına gönderilen TCP paket gerektirir. Ağ Performansı İzleyicisi aracıları tarafından kullanılan varsayılan bağlantı noktası 8084 ' dir. Aracıları yapılandırdığınızda, bağlantı noktasını değiştirebilirsiniz. Ağ güvenlik duvarları veya ağ güvenlik grubu (NSG) kuralları (azure'da) bağlantı noktası üzerinde trafiğe izin verdiğinden emin olun. Aracıları yüklü bilgisayarda yerel güvenlik duvarı Bu bağlantı noktası üzerinde trafiğe izin verecek şekilde yapılandırıldığından emin olmanız gerekir. Windows çalıştıran bilgisayarlarınızda güvenlik duvarı kurallarını yapılandırmak için PowerShell komut dosyalarını kullanabilirsiniz, ancak ağ güvenlik duvarını elle yapılandırmanız gerekir. Buna karşılık, ICMP bir bağlantı noktası kullanarak çalışmaz. Çoğu Kurumsal senaryoda, ICMP trafiği güvenlik duvarları üzerinden ping yardımcı programı gibi ağ tanılama araçları kullanmanıza izin verilir. Başka bir makineden ping, güvenlik duvarları el ile yapılandırmak zorunda kalmadan ICMP protokolünü kullanabilirsiniz.
 
 >[!NOTE] 
-> Bazı güvenlik duvarları çok fazla sayıda olayı, güvenlik, bilgi ve olay yönetim sisteminde kaynaklanan aktarım açabilir ICMP engelleyebilir. Seçtiğiniz Protokolü engellenmemiş olduğundan emin olun ağ güvenlik duvarı/NSG, tarafından aksi NPM ağ kesimine izleyebilirsiniz değil. Bu nedenle, izleme için TCP kullanan önerilir. Burada, TCP, gibi ne zaman kullanmanız mümkün olmayan senaryolarda ICMP kullanmanız gerekir: 
+> Bazı güvenlik duvarları çok sayıda olayları, güvenlik, bilgi ve olay yönetim sisteminde sonuçları aktarım için yol açabilecek ICMP engelleyebilir. Seçtiğiniz protokolü bir ağ güvenlik duvarı veya NSG tarafından engellenen olmadığından emin olun. Aksi takdirde, Ağ Performansı İzleyicisi ağ kesimine izleyemez. İzleme için TCP kullanmanızı öneririz. ICMP burada TCP, zaman gibi kullanamazsınız senaryolarda kullanın: 
 >
-> - TCP ham yuva Windows istemcisinde izin verilmiyor beri Windows istemci tabanlı düğümleri, kullanmakta olduğunuz
-> - Ağ güvenlik duvarı/NSG TCP engeller
-> - Protokol geçiş yapma 
+> - TCP ham yuva Windows istemcileri izin verilmediğinden istemci tabanlı Windows düğümleri kullanın.
+> - Ağ güvenlik duvarı veya NSG TCP engeller.
+> - Protokol geçiş yapmak nasıl çıkılacağını bilmiyoruz.
 
-Dağıtım sırasında ICMP kullanmayı seçerseniz, varsayılan kuralı izleme düzenleyerek TCP için herhangi bir zamanda geçiş yapabilirsiniz:
+Dağıtım sırasında ICMP kullanmayı seçerseniz, varsayılan kuralı izleme düzenleyerek TCP için herhangi bir zamanda geçiş yapabilirsiniz.
 
-1. Gidin **ağ performansı** > **İzleyici** > **yapılandırma**   >  **İzleyici** ve ardından **varsayılan kuralı**. 
+1. Git **ağ performansı** > **İzleyici** > **yapılandırma**   >  **İzleyici**. Ardından **varsayılan kuralı**. 
 2. Kaydırma **Protokolü** bölümünde ve kullanmak istediğiniz protokolü seçin. 
-3. Tıklatın **kaydetmek** ayarı uygulamak için. 
+3. Seçin **kaydetmek** ayarı uygulamak için. 
 
-Varsayılan kural belirli bir protokol kullanıyor olsa bile, farklı bir protokol yeni kurallar oluşturabilirsiniz. Burada bazı kuralların ICMP kullanır ve başka bir TCP kullandığı kuralları bir karışımını da oluşturabilirsiniz. 
+Varsayılan kural belirli bir protokol kullanıyor olsa da, farklı bir protokol yeni kurallar oluşturabilirsiniz. Burada bazı kurallar ICMP ve diğerleri TCP kullanmak kuralları bir karışımını da oluşturabilirsiniz. 
 
 ## <a name="walkthrough"></a>Kılavuz 
 
-Performans İzleyicisi hakkında okuduğunuza göre kök nedeni bir sistem durumu olayı için basit bir araştırmasını bakalım.  
+Şimdi kök nedeni bir sistem durumu olayı için basit bir araştırmasını bakın.
 
-Çözüm panosunda, fark sistem durumu olayı – bir ağ bağlantısı sağlam değil. Sorunu araştırmanıza ve tıklayın karar **ağ bağlantıları izlenmekte olan** döşeme.
+Çözüm panosunda bir sistem durumu olayı, bir ağ bağlantısı sağlıksız olduğunu gösterir. Sorunu araştırmaya seçin **ağ bağlantıları izlenmekte olan** döşeme.
 
-Ayrıntılı sayfasında, bu gözlemlemek **DMZ2 DMZ1** sağlıksız ağ bağlantısı. Tıklatılan **görüntülemek alt ağ bağlantıları** bu ağ bağlantısı için bağlantı. 
+Ayrıntıya sayfasını gösteren **DMZ2 DMZ1** sağlıksız ağ bağlantısı. Seçin **görüntülemek alt ağ bağlantıları** bu ağ bağlantısı için. 
 
 
-İçindeki tüm alt ağ bağlantıları ayrıntıya sayfası gösterir **DMZ2 DMZ1** ağ bağlantısı. Her iki alt ağ bağlantıları için ağ bağlantısı bozan eşik gecikmesi taşını dikkat edin. Her iki alt ağ bağlantıları gecikme eğilimleri de görebilirsiniz. Saat seçimini kullanabilirsiniz gerekli zaman aralığına odaklanmak için grafiği denetiminde. Gecikme süresi, yoğun zaman ulaştı günün saatini görebilirsiniz. Sorunu araştırmaya bu zaman aralığı için günlükleri daha sonra arama yapabilirsiniz. Tıklatın **görüntülemek düğüm bağlantıları** daha fazla ayrıntıya için. 
+İçindeki tüm alt ağ bağlantıları ayrıntıya sayfası gösterir **DMZ2 DMZ1** ağ bağlantısı. Her iki alt ağ bağlantıları için gecikme ağ bağlantısı sağlıksız yapar eşiği aşıldığında. Her iki alt ağ bağlantıları gecikme eğilimleri de görebilirsiniz. Saat seçimini kontrol gerekli zaman aralığını odaklanmaya grafikte kullanın. Gecikme süresi, yoğun ulaşıldığında günün saatini görebilirsiniz. Sorunu araştırmaya daha sonra bu zaman aralığı için günlükleri arayın. Seçin **görüntülemek düğüm bağlantıları** daha fazla ayrıntıya için. 
  
- ![Ağ bağlantıları](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Alt ağ bağlantıları sayfası](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
 
-Önceki sayfaya benzer, belirli alt ağ bağlantısı için detaya sayfa onun bağlı düğüm bağlantıları listeler. Benzer eylemler gerçekleştirebilir önceki adımda yaptığınız gibi burada. Tıklatın **görünüm topoloji** iki düğüm arasında topolojisini görüntülemek için. 
+Önceki sayfaya benzer, belirli alt ağ bağlantısı için detaya sayfa onun bağlı düğüm bağlantıları listeler. Benzer eylemler gerçekleştirebilir önceki adımda yaptığınız gibi burada. Seçin **görünüm topoloji** iki düğüm arasında topolojisini görüntülemek için. 
  
- ![Düğüm bağlantıları](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Düğüm bağlantılar sayfası](media/log-analytics-network-performance-monitor/node-links.png) 
 
-İki seçili düğümler arasındaki tüm yolları topoloji haritasında çizilir. Topoloji harita üzerinde iki düğüm arasında yolların atlama atlamalı topoloji görselleştirebilirsiniz. Kaç yollar iki düğüm arasında ne mevcut NET bir resim sunan veri paketlerinin yapmakta yolları. Ağ performans sorunları kırmızı renk işaretlenir. Hatalı ağ bağlantısı veya hatalı ağ aygıtı topoloji haritasında kırmızı renkli öğeler arayarak bulabilirsiniz. 
+İki seçili düğümler arasındaki tüm yolları topoloji haritasında çizilir. Topoloji harita üzerinde iki düğüm arasında yolların atlama atlamalı topoloji görselleştirebilirsiniz. Kaç yollar iki düğüm arasında ne mevcut NET bir resim sunan yolları veri paketlerinin alın. Ağ performans sorunları kırmızı olarak gösterilir. Hatalı ağ bağlantısı ya da hatalı ağ aygıtı bulmak için topoloji haritasında kırmızı öğeler arayın. 
 
- ![Topoloji Panosu](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Topoloji Haritası ile topoloji Panosu](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
 
-İçinde kaybı, gecikme ve her yolundaki durak sayısını incelenebilecek **eylemi** bölmesi. Scrollbar sağlıksız bu yollar ayrıntılarını görüntülemek için kullanın. Yalnızca seçilen yollar için topoloji çizilen sağlıksız atlama ile yolları seçmek için filtreleri kullanın. İçinde veya dışında topoloji Haritası yakınlaştırma için fare tekerleğinin kullanabilirsiniz. 
+Kaybı, gecikme ve her yolunda durak gözden geçirebilirsiniz **eylemi** bölmesi. Scrollbar sağlıksız yollarının ayrıntılarını görüntülemek için kullanın. Yalnızca seçilen yollar için topoloji çizilen sağlıksız atlama ile yolları seçmek için filtreleri kullanın. İçinde veya dışında topoloji Haritası yakınlaştırma için fare tekerleğinin kullanın. 
 
-İçindeki görüntü açıkça ağ belirli bölümüne sorunlu alanları kök nedenini yolları ve kırmızı renk atlama bakarak görebilirsiniz. Bir topoloji Haritası düğümünde tıklayarak FQDN dahil olmak üzere düğümü özelliklerini gösterir ve IP adresi. Atlama tıklatarak atlamanın IP adresi gösterir. 
+Aşağıdaki görüntüde, ağ belirli bölümüne sorunlu alanları kök nedenini kırmızı yolları ve atlama görünür. Bir düğüm FQDN ve IP adresini içeren düğüm özelliklerini ortaya çıkarmak için topoloji haritasında seçin. Bir atlama seçerek atlamanın IP adresini gösterir. 
  
-![Topoloji Panosu](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Seçili düğüm özellikleriyle topoloji Haritası](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı ağ performansı veri kayıtları görüntülemek için.
+[Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı ağ performansı veri kayıtları görüntülemek için.

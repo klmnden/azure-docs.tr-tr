@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: c04fbd5cc7e27be6bba6dae31f71146ce9a304f9
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
 Sanal ağınıza dağıtılmış VM’ye, sanal makinenizle bir Uzak Masaüstü Bağlantısı oluşturarak bağlanabilirsiniz. Sanal makinenize bağlanabildiğinizi doğrulamanın en iyi yolu, bilgisayar yerine özel IP adresini kullanarak bağlantı kurmaktır. Bu yolla, ad çözünürlüğünün düzgün şekilde yapılandırılıp yapılandırılmadığını değil, bağlantı kurup kuramadığınızı test edersiniz.
 
 1. Özel IP adresini bulun. Bir VM'nin özel IP adresini bulmanın birden çok yolu vardır. Aşağıda Azure portalına ve PowerShell'e yönelik adımları gösterdik.

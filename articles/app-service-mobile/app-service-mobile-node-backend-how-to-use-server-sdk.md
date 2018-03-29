@@ -1,11 +1,11 @@
 ---
-title: "Mobil uygulamaları için Node.js arka uç sunucusu SDK ile çalışmaya nasıl | Microsoft Docs"
-description: "Azure App Service Mobile Apps için Node.js arka uç sunucusu SDK ile çalışmayı öğrenin."
+title: Mobil uygulamaları için Node.js arka uç sunucusu SDK ile çalışmaya nasıl | Microsoft Docs
+description: Azure App Service Mobile Apps için Node.js arka uç sunucusu SDK ile çalışmayı öğrenin.
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: elamalani
 manager: elamalani
-editor: 
+editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bd423d6fb62b2ace16832f665c8834b4aea7e26f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -119,7 +119,7 @@ Visual Studio 2015 IDE içinden Node.js uygulamaları geliştirmek için uzantı
         app.use(mobile);
 
    Dosyayı kaydedin.
-10. (API http://localhost: 3000 üzerinde sunulur) uygulamayı yerel olarak çalıştırın ya da Azure'a yayımlayacaksınız.
+10. Uygulamayı yerel olarak çalıştırın (API üzerinde sunulan http://localhost:3000) veya Azure'a yayımlayabilirsiniz.
 
 ### <a name="create-node-backend-portal"></a>Azure portalı kullanarak bir Node.js arka ucu oluşturma
 Mobile Apps arka plan sağ oluşturabilirsiniz, [Azure portal]. Aşağıdaki adımları tamamlayın veya izleyerek bir istemci ve sunucu birlikte oluşturabilirsiniz [mobil uygulama oluşturma](app-service-mobile-ios-get-started.md) Öğreticisi. Öğreticinin bu yönergeleri basitleştirilmiş bir sürümünü içerir ve kavram kanıtı projeleri için en iyisidir.
@@ -135,7 +135,7 @@ Portal kullanarak bir Node.js Mobile Apps arka uç oluşturduğunuzda **Hızlı 
 Aşağıdaki yordam, hızlı başlangıç projesi kodu indirmek için bir Git deposu kullanır:
 
 1. Zaten yapmadıysanız Git'i, yükleyin. Git yüklemek için gereken adımlar, işletim sistemleri arasında farklılık gösterir. İşletim sistemine özgü dağıtımları ve yükleme yönergeleri için bkz: [yükleme Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Adımları [uygulama hizmeti uygulama havuzu etkinleştirmek](../app-service/app-service-deploy-local-git.md#Step3) arka uç sitenizin Git deposunu etkinleştirmek için. Dağıtım kullanıcı adı ve parola not edin.
+2. Bkz: [deponuz hazırlama](../app-service/app-service-deploy-local-git.md#prepare-your-repository) arka uç sitenizin Git deposunu etkinleştirmek için. Dağıtım kullanıcı adı ve parola not edin.
 3. Mobile Apps arka uç için bölmesinde Not **Git kopyalama URL'si** ayarı.
 4. Yürütme `git clone` Git kopyalama URL'si kullanarak komutu. Gerektiğinde, aşağıdaki örnekte olduğu gibi parolanızı girin:
 

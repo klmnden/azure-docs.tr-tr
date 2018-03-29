@@ -1,11 +1,11 @@
 ---
-title: "Analytics HTTP veri toplayıcı API oturum | Microsoft Docs"
-description: "Günlük analizi HTTP veri toplayıcı API REST API'si çağırabilirsiniz herhangi bir istemciden günlük analizi depoya POST JSON verilerini eklemek için kullanabilirsiniz. Bu makalede API kullanmayı açıklar ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır."
+title: Analytics HTTP veri toplayıcı API oturum | Microsoft Docs
+description: Günlük analizi HTTP veri toplayıcı API REST API'si çağırabilirsiniz herhangi bir istemciden günlük analizi depoya POST JSON verilerini eklemek için kullanabilirsiniz. Bu makalede API kullanmayı açıklar ve farklı programlama dillerini kullanarak veri yayımlama örnekleri vardır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: log-analytics
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 5c6f2b35b48988af533612cb48da8fe79a838cf6
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 167c36d2fa9bc182b6e37c0f47f838fde1ba01df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
 Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
@@ -328,7 +328,7 @@ namespace OIAPIExample
         {
             // Create a hash for the API signature
             var datestring = DateTime.UtcNow.ToString("r");
-            var jsonBytes = Encoding.UTF8.GetBytes(message);
+            var jsonBytes = Encoding.UTF8.GetBytes(json);
             string stringToHash = "POST\n" + jsonBytes.Length + "\napplication/json\n" + "x-ms-date:" + datestring + "\n/api/logs";
             string hashedString = BuildSignature(stringToHash, sharedKey);
             string signature = "SharedKey " + customerId + ":" + hashedString;

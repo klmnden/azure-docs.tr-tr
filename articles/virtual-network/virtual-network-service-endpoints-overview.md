@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal ağ hizmet uç noktaları | Microsoft Docs"
-description: "Hizmet uç noktalarını kullanarak bir sanal ağdan Azure kaynaklarına doğrudan erişimi etkinleştirmeyi öğrenin."
+title: Azure sanal ağ hizmet uç noktaları | Microsoft Docs
+description: Hizmet uç noktalarını kullanarak bir sanal ağdan Azure kaynaklarına doğrudan erişimi etkinleştirmeyi öğrenin.
 services: virtual-network
 documentationcenter: na
 author: anithaa
 manager: narayan
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/07/2018
 ms.author: anithaa
-ms.custom: 
-ms.openlocfilehash: aa1ac804c9cd623e5fb03c97a38f9352ac8a42ad
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.custom: ''
+ms.openlocfilehash: dbcb1d87fafe085d6232fa621fbd9e211fa4174d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -119,7 +119,7 @@ Bir Azure hizmet kaynağında (Azure Depolama hesabı gibi), hizmetler kaynağı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Sanal ağ hizmet uç noktalarını nasıl yapılandıracağınızı](virtual-network-service-endpoints-configure.md) öğrenin
+- [Sanal ağ hizmet uç noktalarını nasıl yapılandıracağınızı](tutorial-restrict-network-access-to-resources.md) öğrenin
 - [Bir Azure Depolama hesabını bir sanal ağ ile nasıl sınırlandıracağınızı](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json) öğrenin
 - [Bir Azure SQL Veritabanını bir sanal ağ ile nasıl sınırlandıracağınızı](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) öğrenin
 - [Sanal ağlar için Azure hizmet tümleştirmesi](virtual-network-for-azure-services.md) hakkında bilgi edinin

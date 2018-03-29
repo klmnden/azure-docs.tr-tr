@@ -4,8 +4,8 @@ description: Bu öğretici, Azure Data Factory'de Hive etkinliğini kullanarak v
 services: data-factory
 documentationcenter: ''
 author: shengcmsft
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/04/2018
 ms.author: shengc
-ms.openlocfilehash: 8711d7ed1d02f0960ef00c1cf5053e97aa00ad5c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: a5f75990ab29dc09b6c45ddae17a654f9c3dab78
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory’de Hive etkinliğini kullanarak Azure Sanal Ağ’daki verileri dönüştürme
 Bu öğreticide, Azure portalını kullanarak Azure Sanal Ağ’daki bir HDInsight kümesinde Hive Etkinliği ile verileri dönüştüren bir Data Factory işlem hattı oluşturursunuz. Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:

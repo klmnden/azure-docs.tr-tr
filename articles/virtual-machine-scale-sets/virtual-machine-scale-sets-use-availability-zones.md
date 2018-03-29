@@ -1,13 +1,13 @@
 ---
-title: "Kullanılabilirlik bölgeleri (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs"
-description: "Kesintilere karşı artıklığı için kullanılabilirlik bölgeleri kullanmak Azure sanal makine ölçek kümeleri oluşturma hakkında bilgi edinin"
+title: Kullanılabilirlik bölgeleri (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs
+description: Kesintilere karşı artıklığı için kullanılabilirlik bölgeleri kullanmak Azure sanal makine ölçek kümeleri oluşturma hakkında bilgi edinin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 2de214f604469025a8a4accde44359fea0ded7e9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8b497af8bc7e3060e184dd6a029b23ccb2d2bbfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones-preview"></a>Kullanılabilirlik bölgeleri (Önizleme) kullanan bir sanal makine ölçek kümesi oluşturma
 Sanal makine ölçek kümeleri datacenter düzeyi arızasına karşı korumak için kullanılabilirlik dilimlerinde ayarlamak ölçek oluşturabilirsiniz. Kullanılabilirlik bölgeleri destekleyen azure bölgeleri sahip en az üç ayrı bölgeler, her biri kendi bağımsız güç kaynağı, ağ ve soğutma. Daha fazla bilgi için bkz: [kullanılabilirlik bölgeleri genel bakış](../availability-zones/az-overview.md).
@@ -34,14 +34,14 @@ Tek bir bölge, bölge bu tüm VM örnekleri çalıştırmak ve ölçek kümesin
 
 Kullanılabilirlik bölgeleri kullanmak için ölçek kümesini oluşturulmalıdır bir [Azure bölgesi desteklenen](../availability-zones/az-overview.md#regions-that-support-availability-zones). Ayrıca gerek [kullanılabilirlik bölgeleri Önizleme için kaydetme](http://aka.ms/azenroll). Aşağıdaki yöntemlerden biriyle kullanılabilirlik bölgeleri kullanan bir ölçek kümesi oluşturabilirsiniz:
 
-- [Azure portalı](#use-the-azure-portal)
+- [Azure Portal](#use-the-azure-portal)
 - [Azure CLI 2.0](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager şablonları](#use-azure-resource-manager-templates)
 
 
 ## <a name="use-the-azure-portal"></a>Azure portalı kullanma
-Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](virtual-machine-scale-sets-create-portal.md). Bilgisayarınızda yüklü olduğundan emin olun [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Desteklenen bir Azure bölgesini seçtiğinizde, aşağıdaki örnekte gösterildiği gibi bir ölçeği kullanılabilen bölgeler, birini Ayarla oluşturabilirsiniz:
+Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-portal.md). Bilgisayarınızda yüklü olduğundan emin olun [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Desteklenen bir Azure bölgesini seçtiğinizde, aşağıdaki örnekte gösterildiği gibi bir ölçeği kullanılabilen bölgeler, birini Ayarla oluşturabilirsiniz:
 
 ![Ölçeği tek bir kullanılabilirlik bölgesinde Ayarla oluşturma](media/virtual-machine-scale-sets-use-availability-zones/create-portal-single-az.png)
 
@@ -49,7 +49,7 @@ Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için iş
 
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
-Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](virtual-machine-scale-sets-create-cli.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll).
+Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll).
 
 Ekleme `--zones` parametresi [az vmss oluşturmak](/cli/azure/vmss#az_vmss_create) komut ve kullanmak için hangi bölgede belirtin (bölge gibi *1*, *2*, veya *3*). Aşağıdaki örnek, bir tek bölge ölçeği adlandırılmış Ayarla oluşturur *myScaleSet* bölgesinde *1*:
 
@@ -114,7 +114,7 @@ Oluşturun ve tüm belirttiğiniz bölgelerini kaynaklar ve VM ölçek kümesi y
 
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
-Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](virtual-machine-scale-sets-create-powershell.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Ekleme `-Zone` parametresi [yeni AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) komut ve kullanmak için hangi bölgede belirtin (bölge gibi *1*, *2*, veya *3*). 
+Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturmak için işlem içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-powershell.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Ekleme `-Zone` parametresi [yeni AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) komut ve kullanmak için hangi bölgede belirtin (bölge gibi *1*, *2*, veya *3*). 
 
 Aşağıdaki örnek, bir tek bölge ölçek kümesi config adlı oluşturur *vmssConfig* içinde *Doğu ABD 2* bölge *1*:
 
@@ -178,7 +178,7 @@ Bölge olarak yedekli ölçek tam bir örnek için ayarlamak ve ağ kaynakları,
 
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager şablonlarını kullanma
-Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturma işlemi için alma başlatılan makalesinde ayrıntılı olarak aynıdır [Linux](virtual-machine-scale-sets-create-template-linux.md) veya [Windows](virtual-machine-scale-sets-create-template-windows.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Ekleme `zones` özelliğine *Microsoft.Compute/virtualMachineScaleSets* kaynak türü şablonunuzda ve kullanmak için hangi bölgede belirtin (bölge gibi *1*, *2*, veya *3*).
+Bir kullanılabilirlik bölge kullanan bir ölçek kümesi oluşturma işlemi için alma başlatılan makalesinde ayrıntılı olarak aynıdır [Linux](quick-create-template-linux.md) veya [Windows](quick-create-template-windows.md). Kullanılabilirlik bölgeleri kullanmak için desteklenen bir Azure bölgesinde ölçek kümesini oluşturmak ve gerekir sahip [kullanılabilirlik bölgeleri Önizleme için kayıtlı](http://aka.ms/azenroll). Ekleme `zones` özelliğine *Microsoft.Compute/virtualMachineScaleSets* kaynak türü şablonunuzda ve kullanmak için hangi bölgede belirtin (bölge gibi *1*, *2*, veya *3*).
 
 Aşağıdaki örnek, bir Linux tek bölge ölçeği adlandırılmış Ayarla oluşturur *myScaleSet* içinde *Doğu ABD 2* bölge *1*:
 

@@ -1,9 +1,9 @@
 ---
-title: "Hdınsight'ta Hadoop işleri için veri yükleme | Microsoft Docs"
-description: "Karşıya yükleme ve Azure CLI, Azure Storage Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak hdınsight'ta Hadoop işleri için veri erişim hakkında bilgi edinin."
-keywords: "etl hadoop alma verileri hadoop, hadoop veri yükleme"
+title: Hdınsight'ta Hadoop işleri için veri yükleme | Microsoft Docs
+description: Karşıya yükleme ve Azure CLI, Azure Storage Gezgini, Azure PowerShell, Hadoop komut satırı veya Sqoop kullanarak hdınsight'ta Hadoop işleri için veri erişim hakkında bilgi edinin.
+keywords: etl hadoop alma verileri hadoop, hadoop veri yükleme
 services: hdinsight,storage
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: ddb6291cdff7e2b65f54e89196c2b07dd6e4aaff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>HDInsight'ta Hadoop işleri için veri yükleme
 
@@ -31,7 +31,7 @@ Azure Hdınsight, Azure Storage ve Azure Data Lake Store üzerinde tam özellikl
 
 Başlamadan önce aşağıdaki gereksinimleri dikkate alın:
 
-* Azure Hdınsight kümesi. Yönergeler için bkz: [Azure Hdınsight kullanmaya başlama] [ hdinsight-get-started] veya [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
+* Bir Azure HDInsight kümesi. Yönergeler için bkz: [Azure Hdınsight kullanmaya başlama] [ hdinsight-get-started] veya [Hdınsight kümeleri oluşturma](hdinsight-hadoop-provision-linux-clusters.md).
 * Aşağıdaki iki makaleleri bilgisi:
 
     - [Hdınsight ile Azure depolama kullanma][hdinsight-storage]
@@ -176,7 +176,7 @@ or
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-Diğer Hadoop listesini dosyalarıyla çalışan komutlar için bkz: [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Dosyalarla diğer Hadoop komutların listesi için bkz: [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]
 > HBase kümelerinde varsayılan bloğu boyutunu veri yazma 256 KB olduğunda kullanılır. Bu HBase API'lerini veya REST API'leri kullanırken düzgün çalışır, ancak kullanarak `hadoop` veya `hdfs dfs` ~ 12 GB'den büyük veri hatayla sonuçlanır yazmak için komutları. Daha fazla bilgi için bkz: [blob yazma için depolama özel durumu](#storageexception) bu makalenin bölümünde.
@@ -188,18 +188,18 @@ Azure Storage ile çalışmak için bir grafik arabirim sağlayan birkaç uygula
 
 | İstemci | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Hdınsight için Microsoft Visual Studio Araçları](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources) |✔ |✔ |✔ |
+| [Hdınsight için Microsoft Visual Studio Araçları](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Depolama Gezgini](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Bulut depolama Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Gezgini](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Hdınsight için Visual Studio Araçları
-Daha fazla bilgi için bkz: [bağlı kaynaklara gitme](hadoop/apache-hadoop-visual-studio-tools-get-started.md#navigate-the-linked-resources).
+Daha fazla bilgi için bkz: [bağlı kaynaklara gitme](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources).
 
 #### <a id="storageexplorer"></a>Azure Storage Gezgini
-*Azure Storage Gezgini* inceleme ve BLOB verileri değiştirme için yararlı bir araçtır. Bu, yüklenebilir bir ücretsiz, açık kaynak aracıdır [http://storageexplorer.com/](http://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
+*Azure Storage Gezgini* inceleme ve BLOB verileri değiştirme için yararlı bir araçtır. Bu, yüklenebilir bir ücretsiz, açık kaynak aracıdır [ http://storageexplorer.com/ ](http://storageexplorer.com/). Kaynak kodu, bu bağlantıdan kullanılabilir.
 
 Aracı'nı kullanmadan önce Azure depolama hesabı adı ve hesap anahtarınızın bilmeniz gerekir. Bu bilgi alma hakkında yönergeler için bkz: "nasıl yapılır: görüntüleme, kopyalama ve erişim anahtarları yeniden oluşturma depolama" bölümünü [oluşturun, yönetmek veya bir depolama hesabını silmek][azure-create-storage-account].
 
@@ -207,7 +207,7 @@ Aracı'nı kullanmadan önce Azure depolama hesabı adı ve hesap anahtarınız�
 
     Bir ad girin ve Hdınsight küme tarafından kullanılan depolama hesabı için anahtarını ve ardından **Aç & Kaydet**.
 
-    ![HDI. AzureStorageExplorer][image-azure-storage-explorer]
+    ![HDI.AzureStorageExplorer][image-azure-storage-explorer]
 2. Arabirim solundaki kapsayıcıları listesinde, Hdınsight kümenizle ilişkilendirilmiş kapsayıcının adını tıklatın. Varsayılan olarak, Hdınsight kümesi adıdır, ancak küme oluştururken, belirli bir ad girdiyseniz farklı olabilir.
 3. Araç Çubuğu'ndan karşıya yükleme simgesini seçin.
 
@@ -280,7 +280,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Değerini de artırabilirsiniz `fs.azure.write.request.size` Ambari kullanarak genel. Aşağıdaki adımlar, Ambari Web kullanıcı arabirimini değerini değiştirmek için kullanılabilir:
 
-1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini gidin. Https://CLUSTERNAME.azurehdinsight.net, budur nerede **CLUSTERNAME** kümenizin adıdır.
+1. Tarayıcınızda, kümeniz için Ambari Web kullanıcı arabirimini gidin. Bu https://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** kümenizin adıdır.
 
     İstendiğinde, küme için Yönetici adını ve parolasını girin.
 2. Ekranın sol taraftan seçin **HDFS**ve ardından **yapılandırmalar** sekmesi.

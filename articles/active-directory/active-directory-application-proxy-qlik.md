@@ -8,15 +8,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c34af889f65e0fa91f97655803af099dadcabc5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 331f8ed2e77a076dd8969dc37add1cdeafc852dc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama proxy'si ve Qlik algılama 
 Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılama dağıtımınız için uzaktan erişim sağlamak için uygulama proxy'si kullanmanız mümkün olduğundan emin olmak için birlikte ortaklık.  
@@ -24,7 +24,7 @@ Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılam
 ## <a name="prerequisites"></a>Önkoşullar 
 Bu senaryo geri kalanı, aşağıdaki bitti varsayılır:
  
-- Yapılandırılmış [Qlik algılama](https://help.qlik.com/sense/1.1/Content/Introduction.htm). 
+- Yapılandırılmış [Qlik algılama](https://community.qlik.com/docs/DOC-19822). 
 - Bir uygulama Proxy Bağlayıcısı yüklü 
 
 ## <a name="install-an-application-proxy-connector"></a>Bir uygulama ara sunucusu Bağlayıcısı'nı yüklemek 

@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 9de332324ba853d3df0aacce2db4bbc3d4d9d62d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
@@ -338,13 +338,17 @@ Tüm aygıt kimlikleri okuma erişimi vermeniz, sonuç şöyle olacaktır:
 
 ## <a name="supported-x509-certificates"></a>Desteklenen X.509 sertifikaları
 
-Bir cihaz IOT Hub ile kimlik doğrulaması için herhangi bir X.509 sertifika kullanabilirsiniz. Sertifikaları dahil et:
+Sertifika parmak izi veya bir sertifika yetkilisi (CA) Azure IOT Hub'ına karşıya yükleyerek bir cihaz IOT Hub ile kimlik doğrulaması için herhangi bir X.509 sertifika kullanabilirsiniz. Yalnızca sertifika parmak izleri kullanılarak kimlik doğrulaması sunulan parmak izi yapılandırılmış parmak iziyle eşleştiğini doğrular. Sertifika yetkilisi kullanılarak kimlik doğrulaması sertifika zincirini doğrular. 
 
-* **Varolan bir X.509 sertifikası**. Bir aygıt zaten kendisiyle ilişkilendirilmiş bir X.509 sertifikası olabilir. Cihaz IOT Hub ile kimlik doğrulaması için bu sertifikayı kullanabilirsiniz.
-* **A otomatik olarak oluşturulan ve X-509 Sertifika'otomatik olarak imzalanan**. Bir aygıt üreticisi veya şirket içi dağıtıcı, bu sertifikalar oluşturmak ve karşılık gelen özel anahtar (ve sertifika) cihazda depolamak. Araçları gibi kullanabilir [OpenSSL] [ lnk-openssl] ve [Windows SelfSignedCertificate] [ lnk-selfsigned] bu amaç için yardımcı programı.
-* **X.509 sertifikası CA tarafından imzalanmış**. Bir aygıtı belirlemek ve IOT Hub ile kimlik doğrulaması için oluşturulan ve bir sertifika yetkilisi (CA) tarafından imzalanmış bir X.509 sertifikası kullanabilirsiniz. IOT hub'ı yalnızca sunulan parmak izi yapılandırılmış parmak iziyle eşleştiğini doğrular. Iothub sertifika zinciri doğrulamaz.
+Desteklenen sertifikaları dahil et:
+
+* **Varolan bir X.509 sertifikası**. Bir aygıt zaten kendisiyle ilişkilendirilmiş bir X.509 sertifikası olabilir. Cihaz IOT Hub ile kimlik doğrulaması için bu sertifikayı kullanabilirsiniz. Parmak izi veya CA'ın kimlik doğrulaması ile çalışır. 
+* **X.509 sertifikası CA tarafından imzalanmış**. Bir aygıtı belirlemek ve IOT Hub ile kimlik doğrulaması için oluşturulan ve bir sertifika yetkilisi (CA) tarafından imzalanmış bir X.509 sertifikası kullanabilirsiniz. Parmak izi veya CA'ın kimlik doğrulaması ile çalışır.
+* **A otomatik olarak oluşturulan ve X-509 Sertifika'otomatik olarak imzalanan**. Bir aygıt üreticisi veya şirket içi dağıtıcı, bu sertifikalar oluşturmak ve karşılık gelen özel anahtar (ve sertifika) cihazda depolamak. Araçları gibi kullanabilir [OpenSSL] [ lnk-openssl] ve [Windows SelfSignedCertificate] [ lnk-selfsigned] bu amaç için yardımcı programı. Yalnızca parmak izi kimlik doğrulaması ile çalışır. 
 
 Bir aygıt ya da bir X.509 sertifikası veya bir güvenlik belirteci kimlik doğrulaması, ancak ikisini için kullanabilir.
+
+Sertifika yetkilisi kullanılarak kimlik doğrulaması hakkında daha fazla bilgi için bkz: [X.509 CA sertifikaları kavramsal anlayış](iot-hub-x509ca-concept.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Bir aygıt bir X.509 sertifikası Kaydet
 
@@ -354,10 +358,7 @@ Bir aygıt ya da bir X.509 sertifikası veya bir güvenlik belirteci kimlik doğ
 
 **RegistryManager** sınıfı bir cihazı kaydetmek için programlı bir yolunu sağlar. Özellikle, **AddDeviceAsync** ve **UpdateDeviceAsync** yöntemleri kaydetmek ve bir cihaz IOT Hub kimlik kayıt defterinde güncelleştirmenize olanak sağlar. Bu iki yöntem ele bir **aygıt** örnek giriş olarak. **Aygıt** sınıfı içeren bir **kimlik doğrulaması** birincil ve ikincil X.509 sertifika parmak izlerini belirtmenize olanak tanır özelliği. Parmak izi SHA-1 karma (DER ikili kodlama kullanılarak depolanır) X.509 sertifikası değerini temsil eder. Birincil bir parmak izi veya ikincil bir parmak izi veya her ikisini belirtme seçeneğiniz vardır. Birincil ve ikincil parmak izleri sertifika geçiş senaryoları işlemek için desteklenir.
 
-> [!NOTE]
-> IOT hub'ı gerektirmez veya tüm X.509 sertifika parmak izini yalnızca depolar.
-
-Örnek C işte\# kod parçacığını bir X.509 sertifikası kullanarak bir cihazı kaydetmek için:
+Örnek C işte\# kod parçacığını bir X.509 sertifika parmak izini kullanarak bir cihazı kaydetmek için:
 
 ```csharp
 var device = new Device(deviceId)

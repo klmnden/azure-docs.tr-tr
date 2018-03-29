@@ -42,7 +42,7 @@ Hayır.
 
 **Yönetilen diskler kullanan müşteriler için ölçek sınırlamalar var mı?**
 
-Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, yönetilen disk başına abonelik sayısı 2. 000'varsayılan olarak sınırlıdır. Bu sayıyı artırmak için destek çağırabilirsiniz.
+Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, en üst sınıra ve varsayılan sınır, bir abonelik için disk türünü ve bölge başına 10.000 yönetilen diskleri olur.
 
 **Yönetilen bir diskin artımlı bir anlık görüntüsünü alın?**
 

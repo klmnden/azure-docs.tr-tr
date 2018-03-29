@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service'te Web işleri ile arka plan görevleri Çalıştır"
-description: "Web işleri Azure App Service web apps, API uygulamaları veya mobile apps arka plan görevleri çalıştırmak için nasıl kullanılacağını öğrenin."
+title: Azure App Service'te Web işleri ile arka plan görevleri Çalıştır
+description: Web işleri Azure App Service web apps, API uygulamaları veya mobile apps arka plan görevleri çalıştırmak için nasıl kullanılacağını öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: tdykstra
 manager: erikre
 editor: jimbe
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 3652e0171e0c6a53c16fb5b5fde20df9ed2ab7c7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f41cc83bfb18146e46e7d8501318acd68ce9c421
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Azure App Service'te Web işleri ile arka plan görevleri Çalıştır
 
@@ -170,15 +170,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="cron-expressions"></a>CRON ifadeleri
 
-A [CRON ifade](https://en.wikipedia.org/wiki/Cron) altı alanlarının oluşur: `{second} {minute} {hour} {day} {month} {day of the week}`.  İşte bazı örnekler:
-
-* Her 15 dakikada: `0 */15 * * * *`
-* Her saat (diğer bir deyişle, dakika sayısı 0 olduğunda): `0 0 * * * *` 
-* 09: 00'dan her saat 18: 00 için: `0 0 9-17 * * *` 
-* 09:30:00 her gün: `0 30 9 * * *`
-* 09:30:00 her hafta içi günü: `0 30 9 * * 1-5`
-
-Portalda CRON ifade girin ya da dahil bir `settings.job` , WebJob kökündeki dosya *.zip* aşağıdaki örnekteki gibi dosya:
+Girdiğiniz bir [CRON ifade](../azure-functions/functions-bindings-timer.md#cron-expressions) Portalı'nda ya da dahil bir `settings.job` , WebJob kökündeki dosya *.zip* aşağıdaki örnekteki gibi dosya:
 
 ```json
 {

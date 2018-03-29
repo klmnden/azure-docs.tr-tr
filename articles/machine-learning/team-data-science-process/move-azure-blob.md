@@ -1,8 +1,8 @@
 ---
-title: "Verileri için Azure Blob depolama biriminden getirip | Microsoft Docs"
-description: "Azure Blob Depolamadan/Depolamaya Veri Taşıma"
+title: Verileri için Azure Blob depolama biriminden getirip | Microsoft Docs
+description: Azure Blob Depolamadan/Depolamaya Veri Taşıma
 services: machine-learning,storage
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;sachouks
-ms.openlocfilehash: f282705b6d5d1f6867ea87737f19b5550054789a
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: 16988d7dd466eb0f893dc0b1f8fdc6511115d0a7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage gelen ve veri taşıma
 [!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
@@ -43,7 +43,7 @@ Alternatif olarak, kullandığınız [Azure Data Factory](https://azure.microsof
 
 Daha fazla bilgi için bkz: [Azure Data Factory ve Azure Machine Learning kullanarak Tahmine dayalı işlem hatlarını oluşturmak](../../data-factory/v1/data-factory-azure-ml-batch-execution-activity.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu belge, Azure aboneliği, bir depolama hesabı ve o hesap için karşılık gelen depolama anahtarı sahip olduğunuzu varsayar. Karşıya yükleme/veri yüklemeden önce Azure depolama hesabı adı ve hesap anahtarınızın bilmeniz gerekir.
 
 * Bir Azure aboneliği ayarlamak için bkz: [ücretsiz bir aylık deneme](https://azure.microsoft.com/pricing/free-trial/).

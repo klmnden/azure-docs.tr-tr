@@ -1,6 +1,6 @@
 ---
-title: "Havadan görüntü sınıflandırma | Microsoft Docs"
-description: "Havadan görüntü sınıflandırmasına gerçek dünya senaryoları için yönergeler sağlar"
+title: Havadan görüntü sınıflandırma | Microsoft Docs
+description: Havadan görüntü sınıflandırmasına gerçek dünya senaryoları için yönergeler sağlar
 author: mawah
 ms.author: mawah
 manager: mwinkle
@@ -8,20 +8,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.topic: article
 ms.service: machine-learning
 services: machine-learning
-<<<<<<< HEAD
-ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: HT
-=======
 ms.workload: data-services
 ms.date: 12/13/2017
-ms.openlocfilehash: 76c706496b3bcdbc1604661be85dc31000873ad3
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 42ebb7dc3abf8fdb6049f1114dc8604a7b810a7e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="aerial-image-classification"></a>Havadan görüntü sınıflandırma
 
@@ -65,7 +58,7 @@ Aşağıdaki yönergeler bu örneğin yürütme ortamı ayarlama işleminde size
     - Hdınsight Spark kümesinde 40 çalışan düğümleri (toplam 168 çekirdekler) oluşturur. "Kullanım + kotalar" inceleyerek hesabınızı yeterli kullanılabilir çekirdeğe sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
        - Daha az çekirdek kullanılabilir varsa, sağlanan çalışanların sayısını azaltmak için Hdınsight küme şablonu değiştirebilir. Bunun için yönergeler "Hdınsight Spark kümesi oluşturma" bölümünde görüntülenir.
     - Bu örnek bir Batch AI Eğitim kümesi ile iki NC6 oluşturur (1 GPU, 6 vCPU) VM'ler. Hesabınızın yeterli kullanılabilir çekirdekler Doğu ABD bölgesinde "kullanım + kotalar" inceleyerek sahip olduğundan emin olun aboneliğinizin Azure portalında sekmesi.
-- [Azure Machine Learning çalışma ekranı](./overview-what-is-azure-ml.md)
+- [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - İzleyin [yükleme ve hızlı başlangıç oluşturma](quickstart-installation.md) Azure Machine Learning çalışma ekranı yükleyip deneme ve Model yönetim hesapları oluşturun.
 - [Toplu AI](https://github.com/Azure/BatchAI) Python SDK'sı ve Azure CLI 2.0
     - Aşağıdaki bölümlerde tamamlamak [toplu AI tarif Benioku](https://github.com/Azure/BatchAI/tree/master/recipes):
@@ -90,7 +83,7 @@ Bu örnek, Hdınsight Spark kümesinde ve ana bilgisayar ilgili dosyaları için
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**
+2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
 4.  İçinde **arama proje şablonları** arama kutusu, "Hava görüntü sınıflandırması" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın
@@ -229,7 +222,7 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
 1. Bir ağ dosya sunucusu oluşturmak için aşağıdaki komutu yürütün:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p "Dem0Pa$$w0rd" --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Aşağıdaki komutu kullanarak, ağ dosya sunucunuzun sağlama durumunu kontrol edin:
@@ -260,7 +253,7 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
 1. Aşağıdaki komutu gönderdikten küme oluşturun:
 
     ```
-    az batchai cluster create -n landuseclassifier2 -u demoUser -p Dem0Pa$$w0rd --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
+    az batchai cluster create -n landuseclassifier2 -u demoUser -p "Dem0Pa$$w0rd" --afs-name baitshare --nfs landuseclassifier --image UbuntuDSVM --vm-size STANDARD_NC6 --max 2 --min 2 --storage-account-name %STORAGE_ACCOUNT_NAME% 
     ```
 
 1. Kümenizi sağlama durumu kullanıcının denetlemek için aşağıdaki komutu kullanın:
@@ -274,12 +267,12 @@ Toplu AI kümenizi eğitim verilerinizi bir ağ dosya sunucusundaki erişir. Ver
 #### <a name="record-batch-ai-training-credentials"></a>Kayıt toplu AI eğitim kimlik bilgileri
 
 Küme ayırma için beklerken açmak `settings.cfg` metin düzenleyiciyi bu projede "Code" alt dosyasından. Aşağıdaki değişkenler kendi kimlik bilgilerinizle güncelleştirin:
-- `bait_subscription_id`(36 karakter Azure abonelik Kimliğinizi)
-- `bait_aad_client_id`("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama/istemci kimliği)
-- `bait_aad_secret`("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama gizli anahtarı)
-- `bait_aad_tenant`("Önkoşullar" bölümünde belirtilen Azure Active Directory Kiracı kimliği)
-- `bait_region`(Bu makalenin yazıldığı sırada tek seçenektir: eastus)
-- `bait_resource_group_name`(daha önce seçtiğiniz kaynak grubu)
+- `bait_subscription_id` (36 karakter Azure abonelik Kimliğinizi)
+- `bait_aad_client_id` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama/istemci kimliği)
+- `bait_aad_secret` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Uygulama gizli anahtarı)
+- `bait_aad_tenant` ("Önkoşullar" bölümünde belirtilen Azure Active Directory Kiracı kimliği)
+- `bait_region` (Bu makalenin yazıldığı sırada tek seçenektir: eastus)
+- `bait_resource_group_name` (daha önce seçtiğiniz kaynak grubu)
 
 Bu değerleri atadıktan sonra değiştirilen satırları settings.cfg dosyanızın aşağıdaki metni benzemelidir:
 
@@ -338,7 +331,7 @@ Bu senaryo, genel kullanıma açık havadan görüntülerin verilerden kullanır
 
 ~ 44 sınıfı dengeli kümesi k ve 11 k görüntüleri kullanılan model eğitim ve doğrulama için sırasıyla. Model dağıtımı ~ 67 k görüntüsüne döşemesini Middlesex ilçe, MA--giriş Microsoft'un yeni İngiltere araştırma ve geliştirme (NERD) merkezi ayarlamak göstermektedir. Bu görüntü kümeleri nasıl oluşturulan daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırma git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 
-![Middlesex ilçe, Massachusetts konumu](media/scenario-aerial-image-classification/middlesex-ma.png)
+![Location of Middlesex County, Massachusetts](media/scenario-aerial-image-classification/middlesex-ma.png)
 
 Kurulum sırasında bu örnekte kullanılan havadan görüntü kümeleri oluşturduğunuz depolama hesabını aktarıldı. Eğitim, doğrulama ve operationalization görüntüleri tüm 224 piksel x 224 piksel PNG metre kare başına bir piksel çözünürlükte dosyalarıdır. Eğitim ve doğrulama görüntüleri kendi kara kullanım etikete göre alt klasörler halinde düzenlenmiştir. (Kara etiket operationalization görüntülerinin bilinmeyen ve çoğu durumda belirsiz; bu görüntüleri bazıları birden çok kara türü içeriyor.) Bu görüntü kümeleri nasıl oluşturulan daha fazla bilgi için bkz: [utandırıcı derecede paralel görüntü sınıflandırma git deposu](https://github.com/Azure/Embarrassingly-Parallel-Image-Classification).
 

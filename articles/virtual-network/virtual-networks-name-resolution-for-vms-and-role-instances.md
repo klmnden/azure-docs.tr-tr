@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: jdial
-ms.openlocfilehash: 6ad001158a8babfb5178916813ee789b7ff7594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e46f6617b1a6d73ace00d4eafa1410785315a8c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="name-resolution-for-virtual-machines-and-role-instances"></a>Sanal makineler ve rol örnekleri için ad çözümlemesi
 
@@ -27,7 +27,7 @@ Azure Iaas ve PaaS karma çözümleri barındırmak için nasıl kullanacağın�
 İç IP adresleri için etki alanı adları çözümlemek rol örnekleri ve Azure üzerinde barındırılan sanal makineleri gerektiğinde, bunlar iki yöntemden birini kullanabilirsiniz:
 
 * [Azure tarafından sağlanan ad çözümlemesi](#azure-provided-name-resolution)
-* [Ad, kendi DNS sunucusunu kullanır çözümlemesi](#name-resolution-using-your-own-dns-server) (hangi iletmek için Azure tarafından sağlanan DNS sunucularını sorgular) 
+* [Ad, kendi DNS sunucusunu kullanır çözümlemesi](#name-resolution-that-uses-your-own-dns-server) (hangi iletmek için Azure tarafından sağlanan DNS sunucularını sorgular) 
 
 Kullandığınız ad çözümlemesi türünün nasıl VM'ler ve rol örnekleri birbirleri ile iletişim kurmak gereksinimlerine göre değişir. Aşağıdaki tabloda senaryoları ve karşılık gelen ad çözümlemesi çözümleri gösterilmektedir:
 
@@ -38,13 +38,13 @@ Kullandığınız ad çözümlemesi türünün nasıl VM'ler ve rol örnekleri b
 | **Senaryo** | **Çözüm** | **Suffix** |
 | --- | --- | --- |
 | Rol örnekleri veya aynı bulut hizmeti ya da sanal ağ içinde yer alan VM'ler arasında ad çözümleme. | [Azure DNS özel bölgeler](../dns/private-dns-overview.md) veya [Azure tarafından sağlanan ad çözümlemesi](#azure-provided-name-resolution) |ana bilgisayar adı veya FQDN |
-| Rol örnekleri veya farklı sanal ağlarda yer alan VM'ler arasında ad çözümleme. |[Azure DNS özel bölgeler](../dns/private-dns-overview.md) veya, Azure (DNS proxy) tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme müşteri tarafından yönetilen DNS sunucuları. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
-| Ad çözümlemesi (Web uygulaması, işlev veya Bot) bir Azure uygulama hizmeti sanal ağ tümleştirmesinin rol örnekleri ya da sanal makineleri kullanarak aynı sanal ağda bulunan. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
-| App Service Web Apps alanından ad çözümlemesi aynı sanal ağda bulunan sanal makineleri için. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
-| App Service Web Apps name resolution farklı bir sanal ağda bulunan sanal makineleri için. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server-for-web-apps). |Yalnızca FQDN |
-| Şirket içi bilgisayar hizmeti adları ve rol örnekleri veya azure'da VM çözünürlüğü. |Müşteri tarafından yönetilen DNS sunucuları (şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya bölge aktarımlarının, örneğin kullanarak eşitlenen bir DNS ikincil). Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
-| Şirket içi bilgisayarlardan Azure ana bilgisayar adları çözünürlüğü. |İletme sorguları bir müşteri tarafından yönetilen DNS proxy sunucusuna karşılık gelen sanal ağ proxy sunucusunu sorgular için Azure çözümlemesi için iletir. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
-| DNS geriye doğru iç IP için. |[Kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Uygulanamaz |
+| Rol örnekleri veya farklı sanal ağlarda yer alan VM'ler arasında ad çözümleme. |[Azure DNS özel bölgeler](../dns/private-dns-overview.md) veya, Azure (DNS proxy) tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme müşteri tarafından yönetilen DNS sunucuları. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
+| Ad çözümlemesi (Web uygulaması, işlev veya Bot) bir Azure uygulama hizmeti sanal ağ tümleştirmesinin rol örnekleri ya da sanal makineleri kullanarak aynı sanal ağda bulunan. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
+| App Service Web Apps alanından ad çözümlemesi aynı sanal ağda bulunan sanal makineleri için. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
+| App Service Web Apps name resolution farklı bir sanal ağda bulunan sanal makineleri için. |Müşteri tarafından yönetilen DNS sunucuları (DNS proxy) Azure tarafından çözümlemesi için sanal ağlar arasındaki sorguları iletme. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server-for-web-apps). |Yalnızca FQDN |
+| Şirket içi bilgisayar hizmeti adları ve rol örnekleri veya azure'da VM çözünürlüğü. |Müşteri tarafından yönetilen DNS sunucuları (şirket içi etki alanı denetleyicisi, yerel salt okunur etki alanı denetleyicisi veya bölge aktarımlarının, örneğin kullanarak eşitlenen bir DNS ikincil). Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
+| Şirket içi bilgisayarlardan Azure ana bilgisayar adları çözünürlüğü. |İletme sorguları bir müşteri tarafından yönetilen DNS proxy sunucusuna karşılık gelen sanal ağ proxy sunucusunu sorgular için Azure çözümlemesi için iletir. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Yalnızca FQDN |
+| DNS geriye doğru iç IP için. |[Kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-that-uses-your-own-dns-server). |Uygulanamaz |
 | Sanal makineler veya sanal ağ içinde olmayan farklı bulut Hizmetleri bulunan rol örnekleri arasında ad çözümleme. |Geçerli değil. VM'ler ve rol örnekleri farklı bulut hizmetleri arasında bağlantı sanal ağ dışında desteklenmiyor. |Uygulanamaz|
 
 ## <a name="azure-provided-name-resolution"></a>Azure tarafından sağlanan ad çözümlemesi
@@ -73,7 +73,7 @@ Azure tarafından sağlanan ad çözümlemesi kullanırken dikkate alınacak nok
 * Kendi kayıtları el ile kaydettirilemedi.
 * WINS ve NetBIOS desteklenmez (Windows Gezgini'nde, VM'ler göremiyorum).
 * Ana bilgisayar adlarını DNS uyumlu olması gerekir. Adları, yalnızca 0-9, a-z, kullanmalıdır ve '-' ve başlayamaz veya bitemez bir '-'.
-* DNS sorgu trafiğinin her VM için kısıtlanır. Azaltma uygulamaların çoğu etkisi döndürmemelidir. İstek azaltma gözlenir, istemci tarafı önbelleğe alma etkin olduğundan emin olun. Daha fazla bilgi için bkz: [en sağlanan Azure name resolution alma](#Getting-the-most-from-Azure-provided-name-resolution).
+* DNS sorgu trafiğinin her VM için kısıtlanır. Azaltma uygulamaların çoğu etkisi döndürmemelidir. İstek azaltma gözlenir, istemci tarafı önbelleğe alma etkin olduğundan emin olun. Daha fazla bilgi için bkz: [DNS istemci yapılandırmasını](#dns-client-configuration).
 * Yalnızca ilk 180 bulut hizmetlerinde VM'ler, her bir sanal ağı Klasik dağıtım modelinde kaydedilir. Bu sınır, Azure Kaynak Yöneticisi'nde sanal ağlar için geçerli değildir.
 
 ## <a name="dns-client-configuration"></a>DNS istemcisi yapılandırması
@@ -158,7 +158,7 @@ Azure tarafından sağlanan ad çözümlemesi kullanırken, Azure Dinamik Ana Bi
 
 Gerekirse, PowerShell veya API kullanarak iç DNS soneki belirleyebilirsiniz:
 
-* Azure Resource Manager dağıtım modellerinde sanal ağlar için soneki aracılığıyla kullanılabilir [ağ arabirim kartı](virtual-network-network-interface.md) kaynak veya [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) cmdlet'i.
+* Azure Resource Manager dağıtım modellerinde sanal ağlar için soneki aracılığıyla kullanılabilir [ağ arabirimi REST API](/rest/api/virtualnetwork/networkinterfaces/get), [Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) PowerShell cmdlet'ini ve [az ağ NIC Göster](/cli/azure/network/nic#az-network-nic-show) Azure CLI komutu.
 * Klasik dağıtım modellerinde soneki aracılığıyla kullanılabilir [alma dağıtım API'si](https://msdn.microsoft.com/library/azure/ee460804.aspx) çağrısı veya [Get-AzureVM-Debug](/powershell/module/azure/get-azurevm) cmdlet'i.
 
 Sorgular için Azure iletme gereksinimlerinize göre değil, kendi DNS çözümü sağlamalıdır. DNS çözüm gerekir:

@@ -1,26 +1,26 @@
 ---
-title: "Azure IOT Hub cihaz sağlama hizmetinde güvenlik kavramları | Microsoft Docs"
-description: "Güvenlik kavramları aygıt hizmeti sağlama ve IOT Hub ile cihazları için belirli sağlama açıklar"
+title: Azure IOT Hub cihaz sağlama hizmetinde güvenlik kavramları | Microsoft Docs
+description: Güvenlik kavramları aygıt hizmeti sağlama ve IOT Hub ile cihazları için belirli sağlama açıklar
 services: iot-dps
-keywords: 
+keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 03/27/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: ab2bfff571af659552eef8117de041ca6367ce56
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IOT Hub cihaz sağlama hizmeti güvenlik kavramları 
 
-IOT Hub cihaz hizmeti sağlama, IOT Hub'de belirtilen bir IOT hub'ına sağlama zero touch Cihazınızı yapılandırmak üzere kullanmak için bir yardımcı hizmetidir. Cihaz sağlama hizmeti ile milyonlarca cihaza güvenli ve ölçeklenebilir bir şekilde sağlayabilirsiniz. Bu makalede genel bir fikir veren *güvenlik* kavramları söz konusu aygıt sağlama. Bu makalede, bir cihaz dağıtım için hazır hale katılan tüm kişiler için geçerlidir.
+IOT Hub cihaz hizmeti sağlama, IOT Hub'de belirtilen bir IOT hub'ına sağlama zero touch Cihazınızı yapılandırmak üzere kullanmak için bir yardımcı hizmetidir. Cihaz Sağlama Hizmeti ile güvenli ve ölçeklenebilir bir şekilde milyonlarca cihaz sağlayabilirsiniz. Bu makalede genel bir fikir veren *güvenlik* kavramları söz konusu aygıt sağlama. Bu makalede, bir cihaz dağıtım için hazır hale katılan tüm kişiler için geçerlidir.
 
 ## <a name="attestation-mechanism"></a>Kanıtlama mekanizması
 
@@ -31,7 +31,7 @@ Kanıtlama mekanizması bir cihazın kimliğini onaylamak için kullanılan yön
 
 Cihaz sağlama hizmeti kanıtlama iki tür destekler:
 * **X.509 sertifikaları** üzerinde standart X.509 sertifikası kimlik doğrulaması akışı tabanlı.
-* **SAS belirteci** tuşları TPM standart kullanarak bir nonce challenge göre. Bu aygıttaki fiziksel TPM gerektirmez, ancak her onay anahtarını kullanarak şifreli olarak hizmet bekliyor [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
+* **Güvenilir Platform Modülü (TPM)** imzalı bir paylaşılan erişim imzası (SAS) belirteci sunmak için anahtarlar TPM standart kullanarak bir nonce challenge üzerinde temel. Bu aygıttaki fiziksel TPM gerektirmez, ancak her onay anahtarını kullanarak şifreli olarak hizmet bekliyor [TPM spec](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
 
 ## <a name="hardware-security-module"></a>Donanım güvenlik modülü
 
@@ -42,7 +42,7 @@ Donanım güvenlik modülü ya da HSM, cihaz gizli güvenli, donanım tabanlı d
 
 Cihaz gizlilikler de yazılım (bellek) depolanan, ancak bu daha az güvenli depolama HSM daha biçimidir.
 
-## <a name="trusted-platform-module-tpm"></a>Güvenilir Platform Modülü (TPM)
+## <a name="trusted-platform-module"></a>Güvenilir Platform Modülü
 
 TPM platform kimliğini doğrulamak için kullanılan anahtarları güvenli bir şekilde depolamak için bir standart başvurabilir veya standart uygulama modülleri ile etkileşim kurmak için kullanılan g/ç arabirimi başvurabilirsiniz. TPM'ler ayrık donanım, tümleşik donanım, bellenim veya yazılım tabanlı bulunabilir. Daha fazla bilgi edinmek [TPM'ler ve TPM kanıtlama](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Cihaz sağlama hizmeti yalnızca TPM 2.0 destekler.
 
@@ -66,7 +66,7 @@ Bir kök sertifikası, sertifika yetkilisi (CA) temsil eden otomatik olarak imza
 
 ### <a name="intermediate-certificate"></a>Ara Sertifika
 
-İmzalanmış bir X.509 sertifikası kök sertifika (veya başka bir ara sertifika kendi zincirindeki kök sertifikası ile) bir ara sertifikadır. Son Ara Sertifika zincirindeki yaprak sertifikasını imzalamak için kullanılır. Ara Sertifika, ayrıca bir ara CA sertifikası olarak başvuruda bulunulabilir.
+Bir ara sertifika kök sertifika (veya başka bir ara sertifika kendi zincirindeki kök sertifikası tarafından) imzalanmış bir X.509 sertifikası yok. Son Ara Sertifika zincirindeki yaprak sertifikasını imzalamak için kullanılır. Ara Sertifika, ayrıca bir ara CA sertifikası olarak başvuruda bulunulabilir.
 
 ### <a name="leaf-certificate"></a>Yaprak sertifikası
 
@@ -76,10 +76,10 @@ Yaprak sertifikası veya son varlık sertifikası, sertifika sahibinin tanımlar
 
 Sağlama hizmeti X.509 kanıtlama mekanizması kullanan cihazlar için erişimi denetlemek için kullanabileceğiniz kayıt girişi iki tür sunar:  
 
-- [Tek tek kayıt](./concepts-service.md#individual-enrollment) girişleri, belirli bir aygıt ile ilişkili aygıt sertifikası ile yapılandırılır. Bu girişler belirli cihazlar için kaydı denetler.
-- [Kayıt grubu](./concepts-service.md#enrollment-group) girişler belirli ara veya kök CA sertifikası ile ilişkili. Bu girişler ara veya kök sertifika, Sertifika zincirindeki tüm cihazlar için kayıt denetler. 
+- [Tek tek kayıt](./concepts-service.md#individual-enrollment) girişleri, belirli bir aygıt ile ilişkili aygıt sertifikası ile yapılandırılır. Bu girişler kayıtları belirli cihazlar için denetler.
+- [Kayıt grubu](./concepts-service.md#enrollment-group) girişler belirli ara veya kök CA sertifikası ile ilişkili. Bu girişler Kayıtları Ara veya kök sertifika, Sertifika zincirindeki tüm cihazlar için denetler. 
 
-Bir cihaz sağlama hizmete bağlandığında, hizmet üzerinde daha az belirli kayıt girişlerini daha ayrıntılı kayıt girişlerini öncelik verir. Diğer bir deyişle, cihaz için ayrı bir kayıt varsa, sağlama hizmeti bu girişi geçerlidir. Cihaz için ayrı ayrı hiçbir kayıt ve cihazın Sertifika zincirindeki ilk ara sertifika için bir kayıt grubu var, hizmet ve benzeri zincirinin kök yukarı bu girişi geçerlidir. Hizmet bulduğu ilk uygulanabilir girişi geçerlidir şekilde:
+Bir cihaz sağlama hizmete bağlandığında, hizmet üzerinde daha az belirli kayıt girişlerini daha ayrıntılı kayıt girişlerini öncelik verir. Diğer bir deyişle, cihaz için ayrı bir kayıt varsa, sağlama hizmeti bu girişi geçerlidir. Cihaz için ayrı ayrı hiçbir kayıt ve cihazın Sertifika zincirindeki ilk ara sertifika için bir kayıt grubu var, bu giriş vb., kök zincir oluşturan hizmet geçerlidir. Hizmet bulduğu ilk uygulanabilir girişi geçerlidir şekilde:
 
 - İlk kayıt girdisi bulundu etkinleştirilirse, hizmet cihaz sağlar.
 - İlk kayıt girdisi bulundu devre dışıysa, hizmet cihazı hazırlama değil.  

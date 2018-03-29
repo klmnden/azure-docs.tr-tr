@@ -1,8 +1,8 @@
 ---
-title: "Azure Machine Learning Anomali algılama API | Microsoft Docs"
-description: "Anomali algılama API zaman serisi veri zamanında hep aralıklı sayısal değerler ile anormallikleri algılar Microsoft Azure Machine Learning ile yerleşik bir örnektir."
+title: Azure Machine Learning Anomali algılama API | Microsoft Docs
+description: Anomali algılama API zaman serisi veri zamanında hep aralıklı sayısal değerler ile anormallikleri algılar Microsoft Azure Machine Learning ile yerleşik bir örnektir.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: alokkirpal
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
-ms.author: alok;rotimpe
-ms.openlocfilehash: e2adfffa00a726fe2c452c25dd777ef054319b04
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: alok
+ms.openlocfilehash: e3f6f0de16fcb84872fe7b420eb0d54e86682f23
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Anomali algılama API makine
 ## <a name="overview"></a>Genel Bakış
@@ -111,7 +111,7 @@ Anomali algılama API algılayıcılar 3 geniş kategorilerde destekler. Belirli
 | Algılayıcısı kategorisi | Algılayıcısı | Açıklama | Giriş parametreleri | Çıkışlar |
 | --- | --- | --- | --- | --- |
 | Depo algılayıcılar |TSpike algılayıcısı |Ani ve şu ana kadar değerlerine göre dıps ilk ve üçüncü Dörttebirlikler saptamak |*tspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alır: 3; Daha yüksek değerler, böylece daha az hassas yapmadan birden fazla aşırı değeri yakalar |TSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde |
-| Depo algılayıcılar | ZSpike algılayıcısı |Ani ve ne kadar datapoints'ler ortalamasını göre dıps Algıla |*zspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alın: 3; Daha yüksek değerleri daha az hassas kolaylaştırarak birden fazla aşırı değeri yakalar |ZSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde | |
+| Depo algılayıcılar | ZSpike Detector |Ani ve ne kadar datapoints'ler ortalamasını göre dıps Algıla |*zspikedetector.sensitivity:* aralığındaki tamsayı değeri 1-10, varsayılan alın: 3; Daha yüksek değerleri daha az hassas kolaylaştırarak birden fazla aşırı değeri yakalar |ZSpike: ikili değerler – '1' depo/DIP algılanırsa, '0' Aksi takdirde | |
 | Yavaş eğilimi algılayıcısı |Yavaş eğilimi algılayıcısı |Yavaş pozitif eğilimi kümesi duyarlılık göredir Algıla |*trenddetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 öğesinden; seçmek için makul sınırlar. Yüksek daha az duyarlı) |tscore: anomali puan eğilimi üzerinde temsil eden kayan sayısı |
 | Düzey değişikliği algılayıcılar | Çift yönlü düzeyi değişiklik algılayıcısı |Yukarı ve aşağı düzey değişiklik kümesi duyarlılık göredir Algıla |*bileveldetector.sensitivity:* algılayıcısı puan eşiğine (varsayılan: 3,25, 3,25 – 5 öğesinden; seçmek için makul sınırlar. Yüksek daha az duyarlı) |rpscore: anomali puan yukarı ve aşağı düzey değişiklik gösteren kayan sayı | |
 
@@ -120,13 +120,13 @@ Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda l
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |integer |10-2000 |Zaman serisi bağımlı |
+| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
 | detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her İkisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her İkisi |
-| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| trenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |double |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |integer |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| trenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
 API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 
@@ -156,20 +156,20 @@ Bu giriş parametreleri hakkında daha ayrıntılı bilgi aşağıdaki tabloda l
 
 | Giriş parametreleri | Açıklama | Varsayılan ayar | Tür | Geçerli aralık | Önerilen aralık |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |integer |0: toplama, > 0 aksi atla |Zaman serisi bağımlı, 1 gün için 5 dakika |
+| preprocess.aggregationInterval |Toplama aralığı toplama için saniye cinsinden zaman serisi giriş |0 (hiçbir toplama gerçekleştirilir) |tamsayı |0: toplama, > 0 aksi atla |Zaman serisi bağımlı, 1 gün için 5 dakika |
 | preprocess.aggregationFunc |Belirtilen AggregationInterval veri toplamak için kullanılan işlevi |Ortalama |Numaralandırılan |Ortalama, Topla, uzunluğu |Yok |
 | preprocess.replaceMissing |Eksik veri impute için kullanılan değerleri |lkv (bilinen son değer) |Numaralandırılan |sıfır, lkv, ortalama |Yok |
-| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |integer |10-2000 |Zaman serisi bağımlı |
+| detectors.historyWindow |Anomali puan hesaplama için kullanılan geçmişinde (veri noktası sayısı) |500 |tamsayı |10-2000 |Zaman serisi bağımlı |
 | detectors.spikesdips | Algılanmayacağını yalnızca ani, yalnızca dıps veya her ikisi |Her İkisi |Numaralandırılan |Her ikisi de, ani, Dıps |Her İkisi |
-| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| postrenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| negtrenddetector.sensitivity |Negatif eğilimi algılayıcısı duyarlılık. |3.25 |double |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
-| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |integer |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
-| seasonality.Enable |Mevsimselliğin analiz gerçekleştirilmesi olup |doğru |boole |TRUE, false |Zaman serisi bağımlı |
-| seasonality.numSeasonality |Algılanacak düzenli döngüleri sayısı |1 |integer |1, 2 |1-2 |
-| seasonality.Transform |Mevsimlik olup olmadığını (ve) eğilimi bileşenleri anomali algılama uygulamadan önce kaldırılması |deseason |Numaralandırılan |None, deseason, deseasontrend |Yok |
-| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |integer |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
+| bileveldetector.sensitivity |Çift yönlü düzeyi duyarlılık algılayıcısı değiştirin. |3.25 |Çift |Hiçbiri |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| postrenddetector.sensitivity |Pozitif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| negtrenddetector.sensitivity |Negatif eğilimi algılayıcısı duyarlılık. |3.25 |Çift |None |3,25 5 (daha düşük değerler daha hassas anlamına gelir) |
+| tspikedetector.sensitivity |Duyarlılık TSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| zspikedetector.sensitivity |Duyarlılık ZSpike algılayıcısı |3 |tamsayı |1-10 |3-5 (daha düşük değerler daha hassas anlamına gelir) |
+| seasonality.Enable |Mevsimselliğin analiz gerçekleştirilmesi olup |true |boole |TRUE, false |Zaman serisi bağımlı |
+| seasonality.numSeasonality |Algılanacak düzenli döngüleri sayısı |1 |tamsayı |1, 2 |1-2 |
+| seasonality.transform |Mevsimlik olup olmadığını (ve) eğilimi bileşenleri anomali algılama uygulamadan önce kaldırılması |deseason |Numaralandırılan |None, deseason, deseasontrend |Yok |
+| postprocess.tailRows |Çıkış sonuçlarında tutulacak en son veri noktası sayısı |0 |tamsayı |(tüm veri noktaları tutun) 0 veya sonuçlarında tutmak için noktası sayısını belirtin |Yok |
 
 ### <a name="output"></a>Çıktı
 API tüm algılayıcılar zaman serisi verileriniz üzerinde çalışır ve anomali puanlarını ve her nokta için ikili depo göstergeleri zamanında döndürür. Aşağıdaki tabloda API'sinden çıkışları listeler. 

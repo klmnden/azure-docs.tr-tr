@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric ters proxy tanılama | Microsoft Docs"
-description: "İzleme ve tanılama ters proxy isteği işlemeyi öğrenin."
+title: Azure Service Fabric ters proxy tanılama | Microsoft Docs
+description: İzleme ve tanılama ters proxy isteği işlemeyi öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: kavyako
 manager: vipulm
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e645d86e4527cab1e650575c4d9a10dbd4b9de4e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>İzleme ve istek işleme ters proxy tanılama
 
 Service Fabric 5.7 sürümünden itibaren ters proxy olayları koleksiyonu için kullanılabilir. Olaylar, isteği işleme hatası ters proxy ve girişleri hem başarılı hem başarısız istekler için ayrıntılı olaylarla içeren ikinci kanal ilgili yalnızca hata olaylarıyla iki kanalda kullanılabilir.
 
-Başvurmak [ters proxy olayları toplamak](service-fabric-diagnostics-event-aggregation-wad.md#collect-reverse-proxy-events) bu kanalları yerel ve Azure Service Fabric kümeleri toplama olaylarından etkinleştirmek için.
+Başvurmak [ters proxy olayları toplamak](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations) bu kanalları yerel ve Azure Service Fabric kümeleri toplama olaylarından etkinleştirmek için.
 
 ## <a name="troubleshoot-using-diagnostics-logs"></a>Tanılama günlükleri kullanarak sorun giderme
 Bir karşılaşabilirsiniz ortak başarısız günlüklerinizi yorumlama hakkında bazı örnekler şunlardır:

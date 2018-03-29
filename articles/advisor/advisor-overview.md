@@ -1,12 +1,12 @@
 ---
-title: "Azure Danışmanı giriş | Microsoft Docs"
-description: "Azure dağıtımlarınızı iyileştirmek için Azure Danışmanı'nı kullanın."
+title: Azure Danışmanı giriş | Microsoft Docs
+description: Azure dağıtımlarınızı iyileştirmek için Azure Danışmanı'nı kullanın.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: a4096b11a828cf6676aa22b11c4dd4d75f3b0286
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0aa97a7557706f0b704d4e31a84e9d356d1ad087
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Danışmanı giriş
 
@@ -43,9 +43,6 @@ Advisor Pano kişiselleştirilmiş önerileri için tüm aboneliklerinizi görü
 
   ![Advisor öneri türleri](./media/advisor-overview/advisor-dashboard.png)
 
-> [!NOTE]
-> Abonelik, bir abonelik Azure Danışmanı'nı kullanmaya *sahibi* Danışmanı panosunu başlatma gerekir.  Bu eylem abonelik Danışmanı ile kaydeder.  Üzerinde herhangi bir abonelik o noktadan itibaren *sahibi*, *katkıda bulunan*, veya *okuyucu* abonelik Danışmanı önerileri erişebilirsiniz. 
-
 Bu kategoride öneriler listesini görüntülemek için bir kategoriye tıklayın ve bir öneri hakkında daha fazla bilgi edinmek için seçin.  Ayrıca bir fırsat yararlanmak veya bir sorunu gidermek üzere gerçekleştirebileceğiniz eylemler hakkında bilgi edinebilirsiniz.
 
 ![Advisor öneri kategorisi](./media/advisor-overview/advisor-ha-category-example.png) 
@@ -62,12 +59,12 @@ Advisor aracılığıyla erişebilirsiniz [Azure portal](https://aka.ms/azureadv
 Sanal makine kaynak arabirimi aracılığıyla Advisor önerileri de görüntüleyebilirsiniz. Bir sanal makine seçin ve ardından menüde Danışmanı önerileri için gidin. 
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>Advisor erişmek hangi izinlerin gerekiyor mu?
-
-Bir abonelik Danışmanı önerileri almak için aboneliğinizi Advisor ile kaydetmeniz gerekir. Bir abonelik bir abonelik zaman kayıtlı *sahibi* Danışmanı Pano başlatır. Bu tek seferlik bir işlemdir. Abonelik kaydedildikten sonra Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik.
+ 
+Advisor önerileri olarak erişebilir *sahibi*, *katkıda bulunan*, veya *okuyucu* bir abonelik.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Hangi kaynaklara Danışmanı önerileri için sağlar?
 
-Advisor sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL Server, SQL veritabanları ve Redis önbelleği için öneriler sağlar.
+Advisor sanal makineler, kullanılabilirlik kümeleri, uygulama ağ geçitleri, uygulama hizmetleri, SQL sunucuları ve Redis önbelleği için öneriler sağlar.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>Erteleyin veya miyim öneri yok sayın?
 

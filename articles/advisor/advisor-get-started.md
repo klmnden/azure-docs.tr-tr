@@ -1,12 +1,12 @@
 ---
-title: "Azure Advisor ile çalışmaya başlama | Microsoft Docs"
-description: "Azure Advisor ile çalışmaya başlayın."
+title: Azure Advisor ile çalışmaya başlama | Microsoft Docs
+description: Azure Advisor ile çalışmaya başlayın.
 services: advisor
 documentationcenter: NA
 author: manbeenkohli
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-ms.openlocfilehash: 5a7864597e50294c8e1227cbab7a3be73dde0a7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure Advisor’ı kullanmaya başlama
 
@@ -35,10 +35,7 @@ Advisor Azure portalı üzerinden erişim, öneriler alın ve önerileri uygulam
 
 4. Advisor Pano önerilerinizi tüm seçili abonelikler için özetini görüntüler.  Abonelik kullanmak için görüntülenecek önerileri istediğiniz abonelikleri açılır filtre seçebilirsiniz.
 
-5. Belirli bir kategorideki önerileri almak için sekmelerden birine tıklayın: **yüksek kullanılabilirlik**, **güvenlik**, **performans**, veya **maliyet**.
- 
-> [!NOTE]
-> Abonelik, bir abonelik Azure Danışmanı'nı kullanmaya *sahibi* Danışmanı panosunu başlatma gerekir.  Bu eylem abonelik Danışmanı ile kaydeder.  Üzerinde herhangi bir abonelik o noktadan itibaren *sahibi*, *katkıda bulunan*, veya *okuyucu* abonelik Danışmanı önerileri erişebilirsiniz.  
+5. Belirli bir kategorideki önerileri almak için sekmelerden birine tıklayın: **yüksek kullanılabilirlik**, **güvenlik**, **performans**, veya **maliyet**. 
 
   ![Azure Danışmanı Panosu](./media/advisor-overview/advisor-dashboard.png)
 

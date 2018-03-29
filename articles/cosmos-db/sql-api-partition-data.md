@@ -1,10 +1,10 @@
 ---
-title: "Bölümlendirme ve Azure Cosmos DB'de ölçeklendirme | Microsoft Docs"
-description: "Azure Cosmos DB, bölümleme yapılandırmak ve anahtarları bölümlemek nasıl ve uygulamanız için doğru bölüm anahtarı almak nasıl bölümleme nasıl çalıştığı hakkında bilgi edinin."
+title: Bölümlendirme ve Azure Cosmos DB'de ölçeklendirme | Microsoft Docs
+description: Azure Cosmos DB, bölümleme yapılandırmak ve anahtarları bölümlemek nasıl ve uygulamanız için doğru bölüm anahtarı almak nasıl bölümleme nasıl çalıştığı hakkında bilgi edinin.
 services: cosmos-db
 author: rafats
 manager: jhubbard
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 702c39b4-1798-48dd-9993-4493a2f6df9e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,15 +14,13 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfed50eef02c237ce0ea4480e2e208f2e61ccbef
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a48c1bb246e3e8659aada614d39fdc608e5bc8d8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-sql-api"></a>Azure Cosmos SQL API'yi kullanarak DB'de bölümlendirme
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Microsoft Azure Cosmos DB](../cosmos-db/introduction.md) büyüdüğü gibi hızlı ve tahmin edilebilir performansı ve ölçeği sorunsuz bir şekilde uygulamanızı yanı sıra ulaşmak yardımcı olmak için tasarlanmış bir genel dağıtılmış, birden çok model veritabanı hizmetidir. 
 

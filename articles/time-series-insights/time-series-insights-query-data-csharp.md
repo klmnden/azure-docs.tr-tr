@@ -1,28 +1,22 @@
 ---
-title: "C# kodu kullanarak Azure zaman serisi Öngörüler ortamı veri sorgulama | Microsoft Docs"
-description: "Bu makalede, C# (C-sharp) .NET dilinde yazılmış özel bir uygulama kodlayarak Azure zaman serisi Öngörüler ortam verileri sorgulamak açıklar."
+title: C# kodu kullanarak Azure zaman serisi Öngörüler ortamı veri sorgulama | Microsoft Docs
+description: Bu makalede, C# (C-sharp) .NET dilinde yazılmış özel bir uygulama kodlayarak Azure zaman serisi Öngörüler ortam verileri sorgulamak açıklar.
 services: time-series-insights
 ms.service: time-series-insights
 author: ankryach
 ms.author: ankryach
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-<<<<<<< HEAD
-ms.openlocfilehash: 77d3135790bbfd79679d188e3b3f1af876d2b905
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 561ad848e7bddc6bf9d71328db4ddbba9bc5d2b4
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.date: 03/23/2018
+ms.openlocfilehash: 2cbdf4a5c7272e88430b1db7b853f8b6d441c893
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>C# kullanarak Azure zaman serisi Öngörüler Ortamı'ndan veri sorgulama
 
@@ -32,6 +26,11 @@ C# örnek Azure zaman serisi Öngörüler Ortamı'ndan veri sorgulama gösterir.
 2. Kullanıcı erişimi ortamları listesi elde edilir. Ortamlar birini ilgi ortamı olarak kayıt ve verileri bu ortam için daha fazla sorgulanır.
 3. HTTPS isteğinin bir örneği olarak, ilgilenilen ortam için kullanılabilirlik verileri istenir.
 4. Web yuvası isteğinin bir örneği olarak, ilgilenilen ortam için toplam olay verileri istenir. Veriler kullanılabilir oldukları tüm zaman aralığı için istenir.
+
+Bu örnek kodu de bulunabilir. [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## <a name="project-references"></a>Proje başvuruları
+NuGet paketleri ekleme `Microsoft.IdentityModel.Clients.ActiveDirectory` ve `Newtonsoft.Json` Bu örnek için. 
 
 ## <a name="c-example"></a>C# örnek
 

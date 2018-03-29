@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş | Microsoft Docs"
-description: "Service Fabric durum bilgisi olan hizmetler, yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirmeniz güvenilir koleksiyonları sağlar."
+title: Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş | Microsoft Docs
+description: Service Fabric durum bilgisi olan hizmetler, yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirmeniz güvenilir koleksiyonları sağlar.
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: 0e89df79d2ff619343f914ce3a5ffe87b7bf25de
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: c6425f7642d9dbecafc6779184a2a5b0cc1a2cab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric durum bilgisi olan Hizmetleri'ndeki güvenilir koleksiyonlara giriş
 Güvenilir koleksiyonları tek bilgisayar uygulamaları yazıyordunuz gibi sorgulamanıza yüksek oranda kullanılabilir, ölçeklenebilir ve düşük gecikme süreli bulut uygulamaları yazmak etkinleştirin. Sınıflarda **Microsoft.ServiceFabric.Data.Collections** ad alanı, durumu otomatik olarak yüksek oranda kullanılabilir hale koleksiyonları kümesini sağlar. Geliştiriciler yalnızca güvenilir koleksiyonu API'lerini program ve güvenilir çoğaltılır ve yerel durumunu yönetme koleksiyonları izin gerekir.
@@ -44,7 +44,7 @@ Uygulamalar daha zayıf tutarlılık elde etmek için zaman uyumsuz tamamlama d�
 Bir eş zamanlı koleksiyonları API'leri evrimi güvenilir koleksiyonları apı'leridir (bulunan **System.Collections.Concurrent** ad alanı):
 
 * Zaman uyumsuz: eşzamanlı koleksiyonlarından farklı işlemler kalıcı ve çoğaltılmasını olduğundan, bir görev döndürür.
-* Hayır out Parametreleri: kullanan `ConditionalValue<T>` bool ve out parametreleri yerine bir değer döndürmek için. `ConditionalValue<T>`benzer `Nullable<T>` T yapı olmasını gerektirmez, ancak.
+* Hayır out Parametreleri: kullanan `ConditionalValue<T>` bool ve out parametreleri yerine bir değer döndürmek için. `ConditionalValue<T>` benzer `Nullable<T>` T yapı olmasını gerektirmez, ancak.
 * İşlemler: bir işlemde birden çok güvenilir koleksiyonları Grup eylemleri kullanıcıya etkinleştirmek için işlem nesnesi kullanır.
 
 Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonları içerir:
@@ -57,7 +57,6 @@ Bugün, **Microsoft.ServiceFabric.Data.Collections** üç koleksiyonları içeri
 * [Güvenilir koleksiyonu kılavuzları ve önerileri](service-fabric-reliable-services-reliable-collections-guidelines.md)
 * [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
 * [İşlemler ve kilitleri](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Güvenilir durum Yöneticisi'ni ve koleksiyon dahili bileşenleri](service-fabric-reliable-services-reliable-collections-internals.md)
 * Veri Yönetimi
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
   * [Bildirimler](service-fabric-reliable-services-notifications.md)

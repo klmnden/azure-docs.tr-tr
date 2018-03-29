@@ -1,10 +1,10 @@
 ---
-title: "Azure depolama performans ve ölçeklenebilirlik Yapılacaklar listesi | Microsoft Docs"
-description: "Azure Storage ile kullanıcı uygulamaları geliştirme kullanılmak kanıtlanmış yöntemleri listesi."
+title: Azure depolama performans ve ölçeklenebilirlik Yapılacaklar listesi | Microsoft Docs
+description: Azure Storage ile kullanıcı uygulamaları geliştirme kullanılmak kanıtlanmış yöntemleri listesi.
 services: storage
-documentationcenter: 
-author: tamram
-manager: timlt
+documentationcenter: ''
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
-ms.openlocfilehash: 6f5a136d1be7a4bb4093baad820271770305b718
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rogarana
+ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Depolama Performansı ve Ölçeklenebilirlik Onay Listesi
 ## <a name="overview"></a>Genel Bakış
@@ -72,10 +72,10 @@ Bu makalede kanıtlanmış yöntemler aşağıdaki gruplar halinde düzenler. Ka
 | &nbsp; | Tablolar |Sınırlama döndürülen veri |[Gerekli olmayan varlık döndüren önlemek için filtreleme kullanıyor?](#subheading32) |
 | &nbsp; | Tablolar |Sınırlama döndürülen veri |[Gerekli olmayan özellikler döndüren önlemek için yansıtma kullanıyor musunuz?](#subheading33) |
 | &nbsp; | Tablolar |Denormalization |[Veri almaya çalışırken Verimsiz sorgulara veya birden çok okuma isteklerinin kaçının, verilerinizi normal dışı mi?](#subheading34) |
-| &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Toplu işlem için gereken istekleri veya gidiş dönüş azaltmak için aynı anda yapılabilir misiniz?](#subheading35) |
-| &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Yalnızca ekleme veya güncelleştirme aramak karar vermek için bir varlık alma önleme?](#subheading36) |
-| &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Sık alınır veri serisi birden çok varlık yerine özellikleri olarak tek bir varlık birlikte depolama göz önünde bulundurduğunuzdan?](#subheading37) |
-| &nbsp; | Tablolar |Ekleme/güncelleştirme/silme |[Her zaman birlikte alınır ve toplu (örn. zaman serisi veri) yazılabilir varlıklar için BLOB tabloları yerine kullanarak göz önünde bulundurduğunuzdan?](#subheading38) |
+| &nbsp; | Tablolar |Insert/Update/Delete |[Toplu işlem için gereken istekleri veya gidiş dönüş azaltmak için aynı anda yapılabilir misiniz?](#subheading35) |
+| &nbsp; | Tablolar |Insert/Update/Delete |[Yalnızca ekleme veya güncelleştirme aramak karar vermek için bir varlık alma önleme?](#subheading36) |
+| &nbsp; | Tablolar |Insert/Update/Delete |[Sık alınır veri serisi birden çok varlık yerine özellikleri olarak tek bir varlık birlikte depolama göz önünde bulundurduğunuzdan?](#subheading37) |
+| &nbsp; | Tablolar |Insert/Update/Delete |[Her zaman birlikte alınır ve toplu (örn. zaman serisi veri) yazılabilir varlıklar için BLOB tabloları yerine kullanarak göz önünde bulundurduğunuzdan?](#subheading38) |
 | &nbsp; | Kuyruklar |Ölçeklenebilirlik hedefleri |[Saniye başına ileti ölçeklenebilirlik hedefleri yaklaştığı?](#subheading39) |
 | &nbsp; | Kuyruklar |Yapılandırma |[Nagle küçük istekleri performansını artırmak için devre dışı bırakmış?](#subheading40) |
 | &nbsp; | Kuyruklar |İleti Boyutu |[Sıranın performansını artırmak için iletileri compact misiniz?](#subheading41) |
@@ -349,13 +349,13 @@ Başka bir anahtar etken sorgu verimliliği de döndürülen döndürülen küme
 ###### <a name="subheading32"></a>Filtreleme
 Bir sorgu istemci uygulamasında gerekmeyen varlıkları döndürme bildiğiniz durumlarda, döndürülen kümesi boyutunu azaltmak için bir filtre kullanmayı deneyin. İstemciye döndürülen olmayan varlıklar hala doğru ölçeklenebilirlik sınırları saymak olsa da, azaltılmış ağ yükü boyutu ve daha az istemci uygulamanız işlemelidir varlıkların sayısı nedeniyle, uygulama performansı iyileştirir.  Not bakın [sorgu yoğunluğu](#subheading31), birkaç varlıklar döndürülen olsa bile birçok varlık filtreler bir sorgu hala azaltma içinde sonuçlanabilir şekilde ölçeklenebilirlik hedefleri taranan varlıkların sayısı ancak – ilişkilidir.  
 
-###### <a name="subheading33"></a>Yansıtma
+###### <a name="subheading33"></a>Projection
 İstemci uygulamanızı yalnızca sınırlı sayıda tablonuz varlıklarda özelliklerinden gerekirse, projeksiyon döndürülen veri kümesi boyutunu sınırlamak için kullanabilirsiniz. İle gibi filtreleme, bu ağ yükü ve işleme istemci azaltılmasına yardımcı olur.  
 
 ##### <a name="subheading34"></a>Denormalization
 Tablo verisi verimli bir şekilde sorgulamak için kanıtlanmış yöntemleri, ilişkisel veritabanları ile çalışma aksine, verilerinizi denormalizing için yol açar. Diğer bir deyişle, birden çok varlık (verileri bulmak üzere kullanabilir her anahtar için bir tane) aynı verileri çoğaltma istemci verileri bulmak üzere bir sorgu taramalısınız varlıkların sayısını en aza indirmek için gereken yerine verileri bulmak üzere varlıklar çok sayıda tarama gerek kalmadan uygulamanız gerekir.  Örneğin, bir e-ticaret Web sitesi göre bir sıralamayı hem Müşteri Kimliği bulmak istediğiniz (bu müşterinin sipariş ver) ve tarihe göre (bir tarihte sipariş ver).  Table Storage ' varlık (veya bir başvuru) depolamak en iyisidir iki kez – bir kez tablo adıyla PK ve işareti müşteri tarafından bulma kolaylaştırmak için kimliği, bir kez tarihe göre bulma kolaylaştırmak için.  
 
-#### <a name="insertupdatedelete"></a>Ekleme/güncelleştirme/silme
+#### <a name="insertupdatedelete"></a>Insert/Update/Delete
 Bu bölümde tablo hizmetinde saklanan varlıkları değiştirme kanıtlanmış yöntemleri açıklar.  
 
 ##### <a name="subheading35"></a>Toplu işleme

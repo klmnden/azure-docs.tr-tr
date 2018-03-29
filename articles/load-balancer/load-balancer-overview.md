@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 4f46e796ff1ab85c0061c70ff9a725a6945a4f5d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure Load Balancer’a genel bakış
 
@@ -41,7 +41,7 @@ Azure yük dengeleyici için kullanılabilir:
 
 
 >[!NOTE]
-> Azure tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için dizisi sağlar.  TLS sonlandırma ("SSL boşaltma") veya HTTP/HTTPS uygulama katmanı işleme için arıyorsanız, gözden [uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md).  Aradığınız, Genel DNS için Yük Dengeleme, gözden [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme yararlı.
+> Azure tam olarak yönetilen Yük Dengeleme çözümlerinde senaryolarınız için dizisi sağlar.  TLS sonlandırma ("SSL boşaltma") veya HTTP/HTTPS isteği uygulama katmanı işleme başına arıyorsanız, gözden [uygulama ağ geçidi](../application-gateway/application-gateway-introduction.md).  Aradığınız, Genel DNS için Yük Dengeleme, gözden [trafik Yöneticisi](../traffic-manager/traffic-manager-overview.md).  Uçtan uca senaryolarınızı gerektiğinde bu çözümleri birleştirme yararlı.
 
 ## <a name="what-is-load-balancer"></a>Yük Dengeleyici nedir?
 
@@ -107,7 +107,7 @@ Azure yük dengeleyici iki farklı SKU'ları destekler: temel ve standart.  Sena
 Ancak, SKU, seçilen bağlı olarak, tam senaryo yapılandırma ayrıntısı biraz farklı olabilir. Bir makale için yalnızca belirli bir SKU uygulanabilir olduğunda yük dengeleyici belgelerine çağırır. Aşağıdaki tabloda karşılaştırır ve farkları anlamak için aşağıdaki gözden geçirin.  Gözden geçirme [standart yük dengeleyici genel bakış](load-balancer-standard-overview.md) daha ayrıntılı bilgi için.
 
 >[!NOTE]
-> Yeni Tasarım, standart yük dengeleyici kullanmanız gerekir. 
+> Yeni Tasarım, standart yük dengeleyici kullanmayı düşünmelisiniz. 
 
 Yalnızca tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri bir SKU için hiçbir zaman hem de bağlanabilir. Genel IP adresi kullanıldığında, ortak IP adresi ve yük dengeleyici SKU eşleşmesi gerekir. Yük Dengeleyici ve ortak IP SKU'ları değişebilir değildir.
 
@@ -118,17 +118,17 @@ _Henüz zorunlu olmasa da SKU'ları açıkça belirtmek için en iyi bir uygulam
 
 | | [Standart SKU](load-balancer-standard-overview.md) | Temel SKU |
 | --- | --- | --- |
-| Arka uç havuzu boyutu | en fazla 1000 örnekleri | en fazla 100 örnekleri|
+| Arka uç havuzu boyutu | en fazla 1000 örnekleri | en fazla 100 örnekleri |
 | Arka uç havuzu uç noktaları | harmanlama sanal makinelerin kullanılabilirlik kümeleri dahil olmak üzere tek bir sanal ağda herhangi bir sanal makineye sanal makine ölçek ayarlar. | sanal makineler tek kullanılabilirlik kümesi veya sanal makine ölçek kümesi |
 | Kullanılabilirlik Alanları | bölge olarak yedekli ve zonal ön uçlar için gelen ve giden, giden akış eşlemeleri bölge hatası varlığını sürdürmesini, çapraz bölge Yük Dengeleme | / |
 | Tanılama | Azure İzleyici bayt ve paket sayaçları, sistem durumu da dahil olmak üzere çok boyutlu ölçümleri araştırma durumu, bağlantı denemeleri (TCP Eşitlemeye), giden bağlantı durumu (SNAT başarılı ve başarısız akışları), etkin veri düzlemi ölçümleri | Yalnızca ortak yük dengeleyici, SNAT tükenmesi Uyarısı, arka uç havuzu sistem durumu sayısı için Azure günlük analizi |
 | HA bağlantı noktaları | İç yük dengeleyici | / |
-| Varsayılan olarak güvenli | her zaman varsayılan olarak kapalı, ağ güvenlik grubu açıkça beyaz liste ile kullanılan, genel IP ve yük dengeleyici uç noktaları | Varsayılanları açın, ağ güvenlik grubu isteğe bağlı |
-| Giden bağlantılar | Kural çevirin başına birden çok ön uçlar. Giden bir adresi olan bir sanal makinenin ilişkilendirmesini _gerekir_ açıkça oluşturulabilir.  Bu, diğer Azure PaaS hizmetlerine bağlantıyı içerir veya [VNet hizmet uç noktaları](../virtual-network/virtual-network-service-endpoints-overview.md) kullanılması gerekir. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren varsayılan SNAT aracılığıyla giden bağlantılar kullanılabilir değil. | Tek bir ön uç. Bir sanal makine yalnızca iç yük dengeleyici hizmet veren varsayılan SNAT kullanılır |
+| Varsayılan olarak güvenli | ortak IP ve yük dengeleyici uç noktaları ve ağ güvenlik grubu için kapalı varsayılan açıkça güvenilir listeye trafiği için akış için kullanılması gerekir | Varsayılan açın, ağ güvenlik grubu isteğe bağlı |
+| Giden bağlantılar | Kural başına birden çok ön uçlar ile çevirin. Giden bir senaryo _gerekir_ açıkça oluşturulabilir giden bağlantı kullanabilmek sanal makine için.  [VNet Hizmeti uç noktalarını](../virtual-network/virtual-network-service-endpoints-overview.md) giden bağlantısı olmadan erişilebilir ve doğru işlenen veri sayılmaz.  VNet Hizmeti uç noktalar olarak kullanılamaz Azure PaaS Hizmetleri dahil olmak üzere tüm genel IP adresleri, giden bağlantı ve işlenen veri doğrultusunda sayısı üzerinden ulaşılmalıdır. Bir iç yük dengeleyici yalnızca bir sanal makine hizmet veren, varsayılan SNAT aracılığıyla giden bağlantılar kullanılamaz. Giden SNAT programlama gelen Yük Dengeleme kuralını protokolünü temel aktarım belirli protokolüdür. | Birden çok ön uçlar mevcut olduğunda rastgele seçili tek bir ön uç.  Bir sanal makine yalnızca iç yük dengeleyici hizmet veren, varsayılan SNAT kullanılır. |
 | Birden çok ön Uçlar | Gelen ve giden | Yalnızca gelen |
-| İşlemler | Çoğu işlemleri < 30 saniye | 60-90 saniye tipik |
+| Yönetim işlemleri | Çoğu işlemleri < 30 saniye | 60-90 saniye tipik |
 | SLA | iki sağlıklı sanal makinelerle veri yolu için % 99,99 | VM SLA örtülü | 
-| Fiyatlandırma | İşlenen veri kuralları sayısına göre gelen veya giden kaynakla ilişkili fatura  | Ücret ödemeden |
+| Fiyatlandırma | İşlenen veri kuralları sayısına göre gelen veya giden kaynakla ilişkili ücret  | Ücret ödemeden |
 
 Gözden geçirme [hizmet sınırları için yük dengeleyici](https://aka.ms/lblimits).  Standart yük dengeleyici için de daha ayrıntılı gözden [genel bakış](load-balancer-standard-overview.md), [fiyatlandırma](https://aka.ms/lbpricing), ve [SLA](https://aka.ms/lbsla).
 

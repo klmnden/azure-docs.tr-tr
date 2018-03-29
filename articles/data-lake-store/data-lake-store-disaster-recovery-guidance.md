@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake Store için olağanüstü durum kurtarma Kılavuzu | Microsoft Docs"
-description: "Azure Data Lake Store için olağanüstü durum kurtarma Kılavuzu"
+title: Azure Data Lake Store için olağanüstü durum kurtarma Kılavuzu | Microsoft Docs
+description: Azure Data Lake Store için olağanüstü durum kurtarma Kılavuzu
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: d76f756e7a6fe77886f0d4e00ab8b23273b4e09d
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9a2705a2372ea4f2fbea1e27bf675679dfda28f8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Data Lake Store'da verilerin için olağanüstü durum kurtarma Kılavuzu
 
-Azure Data Lake Store hesabınızdaki veriler, otomatik çoğaltmalar sayesinde bir bölge içindeki geçici donanım hatalarına karşı dayanıklıdır. Dayanıklılık ve yüksek kullanılabilirlik sağlayan bu olanak, Azure Data Lake Store SLA’sını da karşılar. Bu makalede daha nadir bölge genelinde kesintileri ya da yanlışlıkla silmeleri verilerinizi korumak nasıl rehberlik sağlar.
+Azure Data Lake Store yerel olarak yedekli depolama (LRS) sağlar. Bu nedenle, Azure Data Lake Store hesabınızdaki otomatik çoğaltmaları aracılığıyla bir bölgedeki geçici donanım hatalarına dayanıklı veridir. Dayanıklılık ve yüksek kullanılabilirlik sağlayan bu olanak, Azure Data Lake Store SLA’sını da karşılar. Bu makalede daha nadir bölge genelinde kesintileri ya da yanlışlıkla silmeleri verilerinizi korumak nasıl rehberlik sağlar.
 
 ## <a name="disaster-recovery-guidance"></a>Olağanüstü durum kurtarma kılavuzu
-Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Kendi olağanüstü durum kurtarma planınızı oluşturmak için lütfen aşağıdaki Azure belgelerine bakın. Kendi planınızı oluşturmanıza yardımcı olabilecek bazı kaynaklar aşağıda verilmiştir.
+Her müşterinin kendi olağanüstü durum kurtarma planını hazırlaması kritik öneme sahiptir. Olağanüstü durum kurtarma planınızı oluşturmak için bu makaledeki bilgileri okuyun. Kendi planınızı oluşturmanıza yardımcı olabilecek bazı kaynaklar aşağıda verilmiştir.
 
 * [Azure uygulamaları için olağanüstü durum kurtarma ve yüksek kullanılabilirlik](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Azure dayanıklılık teknik kılavuzu](../resiliency/resiliency-technical-guidance.md)

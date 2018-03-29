@@ -1,24 +1,24 @@
 ---
-title: "İş anlama takım veri bilimi işlemi yaşam döngüsü - Azure aşaması | Microsoft Docs"
-description: "Hedefler, görevler ve veri bilimi projelerinizi iş anlama aşaması için teslim edilebilir"
+title: İş anlama takım veri bilimi işlemi yaşam döngüsü - Azure aşaması | Microsoft Docs
+description: Hedefler, görevler ve veri bilimi projelerinizi iş anlama aşaması için teslim edilebilir
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 82784cbfd5f12297c376a395b54a817a2ae915a5
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: bradsev
+ms.openlocfilehash: daaaccaeac196b5f4651183173c8e83085d5184d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="business-understanding"></a>Kurumsal yaklaşım
 
@@ -80,7 +80,7 @@ Sharp sorularınıza bilinen örnekleri içeren veri kaynakları belirleyin. Aş
 Bu aşamada teslim edilebilir öğeler şunlardır:
 
    * [Kurucu belge](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): standart şablon TDSP Proje yapısı tanımında sağlanır. Kurucu belge yaşam belgesidir. Şablonu proje boyunca yeni bulmaları yaptığınız ve iş gereksinimleri değiştikçe güncelleştirin. Daha fazla ayrıntı, bulma işlemi ilerlemeyi olarak ekleme, bu belgedeki bağlı yinelemek için kullanılan anahtardır. Müşteri tutmak ve diğer Paydaşlar değişiklikler yaparken söz konusu ve bunları değişiklikler nedeniyle açık bir şekilde iletir.  
-   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): **ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** içeren klasör veri kaynakları. Bu bölümde ham verileri için özgün ve hedef konumları belirtir. Sonraki aşamalarda, analitik ortamınız için verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
+   * [Veri kaynakları](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#raw-data-sources): **ham veri kaynakları** bölümünü **veri tanımlarını** TDSP projesinde bulunan rapor **veri raporu** klasörü verileri içerir kaynakları. Bu bölümde ham verileri için özgün ve hedef konumları belirtir. Sonraki aşamalarda, analitik ortamınız için verileri taşımak için komut dosyaları gibi ek ayrıntıları doldurun.  
    * [Veri sözlükler](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Bu belgede istemci tarafından sağlanan veri açıklamalarını sağlar. Bu açıklamalar varsa şemanın (veri türleri ve varsa doğrulama kuralları hakkında bilgi) ve varlık ilişkisi diyagramları hakkındaki bilgileri içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar

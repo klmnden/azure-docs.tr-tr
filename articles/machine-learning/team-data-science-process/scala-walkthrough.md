@@ -1,8 +1,8 @@
 ---
-title: "Azure üzerinde Scala ve Spark kullanarak veri bilimi | Microsoft Docs"
-description: "Denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde Scala kullanılmak üzere nasıl."
+title: Azure üzerinde Scala ve Spark kullanarak veri bilimi | Microsoft Docs
+description: Denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde Scala kullanılmak üzere nasıl.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev;deguhath
-ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: dbd68508d83936964d213d94d5a30c15548cbdfc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Azure üzerinde Scala ve Spark kullanan Veri Bilimi
 Bu makalede Scala için denetimli makine öğrenimi görevlerini Spark ölçeklenebilir Mllib'i ve Spark ML paketleri ile bir Azure Hdınsight Spark kümesinde nasıl kullanıldığını gösterir. Oluşturduğunu görevlerinde anlatılmaktadır [veri bilimi işlem](http://aka.ms/datascienceprocess): veri alımı ve keşfi, görselleştirme, özellik Mühendisliği, model ve model tüketim. Makaleyi modellerinde Lojistik ve doğrusal regresyon, rastgele ormanları ve gradyan boosted ağaçları (GBTs) yanı sıra iki ortak denetimli makine öğrenimi görevlerini içerir:
@@ -42,7 +42,7 @@ Bu makaledeki kod ve kurulum adımları için Azure Hdınsight 3.4 Spark 1.6 var
 > 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir Azure aboneliğinizin olması gerekir. Zaten bir yoksa [Azure ücretsiz deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Bir Azure aboneliğiniz olmalıdır. Zaten bir yoksa [Azure ücretsiz deneme sürümünü edinin](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Aşağıdaki yordamları tamamlamak için bir Azure Hdınsight 3.4 Spark 1.6 kümesi gerekir. Bir küme oluşturmak için deki yönergelere bakın [Başlarken: Azure hdınsight'ta Apache Spark oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Küme türü ve sürümü Ayarla **küme türü seçin** menüsü.
 
 ![Hdınsight küme türü yapılandırma](./media/scala-walkthrough/spark-cluster-on-portal.png)
@@ -77,14 +77,14 @@ Spark kümesinde Jupyter not defteri sunucusuna doğrudan github'dan not defteri
 
 Jupyter not defterleri ile sağlanan Spark tekrar bağlamları önceden. Açıkça Spark ayarlamanız gerekmez veya uygulama ile çalışmaya başlamadan önce Hive bağlamları geliştirme. Hazır bağlamları şunlardır:
 
-* `sc`SparkContext için
-* `sqlContext`HiveContext için
+* `sc` SparkContext için
+* `sqlContext` HiveContext için
 
 ### <a name="spark-magics"></a>Spark sihirler
 Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu Spark çekirdek sağlar `%%`. Bu komutların iki aşağıdaki kod örnekleri kullanılır.
 
-* `%%local`sonraki satırların kodda yerel olarak yürütülecek belirtir. Kod geçerli Scala kodu olmalıdır.
-* `%%sql -o <variable name>`bir Hive sorgusu yürütür `sqlContext`. Varsa `-o` parametresi geçirilir, sorgunun sonucu kalıcı hale getirilir `%%local` Scala bağlamı Spark veri çerçeve olarak.
+* `%%local` sonraki satırların kodda yerel olarak yürütülecek belirtir. Kod geçerli Scala kodu olmalıdır.
+* `%%sql -o <variable name>` bir Hive sorgusu yürütür `sqlContext`. Varsa `-o` parametresi geçirilir, sorgunun sonucu kalıcı hale getirilir `%%local` Scala bağlamı Spark veri çerçeve olarak.
 
 İle arama, tekrar Jupyter not defterlerini ve bunların önceden tanımlanmış hakkında daha fazla bilgi "magics için" `%%` (örneğin, `%%local`), bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -261,8 +261,8 @@ Spark verileri aldıktan sonra sonraki veri bilimi işleminde araştırması ve 
 ### <a name="use-local-and-sql-magic-to-plot-data"></a>Yerel ve SQL Sihirli verileri çizmek için kullanın
 Varsayılan olarak, Jupyter not defteri çalıştırmak herhangi kod parçacığını çıktısını çalışan düğümlerine kalıcı oturum bağlamında kullanılabilir. Her hesaplama çalışan düğümleri için bir seyahat kaydedin ve hesaplama için gereken tüm verileri (Bu baş düğüm) yerel olarak Jupyter sunucu düğümünde kullanılabilir ise, kullanabileceğiniz istiyorsanız `%%local` Sihirli üzerinde Jupyter kod parçacığında çalıştırmak için Sunucu.
 
-* **SQL Sihirli** (`%%sql`). Hdınsight Spark çekirdek SQLContext kolay satır içi HiveQL sorguları destekler. (`-o VARIABLE_NAME`) Bağımsız değişkeni devam ederse SQL sorgusu çıktısını Jupyter sunucuda Pandas veri çerçeve olarak. Başka bir deyişle, yerel modda kullanılabilir olması.
-* `%%local`**Sihirli**. `%%local` Sihirli kodu yerel olarak Hdınsight küme baş düğümüne olan Jupyter sunucuda çalışır,. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` ile Sihirli `-o` parametresi. `-o` Parametresi SQL sorgusu yerel olarak çıktısını kalıcı ve ardından `%%local` Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek.
+* **SQL magic** (`%%sql`). Hdınsight Spark çekirdek SQLContext kolay satır içi HiveQL sorguları destekler. (`-o VARIABLE_NAME`) Bağımsız değişkeni devam ederse SQL sorgusu çıktısını Jupyter sunucuda Pandas veri çerçeve olarak. Başka bir deyişle, yerel modda kullanılabilir olması.
+* `%%local` **Sihirli**. `%%local` Sihirli kodu yerel olarak Hdınsight küme baş düğümüne olan Jupyter sunucuda çalışır,. Genellikle, kullandığınız `%%local` birlikte Sihirli `%%sql` ile Sihirli `-o` parametresi. `-o` Parametresi SQL sorgusu yerel olarak çıktısını kalıcı ve ardından `%%local` Sihirli karşı ve yerel olarak kalıcı çıkış SQL sorguları, yerel olarak çalıştırmak için kod parçacığını bir sonraki kümesini tetiklemek.
 
 ### <a name="query-the-data-by-using-sql"></a>SQL kullanarak verileri Sorgulama
 Bu sorgu ücreti tutarı, yolcu sayısı ve ipucu tutarı tarafından ücreti dönüşleri alır.
@@ -883,7 +883,7 @@ Spark ML kullanarak bir GBT regresyon modeli oluşturma `GBTRegressor()` işlev 
 
 **Çıktı:**
 
-Test R-sqr olduğu: 0.7655383534596654
+Test R-sqr is: 0.7655383534596654
 
 ## <a name="advanced-modeling-utilities-for-optimization"></a>En iyi duruma getirme için Gelişmiş modelleme yardımcı programları
 Bu bölümde, geliştiricilerin modeli iyileştirme için sık kullandığınız machine learning yardımcı programlarını kullanın. Özellikle, makine öğrenimi modellerini üç farklı yolla parametre Süpürme ve çapraz doğrulama kullanarak en iyi duruma getirebilirsiniz:
@@ -940,7 +940,7 @@ Ardından, veri eğitimi ve doğrulama kümeleri, kullan hyper-model en iyi duru
 
 **Çıktı:**
 
-Test R-sqr olduğu: 0.6226484708501209
+Test R-sqr is: 0.6226484708501209
 
 ### <a name="optimize-the-binary-classification-model-by-using-cross-validation-and-hyper-parameter-sweeping"></a>Çapraz doğrulama ve parametre hyper Süpürme kullanarak ikili sınıflandırma modeli en iyi duruma getirme
 Bu bölümde bir ikili sınıflandırma modeli çapraz doğrulama ve parametre hyper Süpürme kullanarak iyileştirmek nasıl gösterir. Bu Spark ML kullanır `CrossValidator` işlevi.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler | Microsoft Docs"
-description: "Bu makalede Azure Data Factory'de istek üzerine veya tetikleyici oluşturarak işlem hattı yürütme konusunda bilgi sağlanır."
+title: Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler | Microsoft Docs
+description: Bu makalede Azure Data Factory'de istek üzerine veya tetikleyici oluşturarak işlem hattı yürütme konusunda bilgi sağlanır.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: e754986cb3653eb4b2a17edff4d57974331cdcbb
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -280,7 +280,7 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 | JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Yes | None | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Yes | Yok | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Yes | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Hayır | 1 | 1-1000 arası | `"interval":10` |
 | **endTime** | string | Yes | None | Gelecekteki bir zamanı temsil eden tarih-saat değeri | `"endTime" : "2013-02-09T09:30:00-08:00"` |

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL zaman uyumsuz Java API, SDK & kaynakları | Microsoft Docs"
-description: "SQL zaman uyumsuz Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB SQL zaman uyumsuz Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: 'Azure Cosmos DB: SQL zaman uyumsuz Java API, SDK & kaynakları | Microsoft Docs'
+description: SQL zaman uyumsuz Java API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB SQL zaman uyumsuz Java SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 documentationcenter: java
 author: mimig1
@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: mimig
-ms.openlocfilehash: 408080fd7d9788d13b13e2769e59946a81e6742c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d117f0571bef8f8a2ec48a067d7796f03c0e535a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Cosmos DB zaman uyumsuz Java için Azure SDK SQL API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -34,8 +34,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağlayarak SQL API Java SDK'sını farklı [Netty Kitaplığı](http://netty.io/). Önceden varolan [SQL API Java SDK'sını](sql-api-sdk-java.md) zaman uyumsuz işlemleri desteklemez. 
 

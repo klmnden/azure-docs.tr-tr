@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB kaynak modeli ve kavramları | Microsoft Docs"
-description: "Azure Cosmos veritabanı hiyerarşik modelinin veritabanları, koleksiyonları, kullanıcı tanımlı işlev (UDF), belgeler, kaynakları ve daha fazlasını yönetmek için izinler hakkında bilgi edinin."
-keywords: "Hiyerarşik modeli, cosmosdb, azure, Microsoft azure"
+title: Azure Cosmos DB kaynak modeli ve kavramları | Microsoft Docs
+description: Azure Cosmos veritabanı hiyerarşik modelinin veritabanları, koleksiyonları, kullanıcı tanımlı işlev (UDF), belgeler, kaynakları ve daha fazlasını yönetmek için izinler hakkında bilgi edinin.
+keywords: Hiyerarşik modeli, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a88f17a658987e1ff3ae0e0f38d6551c3acee1da
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB hiyerarşik kaynak modeli ve temel kavramları
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB yönetir veritabanı varlıklar olarak adlandırılır **kaynakları**. Her kaynak mantıksal URI'leri ile benzersiz olarak tanımlanır. Standart HTTP fiillerini, istek/yanıt üstbilgilerini ve durum kodlarını kullanarak kaynakları ile etkileşim kurabilirsiniz. 
 
@@ -34,6 +32,12 @@ Bu makalede aşağıdaki sorular yanıtlanmaktadır:
 * Bir kaynak nasıl ele?
 * Koleksiyonları ile nasıl çalışır?
 * Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF'ler) ile nasıl çalışırım?
+
+Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu Azure Cosmos DB kaynak modeli aracılığıyla anlatılmaktadır. 
+
+> [!VIDEO https://www.youtube.com/embed/luWFgTP0IL4]
+>
+>
 
 ## <a name="hierarchical-resource-model"></a>Hiyerarşik kaynak modeli
 Aşağıdaki diyagramda gösterildiği gibi Azure Cosmos DB hiyerarşik **kaynak modeli** kaynaklar mantıksal ve kararlı bir URI her adreslenebilir bir veritabanı hesabı altında kümesi oluşur. Bir kaynak kümesi denir bir **akış** bu makalede. 
@@ -113,15 +117,15 @@ URI adreslenebilir tüm kaynaklardır. Değeri **_self** kaynak özelliği, kayn
 | _Self değeri | Açıklama |
 | --- | --- |
 | /dbs |Bir veritabanı hesabı altında veritabanlarının besleme |
-| /dbs/ {dbName} |{DbName} değerle eşleşen bir kimliğe sahip veritabanı |
-| /dbs/ {dbName} /colls/ |Bir veritabanı altında koleksiyonların besleme |
-| /dbs/ {dbName} /colls/ {collName} |{CollName} değerle eşleşen bir kimliğe sahip koleksiyonu |
-| /dbs/ {dbName} /colls/ {collName} / docs |Bir koleksiyon altında belgelerin besleme |
-| /dbs/ {dbName} /colls/ {collName} /docs/ {docId} |{Doc} değerle eşleşen bir kimliğiyle belge |
-| /dbs/ {dbName} /users/ |Kullanıcıların bir veritabanı altında besleme |
-| /dbs/ {dbName} /users/ {UserID} |{Kullanıcısı} değerle eşleşen bir kimliğe sahip kullanıcı |
-| /dbs/ {dbName} /users/ {UserID} / izinleri |Akış kapsamındaki bir kullanıcı izinleri |
-| /dbs/ {dbName} /users/ {UserID} /permissions/ {permissionId} |{İzni} değerle eşleşen bir kimliğe sahip izni |
+| /dbs/{dbName} |{DbName} değerle eşleşen bir kimliğe sahip veritabanı |
+| /dbs/{dbName}/colls/ |Bir veritabanı altında koleksiyonların besleme |
+| /dbs/{dbName}/colls/{collName} |{CollName} değerle eşleşen bir kimliğe sahip koleksiyonu |
+| /dbs/{dbName}/colls/{collName}/docs |Bir koleksiyon altında belgelerin besleme |
+| /dbs/{dbName}/colls/{collName}/docs/{docId} |{Doc} değerle eşleşen bir kimliğiyle belge |
+| /dbs/{dbName}/users/ |Kullanıcıların bir veritabanı altında besleme |
+| /dbs/{dbName}/users/{userId} |{Kullanıcısı} değerle eşleşen bir kimliğe sahip kullanıcı |
+| /dbs/{dbName}/users/{userId}/permissions |Akış kapsamındaki bir kullanıcı izinleri |
+| /dbs/{dbName}/users/{userId}/permissions/{permissionId} |{İzni} değerle eşleşen bir kimliğe sahip izni |
 
 Her kaynak kimliği özelliği aracılığıyla kullanıma sunulan benzersiz bir kullanıcı tanımlı adı vardır. Not: kullanıcı bir kimlik belirlemezse belgeler için SDK'ları otomatik olarak belge için benzersiz bir kimliği oluşturur. Bir özel üst kaynak bağlamı içinde benzersizdir en fazla 256 karakterden oluşan kullanıcı tanımlı bir dize kimliğidir. 
 
@@ -132,7 +136,7 @@ REST API'leri kaynakları adreslenmesini ve isteklerinin kimliği ve _rid özell
 ## <a name="database-accounts"></a>Veritabanı hesapları
 Azure aboneliğinizi kullanarak bir veya daha fazla Cosmos DB veritabanı hesaplarını sağlayabilirsiniz.
 
-Oluşturma ve Azure portalında aracılığıyla Cosmos DB veritabanı hesaplarını yönetme [http://portal.azure.com/](https://portal.azure.com/). Oluşturma ve bir veritabanı hesabı yönetme yönetimsel erişim gerektirir ve yalnızca Azure aboneliğinizde gerçekleştirilebilir. 
+Oluşturma ve Azure portalında aracılığıyla Cosmos DB veritabanı hesaplarını yönetme [ http://portal.azure.com/ ](https://portal.azure.com/). Oluşturma ve bir veritabanı hesabı yönetme yönetimsel erişim gerektirir ve yalnızca Azure aboneliğinizde gerçekleştirilebilir. 
 
 ### <a name="database-account-properties"></a>Veritabanı hesabı özellikleri
 Hazırlama ve bir veritabanı hesabı yönetme bir parçası olarak yapılandırın ve aşağıdaki özellikleri okuyun:  

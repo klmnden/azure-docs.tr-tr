@@ -1,23 +1,23 @@
 ---
-title: "Azure dosyaları için sık sorulan sorular | Microsoft Docs"
-description: "Azure dosyaları hakkında sık sorulan soruların yanıtlarını bulun."
+title: Azure dosyaları için sık sorulan sorular | Microsoft Docs
+description: Azure dosyaları hakkında sık sorulan soruların yanıtlarını bulun.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 8762b2cca03f4c95f7543803a024bff4573927a1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -232,7 +232,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **I my Azure dosyasını yedekleyin nasıl paylaşma?**  
-    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüler (Önizleme)](storage-how-to-use-files-snapshots.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. 
+    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüleri](storage-how-to-use-files-snapshots.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. 
 
 ## <a name="share-snapshots"></a>Paylaşım anlık görüntüler
 ### <a name="share-snapshots-general"></a>Paylaşma anlık görüntüler: Genel
@@ -255,6 +255,10 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 * <a id="snapshot-limits"></a>
 **Kullanabilirim paylaşımı anlık görüntü sayısı sınır var mıdır?**  
     Evet. Azure dosyaları en fazla 200 paylaşımı anlık görüntüleri tutabilirsiniz. Bu yüzden paylaşımı anlık görüntüleri paylaşım başına sınır tüm paylaşım anlık görüntüleri tarafından kullanılan toplam alanı paylaşım kotası doğru sayılmaz. Depolama hesabı sınırları hala geçerlidir. 200 paylaşımı anlık görüntüleri sonra yeni paylaşım anlık görüntüleri oluşturmak için eski anlık görüntüleri silmeniz gerekir.
+* <a id="snapshot-cost"></a>
+**Ne kadar anlık görüntü maliyet paylaşmak?**  
+    Standart işlem ve standart depolama maliyeti anlık görüntü için geçerli olur. Doğası gereği artımlı anlık görüntüler. Paylaşım temel bir anlık görüntüdür. Sonraki tüm anlık görüntüleri artımlı ve yalnızca önceki anlık görüntüden fark depolar. Bu, faturanıza görülen delta değişiklikleri, iş yükü karmaşıklığı en az ise en az olacağı anlamına gelir. Bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/en-us/pricing/details/storage/files/) standart Azure fiyatlandırma bilgileri dosyaları için. Paylaşım anlık görüntü tarafından tüketilen boyutu bakmak için faturalanan kapasiteyle karşılaştırarak yoludur bugün kapasite kullanılır. Raporlama artırmak araç çalışıyoruz.
+
 
 ### <a name="create-share-snapshots"></a>Paylaşım anlık görüntülerini oluşturma
 * <a id="file-snaphsots"></a>

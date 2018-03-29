@@ -1,11 +1,11 @@
 ---
-title: "Otomatik ölçeklendirme sanal makine ölçek Azure portalında ayarlar | Microsoft Docs"
-description: "Sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak nasıl Azure portalında ayarlar"
+title: Otomatik ölçeklendirme sanal makine ölçek Azure portalında ayarlar | Microsoft Docs
+description: Sanal makine ölçek otomatik ölçeklendirme kurallar oluşturmak nasıl Azure portalında ayarlar
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: e43be53817e7fa65c3d7a95cab9821126ed88831
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Bir sanal makineyi ölçeği Azure portalında Ayarla otomatik olarak ölçeklendirin
 Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
@@ -28,7 +28,7 @@ Bu makalede, Ölçek kümesi VM örnekleri performansını izlemek Azure Portal�
 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gereksinim ölçek kümesi. Bir ölçek kümesi oluşturabileceğiniz [Azure portal](virtual-machine-scale-sets-create-portal.md), [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md), veya [Azure CLI 2.0](virtual-machine-scale-sets-create-cli.md).
+Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine gereksinim ölçek kümesi. Bir ölçek kümesi oluşturabileceğiniz [Azure portal](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md), veya [Azure CLI 2.0](quick-create-cli.md).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Otomatik olarak genişletmek için kural oluşturma
@@ -51,7 +51,7 @@ Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın.
     | *Zaman toplama*     | Toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                                                | Ortalama        |
     | *Ölçüm adı*          | İzleme ve ölçek uygulamak için performans ölçüm Eylemler ayarlayın.                                                   | CPU Yüzdesi |
     | *Zaman çizgisi İstatistiği* | Her zaman çizgisi, toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                             | Ortalama        |
-    | *İşleci*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Şu değerden fazla:   |
+    | *Operator*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Şu değerden fazla:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 70             |
     | *Süre*             | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika     |
     | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                        | Yüzdeyi şu kadar artır: |
@@ -75,7 +75,7 @@ Bir akşam veya hafta sonu, uygulamayı isteğe bağlı azaltabilir. Bu azalmas�
     
     | Parametre              | Açıklama                                                                                                          | Değer          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *İşleci*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                      | Şu değerden az:   |
+    | *Operator*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                      | Şu değerden az:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 30             |
     | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                         | Yüzdeyi şu kadar azalt: |
     | *Örnek sayısı*       | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                             | 20             |

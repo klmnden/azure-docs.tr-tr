@@ -1,5 +1,5 @@
 ---
-title: "Ağ güvenlik kavramları & Azure gereksinimleri | Microsoft Docs"
+title: Ağ güvenlik kavramları & Azure gereksinimleri | Microsoft Docs
 description: " Bu makalede, Microsoft Azure ağ güvenliği alanında sunmak sahip anlamak kolaylaştırır. Hangi Azure bu alanların her birinde sunmak açmıştır Çekirdek Ağ güvenlik kavramları ve gereksinimler ve bilgiler için temel açıklamaları sunuyoruz. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: e477ce9a5f9f35d88a6faeb68ee4e0403f64c030
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 0e32cd1f4267b9ae0825fbb34ed00e25dd1b63b5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-network-security-overview"></a>Azure ağ güvenliğine genel bakış
 Microsoft Azure uygulama ve hizmet bağlantı gereksinimlerini desteklemek için sağlam bir ağ altyapısı içerir. Azure'da, şirket içi arasında bulunan kaynaklar arasındaki ağ bağlantısı mümkündür ve Azure barındırılan kaynakları ve kitaplığa ve Internet ve Azure.
@@ -252,11 +252,11 @@ Ağ trafiği izleme ve toplama ve gözden geçirmek için özelliği, Azure ile 
 ### <a name="azure-network-watcher"></a>Azure Ağ İzleyicisi
 Azure Ağ İzleyicisi çok sayıda gidermeye yardımcı olarak yardımcı olan araçlar yepyeni bir dizi güvenlik sorunları tanımlaması sağlamak özellikleri içerir.
 
-[Güvenlik grubu görünümü ](/network-watcher/network-watcher-security-group-view-overview.md) ve her Vm'leriniz için etkili kuralları, kuruluşunuz tarafından tanımlanan temelleri ilkeleri karşılaştırma programlı denetimleri gerçekleştirmek için kullanılan sanal makineleri denetim ve güvenlik uyumluluğunu ile yardımcı olur. Bu, tüm yapılandırma değişikliklerini belirlemenize yardımcı olabilir.
+[Güvenlik grubu görünümü ](../network-watcher/network-watcher-security-group-view-overview.md) ve her Vm'leriniz için etkili kuralları, kuruluşunuz tarafından tanımlanan temelleri ilkeleri karşılaştırma programlı denetimleri gerçekleştirmek için kullanılan sanal makineleri denetim ve güvenlik uyumluluğunu ile yardımcı olur. Bu, tüm yapılandırma değişikliklerini belirlemenize yardımcı olabilir.
 
-[Paket yakalama](/network-watcher/network-watcher-packet-capture-overview.md) ve sanal makineden ağ trafiğini yakalamanıza olanak sağlar. Ağ istatistikleri toplamak sağlayarak ve uygulama sorunlarını giderme konusunda yardımcı yanı sıra paket yakalama ağ yetkisiz araştırma içinde çok yararlı olabilir. Azure işlevleri ile birlikte bu işlevselliği, belirli Azure uyarılara yanıt olarak ağ yakalamaları başlatmak için de kullanabilirsiniz.
+[Paket yakalama](../network-watcher/network-watcher-packet-capture-overview.md) ve sanal makineden ağ trafiğini yakalamanıza olanak sağlar. Ağ istatistikleri toplamak sağlayarak ve uygulama sorunlarını giderme konusunda yardımcı yanı sıra paket yakalama ağ yetkisiz araştırma içinde çok yararlı olabilir. Azure işlevleri ile birlikte bu işlevselliği, belirli Azure uyarılara yanıt olarak ağ yakalamaları başlatmak için de kullanabilirsiniz.
 
-Azure Ağ İzleyicisi'ni ve test başlatma hakkında daha fazla bilgi için bazı işlevlerini, ortamlarındaki göz atın [Azure Ağ İzleyicisi izlemeye genel bakış](/network-watcher/network-watcher-monitoring-overview.md)
+Azure Ağ İzleyicisi'ni ve test başlatma hakkında daha fazla bilgi için bazı işlevlerini, ortamlarındaki göz atın [Azure Ağ İzleyicisi izlemeye genel bakış](../network-watcher/network-watcher-monitoring-overview.md)
 
 >[!NOTE]
 Azure Ağ İzleyicisi hala genel önizlemede olduğundan, genel kullanılabilirlik hizmetlerini serbest olarak aynı düzeyde kullanılabilirlik ve güvenilirlik olmayabilir. Belirli özellikler desteklenmiyor olabilir, yetenekleri kısıtlı ve tüm Azure konumlarda kullanılamayabilir. En güncel bildirimlerinin kullanılabilirlik ve bu hizmetin durumunu denetleme [Azure güncelleştirmeler sayfası](https://azure.microsoft.com/updates/?product=network-watcher)

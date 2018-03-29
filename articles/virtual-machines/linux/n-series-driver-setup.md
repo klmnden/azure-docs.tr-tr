@@ -1,11 +1,11 @@
 ---
-title: "Linux için Azure N-serisi sürücü kurulumu | Microsoft Docs"
-description: "Linux Azure'da çalışan N-serisi VM'ler için NVIDIA GPU sürücüleri ayarlama"
+title: Linux için Azure N-serisi sürücü kurulumu | Microsoft Docs
+description: Linux Azure'da çalışan N-serisi VM'ler için NVIDIA GPU sürücüleri ayarlama
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2018
+ms.date: 03/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7d353adcafed02832243277118da8480e54544ce
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d97afd2b5dccca64db2df7cb0d4f110987642cfb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
-Linux çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için desteklenen NVIDIA grafik sürücüleri yükleyin. N-serisi VM dağıttıktan sonra bu makalede sürücü kurulum adımlarını sağlar. Sürücü Kurulum bilgileri de için kullanılabilir [Windows VM'ler](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Linux çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için NVIDIA grafik sürücüleri yüklenmesi gerekir. N-serisi VM dağıttıktan sonra bu makalede sürücü kurulum adımlarını sağlar. Sürücü Kurulum bilgileri de için kullanılabilir [Windows VM'ler](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 N-serisi VM özellikleri, depolama kapasitesi ve disk Ayrıntılar için bkz: [GPU Linux VM boyutları](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -32,15 +32,12 @@ N-serisi VM özellikleri, depolama kapasitesi ve disk Ayrıntılar için bkz: [G
 
 ## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>NC, NCv2, NCv3 ve ND-serisi VM'ler CUDA sürücüleri yükleyin
 
-N-serisi vm'lerde NVIDIA CUDA araç setinden NVIDIA sürücülerini yüklemek için adımlar şunlardır. 
+N-serisi vm'lerde NVIDIA CUDA araç setinden CUDA sürücülerini yüklemek için adımlar şunlardır. 
+
 
 C ve C++ geliştiriciler GPU hızlandırılmış uygulamaları oluşturmak için tam Araç Seti isteğe bağlı olarak yükleyebilirsiniz. Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
-> [!NOTE]
-> CUDA sürücü yükleme bağlantıları burada geçerli yayın zamanında sağlanır. En son CUDA sürücüleri için ziyaret [NVIDIA](https://developer.nvidia.com/cuda-zone) Web sitesi.
->
-
-CUDA Araç Seti yüklemek için her VM için bir SSH bağlantısı oluşturun. Sistem CUDA özellikli GPU sahip olduğunu doğrulamak için aşağıdaki komutu çalıştırın:
+CUDA sürücüleri yüklemek için her VM için bir SSH bağlantısı oluşturun. Sistem CUDA özellikli GPU sahip olduğunu doğrulamak için aşağıdaki komutu çalıştırın:
 
 ```bash
 lspci | grep -i NVIDIA
@@ -162,16 +159,13 @@ Aynı kullanılabilirlik kümesinde veya VM ölçek kümesi NC24r dağıtılmı�
 
 ### <a name="distributions"></a>Dağıtımlar
 
-RDMA özellikli N-serisi VM'ler görüntüden RDMA bağlantısı N-serisi Vm'lerinde destekleyen Azure Marketi dağıtın:
+RDMA bağlantısı N-serisi Vm'lerinde destekleyen Azure Market görüntülerini birinden RDMA özellikli N-serisi VM'ler dağıtın:
   
 * **Ubuntu 16.04 LTS** - VM RDMA sürücülerinin yapılandırmak ve Intel MPI indirmek için Intel ile kaydedin:
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-> [!NOTE]
-> CentOS tabanlı HPC görüntüler şu anda N-serisi vm'lerde RDMA bağlantısı için önerilmez. RDMA NVIDIA GPU destekleyen en son CentOS 7.4 çekirdek desteklenmiyor.
-> 
-
+* **CentOS tabanlı 7.4 HPC** -RDMA sürücüleri ve Intel MPI 5.1 VM yüklenir.
 
 ## <a name="install-grid-drivers-for-nv-series-vms"></a>NV-serisi VM'ler için kılavuz sürücüleri yükleyin
 
@@ -321,10 +315,10 @@ EndSection
  
 Ayrıca, güncelleştirme, `"Screen"` bu cihazı kullanmak için bölümü.
  
-BusID çalıştırarak bulunabilir.
+Ondalık BusID çalıştırarak bulunabilir.
 
 ```bash
-/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1
+echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
 ```
  
 Bir VM bırakılan veya yeniden BusID değiştirebilirsiniz. Bu nedenle, X11 içinde BusID güncelleştirmek için bir komut dosyası kullanmayı düşünebilirsiniz VM yeniden başlatıldığında yapılandırma. Örneğin:

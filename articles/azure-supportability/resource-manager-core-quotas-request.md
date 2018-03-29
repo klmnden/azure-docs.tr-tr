@@ -1,17 +1,17 @@
 ---
-title: "Azure Resource Manager vCPU Kotayı artırmak istekleri | Microsoft Docs"
-description: "Azure Resource Manager vCPU kota artışı isteği"
+title: Azure Resource Manager vCPU Kotayı artırmak istekleri | Microsoft Docs
+description: Azure Resource Manager vCPU kota artışı isteği
 author: ganganarayanan
 ms.author: gangan
-ms.date: 1/18/2017
+ms.date: 3/15/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: a42fa8e4e8dae140db4fcc8977bda335455b97a1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU kota artışı isteği
 
@@ -19,26 +19,27 @@ Resource Manager vCPU kotaları bölge düzeyi ve SKU ailesi düzeyinde uygulan�
 Nasıl kotaları üzerinde uygulanır hakkında daha fazla bilgi [Azure aboneliği ve hizmet sınırları](http://aka.ms/quotalimits) sayfası.
 SKU ailesi hakkında daha fazla bilgi için maliyet ve performans üzerinde karşılaştırmak [sanal makineler fiyatlandırma](http://aka.ms/pricingcompute) sayfası.
 
-Artırma isteğinde bulunmak için Azure portalında Vcpu'lar bir kota destek servis talebi oluşturma [https://portal.azure.com](https://portal.azure.com).
+Artırma isteğinde bulunmak için Azure portalında Vcpu'lar bir kota destek servis talebi oluşturma [ https://portal.azure.com ](https://portal.azure.com).
 
 > [!NOTE]
 > Bilgi edinmek için nasıl [bir destek isteği oluşturmak](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) Azure portalında
 
-1. Sorun türü "Kota" olarak ve kota türü "Çekirdek" olarak yeni destek isteği sayfasındaki seçin.
+1. Seçin **abonelikleri**.
 
-    ![Kota temel bilgileri dikey penceresi](./media/resource-manager-core-quotas-request/Basics-blade.png)
+   ![Abonelikler](./media/resource-manager-core-quotas-request/subscriptions.png)
 
-2. "Kaynak Yöneticisi" olarak dağıtım modeli seçin ve bir konum seçin.
+2. Artan bir kota gereken aboneliği seçin.
 
-    ![Kota sorun dikey penceresi](./media/resource-manager-core-quotas-request/Problem-step.png)
+   ![Abonelik seçme](./media/resource-manager-core-quotas-request/select-subscription.png)
 
-3. Artışı gerektiren SKU ailesi seçin.
+3. Seçin **kullanım + kotaları**
 
-    ![Seçili SKU serisi](./media/resource-manager-core-quotas-request/SKU-selected.png)
+   ![Kullanım ve kotaları seçin](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
 
-4. İstediğiniz yeni sınırları abonelikte girin.
+4. Sağ üst köşedeki seçin **isteği artış**.
 
-    ![SKU yeni kota isteği](./media/resource-manager-core-quotas-request/SKU-new-quota.png)
+   ![Artışı isteği](./media/resource-manager-core-quotas-request/request-increase.png)
 
-- Bir satırı kaldırmak için SKU SKU ailesi açılan kutusunun işaretini kaldırın veya atma "x" simgesine tıklayın.
-Her SKU ailesi için istenen kota girdikten sonra destek isteği oluşturma işlemiyle devam etmek sorun adım sayfasında "İleri" yi tıklatın.
+5. Seçin **çekirdek** Teklif türü. 
+
+   ![Formu doldurun](./media/resource-manager-core-quotas-request/forms.png)

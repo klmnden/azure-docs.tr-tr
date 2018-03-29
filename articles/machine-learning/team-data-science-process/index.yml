@@ -3,37 +3,37 @@ documentType: LandingData
 title: Team Data Science Process Belgeleri
 metadata:
   title: Team Data Science Process Belgeleri
-  description: "Team Data Science Process’i nasıl kullanacağınızı öğrenin."
+  description: Team Data Science Process’i nasıl kullanacağınızı öğrenin.
   services: machine-learning
-  author: carolz
-  manager: carolz
+  author: bradsev
+  manager: cgronlun
   ms.service: machine-learning
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
   ms.author: bradsev
-  ms.openlocfilehash: 05f47b7511108f4a94c6fd132c9b7fd18c6e267d
-  ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+  ms.openlocfilehash: a12326f4e3822bc32b863dd61de3b5f2a440dd23
+  ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 02/13/2018
+  ms.lasthandoff: 03/28/2018
 abstract:
-  description: "Team Data Science Process, tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisidir. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır."
+  description: Team Data Science Process, tahmine dayalı analiz çözümlerinin ve akıllı uygulamaların etkili bir şekilde sunulması için kullanılan çevik, yinelemeli bir veri bilimi metodolojisidir. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Team Data Science Process hakkında bilgi edinin:"
+    text: 'Team Data Science Process hakkında bilgi edinin:'
   - type: list
     style: unordered
     items:
-    - html: "<a href:\"overview\">Genel Bakış</a>"
-    - html: "<a href:\"lifecycle\">Yaşam Döngüsü</a>"
-- title: "Adım Adım Öğreticiler"
+    - html: <a href:"overview">Genel Bakış</a>
+    - html: <a href:"lifecycle">Yaşam Döngüsü</a>
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Team Data Science Process’i çeşitli senaryolarda nasıl kullanacağınızı öğrenin:"
+    text: 'Team Data Science Process’i çeşitli senaryolarda nasıl kullanacağınızı öğrenin:'
   - type: list
     style: ordered
     items:

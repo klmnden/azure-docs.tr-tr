@@ -1,8 +1,8 @@
 ---
-title: "Application Insights: programlama dilleri, platformlar ve tümleştirmeler| Microsoft Belgeleri"
-description: "Application Insights için programlama dilleri, platformlar ve tümleştirmeler bulunmaktadır"
+title: 'Application Insights: programlama dilleri, platformlar ve tümleştirmeler| Microsoft Belgeleri'
+description: Application Insights için programlama dilleri, platformlar ve tümleştirmeler bulunmaktadır
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: OlegAnaniev-MSFT
 manager: carmonm
 ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe8f826ca3e0f44cba3d0b246afb01b262dc330b
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: e172b04144afec04579de92b2393587635d3fecf
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Geliştirici analizleri: programlama dilleri, platformlar ve tümleştirmeler
 Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygulamalardır. Bunlardan bazıları üçüncü taraflar aracılığıyla sunulur.
@@ -64,7 +64,7 @@ Bu öğeler, bildiğimiz [Application Insights](app-insights-overview.md) uygula
 * [Semantik Günlük (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [Semantik Günlük Uygulama Bloğu](https://msdn.microsoft.com/library/dn440729.aspx) ile tümleşir
 * [Bulut tabanlı yük testi](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)
 * [LogStash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-output-applicationinsights)
-* [OMS Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
+* [Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 * [Logary](https://www.nuget.org/packages/Logary.Targets.AppInsights/)
 
 ## <a name="content-management-systems"></a>İçerik Yönetim Sistemleri

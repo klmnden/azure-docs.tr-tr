@@ -1,9 +1,9 @@
 ---
-title: "Veri bilimi ile derin öğrenme veri bilimi sanal makinede Azure | Microsoft Docs"
-description: "Derin öğrenme veri bilimi VM ile birkaç genel veri bilimi görevleri gerçekleştirme."
+title: Veri bilimi ile derin öğrenme veri bilimi sanal makinede Azure | Microsoft Docs
+description: Derin öğrenme veri bilimi VM ile birkaç genel veri bilimi görevleri gerçekleştirme.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ab955edec61799495e877943237236fb7fc82cb8
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b517e4c8cc57f833037f4c67deb318f2756e7b24
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Sanal makine öğrenme derin kullanma
 

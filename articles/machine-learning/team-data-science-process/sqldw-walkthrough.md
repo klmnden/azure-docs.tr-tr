@@ -1,8 +1,8 @@
 ---
-title: "Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanarak | Microsoft Docs"
-description: "Gelişmiş analizler işlemi ve eylem teknoloji"
+title: 'Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanarak | Microsoft Docs'
+description: Gelişmiş analizler işlemi ve eylem teknoloji
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: bradsev;weig
-ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.author: bradsev
+ms.openlocfilehash: 6566db5f186b92179df3125deaf5ad17c6f9e974
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Eylem takım veri bilimi işleminde: SQL Data Warehouse kullanma
 Bu öğreticide, biz, oluşturma ve dağıtma SQL veri ambarı (SQL DW) kullanarak bir makine öğrenimi modeline aracılığıyla genel kullanıma açık bir veri kümesi için--yol [NYC ücreti dönüşleri](http://www.andresmh.com/nyctaxitrips/) veri kümesi. Oluşturulan ikili sınıflandırma modeli bir ipucu seyahat için ödeme ve çok sınıflı sınıflandırma ve regresyon modeli Ayrıca, dağıtım Ücretli ipucu tutarlarının tahmin açıklanan olup olmadığını tahmin eder.
@@ -49,7 +49,7 @@ Yaklaşık 20 GB sıkıştırılmış CSV dosyaları (~ 48 GB sıkıştırılmam
 
 * medallion,
 * korsan saldırılarına\_lisans ve
-* Toplama\_datetime.
+* pickup\_datetime.
 
 ## <a name="mltasks"></a>Üç tür tahmin görevleri adres
 Biz göre üç tahmin sorunları formüle *İpucu\_tutar* görevleri modelleme üç tür göstermek için:
@@ -319,7 +319,7 @@ Yükleme süreleri depolama hesaplarınızı coğrafi konumunu etkiler.
 Yinelenen kaynak ve hedef dosya varsa, hangi karar vermeniz gerekir.
 
 > [!NOTE]
-> Kopyalanacak .csv dosyaları özel blob storage hesabınıza ortak blob depolama özel blob depolama hesabınız zaten var, AzCopy bunları üzerine yazmak isteyip istemediğinizi sorar. Bunları üzerine yazmak istemiyorsanız giriş  **n**  istendiğinde. Üzerine yazmak istiyorsanız **tüm** birini giriş **bir** istendiğinde. Ayrıca giriş **y** .csv dosyalarını tek tek üzerine yazmak için.
+> Kopyalanacak .csv dosyaları özel blob storage hesabınıza ortak blob depolama özel blob depolama hesabınız zaten var, AzCopy bunları üzerine yazmak isteyip istemediğinizi sorar. Bunları üzerine yazmak istemiyorsanız giriş **n** istendiğinde. Üzerine yazmak istiyorsanız **tüm** birini giriş **bir** istendiğinde. Ayrıca giriş **y** .csv dosyalarını tek tek üzerine yazmak için.
 > 
 > 
 
@@ -836,14 +836,14 @@ Bu alıştırmada, biz varsa zaten incelediniz ve SQL veri ambarı verileri müh
    
     ![Verileri Azure ML İçeri Aktar][17]
 2. Seçin **Azure SQL veritabanı** olarak **veri kaynağı** içinde **özellikleri** paneli.
-3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Veritabanı DNS adı **veritabanı sunucusu adı** alan. Biçimi: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Girin **veritabanı adı** karşılık gelen alandaki.
 5. Girin *SQL kullanıcı adı* içinde **Server kullanıcı hesabı adı**ve *parola* içinde **Server kullanıcı hesabı parolasını**.
 7. İçinde **veritabanı sorgusu** metin alanı düzenlemek, gerekli veritabanı alanları (etiketler gibi hesaplanan alanları dahil) ayıklayan sorguyu yapıştırın ve aşağı istenen örnek boyutu için veri örnekleri.
 
 Verileri doğrudan SQL veri ambarı veritabanından okunurken bir ikili sınıflandırma deneme, aşağıdaki şekilde örneğidir (şema adı ve tablo adlarının, örneklerde kullanılan tablo adları nyctaxi_trip ve nyctaxi_fare değiştirmek unutmayın). Benzer denemeler, çok sınıflı sınıflandırma ve regresyon sorunları için oluşturulabilir.
 
-![Azure ML eğitimi][10]
+![Azure ML Train][10]
 
 > [!IMPORTANT]
 > Modelleme verileri ayıklama ve sorgu örnekler örnekleme önceki bölümlerde sağlanan **üç modelleme alıştırmalar için tüm etiketleri sorguda dahil edilen**. Her modelleme alıştırmalarda önemli bir (gerekli) adım **hariç** diğer iki sorunlar ve diğer gereksiz etiketlerini **hedef sızıntıları**. Örneğin, ikili Sınıflandırma, etiket kullanırken **Eğimli** ve alanları dışarıda **İpucu\_sınıfı**, **İpucu\_tutar**ve **toplam\_tutar**. İpucu kapsıyor beri ikinci hedef sızıntıları olan Ücretli.
@@ -874,7 +874,7 @@ Puanlama deneme oluşturulduğunda, gözden geçirin ve gerektiği gibi ayarlay�
 
 Deneme Puanlama bir örneği aşağıdaki şekilde sağlanır. Hazır olduğunuzda dağıtmak tıklatın **yayımlama WEB hizmeti** alt eylem çubuğunda düğmesi.
 
-![Azure ML yayımlama][11]
+![Azure ML Publish][11]
 
 ## <a name="summary"></a>Özet
 Ne Biz bu gözden geçirme öğreticide yaptığınızdan olduðunu üzere büyük ortak sahip bir veri kümesi, çalışan bir Azure veri bilimi ortamı için takım veri bilimi işlemini, tüm veri alım model eğitim ve ardından için aracılığıyla alma oluşturduğunuz bir Azure Machine Learning web hizmeti dağıtımı.

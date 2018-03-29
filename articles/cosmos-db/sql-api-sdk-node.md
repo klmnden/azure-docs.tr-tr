@@ -1,6 +1,6 @@
 ---
-title: "Azure Cosmos DB: SQL Node.js API, SDK & kaynakları | Microsoft Docs"
-description: "SQL Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin."
+title: 'Azure Cosmos DB: SQL Node.js API, SDK & kaynakları | Microsoft Docs'
+description: SQL Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure Cosmos DB Node.js SDK'sı sürüm arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8869d8a8eead8bdaeda5dc1d6eeb2f81b16928e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 58d043ac7037567d37321cb874804ad0e6cb5ed8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -35,8 +35,6 @@ ms.lasthandoff: 03/02/2018
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 <table>
 
@@ -73,7 +71,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.14.0"/>1.14.0</a>
 * Oturum tutarlılığı için destek ekler.
-* Bu SDK sürümü https://aka.ms/cosmosdb-emulator Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir.
+* Bu SDK sürümü Merkezi'nden Azure Cosmos DB öykünücüsü kullanılabilir en son sürümünü gerektirir https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
 * Bölüm sorguları proofed Böl.
@@ -164,7 +162,7 @@ ms.lasthandoff: 03/02/2018
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Jeo-uzamsal dizin desteği eklendi.
-* ID özelliği tüm kaynaklar için doğrular. Kaynaklar için kimlikleri içeremez?, /, # &#47; &#47; karakter veya boşluk ile bitmelidir.
+* ID özelliği tüm kaynaklar için doğrular. Kaynaklar için kimlikleri içeremez?, /, #, &#47; &#47;, karakter veya boşluk ile bitmelidir.
 * Yeni Üstbilgi "dizini dönüştürme ilerleme durumu" için ResourceResponse ekler.
 
 ### <a name="1.1.0"/>1.1.0</a>

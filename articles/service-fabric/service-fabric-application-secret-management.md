@@ -1,47 +1,31 @@
 ---
-title: "Service Fabric uygulamaları parolalarında yönetme | Microsoft Docs"
-description: "Bu makale, Service Fabric uygulaması gizli değerleri güvenli açıklamaktadır."
+title: Azure Service Fabric uygulama parolaları yönetme | Microsoft Docs
+description: Service Fabric uygulaması gizli değerleri güvenli öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: bb40f841c6c2671621624e0599a5f3a36a36ab26
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 931667509a9aa5e898cd01ad26ff046e30acd3fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="managing-secrets-in-service-fabric-applications"></a>Service Fabric uygulamaları parolaları yönetme
+# <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric uygulamaları gizli anahtarları Yönet
 Bu kılavuz, Service Fabric uygulaması parolalarında yönetme adım adım anlatılmaktadır. Gizli depolama bağlantı dizeleri, parolalar veya düz metin olarak işleneceğini olmayan diğer değerleri gibi herhangi bir önemli bilgi olabilir.
 
-Bu kılavuz, anahtarları ve gizli anahtarları yönetmek için Azure anahtar kasası kullanır. Ancak, *kullanarak* gizli bir uygulamada herhangi bir yerde barındırılan bir kümeye dağıtılacak uygulamalar izin vermek için platform belirsiz bulut. 
+[Azure anahtar kasası] [ key-vault-get-started] burada Azure Service Fabric kümeleri yüklü sertifikaları almak için bir yol ve sertifikalar için bir güvenli depolama konumu olarak kullanılır. Azure'a dağıtma değil, anahtar kasası Service Fabric uygulamaları parolalarında yönetmek üzere kullanmak gerekmez. Ancak, *kullanarak* gizli bir uygulamada herhangi bir yerde barındırılan bir kümeye dağıtılacak uygulamalar izin vermek için platform belirsiz bulut. 
 
-## <a name="overview"></a>Genel Bakış
-Hizmet yapılandırma ayarlarını yönetmek için önerilen yöntem aracılığıyladır [hizmet yapılandırma paketleri][config-package]. Yapılandırma paketleri sürümlü ve sistem durumu doğrulama ve Otomatik geri alma ile yönetilen yükseltmelerini aracılığıyla güncelleştirilebilir. Genel hizmet kesintisi olasılığını azaltır olarak bu genel yapılandırma için tercih edilir. Şifrelenmiş parolalar hiçbir istisnadır. Service Fabric şifreleme ve şifre çözme sertifikası şifreleme kullanarak bir yapılandırma paketi Settings.xml dosyasındaki değerleri için yerleşik özellikler vardır.
-
-Aşağıdaki diyagramda Service Fabric uygulaması gizli yönetimi için temel akışı gösterilmektedir:
-
-![Gizli yönetimine genel bakış][overview]
-
-Bu akış dört ana adım vardır:
-
-1. Veri şifreleme sertifikası alın.
-2. Sertifikayı kümenizdeki yükleyin.
-3. Sertifikayla ilgili bir uygulama dağıtırken gizli değerleri şifreler ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle.
-4. Settings.xml dışında şifrelenmiş değerler ile aynı şifreleme sertifikası şifresini çözerek okuyun. 
-
-[Azure anahtar kasası] [ key-vault-get-started] burada Azure Service Fabric kümeleri yüklü sertifikaları almak için bir yol ve sertifikalar için bir güvenli depolama konumu olarak kullanılır. Azure'a dağıtma değil, anahtar kasası Service Fabric uygulamaları parolalarında yönetmek üzere kullanmak gerekmez.
-
-## <a name="data-encipherment-certificate"></a>Veri şifreleme sertifikası
+## <a name="obtain-a-data-encipherment-certificate"></a>Veri şifreleme sertifikası alın
 Veri şifreleme sertifikası kesinlikle şifreleme için kullanılır ve şifre çözme yapılandırmasının bir hizmetin Settings.xml değerleri ve kimlik doğrulaması için kullanılan veya şifre metin imzalama değil. Sertifikanın aşağıdaki gereksinimleri karşılamalıdır:
 
 * Sertifika bir özel anahtar içermelidir.
@@ -58,7 +42,7 @@ Veri şifreleme sertifikası kesinlikle şifreleme için kullanılır ve şifre 
 Bu sertifika, kümedeki her düğümde yüklenmelidir. Bu çalışma zamanında bir hizmetin Settings.xml depolanan değerleri şifresini çözmek için kullanılır. Bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak nasıl] [ service-fabric-cluster-creation-via-arm] kurulum yönergeleri. 
 
 ## <a name="encrypt-application-secrets"></a>Uygulama parolaları şifrelemek
-Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri yerleşik anda şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
+Bir uygulama dağıtırken, sertifika gizli değerlerle şifrelemek ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle. Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri yerleşik anda şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
 
 Aşağıdaki PowerShell komutunu bir gizli anahtarı şifrelemek için kullanılır. Bu komut, yalnızca değeri şifreler; Mevcut **değil** şifre metnin imzalayın. Ciphertext gizli değerleri için üretmek için kümenizdeki yüklü aynı şifreleme sertifikası kullanmanız gerekir:
 
@@ -66,7 +50,7 @@ Aşağıdaki PowerShell komutunu bir gizli anahtarı şifrelemek için kullanıl
 Invoke-ServiceFabricEncryptText -CertStore -CertThumbprint "<thumbprint>" -Text "mysecret" -StoreLocation CurrentUser -StoreName My
 ```
 
-Sonuçta elde edilen base-64 dizesi hem gizli ciphertext yanı sıra, şifrelemek için kullanılan sertifikayla ilgili bilgileri içerir.  Base-64 kodlu bir dize hizmetinizin Settings.xml yapılandırma dosyasıyla parametresinde eklenebilir `IsEncrypted` özniteliğini `true`:
+Sonuçta elde edilen base 64 kodlu bir dize hem gizli ciphertext yanı sıra, şifrelemek için kullanılan sertifikayla ilgili bilgileri içerir.  Base-64 kodlu bir dize hizmetinizin Settings.xml yapılandırma dosyasıyla parametresinde eklenebilir `IsEncrypted` özniteliğini `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -140,7 +124,7 @@ await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescript
 ```
 
 ## <a name="decrypt-secrets-from-service-code"></a>Hizmet kodundan gizli şifresini çözme
-Service Fabric Hizmetleri'nde altında ağ hizmeti varsayılan olarak Windows üzerinde çalışan ve bazı ek kurulum olmadan düğümde yüklü olan sertifikalar erişiminiz yok.
+Gizli anahtarı şifrelemek için kullanılan şifreleme sertifikası ile şifresini çözerek Settings.xml dışında şifrelenmiş değerler okuyabilir. Service Fabric Hizmetleri'nde altında ağ hizmeti varsayılan olarak Windows üzerinde çalışan ve bazı ek kurulum olmadan düğümde yüklü olan sertifikalar erişiminiz yok.
 
 Ne zaman emin ağ hizmeti yapmanıza gerek veri şifreleme sertifikasını kullanarak veya hangi kullanıcı hizmet hesabı altında çalışan sertifikanın özel anahtarı erişebilir. Service Fabric, bunu yapmak için yapılandırırsanız erişim hizmetiniz için otomatik olarak verme işleyecek. Bu yapılandırma, kullanıcılar ve sertifikalar için güvenlik ilkelerini tanımlayarak ApplicationManifest.xml yapılabilir. Aşağıdaki örnekte, ağ hizmeti hesabının, parmak izi tarafından tanımlanan bir sertifika okuma erişimi verilir:
 
@@ -176,7 +160,7 @@ SecureString mySecretValue = configPackage.Settings.Sections["MySettings"].Param
 ```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-Daha fazla bilgi edinmek [farklı güvenlik izinleriyle çalışan uygulamalar](service-fabric-application-runas-security.md)
+Daha fazla bilgi edinmek [uygulama ve hizmet güvenliği](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [key-vault-get-started]:../key-vault/key-vault-get-started.md

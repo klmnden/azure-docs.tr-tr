@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB veritabanı geçiş aracını | Microsoft Docs"
-description: "Açık kaynak Azure Cosmos DB veri geçiş araçları Azure Cosmos DB MongoDB, SQL Server, tablo depolama, Amazon DynamoDB, CSV ve JSON dosyaları dahil olmak üzere çeşitli kaynaklardan veri almak için nasıl kullanılacağını öğrenin. CSV JSON dönüştürme."
-keywords: "json, veritabanı Geçiş Araçları, CSV'ye Dönüştür csv için json"
+title: Azure Cosmos DB veritabanı geçiş aracını | Microsoft Docs
+description: Açık kaynak Azure Cosmos DB veri geçiş araçları Azure Cosmos DB MongoDB, SQL Server, tablo depolama, Amazon DynamoDB, CSV ve JSON dosyaları dahil olmak üzere çeşitli kaynaklardan veri almak için nasıl kullanılacağını öğrenin. CSV JSON dönüştürme.
+keywords: json, veritabanı Geçiş Araçları, CSV'ye Dönüştür csv için json
 services: cosmos-db
 author: andrewhoh
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,15 +16,13 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: cf8b0e6a06f787c5b38622e9343e893d5d7daa12
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu öğretici, Azure Cosmos DB koleksiyonları ve tablolar halinde veriler çeşitli kaynaklardan içeri aktarabilirsiniz Azure Cosmos DB Veri Taşıma aracını kullanma hakkında yönergeler sağlar. JSON dosyaları, CSV dosyaları, SQL, MongoDB, Azure Table depolama, Amazon DynamoDB ve hatta Azure Cosmos DB SQL API koleksiyonları alabilir ve verileri koleksiyonları ve tablolar için Azure Cosmos DB ile kullanmak geçirilir. Veri Geçiş Aracı, tek bir bölüm koleksiyondan çok bölümlü bir koleksiyon için SQL API'yi geçirirken kullanılabilir.
 
