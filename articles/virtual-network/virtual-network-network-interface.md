@@ -1,13 +1,13 @@
 ---
-title: "Oluşturma, değiştirme veya bir Azure ağı arabirimi silme | Microsoft Docs"
-description: "Bilgi bir ağ arabirimi ve nasıl oluşturulacağını, ayarlarını değiştirin ve birini silin."
+title: Oluşturma, değiştirme veya bir Azure ağı arabirimi silme | Microsoft Docs
+description: Bilgi bir ağ arabirimi ve nasıl oluşturulacağını, ayarlarını değiştirin ve birini silin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 6c3fb08a43bce6193aa0094992616a290129bac8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 49685d5b0e30356cab7f1f530bcc97e193d7fd90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
-Oluşturma, ayarlarını değiştirin ve ağ arabirimi silme öğrenin. Bir ağ arabirimi, Internet, Azure ve şirket içi kaynakları ile iletişim kurmak için bir Azure sanal makine sağlar. Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Bunun yerine, ağ arabirimleri ile özel ayarları oluşturmak ve oluşturduğunuzda bir veya daha fazla ağ arabirimine bir sanal makineye eklemek seçebilirsiniz. Varolan bir ağ arabirimi için varsayılan ağ arabirimi ayarları değiştirmek isteyebilirsiniz. Bu makalede, bir ağ arabirimi ile özel ayarları oluşturmak, ağ filtre (ağ güvenlik grubu) ataması, alt ağ ataması, DNS sunucusu ayarlarını ve IP iletimini gibi varolan ayarlarını değiştirin ve ağ arabirimini silmek açıklanmaktadır.
+Oluşturma, ayarlarını değiştirin ve ağ arabirimi silme öğrenin. Bir ağ arabirimi, internet, Azure ve şirket içi kaynakları ile iletişim kurmak için bir Azure sanal makine sağlar. Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Bunun yerine, ağ arabirimleri ile özel ayarları oluşturmak ve oluşturduğunuzda bir veya daha fazla ağ arabirimine bir sanal makineye eklemek seçebilirsiniz. Varolan bir ağ arabirimi için varsayılan ağ arabirimi ayarları değiştirmek isteyebilirsiniz. Bu makalede, bir ağ arabirimi ile özel ayarları oluşturmak, ağ filtre (ağ güvenlik grubu) ataması, alt ağ ataması, DNS sunucusu ayarlarını ve IP iletimini gibi varolan ayarlarını değiştirin ve ağ arabirimini silmek açıklanmaktadır.
 
-Eklemeniz gerekiyorsa, değiştirmek veya okuma bir ağ arabirimi için IP adresleri kaldırmak [yönetmek IP adresleri](virtual-network-network-interface-addresses.md) makalesi. Ağ arabirimlerine eklemek veya ağ arabirimleri okuma sanal makinelerden kaldırmak gerekiyorsa [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi.
+Eklemek, değiştirmek veya bir ağ arabirimi için IP adreslerini kaldırın, bkz: [yönetmek IP adresleri](virtual-network-network-interface-addresses.md). Ağ arabirimleri veya ağ arabirimleri sanal makinelerden kaldırmak için bkz: için eklemeniz gerekiyorsa, [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md).
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -33,89 +33,88 @@ Eklemeniz gerekiyorsa, değiştirmek veya okuma bir ağ arabirimi için IP adres
 Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+
+Aboneliğiniz için ağ katılımcı rolü için en düşük izinleri adresindeki Azure ile içine oturum hesabı atanmalıdır. Rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 
 ## <a name="create-a-network-interface"></a>Bir ağ arabirimi oluştur
 
-Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Tüm ağ arabirimi ayarları yerine belirtirsiniz, bir ağ arabirimi ile özel ayarları oluşturmak ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken, bir sanal makineye Ekle. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Varolan bir ağ arabirimi ile bir sanal makine oluşturmak için veya eklemek veya var olan sanal makinelerden ağ arabirimleri kaldırma öğrenmek için [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](manage-virtual-network.md#create-a-virtual-network) aynı konumu ve abonelik bir ağ arabiriminde oluşturun.
+Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için varsayılan ayarlarla bir ağ arabirimi oluşturur. Tüm ağ arabirimi ayarları yerine belirtirsiniz, bir ağ arabirimi ile özel ayarları oluşturmak ve ağ arabirimi (PowerShell veya Azure CLI kullanarak) sanal makine oluştururken, bir sanal makineye Ekle. Ayrıca, bir ağ arabirimi oluşturabilir ve varolan bir sanal makineye (PowerShell veya Azure CLI kullanarak) ekleyin. Varolan bir ağ arabirimi ile bir sanal makine oluşturmak için eklemek veya var olan sanal makinelerden ağ arabirimleri Kaldır öğrenmek için bkz: [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md). Bir ağ arabirimi oluşturmadan önce varolan olmalıdır [sanal ağ](manage-virtual-network.md#create-a-virtual-network) aynı konumu ve abonelik bir ağ arabiriminde oluşturun.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey tıklayın **+ Ekle**.
-4. İçinde **oluşturma ağ arabirimi** görünür, dikey girin veya aşağıdaki ayarları için değerleri seçin ve ardından **oluşturma**:
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Seçin **+ Ekle** altında **ağ arabirimleri**.
+3. Girin veya aşağıdaki ayarları için değerleri seçin, sonra seçin **oluşturma**:
 
     |Ayar|Gerekli mi?|Ayrıntılar|
     |---|---|---|
-    |Ad|Evet|Adı kaynak grubun içinde benzersiz olmalıdır. Zamanla, Azure aboneliğinizde büyük olasılıkla birden fazla ağ arabirimleri sahip olacaksınız. Okuma [adlandırma kuralları](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions) birkaç yönetme yapmak için bir adlandırma kuralını oluştururken önerileri ağ arabirimleri kolaylaştırmak için makalesi. Ağ arabirimi oluşturulduktan sonra adı değiştirilemez.|
+    |Ad|Evet|Adı kaynak grubun içinde benzersiz olmalıdır. Zamanla, Azure aboneliğinizde büyük olasılıkla birden fazla ağ arabirimleri sahip olacaksınız. Çeşitli ağ arabirimleri daha kolay yönetme yapmak bir adlandırma kuralını oluştururken öneriler için bkz [adlandırma kuralları](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Ağ arabirimi oluşturulduktan sonra adı değiştirilemez.|
     |Sanal ağ|Evet|Ağ arabirimi için sanal ağ seçin. Yalnızca aynı abonelik ve konum ağ arabirimi olarak mevcut bir sanal ağ bir ağ arabirimi atayabilirsiniz. Bir ağ arabirimi oluşturulduktan sonra sanal ağ atandığı değiştiremezsiniz. Ağ arabirimine eklediğiniz sanal makinenin de aynı konumu ve ağ arabirimi olarak abonelik bulunmalıdır.|
     |Alt ağ|Evet|Seçtiğiniz sanal ağ içindeki bir alt ağ seçin. Oluşturulduktan sonra ağ arabirimi atandığı alt değiştirebilirsiniz.|
     |Özel IP adresi ataması|Evet| Bu ayar, IPv4 adresi için atama yöntemi seçme. Aşağıdaki atama yöntemler arasından seçim yapın: **dinamik:** bu seçeneğin belirlenmesi, Azure sonraki kullanılabilir adrese seçtiğiniz alt ağ adresi alanından otomatik olarak atar. **Statik:** bu seçeneğin belirlenmesi, bir kullanılabilir IP adresi seçtiyseniz alt ağın adres alanı içinde el ile atamanız gerekir. Statik ve dinamik adresler, bunları değiştirebilir veya ağ arabirimi silinene kadar değiştirmeyin. Ağ arabirimi oluşturulduktan sonra atama yöntemi değiştirebilirsiniz. Azure DHCP sunucusu, ağ arabirimi sanal makinenin işletim sisteminde bu adresi atar.|
-    |Ağ güvenlik grubu|Hayır| Ayarlanmış olarak bırakın **hiçbiri**, var olan seçin [ağ güvenlik grubu](virtual-networks-nsg.md), veya [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md). Ağ güvenlik grupları ağ trafiği bir ağ arabirimi filtrelemek için etkinleştirin. Sıfır veya bir ağ güvenlik grubu için bir ağ arabirimi uygulayabilirsiniz. Sıfır veya bir ağ güvenlik grubu, ağ arabiriminin atandığı alt ağa da uygulanabilir. Bir ağ arabirimi ve ağ arabirimi atandığı alt ağ için ağ güvenlik grubu uygulandığında, bazen beklenmeyen sonuçlar oluşur. Ağ arabirimleri ve alt ağları ile uygulanan ağ güvenlik grupları gidermek için okuma [ağ güvenlik grupları sorun giderme](virtual-network-nsg-troubleshoot-portal.md#nsg) makalesi.|
+    |Ağ güvenlik grubu|Hayır| Ayarlanmış olarak bırakın **hiçbiri**, var olan seçin [ağ güvenlik grubu](virtual-networks-nsg.md), veya [bir ağ güvenlik grubu oluşturun](virtual-networks-create-nsg-arm-pportal.md). Ağ güvenlik grupları ağ trafiği bir ağ arabirimi filtrelemek için etkinleştirin. Sıfır veya bir ağ güvenlik grubu için bir ağ arabirimi uygulayabilirsiniz. Sıfır veya bir ağ güvenlik grubu, ağ arabiriminin atandığı alt ağa da uygulanabilir. Bir ağ arabirimi ve ağ arabirimi atandığı alt ağ için ağ güvenlik grubu uygulandığında, bazen beklenmeyen sonuçlar oluşur. Ağ arabirimleri ve alt ağları ile uygulanan ağ güvenlik grupları gidermek için bkz: [ağ güvenlik grupları sorun giderme](virtual-network-nsg-troubleshoot-portal.md#nsg).|
     |Abonelik|Evet|Azure birini [abonelikleri](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Bir ağ arabirimi ve kendisine bağlanan sanal ağ ekleme sanal makine aynı abonelikte olması gerekir.|
     |Özel IP adresi (IPv6)|Hayır| Bu onay kutusunu seçerseniz, bir IPv6 adresi bir ağ arabirimine atanmış IPv4 adresi ek olarak ağ arabiriminin atanır. Bkz: [IPv6](#IPv6) hakkında önemli bilgiler için kullanım IPv6 ağ arabirimi ile bu makalenin. Bir IPv6 adresi için bir atama yöntemi seçemezsiniz. Bir IPv6 adresi atamak seçerseniz, dinamik yöntemiyle atanır.
-    |IPv6 adı (yalnızca zaman görünür **özel IP adresi (IPv6)** onay kutusu işaretli) |Evet, varsa **özel IP adresi (IPv6)** onay kutusu işaretli.| Bu ad, bir ikincil ağ arabirimi IP yapılandırmasına atanır. IP yapılandırmaları hakkında daha fazla bilgi [görünüm ağ arabirimi ayarları](#view-network-interface-settings) bu makalenin.|
+    |IPv6 adı (yalnızca zaman görünür **özel IP adresi (IPv6)** onay kutusu işaretli) |Evet, varsa **özel IP adresi (IPv6)** onay kutusu işaretli.| Bu ad, bir ikincil ağ arabirimi IP yapılandırmasına atanır. IP yapılandırmaları hakkında daha fazla bilgi için bkz: [görünüm ağ arabirimi ayarları](#view-network-interface-settings).|
     |Kaynak grubu|Evet|Var olan seçin [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) veya bir tane oluşturun. Bir ağ arabirimi, eklediğiniz sanal makine daha aynı veya farklı kaynak grubunda var olabilir veya sanal ağ, ona bağlanın.|
     |Konum|Evet|Sanal makine bir ağ arabirimi ekleyin ve ona bağlandığınız sanal ağ aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions), de denilen bir bölge.|
 
-Portal portal genel bir IP adresi oluşturun ve Portalı'nı kullanarak bir sanal makine oluşturduğunuzda, bir ağ arabirimine atayın olsa da, oluşturduğunuzda, ağ arabirimi genel bir IP adresi atamak için seçeneği sağlamaz. Oluşturduktan sonra ağ arabirimi genel bir IP adresi eklemeyi öğrenmek için okuma [yönetmek IP adresleri](virtual-network-network-interface-addresses.md) makalesi. Bir ortak IP adresiyle bir ağ arabirimi oluşturmak istiyorsanız, ağ arabiriminin oluşturmak için CLI veya PowerShell kullanmanız gerekir.
+Portal portal genel bir IP adresi oluşturun ve Portalı'nı kullanarak bir sanal makine oluşturduğunuzda, bir ağ arabirimine atayın olsa da, oluşturduğunuzda, ağ arabirimi genel bir IP adresi atamak için seçeneği sağlamaz. Oluşturduktan sonra ağ arabirimi genel bir IP adresi eklemeyi öğrenmek için bkz: [yönetmek IP adresleri](virtual-network-network-interface-addresses.md). Bir ortak IP adresiyle bir ağ arabirimi oluşturmak istiyorsanız, ağ arabiriminin oluşturmak için CLI veya PowerShell kullanmanız gerekir.
 
 >[!Note]
-> Azure yalnızca ağ arabirimi bir sanal makineye bağlı ve sanal makine ilk kez başlatıldığında Ağ arabirimi için bir MAC adresi atar. Azure ağ arabirimine atar MAC adresi belirtemezsiniz. Ağ arabirimi silinmiş veya birincil ağ arabirimi birincil IP yapılandırmasının atanan özel IP adresi değiştirilmiş kadar MAC adresi ağ arabirimine atanmış olarak kalır. IP adresleri ve IP yapılandırmaları hakkında daha fazla bilgi için okuma [yönetmek IP adresleri](virtual-network-network-interface-addresses.md) makalesi.
+> Azure yalnızca ağ arabirimi bir sanal makineye bağlı ve sanal makine ilk kez başlatıldığında Ağ arabirimi için bir MAC adresi atar. Azure ağ arabirimine atar MAC adresi belirtemezsiniz. Ağ arabirimi silinmiş veya birincil ağ arabirimi birincil IP yapılandırmasının atanan özel IP adresi değiştirilmiş kadar MAC adresi ağ arabirimine atanmış olarak kalır. IP adresleri ve IP yapılandırmaları hakkında daha fazla bilgi için bkz: [yönetmek IP adresleri](virtual-network-network-interface-addresses.md)
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC oluşturun](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
+|CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
 
 ## <a name="view-network-interface-settings"></a>Ağ arabirimi ayarlarını görüntüleme
 
-Görüntüleyin ve oluşturulduktan sonra bir ağ arabirimi için çoğu ayarlarını değiştirin.
+Görüntüleyin ve oluşturulduktan sonra bir ağ arabirimi için çoğu ayarlarını değiştirin. Portal, ağ arabirimi için DNS sonekini görüntülemez. PowerShell veya Azure CLI kullanabilirsiniz [komutları](#view-settings-commands) DNS son ekini görüntülemek için.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey için ayarlarını görüntülemek veya değiştirmek istediğiniz ağ arabirimi'ı tıklatın.
-4. Aşağıdaki ayarlar, görüntülenen dikey penceresinde, seçtiğiniz ağ arabirimi için listelenmiştir:
-    - **Genel Bakış:** , sanal ağ/ağ arabirimi atanması alt ağ ve ağ arabirimi eklendiği (bağlı olduğu, sanal makine için atanan IP adresleri gibi ağ arabirimi hakkında bilgi sağlar bir tane). Aşağıdaki resimde adlı ağ arabirimi için genel ayarları gösterilmiştir **mywebserver256**: ![ağ arabirimi genel bakış](./media/virtual-network-network-interface/nic-overview.png) farklı bir kaynak grubu için bir ağ arabirimi taşıyabilirsiniz veya Abonelik tıklayarak (**değiştirme**) yanındaki **kaynak grubu** veya **abonelik adı**. Ağ arabirimi taşırsanız, ağ arabiriminin onunla ilişkili tüm kaynakları taşımanız gerekir. Örneğin, ağ arabirimi bir sanal makineye bağlıysa, aynı zamanda sanal makine ve diğer ilgili sanal makine kaynakları taşımalısınız. Bir ağ arabirimi taşımak için okuma [yeni kaynak grubu veya abonelik için kaynak taşıma](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal) makalesi. Makaleyi önkoşulları ve Azure portalı, PowerShell ve Azure CLI kullanarak kaynakları taşıma listeler.
-    - **IP yapılandırması:** IP yapılandırmaları için atanan ortak ve özel IPv4 ve IPv6 adreslerini burada listelenir. Bir IPv6 adresi bir IP yapılandırmasına atanırsa, adres görüntülenmez. IP yapılandırmaları hakkında daha fazla bilgi edinin ve ekleme ve kaldırma IP adresleri [yapılandırma IP adresleri için bir Azure ağı arabirimi](virtual-network-network-interface-addresses.md) makalesi. IP iletimi ve alt ağ ataması, bu bölümde de yapılandırılır. Bu ayarlar hakkında daha fazla bilgi için okuma [etkinleştirmek veya IP iletimini devre dışı](#enable-or-disable-ip-forwarding) ve [değiştirme alt ağ ataması](#change-subnet-assignment) bu makalenin bölümler.
-    - **DNS sunucuları:** bir ağ arabirimi Azure DHCP sunucuları tarafından atanan hangi DNS sunucusunun belirtebilirsiniz. Ağ arabirimi ağ arabirimi için atanan sanal ağ ayarlarını devral veya atandığı sanal ağ ayarını geçersiz kılar özel bir ayar vardır. Görüntülenenleri değiştirmek için bölümündeki adımları tamamlamanız [değişiklik DNS sunucuları](#change-dns-servers) bu makalenin.
-    - **Ağ güvenlik grubu (NSG):** , NSG (varsa) bir ağ arabirimine ilişkili olan görüntüler. Bir NSG'yi ağ arabirimi için ağ trafiğini filtrelemek için gelen ve giden kurallarını içerir. Bir NSG'yi bir ağ arabirimine ilişkiliyse, ilişkili NSG adı görüntülenir. Görüntülenenleri değiştirmek için bölümündeki adımları tamamlamanız [ağ güvenlik grubu ilişkileri yönetme](virtual-network-manage-nsg-arm-portal.md#manage-associations) makalesi.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Görüntülemek veya listeden ayarlarını değiştirmek istediğiniz ağ arabirimi seçin.
+3. Aşağıdaki öğeler, seçtiğiniz ağ arabirimi için listelenmiştir:
+    - **Genel Bakış:** , sanal ağ/ağ arabirimi atanması alt ağ ve ağ arabirimi eklendiği (bağlı olduğu, sanal makine için atanan IP adresleri gibi ağ arabirimi hakkında bilgi sağlar bir tane). Aşağıdaki resimde adlı ağ arabirimi için genel ayarları gösterilmiştir **mywebserver256**: ![ağ arabirimi genel bakış](./media/virtual-network-network-interface/nic-overview.png) farklı bir kaynak grubu için bir ağ arabirimi taşıyabilirsiniz veya Abonelik seçerek (**değiştirme**) yanındaki **kaynak grubu** veya **abonelik adı**. Ağ arabirimi taşırsanız, ağ arabiriminin onunla ilişkili tüm kaynakları taşımanız gerekir. Örneğin, ağ arabirimi bir sanal makineye bağlıysa, aynı zamanda sanal makine ve diğer ilgili sanal makine kaynakları taşımalısınız. Bir ağ arabirimi taşımak için bkz: [yeni kaynak grubu veya abonelik için kaynak taşıma](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json#use-portal). Makaleyi önkoşulları ve Azure portalı, PowerShell ve Azure CLI kullanarak kaynakları taşıma listeler.
+    - **IP yapılandırması:** IP yapılandırmaları için atanan ortak ve özel IPv4 ve IPv6 adreslerini burada listelenir. Bir IPv6 adresi bir IP yapılandırmasına atanırsa, adres görüntülenmez. IP yapılandırmaları ve IP adresi eklemesine ve kaldırmasına nasıl hakkında daha fazla bilgi için bkz: [yapılandırma IP adresleri için bir Azure ağı arabirimi](virtual-network-network-interface-addresses.md). IP iletimi ve alt ağ ataması, bu bölümde de yapılandırılır. Bu ayarlar hakkında daha fazla bilgi için bkz: [etkinleştirmek veya IP iletimini devre dışı](#enable-or-disable-ip-forwarding) ve [değiştirme alt ağ ataması](#change-subnet-assignment).
+    - **DNS sunucuları:** bir ağ arabirimi Azure DHCP sunucuları tarafından atanan hangi DNS sunucusunun belirtebilirsiniz. Ağ arabirimi ağ arabirimi için atanan sanal ağ ayarlarını devral veya atandığı sanal ağ ayarını geçersiz kılar özel bir ayar vardır. Görüntülenenleri değiştirmek için bkz: [değişiklik DNS sunucuları](#change-dns-servers).
+    - **Ağ güvenlik grubu (NSG):** , NSG (varsa) bir ağ arabirimine ilişkili olan görüntüler. Bir NSG'yi ağ arabirimi için ağ trafiğini filtrelemek için gelen ve giden kurallarını içerir. Bir NSG'yi bir ağ arabirimine ilişkiliyse, ilişkili NSG adı görüntülenir. Görüntülenenleri değiştirmek için bölümündeki adımları tamamlamanız [ağ güvenlik grubu ilişkileri yönetme](virtual-network-manage-nsg-arm-portal.md#manage-associations).
     - **Özellikler:** görüntüler anahtar ayarları var, MAC adresini (ağ arabirimi bir sanal makineye bağlı değil, boş) ve abonelik dahil olmak üzere ağ arabiriminin hakkında.
-    - **Etkin güvenlik kuralları:** güvenlik kuralları, ağ arabiriminin çalışan bir sanal makineye bağlı ve bir NSG ağ arabirimi, atanan için alt ağ veya her ikisi de ilişkili ise listelenir. Görüntülenenleri hakkında daha fazla bilgi için okuma [ağ güvenlik grupları sorun giderme](virtual-network-nsg-troubleshoot-portal.md#nsg) makalesi. Nsg'ler hakkında daha fazla bilgi için okuma [ağ güvenlik grupları](virtual-networks-nsg.md) makalesi.
-    - **Etkin yollar:** ağ arabirimi çalışan bir sanal makineye bağlıysa yolları listelenir. Yolları, Azure varsayılan yollar, tüm kullanıcı tanımlı yolları (UDR) ve ağ arabirimi atandığı alt ağ için bulunabilecek tüm BGP yollarını birleşimidir. Görüntülenenleri hakkında daha fazla bilgi için okuma [sorun giderme yolları](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface) makalesi. Azure varsayılan ve Udr'ler hakkında daha fazla bilgi için okuma [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesi.
-    - **Ortak Azure Resource Manager ayarları:** ortak Azure Resource Manager ayarları hakkında daha fazla bilgi için okuma [etkinlik günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiğini](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group) makaleleri.
+    - **Etkin güvenlik kuralları:** güvenlik kuralları, ağ arabiriminin çalışan bir sanal makineye bağlı ve bir NSG ağ arabirimi, atanan için alt ağ veya her ikisi de ilişkili ise listelenir. Görüntülenenleri hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları sorun giderme](virtual-network-nsg-troubleshoot-portal.md#nsg). Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](virtual-networks-nsg.md).
+    - **Etkin yollar:** ağ arabirimi çalışan bir sanal makineye bağlıysa yolları listelenir. Yolları, Azure varsayılan yollar, tüm kullanıcı tanımlı yolları (UDR) ve ağ arabirimi atandığı alt ağ için bulunabilecek tüm BGP yollarını birleşimidir. Görüntülenenleri hakkında daha fazla bilgi için bkz: [sorun giderme yolları](virtual-network-routes-troubleshoot-portal.md#view-effective-routes-for-a-network-interface). Azure varsayılan ve Udr'ler hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md).
+    - **Ortak Azure Resource Manager ayarları:** ortak Azure Resource Manager ayarları hakkında daha fazla bilgi için bkz: [etkinlik günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs), [erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control), [etiketleri](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags), [Kilitler](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), ve [Otomasyon betiğini](../azure-resource-manager/resource-manager-export-template.md?toc=%2fazure%2fvirtual-network%2ftoc.json#export-the-template-from-resource-group).
 
-**Komutları**
+<a name="view-settings-commands"></a>**Komutları**
 
 Bir IPv6 adresi için bir ağ arabirimi atanırsa, PowerShell çıkış adresi atanmış, ancak atanan adresi döndürmez olgu döndürür. Benzer şekilde, CLI adresi atanmış, ancak döndürür olgu döndürür *null* çıktısını adresi için de.
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC listesi](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_list) ; aboneliğindeki ağ arabirimlerini görüntülemek için [az ağ NIC Göster](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_show) bir ağ arabiriminin ayarlarını görüntülemek için|
-|PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) bir ağ arabirimi için abonelik veya Görünümü Ayarları'nda ağ arabirimlerini görüntülemek için|
+|CLI|[az ağ NIC listesi](/cli/azure/network/nic#az_network_nic_list) ; aboneliğindeki ağ arabirimlerini görüntülemek için [az ağ NIC Göster](/cli/azure/network/nic#az_network_nic_show) bir ağ arabiriminin ayarlarını görüntülemek için|
+|PowerShell|[Get-AzureRmNetworkInterface](/powershell/module/azurerm.network/get-azurermnetworkinterface) bir ağ arabirimi için abonelik veya Görünümü Ayarları'nda ağ arabirimlerini görüntülemek için|
 
 ## <a name="change-dns-servers"></a>DNS sunucularını değiştirme
 
 DNS sunucusu, ağ arabirimi sanal makine işletim sistemi içinde Azure DHCP sunucusu tarafından atanır. Atanan DNS sunucusu, bir ağ arabirimi için DNS sunucusu ayarını ne olursa olsun ' dir. Bir ağ arabirimi için ad çözümleme ayarları hakkında daha fazla bilgi için bkz: [ad çözümlemesi için sanal makineler](virtual-networks-name-resolution-for-vms-and-role-instances.md). Ağ arabirimi sanal ağdan ayarları devralır veya sanal ağ ayarını geçersiz kılmak kendi benzersiz ayarları kullanın.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey için ayarlarını görüntülemek veya değiştirmek istediğiniz ağ arabirimi'ı tıklatın.
-4. Seçtiğiniz ağ arabirimi için dikey penceresinde tıklayın **DNS sunucuları** altında **ayarları**.
-5. Şunlardan birini tıklatın:
-    - **Sanal ağ (varsayılan) devralmak**: ağ arabirimi için atanan sanal ağ için tanımlanan DNS sunucusu ayarını devralmak için bu seçeneği seçin. Sanal ağ düzeyinde tanımlanan özel bir DNS sunucusu veya Azure tarafından sağlanan DNS sunucusu. Azure tarafından sağlanan DNS sunucusu ana bilgisayar adları aynı sanal ağa atanan kaynaklar için çözümleyebilir. FQDN farklı sanal ağlar için atanmış kaynaklar için çözümlemek için kullanılması gerekir.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Listeden bir DNS sunucusu için değiştirmek istediğiniz ağ arabirimi seçin.
+3. Seçin **DNS sunucuları** altında **ayarları**.
+4. Şunlardan birini seçin:
+    - **Sanal ağdan devral**: ağ arabirimi için atanan sanal ağ için tanımlanan DNS sunucusu ayarını devralmak için bu seçeneği seçin. Sanal ağ düzeyinde tanımlanan özel bir DNS sunucusu veya Azure tarafından sağlanan DNS sunucusu. Azure tarafından sağlanan DNS sunucusu ana bilgisayar adları aynı sanal ağa atanan kaynaklar için çözümleyebilir. FQDN farklı sanal ağlar için atanmış kaynaklar için çözümlemek için kullanılması gerekir.
     - **Özel**: birden çok sanal ağlar arasında adları çözümlemek için kendi DNS sunucusunu yapılandırabilirsiniz. Bir DNS sunucusu olarak kullanmak istediğiniz sunucunun IP adresini girin. Belirttiğiniz DNS sunucusu adresi, yalnızca bu ağ arabirimi atanır ve ağ arabirimi için atanan sanal ağı için tüm DNS ayarını geçersiz kılar.
-6. **Kaydet**’e tıklayın.
+5. **Kaydet**’i seçin.
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Etkinleştirmek veya IP iletimini devre dışı bırakma
 
@@ -123,52 +122,50 @@ IP iletimi bir ağ arabiriminin bağlı olduğu sanal makine sağlar:
 - Ağ trafiği için herhangi bir ağ arabirimine atanmış IP yapılandırmalarının atanan IP adreslerinden biri hedeflemeyen alırsınız.
 - Bir ağ arabiriminin IP yapılandırmaları birine atanan olandan farklı bir kaynak IP adresine sahip ağ trafiğinin gönderebilir.
 
-Ayarı, sanal makine iletmek için gereken trafiği alan sanal makineye bağlı her ağ arabirimi için etkinleştirilmelidir. Bir sanal makine trafiği birden çok ağ arabirimi bulunur veya tek bir ağ arabirimine ekli olmadığını iletebilirsiniz. IP iletimi Azure bir ayar olmakla birlikte, sanal makine trafiğin güvenlik duvarı, WAN iyileştirmesi ve Yük Dengeleme uygulamalar gibi iletebilir bir uygulama da çalıştırmanız gerekir. Bir sanal makine ağ uygulamaları çalıştırırken, sanal makine genellikle ağ sanal gereç olarak adlandırılır. Ağ, sanal uygulamaları dağıtmak hazır bir listesini görüntüleyebileceğiniz [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP iletimi genellikle kullanıcı tanımlı yollar ile kullanılır. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için, [Kullanıcı tanımlı yollar](virtual-networks-udr-overview.md) makalesini okuyun.
+Ayarı, sanal makine iletmek için gereken trafiği alan sanal makineye bağlı her ağ arabirimi için etkinleştirilmelidir. Bir sanal makine trafiği birden çok ağ arabirimi bulunur veya tek bir ağ arabirimine ekli olmadığını iletebilirsiniz. IP iletimi Azure bir ayar olmakla birlikte, sanal makine trafiğin güvenlik duvarı, WAN iyileştirmesi ve Yük Dengeleme uygulamalar gibi iletebilir bir uygulama da çalıştırmanız gerekir. Bir sanal makine ağ uygulamaları çalıştırırken, sanal makine genellikle ağ sanal gereç olarak adlandırılır. Ağ, sanal uygulamaları dağıtmak hazır bir listesini görüntüleyebileceğiniz [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). IP iletimi genellikle kullanıcı tanımlı yollar ile kullanılır. Kullanıcı tanımlı yollar hakkında daha fazla bilgi için bkz: [kullanıcı tanımlı yollar](virtual-networks-udr-overview.md).
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey penceresinde, etkinleştirmek veya devre dışı bırakmak için iletme IP istediğiniz ağ arabirimi'ı tıklatın.
-4. Seçtiğiniz ağ arabirimi için dikey penceresinde tıklayın **IP yapılandırmaları** içinde **ayarları** bölümü.
-5. Tıklatın **etkin** veya **devre dışı** (varsayılan ayar) ayarını değiştirmek için.
-6. **Kaydet**’e tıklayın.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Etkinleştirmek veya IP için iletme devre dışı bırakmak istediğiniz ağ arabirimi seçin.
+3. Seçin **IP yapılandırmaları** içinde **ayarları** bölümü.
+4. Seçin **etkin** veya **devre dışı** (varsayılan ayar) ayarını değiştirmek için.
+5. **Kaydet**’i seçin.
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_update)|
-|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az ağ NIC güncelleştirme](/cli/azure/network/nic#az_network_nic_update)|
+|PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Alt ağ ataması değiştirme
 
 Alt ağ, ancak bir ağ arabirimi atanan sanal ağda değil, değiştirebilirsiniz.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. İçinde **ağ arabirimleri** görünür, dikey için ayarlarını görüntülemek veya değiştirmek istediğiniz ağ arabirimi'ı tıklatın.
-4. Tıklatın **IP yapılandırmaları** altında **ayarları** dikey penceresinde, seçtiğiniz ağ arabirimi için. Tüm özel IP adresleri IP yapılandırmaları için listelenen varsa **(statik)** bunları yanında, IP adres ataması yöntemi için dinamik adımları tamamlayarak değiştirmeniz gerekir. Ağ arabirimi için alt ağ ataması değiştirmek için tüm özel IP adresleri dinamik atama yöntemiyle atanması gerekir. Dinamik yöntemiyle atanmış adresleri, 5. adıma geçin. Statik atama yöntemiyle herhangi bir IPv4 adresi atanmışsa atama yöntemi dinamik olarak değiştirmek için aşağıdaki adımları tamamlayın:
-    - IPv4 adres atama yöntemi için IP yapılandırmaları listesinden değiştirmek istediğiniz IP Yapılandırması'nı tıklatın.
-    - Görüntülenen dikey penceresinde IP yapılandırması için tıklayın **dinamik** için **atama** yöntemi. Statik atama yöntemi ile bir IPv6 adresi atanamıyor.
-    - **Kaydet**’e tıklayın.
-5. İçin ağ arabiriminden bağlanmak istediğiniz alt ağ seçin **alt** aşağı açılan liste.
-6. **Kaydet**’e tıklayın. Yeni dinamik adresleri yeni alt ağ için alt ağ adres aralığından atanır. İsterseniz yeni bir alt ağ ağ arabiriminin atadıktan sonra statik bir IPv4 adresi yeni alt ağ adres aralığından atayabilirsiniz. Daha fazla hakkında ekleme, değiştirme ve bir ağ arabirimi için IP adresleri kaldırma öğrenmek için [yönetmek IP adresleri](virtual-network-network-interface-addresses.md) makalesi.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Alt ağ ataması için değiştirmek istediğiniz ağ arabirimi seçin.
+3. Seçin **IP yapılandırmaları** altında **ayarları**. Tüm özel IP adresleri IP yapılandırmaları için listelenen varsa **(statik)** bunları yanında, IP adres ataması yöntemi için dinamik adımları tamamlayarak değiştirmeniz gerekir. Ağ arabirimi için alt ağ ataması değiştirmek için tüm özel IP adresleri dinamik atama yöntemiyle atanması gerekir. Dinamik yöntemiyle atanmış adresleri, 5. adıma geçin. Statik atama yöntemiyle herhangi bir IPv4 adresi atanmışsa atama yöntemi dinamik olarak değiştirmek için aşağıdaki adımları tamamlayın:
+    - IPv4 adres atama yöntemi için IP yapılandırmaları listesinden değiştirmek istediğiniz IP yapılandırması seçin.
+    - Seçin **dinamik** özel IP adresi için **atama** yöntemi. Statik atama yöntemi ile bir IPv6 adresi atanamıyor.
+    - **Kaydet**’i seçin.
+4. İçin ağ arabiriminden taşımak istediğiniz alt ağ seçin **alt** aşağı açılan liste.
+5. **Kaydet**’i seçin. Yeni dinamik adresleri yeni alt ağ için alt ağ adres aralığından atanır. İsterseniz yeni bir alt ağ ağ arabiriminin atadıktan sonra statik bir IPv4 adresi yeni alt ağ adres aralığından atayabilirsiniz. Daha fazla hakkında ekleme, değiştirme ve bir ağ arabirimi için IP adresleri kaldırma bilgi edinmek için [yönetmek IP adresleri](virtual-network-network-interface-addresses.md).
 
 **Komutları**
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_ip_config_update)|
-|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
+|PowerShell|[Set-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
 
 
 ## <a name="delete-a-network-interface"></a>Bir ağ arabirimi Sil
 
-Bir sanal makineye bağlı olmayan sürece, bir ağ arabirimi silebilirsiniz. Bir sanal makineye bağlıysa, gerekir ilk sanal makine durduruldu (serbest bırakıldığında) durumda yerleştirin ve ardından ağ arabirimi silmeden önce sanal makineden ağ arabirimini ayır. Bir sanal makineden ağ arabirimini ayırmak için adımları tamamlamanız [bir sanal makineden ağ arabirimini Ayır](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm) bölümünü [ekleme veya kaldırma ağ arabirimleri](virtual-network-network-interface-vm.md) makalesi. Bir sanal makine silme bağlı tüm ağ arabirimleri ayırır, ancak ağ arabirimleri silmez.
+Bir sanal makineye bağlı olmayan sürece, bir ağ arabirimi silebilirsiniz. Bir sanal makineye bağlıysa, gerekir ilk sanal makine durduruldu (serbest bırakıldığında) durumda yerleştirin ve ardından ağ arabirimi silmeden önce sanal makineden ağ arabirimini ayır. Bir sanal makineden ağ arabirimini ayırmak için adımları tamamlamanız [bir sanal makineden ağ arabirimini Ayır](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Bir sanal makine silme bağlı tüm ağ arabirimleri ayırır, ancak ağ arabirimleri silmez.
 
-1. Oturum [Azure portal](https://portal.azure.com) bir hesapla aboneliğiniz için ağ katılımcı rolü için diğer bir deyişle (en az) atanan izinleri. Okuma [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve izinleri hesaplarına atama hakkında daha fazla bilgi için makalenin.
-2. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** görünür arama sonuçlarında tıklatın.
-3. Sağ tıklayın, önce silmek istediğiniz ağ arabirimi **silmek**.
-4. Tıklatın **Evet** ağ arabiriminin silme işlemini onaylamak için.
+1. Metni içeren kutusunda *arama kaynakları* Azure portalının en üstünde yazın *ağ arabirimleri*. Zaman **ağ arabirimleri** arama sonuçlarında görünecek, onu seçin.
+2. Seçin **...**  istediğiniz ağ arabirimleri listeden silmek için ağ arabiriminin sağ taraftaki.
+3. **Sil**’i seçin.
+4. Seçin **Evet** ağ arabiriminin silme işlemini onaylamak için.
 
 Bir ağ arabirimi sildiğinizde, kendisine atanmış MAC veya IP adresi yayınlanır.
 
@@ -176,11 +173,11 @@ Bir ağ arabirimi sildiğinizde, kendisine atanmış MAC veya IP adresi yayınla
 
 |Aracı|Komut|
 |---|---|
-|CLI|[az ağ NIC Sil](/cli/azure/network/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_nic_delete)|
-|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|CLI|[az ağ NIC Sil](/cli/azure/network/nic#az_network_nic_delete)|
+|PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Birden çok ağ ile bir sanal makine oluşturmak için arabirimleri veya IP adresleri, aşağıdaki makaleler okuyun:
+Birden çok ağ arabirimlerine veya IP adresleri ile bir sanal makine oluşturmak için aşağıdaki makalelere bakın:
 
 **Komutları**
 

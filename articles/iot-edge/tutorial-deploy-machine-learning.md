@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/12/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 1b8a6079a68c50f80b593a1f56bc5256047ef31c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d3a271bcdd5c507125b8b1a5482f833607a5a78
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning IOT kenar modül olarak dağıtma - Önizleme
 
@@ -35,6 +35,8 @@ Bu öğreticide oluşturduğunuz Azure Machine Learning modülü cihazınız tar
 * IOT kenar cihazın bağlandığı IOT hub'ın IOT Hub bağlantı dizesi.
 * Bir Azure Machine Learning hesabı. Hesap oluşturmak için'ndaki yönergeleri izleyin [oluşturma Azure Machine Learning hesapları ve Azure Machine Learning çalışma ekranı yükleme](../machine-learning/preview/quickstart-installation.md#create-azure-machine-learning-services-accounts). Bu öğretici için çalışma ekranı uygulama yüklemeniz gerekmez. 
 * Azure ML makinenizde modülü yönetimi. Ortamınızı ayarlama ve bir hesap oluşturmak için'ndaki yönergeleri izleyin [Model Yönetimi Kurulumu](https://docs.microsoft.com/azure/machine-learning/preview/deployment-setup-configuration).
+
+Azure Machine Learning modülü ARM işlemcileri desteklemez. 
 
 ## <a name="create-the-azure-ml-container"></a>Azure ML kapsayıcı oluşturma
 Bu bölümde eğitilen model dosyalarını indirmek ve bunları Azure ML kapsayıcıya dönüştürün.  

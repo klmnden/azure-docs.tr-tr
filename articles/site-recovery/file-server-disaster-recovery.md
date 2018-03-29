@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz
-description: "Bu makalede, Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz açıklar"
+description: Bu makalede, Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz açıklar
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 02/06/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: f53a8641a50a6c968a6ba7b841e0e8f938b5d9f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 830f9c76d9d1bf11692fa9f2f5c49cbecdb69f25
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery kullanarak bir dosya sunucusunu koruyabilmeniz 
 
@@ -48,7 +48,7 @@ Aşağıdaki diyagramda uygulanan DFSR ile dosya sunucusu ortamı gösterilmekte
 
     * Site Recovery tarafından desteklenmeyen yapılandırmalar Vm'leriniz varsa, bu yaklaşım kullanabilirsiniz. Dosya sunucusu ortamında bazen yaygın olarak kullanılan bir paylaşılan küme diski örneğidir. DFSR de Orta karmaşıklık oranı ile düşük bant genişlikli ortamlarda iyi çalışır. Bir Azure VM sahip ve her zaman çalışması ek maliyet dikkate almanız gerekir. 
 
-* **Dosyalarınızı çoğaltmak için Azure dosya eşitleme kullanın**: Bulut kullanın veya zaten bir Azure VM kullanmayı planlıyorsanız, dosya eşitleme kullanabilirsiniz. Dosya eşitleme sunar, endüstri standardı erişilebilen tam olarak yönetilen dosya paylaşımlarının bulutta eşitleniyor [sunucu ileti bloğu](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) protokolü. Azure dosya paylaşımları, Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar tarafından sonra bir eşzamanlı olarak bağlanabilir. 
+* **Dosyalarınızı çoğaltmak için Azure dosya eşitleme kullanın**: Bulut kullanın veya zaten bir Azure VM kullanmayı düşünüyorsanız, Azure dosya eşitleme kullanabilirsiniz. Azure dosya eşitleme sunar, endüstri standardı erişilebilen tam olarak yönetilen dosya paylaşımlarının bulutta eşitleniyor [sunucu ileti bloğu](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) protokolü. Azure dosya paylaşımları, Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar tarafından sonra bir eşzamanlı olarak bağlanabilir. 
 
 Aşağıdaki diyagramda, dosya sunucu ortamınıza kullanmak için hangi stratejisi belirlemenize yardımcı olur.
 

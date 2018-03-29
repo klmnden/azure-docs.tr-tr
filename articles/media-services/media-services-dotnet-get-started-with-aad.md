@@ -1,29 +1,29 @@
 ---
-title: ".NET ile Azure Media Services API erişmek için kimlik doğrulamasını kullan Azure AD | Microsoft Docs"
-description: "Bu konu, Azure Active Directory (Azure AD) ile kimlik doğrulaması .NET ile Azure Media Services (AMS) API erişmek için nasıl kullanılacağını gösterir."
+title: .NET ile Azure Media Services API erişmek için kimlik doğrulamasını kullan Azure AD | Microsoft Docs
+description: Bu konu, Azure Active Directory (Azure AD) ile kimlik doğrulaması .NET ile Azure Media Services (AMS) API erişmek için nasıl kullanılacağını gösterir.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9355200a05a3aa1b494b76977d38ddc42bfe179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8817bb0da526769470e96b63b9c80620309757bf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>.NET ile Azure Media Services API erişmek için Azure AD kimlik doğrulaması kullanın
 
 4.0.0.4 windowsazure.mediaservices ile başlayarak, Azure Media Services, Azure Active Directory (Azure AD) tabanlı kimlik doğrulamasını destekler. Bu konu Azure Media Services API Microsoft .NET ile erişmek için Azure AD kimlik doğrulaması kullanmayı gösterir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Bir Azure hesabı. Ayrıntılı bilgi için bkz. [Azure Ücretsiz Deneme Sürümü](https://azure.microsoft.com/pricing/free-trial/). 
 - Bir Media Services hesabı. Daha fazla bilgi için bkz: [Azure portalını kullanarak Azure Media Services hesabı oluşturma](media-services-portal-create-account.md).
@@ -36,7 +36,7 @@ Azure Media Services ile Azure AD kimlik doğrulaması kullanırken, aşağıdak
 - **Hizmet asıl kimlik doğrulaması** bir hizmetin kimliğini doğrular. Genellikle bu kimlik doğrulama yöntemini kullanan uygulamalar, arka plan programı services, orta katman Hizmetleri veya web uygulamaları, işlev uygulamalarının, logic apps, API veya mikro gibi zamanlanmış işleri çalıştırma uygulamalardır.
 
 >[!IMPORTANT]
->Azure medya hizmeti şu anda Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, 1 Haziran 2018 üzerinde kullanım için erişim denetimi yetkilendirme geçiyor. Bir Azure Active Directory kimlik doğrulama modeline mümkün olan en kısa sürede geçirmek öneririz.
+>Azure medya hizmeti şu anda Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, erişim denetimi yetkilendirme 22 Haziran 2018 üzerinde de kullanım dışı zordur. Bir Azure Active Directory kimlik doğrulama modeline mümkün olan en kısa sürede geçirmek öneririz.
 
 ## <a name="get-an-azure-ad-access-token"></a>Bir Azure AD erişim belirteci alma
 

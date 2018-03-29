@@ -1,12 +1,12 @@
 ---
-title: "IPv6 - Azure CLI ile bir genel yük dengeleyiciye oluşturun | Microsoft Docs"
-description: "Azure CLI kullanarak IPv6 Azure Kaynak Yöneticisi'nde bir genel yük dengeleyiciye oluşturmayı öğrenin."
+title: IPv6 - Azure CLI ile bir genel yük dengeleyiciye oluşturun | Microsoft Docs
+description: Azure CLI kullanarak IPv6 Azure Kaynak Yöneticisi'nde bir genel yük dengeleyiciye oluşturmayı öğrenin.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
 tags: azure-resource-manager
-keywords: "IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT"
+keywords: IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT
 ms.assetid: a1957c9c-9c1d-423e-9d5c-d71449bc1f37
 ms.service: load-balancer
 ms.devlang: na
@@ -15,17 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-<<<<<<< HEAD
-ms.openlocfilehash: 3ae62ddd350204d801012b9810aec669abe55817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3abd47460999f7b059469a58a59a3e297e88effb
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 62f22ccadfabd2f3d6906beb3c241703d4e6383f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-in-azure-resource-manager-by-using-azure-cli"></a>Azure CLI kullanarak IPv6 Azure Kaynak Yöneticisi'nde bir genel yük dengeleyiciye oluşturma
 
@@ -34,7 +28,6 @@ ms.lasthandoff: 12/18/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Şablon](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük Dengeleyici, gelen trafiği bulut Hizmetleri sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Yük Dengeleyici Ayrıca, birden çok bağlantı noktası veya birden çok IP adresi veya her ikisi de bu hizmetleri sunabilirsiniz.
 
@@ -193,7 +186,7 @@ Bu örnek aşağıdaki nesneleri oluşturur:
 * Uzak Masaüstü Protokolü (RDP) için 3389 numaralı bağlantı noktasına 3391 numaralı bağlantı noktasındaki tüm gelen trafiği çevirmek için NAT kuralı.\*
 * bağlantı noktası 80 üzerinde arka uç havuzundaki adresleri bağlantı noktası 80 üzerinde tüm gelen trafiği dengelemek için bir yük dengeleyici kuralı.
 
-\*NAT kuralları yük dengeleyicinin arkasındaki belirli bir sanal makine örneği ile ilişkilendirilmiş. Belirli bir sanal makine ve NAT kuralı ile ilişkili bağlantı noktası 3389 numaralı bağlantı noktasına ulaşan ağ trafiğini gönderilir. NAT kuralı için bir protokol (UDP veya TCP) belirtmeniz gerekir. Her iki protokolü aynı bağlantı noktasına atayamazsınız.
+\* NAT kuralları yük dengeleyicinin arkasındaki belirli bir sanal makine örneği ile ilişkilendirilmiş. Belirli bir sanal makine ve NAT kuralı ile ilişkili bağlantı noktası 3389 numaralı bağlantı noktasına ulaşan ağ trafiğini gönderilir. NAT kuralı için bir protokol (UDP veya TCP) belirtmeniz gerekir. Her iki protokolü aynı bağlantı noktasına atayamazsınız.
 
 1. PowerShell değişkenleri ayarlayın:
 

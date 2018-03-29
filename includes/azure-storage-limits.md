@@ -4,9 +4,9 @@
 | En fazla depolama hesabı kapasitesi | 500 TiB<sup>2</sup> |
 | En fazla blob kapsayıcıları, BLOB'lar, dosya paylaşımları, tablolar, kuyruklar, varlık veya depolama hesabı başına ileti sayısı | Sınırsız |
 | Depolama hesabı başına en fazla istek oranı | saniye başına 20.000 istek<sup>2</sup> |
-| En fazla giriş<sup>3</sup> her depolama hesabı (BİZE bölgelerde) | 10 Gbps GRS/ZRS,<sup>4</sup> etkinse, LRS 20 GB/sn<sup>2</sup> |
+| En fazla giriş<sup>3</sup> her depolama hesabı (BİZE bölgelerde) | 10 Gbps RA-GRS/ZRS,<sup>4</sup> etkinse, LRS 20 GB/sn<sup>2</sup> |
 | En büyük çıkış<sup>3</sup> her depolama hesabı (BİZE bölgelerde) | RA-GRS/GRS/ZRS ise 20 GB/sn<sup>4</sup> etkinse, LRS için 30 GB/sn<sup>2</sup> |
-| En fazla giriş<sup>3</sup> her depolama hesabı (ABD olmayan bölgeleri için) | GRS/ZRS, 5 GB/sn<sup>4</sup> etkinse, LRS için 10 GB/sn<sup>2</sup> |
+| En fazla giriş<sup>3</sup> her depolama hesabı (ABD olmayan bölgeleri için) | RA-GRS/ZRS, 5 GB/sn<sup>4</sup> etkinse, LRS için 10 GB/sn<sup>2</sup> |
 | En büyük çıkış<sup>3</sup> her depolama hesabı (ABD olmayan bölgeleri için) | 10 Gbps RA-GRS/GRS/ZRS,<sup>4</sup> etkinse, LRS 15 GB/sn<sup>2</sup> |
 
 <sup>1</sup>standart ve Premium depolama hesaplarını içerir. 200'den fazla depolama hesabı gerekiyorsa, [Azure Destek](https://azure.microsoft.com/support/faq/) üzerinden bir istek oluşturun. Azure Depolama ekibi, işinizin durumunu inceler ve 250’ye kadar depolama hesabı için onay verebilir. 

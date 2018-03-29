@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 401542bf61aa27138d26cce522e24078503b77e0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -96,6 +96,19 @@ Windows Server'ın gelecek sürümleri yayımlanır yayımlanmaz eklenecektir. W
 
 > [!Note]  
 > Yalnızca NTFS birimleri desteklenir. ReFS, FAT, FAT32 ve diğer dosya sistemleri desteklenmez.
+
+### <a name="files-skipped"></a>Atlanan Dosyaları
+| Dosya/klasör | Not |
+|-|-|
+| Desktop.ini | Dosya sistemine özgü |
+| ethumbs.db$ | Küçük resimleri için geçici dosya |
+| ~$\*.\* | Office geçici dosya |
+| \*.tmp | Geçici dosya |
+| \*.laccdb | Dosyayı kilitleme erişim DB|
+| 635D02A9D91C401B97884B82B3BCDAEA.* ||
+| \\Sistem birimi bilgileri | Birime belirli klasör |
+| $RECYCLE. DEPO| Klasör |
+| \\SyncShareState | Eşitleme için klasör |
 
 ### <a name="failover-clustering"></a>Yük Devretme Kümelemesi
 Windows Server Yük Devretme Kümelemesi için "Genel kullanım için dosya sunucusu" dağıtım seçeneği Azure dosya eşitleme tarafından desteklenir. Yük Devretme Kümelemesi desteklenmiyor "Uygulama verileri için genişleme dosya sunucusu" (SOFS) veya kümelenmiş paylaşılan Birimler'in (CSV).

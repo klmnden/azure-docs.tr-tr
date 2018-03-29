@@ -1,6 +1,6 @@
 ---
-title: "Azure Application ınsights'ta Java web uygulamaları için performans izleme | Microsoft Docs"
-description: "Genişletilmiş performans ve Application Insights ile Java Web sitenizin kullanım izleme."
+title: Azure Application ınsights'ta Java web uygulamaları için performans izleme | Microsoft Docs
+description: Genişletilmiş performans ve Application Insights ile Java Web sitenizin kullanım izleme.
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: ecfcf7a3b3698435f98b74474d0ca7223ab2b46c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: b327e7f062cdf3e6b1b34a9540461dcb18caf21c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Bağımlılıklar, özel durumlar ve yürütme sürelerini Java web uygulamalarını izleme
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Bağımlılıklar, yakalanan özel durumlar ve yöntemi yürütme kez Java web uygulamalarını izleme
 
 
 Varsa [Java web uygulamanıza Application Insights ile işaretlenir][java], kod değişiklikleri olmadan daha ayrıntılı Öngörüler almak için Java Agent kullanabilirsiniz:
 
 * **Bağımlılıklar:** verileri de dahil olmak üzere diğer bileşenler için uygulamanızın yaptığı çağrıları hakkında:
-  * **REST çağrılarını** HttpClient, OkHttp ve RestTemplate (yay) yapılır.
-  * **Redis** Jedis istemcisi üzerinden yapılan çağrıları. Çağrı 10'luk uzun sürerse, aracı ayrıca çağrı bağımsız getirir.
-  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server, PostgreSQL, SQLite, Oracle DB veya Apache Derby DB. "executeBatch" çağrıları desteklenir. Çağrı 10'luk uzun sürerse, MySQL ve PostgreSQL için aracı sorgu planı bildirir.
-* **Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında veri.
-* **Yöntem yürütme süresi:** belirli yöntemleri yürütme süresini hakkındaki verileri.
+  * **REST çağrılarını** HttpClient yapılan, OkHttp ve RestTemplate (yay) yakalanır.
+  * **Redis** Jedis istemci yapılan çağrılar yakalanır.
+  * **[JDBC çağrıları](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server ve Oracle DB komutları otomatik olarak yakalanır. Çağrı 10'luk uzun sürerse, MySQL için sorgu planı aracı bildirir.
+* **Özel durum yakalandı:** kodunuz tarafından işlenen özel durumlar hakkında bilgi.
+* **Yöntem yürütme süresi:** zaman hakkında bilgi alır belirli yöntemler yürütülecek.
 
 Java Aracısı'nı kullanmak için sunucunuzda yüklemeniz gerekir. Web uygulamalarınızı ile işaretlenir gerekir [Application Insights Java SDK'sı][java]. 
 
 ## <a name="install-the-application-insights-agent-for-java"></a>Java için Application Insights aracısı yükleyin
-1. Java sunucunuz makinede çalışan [Aracısı'nı indirme](https://aka.ms/aijavasdk).
+1. Java sunucunuz makinede çalışan [Aracısı'nı indirme](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Java Agent aynı verson Application Insights Java SDK'sı çekirdek ve web paketleri olarak indirmek için lütfen emin olun.
 2. Uygulama sunucusu başlangıç komut dosyasını düzenleyin ve aşağıdaki JVM ekleyin:
    
     `javaagent:`*Aracı JAR dosyasının tam yolu*

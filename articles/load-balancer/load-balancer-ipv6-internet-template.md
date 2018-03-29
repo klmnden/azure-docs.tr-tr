@@ -1,13 +1,13 @@
 ---
-title: "Bir Internet'e yönelik Yük Dengeleyici IPv6 - Azure şablonu ile dağıtma | Microsoft Docs"
-description: "IPv6 desteği Azure yük dengeleyici ve yük dengeli sanal makineleri dağıtmak nasıl."
+title: Bir Internet'e yönelik Yük Dengeleyici IPv6 - Azure şablonu ile dağıtma | Microsoft Docs
+description: IPv6 desteği Azure yük dengeleyici ve yük dengeli sanal makineleri dağıtmak nasıl.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: "IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT"
+keywords: IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT
 ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Bir şablonu kullanarak bir Internet'e yönelik Yük Dengeleyici çözümü IPv6 ile dağıtma
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Şablon](load-balancer-ipv6-internet-template.md)
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure Load Balancer bir Katman 4 (TCP, UDP) yük dengeleyicidir. Yük dengeleyici, gelen trafiği bulut hizmetlerindeki sağlıklı hizmet örnekleri veya bir yük dengeleyici kümesindeki sanal makineler arasında dağıtarak yüksek kullanılabilirlik sağlar. Ayrıca, Azure Load Balancer bu hizmetleri birden çok bağlantı noktasında, birden çok IP adresinde ya da her ikisinde birden sağlayabilir.
 
@@ -54,43 +54,43 @@ Bu makalede, yayımlanan bir şablon başvuran [Azure hızlı başlangıç şabl
 1. Azure portalı ve VM'ler ve ağ kaynakları içinde bir Azure aboneliği oluşturmak için izinlere sahip bir hesapla oturum açın. Ayrıca, var olan kaynakların kullandığınız sürece, hesap bir kaynak grubu ve bir depolama hesabı oluşturmak için izniniz gerekiyor.
 2. Tıklayın "+ Yeni" menü silip arama kutusuna "Şablon" türü. "Şablon dağıtımı" Arama sonuçlarından seçin.
 
-    ![IPv6 portal Adım2 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. Her şeyi içinde dikey penceresinde "Şablon dağıtımı"'i tıklatın
 
-    ![lb-IPv6-portal-adım 3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. "Oluştur" seçeneğini tıklatın
 
-    ![IPv6 portal step4 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. "Şablonu Düzenle" seçeneğini tıklatın. Varolan içeriğini silin ve tüm içeriğini (başlangıç ve bitiş {}) olan şablon dosyası kopyala/yapıştır sonra "." Kaydet
 
     > [!NOTE]
     > Microsoft Internet Explorer kullanıyorsanız, Yapıştır açtığınızda Windows panosuna erişmesine izin vermek isteyen bir iletişim kutusu görüntülenir. "Erişime izin ver."'i tıklatın
 
-    ![IPv6 portal step5 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. "Parametreleri Düzenle" seçeneğini tıklatın. Parametreler dikey şablonu parametreleri bölümünde rehberliğinde değerleri belirtin ve parametre dikey penceresini kapatmak için farklı "Kaydet"'i tıklatın. Özel dağıtım dikey penceresinde, aboneliğiniz, varolan bir kaynak grubu seçin veya oluşturun. Bir kaynak grubu oluşturuyorsanız, kaynak grubu için bir konum seçin. Bundan sonra öğesini **yasal koşulları**, ardından **satın alma** yasal koşulları için. Azure kaynakları dağıtmaya başlar. Tüm kaynakları dağıtmak için birkaç dakika sürer.
 
-    ![IPv6 portal step6 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Bu parametreler hakkında daha fazla bilgi için bkz: [şablon parametreleri ve değişkenleri](#template-parameters-and-variables) bu makalenin sonraki bölümlerinde bölümü.
 
 7. Şablon tarafından oluşturulan kaynakları görmek için Gözat'ı tıklatın, "Kaynak grupları" konusuna bakın ve ardından tıklatın kadar listede aşağı kaydırın.
 
-    ![IPv6 portal step7 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. Kaynak grupları dikey penceresinde, 6. adımda belirttiğiniz kaynak grubu adını tıklatın. Dağıtılan tüm kaynakların bir listesini görürsünüz. Tüm iyi olursa, "Başarılı" özelliğini "Son dağıtım altında" yazması gerekir Aksi takdirde, kullandığınız hesabın gerekli kaynaklar oluşturma izni olduğundan emin olun.
 
-    ![IPv6 portal step8 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > 6. adım tamamlandıktan hemen sonra kaynak grupları göz atarsanız, "Son dağıtım" kaynakları dağıtılırken "Dağıtma" durumunu görüntüler.
 
 9. Kaynak listesinde "myIPv6PublicIP"'i tıklatın. Bir IPv6 adresi IP adresi altında olduğunu ve DNS adını adım 6 dnsNameforIPv6LbIP parametresi için belirtilen değer olduğunu görürsünüz. Internet istemcileri için erişilebilir olan genel IPv6 adresi ve ana bilgisayar adı kaynaktır.
 
-    ![IPv6 portal step9 lb](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Bağlantı doğrula
 
@@ -113,7 +113,7 @@ Bu makalede kullanılan örnek şablonu aşağıdaki değişkenleri ve parametre
 | Parametre / değişken | Notlar |
 | --- | --- |
 | adminUsername |Sanal makineler ile oturum açmak için kullandığınız yönetici hesabının adını belirtin. |
-| Admınpassword |Sanal makineler ile oturum açmak için kullandığınız yönetici hesabının parolasını belirtin. |
+| adminPassword |Sanal makineler ile oturum açmak için kullandığınız yönetici hesabının parolasını belirtin. |
 | dnsNameforIPv4LbIP |Yük dengeleyicinin genel adı atamak istediğiniz DNS ana bilgisayar adı belirtin. Bu ad yük dengeleyicinin genel IPv4 adresine çözümler. Adı küçük harfli olması ve regex eşleşmesi gerekir: ^ [a-z][a-z0-9-]{1,61}[a-z0-9]$. |
 | dnsNameforIPv6LbIP |Yük dengeleyicinin genel adı atamak istediğiniz DNS ana bilgisayar adı belirtin. Bu ad yük dengeleyicinin genel IPv6 adresine çözümler. Adı küçük harfli olması ve regex eşleşmesi gerekir: ^ [a-z][a-z0-9-]{1,61}[a-z0-9]$. Bu bir IPv4 adresi adıyla aynı olabilir. Bir istemci Azure döndürür, bu adı için bir DNS sorgusu gönderdiğinde A ve AAAA kaydeder adı zaman paylaşılır. |
 | vmNamePrefix |VM adı öneki belirtin. Şablonu bir numara ekler (0, 1, vb.) VM'ler oluşturulduğunda adı. |

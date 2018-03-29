@@ -1,6 +1,6 @@
 ---
-title: "Azure Application ınsights'ta telemetri örnekleme | Microsoft Docs"
-description: "Telemetri denetimindeki toplu korumak nasıl."
+title: Azure Application ınsights'ta telemetri örnekleme | Microsoft Docs
+description: Telemetri denetimindeki toplu korumak nasıl.
 services: application-insights
 documentationcenter: windows
 author: vgorbenko
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1f6c58b219a5fb040048d0075644102f5f0c5323
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -28,18 +28,18 @@ ms.lasthandoff: 01/24/2018
 Örnekleme trafiği ve veri maliyetleri azaltır ve azaltma önlemenize yardımcı olur.
 
 ## <a name="in-brief"></a>Kısaca:
-* Örnekleme korur 1'de  *n*  kaydeder ve rest atar. Örneğin, 1, 5 olayları, % 20 örnekleme oranını korumak. 
+* Örnekleme korur 1'de *n* kaydeder ve rest atar. Örneğin, 1, 5 olayları, % 20 örnekleme oranını korumak. 
 * Uygulamanız çok sayıda telemetri, ASP.NET web sunucusu uygulamalarında gönderirse örnekleme otomatik olarak gerçekleşir.
-* El ile örnekleme de ayarlayabilirsiniz ya da portal Fiyatlandırma sayfasında; veya .config dosyası ASP.NET de ağ trafiğini azaltmak için SDK.
+* El ile örnekleme de ayarlayabilirsiniz ya da portal Fiyatlandırma sayfasında; veya ASP.NET SDK .config dosyasına; ya da ağ trafiğini azaltmak için Java SDK Applicationınsights.xml dosyasında.
 * Özel olayları günlüğe kaydedin ve olayların kümesini korunur veya birlikte atılan emin emin olmak istiyorsanız aynı Operationıd değere sahip olduğundan emin olun.
-* Örnekleme bölen  *n*  özelliğinde her bir kayıttaki bildirilen `itemCount`, arama göründüğü kolay adı "istek sayısı" veya "olay sayısı" altında. Örnekleme işlemi içinde olmadığında `itemCount==1`.
+* Örnekleme bölen *n* özelliğinde her bir kayıttaki bildirilen `itemCount`, arama göründüğü kolay adı "istek sayısı" veya "olay sayısı" altında. Örnekleme işlemi içinde olmadığında `itemCount==1`.
 * Analitik sorguları yazma durumunda [örnekleme hesaba](app-insights-analytics-tour.md#counting-sampled-data). Özellikle, yalnızca kayıtları sayım yerine, kullanmanız gereken `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Örnekleme türleri
 Üç alternatif örnekleme yöntemi vardır:
 
 * **Uyarlamalı örnekleme** telemetri ASP.NET uygulamanızı SDK'da gönderilen hacmi otomatik olarak ayarlar. SDK v 2.0.0-beta3 ile başlayarak varsayılan örnekleme yöntem budur. Uyarlamalı örnekleme şu anda yalnızca ASP.NET sunucu tarafı telemetri için kullanılabilir. 
-* **Sabit oran örnekleme** ASP.NET sunucunuzdan hem ve kullanıcılarınızın tarayıcılarından gönderilen telemetri hacmini azaltır. Hızı ayarlayın. İstemci ve sunucu kendi örnekleme eşitler böylece söz konusu, arama ilgili sayfa görünümleri ve istekler arasında gezinebilirsiniz.
+* **Sabit oran örnekleme** sunucunuzdan hem ASP.NET veya Java ve kullanıcılarınızın tarayıcılarından gönderilen telemetri hacmini azaltır. Hızı ayarlayın. İstemci ve sunucu kendi örnekleme eşitler böylece söz konusu, arama ilgili sayfa görünümleri ve istekler arasında gezinebilirsiniz.
 * **Alım örnekleme** Azure portalında çalışır. Ayarladığınız örnekleme hızında uygulamanızdan ulaşan telemetri bazıları atar. Uygulamanızdan gönderdiği telemetri akışı azaltmaz ancak içinde aylık kota tutmanıza yardımcı olur. Alım örnekleme ana avantajı, uygulamanızın yeniden dağıtmadan örnekleme hızını ayarlayabilirsiniz ve tüm sunucular ve istemciler için aynı şekilde çalışır ' dir. 
 
 Bağdaşık veya sabit oranı örnekleme işlemi yoksa alım örnekleme devre dışı bırakılır.
@@ -194,14 +194,14 @@ Olduğunda, [web sayfaları için Application Insights yapılandırma](app-insig
 
 Ayrıca sunucu sabit oranı örnekleme etkinleştirirseniz, söz konusu, arama ilgili sayfa görünümleri ve istekler arasında gezinebilirsiniz için sunucu ve istemcileri eşitler.
 
-## <a name="fixed-rate-sampling-for-aspnet-web-sites"></a>ASP.NET web siteleri için sabit oranı örnekleme
+## <a name="fixed-rate-sampling-for-aspnet-and-java-web-sites"></a>ASP.NET ve Java web siteleri için sabit oranı örnekleme
 Sabit oranı örnekleme, web sunucunuz ve web tarayıcıları gönderilen trafiğini azaltır. Uyarlamalı örnekleme aksine, telemetri sizin tarafınızdan karar sabit bir oranda azaltır. Bu ayrıca istemci ve sunucu örnekleme eşitler böylece ilgili öğeler korunur - Örneğin, arama sayfası görünümünde baktığınızda, ilgili isteğini bulabilirsiniz.
 
 Örnekleme algoritması ilgili öğeler korur. Her HTTP isteği için olay, istek ve ilgili olaylar atılan ya da birlikte aktarılan. 
 
 Yaklaşık doğru; böylece ölçümleri Explorer'da için örnekleme hızını dengelemek için bir faktör istek ve özel durum sayısı gibi oranları çarpılır.
 
-### <a name="configuring-fixed-rate-sampling"></a>Sabit oran örnekleme yapılandırma ###
+### <a name="configuring-fixed-rate-sampling-in-aspnet"></a>Sabit oran örnekleme ASP.NET yapılandırma ###
 
 1. **Projenizin NuGet paketlerini güncelleştirmeyi** en son *yayın öncesi* Application Insights sürümü. Visual Studio'da Çözüm Gezgini'nde projeye sağ tıklayın, NuGet paketlerini Yönet seçin denetleyin **dahil et** ve Microsoft.applicationınsights.Web arayın. 
 2. **Uyarlamalı örnekleme devre dışı**: içinde [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md), kaldırmak veya çıkışı açıklama `AdaptiveSamplingTelemetryProcessor` düğümü.
@@ -218,7 +218,7 @@ Yaklaşık doğru; böylece ölçümleri Explorer'da için örnekleme hızını 
 
     ```
 
-1. **Sabit oran örnekleme modülü etkinleştirin.** Bu parçacığını ekleyin [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
+3. **Sabit oran örnekleme modülü etkinleştirin.** Bu parçacığını ekleyin [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -232,6 +232,36 @@ Yaklaşık doğru; böylece ölçümleri Explorer'da için örnekleme hızını 
     </TelemetryProcessors>
    
     ```
+
+### <a name="configuring-fixed-rate-sampling-in-java"></a>JAVA'da sabit oranı örnekleme yapılandırma ###
+
+1. İndirme ve son, web uygulamanızın yapılandırma [uygulama Öngörüler java SDK'sı](app-insights-java-get-started.md)
+
+2. **Sabit oran örnekleme modülü etkinleştirmek** aşağıdaki kod parçacığında Applicationınsights.xml dosyasına ekleyerek düzenleyin.
+
+```XML
+    <TelemetryProcessors>
+        <BuiltInProcessors>
+            <Processor type = "FixedRateSamplingTelemetryProcessor">
+                <!-- Set a percentage close to 100/N where N is an integer. -->
+                <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
+                <Add name = "SamplingPercentage" value = "50" />
+            </Processor>
+        </BuilrInProcessors>
+    <TelemetryProcessors/>
+```
+
+3. Dahil edebilirsiniz veya işlemci etiketi "FixedRateSamplingTelemetryProcessor" içine aşağıdaki etiketleri kullanarak örnekleme gelen telemetri belirli türlerdeki hariç tutun
+```XML
+    <ExcludedTypes>
+        <ExcludedType>Request</ExcludedType>
+    </ExcludedTypes>
+
+    <IncludedTypes>
+        <IncludedType>Exception</IncludedType>
+    </IncludedTypes>
+```
+Hangi dahil veya gelen örnekleme hariç telemetri türleri şunlardır: bağımlılık, olay, özel durum, sayfa görünümü, istek ve izleme.
 
 > [!NOTE]
 > Örnekleme yüzdesi, 100/N yakın N bir tamsayı olduğu bir yüzde seçin.  Şu anda örnekleme diğer değerleri desteklemiyor.
@@ -264,6 +294,8 @@ Yaklaşık doğru; böylece ölçümleri Explorer'da için örnekleme hızını 
 ## <a name="when-to-use-sampling"></a>Ne zaman örnekleme kullanılır?
 Uyarlamalı örnekleme ASP.NET SDK sürüm 2.0.0-beta3 kullanırsanız, otomatik olarak etkinleştirilmiş veya sonraki bir sürümü. Hangi kullandığınız SDK'sı sürümünden bağımsız olarak, toplanan veri örneği Application Insights izin vermek alım örnekleme etkinleştirebilirsiniz.
 
+Varsayılan olarak hiçbir örnekleme Java SDK'etkindir. Şu anda yalnızca sabit oranı örnekleme destekler. Uyarlamalı örnekleme Java SDK'desteklenmiyor.
+
 Genel olarak, en küçük ve orta ölçekli uygulamalar için örnekleme gerekmez. En doğru istatistikleri ve en kullanışlı tanılama bilgileri, tüm kullanıcı etkinliklerini veri toplayarak elde edilir. 
 
 Örnekleme ana avantajları şunlardır:
@@ -276,12 +308,12 @@ Genel olarak, en küçük ve orta ölçekli uygulamalar için örnekleme gerekme
 **Alım varsa örnekleme kullanın:**
 
 * Genellikle, telemetri aylık kota de gidin.
-* 2'den önceki bir sürümünü örnekleme - örneğin desteklemiyor SDK'sı, Java SDK'sı veya ASP.NET sürümleri kullanıyorsanız.
+* Örnekleme - Örneğin ASP.NET sürüm 2'den önceki desteklemiyor SDK sürümünü kullanıyorsunuz.
 * Çok sayıda telemetri kullanıcılarınızın web tarayıcılarından alıyorsunuz.
 
 **Sabit oranı, örnekleme kullanın:**
 
-* ASP.NET web Hizmetleri sürüm 2.0.0 Application Insights SDK'sı kullanıyorsanız veya sonraki bir sürümü ve
+* ASP.NET web Hizmetleri sürüm 2.0.0 Application Insights SDK'sı kullanıyorsanız veya üstü ya da Java SDK'sı v2.0.1 veya sonraki bir sürümü ve
 * Olayların ne zaman çalışıyoruz böylece istemci ve sunucu arasında eşitlenen örnekleme istediğiniz [arama](app-insights-diagnostic-search.md), istemci ve sunucu, sayfa görünümleri ve http istekleri gibi ilgili olaylar arasında gezinebilirsiniz.
 * Uygulamanız için uygun örnekleme yüzdesi emin olduğunuz. Doğru ölçümler almak için yüksek olmalı, ancak fiyatlandırma kota ve azaltma sınırlarını aşıyor oranı. 
 
@@ -299,7 +331,7 @@ Uygulanmış burada olsun gerçek örnekleme hızını keşfetmek için bir [Ana
 Her kaydı tutulur `itemCount` temsil eder, özgün kayıt sayısını gösteren 1 + önceki atılan kayıt sayısı eşit. 
 
 ## <a name="how-does-sampling-work"></a>Örnekleme nasıl çalışır?
-Sabit oranı ve Uyarlamalı örnekleme başlayarak 2.0.0 ASP.NET sürümlerden SDK'da bir özelliğidir. Alım örnekleme Application Insights hizmeti, bir özelliğidir ve SDK örnekleme gerçekleştirmiyorsa işleminde olabilir. 
+Sabit oran örnekleme özelliği 2.0.0 ASP.NET sürümlerden SDK'da ve Java SDK'sı sürüm 2.0.1 ve sonraki sürümlerde. Uyarlamalı örnekleme bir SDK'sının başlayarak 2.0.0 ASP.NET sürümlerden özelliğidir. Alım örnekleme Application Insights hizmeti, bir özelliğidir ve SDK örnekleme gerçekleştirmiyorsa işleminde olabilir. 
 
 Örnekleme algoritması bırakmak için hangi telemetri öğeleri ve hangilerinin (Bu SDK veya Application Insights hizmeti olup olmadığı) tutmak için karar verir. Örnekleme karar tüm birbiriyle veri noktalarını olduğu gibi bir işlem yapılabilir ve hatta sınırlı bir veri kümesi ile güvenilir Application Insights tanılama deneyimi koruma korumak için hedeflenir çeşitli kurallar temel alır. Başarısız bir istek için ek telemetri öğeleri (örneğin, özel durumu ve bu istekten oturum izlemeleri) uygulamanızı gönderirse, örneğin, örnekleme bu istek ve başka telemetriyle bölecek değil. Tutar ya da hepsini bir araya bırakır. Sonuç olarak, Application Insights isteği ayrıntılarında baktığınızda, her zaman istekle ilişkili telemetri öğelerinden birlikte görebilirsiniz. 
 
@@ -350,8 +382,9 @@ Sunucu tarafı SDK'sı ile birlikte sabit oranı örnekleme istemci-tarafı (Jav
 
 *Hangi platformlarda örnekleme kullanabilir miyim?*
 
-* SDK örnekleme gerçekleştirmiyor alım örnekleme otomatik olarak belirli bir birim üzerinde herhangi bir telemetri için ortaya çıkabilir. Bu, örneğin, uygulamanız Java sunucusu kullanıyorsa ya da ASP.NET SDK'sı daha eski bir sürümü kullanıyorsanız çalışır.
+* SDK örnekleme gerçekleştirmiyor alım örnekleme otomatik olarak belirli bir birim üzerinde herhangi bir telemetri için ortaya çıkabilir. ASP.NET SDK veya Java SDK(1.0.10 or before) önceki sürümünü daha eski bir sürümü kullanıyorsanız, bu, örneğin, çalışır.
 * ASP.NET SDK sürüm 2.0.0 kullanıyorsanız ve üstünde (Azure veya kendi sunucusunda barındırılan), Uyarlamalı örnekleme varsayılan olarak alır ancak yukarıda açıklandığı gibi sabit hızında geçiş yapabilirsiniz. Sabit oran örnekleme ile ilgili olaylar örneklemek için SDK tarayıcı otomatik olarak eşitler. 
+* Java SDK'sı sürüm 2.0.1 kullanıyorsanız veya Applicationınsights.XML üzerinde sabit oranı örnekleme etkinleştirmek için yukarıdaki yapılandırabilirsiniz değilse. Örnekleme varsayılan olarak kapalıdır. Sabit oran örnekleme ile ilgili olaylar örneklemek için SDK tarayıcı otomatik olarak eşitler.
 
 *Her zaman görmek istiyorum nadir belirli olaylar vardır. Nasıl bunları örnekleme modülü alabilirim?*
 

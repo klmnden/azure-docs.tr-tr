@@ -1,9 +1,9 @@
 ---
-title: "Azure Cosmos DB Graph API giriş | Microsoft Docs"
-description: "Sorgu, depolamak ve yoğun grafikleri Apache TinkerPop Gremlin grafik sorgu dilini kullanarak, düşük gecikme süresine sahip çapraz geçiş için Azure Cosmos DB nasıl kullanabileceğinizi öğrenin."
+title: Azure Cosmos DB Graph API giriş | Microsoft Docs
+description: Sorgu, depolamak ve yoğun grafikleri Apache TinkerPop Gremlin grafik sorgu dilini kullanarak, düşük gecikme süresine sahip çapraz geçiş için Azure Cosmos DB nasıl kullanabileceğinizi öğrenin.
 services: cosmos-db
-author: luisbosquez
-documentationcenter: 
+author: LuisBosquez
+documentationcenter: ''
 ms.assetid: b916644c-4f28-4964-95fe-681faa6d6e08
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,11 +12,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ba58377614326a10405be4a64d4b39f116b75bfe
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 50030434f3b2e59ba97efca2946be1a5115bc145
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB giriş: grafik API'si
 
@@ -123,7 +123,7 @@ Azure Cosmos DB grafik desteği kullanıldığı bazı senaryolar verilmiştir:
 
  Müşterileriniz ve diğer kişilerle kendi etkileşimler hakkındaki verileri birleştirerek, kişiselleştirilmiş deneyimleri geliştirmek, müşteri davranışı tahmin etmek veya kişiler başkalarıyla benzer ilgi alanları ile bağlanabilirsiniz. Azure Cosmos DB sosyal ağlar yönetmek ve müşteri tercihlerini ve verileri izlemek için kullanılabilir.
 
-* Öneri altyapısı
+* Öneri altyapıları
 
  Bu senaryo perakende sektördeki yaygın olarak kullanılır. Ürünleri, kullanıcıları ve satın alma, gözatma veya bir öğe derecelendirme gibi kullanıcı etkileşimleri hakkında bilgi birleştirerek özelleştirilmiş öneriler oluşturabilirsiniz. Düşük gecikme süresi, esnek ölçek ve yerel Azure Cosmos DB grafik desteği bu etkileşimleri modelleme için idealdir.
 

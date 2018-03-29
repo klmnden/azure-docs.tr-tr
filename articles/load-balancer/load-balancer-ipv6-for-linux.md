@@ -1,12 +1,12 @@
 ---
-title: "DHCPv6 Linux VM'ler için yapılandırma | Microsoft Docs"
-description: "DHCPv6 Linux VM'ler için yapılandırılır."
+title: DHCPv6 Linux VM'ler için yapılandırma | Microsoft Docs
+description: DHCPv6 Linux VM'ler için yapılandırılır.
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: timlt
-editor: 
-keywords: "IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT"
+editor: ''
+keywords: IPv6, azure yük dengeleyici, çift yığın, genel IP, yerel IPv6, mobil, IOT
 ms.assetid: b32719b6-00e8-4cd0-ba7f-e60e8146084b
 ms.service: load-balancer
 ms.devlang: na
@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b46c2107dcfda5f02407e08daf08bd42d722dfda
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 6248ed2f55fb5bbcc2061af6ce1dedf2bd31ccad
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>DHCPv6 Linux VM'ler için yapılandırma
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Market Linux sanal makine görüntüleri bazıları, Dinamik Ana Bilgisayar Yapılandırma Protokolü sürüm 6 (DHCPv6) varsayılan olarak yapılandırılan gerekmez. IPv6 desteği için kullandığınız Linux işletim sistemi dağıtımlarında DHCPv6 yapılandırılması gerekir. Farklı paketler kullandığından çeşitli Linux dağıtımları DHCPv6 çeşitli şekillerde yapılandırın.
 

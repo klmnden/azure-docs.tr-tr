@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a24ae9b620557e3106eb7f51b3f002cd76dd03
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
@@ -138,9 +138,9 @@ grant_type=authorization_code
 | grant_type |Gerekli |Olmalıdır `authorization_code` yetkilendirme kodu akışı. |
 | kod |Gerekli |`authorization_code` Önceki bölümde edindiğiniz |
 | redirect_uri |Gerekli |Aynı `redirect_uri` almak için kullanılan değer `authorization_code`. |
-| client_secret |Web uygulamaları için gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada kullanılmamalıdır.  Web uygulamaları ve web depolama olanağı sahip API'leri için gerekli olan `client_secret` sunucu tarafında güvenli bir şekilde. |
+| client_secret |web uygulamaları, ortak istemciler için izin verilmiyor gerekli |Uygulamanız için uygulama kayıt Portalı'nda oluşturulan uygulama gizli anahtarı.  Client_secrets güvenilir bir şekilde cihazlarda depolanamaz çünkü yerel bir uygulamada (ortak istemci) kullanılamaz.  Web uygulamaları ve web API'leri (tüm gizli istemciler), depolama yeteneği olan gereklidir `client_secret` sunucu tarafında güvenli bir şekilde. |
 | kaynak |Yetkilendirme kodu isteğinde başka isteğe bağlı belirttiyseniz gereklidir |Web API (güvenli kaynak) uygulama kimliği URI'si. |
-| code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier.  PKCE yetkilendirme kodu verme istekte kullanılan ise gereklidir.  Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636)                                                                                                                                                                                                                                                                                             |
+| code_verifier | isteğe bağlı              | Authorization_code elde etmek için kullanılan aynı code_verifier.  PKCE yetkilendirme kodu verme istekte kullanılan ise gereklidir.  Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 
 Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama'yı tıklatın ve ardından **yapılandırma**.
 

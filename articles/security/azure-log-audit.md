@@ -1,12 +1,12 @@
 ---
-title: "Günlüğe kaydetme ve denetim azure | Microsoft Docs"
-description: "Nasıl verileri günlüğe kaydetmeye uygulamanız hakkında ayrıntılı Öngörüler elde etmek için kullanabileceğiniz hakkında bilgi edinin."
+title: Günlüğe kaydetme ve denetim azure | Microsoft Docs
+description: Nasıl verileri günlüğe kaydetmeye uygulamanız hakkında ayrıntılı Öngörüler elde etmek için kullanabileceğiniz hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
 ### <a name="overview"></a>Genel Bakış
 Anlama ve çeşitli güvenlikle ilgili özellikleri bulunan kullanarak ve Azure platformu çevreleyen geçerli ve gelecekteki Azure müşterilere yardımcı olmak için Microsoft teknik incelemeler, güvenlik genel bakışlar, en iyi yöntemler ve denetim listeleri bir dizi geliştirmiştir. Konular avantajlarına ve derinliği bakımından aralığı ve düzenli aralıklarla güncelleştirilir. Bu belge aşağıdaki soyut bölümünde özetlenen serisi bir parçası değil.
-### <a name="azure-platform"></a>Azure platformu
+### <a name="azure-platform"></a>Azure Platform
 Azure işletim sistemlerinin programlama dilleri, çerçeveleri, Araçlar, veritabanları ve cihazları, en geniş seçim destekleyen bir açık ve esnek bir bulut hizmeti platformudur.
 
 Örneğin, şunları yapabilirsiniz:
@@ -73,7 +73,7 @@ Aşağıdaki tabloda Azure içinde kullanılabilir günlük en önemli türünü
 |[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows olay günlüğü & Linux Syslog|    Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
 |[Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|    REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
+|[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Veri işleme / Güvenlik Uyarısı| Azure Güvenlik Merkezi uyarı, OMS Uyarısı| Güvenlik bilgileri ve Uyarıları.|   REST API'leri, JSON|
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
@@ -313,7 +313,7 @@ Geliştirme takımına yönelik olan Application Insights, uygulamanızın perfo
 |[Sürekli dışarı aktarma](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry)|Ham verileri, geldiğinde, depolama toplu verme.||
 
 ### <a name="azure-security-center-alerts"></a>Azure Güvenlik Merkezi uyarıları
-[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) otomatik olarak toplar, analiz eder ve Azure kaynaklarınızı, ağ ve gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için güvenlik duvarı ve endpoint protection çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini tümleştirir. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
+[Azure Güvenlik Merkezi](https://docs.microsoft.com/azure/security-center/security-center-intro) otomatik olarak toplar, analiz eder ve Azure kaynaklarınızı, ağ ve gerçek tehditleri algılamak ve yanlış azaltmak için güvenlik duvarı ve endpoint protection çözümleri gibi bağlı iş ortağı çözümlerinden günlük verilerini tümleştirir pozitif sonuç. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
 
 Güvenlik Merkezi tehdit algılaması Azure kaynaklarınızdan, ağınızdan ve bağlı iş ortağı çözümlerinden güvenlik verilerini otomatik olarak toplayarak çalışır. Tehditleri belirlemek amacıyla bu bilgileri genellikle birden fazla kaynaktan bilgileri ilişkilendirerek analiz eder. Güvenlik uyarıları, Güvenlik Merkezi’nde tehdidin nasıl düzeltileceğine ilişkin önerilerle birlikte öncelik sırasına koyulur.
 
@@ -355,16 +355,16 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 | Hizmet | Kaynak Türü | Günlükler | Ölçümler | Çözüm |
 | :------ | :------------ | :--- | :------ | :------- |
 |Uygulama ağ geçitleri|  Microsoft.Network/<br>applicationGateways|  Tanılama|Tanılama|    [Azure uygulama](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [ağ geçidi analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
-|Application ınsights||     Bağlayıcı|  Bağlayıcı|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Bağlayıcısı (Önizleme)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
+|Application Insights||     Bağlayıcı|  Bağlayıcı|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Bağlayıcısı (Önizleme)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
 |Automation hesapları|   Microsoft.Automation/<br>AutomationAccounts|    Tanılama||       [Daha fazla bilgi](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|
 |Batch hesapları|    Microsoft.Batch/<br>batchAccounts|  Tanılama|    Tanılama||
 |Klasik bulut Hizmetleri||       Depolama||       [Daha fazla bilgi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage-iis-table)|
-|Bilişsel Hizmetler|    Microsoft.CognitiveServices/<br>accounts|       Tanılama|||
+|Bilişsel hizmetler|    Microsoft.CognitiveServices/<br>accounts|       Tanılama|||
 |Data Lake analizi|   Microsoft.DataLakeAnalytics/<br>accounts|   Tanılama|||
 |Veri Gölü deposu|   Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
 |Olay Hub'ı ad alanı|   Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
 |IoT Hub|  Microsoft.Devices/<br>IotHubs||     Tanılama||
-|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Yük Dengeleyiciler|    Microsoft.Network/<br>loadBalancers|    Tanılama|||
 |Logic Apps|    Microsoft.Logic/<br>İş akışları|  Tanılama|    Tanılama||
 ||Microsoft.Logic/<br>integrationAccounts||||
@@ -372,7 +372,7 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 |Kurtarma kasaları|   Microsoft.RecoveryServices/<br>kasaları|||[Analytics (Önizleme) Azure kurtarma Hizmetleri](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Hizmet ara|   Microsoft.Search/<br>searchServices|    Tanılama|    Tanılama||
 |Service Bus ad alanı| Microsoft.ServiceBus/<br>ad alanları|    Tanılama|Tanılama|    [Hizmet veri yolu Analytics (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Depolama||    [Service Fabric Analytics (Önizleme)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Depolama||    [Service Fabric Analytics (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>sunucuları /<br>veritabanları||       Tanılama||
 ||Microsoft.Sql/<br>sunucuları /<br>elasticPools||||
 |Depolama|||         Betik| [Azure depolama çözümlemeleri (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|
@@ -415,7 +415,7 @@ Tümleştirme senaryolarına
 
 -   [Azure günlük sık sorulan sorular (SSS) tümleştirme](https://docs.microsoft.com/azure/security/security-azure-log-integration-faq) -bu SSS Azure günlük tümleştirmesi hakkında sorular yanıtlanmaktadır.
 
--   [Güvenlik Merkezi tümleştirme uyarıları Azure ile tümleştirme oturum](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – bu belge, günlük analizi ya da SIEM Çözümle ilişkili Azure tanılama ve Azure denetim günlükleri, tarafından toplanan sanal makine güvenlik olaylarını yanı sıra Güvenlik Merkezi uyarılarını eşitlemek gösterilmektedir.
+-   [Güvenlik Merkezi tümleştirme uyarıları Azure ile tümleştirme oturum](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration) – bu belge, günlük analizi ile Azure tanılama ve Azure denetim günlükleri tarafından toplanan sanal makine güvenlik olayları yanı sıra Güvenlik Merkezi uyarılarını eşitlemek gösterilmiştir veya SIEM çözümü.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

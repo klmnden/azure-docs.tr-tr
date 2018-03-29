@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/27/2018
 ms.author: shlo
-ms.openlocfilehash: f55e85bb424f4f5973fd6d633b6adf9fbca4d0ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7d6abb72fca71c213f9810784581a9af2dafb3a2
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 Okuma veya bir kayıt, tablo adı veya değer herhangi bir dış kaynaktan aramak için arama etkinliği kullanın. Sonraki etkinliklerde bu çıktıya daha fazla başvurulabilir. 
@@ -30,12 +30,23 @@ Arama etkinliği, dinamik olarak dosyaları, kayıt veya Tablo listesini bir yap
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
 Aşağıdaki veri kaynakları şu anda arama için desteklenir:
-- Azure Blob storage JSON dosyasında
-- JSON dosyasının dosya sistemi
-- Azure SQL veritabanı (sorgudan dönüştürülen JSON verilerini)
-- Azure SQL veri ambarı (sorgudan dönüştürülen JSON verilerini)
-- SQL Server (sorgudan dönüştürülen JSON verilerini)
-- Azure Table storage (sorgudan dönüştürülen JSON verilerini)
+
+- Amazon Redshift
+- Azure Blob depolama
+- Azure Cosmos DB
+- Azure Data Lake Store
+- Azure dosya depolama
+- Azure SQL Database
+- Azure SQL Veri Ambarı
+- Azure Tablo depolama
+- Dynamics 365
+- Dynamics CRM
+- Dosya Sistemi
+- PostgreSQL
+- Salesforce
+- Salesforce Service Cloud
+- SFTP
+- SQL Server
 
 Arama etkinlik tarafından döndürülen satır sayısının üst sınırını olan **5000**ve kadar **10MB** boyutu.
 
@@ -62,9 +73,14 @@ Arama etkinlik tarafından döndürülen satır sayısının üst sınırını o
 ## <a name="type-properties"></a>Tür özellikleri
 Ad | Açıklama | Tür | Gerekli mi?
 ---- | ----------- | ---- | --------
-Veri kümesi | Veri kümesi başvurusu için arama sağlar. Şu anda desteklenen veri türleri şunlardır:<ul><li>`AzureBlobDataset` için [Azure Blob Depolama](connector-azure-blob-storage.md#dataset-properties) kaynağı olarak</li><li>`FileShareDataset` için [dosya sistemi](connector-file-system.md#dataset-properties) kaynağı olarak</li><li>`AzureSqlTableDataset` için [Azure SQL veritabanı](connector-azure-sql-database.md#dataset-properties) veya [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md#dataset-properties) kaynağı olarak</li><li>`SqlServerTable` için [SQL Server](connector-sql-server.md#dataset-properties) kaynağı olarak</li><li>`AzureTableDataset` için [Azure Table depolama](connector-azure-table-storage.md#dataset-properties) kaynağı olarak</li> | Anahtar/değer çifti | Evet
+Veri kümesi | Veri kümesi başvurusu için arama sağlar. Karşılık gelen her bağlayıcı makalede "Veri kümesi özellikleri" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
 kaynak | Kopya etkinliği kaynak ile aynı veri kümesi-özel kaynak özelliklerini içerir. Karşılık gelen her bağlayıcı makale içindeki "etkinlik özellikleri Kopyala" bölümünden ayrıntıları alın. | Anahtar/değer çifti | Evet
 firstRowOnly | Yalnızca ilk satırı veya tüm satırları döndürülmeyeceğini gösterir. | Boole | Hayır. `true` varsayılan değerdir.
+
+Aşağıdaki noktalara dikkat edin:
+
+1. Kaynak sütunu ByteArray türü desteklenmiyor.
+2. Yapı, veri kümesi tanımında desteklenmiyor. Metin biçimi dosyaları için özellikle, sütun adı sağlamak için üstbilgi satırını kullanabilir.
 
 ## <a name="use-the-lookup-activity-result-in-a-subsequent-activity"></a>Arama etkinlik sonuç izleyen bir etkinlikte kullanma
 

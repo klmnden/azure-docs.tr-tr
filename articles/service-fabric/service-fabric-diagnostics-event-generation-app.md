@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: 258aac722aa1c94ecf2cbf0524a3e4b53b8a788c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-and-service-level-logging"></a>Uygulama ve hizmet düzeyinde günlüğe kaydetme
 
 Kod işaretleme çoğu diğer yönlerini hizmetlerinizi izleme temelidir. İzleme bildiğiniz bir şeylerin yanlış olduğunu tek yoludur ve neyi düzeltilmesi gerektiğini tanılamak için. Teknik olarak, bir hata ayıklayıcısı bir üretim hizmetine bağlanmak mümkün olsa da, ortak bir uygulama değildir. Bu nedenle, izleme verileri ayrıntılı önemlidir.
 
 Bazı ürünler kodunuzu otomatik olarak işaretleme. Bu çözüm de olsa da, el ile araçları neredeyse her zaman gereklidir. Sonunda forensically uygulamada hata ayıklama için yeterli bilgiye sahip olmalıdır. Bu belgede, kodunuz ve ne zaman bir yaklaşım başka bir ad seçin düzenleme için farklı yaklaşımlara açıklanmaktadır.
+
+Bu öneriler kullanma hakkında daha fazla örnekler için bkz: [günlüğü Service Fabric uygulamanızı ekleme](service-fabric-how-to-diagnostics-log.md).
 
 ## <a name="eventsource"></a>EventSource
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory kavram playbook yapı taşlarını kanıtını | Microsoft Docs"
-description: "Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan"
+title: Azure Active Directory kavram playbook yapı taşlarını kanıtını | Microsoft Docs
+description: Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan
 services: active-directory
-keywords: "Azure active directory, playbook, kavram kanıtı, PT"
-documentationcenter: 
+keywords: Azure active directory, playbook, kavram kanıtı, PT
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: b37ca3c6ca528551ef09a90159e92fd31e0fabf2
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 1efb8d89b0a78dcf88c60c2e8cd3b968a725e8b9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -40,8 +40,8 @@ Azure AD Premium herhangi POC için gereken bazı ön koşullar aşağıda veril
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Geçerli bir Azure aboneliği ile tanımlanan azure AD kiracısı | [Azure Active Directory kiracısı alma](active-directory-howto-tenant.md)<br/>**Not:** zaten Azure AD Premium lisansına sahip bir ortamınız varsa, sıfır cap abonelik için https://aka.ms/accessaad giderek alabilirsiniz <br/>Hakkında daha fazla bilgi edinin: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ ve https://technet.microsoft.com/library/dn832618.aspx |
-| Tanımlanan ve doğrulanan etki alanları | [Özel etki alanı adını Azure Active Directory'ye ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD Kiracı kapsar altında sağlamış. Belirli bir etki alanı için bir kiracı ilişkili olup olmadığını denetlemek için https://login.microsoftonline.com/ {domain}/v2.0/.well-known/openid-configuration. gidin Etki alanı için bir kiracı zaten atanmış sonra başarılı bir yanıt almak ve devralır gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi edinin: [Azure için Self Servis kaydolma nedir?](active-directory-self-service-signup.md) |
+| Geçerli bir Azure aboneliği ile tanımlanan azure AD kiracısı | [Azure Active Directory kiracısı alma](active-directory-howto-tenant.md)<br/>**Not:** zaten Azure AD Premium lisansına sahip bir ortamınız varsa, giderek sıfır cap aboneliği alabilirsiniz https://aka.ms/accessaad <br/>Hakkında daha fazla bilgi edinin: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ ve https://technet.microsoft.com/library/dn832618.aspx |
+| Tanımlanan ve doğrulanan etki alanları | [Özel etki alanı adını Azure Active Directory'ye ekleme](active-directory-domains-add-azure-portal.md)<br/>**Not:** Power BI gibi bazı iş yükleri bir azure AD Kiracı kapsar altında sağlamış. Belirli bir etki alanı için bir kiracı ilişkili olup olmadığını denetlemek için gidin https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Etki alanı için bir kiracı zaten atanmış sonra başarılı bir yanıt almak ve devralır gerekli. Bu durumda, Ek Yardım için Microsoft ile iletişime geçin. Devralma seçenekleri hakkında daha fazla bilgi edinin: [Azure için Self Servis kaydolma nedir?](active-directory-self-service-signup.md) |
 | Azure AD Premium veya EMS deneme etkin | [Azure Active Directory Premium bir ay süreyle ücretsiz](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium veya EMS lisanslarını PoC kullanıcılara atadığınız | [Kendinizin ve kullanıcılarınızın Azure Active Directory'de lisans](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD genel yönetici kimlik bilgileri | [Azure Active Directory'de yönetici rolleri atama](active-directory-assign-admin-roles-azure-portal.md) |
@@ -71,7 +71,7 @@ Yaklaşık tam süresi: 1. 000'den az PoC kullanıcılar için bir saat
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Parola karma eşitlemesi güvenlik konuları Ara [burada](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).  Pilot üretim kullanıcılar için parola karma eşitlemesi tam olarak bir seçenek değilse, aşağıdaki seçenekleri göz önünde bulundurun:
+1. Parola karma eşitlemesi güvenlik konuları Ara [burada](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).  Pilot üretim kullanıcılar için parola karma eşitlemesi tam olarak bir seçenek değilse, aşağıdaki seçenekleri göz önünde bulundurun:
    * Test kullanıcıları üretim etki alanında oluşturun. Başka bir hesap eşitleme emin olun
    * Bir UAT ortamına taşıma
 2.  Federasyon istediğiniz, maliyetleri şirket içi kimlik sağlayıcısı POC ötesinde birleştirilmiş bir çözüm ilişkili anlamak ve, aradığınız avantajları karşı ölçmek için faydalı olur:
@@ -101,7 +101,7 @@ Yaklaşık tam süresi: 15 dakika
 | Azure AD Yönetim Portalı'na gidin | [Azure AD yönetim portalında - şirket markası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Oturum açma sayfası (kahramanı logosu, küçük logo, etiketler, vb.) için varlıkların karşıya yükleyin. AD FS varsa, ADFS oturum açma sayfaları ile aynı varlıkları isteğe bağlı olarak Hizala | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme: özelleştirilebilir öğeler](customize-branding.md) |
 | Birkaç dakika değişikliğin tam olarak etkili olması bekleyin |  |
-| Https://myapps.microsoft.com için POC kullanıcı kimlik bilgileriyle oturum |  |
+| İçin POC kullanıcı kimlik bilgileriyle oturum https://myapps.microsoft.com |  |
 | Görünüm tarayıcıda onaylayın | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme](customize-branding.md) |
 | İsteğe bağlı olarak, görünüm diğer aygıtları onaylayın |  |
 
@@ -138,7 +138,7 @@ Yaklaşık tam süresi: 60 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Kullanılabilir SaaS uygulamasının test ortamı. Bu kılavuzda, örnek olarak ServiceNow kullanırız.<br/>Mevcut veri kalitesini ve eşlemeleri gezinme çubuğunda uyuşmazlık en aza indirmek için bir test örneği kullanmak için önerilir. | Https://developer.servicenow.com/app.do# gidin! / ev bir test örneği alma işlemini başlatmak için |
+| Kullanılabilir SaaS uygulamasının test ortamı. Bu kılavuzda, örnek olarak ServiceNow kullanırız.<br/>Mevcut veri kalitesini ve eşlemeleri gezinme çubuğunda uyuşmazlık en aza indirmek için bir test örneği kullanmak için önerilir. | Git https://developer.servicenow.com/app.do#! / ev bir test örneği alma işlemini başlatmak için |
 | ServiceNow yönetim konsoluna yönetici erişimi | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
 | Hedef uygulamaya atamak için kullanıcıları oluşturun. PoC kullanıcıları içeren bir güvenlik grubu önerilir. <br/>Grup oluşturma uygun değilse, ardından kullanıcılar için doğrudan uygulama PoC için atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
 
@@ -156,7 +156,7 @@ Yaklaşık tam süresi: 60 dakika
 | Servicenow'ı yapılandırmak için yönergeleri izleyin |  |
 | ServiceNow uygulama "Hazırlama" dikey penceresinde "Otomatik" sağlamayı etkinleştir | [Yeni Azure portalına kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme](active-directory-enterprise-apps-manage-provisioning.md) |
 | Sağlama işlemini tamamlarken birkaç dakika bekleyin.  Bu arada, sağlama raporları kontrol edebilirsiniz |  |
-| Https://myapps.microsoft.com/ için erişimi olan bir sınama kullanıcısı oturum açın | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
+| Oturum https://myapps.microsoft.com/ erişimi olan bir sınama kullanıcısı olarak | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
 | Yeni oluşturduğunuz uygulama kutucuğuna tıklayın. Erişimi onaylayın |  |
 | İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir bazı gecikme olduğuna dikkat edin. | [Azure Active Directory portalında oturum açma etkinliği raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
 
@@ -186,7 +186,7 @@ Yaklaşık tam süresi: 15 dakika
 | Galeriden uygulamayı yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
 | Parola SSO yapılandırın | [Yeni Azure portalında Kurumsal uygulamaları için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
 | Uygulama önkoşulları belirlenen grubu atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
-| Https://myapps.microsoft.com/ için erişimi olan bir sınama kullanıcısı oturum açın |  |
+| Oturum https://myapps.microsoft.com/ erişimi olan bir sınama kullanıcısı olarak |  |
 | Yeni oluşturduğunuz uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Uygulama kimlik bilgileri sağlayın | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Tarayıcıyı kapatın ve oturum açma yineleyin. Bu sefer orada kullanıcı uygulamaya sorunsuz erişim görmeniz gerekir. |  |
@@ -209,7 +209,7 @@ Yaklaşık tam süresi: 30 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Hedef uygulama ve tam oturum açma URL'leri vaktinden listesi. Örnek olarak, Twitter kullanabilirsiniz. | [Microsoft Azure Marketi twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Twitter için kaydolun](https://twitter.com/signup?lang=en) |
-| Bu SaaS uygulaması için kimlik bilgisi paylaşılan. | [Azure AD kullanarak hesapları paylaşma](active-directory-sharing-accounts.md)<br/>[Azure AD parola toplama devretme Facebook, Twitter ve LinkedIn önizlemeye otomatik! -Enterprise Mobility and Security Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
+| Bu SaaS uygulaması için kimlik bilgisi paylaşılan. | [Azure AD kullanarak hesapları paylaşma](active-directory-sharing-accounts.md)<br/>[Azure AD parola toplama devretme Facebook, Twitter ve LinkedIn önizlemeye otomatik! -Enterprise Mobility and Security Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
 | Aynı hesap erişecek en az iki takım üyeleri için kimlik bilgileri. Güvenlik grubunun bir parçası olmalıdır. | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
 | Internet Explorer, Chrome veya Firefox için erişim paneli uzantısı dağıtacak bir bilgisayar için yerel yönetici erişimi | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Chrome için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Firefox için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -420,7 +420,7 @@ Yaklaşık tam süre: 10 dakika
 | --- | --- |
 | Azure AD Yönetim Portalı'nda "Kullanıcılar ve Gruplar" dikey penceresine gidin | [Azure AD yönetim portalında: Kullanıcılar ve gruplar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | "Tüm kullanıcılar" dikey seçin |  |
-| Üst Seç "Çok faktörlü kimlik doğrulaması" düğme çubuğu | URL için Azure MFA portalı doğrudan: https://aka.ms/mfaportal |
+| Üst Seç "Çok faktörlü kimlik doğrulaması" düğme çubuğu | Azure MFA portal doğrudan URL'si: https://aka.ms/mfaportal |
 | "Kullanıcı" ayarlarında PoC kullanıcıları seçin ve MFA için etkinleştirme | [Azure Multi-Factor Authentication’da Kullanıcı Durumları](../multi-factor-authentication/multi-factor-authentication-get-started-user-states.md) |
 | PoC kullanıcı ve güçlü işlemiyle ilerlemesi olarak oturum açın  |  |
 
@@ -476,10 +476,10 @@ Yaklaşık tam süresi: 15 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Https://portal.azure.com genel yönetici (GA) ve önyükleme PIM dikey olarak oturum açın. Bu adımı gerçekleştirir genel yönetici Güvenlik Yöneticisi sağlanmış.  Şimdi bu aktör GA1 çağırın | [Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanma](active-directory-privileged-identity-management-security-wizard.md) |
+| Oturum açma https://portal.azure.com genel yönetici (GA) ve önyükleme PIM dikey olarak. Bu adımı gerçekleştirir genel yönetici Güvenlik Yöneticisi sağlanmış.  Şimdi bu aktör GA1 çağırın | [Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanma](active-directory-privileged-identity-management-security-wizard.md) |
 | Genel yönetici tanımlayın ve bunları kalıcı için uygun taşıyın. Bu, 1. adımda daha anlaşılır olması için kullanılan bir ayrı bir yönetici olmanız gerekir. Şimdi bu aktör GA2 çağırın | [Azure AD Privileged Identity Management: nasıl'ın bir kullanıcı rolü ekleme veya kaldırma](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management nedir?: rol etkinleştirme ayarlarını yapılandırma](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
-| Şimdi, https://portal.azure.com için GA2 oturum açın ve "Kullanıcı ayarları" değiştirmeyi deneyin. Bazı seçenekler gri unutmayın. | |
-| Yeni bir sekme ve aynı oturum 3. adım olarak, artık https://portal.azure.com için gidin ve PIM dikey için Pano ekleyin. | [Etkinleştirmek veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma: Privileged Identity Management uygulamasını ekleme](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| Şimdi, oturum için GA2 olarak https://portal.azure.com ve "Kullanıcı ayarları" değiştirmeyi deneyin. Bazı seçenekler gri unutmayın. | |
+| Yeni bir sekme ve aynı oturum 3. adım olarak, artık gidin https://portal.azure.com ve PIM dikey için Pano ekleyin. | [Etkinleştirmek veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma: Privileged Identity Management uygulamasını ekleme](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
 | Genel yönetici rolüne etkinleştirme isteği | [Etkinleştirmek veya Azure AD Privileged Identity Management rollerinde devre dışı bırakma: rol etkinleştirme](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
 | GA2 hiçbir zaman MFA için kaydolduysanız, kaydı Azure MFA için gerekli olduğunu unutmayın |  |
 | Adım 3'te özgün sekmesine geri dönün ve tarayıcıda Yenile düğmesini tıklatın. Şimdi "Kullanıcı ayarları" değiştirmek için erişim gerektiğini unutmayın | |
@@ -506,9 +506,9 @@ Yaklaşık tam süresi: 20 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Açık tor tarayıcı | [Tor tarayıcı yükleyin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Https://myapps.microsoft.com POC kullanıcı hesabıyla oturum açın | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarını benzetimini yapma](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Oturum https://myapps.microsoft.com POC kullanıcı hesabıyla | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarını benzetimini yapma](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 | 5-7 dakika bekleyin |  |
-| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
+| Genel bir yönetici olarak oturum açma https://portal.azure.com ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
 | Risk olaylar dikey penceresini açın. "Oturum açma işlemleri anonim IP adreslerinden" altında bir girdi görmeniz gerekir  | [Azure Active Directory kimlik koruması Kılavuzu: Risk olaylarını benzetimini yapma](active-directory-identityprotection-playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -532,10 +532,10 @@ Yaklaşık tam süre: 10 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Https://portal.azure.com için genel yönetici olarak oturum açın ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
+| Genel bir yönetici olarak oturum açma https://portal.azure.com ve kimlik koruması dikey penceresini açın | https://aka.ms/aadipgetstarted |
 | Oturum açma risk ilkesine aşağıdaki gibi etkinleştirin:<br/>-Atanan: POC kullanıcı<br/>-Koşullar: Oturum açma riski Orta veya yüksek (oturum açma anonim konumdan kabul Orta risk düzeyi)<br/>-Denetimleri: MFA gerektirir | [Azure Active Directory kimlik koruması Kılavuzu: oturum açma riski](active-directory-identityprotection-playbook.md) |
 | Açık tor tarayıcı | [Tor tarayıcı yükleyin](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Https://myapps.microsoft.com PoC kullanıcı hesabıyla oturum açın |  |
+| Oturum https://myapps.microsoft.com PoC kullanıcı hesabıyla |  |
 | MFA testini dikkat edin | [Azure AD kimlik koruması ile karşılaştığında oturum açma: oturum açma riskli kurtarma](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler

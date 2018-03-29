@@ -1,8 +1,8 @@
 ---
-title: "En iyi uygulamalar Azure AD'de yönetici erişimi güvenli hale getirmenin | Microsoft Docs"
-description: "Kuruluşunuzun yönetimsel erişim ve yönetici hesaplarını güvenli olduğundan emin olun. Sistem mimarları ve Azure AD yapılandıran BT uzmanları için Azure ve Microsoft Çevrimiçi Hizmetler."
+title: En iyi uygulamalar Azure AD'de yönetici erişimi güvenli hale getirmenin | Microsoft Docs
+description: Kuruluşunuzun yönetimsel erişim ve yönetici hesaplarını güvenli olduğundan emin olun. Sistem mimarları ve Azure AD yapılandıran BT uzmanları için Azure ve Microsoft Çevrimiçi Hizmetler.
 services: active-directory
-keywords: 
+keywords: ''
 author: curtand
 ms.author: curtand
 ms.date: 03/09/2018
@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 166171dc8d8d694ef253ed6809c53b54577535e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -156,7 +156,7 @@ Tüm kullanıcıların ve yönetici hesaplarını imzalı parolalarını en az b
 
 #### <a name="turn-on-password-synchronization"></a>Parola Eşitleme Aç
 
-Parola Eşitleme, bulut tabanlı bir Azure için şirket içi Active Directory örneğinden kullanıcı parola karmaları karmalarını eşitlemek için kullanılan bir özelliğidir AD örneği. Active Directory Federasyon Hizmetleri (AD FS) veya diğer kimlik sağlayıcılardan ile Federasyon kullanmaya karar verirseniz, isteğe bağlı olarak yapabileceğiniz bile parola eşitlemesi yedek olarak durumda AD gibi şirket içi altyapınızı ayarlama veya ADFS sunucuları başarısız veya olur geçici olarak kullanılamıyor. Bu hizmete kendi şirket içi oturum açmak için kullandıkları aynı parolayı kullanarak oturum açmalarını sağlar AD örneği. Ayrıca, bir kullanıcı, aynı e-posta adresini ve parolasını Azure AD ile bağlı değil diğer hizmetlerdeki işlevden değilse tehlikeye, bilinen parolalarla bu parola karmaları karşılaştırarak güvenliği aşılmış kimlik bilgileri algılamak kimlik koruması sağlar.  Daha fazla bilgi için bkz: [Azure AD Connect eşitleme ile parola eşitlemesini uygulama](./connect/active-directory-aadconnectsync-implement-password-synchronization.md).
+Parola Eşitleme, bulut tabanlı bir Azure için şirket içi Active Directory örneğinden kullanıcı parola karmaları karmalarını eşitlemek için kullanılan bir özelliğidir AD örneği. Active Directory Federasyon Hizmetleri (AD FS) veya diğer kimlik sağlayıcılardan ile Federasyon kullanmaya karar verirseniz, isteğe bağlı olarak yapabileceğiniz bile parola eşitlemesi yedek olarak durumda AD gibi şirket içi altyapınızı ayarlama veya ADFS sunucuları başarısız veya olur geçici olarak kullanılamıyor. Bu hizmete kendi şirket içi oturum açmak için kullandıkları aynı parolayı kullanarak oturum açmalarını sağlar AD örneği. Ayrıca, bir kullanıcı, aynı e-posta adresini ve parolasını Azure AD ile bağlı değil diğer hizmetlerdeki işlevden değilse tehlikeye, bilinen parolalarla bu parola karmaları karşılaştırarak güvenliği aşılmış kimlik bilgileri algılamak kimlik koruması sağlar.  Daha fazla bilgi için bkz: [parola karma eşitlemesi ile Azure AD Connect eşitleme uygulama](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Sunulan kullanıcıların yanı sıra tüm ayrıcalıklı rolleri için çok faktörlü kimlik doğrulaması (MFA) gerektirir
 

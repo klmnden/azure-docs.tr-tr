@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/16/2018
 ms.author: billmath
-ms.openlocfilehash: 8bae1140d4a3ac4762bdcbabb16851d29415a8fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5308803bb36024ee2373cf07ec46f798eb7192c5
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Sürüm yayımlama geçmişi
 Azure Active Directory (Azure AD) ekibin yeni özellikler ve işlevsellik ile Azure AD Connect düzenli olarak güncelleştirir. Tüm eklemeleri tüm izleyiciler için geçerlidir.
@@ -49,6 +49,7 @@ Durumu 22/3/2018: Otomatik yükseltme ve yükleme için yayımlamıştır.
 #### <a name="fixed-issues"></a>Giderilen sorunlar
 
 * Otomatik yükseltme durumu "askıda" olarak ayarlandıysa, set-ADSyncAutoUpgrade cmdlet'i daha önce Autoupgrade engellenebilir. Bu, artık AutoUpgrade gelecekteki derlemelerin engellemez şekilde değiştirilir.
+* Değiştirilen **kullanıcı oturum açma** sayfa seçeneği "Parola Karması eşitlemesi" için "parola eşitlemeyi".  Bu ne gerçekte oluştuğunu ile hizalanacak biçimde azure AD Connect değil parolaları, parola karmaları eşitler.  Daha fazla bilgi için bkz: [parola karma eşitlemesi ile Azure AD Connect eşitleme uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 
 ## <a name="117490"></a>1.1.749.0
 Durum: müşterileri seçmek üzere serbest bırakılmış
@@ -558,7 +559,7 @@ Azure AD Connect Eşitleme
   * Eklenen **userType** meta veri deposu şeması ve AAD bağlayıcı şema. Azure AD içinde ya da öznitelikleri güncelleştirmek istediğiniz müşterileri Bunu yapmak için özel eşitleme kurallarını uygulayabilir.
 
 * Azure AD Connect artık şirket içi kaynak bağlantısı özniteliği olarak ConsistencyGuid özniteliği kullanımını otomatik olarak etkinleştirir AD nesnelerini. Boş ise daha, Azure AD Connect ConsistencyGuid özniteliği objectGUID özniteliğinin değeri ile doldurur. Bu özellik yalnızca yeni dağıtımı için geçerlidir. Bu özellik hakkında daha fazla bilgi için makale bölümüne bakın. [Azure AD Connect: tasarım kavramları - sourceAnchor msDS-ConsistencyGuid kullanarak](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
-* Yeni cmdlet sorun giderme Invoke-ADSyncDiagnostics ilgili sorunlar parola karması eşitlemesi tanımlanmasına yardımcı olmak için eklendi. Cmdlet kullanma hakkında daha fazla bilgi için makalesine başvurun [Parola Eşitleme ile Azure AD Connect eşitleme sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization).
+* Yeni cmdlet sorun giderme Invoke-ADSyncDiagnostics ilgili sorunlar parola karması eşitlemesi tanımlanmasına yardımcı olmak için eklendi. Cmdlet kullanma hakkında daha fazla bilgi için makalesine başvurun [parola karması eşitlemesi Azure AD Connect eşitleme ile ilgili sorunları giderme](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect eşitleme Mail-Enabled ortak klasör destekler nesnelerin artık Azure ad AD şirket içi. İsteğe bağlı özellikler altında Azure AD Connect Sihirbazı kullanarak özelliğini etkinleştirebilirsiniz. Bu özellik hakkında daha fazla bilgi için makalesine başvurun [şirket içi posta etkinleştirilmiş ortak klasörleri Office 365 dizin dayalı kenar engelleme desteği](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect gerektiren bir AD DS hesabı'ndan eşitlemek için şirket içi AD. Daha önce Azure AD Connect Express modunu kullanarak yüklediyseniz, bir kuruluş yöneticisi hesabı ve Azure AD Connect kimlik bilgileri gerekli AD DS hesabı oluşturacak sağlayabilir. Ancak, özel bir yükleme ve var olan bir dağıtıma ormanlar ekleme için AD DS hesabı yerine sağlayın gerekirdi. Şimdi, ayrıca özel bir yükleme sırasında bir Kurumsal Yönetici hesabının kimlik bilgilerini sağlayın ve Azure AD Connect gereken AD DS hesabı oluşturma izin seçeneğiniz vardır.
 * Azure AD Connect artık SQL AOA destekler. Azure AD Connect yüklemeden önce SQL AOA etkinleştirmeniz gerekir. Yükleme sırasında Azure AD Connect veya sağlanan SQL örneği için SQL AOA etkin olup olmadığını algılar. SQL AOA etkinleştirilirse, daha fazla Azure AD Connect SQL AOA zaman uyumlu veya zaman uyumsuz çoğaltma kullanacak şekilde yapılandırılıp yapılandırılmadığını rakamlar. Kullanılabilirlik grubu dinleyicisi Kur ayarlarken RegisterAllProvidersIP özelliği 0 olarak ayarlayın önerilir. SQL Native Client MultiSubNetFailover özelliğinin kullanımını desteklemez ve Azure AD Connect, SQL Native Client SQL bağlanmak için şu anda kullandığı nedeni budur.
@@ -748,7 +749,7 @@ Yayımlanma tarihi: Haziran 2016
 **Giderilen sorunlar ve iyileştirmeleri:**
 
 * Azure AD Connect artık FIPS ile uyumlu bir sunucuya yüklenebilir.
-  * Parola eşitlemesi için bkz: [parola eşitleme ve FIPS](active-directory-aadconnectsync-implement-password-synchronization.md#password-synchronization-and-fips).
+  * Parola eşitlemesi için bkz: [parola karma eşitlemesi ve FIPS](active-directory-aadconnectsync-implement-password-hash-synchronization.md#password-hash-synchronization-and-fips).
 * Bir sorun olduğu bir NetBIOS adı için Active Directory Bağlayıcısı FQDN çözümlenemedi sabit.
 
 ## <a name="111800"></a>1.1.180.0

@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect: yükleme türünü seçin. | Microsoft Docs"
-description: "Bu konuda, Azure AD Connect için kullanılacak yükleme türü seçme açıklanmaktadır"
+title: 'Azure AD Connect: yükleme türünü seçin. | Microsoft Docs'
+description: Bu konuda, Azure AD Connect için kullanılacak yükleme türü seçme açıklanmaktadır
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9b7bcd5856ec94367edd586c28c781ac9569a792
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 76f1ce12ab149f57ec6e995d132de83105c5e0ca
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Azure AD Connect için kullanmak üzere hangi yükleme türünü seçin
 Azure AD Connect, yeni yükleme için iki yükleme türleri vardır: Express ve özelleştirilebilir. Bu konuda, yükleme sırasında kullanmak için hangi seçeneği karar vermenize yardımcı olur.
@@ -34,7 +34,7 @@ Bunu varsayılır:
 
 Şunları alırsınız:
 
-- [Parola Eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md) şirket içi Azure ad çoklu oturum açma için.
+- [Parola karma eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) şirket içi Azure ad çoklu oturum açma için.
 - Eşitleyen bir yapılandırma [kullanıcılar, gruplar, kişiler ve Windows 10 bilgisayarlar](active-directory-aadconnectsync-understanding-default-configuration.md).
 - Tüm etki alanlarını ve tüm OU'larda tüm uygun nesneleri eşitlenmesi.
 - [Otomatik yükseltmeyi](active-directory-aadconnect-feature-automatic-upgrade.md) en son sürüme her zaman kullandığınızdan emin olmak için etkinleştirilir.

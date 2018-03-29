@@ -1,24 +1,24 @@
 ---
-title: "Microsoft Azure StorSimple sanal dizinin genel bakış | Microsoft Docs"
-description: "StorSimple sanal dizinin bir şirket içi sanal dizinin ve Microsoft Azure bulut depolama arasında depolama görevleri yöneten bir tümleşik depolama çözümü açıklanmaktadır."
+title: Microsoft Azure StorSimple sanal dizinin genel bakış | Microsoft Docs
+description: StorSimple sanal dizinin bir şirket içi sanal dizinin ve Microsoft Azure bulut depolama arasında depolama görevleri yöneten bir tümleşik depolama çözümü açıklanmaktadır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/16/2017
+ms.date: 03/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b9a5797751fa970c569c93e5efe300d4d74319ce
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizi giriş
 
@@ -52,7 +52,7 @@ Aşağıdaki tabloda StorSimple sanal dizinin önemli özellikler özetlenmekted
 | Depolama katmanları |Yerel hiper yönetici depolama ve bulut |
 | Paylaşım boyutu |Katmanlı: en fazla 20 TB'ye; yerel olarak sabitlenmiş: 2 TB |
 | Birim boyutu |Katmanlı: 5 TB 500 GB; yerel olarak sabitlenmiş: 50 GB ila 200 GB <br> En fazla yerel ayırma katmanlı birimlerin 200 GB'tır. |
-| Anlık görüntüler |Kilitlenme tutarlı |
+| Anlık Görüntüler |Kilitlenme tutarlı |
 | Öğe düzeyinde kurtarma |Evet; Kullanıcılar paylaşımlarından geri yükleyebilir |
 
 ## <a name="why-use-storsimple"></a>StorSimple neden kullanılır?
@@ -73,9 +73,9 @@ Aşağıdaki tabloda StorSimple sanal dizisi çözümü sağlar en önemli avant
 
 Desteklenen StorSimple iş yükleri özetini aşağıdaki tabloda verilmiştir.
 
-|Senaryo     |İş yükü     |Destekleniyor      |Kısıtlamaları               |
+|Senaryo     |İş yükü     |Desteklenen      |Kısıtlamalar               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |Dosya Paylaşımı     |Evet      |Bkz: [dosya sunucusu için en fazla sınırları](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
+|ROBO  |Dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için en fazla sınırları](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
 |Arşivleme bulut  |Arşivleme dosya paylaşımı     |Evet      |Bkz: [dosya sunucusu için en fazla sınırları](storsimple-ova-limits.md).<br></br>Bkz: [desteklenen SMB sürümleri için sistem gereksinimleri](storsimple-ova-system-requirements.md).| Tüm sürümler     |
 
 StorSimple sanal dizinin seyrek erişilen verileri için uygundur. Sanal dizinin performansı artırmak için yerel bir önbelleğe sahiptir, ancak Kullanıcılar Cihaz en düşük katman depolama (bulut) dosyalarını Hizmetleri varsayın. Her sanal dizi yazma ve Azure depolama yaklaşık 100 Mbps hızında okuyun. Bu bağlantı cihazda gelen tüm istekleri arasında paylaşılan ve aşağıdaki çizimde gösterildiği gibi bir ayak bağı olabilir.
@@ -90,7 +90,7 @@ StorSimple sanal dizi yüksek kullanılabilirlik gerektiren iş yükleri için u
 
 StorSimple sanal dizinin özellikle aşağıdaki iş akışları için uygundur:
 
-* [Bulut tabanlı depolama yönetimi](#cloud-based-storage-management)
+* [bulut tabanlı depolama yönetimi](#cloud-based-storage-management)
 * [Konumdan bağımsız yedekleme](#location-independent-backup)
 * [Veri koruma ve olağanüstü durum kurtarma](#data-protection-and-disaster-recovery)
 
@@ -136,7 +136,7 @@ Sanal dizinin aşağıdaki özelliklere sahiptir:
 > [!NOTE]
 > Sanal bir dizi genişletilemiyor. Bu nedenle, sanal dizinin oluşturduğunuzda yeterli depolama alanı hazırlamak önemlidir.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple cihaz Yöneticisi hizmeti
+### <a name="storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti
 
 Microsoft Azure StorSimple StorSimple depolama merkezi olarak yönetmenizi sağlayan StorSimple cihaz Yöneticisi hizmeti bir web tabanlı kullanıcı arabirimi sağlar. StorSimple cihaz Yöneticisi hizmeti, şu görevleri gerçekleştirmek için kullanabilirsiniz:
 
@@ -205,6 +205,15 @@ StorSimple daha fazla bulut depolama gereksinimlerini azaltmak için yinelenenle
 ### <a name="scheduled-and-on-demand-backups"></a>Zamanlanmış ve isteğe bağlı yedeklemeler
 
 StorSimple veri koruma özelliklerine isteğe bağlı yedeklemeler oluşturmanızı sağlar. Ayrıca, bir varsayılan yedekleme zamanlaması günlük yedek yedeklenen verileri sağlar. Yedeklemeler, bulutta depolanan artımlı anlık görüntüleri biçiminde alınır. Son yedeklemeden sonra yalnızca değişiklikleri kaydedin, anlık görüntü oluşturulur ve hızlı bir şekilde geri. Bu anlık görüntüler, çünkü bunlar ikincil depolama sistemleri (örneğin, bant yedekleme) değiştirin ve, gerekirse, veri merkeziniz veya diğer siteler için geri yüklemenize izin olağanüstü durum kurtarma senaryolarında kritik düzeyde önemli olabilir.
+
+## <a name="gdpr-compliance"></a>GDPR uyumluluk
+[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz.
+
+Sanal seri için StorSimple Aygıt Yöneticisi'ni GDPR uyumlu değil. Burada kişisel bilgiler toplanır ve hizmetinde görüntülenen iki anahtar örnekleri şunlardır:
+ - Kullanıcıların e-posta adresini yapılandırıldığı kullanıcı ayarlarını uyarı. Bu bilgiler yönetici tarafından temizlenebilir. 
+ - Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve dışa aktarılabilir. Bu liste de silinir paylaşımları zaman silinir.
+
+Daha fazla bilgi için gözden [Güven Merkezi Microsoft Privacy İlkesi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

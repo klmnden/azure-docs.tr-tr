@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Doğrudan kimlik doğrulama | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama ve nasıl kullanıcıların parolalarını şirket içi Active Directory karşı doğrulayarak Azure AD oturum açma işlemleri sağlar açıklanmaktadır."
+title: 'Azure AD Connect: Doğrudan kimlik doğrulama | Microsoft Docs'
+description: Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama ve nasıl kullanıcıların parolalarını şirket içi Active Directory karşı doğrulayarak Azure AD oturum açma işlemleri sağlar açıklanmaktadır.
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama nedir, Active Directory, Azure AD, SSO için gerekli bileşenleri yüklemek çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama nedir, Active Directory, Azure AD, SSO için gerekli bileşenleri yüklemek çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: billmath
-ms.openlocfilehash: 5a559c749bc7ba3cabbbb1a171605b8baf601eef
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: d19e63e10f2d42d97bb6fabca9c9e47028cbaf39
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) doğrudan kimlik doğrulaması, kullanıcılar
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Bu özellik için bir alternatiftir [Azure AD parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md), bulut kimlik doğrulaması kuruluşlara aynı avantajı sağlar. Ancak, belirli kuruluşlardaki güvenlik ve uyumluluk ilkeleri kullanıcıların parolalarını bile iç sınırlarının dışında bir karma form göndermek için bu kuruluşların izin vermez. Doğrudan kimlik doğrulaması gibi kuruluş için doğru çözümdür.
+Bu özellik için bir alternatiftir [Azure AD parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md), bulut kimlik doğrulaması kuruluşlara aynı avantajı sağlar. Ancak, belirli kuruluşlardaki güvenlik ve uyumluluk ilkeleri kullanıcıların parolalarını bile iç sınırlarının dışında bir karma form göndermek için bu kuruluşların izin vermez. Doğrudan kimlik doğrulaması gibi kuruluş için doğru çözümdür.
 
 ![Azure AD doğrudan kimlik doğrulama](./media/active-directory-aadconnect-pass-through-authentication/pta1.png)
 

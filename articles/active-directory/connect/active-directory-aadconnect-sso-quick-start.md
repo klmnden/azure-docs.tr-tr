@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sorunsuz çoklu oturum açma - hızlı başlangıç | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma ile çalışmaya başlamak açıklar"
+title: 'Azure AD Connect: Sorunsuz çoklu oturum açma - hızlı başlangıç | Microsoft Docs'
+description: Bu makalede, Azure Active Directory sorunsuz çoklu oturum açma ile çalışmaya başlamak açıklar
 services: active-directory
-keywords: "Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: billmath
-ms.openlocfilehash: 67f6ca36c334a60b634094f07e5d9696a6961eb8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d026009151f85a01f14ce4dd8a510f60ff407da1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory sorunsuz çoklu oturum açma: Hızlı Başlangıç
 
@@ -32,7 +32,7 @@ Sorunsuz SSO dağıtmak için aşağıdaki adımları izleyin.
 
 Aşağıdaki önkoşulların yerine getirildiğinden emin olun:
 
-* **Azure AD Connect sunucusu kurma**: kullanırsanız [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) , oturum açma yöntemi, hiçbir ek Önkoşul denetimi gereklidir. Kullanırsanız [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md) , oturum açma yöntemi olarak ve Azure AD Connect ve Azure AD arasında bir güvenlik duvarı varsa, emin olun:
+* **Azure AD Connect sunucusu kurma**: kullanırsanız [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) , oturum açma yöntemi, hiçbir ek Önkoşul denetimi gereklidir. Kullanırsanız [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) , oturum açma yöntemi olarak ve Azure AD Connect ve Azure AD arasında bir güvenlik duvarı varsa, emin olun:
    - Sürüm 1.1.644.0 kullanın veya Azure AD Connect sonraki. 
    - Güvenlik Duvarı veya proxy bağlantıları için DNS uygulamaları, da beyaz liste güvenilir listeye almayı izin veriyorsa  **\*. msappproxy.net** URL'leri bağlantı noktası 443 üzerinden. Aksi durumda, erişim izni [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/details.aspx?id=41653), hangi haftalık güncelleştirildi. Yalnızca özelliğini etkinleştirdiğinizde bu geçerli bir önkoşuldur. Asıl kullanıcı oturum açma işlemleri için gerekli değildir.
 
@@ -87,7 +87,7 @@ Ayrıca, bir Intranet bölgesi İlkesi adlı ayarını etkinleştirmeniz gerekir
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>Neden kullanıcıların Intranet bölgesi ayarlarını değiştirmeniz gerekiyor mu?
 
-Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, "http://contoso/" ise Intranet bölgesine eşlemeleri "http://intranet.contoso.com/" (URL nokta içerdiğinden) Internet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar Kerberos biletleri için Azure AD URL gibi bir bulut uç noktası göndermez.
+Varsayılan olarak, tarayıcı doğru bölgesi, Internet veya Intranet, belirli bir URL'den otomatik olarak hesaplar. Örneğin, "http://contoso/"eşler Intranet bölgesine ise"http://intranet.contoso.com/" (URL nokta içerdiğinden) Internet bölgesine eşler. URL tarayıcının Intranet bölgesine açıkça eklemedikçe tarayıcılar Kerberos biletleri için Azure AD URL gibi bir bulut uç noktası göndermez.
 
 ### <a name="detailed-steps"></a>Ayrıntılı adımlar
 

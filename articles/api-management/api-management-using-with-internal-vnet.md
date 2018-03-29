@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management iç sanal ağlar ile kullanma | Microsoft Docs"
-description: "Ayarlama ve bir iç sanal ağ üzerinde Azure API Management yapılandırma hakkında bilgi edinin"
+title: Azure API Management iç sanal ağlar ile kullanma | Microsoft Docs
+description: Ayarlama ve bir iç sanal ağ üzerinde Azure API Management yapılandırma hakkında bilgi edinin
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: kjoshi
-editor: 
+editor: ''
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
 ms.service: api-management
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cf062cfcbbb2454adf20a06c31c81a60f6f5719f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: be4aa45c919f579355c6ac6c5682c1537e9cc0cb
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Azure API Management hizmeti bir iç sanal ağ ile kullanma
 Azure sanal ağları ile Azure API Management API'leri Internet üzerinden erişilebilir yönetebilirsiniz. VPN teknolojileri çeşitli bağlantı kurmak kullanılabilir. API Management, iki ana modda bir sanal ağ içinde dağıtılabilir:
@@ -44,7 +44,7 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 
 + **Azure API Management örneği**. Daha fazla bilgi için bkz: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
-## <a name="enable-vpn"></a>Bir API Management bir iç sanal ağ oluşturma
+## <a name="enable-vpn"> </a>Bir API Management bir iç sanal ağ oluşturma
 API Management hizmeti bir iç sanal ağ içinde bir iç yük dengeleyici (ILB) barındırılır.
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir sanal ağ bağlantısını etkinleştir
@@ -72,7 +72,7 @@ PowerShell cmdlet'lerini kullanarak sanal ağ bağlantısı daha da etkinleştir
 API Management dış sanal ağ modunda olduğunda DNS Azure tarafından yönetilir. İç sanal ağ modu için kendi yönlendirme yönetmeniz gerekir.
 
 > [!NOTE]
-> API Management hizmeti, IP adreslerinden gelen isteklerini dinlemez. Bunu yalnızca kendi hizmet uç noktaları üzerinde yapılandırılmış ana bilgisayar adı isteklerine yanıt verir. Bu uç noktaları, ağ geçidi, Geliştirici Portalı, Azurethe portal, doğrudan yönetim uç noktası ve Git içerir.
+> API Management hizmeti, IP adreslerinden gelen isteklerini dinlemez. Bunu yalnızca kendi hizmet uç noktaları üzerinde yapılandırılmış ana bilgisayar adı isteklerine yanıt verir. Bu uç noktaları, ağ geçidi, Azure portal ve Geliştirici Portalı, doğrudan yönetim uç noktası ve Git içerir.
 
 ### <a name="access-on-default-host-names"></a>Varsayılan ana bilgisayar adlarını erişimi
 Örneğin, "contoso" adlı bir API Management hizmeti oluşturduğunuzda, aşağıdaki hizmet uç noktaları varsayılan olarak yapılandırılır:
@@ -105,13 +105,13 @@ Daha sonra oluşturduğunuz sanal makineden tüm hizmet uç noktalarına erişeb
 
    2. Ardından, yalnızca sanal ağ içindeki erişilebilir uç noktaları erişmek için DNS sunucunuzun kayıtları oluşturabilirsiniz.
 
-## <a name="routing"></a> Yönlendirme
+## <a name="routing"> </a> Yönlendirme
 + Yük dengeli özel bir sanal IP adresi alt ağı aralığından ayrılmış ve sanal ağ içinden API Management hizmet uç noktalarından erişmek için kullanılır.
 + Bir yük dengeli ortak IP adresi (VIP), yalnızca bağlantı noktası üzerinden 3443 Yönetim Hizmeti uç noktası erişim sağlamak için de ayrılacak.
 + Bir alt ağ IP aralığı (DIP) bir IP adresinden vnet içindeki kaynaklara erişmek için kullanılan ve bir genel IP adresi (VIP) sanal ağ dışında kaynaklara erişmek için kullanılır.
 + Yük dengeli ortak ve özel IP adresleri genel bakış/Essentials dikey penceresinde Azure portalında bulunabilir.
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="related-content"> </a>İlgili içerik
 Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [Sanal bir ağa Azure API Management ayarlanıyor sırasında ortak ağ yapılandırma sorunları][Common network configuration problems]
 * [Sanal ağ ile ilgili SSS](../virtual-network/virtual-networks-faq.md)

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 470ad2fe458c47392b8f55a8f46c75e54ccf87a3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22ae56d9ebb2ea39acbd9f4536ef9ea5508b9867
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve sözdizimi için MongoDB API desteği
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Açık kaynak MongoDB istemci kanalıyla veritabanının MongoDB API ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). MongoDB API MongoDB için uygun olarak yüklemeyi mevcut istemci sürücüleri kullanılmasına izin verir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
-Azure Cosmos DB MongoDB API'sini kullanarak MongoDB için kullandığınız, tüm Azure Cosmos DB'ın Kurumsal özellikler ile API'leri yararları keyfini çıkarabilirsiniz: [genel dağıtım](distribute-data-globally.md), [otomatik parçalanmasını](partition-data.md), Kullanılabilirlik ve gecikme garantileri, dizin oluşturma, her alanı, rest, yedeklemeler ve daha fazlasını şifreleme otomatik.
+Azure Cosmos DB MongoDB API'sini kullanarak MongoDB için kullandığınız, tüm Azure Cosmos DB sağladığı kurumsal özelliklere API'leri yararları keyfini çıkarabilirsiniz: [genel dağıtım](distribute-data-globally.md), [otomatik parçalanmasını](partition-data.md), kullanılabilirlik ve gecikme garantileri, dizin oluşturma, her alanı, rest, yedeklemeler ve daha fazlasını şifreleme otomatik.
 
 ## <a name="mongodb-query-language-support"></a>MongoDB sorgu dil desteği
 

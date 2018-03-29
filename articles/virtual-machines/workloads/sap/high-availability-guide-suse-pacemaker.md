@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2982c8ba534b9a93a021a9d3a3819b904f09abc7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SUSE Linux Enterprise Server Azure üzerinde Pacemaker ayarlama
 
@@ -280,7 +280,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi   
 
    Bir DNS sunucusu kullanın veya tüm düğümlerde/etc/hosts değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
-   IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin
+   IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin. / Etc/hosts kullanmanın faydası, kümenizi hataları tek bir noktadan çok olabilen DNS bağımsız olmasıdır.
 
    <pre><code>
    sudo vi /etc/hosts
@@ -329,10 +329,16 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo vi /etc/corosync/corosync.conf   
    </code></pre>
 
-   Aşağıdaki kalın içeriği dosyaya ekleyin.
+   Değerler yok ya da farklı değilse aşağıdaki kalın içeriği dosyaya ekleyin.
    
    <pre><code> 
    [...]
+     <b>token:          5000
+     token_retransmits_before_loss_const: 10
+     join:           60
+     consensus:      6000
+     max_messages:   20</b>
+     
      interface { 
         [...] 
      }

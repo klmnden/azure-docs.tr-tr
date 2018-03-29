@@ -1,6 +1,6 @@
 ---
-title: Yakın gerçek zamanlı ölçüm uyarıları Azure İzleyicisi'nde | Microsoft Docs
-description: Azure kaynak ölçümleri Sıklık 1 dakika küçük izlemek için gerçek zamanlı ölçüm uyarıları kullanmayı öğrenin.
+title: Azure İzleyicisi'nde yeni ölçüm uyarıları desteklenen kaynakları | Microsoft Docs
+description: Başvuru destek ölçümleri ve daha yeni Azure yakın gerçek zamanlı ölçüm uyarılar için günlükleri.
 author: snehithm
 manager: kmadnani1
 editor: ''
@@ -12,32 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: 15b9b0b69f3805b3e3af1d3973fd3a77bea62ab9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6ccb095f3739a90bdab2408965a742f9cbc19359
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="use-the-newer-metric-alerts-for-azure-services-in-azure-portal"></a>Azure portalında Azure Hizmetleri için yeni ölçüm uyarıları kullanın
-Azure İzleyici gerçek zamanlı ölçüm uyarıları adlı yeni bir uyarı türünü destekler. 
+# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure portalında Azure Hizmetleri için yeni ölçüm uyarıları
+Azure İzleyici artık yeni bir ölçüm uyarı türü destekler. Yeni uyarılar farklı [Klasik ölçüm uyarıları](insights-alerts-portal.md) birkaç şekilde:
 
-Uyarıları gerçek zamanlı ölçüm farklı [Klasik ölçüm uyarıları](insights-alerts-portal.md) birkaç şekilde:
+- **Geliştirilmiş gecikme**: yeni ölçüm uyarıları dakikada bir kadar sık çalıştırılabilir. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır. Günlük uyarı çözümlenmedi bir uzun 1'den gecikme süresi nedeniyle günlüklerini alma kadar süreceğine dakikadır. 
+- **Çok boyutlu ölçümleri desteği**: yalnızca bir izlemenizi sağlayan boyutlu ölçülerine uyarabilir ölçümün ilginç bir kesimi. 
+- **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin uyarı kurallarını tanımlayabilirsiniz. Yeni uyarılar ölçümleri maksimum, minimum, ortalama ve toplam değerler izlemeyi destekler. 
+- **Birden çok ölçümlerini izleme birleştirilmiş**: tek bir kural ile birden çok ölçümleri (şu anda en fazla iki ölçümleri) izleyebilirsiniz. Her iki ölçümleri, belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal varsa bir uyarı tetiklenir. 
+- **Daha iyi bildirim sistemi**: tüm yeni Uyarıları kullanmak [Eylem grupları](monitoring-action-groups.md), bildirimler ve birden çok uyarıları yeniden kullanılabilir eylemler grupları denir. Klasik ölçüm uyarıları ve eski günlük analizi uyarıları Eylem grupları kullanmayın. 
+- **Ölçümleri günlüklerinden** (sınırlı genel Önizleme): günlük analizi giderek veri için şimdi günlük ayıklanan ve Azure İzleyici ölçümleri dönüştürülür ve ardından yalnızca diğer ölçümleri gibi uyarı. 
 
-- **Geliştirilmiş gecikme**: Gerçek zamanlı ölçüm uyarıları gibi bir sıklıkla bir dakikada çalıştırabilirsiniz. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır.
-- **Çok boyutlu ölçümleri desteği**: ölçüm ilginç bir parçasını izlemenizi sağlayan boyutlu ölçülerine uyarabilir.
-- **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin uyarı kurallarında yakın gerçek zamanlı ölçüm uyarıları tanımlayabilirsiniz. Uyarıları maksimum, minimum, ortalama ve toplam değerler ölçümleri izleme destekler.
-- **Birden çok ölçümlerini izleme birleştirilmiş**: Gerçek zamanlı ölçüm uyarıları (şu anda en fazla iki ölçümleri) birden çok ölçümleri tek bir kural ile izleyebilirsiniz. Her iki ölçümleri belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal varsa bir uyarı tetiklenir.
-- **Modüler bildirim sistemi**: uyarıları gerçek zamanlı ölçüm kullanmak [Eylem grupları](monitoring-action-groups.md). Modüler eylemlerini oluşturmak için eylem gruplarını kullanabilirsiniz. Birden çok uyarı kuralları Eylem grupları yeniden kullanabilirsiniz.
-- **Ölçümleri günlüklerinden**: giren popüler günlük verilerden [günlük analizi](../log-analytics/log-analytics-overview.md), ölçümleri Azure izleyicisine ayıklanabilir ve en gerçek zamanlı olarak uyarılmak.
+Azure portalında yeni bir ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Oluşturulduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
 
+
+## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell'i, CLI, REST
+Şu anda yalnızca Azure portalı veya REST API'sini yeni ölçüm uyarılar oluşturabilirsiniz. PowerShell kullanarak yeni uyarıları yapılandırmak için destek ve Azure komut satırı arabirimi (Azure CLI 2.0) yakında çıkıyor.
 
 ## <a name="metrics-and-dimensions-supported"></a>Ölçümleri ve desteklenen boyutlar
-Gerçek zamanlı ölçüm uyarılar için Boyutlar kullanmak ölçümleri uyarı destekler. Boyutları, ölçüm sağ düzeyine filtrelemek için kullanabilirsiniz. Geçerli boyutlar yanı sıra tüm desteklenen ölçümleri incelediniz ve gelen görselleştirilen [Azure İzleyicisi - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).
+Yeni ölçüm uyarılar için Boyutlar kullanmak ölçümleri uyarı destekler. Boyutları, ölçüm sağ düzeyine filtrelemek için kullanabilirsiniz. Geçerli boyutlar yanı sıra tüm desteklenen ölçümleri incelediniz ve gelen görselleştirilen [Azure İzleyicisi - ölçüm Gezgini (Önizleme)](monitoring-metric-charts.md).
 
-Gerçek zamanlı ölçüm uyarılar için desteklenen tabanlı Azure İzleyici ölçüm kaynaklarının tam listesi aşağıdadır:
+Yeni uyarılar tarafından desteklenen Azure İzleyici ölçüm kaynaklarının tam listesi aşağıdadır:
 
 |Kaynak türü  |Desteklenen boyutlar  | Kullanılabilir ölçümler|
 |---------|---------|----------------|
@@ -60,25 +63,20 @@ Gerçek zamanlı ölçüm uyarılar için desteklenen tabanlı Azure İzleyici �
 |Microsoft.Storage/storageAccounts/services     |     Evet    | [BLOB Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsblobservices), [Dosya Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsfileservices), [kuyruk Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountsqueueservices) ve [Tablo Hizmetleri](monitoring-supported-metrics.md#microsoftstoragestorageaccountstableservices)|
 |Microsoft.StreamAnalytics/streamingjobs     |  Yok       | [Akış Analizi](monitoring-supported-metrics.md#microsoftstreamanalyticsstreamingjobs)|
 |Microsoft.CognitiveServices/accounts     |    Yok     | [Bilişsel Hizmetler](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
-|Microsoft.OperationalInsights/workspaces (Preview) | Evet|[Günlük analizi çalışma alanları](#support-for-oms-logs-as-metrics-for-alerting)|
+|Microsoft.OperationalInsights/workspaces (Preview) | Evet|[Günlük analizi çalışma alanları](#log-analytics-logs-as-metrics-for-alerting)|
 
 
-## <a name="create-a-newer-metric-alert"></a>Daha yeni bir ölçüm uyarısı oluştur
-Şu anda yalnızca Azure portalı veya REST API'sini yeni ölçüm uyarılar oluşturabilirsiniz. PowerShell, Azure komut satırı arabirimi (Azure CLI) kullanarak gerçek zamanlı ölçüm uyarıları yapılandırma desteği yakında geliyor.
+## <a name="log-analytics-logs-as-metrics-for-alerting"></a>Günlük analizi uyarı verme ölçümleri olarak günlüğe kaydeder 
 
-Azure portalında yeni bir ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal).
-
-## <a name="manage-newer-metric-alerts"></a>Yeni ölçüm Uyarıları yönetme
-Yakın gerçek zamanlı ölçüm uyarı oluşturduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
-## <a name="support-for-oms-logs-as-metrics-for-alerting"></a>Uyarı verme ölçümleri olarak OMS günlükleri için destek
-
-Gerçek zamanlı ölçüm ölçümleri günlükleri Önizleme ölçümleri bir parçası olarak olarak ayıklanan popüler OMS günlükleri uyarılar yakın kullanabilirsiniz.  
+Ayrıca, daha yeni ölçüm uyarıları günlükleri Önizleme ölçümleri bir parçası olarak ölçümleri olarak ayıklanan popüler günlük analizi günlükleri kullanabilirsiniz.  
 - [Performans sayaçları](../log-analytics/log-analytics-data-sources-performance-counters.md) Windows ve Linux makineler için
 - [Aracı sistem durumu için sinyal kayıtları](../operations-management-suite/oms-solution-agenthealth.md)
 - [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md) kayıtları
+ 
+> [!NOTE]
+> Belirli ölçüm ve/veya boyut yalnızca veri onun için seçilen dönemde var olup olmadığını gösterilir. Bu ölçümler Önizleme çevirdiniz çalışma alanları Doğu ABD, Batı Orta ABD ve Batı Avrupa'da sahip müşteriler için kullanılabilir. Bu önizleme parçası olmasını istiyorsanız, kullanarak kaydolma [anket](https://aka.ms/MetricLogPreview).
 
-Gerçek zamanlı ölçüm uyarılar için desteklenen OMS günlük tabanlı ölçüm kaynaklarının tam listesi aşağıdadır:
+Aşağıdaki listede günlük analizi günlük tabanlı ölçüm kaynakları desteklenir:
 
 Ölçüm adı/ayrıntıları  |Desteklenen boyutlar  | Günlük türü  |
 |---------|---------|---------|
@@ -151,13 +149,11 @@ Gerçek zamanlı ölçüm uyarılar için desteklenen OMS günlük tabanlı öl�
 |    Sinyal  |     Evet - bilgisayar, OSType, sürüm ve SourceComputerId    |   Sinyal kayıtları |
 |    Güncelleştirme |     Evet - bilgisayar, ürün, Sınıflandırma, UpdateState, isteğe bağlı & onaylanan    |   Güncelleştirme Yönetimi |
 
-> [!NOTE]
-> Belirli ölçüm ve/veya boyut yalnızca veri onun için seçilen dönemde var olup olmadığını gösterilir. Bu ölçümler Önizleme çevirdiniz çalışma alanları Doğu ABD, Batı Orta ABD ve Batı Avrupa'da sahip müşteriler için kullanılabilir. Bu önizleme parçası olmasını istiyorsanız, kullanarak kaydolma [anket](https://aka.ms/MetricLogPreview).
 
 
 ## <a name="payload-schema"></a>Yükü şeması
 
-GÖNDERME işlemini aşağıdaki JSON yükü ve şema tüm uygun şekilde yapılandırıldığında gerçek zamanlı ölçüm uyarıları yakın içerir [eylem grubu](monitoring-action-groups.md) kullanılır:
+Tüm yeni ölçüm uyarıları uygun şekilde yapılandırılmış zaman yakın aşağıdaki JSON yükü ve şema gönderme işlemini içeren [eylem grubu](monitoring-action-groups.md) kullanılır:
 
 ```json
 {"schemaId":"AzureMonitorMetricAlert","data":

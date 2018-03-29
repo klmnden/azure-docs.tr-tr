@@ -1,26 +1,26 @@
 ---
 title: Azure AD SSPR'yi parola geri yazma ile | Microsoft Docs
-description: "Kullanım Azure AD ve bir şirket içi dizine parolaları geri yazma için Azure AD Connect"
+description: Kullanım Azure AD ve bir şirket içi dizine parolaları geri yazma için Azure AD Connect
 services: active-directory
-keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
-documentationcenter: 
+keywords: Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: bcb7074a6d590a08ad683c8746156245bc60c5e8
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a7a81f51e0873da38f25deb687e4d03ccf67e11a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="password-writeback-overview"></a>Parola geri yazma genel bakış
 
@@ -30,7 +30,7 @@ Parola geri yazma aşağıdaki özellikleri sağlar:
 
 * **Sıfır Gecikmeli geri bildirim sağlar**: parola geri yazma eşzamanlı bir işlem değil. Parolalarını İlkesi karşılamayan veya bırakılamadı sıfırlama veya herhangi bir nedenle değişti, kullanıcılarınızın hemen bildirilir.
 * **Destekler parola sıfırlamaları Active Directory Federasyon Hizmetleri (AD FS) veya diğer Federasyon teknolojileri kullanan kullanıcılar için**: Azure AD kiracınıza eşitlenen Federasyon kullanıcısı hesapları sürece sahip parola geri yazma, bunlar olan Şirket içi Active Directory parolalarını buluttan yönetin.
-* **Destekler parola sıfırlamaları kullanan kullanıcılar için** [parola karması eşitlemesi](./connect/active-directory-aadconnectsync-implement-password-synchronization.md): parola sıfırlama hizmeti bir eşitlenmiş kullanıcı hesabı için parola karma eşitlemesi etkin olduğunu algıladığında, biz içi hem de bu hesabın sıfırlama ve parola aynı anda bulut.
+* **Destekler parola sıfırlamaları kullanan kullanıcılar için** [parola karması eşitlemesi](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md): parola sıfırlama hizmeti bir eşitlenmiş kullanıcı hesabı için parola karma eşitlemesi etkin olduğunu algıladığında, biz içi hem de bu hesabın sıfırlama ve parola aynı anda bulut.
 * **Destekler parolasını sıfırlar, geçişli kimlik doğrulaması kullanan kullanıcıları için**: Azure AD kiracınıza eşitlenen doğrudan kimlik doğrulama hesapları sürece sahip parola geri yazma, bunlar kendi şirket içi Active yönetebilmek için Bulut parolalardan dizin.
 * **Erişim paneli ve Office 365 destekler parola değişikliklerini**: federe olduğunda veya Biz bu parolaları yerel Active Directory ortamınızı geri yazma süresi dolmuş ya da süresi dolmuş olmayan kullanıcıların parolalarını değiştirmek için gelen parola eşitlenen kullanıcılar.
 * **Bir yönetici bunları Azure portalından sıfırlandıktan sonra parola geri yazma destekleyen**: her bir yönetici bir kullanıcının parolasını sıfırlar [Azure portal](https://portal.azure.com), kullanıcının Federasyon ya da eşitlenmiş parola, parola ayarlar yöneticinin yerel Active Directory'de de seçer. Bu işlev Office Yönetim Portalı'nda şu anda desteklenmiyor.

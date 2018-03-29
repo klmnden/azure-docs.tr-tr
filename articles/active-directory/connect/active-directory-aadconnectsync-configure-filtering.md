@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: filtrelemeyi yapılandırma | Microsoft Docs"
-description: "Azure AD Connect eşitleme filtrelemenin nasıl yapılandırılacağı açıklanmaktadır."
+title: 'Azure AD Connect eşitleme: filtrelemeyi yapılandırma | Microsoft Docs'
+description: Azure AD Connect eşitleme filtrelemenin nasıl yapılandırılacağı açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 880facf6-1192-40e9-8181-544c0759d506
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 5af82e889a80994dd47d4fc3b89f8eece2201355
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış ormandaki tüm etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için Exchange Online ve Skype Kurumsal, gibi Office 365 iş yükleri kullanarak kullanıcıların tam genel adres listesinden yararlanır. Varsayılan yapılandırma ile kullanıcılar bir şirket içi Exchange veya Lync uygulamasıyla olurdu aynı deneyimi gerekir.
@@ -44,7 +44,7 @@ Filtreleme birçok nesne aynı anda kaldırabilirsiniz çünkü herhangi bir de�
 
 Yanlışlıkla özellik birçok nesne silme korumak için "[yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)" varsayılan olarak açıktır. (Varsayılan değer 500) filtreleme nedeniyle birçok nesne silerseniz, Azure AD üzerinden geçerek siler izin vermek için bu makaledeki adımları gerekir.
 
-Kasım 2015 önce bir yapı kullanıyorsanız ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), bir filtre yapılandırmaya değişiklik ve yapılandırmayı tamamladıktan sonra tam eşitleme tüm parolaların tetiklemek gereken sonra parola eşitleme, kullanın. Parola tam eşitlemesi adımları için bkz: [tüm parolaların tam eşitlemesi](active-directory-aadconnectsync-troubleshoot-password-synchronization.md#trigger-a-full-sync-of-all-passwords). Yapı 1.0.9125 üzerinde değilseniz veya sonraki sürümlerde, sonra normal **tam eşitleme** eylemi de hesaplar parolalarını eşitlenmiş olması gerektiği ve bu ek adım artık gerekli olup olmadığını.
+Kasım 2015 önce bir yapı kullanıyorsanız ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)), bir filtre yapılandırma değişiklik ve yapılandırmayı tamamladıktan sonra tam eşitleme tüm parolaların tetiklemek gereken sonra parola karma eşitlemesi, kullanın. Parola tam eşitlemesi adımları için bkz: [tüm parolaların tam eşitlemesi](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Yapı 1.0.9125 üzerinde değilseniz veya sonraki sürümlerde, sonra normal **tam eşitleme** eylemi de hesaplar parolalarını eşitlenmiş olması gerektiği ve bu ek adım artık gerekli olup olmadığını.
 
 Varsa **kullanıcı** yanlışlıkla silinen nesneleri Azure AD'de bir filtre hatası nedeniyle, kullanıcı nesnelerini filtreleme yapılandırmalarınızın kaldırarak Azure AD'de yeniden oluşturabilirsiniz. Ardından, dizinleri yeniden eşitleyebilirsiniz. Bu eylem, kullanıcıların Azure AD'de Geri Dönüşüm Kutusu'ndan geri yükler. Ancak, diğer nesne türleri geri alamazsınız. Örneğin, bir güvenlik grubu yanlışlıkla silerseniz ve ACL için kullanılan bir kaynak, Grup ve onun ACL'ler kurtarılamıyor.
 
@@ -255,7 +255,7 @@ Bu örnekte, böylece yalnızca kullanıcılar, posta ve userPrincipalName biten
 4. Kullandığınız Bağlan sürümüne bağlı olarak, ya da adlı kural bulunamadı **Out AAD'ye – kullanıcı katılma** veya **çıkışı AAD'ye - kullanıcı katılma SOAInAD**, tıklatıp **Düzenle**.
 5. Açılır pencerede yanıt **Evet** kuralın bir kopyası oluşturulamıyor.
 6. Üzerinde **açıklama** sayfasında, değişiklik **öncelik** 50 gibi kullanılmayan bir değere.
-7. Tıklatın **Scoping filtre** sol gezinti ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **posta**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü  **@contoso.com** ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **userPrincipalName**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü  **@contoso.com** .
+7. Tıklatın **Scoping filtre** sol gezinti ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **posta**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü **@contoso.com**ve ardından **Ekle yan tümcesi**. İçinde **özniteliği**seçin **userPrincipalName**. İçinde **işleci**seçin **ENDSWITH**. İçinde **değeri**, türü **@contoso.com**.
 8. **Kaydet**’e tıklayın.
 9. Yapılandırmayı tamamlamak için çalıştırmanız gerekir bir **tam eşitleme**. Bölüm okuma devam [Uygula ve değişiklikleri doğrulamak](#apply-and-verify-changes).
 
