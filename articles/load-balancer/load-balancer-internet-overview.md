@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 14375dc7777a4f24db9f7246e6e99f26bd0eb858
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 33a63538e3b96c5a37ddda6be31a0d972884b9b7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="internet-facing-load-balancer-overview"></a>Internet kullanıma yönelik Yük Dengeleyici genel bakış
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure yük dengeleyici gelen trafiği ortak IP adresi ve bağlantı noktası numarasını özel IP adresi ve bağlantı noktası numarası sanal makinenin ve tersi yanıt trafiği sanal makineden eşler. Yük Dengeleme kurallarında belirli birden çok sanal makineler veya hizmetler arasındaki trafik türlerinin dağıtmak olanak sağlar. Örneğin, birden çok web sunucuları veya web rolleri web isteği trafik yükünü yayılabilir.
 

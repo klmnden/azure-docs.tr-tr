@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights uygulama eşlemesinde | Microsoft Docs"
-description: "Karmaşık bir uygulama topolojileri uygulama eşlemesi ile izleme"
+title: Azure Application Insights uygulama eşlemesinde | Microsoft Docs
+description: Karmaşık bir uygulama topolojileri uygulama eşlemesi ile izleme
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 3bbed59bf93eab5e729fbdd3ccae04599ac47081
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 4b95cd947cd977208dee32d18fbc6a1fb099ff3b
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama eşlemesi: Dağıtılmış uygulamalar Önceliklendirme
 Uygulama eşlemesi nokta performans sorunları veya hata etkin, dağıtılmış uygulamanın tüm bileşenleri arasında yardımcı olur. Harita her bir düğümde bir uygulama bileşeni veya bağımlılıklarını temsil eder; durumu KPI sahip ve durum uyarır. Aracılığıyla herhangi bir bileşeni Application Insights olaylarını gibi daha ayrıntılı tanılama tıklayabilirsiniz. Uygulamanızı Azure hizmetlerini kullanıyorsa, üzerinden SQL Database Advisor önerileri gibi Azure tanılama tıklatabilirsiniz.
@@ -37,7 +37,7 @@ Dağıtılmış mikro uygulamanızın bağımsız olarak dağıtılabilir parça
 ![Önizleme harita etkinleştir](media/app-insights-app-map/preview-from-classic.png)
 
 >[!Note]
-Bu önizleme önceki "Mult-role uygulama eşlemesi" Önizleme değiştirir. Şu anda bu uygulama bileşeni bağımlılıkları birden çok düzeyi arasında tüm topolojisini görüntülemek için kullanın. Bize geri bildirim verin, biz Klasik harita destekler ne benzer daha fazla yetenekleri ekleme.
+Bu önizleme önceki "Birden çok rol uygulama eşlemesi" Önizleme değiştirir. Şu anda bu uygulama bileşeni bağımlılıkları birden çok düzeyi arasında tüm topolojisini görüntülemek için kullanın. Bize geri bildirim verin, biz Klasik harita destekler ne benzer daha fazla yetenekleri ekleme.
 
 Birden çok düzeyde ilgili uygulama bileşenleri arasında tam uygulama topolojisi görebilirsiniz. Bileşenleri farklı Application Insights kaynaklar ya da farklı rollerdeki tek bir kaynak olabilir. Uygulama eşleme bileşenleri yüklü Application Insights SDK'sı ile sunucu arasında yapılan aşağıdaki HTTP bağımlılık çağrıları tarafından bulur. 
 
@@ -142,4 +142,4 @@ Portal geri bildirimi seçeneği aracılığıyla geri bildirim sağlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure portalı](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)

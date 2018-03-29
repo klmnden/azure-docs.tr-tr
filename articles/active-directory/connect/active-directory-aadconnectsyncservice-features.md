@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme hizmeti özelliklerini ve yapılandırma | Microsoft Docs"
-description: "Azure AD Connect eşitleme hizmeti için hizmet tarafı özelliklerini açıklar."
+title: Azure AD Connect eşitleme hizmeti özelliklerini ve yapılandırma | Microsoft Docs
+description: Azure AD Connect eşitleme hizmeti için hizmet tarafı özelliklerini açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: b716e553f7c4c11f6d566b43d771217fdf4b3a93
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 534e4e6d8b6ea2bfc059383e3e55c0352678ee04
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -37,7 +37,7 @@ Bu ayarların çoğu, yalnızca Azure AD Connect tarafından değiştirilebilir.
 
 Aşağıdaki ayarları tarafından yapılandırılabilir `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Yorum |
+| DirSyncFeature | Açıklama |
 | --- | --- |
 | [EnableSoftMatchOnUpn](#userprincipalname-soft-match) |Birincil SMTP adresi yanı sıra userPrincipalName katılmak nesneleri sağlar. |
 | [SynchronizeUpnForManagedUsers](#synchronize-userprincipalname-updates) |UserPrincipalName özniteliğinin (Federasyon olmayan) kullanıcıların yönetilen ve lisanslı güncelleştirmek eşitleme altyapısı sağlar. |
@@ -51,12 +51,12 @@ Bir özellik etkinleştirdikten sonra onu yeniden devre dışı bırakılamaz.
 
 Aşağıdaki ayarları Azure AD Connect tarafından yapılandırılır ve tarafından değiştirilemez `Set-MsolDirSyncFeature`:
 
-| DirSyncFeature | Yorum |
+| DirSyncFeature | Açıklama |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect eşitleme: dizin uzantıları](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Dışa aktarma sırasında başarısız olan nesnenin tamamı yerine başka bir nesnenin yinelemesi karantinaya için bir öznitelik sağlar. |
-| PasswordSync |[Parola Eşitleme ile Azure AD Connect eşitleme uygulama](active-directory-aadconnectsync-implement-password-synchronization.md) |
+| PasswordSync |[Parola Eşitleme ile Azure AD Connect eşitleme uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
 | UnifiedGroupWriteback |[Önizleme: Grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Şu anda desteklenmiyor. |
 

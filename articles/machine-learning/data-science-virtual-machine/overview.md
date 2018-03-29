@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f62f6c4b2679457e8aaddb81e8a37622ca878ffc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8ee4af162ddaa64d4dbe83bebbb93e22409f041d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Linux ve Windows Azure veri bilimi sanal makine için giriş
 
@@ -29,7 +29,7 @@ Bu konuda veri bilimi VM ile neler yapabileceğinizi açıklar, bazı VM kullanm
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Veri bilimi sanal makine ile ne yapabilirim?
-Hedef, veri bilimi sanal makine, bir uyuşmazlık boş veri bilimi ortamıyla tüm beceri düzeylerini ve rolleri veri uzmanları sağlamaktır. Bu VM, karşılaştırılabilir bir ortamda, kendi alındı, harcadığınız önemli ölçüde zaman kazandırır. Bunun yerine, veri bilimi projenizi hemen bir yeni oluşturulan VM örneğinde başlatın. 
+Hedef veri bilimi sanal makine (DSVM), bir uyuşmazlık ücretsiz, önceden yapılandırılmış ve tam olarak tümleşiktir veri bilimi ortamıyla veri uzmanları tüm yetenek düzeylerde ve tüm rolleri sağlamaktır. Out karşılaştırılabilir bir çalışma alanı, kendi çalışırken yerine, gün veya hatta kaydetme DSVM - sağlayabilirsiniz _hafta_ yükleme, yapılandırma ve paket yönetim işlemleri. DSVM ayrıldıktan sonra veri bilimi projenizde hemen çalışmaya başlayabilirsiniz.
 
 Veri bilimi VM tasarlanmış ve çok çeşitli kullanım senaryoları ile çalışmak için yapılandırılmış. Projenizi gereksinimleriniz değiştikçe yukarı veya aşağı ortamınızı ölçeklendirebilirsiniz. Tercih ettiğiniz dili program veri bilimi görevleri için kullanabilirsiniz. Diğer Araçları'nı yüklemek ve sistem tam gereksinimlerinize göre özelleştirin.
 

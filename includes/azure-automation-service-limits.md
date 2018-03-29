@@ -7,4 +7,4 @@
 | İş çalışma zamanı - ücretsiz katmanı |Aylık takvim abonelik başına 500 dakika |
 | En çok işe verilen bellek miktarı |400 MB |
 | Ağ yuva iş başına izin verilen en fazla sayısı |1000 |
-
+| Automation hesapları bir abonelikte en fazla sayısı |Sınırsız |

@@ -1,5 +1,5 @@
 ---
-title: Azure dosyaları (Önizleme) paylaşımı anlık görüntüleri genel bakış | Microsoft Docs
+title: Azure dosya paylaşımı anlık görüntüleri genel bakış | Microsoft Docs
 description: Paylaşım anlık bir noktada paylaşımını yedekleme için bir yöntem olarak, zaman içinde alınmış bir Azure dosya paylaşımının salt okunur bir sürümüdür.
 services: storage
 documentationcenter: .net
@@ -14,32 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: 671e3737a620d85c732a091d5a62f35f35c1d515
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6499bdf1af676898f7b2911612cbd206bccfa4fa
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure dosya paylaşımı anlık görüntüleri genel bakış 
 Azure dosyaları dosya paylaşımları paylaşımı anlık görüntüsünü olanağı sunar. Anlık görüntüleri yakalama paylaşım durumu zamandaki o noktada paylaşır. Bu makalede, paylaşım anlık görüntüleri sağlamak hangi özelliklere ve nasıl, bunları özel kullanım durumda yararlanabilir açıklanmaktadır.
 
-
 ## <a name="when-to-use-share-snapshots"></a>Paylaşım anlık görüntüleri kullanma zamanı
 
 ### <a name="protection-against-application-error-and-data-corruption"></a>Uygulama hata ve veri bozulmasına karşı koruma
-
 Dosya paylaşımları kullanan uygulamalar yazma, okuma, depolama, iletim ve işleme gibi işlemleri gerçekleştirir. Bir uygulama yanlış yapılandırılmış veya istenmeyen bir hata ortaya, yanlışlıkla üzerine yazma veya hasar birkaç bloklarına durum meydana gelebilir. Bu senaryoya karşı korunmasına yardımcı olmak için yeni uygulama kodu dağıtmadan önce bir paylaşım anlık görüntü alabilir. Bir hata veya uygulama hatası ile yeni dağıtım kullanılırsa, bu dosya paylaşımında verilerinizin önceki sürüme geri dönebilirsiniz. 
 
 ### <a name="protection-against-accidental-deletions-or-unintended-changes"></a>Yanlışlıkla silmeleri ya da istenmeyen değişikliklere karşı koruma
-
 Bir metin dosyasına bir dosya paylaşımı üzerinde çalıştığınız düşünün. Metin dosyasını kapatıldıktan sonra yaptığınız değişiklikleri geri almak için yönetemez. Bu durumlarda, ardından dosyayı önceki bir sürümünü kurtarmak gerekir. Paylaşım anlık görüntülerin yanlışlıkla yeniden adlandırılmış veya silinmiş olup olmadığını dosyanın önceki sürümlerini kurtarmak için kullanabilirsiniz.
 
 ### <a name="general-backup-purposes"></a>Genel yedekleme amaçları
-
 Bir dosya paylaşımı oluşturduktan sonra düzenli aralıklarla veri yedekleme için kullanmak üzere dosya paylaşımının paylaşım anlık görüntü oluşturabilirsiniz. Anlık görüntü, düzenli aralıklarla durumdayken bir paylaşımı gelecekteki denetim gereksinimleri veya olağanüstü durum kurtarma için kullanılabilir verilerin önceki sürümlerini korumaya yardımcı olur.
 
 ## <a name="capabilities"></a>Özellikler
-
 Verilerinizi zaman içinde nokta, salt okunur bir kopyasını paylaşımı anlık görüntüsüdür. Oluşturma, silme ve anlık görüntüleri REST API'sini kullanarak yönetin. Aynı yetenekleri de istemci kitaplığı, Azure CLI ve Azure portalında kullanılabilir. 
 
 Bir paylaşım anlık görüntüleri REST API ve SMB kullanarak görüntüleyebilirsiniz. Dizin veya dosya sürümlerinin listesi alabilir ve doğrudan bir sürücü olarak belirli bir sürüme bağlayabilir. 
@@ -59,9 +54,7 @@ Paylaşım anlık görüntüsünü bir dosya paylaşımı oluşturduğunuzda, do
 
 Tüm paylaşım anlık görüntüleri silmeniz sürece, paylaşım anlık görüntülere sahip bir paylaşımı silemezsiniz.
 
-
 ## <a name="space-usage"></a>Alanı kullanımı 
-
 Doğası gereği artımlı paylaşımı anlık görüntüler. Yalnızca en son paylaşımı anlık kaydedildikten sonra yalnızca değişen verileri. Bu paylaşım anlık görüntü oluşturmak için gereken süreyi en aza indirir ve depolama maliyetlerini kaydeder. Nesneye herhangi bir yazma işlemi veya özellik veya meta veri güncelleştirme işlemi "doğru değiştirilen içerik" kabul edilir ve Paylaşım anlık görüntü depolanır. 
 
 Alanından tasarruf etmek için ne zaman karmaşıklığı en yüksek süre paylaşımı anlık görüntü silebilirsiniz.
@@ -71,13 +64,11 @@ Artımlı olarak kaydedilmiş paylaşımı anlık olsa bile paylaşımını geri
 Anlık görüntüler, 5 TB paylaşımı sınırında sayılmaz. Ne kadar alan paylaşımı anlık görüntüleri toplam kaplar bir sınır yoktur. Depolama hesabı sınırları hala geçerlidir.
 
 ## <a name="limits"></a>Sınırlar
-
 Maksimum sayıda Azure dosyaları bugün verir paylaşımı anlık görüntü 200'dür. 200 paylaşımı anlık görüntüleri sonra yeni kampanya oluşturmak için eski paylaşımı anlık görüntüleri silmeniz gerekir. 
 
 Paylaşım anlık görüntüleri oluşturmak için eş zamanlı çağrıları için bir sınır yoktur. Belirli dosya paylaşımı anlık görüntüleri tüketebileceği paylaşan alanı için sınır yoktur. 
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Paylaşım anlık görüntüden geri bir paylaşıma veri kopyalama
-
 Bu kurallar dosyaları içerir ve anlık görüntüleri paylaşan kopyalama işlemleri izleyin:
 
 Tek bir dosya paylaşımı anlık dosyalarında üzerinden temel paylaşımı veya başka bir konuma kopyalayabilirsiniz. Bir dosyanın önceki bir sürümünü geri yükleyin veya paylaşım anlık görüntüden dosyası tarafından kopyalayarak tam dosya paylaşımını geri yükleme. Paylaşım anlık görüntü temel paylaşımına yükseltilmez. 
@@ -89,7 +80,6 @@ Farklı bir adla bir hedefe paylaşımı anlık görüntüde bir dosyaya kopyala
 Bir hedef dosya bir kopya ile yazılır, özgün hedef dosya ile ilişkili tüm paylaşım anlık görüntüleri değişmeden kalır.
 
 ## <a name="general-best-practices"></a>Genel en iyi yöntemler 
-
 Azure üzerinde altyapı çalıştırırken, mümkün olduğunda veri kurtarma için yedeklemeleri otomatikleştirin. Otomatik eylemler veri koruma ve kurtarılabilirliği artırmasına yardımcı el ile işlemleri daha güvenlidir. REST API, istemci SDK'sını ya da Otomasyon için komut dosyalarını kullanabilirsiniz.
 
 Paylaşım anlık görüntü Zamanlayıcı'yı dağıtmadan önce paylaşım anlık görüntü sıklığı ve gereksiz ücret oluşmasını önlemek için saklama ayarları dikkatlice düşünün.
@@ -97,6 +87,8 @@ Paylaşım anlık görüntü Zamanlayıcı'yı dağıtmadan önce paylaşım anl
 Paylaşım anlık görüntüleri yalnızca dosya düzeyinde korumasını sağlar. Paylaşım anlık görüntüler bir dosya paylaşımı veya depolama hesabında fat parmak silme engellemez. Bir depolama hesabını yanlışlıkla silinmesini korunmasına yardımcı olmak için depolama hesabı veya kaynak grubu kilitleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Paylaşım anlık görüntüleri ile çalışma](storage-how-to-use-files-snapshots.md)
-* [Anlık görüntü SSS paylaşma](storage-files-faq.md#share-snapshots)
-
+- Paylaşım anlık görüntüleri ile çalışma:
+    - [Portal](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
+    - [CLI](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+- [Anlık görüntü SSS paylaşma](storage-files-faq.md#share-snapshots)

@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Kullanıcı oturum açma | Microsoft Docs"
-description: "Azure AD Connect kullanıcı oturum açma için özel ayarlar."
+title: 'Azure AD Connect: Kullanıcı oturum açma | Microsoft Docs'
+description: Azure AD Connect kullanıcı oturum açma için özel ayarlar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Bağlan aynı parolayı kullanarak Bulut ve şirket içi kaynaklara oturum açmalarını sağlar. Bu makalede, Azure AD ile oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
 
 Zaten Azure AD kimlik modeliyle tanıdık ve belirli bir yöntemi hakkında daha fazla bilgi edinmek istiyorsanız, uygun bağlantıyı bakın:
 
-* [Parola karma eşitlemesi](#password-synchronization) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
+* [Parola karma eşitlemesi](#password-hash-synchronization) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) ile [sorunsuz çoklu oturum açma (SSO)](active-directory-aadconnect-sso.md)
 * [Federasyon SSO (ile Active Directory Federasyon Hizmetleri (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
@@ -42,7 +42,7 @@ Yeni kullanıcı, kişi ve grup hesapları şirket içi Active Directory'de bulu
 My Kiracı Office 365 karma senaryolar için ayarlayın.|x|x|x|
 Oturum açma ve şirket içi parolalarını kullanarak bulut hizmetlerine erişmek Kullanıcılarım etkinleştirin.|x|x|x|
 Çoklu oturum açma şirket kimlik bilgilerini kullanarak uygular.|x|x|x|
-Hiçbir parolaları bulutta depolandığından emin olun.||x *|x|
+Hiçbir parolaları bulutta depolandığından emin olun.||x*|x|
 Şirket içi çok faktörlü kimlik doğrulaması çözümleri etkinleştirin.|||x|
 
 * İle basit bir aracıyı.
@@ -54,7 +54,7 @@ Ayrıca, etkinleştirebilirsiniz [sorunsuz SSO](active-directory-aadconnect-sso.
 
 ![Parola karma eşitlemesi](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-Daha fazla bilgi için bkz: [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md) makalesi.
+Daha fazla bilgi için bkz: [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) makalesi.
 
 ### <a name="pass-through-authentication"></a>Geçişli kimlik doğrulaması
 Doğrudan kimlik doğrulama ile şirket içi Active Directory denetleyiciye karşı kullanıcının parolasını doğrulanır. Parola, herhangi bir biçimde Azure AD'de mevcut olması gerekmez. Bu oturum açma saatleri kısıtlaması gibi şirket içi ilkeleri, bulut kimlik doğrulaması sırasında değerlendirilecek hizmetleri sağlar.

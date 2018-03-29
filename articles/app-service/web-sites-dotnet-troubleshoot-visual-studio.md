@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme"
-description: "Uzaktan hata ayıklama, izleme ve Visual Studio 2013 için yerleşik günlük araçlarını kullanarak bir Azure web uygulaması giderileceğini öğrenin."
+title: Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme
+description: Uzaktan hata ayıklama, izleme ve Visual Studio 2013 için yerleşik günlük araçlarını kullanarak bir Azure web uygulaması giderileceğini öğrenin.
 services: app-service
 documentationcenter: .net
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b1d5694c4d80a4db584b0c76a044dd596c5d553
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 7973f4311095b7c87ccd2394b048ec92c50f32a9
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio kullanarak Azure App Service web uygulamasında sorun giderme
 ## <a name="overview"></a>Genel Bakış
@@ -125,12 +125,14 @@ Bu bölümde oluşturduğunuz proje kullanarak uzaktan hata ayıklama gösterilm
 
 3. Silme `About()` aşağıdaki kodu yerine yöntemi ve Ekle.
 
-        public ActionResult About()
-        {
-            string currentTime = DateTime.Now.ToLongTimeString();
-            ViewBag.Message = "The current time is " + currentTime;
-            return View();
-        }
+``` c#
+public ActionResult About()
+{
+    string currentTime = DateTime.Now.ToLongTimeString();
+    ViewBag.Message = "The current time is " + currentTime;
+    return View();
+}
+```
 4. [Bir kesme noktası belirleyerek](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) üzerinde `ViewBag.Message` satır.
 
 5. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve **Yayımla**.
@@ -171,7 +173,7 @@ Bu bölümde oluşturduğunuz proje kullanarak uzaktan hata ayıklama gösterilm
 
      ![Yeni değerle sayfası hakkında](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-debugchangeinwa.png)
 
-## <a name="remotedebugwj"></a>Uzaktan hata ayıklama Web işleri
+## <a name="remotedebugwj"></a> Uzaktan hata ayıklama Web işleri
 Bu bölümde oluşturduğunuz projeyi ve web uygulamasını kullanarak uzaktan hata ayıklama gösterilmektedir [Azure WebJobs SDK ile çalışmaya başlama](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Bu bölümde gösterilen özellikleri yalnızca Visual Studio 2013'te, Update 4 veya daha sonra kullanılabilir.
@@ -241,10 +243,12 @@ Uzaktan hata ayıklama yalnızca sürekli Webjob'lar ile çalışır. Zamanlanm�
 * Hatalarını ayıkladığınız sırada sunucu bant genişliği ücretleri etkileyebilecek Visual Studio için veri gönderiyor. Bant genişliği oranları hakkında daha fazla bilgi için bkz: [Azure fiyatlandırma](https://azure.microsoft.com/pricing/calculator/).
 * Olduğundan emin olun `debug` özniteliği `compilation` öğesinde *Web.config* dosya ayarlanmış true. Ayarlanmış bir hata ayıklama yapı yapılandırması yayımladığınızda, varsayılan olarak true.
 
-        <system.web>
-          <compilation debug="true" targetFramework="4.5" />
-          <httpRuntime targetFramework="4.5" />
-        </system.web>
+``` xml
+<system.web>
+  <compilation debug="true" targetFramework="4.5" />
+  <httpRuntime targetFramework="4.5" />
+</system.web>
+```
 * Hata ayıklayıcı hata ayıklamak istediğiniz koda adım değil bulursanız, sadece kendi kodumu ayarını değiştirmeniz gerekebilir.  Daha fazla bilgi için bkz: [sadece kendi kodumu atlama sınırla](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 * Uzaktan hata ayıklama özelliği etkinleştirmek ve 48 saat sonra özelliği otomatik olarak devre dışı bir süreölçer sunucuda başlar. Bu 48 saat sınır güvenlik ve performans nedenleriyle yapılır. İstediğiniz şekilde geri sayıda saatlerinin özelliği kolayca kapatabilirsiniz. Değil etkin olarak ayıklarken devre dışı bırakarak öneririz.
 * Hata ayıklayıcı herhangi bir işlem için yalnızca web uygulaması işleminin (w3wp.exe) el ile ekleyebilirsiniz. Visual Studio'da hata ayıklama modunu kullanma hakkında daha fazla bilgi için bkz: [Visual Studio'da hata ayıklamayı](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
@@ -277,32 +281,35 @@ Bu bölümde, aşağıdaki görevleri yapın:
 ### <a name="add-tracing-statements-to-the-application"></a>Uygulama izleme deyimleri ekleme
 1. Açık *Controllers\HomeController.cs*ve değiştirme `Index`, `About`, ve `Contact` yöntemleri eklemek için aşağıdaki kod ile `Trace` deyimleri ve `using` bildirimi `System.Diagnostics`:
 
-        public ActionResult Index()
-        {
-            Trace.WriteLine("Entering Index method");
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-            Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Index method");
-            return View();
-        }
+```c#
+public ActionResult Index()
+{
+    Trace.WriteLine("Entering Index method");
+    ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+    Trace.TraceInformation("Displaying the Index page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Index method");
+    return View();
+}
 
-        public ActionResult About()
-        {
-            Trace.WriteLine("Entering About method");
-            ViewBag.Message = "Your app description page.";
-            Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
-            Trace.WriteLine("Leaving About method");
-            return View();
-        }
+public ActionResult About()
+{
+    Trace.WriteLine("Entering About method");
+    ViewBag.Message = "Your app description page.";
+    Trace.TraceWarning("Transient error on the About page at " + DateTime.Now.ToShortTimeString());
+    Trace.WriteLine("Leaving About method");
+    return View();
+}
 
-        public ActionResult Contact()
-        {
-            Trace.WriteLine("Entering Contact method");
-            ViewBag.Message = "Your contact page.";
-            Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
-            Trace.WriteLine("Leaving Contact method");
-            return View();
-        }        
+public ActionResult Contact()
+{
+    Trace.WriteLine("Entering Contact method");
+    ViewBag.Message = "Your contact page.";
+    Trace.TraceError("Fatal error on the Contact page at " + DateTime.Now.ToLongTimeString());
+    Trace.WriteLine("Leaving Contact method");
+    return View();
+}        
+```
+
 2. Ekleme bir `using System.Diagnostics;` dosyanın en üstüne ifadesine.
 
 ### <a name="view-the-tracing-output-locally"></a>Yerel olarak izleme çıktısını görüntüleyin
@@ -315,25 +322,30 @@ Bu bölümde, aşağıdaki görevleri yapın:
     Aşağıdaki adımlar, hata ayıklama modunda derleme olmadan bir web sayfasında izleme çıktısını görüntülemek nasıl gösterir.
 2. Uygulamanın Web.config dosyasını (proje klasöründe bir) açın ve eklemek bir `<system.diagnostics>` öğesi yalnızca kapatmadan önce dosya sonunda `</configuration>` öğe:
 
-          <system.diagnostics>
-            <trace>
-              <listeners>
-                <add name="WebPageTraceListener"
-                    type="System.Web.WebPageTraceListener,
-                    System.Web,
-                    Version=4.0.0.0,
-                    Culture=neutral,
-                    PublicKeyToken=b03f5f7f11d50a3a" />
-              </listeners>
-            </trace>
-          </system.diagnostics>
+``` xml
+<system.diagnostics>
+<trace>
+  <listeners>
+    <add name="WebPageTraceListener"
+        type="System.Web.WebPageTraceListener,
+        System.Web,
+        Version=4.0.0.0,
+        Culture=neutral,
+        PublicKeyToken=b03f5f7f11d50a3a" />
+  </listeners>
+</trace>
+</system.diagnostics>
+```
 
-    `WebPageTraceListener` Görüntülemenizi sağlar göz atarak çıkış izleme `/trace.axd`.
+`WebPageTraceListener` Görüntülemenizi sağlar göz atarak çıkış izleme `/trace.axd`.
 3. Ekleme bir <a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">trace ögesi</a> altında `<system.web>` Web.config dosyasında, aşağıdaki örnek gibi:
 
-        <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+``` xml
+<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
+```       
+
 4. Uygulamayı çalıştırmak için CTRL+F5'e basın.
-5. Tarayıcının adres çubuğunda eklemek *trace.axd* URL ve (URL için http://localhost:53370/trace.axd benzer) Enter tuşuna basın.
+5. Tarayıcının adres çubuğunda eklemek *trace.axd* URL ve ENTER tuşuna basın (URL benzer http://localhost:53370/trace.axd).
 6. Üzerinde **uygulama izleme** sayfasında, **ayrıntıları görüntüle** ilk satırda (BrowserLink satır değil).
 
     ![Trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -646,15 +658,18 @@ Internet üzerinde hiçbir kapsamlı ve güncel tanıtımlar ASP.NET izleme içi
 * [ASP.NET MVC Razor görünümleri izleme](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
   Razor görünümlerinde izlemenin yanı sıra post ayrıca tüm işlenmeyen özel durumlar bir MVC uygulamasında oturum için bir hata filtresi oluşturma açıklanmaktadır. Global.asax örnekte tüm işlenmeyen özel durumlar bir Web Forms uygulamasında oturum hakkında daha fazla bilgi için bkz [hata işleyicileri için tam bir örnek](http://msdn.microsoft.com/library/bb397417.aspx) konusuna bakın. MVC veya Web Forms, belirli özel durumları günlüğe kaydetmek ancak etkili kendileri için işleme varsayılan framework izin vermek istediğiniz yaparsanız catch ve aşağıdaki örnekte olduğu gibi yeniden oluşturma:
 
-        try
-        {
-           // Your code that might cause an exception to be thrown.
-        }
-        catch (Exception ex)
-        {
-            Trace.TraceError("Exception: " + ex.ToString());
-            throw;
-        }
+``` c#
+try
+{
+   // Your code that might cause an exception to be thrown.
+}
+catch (Exception ex)
+{
+    Trace.TraceError("Exception: " + ex.ToString());
+    throw;
+}
+```
+
 * [Azure komut satırı (artı Glimpse'in!) günlük akış Tanılama izleme](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Visual Studio'da nasıl hangi Bu öğretici yapmak için komut satırı kullanmayı gösterir. [Glimpse'in](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) ASP.NET uygulamalarında hata ayıklama için bir araçtır.
 * [Web uygulamaları günlüğe kaydetme ve tanılama - David Ebbo ile kullanarak](/documentation/videos/azure-web-site-logging-and-diagnostics/) ve [- David Ebbo ile Web uygulamaları günlüklerinden akış](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
@@ -669,7 +684,7 @@ Web sunucusu günlüklerini çözümleme hakkında daha fazla bilgi için aşağ
 
 * [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
   Web sunucusu günlüklerini verilerini görüntülemek için bir aracı (*.log* dosyaları).
-* [IIS performans sorunları veya uygulama LogParser kullanarak hataları giderme](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
+* [IIS performans sorunları veya uygulama LogParser kullanarak hataları giderme ](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   Web sunucusu günlüklerini çözümlemek için kullanabileceğiniz günlük ayrıştırıcısı aracı giriş.
 * [LogParser kullanarak Robert McMurray'tarafından blog yazılarını](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
 * [IIS 7.0, IIS 7.5 ve IIS 8.0 HTTP durum kodu](http://support.microsoft.com/kb/943891)

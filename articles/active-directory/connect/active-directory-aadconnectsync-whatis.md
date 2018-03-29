@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme | Microsoft Docs"
-description: "Açıklar nasıl Azure AD Connect eşitleme çalışır ve nasıl özelleştirileceğini."
+title: 'Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme | Microsoft Docs'
+description: Açıklar nasıl Azure AD Connect eşitleme çalışır ve nasıl özelleştirileceğini.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ee4bf802-045b-4da0-986e-90aba2de58d6
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: d58baa89c9d11b6b7a6bbb3b53974184ef1903b5
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme
 Azure Active Directory Connect Eşitleme Hizmetleri (Azure AD Connect eşitleme) Azure AD Connect ana bileşenidir. Bu şirket içi ortamınız ile Azure AD arasındaki kimlik verilerini eşitlemek için ilgili tüm işlemleri ilgilenir. Azure AD Connect eşitleme DirSync, Azure AD eşitleme ve Azure Active Directory yapılandırılmış Bağlayıcısı ile Forefront Identity Manager ardılı ' dir.
@@ -46,7 +46,7 @@ Eşitleme hizmeti şirket içi iki bileşenden oluşur **Azure AD Connect eşitl
 | **Özellikler ve senaryolar** | |
 | [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md) |Açıklar *yanlışlıkla silmeleri engelleme* özelliği ve nasıl yapılandırılacağı. |
 | [Scheduler](active-directory-aadconnectsync-feature-scheduler.md) |İçeri aktarma, eşitleme ve verileri dışarı aktarma yerleşik bir zamanlayıcı açıklar. |
-| [Parola Eşitleme uygulama](active-directory-aadconnectsync-implement-password-synchronization.md) |Parola Eşitleme nasıl çalışır, nasıl uygulanacağını ve çalışır ve sorun giderme yöntemleri açıklar. |
+| [Parola karma eşitleme uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |Parola Eşitleme nasıl çalışır, nasıl uygulanacağını ve çalışır ve sorun giderme yöntemleri açıklar. |
 | [Cihaz geri yazma](active-directory-aadconnect-feature-device-writeback.md) |Cihaz geri yazma Azure AD Connect nasıl çalıştığı açıklanmaktadır. |
 | [Dizin genişletmeleri](active-directory-aadconnectsync-feature-directory-extensions.md) |Kendi özel özniteliklere sahip Azure AD şemasını açıklar. |
 | [Office 365 PreferredDataLocation](active-directory-aadconnectsync-feature-preferreddatalocation.md) |Kullanıcı ile aynı bölgede kullanıcının Office 365 kaynakları put açıklar. |

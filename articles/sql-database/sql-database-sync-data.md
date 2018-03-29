@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veri eşitleme (Önizleme) | Microsoft Docs"
-description: "Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar"
+title: Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
+description: Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5abe3e5a56dfca263f109b86f473ac490da3eac7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e0b8a999cf38cbef37498d4ee0fb2bceae8f292
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -92,6 +92,8 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 -   Bir tablonun birincil anahtarı olmayan bir kimlik sütunu olamaz.
 
+-   Bir birincil anahtar tarih saat veri türüne sahip olamaz.
+
 -   Nesne (veritabanları, tablolar ve sütunlar) adlarını yazdırılabilir karakterleri nokta (.), köşeli ayraç ([) içeren veya sağa kare köşeli ayraç (]) olamaz.
 
 -   Azure Active Directory kimlik doğrulaması desteklenmiyor.
@@ -117,7 +119,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 | Bir eşitleme grubundaki tablolar                                          | 500                    | Birden çok eşitleme grupları oluşturma |
 | Bir eşitleme grubundaki bir tablodaki sütunlar                              | 1000                   |                             |
 | Bir tabloda veri satır boyutu                                        | 24 Mb                  |                             |
-| Minimum eşitleme aralığı                                           | 5 dakika              |                             |
+| Minimum eşitleme aralığı                                           | 5 Dakika              |                             |
 |||
 
 ## <a name="faq-about-sql-data-sync"></a>SQL veri eşitleme hakkında SSS
@@ -160,20 +162,20 @@ Federasyon kök veritabanı SQL veri eşitleme (Önizleme) hizmeti herhangi bir 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
--   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
--   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
--   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
+-   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync için en iyi yöntemler](sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync’i OMS Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
--   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
+-   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
     -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-SQL veritabanı hakkında daha fazla bilgi için bkz:
+SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 
--   [SQL veritabanı genel bakış](sql-database-technical-overview.md)
--   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [SQL Veritabanı'na Genel Bakış](sql-database-technical-overview.md)
+-   [Veritabanı Yaşam Döngüsü Yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

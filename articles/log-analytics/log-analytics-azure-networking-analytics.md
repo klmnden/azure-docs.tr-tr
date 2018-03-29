@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2018
 ms.author: richrund
-ms.openlocfilehash: 17dadd784d59a2cc0cab6ffbae144010f896b296
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Günlük analizi çözümlerinde izleme azure ağ iletişimi
 
@@ -28,18 +28,19 @@ Günlük analizi, ağları izleme için aşağıdaki çözümleri sunar:
 * Azure uygulama ağ geçidi analytics gözden geçirmek için
  * Azure uygulama ağ geçidi günlükleri
  * Azure uygulama ağ geçidi ölçümleri
-* Azure ağ güvenlik grubu analytics gözden geçirmek için
- * Azure ağ güvenlik grubu günlükleri
+* Ağ izleme ve denetleme çözümleri bulut ağınızdaki etkinliği
+* [Traffic Analytics](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+* Azure ağ güvenlik grubu analizi
 
 ## <a name="network-performance-monitor-npm"></a>Ağ Performans İzleyicisi'ni (NPM)
 
-[Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) yönetimi çözümüdür izleme sistem durumu, kullanılabilirliği ve ulaşılabilirliği ağların izler çözümü, bir ağ.  Arasında bağlantı izlemek için kullanılır:
+[Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) yönetimi çözümüdür izleme sistem durumu, kullanılabilirliği ve ulaşılabilirliği ağların izler çözümü, bir ağ.  Arasında bağlantı izlemek için kullanılır:
 
 * Genel Bulut ve şirket içi
 * veri merkezleri ve kullanıcı konumları (şubelere)
 * çok katmanlı bir uygulama çeşitli katmanlarını barındırma alt ağlar.
 
-Daha fazla bilgi için bkz: [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md).
+Daha fazla bilgi için bkz: [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview).
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure uygulama ağ geçidi ve ağ güvenlik grubu analizi
 Çözümler kullanmak için:

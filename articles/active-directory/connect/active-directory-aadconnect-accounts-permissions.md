@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Hesapları ve izinleri | Microsoft Docs"
-description: "Bu konuda kullanılan ve oluşturulan hesapları ve gereken izinler açıklanmaktadır."
+title: 'Azure AD Connect: Hesapları ve izinleri | Microsoft Docs'
+description: Bu konuda kullanılan ve oluşturulan hesapları ve gereken izinler açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: c10a069f5359dc148b103688355c859bd653b5d7
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ae8e9f46923928853c0c63e8c50f4e95b915e277
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesapları ve izinleri
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yollarını sunar:
@@ -147,7 +147,7 @@ Gösterge:
 | --- | --- | --- | --- |
 | **tek başına/çalışma grubu makinesi** | Desteklenmiyor | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap |  Desteklenmiyor |
 | **Makine etki alanına katılmış** | **VSA**</br>Yerel hesap (2008) | **VSA**</br>Yerel hesap (2008)</br>Yerel hesap</br>Etki alanı hesabı</br>smsa'yı, gMSA | **gMSA**</br>Etki alanı hesabı |
-| **Etki alanı denetleyicisi** | Etki alanı hesabı | *gMSA*</br>Etki alanı hesabı</br>sMSA| *gMSA*</br>Etki alanı hesabı|
+| **Etki alanı denetleyicisi** | **Etki alanı hesabı** | *gMSA*</br>**Etki alanı hesabı**</br>sMSA| *gMSA*</br>**Etki alanı hesabı**|
 
 #### <a name="virtual-service-account"></a>Sanal hizmet hesabı
 Bir sanal hizmet hesabı, bir parola sahip değil ve Windows tarafından yönetilen hesap özel türüdür.

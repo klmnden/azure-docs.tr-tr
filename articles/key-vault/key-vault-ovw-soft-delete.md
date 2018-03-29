@@ -1,16 +1,16 @@
 ---
-ms.assetid: 
-title: "Azure anahtar kasası geçici silme | Microsoft Docs"
+ms.assetid: ''
+title: Azure anahtar kasası geçici silme | Microsoft Docs
 ms.service: key-vault
 author: lleonard-msft
 ms.author: alleonar
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 01357e4fdb9b6f27e9baf5f5c8e4c7d6b582ad35
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure anahtar kasası soft-delete genel bakış
 
@@ -67,6 +67,13 @@ Bir anahtar kasası veya anahtar kasası nesne kurtarılan sürece, bekletme ara
 Kalıcı olarak silmek, temizleme, bir anahtar kasası proxy kaynak üzerinde bir POST işlemi aracılığıyla mümkündür ve özel ayrıcalıklar gerektirir. Genellikle, yalnızca abonelik sahibi bir anahtar kasası temizleme mümkün olacaktır. Bu kasaya hemen ve kurtarılamaz silinmesini gönderme işlemini tetikler. 
 
 Azure aboneliği olarak işaretlendiği takdirde bu konuda bir özel durumdur *silinemez*. Bu durumda, yalnızca hizmet gerçek silme sonra gerçekleştirebilir ve zamanlanmış bir işlem olarak bunu yapar. 
+
+### <a name="billing-implications"></a>Faturalama etkileri
+
+Genel olarak, bir nesne (bir anahtar kasası veya bir anahtar veya gizli) silinmiş durumda olduğunda, yalnızca iki işlem olmadığından olası: 'temizleme' ve 'Kurtar'. Diğer tüm işlemler başarısız olur. Bu nedenle, nesne mevcut olsa bile, hiçbir işlemleri gerçekleştirilebilir ve bu nedenle hiçbir kullanım oluşur, böylece hiçbir fatura. Özel durumlar vardır ancak takip:
+
+- 'temizleme' ve 'Kurtar' eylemleri normal anahtar kasası işlemleri sayılacaktır ve Fatura edilecek.
+- Nesne bir HSM anahtar ise, bir anahtar sürüm son 30 gün içinde kullandıysanız her ay ücretsiz olarak başına anahtar sürümü 'HSM korumalı anahtara' ücret uygulanır. Nesne, hiçbir işlem gerçekleştirilebilir silinmiş durumda olduğundan bundan sonra bu nedenle ücretsiz olarak uygulanır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

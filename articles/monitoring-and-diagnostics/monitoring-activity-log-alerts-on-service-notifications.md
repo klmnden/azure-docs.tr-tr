@@ -1,22 +1,22 @@
 ---
-title: "Etkinlik günlüğü uyarıları Azure hizmeti bildirimleri alma | Microsoft Docs"
-description: "Azure hizmet ortaya çıktığında, SMS, e-posta veya Web kancası aracılığıyla bilgi edinin."
+title: Etkinlik günlüğü uyarıları Azure hizmeti bildirimleri alma | Microsoft Docs
+description: Azure hizmet ortaya çıktığında, SMS, e-posta veya Web kancası aracılığıyla bilgi edinin.
 author: johnkemnetz
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 03/27/2018
 ms.author: johnkem
-ms.openlocfilehash: 6e011ea3d9d8f8453068d43e390cfba46dfb3277
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü Uyarıları hizmeti bildirimlerinin oluşturun.
 ## <a name="overview"></a>Genel Bakış

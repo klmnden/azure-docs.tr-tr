@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 455c74ca808f71258a12166c2e36bdd73d9a3e20
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
@@ -34,6 +34,9 @@ Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler k�
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
 Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksinimleri açıklanmaktadır: 
 - Bir iç sertifika yetkilisi veya bir ortak sertifika yetkilisi sertifikaları verilmesi gerekir. Bir ortak sertifika yetkilisi kullanılırsa, temel işletim sistemi görüntüsü Microsoft güvenilir kök yetkilisi programı bir parçası olarak eklenmelidir. Tam listesini burada bulabilirsiniz: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
+- Azure yığın altyapınızı, sertifikaları imzalamak için kullanılan sertifika yetkilisi için ağ erişimi olması gerekir
+- Sertifikaları döndürme, sertifikalar ya da dağıtım veya herhangi bir ortak sertifika yetkilisi yukarıda verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisi tarafından verilen olmalıdır
+- Otomatik olarak imzalanan sertifikaların kullanımını desteklenmez
 - Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, uç noktaları acs ve anahtar kasası gerekli olduğu gibi joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz. 
 - Sertifika imza algoritması güçlü olmalıdır SHA1, olamaz. 
 - Ortak ve özel anahtarlar Azure yığın yükleme için gerekli olan sertifika biçimi PFX, olması gerekir. 
@@ -42,6 +45,9 @@ Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksin
 - Sertifikanın "verilen:" alan aynı olmamalıdır, "tarafından verilen:" alanı.
 - Tüm sertifika pfx dosyalarını parolaların aynı dağıtım zamanında olmalıdır
 - Konu adları ve tüm sertifikaların konu alternatif adlarını dağıtımları başarısız önlemek için bu makalede açıklanan belirtimleri eşleştiğinden emin olun.
+
+> [!NOTE]
+> Kendi kendine imzalandı sertifikalar desteklenmez.
 
 > [!NOTE]
 > Bir sertifika güven zinciri Is ara sertifika yetkililerini varlığını desteklenir. 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning 2017 Önizleme SSS | Microsoft Docs"
-description: "Bu makalede Azure Machine Learning Önizleme özellikleri için yanıtlar ve sık sorulan soruların içerir"
+title: Azure Machine Learning 2017 Önizleme SSS | Microsoft Docs
+description: Bu makalede Azure Machine Learning Önizleme özellikleri için yanıtlar ve sık sorulan soruların içerir
 services: machine-learning
 author: serinakaye
 ms.author: serinak
@@ -10,25 +10,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 6146e1ce98144a05bef2ca29705f451aa3f5fb50
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 864e9ff5551637a93b957e5011a8857072c6eaaf
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning sık sorulan sorular
 
+Azure Machine Learning oluşturmak, sınamak, yönetmek ve makine öğrenme ve AI modelleri dağıtmak izin veren bir tam olarak yönetilen Azure hizmetidir. Bizim Hizmetleri ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlamak için dağıtmak, yönetmek kenar yararlanır ilk kod yaklaşımı sunar ve güç, hız ve esneklik modelleriyle izleyebilirsiniz. Alternatif olarak, Azure Machine Learning Studio hiçbir kodlama gerekli olduğu bir tarayıcı tabanlı, visual sürükle ve bırak yazma ortamı sağlar. 
+
 ## <a name="general-product-questions"></a>Genel ürün soruları
-
-**Azure Machine Learning nedir?**
-
-Azure Machine Learning oluşturmak, sınamak, yönetmek ve makine öğrenme ve AI modelleri dağıtmak izin veren bir tam olarak yönetilen Azure hizmetidir. Bizim yeni hizmetler ve indirilebilir uygulama bulut, şirket içi ve eğitimi sağlamak için dağıtmak, yönetmek kenar yararlanır ilk kod yaklaşımı sunar ve güç, hız ve esneklik modelleriyle izleyebilirsiniz. Alternatif olarak, Azure Machine Learning Studio hiçbir kodlama gerekli olduğu bir tarayıcı tabanlı, visual sürükle ve bırak yazma ortamı sağlar. 
-
-**Bölgeler yeni hizmetlerin kullanılabilir olduğu?**
-
-Azure Machine Learning altında deney ve model yönetim hizmeti için desteklenen Azure bölgeleri arayın [bölgeye göre Azure ürünleri](https://azure.microsoft.com/regions/services/) sayfası.
-
-Biz ürünü geliştirmek daha fazla bölgeler eklenecektir.  İçin üzerinde dağıtmak için hangi bölgeleri belirlememize yardımcı bizim [Azure Machine Learning geribildirim](https://feedback.azure.com/forums/257792-machine-learning) site. 
 
 **Diğer Azure hizmetleriyle gereklidir?**
 

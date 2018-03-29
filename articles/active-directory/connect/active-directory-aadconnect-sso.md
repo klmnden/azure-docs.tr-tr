@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6a106ba59f09ffc20f8461c5267ae06695df4cd0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -28,7 +28,7 @@ Azure Active Directory sorunsuz çoklu oturum açma (Azure AD sorunsuz SSO) otom
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md) veya [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) oturum açma yöntemleri.
+Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) veya [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md) oturum açma yöntemleri.
 
 ![Sorunsuz çoklu oturum açma](./media/active-directory-aadconnect-sso/sso1.png)
 
@@ -42,7 +42,7 @@ Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directo
   - Kullanıcıların parolalarını tekrar tekrar girmeniz gerekmez.
 - *Kolay dağıtma ve yönetme*
   - Herhangi bir ek bileşeni bunun çalışmasını sağlamak için şirket içi gerekli.
-  - Bulut kimlik doğrulaması - herhangi bir yöntemle çalışır [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-synchronization.md) veya [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md).
+  - Bulut kimlik doğrulaması - herhangi bir yöntemle çalışır [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) veya [doğrudan kimlik doğrulama](active-directory-aadconnect-pass-through-authentication.md).
   - Bazı alınabilmesi için veya tüm kullanıcılar Grup İlkesi kullanarak.
   - Herhangi bir AD FS altyapı gerek kalmadan Azure AD ile Windows 10 cihazları kaydedin. Bu özellik, 2.1 veya sonraki bir sürümü kullanmak için gereken [çalışma alanına katılma istemcisi](https://www.microsoft.com/download/details.aspx?id=53554).
 

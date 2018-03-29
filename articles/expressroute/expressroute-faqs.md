@@ -1,24 +1,24 @@
 ---
 title: Azure ExpressRoute SSS | Microsoft Docs
-description: "ExpressRoute SSS desteklenen Azure hizmetlerini, maliyet, veri ve bağlantıları, SLA, sağlayıcıları ve konumları, bant genişliği ve ek teknik ayrıntılar hakkında bilgi içerir."
+description: ExpressRoute SSS desteklenen Azure hizmetlerini, maliyet, veri ve bağlantıları, SLA, sağlayıcıları ve konumları, bant genişliği ve ek teknik ayrıntılar hakkında bilgi içerir.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 62e532f3750adf8f4defe3e8f8aabe5b9f0446a0
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -340,7 +340,10 @@ Bkz: [ExpressRoute ortakları ve konumları](expressroute-locations.md) bilgi.
 
 ### <a name="can-i-access-office-365-over-the-internet-even-if-expressroute-was-configured-for-my-organization"></a>ExpressRoute Kuruluşum için yapılandırılmış olsa bile Internet üzerinden Office 365 erişebilirim?
 
-Evet. ExpressRoute, ağınız için yapılandırılmış olsa bile office 365 hizmet uç noktaları Internet aracılığıyla erişilebilir. Office 365 hizmetlerine ExpressRoute aracılığıyla bağlanmak üzere yapılandırılmış bir konumda varsa, ExpressRoute aracılığıyla bağlanır.
+Evet. ExpressRoute, ağınız için yapılandırılmış olsa bile office 365 hizmet uç noktaları Internet aracılığıyla erişilebilir. Konumunuz ağı ExpressRoute aracılığıyla Office 365 hizmetlerine bağlanmak için yapılandırılmışsa, kuruluşunuzun ağ ekibiyle gözden geçirin.
+
+### <a name="how-can-i-plan-for-high-availability-for-office-365-network-traffic-on-azure-expressroute"></a>Nasıl Office 365 ağ trafiği için yüksek kullanılabilirlik Azure ExpressRoute planlama?
+Öneri için bkz: [yüksek kullanılabilirlik ve Azure ExpressRoute ile yük devretme](https://aka.ms/erhighavailability)
 
 ### <a name="can-i-access-office-365-us-government-community-gcc-services-over-an-azure-us-government-expressroute-circuit"></a>Office 365 US Government topluluk (GCC) Hizmetleri Azure ABD devlet kurumları expressroute bağlantı hattı erişebilir mi?
 

@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile OpsGenie | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile OpsGenie arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile OpsGenie | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile OpsGenie arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: b0d8fa13c13ad8d4a85cb482bcd7e440006f0437
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b0cd54c7750e85eb7b4e1ba6be309c585d5a7b4e
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Öğretici: Azure Active Directory Tümleştirme OpsGenie ile
 
@@ -31,7 +31,7 @@ OpsGenie Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme OpsGenie ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -110,19 +110,35 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın:`https://app.opsgenie.com/auth/login`
+    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://app.opsgenie.com/auth/login`
 
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
-
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_certificate.png) 
-
-5. Tıklatın **kaydetmek** düğmesi.
+4. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **OpsGenie yapılandırma** 'yi tıklatın **yapılandırma OpsGenie** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+5. Üzerinde **OpsGenie yapılandırma** 'yi tıklatın **yapılandırma OpsGenie** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** hızlı başvuru bölümünden.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_configure.png)
+
+6. Oluşturulacak **meta veri URL'sini**, aşağıdaki adımları gerçekleştirin:
+
+    a. Tıklatın **uygulama kayıtlar**.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appregistrations.png)
+   
+    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpointicon.png)
+
+    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_endpoint.png)
+     
+    d. Şimdi özellik sayfasına gidin **OpsGenie** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
+ 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_appid.png)
+
+    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
 
 7. Başka bir tarayıcı örneği açın ve ardından günlük için yönetici olarak OpsGenie bileşenini.
 
@@ -132,19 +148,19 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 9. SSO'yu etkinleştirmek için seçin **etkin**.
    
-    ![OpsGenie ayarları](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_07.png) 
 
 10. İçinde **sağlayıcı** 'yi tıklatın **Azure Active Directory** sekmesi.
    
-    ![OpsGenie ayarları](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_08.png) 
 
 11. Azure Active Directory iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
    
-    ![OpsGenie ayarları](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
+    ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-    a. Yapıştır **tek oturum üzerinde hizmet URL'si**, Azure portalından kopyalanan **SAML 2.0 Endpoint** metin kutusu.
+    a. İçinde **SAML 2.0 Endpoint** metin kutusuna, Yapıştır **tek oturum üzerinde hizmet URL'si**Azure portalından kopyaladığınız değeri.
     
-    b. İndirilen base-64 kodlanmış sertifika Not Defteri'nde açın, içeriğini, panoya kopyalayın ve ardından yapıştırın **X.500 sertifika** metin kutusu.
+    b. İçinde **meta veri URL'sini:** metin kutusuna, Yapıştır **meta veri URL'sini**Azure portalından kopyaladığınız değeri.
     
     c. Tıklatın **değişiklikleri kaydetmek**.
 
@@ -181,7 +197,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-opsgenie-test-user"></a>OpsGenie test kullanıcısı oluşturma
 
@@ -191,19 +207,19 @@ Bu bölümün amacı Britta Simon içinde OpsGenie adlı bir kullanıcı oluştu
 
 2. Tıklayarak kullanıcıları listesine gidin **kullanıcı** sol panelinde.
    
-   ![OpsGenie ayarları](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
+   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
 3. Tıklatın **kullanıcı ekleme**.
 
 4. Üzerinde **Kullanıcı Ekle** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:
    
-   ![OpsGenie ayarları](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
+   ![OpsGenie Settings](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_11.png)
    
    a. İçinde **e-posta** metin kutusuna, e-posta adresi türü BrittaSimon ele Azure Active Directory'de.
    
    b. İçinde **tam adı** metin kutusuna, türü **Britta Simon**.
    
-   c. **Kaydet** düğmesine tıklayın. 
+   c. **Kaydet**’e tıklayın. 
 
 >[!NOTE]
 >Britta kendi profili ayarlama yönergeleri içeren bir e-posta alır.

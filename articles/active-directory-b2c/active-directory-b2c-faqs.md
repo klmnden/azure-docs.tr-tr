@@ -10,11 +10,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 338520f273a88866834e43e17da1f8b131ca38f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -28,7 +28,9 @@ Azure AD B2C, Microsoft Office 365 için kullanıcıların kimliğini doğrulama
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Azure AD B2C yerel hesaplarında nelerdir? Nasıl bunlar Azure AD içinde iş veya Okul hesapları farklı misiniz?
 Bir Azure AD kiracısında kiracıya ait olan kullanıcıların oturum açma formu bir e-posta adresi `<xyz>@<tenant domain>`.  `<tenant domain>` Kiracı ya da ilk doğrulanmış etki alanlarına biri `<...>.onmicrosoft.com` etki alanı. Bu hesap türü bir iş veya Okul hesabıdır.
 
-Bir Azure AD B2C kiracısı çoğu uygulamanın herhangi rastgele e-posta adresiyle oturum açmak için kullanıcının istediğiniz (örneğin, joe@comcast.net, bob@gmail.com, sarah@contoso.com, veya jim@live.com). Bu hesap türü, bir yerel hesaptır.  Ayrıca isteğe bağlı bir kullanıcı adları yerel hesaplar (örneğin, Can, bob, sarah veya jim) destekliyoruz. Azure portalında Azure AD B2C yapılandırarak bu iki yerel hesap türünden birini seçebilirsiniz.
+Bir Azure AD B2C kiracısı çoğu uygulamanın herhangi rastgele e-posta adresiyle oturum açmak için kullanıcının istediğiniz (örneğin, joe@comcast.net, bob@gmail.com, sarah@contoso.com, veya jim@live.com). Bu hesap türü, bir yerel hesaptır.  Ayrıca isteğe bağlı bir kullanıcı adları yerel hesaplar (örneğin, Can, bob, sarah veya jim) destekliyoruz. Azure AD B2C kimlik sağlayıcıları Azure portalında yapılandırırken bu iki yerel hesap türünü birini seçebilirsiniz. Azure AD B2C kiracınızda tıklatın **kimlik sağlayıcıları** ve ardından **kullanıcıadı** yerel hesaplar. 
+
+Uygulamaları için kullanıcı hesapları, her zaman bir kayıt ilkesi, kaydolma veya oturum aracılığıyla oluşturulmalıdır-İlkesi'nde veya Azure AD Graph API kullanarak. Azure portalında oluşturulan kullanıcı hesapları yalnızca Kiracı yönetmek için kullanılır.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Hangi sosyal kimlik sağlayıcıları, artık destekliyor musunuz? Hangilerinin gelecekte destek planlıyor musunuz?
 Şu anda Facebook, Google +, LinkedIn, Amazon, Twitter (Önizleme), WeChat (Önizleme), Weibo (Önizleme) ve h destekliyoruz (Önizleme). Müşteri talebe göre diğer popüler sosyal kimlik sağlayıcıları için destek ekleyeceğiz.

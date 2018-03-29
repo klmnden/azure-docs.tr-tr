@@ -1,8 +1,8 @@
 ---
-title: "Özel olayları ve ölçümleri için Application Insights API'si | Microsoft Docs"
-description: "Birkaç satır kod, cihaz veya masaüstü uygulaması, Web sayfası veya kullanımı izlemek ve sorunlarını tanılamak için hizmetinizi ekleyin."
+title: Özel olayları ve ölçümleri için Application Insights API'si | Microsoft Docs
+description: Birkaç satır kod, cihaz veya masaüstü uygulaması, Web sayfası veya kullanımı izlemek ve sorunlarını tanılamak için hizmetinizi ekleyin.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 80400495-c67b-4468-a92e-abf49793a54d
@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d797716fb98ac85f11f956e732e08820b56affc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ff4b587790872511c7b545233685f5b3ae068291
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -51,7 +51,7 @@ Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
 
     *C#:* `using Microsoft.ApplicationInsights;`
 
-    *Visual Basic:*`Imports Microsoft.ApplicationInsights`
+    *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
     
@@ -79,7 +79,17 @@ Bir örneğini almak `TelemetryClient` (Web sayfalarındaki JavaScript'te hariç
 
 TelemetryClient iş parçacığı güvenlidir.
 
-ASP.NET ve Java projeleri için uygulamanızın her modül için TelemetryClient örneği oluşturmanızı öneririz. Örneğin, gelen HTTP isteklerini ve başka bir ara yazılım sınıfında rapor iş mantığı olaylarını bildirmek için web hizmetiniz bir TelemetryClient örneği olabilir. Özellikleri gibi ayarlayabilirsiniz `TelemetryClient.Context.User.Id` kullanıcılar ve oturumları izlemek için veya `TelemetryClient.Context.Device.Id` makine tanımlamak için. Bu bilgiler örneği gönderdiği tüm olayları eklenir.
+ASP.NET ve Java projeleri için gelen HTTP isteklerini otomatik olarak yakalanır. Uygulamanızın başka bir modül için TelemetryClient ek örneklerini oluşturmak isteyebilirsiniz. Örneğin, rapor iş mantığı olaylarını ara yazılım sınıfı bir TelemetryClient örneği olabilir. Kullanıcı kimliği ve DeviceID makine tanımlamak için gibi özellikleri ayarlayabilirsiniz. Bu bilgiler instace gönderdiği tüm olayları eklenir. 
+
+*C#*
+
+    TelemetryClient.Context.User.Id = "...";
+    TelemetryClient.Context.Device.Id = "...";
+
+*Java*
+
+    telemetry.getContext().getUser().setId("...);
+    telemetry.getContext().getDevice().setId("...");
 
 Node.js projelerinde kullandığınız `new applicationInsights.TelemetryClient(instrumentationKey?)` yeni bir örneği, ancak bu oluşturmak için tekli yalıtılmış yapılandırmasından gerektiren senaryolar için önerilir `defaultClient`.
 
@@ -156,13 +166,21 @@ Tek bir ölçü değeri göndermek için:
      appInsights.trackMetric("queueLength", 42.0);
  ```
 
-*C#, Java*
+*C#*
 
 ```csharp
     var sample = new MetricTelemetry();
     sample.Name = "metric name";
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
+```
+
+*Java*
+
+```Java
+    
+    telemetry.trackMetric("queueLength", 42.0);
+
 ```
 
 *Node.js*
@@ -331,8 +349,8 @@ Sonuçları görmek için ölçümleri Gezgini'ni açın ve yeni bir grafik ekle
 ### <a name="custom-metrics-in-analytics"></a>Analytics'te özel ölçümleri
 
 Telemetriyi kullanılabilir `customMetrics` tablosundaki [uygulama Öngörüler Analytics](app-insights-analytics.md). Her satır için bir çağrı temsil eden `trackMetric(..)` uygulamanızda.
-* `valueSum`-Bu ölçümler toplamıdır. Ortalama değer almak için bölün `valueCount`.
-* `valueCount`-Bu toplanan ölçümleri sayısını `trackMetric(..)` çağırın.
+* `valueSum` -Bu ölçümler toplamıdır. Ortalama değer almak için bölün `valueCount`.
+* `valueCount` -Bu toplanan ölçümleri sayısını `trackMetric(..)` çağırın.
 
 ## <a name="page-views"></a>Sayfa görüntülemeleri
 Her ekranı veya sayfa yüklendiğinde, bir aygıt veya Web sayfası uygulamasında varsayılan olarak sayfa görünümü telemetrisi gönderilir. Ancak, sayfa görünümleri ek veya farklı zamanlarda izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereler görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
@@ -349,6 +367,10 @@ Sayfa görünümü telemetrisi olduğunda kullanıcı ve oturum grafikleri Canl�
 *C#*
 
     telemetry.TrackPageView("GameReviewPage");
+
+*Java*
+
+    telemetry.trackPageView("GameReviewPage");
 
 *Visual Basic*
 
@@ -479,6 +501,14 @@ Raporları Yığın izlemeleri içerir.
        telemetry.TrackException(ex);
     }
 
+*Java*
+
+    try {
+        ...
+    } catch (Exception ex) {
+        telemetry.trackException(ex);
+    }
+
 *JavaScript*
 
     try
@@ -541,11 +571,17 @@ exceptions
 ## <a name="tracktrace"></a>TrackTrace
 Application Insights "içerik haritası Kılavuzu" göndererek sorunların tanılanmasına yardımcı olmak için TrackTrace kullanın. Tanılama veri öbekleri göndermek ve bunları inceleyin [tanılama arama](app-insights-diagnostic-search.md).
 
-[Oturum bağdaştırıcıları](app-insights-asp-net-trace-logs.md) portalına üçüncü taraf günlükleri göndermek için bu API'yi kullanın.
+.NET içinde [oturum bağdaştırıcıları](app-insights-asp-net-trace-logs.md) portalına üçüncü taraf günlükleri göndermek için bu API'yi kullanın.
+
+Java için [standart günlükçüleri ister Log4J, Logback](app-insights-java-trace-logs.md) portalına üçüncü taraf günlükleri göndermek için uygulama Öngörüler Log4j veya Logback Appenders kullanın.
 
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+
+*Java*
+
+    telemetry.trackTrace(message, SeverityLevel.Warning, properties);
     
 *Node.js*
 
@@ -559,10 +595,24 @@ TrackTrace avantajı, iletide oldukça uzun veri koyabilirsiniz ' dir. Örneğin
 
 Ayrıca, bir önem düzeyi iletinize ekleyebilirsiniz. Ve diğer telemetri gibi filtre veya arama izlemeleri farklı kümeleri için yardımcı olmak için özellik değerlerini ekleyebilirsiniz. Örneğin:
 
+*C#*
+
+```C#
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
+```
+
+*Java*
+
+```Java
+
+    Map<String, Integer> properties = new HashMap<>();
+    properties.put("Database", db.ID);
+    telemetry.trackTrace("Slow Database response", SeverityLevel.Warning, properties);
+
+```
 
 İçinde [arama](app-insights-diagnostic-search.md), daha sonra kolayca belirli bir veritabanı ile ilgili tüm iletileri belirli önem düzeyine sahip bir filtre.
 
@@ -575,6 +625,8 @@ Varsa [örnekleme](app-insights-sampling.md) içinde ItemCount özelliği 1'den 
 
 ## <a name="trackdependency"></a>TrackDependency
 TrackDependency çağrısı bir dış kod parçası, yapılan çağrıların başarı oranları ve yanıt sürelerini izlemek için kullanın. Sonuçlar portalında bağımlılık grafiklerinde görüntülenir.
+
+*C#*
 
 ```csharp
 var success = false;
@@ -591,6 +643,26 @@ finally
 }
 ```
 
+*Java*
+
+```Java
+    boolean success = false;
+    long startTime = System.currentTimeMillis();
+    try {
+        success = dependency.call();
+    }
+    finally {
+        long endTime = System.currentTimeMillis();
+        long delta = endTime - startTime;
+        RemoteDependencyTelemetry dependencyTelemetry = new RemoteDependencyTelemetry("My Dependency", "myCall", delta, success);
+        telemetry.setTimeStamp(startTime);
+        telemetry.trackDependency(dependencyTelemetry);
+    }
+
+```
+
+*JavaScript*
+
 ```Javascript
 var success = false;
 var startTime = new Date().getTime();
@@ -605,9 +677,13 @@ finally
 }
 ```
 
-Sunucu SDK'ları içerdiğini unutmayın bir [bağımlılık Modülü](app-insights-asp-net-dependencies.md) bulur ve bazı bağımlılık çağrıları otomatik olarak--Örneğin, veritabanları ve REST API'leri izler. İş modülü yapmak için sunucunuzda bir aracı yüklemeniz gerekir. Bu çağrı otomatik izleme catch değil çağrılarını izlemek istiyorsanız veya aracıyı yüklemek istemiyorsanız kullanın.
+Sunucu SDK'ları içerdiğini unutmayın bir [bağımlılık Modülü](app-insights-asp-net-dependencies.md) bulur ve bazı bağımlılık çağrıları otomatik olarak--Örneğin, veritabanları ve REST API'leri izler. İş modülü yapmak için sunucunuzda bir aracı yüklemeniz gerekir. 
 
-Standart bağımlılık izleme modülünü devre dışı bırakmak için düzenleme [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) ve başvuru silme `DependencyCollector.DependencyTrackingTelemetryModule`.
+Java'da, bazı bağımlılık çağrıları otomatik olarak kullanarak izlenebilir [Java Agent](app-insights-java-agent.md).
+
+Bu çağrı otomatik izleme catch değil çağrılarını izlemek istiyorsanız veya aracıyı yüklemek istemiyorsanız kullanın.
+
+C# standart bağımlılık izleme modül devre dışı bırakmak için düzenleme [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) ve başvuru silme `DependencyCollector.DependencyTrackingTelemetryModule`. Standart bağımlılıkları otomatik olarak toplamasını istemiyorsanız, Java, java aracı Lütfen yüklemeyin.
 
 ### <a name="dependencies-in-analytics"></a>Analytics bağımlılıkları
 
@@ -630,17 +706,29 @@ dependencies
 Normalde, SDK zamanlarda kullanıcı üzerindeki etkiyi en aza indirmek için seçilen verileri gönderir. Uygulamada kapandıktan SDK kullanıyorsanız, ancak, bazı durumlarda, arabellek--Örneğin, temizlemek isteyebilirsiniz.
 
 *C#*
-
+ 
+ ```C#
     telemetry.Flush();
-
     // Allow some time for flushing before shutdown.
-    System.Threading.Thread.Sleep(1000);
+    System.Threading.Thread.Sleep(5000);
+```
+
+*Java*
+
+```Java
+    telemetry.flush();
+    //Allow some time for flushing before shutting down
+    Thread.sleep(5000);
+```
+
     
 *Node.js*
 
     telemetry.flush();
 
 İşlevi için zaman uyumsuz olduğuna dikkat edin [server telemetri kanalı](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
+
+İdeal olarak, flush() yöntemini uygulama kapatma etkinliğinde kullanılmalıdır.
 
 ## <a name="authenticated-users"></a>Kimliği doğrulanmış kullanıcılar
 Bir web uygulaması, kullanıcıların (varsayılan) tanımlama bilgileri tarafından tanımlanır. Bir kullanıcı birden çok kez uygulamanız farklı makine ya da tarayıcı erişimi engelliyorsa veya tanımlama bilgilerini sildiğinizde sayılması.
@@ -827,11 +915,12 @@ requests
 
 
 
-## <a name="timed"></a>Zamanlama olayları
+## <a name="timed"></a> Zamanlama olayları
 Bazen bir eylemi gerçekleştirmek için gereken süreyi grafik istersiniz. Örneğin, ne kadar kullanıcılar bilmek isteyebilirsiniz oyun seçimlerini göz önüne alın. Bu ölçüm parametresini kullanabilirsiniz.
 
 *C#*
 
+```C#
     var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
     // ... perform the timed action ...
@@ -847,7 +936,27 @@ Bazen bir eylemi gerçekleştirmek için gereken süreyi grafik istersiniz. Örn
 
     // Send the event:
     telemetry.TrackEvent("SignalProcessed", properties, metrics);
+```
 
+*Java*
+
+```Java
+    long startTime = System.currentTimeMillis();
+
+    // perform timed action
+
+    long endTime = System.currentTimeMillis();
+    Map<String, Double> metrics = new HashMap<>();
+    metrics.put("ProcessingTime", endTime-startTime);
+
+    // Setup some propereties
+    Map<String, String> properties = new HashMap<>();
+    properties.put("signalSource", currentSignalSource.getName());
+
+    //send the event
+    telemetry.trackEvent("SignalProcessed", properties, metrics);
+
+```
 
 
 ## <a name="defaults"></a>Özel telemetri için varsayılan özellikler
@@ -920,6 +1029,14 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+*Java*
+
+```Java
+    
+    telemetry.getConfiguration().setTrackingDisabled(true);
+
+```
+
 İçin *seçili standart toplayıcıları devre dışı*--Örneğin, performans sayaçları, HTTP isteklerini veya bağımlılıkları--silin veya açıklama ilgili satırları çıkışı [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md). Örneğin, kendi TrackRequest veri göndermek istiyorsanız, bunu yapabilirsiniz.
 
 *Node.js*
@@ -942,7 +1059,7 @@ SDK'dan gelen gönderilmeden önce telemetri işlemek üzere kod yazabilirsiniz.
         .start();
 ```
 
-Bu toplayıcıları başlatma devre dışı bırakmak için yapılandırma nesnesi kullanın:`applicationInsights.Configuration.setAutoCollectRequests(false)`
+Bu toplayıcıları başlatma devre dışı bırakmak için yapılandırma nesnesi kullanın: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="debug"></a>Geliştirici modu
 Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düzen üzerinden öncelikli telemetrinizi sağlamak kullanışlıdır. Size yardımcı ayrıca get ek ileti telemetri herhangi bir sorun izleme. Uygulamanızı azaltabileceğinden, bir üretim ortamına kapatın.
@@ -956,7 +1073,7 @@ Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düz
     TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 
-## <a name="ikey"></a>Seçili özel telemetri izleme anahtarı ayarlama
+## <a name="ikey"></a> Seçili özel telemetri izleme anahtarı ayarlama
 *C#*
 
     var telemetry = new TelemetryClient();
@@ -964,7 +1081,7 @@ Hata ayıklama sırasında sonuçları hemen görebilmeniz için ardışık düz
     // ...
 
 
-## <a name="dynamic-ikey"></a>Dinamik izleme anahtarı
+## <a name="dynamic-ikey"></a> Dinamik izleme anahtarı
 Geliştirme, test ve üretim ortamlarını telemetri karıştırma önlemek için şunları yapabilirsiniz [ayrı Application Insights kaynakları oluşturmak](app-insights-create-new-resource.md) ve kendi anahtarları ortamına bağlı olarak değiştirin.
 
 Yapılandırma dosyasından izleme anahtarını almak yerine onu kodunuzda ayarlayabilirsiniz. Anahtar başlatma yöntemini, bir ASP.NET hizmetinde global.aspx.cs gibi ayarlayın:

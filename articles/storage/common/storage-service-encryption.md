@@ -1,6 +1,6 @@
 ---
-title: "Rest verileri için Azure Storage hizmeti şifreleme | Microsoft Docs"
-description: "Veri alınırken şifresini çözmek ve Azure depolama hizmeti şifrelemesi özelliği hizmet tarafında Azure Blob Depolama veri depolarken şifrelemek için kullanın."
+title: Rest verileri için Azure Storage hizmeti şifreleme | Microsoft Docs
+description: Veri alınırken şifresini çözmek ve Azure depolama hizmeti şifrelemesi özelliği hizmet tarafında Azure Blob Depolama veri depolarken şifrelemek için kullanın.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: lakasa
-ms.openlocfilehash: d9df2218acc218a796e502fa4e3b94573af86ca8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1963d011462255d45de327ec17b7fad564d87654
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Bekleyen Veri için Azure Storage Hizmeti Şifreleme
 
@@ -52,7 +52,7 @@ Y: depolama hizmeti şifrelemesi, var olan tüm Resource Manager depolama hesapl
 
 **S: nasıl Resource Manager depolama hesabı verileri şifreliyor mu?**
 
-Y: depolama hizmeti şifrelemesi, tüm depolama hesaplarının--Klasik varsayılan olarak etkinleştirilir ve Resource Manager. Ancak, varolan veriler şifrelenmez. Var olan verileri şifrelemek için başka bir ad veya başka bir kapsayıcı kopyalayın ve ardından şifrelenmemiş sürümlerini kaldırın. 
+Y: depolama hizmeti şifrelemesi, tüm depolama hesaplarının--Klasik varsayılan olarak etkinleştirilir ve Kaynak Yöneticisi, mevcut dosyaların şifreleme etkinleştirilmeden önce oluşturulan depolama hesabındaki olacak firmalarda geriye dönük bir arka plan şifreleme işlemi tarafından şifrelenmiş.
 
 **S: depolama hesaplarını Azure PowerShell ve Azure CLI kullanarak etkin depolama hizmeti şifrelemesi ile oluşturabilirim?**
 

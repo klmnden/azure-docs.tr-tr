@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5aae5057cccdf8dfbe2a42a39da5b9e70b9166f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5ca5544a217d66d334ff468d2308af1836c7de8
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>İzleme ve Azure Data Factory işlem hatlarını izleme ve yönetim uygulaması kullanarak yönetme
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 > [!NOTE]
 > Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [izlemek ve 2 sürümündeki Data Factory işlem hatlarını yönetmek](../monitor-visually.md).
 
-Bu makalede izleme ve yönetim uygulama izleme, yönetme ve Data Factory işlem hatlarınızı hata ayıklamak için nasıl kullanılacağını açıklar. Ayrıca hatalarında bildirim almak için uyarı oluşturma hakkında bilgi sağlar. Aşağıdaki videoyu izleyerek uygulamayı kullanmaya başlayabilirsiniz:
+Bu makalede izleme ve yönetim uygulama izleme, yönetme ve Data Factory işlem hatlarınızı hata ayıklamak için nasıl kullanılacağını açıklar. Aşağıdaki videoyu izleyerek uygulamayı kullanmaya başlayabilirsiniz:
 
 > [!NOTE]
 > Portalı'nda bkz videoda gösterilen kullanıcı arabirimi tam olarak eşleşmiyor olabilir. Biraz daha eski olduğu, ancak kavramları aynı kalır. 
@@ -296,42 +296,3 @@ Ayrıca, birden çok etkinlik windows listeden seçin ve bunları aynı anda yen
 Ctrl tuşunu kullanarak çoklu iki veya daha fazla ardışık düzen olabilir. Bunları Duraklat/Sürdür için (hangi aşağıdaki görüntüde kırmızı dikdörtgen içinde vurgulanır) komut çubuğu düğmelerini kullanabilirsiniz.
 
 ![Komut çubuğunda Duraklat/Sürdür](./media/data-factory-monitor-manage-app/SuspendResumeOnCommandBar.png)
-
-## <a name="create-alerts"></a>Uyarı oluşturma
-**Uyarıları** sayfası, bir uyarı ve görünüm/düzenleme/silme mevcut uyarıları oluşturmanıza olanak sağlar. Sizin de devre dışı bırak/uyarı etkinleştirebilirsiniz. Uyarılar sayfasında görmek için tıklatın **uyarıları** sekmesi.
-
-![Uyarılar sekmesi](./media/data-factory-monitor-manage-app/AlertsTab.png)
-
-### <a name="to-create-an-alert"></a>Bir uyarı oluşturmak için
-1. Tıklatın **eklemek uyarı** bir uyarı eklemek için. Gördüğünüz **ayrıntıları** sayfası.
-
-    ![Uyarılar - ayrıntılar sayfası oluşturma](./media/data-factory-monitor-manage-app/CreateAlertDetailsPage.png)
-2. Belirtin **adı** ve **açıklama** uyarı ve tıklatın **sonraki**. Görmeniz gerekir **filtreleri** sayfası.
-
-    ![Uyarılar - filtreleri sayfa oluşturma](./media/data-factory-monitor-manage-app/CreateAlertFiltersPage.png)
-3. Seçin **olay**, **durum**, ve **substatus** (isteğe bağlı) bir Data Factory hizmeti uyarı oluşturup tıklatın istediğiniz **sonraki**. Görmeniz gerekir **alıcılar** sayfası.
-
-    ![Uyarılar - alıcılar sayfa oluşturma](./media/data-factory-monitor-manage-app/CreateAlertRecipientsPage.png)
-4. Seçin **abonelik yöneticileri e-posta** seçeneği ve/veya girin bir **ek yönetici e-posta**, tıklatıp **son**. Uyarı listesinde görmeniz gerekir.
-
-    ![Uyarılar listesinde](./media/data-factory-monitor-manage-app/AlertsList.png)
-
-Uyarılar listesinde düzenleme/silme/devre dışı bırak/etkinleştir bir uyarı uyarı ile ilişkili düğmelerini kullanın.
-
-### <a name="eventstatussubstatus"></a>Alt olay/durumu/durum
-Aşağıdaki tabloda kullanılabilir olayları ve durumları (ve alt durumlar) listesini sağlar.
-
-| Olay adı | Durum | Alt durum |
-| --- | --- | --- |
-| Başlatılan Çalıştır etkinliği |Başlatıldı |Başlatılıyor |
-| Tamamlanan etkinlik |Başarılı oldu |Başarılı oldu |
-| Tamamlanan etkinlik |Başarısız |Başarısız olan kaynak ayırma<br/><br/>Başarısız yürütme<br/><br/>Zaman Aşımı<br/><br/>Başarısız doğrulamayı<br/><br/>Abandoned |
-| İsteğe bağlı HDI kümesi oluşturma başlatıldı |Başlatıldı |-|
-| İsteğe bağlı HDI kümesi başarıyla oluşturuldu |Başarılı oldu |-|
-| İsteğe bağlı HDI kümesi silindi |Başarılı oldu |-|
-
-### <a name="to-edit-delete-or-disable-an-alert"></a>Düzenleme, silme veya bir uyarıyı devre dışı bırakmak için
-
-Düzenleme, silme veya devre dışı bir uyarı (kırmızı ile vurgulanan) aşağıdaki düğmelerini kullanın.
-
-![Uyarıları düğmeleri](./media/data-factory-monitor-manage-app/AlertButtons.png)

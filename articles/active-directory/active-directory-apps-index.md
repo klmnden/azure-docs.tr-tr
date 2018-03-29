@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory'de uygulama yönetimi için makale dizini | Microsoft Azure"
-description: "Federasyon sertifikalarınızı sona erme tarihini özelleştirmeyi ve süresi yakında dolacak sertifikaları yenilemek nasıl öğrenin."
+title: Azure Active Directory'de uygulama yönetimi için makale dizini | Microsoft Azure
+description: Federasyon sertifikalarınızı sona erme tarihini özelleştirmeyi ve süresi yakında dolacak sertifikaları yenilemek nasıl öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 5321b8e4-2afa-4dfe-8d53-4add7abb5ec8
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ccbe48e4c7fdb25e003aedc048194e041865710e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ffb8e822644ba8f0bccc3e81edc4da6085ff3ec7
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -43,7 +43,7 @@ Bu bölümde, ilgili sorun giderme kılavuzları hızlı erişim sağlar. Bu say
 | Federasyon çoklu oturum açma |[Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md) |
 | Parola tabanlı çoklu oturum açma |[Erişim paneli uzantısı Internet Explorer için sorun giderme](active-directory-saas-ie-troubleshooting.md) |
 | Uygulama Proxy'si |[Uygulama Proxy sorun giderme kılavuzu](active-directory-application-proxy-troubleshoot.md) |
-| Çoklu oturum açma şirket içi arasında AD ve Azure AD |[Parola eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-synchronization.md#troubleshoot-password-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
+| Çoklu oturum açma şirket içi arasında AD ve Azure AD |[Parola karma eşitleme sorunlarını giderme](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Parola geri yazma sorunlarını giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Dinamik grup üyelikleri |[Dinamik grup üyeliklerini sorunlarını giderme](active-directory-accessmanagement-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>Çoklu Oturum Açma (SSO)
@@ -95,7 +95,7 @@ Kuruluşunuzun şirket içi bulut Azure Active Directory'yi birlikte Windows Ser
 |:---:| --- |
 | Karma ortamlar yönetme hakkında bilgi yanı sıra, Azure AD Connect tek oturum açma seçenekleri hakkında genel bir bakış sunulur |[Kullanıcı oturum açma seçenekleri Azure AD'de Bağlan](active-directory-aadconnect-user-signin.md) |
 | Her ikisi de ortamlarıyla yönetmek için genel rehberlik Active Directory ve Azure Active Directory şirket içi |[Azure AD karma kimlik tasarımı hakkında dikkat edilecek noktalar](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) |
-| SSO'yu etkinleştirmek için parola eşitleme kullanarak Kılavuzu |[Azure AD ile parola eşitlemeyi uygulama Bağlan](active-directory-aadconnectsync-implement-password-synchronization.md)<br /><br />[Parola eşitleme sorunlarını giderme](https://support.microsoft.com/en-us/kb/2855271) |
+| SSO'yu etkinleştirmek için parola eşitleme kullanarak Kılavuzu |[Azure AD ile parola eşitlemeyi uygulama Bağlan](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Parola eşitleme sorunlarını giderme](https://support.microsoft.com/en-us/kb/2855271) |
 | SSO'yu etkinleştirmek için parola geri yazma özelliğini kullanma konusunda yönergeler |[Azure AD'de parola yönetimine Başlarken](active-directory-passwords-getting-started.md)<br /><br />[Parola Geri Yazma Sorunlarını Giderme](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | SSO'yu etkinleştirmek için üçüncü taraf kimlik sağlayıcıları kullanma konusunda yönergeler |[Çoklu oturum açmayı etkinleştirmek için kullanılan uyumlu üçüncü taraf kimlik sağlayıcıları listesi](https://aka.ms/ssoproviders) |
 | Windows 10 kullanıcıları Azure AD katılım aracılığıyla çoklu oturum açmaya yararları nasıl keyfini çıkarabilirsiniz |[10 cihaz Azure Active Directory üzerinden katılmak Windows bulut özelliklerini genişletme](active-directory-azureadjoin-overview.md) |

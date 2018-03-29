@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: d7ee74a19f806faed0bcfcfa5f1c5de3937d9f31
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -30,7 +30,7 @@ Bu makalede, standart yük dengeleyici üzerinde odaklanmıştır.  Azure yük d
 
 Standart yük dengeleyici temel yük dengeleyicisi genişletilmiş ve daha ayrıntılı bir özelliği olan tüm TCP ve UDP uygulamalar için yeni bir yük dengeleyici üründür.  Benzer şekilde olsa da, farklarla bu makalede açıklanan şekilde öğrenmeniz önemlidir.
 
-Genel veya iç yük dengeleyici olarak standart yük dengeleyici standart kullanabilirsiniz. Ve bir genel ve bir iç yük dengeleyici kaynak bir sanal makineye bağlanabilir.
+Genel veya iç yük dengeleyici olarak standart yük dengeleyici kullanabilirsiniz. Ve bir genel ve bir iç yük dengeleyici kaynak bir sanal makineye bağlanabilir.
 
 Yük Dengeleyici kaynağın işlevleri her zaman bir ön uç, bir kural, bir sistem durumu araştırması ve arka uç havuzu tanımını ifade edilir.  Bir kaynak birden çok kural içerebilir. Sanal makineler sanal makinenin NIC kaynak arka uç havuzundan belirterek arka uç havuzuna yerleştirebilirsiniz.  Bir sanal makine ölçek kümesi söz konusu olduğunda, bu parametre ağ profili geçirilen ve genişletilmiş.
 
@@ -175,6 +175,9 @@ Standart yük dengeleyici kaynakları değiştirebilir ve standart bir ortak IP 
 ## <a name="migration-between-skus"></a>SKU'ları arasında geçiş
 
 SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak için bu bölümdeki adımları izleyin.
+
+>[!IMPORTANT]
+>Bu belgeyi SKU'ları arasındaki farkları anlamak ve senaryonuz dikkatle inceleyen okumalıdır gözden geçirin.  Senaryonuz hizalamak için ek değişiklikler yapmanız gerekebilir.
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Standart SKU Basic'ten geçirme
 

@@ -1,25 +1,25 @@
 ---
-title: "Azure Cosmos BI analiz araçları kullanarak Veritabanına bağlanın | Microsoft Docs"
-description: "Normalleştirilmiş veri BI ve veri analizi yazılımda görüntülenebilir tabloları ve görünümleri oluşturmak üzere Azure Cosmos DB ODBC sürücüsü kullanmayı öğrenin."
-keywords: "ODBC, odbc sürücüsü"
+title: Azure Cosmos BI analiz araçları kullanarak Veritabanına bağlanın | Microsoft Docs
+description: Normalleştirilmiş veri BI ve veri analizi yazılımda görüntülenebilir tabloları ve görünümleri oluşturmak üzere Azure Cosmos DB ODBC sürücüsü kullanmayı öğrenin.
+keywords: ODBC, odbc sürücüsü
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 01/16/2018
+ms.date: 03/22/2018
 ms.author: mimig
-ms.openlocfilehash: 3892f698ec2b0b45f71dc38491687897559821ba
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 445acafeef67027712826f644afaa1784569b30d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Azure Cosmos ODBC sürücüsüyle BI analiz araçları kullanarak veritabanına bağlan
 
@@ -30,7 +30,7 @@ Azure Cosmos DB ODBC sürücüsü ODBC 3.8 uyumlu olduğundan ve ANSI SQL-92 sö
 ## <a name="why-do-i-need-to-normalize-my-data"></a>Verilerimi normalleştirmek neden gerekiyor mu?
 Azure Cosmos DB şemasız bir veritabanı olduğundan, kendi veri modeli anında yinelemek ve bunları sınırlamak için kesin bir şema olmayan uygulamaları etkinleştirerek uygulamaların hızlı geliştirme sağlar. Tek bir Azure Cosmos DB veritabanı çeşitli yapıların JSON belgeleri içerebilir. Bu hızlı uygulama geliştirme için mükemmeldir, ancak çözümlemek ve veri analizi ve BI araçları kullanarak, verilerinizin raporlar oluşturmak istediğinizde, veri genellikle düzleştirilmiş ve belirli bir şemaya uyması gerekir.
 
-ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tabloları ve görünümleri veri çözümleme ve raporlama ihtiyaçlarınızı sığdırma Azure Cosmos veritabanı artık renormalized veri olabilir. Renormalized şemaları temel alınan veri üzerinde hiçbir etkisi ve bunlara bağlı olması geliştiriciler sınırlamak değil, bunlar yalnızca, verilere erişmek için ODBC uyumlu araçları yararlanmanızı sağlar. Artık Azure Cosmos DB veritabanınızı yalnızca Geliştirme ekibiniz için sık kullanılan olmayacak, ancak veri çözümleyiciler memnuniyet çok.
+ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tabloları ve görünümleri veri çözümleme ve raporlama ihtiyaçlarınızı sığdırma Azure Cosmos veritabanı veri şimdi renormalize. Renormalized şemaları temel alınan veri üzerinde hiçbir etkisi ve bunlara bağlı olması geliştiriciler sınırlamak değil, bunlar, verilere erişmek için ODBC uyumlu araçları yararlanmanızı sağlar. Artık Azure Cosmos DB veritabanınızı yalnızca Geliştirme ekibiniz için sık kullanılan olmayacak, ancak veri çözümleyiciler memnuniyet çok.
 
 Şimdi sağlar ODBC sürücüsü ile çalışmaya başlayın.
 
@@ -53,7 +53,7 @@ ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tab
 
 ## <a id="connect"></a>2. adım: Azure Cosmos DB veritabanınıza bağlanmak
 
-1. Sonra [Azure Cosmos DB ODBC sürücüsünü yükleme](#install), **ODBC Veri Kaynağı Yöneticisi** penceresinde tıklatın **Ekle**. Bir kullanıcı veya sistem DSN oluşturabilirsiniz. Bu örnekte, bir kullanıcı DSN'si oluşturuyoruz.
+1. Sonra [Azure Cosmos DB ODBC sürücüsünü yükleme](#install), **ODBC Veri Kaynağı Yöneticisi** penceresinde tıklatın **Ekle**. Bir kullanıcı veya sistem DSN oluşturabilirsiniz. Bu örnekte, bir kullanıcı DSN'si oluşturuyorsunuz.
 2. İçinde **yeni veri kaynağı oluştur** penceresinde, seçin **Microsoft Azure Cosmos DB ODBC sürücüsü**ve ardından **son**.
 3. İçinde **Azure Cosmos DB ODBC sürücüsü SDN Kurulum** penceresinde aşağıdakileri doldurun: 
 
@@ -71,7 +71,7 @@ ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tab
     - **Şema dosyası**: çeşitli seçenekler burada sahip.
         - Bu giriş (boş), olduğu gibi bırakarak varsayılan olarak, ilk sayfa verileri her koleksiyon şeması belirlemek tüm koleksiyonlar için sürücü tarar. Bu koleksiyon eşleme bilinir. Tanımlanan bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve daha yüksek başlangıç saati DSN kullanarak bir uygulama, bir neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmek öneririz.
         - Bir şema dosyası zaten varsa (kullanılarak oluşturulan bir büyük olasılıkla [şema Düzenleyicisi](#schema-editor)), tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklatın **kaydetmek**ve ardından **Tamam**.
-        - Yeni bir şema oluşturmak istiyorsanız, tıklatın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. İle devam [şema Düzenleyicisi](#schema-editor) bilgi. Yeni şema dosyasını oluşturduktan sonra geri gitmek lütfen unutmayın **Gelişmiş Seçenekler** penceresi yeni oluşturulan şema dosyası içerir.
+        - Yeni bir şema oluşturmak istiyorsanız, tıklatın **Tamam**ve ardından **şema Düzenleyicisi** ana penceresinde. İle devam [şema Düzenleyicisi](#schema-editor) bilgi. Yeni şema dosyasını oluşturduktan sonra geri dönüp hatırlamak **Gelişmiş Seçenekler** penceresi yeni oluşturulan şema dosyası içerir.
 
 6. Tamamlayıp kapattığınızda sonra **Azure Cosmos DB ODBC sürücüsü DSN Kurulum** penceresinde, yeni kullanıcı DSN Kullanıcı DSN sekmesine eklenir.
 
@@ -114,10 +114,60 @@ Aşağıdaki adımları kullanarak bir veya daha fazla koleksiyonda verileri iç
 4. **Tamam**’a tıklayın. 
 5. Buna örneklemek istediğiniz koleksiyonları eşleme tanımlarında tamamladıktan sonra **şema Düzenleyicisi** penceresinde tıklatın **örnek**.
      Her sütun için değiştirebileceğiniz sütun SQL adı, SQL türü, SQL uzunluğu (varsa), Ölçek (varsa), duyarlık (varsa) ve null atanabilir.
-    - Ayarlayabileceğiniz **sütunu gizle** için **true** sorgu sonuçlarındaki bu sütununu hariç tutmak istiyorsanız. Sütunları gizleme sütun işaretli = true hala şemanın bir parçası olsa seçimi ve yansıtma, döndürülmez. Örneğin, "_" ile başlayan tüm Azure Cosmos DB gerekli sistem özellikleri gizleyebilirsiniz.
+    - Ayarlayabileceğiniz **sütunu gizle** için **true** sorgu sonuçlarındaki bu sütununu hariç tutmak istiyorsanız. Sütunları gizleme sütun işaretli = true hala şemanın bir parçası olsa seçimi ve yansıtma, döndürülmez. Örneğin, ile başlayan tüm Azure Cosmos DB gerekli sistem özellikleri gizleyebilirsiniz `_`.
     - **Kimliği** normalleştirilmiş şemasında birincil anahtar olarak kullanılan gizlenemez yalnızca alan bir sütundur. 
 6. Şema tanımlama tamamladıktan sonra tıklatın **dosya** | **kaydetmek**, şemayı kaydetmek için dizine gidin ve ardından **kaydetmek**.
-7. Geri **Azure Cosmos DB ODBC sürücüsü DSN Kurulum** penceresinde tıklatın ** Gelişmiş Seçenekleri **. Ardından **şema dosyası** kutusuna kaydedilmiş şema dosyasına gidin ve tıklatın **Tamam**. Tıklatın **Tamam** DSN yeniden kaydetmek için. Bu, oluşturduğunuz şema DSN'ye kaydeder. 
+7. Geri **Azure Cosmos DB ODBC sürücüsü DSN Kurulum** penceresinde tıklatın **Gelişmiş Seçenekler**. Ardından **şema dosyası** kutusuna kaydedilmiş şema dosyasına gidin ve tıklatın **Tamam**. Tıklatın **Tamam** DSN yeniden kaydetmek için. Bu, oluşturduğunuz şema DSN'ye kaydeder. 
+
+## <a name="optional-set-up-linked-server-connection"></a>(İsteğe bağlı) Bağlantılı sunucu bağlantısını Ayarla
+
+Bir bağlı sunucu bağlantısı kurmak ayarlayarak Azure Cosmos DB SQL Server Management Studio (SSMS) gelen sorgulayabilirsiniz.
+
+1. Bölümünde açıklandığı gibi bir sistem veri kaynağı oluşturun [2. adım](#connect), örneğin adlandırılmış `SDS Name`.
+2. [SQL Server Management Studio'yu yüklemeniz](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+3. SSMS sorgu Düzenleyicisi'nde bir bağlı sunucu nesnesi oluşturmak `DEMOCOSMOS` aşağıdaki komutlarla veri kaynağı için. Değiştir `DEMOCOSMOS` bağlantılı sunucunuzun adıyla ve `SDS Name` sistemi veri kaynağı adı.
+
+    ```sql
+    USE [master]
+    GO
+    
+    EXEC master.dbo.sp_addlinkedserver @server = N'DEMOCOSMOS', @srvproduct=N'', @provider=N'MSDASQL', @datasrc=N'SDS Name'
+    
+    EXEC master.dbo.sp_addlinkedsrvlogin @rmtsrvname=N'DEMOCOSMOS', @useself=N'False', @locallogin=NULL, @rmtuser=NULL, @rmtpassword=NULL
+    
+    GO
+    ```
+    
+Yeni bağlantılı sunucu adı görmek için bağlı sunucular listesini yenileyin.
+
+![Bağlantılı sunucu SSMS olarak](./media/odbc-driver/odbc-driver-linked-server-ssms.png)
+
+### <a name="query-linked-database"></a>Bağlantılı veritabanını sorgulama
+
+Bağlantılı veritabanını sorgulamak için bir SSMS sorgusu girin. Bu örnekte, sorgu adlı koleksiyon tablosunda seçer `customers`:
+
+```sql
+SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
+```
+
+Sorgu yürütün. Sonuç buna benzer olmalıdır:
+
+```
+attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
+attachments/  1507476156    167 Nassau Street, Tuskahoma, Illinois, 5998   "2602bd56-0000-0000-0000-59da42bc0000"   2015-06-16T08:54:17 +04:00 f75f949ea8de466a9ef2bdb7ce065ac8
+attachments/  1507476156    885 Strong Place, Cassel, Montana, 2069       "2602be56-0000-0000-0000-59da42bc0000"   2015-03-20T07:21:47 +04:00 ef0365fb40c04bb6a3ffc4bc77c905fd
+attachments/  1507476156    515 Barwell Terrace, Defiance, Tennessee, 6439     "2602c056-0000-0000-0000-59da42bc0000"   2014-10-16T06:49:04 +04:00      e913fe543490432f871bc42019663518
+attachments/  1507476156    570 Ruby Street, Spokane, Idaho, 9025       "2602c156-0000-0000-0000-59da42bc0000"   2014-10-30T05:49:33 +04:00 e53072057d314bc9b36c89a8350048f3
+```
+
+> [!NOTE]
+> Bağlantılı Cosmos DB sunucusu Dört bölümlü adlandırmayı desteklemiyor. Hata aşağıdaki iletiye benzer döndürülür:
+
+```
+Msg 7312, Level 16, State 1, Line 44
+
+Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server "DEMOCOSMOS". A four-part name was supplied, but the provider does not expose the necessary interfaces to use a catalog or schema.
+``` 
 
 ## <a name="optional-creating-views"></a>(İsteğe bağlı) Görünümler oluşturma
 Tanımlayın ve görünümler örnekleme işleminin bir parçası oluşturun. Bu görünümler SQL görünümleri eşdeğerdir. Salt okunur ve seçimleri kapsamı olan ve Azure Cosmos DB SQL yansıtmaların tanımlanmalıdır. 

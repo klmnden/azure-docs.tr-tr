@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: cb44f1d456ec12b7fd21e397b749117942560f05
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e203787bffa80b324508f7df8f8e7a8c62355695
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (ortak Internet dosya sistemi veya CIFS olarak da bilinir). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -232,7 +232,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 ## <a name="backup"></a>Backup
 * <a id="backup-share"></a>
 **I my Azure dosyasını yedekleyin nasıl paylaşma?**  
-    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüleri](storage-how-to-use-files-snapshots.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. 
+    Kullanabileceğiniz düzenli [paylaşmak anlık görüntüleri](storage-snapshots-files.md) yanlışlıkla silmeleri karşı koruma için. AzCopy, Robocopy veya bir bağlı dosya paylaşımı yedekleyebilirsiniz bir üçüncü taraf yedekleme aracı de kullanabilirsiniz. 
 
 ## <a name="share-snapshots"></a>Paylaşım anlık görüntüler
 ### <a name="share-snapshots-general"></a>Paylaşma anlık görüntüler: Genel

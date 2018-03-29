@@ -1,6 +1,6 @@
 ---
-title: "Azure iç yük dengeleyici genel bakış | Microsoft Docs"
-description: "Azure ve senaryoları iç uç yapılandırma için bir iç yük dengeleyicisi nasıl çalışır."
+title: Azure iç yük dengeleyici genel bakış | Microsoft Docs
+description: Azure ve senaryoları iç uç yapılandırma için bir iç yük dengeleyicisi nasıl çalışır.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 54e390dbdb07cb4c45c801b638099aa0dcc6db1a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 0511165225f5a336291e86e0c504e60989933f3c
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="overview-of-azure-internal-load-balancer"></a>Azure iç yük dengeleyici genel bakış
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 Azure iç yük dengeleyici (ILB) yalnızca içinde bir bulut hizmeti olan veya Azure altyapı erişmek için bir VPN kullanan kaynaklara trafiğini yönlendirir. Bu bakımdan, ILB bir internet'e yönelik Yük dengeleyiciden farklıdır. Azure altyapı yük dengeli sanal IP (VIP) adresleri bir bulut hizmeti veya bir sanal ağ erişimi sınırlandırır. VIP adresleri ve sanal ağlar hiçbir zaman doğrudan bir Internet uç noktasına sunulur. İç iş kolu satır uygulama Azure'da çalıştırın ve Azure içinde veya şirket içi kaynaklardan gelen sonuna erişilir.
 

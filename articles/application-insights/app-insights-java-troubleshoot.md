@@ -1,6 +1,6 @@
 ---
-title: "Bir Java web projesinde Application Insights ilgili sorunları giderme"
-description: "Sorun giderme kılavuzu - Application Insights ile canlı Java uygulamalarını izleme."
+title: Bir Java web projesinde Application Insights ilgili sorunları giderme
+description: Sorun giderme kılavuzu - Application Insights ile canlı Java uygulamalarını izleme.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,38 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Java'da Azure Application Insights][java]? Burada, bazı ipuçları verilmektedir.
 
 ## <a name="build-errors"></a>Derleme hataları
-**Eclipse'te, Maven veya Gradle aracılığıyla Application Insights SDK'sı eklerken, derleme veya sağlama toplamı doğrulama hataları alıyorum.**
+**Eclipse veya Intellij Idea, Maven veya Gradle aracılığıyla Application Insights SDK'sı eklerken, derleme veya sağlama toplamı doğrulama hataları alın.**
 
-* Varsa bağımlılık <version> öğesi bir desen ile joker karakterler kullanarak (örneğin (Maven) `<version>[1.0,)</version>` veya (Gradle) `version:'1.0.+'`), belirli bir sürümü gibi yerine belirtmeyi deneyin `1.0.2`. Bkz: [sürüm notları](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) son sürüm için.
+* Varsa bağımlılık <version> öğesi bir desen ile joker karakterler kullanarak (örneğin (Maven) `<version>[2.0,)</version>` veya (Gradle) `version:'2.0.+'`), belirli bir sürümü gibi yerine belirtmeyi deneyin `2.0.1`. Bkz: [sürüm notları](https://github.com/Microsoft/ApplicationInsights-Java/releases) son sürüm için.
 
 ## <a name="no-data"></a>Veri yok
 **Application Insights başarıyla eklendi ve Uygulamam çalıştı, ancak hiç veri portalında gördüğünüze göre.**
 
 * Bir dakika bekleyip Yenile'ye tıklayın. Grafikler kendilerini düzenli olarak yeniler, ancak aynı zamanda el ile yenileyebilirsiniz. Yenileme aralığını grafiğin zaman aralığını bağlıdır.
-* Applicationınsights.xml dosyasında (projenizin kaynaklar klasörüne) tanımlanan bir izleme anahtarı olup olmadığını denetleyin
+* Applicationınsights.xml dosyasında (projenizin kaynaklar klasörüne) tanımlı veya ortam değişkeni yapılandırılmış bir izleme anahtarı olup olmadığını denetleyin.
 * Olduğunu doğrulayın hiçbir `<DisableTelemetry>true</DisableTelemetry>` xml dosyasında düğümü.
 * Güvenlik Duvarı'nda 80 ve 443 dc.services.visualstudio.com giden trafik için TCP bağlantı noktalarını açmanız gerekebilir. Bkz: [güvenlik duvarı özel durumlarını tam listesi](app-insights-ip-addresses.md)
 * Microsoft Azure'da Panosu başlatmak, hizmet durumu haritası bakın. Bazı uyarı göstergeleri varsa, bunlar Tamam olarak döndürmüş kapatın ve, Application Insights uygulama dikey penceresini yeniden açın kadar bekleyin.
-* Ekleyerek IDE konsol penceresine günlüğünü açmak bir `<SDKLogger />` öğesi kök düğümü altına Applicationınsights.xml dosyasını (projenizin kaynaklar klasörüne) ve [Hata] başında girişlerini denetleyin.
+* Ekleyerek IDE konsol penceresine günlüğünü açmak bir `<SDKLogger />` öğesi Applicationınsights.xml dosyasını (projenizin kaynaklar klasörüne) ve onay AI ile başlayan girişler için kök düğümü altındaki: UYAR/bilgi/hata şüpheli tüm günlükleri için.
 * Doğru Applicationınsights.xml dosyasını başarıyla Java SDK tarafından konsolun çıktı iletileri bir "yapılandırma dosyası başarıyla bulundu" deyimi için bakarak yüklendi olduğundan emin olun.
-* Yapılandırma dosyası bulunamazsa, burada yapılandırma dosyası için Aranmakta olan görmek için çıkış iletilerini denetleyin ve Applicationınsights.XML arama konumların birinde konumlandığından emin olun. Altın kural, uygulama Insights SDK Jar'lar yapılandırma dosyası yerleştirebilirsiniz. Örneğin: Tomcat'te bu WEB-INF/lib klasörüne anlamına gelir.
+* Yapılandırma dosyası bulunamazsa, burada yapılandırma dosyası için Aranmakta olan görmek için çıkış iletilerini denetleyin ve Applicationınsights.XML arama konumların birinde konumlandığından emin olun. Altın kural, uygulama Insights SDK Jar'lar yapılandırma dosyası yerleştirebilirsiniz. Örneğin: Tomcat'te bu WEB-INF/sınıflar klasörü anlamına gelir. Geliştirme sırasında web projenizin kaynaklar klasörüne Applicationınsights.XML yerleştirebilirsiniz.
+* Lütfen de bakmak [GitHub sayfası sorunları](https://github.com/Microsoft/ApplicationInsights-Java/issues) SDK'sı ile ilgili bilinen sorunlar için.
+* Lütfen bir sürüm çakışması sorunlarını önlemek için Application Insights çekirdek, web, aracı ve appenders günlüğü aynı sürümü kullandığınızdan emin olun.
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>Verileri görmek için kullandım, ancak bunu durduruldu
 * Denetleme [durum blog](http://blogs.msdn.com/b/applicationinsights-status/).
 * Veri noktalarının aylık kota ulaşıp? Ayarları/kota ve fiyatlandırma öğrenmek için açın. Bu durumda, planınızı yükseltmek veya ek kapasite için ödeme yaparsınız. Bkz: [düzeni fiyatlandırma](https://azure.microsoft.com/pricing/details/application-insights/).
+* Yakın zamanda, SDK yükselttiniz? Lütfen yalnızca benzersiz SDK Kavanoz proje dizini içinde mevcut olduğundan emin olun. Mevcut SDK'ın iki farklı sürümleri olmamalıdır.
+* Doğru AI kaynakta arıyorsunuz? Uygulamanızın nerede telemetri bekleniyor kaynağına ait iKey eşleşir. Bunlar aynı olmalıdır.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor tüm verileri görmüyorum
 * Kotalar açın ve olup fiyatlandırma dikey ve onay [örnekleme](app-insights-sampling.md) içinde bir işlemdir. (% 100 iletim örnekleme işleminde değil anlamına gelir.) Application Insights hizmeti, uygulamanızdan ulaşan telemetriyi yalnızca bir kısmı kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur. 
+* SDK açık örnekleme var mı? Yanıt Evet ise, veri uygulanabilir tüm türleri için belirtilen hızda örneklenen.
+* Java SDK'sı daha eski bir sürümü kullanıyorsunuz? Sürüm 2.0.1 ile başlayarak, yerel sürücülerde veri kalıcılığını yanı sıra aralıklı ağ ve arka uç hataları işlemek için hataya dayanıklılık mekanizması sunulmuştur.
+* Aşırı telemetri nedeniyle kısıtlanan? Bilgi günlüğü etkinleştirirseniz, bir günlük göreceksiniz "Uygulama kısıtlanan" iletisi. Bizim geçerli sınırı 32 k telemetri öğelerin saniye başına ' dir.
+
+### <a name="java-agent-cannot-capture-dependency-data"></a>Java Agent bağımlılık veri yakalama yapılamaz
+* Java agent izleyerek yapılandırdığınız [Java aracısını Yapılandır](app-insights-java-agent.md) ?
+* Java agent jar ve AI Agent.xml dosyasını aynı klasöre yerleştirilir emin olun.
+* Otomatik Topla eklemeye çalıştığınız bağımlılık otomatik toplamalarında desteklendiğinden emin olun. Şu anda yalnızca MySQL, MsSQL, Oracle DB ve Redis önbelleği bağımlılık toplama destekliyoruz.
+* JDK 1.7 veya 1.8 kullanıyor? Şu anda bağımlılık toplama JDK 9'desteklemiyoruz.
 
 ## <a name="no-usage-data"></a>Kullanım verisi yok
 **İstek ve yanıt süreleri, ancak hiçbir sayfa görünümü, tarayıcı hakkındaki verileri veya kullanıcı verileri görüyorum.**
@@ -83,6 +96,7 @@ XML yöntemi kullanarak, değeri değiştirdiğinizde uygulamayı yeniden başla
 
 * [Yeni kaynağın izleme anahtarını alır.][java]
 * Eclipse için Azure Araç Seti kullanarak projenize Application Insights eklediyseniz, web projenize sağ tıklayın, seçin **Azure**, **yapılandırma Application Insights**ve kayıt anahtarını değiştirin.
+* Lütfen ortam değişkeni İzleme anahtarını yapılandırmışsa ortam değişkeninin değeri ile yeni iKey güncelleştirin.
 * Aksi takdirde, projenizin kaynaklar klasörüne Applicationınsights.XML anahtarında güncelleştirin.
 
 ## <a name="debug-data-from-the-sdk"></a>Veri SDK'dan gelen hata ayıklama
@@ -143,6 +157,7 @@ Application Insights kullanan `org.apache.http`. Bu ad alanı altındaki Applica
 
 ## <a name="get-help"></a>Yardım alın
 * [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Bir sorun Github'da dosya](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->
 

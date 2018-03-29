@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB giriş: API MongoDB için | Microsoft Docs"
-description: "Depolamak için Azure Cosmos DB nasıl kullanabileceğiniz ve sorgu yoğun birimlerini JSON belgeleri, popüler OSS MongoDB API'lerini kullanarak düşük gecikme süresi ile bilgi edinin."
+title: 'Azure Cosmos DB giriş: API MongoDB | Microsoft Docs'
+description: Depolamak için Azure Cosmos DB nasıl kullanabileceğiniz ve sorgu yoğun birimlerini JSON belgeleri, popüler OSS MongoDB API'lerini kullanarak düşük gecikme süresi ile bilgi edinin.
 keywords: MongoDB nedir
 services: cosmos-db
 author: AndrewHoh
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 4afaf40d-c560-42e0-83b4-a64d94671f0a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: anhoh
-ms.openlocfilehash: ffca8f4518361e8c5447d7bb7ed6022eb0e96a4a
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: cdf1404d0070b74faeaca4dab7838167e2821323
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB giriş: API MongoDB için
+# <a name="introduction-to-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB giriş: API MongoDB
 
 [Azure Cosmos DB](../cosmos-db/introduction.md), Microsoft'un görev açısından kritik uygulamalar için genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB sağlar [anahtar teslim genel dağıtım](distribute-data-globally.md), [üretilen iş ve depolama esnek ölçeklendirme](partition-data.md) 99 ve garantili yüksek dünya, tek basamaklı milisaniyelik gecikme kullanılabilirlik, tarafından yedeklenen tüm [endüstri lideri SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB, şema ve dizin yönetimiyle ilgilenmenize gerek kalmadan [otomatik olarak verilerin dizinini oluşturur](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Çok modelli olan bu hizmet belge, anahtar-değer, grafik ve sütunlu veri modellerini destekler. 
 
 ![Azure Cosmos DB: MongoDB API](./media/mongodb-introduction/cosmosdb-mongodb.png) 
 
-Azure Cosmos DB veritabanları için yazılmış uygulamalar için veri deposu olarak kullanılabilir [MongoDB](https://docs.mongodb.com/manual/introduction/). Bu işlev, varolan kullanarak anlamına gelir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers/), uygulamanızın MongoDB, artık Azure Cosmos DB ile iletişim kurmak ve Azure Cosmos DB veritabanları MongoDB veritabanı yerine kullanmak için yazılmış. Çoğu durumda, sadece bir bağlantı dizesi değiştirilerek Azure Cosmos DB'de MongoDB kullanarak geçiş yapabilirsiniz. Bu işlevini kullanarak, kolayca oluşturabilir ve çalışma MongoDB veritabanı uygulamaları Azure bulut ile Azure Cosmos veritabanı genel dağıtım ve [kapsamlı endüstri lideri SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), tanıdık becerileri kullanmaya devam ederken ve MongoDB için araçları.
+Azure Cosmos DB veritabanları için yazılmış uygulamalar için veri deposu olarak kullanılabilir [MongoDB](https://docs.mongodb.com/manual/introduction/). Bu işlev, varolan kullanarak anlamına gelir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers/), uygulamanızın MongoDB, artık Azure Cosmos DB ile iletişim kurmak ve Azure Cosmos DB veritabanları MongoDB veritabanı yerine kullanmak için yazılmış. Çoğu durumda, sadece bir bağlantı dizesi değiştirilerek Azure Cosmos DB'de MongoDB kullanarak geçiş yapabilirsiniz. Bu işlevini kullanarak, kolayca oluşturabilir ve çalışma Genel dağıtılmış MongoDB veritabanı uygulamaları Azure bulut Azure Cosmos DB ve buna ait [kapsamlı endüstri lideri SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), bilinen kullanmaya devam ederken becerileri ve araçları MongoDB için.
 
 **MongoDB Uyumluluk**: Azure Cosmos DB MongoDB 3.4 (sürüm 5) kablo protokolü uygulayan ve destekleyen gibi varolan MongoDB uzmanlık, uygulama kodu ve araçları kullanabilirsiniz [MongoDB toplama ardışık düzen](mongodb-feature-support.md#aggregation-pipeline). MongoDB kullanarak uygulamaları geliştirmek ve bunları tam olarak yönetilen kullanan üretim ve genel olarak dağıtılmış Azure Cosmos DB hizmeti dağıtabilirsiniz.
 
@@ -68,7 +68,7 @@ Bir Azure Cosmos DB hesabı oluşturmanız ve varolan MongoDB uygulamanızı Azu
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos veritabanı MongoDB API'si hakkında bilgi Azure Cosmos DB belgeler genel tümleştirilmiştir, ancak başlamanıza yardımcı olmak için birkaç işaretçi şunlardır:
+Azure Cosmos DB MongoDB API'si hakkında bilgi Azure Cosmos DB belgeler genel tümleştirilmiştir, ancak başlamanıza yardımcı olmak için birkaç işaretçi şunlardır:
 
 * İzleyin [MongoDB hesabına Bağlan](connect-mongodb-account.md) hesabı bağlantı dizesi bilgilerinizi alma hakkında bilgi için öğretici.
 * İzleyin [Studio'yu kullanın 3T (MongoChef) Azure Cosmos DB ile](mongodb-mongochef.md) öğretici 3 T. Studio'da Azure Cosmos DB veritabanı MongoDB uygulama arasında bir bağlantı oluşturma hakkında bilgi edinin

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: fe79c6e6344bef8f25ae2e343e3301959c4e0ae5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -374,22 +374,14 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
 
    ![Yük Dengeleyici kaynak grubunda bulunamadı](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Yük Dengeleyici tıklatın, **arka uç havuzları**, tıklatıp **+ Ekle**. Arka uç havuzu aşağıdaki gibi ayarlayın:
+1. Yük Dengeleyici tıklatın, **arka uç havuzları**, tıklatıp **+ Ekle**. 
 
-   | Ayar | Açıklama | Örnek
-   | --- | --- |---
-   | **Ad** | Bir metin yazın | SQLLBBE
-   | **İle ilişkili** | Listeden seçin | Kullanılabilirlik kümesi
-   | **Kullanılabilirlik kümesi** | SQL Server Vm'lerinin bulunan kullanılabilirlik kümesi adını kullanın | sqlAvailabilitySet |
-   | **Sanal makineler** |İki Azure SQL Server VM adı | SQLServer-0, sqlserver-1
+1. Arka uç havuzu VM'ler içeren kullanılabilirlik kümesi ile ilişkilendirin.
 
-1. Arka uç havuzu için bir ad yazın.
+1. Altında **hedef ağ IP yapılandırmaları**, denetleme **sanal makine** ve sanal makinelerin kullanılabilirlik grubu çoğaltmaları barındıracak her ikisini de seçin. Dosya paylaşımı tanığı sunucusu içermez.
 
-1. Tıklatın **+ bir sanal makine Ekle**.
-
-1. Kullanılabilirlik kümesi için SQL sunucusu olduğundan emin kullanılabilirlik kümesi'ni seçin.
-
-1. Sanal makineler için SQL Server'ların ikisi de içerir. Dosya paylaşımı tanığı sunucusu içermez.
+   >[!NOTE]
+   >Her iki sanal makine belirtilmezse, bağlantıları yalnızca birincil çoğaltma başarılı olur.
 
 1. Tıklatın **Tamam** arka uç havuzu oluşturmak için.
 

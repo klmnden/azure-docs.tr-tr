@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0cfa79b9c44953c613eaec8d701f351c6f2ce212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı Taleplerde Azure AD (Önizleme)
 
@@ -69,9 +69,7 @@ Hedeflerinden biri [Azure AD v2.0 uç](active-directory-appmodel-v2-overview.md)
 | `is_device_managed`        | Cihaz MDM yüklü olup olmadığını gösterir. Koşullu erişim ilkesi ile ilişkili.                                                                                                                  | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
 | `is_device_compliant`      | MDM cihaz kuruluş cihaz güvenlik ilkeleriyle uyumlu mu belirledi gösterir.                                                                                  | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
 | `kmsi`                     | Kullanıcının bir tutmak bana imzalı içinde seçeneği seçtiği gösterir.                                                                                                                                    | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
-| `upn`                      | UserPrincipalName talep.  Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. | JWT, SAML  |           | Ek özellikleri: <br> include_externally_authenticated_upn <br> include_externally_authenticated_upn_without_hash                                                                                                                                                                 |
-| `groups`                   | Bir kullanıcının üyesi olduğu gruplar.                                                                                                                                                               | JWT, SAML  |           | Ek özellikleri: <br> Sam_account_name<br> Dns_domain_and_sam_account_name<br> Netbios_domain_and_sam_account<br> Max_size_limit<br> Emit_as_roles<br>                                                                                                                            |
-
+| `upn`                      | UserPrincipalName talep.  Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. | JWT, SAML  |           | Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 isteğe bağlı talepleri
 Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden istenen sürece kaldırılır.  Bu talep yalnızca (kimliği belirteçleri ve erişim belirteçleri) Jwt'ler için geçerlidir.  
 
@@ -90,26 +88,19 @@ Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden ist
 
 ### <a name="additional-properties-of-optional-claims"></a>İsteğe bağlı talepler ek özellikler
 
-Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir.  Bu ek özellikler aralıklar değişiklikleri biçimlendirmeden (örneğin, `include_externally_authenticated_upn_without_hash`) veri kümesini değiştirmek için döndürülen (`Dns_domain_and_sam_account_name`).
+Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek için yapılandırılabilir.  Bu ek özellikler çoğunlukla farklı veri beklentilerini ile şirket içi uygulamalar geçişini yardımcı olmak için kullanılır (örneğin, `include_externally_authenticated_upn_without_hash` hashmarks işleyemiyor istemcileriyle yardımcı olur (`#`) UPN içinde)
 
 **Tablo 4: standart isteğe bağlı talep yapılandırma değerleri**
 
 | Özellik adı                                     | Ek özellik adı                                                                                                             | Açıklama |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `Upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |             |
 | | `include_externally_authenticated_upn`              | Kaynak Kiracı depolandığı şekliyle UPN Konuk içerir.  Örneğin, `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | Yukarıdaki aynı dışındaki hashmarks (`#`) alt çizgi ile değiştirilir (`_`), örneğin `foo_hometenant.com_EXT_@resourcetenant.com` |             
-| `groups`                                              |                                                                                                                                      |             |
-| | `sam_account_name`                                  |                                                                                                                                      |             
-| | `dns_domain_and_sam_account_name`                   |                                                                                                                                      |             
-| | `netbios_domain_and_sam_account_name`               |                                                                                                                                      |             
-| | `max_size_limit`                                    | Max Grup boyut sınırı (1.000) döndürülen grupların sayısı başlatır.                                                            |             
-| | `emit_as_roles`                                     | "Rol" talep "grupları" taleple aynı değerlere yerine yayar.  Bir şirket içi ortamından geçirme uygulamaları burada RBAC geleneksel grup üyeliği denetlenen amaçlanmıştır.   |             
 
 > [!Note]
 >Bir ek özellik olmadan upn isteğe bağlı talebi belirtecinde verilen yeni bir talep görmek için herhangi bir davranış – değiştirmez belirtme, en az bir ek özellikleri eklenmesi gerekir. 
->
->`account_name` Grupları için ek özellikler birlikte çalışabilir değildir ve ek özellikleri sıralama önemlidir – ilk hesap adı yalnızca ek listelenen özellik kullanılır. 
+
 
 #### <a name="additional-properties-example"></a>Ek özellikleri örneği:
 
@@ -118,15 +109,15 @@ Bazı isteğe bağlı bir talep, talep döndürülen şeklini değiştirmek içi
    {
        "idToken": [ 
              { 
-                "name": "groups", 
+                "name": "upn", 
             "essential": false,
-                "additionalProperties": [ "netbios_domain_and_sam_account_name", "sam_account_name" , "emit_as_roles"]  
+                "additionalProperties": [ "include_externally_authenticated_upn"]  
               }
         ]
 }
 ```
 
-Bu OptionalClaims nesnesi aynı döndürür `groups` talep edildiğinde `sam_account_name` sonra olduğundan – bulunmuyordu `netbios_domain_and_sam_account_name`, göz ardı edilir. 
+Bu OptionalClaims nesne başka bir upn ek giriş Kiracı ve kaynak Kiracı bilgileri içerecek şekilde istemciye döndürülen kimliği belirteci neden olur.  
 
 ## <a name="configuring-optional-claims"></a>İsteğe bağlı talep yapılandırma
 

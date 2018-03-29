@@ -1,11 +1,11 @@
 ---
-title: "İstenen durum yapılandırması için Azure genel bakış | Microsoft Docs"
-description: "Microsoft Azure uzantısı işleyici PowerShell istenen durum yapılandırması (DSC için) kullanmayı öğrenin. Makaleyi Önkoşullar, mimari ve cmdlet'lerini içerir."
+title: İstenen durum yapılandırması için Azure genel bakış | Microsoft Docs
+description: Microsoft Azure uzantısı işleyici PowerShell istenen durum yapılandırması (DSC için) kullanmayı öğrenin. Makaleyi Önkoşullar, mimari ve cmdlet'lerini içerir.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: migreene
-ms.openlocfilehash: 14d29223435e9a133b112a61f2ecdde0aad581a2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5b16261c9a9f046b7bc55a06dd71aa154a0cec27
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure istenen durum yapılandırması uzantısı işleyici giriş
 
@@ -71,7 +71,7 @@ Azure DSC uzantısı olmaya yönelik bir varsayılan yapılandırma betiğini i�
 
 DSC uzantı yönetmek için kullanılan PowerShell cmdlet'lerini en iyi etkileşimli sorun giderme ve bilgi toplama senaryolarında kullanılır. Paket, yayımlama ve DSC uzantısı dağıtımlarını izlemek için cmdlet'lerini kullanabilirsiniz. DSC uzantı için cmdlet'leri çalışmak için henüz güncelleştirilmemiş Not [varsayılan yapılandırma komut dosyası](#default-configuration-script).
 
-**Yayımla AzureRMVMDscConfiguration** cmdlet'i bir yapılandırma dosyasında alır, bağımlı DSC kaynakları için tarar ve bir .zip dosyası oluşturur. .Zip dosyasını yapılandırma ve yapılandırmasını yürürlüğe için gereken DSC kaynakları içerir. Cmdlet Ayrıca paket kullanarak yerel olarak oluşturabilirsiniz *- ConfigurationArchivePath* parametresi. Aksi takdirde, cmdlet BLOB depolamaya .zip dosyası yayımlar ve bir SAS belirteci ile güvenliğini sağlar.
+**Yayımla AzureRMVMDscConfiguration** cmdlet'i bir yapılandırma dosyasında alır, bağımlı DSC kaynakları için tarar ve bir .zip dosyası oluşturur. .Zip dosyasını yapılandırma ve yapılandırmasını yürürlüğe için gereken DSC kaynakları içerir. Cmdlet Ayrıca paket kullanarak yerel olarak oluşturabilirsiniz *- OutputArchivePath* parametresi. Aksi takdirde, cmdlet BLOB depolamaya .zip dosyası yayımlar ve bir SAS belirteci ile güvenliğini sağlar.
 
 Arşiv klasörünün kökü, .zip dosyasına cmdlet oluşturur .ps1 yapılandırma komut dosyasıdır. Modül klasörü arşiv klasöründe bulunan kaynaklar yerleştirilir.
 
@@ -133,7 +133,7 @@ Portalda DSC ayarlamak için:
 
 Portal şu girdi gerektirir:
 
-* **Yapılandırma modülleri veya komut dosyası**: Bu alan zorunludur (form için güncelleştirilmemiş [varsayılan yapılandırma komut dosyası](#default-configuration-script)). Yapılandırma modülleri ve komut dosyaları bir yapılandırma komut dosyası varsa bir .ps1 dosyası ya da bir .zip dosyası kökünde bir .ps1 yapılandırma komut dosyalarıyla gerektirir. Bir .zip dosyası kullanıyorsanız, tüm bağımlı kaynaklarla .zip modülü klasörlerdeki eklenmesi gerekir. .Zip dosyasını kullanarak oluşturabileceğiniz **Yayımla AzureVMDscConfiguration - ConfigurationArchivePath** Azure PowerShell SDK'da bulunan cmdlet'i. .Zip dosyasını kullanıcı blob depolama alanına yüklediğiniz ve bir SAS belirteci tarafından güvenliği.
+* **Yapılandırma modülleri veya komut dosyası**: Bu alan zorunludur (form için güncelleştirilmemiş [varsayılan yapılandırma komut dosyası](#default-configuration-script)). Yapılandırma modülleri ve komut dosyaları bir yapılandırma komut dosyası varsa bir .ps1 dosyası ya da bir .zip dosyası kökünde bir .ps1 yapılandırma komut dosyalarıyla gerektirir. Bir .zip dosyası kullanıyorsanız, tüm bağımlı kaynaklarla .zip modülü klasörlerdeki eklenmesi gerekir. .Zip dosyasını kullanarak oluşturabileceğiniz **Yayımla AzureVMDscConfiguration - OutputArchivePath** Azure PowerShell SDK'da bulunan cmdlet'i. .Zip dosyasını kullanıcı blob depolama alanına yüklediğiniz ve bir SAS belirteci tarafından güvenliği.
 
 * **Yapılandırma verileri PSD1 dosyası**: Bu alan isteğe bağlıdır. Yapılandırmanızı .psd1 yapılandırma veri dosyası gerektiriyorsa, veri alanını seçin ve kullanıcı blob depolama alanına yüklemek için bu alanı kullanın. Yapılandırma veri dosyasının bir SAS belirteci blob depolamada tarafından korunmaktadır.
 
