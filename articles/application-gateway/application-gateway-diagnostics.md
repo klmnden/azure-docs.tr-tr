@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri
 
@@ -27,7 +27,7 @@ Azure uygulama ağ geçidi kullanarak, aşağıdaki yollarla kaynakları izleyeb
 
 * [Arka uç sistem durumu](#back-end-health): uygulama Ağ Geçidi sunucularının arka uç havuzlarındaki PowerShell ve Azure Portalı aracılığıyla durum izleme yeteneği sağlar. Performans Tanılama günlükleri aracılığıyla arka uç havuzları durumunu da bulabilirsiniz.
 
-* [Günlükleri](#diagnostic-logs): günlükleri izin performans, erişim ve diğer veri kaydedilmeyecek veya izleme amacıyla bir kaynaktan tüketilen.
+* [Günlükleri](#diagnostic-logging): günlükleri izin performans, erişim ve diğer veri kaydedilmeyecek veya izleme amacıyla bir kaynaktan tüketilen.
 
 * [Ölçümleri](#metrics): uygulama ağ geçidi şu anda bir ölçüm yok. Bu ölçüm, saniye başına bayt uygulama ağ geçidi verimini ölçer.
 

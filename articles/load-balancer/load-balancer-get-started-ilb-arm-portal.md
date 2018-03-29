@@ -1,11 +1,11 @@
 ---
-title: "İç yük dengeleyicisi oluşturma - Azure portalı | Microsoft Docs"
-description: "Azure portalını kullanarak Resource Manager’da iç yük dengeleyici oluşturmayı öğrenin"
+title: İç yük dengeleyicisi oluşturma - Azure portalı | Microsoft Docs
+description: Azure portalını kullanarak Resource Manager’da iç yük dengeleyici oluşturmayı öğrenin
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jennoc
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 1ac14fb9-8d14-4892-bfe6-8bc74c48ae2c
 ms.service: load-balancer
@@ -15,22 +15,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5274ec13ec2d04194e2dd4c8ec93be0f78329b23
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4cb61b60f97238a3c34953c679f177ef16056092
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Azure portalını kullanarak iç yük dengeleyici oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Şablon](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 

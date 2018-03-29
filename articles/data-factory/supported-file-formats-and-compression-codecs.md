@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 33e0d1d54a533d68ac08f223e1a41e65c7b301a4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b038052776cad63030ca8a48a43b4b579ce6c83a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure veri fabrikası'nda sıkıştırma codec bileşenleri
 
@@ -444,6 +444,30 @@ Aşağıdaki noktalara dikkat edin:
 * Karmaşık veri türleri desteklenmez (STRUCT, MAP, LIST, UNION)
 * ORC dosyası [sıkıştırmayla ilgili üç seçeneğe sahiptir](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB, SNAPPY. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir ORC dosyasına yazarken varsayılan ORC değeri olan ZLIB seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
 
+### <a name="data-type-mapping-for-orc-files"></a>Eşleme ORC dosyaları için veri türü
+
+| Veri Fabrikası geçici veri türü | ORC türleri |
+|:--- |:--- |
+| Boole | Boole |
+| SByte | Bayt |
+| Bayt | Kısa |
+| Int16 | Kısa |
+| UInt16 | Int |
+| Int32 | Int |
+| UInt32 | Uzun |
+| Int64 | Uzun |
+| UInt64 | Dize |
+| Bekar | Kayan nokta |
+| Çift | Çift |
+| Ondalık | Ondalık |
+| Dize | Dize |
+| DateTime | Zaman damgası |
+| DateTimeOffset | Zaman damgası |
+| TimeSpan | Zaman damgası |
+| ByteArray | İkili |
+| Guid | Dize |
+| char | CHAR(1) |
+
 ## <a name="parquet-format"></a>Parquet biçimi
 
 Parquet dosyalarını ayrıştırmak veya verileri Parquet biçiminde yazmak istiyorsanız `format` `type` özelliğini **ParquetFormat** olarak ayarlayın. typeProperties bölümünün içindeki Format bölümünde herhangi bir özellik belirtmenize gerek yoktur. Örnek:
@@ -463,6 +487,31 @@ Aşağıdaki noktalara dikkat edin:
 
 * Karmaşık veri türleri desteklenmez (MAP, LIST)
 * Parquet dosyası sıkıştırmayla ilgili şu seçeneklere sahiptir: NONE, SNAPPY, GZIP ve LZO. Data Factory, bu sıkıştırma biçimlerinin herhangi birine sahip ORC dosyalarını okuyabilir. Verileri okumak için meta verilerdeki sıkıştırma kodlayıcısı/kod çözücüsünü kullanır. Ancak Data Factory bir Parquet dosyasına yazarken varsayılan Parquet biçimi SNAPPY seçeneğini kullanır. Şu anda bu davranışı geçersiz kılma seçeneği yoktur.
+
+### <a name="data-type-mapping-for-parquet-files"></a>Eşleme Parquet dosyaları için veri türü
+
+| Veri Fabrikası geçici veri türü | Parquet basit türü | Parquet özgün türü (seri durumdan) | Parquet özgün türü (seri) |
+|:--- |:--- |:--- |:--- |
+| Boole | Boole | Yok | Yok |
+| SByte | Int32 | Int8 | Int8 |
+| Bayt | Int32 | UInt8 | Int16 |
+| Int16 | Int32 | Int16 | Int16 |
+| UInt16 | Int32 | UInt16 | Int32 |
+| Int32 | Int32 | Int32 | Int32 |
+| UInt32 | Int64 | UInt32 | Int64 |
+| Int64 | Int64 | Int64 | Int64 |
+| UInt64 | Int64/ikili | UInt64 | Ondalık |
+| Bekar | Kayan nokta | Yok | Yok |
+| Çift | Çift | Yok | Yok |
+| Ondalık | İkili | Ondalık | Ondalık |
+| Dize | İkili | Utf8 | Utf8 |
+| DateTime | Int96 | Yok | Yok |
+| TimeSpan | Int96 | Yok | Yok |
+| DateTimeOffset | Int96 | Yok | Yok |
+| ByteArray | İkili | Yok | Yok |
+| Guid | İkili | Utf8 | Utf8 |
+| char | İkili | Utf8 | Utf8 |
+| CharArray | Desteklenmiyor | Yok | Yok |
 
 ## <a name="compression-support"></a>Sıkıştırma desteği
 

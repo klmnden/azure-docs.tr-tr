@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 733a396117a58d8dc51e55614e503853f13141c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -91,7 +91,7 @@ A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, 
 | Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosya boyutuna bağlı olarak 32 arasında. |
 | Diğer tüm kopyalama senaryoları | 4 |
 
-Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği olan 2, 4, 8, 16 ve 32. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
+Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği **en fazla 256**. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
 
 Bir etkinlik izlerken çıktı kopyalama etkinliğinde çalıştırın her kopya için gerçekten kullanılan bulut veri taşıma birimleri görebilirsiniz. Ayrıntıları öğrenmek [etkinliğini izleme kopyalama](copy-activity-overview.md#monitoring).
 
@@ -133,11 +133,14 @@ Her kopya Çalıştır etkinliği için veri fabrikası veri depolamak ve hedef 
 
 | Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan paralel kopya sayısı |
 | --- | --- |
-| Dosya tabanlı depoları arasında veri kopyalama |1 ile 64 arasında. Dosyaları ve iki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan bulut veri taşıma birimleri (DMUs) sayıda boyutuna bağlıdır. |
+| Dosya tabanlı depoları arasında veri kopyalama |Dosyaları ve iki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan bulut veri taşıma birimleri (DMUs) sayıda boyutuna bağlıdır. |
 | Tüm kaynak veri deposundan Azure Table depolama alanına veri kopyalama |4 |
 | Diğer tüm kopyalama senaryoları |1 |
 
-Genellikle, varsayılan davranışı en iyi verimlilik vermesi gerekir. Ancak, verilerinizi barındıran makineler üzerindeki yükü denetlemek için depolar veya kopya performansı ayarlamak için varsayılan değeri geçersiz kılmak ve için bir değer belirtmek seçebilirsiniz **parallelCopies** özelliği. Değer 1'e eşit veya sıfırdan büyük bir tamsayı olmalıdır. Çalışma zamanında, en iyi performans için kopyalama etkinliği ayarladığınız değerine eşit veya daha küçük bir değer kullanır.
+[!TIP]
+> Dosya tabanlı depoları arasında veri kopyalama işlemi sırasında varsayılan davranış (otomatik belirlenir) genellikle size en iyi verimlilik. 
+
+Verilerinizi barındıran makineler üzerindeki yükü denetlemek için depolar ya da kopyalama performansı ayarlamak için varsayılan değeri geçersiz kılmak ve için bir değer belirtmek seçebilirsiniz **parallelCopies** özelliği. Değer 1'e eşit veya sıfırdan büyük bir tamsayı olmalıdır. Çalışma zamanında, en iyi performans için kopyalama etkinliği ayarladığınız değerine eşit veya daha küçük bir değer kullanır.
 
 ```json
 "activities":[

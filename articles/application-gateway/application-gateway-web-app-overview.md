@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway ile çok kiracılı arka uçlara genel bakış | Microsoft Docs"
-description: "Bu sayfada, Application Gateway’in çok kiracılı arka uç desteği için genel bir bakış sunulmuştur."
+title: Azure Application Gateway ile çok kiracılı arka uçlara genel bakış | Microsoft Docs
+description: Bu sayfada, Application Gateway’in çok kiracılı arka uç desteği için genel bir bakış sunulmuştur.
 documentationcenter: na
 services: application-gateway
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
-ms.openlocfilehash: d093af064bca46aa1f454b61b1099f47f61ccd33
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: f5ec916fcf45734ab85751e749bd6bb312f05b1a
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends"></a>Çok kiracılı arka uçlar için Application Gateway desteği
 
@@ -32,7 +32,7 @@ Ana bilgisayar geçersiz kılma işlemi belirtme olanağı HTTP ayarlarında tan
 2. Arka uç havuzu üyelerinin IP veya FQDN’sinden ana bilgisayar adını türetme. HTTP ayarları ayrıca, tek bir arka uç havuzu üyesinden ana bilgisayar adı türetme seçeneğiyle birlikte yapılandırılması durumunda, bir arka uç havuzu üyesinin FQDN’sinden ana bilgisayar adını belirleme seçeneği sağlar. Uçtan uca SSL kullanılırken, bu ana bilgisayar adı FQDN’den türetilir ve SNI uzantısında kullanılır. Bu özellik, bir arka uç havuzunun Azure Web Apps gibi iki veya daha fazla çok kiracılı PaaS hizmetine sahip olabileceği ve her bir üyeye gönderilen isteğin ana bilgisayar üst bilgisinde FQDN’den türetilmiş ana bilgisayar adının bulunduğu senaryoların gerçekleşmesine olanak tanır.
 
 > [!NOTE]
-> Önceki örneklerin her ikisinde de, ayarlar yalnızca canlı trafik davranışını etkiler ve sistem durumu araştırma davranışını etkilemez. Özel araştırmalar, araştırma yapılandırmasında bir ana bilgisayar üst bilgisi belirtme olanağını zaten desteklemektedir. Özel araştırmalar artık o anda yapılandırılmış HTTP ayarlarından ana bilgisayar üst bilgisi davranışını türetme olanağını da desteklemektedir. Bu yapılandırma, araştırma yapılandırmasındaki `PickHostNameFromback endAddress` parametresi kullanılarak belirtilebilir. Uçtan uca işlevselliğin çalışması için hem araştırma hem de HTTP ayarları doğru yapılandırmayı yansıtacak şekilde değiştirilmelidir.
+> Önceki örneklerin her ikisinde de, ayarlar yalnızca canlı trafik davranışını etkiler ve sistem durumu araştırma davranışını etkilemez. Özel araştırmalar, araştırma yapılandırmasında bir ana bilgisayar üst bilgisi belirtme olanağını zaten desteklemektedir. Özel araştırmalar artık o anda yapılandırılmış HTTP ayarlarından ana bilgisayar üst bilgisi davranışını türetme olanağını da desteklemektedir. Bu yapılandırma, araştırma yapılandırmasındaki `PickHostNameFromBackendHttpSettings` parametresi kullanılarak belirtilebilir. Uçtan uca işlevselliğin çalışması için hem araştırma hem de HTTP ayarları doğru yapılandırmayı yansıtacak şekilde değiştirilmelidir.
 
 Bu özellik sayesinde müşteriler, HTTP ayarları ve özel araştırmalardaki seçenekleri uygun yapılandırmaya göre belirtebilir. Bu ayar daha sonra bir kural kullanılarak dinleyiciye ve arka uç havuzuna bağlanır.
 
