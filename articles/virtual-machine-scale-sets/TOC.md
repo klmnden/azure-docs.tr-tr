@@ -1,15 +1,38 @@
-# [Sanal Makine Ölçek Kümeleri Belgeleri](index.md)
+# [Sanal Makine Ölçek Kümeleri Belgeleri](index.yml)
 
 # Genel Bakış
-## [Sanal makine ölçek kümeleri nedir?](virtual-machine-scale-sets-overview.md)
+## [Sanal makine ölçek kümeleri nedir?](overview.md)
 
-# Başlarken
-## [Azure portalında oluşturma](virtual-machine-scale-sets-create-portal.md)
-## [Azure CLI 2.0 ile oluşturma](virtual-machine-scale-sets-create-cli.md)
-## [Azure PowerShell ile oluşturma](virtual-machine-scale-sets-create-powershell.md)
+# Hızlı Başlangıçlar
+## [Azure portalında oluşturma](quick-create-portal.md)
+## [Azure CLI 2.0 ile oluşturma](quick-create-cli.md)
+## [Azure PowerShell ile oluşturma](quick-create-powershell.md)
 ## Şablon ile oluşturma
-### [Linux ölçek kümesi](virtual-machine-scale-sets-create-template-linux.md)
-### [Windows ölçek kümesi](virtual-machine-scale-sets-create-template-windows.md)
+### [Linux ölçek kümesi](quick-create-template-linux.md)
+### [Windows ölçek kümesi](quick-create-template-windows.md)
+
+# Öğreticiler
+## 1 - Ölçek kümesi oluşturup yönetme
+### [Azure CLI 2.0](tutorial-create-and-manage-cli.md)
+### [Azure PowerShell](tutorial-create-and-manage-powershell.md)
+## 2 - Veri disklerini kullanma
+### [Azure CLI 2.0](tutorial-use-disks-cli.md)
+### [Azure PowerShell](tutorial-use-disks-powershell.md)
+## 3 - Özel VM görüntüsü kullanma
+### [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+### [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+## 4 - Uygulamaları ölçek kümesine dağıtma
+### [Azure CLI 2.0](tutorial-install-apps-cli.md)
+### [Azure PowerShell](tutorial-install-apps-powershell.md)
+### [Şablon](tutorial-install-apps-template.md)
+## 5 - Ölçek kümesini otomatik olarak ölçeklendirme
+### [Azure CLI 2.0](tutorial-autoscale-cli.md)
+### [Azure PowerShell](tutorial-autoscale-powershell.md)
+### [Şablon](tutorial-autoscale-template.md)
+
+# Örnekler
+## [Azure CLI 2.0](cli-samples.md)
+## [PowerShell](powershell-samples.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım
@@ -24,12 +47,9 @@
 
 ## Dağıtma
 ### [Visual Studio ile oluşturma](virtual-machine-scale-sets-vs-create.md)
-### [Yönetilen diskler ile ölçek kümesi](virtual-machine-scale-sets-managed-disks.md)
 ### [Kullanılabilirlik Alanlarını kullanma](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Ölçek kümesini otomatik olarak ölçeklendirme](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Azure portal’ı kullanma](virtual-machine-scale-sets-autoscale-portal.md)
-#### [Azure CLI 2.0 kullanma](virtual-machine-scale-sets-autoscale-cli.md)
-#### [Azure PowerShell’i kullanma](virtual-machine-scale-sets-autoscale-powershell.md)
 #### [Gelişmiş otomatik ölçeklendirme](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Ölçek kümelerindeki uygulamalar](virtual-machine-scale-sets-deploy-app.md)
 ### [Veri disklerini ölçek kümeleri ile kullanma](virtual-machine-scale-sets-attached-disks.md)

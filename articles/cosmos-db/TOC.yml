@@ -445,3 +445,5 @@
       href: faq.md
     - name: Beyzbol örneği ile açıklanan veri tutarlılığı
       href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+    - name: Azure Cosmos DB’de sorun giderme
+      href: troubleshoot-azure-cosmosdb.md

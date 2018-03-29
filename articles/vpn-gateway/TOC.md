@@ -16,7 +16,7 @@
 
 # Nasıl yapılır
 ## Siteden Siteye bağlantıları yapılandırma
-### [Azure portalı](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -25,7 +25,7 @@
 
 ## Noktada Siteye bağlantıları yapılandırma - Yerel Azure sertifika kimlik doğrulaması
 ### P2S VPN yapılandırma
-#### [Azure portalı](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+#### [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 #### [Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 #### [Azure portal (klasik)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 ### Otomatik olarak imzalanan sertifikalar oluşturma
@@ -41,17 +41,17 @@
 ### [P2S VPN RADIUS kimlik doğrulamasını NPS sunucusu ile tümleştirme](vpn-gateway-radiuis-mfa-nsp.md)
 
 ## VNet-VNet bağlantıları yapılandırma
-### [Azure portalı](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 ### [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 ### [Azure portal (klasik)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 ## Dağıtım modelleri arasında sanal ağdan sanal ağa bağlantı yapılandırma
-### [Azure portalı](vpn-gateway-connect-different-deployment-models-portal.md)
+### [Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 ### [Azure PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 ## Birlikte bulunan Siteden Siteye bağlantılar ile ExpressRoute bağlantılarını yapılandırma
 ### [Azure PowerShell](../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## Birden çok Siteden Siteye bağlantı yapılandırma
-### [Azure portalı](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+### [Azure Portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell (klasik)](vpn-gateway-multi-site.md)
 ## Birden çok ilke tabanlı VPN cihazı bağlama
 ### [Azure PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md)
@@ -66,13 +66,13 @@
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (klasik)](vpn-gateway-about-forced-tunneling.md)
 ## Yerel ağ geçidi ayarlarını değiştirme
-### [Azure portalı](vpn-gateway-modify-local-network-gateway-portal.md)
+### [Azure Portal](vpn-gateway-modify-local-network-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-modify-local-network-gateway.md)
 ### [Azure CLI](vpn-gateway-modify-local-network-gateway-cli.md)
 ## [VPN ağ geçidi bağlantısını doğrulama](vpn-gateway-verify-connection-resource-manager.md)
 ## [VPN ağ geçidini sıfırlama](vpn-gateway-resetgw-classic.md)
 ## VPN ağ geçidi silme
-### [Azure portalı](vpn-gateway-delete-vnet-gateway-portal.md)
+### [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [Azure PowerShell (klasik)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 ## [VPN ağ geçidi yapılandırma (klasik)](vpn-gateway-configure-vpn-gateway-mp.md)
@@ -84,9 +84,10 @@
 ## [Sorun giderme](vpn-gateway-troubleshoot.md)
 ### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Topluluk tarafından önerilen VPN veya güvenlik duvarı cihaz ayarları](vpn-gateway-third-party-settings.md)
-### [Noktadan Siteye bağlantı sorunu](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
-### [Siteden Siteye bağlantı kurulamıyor](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Noktadan Siteye bağlantı sorunları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Noktadan Siteye bağlantı sorunları - Mac OS X VPN istemcisi](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### [Siteden Siteye bağlantı sorunları](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet veya VPN bağlantılarını yapılandırma ve doğrulama](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Başvuru

@@ -21,6 +21,10 @@
   items:
     - name: R Server’ı kullanma
       items:
+        - name: R Server kümesi yönetme
+          href: r-server-hdinsight-manage.md
+        - name: R Server kümesini kullanıma hazır hale getirme
+          href: r-server-operationalize.md
         - name: Depolama seçenekleri
           href: r-server-storage.md
         - name: İşlem bağlamı

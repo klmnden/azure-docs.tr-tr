@@ -13,9 +13,9 @@
       href: quick-setup-auto-provision.md
     - name: Otomatik sağlamayı ayarlama - Şablon
       href: quick-setup-auto-provision-rm.md
-    - name: Sanal cihaz oluşturma
+    - name: Otomatik olarak bir simülasyon cihazı sağlama
       items:
-        - name: TPM
+        - name: TPM kanıtlama
           items:
             - name: C
               href: quick-create-simulated-device.md
@@ -27,7 +27,7 @@
               href: quick-create-simulated-device-tpm-node.md
             - name: Python
               href: quick-create-simulated-device-tpm-python.md
-        - name: X.509
+        - name: X.509 kanıtlama
           items:
             - name: C
               href: quick-create-simulated-device-x509.md
@@ -39,9 +39,9 @@
               href: quick-create-simulated-device-x509-node.md
             - name: Python
               href: quick-create-simulated-device-x509-python.md
-    - name: Cihaz kaydetme
+    - name: Hizmet API’lerini sağlama özelliğini kullanarak cihaz kaydetme
       items:
-        - name: TPM
+        - name: TPM kanıtlama
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
@@ -51,7 +51,7 @@
               href: quick-enroll-device-tpm-node.md
             - name: Python
               href: quick-enroll-device-tpm-python.md
-        - name: X.509
+        - name: X.509 kanıtlama
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
@@ -79,12 +79,14 @@
       href: tutorial-group-enrollments.md
 - name: Kavramlar
   items:
-    - name: Cihaz kavramları
+    - name: Otomatik sağlama
+      href: concepts-auto-provisioning.md
+    - name: Cihazlar
       href: concepts-device.md
-    - name: Hizmet kavramları
-      href: concepts-service.md
-    - name: Güvenlik kavramları
+    - name: Güvenlik
       href: concepts-security.md
+    - name: Hizmet
+      href: concepts-service.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Cihaz kayıtlarını yönetme
