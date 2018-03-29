@@ -27,6 +27,8 @@
   items:
     - name: Azure Stack Portal’ı kullanma
       href: azure-stack-use-portal.md
+    - name: Azure yığını API'si kullanın
+      href: azure-stack-rest-api-use.md
     - name: Güvenlik ve uyumluluk
       items:
         - name: RBAC’yi yönetme
