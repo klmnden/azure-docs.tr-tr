@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/05/2018
+ms.date: 03/20/2018
 ms.author: sedusch
-ms.openlocfilehash: 27fa58042b1d3dbed111d6ec7f3b3e96a9161180
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 75615de523f1fba808f44fb1a1015138fb190edc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>SUSE Linux Enterprise Server Azure üzerinde Pacemaker ayarlama
 
@@ -28,14 +28,13 @@ ms.lasthandoff: 03/23/2018
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
 
-![Pacemaker üzerinde SLES genel bakış](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
-
-
 Azure Pacemaker kümedeki ayarlamak için iki seçenek vardır. Azure API'leri aracılığıyla başarısız bir düğümü yeniden başlatmak mvc'deki bir yalıtma Aracısı ya da kullanabilir veya bir SBD cihazı kullanabilirsiniz.
 
 SBD aygıt bir ek sanal bir iSCSI hedef sunucusu gibi davranır ve SBD aygıt sağlayan machine gerektirir. Bu iSCSI hedef sunucusu ancak olabilir diğer Pacemaker kümeleriyle paylaşılan. SBD aygıt kullanmanın avantajı, daha hızlı yük devretme zaman ve SBD cihazlar şirket kullanıyorsanız pacemaker küme nasıl çalıştığını üzerinde herhangi bir değişiklik gerektirmez. SBD yalıtma iSCSI hedef sunucusu kullanılamaz durumda mekanizması eskrim yedek olarak Azure dilimi Aracısı'nı kullanmaya devam edebilirsiniz.
 
 Bir ek sanal makine yatırım istemiyorsanız, Azure dilimi Aracısı'nı da kullanabilirsiniz. Dezavantajı, bir yük devretme kaynak durdurma başarısız veya küme düğümlerini hangi birbirine artık iletişim kuramıyor, 10-15 dakika arasında sürebilir ' dir.
+
+![Pacemaker üzerinde SLES genel bakış](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 ## <a name="sbd-fencing"></a>SBD yalıtma
 
@@ -61,12 +60,11 @@ SBD aygıt yalıtma için kullanmak istiyorsanız, aşağıdaki adımları izley
 
 1. İSCSI hedef hizmeti etkinleştirme
 
-   <pre><code>
-   # This will make sure that targetcli was called at least once and the initial configuration was done.
-   sudo targetcli --help
-   
+   <pre><code>   
    sudo systemctl enable target
+   sudo systemctl enable targetcli
    sudo systemctl start target
+   sudo systemctl start targetcli
    </code></pre>
 
 ### <a name="create-iscsi-device-on-iscsi-target-server"></a>İSCSI hedef sunucuda iSCSI cihaz oluşturma
@@ -79,15 +77,28 @@ Aşağıdaki komutu çalıştırın **iSCSI hedef VM** yeni küme için bir iSCS
 # List all data disks with the following command
 sudo ls -al /dev/disk/azure/scsi1/
 
+# total 0
+# drwxr-xr-x 2 root root  80 Mar 26 14:42 .
+# drwxr-xr-x 3 root root 160 Mar 26 14:42 ..
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun0 -> ../../../<b>sdc</b>
+# lrwxrwxrwx 1 root root  12 Mar 26 14:42 lun1 -> ../../../sdd
+
+# Then use the disk name to list the disk id
+sudo ls -l /dev/disk/by-id/scsi-* | grep sdc
+
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 /dev/disk/by-id/scsi-14d53465420202020a50923c92babda40974bef49ae8828f0 -> ../../sdc
+# lrwxrwxrwx 1 root root  9 Mar 26 14:42 <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0 -> ../../sdc</b>
+
 # Use the data disk that you attached for this cluster to create a new backstore
-sudo targetcli backstores/block create <b>cl1</b> /dev/disk/azure/scsi1/<b>lun0</b>
+sudo targetcli backstores/block create <b>cl1</b> <b>/dev/disk/by-id/scsi-360022480a50923c92babef49ae8828f0</b>
 
 sudo targetcli iscsi/ create iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/luns/ create /backstores/block/<b>cl1</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-0.local:prod-cl1-0</b>
 sudo targetcli iscsi/iqn.2006-04.<b>cl1</b>.local:<b>cl1</b>/tpg1/acls/ create iqn.2006-04.<b>prod-cl1-1.local:prod-cl1-1</b>
 
-# restart the iSCSI target service to persist the changes
+# save the targetcli changes
+sudo targetcli saveconfig
 sudo systemctl restart target
 </code></pre>
 
@@ -370,7 +381,7 @@ STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için
    Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
 1. Uygulama kayıtlar'ı tıklatın
 1. Ekle'ye tıklayın.
-1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
+1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'sini girin (örneğin http://localhost) Oluştur'u tıklatın
 1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
 1. Yeni uygulama seçin ve anahtarları Ayarlar sekmesini
 1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun" seçin ve Kaydet
@@ -436,7 +447,7 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 Bir SBD aygıtı kullanmak istiyorsanız, iSCSI hedef sunucusu kullanılamaz durumda yedek olarak Azure dilimi Aracısı'nı kullanma hala öneririz.
 
 <pre><code>
-fencing_topology \
+sudo crm configure fencing_topology \
   stonith-sbd rsc_st_azure
 
 </code></pre>

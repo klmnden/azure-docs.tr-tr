@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: d4022a89b8e0e08679e1c593dc1b691a23d21471
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
@@ -381,7 +381,7 @@ Daha fazla bilgi aşağıda] ()https://msdn.microsoft.com/en-us/library/azure/dn
 |start| Dize | Tetikleyici yangın timespan, UTC biçiminde içinde başlangıcı | `2017-06-26T20:55:29.5007959Z`|
 |durum| Dize | Olup tetikleyici başarıyla (başarılı veya başarısız) harekete son durumu | `Succeeded`|
 
-### <a name="metrics"></a>Ölçümler
+## <a name="metrics"></a>Ölçümler
 
 Azure İzleyicisi, performans ve sistem durumu, iş yüklerinin Azure üzerinde görünürlük elde etmek için telemetri kullanmasına olanak sağlar. En önemli Azure telemetri verileri çoğu Azure kaynaklar tarafından gösterilen (performans sayaçlarını olarak da bilinir) ölçümleri türüdür. Azure İzleyicisi'ni yapılandırma ve izleme ve sorun giderme için bu ölçümleri kullanmak için çeşitli yöntemler sağlar.
 
@@ -397,6 +397,51 @@ Aşağıdaki ölçümleri ADFV2 yayar
 | TriggerFailedRuns    | Tetikleyici çalıştırır ölçümleri başarısız oldu     | Sayı    | Toplam                | Toplam tetikleyici dakika pencereye başarısız çalıştırır      |
 
 Ölçümleri erişmek için makalesindeki yönergeleri izleyin- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+
+## <a name="alerts"></a>Uyarılar
+
+Veri Fabrikası'nda desteklenen ölçümleri uyarılar oluşturabilir. Tıklatın **uyarıları** Data Factory düğmesinde **İzleyici** sayfası.
+
+![Uyarıları seçeneği](media/monitor-using-azure-monitor/alerts_image1.png)
+
+Bu, olanak sürer **uyarıları** sayfası.
+
+![Uyarılar sayfası](media/monitor-using-azure-monitor/alerts_image2.png)
+
+Ayrıca Azure portalında oturum açın ve'ı tıklatın **İzleyicisi -&gt; uyarıları** ulaşması **uyarıları** doğrudan sayfa.
+
+![Portal menüsünde uyarıları](media/monitor-using-azure-monitor/alerts_image3.png)
+
+### <a name="create-alerts"></a>Uyarı oluşturma
+
+1.  Tıklatın **+ yeni uyarı kuralı** yeni bir uyarı oluşturmak için.
+
+    ![Yeni uyarı kuralı](media/monitor-using-azure-monitor/alerts_image4.png)
+
+2.  Tanımlamak **Uyarı koşulu**.
+
+    > [!NOTE]
+    > Seçtiğinizden emin olun **tüm** içinde **kaynak türüne göre filtre**.
+
+    ![Koşul uyarı, 1 / 3 ekran](media/monitor-using-azure-monitor/alerts_image5.png)
+
+    ![Koşul uyarı, 2 / 3 ekran](media/monitor-using-azure-monitor/alerts_image6.png)
+
+    ![Koşul uyarı, 3 / 3 ekran](media/monitor-using-azure-monitor/alerts_image7.png)
+
+3.  Tanımlamak **uyarı ayrıntıları**.
+
+    ![Uyarı ayrıntıları](media/monitor-using-azure-monitor/alerts_image8.png)
+
+4.  Tanımlamak **eylem grubu**.
+
+    ![Eylem grubu, ekran 1 / 4](media/monitor-using-azure-monitor/alerts_image9.png)
+
+    ![Eylem grubu, 4, 2 ekran](media/monitor-using-azure-monitor/alerts_image10.png)
+
+    ![Eylem grubu, ekran 3 4](media/monitor-using-azure-monitor/alerts_image11.png)
+
+    ![Eylem grubu, ekran 4 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](monitor-programmatically.md) makalede izleme ve ardışık düzen çalıştırarak yönetme hakkında bilgi edinin. 

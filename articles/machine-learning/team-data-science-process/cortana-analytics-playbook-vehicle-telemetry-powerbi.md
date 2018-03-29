@@ -1,8 +1,8 @@
 ---
-title: "Power BI panosuna araç sağlık ve yürüten alışkanlıklarınıza - Azure | Microsoft Docs"
-description: "Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza."
+title: Power BI panosuna araç sağlık ve yürüten alışkanlıklarınıza - Azure | Microsoft Docs
+description: Araç sistem durumu ve yürüten gerçek zamanlı ve Tahmine dayalı Öngörüler elde etmek için Cortana Intelligence yeteneklerini kullanabilir alışkanlıklarınıza.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: bradsev
-ms.openlocfilehash: 6a46a05539a7211fbc2a3a9f6ec45a28f5c64039
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 085ce90311d4d89b365f7fe51a95c00c1a734196
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Araç Telemetri analizi çözüm şablonu Power BI Panosu kurulum yönergeleri
 Bu playbook bölümlerde bu menü bağlantılar: 
@@ -308,7 +308,7 @@ Her aşama sonra durdurabilir veya üçünü raporları yapılandırabilirsiniz.
 
     ![Ayrıntılar, gösterge, eksen ve boyutu alanları](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4hh.png)
 
-25. Grafiği değiştirmek **başlık** için **yakıt, engineTemperature ortalaması ve Model ve Model tarafından toplamıdır sayısı, ortalama**.
+25. Grafiği değiştirmek **başlık** için **yakıt, engineTemperature ortalaması ve Model tarafından toplamıdır sayısı, ortalama**.
 
     ![Grafik başlığını dağılım](./media/cortana-analytics-playbook-vehicle-telemetry-powerbi-dashboard/connected-cars-3.4ii.png)
 

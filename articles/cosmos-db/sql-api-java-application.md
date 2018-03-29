@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs"
-description: "Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve SQL API'yi depolamak için nasıl kullanılacağını gösterir."
-keywords: "Uygulama geliştirme, veritabanı Öğreticisi, java uygulaması, java web uygulaması Öğreticisi, azure, Microsoft azure"
+title: Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs
+description: Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve SQL API'yi depolamak için nasıl kullanılacağını gösterir.
+keywords: Uygulama geliştirme, veritabanı Öğreticisi, java uygulaması, java web uygulaması Öğreticisi, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: java
 author: dennyglee
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 8507b772c537ac50bd40367fbde260a8d72375ca
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 816ea6e575759186973e23c6adfccd389c6920d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API'yi kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
@@ -29,8 +29,6 @@ ms.lasthandoff: 12/18/2017
 > * [Python](sql-api-python-application.md)
 > 
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu Java web uygulaması Öğreticisi nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) depolamak ve Azure App Service Web Apps üzerinde barındırılan bir Java uygulamasında verilere erişmek için hizmet. Bu konu başlığında şunları öğreneceksiniz:
 
@@ -107,7 +105,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
      
    * Veya bağımlılık XML'sini grup kimliği ve yapı kimliği için doğrudan bir metin düzenleyicisi aracılığıyla pom.XML'ye ekleyin:
      
-        <dependency><groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version></dependency>
+        <dependency> <groupId>com.microsoft.Azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
 6. Tıklatın **Tamam** ve Maven SQL Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
@@ -729,7 +727,7 @@ Uygulamanızı bir WAR dosyası olarak dışarı aktarma ve ya da kaynak denetim
 3. Eldeki elinizde bir WAR dosyası, yalnızca bunu Azure Web sitenizin için yükleyebilirsiniz **webapps** dizin. Dosyayı karşıya yükleme ile ilgili yönergeler için bkz: [Azure App Service Web Apps bir Java uygulama eklemek](../app-service/web-sites-java-add-app.md).
    
     WAR dosyası webapps dizinine yüklendikten sonra, çalışma zamanı ortamı bunu eklemiş olduğunuzu algılar ve otomatik olarak yükler.
-4. Tamamlanmış ürününüzü görmek için http://YOUR için gidin\_SITE\_NAME.azurewebsites.net/azure-java-sample/ ve görevlerinizi eklemeye başlayın!
+4. Tamamlanmış ürününüzü görmek için gidin http://YOUR \_SITE\_NAME.azurewebsites.net/azure-java-sample/ ve görevlerinizi eklemeye başlayın!
 
 ## <a id="GetProject"></a>Projeyi GitHub'dan alma
 Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
@@ -739,7 +737,7 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 3. Eclipse'te **Dosya** menüsünde **İçeri Aktar**'a tıklayın.
 4. **İçeri Aktar** penceresinde **Git**'e tıklayın, **Git Projeleri**'ne tıklayın ve ardından **İleri**'ye tıklayın.
 5. **Depo Kaynağı Seçin** ekranında **URI'yi kopyalama**'ya tıklayın.
-6. Üzerinde **kaynak Git deposu** ekranında **URI** kutusuna https://github.com/Azure-Samples/java-todo-app.git girin ve ardından **sonraki**.
+6. Üzerinde **kaynak Git deposu** ekranında **URI** kutusuna https://github.com/Azure-Samples/java-todo-app.gitve ardından **sonraki**.
 7. **Dal Seçimi** ekranında **master**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
 8. **Yerel Hedef** ekranında deponun kopyalanabileceği bir klasör seçmek için **Gözat**'a tıklayın ve ardından **İleri**'ye tıklayın.
 9. **Projeleri içeri aktarmada kullanmak için sihirbaz seçin** ekranında **Var olan projeleri içeri aktar**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
@@ -754,6 +752,6 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 18. Ekranın en altındaki **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Ekle ve Kaldır**'a tıklayın.
 19. **Ekle ve Kaldır** penceresinde **azure-documentdb-java-sample**'ı **Yapılandırılmış** kutusuna taşıyın ve ardından **Son**'a tıklayın.
 20. İçinde **sunucuları** sekmesinde, sağ **Server localhost'ta Tomcat v7.0**ve ardından **yeniden**.
-21. Bir tarayıcıda http://localhost:8080/azure-documentdb-java-sample/ adresine gidin ve görev listenize eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
+21. Bir tarayıcıda gidin http://localhost:8080/azure-documentdb-java-sample/ ve görev listenize eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
 22. Projenizi bir Azure web sitesine dağıtmak için bkz. [6. Adım. Uygulamanızı Azure Web siteleri için dağıtmak](#Deploy).
 

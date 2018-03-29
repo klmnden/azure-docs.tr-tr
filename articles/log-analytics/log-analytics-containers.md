@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte
-ms.openlocfilehash: 0041a58c8da58785ebc3ead6c8128316b153728c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d2c85225ab74c912183a0bb8d7f100d1354e6c5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -547,15 +547,15 @@ Aşağıdaki tablo kapsayıcı izleme çözümü ve günlük arama sonuçlarınd
 
 | Veri türü | Günlük arama veri türü | Alanlar |
 | --- | --- | --- |
-| Konaklar ve kapsayıcıları için performans | `Type=Perf` | Bilgisayar, ObjectName, CounterName &#40;% işlemci zamanı, Disk okuma MB, MB, bellek kullanımı MB Disk Yazar ağ bayt alma, ağ gönderme bayt, işlemci kullanımı sn, ağ&#41;, CounterValue, TimeGenerated, sayaç yolu, SourceSystem |
-| Kapsayıcı envanteri | `Type=ContainerInventory` | TimeGenerated, bilgisayar, ContainerHostname, görüntü, ImageTag, ContainerState, ExitCode, EnvironmentVar, komutu, CreatedTime, StartedTime, FinishedTime, SourceSystem, Containerıd, ImageID kapsayıcı adı |
-| Kapsayıcı görüntü envanteri | `Type=ContainerImageInventory` | TimeGenerated, bilgisayar, görüntü, ImageTag, ImageSize, VirtualSize, duraklatıldı, çalışıyor, durduruldu, başarısız, SourceSystem, ImageID, TotalContainer |
-| Kapsayıcı günlük | `Type=ContainerLog` | TimeGenerated, bilgisayar, görüntü kimliği, LogEntrySource, LogEntry, SourceSystem, Containerıd kapsayıcı adı |
-| Kapsayıcı hizmeti oturum açma | `Type=ContainerServiceLog`  | TimeGenerated, bilgisayar, TimeOfCommand, görüntü, komutu, SourceSystem, Containerıd |
-| Kapsayıcı düğümü envanteri | `Type=ContainerNodeInventory_CL`| TimeGenerated, bilgisayar, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Kubernetes envanteri | `Type=KubePodInventory_CL` | TimeGenerated, bilgisayar, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
-| Kapsayıcı işlemi | `Type=ContainerProcess_CL` | TimeGenerated, bilgisayar, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes olayları | `Type=KubeEvents_CL` | TimeGenerated, bilgisayar, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, ileti |
+| Konaklar ve kapsayıcıları için performans | `Perf` | Bilgisayar, ObjectName, CounterName &#40;% işlemci zamanı, Disk okuma MB, MB, bellek kullanımı MB Disk Yazar ağ bayt alma, ağ gönderme bayt, işlemci kullanımı sn, ağ&#41;, CounterValue, TimeGenerated, sayaç yolu, SourceSystem |
+| Kapsayıcı envanteri | `ContainerInventory` | TimeGenerated, bilgisayar, ContainerHostname, görüntü, ImageTag, ContainerState, ExitCode, EnvironmentVar, komutu, CreatedTime, StartedTime, FinishedTime, SourceSystem, Containerıd, ImageID kapsayıcı adı |
+| Kapsayıcı görüntü envanteri | `ContainerImageInventory` | TimeGenerated, bilgisayar, görüntü, ImageTag, ImageSize, VirtualSize, duraklatıldı, çalışıyor, durduruldu, başarısız, SourceSystem, ImageID, TotalContainer |
+| Kapsayıcı günlük | `ContainerLog` | TimeGenerated, bilgisayar, görüntü kimliği, LogEntrySource, LogEntry, SourceSystem, Containerıd kapsayıcı adı |
+| Kapsayıcı hizmeti oturum açma | `ContainerServiceLog`  | TimeGenerated, bilgisayar, TimeOfCommand, görüntü, komutu, SourceSystem, Containerıd |
+| Kapsayıcı düğümü envanteri | `ContainerNodeInventory_CL`| TimeGenerated, bilgisayar, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
+| Kubernetes envanteri | `KubePodInventory_CL` | TimeGenerated, bilgisayar, PodLabel_deployment_s, PodLabel_deploymentconfig_s, PodLabel_docker_registry_s, Name_s, Namespace_s, PodStatus_s, PodIp_s, PodUid_g, PodCreationTimeStamp_t, SourceSystem |
+| Kapsayıcı işlemi | `ContainerProcess_CL` | TimeGenerated, bilgisayar, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
+| Kubernetes olayları | `KubeEvents_CL` | TimeGenerated, bilgisayar, Name_s, ObjectKind_s, Namespace_s, Reason_s, Type_s, SourceComponent_s, SourceSystem, ileti |
 
 Etiketleri eklenmiş için *PodLabel* veri türleridir kendi özel etiketler. Tabloda gösterilen eklenmiş PodLabel etiketleri verilebilir. Bu nedenle, `PodLabel_deployment_s`, `PodLabel_deploymentconfig_s`, `PodLabel_docker_registry_s` ortamınızı ait veri kümesinde farklı ve genel benzer `PodLabel_yourlabel_s`.
 
@@ -610,7 +610,7 @@ Günlük analizi kapsayıcı olarak işaretler **başarısız** sıfır olmayan 
    ![kapsayıcı durumu](./media/log-analytics-containers/containers-log-search.png)
 3. Ardından, ek bilgileri görüntülemek için başarısız kapsayıcıları toplanmış değeri'ı tıklatın. Genişletme **daha fazla Göster** resim kimliğini görüntülemek için  
    ![başarısız kapsayıcıları](./media/log-analytics-containers/containers-state-failed.png)  
-4. Ardından, aşağıdaki arama sorgusu yazın. `Type=ContainerInventory <ImageID>` görüntünün görüntü boyutu ve durduruldu ve başarısız resimlerinin sayısı gibi ayrıntılarını görmek için.  
+4. Ardından, aşağıdaki arama sorgusu yazın. `ContainerInventory <ImageID>` görüntünün görüntü boyutu ve durduruldu ve başarısız resimlerinin sayısı gibi ayrıntılarını görmek için.  
    ![başarısız kapsayıcıları](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>Kapsayıcı verileri için arama günlüklerini
@@ -628,17 +628,17 @@ Belirli bir hata gidermeye çalışıyorsanız, ortamınızda nerede oluştuğun
 
 
 ### <a name="to-search-logs-for-container-data"></a>Kapsayıcı veri günlüklerini aramak için
-* Bildiğiniz bir görüntüyü yakın zamanda başarısız oldu ve Hata günlüklerini bulabilmelerini seçin. Başlat, görüntü ile çalışan bir kapsayıcı adı bularak bir **ContainerInventory** arama. Örneğin, arama `Type=ContainerInventory ubuntu Failed`  
+* Bildiğiniz bir görüntüyü yakın zamanda başarısız oldu ve Hata günlüklerini bulabilmelerini seçin. Başlat, görüntü ile çalışan bir kapsayıcı adı bularak bir **ContainerInventory** arama. Örneğin, arama `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Ubuntu kapsayıcıları için arama](./media/log-analytics-containers/search-ubuntu.png)
 
-  İleri'kapsayıcı adı **adı**ve bu günlükleri arayın. Bu örnekte bu değer `Type=ContainerLog cranky_stonebreaker`’dur.
+  İleri'kapsayıcı adı **adı**ve bu günlükleri arayın. Bu örnekte bu değer `ContainerLog | where Name == "cranky_stonebreaker"`’dur.
 
 **Performans bilgilerini görüntüleme**
 
 Sorgular oluşturmak başlangıç olduğunda ilk olası yenilikleri görmek için yardımcı olabilir. Örneğin, tüm performans verilerini görmek için geniş bir sorgu aşağıdaki arama sorgusu yazarak deneyin.
 
 ```
-Type=Perf
+Perf
 ```
 
 ![kapsayıcıları performansı](./media/log-analytics-containers/containers-perf01.png)
@@ -646,7 +646,7 @@ Type=Perf
 Bunu sorgunuzu sağındaki adını yazarak belirli bir kapsayıcıya görüyorsunuz performans verilerini kapsamını belirleyebilirsiniz.
 
 ```
-Type=Perf <containerName>
+Perf <containerName>
 ```
 
 Tek bir kapsayıcı için toplanan performans ölçümleri listesini gösterir.
@@ -655,8 +655,6 @@ Tek bir kapsayıcı için toplanan performans ölçümleri listesini gösterir.
 
 ## <a name="example-log-search-queries"></a>Örnek günlük arama sorguları
 Genellikle, bir örnek veya iki ile başlayan ve bunları ortamınıza uygun değiştirme sorgular oluşturmak kullanışlıdır. Bir başlangıç noktası olarak deneme yapabileceğiniz **örnek sorgular** daha gelişmiş sorgular oluşturmanıza yardımcı olmak için alanı.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![Kapsayıcıları sorguları](./media/log-analytics-containers/containers-queries.png)
 

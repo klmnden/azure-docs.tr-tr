@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı hizmeti (AKS) ile bir Apache Spark işini çalıştır"
-description: "Azure kapsayıcı hizmeti (AKS) bir Apache Spark işi çalıştırmak için kullanın"
+title: Azure kapsayıcı hizmeti (AKS) ile bir Apache Spark işini çalıştır
+description: Azure kapsayıcı hizmeti (AKS) bir Apache Spark işi çalıştırmak için kullanın
 services: container-service
 author: lenadroid
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 9d57f572ba159191f5b634b5ea604563ac2f7801
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3991312d7f7609bb0a206ccc0ecc67123ebec469
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>AKS üzerinde Apache Spark işleri çalıştırma
 
@@ -33,7 +33,7 @@ Bu makalede içindeki adımları tamamlamak için aşağıdakiler gerekir.
 ## <a name="create-an-aks-cluster"></a>AKS kümesi oluşturma
 
 Spark büyük ölçekli veri işleme için kullanılır ve Kubernetes düğümleri Spark kaynak gereksinimlerini karşılamak için boyutlandırılır gerektirir. En az bir boyutunu öneririz `Standard_D3_v2` , Azure kapsayıcı hizmeti (AKS) düğümleri için.
- 
+
 Bu en az öneri karşılayan bir AKS küme gerekiyorsa, aşağıdaki komutları çalıştırın.
 
 Küme için bir kaynak grubu oluşturun.
@@ -58,12 +58,12 @@ Kapsayıcı görüntüleri saklamak için Azure kapsayıcı kayıt defteri (ACR)
 
 ## <a name="build-the-spark-source"></a>Spark kaynak derleme
 
-Spark işlerinin AKS kümede çalıştırmadan önce Spark kaynak kodu oluşturma ve kapsayıcı görüntüsüne paketini gerekir. Spark kaynak bu işlemi tamamlamak için kullanılan komut dosyalarını içerir. 
+Spark işlerinin AKS kümede çalıştırmadan önce Spark kaynak kodu oluşturma ve kapsayıcı görüntüsüne paketini gerekir. Spark kaynak bu işlemi tamamlamak için kullanılan komut dosyalarını içerir.
 
 Geliştirme sisteminizde Spark proje depoyu kopyalayın.
 
 ```bash
-git clone https://github.com/apache/spark
+git clone -b branch-2.3 https://github.com/apache/spark
 ```
 
 Kopyalanan deposu dizinine değiştirin ve Spark kaynağının yolunu bir değişkene kaydedin.
@@ -73,7 +73,7 @@ cd spark
 sparkdir=$(pwd)
 ```
 
-Yüklü birden fazla JDK sürümleri varsa, ayarlamak `JAVA_HOME` sürüm 8 geçerli oturum için kullanılacak. 
+Yüklü birden fazla JDK sürümleri varsa, ayarlamak `JAVA_HOME` sürüm 8 geçerli oturum için kullanılacak.
 
 ```bash
 export JAVA_HOME=`/usr/libexec/java_home -d 64 -v "1.8*"`
@@ -85,16 +85,21 @@ Kaynak kodu Kubernetes desteğiyle Spark oluşturmak için aşağıdaki komutu �
 ./build/mvn -Pkubernetes -DskipTests clean package
 ```
 
-Aşağıdaki komut, Spark kapsayıcı görüntülerini oluşturur ve bir kapsayıcı görüntü kayıt defterine iter. `registry.example.com` komutunu, kapsayıcı kayıt defterinizin adıyla değiştirin. Docker hub'a kullanıyorsanız, bu kayıt defteri adı değerdir. Azure kapsayıcı kayıt defteri (ACR) kullanıyorsanız, bu değer ACR oturum açma sunucusu adı olur.
+Aşağıdaki komutları Spark kapsayıcı görüntü oluşturma ve bir kapsayıcı görüntü kayıt defterine gönderme. Değiştir `registry.example.com` kapsayıcı kayıt defteri adını ve `v1` etiketi ile kullanmayı tercih ederseniz. Docker hub'a kullanıyorsanız, bu kayıt defteri adı değerdir. Azure kapsayıcı kayıt defteri (ACR) kullanıyorsanız, bu değer ACR oturum açma sunucusu adı olur.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 build
+REGISTRY_NAME=registry.example.com
+REGISTRY_TAG=v1
+```
+
+```bash
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG build
 ```
 
 Kapsayıcı görüntü kapsayıcısı görüntü kaydınız iletin.
 
 ```bash
-./bin/docker-image-tool.sh -r registry.example.com -t v1 push
+./bin/docker-image-tool.sh -r $REGISTRY_NAME -t $REGISTRY_TAG push
 ```
 
 ## <a name="prepare-a-spark-job"></a>Spark işi hazırlama
@@ -196,18 +201,10 @@ Değişken `jarUrl` şimdi jar dosyasını genel olarak erişilebilir yolunu iç
 
 ## <a name="submit-a-spark-job"></a>Bir Spark iş gönderme
 
-Spark iş göndermeden önce Kubernetes API sunucu adresi gerekir. Kullanım `kubectl cluster-info` bu adresi almak için komutu.
-
-Kubernetes API sunucunuz çalıştığı URL bulur.
+Kube proxy ayrı bir komut satırı aşağıdaki kod ile başlatın.
 
 ```bash
-kubectl cluster-info
-```
-
-Adresini ve bağlantı noktasını not edin.
-
-```bash
-Kubernetes master is running at https://<your api server>:443
+kubectl proxy
 ```
 
 Spark depo kök geri gidin.
@@ -216,18 +213,16 @@ Spark depo kök geri gidin.
 cd $sparkdir
 ```
 
-İş kullanarak Gönder `spark-submit`. 
-
-Değeri değiştirme `<kubernetes-api-server>` API sunucu adresi ve bağlantı noktası. Değiştir `<spark-image>` kapsayıcı görüntünüzü biçiminde adıyla `<your container registry name>/spark:<tag>`.
+İş kullanarak Gönder `spark-submit`.
 
 ```bash
 ./bin/spark-submit \
-  --master k8s://https://<k8s-apiserver-host>:<k8s-apiserver-port> \
+  --master k8s://http://127.0.0.1:8001 \
   --deploy-mode cluster \
   --name spark-pi \
   --class org.apache.spark.examples.SparkPi \
   --conf spark.executor.instances=3 \
-  --conf spark.kubernetes.container.image=<spark-image> \
+  --conf spark.kubernetes.container.image=$REGISTRY_NAME/spark:$REGISTRY_TAG \
   $jarUrl
 ```
 
@@ -315,6 +310,9 @@ Bir uzak jar URL belirten yerine iş çalışırken `local://` düzeni, Docker g
     --conf spark.kubernetes.container.image=<spark-image> \
     local:///opt/spark/work-dir/<your-jar-name>.jar
 ```
+
+> [!WARNING]
+> Spark gelen [belgelerine][spark-docs]: "Kubernetes Zamanlayıcı şu anda Deneysel'dır. Gelecek sürümlerde olabilir yapılandırma, kapsayıcı görüntüler ve giriş noktaları çevresinde davranış değişiklikleri".
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

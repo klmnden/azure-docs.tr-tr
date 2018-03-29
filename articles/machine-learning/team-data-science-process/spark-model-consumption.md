@@ -1,8 +1,8 @@
 ---
-title: "Spark yerleşik makine öğrenimi modellerini faaliyete | Microsoft Docs"
-description: "Yük ve Python ile Azure Blob Storage (WASB) içinde depolanan modelleri öğrenme puanı nasıl."
+title: Spark yerleşik makine öğrenimi modellerini faaliyete | Microsoft Docs
+description: Yük ve Python ile Azure Blob Storage (WASB) içinde depolanan modelleri öğrenme puanı nasıl.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 9ff633b4543fbc537ffdb721756706e8de5e8e88
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 3a586d40a9d195fe5ec3fa456d450cb3d86f2e9d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark yerleşik makine öğrenimi modellerini faaliyete
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -35,7 +35,7 @@ Kurulum adımlarını ve ML model faaliyete kodu Spark 2.0 küme yanı sıra bir
 Spark Hdınsight Spark 2.0 kümesi ile kullanmak üzere 1.6 için Jupyter not defteri değiştirmek için Python kodu dosyasıyla Değiştir [bu dosyayı](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Bu kod, Spark 2. 0'oluşturulan modelleri kullanma gösterilmektedir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 1. Bir Azure hesabı ve Spark 1.6 (veya Spark 2.0) ihtiyacınız bu yönlendirmeyi tamamlamak için Hdınsight kümesi. Bkz: [genel bakış, verileri Azure Hdınsight'ta Spark kullanmanın Bilim](spark-overview.md) yönelik bu gereksinimleri karşılamak yönergeler. Bu konu ayrıca açıklamasını buraya kullanılan NYC 2013 ücreti verileri ve Spark kümesinde Jupyter not defteri gelen kod yürütmek yönergeler içerir. 
 2. Makine öğrenimi modellerini aracılığıyla çalışarak burada belirtmek için de oluşturmalısınız [veri keşfi ve modelleme Spark ile](spark-data-exploration-modeling.md) konu Spark 1.6 küme veya Spark 2.0 dizüstü bilgisayarlar için. 
@@ -85,7 +85,7 @@ Dizin yolları ayarlamak için kod aşağıdaki gibidir:
 
 **ÇIKTI:**
 
-DateTime.DateTime (2016, 4, 25, 23, 56, 19, 229403)
+datetime.datetime(2016, 4, 25, 23, 56, 19, 229403)
 
 ### <a name="import-libraries"></a>Kitaplıkları içeri aktarma
 Spark bağlamını ayarlayın ve aşağıdaki kod ile gerekli kitaplıkları içeri aktarma
@@ -110,12 +110,12 @@ Spark bağlamını ayarlayın ve aşağıdaki kod ile gerekli kitaplıkları iç
 Jupyter not defterleri ile sağlanan PySpark tekrar önceden belirlenmiş bir içerik var. Bu nedenle Spark kümesi gerekmez veya açıkça uygulama ile çalışmaya başlamadan önce Hive bağlamları geliştirme. Bunlar varsayılan olarak sizin için kullanılabilir. Bu içerikler şunlardır:
 
 * SC - Spark 
-* sqlContext - Hive için
+* sqlContext - for Hive
 
 Bazı önceden tanımlanmış "sihirleri" ile çağırabilir özel komutlar olduğu PySpark çekirdeği sağlar %%. Bu kod örneklerinde kullanılan olan iki komut vardır.
 
 * **%% yerel** belirtilen sonraki satırların kodda yerel olarak yürütülür. Kod geçerli Python kodu olmalıdır.
-* **%% sql -o<variable name>** 
+* **%% sql -o <variable name>** 
 * Bir Hive sorgusu sqlContext yürütür. -O parametre verilmezse, sorgunun sonucu kalıcı hale getirilir %% Pandas dataframe olarak yerel Python bağlamı.
 
 Tekrar Jupyter not defterlerini ve önceden tanımlanmış hakkında daha fazla bilgi "magics için" sağladıkları, bkz: [Jupyter not defterlerinde kullanılabilen çekirdekler Hdınsight Spark Linux kümeleri Hdınsight'ta](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -514,13 +514,13 @@ Hücre yürütülmesi için geçen süre: 14.6 saniye
 
 **ÇIKTI:**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016 05 0317_22_38.953814.txt
+logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
 linearRegFileLoc: LinearRegressionWithSGD_2016 05 0317_22_58.878949
 
 randomForestClassificationFileLoc: RandomForestClassification_2016 05 0317_23_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression_2016 05 0317_23_31.459140.txt
+randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23_31.459140.txt
 
 BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
 

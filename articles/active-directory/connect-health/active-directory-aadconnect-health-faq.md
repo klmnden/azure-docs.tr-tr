@@ -1,8 +1,8 @@
 ---
 title: Azure Active Directory Connect sistem durumu ile ilgili SSS - Azure | Microsoft Docs
-description: "Bu SSS, Azure AD Connect Health hakkında sorular yanıtlanmaktadır. Bu SSS; faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin kullanımı hakkındaki soruları kapsar."
+description: Bu SSS, Azure AD Connect Health hakkında sorular yanıtlanmaktadır. Bu SSS; faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin kullanımı hakkındaki soruları kapsar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 312980ded8fad84f2ea4a41078597dd3a6cb8ca7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b4c977b54c87276bd4b168bc56e70f3b918e6634
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellikleri, sınırlamalar ve Destek faturalama modeli içerir hizmetini kullanma hakkında sorular kapsar.
@@ -175,6 +175,9 @@ CheckForMS17-010
 
 ```
 
+**PowerShell cmdlet neden mu <i>Get-MsolDirSyncProvisioningError</i> daha az eşitleme hatalarını sonucu göster?**
+
+<i>Get-MsolDirSyncProvisioningError</i> hazırlama hataları DirSync yalnızca döndürür. Yanı sıra, Connect Health portalı ayrıca diğer eşitleme verme hataları gibi hata türleri gösterilmektedir. Bu, Azure AD Connect delta sonucu ile tutarlıdır. Daha fazla bilgi edinin [Azure AD Connect Eşitleme hataları](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors).
 
 
 ## <a name="related-links"></a>İlgili bağlantılar

@@ -1,22 +1,22 @@
 ---
-title: "Azure’da ölçeklenebilir bir uygulama için VM ve depolama hesabı oluşturma | Microsoft Docs"
-description: "Azure blob depolama kullanarak ölçeklenebilir bir uygulama çalıştırmak için kullanılacak bir VM’yi dağıtmayı öğrenme"
+title: Azure’da ölçeklenebilir bir uygulama için VM ve depolama hesabı oluşturma | Microsoft Docs
+description: Azure blob depolama kullanarak ölçeklenebilir bir uygulama çalıştırmak için kullanılacak bir VM’yi dağıtmayı öğrenme
 services: storage
-documentationcenter: 
-author: tamram
+documentationcenter: ''
+author: roygara
 manager: jeconnoc
 ms.service: storage
 ms.workload: web
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/20/2018
-ms.author: tamram
+ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: aafb79a021b76b1347314815b1786a23f699be7a
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: fdc88f4ba893eed516aeca174e68fdda12a42a0f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Ölçeklenebilir bir uygulama için sanal makine ve depolama hesabı oluşturma
 

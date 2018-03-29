@@ -1,9 +1,9 @@
 ---
-title: "Azure etkinlik günlüğü arşiv | Microsoft Docs"
-description: "Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşiv öğrenin."
+title: Azure etkinlik günlüğü arşiv | Microsoft Docs
+description: Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşiv öğrenin.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.openlocfilehash: 0b041cc6a986c6f7a11d213f03294c9716c20d04
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 1ee634b3acf0fa8815b69aef21e6213aee636ce1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="archive-the-azure-activity-log"></a>Arşiv Azure etkinlik günlüğü
 Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek, Denetim, statik çözümleme veya yedekleme (ile bekletme ilkesi üzerinde tam denetim) 90 gün daha uzun süre, etkinlik günlüğü korumak istiyorsanız kullanışlıdır. Yalnızca, olayları 90 gün boyunca Koru gerek isterseniz daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platform 90 gün boyunca tutulur bu yana bir depolama hesabına arşivleme ayarlamanız gerekmez.
@@ -164,7 +164,7 @@ PT1H.json dosya içinde her olay bu biçim aşağıdaki "kayıtlar" dizisinde de
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [BLOB'ları çözümleme için karşıdan yükle](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+* [BLOB'ları çözümleme için karşıdan yükle](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Akış Event hubs'a etkinlik günlüğü](monitoring-stream-activity-logs-event-hubs.md)
 * [Etkinlik günlüğü hakkında daha fazla bilgi](monitoring-overview-activity-logs.md)
 

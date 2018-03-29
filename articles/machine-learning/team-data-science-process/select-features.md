@@ -1,8 +1,8 @@
 ---
-title: "Özellik Seçimi takım veri bilimi işleminde | Microsoft Docs"
-description: "Özellik Seçimi amacını açıklayan ve machine learning veri geliştirme sürecinin içindeki rollerine örnekler sağlar."
+title: Özellik Seçimi takım veri bilimi işleminde | Microsoft Docs
+description: Özellik Seçimi amacını açıklayan ve machine learning veri geliştirme sürecinin içindeki rollerine örnekler sağlar.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: c69e7a7e86ccea2073209eabe123049e59a2b8e3
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 44159516a1785f5d65357935000eccc42a7458aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Team Data Science Process’te (TDSP) özellik seçimi
 Bu makalede özellik seçimi amaçları açıklar ve makine öğrenme veri geliştirme işleminde rolü örnekleri sağlar. Bu örnekler, Azure Machine Learning Studio'dan çizilir. 

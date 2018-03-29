@@ -1,23 +1,23 @@
 ---
-title: "Ekip veri bilimi işlemi roller ve görevler - Azure | Microsoft Docs"
-description: "Anahat anahtar bileşenleri, personel rolleri ve veri bilimi takım projesi için ilişkili görevleri."
-documentationcenter: 
+title: Ekip veri bilimi işlemi roller ve görevler - Azure | Microsoft Docs
+description: Anahat anahtar bileşenleri, personel rolleri ve veri bilimi takım projesi için ilişkili görevleri.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: bradsev
+ms.openlocfilehash: b92bb8e633aa859324f2ff46f5d76a5934007ccf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Takım veri bilimi işlemi roller ve görevler
 
@@ -82,7 +82,7 @@ Aşağıdaki görevler, ekip lideri (veya belirlenen takım projesi yöneticiniz
 - VSTS sürüm oluşturma ve işbirliği için kod ana bilgisayar platformu olarak seçtiğiniz oluşturmazsanız, bir **takım projesi** grubun VSTS sunucusunda. Aksi takdirde, bu görev atlanabilir.
 - Oluşturma **takım projesi şablonu deposu** takım projesi ve grup proje şablonu depodan ayarlayın, grup yöneticisi veya yönetici temsilcisi tarafından çekirdek altında. 
 - Oluşturma **takım yardımcı programı depo**, takım özgü yardımcı programları depoya ekleyin. 
-- (İsteğe bağlı) Oluşturma  **[Azure dosya depolama](https://azure.microsoft.com/services/storage/files/)**  tüm ekip için yararlı olabilecek veri varlıkları depolamak için kullanılacak. Diğer ekip üyelerinin bu paylaşılan bulut dosya deposu analytics masaüstlerine bağlayabilir.
+- (İsteğe bağlı) Oluşturma **[Azure dosya depolama](https://azure.microsoft.com/services/storage/files/)** tüm ekip için yararlı olabilecek veri varlıkları depolamak için kullanılacak. Diğer ekip üyelerinin bu paylaşılan bulut dosya deposu analytics masaüstlerine bağlayabilir.
 - (İsteğe bağlı) Azure dosya depolama birimine bağlama **veri bilimi sanal makine** (DSVM) ekibin sağlama ve veri varlıklarını ekleyin.
 - Ayarlanan **güvenlik denetimi** göre takım üyeleri ekleme ve kendi ayrıcalıklarını yapılandırın. 
 

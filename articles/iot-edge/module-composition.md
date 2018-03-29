@@ -1,19 +1,19 @@
 ---
-title: "Azure IOT kenar modül bileşimi | Microsoft Docs"
-description: "Azure IOT kenar modüllerine unsurları ve bunların nasıl kullanılabilme öğrenin"
+title: Azure IOT kenar modül bileşimi | Microsoft Docs
+description: Azure IOT kenar modüllerine unsurları ve bunların nasıl kullanılabilme öğrenin
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/14/2018
+ms.date: 03/23/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4b59a715919e38e68c3b7518932617e9950940e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7df566ced755e1e817b3107dac8f17e9f6e9b8e4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IOT kenar modülleri nasıl kullanılabileceğini, yapılandırılmış, anlamak ve yeniden - önizleme
 
@@ -134,32 +134,21 @@ Kaynak iletileri alınacağı yeri belirtir. Aşağıdaki değerlerden herhangi 
 ### <a name="condition"></a>Koşul
 Koşul rota bildiriminde isteğe bağlıdır. Tüm iletileri havuz kaynağına geçirmek istiyorsanız, yalnızca dışlamayı **burada** yan tümcesi tamamen. Veya kullanabilirsiniz [IOT hub'ı sorgu dili] [ lnk-iothub-query] belirli iletileri veya koşulu karşılıyor ileti türlerini filtre uygulamak için.
 
-Azure IOT iletileri JSON olarak biçimlendirilmiş ve her zaman en az bir sahip **gövde** parametresi. Örneğin:
+IOT kenar modülleri arasında geçiş iletiler aygıtlar ile Azure IOT hub'ı arasında geçirmek iletileri ile aynı biçimlendirilir. Tüm iletileri JSON olarak biçimlendirilmiş ve sahip **systemProperties**, **appProperties**, ve **gövde** parametreleri. 
 
-```json
-"message": {
-    "body":{
-        "ambient":{
-            "temperature": 54.3421,
-            "humidity": 25
-        },
-        "machine":{
-            "status": "running",
-            "temperature": 62.2214
-        }
-    },
-    "appProperties":{
-        ...
-    }
-}
+Aşağıdaki sözdizimini kullanarak tüm üç parametre geçici sorgular oluşturabilirsiniz: 
+
+* Sistem Özellikleri: `$<propertyName>` veya `{$<propertyName>}`
+* Uygulama özellikleri: `<propertyName>`
+* Gövde özellikleri: `$body.<propertyName>` 
+
+İleti özellikleri için sorguları oluşturma hakkında daha fazla örnekler için bkz: [yollar sorgu ifadeleri cihaz bulut ileti](../iot-hub/iot-hub-devguide-query-language.md#device-to-cloud-message-routes-query-expressions).
+
+Bir ağ geçidi aygıt bir yaprak aygıttan gelen iletiler için filtre uygulamak istediğiniz zaman IOT kenarına özgü bir örnektir. Modüllerden gelen iletileri içeren adlı bir sistem özelliği **connectionModuleId**. Böylece IOT Hub'ına doğrudan yaprak aygıtlardan iletileri yönlendirmek istiyorsanız, aşağıdaki rota modülü iletileri dışarıda bırakmak için kullanın:
+
+```sql
+FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ```
-
-Bu örnek ileti verildiğinde, birkaç, gibi tanımlanabilir koşul vardır:
-* `WHERE $body.machine.status != "running"`
-* `WHERE $body.ambient.temperature <= 60 AND $body.machine.temperature >= 60`
-
-Koşul yaprak aygıtlardan gelen iletileri yönlendirmek isteyen bir ağ geçidi, ileti türlerini sıralamak için de kullanılabilir. Modüllerden gelen iletileri içeren belirli bir özellik olarak adlandırılan **connectionModuleId**. Böylece IOT Hub'ına doğrudan yaprak aygıtlardan iletileri yönlendirmek istiyorsanız, aşağıdaki rota modülü iletileri dışarıda bırakmak için kullanın:
-* `FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream`
 
 ### <a name="sink"></a>Havuz
 Havuz iletileri gönderildiği tanımlar. Aşağıdaki değerlerden herhangi birini olabilir:

@@ -1,21 +1,20 @@
 ---
-title: "URL yolu tabanlı yönlendirme kuralları ile - Azure portalında bir uygulama ağ geçidi oluşturma | Microsoft Docs"
-description: "URL yolu tabanlı yönlendirme kuralları bir uygulama ağ geçidi ve sanal makine ölçek Azure portalını kullanarak ayarlamak için oluşturmayı öğrenin."
+title: URL yolu tabanlı yönlendirme kuralları ile - Azure portalında bir uygulama ağ geçidi oluşturma
+description: URL yolu tabanlı yönlendirme kuralları bir uygulama ağ geçidi ve sanal makine ölçek Azure portalını kullanarak ayarlamak için oluşturmayı öğrenin.
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 01/26/2018
-ms.author: davidmu
-ms.openlocfilehash: 62063c42ab15a071a4500417a5d8adf6bfeac97f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.date: 3/26/2018
+ms.author: victorh
+ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -36,7 +35,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açtığınızda Azure portalında [http://portal.azure.com](http://portal.azure.com)
+Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
@@ -154,11 +153,11 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
     ![Uygulama ağ geçidi genel IP adresi kaydı](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Örneğin, http://http: / / 40.121.222.19.
+2. Genel IP adresini kopyalayın ve ardından, tarayıcınızın adres çubuğuna yapıştırın. Gibi http://http://40.121.222.19.
 
     ![Temel uygulama ağ geçidi URL'de test](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 
-3. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/video/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
+3. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/images/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
     ![Uygulama ağ geçidi görüntüleri URL Sına](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 

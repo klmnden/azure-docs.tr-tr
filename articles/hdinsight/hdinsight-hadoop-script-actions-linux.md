@@ -1,8 +1,8 @@
 ---
-title: "Linux tabanlı Hdınsight - Azure ile betik eylemi geliştirme | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümelerini özelleştirme için Bash betiklerini kullanmayı öğrenin. Hdınsight betik eylemi özelliğidir sırasında veya Küme oluşturulduktan sonra komut dosyaları çalıştırmanıza olanak sağlar. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılım yüklemek için kullanılabilir."
+title: Linux tabanlı Hdınsight - Azure ile betik eylemi geliştirme | Microsoft Docs
+description: Linux tabanlı Hdınsight kümelerini özelleştirme için Bash betiklerini kullanmayı öğrenin. Hdınsight betik eylemi özelliğidir sırasında veya Küme oluşturulduktan sonra komut dosyaları çalıştırmanıza olanak sağlar. Komut dosyaları, küme yapılandırma ayarlarını değiştirmek veya ek yazılım yüklemek için kullanılabilir.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: larryfr
-ms.openlocfilehash: ddf5db3e61633c45e388e161e165637521803094
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 5074345533f0fdb0c72bf319646ad614632d1940
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
 
@@ -66,7 +66,7 @@ Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınma
 
 Farklı sürümlerini Hdınsight Hadoop Hizmetleri ve bileşenleri yüklü farklı sürümlerine sahip. Komut bir hizmet veya bileşenin belirli bir sürümünü görüyorsa yalnızca komut dosyasını gerekli bileşenleri içerir Hdınsight sürümü ile kullanmanız gerekir. Hdınsight kullanma ile dahil bileşen sürümleri hakkında bilgi bulabilirsiniz [Hdınsight bileşen sürümü oluşturma](hdinsight-component-versioning.md) belge.
 
-### <a name="bps10"></a>Hedef işletim sistemi sürümü
+### <a name="bps10"></a> Hedef işletim sistemi sürümü
 
 Linux tabanlı Hdınsight Ubuntu Linux dağıtım temel alır. Hdınsight farklı sürümlerini farklı sürümlerine ilişkin kodunuzu nasıl davranacağını değişebilir Ubuntu kullanır. Örneğin, Hdınsight 3.4 ve önceki Upstart kullanmak Ubuntu sürümlerinde dayalı. Sürüm 3.5 ve büyük Systemd kullanan Ubuntu 16.04 üzerinde temel alır. İkisi ile çalışmak için komut dosyanızı yazılması gereken şekilde Systemd ve Upstart farklı komutlarını kullanır.
 
@@ -103,7 +103,7 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-Bu parçacıkları https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh adresindeki içeren tam komut dosyası bulabilirsiniz.
+Bu parçacıkları adresindeki içeren tam komut dosyası bulabilirsiniz https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh.
 
 Hdınsight tarafından kullanılan Ubuntu sürümü için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md) belge.
 
@@ -118,7 +118,7 @@ Karşıdan yükle ve her şeyi aboneliğinizi Azure depolama hesabında arşivle
 > [!IMPORTANT]
 > Kullanılan depolama hesabı başka bir depolama hesabı üzerinde Küme ya da bir ortak, salt okunur kapsayıcı için varsayılan depolama hesabı olması gerekir.
 
-Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu konum Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
+Örneğin, Microsoft tarafından sağlanan örnekleri depolanmış [ https://hdiconfigactions.blob.core.windows.net/ ](https://hdiconfigactions.blob.core.windows.net/) depolama hesabı. Bu konum Hdınsight ekibi tarafından korunan bir ortak, salt okunur kapsayıcıdır.
 
 ### <a name="bPS4"></a>Önceden derlenmiş kaynakları kullanın
 
@@ -168,11 +168,11 @@ Varsayılan olarak, `echo` STDOUT dizesi gönderir. STDERR yönlendirmek için e
 >&2 echo "An error occurred installing Foo"
 ```
 
-STDOUT STDERR (2) için bunun yerine yazılan bilgilerin yönlendirir. G/ç yeniden yönlendirme hakkında daha fazla bilgi için bkz: [http://www.tldp.org/LDP/abs/html/io-redirection.html](http://www.tldp.org/LDP/abs/html/io-redirection.html).
+STDOUT STDERR (2) için bunun yerine yazılan bilgilerin yönlendirir. G/ç yeniden yönlendirme hakkında daha fazla bilgi için bkz: [ http://www.tldp.org/LDP/abs/html/io-redirection.html ](http://www.tldp.org/LDP/abs/html/io-redirection.html).
 
 Betik eylemleri tarafından günlüğe kaydedilen bilgi görüntüleme hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
 
-### <a name="bps8"></a>Dosyaları ASCII olarak LF satır sonları ile kaydedin.
+### <a name="bps8"></a> Dosyaları ASCII olarak LF satır sonları ile kaydedin.
 
 Bash betiklerini ASCII biçiminde LF tarafından sonlandırıldı çizgili depolanması gerekir. UTF-8 olarak depolanır veya satır sonu olarak CRLF kullanan dosyalar, şu hata ile başarısız:
 
@@ -181,7 +181,7 @@ $'\r': command not found
 line 1: #!/usr/bin/env: No such file or directory
 ```
 
-### <a name="bps9"></a>Geçici hataları kurtarmak için yeniden deneme mantığı kullanın
+### <a name="bps9"></a> Geçici hataları kurtarmak için yeniden deneme mantığı kullanın
 
 Get apt veya Internet üzerinden veri aktaran diğer eylemler kullanarak paketleri yükleme dosyaları indirilirken eylemi geçici ağ hataları nedeniyle başarısız olabilir. Örneğin, bir yedekleme düğüme yapabilmesini sürecinde ile iletişim kuran uzak kaynak olabilir.
 
@@ -221,7 +221,7 @@ retry wget -O ./tmpfile.sh https://hdiconfigactions.blob.core.windows.net/linuxh
 
 ## <a name="helpermethods"></a>Özel komut dosyaları için yardımcı yöntemleri
 
-Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) komut dosyası. Karşıdan yüklemek ve komut dosyanızı bir parçası olarak kullanmak için aşağıdakileri kullanın:
+Betik eylem Yardımcısı yöntemleri özel komut dosyaları yazılırken kullanabileceğiniz yardımcı programları ' dir. Bu yöntemler bulunan[ https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh ](https://hdiconfigactions.blob.core.windows.net/linuxconfigactionmodulev01/HDInsightUtilities-v01.sh) komut dosyası. Karşıdan yüklemek ve komut dosyanızı bir parçası olarak kullanmak için aşağıdakileri kullanın:
 
 ```bash
 # Import the helper method module.
@@ -251,7 +251,7 @@ Bu bölümde, kendi özel bir komut dosyası yazılırken içine çalışabilir 
 
 Bazı durumlarda, komut parametreleri gerektirebilir. Örneğin, Ambari REST API kullanırken küme için yönetici parolasını gerekebilir.
 
-Komut dosyasına iletilen parametreler olarak bilinen *konumsal parametreler*ve atanan `$1` ilk parametresi için `$2` ikinci için ve böylece açma. `$0`komut dosyasının kendisini adını içerir.
+Komut dosyasına iletilen parametreler olarak bilinen *konumsal parametreler*ve atanan `$1` ilk parametresi için `$2` ikinci için ve böylece açma. `$0` komut dosyasının kendisini adını içerir.
 
 Parametreler (') tek tırnak içine alınması gibi değerler komut dosyasına iletilen. Geçirilen değeri sabit değer olarak davranılır sağlar.
 
@@ -317,7 +317,7 @@ fi
 Bir komut dosyası dağıtmak hazırlarken adımları Al şunlardır:
 
 * Dağıtım sırasında küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren dosyaları yerleştirin. Örneğin, kümenin varsayılan depolama. Dosyaları herkese açık şekilde okunabilir barındırma hizmetleri de depolanabilir.
-* Komut dosyası impotent olduğunu doğrulayın. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.
+* Komut dosyası ıdempotent olduğunu doğrulayın. Bunun yapılması, birden çok kez aynı düğümde yürütülmek üzere betik sağlar.
 * Komut dosyaları tarafından kullanılan indirilen dosyaları korumak ve komut dosyaları çalıştırdıktan sonra sonra bunları temizlemek için bir geçici dosya dizin tmp kullanın.
 * İşletim sistemi düzeyinde ayarlarını veya Hadoop hizmeti yapılandırma dosyalarını değiştirdiyseniz, Hdınsight hizmetlerini yeniden başlatmak istediğinizi düşünelim.
 
@@ -371,7 +371,7 @@ Komut dosyası bir Windows ortamı yazılan CRLF birçok metin düzenleyicileri 
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 
-Değiştir `INFILE` AĞACI içeren dosya ile. `OUTFILE`Ürün reçetesi olmadan komut dosyasını içeren yeni bir dosya adı olmalıdır.
+Değiştir `INFILE` AĞACI içeren dosya ile. `OUTFILE` Ürün reçetesi olmadan komut dosyasını içeren yeni bir dosya adı olmalıdır.
 
 ## <a name="seeAlso"></a>Sonraki adımlar
 

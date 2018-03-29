@@ -1,6 +1,6 @@
 ---
-title: "Yeniden koruma başarısız oldu Azure Vm'leri üzerinde Azure Site Recovery Birincil Azure bölgesiyle dön | Microsoft Docs"
-description: "Azure Site Recovery kullanan bir birincil bölge'ndan yük devretme sonrasında Azure Vm'lerinin ikincil bir bölgede koruyun açıklar."
+title: Yeniden koruma başarısız oldu Azure Vm'leri üzerinde Azure Site Recovery Birincil Azure bölgesiyle dön | Microsoft Docs
+description: Azure Site Recovery kullanan bir birincil bölge'ndan yük devretme sonrasında Azure Vm'lerinin ikincil bir bölgede koruyun açıklar.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: 47056c85c6cb66a7fa28d623a4472b827d970dab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4171a904626d3b624b39b8a3a261df0d342012df
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölge Azure Vm'leri üzerinde başarısız oldu
 
@@ -57,7 +57,8 @@ Yükü sırasında hedef VMe aşağıdaki özelliklerini özelleştirebilirsiniz
 |---------|---------|
 |Hedef kaynak grubu     | VM oluşturulacağı hedef kaynak grubu değiştirin. Yükü parçası olarak, hedef VM silinir. VM yük devretme sonrasında oluşturulacağı altında yeni bir kaynak grubu seçebilirsiniz.        |
 |Hedef sanal ağ     | Hedef ağ yeniden koruma işi sırasında değiştirilemez. Ağ değiştirmek için Ağ eşlemesi yineleyin.         |
-|Hedef depolama     | VM yük devretme sonrasında kullandığı depolama hesabı değiştirebilirsiniz.         |
+|Hedef depolama (ikincil VM yönetilen diskleri kullanmaz)     | VM yük devretme sonrasında kullandığı depolama hesabı değiştirebilirsiniz.         |
+|Çoğaltma (ikincil VM yönetilen diskler kullanan) diskleri yönetilen    | Site Recovery çoğaltma yönetilen diskleri ikincil sanal makinenin yönetilen diskleri yansıtmak üzere birincil bölgede oluşturur.         | 
 |Önbellek depolama     | Çoğaltma sırasında kullanılacak bir önbellek depolama hesabı belirtebilirsiniz. Varsayılan olarak, yeni bir önbellek depolama hesabı olan oluşturulabilir, yoksa.         |
 |Kullanılabilirlik Kümesi     |İkincil bölge VM'yi bir kullanılabilirlik kümesinin parçası ise, birincil bölgesinde bulunan hedef VM için ayarlanmış kullanılabilirlik seçebilirsiniz. Varsayılan olarak, Site Recovery birincil bölgede var olan kullanılabilirlik bulmayı dener ve bunu kullanın. Özelleştirme sırasında yeni bir kullanılabilirlik kümesi belirtebilirsiniz.         |
 
@@ -68,7 +69,8 @@ Varsayılan olarak, aşağıdakiler gerçekleşir:
 
 1. Birincil bölgede bir önbellek depolama hesabı oluşturulur
 2. Hedef depolama hesabı (birincil bölge içinde özgün depolama hesabı) yoksa, yeni bir tane oluşturulur. Atanan depolama hesabı adı "ile asr" sonekine ikincil VM tarafından kullanılan depolama hesabının adıdır.
-3. Hedef kullanılabilirlik kümesi yoksa, yeni bir tane gerekliyse yeniden koruma işi bir parçası olarak oluşturulur. Yükü ayarları özelleştirdiyseniz, seçili kümesini kullanılır.
+3. Çoğaltma, VM yönetilen diskleri kullanıyorsa, yönetilen diskleri ikincil VM diskleri çoğaltılan verileri depolamak için birincil bölge içinde oluşturulur. 
+4. Hedef kullanılabilirlik kümesi yoksa, yeni bir tane gerekliyse yeniden koruma işi bir parçası olarak oluşturulur. Yükü ayarları özelleştirdiyseniz, seçili kümesini kullanılır.
 
 Yeniden koruma işi ve VM var. hedef tetiklemek, aşağıdakiler gerçekleşir:
 

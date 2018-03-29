@@ -1,24 +1,24 @@
 ---
-title: "Azure Cosmos DB genel verilerle dağıtma | Microsoft Docs"
-description: "Azure Cosmos DB, genel olarak dağıtılmış, belirleyebiliriz model veritabanı hizmeti genel veritabanlarından kullanarak planet ölçekli coğrafi çoğaltma, yük devretme ve veri kurtarma hakkında bilgi edinin."
+title: Azure Cosmos DB genel verilerle dağıtma | Microsoft Docs
+description: Azure Cosmos DB, genel olarak dağıtılmış, belirleyebiliriz model veritabanı hizmeti genel veritabanlarından kullanarak planet ölçekli coğrafi çoğaltma, yük devretme ve veri kurtarma hakkında bilgi edinin.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ba5ad0cc-aa1f-4f40-aee9-3364af070725
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: 0be81802996f27a4c063e4e728a3c95ad757bea0
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB genel verilerle dağıtmak nasıl
 Azure bulunabilen - 30 + coğrafi bölgeler arasında genel ayak izini sahiptir ve sürekli genişleyen. Dünya çapında iletişim durumu ile Azure, geliştiricilere sunduğu farklı özellikleri oluşturmak, dağıtmak ve genel olarak dağıtılmış uygulamaları kolayca yönetin olanağı biridir. 
@@ -37,6 +37,11 @@ Bu makalede, Azure Cosmos veritabanı genel dağıtım özelliklerine genel bak�
 
 ## <a id="EnableGlobalDistribution"></a>Anahtar teslimi genel dağıtım etkinleştirme
 Azure Cosmos DB planet ölçek uygulamaları kolayca yazmanızı etkinleştirmek için aşağıdaki özellikleri sağlar. Bu özellikler Azure Cosmos veritabanı kaynak sağlayıcı tabanlı kullanılabilir [REST API'leri](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) yanı sıra Azure portalı.
+
+Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu anahtar teslimi genel dağıtım özellikleri gösterir.
+
+> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ### <a id="RegionalPresence"></a>Her yerden bölgesel varlığı 
 Azure sürekli olarak artmaktadır coğrafi varlığını getirerek [yeni bölgeler](https://azure.microsoft.com/regions/) çevrimiçi. Azure Cosmos DB tüm yeni Azure bölgeleri varsayılan olarak kullanılabilir. Bu iş için yeni bölge Azure açar açmaz coğrafi bölge Azure Cosmos DB veritabanı hesabınız ile ilişkilendirmenizi sağlar.
@@ -226,7 +231,7 @@ Azure Cosmos DB verimlilik, gecikme, tutarlılık ve kullanılabilirlik ölçüm
 ## <a id="References"></a>Başvuruları
 1. Eric Brewer. [Doğru sağlam dağıtılmış sistemleri](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)
 2. Eric Brewer. [CAP üzeri – on iki yıllık kuralları nasıl değiştiğini](http://informatik.unibas.ch/fileadmin/Lectures/HS2012/CS341/workshops/reportsAndSlides/PresentationKevinUrban.pdf)
-3. Gilbert, Lynch. - [Brewer &#39; s Conjecture ve tutarlı, kullanılabilir uygulanabilirliğini, bölüm dayanıklı Web Hizmetleri](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
+3. Gilbert, Lynch. - [Brewer&#39;s Conjecture ve tutarlı, kullanılabilir uygulanabilirliğini, bölüm dayanıklı Web Hizmetleri](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)
 4. Daniel Abadi. [Veritabanı sistemleri tasarım tutarlılık bileşim Modern içinde dağıtılmış](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)
 5. Martin Kleppmann. [Lütfen CP veya AP veritabanları çağırma durdurun](https://martin.kleppmann.com/2015/05/11/please-stop-calling-databases-cp-or-ap.html)
 6. Peter Bailis et al. [Probabilistic sınırlanmış eskime durumu (PBS) pratik kısmi çekirdekleri için](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)

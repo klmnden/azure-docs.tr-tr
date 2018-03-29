@@ -13,19 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 03/27/2018
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa95cae5d62ebe23d6822232c4a5ab872e1f2c6a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5b0e46eb001e0b100ad1e181b02c18cfe67648f9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tunable-data-consistency-levels-in-azure-cosmos-db"></a>İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı
 Azure Cosmos DB sıfırdan yukarı genel dağıtım aklınızda her veri modeli için tasarlanmıştır. Tahmin edilebilir düşük gecikme süresi garanti ve birden çok iyi tanımlanmış gevşek tutarlılık modelleri sunmak üzere tasarlanmıştır. Şu anda Azure Cosmos DB beş tutarlılık düzeyi sunar: güçlü, sınırlanmış eskime durumu, oturum, tutarlı öneki ve son. En yüksek oranda tutarlı bir model kullanılabilir olan daha az tutarlılık daha güçlü, sağladıkları gibi sınırlanmış eskime durumu, oturum, tutarlı öneki ve nihai olan "gevşek tutarlılık modelleri olarak" gösteriyor. 
 
 Yanında **güçlü** ve **nihai tutarlılık** sunulan yaygın olarak dağıtılan veritabanları tarafından modelleri Azure Cosmos DB üç daha fazla dikkatle kod oluşturulmuş ve kullanıma hazır hale getirilmiş tutarlılık modeli sunar:  **sınırlanmış eskime durumu**, **oturum**, ve **tutarlı önek**. Bu tutarlılık düzeylerin her birinde yararlılığı gerçek dünya kullanımı talepleri doğrulandı. Topluca bu beş tutarlılık düzeyleri iyi reasoned dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmanızı sağlar. 
+
+Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu anahtar teslimi genel dağıtım özellikleri gösterir.
+
+>[!VIDEO https://www.youtube.com/embed/-4FsGysVD14]
 
 ## <a name="distributed-databases-and-consistency"></a>Dağıtılmış veritabanları ve tutarlılık
 Ticari dağıtılmış veritabanlarının iki kategoriye ayrılır: provable iyi tanımlanmış tutarlılık seçimler hiç sunmazlar veritabanları ve iki aşırı programlama (nihai tutarlılık güçlü) seçimlere veritabanları. 

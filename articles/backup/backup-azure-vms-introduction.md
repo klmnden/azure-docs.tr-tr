@@ -1,11 +1,11 @@
 ---
-title: "Azure'da VM yedekleme altyapınızı planlama | Microsoft Docs"
-description: "Azure sanal makineleri yedeklemek planlama yaparken önemli noktalar"
+title: Azure'da VM yedekleme altyapınızı planlama | Microsoft Docs
+description: Azure sanal makineleri yedeklemek planlama yaparken önemli noktalar
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: sanal makineleri yedekleme, sanal makineleri yedekleme
 ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
@@ -13,23 +13,23 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/18/2017
+ms.date: 3/23/2018
 ms.author: markgal;trinadhk
-ms.openlocfilehash: 66b64c803dfea6a1e4c7795d10e4b4ba064f1cf7
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 47d5da880f47831274fe05817ac9c488464d3096
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, Backup hizmeti önemli yönlerini tanımlar; Bu yönlerinin, mimarisi belirlemede önemli kapasite planlaması ve zamanlama. Seçtiğiniz varsa [ortamınızı hazırlanmış](backup-azure-arm-vms-prepare.md), planlama sonraki adım başlamadan önce [Vm'leri yedekleme için](backup-azure-arm-vms.md). Azure sanal makineler hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure nasıl mu sanal makineleri yedekleyin?
-Azure Backup hizmeti zamanlanan saatte bir yedekleme işi başlattığında, zaman içinde nokta anlık almak için yedekleme uzantısını tetikler. Azure Backup hizmeti kullandığı _VMSnapshot_ pencerelerinde, uzantı ve _VMSnapshotLinux_ Linux uzantı. Uzantısı ilk VM yedekleme sırasında yüklenir. Uzantıyı yüklemek için VM çalıştırması gerekir. VM çalışmıyorsa bu yana (hiçbir uygulama yazma VM durdurulduğunda oluşur) yedekleme hizmeti temel alınan depolama anlık görüntü alır.
+Ne zaman bir yedekleme işi Azure Backup hizmeti zaman içinde nokta anlık almak için yedekleme uzantısını hizmet Tetikleyicileri zamanlanan saatte başlatır. Azure Backup hizmeti kullandığı _VMSnapshot_ pencerelerinde, uzantı ve _VMSnapshotLinux_ Linux uzantı. Uzantısı ilk VM yedekleme sırasında yüklenir. Uzantıyı yüklemek için VM çalıştırması gerekir. VM çalışmıyorsa Backup hizmeti, temel alınan depolamanın anlık görüntüsünü alır (VM durduğunda herhangi bir uygulama yazma işlemi gerçekleşmediği için).
 
 Windows VM görüntüsünü alırken, Backup hizmeti Birim Gölge Kopyası Hizmeti (sanal makine disklerin tutarlı bir anlık görüntü almak için VSS ile) düzenler. Linux VM'ler yedekliyorsanız, bir VM anlık görüntü duruma getirirken tutarlılığını sağlamak için kendi özel komut dosyaları yazabilirsiniz. Bu komut dosyalarını Çağırma ile ilgili ayrıntılar bu makalenin sonraki bölümlerinde sağlanır.
 
-Azure Backup hizmeti anlık görüntüsünü alır sonra verileri kasaya aktarılır. Verimliliği en üst düzeye çıkarmak için hizmet tanımlar ve yalnızca son yedeklemeden sonra değiştirilen veri blokları aktarır.
+Azure Backup hizmeti anlık görüntüyü aldıktan sonra veriler kasaya aktarılır. Verimliliği maksimuma çıkarmak için hizmet yalnızca bir önceki yedeklemeden itibaren değişmiş olan veri bloklarının aktarımını yapar.
 
 ![Azure sanal makine yedekleme mimarisi](./media/backup-azure-vms-introduction/vmbackup-architecture.png)
 
@@ -37,8 +37,8 @@ Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurta
 
 > [!NOTE]
 > 1. Azure yedekleme yedekleme işlemi sırasında sanal makineye bağlı geçici disk içermez. Daha fazla bilgi için blog bakın [geçici depolama](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/).
-> 2. Azure yedekleme depolama düzeyi anlık görüntüsünü alır ve bu anlık görüntüyü kasa aktarır olduğundan, yedekleme işi tamamlanana kadar depolama hesabı anahtarlarını değiştirmeyin.
-> 3. Premium VM'ler için biz anlık görüntü depolama hesabına kopyalayın. Azure Backup hizmeti kasa için verileri aktarmak için yeterli IOPS aldığından emin olmak için budur. Bu ek kopyasını depolama boyutu ayrılmış VM başına ücret kesilir. 
+> 2. Depolama düzeyi anlık görüntü ve kasa için bu anlık görüntüyü aktarır azure yedekleme alır değiştirmeyin depolama hesabı anahtarlarını yedekleme işi tamamlanana kadar.
+> 3. Premium VM'ler için Azure yedekleme anlık görüntü depolama hesabınıza kopyalar. Bu yedekleme hizmetinin yeterli IOPS verileri aktarmak için kasa için kullandığı emin olmaktır. Bu ek kopyasını depolama boyutu ayrılmış VM başına ücret kesilir. 
 >
 
 ### <a name="data-consistency"></a>Veri tutarlılığı
@@ -64,7 +64,7 @@ Bu tablo tutarlılık türlerini açıklar ve Azure VM sırasında altında orta
 | --- | --- | --- |
 | Uygulama tutarlılığı |Windows için Evet|Uygulama tutarlılığı, sağlar gibi iş yükleri için idealdir:<ol><li> VM *ön*. <li>Yoktur *bozulma*. <li>Yoktur *veri kaybı*.<li> Verileri zamanında uygulama VSS veya ön/son betik kullanarak yedekleme--içeren tarafından veri kullanan uygulama tutarlıdır.</ol> <li>*Windows sanal makineleri*-en Microsoft iş yükleri için veri tutarlılığı ilgili iş yüküne özgü eylemleri gerçekleştirebilirsiniz VSS yazıcılarının vardır. Örneğin, Microsoft SQL Server işlem günlüğü dosyasını ve veritabanına yazma doğru şekilde yapıldığını sağlar bir VSS yazıcısı olduğu. Azure Windows VM yedeklemeler için bir uygulama tutarlı bir kurtarma noktası oluşturmak için backup uzantısı gerekir VSS iş akışının çağırmak ve VM anlık görüntüsü gerçekleştirilmesi için tamamlanması. Azure VM anlık doğru olması tüm Azure VM uygulamaların VSS yazıcılarının da tamamlamanız gerekir. (Öğrenin [VSS Temelleri](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) ve derin ayrıntılarını daha yakından inceleyin [nasıl çalıştığını](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Linux VM'ler*-müşteriler yürütebilir [özel öncesi betiği ve uygulama tutarlılığı sağlamak için sonrası komut dosyası](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Dosya sistemi tutarlılığı |Evet - Windows tabanlı bilgisayarlar için |Kurtarma noktası olabilir burada iki senaryo vardır *dosya sistemi tutarlı*:<ul><li>Linux VM'ler için Azure'da, yedeklerini öncesi-script/sonrası-script veya öncesi-script/sonrası-script başarısız olduysa olmadan. <li>VSS azure'da Windows VM için yedekleme sırasında hata oluştu.</li></ul> Her iki bu durumda yapılabilir en iyi emin olmak için verilmiştir: <ol><li> VM *ön*. <li>Yoktur *bozulma*.<li>Yoktur *veri kaybı*.</ol> Uygulamaları kendi "Düzeltme li" mekanizması geri yüklenen veriler üzerinde uygulamanız gerekir. |
-| Kilitlenme tutarlılığı |Hayır |Bu durum, bir sanal makine (aracılığıyla ya da bir yazılım veya donanım sıfırlama) "kilitlenme" yaşayan eşdeğerdir. Kilitlenme tutarlılığı normal yedekleme sırasında Azure sanal makine kapatılır ortaya çıkar. Kilitlenme tutarlı bir kurtarma noktası garanti veri tutarlılığını geçici depolama ortamına--işletim sistemi veya uygulama perspektifinden ya da sağlar. Yalnızca yedekleme sırasında disk üzerinde zaten var. veri yakalanan ve yedeklendi. <br/> <br/> Varken hiçbir garanti genellikle, işletim sistemini başlatır ve ardından disk kontrol ederek Bozulması hataları düzeltmek için chkdsk gibi yordamı. Herhangi bir bellek içi veri veya diske aktarılmamış yazma kaybolur. Verileri geri alma yapılmalıdır durumda uygulama genellikle kendi doğrulama mekanizmasını ile izler. <br><br>İşlem günlüğü veritabanında mevcut olmayan girişleri varsa verilerin tutarlı olana kadar örnek olarak, veritabanı yazılımına bir geri alma sonra yapar. (Gibi Dağıtılmış birimler) birden çok sanal disklere veri dağıldığında kilitlenme tutarlı bir kurtarma noktası verilerin doğruluğu garanti sağlar. |
+| Kilitlenme tutarlılığı |Hayır |Bu durum, bir sanal makine (aracılığıyla ya da bir yazılım veya donanım sıfırlama) "kilitlenme" yaşayan eşdeğerdir. Kilitlenme tutarlılığı normal yedekleme sırasında Azure sanal makine kapatılır ortaya çıkar. Kilitlenme tutarlı bir kurtarma noktası garanti veri tutarlılığını geçici depolama ortamına--işletim sistemi veya uygulama perspektifinden ya da sağlar. Yalnızca yedekleme sırasında disk üzerinde zaten var. veri yakalanan ve yedeklendi. <br/> <br/> Varken hiçbir garanti genellikle, işletim sistemini başlatır ve ardından disk kontrol ederek Bozulması hataları düzeltmek için chkdsk gibi yordamı. Herhangi bir bellek içi veri veya diske aktarılmamış yazma kaybolur. Verileri geri alma yapılmalıdır durumda uygulama genellikle kendi doğrulama mekanizmasını ile izler. <br><br>İşlem günlüğü girişleri veritabanında mevcut değil varsa veri geri tutarlı olana kadar örnek olarak, veritabanı yazılımına yapar. (Gibi Dağıtılmış birimler) birden çok sanal disklere veri dağıldığında kilitlenme tutarlı bir kurtarma noktası verilerin doğruluğu garanti sağlar. |
 
 ## <a name="performance-and-resource-utilization"></a>Performans ve kaynak kullanımı
 Dağıtılan şirket içi yedekleme yazılımı gibi kapasite ve kaynak kullanımı için gereksinimleri azure'da VM yedeklerken planlamanız gerekir. [Azure depolama sınırlarını](../azure-subscription-service-limits.md#storage-limits) nasıl yapılandıracağınıza en yüksek performans iş yüklerini çalıştırmak için en az etkiyle almak için VM dağıtımlarının tanımlayın.
@@ -91,8 +91,8 @@ Yedeklenmekte olan her disk için Azure yedekleme disk üzerindeki blokları oku
 
 | Yedekleme işlemi | İyi verimlilik |
 | --- | --- |
-| İlk yedekleme |160 MB/sn |
-| Artımlı yedekleme (DR) |640 MB/sn <br><br> (Yedeklenmesi gereken) değiştirilen veri diski dağılmış olan, üretilen iş önemli ölçüde bırakır.|
+| İlk yedekleme |160 Mbps |
+| Artımlı yedekleme (DR) |640 Mbps <br><br> (Yedeklenmesi gereken) değiştirilen veri diski dağılmış olan, üretilen iş önemli ölçüde bırakır.|
 
 ## <a name="total-vm-backup-time"></a>Toplam VM yedekleme saati
 Çoğu yedekleme zaman harcanır sırasında okuma ve veri kopyalama, diğer işlemlerin bir VM'yi yedeklemek için gereken toplam süreyi katkıda:
@@ -125,24 +125,24 @@ Sanal makineleri için yedeklemeleri yapılandırılırken bu yöntemler aşağ�
 Azure yedekleme, Yedekleme işleminin bir parçası olarak verilerini şifrelemez. Ancak, VM dahilinde verileri şifrelemek ve sorunsuz bir şekilde korumalı verileri yedekleme (daha fazla bilgi edinin [şifrelenmiş verilerin yedekleme](backup-azure-vms-encryption.md)).
 
 ## <a name="calculating-the-cost-of-protected-instances"></a>Korumalı örnekler maliyetini hesaplama
-Azure Backup yedeklenir Azure sanal makineleri olan tabi [Azure yedekleme fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/). Korumalı örnekler hesaplaması dayanır *gerçek* "kaynak disk" hariç olmak üzere sanal makinede--tüm verilerin toplamı olan sanal makine boyutu
+Azure Backup yedeklenir Azure sanal makineleri olan tabi [Azure yedekleme fiyatlandırması](https://azure.microsoft.com/pricing/details/backup/). Korumalı örnekler hesaplaması dayanır *gerçek* geçici depolama hariç olmak üzere sanal makinede--tüm verilerin toplamı olan sanal makine boyutu.
 
-Vm'leri yedekleme için fiyatlandırma *değil* sanal makineye bağlı her veri diski için desteklenen en büyük boyutu göre. Fiyatlandırma veri diski saklanan gerçek verileri temel alır. Benzer şekilde, Yedekleme depolaması faturanızda Azure Yedekleme'de her kurtarma noktası gerçek veri toplamını olduğu depolanan veri miktarını temel alır.
+Vm'leri yedekleme için fiyatlandırma sanal makineye bağlı her veri diski için desteklenen en büyük boyutu dayanmıyor. Fiyatlandırma veri diski saklanan gerçek verileri temel alır. Benzer şekilde, Yedekleme depolaması faturanızda Azure Yedekleme'de her kurtarma noktası gerçek veri toplamını olduğu depolanan veri miktarını temel alır.
 
 Örneğin, bir boyutta A2 standart iki ek veri disklerinin her biri 1 TB maksimum boyuta sahip olan sanal makine alın. Aşağıdaki tabloda her bu diskleri saklanan gerçek verileri verir:
 
 | Disk türü | Maksimum boyut | Gerçek veri yok |
-| --- | --- | --- |
+| --------- | -------- | ----------- |
 | İşletim sistemi diski |1023 GB |17 GB |
-| Yerel disk / kaynak disk |135 GB |5 GB (yedekleme için yer almayan) |
+| Yerel disk / geçici disk |135 GB |5 GB (yedekleme için yer almayan) |
 | Veri diski 1 |1023 GB |30 GB |
 | Veri diski 2 |1023 GB |0 GB |
 
-*Gerçek* boyutunu sanal makine bu durumda olan 17 GB + 30 GB + 0 GB = 47 GB. Bu korumalı örnek boyutu (47 GB) aylık fatura temelini olur. Sanal makine veri miktarı arttıkça, korumalı örnek boyutu için fatura değişiklikleri buna uygun olarak kullanılır.
+Sanal makine gerçek boyutuna, 17 GB + 30 GB + 0 GB = 47 GB bu durumda olur. Bu korumalı örnek boyutu (47 GB) aylık fatura temelini olur. Sanal makine veri miktarı arttıkça, korumalı örnek boyutu için fatura değişiklikleri buna uygun olarak kullanılır.
 
-Faturalama, ilk başarılı yedekleme tamamlanana kadar başlatılmaz. Bu noktada, hem depolama hem de korumalı örnekleri için fatura başlar. Faturalandırma var olduğu sürece devam *herhangi bir kasasında depolanan verileri yedekleme* sanal makine için. Sanal makinede korumayı durdurun, ancak sanal makine yedekleme verilerini bir kasada var olması gerekir, faturalandırma devam eder.
+Faturalama, ilk başarılı yedekleme tamamlanana kadar başlatılmaz. Bu noktada, hem depolama hem de korumalı örnekleri için fatura başlar. Sanal makine için bir kasa içinde depolanan tüm yedekleme verileri var olduğu sürece faturalandırma devam eder. Sanal makinede korumayı durdurun, ancak sanal makine yedekleme verilerini bir kasada var olması gerekir, faturalandırma devam eder.
 
-Belirtilen sanal makine yalnızca koruma durdurduysanız durdurur faturalama *ve* tüm yedekleme verileri silinir. Koruma durduğunda ve etkin yedek iş yok, son başarılı VM yedeğinin boyutu aylık fatura için kullanılan korumalı örnek boyutu olur.
+Belirtilen sanal makine için fatura yalnızca koruma durdurulursa ve tüm yedekleme verileri silinir durdurur. Koruma durduğunda ve etkin yedek iş yok, son başarılı VM yedeğinin boyutu aylık fatura için kullanılan korumalı örnek boyutu olur.
 
 ## <a name="questions"></a>Sorularınız mı var?
 Sorularınız varsa veya dahil edilmesini istediğiniz herhangi bir özellik varsa [bize geri bildirim gönderin](http://aka.ms/azurebackup_feedback).

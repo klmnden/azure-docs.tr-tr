@@ -1,10 +1,10 @@
 ---
-title: "Azure Storage Azure Batch hizmeti API'si ile iş ve görev çıktısına kalıcı | Microsoft Docs"
-description: "Toplu işlem görevi ve iş çıktısı Azure depolama için kalıcı hale getirmek için Batch hizmeti API'si kullanmayı öğrenin."
+title: Azure Storage Azure Batch hizmeti API'si ile iş ve görev çıktısına kalıcı | Microsoft Docs
+description: Toplu işlem görevi ve iş çıktısı Azure depolama için kalıcı hale getirmek için Batch hizmeti API'si kullanmayı öğrenin.
 services: batch
 author: tamram
 manager: timlt
-editor: 
+editor: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa124109bfc9d333469c255c50df0af96a26bebf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Görev verileri Azure Batch hizmeti API'si ile Sürdür
 
@@ -142,7 +142,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-Azure depolama alanında sanal dizinleri hakkında daha fazla bilgi için bkz: [BLOB'ları bir kapsayıcıda listelemek](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container).
+Azure depolama alanında sanal dizinleri hakkında daha fazla bilgi için bkz: [BLOB'ları bir kapsayıcıda listelemek](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container).
 
 
 ## <a name="diagnose-file-upload-errors"></a>Dosya karşıya yükleme hatalarını tanılama

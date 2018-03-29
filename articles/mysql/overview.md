@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
 ms.custom: mvc
-ms.openlocfilehash: 2689befc6a686d0ffc25d1fccbacb66cc6e10725
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Azure veritabanı için MySQL nedir?
 Azure için MySQL veritabanıdır göre Microsoft bulut ilişkisel veritabanı hizmeti [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı. Azure veritabanı için MySQL sunar:
@@ -47,7 +47,7 @@ Ne zaman artırılacağına ve ne zaman azaltılacağını nasıl karar verirsin
 Azure'nın endüstri lideri genel bir veri merkezleri, Microsoft tarafından yönetilen ağ tarafından desteklenen % 99,99 kullanılabilirlik hizmet düzeyi sözleşmesi (SLA), uygulamanızın 7/24 çalıştıran tutmaya yardımcı olur. MySQL sunucusu için her Azure veritabanı ile yerleşik güvenlik, hata toleransı ve satın alma veya tasarlama, derleme ve yönetmek için Aksi durumda olması gereken veri koruma yararlanın. MySQL için Azure veritabanı ile bir sunucu a 35 gün kadar daha önceki bir duruma kurtarmak için zaman içinde nokta geri yükleme kullanabilirsiniz.
 
 ## <a name="secure-your-data"></a>Verilerinizin güvenliğini sağlama
-Azure veritabanı hizmetleri Azure veritabanı için MySQL anlayışına veri güvenliği yılda vardır, erişimi sınırlamak, çalışmıyorken veri ve hareket halinde korumak ve yardımcı özelliklerle etkinliğini izleyin. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://www.microsoft.com/en-us/TrustCenter/Security/default.aspx)'ni ziyaret edin.
+Azure veritabanı hizmetleri Azure veritabanı için MySQL anlayışına veri güvenliği yılda vardır, erişimi sınırlamak, çalışmıyorken veri ve hareket halinde korumak ve yardımcı özelliklerle etkinliğini izleyin. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/security)'ni ziyaret edin.
 
 MySQL hizmeti için Azure veritabanına veri çalışmıyorken için depolama şifrelemesi kullanır. Yedeklemeler dahil verileri (hariç sorgu çalıştırılırken altyapısı tarafından oluşturulan geçici dosyalar) diskte şifrelenir. Hizmet, Azure depolama şifrelemesi kapsamında yer alan AES 256-bit şifrelemesini kullanır ve anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
 

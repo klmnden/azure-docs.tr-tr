@@ -1,12 +1,12 @@
 ---
-title: "Yerel olarak Azure Cosmos DB öykünücü ile geliştirme | Microsoft Docs"
-description: "Azure Cosmos DB öykünücüsü kullanarak, geliştirmek ve uygulamanızı yerel olarak ücretsiz, Azure aboneliği oluşturmadan test edin."
+title: Yerel olarak Azure Cosmos DB öykünücü ile geliştirme | Microsoft Docs
+description: Azure Cosmos DB öykünücüsü kullanarak, geliştirmek ve uygulamanızı yerel olarak ücretsiz, Azure aboneliği oluşturmadan test edin.
 services: cosmos-db
-documentationcenter: 
-keywords: "Azure Cosmos DB öykünücüsü"
+documentationcenter: ''
+keywords: Azure Cosmos DB öykünücüsü
 author: David-Noble-at-work
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: danoble
-ms.openlocfilehash: 1991157330f6607efcf42ad42694c6b4d19fe609
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -43,7 +43,7 @@ Azure Cosmos DB öykünücüsü geliştirme amacıyla Azure Cosmos DB hizmet öy
 > [!NOTE]
 > Şu anda öykünücü veri Gezgini'nde SQL API koleksiyonları ve MongoDB koleksiyonları yalnızca tam olarak destekler. Tablo, grafik ve Cassandra kapsayıcıları tam olarak desteklenmez. 
 
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
 > * Öykünücü yükleme
@@ -105,7 +105,7 @@ Varsayılan olarak Azure Cosmos DB öykünücü yüklendikten `C:\Program Files\
 
 ## <a name="start-data-explorer"></a>Veri Gezgini'ni başlatın
 
-Azure Cosmos DB öykünücüsü başlattığında tarayıcınızda otomatik olarak Azure Cosmos DB Veri Gezgini'ni açar. Adres olarak görünür [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). Explorer'ı kapatın ve daha sonra yeniden açmak istiyor musunuz URL'nin tarayıcınızda açın veya aşağıda gösterildiği gibi Azure Cosmos DB öykücüsünden Windows Tepsi simgesi başlatın.
+Azure Cosmos DB öykünücüsü başlattığında tarayıcınızda otomatik olarak Azure Cosmos DB Veri Gezgini'ni açar. Adres olarak görünür [ https://localhost:8081/_explorer/index.html ](https://localhost:8081/_explorer/index.html). Explorer'ı kapatın ve daha sonra yeniden açmak istiyor musunuz URL'nin tarayıcınızda açın veya aşağıda gösterildiği gibi Azure Cosmos DB öykücüsünden Windows Tepsi simgesi başlatın.
 
 ![Azure Cosmos DB yerel öykünücüsü Veri Gezgini Başlatıcısı](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -312,7 +312,7 @@ Geçerli bölüm sayısı aşıldı sonra bir koleksiyon oluşturmayı denerseni
     Sorry, we are currently experiencing high demand in this region, 
     and cannot fulfill your request at this time. We work continuously 
     to bring more and more capacity online, and encourage you to try again. 
-    Please do not hesitate to email docdbswat@microsoft.com at any time or 
+    Please do not hesitate to email askcosmosdb@microsoft.com at any time or
     for any reason. ActivityId: 29da65cc-fba1-45f9-b82c-bf01d78a1f91
 
 Azure Cosmos DB öykünücüsü koleksiyonları kullanılabilir sayısını değiştirmek için aşağıdakileri yapın:
@@ -483,7 +483,7 @@ Biz açıklandı denirse için müşterilerin birçok: öykünücü kodlanabilir
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
 > * Yerel öykünücüsü yüklü

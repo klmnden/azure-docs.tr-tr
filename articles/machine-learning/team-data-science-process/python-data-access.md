@@ -1,6 +1,6 @@
 ---
-title: "Machine Learning Python istemci kitaplığı veri kümeleriyle erişim | Microsoft Docs"
-description: "Yükleyin ve Python istemci kitaplığı erişmek ve Azure Machine Learning veri bir yerel Python ortamından güvenli bir şekilde yönetmek için kullanın."
+title: Machine Learning Python istemci kitaplığı veri kümeleriyle erişim | Microsoft Docs
+description: Yükleyin ve Python istemci kitaplığı erişmek ve Azure Machine Learning veri bir yerel Python ortamından güvenli bir şekilde yönetmek için kullanın.
 services: machine-learning
 documentationcenter: python
 author: bradsev
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: huvalo;bradsev
-ms.openlocfilehash: 3cffb90baadef570bbb7e4e2d96741cc0420b0a2
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 5f0823e07f0e583e32829b664a1d3d463092169e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesini güvenli erişim Azure Machine Learning veri kümeleriniz için bir yerel Python ortamından etkinleştirebilir ve oluşturulması ve bir çalışma alanı kümelerinde yönetimi sağlar.
@@ -41,7 +41,7 @@ Python istemci kitaplığı altında aşağıdaki ortamları test edilmiştir:
 Bunu, aşağıdaki paketleri bir bağımlılığa sahiptir:
 
 * istek
-* Python dateutil
+* python-dateutil
 * pandas
 
 Bir Python dağıtımı gibi kullanmanızı öneririz [Anaconda](http://continuum.io/downloads#all) veya [Kanopi](https://store.enthought.com/downloads/), Python, IPython gelen ve yukarıda listelenen üç paketleri yüklü. IPython kesinlikle gerekli olmamakla birlikte, düzenleme ve etkileşimli olarak verileri görselleştirmek için harika bir ortamıdır.
@@ -141,10 +141,10 @@ Aşağıdaki adımlar, bir deneme oluşturur, çalıştırır ve Ara dataset eri
     ![Not Defteri][ipython-intermediate-dataset]
 10. Matplotlib kullanarak verileri Görselleştir. Bu yaş sütunu için bir histogram görüntüler:
     
-    ![Çubuk grafik][ipython-histogram]
+    ![Histogram][ipython-histogram]
 
 ## <a name="clientApis"></a>Erişim, okuma, oluşturma ve veri kümelerini yönetmek için makine öğrenme Python istemci kitaplığını kullanma
-### <a name="workspace"></a>Çalışma Alanı
+### <a name="workspace"></a>Çalışma alanı
 Çalışma alanı Python istemci kitaplığı için giriş noktasıdır. Sağlamak `Workspace` sınıfı çalışma alanı kimliği ve yetkilendirme belirteci örnek oluşturmak için:
 
     ws = Workspace(workspace_id='4c29e1adeba2e5a7cbeb0e4f4adfb4df',
@@ -176,7 +176,7 @@ Ya da dizin tarafından erişebilirsiniz:
     ds = ws.datasets[0]
 
 
-### <a name="metadata"></a>Meta veriler
+### <a name="metadata"></a>Meta Veriler
 Veri kümeleri içerik yanı sıra meta veriler bulunur. (Ara veri kümeleri bu kural için bir özel durumdur ve meta verileri yok.)
 
 Bazı meta veri değerleri, oluşturma sırasında kullanıcı tarafından atanır:

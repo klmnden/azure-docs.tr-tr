@@ -1,23 +1,23 @@
 ---
-title: "Takım projeleri - Azure platformlar ve veri bilimi için araçları | Microsoft Docs"
-description: "Maddeler halinde listelemektedir ve takım veri bilimi işlemi Standartlaştırma işletmelere kullanılabilir verileri ve çözümlemeler kaynaklar açıklanır."
-documentationcenter: 
+title: Takım projeleri - Azure platformlar ve veri bilimi için araçları | Microsoft Docs
+description: Maddeler halinde listelemektedir ve takım veri bilimi işlemi Standartlaştırma işletmelere kullanılabilir verileri ve çözümlemeler kaynaklar açıklanır.
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
-ms.author: bradsev;
-ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.author: bradsev
+ms.openlocfilehash: 404e3dd106edf82f4f22e4c6a17987bd0bc51f65
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Platformlar ve veri bilimi takım projeleri için Araçlar
 
@@ -30,8 +30,8 @@ TDSP kullanarak veri bilimi ekipleri için kullanılabilir veri ve Analiz Hizmet
 - SQL Veri Ambarı
 - Azure Data Lake
 - Hdınsight Hive kümeleri
-- Azure dosya depolama
-- SQL Server 2016 R Hizmetleri
+- Azure Dosya Depolama
+- SQL Server 2016 R Services
 
 Bu belgede, biz kısaca kaynakları tanımlayan ve öğreticiler ve TDSP takımlar yayımladığınız izlenecek yollar için bağlantılar sağlar. Bunlar bunları adım adım kullanın ve bunları akıllı uygulamalarınızı oluşturmak için kullanmaya başlama öğrenmenize yardımcı olabilir. Bu kaynaklar hakkında daha fazla bilgi ürün sayfalarında kullanılabilir. 
 
@@ -39,7 +39,7 @@ Bu belgede, biz kısaca kaynakları tanımlayan ve öğreticiler ve TDSP takıml
 
 Veri bilimi sanal makine hem Windows hem de Linux Microsoft tarafından sunulan veri bilimi modelleme ve geliştirme etkinlikleri için popüler araçları içerir. Araçları gibi içerir:
 
-- Microsoft R Server Geliştirici sürümü 
+- Microsoft R Server Developer Edition 
 - Anaconda Python dağıtımı
 - Python ve R Jupyter Not Defterleri 
 - Python ve Windows'da R araçları ile Visual Studio Community Edition / Tutulma Linux'ta
@@ -89,14 +89,14 @@ Veri bilimcilerine için Hive Python User-Defined işlevler (UDF'ler) kayıtlar�
 Azure Hdınsight Hive kümeleri hakkında daha fazla bilgi için bkz: [Hive ve HiveQL hdınsight'ta Hadoop ile](../../hdinsight/hadoop/hdinsight-use-hive.md). Azure Hdınsight Hive kümeleri ile ölçeklenebilir uçtan uca veri bilimi çözüm oluşturmayı öğrenmek için bkz: [takım veri bilimi işleminde eylemi: Hdınsight Hadoop kümeleri kullanarak](hive-walkthrough.md).
 
 
-## <a name="azure-file-storage"></a>Azure dosya depolama 
+## <a name="azure-file-storage"></a>Azure Dosya Depolama 
 
 Azure File Storage standart sunucu ileti bloğu (SMB) protokolü kullanılarak bulutta dosya paylaşımları sunan bir hizmettir. SMB 2.1 ve SMB 3.0 desteklenir. Azure File Storage, Azure’a dosya paylaşımı kullanan eski uygulamaları maliyetli yeniden yazdırmaya ihtiyaç duymadan ve hızla taşıyabilmenizi sağlar. Azure Virtual Machines’de, Cloud Services’da veya şirket içi istemcilerde çalışan uygulamalar, bir masaüstü uygulamanın tipik SMB paylaşımı bağladığı gibi buluta bir dosya paylaşımı bağlayabilir. Ardından herhangi sayıda uygulama bileşeni eş zamanlı olarak File Storage paylaşımını bağlayıp buna erişim sağlayabilir.
 
 Proje verilerini proje ekip üyelerinizin ile paylaşmak için yer olarak bir Azure dosya deposu oluşturma olanağı veri bilimi projeleri için özellikle yararlıdır. Bunların her birini daha sonra verileri aynı kopyasını Azure dosya depolama alanında erişebilir. Proje yürütülmesi sırasında oluşturulan özellik kümeleri paylaşmak için bu dosya depolama de kullanabilirsiniz. Bir istemci katılım projesiyse istemcileriniz proje verilerini ve özellikleri ile paylaşmak için kendi Azure aboneliği altında bir Azure dosya depolama oluşturabilirsiniz. Bu şekilde, istemci proje veri varlıklarının üzerinde tam denetime sahiptir. Azure File Storage hakkında daha fazla bilgi için bkz: [Windows Azure File storage ile çalışmaya başlama](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) ve [Azure File Storage'ı Linux ile kullanma konusunda](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Hizmetleri
+## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
 
 R hizmetler (veritabanı-), geliştirmek ve yeni bilgiler açığa akıllı uygulamaları dağıtmak için bir platform sağlar. R topluluk tarafından sağlanan birçok paketleri de dahil olmak üzere zengin ve güçlü R dil modelleri oluşturun ve SQL Server verilerinizden tahminleri oluşturmak için kullanabilirsiniz. R Hizmetleri (veritabanı-) R dil SQL Server ile tümleştirmek için analiz verileri taşıma ile ilişkili güvenlik riskleri ve maliyetlerini ortadan kaldırır verileri yakın tutulur.
 

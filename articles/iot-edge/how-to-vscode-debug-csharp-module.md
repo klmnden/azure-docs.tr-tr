@@ -1,19 +1,19 @@
 ---
-title: "Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma | Microsoft Docs"
-description: "Bir C# modül Azure IOT kenar Visual Studio Code ile hata ayıklama."
+title: Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma | Microsoft Docs
+description: Bir C# modül Azure IOT kenar Visual Studio Code ile hata ayıklama.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 12/06/2017
+ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5ed517cf8d70cd279a55b79ad448709116cf511b
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c2a1acd2c249bdbc92119bc92f055b095f318f00
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-visual-studio-code-to-debug-a-c-module-with-azure-iot-edge"></a>Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) Azure IOT kenar modüllerinizi hata ayıklamak için ana geliştirme aracı olarak.
@@ -22,39 +22,33 @@ Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visua
 Bu öğretici, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. Geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz veya başka bir fiziksel cihaz IOT sınır cihazı olabilir.
 
 Bu kılavuza başlamadan önce aşağıdaki Eğitmeni tamamlayın:
-- [C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma](how-to-vscode-develop-csharp-module.md)
+- [Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştirin](tutorial-multiple-modules-in-vscode.md)
 
 Önceki öğreticiyi tamamladıktan sonra aşağıdaki öğeleri hazır olmalıdır:
-- Geliştirme makinenizde çalıştıran yerel Docker kayıt defteri. Prototip oluşturma ve sınama amacıyla budur.
-- `Program.cs` Dosyasıyla Son filtresi modülü kodu.
-- Güncelleştirilmiş `deployment.json` algılayıcı ve filtre modülleri için dosya.
-- Geliştirme makinenizde çalışan bir IOT kenar çalışma zamanı.
+- Geliştirme makinenizde çalıştıran yerel Docker kayıt defteri. Prototip ve test amacıyla için yerel bir Docker kayıt kullanmak için önerilir. Kapsayıcı kayıt defterinde güncelleştirebilirsiniz `module.json` her modül klasöründe dosyasında.
+- Bir IOT kenar çözüm proje çalışma alanı içindeki Modül alt C# ile.
+- `Program.cs` Dosyasıyla son modülü kodu.
+- Geliştirme makinenizde çalışan bir kenar çalışma zamanı.
 
-## <a name="build-your-iot-edge-module-for-debugging"></a>Hata ayıklama için IOT kenar modülünüzün derleme
-1. Hata ayıklamayı başlatmak için kullanmak **dockerfile.debug** Docker görüntünüzü yeniden oluşturun ve IOT kenar çözümünüzü yeniden dağıtmak için. Visual Studio Code Explorer'da açmak için Docker klasörü seçin. Ardından **linux x64** klasörünü sağ tıklatın **Dockerfile.debug**ve seçin **yapı IOT kenar modülü Docker görüntü**.
+## <a name="build-your-iot-edge-c-module-for-debugging"></a>Hata ayıklama için IOT kenar C# modülünüzün derleme
+1. Hata ayıklamayı başlatmak için kullanmanız gerekir **Dockerfile.amd64.debug** docker görüntünüzü oluşturmak ve kenar çözümünüzü yeniden dağıtmak için. VS Code Explorer'da gidin `deployment.template.json` dosya. İşlev resim URL'si ekleyerek güncelleştirme bir `.debug` uçtaki.
 
-    ![VS Code Gezgini'nin ekran görüntüsü](./media/how-to-debug-csharp-module/build-debug-image.png)
+2. Çözümü yeniden derleyin. VS Code komutu palette yazın ve şu komutu çalıştırın **kenar: derleme IOT uç çözümünün**.
 
-3. İçinde **Klasör Seç** penceresinde göz atın veya girin **./bin/Debug/netcoreapp2.0/publish**. Ardından **EXE_DIR olarak klasör seç**.
-4. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin: `<your container registry address>/filtermodule:latest`. Yerel kayıt defterine dağıtıyorsanız, olmalıdır: `localhost:5000/filtermodule:latest`.
-5. Görüntü Docker deponuza iletin. Kullanım **kenar: anında IOT kenar modülü Docker görüntü** komut ve VS Code pencerenin üstündeki açılır metin kutusuna resim URL'si girin. Önceki adımda kullanılan aynı resim URL'si kullanın.
-6. Yeniden kullanabilir `deployment.json` yeniden dağıtılamadı. Komut palette yazıp seçin **kenar: yeniden kenar** ile hata ayıklama sürümü, filtresi modülü almak için.
+3. Azure IOT Hub cihazları Gezgini'nde bir IOT kenar cihaz kimliği sağ tıklayın ve ardından seçin **sınır cihazı için dağıtımı oluşturma**. Seçin `deployment.json` altında `config` klasör. Daha sonra dağıtım başarıyla VS code'da kimliği tümleşik bir dağıtımı ile terminal oluşturulan görebilirsiniz.
 
-## <a name="start-debugging-in-vs-code"></a>VS Code'da hata ayıklamayı Başlat
-1. VS Code hata ayıklama penceresine gidin. Tuşuna **F5**seçip **IOT Edge(.NET Core)**.
+> [!NOTE]
+> Kapsayıcı durumunuzu VS Code Docker Gezgini'nde veya Çalıştır tarafından kontrol edebilirsiniz `docker images` Terminal komutu.
 
-    ![VS Code ekran hata ayıklama penceresi](./media/how-to-debug-csharp-module/f5-debug-option.png)
+## <a name="start-debugging-c-module-in-vs-code"></a>C# VS Code modülünde hata ayıklamayı Başlat
+1. VS Code tutar hata ayıklama yapılandırma bilgilerini bir `launch.json` içinde bulunan dosyasını bir `.vscode` çalışma alanınızdaki klasör. Bu `launch.json` yeni bir IOT kenar çözüm oluşturulurken dosyası oluşturuldu. Ve hata ayıklama desteği yeni bir modül eklediğiniz her sefer güncelleştirilir. Hata ayıklama görünümüne gidin ve karşılık gelen hata ayıklama yapılandırma dosyasını seçin.
+    ![Select hata ayıklama yapılandırması](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. İçinde `launch.json`, Gözat **hata ayıklama IOT kenar özel modül (.NET Core)** bölümü. Altında **pipeArgs**, doldurmak `<container_name>`. Olmalıdır `filtermodule` bu öğreticideki.
+2. `program.cs` sayfasına gidin. Bu dosyada bir kesme noktası ekleyin.
 
-    ![Ekran görüntüsü VS Code Launch.json'u](./media/how-to-debug-csharp-module/add-container-name.png)
+3. Hata Ayıklamayı Başlat düğmesine veya tuşuna tıklayın **F5**ve ekleme işlemini seçin.
 
-3. Gözat **Program.cs**. İçinde bir kesme noktası ekleme `method static async Task<MessageResponse> FilterModule(Message message, object userContext)`.
-4. Tuşuna **F5** yeniden ve ekleme işlemini seçin. Bu öğreticide, işlem adı olmalıdır `FilterModule.dll`.
-
-    ![VS Code ekran hata ayıklama penceresi](./media/how-to-debug-csharp-module/attach-process.png)
-
-5. VS Code hata ayıklama penceresinde sol panelinde değişkenleri görebilirsiniz. 
+4. VS kodda hata ayıklama Görünümü'nde sol panelinde değişkenleri görebilirsiniz. 
 
 > [!NOTE]
 > Önceki örnekte, .NET Core IOT kenar modülleri kapsayıcılarında hata ayıklama gösterilmektedir. Hata ayıklama sürümünde dayalı `Dockerfile.debug`, içeren VSDBG (.NET Core komut satırı hata ayıklayıcı) kapsayıcı yansımanıza derlenirken hatalarla. C# modüllerinizi hata ayıklama tamamladıktan sonra doğrudan kullanabilir veya özelleştirebilirsiniz öneririz `Dockerfile` VSDBG üretime hazır IOT kenar modüller olmadan.
@@ -64,4 +58,5 @@ Bu kılavuza başlamadan önce aşağıdaki Eğitmeni tamamlayın:
 Bu öğreticide bir IOT kenar modülü oluşturulan ve hata ayıklama için dağıtılır. VS kodda hata ayıklama başlatıldı. VS code'da Azure IOT kenar geliştirirken diğer senaryolar hakkında bilgi için bkz: 
 
 > [!div class="nextstepaction"]
-> [Geliştirme ve C# VS Code modülünde dağıtma](how-to-vscode-develop-csharp-module.md)
+> [Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştirin](tutorial-multiple-modules-in-vscode.md)
+

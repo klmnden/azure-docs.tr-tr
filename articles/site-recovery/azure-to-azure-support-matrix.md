@@ -1,21 +1,21 @@
 ---
-title: "Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi | Microsoft Docs"
-description: "Desteklenen işletim sistemleri ve yapılandırmalar Azure sanal makineleri (VM'ler) Azure Site Recovery çoğaltma için olağanüstü durum kurtarma (DR) ihtiyaçları için başka bir tek bölgesinden özetler."
+title: Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi | Microsoft Docs
+description: Desteklenen işletim sistemleri ve yapılandırmalar Azure sanal makineleri (VM'ler) Azure Site Recovery çoğaltma için olağanüstü durum kurtarma (DR) ihtiyaçları için başka bir tek bölgesinden özetler.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/24/2018
 ms.author: sujayt
-ms.openlocfilehash: 4383286285f02bad1645344fab43f8b6bdb145cb
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 30ee269b3f484256001af211181a517821d79617
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Azure'dan Azure'a çoğaltmak için azure Site Recovery destek matrisi
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Bir Azure bölgesinden diğerine çoğaltma için destek matrisi
 
 
 >[!NOTE]
@@ -28,7 +28,7 @@ Bu makalede, Azure Site Recovery çoğaltma ve Azure sanal makineleri başka bir
 
 **Kullanıcı arabirimi** |  **Desteklenen / desteklenmeyen**
 --- | ---
-**Azure portalı** | Desteklenen
+**Azure Portal** | Desteklenen
 **Klasik portal** | Desteklenmiyor
 **PowerShell** | Şu anda desteklenmiyor
 **REST API** | Şu anda desteklenmiyor
@@ -148,8 +148,8 @@ Site Recovery kullanarak sanal makineleri geçişi | Desteklenen | Site Kurtarma
 --- | --- | ---
 En yüksek işletim sistemi disk boyutu | 2048 GB | Başvurmak [VM'ler tarafından kullanılan diskler.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 En fazla veri diski boyutu | 4095 GB | Başvurmak [VM'ler tarafından kullanılan diskler.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Veri diski sayısı | Fazla belirli bir Azure VM boyutu tarafından desteklenen gibi 64 | Başvurmak [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md)
-Geçici disk | Her zaman Çoğaltmada hariç | Geçici disk her zaman çoğaltmadan dışlandı. Herhangi bir kalıcı veri Azure guida un göredir geçici diskteki moduna geçirmelisiniz değil. Başvurmak [Azure vm'lerinde geçici disk](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) daha fazla ayrıntı için.
+Veri diski sayısı | 64 olarak kadar belirli bir Azure VM boyutu tarafından desteklenen | Başvurmak [Azure sanal makine boyutları](../virtual-machines/windows/sizes.md)
+Geçici disk | Her zaman Çoğaltmada hariç | Geçici disk her zaman çoğaltmadan dışlandı. Herhangi bir kalıcı veri Azure Kılavuzu göredir geçici diskteki moduna geçirmelisiniz değil. Başvurmak [Azure vm'lerinde geçici disk](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) daha fazla ayrıntı için.
 Disk üzerinde veri değişiklik oranı | En fazla 10 MB/sn Premium depolama için disk başına ve standart depolama için disk başına 2 MB/sn | Ortalama veri değişikliği hızını diskteki 10 MB/sn (için Premium) ile 2 MB/sn (için standart) sürekli olarak ise, çoğaltma yakalar değildir. Ancak, bazen veri veri bloğu ise ve veri değişikliği hızını 10 MB/sn (için Premium) ve 2 için MB/sn (standart) belirli bir süre için değerinden daha büyük ve gelir, çoğaltma Yakala. Bu durumda, biraz Gecikmeli kurtarma noktalarını görebilirsiniz.
 Standart depolama hesapları disklerde | Desteklenen |
 Premium depolama hesapları disklerde | Desteklenen | Bir VM premium ve standart depolama hesapları üzerinden yayılan diskler varsa, hedef bölgede aynı depolama yapılandırmasına sahip olmak her disk için farklı bir hedef depolama hesabı seçin
@@ -174,12 +174,12 @@ Genel amaçlı V2 depolama hesapları (her ikisini de sık erişimli ve seyrek k
 ## <a name="support-for-network-configuration"></a>Ağ yapılandırması için destek
 **Yapılandırma** | **Desteklenen/desteklenmeyen** | **Açıklamalar**
 --- | --- | ---
-Ağ arabirimi (NIC) | Belirli bir Azure VM boyutu tarafından desteklenen NIC'ler fazla sayısı | VM yük devretme testi veya yük devretme işlemi kapsamında oluşturulduğunda NIC'ler oluşturulur. VM yük devretme NIC'ler sayısına çoğaltma etkinleştirme sırasında VM sahip kaynak NIC'ler sayısına bağlıdır. Ekleyin veya NIC çoğaltma etkinleştirdikten sonra Kaldır, yük devretme VM NIC sayısına etkilemez.
+Ağ arabirimi (NIC) | En fazla sayıda NIC belirli bir Azure VM boyutu tarafından desteklenen en fazla | VM yük devretme testi veya yük devretme işlemi kapsamında oluşturulduğunda NIC'ler oluşturulur. VM yük devretme NIC'ler sayısına çoğaltma etkinleştirme sırasında VM sahip kaynak NIC'ler sayısına bağlıdır. Ekleyin veya NIC çoğaltma etkinleştirdikten sonra Kaldır, yük devretme VM NIC sayısına etkilemez.
 İnternet Yük Dengeleyici | Desteklenen | Önceden yapılandırılmış yük dengeleyici bir azure Otomasyonu komut dosyası kullanarak bir kurtarma planı ilişkilendirmeniz gerekir.
 İç yük dengeleyici | Desteklenen | Önceden yapılandırılmış yük dengeleyici bir azure Otomasyonu komut dosyası kullanarak bir kurtarma planı ilişkilendirmeniz gerekir.
 Genel IP| Desteklenen | NIC zaten var olan bir ortak IP ilişkilendirmek veya bir tane oluşturun ve bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC için ilişkilendirmeniz gerekir.
 NSG üzerinde NIC'ye (Resource Manager)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.  
-NSG alt (Resource Manager ve klasik)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.
+NSG alt (Resource Manager ve klasik)| Desteklenen | Bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak alt ağı için NSG ilişkilendirmeniz gerekir.
 NSG VM'ye (Klasik)| Desteklenen | NSG'yi bir kurtarma planı bir azure Otomasyonu komut dosyası kullanarak NIC ilişkilendirmeniz gerekir.
 Ayrılmış IP (statik IP) / kaynak IP koru | Desteklenen | Statik IP yapılandırması NIC kaynak VM üzerinde varsa ve aynı IP kullanılabilir hedef alt ağa sahip, yük devretme VM atanır. Hedef alt aynı IP yoksa kullanılabilir IP alt ağda biri bu VM için ayrılmıştır. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.
 Dynamic IP| Desteklenen | NIC kaynak VM üzerinde dinamik IP yapılandırması varsa, yük devretme NIC'nin VM de varsayılan olarak dinamik bir işlemdir. Tercih ettiğiniz bir sabit IP belirtebilirsiniz ' yinelenmiş öğesi > Ayarlar > işlem ve ağ > ağ arabirimleri. NIC seçin ve tercih ettiğiniz IP ve alt ağ belirtin.

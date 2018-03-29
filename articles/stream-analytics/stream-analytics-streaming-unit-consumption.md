@@ -1,13 +1,13 @@
 ---
-title: "Azure Stream Analytics: Anlamak ve akış birimleri ayarlama | Microsoft Docs"
-description: "Hangi faktörlerin Azure akış analizi performans etkisi anlayın."
-keywords: "Birim, sorgu performansı akış"
+title: 'Azure Stream Analytics: Anlamak ve akış birimleri ayarlama | Microsoft Docs'
+description: Hangi faktörlerin Azure akış analizi performans etkisi anlayın.
+keywords: Birim, sorgu performansı akış
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e8812f10662ee7b571e8e353074c2537d1a3181b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 5c60b1808959c73759a78141566c5c49f0350e2f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlama ve akış birimi Ayarla
 
@@ -88,18 +88,18 @@ Zamana bağlı bir birleşim durumu boyutunu Çarp hareket alanına yer boyutuna
 
 Birleştirme eşleşmeyen olayların sayısının sorgu için bellek kullanımını etkiler. Aşağıdaki sorgu, tıklama oluşturan reklam görüntüleme sayısını bulmayı amaçlamaktadır:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks 
-    INNER JOIN, impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
+    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
 
 Bu örnekte, reklam çok sayıda gösterilir ve birkaç kişi tıklayın ve zaman penceresi için tüm olayları tutmak için gerekli olan mümkündür. Tüketilen bellek miktarı pencere boyutu ve olay hızıyla doğru orantılıdır. 
 
 Bunu düzeltmek için olay sistem vererek birleştirme anahtarları (Bu durumda kimliği) ve genişletme sorgu tarafından bölümlenmiş ayrı olarak kullanarak her bir giriş bölümü işlemeye Hub'ına olayları göndermek **bölüm tarafından** gösterildiği gibi:
 
-    SELECT id
+    SELECT clicks.id
     FROM clicks PARTITION BY PartitionId
     INNER JOIN impressions PARTITION BY PartitionId 
-    ON impression.PartitionId = clocks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+    ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
 </code>
 
 Sorgu bölümlere ayrıldıktan sonra birden çok düğüme dağıtılır. Sonuç olarak böylece birleştirme penceresinde tutulan durumu boyutunu azaltma her düğümüne gelen olayların sayısı azalır. 

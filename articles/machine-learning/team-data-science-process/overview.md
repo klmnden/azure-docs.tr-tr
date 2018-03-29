@@ -1,8 +1,8 @@
 ---
-title: "Takım veri bilimi işlemi nedir? | Microsoft Belgeleri"
-description: "Tahmine dayalı analiz çözümleri ve akıllı uygulamaları için bir veri bilimi yöntemler sağlar."
+title: Team Data Science Process nedir? | Microsoft Docs
+description: Tahmine dayalı analiz çözümleri ve akıllı uygulamaları için bir veri bilimi yöntemler sağlar.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
-ms.author: bradsev;
-ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.author: bradsev
+ms.openlocfilehash: f7c081dcd74164f4b1f054f5a65f2ff6aaabebd7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="what-is-the-team-data-science-process"></a>Takım veri bilimi işlemi nedir?
+# <a name="what-is-the-team-data-science-process"></a>Team Data Science Process nedir?
 
-Takım veri bilimi işlem (TDSP) Tahmine dayalı analiz çözümleri ve akıllı uygulamalar verimli bir şekilde teslim etmek için Çevik, yinelemeli veri bilimi Metodoloji ' dir. TDSP yardımcı takım işbirliği geliştirmek ve öğrenme. En iyi yöntemler ve veri bilimi girişimleri uygulamasının başarılı kolaylaştıran yapılarda Microsoft ve diğer endüstri distillation içerir. Hedef tam olarak kendi analytics program faydaları hayata geçirmek şirketler yardımcı olmaktır.
+Takım veri bilimi işlem (TDSP) Tahmine dayalı analiz çözümleri ve akıllı uygulamalar verimli bir şekilde teslim etmek için Çevik, yinelemeli veri bilimi Metodoloji ' dir. TDSP, takım işbirliğinin ve öğrenimin geliştirilmesine yardımcı olur. Veri bilimi girişimlerini başarıyla uygulamayı kolaylaştıran, Microsoft’un ve sektördeki diğer kuruluşların en iyi deneyimlerinin ve yapılarının bileşimini içerir. Hedef, şirketlerin kendi analiz programlarının avantajlarını tam olarak hayata geçirmesine yardımcı olmaktır.
 
 Bu makalede TDSP ve ana bileşenlerini genel bir bakış sağlar. Çeşitli araçları ile genel açıklamasını buraya işleminin uygulanabilir sunuyoruz. Ek bağlantılı konulardaki proje görevleri ve rolleri işlem yaşam döngüsündeki ilgili daha ayrıntılı bir açıklaması sağlanır. Microsoft araçları ve TDSP bizim ekiplerde uygulamak için kullanırız altyapısı belirli bir dizi kullanılarak TDSP gerçekleştirme hakkında yönergeler de sağlanır.
 

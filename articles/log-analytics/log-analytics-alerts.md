@@ -1,8 +1,8 @@
 ---
-title: "Azure günlük analizi, uyarıları anlama | Microsoft Docs"
-description: "Günlük analizi uyarılarını OMS deponuzun önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede uyarı kuralları ve nasıl tanımlanır farklı türleri açıklanmaktadır."
+title: Azure günlük analizi, uyarıları anlama | Microsoft Docs
+description: Günlük analizi uyarılarını OMS deponuzun önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede uyarı kuralları ve nasıl tanımlanır farklı türleri açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/05/2018
 ms.author: bwren
-ms.openlocfilehash: 07e8312d5e113eeb9016dcc832b1cf66f8001c5f
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: ece2e7eeb53aebbb18bce4bb34e03307b0aea74c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Günlük analizi, uyarıları anlama
 
-Günlük analizi uyarılarını günlük analizi deponuzun önemli bilgiler tanımlayın.  Bu makalede bazı büyük olasılıkla ağ gecikmesi veya kapasite işleme ve veri günlüğüne yürüten nedeniyle veri alımı ile sorgulanan, rastgele gecikme olan veri toplama sıklığını göre yapılması gereken tasarım kararlarını açıklanır Analytics deposu.  Ayrıca, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
+Log Analytics’teki uyarılar, Log Analytics deponuzdaki önemli bilgileri belirler.  Bu makalede bazı büyük olasılıkla ağ gecikmesi veya kapasite işleme ve veri günlüğüne yürüten nedeniyle veri alımı ile sorgulanan, rastgele gecikme olan veri toplama sıklığını göre yapılması gereken tasarım kararlarını açıklanır Analytics deposu.  Ayrıca, günlük analizi çalışma nasıl uyarı kuralları ayrıntılarını sağlar ve uyarı kuralları farklı türleri arasındaki farklar açıklanmaktadır.
 
 Uyarı kuralları oluşturma işlemi için aşağıdaki makalelere bakın:
 
@@ -41,7 +41,7 @@ Uyarı kuralları oluşturma işlemi için aşağıdaki makalelere bakın:
 
 ## <a name="alert-rules"></a>Uyarı kuralları
 
-Uyarılar, günlük aramaları düzenli aralıklarla otomatik olarak çalışacak uyarı kuralları tarafından oluşturulur.  Günlük arama sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur.  Kural, ileriye dönük olarak uyarı bildiren veya başka bir işlem çağırmak için bir veya daha fazla eylemleri otomatik olarak çalıştırabilirsiniz.  Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
+Düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından uyarılar oluşturulur.  Günlük arama sonuçlarını belirli ölçütlere uyan varsa bir uyarı kaydı oluşturulur.  Daha sonra kural, uyarı hakkında proaktif olarak size bildirim göndermek veya başka bir işlem çağırmak için otomatik olarak bir ya da daha fazla eylem çalıştırabilir.  Uyarı kuralları farklı türlerde farklı mantık bu analizi yapmak için kullanın.
 
 ![Log Analytics uyarıları](media/log-analytics-alerts/overview.png)
 
@@ -52,7 +52,7 @@ Güvenilirlik uyarıları ve uyarı yanıtlama arasında bir denge yoktur. Yanl�
 Uyarı kuralları tarafından aşağıdaki ayrıntıları tanımlanmıştır:
 
 - **Günlük arama**.  Uyarı kural her çalıştığında sorgusu gönderir.  Bu sorgu tarafından döndürülen kayıtları bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır.
-- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu, geçerli zaman aralığında oluşturulan kayıtları döndürür.  Bu beş dakika ile 24 saat arasında herhangi bir değer olabilir. Aralığın alım makul gecikme uyum sağlayacak şekilde geniş olması gerekir. Zaman penceresi işleyebilen olmasını istediğiniz en uzun gecikme uzunluğu iki katı olması gerekir.<br> 30 dakikalık gecikme güvenilir olarak uyarıları isterseniz, örneğin, ardından aralık bir saat olması gerekir.  
+- **Zaman penceresi**.  Sorgu için zaman aralığını belirtir.  Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür.  Bu beş dakika ile 24 saat arasında herhangi bir değer olabilir. Aralığın alım makul gecikme uyum sağlayacak şekilde geniş olması gerekir. Zaman penceresi işleyebilen olmasını istediğiniz en uzun gecikme uzunluğu iki katı olması gerekir.<br> 30 dakikalık gecikme güvenilir olarak uyarıları isterseniz, örneğin, ardından aralık bir saat olması gerekir.  
 
     Zaman aralığı kadar küçükse, karşılaşması iki Belirtiler vardır.
 
@@ -102,12 +102,12 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
 
-İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, bir sorgu kullanarak kullanırsınız [ölçmek komutu](log-analytics-search-reference.md#commands) uyarı kuralı için eşik ile aşağıdaki gibi **0'dan büyük**.
+İşlemci üzerinde belirli bir zaman penceresi için % 90 ortalaması olduğunda uyarır istiyorsanız, bir sorgu kullanarak kullanırsınız `measure` uyarı kuralı için eşik ile aşağıdaki gibi komutunu **0'dan büyük**.
 
     Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
 
 >[!NOTE]
-> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları aşağıdakiler için değişeceğinden sonra:`Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
+> Çalışma alanınız için yükseltildiyse [yeni günlük analizi sorgu dili](log-analytics-log-search-upgrade.md), yukarıdaki sorguları aşağıdakiler için değişeceğinden sonra: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
 > `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
 
 
@@ -119,7 +119,7 @@ Bazı durumlarda, bir olay olmaması durumunda bir uyarı oluşturmak isteyebili
 **Ölçüm ölçüm** uyarı kuralları bir sorguda belirtilen eşiği aşarsa bir değerle her nesne için bir uyarı oluştur.  Aşağıdaki ayrı farkları sahip oldukları **sonuç sayısı** uyarı kuralları.
 
 #### <a name="log-search"></a>Günlük araması
-Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı kuralı, bir ölçüm ölçüm uyarı kuralı için sorgu belirli koşullar yoktur.  İçermesi gerekir bir [ölçmek komut](log-analytics-search-reference.md#commands) belirli bir alan sonuçları gruplandırmak için. Bu komut, aşağıdaki öğeleri eklemeniz gerekir.
+Herhangi bir sorgu için kullanabilirsiniz, ancak bir **sonuç sayısı** uyarı kuralı, bir ölçüm ölçüm uyarı kuralı için sorgu belirli koşullar yoktur.  İçermesi gerekir bir `measure` Grup sonuçları belirli bir alan için komutu. Bu komut, aşağıdaki öğeleri eklemeniz gerekir.
 
 - **Toplama işlevi**.  Gerçekleştirilen hesaplama ve büyük olasılıkla bir sayısal belirler toplanacak alan.  Örneğin, **count()** kayıt sayısını sorgudan döndürülecek **avg(CounterValue)** aralığı içinde CounterValue alanının ortalamasını döndürür.
 - **Alan grup**.  Bu alan her örneği için bir toplu değeri içeren bir kayıt oluşturulur ve her biri için bir uyarı oluşturulabilir.  Örneğin, her bilgisayar için bir uyarı oluşturmak istiyorsanız, kullanacağınız **bilgisayar tarafından**.   
@@ -150,7 +150,7 @@ Günlük analizi uyarı kuralları tarafından oluşturulan uyarı kayıtlarına
 |:--- |:--- |
 | Tür |*Uyarı* |
 | SourceSystem |*OMS* |
-| *Nesne*  | [Ölçüm ölçüm uyarıları](#metric-measurement-alert-rules) Grup alan için bir özelliğe sahiptir.  Örneğin, bilgisayarda günlük arama grupları uyarı kaydıyla varsa bilgisayar ada sahip bir bilgisayar alan değeri olarak.
+| *Object*  | [Ölçüm ölçüm uyarıları](#metric-measurement-alert-rules) Grup alan için bir özelliğe sahiptir.  Örneğin, bilgisayarda günlük arama grupları uyarı kaydıyla varsa bilgisayar ada sahip bir bilgisayar alan değeri olarak.
 | AlertName |Uyarı adı. |
 | AlertSeverity |Uyarı önem derecesi. |
 | LinkToSearchResults |Günlük analizi günlük kayıtları uyarı oluşturulan sorgudan döndüren bir arama bağlayın. |

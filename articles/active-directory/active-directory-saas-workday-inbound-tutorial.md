@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı için Workday yapılandırma | Microsoft Docs"
-description: "Active Directory ve Azure Active Directory için Workday kimlik veri kaynağı olarak kullanmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı için Workday yapılandırma | Microsoft Docs'
+description: Active Directory ve Azure Active Directory için Workday kimlik veri kaynağı olarak kullanmayı öğrenin.
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 976d7e7cb304a24f235e51952ce04826776e2789
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -397,9 +397,9 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 
 **#1 komutu**
 
-> CD C:\\Program dosyaları\\Microsoft Azure Active Directory Eşitleme Aracı\\modülleri\\AADSyncAgent
+> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
 
-> import-module AADSyncAgent.psd1
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
 
 **Komut #2**
 
@@ -416,6 +416,9 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 
 >[!IMPORTANT]
 >Şu anda özel bir etki alanı kullanıyorsanız çalışmıyor genel yönetici kimlik bilgileri bilinen bir sorun olduğunu (örnek: admin@contoso.com). Geçici bir çözüm olarak oluşturun ve bir onmicrosoft.com etki alanı ile bir genel yönetici hesabı kullanın (örnek: admin@contoso.onmicrosoft.com)
+
+>[!IMPORTANT]
+>Şu anda çok faktörlü kimlik doğrulaması etkin varsa çalışmıyor genel yönetici kimlik bilgileri bilinen bir sorun yoktur. Geçici bir çözüm olarak, genel yönetici çok faktörlü kimlik doğrulamasını devre dışı bırakın.
 
 
 **Komut #4**

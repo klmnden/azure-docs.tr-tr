@@ -41,8 +41,8 @@
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Ölçeği genişletme, duraklatma, sürdürme'
           href: sql-data-warehouse-manage-compute-overview.md
-        - name: Veri ambarı yedekleri
-          href: sql-data-warehouse-backups.md
+        - name: Yedekleme ve geri yükleme
+          href: backup-and-restore.md
         - name: Denetim
           href: sql-data-warehouse-auditing-overview.md
         - name: Kapasite sınırları

@@ -1,6 +1,6 @@
 ---
-title: "Satın alma ve Azure uygulama hizmetiniz için bir SSL sertifikası yapılandırma | Microsoft Docs"
-description: "Bir uygulama hizmeti sertifika satın alın ve uygulama hizmeti uygulamanızı bağlama hakkında bilgi edinin"
+title: Satın alma ve Azure uygulama hizmetiniz için bir SSL sertifikası yapılandırma | Microsoft Docs
+description: Bir uygulama hizmeti sertifika satın alın ve uygulama hizmeti uygulamanızı bağlama hakkında bilgi edinin
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 6c0125bf0bd22912a21372b5a7da6846e924e6cd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 759bd1e8be8aaebbf98e1c02d67f3e56609354aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -42,8 +42,8 @@ Kolay bir girin **adı** girin ve için SSL sertifika **etki alanı adı**
 
 Seçin, **abonelik**, **kaynak grubu**, ve **sertifika SKU**
 
-> [!WARNING]
-> Uygulama Hizmeti sertifikaları, yalnızca aynı abonelik içindeki diğer uygulama hizmetleri tarafından kullanılabilir.  
+> [!TIP]
+> Uygulama Hizmeti sertifikaları uygulama hizmetleri için sınırlı değildir ve herhangi bir Azure veya Azure Hizmetleri için kullanılabilir. Bunu yapmak için onu istediğiniz bir yerde kullanabileceğiniz bir uygulama hizmeti sertifikası yerel bir PFX kopyasını oluşturmanız gerekir. Daha fazla bilgi için okuma [bir uygulama hizmet sertifikası yerel bir PFX kopyasını oluşturma](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
 ## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>3. adım - Azure anahtar kasası sertifika deposu
@@ -107,7 +107,7 @@ Tıklatın **alma uygulaması hizmet sertifikası** ve yalnızca satın sertifik
 
 ![Sertifika İçeri Aktar görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-İçinde **ssl bağlamaları** tıklatın bölümünde **bağlamaları Ekle**ve bırakmalar SSL ve sertifika ile kullanmak için güvenli hale getirmek için etki alanı adını seçmek için kullanın. Kullanılıp kullanılmayacağını da seçebilirsiniz  **[sunucu adı göstergesi (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)**  veya IP tabanlı SSL.
+İçinde **ssl bağlamaları** tıklatın bölümünde **bağlamaları Ekle**ve bırakmalar SSL ve sertifika ile kullanmak için güvenli hale getirmek için etki alanı adını seçmek için kullanın. Kullanılıp kullanılmayacağını da seçebilirsiniz **[sunucu adı göstergesi (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** veya IP tabanlı SSL.
 
 ![SSL bağlamaları görüntüsü Ekle](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 

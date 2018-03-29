@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 7567ce516e6d08a458ff96f4554d9e92934408f5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure Hdınsight araçları Visual Studio kodunu kullanın
 
@@ -69,9 +69,9 @@ Azure'a bağlanabilmesi için önce bir çalışma alanı VS Code'da oluşturun.
 
 4. Açık **XXXX_hdi_settings.json** gelen **EXPLORER**, veya komut dosyası Düzenleyicisi'ni seçmek için sağ **yapılandırma kümesi**. Oturum açma girişi, varsayılan küme ve dosyayı örnekte gösterildiği gibi iş gönderme parametrelerini yapılandırabilirsiniz. Ayrıca kalan parametreler boş bırakabilirsiniz.
 
-## <a name="connect-to-azure"></a>Azure'a Bağlanma
+## <a name="connect-to-hdinsight-cluster"></a>Hdınsight kümesine bağlanma
 
-Komut dosyaları VS koddan Hdınsight kümelerine gönderebilir önce Azure hesabınızda bağlanmanız.
+Komut dosyaları VS koddan Hdınsight kümelerine gönderebilir önce Azure hesabınıza bağlanın ya da bir küme bağlamak gerekir (Ambari kullanarak kullanıcı adı/parola veya etki alanı hesabı alanına).
 
 **Azure'a bağlanmak için**
 

@@ -1,8 +1,8 @@
 ---
-title: "Linux Azure IOT kenarına benzetimini | Microsoft Docs"
-description: "Linux sanal bir cihaz üzerinde Azure IOT kenar çalışma zamanı yükleme ve ilk modülünüzün dağıtma"
+title: Linux Azure IOT kenarına benzetimini | Microsoft Docs
+description: Linux sanal bir cihaz üzerinde Azure IOT kenar çalışma zamanı yükleme ve ilk modülünüzün dağıtma
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -10,11 +10,11 @@ ms.reviewer: elioda
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 55770c92f5d5959e83066b425bc6ccf2b9dcc62e
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 65a3f6d71c0c0d92f703a5d48760dd348c726ba4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux veya MacOS sanal bir cihaz üzerinde Azure IOT kenar dağıtma - Önizleme
 
@@ -37,6 +37,11 @@ Bu öğretici, bilgisayar veya sanal makine bir nesnelerin interneti aygıtı gi
 
 * Python PIP, IOT kenar çalışma zamanı yüklenemedi.
    * Linux: `sudo apt-get install python-pip`.
+     * _Belirli dağıtımları (örn., Raspbian) unutmayın, belirli PIP paketleri yükseltmek ve ek bağımlılıklar yüklemek gerekebilir:_
+     ```
+     sudo pip install --upgrade setuptools pip
+     sudo apt-get install python2.7-dev libffi-dev libssl-dev
+     ```
    * MacOS: `sudo easy_install pip`.
 * IOT kenar modüllerini çalıştırmak için docker
    * [Linux için Docker yükleme] [ lnk-docker-ubuntu] ve çalışır durumda olduğundan emin olun. 
@@ -70,7 +75,7 @@ sudo pip install -U azure-iot-edge-runtime-ctl
 
 Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın:
 ```cmd
-sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+sudo iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
 Çalışma zamanı'nı başlatın:

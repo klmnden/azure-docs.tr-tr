@@ -1,6 +1,6 @@
 ---
-title: "Azure Site kurtarma için Azure Azure çoğaltma mimarisi | Microsoft Docs"
-description: "Bu makalede, bileşenleri ve Azure VM'ler Azure Site Recovery hizmetini kullanarak Azure bölgeler arasında çoğaltırken kullanılan mimariye genel bakış sağlar."
+title: Azure Site kurtarma için Azure Azure çoğaltma mimarisi | Microsoft Docs
+description: Bu makalede, bileşenleri ve Azure VM'ler Azure Site Recovery hizmetini kullanarak Azure bölgeler arasında çoğaltırken kullanılan mimariye genel bakış sağlar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 02/07/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 126f5c4db355af19a7151a267115127757b17599
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 111217e9335b16659c93da88731e0b7ce6d5fecd
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 02/24/2018
 ## <a name="architectural-components"></a>Mimari bileşenler
 
 Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bir Azure VM ortamına üst düzey bir görünümünü sağlar. Bir Azure VM ortamda:
-- Uygulamalar, diskleri depolama hesaplarında yayılan Vm'lerinde çalışıyor olabilir.
+- Uygulamaları sanal makinelerin yönetilen disklerle çalıştırıyor olabilir veya yönetilmeyen diskleri depolama hesaplarında yayılan.
 - Sanal makineleri, sanal ağ içindeki bir veya daha fazla alt ağlarda eklenebilir.
 
 
@@ -49,7 +49,8 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 **Hedef kaynak grubu** | Yük devretme sonrasında çoğaltılmış sanal makineleri ait olduğu kaynak grubu.
 **Hedef sanal ağ** | Sanal ağ içinde çoğaltılmış VM'ler yük devretme sonrasında bulunur. Ağ eşlemesi, kaynak ve hedef sanal ağlar arasında ve tersi yönde oluşturulur.
 **Önbellek depolama hesapları** | Kaynak VM değişikliklerini bir hedef depolama hesabına çoğaltılır önce bunlar izlenen ve kaynak konumu önbelleği depolama hesabında gönderilir. Bu adım VM'de çalıştırılan üretim uygulamalar üzerinde en az etki sağlar.
-**Hedef depolama hesapları**  | Veri çoğaltılan hedef konumdaki depolama hesapları.
+**(VM kullanmayan kaynak diskleri yönetiliyorsa) depolama hesapları hedef**  | Veri çoğaltılan hedef konumdaki depolama hesapları.
+** Çoğaltma yönetilen diskleri (VM olduğu açık kaynak diskleri yönetiliyorsa) **  | Diskleri veri çoğaltılan hedef konumda yönetilen.
 **Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri, yük devretme sonrasında çoğaltılmış VM'ler bulunur.
 
 ### <a name="step-2"></a>2. Adım
@@ -76,7 +77,7 @@ Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 2
 
 ### <a name="step-3"></a>3. Adım
 
-Sürekli çoğaltma sürüyor sonra disk yazma işlemleri için önbellek depolama hesabı hemen aktarılır. Site Recovery verileri işler ve hedef depolama hesabı gönderir. Verilerin işlendikten sonra kurtarma noktaları birkaç dakikada bir hedef depolama hesabı oluşturulur.
+Sürekli çoğaltma sürüyor sonra disk yazma işlemleri için önbellek depolama hesabı hemen aktarılır. Site Recovery verileri işler ve hedefe gönderir depolama hesabı ya da çoğaltma yönetilen diskler. Verilerin işlendikten sonra kurtarma noktaları birkaç dakikada bir hedef depolama hesabı oluşturulur.
 
 ## <a name="failover-process"></a>Yük devretme işlemi
 

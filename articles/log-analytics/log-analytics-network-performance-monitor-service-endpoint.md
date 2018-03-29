@@ -1,11 +1,11 @@
 ---
-title: "Ağ Azure günlük analizi Performans İzleyicisi çözümde | Microsoft Docs"
-description: "Ağ Performans İzleyicisi'nde hizmet uç noktası Yöneticisi özelliği, ağ bağlantısı açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta izlemenize olanak tanır."
+title: Ağ Azure günlük analizi Performans İzleyicisi çözümde | Microsoft Docs
+description: Hizmet uç noktası Yöneticisi özelliği ağ Performans İzleyicisi'nde ağ bağlantısı açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta izlemek için kullanın.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: abshamsft
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: ba19a4fc24668bff27c961b5b415f840d1132a34
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b21d711e59ddc762eaf72f49e501d9f324d75105
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-endpoint-monitor"></a>Hizmet uç noktası İzleyicisi
 
-Hizmet uç noktası izleme özelliği [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta ağ bağlantısı izlemenize olanak tanır. Web siteleri, SaaS uygulamaları, PaaS uygulamaları ve SQL veritabanları gibi uç noktaları içerir. 
+Hizmet uç noktası izleme özelliği kullanabileceğiniz [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta için ağ bağlantısını izlemeniz. Web siteleri, SaaS uygulamaları, PaaS uygulamaları ve SQL veritabanları gibi uç noktaları içerir. 
 
-İle aşağıdaki işlevleri gerçekleştirebilirsiniz **hizmet uç noktası İzleyicisi**: 
+Hizmet uç noktası İzleyicisi ile aşağıdaki işlevleri gerçekleştirebilirsiniz: 
 
-- Ağ bağlantısını (örneğin, Office 365, Dynamics CRM iç satır iş uygulamaları, SQL veritabanı, vb.) ağ hizmetleri ve uygulamaları için birden çok şube ofisleri/konumlardan izler. 
-- Ağ bağlantısı Office365 ve Dynamics365 Uç noktalara izlemek için yerleşik testleri 
-- Yanıt süresi, ağ gecikme, uç noktasına bağlanırken yaşadı paket kaybı belirleme 
-- Zayıf uygulama performans nedeniyle ağ veya uygulama sağlayıcının ucunda bazı sorunu nedeniyle olup olmadığını belirleme 
-- Her bir topoloji Haritası atlamada katkıda bulunan gecikme görüntüleyerek zayıf uygulama performans neden olabilecek ağ üzerinde etkin noktalar tanımlayın. 
+- Uygulamalar ve Ağ Hizmetleri Ağ bağlantısını birden çok şube ofisleri veya konumları izleyin. Uygulamalar ve ağ hizmetlerini Office 365, Dynamics CRM, iç iş kolu satır uygulama ve SQL veritabanlarını içerir.
+- Office 365 ve Dynamics 365 uç noktaları için ağ bağlantısını izlemeniz yerleşik testleri kullanın. 
+- Yanıt süresi, ağ gecikme süresi ve paket kaybı deneyimli uç noktasına bağlanırken belirler.
+- Zayıf uygulama performans nedeniyle ağ veya uygulama sağlayıcısının son bazı sorunu nedeniyle olup olmadığını belirler.
+- Her bir topoloji Haritası atlamada katkıda bulunan gecikme görüntüleyerek zayıf uygulama performans neden olabilecek ağ üzerinde etkin noktalar tanımlayın.
 
 
 ![Hizmet uç noktası İzleyicisi](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Yapılandırma 
-Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md) tıklatıp **yapılandırma** düğmesi.
+Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md) seçip **yapılandırma**.
 
 ![Ağ Performans İzleyicisi'ni yapılandırma](media/log-analytics-network-performance-monitor/npm-configure-button.png)
 
 
-### <a name="configure-oms-agents-for-the-monitoring"></a>İzleme için OMS Aracısı yapılandırın.  
+### <a name="configure-operations-management-suite-agents-for-monitoring"></a>İzleme için Operations Management Suite aracıları yapılandırma
 Böylece, düğümlerinden topoloji hizmet uç noktası çözüm bulabilir izlemek için kullanılan düğümlerde aşağıdaki güvenlik duvarı kurallarını etkinleştirin: 
 
 ```
@@ -56,72 +56,77 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 ### <a name="create-service-endpoint-monitor-tests"></a>Hizmet uç noktası İzleyicisi testleri oluşturma 
 
-Hizmet uç noktaları için ağ bağlantısını izlemeniz testlerinizi oluşturmaya başla 
+Hizmet uç noktaları için ağ bağlantısını izlemeniz testlerinizi oluşturmaya başlayın.
 
-1. Tıklayın **hizmet uç noktası İzleyicisi** sekmesi.
-2. Tıklatın **Test Ekle** ve Test ad ve açıklama girin. 
-3. Test türü seçin:<br>Seçin **Web testi** aratıp outlook.office365.com gibi HTTP/S isteklerini yanıtlayan bir hizmet bağlantı izliyorsanız.<br>Seçin **ağ sınaması** TCP isteğine yanıt veriyor, ancak bir SQL server gibi HTTP/S isteğine yanıt olmayan bir hizmet bağlantı izliyorsanız FTP sunucusu, SSH bağlantı noktası vb. 
-4. Ağ ölçümleri (ağ gecikmesi, paket kaybı, Topoloji Bulma) gerçekleştirmek istemiyorsanız, metin kutusunun işaretini kaldırın. Bu özellikten en fazla elde etmek için kullanıma tutmak öneririz. 
-5. Ağ bağlantısı izlemek istediğiniz hedef URL/FQDN/IP adresini girin.  
-6. Hedef hizmet bağlantı noktası numarasını girin. 
-7. Test çalıştırmak istediğiniz sıklığı girin. 
+1. Seçin **hizmet uç noktası İzleyicisi** sekmesi.
+2. Seçin **Test Ekle**, test ad ve açıklama girin. 
+3. Test türü seçin:<br>
+
+    * Seçin **Web** için outlook.office365.com veya aratıp gibi HTTP/S isteklerini yanıtlayan bir hizmet bağlantı izlemek için.<br>
+    * Seçin **ağ** TCP isteklerine yanıt veriyor, ancak SQL server, FTP sunucusu veya SSH bağlantı noktası gibi HTTP/S isteklerine yanıt vermiyor bir hizmet bağlantı izlemek için. 
+4. Ağ gecikmesi, paket kaybı ve Topoloji Bulma gibi ağ ölçümleri gerçekleştirmek istemiyorsanız temizleyin **ağ ölçümleri gerçekleştirmek** onay kutusu. En fazla özellikten elde etmek için Seçili Tut. 
+5. İçinde **hedef**, ağ bağlantısı izlemek istediğiniz FQDN/URL/IP adresini girin.
+6. İçinde **bağlantı noktası numarası**, hedef hizmet bağlantı noktası numarasını girin. 
+7. İçinde **Test sıklığı**, ne sıklıkta çalıştırmak için test için istediğiniz bir değer girin. 
 8. Hizmet ağ bağlantısını izlemek istediğiniz düğümleri seçin. 
 
     >[!NOTE]
-    > Windows server tabanlı düğümleri için ağ ölçümleri gerçekleştirmek için TCP tabanlı istekler özelliği kullanır. Windows istemci tabanlı düğümleri için ağ ölçümleri gerçekleştirmek için ICMP tabanlı istekler özelliği kullanır. Bazı durumlarda, hedef uygulama gelen ICMP tabanlı istek düğümleri Windows istemci tabanlı olduğunda nedeniyle çözüm ağ ölçümleri gerçekleştiremiyor olduğu engeller. Bu nedenle, bu gibi durumlarda Windows server tabanlı düğümleri kullanmanız önerilir. 
+    > Windows server tabanlı düğümleri için ağ ölçümleri gerçekleştirmek için TCP tabanlı istekler özelliği kullanır. Windows istemci tabanlı düğümleri için ağ ölçümleri gerçekleştirmek için ICMP tabanlı istekler özelliği kullanır. Düğümleri Windows istemci tabanlı olduğunda bazı durumlarda, hedef uygulama gelen ICMP tabanlı istekleri engeller. Çözüm ağ ölçümleri alamıyor. Windows server tabanlı düğümleri gibi durumlarda kullanmanızı öneririz. 
 
-9. Seçtiğiniz, ardından öğeleri için sistem durumu olayları Temizle oluşturmak istemiyorsanız, **bu test tarafından kapsanan hedeflerde sistem durumu izlemeyi etkinleştir**. 
-10. İzleme koşulları seçin. Eşik değerleri yazarak, sistem olay oluşturma için özel eşikler ayarlayabilirsiniz. Seçilen ağ/alt ağ çifti için seçilen eşiğin üstünde koşul değerini gider olduğunda, bir sistem durumu olayı oluşturulur. 
-11. tıklatın **kaydetmek** yapılandırmayı kaydetmek için. 
+9. Öğelerin sistem durumu olayları oluşturmak istemiyorsanız, Temizle seçtiğiniz **hedefleri izlemesini etkinleştir sistem durumu, bu test tarafından kapsanan**. 
+10. İzleme koşulları seçin. Eşik değerleri girerek sistem durumu olayı oluşturma için özel eşiklerini ayarlayabilirsiniz. Seçilen ağ veya alt ağ çifti için seçilen eşiğin üstünde koşul değerini gider olduğunda, bir sistem durumu olayı oluşturulur. 
+11. Seçin **kaydetmek** yapılandırmayı kaydetmek için. 
 
- ![Hizmet uç noktası izleme yapılandırması](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Hizmet uç noktası İzleyicisi test yapılandırmaları](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
 ## <a name="walkthrough"></a>Kılavuz 
 
-Taşıma ağ performansı izleme Pano görünümüne ve uyun **hizmet uç noktası İzleyicisi** oluşturduğunuz farklı testleri sistem durumu özetini almak için sayfa.  
+Ağ Performansı İzleyicisi Pano görünümüne gidin. Oluşturduğunuz farklı testleri sistem durumu özetini almak için bakmak **hizmet uç noktası İzleyicisi** sayfası. 
 
 ![Hizmet uç noktası izleme sayfası](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
-Ayrıntıya için olan kutucuğuna tıklayın ve testleri ayrıntılarını görüntüleyin **testleri** sayfası. LHS tabloda, zaman içinde nokta sistem durumunu ve hizmet yanıt süresi, ağ gecikme süresi ve paket kaybı tüm testler için değeri görüntüleyebilirsiniz. Başka bir ağ anlık görüntü görüntülemek için ağ durumu Kaydedici denetim kullanabilirsiniz zaman geçti. İncelemek istediğiniz tablonun testinde tıklayın. Geçmiş eğilim kaybı, gecikme ve grafikler yanıt süresi değerleri RHS Bölmesi'nde görüntüleyebilirsiniz. Her düğümden performansını görüntülemek için Test Ayrıntıları bağlantıyı tıklatın. 
+Testleri ayrıntılarını görüntülemek için kutucuk seçin **testleri** sayfası. Sol taraftaki tabloda, zaman içinde nokta sistem durumunu ve hizmet yanıt süresi, ağ gecikme süresi ve paket kaybı tüm testler için değeri görüntüleyebilirsiniz. Geçmişte başka bir zamanda ağ anlık görüntüyü görüntülemek için ağ durumu Kaydedici denetimi kullanın. Test incelemek istediğiniz tabloda seçin. Sağ taraftaki bölmede grafiklerde kaybı, gecikme ve yanıt süresi değerleri geçmiş eğilim görüntüleyebilirsiniz. Seçin **Test ayrıntıları** her düğümden performansını görüntülemek için bağlantı.
 
-![Hizmet uç noktası izleme testleri](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Hizmet uç noktası İzleyicisi sınamaları](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
-Üzerinde **Test düğümleri** görünüm, ağ bağlantısı her düğümden gözlemlemek. Performans düşüşünü sahip düğümüne tıklayın.  Bu uygulamayı yavaş çalışıyor olması gerektiğini burada gözlenir gelen düğümdür. 
+İçinde **Test düğümleri** görünüm, ağ bağlantısı her düğümden gözlemlemek. Performans düşüşünü sahip düğümünü seçin. Bu uygulamayı yavaş çalışıyor olması gerektiğini burada gözlenir düğümdür.
 
-Zayıf uygulama performans nedeniyle ağ veya uygulama sağlayıcının ucunda bazı sorunu nedeniyle uygulama yanıt süresini ve ağ gecikme süresi arasındaki bağıntıyı izlenerek olup olmadığını belirleme 
+Zayıf uygulama performans ağ veya uygulama sağlayıcının ucunda bir sorun nedeniyle uygulama yanıt süresini ve ağ gecikme süresi arasındaki bağıntıyı izlenerek olup olmadığını belirler. 
 
-**Uygulama sorununu:** yanıt süresi, bir depo olan ancak ağ gecikmesi tutarlı olması durumunda bu ağ düzgün çalıştığını ve uygulama sonunda bir sorun nedeniyle sorunu olduğunu önerir.  
+* **Uygulama sorununu:** yanıt süresi içinde bir ani ancak ağ gecikmesi tutarlılık ağın düzgün çalıştığından ve sorunun uygulama ucunda bir sorun nedeniyle olabilir önerir. 
 
-![Hizmet uç noktası İzleyicisi uygulama sorunu](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Hizmet uç noktası İzleyicisi uygulama sorunu](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
-**Ağ sorunu:** bir ani yanıt süresi, ağ gecikme karşılık gelen bir depo ile eşlik sonra bu artış yanıt süresi, ağ gecikme süresi arasında bir artış nedeniyle olduğunu önerir.  
+* **Ağ sorunu:** ağ gecikme süresi içinde karşılık gelen bir depo ile eşlik yanıt süresi içinde bir ani artış yanıt süresi, ağ gecikme süresi arasında bir artış nedeniyle olabilir önerir. 
 
-![Hizmet uç noktası İzleyicisi ağ sorunu](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Hizmet uç noktası İzleyicisi ağ sorunu](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
-Sorunu nedeniyle ağ olduğunu saptadıktan sonra tıklatabilirsiniz **topoloji** topoloji Haritası sorunlu atlamada tanımlamak için görünümü bağlantısı. Örneğin, aşağıdaki görüntüde 105 ms toplam gecikme dışında düğümü ile uygulama uç noktası arasındaki 96 ms kırmızı işaretli atlama nedeniyle görebilirsiniz. Sorunlu atlama tanımladıktan sonra düzeltme işlemleri gerçekleştirebilir.  
+Sorunu nedeniyle ağ olduğunu belirledikten sonra Seç **topoloji** topoloji Haritası sorunlu atlamada tanımlamak için görünümü bağlantısı. Aşağıdaki resimde bir örnek gösterilmektedir. 105 ms Toplam arasındaki gecikme süresi dışında düğümü ve uygulama uç noktasını, 96 ms olduğu kırmızı işaretli atlama nedeniyle. Sorunlu atlama tanımladıktan sonra düzeltme işlemleri gerçekleştirebilir. 
 
-![Hizmet uç noktası izleme testleri](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Hizmet uç noktası İzleyicisi sınamaları](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Tanılama 
 
 Bir abnormality gözlemlerseniz, şu adımları izleyin:
 
-Bir veya daha fazla şunlardan biri nedeniyle olabilir sonra hizmet yanıt süresi, Ağ kaybı ve gecikme NA gösteriliyorsa:
-- Uygulama çalışmıyor.
-- Hizmet için ağ bağlantısını denetlemek için kullanılan düğümü çalışmıyor.
-- Test yapılandırmasında girilen hedefi geçersiz.
-- Düğümün bir ağ bağlantısı yok.
+* Hizmet yanıt süresi, Ağ kaybı ve gecikme NA gösteriliyorsa, en az şunlardan biri neden olmuş olabilir:
 
-Geçerli hizmet yanıt süresi gösterilir, ancak gecikme yanı sıra ağ kaybı NA gösterilir, sonra da bir veya daha fazla şunlardan biri nedeniyle olabilir:
-- Hizmet ağ bağlantısını denetlemek için kullanılan düğümü Windows istemci makinesi ise, hedef hizmet ICMP isteklerini engelliyor veya bir ağ güvenlik duvarı düğümden kaynaklanan ICMP isteklerini engelliyor.
-- Onay kutusunu **ağ ölçümleri gerçekleştirmek** test yapılandırmasında işareti kaldırıldı. 
+    - Uygulama çalışmıyor.
+    - Hizmet için ağ bağlantısını denetlemek için kullanılan düğümü çalışmıyor.
+    - Test yapılandırmasında girilen hedefi geçersiz.
+    - Düğüm ağ bağlantısına sahip değil.
 
-Ardından bu ciddi bir şekilde hizmet yanıt süresi NA ancak gecikme yanı sıra ağ kaybı geçerli varsa, hedef hizmete bir web uygulaması değil önerir. Test yapılandırmasını düzenleyin ve test türü seçin ağ sınaması Web testi yerine olarak. 
+* Geçerli hizmet yanıt süresi gösterilir, ancak gecikme yanı sıra ağ kaybı NA gösterilir, en az şunlardan biri neden olabilir:
 
-Uygulamayı yavaş çalışıyorsa, zayıf uygulama performans nedeniyle ağ veya uygulama sağlayıcının ucunda bazı sorunu nedeniyle olup olmadığını belirlemeniz gerekir.
+    - Hizmet ağ bağlantısını denetlemek için kullanılan düğümü Windows istemci makinesi ise, hedef hizmet ICMP isteklerini engelliyor veya bir ağ güvenlik duvarı düğümden kaynaklanan ICMP isteklerini engelliyor.
+    - **Ağ ölçümleri gerçekleştirmek** test yapılandırmasında onay kutusu boştur. 
+
+* Hizmet yanıt süresi NA ancak gecikme yanı sıra ağ kaybı geçerli, hedef hizmete bir web uygulaması olmayabilir. Test yapılandırmasını düzenleyin ve bir test türü olarak seçin **ağ** yerine **Web**. 
+
+* Uygulamayı yavaş çalışıyorsa, zayıf uygulama performans ağ veya uygulama sağlayıcının ucunda bir sorun nedeniyle olup olmadığını belirler.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı ağ performansı veri kayıtları görüntülemek için.
+[Arama günlüklerini](log-analytics-log-searches.md) ayrıntılı ağ performansı veri kayıtları görüntülemek için.

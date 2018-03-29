@@ -1,12 +1,12 @@
 ---
-title: "Azure noktadan siteye bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Noktadan siteye bağlantı sorunlarını giderme öğrenin."
+title: Azure noktadan siteye bağlantı sorunlarını giderme | Microsoft Docs
+description: Noktadan siteye bağlantı sorunlarını giderme öğrenin.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2018
 ms.author: genli
-ms.openlocfilehash: 3884eec0e65f856be87505d45c25cad7d3742bab
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 51076c225167accaf386190eeda4ec159cb5657d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Giderme: Azure noktadan siteye bağlantı sorunlarını
 
@@ -289,7 +289,7 @@ Noktadan siteye VPN istemcisi Azure sanal ağında yapılandırılmış Azure DN
 
 ### <a name="solution"></a>Çözüm
 
-Sorunu gidermek için Azure DNS sunucuları, Azure sanal ağda kullanılan emin olmak için yerel kaynakları için DNS kayıtlarını çözebilirsiniz. Bunu yapmak için DNS ileticileri veya koşullu ileticileri kullanabilirsiniz. Daha fazla bilgi için bkz: [kendi DNS sunucu kullanılarak ad çözümleme](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)
+Sorunu gidermek için Azure DNS sunucuları, Azure sanal ağda kullanılan emin olmak için yerel kaynakları için DNS kayıtlarını çözebilirsiniz. Bunu yapmak için DNS ileticileri veya koşullu ileticileri kullanabilirsiniz. Daha fazla bilgi için bkz: [kendi DNS sunucu kullanılarak ad çözümleme](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
 
 ## <a name="the-point-to-site-vpn-connection-is-established-but-you-still-cannot-connect-to-azure-resources"></a>Noktadan siteye VPN bağlantısı kuruldu, ancak Azure kaynaklarına hala bağlanamıyor 
 
@@ -304,11 +304,11 @@ Bu sorunu gidermek için [Azure VPN gateway sıfırlama](vpn-gateway-resetgw-cla
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Hata: "İptal işlevi iptal sunucu çevrimdışı olduğundan iptal denetleyemedi. (Hata 0x80092013)"
 
 ### <a name="causes"></a>Neden olur.
-İstemci http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr erişemiyorsanız, bu hata iletisi oluşur.  Bu iki site erişimi iptal denetimi gerektirir.  Bu sorun genellikle yapılandırılan proxy sunucusu olan istemcide olur. Bazı ortamlarda isteklerin proxy sunucu üzerinden değil kullanacaksanız, sınır güvenlik duvarında reddedilir.
+İstemci erişemiyorsanız, bu hata iletisi görüntüleniyor http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr.  Bu iki site erişimi iptal denetimi gerektirir.  Bu sorun genellikle yapılandırılan proxy sunucusu olan istemcide olur. Bazı ortamlarda isteklerin proxy sunucu üzerinden değil kullanacaksanız, sınır güvenlik duvarında reddedilir.
 
 ### <a name="solution"></a>Çözüm
 
-Proxy sunucu ayarlarını denetleyin, istemci http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr erişebildiğinden emin olun.
+Proxy sunucu ayarlarını denetleyin, istemci erişim sağlayabildiğinizden emin olun http://crl3.digicert.com/ssca-sha2-g1.crl ve http://crl4.digicert.com/ssca-sha2-g1.cr.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN istemci hatası: RAS/VPN sunucunuzda yapılandırılan bir ilkesi nedeniyle bağlantı engellendi. (Hata 812)
 

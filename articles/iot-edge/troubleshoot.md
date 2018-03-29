@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 12/15/2017
-ms.topic: tutorial
+ms.date: 03/23/2018
+ms.topic: article
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4d6dd0d46d909acfbfc04a23be74a571953ce660
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: HT
+ms.openlocfilehash: b03ece52c4ff77c9e0abbc794325cd7e9a20c915
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -104,7 +104,8 @@ Edge Aracısı'nın bir modülün görüntüsüne erişme izinleri yoktur.
 `iotedgectl login` komutunu tekrar çalıştırmayı deneyin.
 
 ## <a name="iotedgectl-cant-find-docker"></a>iotedgectl Docker’ı bulamıyor
-iotedgectl, kurulum veya başlangıç komutunu yürütemez ve günlüklere aşağıdaki iletiyi yazdırır:
+
+Komutları `iotedgectl setup` veya `iotedgectl start` başarısız ve günlükleri için aşağıdaki iletiyi yazdırma:
 ```output
 File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
   info = self._client.info()
@@ -119,6 +120,33 @@ Bir önkoşul olmasına rağmen iotedgectl Docker’ı bulamıyor.
 
 ### <a name="resolution"></a>Çözüm
 Docker’ı yükleyin, çalıştığından emin olun ve yeniden deneyin.
+
+## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>Geçersiz bir ana bilgisayar adı ile iotedgectl kurulum başarısız olur
+
+Komut `iotedgectl setup` başarısız oluyor ve aşağıdaki iletiyi yazdırır: 
+
+```output
+Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
+```
+
+### <a name="root-cause"></a>Kök neden
+IOT kenar çalışma zamanı yalnızca ana bilgisayar adları 64 karakterden kısa destekleyebilir. Bu genellikle fiziksel makineler için bir sorun değildir, ancak bir sanal makinede çalışma zamanı ayarlarken ortaya çıkabilir. Otomatik olarak oluşturulan ana bilgisayar adları, Azure'da barındırılan Windows sanal makineleri için özel olarak, uzun olma eğilimindedir. 
+
+### <a name="resolution"></a>Çözüm
+Bu hatayı gördüğünüzde, sanal makinenin DNS adı yapılandırarak ve Kurulum komut ana bilgisayar adı olarak DNS adı ayarlama çözebilirsiniz.
+
+1. Azure portalında sanal makinenize Genel Bakış sayfasına gidin. 
+2. Seçin **yapılandırma** DNS adı altında. Sanal makineniz zaten yapılandırılmış bir DNS adı varsa, yeni bir yapılandırma gerekmez. 
+
+   ![DNS adı yapılandırma](./media/troubleshoot/configure-dns.png)
+
+3. İçin bir değer girin **DNS ad etiketi** seçip **kaydetmek**.
+4. Biçiminde olmalıdır yeni bir DNS adı kopyalamanız  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
+5. Sanal makinenin içinde IOT kenar çalışma zamanı, DNS adı ile ayarlamak için aşağıdaki komutu kullanın:
+
+   ```input
+   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? Lütfen gelişmeye devam edebilmemiz için [bir sorun gönderin](https://github.com/Azure/iot-edge/issues). 

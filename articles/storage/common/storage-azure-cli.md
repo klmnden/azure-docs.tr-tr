@@ -1,24 +1,24 @@
 ---
 title: Azure Storage ile Azure CLI 2.0 kullanma | Microsoft Docs
-description: "Azure komut satırı arabirimi (Azure CLI) 2.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure Storage ile Azure BLOB'ları ve dosyalar ile kullanmayı öğrenin. Azure CLI 2.0 Python içinde yazılmış platformlar arası bir araçtır."
+description: Azure komut satırı arabirimi (Azure CLI) 2.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure Storage ile Azure BLOB'ları ve dosyalar ile kullanmayı öğrenin. Azure CLI 2.0 Python içinde yazılmış platformlar arası bir araçtır.
 services: storage
 documentationcenter: na
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: tamram
-ms.openlocfilehash: 509c702054961c9d9fa525242ce0542059e32d81
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: rogarana
+ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage ile Azure CLI 2.0 kullanma
 
@@ -95,10 +95,10 @@ Subgroups:
 
 Azure aboneliğinizde kaynaklarla çalışmak için öncelikle Azure hesabınızla oturum açmanız gerekir `az login`. Oturum açabilir birkaç yolu vardır:
 
-* **Etkileşimli oturum açma**:`az login`
-* **Kullanıcı adı ve parolayla oturum**:`az login -u johndoe@contoso.com -p VerySecret`
+* **Etkileşimli oturum açma**: `az login`
+* **Kullanıcı adı ve parolayla oturum**: `az login -u johndoe@contoso.com -p VerySecret`
   * Bu, Microsoft hesapları veya çok faktörlü kimlik doğrulamasını kullanan ile çalışmaz.
-* **Bir hizmet sorumlusu oturum oturum**:`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
+* **Bir hizmet sorumlusu oturum oturum**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
 ## <a name="azure-cli-20-sample-script"></a>Azure CLI 2.0 örnek komut dosyası
 
@@ -146,11 +146,11 @@ echo "Done"
 
 3. Gerekli değişkenleri güncelleştirdikten sonra komut dosyasını kaydedin ve düzenleyicinizi çıkın. Sonraki adımlar kodunuzu adlı varsayın **my_storage_sample.sh**.
 
-4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin:`chmod +x my_storage_sample.sh`
+4. Komut dosyası yürütülebilir, olarak gerekiyorsa işaretleyin: `chmod +x my_storage_sample.sh`
 
-5. Betiğini yürütün. Örneğin, Bash içinde:`./my_storage_sample.sh`
+5. Betiğini yürütün. Örneğin, Bash içinde: `./my_storage_sample.sh`
 
-Aşağıdakine benzer bir çıktı görmeniz gerekir ve  **\<destination_file\>**  , belirtilen komut dosyası yerel bilgisayarınızda görünmelidir.
+Aşağıdakine benzer bir çıktı görmeniz gerekir ve **\<destination_file\>** , belirtilen komut dosyası yerel bilgisayarınızda görünmelidir.
 
 ```
 Creating the container...
@@ -187,10 +187,10 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location`[Gerekli]: konum. Örneğin, "Batı ABD".
-* `--name`[Gerekli]: depolama hesabı adı. Adı 3-24 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler kullanın.
-* `--resource-group`[Gerekli]: kaynak grubunun adı.
-* `--sku`[Gerekli]: depolama hesabı SKU. İzin verilen değerler:
+* `--location` [Gerekli]: konum. Örneğin, "Batı ABD".
+* `--name` [Gerekli]: depolama hesabı adı. Adı 3-24 karakter uzunluğunda olmalıdır ve yalnızca küçük harf alfasayısal karakterler kullanın.
+* `--resource-group` [Gerekli]: kaynak grubunun adı.
+* `--sku` [Gerekli]: depolama hesabı SKU. İzin verilen değerler:
   * `Premium_LRS`
   * `Standard_GRS`
   * `Standard_LRS`
@@ -236,7 +236,7 @@ az storage container create --name <container_name>
 
 İsteğe bağlı belirterek üç düzeyinden birini okuma erişimi için yeni bir kapsayıcı ayarlayabilirsiniz `--public-access` bağımsız değişkeni:
 
-* `off`(varsayılan): kapsayıcı verileri hesap sahibinin özel.
+* `off` (varsayılan): kapsayıcı verileri hesap sahibinin özel.
 * `blob`: BLOB'lar ortak okuma erişimi.
 * `container`: Ortak okuma ve liste erişimi kapsayıcının tamamı.
 
@@ -396,7 +396,7 @@ az storage share snapshot -n <share name>
 
 ### <a name="list-share-snapshots"></a>Liste paylaşımı anlık görüntüler
 
-Belirli paylaşımı kullanarak bir paylaşım anlık görüntüleri listeleyebilir`az storage share list --include-snapshots`
+Belirli paylaşımı kullanarak bir paylaşım anlık görüntüleri listeleyebilir `az storage share list --include-snapshots`
 
 ```cli
 az storage share list --include-snapshots
@@ -439,7 +439,7 @@ az storage share list --include-snapshots
 ```
 
 ### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntüleri Gözat
-İçerik kullanarak görüntülemek için anlık görüntü belirli bir paylaşım içine göz atabilirsiniz `az storage file list`. Paylaşım adını belirtmek bir tane var `--share-name <snare name>` ve zaman damgası`--snapshot '2017-10-04T19:45:18.0000000Z'`
+İçerik kullanarak görüntülemek için anlık görüntü belirli bir paylaşım içine göz atabilirsiniz `az storage file list`. Paylaşım adını belirtmek bir tane var `--share-name <snare name>` ve zaman damgası `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive
 az storage file list --share-name sharesnapshotdefs --snapshot '2017-10-04T19:45:18.0000000Z' -otable

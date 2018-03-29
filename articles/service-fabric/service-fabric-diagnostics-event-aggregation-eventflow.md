@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric olay toplama EventFlow | Microsoft Docs
-description: "Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için EventFlow kullanarak olay toplama hakkında bilgi edinin."
+description: Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için EventFlow kullanarak olay toplama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: fd4c28c2317356cbc6e3fd4d46a10509c029d530
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 37cae133dda2f274a83db1df37e798c5da58c539
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>Olay toplama ve EventFlow kullanarak koleksiyonu
 
@@ -30,7 +30,7 @@ EventFlow ikili dosyaları NuGet paketlerini bir dizi kullanılabilir. Bir Servi
 
 ![Visual Studio NuGet Paket Yöneticisi kullanıcı Arabirimi EventFlow NuGet paketleri](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-Çeşitli paketler, "Girdi" ve "Çıkaran" etiketli gösteri listesini görürsünüz. EventFlow çeşitli farklı günlüğü sağlayıcıları ve çözümleyiciler destekler. EventFlow barındırma hizmeti için kaynak ve hedef uygulama günlüklerini bağlı olarak uygun paketleri içermelidir. Çekirdek ServiceFabric paketi yanı sıra da en az bir giriş gerekir ve çıktı yapılandırılır. Örneğin, aşağıdaki paketleri Application Insights gönderilen EventSource olaylarını ekleyebilirsiniz:
+Çeşitli paketler, "Girdi" ve "Çıkaran" etiketli gösteri listesini görürsünüz. EventFlow çeşitli farklı günlüğü sağlayıcıları ve çözümleyiciler destekler. EventFlow barındırma hizmeti için kaynak ve hedef uygulama günlüklerini bağlı olarak uygun paketleri içermelidir. Çekirdek ServiceFabric paketi yanı sıra da en az bir giriş gerekir ve çıktı yapılandırılır. Örneğin, Application Insights'a EventSource olaylarını göndermek için aşağıdaki paketler ekleyebilirsiniz:
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` verileri hizmetin EventSource sınıfı ve standart EventSources gibi yakalamak için *Microsoft ServiceFabric Hizmetleri* ve *Microsoft ServiceFabric aktörler*)
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (biz günlükleri için Azure Application Insights kaynağı göndereceğiniz)

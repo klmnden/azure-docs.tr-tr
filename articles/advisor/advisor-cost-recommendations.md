@@ -1,12 +1,12 @@
 ---
-title: "Azure maliyeti Advisor önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızı maliyetini en iyi duruma getirmek için Azure Danışmanı'nı kullanın."
+title: Azure maliyeti Advisor önerileri | Microsoft Docs
+description: Azure dağıtımlarınızı maliyetini en iyi duruma getirmek için Azure Danışmanı'nı kullanın.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7b9c7037271fabd67c1ada80420ad72c340e46bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor maliyet önerileri
 
@@ -30,9 +30,6 @@ Belirli uygulama senaryoları düşük kullanımı tasarım gereği yol açabile
 Advisor kapatmak veya yeniden boyutlandırmak seçebilmeleri sanal makineniz çalıştırmaya devam tahmini maliyeti gösterir.
 
 Daha az sanal makineleri saptamayı katı olmasını istiyorsanız, abonelik başına temelinde ortalama CPU kullanımı kuralı ayarlayabilirsiniz.
-
-## <a name="use-a-cost-effective-solution-to-manage-performance-goals-of-multiple-sql-databases"></a>Birden çok SQL veritabanlarının performans hedeflerini yönetmek için uygun maliyetli bir çözüm kullanın
-Advisor esnek veritabanı havuzu oluşturma yararlanabilir SQL server örnekleri tanımlar. Esnek veritabanı havuzları değişen kullanım desenlerini sahip birden çok veritabanı performans amaçlarını yönetmek için basit ve ekonomik bir çözüm sağlar. Azure esnek havuzları hakkında daha fazla bilgi için bkz: [bir Azure esnek havuz nedir?](https://azure.microsoft.com/en-us/documentation/articles/sql-database-elastic-pool/).
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Sağlaması ExpressRoute bağlantı hatları ortadan kaldırarak maliyetlerini azaltma
 Advisor tanımlar sağlayıcı durumu silinmiş ExpressRoute bağlantı hatları *sağlanmadı* birden fazla ay ve bağlantı hattı bağlantınızı ile sağlamak planlama olmayan bağlantı hattı silme önerir Sağlayıcı.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis önbelleği SSS | Microsoft Docs"
-description: "Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin"
+title: Azure Redis önbelleği SSS | Microsoft Docs
+description: Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
 ms.service: cache
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 82c01419d65e00ddf27dfeb8fd444d5d3d81803c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -89,7 +89,7 @@ Azure Redis önbelleği kullanmaya başlamak birkaç yolu vardır.
 
 * Kullanılabilir öğreticilerimizden birini çıkışı denetleyebilirsiniz [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), ve [Python](cache-python-get-started.md).
 * İzleyebilir [yapı yüksek performanslı uygulamalar kullanarak Microsoft Azure Redis önbelleği nasıl](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Redis kullanılması hakkında bilgi için projenizin geliştirme dilini eşleşen istemciler için istemci belgelere kontrol edebilirsiniz. Azure Redis önbelleği ile kullanılan birçok Redis istemcileri vardır. Redis istemcileri listesi için bkz: [http://redis.io/clients](http://redis.io/clients).
+* Redis kullanılması hakkında bilgi için projenizin geliştirme dilini eşleşen istemciler için istemci belgelere kontrol edebilirsiniz. Azure Redis önbelleği ile kullanılan birçok Redis istemcileri vardır. Redis istemcileri listesi için bkz: [ http://redis.io/clients ](http://redis.io/clients).
 
 Zaten bir Azure hesabınız yoksa, şunları yapabilirsiniz:
 
@@ -111,7 +111,7 @@ Her Azure Redis önbelleği teklifini farklı düzeylerde sağlar **boyutu**, **
 * **Redis kümesi**: oluşturmak için 53 GB'den büyük önbelleğe alır ya da birden çok Redis düğümler arasında verileri için Redis kümeleme, Premium katmanında kullanılabilir olduğu kullanabilirsiniz. Her düğüm, yüksek kullanılabilirlik için birincil/çoğaltma önbelleği çiftinin oluşur. Daha fazla bilgi için bkz. [Premium Azure Redis Cache için kümeleri yapılandırma](cache-how-to-premium-clustering.md).
 * **Gelişmiş Güvenlik ve ağ yalıtımı**: Gelişmiş Güvenlik ve yalıtım, Azure Redis önbelleği yanı sıra alt ağlar, erişim denetimi ilkeleri için Azure sanal ağ (VNET) dağıtım sağlar ve diğer özellikleri daha da fazla erişimi kısıtlayabilirsiniz. Daha fazla bilgi için bkz. [Premium Azure Redis Cache için Sanal Ağ desteğini yapılandırma](cache-how-to-premium-vnet.md).
 * **Redis yapılandırma**: standart ve Premium katmanlarda, Redis için Keyspace bildirimleri yapılandırabilirsiniz.
-* **İstemci bağlantısı sayısı**: Premium katmanı en fazla bağlantı büyük boyutlu önbellekler için daha yüksek bir sayı ile Redis bağlanabilir istemciyi sunar. Daha fazla bilgi için bkz: [Azure Redis önbelleği fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
+* **İstemci bağlantısı sayısı**: Premium katmanı en fazla bağlantı büyük boyutlu önbellekler için daha yüksek bir sayı ile Redis bağlanabilir istemciyi sunar. Kümeleme kümelenmiş önbelleği için kullanılabilir bağlantı sayısını artırmaz. Daha fazla bilgi için bkz: [Azure Redis önbelleği fiyatlandırma](https://azure.microsoft.com/pricing/details/cache/).
 * **Redis sunucu için çekirdek ayrılmış**: Premium katmanındaki tüm önbellek boyutlarını adanmış bir çekirdek için Redis sahip. Basic/standart katmanları, C1 boyutu ve üzeri Redis sunucusu için ayrılmış bir çekirdek vardır.
 * **Redis tek iş parçacıklı** ikiden fazla çekirdeğe sahip sağlamaz ek avantajı yalnızca iki çekirdeğe sahip üzerinden ancak büyük VM boyutları genellikle daha fazla bant genişliği daha küçük boyutlara sahiptir. Önbellek sunucu veya istemci bant genişliği sınırlarını ulaşırsa, istemci tarafındaki zaman aşımı alırsınız.
 * **Performans iyileştirmeleri**: Premium katmanındaki önbellekleri, temel veya standart katmanına göre daha iyi performans vermiş daha hızlı işlemcilere sahip donanımda dağıtılır. Premium katmanı önbellekleri daha yüksek verimlilik ve düşük gecikme vardır.

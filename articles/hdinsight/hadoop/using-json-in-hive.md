@@ -1,8 +1,8 @@
 ---
-title: "Çözümleme ve işlem Azure hdınsight'ta Apache Hive ile JSON belgeleri | Microsoft Docs"
-description: "JSON belgelerini kullanın ve apache Azure hdınsight'ta Hive kullanarak bunları analiz hakkında bilgi edinin"
+title: Çözümleme ve işlem Azure hdınsight'ta Apache Hive ile JSON belgeleri | Microsoft Docs
+description: JSON belgelerini kullanın ve apache Azure hdınsight'ta Hive kullanarak bunları analiz hakkında bilgi edinin
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -15,75 +15,80 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 62b21db5c52287c1d0d058cba3a433434c364777
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 04c3a8262e52a630012a0a70e4b1ccb0ade76449
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>İşlem ve Azure hdınsight'ta Apache Hive kullanarak JSON belgelerini çözümleme
 
 İşlem ve Azure hdınsight'ta Apache Hive kullanarak JavaScript nesne gösterimi (JSON) dosyaları çözümleme hakkında bilgi edinin. Bu öğretici aşağıdaki JSON belgesini kullanır:
 
+```json
+{
+  "StudentId": "trgfg-5454-fdfdg-4346",
+  "Grade": 7,
+  "StudentDetails": [
     {
-        "StudentId": "trgfg-5454-fdfdg-4346",
-        "Grade": 7,
-        "StudentDetails": [
-            {
-                "FirstName": "Peggy",
-                "LastName": "Williams",
-                "YearJoined": 2012
-            }
-        ],
-        "StudentClassCollection": [
-            {
-                "ClassId": "89084343",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "High",
-                "Score": 93,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78547522",
-                "ClassParticipation": "NotSatisfied",
-                "ClassParticipationRank": "None",
-                "Score": 74,
-                "PerformedActivity": false
-            },
-            {
-                "ClassId": "78675563",
-                "ClassParticipation": "Satisfied",
-                "ClassParticipationRank": "Low",
-                "Score": 83,
-                "PerformedActivity": true
-                    ]
+      "FirstName": "Peggy",
+      "LastName": "Williams",
+      "YearJoined": 2012
     }
+  ],
+  "StudentClassCollection": [
+    {
+      "ClassId": "89084343",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "High",
+      "Score": 93,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78547522",
+      "ClassParticipation": "NotSatisfied",
+      "ClassParticipationRank": "None",
+      "Score": 74,
+      "PerformedActivity": false
+    },
+    {
+      "ClassId": "78675563",
+      "ClassParticipation": "Satisfied",
+      "ClassParticipationRank": "Low",
+      "Score": 83,
+      "PerformedActivity": true
+    }
+  ]
+}
+```
 
-Dosya şu yolda bulunabilir:  **wasb://processjson@hditutorialdata.blob.core.windows.net/** . Hdınsight ile Azure Blob storage kullanma hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop ile kullanım HDFS uyumlu Azure Blob storage](../hdinsight-hadoop-use-blob-storage.md). Kümenizin varsayılan kapsayıcı dosyayı kopyalayabilirsiniz.
+Dosya şu yolda bulunabilir: **wasb://processjson@hditutorialdata.blob.core.windows.net/**. Hdınsight ile Azure Blob storage kullanma hakkında daha fazla bilgi için bkz: [hdınsight'ta Hadoop ile kullanım HDFS uyumlu Azure Blob storage](../hdinsight-hadoop-use-blob-storage.md). Kümenizin varsayılan kapsayıcı dosyayı kopyalayabilirsiniz.
 
 Bu öğreticide, Hive konsolunu kullanın. Hive Konsolu hakkında daha fazla yönerge için bkz: [Uzak Masaüstü kullanarak hdınsight'ta Hadoop ile Hive kullanma](apache-hadoop-use-hive-remote-desktop.md).
 
 ## <a name="flatten-json-documents"></a>JSON belgeleri düzleştirmek
 Sonraki bölümde listelenen yöntemleri JSON belgesi tek bir satır oluşan gerektirir. Bu nedenle, bir dizeye JSON belgesi düzleştirmek gerekir. JSON belgenizi zaten düzleştirilmiş, bu adımı atlayın ve JSON verilerini çözümleme düz sonraki bölüme gidin. JSON belgesini düzleştirmek için aşağıdaki betiği çalıştırın:
 
-    DROP TABLE IF EXISTS StudentsRaw;
-    CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
+```sql
+DROP TABLE IF EXISTS StudentsRaw;
+CREATE EXTERNAL TABLE StudentsRaw (textcol string) STORED AS TEXTFILE LOCATION "wasb://processjson@hditutorialdata.blob.core.windows.net/";
 
-    DROP TABLE IF EXISTS StudentsOneLine;
-    CREATE EXTERNAL TABLE StudentsOneLine
-    (
-      json_body string
-    )
-    STORED AS TEXTFILE LOCATION '/json/students';
+DROP TABLE IF EXISTS StudentsOneLine;
+CREATE EXTERNAL TABLE StudentsOneLine
+(
+  json_body string
+)
+STORED AS TEXTFILE LOCATION '/json/students';
 
-    INSERT OVERWRITE TABLE StudentsOneLine
-    SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
-          FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
-          GROUP BY INPUT__FILE__NAME;
+INSERT OVERWRITE TABLE StudentsOneLine
+SELECT CONCAT_WS(' ',COLLECT_LIST(textcol)) AS singlelineJSON
+      FROM (SELECT INPUT__FILE__NAME,BLOCK__OFFSET__INSIDE__FILE, textcol FROM StudentsRaw DISTRIBUTE BY INPUT__FILE__NAME SORT BY BLOCK__OFFSET__INSIDE__FILE) x
+      GROUP BY INPUT__FILE__NAME;
 
-    SELECT * FROM StudentsOneLine
+SELECT * FROM StudentsOneLine
+```
 
-Ham JSON dosyası şu konumdadır  **wasb://processjson@hditutorialdata.blob.core.windows.net/** . **StudentsRaw** Hive tablosu noktaları değil düzleştirilmiş ham JSON belgesi.
+Ham JSON dosyası şu konumdadır **wasb://processjson@hditutorialdata.blob.core.windows.net/**. **StudentsRaw** Hive tablosu noktaları değil düzleştirilmiş ham JSON belgesi.
 
 **StudentsOneLine** Hive tablosu altında Hdınsight varsayılan dosya sistemindeki verileri depolayan **/json/Öğrenciler/** yolu.
 
@@ -108,10 +113,12 @@ Hive sağlar olarak adlandırılan yerleşik bir UDF [get_json_object](https://c
 
 Aşağıdaki sorgu, ad ve Soyadı her Öğrenci için döndürür:
 
-    SELECT
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
-      GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
-    FROM StudentsOneLine;
+```sql
+SELECT
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.FirstName'),
+  GET_JSON_OBJECT(StudentsOneLine.json_body,'$.StudentDetails.LastName')
+FROM StudentsOneLine;
+```
 
 Konsol penceresinde bu sorguyu çalıştırdığınızda çıktısı şöyledir:
 
@@ -127,10 +134,12 @@ Hive wiki json_tuple kullanmanızı önerir nedeni budur.
 ### <a name="use-the-jsontuple-udf"></a>UDF json_tuple kullanın
 Hive tarafından sağlanan başka bir UDF adlı [json_tuple](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-json_tuple), gerçekleştirir daha iyi [get_ json _object](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-get_json_object). Bu yöntem, bir dizi anahtarları ve bir JSON dizesinde alır ve bir işlevi kullanarak değerlerin bir tanımlama grubu döndürür. Aşağıdaki sorgu, JSON belgesinden Öğrenci Kimliğini ve sınıf döndürür:
 
-    SELECT q1.StudentId, q1.Grade
-      FROM StudentsOneLine jt
-      LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
-        AS StudentId, Grade;
+```sql
+SELECT q1.StudentId, q1.Grade
+FROM StudentsOneLine jt
+LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
+  AS StudentId, Grade;
+```
 
 Bu komut dosyası Hive konsolunda çıktı:
 

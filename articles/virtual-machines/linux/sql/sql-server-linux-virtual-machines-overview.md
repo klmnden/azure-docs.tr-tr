@@ -1,8 +1,8 @@
 ---
-title: "Azure Linux Sanal Makinelerinde SQL Server'a Genel Bakış | Microsoft Docs"
-description: "Azure Linux sanal makinelerinde tam SQL Server sürümlerini çalıştırma hakkında bilgi edinin. Tüm Linux SQL Server VM görüntülerinin ve ilgili içeriklerin doğrudan bağlantılarını alın."
+title: Azure Linux Sanal Makinelerinde SQL Server'a Genel Bakış | Microsoft Docs
+description: Azure Linux sanal makinelerinde tam SQL Server sürümlerini çalıştırma hakkında bilgi edinin. Tüm Linux SQL Server VM görüntülerinin ve ilgili içeriklerin doğrudan bağlantılarını alın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: jhubbard
 tags: azure-service-management
@@ -10,13 +10,13 @@ ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
-ms.date: 10/02/2017
+ms.date: 03/22/2018
 ms.author: jroth
-ms.openlocfilehash: f044fcba92eb7aa7f4ac44608571fab3db0e03f5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: e752ad844a6efe572564e7081ebac87193e9c2a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Azure Sanal Makinelerinde SQL Server'a Genel Bakış (Linux)
 
@@ -24,7 +24,7 @@ ms.lasthandoff: 12/18/2017
 > * [Windows](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 > * [Linux](sql-server-linux-virtual-machines-overview.md)
 
-Bu konu başlığı, Azure Linux sanal makinelerinde (VM'ler) SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#option-1-create-a-sql-vm-with-per-minute-licensing) içermektedir.
+Bu konu başlığı, Azure Linux sanal makinelerinde (VM'ler) SQL Server çalıştırmaya yönelik seçeneklerle birlikte [portal görüntülerinin bağlantılarını](#create) içermektedir.
 
 > [!NOTE]
 > SQL Server'ı zaten biliyor ve yalnızca bir SQL Server Linux VM'sinin nasıl dağıtılacağını görmek istiyorsanız bkz. [Azure'da Linux SQL Server VM'si sağlama](provision-sql-server-linux-virtual-machine.md). SQL Server içeren bir Windows VM oluşturmak istiyorsanız bkz. [Azure'da Windows SQL Server VM'si sağlama](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md).

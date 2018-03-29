@@ -1,11 +1,11 @@
 ---
-title: "Bulut Foundry izlemek için Azure günlük analizi kafa dağıtma | Microsoft Docs"
-description: "Azure günlük analizi için bulut Foundry loggregator kafa dağıtma hakkında adım adım yönergeler için. Başlık bulut Foundry sistem sağlık ve performans ölçümlerini izlemek için kullanın."
+title: Bulut Foundry izlemek için Azure günlük analizi kafa dağıtma | Microsoft Docs
+description: Azure günlük analizi için bulut Foundry loggregator kafa dağıtma hakkında adım adım yönergeler için. Başlık bulut Foundry sistem sağlık ve performans ölçümlerini izlemek için kullanın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: ningk
 manager: timlt
-editor: 
+editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: 0d13d39d2921c51c537534a5b000564a9df91880
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Bulut Foundry sistem izleme için Azure günlük analizi kafa dağıtma
 
-[Azure günlük analizi](https://azure.microsoft.com/services/log-analytics/) Microsoft hizmetinde [Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/) (OMS). Toplamak ve analiz etmek, buluttan oluşturulur ve şirket içi ortamları verileri yardımcı olur.
+[Azure günlük analizi](https://azure.microsoft.com/services/log-analytics/) bir Azure hizmetidir. Toplamak ve analiz etmek, buluttan oluşturulur ve şirket içi ortamları verileri yardımcı olur.
 
 Günlük analizi başlık (başlık) ölçümleri ileten bir bulut Foundry (CF) bileşeni olan [bulut Foundry loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) firehose günlük analizi için. Başlık ile toplamak, görüntülemek ve, CF sistem sağlık ve performans ölçümleri, birden çok dağıtımlar arasında analiz edin.
 
-Bu belgede, kafa CF ortamınıza dağıtmak ve ardından veri günlük analizi OMS konsolundan erişim hakkında bilgi edinin.
+Bu belgede, kafa CF ortamınıza dağıtmak ve ardından veri günlük analizi konsolundan erişim hakkında bilgi edinin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlık dağıtmak için Önkoşullar adımlardır.
 
@@ -53,9 +53,9 @@ Başlık da loggregator firehose ve bulut denetleyicisi için erişim izni gerek
 
 UAA komut satırı istemci ayarlamadan önce Rubygems yüklü olduğundan emin olun.
 
-### <a name="3-create-an-oms-workspace-in-azure"></a>3. Bir OMS çalışma alanı oluşturma
+### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Günlük analizi çalışma alanı oluşturma
 
-OMS çalışma el ile veya bir şablon kullanarak oluşturabilirsiniz. Başlık dağıtım işlemini tamamladıktan sonra önceden yapılandırılmış OMS görünümleri ve Uyarıları yükleyin.
+Günlük analizi çalışma alanı el ile veya bir şablon kullanarak oluşturabilirsiniz. Başlık dağıtım işlemini tamamladıktan sonra önceden yapılandırılmış OMS görünümleri ve Uyarıları yükleyin.
 
 Çalışma alanı el ile oluşturmak için:
 
@@ -70,7 +70,7 @@ OMS çalışma el ile veya bir şablon kullanarak oluşturabilirsiniz. Başlık 
 
 Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Alternatif olarak, OMS çalışma alanını OMS şablonunu kullanarak oluşturabilirsiniz. Bu yöntemde, şablon önceden yapılandırılmış OMS görünümleri ve uyarılar otomatik olarak yükler. Daha fazla bilgi için bkz: [bulut Foundry için Azure OMS günlük analizi çözümü](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+Alternatif olarak, günlük analizi çalışma alanını OMS şablonunu kullanarak oluşturabilirsiniz. Bu yöntemde, şablon önceden yapılandırılmış OMS görünümleri ve uyarılar otomatik olarak yükler. Daha fazla bilgi için bkz: [bulut Foundry için Azure günlük analizi çözümü](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
 
 ## <a name="deploy-the-nozzle"></a>Başlık dağıtma
 
@@ -116,16 +116,16 @@ git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### <a name="set-environment-variables"></a>Ortam değişkenlerini ayarlama
+#### <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
-Şimdi, geçerli dizininizde manifest.yml dosyasında ortam değişkenleri ayarlayabilirsiniz. Başlık uygulama bildirimi gösterir. Değerleri, belirli OMS çalışma alanı bilgileriyle değiştirin.
+Şimdi, geçerli dizininizde manifest.yml dosyasında ortam değişkenleri ayarlayabilirsiniz. Başlık uygulama bildirimi gösterir. Değerleri, belirli günlük analizi çalışma alanı bilgileriyle değiştirin.
 
 ```
-OMS_WORKSPACE             : OMS workspace ID: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_KEY                   : OMS key: open OMS portal from your OMS workspace, select Settings, and select connected sources.
-OMS_POST_TIMEOUT          : HTTP post timeout for sending events to OMS Log Analytics. The default is 10 seconds.
-OMS_BATCH_TIME            : Interval for posting a batch to OMS Log Analytics. The default is 10 seconds.
-OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to OMS Log Analytics. The default is 1000.
+OMS_WORKSPACE             : Log Analytics workspace ID: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_KEY                   : OMS key: open OMS portal from your Log Analytics workspace, select Settings, and select connected sources.
+OMS_POST_TIMEOUT          : HTTP post timeout for sending events to Log Analytics. The default is 10 seconds.
+OMS_BATCH_TIME            : Interval for posting a batch to Log Analytics. The default is 10 seconds.
+OMS_MAX_MSG_NUM_PER_BATCH : The maximum number of messages in a batch to Log Analytics. The default is 1000.
 API_ADDR                  : The API URL of the CF environment. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 DOPPLER_ADDR              : Loggregator's traffic controller URL. For more information, see the preceding section, "Sign in to your CF deployment as an admin through CF CLI."
 FIREHOSE_USER             : CF user you created in the preceding section, "Create a CF user and grant required privileges." This user has firehose and Cloud Controller admin access.
@@ -135,8 +135,8 @@ SKIP_SSL_VALIDATION       : If true, allows insecure connections to the UAA and 
 CF_ENVIRONMENT            : Enter any string value for identifying logs and metrics from different CF environments.
 IDLE_TIMEOUT              : The Keep Alive duration for the firehose consumer. The default is 60 seconds.
 LOG_LEVEL                 : The logging level of the Nozzle. Valid levels are DEBUG, INFO, and ERROR.
-LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to OMS Log Analytics as CounterEvents.
-LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to OMS Log Analytics. The default is 60 seconds.
+LOG_EVENT_COUNT           : If true, the total count of events that the Nozzle has received and sent are logged to Log Analytics as CounterEvents.
+LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Log Analytics. The default is 60 seconds.
 ```
 
 ### <a name="push-the-application-from-your-development-computer"></a>Uygulamanızı geliştirme bilgisayarınızın uygulamadan anında iletme
@@ -165,7 +165,7 @@ OMS kafa uygulama çalıştığından emin olun.
 
 ### <a name="1-import-the-oms-view"></a>1. OMS görünümünü Al
 
-OMS Portalı'ndan Gözat **Görünüm Tasarımcısı** > **alma** > **Gözat**ve omsview dosyalarından birini seçin. Örneğin, seçin *bulut Foundry.omsview*ve görünümü kaydedin. Bir kutucuk üzerinde OMS görüntülenir artık **genel bakış** sayfası. Görselleştirilmiş ölçümlerini görmek için seçin.
+OMS Portalı'ndan Gözat **Görünüm Tasarımcısı** > **alma** > **Gözat**ve omsview dosyalarından birini seçin. Örneğin, seçin *bulut Foundry.omsview*ve görünümü kaydedin. Bir kutucuk gösterilir artık **genel bakış** sayfası. Görselleştirilmiş ölçümlerini görmek için seçin.
 
 Bu görünümler özelleştirebilir veya aracılığıyla yeni görünümler oluşturma **Görünüm Tasarımcısı**.
 
@@ -175,16 +175,16 @@ Bu görünümler özelleştirebilir veya aracılığıyla yeni görünümler olu
 
 Yapabilecekleriniz [uyarı oluşturma](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts), sorgular ve ve eşik değerleri gerektiği gibi özelleştirin. Aşağıdaki uyarıları önerilir:
 
-| Arama sorgusu                                                                  | Temel uyarı oluştur | Açıklama                                                                       |
+| Arama sorgusu                                                                  | Şuna bağlı olarak uyarı oluştur: | Açıklama                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Tür CF_ValueMetric_CL Origin_s = bbs Name_s = "Domain.cf-uygulamalar" =                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulamaları etki alanı güncel olup olmadığını gösterir. Bu, bulut denetleyicisi CF uygulama isteklerinden bbs için eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Alınan veri cf uygulamaları etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
-| Tür CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen zaman penceresi için birden fazla sağlıksız Diego hücre algılanmazsa uyarı ayarlayın. |
-| Tür CF_ValueMetric_CL Origin_s = "bosh hm iletici" Name_s="system.healthy =" Value_d = 0 | Sonuçları > 0 sayısı | 1 sağlıklı bir sistemidir ve sistem sağlıklı değil 0 anlamına anlamına gelir. |
-| Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0 anlamına gelir sağlıklı bir sistemidir ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir. |
-| Tür CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" veya Name_s="doppler.shedEnvelopes") Delta_d = > 0 | Sonuçları > 0 sayısı | Delta bilerek Doppler tarafından geri baskısı nedeniyle bırakılan ileti sayısı. |
-| Tür CF_LogMessage_CL SourceType_s = LGR MessageType_s = hata =                      | Sonuçları > 0 sayısı   | Loggregator yayar **LGR** günlüğe kaydetme işlemi sorunları belirtmek için. Günlük iletisi çıkış çok yüksek olduğunda bir sorun bir örnektir. |
-| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Başlık loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** oms'ye ValueMetric. |
-| Tür CF_CounterEvent_CL Job_s = kafa Name_s = kaybolan olaylar Delta_d = > 0              | Sonuçları > 0 sayısı   | Kayıp Olay delta sayısı eşiği ulaşırsa, başlık çalıştıran bir sorun olabilecek anlamına gelir. |
+| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulamaları etki alanı güncel olup olmadığını gösterir. Bu, bulut denetleyicisi CF uygulama isteklerinden bbs için eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Alınan veri cf uygulamaları etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
+| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen zaman penceresi için birden fazla sağlıksız Diego hücre algılanmazsa uyarı ayarlayın. |
+| Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Sonuçları > 0 sayısı | 1 sağlıklı bir sistemidir ve sistem sağlıklı değil 0 anlamına anlamına gelir. |
+| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0 anlamına gelir sağlıklı bir sistemidir ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir. |
+| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Sonuçları > 0 sayısı | Delta bilerek Doppler tarafından geri baskısı nedeniyle bırakılan ileti sayısı. |
+| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Sonuçları > 0 sayısı   | Loggregator yayar **LGR** günlüğe kaydetme işlemi sorunları belirtmek için. Günlük iletisi çıkış çok yüksek olduğunda bir sorun bir örnektir. |
+| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Sonuçları > 0 sayısı   | Başlık loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** ValueMetric günlük analizi için. |
+| Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Sonuçları > 0 sayısı   | Kayıp Olay delta sayısı eşiği ulaşırsa, başlık çalıştıran bir sorun olabilecek anlamına gelir. |
 
 ## <a name="scale"></a>Ölçek
 
@@ -218,7 +218,7 @@ CF CLI pencerenizde yazın:
 cf delete <App Name> -r
 ```
 
-Başlık kaldırırsanız, OMS portalında verileri otomatik olarak kaldırılmaz. OMS günlük analizi saklama ayarı göre süresi dolar.
+Başlık kaldırırsanız, OMS portalında verileri otomatik olarak kaldırılmaz. Günlük analizi saklama ayarı göre süresi dolar.
 
 ## <a name="support-and-feedback"></a>Destek ve geri bildirim
 

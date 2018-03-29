@@ -1,6 +1,6 @@
 ---
-title: "VMware Vm'leri Azure Site Recovery ile Azure için çoğaltmayı etkinleştirin | Microsoft Docs"
-description: "Bu makalede, Azure, Azure Site RECOVERY'yi kullanarak VMware Vm'lerinde çoğaltmasını ayarlama açıklar."
+title: VMware Vm'leri Azure Site Recovery ile Azure için çoğaltmayı etkinleştirin | Microsoft Docs
+description: Bu makalede, Azure, Azure Site RECOVERY'yi kullanarak VMware Vm'lerinde çoğaltmasını ayarlama açıklar.
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: asgang
-ms.openlocfilehash: 17cd6a931563c7d33576749453d742aca253526b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware Vm'leri için Azure çoğaltmayı etkinleştirme
 
@@ -112,15 +112,15 @@ Ardından, kaynak makine özelliklerini doğrulayın. Azure VM adının uygun ol
     Örneğin, kaynak makinenin iki bağdaştırıcısı varsa ve hedef makine boyutu dört adet bağdaştırıcıyı destekliyorsa hedef makinenin iki bağdaştırıcısı vardır. Kaynak makinenin iki bağdaştırıcısı varken hedef boyut yalnızca bir destekler, hedef makine yalnızca bir bağdaştırıcı bulunur.
     - Sanal makinede birden fazla ağ bağdaştırıcısı varsa, bunların tümü aynı ağa bağlayın. Ayrıca, listedeki ilk gösterilene hale *varsayılan* Azure sanal makine ağ bağdaştırıcısı.
 
-### <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
+### <a name="azure-hybrid-benefit"></a>Azure Hibrit Avantajı
 
-Microsoft Yazılım Güvencesi müşteriler, Azure'a geçirilir Windows Server makine maliyetlerini lisans kaydetmek veya Azure olağanüstü durum kurtarma için kullanılacak Azure karma kullanma avantajını kullanabilirsiniz. Kullanmak yararlı Azure karma kullanmak uygun değilse, bir yük devretmeyi Azure Site Recovery oluşturur Bu avantajı atanan sanal makine olduğunu belirtebilirsiniz. Bunu yapmak için:
+Microsoft Yazılım Güvencesi müşteriler için Azure geçirilir Windows Server makine maliyetlerini lisans kaydetmek veya Azure olağanüstü durum kurtarma için kullanılacak Azure karma avantajını kullanabilirsiniz. Azure karma fayda kullanmak uygun değilse, bir yük devretmeyi Azure Site Recovery oluşturur Bu avantajı atanan sanal makine olduğunu belirtebilirsiniz. Bunu yapmak için:
 - Çoğaltılan sanal makinenin işlem ve ağ özellikleri bölümüne gidin.
-- Azure karma kullanımı avantajı için uygun hale getirir bir Windows Server Lisans olup olmadığını soran soruyu yanıtlayın.
-- Yük devretme oluşturulacak makinede karma kullanma avantajını uygulamak için kullanabileceğiniz Yazılım Güvencesi ile uygun bir Windows Server Lisans sahip olduğunuzu onaylamak için bu onay kutusunu seçin.
+- Azure karma avantajı için uygun hale getirir bir Windows Server Lisans olup olmadığını soran soruyu yanıtlayın.
+- Yük devretme oluşturulacak makinedeki Azure karma avantajı uygulamak için kullanabileceğiniz Yazılım Güvencesi ile uygun bir Windows Server Lisans sahip olduğunuzu onaylamak için bu onay kutusunu seçin.
 - Çoğaltılan makinelerin için ayarları kaydedin.
 
-Daha fazla bilgi edinmek [Azure karma kullanımı avantajı](https://aka.ms/azure-hybrid-use-benefit-pricing).
+Daha fazla bilgi edinmek [Azure karma avantajı](https://aka.ms/azure-hybrid-benefit-pricing).
 
 ## <a name="common-issues"></a>Genel sorunlar
 

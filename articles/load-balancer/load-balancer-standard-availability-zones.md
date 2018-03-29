@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/21/2018
+ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 70b39b854a3b7cb28716d3cb290998690dbeb549
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standart yük dengeleyici ve kullanılabilirlik bölgeleri
 
 Azure yük dengeleyicinin standart SKU destekleyen [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md) senaryoları. Bazı yeni kavramlar yanı sıra uçtan uca senaryonuz kullanılabilirlik bölgeleri kaynaklarla hizalayarak en iyi duruma dilimlerinde dağıtmak izin standart yük dengeleyici ile kullanılabilir.  Gözden geçirme [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md) kullanılabilirlik bölgeleri nelerdir ile ilgili yönergeler için hangi bölgelerin kullanılabilirlik bölgeleri ve diğer desteklemekte kavramları ve ürünleri ilgili. Standart yük dengeleyici ile birlikte kullanılabilirlik bölgeleri birçok farklı senaryolar oluşturabilirsiniz korunmalarını ve esnek özellik kümesidir.  Bunlar anlamak için bu belgeyi gözden [kavramları](#concepts) ve temel senaryo [Tasarım Kılavuzu](#design).
 
 >[!NOTE]
-> Yük Dengeleyici standart SKU şu anda önizlemede değil. Genel kullanılabilirlik özellikleri serbest olarak Önizleme sırasında aynı düzeyde kullanılabilirlik ve güvenilirlik özelliği sahip olmayabilir. Daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Microsoft Azure Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Genel olarak kullanılabilir kullanmak [yük dengeleyici temel SKU](load-balancer-overview.md) üretim hizmetleriniz için. Kullanmak için [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) bu önizlemede gerektiren bir [ayrı kaydolma](https://aka.ms/availabilityzones), yük dengeleyici için kaydolan yanı sıra [Standard Önizleme](#preview-sign-up).
+>Gözden geçirme [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) diğer için İlgili Konular. 
 
 ## <a name="concepts"></a> Yük Dengeleyici ile uygulanan kullanılabilirlik bölgeleri kavramları
 

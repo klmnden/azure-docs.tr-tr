@@ -1,13 +1,13 @@
 ---
-title: "Düşük öncelikli sanal makineleri (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs"
-description: "Düşük öncelikli sanal makineleri giderlerinden tasarruf edersiniz kullanmasını Azure sanal makine ölçek kümeleri oluşturma hakkında bilgi edinin"
+title: Düşük öncelikli sanal makineleri (Önizleme) kullanan bir Azure ölçek kümesi oluşturma | Microsoft Docs
+description: Düşük öncelikli sanal makineleri giderlerinden tasarruf edersiniz kullanmasını Azure sanal makine ölçek kümeleri oluşturma hakkında bilgi edinin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: rajraj
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: memccror
-ms.openlocfilehash: 9e4970ecc538caab537281931b89bfd57d994cfa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f25e4d1e3906a610e7c60e348f872a78d7db8fd3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Düşük öncelikli sanal makine ölçek kümeleri (Önizleme)
 
@@ -48,7 +48,7 @@ Düşük öncelikli VM ölçek kümesi üzerinde dağıtmak için yeni ayarlayab
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
 
-Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](virtual-machine-scale-sets-create-cli.md). Yalnızca Ekle '--öncelik ' CLI parametresi çağırın ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
+Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-cli.md). Yalnızca Ekle '--öncelik ' CLI parametresi çağırın ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
 
 ```azurecli
 az vmss create \
@@ -63,7 +63,7 @@ az vmss create \
 
 ## <a name="use-azure-powershell"></a>Azure PowerShell kullanma
 
-Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](virtual-machine-scale-sets-create-powershell.md).
+Düşük öncelikli sanal makineleri ile ayarlamak ölçek oluşturma işlemi içinde ayrıntılı olarak aynıdır [makale Başlarken](quick-create-powershell.md).
 Yalnızca Ekle '-öncelik ' parametresi [yeni AzureRmVmssConfig](/powershell/module/azurerm.compute/new-azurermvmssconfig) ve ayarlamak *düşük* aşağıdaki örnekte gösterildiği gibi:
 
 ```powershell
@@ -77,7 +77,7 @@ $vmssConfig = New-AzureRmVmssConfig `
 
 ## <a name="use-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanın
 
-Düşük öncelikli sanal makineleri kullanan bir ölçek kümesi oluşturma işlemi için alma başlatılan makalesinde ayrıntılı olarak aynıdır [Linux](virtual-machine-scale-sets-create-template-linux.md) veya [Windows](virtual-machine-scale-sets-create-template-windows.md). 'Priority' özelliği Ekle *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* kaynak şablonunuzda ve *düşük* değeri olarak. Kullandığınızdan emin olun *2017-10-30-Önizleme* API sürümü veya daha yüksek. 
+Düşük öncelikli sanal makineleri kullanan bir ölçek kümesi oluşturma işlemi için alma başlatılan makalesinde ayrıntılı olarak aynıdır [Linux](quick-create-template-linux.md) veya [Windows](quick-create-template-windows.md). 'Priority' özelliği Ekle *Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile* kaynak şablonunuzda ve *düşük* değeri olarak. Kullandığınızdan emin olun *2017-10-30-Önizleme* API sürümü veya daha yüksek. 
 
 Silme için çıkarma İlkesi'ni ayarlamak için 'evictionPolicy' parametresini ekleyin ve ayarlamak *silmek*.
 

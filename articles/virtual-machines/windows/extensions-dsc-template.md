@@ -1,11 +1,11 @@
 ---
-title: "İstenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile | Microsoft Docs"
-description: "İstenen durum Yapılandırması'nı (DSC) uzantısı'nda Azure Resource Manager şablonu tanımı hakkında bilgi edinin."
+title: İstenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile | Microsoft Docs
+description: İstenen durum Yapılandırması'nı (DSC) uzantısı'nda Azure Resource Manager şablonu tanımı hakkında bilgi edinin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mgreenegit
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -14,99 +14,121 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 03/22/2018
 ms.author: migreene
-ms.openlocfilehash: 0f1c53c9eafcd96e49232b75d46ef34537a1160f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: ea259fc316827872cb1df8bcec385dddf8d2a461
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>İstenen durum yapılandırması uzantısı Azure Resource Manager şablonları ile
 
-Bu makalede Azure Resource Manager şablonu [istenen durum Yapılandırması'nı (DSC) uzantısı işleyici](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+Bu makalede Azure Resource Manager şablonu [istenen durum Yapılandırması'nı (DSC) uzantısı işleyici](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
 > Biraz farklı şema örnekler karşılaşabilirsiniz. Ekim 2016 sürümde şema değişikliği oluştu. Ayrıntılar için bkz [güncelleştirme önceki biçiminden](#update-from-the-previous-format).
 
 ## <a name="template-example-for-a-windows-vm"></a>Bir Windows VM için şablon örneği
 
-Aşağıdaki kod parçacığında gider **kaynak** şablon bölümünü. DSC uzantı varsayılan uzantısı özellikleri devralır. Daha fazla bilgi için bkz: [VirtualMachineExtension sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
+Aşağıdaki kod parçacığında gider **kaynak** şablon bölümünü.
+DSC uzantı varsayılan uzantısı özellikleri devralır.
+Daha fazla bilgi için bkz: [VirtualMachineExtension sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension?view=azure-dotnet.).
 
 ```json
-            "name": "Microsoft.Powershell.DSC",
-            "type": "extensions",
-             "location": "[resourceGroup().location]",
-             "apiVersion": "2015-06-15",
-             "dependsOn": [
-                  "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-              ],
-              "properties": {
-                  "publisher": "Microsoft.Powershell",
-                  "type": "DSC",
-                  "typeHandlerVersion": "2.72",
-                  "autoUpgradeMinorVersion": true,
-                  "forceUpdateTag": "[parameters('dscExtensionUpdateTagVersion')]",
-                  "settings": {
-                    "configurationArguments": {
-                        {
-                            "Name": "RegistrationKey",
-                            "Value": {
-                                "UserName": "PLACEHOLDER_DONOTUSE",
-                                "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                            },
+{
+    "type": "Microsoft.Compute/virtualMachines/extensions",
+    "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+    "apiVersion": "2017-12-01",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+    ],
+    "properties": {
+        "publisher": "Microsoft.Powershell",
+        "type": "DSC",
+        "typeHandlerVersion": "2.75",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+            "protectedSettings": {
+            "Items": {
+                        "registrationKeyPrivate": "registrationKey"
+            }
+            },
+            "publicSettings": {
+                "configurationArguments": [
+                    {
+                        "Name": "RegistrationKey",
+                        "Value": {
+                            "UserName": "PLACEHOLDER_DONOTUSE",
+                            "Password": "PrivateSettingsRef:registrationKeyPrivate"
                         },
-                        "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                        "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+                    },
+                    {
+                        "RegistrationUrl" : "registrationUrl",
+                    },
+                    {
+                        "NodeConfigurationName" : "nodeConfigurationName"
                     }
+                ]
+            }
+        },
+    }
+}
 ```
 
 ## <a name="template-example-for-windows-virtual-machine-scale-sets"></a>Şablon örneği Windows sanal makine ölçek için ayarlar
 
-Bir sanal makine ölçek kümesi düğüm bir **özellikleri** sahip bölüm bir **VirtualMachineProfile, extensionProfile** özniteliği. Altında **uzantıları**, DSC ekleyin.
+Bir sanal makine ölçek kümesi düğüm bir **özellikleri** sahip bölüm bir **VirtualMachineProfile, extensionProfile** özniteliği.
+Altında **uzantıları**, DSC uzantısı ayrıntıları ekleyin.
 
-DSC uzantı varsayılan uzantısı özellikleri devralır. Daha fazla bilgi için bkz: [VirtualMachineScaleSetExtension sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
+DSC uzantı varsayılan uzantısı özellikleri devralır.
+Daha fazla bilgi için bkz: [VirtualMachineScaleSetExtension sınıfı](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.compute.models.virtualmachinescalesetextension?view=azure-dotnet).
 
 ```json
 "extensionProfile": {
-            "extensions": [
-                {
-                    "name": "Microsoft.Powershell.DSC",
-                    "properties": {
-                        "publisher": "Microsoft.Powershell",
-                        "type": "DSC",
-                        "typeHandlerVersion": "2.72",
-                        "autoUpgradeMinorVersion": true,
-                        "forceUpdateTag": "[parameters('DscExtensionUpdateTagVersion')]",
-                        "settings": {
-                            "configurationArguments": {
-                                {
-                                    "Name": "RegistrationKey",
-                                    "Value": {
-                                        "UserName": "PLACEHOLDER_DONOTUSE",
-                                        "Password": "PrivateSettingsRef:registrationKeyPrivate"
-                                    },
-                                },
-                                "RegistrationUrl" : "[parameters('registrationUrl1')]",
-                                "NodeConfigurationName" : "nodeConfigurationNameValue1"
-                        }
-                        },
-                        "protectedSettings": {
-                            "Items": {
-                                        "registrationKeyPrivate": "[parameters('registrationKey1']"
-                                    }
-                        }
+    "extensions": [
+        {
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(parameters('VMName'),'/Microsoft.Powershell.DSC')]",
+            "apiVersion": "2017-12-01",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[concat('Microsoft.Compute/virtualMachines/', parameters('VMName'))]"
+            ],
+            "properties": {
+                "publisher": "Microsoft.Powershell",
+                "type": "DSC",
+                "typeHandlerVersion": "2.75",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "protectedSettings": {
+                    "Items": {
+                                "registrationKeyPrivate": "registrationKey"
                     }
-                ]
+                    },
+                    "publicSettings": {
+                        "configurationArguments": [
+                            {
+                                "Name": "RegistrationKey",
+                                "Value": {
+                                    "UserName": "PLACEHOLDER_DONOTUSE",
+                                    "Password": "PrivateSettingsRef:registrationKeyPrivate"
+                                },
+                            },
+                            {
+                                "RegistrationUrl" : "registrationUrl",
+                            },
+                            {
+                                "NodeConfigurationName" : "nodeConfigurationName"
+                            }
+                        ]
+                    }
+                },
             }
         }
+    ]
+}
 ```
 
 ## <a name="detailed-settings-information"></a>Ayrıntılı ayarları bilgileri
@@ -175,7 +197,8 @@ Varsayılan yapılandırma komut dosyası için kullanılabilir olan bağımsız
 
 ## <a name="default-configuration-script"></a>Varsayılan yapılandırma betiği
 
-Aşağıdaki değerleri hakkında daha fazla bilgi için bkz: [yerel Configuration Manager temel ayarları](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings). DSC uzantı varsayılan yapılandırma komut dosyası aşağıdaki tabloda listelenen LCM'yi özelliklerini yapılandırmak için kullanabilirsiniz.
+Aşağıdaki değerleri hakkında daha fazla bilgi için bkz: [yerel Configuration Manager temel ayarları](https://docs.microsoft.com/en-us/powershell/dsc/metaconfig#basic-settings).
+DSC uzantı varsayılan yapılandırma komut dosyası aşağıdaki tabloda listelenen LCM'yi özelliklerini yapılandırmak için kullanabilirsiniz.
 
 | Özellik adı | Tür | Açıklama |
 | --- | --- | --- |
@@ -191,7 +214,10 @@ Aşağıdaki değerleri hakkında daha fazla bilgi için bkz: [yerel Configurati
 
 ## <a name="settings-vs-protectedsettings"></a>Ayarları vs. ProtectedSettings
 
-Tüm ayarlar, VM'de ayarlarını metin dosyasına kaydedilir. Altında listelenen özellikler **ayarları** ortak özelliklerdir. Ortak Özellikler ayarlarını metin dosyasına şifreli değildir. Altında listelenen özellikler **protectedSettings** bir sertifika ile şifrelenir ve düz metin ayarları dosyası VM'de olarak gösterilmez.
+Tüm ayarlar, VM'de ayarlarını metin dosyasına kaydedilir.
+Altında listelenen özellikler **ayarları** ortak özelliklerdir.
+Ortak Özellikler ayarlarını metin dosyasına şifreli değildir.
+Altında listelenen özellikler **protectedSettings** bir sertifika ile şifrelenir ve düz metin ayarları dosyası VM'de olarak gösterilmez.
 
 Yapılandırma kimlik bilgileri gerektiriyorsa, kimlik bilgileri içerebilir **protectedSettings**:
 
@@ -208,7 +234,9 @@ Yapılandırma kimlik bilgileri gerektiriyorsa, kimlik bilgileri içerebilir **p
 
 ## <a name="example-configuration-script"></a>Örnek yapılandırma betiği
 
-Aşağıdaki örnek LCM'yi için meta veri ayarları sağlayın ve Automation DSC hizmete kaydolmak DSC uzantısı için varsayılan davranış gösterir. Yapılandırma bağımsız değişkenler zorunludur.  Yapılandırma değişkenleri LCM'yi meta verileri ayarlamak için varsayılan yapılandırma betiği geçirilir.
+Aşağıdaki örnek LCM'yi için meta veri ayarları sağlayın ve Automation DSC hizmete kaydolmak DSC uzantısı için varsayılan davranış gösterir.
+Yapılandırma bağımsız değişkenler zorunludur.
+Yapılandırma değişkenleri LCM'yi meta verileri ayarlamak için varsayılan yapılandırma betiği geçirilir.
 
 ```json
 "settings": {
@@ -233,7 +261,10 @@ Aşağıdaki örnek LCM'yi için meta veri ayarları sağlayın ve Automation DS
 
 ## <a name="example-using-the-configuration-script-in-azure-storage"></a>Yapılandırma komut dosyası Azure depolama alanında kullanan örnek
 
-Aşağıdaki örnek kaynaklı [DSC uzantısı işleyici genel bakış](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Bu örnek uzantısını dağıtmak için cmdlet'leri yerine Resource Manager şablonları kullanır. IisInstall.ps1 yapılandırmasını kaydetmek, bir .zip dosyasına yerleştirin ve erişilebilir bir URL dosyayı karşıya yükleyin. Bu örnek, Azure Blob Depolama kullanır, ancak herhangi bir rastgele konumdan .zip dosyalarını indirebilirsiniz.
+Aşağıdaki örnek kaynaklı [DSC uzantısı işleyici genel bakış](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Bu örnek uzantısını dağıtmak için cmdlet'leri yerine Resource Manager şablonları kullanır.
+IisInstall.ps1 yapılandırmasını kaydetmek, bir .zip dosyasına yerleştirin ve erişilebilir bir URL dosyayı karşıya yükleyin.
+Bu örnek, Azure Blob Depolama kullanır, ancak herhangi bir rastgele konumdan .zip dosyalarını indirebilirsiniz.
 
 Resource Manager şablonu VM doğru dosyasını indirin ve ardından uygun PowerShell işlevi çalıştırmak için aşağıdaki kodu bildirir:
 
@@ -252,7 +283,8 @@ Resource Manager şablonu VM doğru dosyasını indirin ve ardından uygun Power
 
 ## <a name="update-from-a-previous-format"></a>Önceki bir biçimden güncelleştir
 
-Uzantısı'nın önceki bir biçimde herhangi bir ayarı (ve ortak özellikleri olan **ModulesUrl**, **ConfigurationFunction**, **SasToken**, veya  **Özellikler**) uzantısı geçerli biçimine otomatik olarak uyum. Bunlar yalnızca bunlar önce yaptığınız gibi çalıştırın.
+Uzantısı'nın önceki bir biçimde herhangi bir ayarı (ve ortak özellikleri olan **ModulesUrl**, **ConfigurationFunction**, **SasToken**, veya  **Özellikler**) uzantısı geçerli biçimine otomatik olarak uyum.
+Bunlar yalnızca bunlar önce yaptığınız gibi çalıştırın.
 
 Aşağıdaki şema gibi Aranan hangi önceki ayarları şeması gösterir:
 
@@ -302,7 +334,9 @@ Aşağıdaki şema gibi Aranan hangi önceki ayarları şeması gösterir:
 
 ## <a name="troubleshooting---error-code-1100"></a>Sorun giderme - 1100 hata kodu
 
-Hata kodu 1100 DSC uzantısı için kullanıcı girişi ile ilgili bir sorun gösterir. Bu hataların metin değişir ve değişebilir. İçine çalışabilir hataları bazıları aşağıda verilmiştir ve bunları nasıl düzeltebilirsiniz.
+Hata kodu 1100 DSC uzantısı için kullanıcı girişi ile ilgili bir sorun gösterir.
+Bu hataların metin değişir ve değişebilir.
+İçine çalışabilir hataları bazıları aşağıda verilmiştir ve bunları nasıl düzeltebilirsiniz.
 
 ### <a name="invalid-values"></a>Geçersiz değerler
 
@@ -313,7 +347,8 @@ Yalnızca olası değerler şunlardır:... ve 'Son' ".
 
 **Sorun**: sağlanan değer verilmez.
 
-**Çözüm**: geçersiz değer geçerli bir değerle değiştirin. Daha fazla bilgi için bölümündeki tabloya bakın [ayrıntıları](#details).
+**Çözüm**: geçersiz değer geçerli bir değerle değiştirin.
+Daha fazla bilgi için bölümündeki tabloya bakın [ayrıntıları](#details).
 
 ### <a name="invalid-url"></a>Geçersiz URL
 
@@ -321,7 +356,8 @@ Yalnızca olası değerler şunlardır:... ve 'Son' ".
 
 **Sorun**: A sağlanan URL geçerli değil.
 
-**Çözüm**: tüm sağlanan URL'leri denetleyin. Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözmek emin olun.
+**Çözüm**: tüm sağlanan URL'leri denetleyin.
+Tüm URL'leri uzantısı uzak makinede erişebilmesini geçerli konumlara çözmek emin olun.
 
 ### <a name="invalid-configurationargument-type"></a>Geçersiz ConfigurationArgument türü
 
@@ -329,7 +365,8 @@ Yalnızca olası değerler şunlardır:... ve 'Son' ".
 
 **Sorun**: *ConfigurationArguments* olamaz özelliğini çözümlemek için bir **Hashtable** nesnesi.
 
-**Çözüm**: olun, *ConfigurationArguments* özelliği bir **Hashtable**. Önceki örnekte sağlanan biçimi izler. Tırnak işareti, virgül ve küme ayraçları izleyin.
+**Çözüm**: olun, *ConfigurationArguments* özelliği bir **Hashtable**.
+Önceki örnekte sağlanan biçimi izler. Tırnak işareti, virgül ve küme ayraçları izleyin.
 
 ### <a name="duplicate-configurationarguments"></a>Yinelenen ConfigurationArguments
 

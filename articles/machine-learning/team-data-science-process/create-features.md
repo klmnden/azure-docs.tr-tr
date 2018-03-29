@@ -1,8 +1,8 @@
 ---
-title: "Özellik Mühendisliği veri bilimi | Microsoft Docs"
-description: "Özellik Mühendisliği amaçları açıklar ve makine öğrenme veri geliştirme işleminde rolü örnekleri sağlar."
+title: Özellik Mühendisliği veri bilimi | Microsoft Docs
+description: Özellik Mühendisliği amaçları açıklar ve makine öğrenme veri geliştirme işleminde rolü örnekleri sağlar.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: zhangya;bradsev
-ms.openlocfilehash: 72a412c08e57491a306f405f400665e2b0d25a3c
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.author: bradsev
+ms.openlocfilehash: 70a78659bc14ce5ff9358ed11ad0af68be31bd17
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="feature-engineering-in-data-science"></a>Veri bilimi özellik Mühendisliği
 Bu makalede özellik Mühendisliği amaçları açıklar ve makine öğrenme veri geliştirme işleminde rolü örnekleri sağlar. Bu işlem göstermek için kullanılan örnekler, Azure Machine Learning Studio'dan çizilir. 
@@ -70,7 +70,7 @@ Performans Sonuçları dört modellerin karşılaştırması aşağıdaki tablod
 
 En iyi sonuçlar özellikleri tarafından A + B + C gösterilmektedir. Hata oranı ne zaman azaltır Not ek özellik kümesi eğitim verileri dahil edilir. Özellik kümesi B, C regresyon görev için ek ilgili bilgiler sağlayan presumption doğrular. Ancak herhangi bir ek azaltma hata oranı sağlamak için D özellik ekleme görünmüyor.
 
-## <a name="example2"></a>Örnek 2: özellikleri metin araştırma oluşturma
+## <a name="example2"></a> Örnek 2: özellikleri metin araştırma oluşturma
 Özellik Mühendisliği belge sınıflandırma ve düşünceleri analiz gibi metin araştırma ilgili görevler yaygın olarak uygulanır. Çeşitli kategorilerde belgeleri sınıflandırmak istediğiniz zaman, örneğin, bir tipik bir belge kategorisindeki word/tümcecikleri başka bir belge kategorisinde ortaya olasılığı daha düşüktür varsayılır. Diğer bir deyişle, sözcük/tümcecikleri dağıtım sıklığını farklı Belge kategorileri niteleyen yapabiliyor. Metin içeriği tek tek parçaları genellikle girdi verisi olarak gördükleri için metin araştırma uygulamalarda sözcük/tümcecik sıklıklarını içeren özellikler oluşturmak için işlem mühendislik özelliği gereklidir.
 
 Bu görev elde etmek için bir yöntem olarak adlandırılan **özellik karma** verimli bir şekilde dizinlerini rastgele metin özellikleri etkinleştirmek için uygulanır. Bu yöntem işlevleri özellikleri karma işlevi uygulayarak ve karma değerlerini dizinlerini doğrudan kullanarak belirli bir dizin için her metin özelliği (sözcükler/tümceleri) ilişkilendirme yerine.

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: RHEL VM yönetilen bir etki alanına katılın. | Microsoft Docs"
-description: "Red Hat Enterprise Linux sanal makinesini Azure AD Etki Alanı Hizmetleri'ne ekleme"
+title: 'Azure Active Directory etki alanı Hizmetleri: RHEL VM yönetilen bir etki alanına katılın. | Microsoft Docs'
+description: Red Hat Enterprise Linux sanal makinesini Azure AD Etki Alanı Hizmetleri'ne ekleme
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: maheshu
-ms.openlocfilehash: 9046bdb5bd8ff21429c951cbe7120334bd000621
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: b278f5c4c8c87590205aca13a50a82fe8712d909
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede bir Red Hat Enterprise Linux (RHEL) 7 sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -34,7 +34,7 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Red Hat Enterprise Linux sanal makine sağlama
 Aşağıdaki yöntemlerden birini kullanarak azure'da bir RHEL 7 sanal makine sağlama:
-* [Azure portalı](../virtual-machines/linux/quick-create-portal.md)
+* [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -133,7 +133,7 @@ Makine için yönetilen etki alanı başarıyla katıldı olup olmadığını do
 
 
 ## <a name="troubleshooting-domain-join"></a>Sorun giderme etki alanına katılma
-Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshooting-domain-join) makalesi.
+Başvurmak [sorun giderme etki alanına katılma](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) makalesi.
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)

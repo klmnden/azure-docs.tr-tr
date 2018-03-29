@@ -8,11 +8,11 @@ ms.topic: include file for PowerShell for Azure DNS
 ms.date: 03/21/2018
 ms.author: subsarma
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: e96b312f03069256396261bd6efe2f2586cdadea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1ddfd1ae8dffbc5d381773ea9679713e93a44a32
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>Azure DNS için Azure PowerShell ayarlayın
 
@@ -27,7 +27,17 @@ Ayrıca, özel bölgeler (genel Önizleme) kullanmak için aşağıdaki PowerShe
 * AzureRM.Dns - [sürüm 4.1.0'da](https://www.powershellgallery.com/packages/AzureRM.Dns/4.1.0) veya üstü
 * AzureRM.Network - [sürüm 5.4.0](https://www.powershellgallery.com/packages/AzureRM.Network/5.4.0) veya üstü
 
-PowerShell Galerisi'nden yukarıdaki modülleri yukarıda modül sürümleri yanındaki bağlantıları kullanarak yükleyebilirsiniz. Daha sonra bunları yükleyebilirsiniz kullanarak aşağıdaki komutları. Her iki modülleri gereklidir ve tam olarak geriye dönük olarak uyumludur. 
+```powershell 
+Find-Module -Name AzureRM.Dns 
+``` 
+ 
+```powershell 
+Find-Module -Name AzureRM.Network 
+``` 
+ 
+Yukarıdaki komutların çıktısı AzureRM.Dns sürümü 4.1.0'da veya daha yüksek bir sürüm ve AzureRM.Network için 5.4.0 ya da daha yüksek bir sürümü olduğunu göstermek gerekir.  
+
+Sisteminizin önceki sürümlere sahip olmaması durumunda, ya da Azure PowerShell'in en son sürümünü yükleyin veya yükleyip yukarıdaki modüllerini PowerShell Galerisi'nden modül sürümleri yanındaki yukarıda bağlantıları kullanarak. Daha sonra bunları yükleyebilirsiniz kullanarak aşağıdaki komutları. Her iki modülleri gereklidir ve tam olarak geriye dönük olarak uyumludur. 
 
 ```powershell
 Install-Module -Name AzureRM.Dns -Force

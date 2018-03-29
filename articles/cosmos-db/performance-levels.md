@@ -1,11 +1,11 @@
 ---
-title: "Kullanımdan Azure Cosmos DB performans düzeyleri | Microsoft Docs"
-description: "Daha önce Azure Cosmos DB'de kullanılabilir S1, S2 ve S3 performans düzeyleri hakkında bilgi edinin."
+title: Kullanımdan Azure Cosmos DB performans düzeyleri | Microsoft Docs
+description: Daha önce Azure Cosmos DB'de kullanılabilir S1, S2 ve S3 performans düzeyleri hakkında bilgi edinin.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7dc21c71-47e2-4e06-aa21-e84af52866f4
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cab6297e45dc7a14826d7bb10cf22a8a300355f
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 62ef3c8988b0f11d6d8bcb69080f4e1b98a44641
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 ve S3 performans düzeyleri devre dışı bırakma
 
 > [!IMPORTANT] 
 > Bu makalede açıklanan S1, S2 ve S3 performans düzeyleri kullanımdan kaldırılacak ve artık yeni Azure Cosmos DB hesapları için kullanılabilir.
 >
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Bu makalede, S1, S2 ve S3 performans düzeyleri genel bir bakış sağlar ve geç 2017 içinde nasıl bu performans düzeyleri kullanmak koleksiyonlar için tek bölüm koleksiyonları geçirilecek açıklanır. Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
 

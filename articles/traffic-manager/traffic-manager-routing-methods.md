@@ -1,11 +1,11 @@
 ---
-title: "Azure Traffic Manager - trafik yönlendirme yöntemleri | Microsoft Docs"
-description: "Bu trafik Yöneticisi tarafından kullanılan farklı trafik yönlendirme yöntemleri anlamanıza yardımcı makaleler"
+title: Azure Traffic Manager - trafik yönlendirme yöntemleri | Microsoft Docs
+description: Bu trafik Yöneticisi tarafından kullanılan farklı trafik yönlendirme yöntemleri anlamanıza yardımcı makaleler
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: KumudD
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
 ms.service: traffic-manager
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9bd9b4913e38ed5c1f7f4ec8ee7e3210fa3be8f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager yönlendirme yöntemleri
 
@@ -50,7 +50,7 @@ Azure Resource Manager ile açıkça her uç noktası için 'priority' özelliğ
 
 ![Azure trafik Yöneticisi 'Ağırlıklı' trafik yönlendirme yöntemi][2]
 
-Ağırlıklı trafik yönlendirme yöntemini, her uç nokta Traffic Manager profili yapılandırması için bir ağırlık atayın. Ağırlık 1000 ile 1 arasında bir tamsayı değil. Bu parametre isteğe bağlıdır. Belirtilmezse, trafiği yöneticileri varsayılan ağırlık '1' olarak kullanır.
+Ağırlıklı trafik yönlendirme yöntemini, her uç nokta Traffic Manager profili yapılandırması için bir ağırlık atayın. Ağırlık 1000 ile 1 arasında bir tamsayı değil. Bu parametre isteğe bağlıdır. Belirtilmezse, trafiği yöneticileri varsayılan ağırlık '1' olarak kullanır. Daha yüksek ağırlık, öncelik o kadar yüksektir.
 
 Alınan her DNS sorgusu için trafik Yöneticisi kullanılabilir uç nokta rastgele seçer. Bir uç noktasını olasılığını tüm kullanılabilir uç noktaları için atanan ağırlığı temel alır. Hatta trafik dağılımı tüm uç noktaları sonuçlarında arasında aynı ağırlıkta kullanma. Daha yüksek veya düşük ağırlıkları üzerinde belirli uç noktalarını kullanarak DNS yanıtları fazla veya az sık döndürülecek Bu uç neden olur.
 

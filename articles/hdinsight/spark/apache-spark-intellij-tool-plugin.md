@@ -1,8 +1,8 @@
 ---
-title: "Intellij için Azure Araç Seti: Spark Hdınsight kümesi için uygulama oluşturma | Microsoft Docs"
-description: "Spark Scala içinde yazılmış uygulamalar geliştirmek için Azure Araç Seti Intellij için kullanın ve bunları bir Hdınsight Spark kümesi gönderin."
+title: 'Intellij için Azure Araç Seti: Spark Hdınsight kümesi için uygulama oluşturma | Microsoft Docs'
+description: Spark Scala içinde yazılmış uygulamalar geliştirmek için Azure Araç Seti Intellij için kullanın ve bunları bir Hdınsight Spark kümesi gönderin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2017
 ms.author: maxluk,jejiang
-ms.openlocfilehash: 69f5857f89271b3e4865b93e42e5233ead572715
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 2ebf87b0436dbc5ee12a1c41d33ff3d17af1f043
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Intellij için Azure Araç Seti Spark Hdınsight kümesi için uygulamalar oluşturmak için kullanın
 
@@ -44,6 +44,10 @@ Projenizi oluşturmak için görüntülemek [Intellij için Azure araç seti ile
 
 ## <a name="install-azure-toolkit-for-intellij"></a>Intellij için Azure Araç Seti yükleyin
 Yükleme yönergeleri için bkz: [Intellij için Azure Araç Seti yüklemek](https://docs.microsoft.com/azure/azure-toolkit-for-intellij-installation).
+
+## <a name="get-started"></a>Başlarken
+Kullanıcı olabilir ya da [Azure aboneliğine oturum](#sign-in-to-your-azure-subscription), veya [bir Hdınsight kümesi bağlantı](#link-a-cluster) Ambari kullanarak kullanıcı adı/parola veya etki alanına katılmış başlatmak için kimlik bilgisi.
+
 
 ## <a name="sign-in-to-your-azure-subscription"></a>Azure aboneliğinizde oturum açın
 
@@ -75,12 +79,14 @@ Yönetilen Ambari kullanıcı adı kullanarak normal bir küme bağlama, ayrıca
 
    ![bağlantı küme bağlam menüsü](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. Girin **küme adı**, **depolama hesabı**, **depolama anahtarı**, bir kapsayıcı seçin **depolama kapsayıcısı**, en son olarak, kullanıcı adı girin ve parolası. Kullanıcı adı ve parola denetlemek gereken kimlik doğrulama hatası alır.
+2. Girin **küme adı**, **kullanıcı adı** ve **parola**. Kullanıcı adı ve parola kimlik doğrulama hatası geldiyseniz denetlemeniz gerekir. İsteğe bağlı olarak, depolama hesabı, depolama anahtarı ekleyin ve sonra depolama kapsayıcıdan bir kapsayıcı seçin. Depolama Gezgini sol ağacında depolama bilgi içindir
    
    ![bağlantı küme iletişim](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
    > [!NOTE]
-   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın. 
+   > Küme hem Azure aboneliğinizde oturum ve bir kümeye bağlı bağlantılı depolama anahtarı, kullanıcı adı ve parola kullanın.
+   > ![Depolama Gezgini'nde Intellij](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
+
    
 3. Bir bağlı kümede görebilirsiniz **Hdınsight** giriş bilgilerin doğru olup olmadığını düğümü. Şimdi bu bağlantılı küme uygulamaya gönderebilirsiniz.
 

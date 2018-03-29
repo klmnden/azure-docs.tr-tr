@@ -248,6 +248,9 @@
     - name: IoT Hub’ı
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
+    - name: IoT Hub Cihazı Sağlama Hizmeti
+      tocHref: /azure/iot-dps/
+      topicHref: /azure/iot-dps/
     - name: IoT Paketi
       tocHref: /azure/iot-suite/
       topicHref: /azure/iot-suite/

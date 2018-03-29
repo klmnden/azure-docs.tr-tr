@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Lake ile ölçeklenebilir veri bilimi: bir uçtan uca kılavuz | Microsoft Docs"
-description: "Azure Data Lake bir veri kümesi üzerinde veri keşfi ve ikili sınıflandırma görevleri gerçekleştirmek için nasıl kullanılacağını."
+title: 'Azure Data Lake ile ölçeklenebilir veri bilimi: bir uçtan uca kılavuz | Microsoft Docs'
+description: Azure Data Lake bir veri kümesi üzerinde veri keşfi ve ikili sınıflandırma görevleri gerçekleştirmek için nasıl kullanılacağını.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: bradsev; weig
-ms.openlocfilehash: b18b454d1fcdfb2b6e8ea77508f779aeabdc87a0
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.author: bradsev
+ms.openlocfilehash: 6d0f889e1cc76eced172d66755a0a9275e6b7bdf
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake ile ölçeklenebilir veri bilimi: bir uçtan uca gözden geçirme
 Bu kılavuzda Azure Data Lake veri keşfi ve ikili sınıflandırma görevleri NYC ücreti seyahat örneği üzerinde yapın ve bir ipucu tarafından ücreti ödenen olsun veya olmasın tahmin etmek için veri kümesi masrafları için nasıl kullanılacağını gösterir. Adımlarda size yol gösterir [takım veri bilimi işlemi](http://aka.ms/datascienceprocess), uçtan uca, eğitim modeli için veri alma ve sonra model yayımlayan bir web hizmeti dağıtımına.
@@ -149,7 +149,7 @@ U-SQL, açık Visual Studio yürütmek için tıklatın **Dosya--> Yeni Proje-->
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
 ### <a name="ingest"></a>Veri alımı: ortak blob verileri okuyun
-Azure blob verileri konumu olarak başvurulur  **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name**  ve kullanarak ayıklanabilir **Extractors.Csv()**. Kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut yerine container_name@blob_storage_account_name wasb adresi. Dosya adları aynı biçimde olduğundan, kullanmak mümkün **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için. 
+Azure blob verileri konumu olarak başvurulur **wasb://container_name@blob_storage_account_name.blob.core.windows.net/blob_name** ve kullanarak ayıklanabilir **Extractors.Csv()**. Kendi kapsayıcı adı ve depolama hesabı adı için aşağıdaki komut yerine container_name@blob_storage_account_name wasb adresi. Dosya adları aynı biçimde olduğundan, kullanmak mümkün **seyahat\_veri_ {\*\}.csv** tüm 12 seyahat dosyaları okumak için. 
 
     ///Read in Trip data
     @trip0 =
@@ -562,7 +562,7 @@ Makine, oluşturulduktan sonra model öğrenimi faaliyete istiyorsunuz. İkili L
 
 * Çalışma alanı kimlik bilgileriniz Azure ML studio ayarlarından bulun. Azure Machine Learning Studio'da tıklatın **ayarları** --> **adı** --> **yetkilendirme belirteçleri**. 
   
-    ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'

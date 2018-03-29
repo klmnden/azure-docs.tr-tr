@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulamayı bir Azure sanal makine ölçek kümesini dağıtma | Microsoft Docs"
-description: "Ölçek kümesindeki sanal makine örnekleri Linux ve Windows uygulamaları dağıtmayı öğrenin"
+title: Bir uygulamayı bir Azure sanal makine ölçek kümesini dağıtma | Microsoft Docs
+description: Ölçek kümesindeki sanal makine örnekleri Linux ve Windows uygulamaları dağıtmayı öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 288bcdf6628f60d0b08fe151e630784d665db56f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cadd0f4c07b7e8adec4956543f67313aa8442da3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri, uygulamanızda dağıtma
 Ölçek kümesindeki sanal makine (VM) örneklerinde uygulamalarını çalıştırmak için önce gerekli dosyaları ve uygulama bileşenleri yüklemeniz gerekir. Bu makalede bir ölçek durumlarda ayarlayın ya da var olan VM örneklerini otomatik olarak yükleme betikleri çalıştırmak için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca uygulama veya işletim sistemi güncelleştirmelerini ölçek kümesi boyunca yönetmeyi öğrenin.
@@ -28,94 +28,17 @@ ms.lasthandoff: 02/01/2018
 ## <a name="build-a-custom-vm-image"></a>Özel bir VM görüntüsü oluşturma
 Azure platformu görüntülerden birini ölçek kümesinde örnekleri oluşturmak için kullandığınızda, başka bir yazılım yüklenmedi veya yapılandırılmadı. Bu bileşenlerin yüklenmesi ancak ölçek kümesi VM örnekleri sağlamak için gereken süreyi ekleyen otomatikleştirebilirsiniz. VM örnekleri için birçok yapılandırma değişiklikleri uygularsanız, yönetim ek yükü ile bu yapılandırma komut dosyaları ve görevleri yoktur.
 
-Yapılandırma yönetimi ve bir VM sağlayacak süresini azaltmak için bir örnek sağlanan hemen sonra uygulamanızın ölçek kümesinde çalıştırılmaya hazır özel bir VM görüntüsü oluşturabilirsiniz. Ölçek için özel bir VM görüntüsü kümesi örnekleri oluşturmak için genel işlem aşağıdaki gibidir:
+Yapılandırma yönetimi ve bir VM sağlayacak süresini azaltmak için bir örnek sağlanan hemen sonra uygulamanızın ölçek kümesinde çalıştırılmaya hazır özel bir VM görüntüsü oluşturabilirsiniz. Oluşturma ve özel bir VM görüntüsü ölçek ile kullanma hakkında daha fazla bilgi için aşağıdaki öğreticiler bakın:
 
-1. Özel bir VM görüntüsü için ölçek kümesi örnekleri oluşturmak için oluşturmak ve bir VM için oturum açma sonra yükleyin ve uygulamayı yapılandırın. Packer tanımlamak ve oluşturmak için kullanabileceğiniz bir [Linux](../virtual-machines/linux/build-image-with-packer.md) veya [Windows](../virtual-machines/windows/build-image-with-packer.md) VM görüntüsü. Veya el ile oluşturun ve VM yapılandırın:
-
-    - Bir Linux VM oluşturma [Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md), [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md), veya [portal](../virtual-machines/linux/quick-create-portal.md).
-    - Bir Windows VM ile oluşturma [Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md), [Azure CLI 2.0](../virtual-machines/windows/quick-create-cli.md), veya [portal](../virtual-machines/windows/quick-create-portal.md).
-    - Oturum bir [Linux](../virtual-machines/linux/mac-create-ssh-keys.md#use-the-ssh-key-pair) veya [Windows](../virtual-machines/windows/connect-logon.md) VM.
-    - Yükleyin ve gereken araçları ve uygulamalarını yapılandırın. Bir kitaplık veya çalışma zamanı belirli sürümlerini gerekiyorsa, özel bir VM görüntüsü, bir sürüm tanımlamanıza olanak sağlar ve 
-
-2. VM ile yakalama [Azure CLI 2.0](../virtual-machines/linux/capture-image.md) veya [Azure PowerShell](../virtual-machines/windows/capture-image.md). Bu adım bir ölçek kümesindeki örnekleri dağıtmak için kullanılan özel VM görüntüsü oluşturur.
-
-3. [Bir ölçek kümesi oluşturma](virtual-machine-scale-sets-create.md) ve önceki adımlarda oluşturduğunuz özel VM görüntüsü belirtin.
+- [Azure CLI 2.0](tutorial-use-custom-image-cli.md)
+- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Uygulama özel betik uzantısı ile yükleme
-Özel betik uzantısının indirir ve Azure Vm'lerinde komut dosyaları çalıştırılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir.
+Özel Betik Uzantısı, Azure VM’lerinde betik indirir ve yürütür. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir. Oluşturma ve özel bir VM görüntüsü ölçek ile kullanma hakkında daha fazla bilgi için aşağıdaki öğreticiler bakın:
 
-Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir. 
-
-Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](../virtual-machines/windows/extensions-customscript.md).
-
-
-### <a name="use-azure-powershell"></a>Azure PowerShell kullanma
-PowerShell indirmek için dosyayı depolamak için karma tablo ve yürütülecek komut kullanır. Aşağıdaki örnek:
-
-- Bir komut dosyası Github'dan - indirmek için VM örnekleri bildirir *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
-- Bir yükleme komut dosyasını çalıştırmak için uzantı ayarlar-`powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
-- Bir ölçek kümesi hakkındaki bilgileri alır [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
-- VM örnekleriyle uzantısı uygulandığı [güncelleştirme AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
-
-Özel betik uzantısının uygulandığı *myScaleSet* adlı kaynak grubunu VM örnekleri *myResourceGroup*. Aşağıdaki gibi kendi adlarınızı girin:
-
-```powershell
-# Define the script for your Custom Script Extension to run
-$customConfig = @{
-    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
-    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
-}
-
-# Get information about the scale set
-$vmss = Get-AzureRmVmss `
-                -ResourceGroupName "myResourceGroup" `
-                -VMScaleSetName "myScaleSet"
-
-# Add the Custom Script Extension to install IIS and configure basic website
-$vmss = Add-AzureRmVmssExtension `
-    -VirtualMachineScaleSet $vmss `
-    -Name "customScript" `
-    -Publisher "Microsoft.Compute" `
-    -Type "CustomScriptExtension" `
-    -TypeHandlerVersion 1.8 `
-    -Setting $customConfig
-
-# Update the scale set and apply the Custom Script Extension to the VM instances
-Update-AzureRmVmss `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myScaleSet" `
-    -VirtualMachineScaleSet $vmss
-```
-
-Ölçek kümesindeki yükseltme ilkesi ise *el ile*, VM örnekleriyle güncelleştirme [güncelleştirme AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance). Bu cmdlet, güncelleştirilmiş ölçek kümesi yapılandırması VM örnekleri için geçerlidir ve uygulamanızı yükler.
-
-
-### <a name="use-azure-cli-20"></a>Azure CLI 2.0 kullanın
-Özel betik uzantısının Azure CLI ile kullanmak için hangi almak için dosyaları ve yürütülecek komut tanımlayan bir JSON dosyası oluşturun. Bu JSON tanımları tutarlı uygulama yüklemelerini uygulamak için ölçek kümesi dağıtımlar arasında yeniden kullanılabilir.
-
-Geçerli kabuğunuzu adlı bir dosya oluşturun *customConfig.json* ve aşağıdaki yapılandırma yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. İstediğiniz herhangi bir düzenleyicisini kullanabilirsiniz. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloudConfig.json` adını girin.
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-Ölçek kümesi VM örnekleri özel betik uzantısı yapılandırma uygulamak [az vmss uzantı kümesi](/cli/azure/vmss/extension#az_vmss_extension_set). Aşağıdaki örnek uygular *customConfig.json* yapılandırmasına *myScaleSet* adlı kaynak grubunu VM örnekleri *myResourceGroup*. Aşağıdaki gibi kendi adlarınızı girin:
-
-```azurecli
-az vmss extension set \
-    --publisher Microsoft.Azure.Extensions \
-    --version 2.0 \
-    --name CustomScript \
-    --resource-group myResourceGroup \
-    --vmss-name myScaleSet \
-    --settings @customConfig.json
-```
-
-Ölçek kümesindeki yükseltme ilkesi ise *el ile*, VM örnekleriyle güncelleştirme [az vmss güncelleştirme-örnekleri](/cli/azure/vmss#update-instances). Bu cmdlet, güncelleştirilmiş ölçek kümesi yapılandırması VM örnekleri için geçerlidir ve uygulamanızı yükler.
+- [Azure CLI 2.0](tutorial-install-apps-cli.md)
+- [Azure PowerShell](tutorial-install-apps-powershell.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Bir Windows PowerShell DSC ile VM uygulama yükleme
@@ -123,8 +46,8 @@ az vmss extension set \
 
 PowerShell DSC uzantısı ölçeği PowerShell ile Ayarla VM örnekleri özelleştirmenizi sağlar. Aşağıdaki örnek:
 
-- Github'dan - DSC paketini indirmek için VM örnekleri bildirir *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
-- Bir yükleme komut dosyasını çalıştırmak için uzantı ayarlar-`configure-http.ps1`
+- Github'dan DSC paketini indirmek için VM örnekleri bildirir- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Bir yükleme komut dosyasını çalıştırmak için uzantı ayarlar- `configure-http.ps1`
 - Bir ölçek kümesi hakkındaki bilgileri alır [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss)
 - VM örnekleriyle uzantısı uygulandığı [güncelleştirme AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)
 
@@ -135,7 +58,7 @@ DSC uzantı uygulandığı *myScaleSet* adlı kaynak grubunu VM örnekleri *myRe
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
+    "url" = "https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
@@ -168,7 +91,7 @@ Update-AzureRmVmss `
 ## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Bir Linux VM bulut init ile uygulama yükleme
 [Cloud-init](https://cloudinit.readthedocs.io/latest/), Linux VM’sini ilk kez önyüklendiğinde özelleştirmeyi sağlayan, sık kullanılan bir yaklaşımdır. cloud-init’i paket yükleme, dosyalara yazma ve kullanıcılar ile güvenliği yapılandırma işlemleri için kullanabilirsiniz. cloud-init önyükleme işlemi sırasında çalışırken, yapılandırmanıza uygulayabileceğiniz ek adım veya gerekli aracı yoktur.
 
-Bulut init dağıtımları üzerinde de çalışır. Örneğin, kullanmadığınız **get apt yükleme** veya **yum yükleme** bir paketi yüklemek için. Bunun yerine, yüklemek için paketlerin listesini tanımlayabilirsiniz. Bulut init otomatik olarak seçtiğiniz distro için yerel paket Yönetim Aracı'nı kullanır.
+Cloud-init, dağıtımlar arasında da çalışır. Örneğin, bir paket yüklemek için **apt-get install** veya **yum install** kullanmazsınız. Bunun yerine, yüklenecek paketlerin listesini tanımlayabilirsiniz. Cloud-init, seçtiğiniz dağıtım için yerel paket yönetim aracını otomatik olarak kullanır.
 
 Daha fazla bilgi için bir örnek de dahil olmak üzere *bulut init.txt* dosya için bkz: [Azure VM'ler özelleştirmek için bulut init kullanın](../virtual-machines/linux/using-cloud-init.md).
 
@@ -184,36 +107,6 @@ az vmss create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
-
-
-## <a name="install-applications-as-a-set-scales-out"></a>Bir çıkış olarak uygulamaları yükleme
-Ölçek kümeleri, uygulamanızı çalıştıran VM örneği sayısını artırmak izin verir. Bu işlem genişletme el ile başlatıldı veya ölçümleri CPU veya bellek kullanımı gibi temel alınarak otomatik olarak.
-
-Ölçek kümesi için bir özel betik uzantısının uyguladıysanız, uygulama her yeni VM örneğine yüklenir. Ölçek kümesi üzerinde özel bir görüntü uygulamanın önceden yüklü olduğu temel alıyorsa, her yeni VM örneği kullanılabilir durumda dağıtılır. 
-
-Ölçek kümesi VM örnekleri kapsayıcı ana bilgisayar varsa, özel betik uzantısının çekme ve kapsayıcı görüntüleri gereken çalıştırmak için kullanabilirsiniz. Özel betik uzantısı, Azure kapsayıcı hizmeti gibi bir orchestrator ile yeni VM örneği de kaydı yapılamadı.
-
-
-## <a name="deploy-application-updates"></a>Uygulama güncelleştirmelerini dağıtma
-Uygulama kodu, kitaplıkları veya paketler güncelleştirirseniz, Ölçek kümesi VM örnekleri en son uygulama durumu gönderebilir. Varsa özel betik uzantısı, uygulamanız için güncelleştirmeleri kullanın ve otomatik olarak dağıtılır. Güncelleştirilmiş sürüm ada sahip bir yükleme komut dosyası işaret edecek şekilde gibi özel komut dosyası yapılandırmasını değiştirin. Önceki örnekte, özel betik uzantısının adlı bir komut dosyası kullanan *automate_nginx.sh* gibi:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
-  "commandToExecute": "./automate_nginx.sh"
-}
-```
-
-Betik değişiklikleri yüklemediğiniz sürece, uygulamanız için yaptığınız herhangi bir güncelleştirme için özel betik uzantısı sunulmaz. Uygulamanız ile artışlarla yayımları bir sürüm numarası dahil bir yaklaşımdır. Özel betik uzantısı artık başvurabilir *automate_nginx_v2.sh* gibi:
-
-```json
-{
-  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
-  "commandToExecute": "./automate_nginx_v2.sh"
-}
-```
-
-Özel betik uzantısının şimdi son uygulama güncelleştirmeleri uygulamak için VM örnekleri karşı çalışır.
 
 
 ### <a name="install-applications-with-os-updates"></a>Uygulamaları ile işletim sistemi güncelleştirmelerini yükleyin

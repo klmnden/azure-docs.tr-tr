@@ -1,8 +1,8 @@
 ---
-title: "Hdınsight sanal ağ - Azure ile genişletmek | Microsoft Docs"
-description: "Hdınsight diğer bulut kaynaklarına veya veri merkezinizdeki kaynaklarına bağlanmak için Azure sanal ağı kullanmayı öğrenin"
+title: Hdınsight sanal ağ - Azure ile genişletmek | Microsoft Docs
+description: Hdınsight diğer bulut kaynaklarına veya veri merkezinizdeki kaynaklarına bağlanmak için Azure sanal ağı kullanmayı öğrenin
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: ea686ea5dd6166d6e4e4055cb4a2cdd70af81ab4
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b02a4625e3973ca7679d1d2018bd37ff1d2ae2ba
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
@@ -173,11 +173,11 @@ Sanal ağ ve birleştirilmiş ağlarda bulunan kaynaklar arasındaki ad çözüm
 
     Her yapılandırma örneği için bkz: [örnek: özel DNS](#example-dns) bölümü.
 
-Daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) belge.
+Daha fazla bilgi için bkz: [VM'ler ve rol örnekleri için ad çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) belge.
 
 ## <a name="directly-connect-to-hadoop-services"></a>Hadoop Services'e doğrudan bağlanmak
 
-Hdınsight üzerinde çoğu belgeleri Internet üzerinden kümesine erişimi olduğunu varsayar. Https://CLUSTERNAME.azurehdinsight.net konumundaki küme bağlanabileceği bir örnek için. Bu adres Nsg'ler veya Udr'ler kullandıysanız internet'ten erişimi kısıtlamak için kullanılabilir olmayan ortak ağ geçidi, kullanır.
+Hdınsight üzerinde çoğu belgeleri Internet üzerinden kümesine erişimi olduğunu varsayar. Örneğin, https://CLUSTERNAME.azurehdinsight.net konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres Nsg'ler veya Udr'ler kullandıysanız internet'ten erişimi kısıtlamak için kullanılabilir olmayan ortak ağ geçidi, kullanır.
 
 Ambari ve sanal ağ üzerinden diğer web sayfalarına bağlanmak için aşağıdaki adımları kullanın:
 

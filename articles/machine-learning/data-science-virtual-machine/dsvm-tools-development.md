@@ -1,25 +1,25 @@
 ---
-title: "Veri bilimi sanal makine geliştirme araçları - Azure | Microsoft Docs"
-description: "Veri bilimi sanal makine geliştirme araçları."
-keywords: "Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar"
+title: Veri bilimi sanal makine geliştirme araçları - Azure | Microsoft Docs
+description: Veri bilimi sanal makine geliştirme araçları.
+keywords: Veri bilimi araçları, veri bilimi sanal makine, veri bilimi, linux veri bilimi için Araçlar
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
-ms.author: gokuma;bradsev
-ms.openlocfilehash: 0d7ee9a54c2c11f814ce041c5c7e5bd9f2e605e5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 6f141fc03b64d0ca922d003f6352b7751ab9967d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Geliştirme araçları üzerinde veri bilimi sanal makine
 
@@ -59,7 +59,7 @@ Veri bilimi sanal makine (DSVM) çeşitli popüler Araçlar ve IDE paketleme, ge
 | Nedir?   | Web tabanlı IDE r    |
 | Desteklenen DSVM sürümleri      | Linux      |
 | Tipik kullanır      |  R geliştirme     |
-| Kullanın / çalıştırmak için nasıl?      | Hizmet ile etkinleştirmek _systemctl rstudio'dan sunuculu etkinleştirmek_, hizmetle başlar _systemctl Başlat rstudio'dan sunuculu_. Ardından Rstudio'dan sunucuya http://your-vm-ip:8787 oturum açabilir.       |
+| Kullanın / çalıştırmak için nasıl?      | Hizmet ile etkinleştirmek _systemctl rstudio'dan sunuculu etkinleştirmek_, hizmetle başlar _systemctl Başlat rstudio'dan sunuculu_. Ardından Rstudio'dan sunucuda oturum http://your-vm-ip:8787.       |
 | DSVM ilgili araçları      |   Visual Studio 2017, Visual Studio Code, RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 

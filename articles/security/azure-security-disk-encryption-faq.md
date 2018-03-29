@@ -1,6 +1,6 @@
 ---
-title: "Azure Disk şifrelemesi ile ilgili SSS | Microsoft Docs"
-description: "Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında sık sorulan soruların yanıtlarını sağlar."
+title: Azure Disk şifrelemesi ile ilgili SSS | Microsoft Docs
+description: Bu makale için Microsoft Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında sık sorulan soruların yanıtlarını sağlar.
 services: security
 documentationcenter: na
 author: DevTiw
@@ -12,38 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 03/18/2018
 ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: f3cb11bc13ad2561e62c096d840c0b8e4471d271
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 5316efb54a12b5ad057d5a0561f36efdfff30884
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk şifrelemesi ile ilgili SSS
 
 Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında sık sorulan sorular (SSS) yanıtlarını sağlar. Bu hizmet hakkında daha fazla bilgi için bkz: [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
 
-## <a name="general-questions"></a>Genel sorular
-**S:** Azure Disk şifrelemesi genel kullanılabilirlik (GA) nerede?
+## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>Azure Disk şifrelemesi genel kullanılabilirlik (GA) nerede?
 
-**Y:** için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler olan genel kullanılabilirlik tüm Azure ortak bölgelerde.
+Azure Disk şifrelemesi for Windows ve Linux Iaas VM'ler olan genel kullanılabilirlik tüm Azure ortak bölgelerde.
 
-**S:** hangi kullanıcı deneyimleri Azure Disk şifrelemesi ile kullanılabilir?
+## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Hangi kullanıcı deneyimleri Azure Disk şifrelemesi ile kullanılabilir?
 
-**Y:** Azure Resource Manager şablonları, Azure PowerShell ve Azure CLI Azure Disk şifrelemesi GA destekler. Bu, büyük bir esneklik sağlar. Disk şifrelemesi, Iaas VM'ler için etkinleştirmek için üç farklı seçeneğiniz vardır. Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri Azure Disk şifrelemesi adım adım kılavuzlar ve kullanıcı deneyimi hakkında daha fazla bilgi için bkz.
+Azure Disk şifrelemesi GA Azure Resource Manager şablonları, Azure PowerShell ve Azure CLI destekler. Bu, büyük bir esneklik sağlar. Disk şifrelemesi, Iaas VM'ler için etkinleştirmek için üç farklı seçeneğiniz vardır. Azure Disk şifrelemesi adım adım kılavuzlar ve kullanıcı deneyimi hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
-**S:** nasıl Azure Disk şifrelemesi maliyeti?
+## <a name="how-much-does-azure-disk-encryption-cost"></a>Nasıl Azure Disk şifrelemesi maliyeti nedir?
 
-**Y:** VM diskleri Azure Disk şifrelemesi ile şifrelemek için herhangi bir ücret alınmaz.
+VM diskleri Azure Disk şifrelemesi ile şifrelemek için ücretsizdir.
 
-**S:** hangi sanal makine katmanları Azure Disk şifrelemesi destekliyor mu?
+## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Hangi sanal makine katmanları Azure Disk şifrelemesi destekliyor mu?
 
-**Y:** dahil olmak üzere standart katmanı Vm'lerinde Azure Disk şifrelemesi kullanılabilir [A, D, DS, G, GS ve F](https://azure.microsoft.com/pricing/details/virtual-machines/) serisi Iaas Vm'leri. Premium depolama ile VM'ler için kullanılabilir. Temel katman VM'ler üzerinde kullanılabilir değil.
+Azure Disk şifrelemesi dahil olmak üzere standart katmanı Vm'lerinde kullanılabilir [A, D, DS, G, GS ve F](https://azure.microsoft.com/pricing/details/virtual-machines/) serisi Iaas Vm'leri. Premium depolama ile VM'ler için kullanılabilir. Temel katman VM'ler üzerinde kullanılabilir değil.
 
-**S:** ne Linux dağıtımları Azure Disk şifrelemesi desteği mu?
+## <a name="what-linux-distributions-does-azure-disk-encryption-support"></a>Hangi Linux dağıtımları Azure Disk şifrelemesi destekliyor mu?
 
-**Y:** Azure Disk şifrelemesi aşağıdaki Linux sunucu dağıtımları ve sürümleri desteklenir:
+Azure Disk şifrelemesi aşağıdaki Linux sunucu dağıtımları ve sürümleri desteklenir:
 
 | Linux dağıtım | Sürüm | Şifreleme için desteklenen birim türü|
 | --- | --- |--- |
@@ -71,52 +70,52 @@ Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında s
 
 *__ADE RHEL için veri diski için desteklenir. Geçerli ADE uygulaması için işletim sistemi diski çalışır ancak şu anda ortaklaşa desteklenmiyor. Hem Microsoft hem de Red Hat ortaklaşa desteklenen bir çözüm üzerinde çalışmaktadır. Bu arada, Linux işletim sistemi disk şifrelemesi ADE Teknik Başvurusu yapabilir [burada](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__
 
-**S:** nasıl ı başlayabileceğini Azure Disk Şifrelemesi'ni kullanarak?
+## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Şifrelemesi'ni kullanarak nasıl başlayabilir miyim?
 
-**Y:** başlamak için okuma [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) teknik incelemesi.
+Başlamak için okuma [için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) teknik incelemesi.
 
-**S:** Azure Disk şifrelemesi ile hem önyükleme hem de veri birimleri şifreleyebilir mi?
+## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk şifrelemesi ile hem önyükleme hem de veri birimleri şifreleyebilir mi?
 
-**Y:** Evet, Windows ve Linux Iaas VM'ler için önyükleme ve veri birimlerini şifreleyebilirsiniz. Windows VM'ler için işletim sistemi birimi şifrelemeden veriler şifrelenemedi. Linux VM'ler için işletim sistemi birimi ilk şifrelemek gerek kalmadan veri hacmi şifreleyebilirsiniz. Linux için işletim sistemi birimi şifrelenmiş sonra bir işletim sistemi biriminde Linux Iaas VM'ler için şifrelemeyi devre dışı bırakmak desteklenmiyor.
+Evet, Windows ve Linux Iaas VM'ler için önyükleme ve veri birimlerini şifreleyebilirsiniz. Windows VM'ler için işletim sistemi birimi şifrelemeden veriler şifrelenemedi. Linux VM'ler için işletim sistemi birimi ilk şifrelemek gerek kalmadan veri hacmi şifreleyebilirsiniz. Linux için işletim sistemi birimi şifrelenmiş sonra bir işletim sistemi biriminde Linux Iaas VM'ler için şifrelemeyi devre dışı bırakmak desteklenmiyor.
 
-**S:** mu Azure Disk şifrelemesi kendi anahtarı (BYOK) yeteneği Getir izin verir mi?
+## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>Azure Disk şifrelemesi kendi anahtarı (BYOK) yeteneği Getir izin veriyor mu?
 
-**Y:** Evet, kendi anahtar şifreleme anahtarları sağlayabilir. Bu anahtarları Azure anahtar Kasası ' Azure Disk şifrelemesi için anahtar deposu olduğu korunur. Anahtar şifreleme anahtarları hakkında daha fazla bilgi için senaryoları desteklemek, Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri bakın.
+Evet, kendi anahtar şifreleme anahtarlarını da sağlayabilir. Bu anahtarları Azure anahtar Kasası ' Azure Disk şifrelemesi için anahtar deposu olduğu korunur. Anahtar şifreleme anahtarları hakkında daha fazla bilgi için destek senaryoları, bkz: [Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
-**S:** oluşturulan Azure anahtar şifreleme anahtarı kullanabilir miyim?
+## <a name="can-i-use-an-azure-created-key-encryption-key"></a>Oluşturulan Azure anahtar şifreleme anahtarı kullanabilir miyim?
 
-**Y:** Evet, Azure disk şifrelemesi kullanmak için bir anahtar şifreleme anahtarı oluşturmak için Azure anahtar kasası kullanabilirsiniz. Bu anahtarları Azure anahtar Kasası ' Azure Disk şifrelemesi için anahtar deposu olduğu korunur. Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz.
+Evet, Azure disk şifrelemesi kullanmak için bir anahtar şifreleme anahtarı oluşturmak için Azure anahtar kasası kullanabilirsiniz. Bu anahtarları Azure anahtar Kasası ' Azure Disk şifrelemesi için anahtar deposu olduğu korunur. Anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
-**S:** bir şirket içi anahtar yönetimi hizmeti veya HSM şifreleme anahtarları korumak için kullanabilir miyim?
+## <a name="can-i-use-an-on-premises-key-management-service-or-hsm-to-safeguard-the-encryption-keys"></a>Şifreleme anahtarları korumak için bir şirket içi anahtar yönetimi hizmeti veya HSM kullanabilir miyim?
 
-**Y:** Azure Disk şifrelemesi ile şifreleme anahtarları korumak için şirket içi anahtar yönetimi hizmeti veya HSM kullanamazsınız. Azure anahtar kasası hizmetindeki yalnızca şifreleme anahtarları korumak için de kullanabilirsiniz. Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz.
+Azure Disk şifrelemesi ile şifreleme anahtarları korumak için şirket içi anahtar yönetimi hizmeti veya HSM kullanamazsınız. Azure anahtar kasası hizmetindeki yalnızca şifreleme anahtarları korumak için de kullanabilirsiniz. Anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi dağıtım senaryoları ve deneyimleri](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences).
 
-**S:** Azure Disk şifrelemesi yapılandırmak için gereken önkoşullar nelerdir?
+## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Azure Disk şifrelemesi yapılandırmak için gereken önkoşullar nelerdir?
 
-**Y:** önkoşul bir PowerShell komut dosyası yok. Bu komut dosyası ile Azure Active Directory uygulama oluşturmak, yeni bir anahtar kasası oluşturma veya şifreleme ve koruma parolaları ve anahtarlar etkinleştirmek disk şifreleme erişimi olan bir anahtar kasası ayarlayın. Azure Disk şifrelemesi önkoşulları ve dağıtım senaryoları ve deneyimleri anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz.
+Önkoşul bir PowerShell komut dosyası yok. Bu komut dosyası ile Azure Active Directory uygulama oluşturmak, yeni bir anahtar kasası oluşturma veya şifreleme ve koruma parolaları ve anahtarlar etkinleştirmek disk şifreleme erişimi olan bir anahtar kasası ayarlayın. Anahtar şifreleme anahtar destek senaryoları hakkında daha fazla bilgi için bkz: [Azure Disk şifrelemesi önkoşulları ve dağıtım senaryoları ve deneyimleri](azure-security-disk-encryption.md#prerequisites).
 
-**S:** Azure Disk şifrelemesi yapılandırmak için PowerShell kullanma hakkında daha fazla bilgi nereden alabilirim?
+## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>Azure Disk şifrelemesi yapılandırmak için PowerShell kullanma hakkında daha fazla bilgi nereden alabilirim?
 
-**Y:** nasıl daha Gelişmiş senaryolar yanı sıra temel Azure Disk şifrelemesi görevleri gerçekleştirebilir üzerinde bazı harika makaleleri sunuyoruz. Temel görevler için bkz: [keşfedin Azure Disk şifrelemesi Azure PowerShell – bölümü 1 ile](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Daha Gelişmiş senaryolar için bkz: [keşfedin Azure Disk şifrelemesi Azure PowerShell – bölüm 2 ile](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
+Nasıl daha Gelişmiş senaryolar yanı sıra temel Azure Disk şifrelemesi görevleri gerçekleştirebilir üzerinde bazı harika makaleleri sahibiz. Temel görevler için bkz: [keşfedin Azure Disk şifrelemesi Azure PowerShell – bölümü 1 ile](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/). Daha Gelişmiş senaryolar için bkz: [keşfedin Azure Disk şifrelemesi Azure PowerShell – bölüm 2 ile](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/).
 
-**S:** Azure PowerShell hangi sürümü Azure Disk şifrelemesi destekliyor mu?
+## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Azure PowerShell hangi sürümünün Azure Disk şifrelemesi destekliyor mu?
 
-**Y:** Azure Disk şifrelemesi yapılandırmak için Azure PowerShell SDK'ın en son sürümünü kullanın. En son sürümünü indirme [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk şifrelemesi *değil* Azure SDK sürüm 1.1.0 tarafından desteklenir.
+Azure Disk şifrelemesi yapılandırmak için Azure PowerShell SDK'ın en son sürümünü kullanın. En son sürümünü indirme [Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Azure Disk şifrelemesi *değil* Azure SDK sürüm 1.1.0 tarafından desteklenir.
 
 > [!NOTE]
 > Linux Azure disk şifrelemesi Önizleme uzantısını kullanım dışıdır. Ayrıntılar için bkz [onaysız kılınmadan Azure disk şifrelemesi Önizleme uzantısı Linux Iaas VM'ler](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/12/deprecating-azure-disk-encryption-preview-extension-for-linux-iaas-vms/).
 
-**S:** Azure Disk şifrelemesi my özel Linux görüntüye uygulayabilirsiniz?
+## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>Azure Disk şifrelemesi my özel Linux görüntüde uygulayabilir mi?
 
-**Y:** özel Linux görüntünüzü Azure Disk şifrelemesi uygulanamıyor. Daha önce çağrılan desteklenen dağıtımları için yalnızca galeri Linux görüntüleri destekliyoruz. Şu anda özel Linux görüntüleri desteklemiyoruz.
+Azure Disk şifrelemesi özel Linux görüntünüzü uygulanamıyor. Daha önce çağrılan desteklenen dağıtımları için yalnızca galeri Linux görüntüleri destekliyoruz. Şu anda özel Linux görüntüleri desteklemiyoruz.
 
-**S:** Linux Red Hat yum güncelleştirme kullanan VM için güncelleştirmeler uygulayabilir mi?
+## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>Bir Linux Red Hat yum güncelleştirme kullanan VM güncelleştirmelerini uygulayabilir mi?
 
-**Y:** Evet, bir güncelleştirme gerçekleştirmek veya bir Red Hat Linux VM düzeltme eki. Daha fazla bilgi için bkz: [yum Update'i kullanarak güncelleştirmeleri bir şifrelenmiş Azure Iaas Red Hat VM için uygulamaya](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
+Evet, bir güncelleştirme gerçekleştirmek ya da bir Red Hat Linux VM düzeltme eki. Daha fazla bilgi için bkz: [yum Update'i kullanarak güncelleştirmeleri bir şifrelenmiş Azure Iaas Red Hat VM için uygulamaya](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/).
 
-**S:** Linux için önerilen Azure disk şifrelemesi iş akışı nedir?
+## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Linux için önerilen Azure disk şifrelemesi iş akışı nedir?
 
-**Y:** aşağıdaki iş akışı en iyi sonuçlar Linux'ta önerilir:
+Aşağıdaki iş akışı en iyi sonuçlar Linux'ta önerilir:
 * İstenen işletim sistemi distro ve sürüm karşılık gelen değiştirilmemiş stok galeri görüntüden Başlat
 * Şifrelenir tüm bağlı sürücülerin yedekleyin.  Bu örneğin şifreleme tamamlanmadan önce VM yeniden başlatılıncaya kadar hatası durumunda kurtarma izin verir.
 * Şifreleme (birden çok saat veya hatta günlerce vm özelliklerini ve eklenen veri disklerini boyutuna bağlı olarak alabilir)
@@ -124,15 +123,15 @@ Bu makale için Azure Disk şifrelemesi Windows ve Linux Iaas VM'ler hakkında s
 
 Bu iş akışının mümkün değilse, güvenmek [depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) (SSE) adresinde platform depolama hesabı katman alternatif dm-crypt kullanan tam disk şifrelemesi olabilir.
 
-**S:** disk "Bek birimi" veya "/ mnt/azure_bek_disk" nedir?
+## <a name="what-is-the-disk-bek-volume-or-mntazurebekdisk"></a>Disk "Bek birimi" veya "/ mnt/azure_bek_disk" nedir?
 
-**Y:** "Bek" Windows ya da "/ mnt/azure_bek_disk" için Linux için birimdir güvenli bir şekilde şifrelenmiş Azure Iaas VM'ler için şifreleme anahtarlarını depolayan bir yerel veri birimi.
+Windows için "Bek birimi" veya "/ mnt/azure_bek_disk" Linux için güvenli bir şekilde şifrelenmiş Azure Iaas VM'ler için şifreleme anahtarlarını depolayan bir yerel veri biriminde değil.
 > [!NOTE]
 > Silmeyin veya bu diskin tüm içeriğini Düzenle. Şifreleme anahtarı varlığı Iaas VM herhangi bir şifreleme işlemi için gerekli olmadığından disk çıkarın değil.
 
-**S:** miyim nereye soru sorun ya da geribildirim sağlamak için?
+## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Soru sorun ya da geribildirim sağlamak için nereye miyim?
 
-**Y:** sorular sormak veya geri bildirim sağlayan [Azure Disk şifrelemesi Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Soru sormak veya geri bildirim sağlayan [Azure Disk şifrelemesi Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu belgede, Azure Disk şifrelemesi için ilgili en sık kullanılan sorular hakkında daha fazla öğrendiniz. Bu hizmet ve özelliklerini hakkında daha fazla bilgi için aşağıdaki makalelere bakın:

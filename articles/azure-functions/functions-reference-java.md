@@ -1,11 +1,11 @@
 ---
-title: "Azure işlevleri için Java Geliştirici Başvurusu | Microsoft Docs"
-description: "Java ile işlevleri geliştirmek nasıl anlayın."
+title: Azure işlevleri için Java Geliştirici Başvurusu | Microsoft Docs
+description: Java ile işlevleri geliştirmek nasıl anlayın.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi, java"
+keywords: Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi, java
 ms.service: functions
 ms.devlang: java
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 71576e65d20d7e8cb7f5ff1c5f19c82439bb6807
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure işlevleri Java Geliştirici Kılavuzu
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Genellikle bir Azure işlevi nedeniyle dış bir tetikleyici çağrılır. Bu te
 
 Java ek açıklamalar dahil edilmiştir `azure-functions-java-core` giriş ve çıkış yöntemlerinizi için bağlamak için paket. Aşağıdaki tabloda, desteklenen giriş tetikleyiciler ve ek açıklamaları bağlama çıkış bulunmaktadır:
 
-Bağlama | Ek açıklama
+Bağlama | Ek Açıklama
 ---|---
 CosmosDB | Yok
 HTTP | <ul><li>`HttpTrigger`</li><li>`HttpOutput`</li></ul>
@@ -325,9 +325,33 @@ public class Function {
 }
 ```
 
+## <a name="environment-variables"></a>Ortam değişkenleri
+
+Genellikle, güvenlik nedenleriyle kaynak koddan gizli bilgi ayıklamak için tercih edilir. Bu kodu kaynak kodu depoları için kimlik bilgileri yanlışlıkla diğer geliştiricilerine sağlamadan yayımlanmasına izin verir. Bu, hem Azure işlevleri yerel olarak çalıştırırken ve işlevlerinizi Azure'a dağıtırken ortam değişkenleri yalnızca kullanılarak sağlanabilir.
+
+Azure işlevleri çalıştırırken kolayca ortam değişkenlerini ayarlama yerel olarak, bu değişkenleri local.settings.json dosyasına eklemek tercih edebilirsiniz. Bir işlev proje kök dizininde mevcut değilse, oluşturmak çekinmeyin. İşte dosyanın aşağıdaki gibi görünmelidir:
+
+```xml
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": ""
+  }
+}
+```
+
+Her anahtar / değer eşlemesindeki `values` harita oluşturulacak kullanılabilir çalışma zamanında çağırarak erişilebilir bir ortam değişkeni olarak `System.getenv("<keyname>")`, örneğin, `System.getenv("AzureWebJobsStorage")`. Ekleme ek anahtar / değer çiftlerini kabul edilir ve uygulama önerilir.
+
+> [!NOTE]
+> Bu yaklaşım alınmışsa olması emin local.settings.json ekleme olup olmadığını dikkate alınacak dosyayı deponuza yoksay dosya, kaydedilmiş olmaması.
+
+Böylece test yerel olarak ve ne zaman Azure'a dağıtıldığında kodunuzu eşdeğer işlevleri kodunuzla şimdi bu ortam değişkenlerine bağlı olarak, size aynı anahtarı ayarlama / işlevi uygulama ayarlarınızı çiftlerinde değer Azure portalı oturum açabilir.
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
 * [Azure İşlevleri için en iyi uygulamalar](functions-best-practices.md)
 * [Azure İşlevleri geliştirici başvurusu](functions-reference.md)
 * [Azure işlevleri Tetikleyicileri ve bağlamaları](functions-triggers-bindings.md)
+* [Uzaktan hata ayıklama Java Azure işlevleri ile Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)

@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Store'da güvenliğine genel bakış | Microsoft Docs"
-description: "Azure Data Lake Store daha güvenli bir büyük veri deposu nasıl özellikleri anlama"
+title: Data Lake Store'da güvenliğine genel bakış | Microsoft Docs
+description: Azure Data Lake Store daha güvenli bir büyük veri deposu nasıl özellikleri anlama
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: e3df23e8803d8b34cc4178f8047d0fe2172d04be
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
@@ -46,7 +46,7 @@ Azure Data Lake Store erişebilmesi için Azure Active Directory kullanıcı kim
 * POSIX deposundaki verileri erişmek için ACL
 
 ### <a name="rbac-for-account-management"></a>Hesap yönetimi için RBAC
-Dört temel roller Data Lake Store için varsayılan olarak tanımlanır. Rolleri Azure portalı, PowerShell cmdlet'leri ve REST API'leri aracılığıyla Data Lake Store hesabındaki farklı işlemler izin verir. Sahibi ve katkıda bulunan rollerinin yönetim işlevleri, çeşitli hesabında gerçekleştirebilirsiniz. Yalnızca verilerle etkileşimli kullanıcılar okuyucu rolüne atayabilirsiniz.
+Dört temel roller Data Lake Store için varsayılan olarak tanımlanır. Rolleri Azure portalı, PowerShell cmdlet'leri ve REST API'leri aracılığıyla Data Lake Store hesabındaki farklı işlemler izin verir. Sahibi ve katkıda bulunan rollerinin yönetim işlevleri, çeşitli hesabında gerçekleştirebilirsiniz. Yalnızca hesap yönetimi verilerini görüntülemek için kullanıcılar okuyucu rolüne atayabilirsiniz.
 
 ![RBAC rolleri](./media/data-lake-store-security-overview/rbac-roles.png "RBAC rolleri")
 
@@ -54,7 +54,7 @@ Hesap yönetimi için rolleri atanmış rağmen bazı roller verilere erişim et
 
 | Roller | Yönetim hakları | Veri erişim hakları | Açıklama |
 | --- | --- | --- | --- |
-| Atanmış bir role yok |None |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
+| Atanmış bir role yok |Hiçbiri |ACL ile yönetilen |Kullanıcı, Azure portalında veya Azure PowerShell cmdlet'leri, Data Lake Store göz atmak için kullanamazsınız. Kullanıcı yalnızca komut satırı araçlarını kullanabilirsiniz. |
 | Sahip |Tümü |Tümü |Süper kullanıcı sahibi rolüdür. Bu rolü her şeyi yönetebilir ve veri tam erişimi vardır. |
 | Okuyucu |Salt okunur |ACL ile yönetilen |Okuyucu rolüne hangi role atanmış kullanıcı gibi hesap yönetimi ile ilgili her şeyi görüntüleyebilir. Okuyucu rolüne değişiklik yapamazsınız. |
 | Katılımcı |Tüm ekleme ve kaldırma rolleri dışında |ACL ile yönetilen |Katkıda bulunan rolü dağıtımları ve oluşturma ve Uyarıları yönetme gibi bir hesap, bazı yönlerini yönetebilirsiniz. Katkıda bulunan rolü ekleme veya rollerini kaldırın. |
@@ -65,9 +65,9 @@ Yönergeler için bkz: [Data Lake Store hesapları için kullanıcıların veya 
 ### <a name="using-acls-for-operations-on-file-systems"></a>ACL'leri kullanarak dosya sistemi işlemleri
 Data Lake Store olan hiyerarşik dosya sistemi gibi Hadoop dağıtılmış dosya sistemi (HDFS) ve onu destekleyen [POSIX ACL'leri](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Okuma (r) denetimleri, yazma (w) ve yürütme (x) kaynaklara sahip rolünü, sahipleri grup ve diğer kullanıcılar ve gruplar için izinleri. Data Lake Store'da, kök klasör, alt klasörler ve dosyaları tek tek ACL'ler etkinleştirilebilir. Data Lake Store bağlanımda ACL’lerin nasıl çalıştığı üzerine daha fazla bilgi için bkz. [Data Lake Store’da erişim denetimi](data-lake-store-access-control.md).
 
-ACL'leri kullanarak birden çok kullanıcı için tanımladığınız öneririz [güvenlik grupları](../active-directory/active-directory-groups-create-azure-portal.md). Kullanıcılar bir güvenlik grubuna ekleyin ve bir dosya veya klasör için ACL'leri bu güvenlik grubuna atayın. En fazla dokuz girişleri özel erişim için ekleme ile sınırlı olduğundan, özel erişim sağlamak istediğinizde kullanışlıdır. Daha iyi Azure Active Directory güvenlik gruplarını kullanarak Data Lake Store'da depolanan verilerin güvenliğini sağlama hakkında daha fazla bilgi için bkz: [ACL'ler kullanıcılar veya güvenlik grubu için Azure Data Lake Store dosya sistemi atamak](data-lake-store-secure-data.md#filepermissions).
+ACL'leri kullanarak birden çok kullanıcı için tanımladığınız öneririz [güvenlik grupları](../active-directory/active-directory-groups-create-azure-portal.md). Kullanıcılar bir güvenlik grubuna ekleyin ve bir dosya veya klasör için ACL'leri bu güvenlik grubuna atayın. En fazla 28 girişleri için atanan izinler sınırlı olduğundan, atanan izinlere sağlamak istediğinizde kullanışlıdır. Daha iyi Azure Active Directory güvenlik gruplarını kullanarak Data Lake Store'da depolanan verilerin güvenliğini sağlama hakkında daha fazla bilgi için bkz: [ACL'ler kullanıcılar veya güvenlik grubu için Azure Data Lake Store dosya sistemi atamak](data-lake-store-secure-data.md#filepermissions).
 
-![Liste standart ve özel erişim](./media/data-lake-store-security-overview/adl.acl.2.png "listesinde standart ve özel erişim")
+![Liste erişim izinleri](./media/data-lake-store-security-overview/adl.acl.2.png "listesi erişim izinleri")
 
 ## <a name="network-isolation"></a>Ağ yalıtımı
 Kullanım Data Lake veri deponuza ağ düzeyinde erişimi denetlemeye yardımcı olmak için deposu. Güvenlik duvarları kurmak ve güvenilir istemcileriniz için bir IP adresi aralığı tanımlayabilirsiniz. Bir IP adresi aralığı ile bir IP adresi tanımlı aralığın içinde olan istemciler için Data Lake Store bağlanabilir.
@@ -83,30 +83,30 @@ Data Lake Store, hesapta depolanan veriler için şifreleme özelliği de sağla
 
 Anahtar Yönetimi için Data Lake Store'da depolanan verilerin şifresini çözmek için gerekli olan ana şifreleme anahtarlarınızı (MEKs) yönetmek için Data Lake Store iki mod sağlar. Data Lake Store MEKs yönettiğiniz ya da Azure anahtar kasası hesabınızı kullanarak MEKs sahipliğini tutmayı seçin ya da izin verebilirsiniz. Bir Data Lake Store hesabı oluşturma sırasında sırasında anahtar yönetimi modunu belirtin. Şifreleme tabanlı yapılandırmanın nasıl sağlanacağı üzerine daha fazla bilgi edinmek için bkz. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
 
-## <a name="auditing-and-diagnostic-logs"></a>Denetim ve tanılama günlükleri
-Yönetim ilgili etkinlikleri veya ilgili verileri etkinlik günlükleri için mi aradığınız bağlı olarak, denetim veya tanılama günlüklerini kullanabilir.
+## <a name="activity-and-diagnostic-logs"></a>Etkinlik ve tanılama günlükleri
+Etkinlik veya hesap yönetimi ilgili etkinlikleri veya ilgili verileri etkinlik günlükleri için mi aradığınız bağlı olarak tanılama günlüklerini kullanabilirsiniz.
 
-* Yönetim ilgili etkinlikleri Azure portalı denetim günlüklerini çıkmış ve Azure Resource Manager API'leri kullanın.
+* Hesap Yönetimi ilgili etkinlikleri ve etkinlik günlükleri Azure portalında çıkmış Azure Resource Manager API'leri kullanın.
 * Veri ilgili etkinlikleri ve Azure portalı tanılama günlüklerini çıkmış WebHDFS REST API'lerini kullanın.
 
-### <a name="auditing-logs"></a>Denetim günlükleri
-Düzenlemelerle uyumlu olması, bir kuruluşun belirli olaylara derinliklerine gerekirse yeterli denetim izleri gerektirebilir. Data Lake Store yerleşik izleme ve denetim sahiptir ve tüm hesap yönetimi etkinlikleri günlüğe kaydeder.
+### <a name="activity-log"></a>Etkinlik günlüğü
+Düzenlemelerle uyumlu olması bir kuruluşun belirli olaylara derinliklerine gerekirse hesabı yönetim etkinliklerinin yeterli denetim izleri gerektirebilir. Data Lake Store yerleşik izleme sahiptir ve tüm hesap yönetimi etkinlikleri günlüğe kaydeder.
 
-Hesap Yönetimi denetim izleri görüntülemek ve günlüğe kaydetmek istediğiniz sütunları seçin. Ayrıca, Azure depolama birimine denetim günlüklerini dışa aktarabilirsiniz.
+Hesap Yönetimi denetim izleri görüntülemek ve günlüğe kaydetmek istediğiniz sütunları seçin. Bu gibi durumlarda, etkinlik günlükleri de Azure depolama birimine verebilirsiniz.
 
-![Denetim günlükleri](./media/data-lake-store-security-overview/audit-logs.png "Denetim günlükleri")
+![Etkinlik günlüğü](./media/data-lake-store-security-overview/activity-logs.png "etkinlik günlüğü")
 
-### <a name="diagnostic-logs"></a>Tanılama günlükleri
-Veri erişimi denetim izleri Azure portalında (tanılama ayarları) olarak ayarlayın ve günlüklerin depolandığı bir Azure Blob Depolama hesabı oluşturun.
+Etkinlik günlükleri ile çalışma hakkında daha fazla bilgi için bkz: [görüntülemek kaynakları eylemlerini denetlemek için etkinlik günlükleri](../azure-resource-manager/resource-group-audit.md).
+
+### <a name="diagnostics-logs"></a>Tanılama günlükleri
+Veri erişim denetim ve Azure portalında tanılama günlük kaydını etkinleştirmek ve bir Azure Blob Depolama hesabı, bir olay hub'ı veya günlük analizi günlükleri Gönder.
 
 ![Tanılama günlüklerini](./media/data-lake-store-security-overview/diagnostic-logs.png "tanılama günlükleri")
 
-Tanılama ayarlarını yapılandırdıktan sonra üzerinde günlüklerini görüntüleyebilirsiniz **tanılama günlüklerini** sekmesi.
-
-Tanılama günlükleri Azure Data Lake Store ile çalışma hakkında daha fazla bilgi için bkz: [erişim Data Lake Store için tanılama günlükleri](data-lake-store-diagnostic-logs.md).
+Tanılama günlükleri Azure Data Lake Store ile çalışma hakkında daha fazla bilgi için bkz: [Data Lake Store için tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Özet
-Kurumsal müşteriler, güvenli ve kullanımı kolay bir veri analizi bulut platformu talep. Azure Data Lake Store (gelecekte gelen kimlik yönetimi ve Azure Active Directory ile tümleştirme, ACL tabanlı yetkilendirme, ağ yalıtımı, veri şifreleme Aktarımdaki hem de aracılığıyla kimlik doğrulaması aracılığıyla bu gereksinimleri rest adresi yardımcı olmak için tasarlanmıştır ) ve denetim.
+Kurumsal müşteriler, güvenli ve kullanımı kolay bir veri analizi bulut platformu talep. Azure Data Lake Store bu gereksinimlere kimlik yönetimi ve Azure Active Directory ile tümleştirme, ACL tabanlı yetkilendirme, ağ yalıtımı, veri şifreleme Aktarımdaki ve REST aracılığıyla kimlik doğrulaması aracılığıyla yardımcı olmak için tasarlanmış ve denetim.
 
 Data Lake Store'da yeni özellikler görmek istiyorsanız, bize geri bildirim gönder [Data Lake deposu UserVoice Forumu](https://feedback.azure.com/forums/327234-data-lake).
 

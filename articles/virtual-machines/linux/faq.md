@@ -1,11 +1,11 @@
 ---
-title: "Azure Linux VM'ler için sık sorulan sorular | Microsoft Docs"
-description: "Bazı Linux sanal makineleri Resource Manager modeli kullanılarak oluşturulmuş ilgili sık sorulan soruların yanıtlarını içerir."
+title: Azure Linux VM'ler için sık sorulan sorular | Microsoft Docs
+description: Bazı Linux sanal makineleri Resource Manager modeli kullanılarak oluşturulmuş ilgili sık sorulan soruların yanıtlarını içerir.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-management
 ms.assetid: 3648e09c-1115-4818-93c6-688d7a54a353
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 03/22/2018
 ms.author: cynthn
-ms.openlocfilehash: f7fb3f24e9ca6b1827028d118cf833aad830e6a1
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8a4d93ff12affac56c12c0eab85168c609400ee2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Linux sanal makineleri hakkında bazı sık sorulan soruları giderir. Bu konu Windows sürümü için bkz: [Windows sanal makineler hakkında sık sorulan bir soru](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -58,34 +58,35 @@ Evet. Bilgisayar adı en fazla 64 karakter uzunluğunda olabilir. Bkz: [adlandı
 Evet. Kaynak grubu adı en fazla 90 karakter uzunluğunda olabilir. Bkz: [adlandırma kuralları kuralları ve sınırlamaları](/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kaynak grupları hakkında daha fazla bilgi için.
 
 ## <a name="what-are-the-username-requirements-when-creating-a-vm"></a>Bir VM oluşturulurken kullanıcıadı gereksinimleri nelerdir?
-Kullanıcı adları, 1-64 karakter uzunluğunda olmalıdır.
+
+Kullanıcı adları, 1-32 karakter uzunluğunda olmalıdır.
 
 Aşağıdaki kullanıcı adları izin verilmiyor:
 
 <table>
     <tr>
-        <td style="text-align:center">Yönetici </td><td style="text-align:center"> Yönetici </td><td style="text-align:center"> Kullanıcı </td><td style="text-align:center"> Kullanıcı1</td>
+        <td style="text-align:center">Yönetici </td><td style="text-align:center"> yönetici </td><td style="text-align:center"> kullanıcı </td><td style="text-align:center"> user1</td>
     </tr>
     <tr>
-        <td style="text-align:center">test etme </td><td style="text-align:center"> Kullanıcı2 </td><td style="text-align:center"> Test1 </td><td style="text-align:center"> KULLANICI3</td>
+        <td style="text-align:center">test </td><td style="text-align:center"> user2 </td><td style="text-align:center"> test1 </td><td style="text-align:center"> KULLANICI3</td>
     </tr>
     <tr>
-        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> bir</td>
+        <td style="text-align:center">admin1 </td><td style="text-align:center"> 1 </td><td style="text-align:center"> 123 </td><td style="text-align:center"> a</td>
     </tr>
     <tr>
         <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
     </tr>
     <tr>
-        <td style="text-align:center">yedekleme </td><td style="text-align:center"> Konsol </td><td style="text-align:center"> David </td><td style="text-align:center"> Konuk</td>
+        <td style="text-align:center">yedekleme </td><td style="text-align:center"> Konsol </td><td style="text-align:center"> david </td><td style="text-align:center"> Konuk</td>
     </tr>
     <tr>
-        <td style="text-align:center">John </td><td style="text-align:center"> Sahibi </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
+        <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>
     </tr>
     <tr>
-        <td style="text-align:center">SQL </td><td style="text-align:center"> Destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
+        <td style="text-align:center">SQL </td><td style="text-align:center"> destek </td><td style="text-align:center"> support_388945a0 </td><td style="text-align:center"> sys</td>
     </tr>
     <tr>
-        <td style="text-align:center">Test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> Kullanıcı4 </td><td style="text-align:center"> user5</td>
+        <td style="text-align:center">test2 </td><td style="text-align:center"> test3 </td><td style="text-align:center"> user4 </td><td style="text-align:center"> user5</td>
     </tr>
 </table>
 
@@ -106,7 +107,7 @@ Aşağıdaki parolalara izin verilmez:
         <td style="text-align:center">P@$$w0rd</td>
         <td style="text-align:center">P@ssw0rd</td>
         <td style="text-align:center">P@ssword123</td>
-        <td style="text-align:center">Pa$ $word</td>
+        <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
         <td style="text-align:center">pass@word1</td>

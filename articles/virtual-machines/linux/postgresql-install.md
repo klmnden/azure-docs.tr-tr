@@ -1,11 +1,11 @@
 ---
-title: "Bir Linux VM üzerinde PostgreSQL ayarlama | Microsoft Docs"
-description: "Yükleme ve PostgreSQL azure'da bir Linux sanal makine yapılandırma hakkında bilgi edinin"
+title: Bir Linux VM üzerinde PostgreSQL ayarlama | Microsoft Docs
+description: Yükleme ve PostgreSQL azure'da bir Linux sanal makine yapılandırma hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: mingzhan
-ms.openlocfilehash: 0bccdc1cfdbda06b57da8cd662373ef137768672
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: iainfou
+ms.openlocfilehash: 7741f861c5697da1e453c0d613b4b762511cf555
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Azure’da PostgreSQL yükleme ve yapılandırma
 PostgreSQL Oracle ve DB2 için benzer bir Gelişmiş açık kaynak veritabanı yok. Tam ACID uyumluluk, güvenilir işlem işleme ve çoklu sürüm eşzamanlılık denetimi gibi Kurumsal kullanıma hazır özellikler içerir. Ayrıca, ANSI SQL ve SQL/MED (Oracle, MySQL, MongoDB ve diğer birçok için yabancı veri sarmalayıcıları dahil) gibi standartlara destekler. Desteğiyle üzerinde 12 yordam diller, GIN ve GiST dizinleri, uzamsal veri desteği ve birden çok NoSQL benzeri özellikleri JSON veya anahtar-değer tabanlı uygulamalar için yüksek oranda genişletilebilir.
@@ -28,7 +28,7 @@ Bu makalede, yüklemek ve bir Azure Linux çalıştıran sanal makine üzerinde 
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="install-postgresql"></a>PostgreSQL yükleyin
+## <a name="install-postgresql"></a>Install PostgreSQL
 > [!NOTE]
 > Bu öğreticiyi tamamlamak için Linux çalıştıran bir Azure sanal makinesi zaten olmalıdır. Oluşturma ve devam etmeden önce bir Linux VM ayarlamak için bkz: [Azure Linux VM'de Öğreticisi](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
@@ -43,7 +43,7 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
         # sudo su -
 2. Bazı dağıtımları PostgreSQL yüklemeden önce yüklemelisiniz bağımlılıkları vardır. Bu listede, distro denetlemek ve uygun komutu çalıştırın:
    
-   * Red Hat temel Linux:
+   * Red Hat base Linux:
      
            # yum install readline-devel gcc make zlib-devel openssl openssl-devel libxml2-devel pam-devel pam  libxslt-devel tcl-devel python-devel -y  
    * Debian temel Linux:
@@ -124,7 +124,7 @@ PuTTY üzerinden oluşturulan VM Linux bağlayın. Bir Azure Linux VM kullanmakt
    
     Aşağıdaki çıkış almanız gerekir:
 
-![Görüntü](./media/postgresql-install/no1.png)
+![görüntü](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>PostgreSQL ayarlayın
 <!--    [postgres@ test ~]$ exit -->
@@ -141,7 +141,7 @@ Aşağıdaki komutları çalıştırın:
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![Görüntü](./media/postgresql-install/no2.png)
+![görüntü](./media/postgresql-install/no2.png)
 
 Yürütülebilir yapabilmek için dosyayı değiştirin:
 
@@ -157,7 +157,7 @@ PostgreSQL uç noktası üzerinde olup olmadığını kontrol edin:
 
 Şu çıktı görmeniz gerekir:
 
-![Görüntü](./media/postgresql-install/no3.png)
+![görüntü](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Postgres veritabanına bağlan
 Postgres kullanıcıya bir kez daha anahtarı:
@@ -188,11 +188,11 @@ Aşağıdaki sütun adları ve kısıtlamaları ile dört sütunlu bir tablo şi
 
 Tablonuz başarıyla oluşturulduysa aşağıdakilere bakın:
 
-![Görüntü](./media/postgresql-install/no4.png)
+![görüntü](./media/postgresql-install/no4.png)
 
 Aşağıdaki komutu kullanarak, tablo yapısı de denetleyebilirsiniz:
 
-![Görüntü](./media/postgresql-install/no5.png)
+![görüntü](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Bir tabloya veri ekleme
 İlk olarak, bilgileri bir satıra Ekle:
@@ -201,7 +201,7 @@ Aşağıdaki komutu kullanarak, tablo yapısı de denetleyebilirsiniz:
 
 Bu çıktı görmeniz gerekir:
 
-![Görüntü](./media/postgresql-install/no6.png)
+![görüntü](./media/postgresql-install/no6.png)
 
 Birkaç daha fazla kişinin tabloya ekleyebilirsiniz. İşte birkaç seçenek veya kendi oluşturabilirsiniz:
 
@@ -218,7 +218,7 @@ Bir tablo göstermek için aşağıdaki komutu kullanın:
 
 Çıktısı şöyledir:
 
-![Görüntü](./media/postgresql-install/no7.png)
+![görüntü](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Bir tablodaki verileri silme
 Bir tablodaki verileri silmek için aşağıdaki komutu kullanın:
@@ -227,7 +227,7 @@ Bir tablodaki verileri silmek için aşağıdaki komutu kullanın:
 
 "John" satırdaki tüm bilgileri siler. Çıktısı şöyledir:
 
-![Görüntü](./media/postgresql-install/no8.png)
+![görüntü](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Bir tablodaki verileri güncelleştirme
 Bir tablodaki verileri güncelleştirmek için aşağıdaki komutu kullanın. Biz "Y" için "N" den kendi RSVP değiştirecek şekilde aynen katılan olmadığını, bu biri için Sandy onayladığından:

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2017
+ms.date: 3/23/2018
 ms.author: amitsriva
-ms.openlocfilehash: c739d98f81bafb6474995b141cab3400bcb4dc33
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dfa451a06fbadbb63c83f800ac164db399efd583
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri
 
@@ -176,7 +176,7 @@ Azure etkinlik günlüğü varsayılan olarak oluşturur. Günlükleri 90 gün b
 |clientPort     | İstek için kaynak bağlantı noktası.       |
 |HttpMethod     | İstek tarafından kullanılan HTTP yöntemi.       |
 |requestUri     | Alınan istek URI'si.        |
-|RequestQuery     | **Sunucu yönlendirilen**: bir istek gönderildi arka uç havuzu örnek. </br> **X-AzureApplicationGateway-günlük-ID**: bağıntı istek için kullanılan kimliği. Arka uç sunucularına trafiği sorunlarını gidermek için kullanılabilir. </br>**Sunucu durumu**: uygulama ağ geçidi arka uçtan alınan HTTP yanıt kodu.       |
+|RequestQuery     | **Sunucu yönlendirilen**: bir istek gönderildi arka uç havuzu örnek.</br>**X-AzureApplicationGateway-günlük-ID**: bağıntı istek için kullanılan kimliği. Arka uç sunucularına trafiği sorunlarını gidermek için kullanılabilir. </br>**Sunucu durumu**: uygulama ağ geçidi arka uçtan alınan HTTP yanıt kodu.       |
 |UserAgent     | Kullanıcı Aracısı'ndan HTTP isteği üstbilgisi.        |
 |httpStatus     | Uygulama ağ geçidi'nden istemciye döndürülen HTTP durum kodu.       |
 |httpVersion     | İstek HTTP sürümü.        |
@@ -316,9 +316,21 @@ Ayrıca, depolama hesabınıza bağlanın ve erişim ve performans günlüklerin
 
 ## <a name="metrics"></a>Ölçümler
 
-Ölçümleri portalda performans sayaçları görüntüleyebileceğiniz belirli Azure kaynakları için bir özelliğidir. Uygulama ağ geçidi için bir ölçüm kullanıma sunulmuştur. Bu ölçümüdür üretilen iş ve Portalı'nda bkz. Bir uygulama ağ geçidi bulun ve tıklatın **ölçümleri**. Değerleri görüntülemek için seçin performansı **kullanılabilir ölçümler** bölümü. Aşağıdaki görüntüde, farklı zaman aralıkları verileri görüntülemek için kullanabileceğiniz filtreleri içeren bir örnek görebilirsiniz.
+Ölçümleri portalda performans sayaçları görüntüleyebileceğiniz belirli Azure kaynakları için bir özelliğidir. Uygulama ağ geçidi için aşağıdaki ölçümleri kullanılabilir:
 
-![Filtrelerle ölçüm görünümü][5]
+- Geçerli bağlantı
+- Başarısız Olan İstekler
+- Sağlıklı ana bilgisayar sayısı
+- Yanıt durumu
+- Aktarım hızı
+- Toplam İstek Sayısı
+- Sağlıksız ana bilgisayar sayısı
+
+Bir uygulama ağ geçidi için altında Gözat **izleme** tıklatın **ölçümleri**. Kullanılabilir değerler görüntülemek için seçin **ÖLÇÜM** aşağı açılan liste.
+
+Aşağıdaki görüntüde, son 30 dakika boyunca görüntülenen üç ölçümlerle bir örneğe bakın:
+
+[![](media/application-gateway-diagnostics/figure5.png "Ölçüm görünümü")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
 Geçerli ölçümleri listesini görmek için bkz: [desteklenen Azure İzleyicisi ile ölçümleri](../monitoring-and-diagnostics/monitoring-supported-metrics.md).
 
@@ -336,7 +348,7 @@ Aşağıdaki örnek eşiği bir işleme ihlallerini sonra yönetici e-posta gön
 
    * İçinde **koşulu** Seçici, dört değerden birini seçin: **büyük**, **büyük veya ona eşit**, **değerinden**, veya **Küçük veya eşit**.
 
-   * İçinde **süresi** Seçicisi, bir süre 5 dakika ile 6 saat seçin.
+   * İçinde **süresi** Seçici, altı saate kadar beş dakika arasında bir süre seçin.
 
    * Seçerseniz **sahipleri, Katkıda Bulunanlar ve okuyucular e-posta**, bu kaynağa erişim izni olan kullanıcıların göre e-posta dinamik olabilir. Aksi takdirde kullanıcıların virgülle ayrılmış bir listesini sağlayabilirsiniz **ek yönetici email(s)** kutusu.
 

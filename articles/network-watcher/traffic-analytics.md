@@ -1,11 +1,11 @@
 ---
 title: Azure trafik analizi | Microsoft Docs
-description: "Azure ağ güvenlik grubu akış günlükleri trafiği Analytics ile çözümlemeyi öğrenin."
+description: Azure ağ güvenlik grubu akış günlükleri trafiği analytics ile çözümlemeyi öğrenin.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: 9fc44fdd6ce01452ffc2506c599e3d05aa0803e1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ffb13d1190535dacbe3a0781a1d3b425a970d26e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
-Trafik Analytics bulut ağları kullanıcı ve uygulama etkinliğinde görünürlük sağlayan bir bulut tabanlı bir çözümdür. Trafik Analytics Öngörüler Azure bulut trafik akışını sağlamak için Ağ İzleyicisi ağ güvenlik grubu (NSG) akış günlükleri analiz eder. Trafik Analytics ile şunları yapabilirsiniz:
+Trafik analytics bulut ağları kullanıcı ve uygulama etkinliğinde görünürlük sağlayan bir bulut tabanlı bir çözümdür. Trafik analytics Öngörüler Azure bulut trafik akışını sağlamak için Ağ İzleyicisi ağ güvenlik grubu (NSG) akış günlükleri analiz eder. Trafik analytics ile şunları yapabilirsiniz:
 
 - Ağ etkinliği, Azure aboneliklerinize arasında görselleştirmek ve etkin tanımlayın.
 - Güvenlik tehditlerine karşı belirleyin ve Aç-bağlantı noktaları, internet erişimi ve sanal ağları standart dışı bağlanma makineler (VM) çalışan uygulamalar gibi bilgilerle ağınızın güvenliğini sağlamak.
@@ -34,35 +34,35 @@ Trafik Analytics bulut ağları kullanıcı ve uygulama etkinliğinde görünür
 
 Bulut ağları Netflow veya eşdeğer Protokolü özellikli yönlendiriciler ve anahtarlar girdiğinde veya bir ağ arabirimi çıktığında gibi IP ağ trafiğini toplamaya özelliği sağlar sahip olduğu şirket içi Kurumsal ağlarda farklı. Trafik akışı verileri çözümleyerek, ağ trafiği akışını ve birim analizini oluşturabilirsiniz.
 
-Giriş hakkında bilgi sağlayan NSG akış günlükleri, Azure sanal ağı varsa ve tek tek ağ arabirimleri, VM'ler veya alt ağlar için çıkış IP trafiği bir ağ güvenlik grubu ile ilişkili. Akış günlükleri ham NSG çözümleyerek ve güvenlik, topoloji ve Coğrafya Intelligence ekleme, trafik analizi, trafik akışını, ortamınızdaki Öngörüler sağlayabilirsiniz. Trafik Analytics en iletişim ana, en iletişim kuran uygulama protokolleri, en konuşmaya konak çiftleri, izin verilen ve engellenen trafik, gelen/giden trafik, açık internet bağlantı noktaları, en engelleme kuralları, trafik gibi bilgiler sağlar Azure veri merkezi, sanal ağ, alt ağlar, başına dağıtım veya standart dışı ağlar.
+Giriş hakkında bilgi sağlayan NSG akış günlükleri, Azure sanal ağı varsa ve tek tek ağ arabirimleri, VM'ler veya alt ağlar için çıkış IP trafiği bir ağ güvenlik grubu ile ilişkili. Ham NSG akış günlüklerini analiz ve güvenlik, topoloji ve coğrafi konum, trafik Intelligence ekleme analytics, trafik akışını, ortamınızdaki Öngörüler sağlayabilirsiniz. Trafik Analytics en iletişim ana, en iletişim kuran uygulama protokolleri, en konuşmaya konak çiftleri, izin verilen ve engellenen trafik, gelen/giden trafik, açık internet bağlantı noktaları, en engelleme kuralları, trafik gibi bilgiler sağlar Azure veri merkezi, sanal ağ, alt ağlar, başına dağıtım veya standart dışı ağlar.
 
 ## <a name="key-components"></a>Başlıca bileşenler 
 
 - **Ağ güvenlik grubu (NSG)**: izin veren veya reddeden bir Azure sanal ağına bağlı kaynaklar için ağ trafiği güvenlik kuralları listesini içerir. Ağ güvenlik grupları (NSG’ler), alt ağlarla, ayrı ayrı VM’lerle (klasik) veya VM’lere bağlı ağ arabirimleri ile ilişkilendirilebilir (Resource Manager). Daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Ağ güvenlik grubu (NSG) akış günlükleri**: giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntülemek sağlar. NSG akış günlükleri json biçiminde yazılır ve giden Göster ve gelen akış kuralı başına temelinde akış NIC uygulanır, 5-tanımlama grubu bilgileri (kaynak/hedef IP adresi, kaynak/hedef bağlantı noktası ve protokol) akışı hakkında ve trafiğe izin verildiği veya engellendi. NSG akış günlükleri hakkında daha fazla bilgi için bkz: [NSG akış günlükleri](network-watcher-nsg-flow-logging-overview.md).
-- **Günlük analizi**: izleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olayları, performans verileri ya da Azure API aracılığıyla sağlanan özel veri içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Günlük analizi temel olarak kullanarak ağ Performans İzleyicisi'ni ve trafik Analytics yerleşik olanlar gibi uygulamaları izleme. Daha fazla bilgi için bkz: [oturum analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Günlük analizi çalışma alanı**: günlük analizi, bir Azure hesabı için ilgili verilerin depolandığı örneği. Günlük analizi çalışma alanları hakkında daha fazla bilgi için bkz: [günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Günlük analizi**: izleme verilerini toplayan ve merkezi bir depoya veri depolayan bir Azure hizmeti. Bu veriler, olayları, performans verileri ya da Azure API aracılığıyla sağlanan özel veri içerebilir. Toplanan veriler uyarı, analiz ve dışarı aktarma için kullanılabilir hale gelir. Günlük analizi temel olarak kullanarak ağ Performans İzleyicisi'ni ve trafik analytics yerleşik olanlar gibi uygulamaları izleme. Daha fazla bilgi için bkz: [oturum analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Günlük analizi çalışma alanı**: bir Azure hesabı için ilgili verilerin depolandığı günlük analizi örneği. Günlük analizi çalışma alanları hakkında daha fazla bilgi için bkz: [günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Ağ İzleyicisi**: izleme ve Azure ağ senaryo düzeyinde koşullar tanılama sağlar bölgesel bir hizmet. NSG akış günlükleri açma ve kapatma Ağ İzleyicisi'ni kapatabilirsiniz. Daha fazla bilgi için bkz: [Ağ İzleyicisi](network-watcher-monitoring-overview.md#network-watcher).
 
-## <a name="how-traffic-analytics-works"></a>Trafik Analytics nasıl çalışır? 
+## <a name="how-traffic-analytics-works"></a>Trafik analytics nasıl çalışır? 
 
-Trafik Analytics ham NSG akış günlükleri inceler ve aynı kaynak IP adresi, hedef IP adresi, hedef bağlantı noktası ve protokol arasında ortak akışları toplayarak azaltılmış günlükleri yakalar. Örneğin, ana bilgisayar 1 (IP adresi: 10.10.10.10) ana bilgisayar 2'ye iletişim (IP adresi: 10.10.20.10), bağlantı noktası (örneğin, 80) ve Protokolü (örneğin, http) kullanarak 1 saatlik bir süre boyunca 100 kez. Ana bilgisayar 1 & ana bilgisayar 2 100 kez bir süre 1 bağlantı noktası kullanılarak saat iletilen bir giriş, azaltılmış günlüğü var *80* ve Protokolü *HTTP*, 100 girdilerine sahip yerine. Azaltılmış günlükleri Gelişmiş Coğrafya, güvenlik ve topoloji bilgilerini ve günlük analizi çalışma alanında depolanır. Aşağıdaki resimde veri akışı gösterilmektedir:
+Trafik analytics ham NSG akış günlükleri inceler ve aynı kaynak IP adresi, hedef IP adresi, hedef bağlantı noktası ve protokol arasında ortak akışları toplayarak azaltılmış günlükleri yakalar. Örneğin, ana bilgisayar 1 (IP adresi: 10.10.10.10) ana bilgisayar 2'ye iletişim (IP adresi: 10.10.20.10), bağlantı noktası (örneğin, 80) ve Protokolü (örneğin, http) kullanarak 1 saatlik bir süre boyunca 100 kez. Ana bilgisayar 1 & ana bilgisayar 2 100 kez bir süre 1 bağlantı noktası kullanılarak saat iletilen bir giriş, azaltılmış günlüğü var *80* ve Protokolü *HTTP*, 100 girdilerine sahip yerine. Azaltılmış günlükleri Gelişmiş Coğrafya, güvenlik ve topoloji bilgilerini ve daha sonra günlük analizi çalışma alanındaki depolanır. Aşağıdaki resimde veri akışı gösterilmektedir:
 
 ![NSG akış günlükleri işleme için veri akışı](media/traffic-analytics/data-flow-for-nsg-flow-log-processing.png)
 
 ## <a name="supported-regions"></a>Desteklenen bölgeler
 
-Trafik Analytics Önizleme'de kullanılabilir. Önizleme sürümü özelliklerinde genel yayın aynı düzeyde kullanılabilirlik ve güvenilirlik özellikleri olarak yok.  Önizleme sürümde karşın, trafiği Analytics Nsg'ler herhangi birinde aşağıdaki bölgeler için kullanabilirsiniz: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD-2, Batı Avrupa, Kuzey Avrupa, Batı İngiltere, Güney İngiltere, Avustralya Doğu ve Avustralya Güneydoğu. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Avustralya Güneydoğu veya Güney UK bölge içinde bulunmalıdır.
+Trafik analytics Önizleme'de kullanılabilir. Önizleme sürümü özelliklerinde genel yayın aynı düzeyde kullanılabilirlik ve güvenilirlik özellikleri olarak yok.  Önizleme sürümde karşın, trafiği analytics Nsg'ler herhangi birinde aşağıdaki bölgeler için kullanabilirsiniz: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD-2, Batı Avrupa, Kuzey Avrupa, Batı İngiltere, Güney İngiltere, Avustralya Doğu ve Avustralya Güneydoğu. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Avustralya Güneydoğu veya Güney UK bölge içinde bulunmalıdır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="enable-network-watcher"></a>Ağ İzleyicisi'ni etkinleştir 
 
-Trafiğini analiz etmek için var olan bir Ağ İzleyicisi olması gerekir veya [bir Azure Ağ İzleyicisini etkinleştirmek](network-watcher-create.md) için analiz etmek istediğiniz Nsg'ler sahip her bölgede trafiği. Trafik analizi, herhangi bir barındırılan Nsg'ler için etkinleştirilebilir [bölgeler desteklenen](#supported-regions).
+Trafiğini analiz etmek için var olan bir Ağ İzleyicisi olması gerekir veya [bir Ağ İzleyicisi'ni etkinleştirmek](network-watcher-create.md) için analiz etmek istediğiniz Nsg'ler sahip her bölgede trafiği. Trafik analizi, herhangi bir barındırılan Nsg'ler için etkinleştirilebilir [bölgeler desteklenen](#supported-regions).
 
 ### <a name="re-register-the-network-resource-provider"></a>Ağ kaynak sağlayıcı yeniden kaydedilir 
 
-Önizleme sırasında trafiği Analytics kullanmadan önce ağ kaynak sağlayıcısı yeniden kaydetmeniz gerekir. Tıklatın **deneyin** aşağıdaki kodu kutusunda Azure bulut Kabuğu'nu açın. Bulut Kabuk Azure aboneliğinize, içine otomatik olarak günlüğe kaydeder. Bulut Kabuk açıldıktan sonra ağ kaynak sağlayıcısı yeniden kaydetmek için aşağıdaki komutu girin:
+Önizleme sırasında trafiği analytics kullanmadan önce ağ kaynak sağlayıcısı yeniden kaydetmeniz gerekir. Tıklatın **deneyin** aşağıdaki kodu kutusunda Azure bulut Kabuğu'nu açın. Bulut Kabuk Azure aboneliğinize, içine otomatik olarak günlüğe kaydeder. Bulut Kabuk açıldıktan sonra ağ kaynak sağlayıcısı yeniden kaydetmek için aşağıdaki komutu girin:
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
@@ -107,7 +107,7 @@ Aşağıdaki seçenekler, aşağıdaki resimde gösterildiği gibi seçin:
 4. Seçin *üzerinde* için **trafiği Analytics durum**.
 5. Varolan bir günlük analizi (OMS) çalışma alanını seçin ya da seçin **yeni çalışma alanı oluştur** yeni bir tane oluşturmak için. Günlük analizi çalışma alanı trafiğini analizi tarafından sonra analytics oluşturmak için kullanılan toplanmış ve dizinli verilerini depolamak için kullanılır. Var olan bir çalışma öğesini seçerseniz, birinde bulunmalıdır [bölgeler desteklenen](#traffic-analytics-supported-regions) ve yeni sorgu dili yükseltildi. Var olan bir çalışma yükseltmek istiyor musunuz ya da bir çalışma alanı desteklenen bir bölgede olmayan varsa, yeni bir tane oluşturun. Sorgu dilleri hakkında daha fazla bilgi için bkz: [Azure günlük analizi yükseltmek için yeni günlük arama](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-    Barındırma trafiğini analiz çözümü ve Nsg'ler günlük analizi (OMS) çalışma aynı bölgede olması gerekmez. Örneğin, Nsg'ler Doğu ABD ve Batı ABD olabilir, ancak bir çalışma alanı Batı Avrupa bölgedeki trafiği Analytics olabilir. Birden çok Nsg'ler aynı çalışma alanında yapılandırılabilir.
+    Barındırma trafiğini analiz çözümü ve Nsg'ler günlük analizi çalışma alanı aynı bölgede olması gerekmez. Örneğin, Nsg'ler Doğu ABD ve Batı ABD olabilir, ancak bir çalışma alanı Batı Avrupa bölgedeki trafiği analytics olabilir. Birden çok Nsg'ler aynı çalışma alanında yapılandırılabilir.
 6. **Kaydet**’i seçin.
 
     ![Depolama hesabı, günlük analizi çalışma alanı ve trafik Analytics etkinleştirme](media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
@@ -276,4 +276,4 @@ Kötü amaçlı trafiği ortamınızda var mı? Burada, kaynaklanan? Burada içi
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-Sık sorulan soruların yanıtları almak için bkz: [trafiği Analytics SSS](traffic-analytics-faq.md).
+Sık sorulan soruların yanıtları almak için bkz: [trafiği analytics SSS](traffic-analytics-faq.md).

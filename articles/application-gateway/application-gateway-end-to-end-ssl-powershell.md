@@ -1,24 +1,22 @@
 ---
-title: "Azure uygulama ağ geçidi ile uçtan uca SSL'yi yapılandırma | Microsoft Docs"
-description: "Bu makalede PowerShell kullanarak Azure uygulama ağ geçidi ile uçtan uca SSL yapılandırma"
+title: Azure uygulama ağ geçidi ile uçtan uca SSL yapılandırma
+description: Bu makalede PowerShell kullanarak Azure uygulama ağ geçidi ile uçtan uca SSL yapılandırma
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: df14d5c4572a250f9f8951ee3b86e87e6f652782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/27/2018
+ms.author: victorh
+ms.openlocfilehash: 2de7086d7c26d5a655ad5998678f392126ea7e1d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>PowerShell ile uygulama ağ geçidi kullanarak uçtan uca SSL yapılandırma
 
@@ -77,7 +75,7 @@ Bu bölümde uygulama ağ geçidi içeren bir kaynak grubu oluşturmada size yol
    New-AzureRmResourceGroup -Name appgw-rg -Location "West US"
    ```
 
-## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluşturun
+## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Uygulama ağ geçidi için bir sanal ağ ve bir alt ağ oluştur
 
 Aşağıdaki örnek, bir sanal ağ ve iki alt ağı oluşturur. Bir alt ağ, uygulama ağ geçidi tutmak için kullanılır. Diğer alt web uygulamasını barındırmak arka uçları için kullanılır.
 
@@ -160,7 +158,8 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
    5. Uygulama ağ geçidi için sertifika yapılandırın. Bu sertifika, uygulama ağ geçidi trafiğinde reencrypt ve şifresini çözmek için kullanılır.
 
    ```powershell
-   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+   $password = ConvertTo-SecureString  <password for certificate file> -AsPlainText -Force 
+   $cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password $password 
    ```
 
    > [!NOTE]
@@ -177,7 +176,7 @@ Tüm yapılandırma öğeleri, uygulama ağ geçidi oluşturmadan önce ayarlan�
    > [!NOTE]
    > Ortak anahtarı ile varsayılan araştırmasını alır *varsayılan* SSL bağlaması arka uç bilgisayarın IP adresi ve aldığı ortak anahtar değeri, ortak anahtar değeri sağlamak burada karşılaştırır. 
    
-   > Arka uçta ana bilgisayar üstbilgilerinin ve sunucu adı göstergesi (SNI) kullanıyorsanız, alınan ortak anahtar hangi trafik akışları hedeflenen siteye olmayabilir. Şüpheli değilseniz, hangi sertifika için kullanılan onaylamak için arka uç sunucularda https://127.0.0.1/ ziyaret *varsayılan* SSL bağlaması. Bu bölümde bu istek ortak anahtarı kullanın. Ana bilgisayar üstbilgilerinin ve SNI HTTPS bağlantılarına kullanıyorsanız ve bir yanıt ve sertifika el ile tarayıcı isteğinden arka uç sunucularda https://127.0.0.1/ için aldığınız değil bunları varsayılan SSL bağlamada ayarlamanız gerekir. Bunu yaparsanız, araştırmalar başarısız ve arka uç izin verilenler listesinde değil.
+   > Arka uçta ana bilgisayar üstbilgilerinin ve sunucu adı göstergesi (SNI) kullanıyorsanız, alınan ortak anahtar hangi trafik akışları hedeflenen siteye olmayabilir. Şüpheli değilseniz, ziyaret https://127.0.0.1/ için kullanılan hangi sertifikanın onaylamak için arka uç sunucularda *varsayılan* SSL bağlaması. Bu bölümde bu istek ortak anahtarı kullanın. Ana bilgisayar üstbilgilerinin ve SNI HTTPS bağlantılarına kullanıyorsanız ve bir yanıt ve sertifika için bir el ile tarayıcı istekten aldığınız değil https://127.0.0.1/ arka uç sunucularda, bunları varsayılan SSL bağlamada ayarlamanız gerekir. Bunu yaparsanız, araştırmalar başarısız ve arka uç izin verilenler listesinde değil.
 
    ```powershell
    $authcert = New-AzureRmApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer

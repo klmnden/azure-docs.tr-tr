@@ -1,6 +1,6 @@
 ---
-title: "İzleyici Azure DC/OS kümesi - işlem yönetimi"
-description: "Microsoft Operations Management Suite ile Azure kapsayıcı hizmeti DC/OS kümesi izleyin."
+title: İzleyici Azure DC/OS kümesi - işlem yönetimi
+description: Günlük analizi ile Azure kapsayıcı hizmeti DC/OS kümesi izleyin.
 services: container-service
 author: keikhara
 manager: timlt
@@ -9,45 +9,46 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: a675f0b57ed9e5d515cfa79a3a841e0f133fff6f
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ba76f8480dedb37326505f7ed756eb51a41ee0fe
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-operations-management-suite"></a>Operations Management Suite ile Azure kapsayıcı hizmeti DC/OS kümesi izleme
+# <a name="monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>Azure kapsayıcı hizmeti DC/OS kümesi günlük analizi ile izleme
 
-Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı OMS günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
+Günlük analizi, yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür. Kapsayıcı, tek bir konumda kapsayıcı envanter, performans ve günlükleri görüntülemenize yardımcı olan günlük analizi çözümde çözümüdür. Denetim, merkezi konumda günlükler görüntüleyerek kapsayıcıları sorun giderme ve bir ana bilgisayar üzerindeki fazladan kapsayıcı tüketen gürültülü bulabilirsiniz.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
 Kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
 
-## <a name="setting-up-oms-from-the-dcos-universe"></a>DC/OS universe'ten OMS ayarlama
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Günlük analizi DC/OS universe'ten ayarlama
 
 
 Bu makale, bir DC/OS ayarladıktan ve basit bir web kapsayıcısı uygulamalarınızı kümede dağıtmış olan varsayar.
 
 ### <a name="pre-requisite"></a>Önkoşul
 - [Microsoft Azure aboneliği](https://azure.microsoft.com/free/) -bu ücretsiz alabilirsiniz.  
-- Microsoft OMS çalışma Kurulumu - bkz aşağıda "Adım 3"
+- Günlük analizi çalışma alanı kurulum - Bkz aşağıda "Adım 3"
 - [DC/OS CLI](https://dcos.io/docs/1.8/usage/cli/install/) yüklü.
 
 1. DC/OS panosunda Universe ve 'aşağıda gösterildiği gibi OMS' araması tıklayın.
 
 ![](media/container-service-monitoring-oms/image2.png)
 
-2. **Yükle**'ye tıklayın. OMS sürüm bilgilerle yukarı pop görürsünüz ve bir **paket yükleme** veya **gelişmiş yükleme** düğmesi. Tıkladığınızda **gelişmiş yükleme**, hangi müşteri adayları, **OMS belirli yapılandırma özellikleri** sayfası.
+2. **Yükle**'ye tıklayın. Sürüm bilgileri ile yukarı pop görürsünüz ve bir **paket yükleme** veya **gelişmiş yükleme** düğmesi. Tıkladığınızda **gelişmiş yükleme**, hangi müşteri adayları, **OMS belirli yapılandırma özellikleri** sayfası.
 
 ![](media/container-service-monitoring-oms/image3.png)
 
 ![](media/container-service-monitoring-oms/image4.png)
 
-3. Burada, girmeniz istenir `wsid` (OMS çalışma alanı kimliği) ve `wskey` (OMS birincil anahtar çalışma alanı kimliği için). Her ikisi de almak için `wsid` ve `wskey` OMS hesabı oluşturmak gereken <https://mms.microsoft.com>. Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde elde etmeniz hesabı oluşturma, `wsid` ve `wskey` tıklayarak **ayarları**, ardından **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
+3. Burada, girmeniz istenir `wsid` (günlük analizi çalışma alanı kimliği) ve `wskey` (çalışma alanı kimliği için birincil anahtar). Her ikisi de almak için `wsid` ve `wskey` hesabı oluşturmak gereken <https://mms.microsoft.com>.
+Lütfen bir hesap oluşturmak için aşağıdaki adımları izleyin. İşiniz bittiğinde elde etmeniz hesabı oluşturma, `wsid` ve `wskey` tıklayarak **ayarları**, ardından **bağlı kaynakları**ve ardından **Linux sunucuları**, aşağıda gösterildiği gibi.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
-4. İstediğiniz ve 'Gözden geçirin ve yükleyin' düğmesini tıklatın sayı, OMS örnekleri seçin. Genellikle, OMS örnekleri Aracısı kümenizdeki sahip VM'in sayısına eşit sayıda istersiniz. Linux için OMS aracısının izleme bilgileri ve günlük kaydı bilgileri toplamak için istediği her bir VM üzerinde tek tek kapsayıcıları yükler gibidir.
+4. İstediğiniz ve 'Gözden geçirin ve yükleyin' düğmesini tıklatın örneklerinin sayısını seçin. Genellikle, örnekleri Aracısı kümenizdeki sahip VM'in sayısına eşit sayıda istersiniz. İzleme bilgileri ve günlük kaydı bilgileri toplamak için istediği her bir VM üzerinde tek tek kapsayıcı olarak Linux için OMS Aracısı'nı yükler.
 
 ## <a name="setting-up-a-simple-oms-dashboard"></a>Basit bir OMS Pano ayarlama
 
@@ -81,7 +82,7 @@ Tıkladığınızda **oluşturma**, onu için çalışma alanınızda sorar. Ça
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-OMS kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
+Günlük analizi kapsayıcı çözüm hakkında daha fazla bilgi için lütfen başvurmak [kapsayıcı çözüm günlük analizi](../../log-analytics/log-analytics-containers.md).
 
 ### <a name="how-to-scale-oms-agent-with-acs-dcos"></a>OMS Aracısı ACS DC/OS ile ölçeklendirme 
 
@@ -106,4 +107,4 @@ Neler çalışır? Eksik nedir? Başka ne bunun sizin için kullanışlı olmas�
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
- OMS, kapsayıcıları izlemek için ayarladığınız göre[kapsayıcı panonuz bkz](../../log-analytics/log-analytics-containers.md).
+ Günlük analizi, kapsayıcıları izlemek için ayarladığınız göre[kapsayıcı panonuz bkz](../../log-analytics/log-analytics-containers.md).

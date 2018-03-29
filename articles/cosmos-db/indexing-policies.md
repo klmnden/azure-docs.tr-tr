@@ -1,10 +1,10 @@
 ---
 title: Azure Cosmos ilkeleri dizin DB | Microsoft Docs
-description: "Dizin oluşturma Azure Cosmos DB'de nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin."
-keywords: "Dizin oluşturma, otomatik işleyişi dizin oluşturma, veritabanının dizin oluşturma"
+description: Dizin oluşturma Azure Cosmos DB'de nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin.
+keywords: Dizin oluşturma, otomatik işleyişi dizin oluşturma, veritabanının dizin oluşturma
 services: cosmos-db
-documentationcenter: 
-author: arramac
+documentationcenter: ''
+author: rafats
 manager: jhubbard
 editor: monicar
 ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
@@ -13,25 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/17/2017
-ms.author: arramac
-<<<<<<< HEAD
-ms.openlocfilehash: 53bf756963c305b8b31ac1a90d219f143522d051
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
-ms.translationtype: HT
-=======
-ms.openlocfilehash: b09f5323f0378721412baade9be9926ebd0c171e
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/26/2018
+ms.author: rafats
+ms.openlocfilehash: 5610c5fdc6a04f9ef13d2e4592f0d7e5d8eba30c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
 Varsayılan olarak, tüm Azure Cosmos DB veri dizin. Birçok müşteri Azure Cosmos otomatik olarak tüm yönlerini dizin işler DB olanak mutluluk olsa da, özel bir belirtebilirsiniz *dizin oluşturma ilkesi* Azure Cosmos veritabanı oluşturma sırasında koleksiyonlar için. Daha esnek ve diğer veritabanı platformlarının ikincil dizinler daha güçlü Azure Cosmos veritabanı dizin oluşturma ilkelerdir. Azure Cosmos DB'de tasarlayın ve şema esnekliği ödün vermeden dizini şeklini özelleştirebilirsiniz. 
 
 Azure Cosmos veritabanı nasıl dizin works öğrenmek için dizin oluşturma ilkesini yönetirken, hassas dengelemeler dizin depolama yükü, yazma ve sorgu işleme ve sorgu tutarlılık arasında yapabilirsiniz anlamak önemlidir.  
+
+Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu yetenekleri ve ayarlamak ve dizin oluşturma ilkesini, Azure Cosmos DB kapsayıcısında yapılandırma dizin otomatik Azure Cosmos DB gösterir. 
+
+>[!VIDEO https://www.youtube.com/embed/uFu2D-GscG0]
 
 Bu makalede, biz Kapat Azure Cosmos DB ilkeleri, dizin oluşturma ilkesini ve ilişkili dengelemeler nasıl özelleştirileceği dizin göz atın. 
 
@@ -43,7 +41,7 @@ Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacakt
 * Bir koleksiyona ait dizin oluşturma ilkesi nasıl değişiklik yapıyor?
 * Nasıl t depolama ve performans farklı dizin ilkelerinin karşılaştırması nedir?
 
-## Bir dizin oluşturma ilkesini özelleştirme<a id="CustomizingIndexingPolicy"></a>  
+## Bir dizin oluşturma ilkesini özelleştirme <a id="CustomizingIndexingPolicy"></a>  
 Dizin oluşturma ilkesi Azure Cosmos DB koleksiyonunda varsayılan kılarak dengelemeler depolama, yazma ve sorgu performansı ve sorgu tutarlılık arasında özelleştirebilirsiniz. Aşağıdaki durumlar yapılandırabilirsiniz:
 
 * **Dahil etmek veya belgeler ve dizin gelen ve yolları hariç tut**. Hariç tutma veya eklediğinizde veya koleksiyonundaki belgelere yerine belirli belgeleri dizine ekle. Da ekleyebilir ya da bilinen belirli JSON özellikleri hariç *yolları*, bir dizinde bulunan belgeler arasında dizine. Yollar joker karakter düzenleri içerir.
@@ -75,7 +73,7 @@ Dizin oluşturma ilkesini Azure portalında bir koleksiyonun değiştirebilirsin
 2. Sol gezinti menüsünde seçin **ayarları**ve ardından **dizin oluşturma ilkesi**. 
 3. Altında **dizin oluşturma ilkesi**dizin oluşturma ilkenizi değiştirin ve ardından **Tamam**. 
 
-### Veritabanı dizin oluşturma modları<a id="indexing-modes"></a>  
+### Veritabanı dizin oluşturma modları <a id="indexing-modes"></a>  
 Azure Cosmos DB destekleyen bir Azure Cosmos DB koleksiyonunda dizin oluşturma İlkesi yoluyla yapılandırabileceğiniz üç dizin oluşturma modu: tutarlı, yavaş ve yok.
 
 **Tutarlı**: bir Azure Cosmos DB koleksiyonunun İlkesi CONSISTENT ise, belirli bir Azure Cosmos DB koleksiyon sorgulamaları noktası okuma için belirtildiği gibi aynı tutarlılık düzeyi izleyin (güçlü, sınırlanmış eskime durumu, oturum veya son). Dizin belge güncelleştirme (ekleme, değiştirme, update ve delete bir belge bir Azure Cosmos DB koleksiyonunda) bir parçası olarak eşzamanlı olarak güncelleştirilir.
@@ -139,7 +137,7 @@ Dizin yolları belirtmek için ortak desenler şunlardır:
 | /                   | Koleksiyon için varsayılan yolu. Özyinelemeli ve tüm belgeyi ağaca uygular.                                                                                                                                                                                                                                   |
 | / prop /?             | Dizin yolu aşağıdaki gibi sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop > 5<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop                                                                       |
 | / prop / *             | Belirtilen etiket altındaki tüm yolları için dizin yolu. Aşağıdaki sorgularda ile çalışır<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop.nextprop = "değeri"<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop         |
-| / özellik / [] /?         | Dizin yolu gerekli yineleme hizmet ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için:<br><br>SEÇİN etiket etiket IN collection.props WHERE etiketi = "değeri"<br><br>Koleksiyon c birleştirme etiketi IN c.props SELECT etiketinden burada > 5 etiketi                                                                         |
+| /props/[]/?         | Dizin yolu gerekli yineleme hizmet ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için:<br><br>SEÇİN etiket etiket IN collection.props WHERE etiketi = "değeri"<br><br>Koleksiyon c birleştirme etiketi IN c.props SELECT etiketinden burada > 5 etiketi                                                                         |
 | /props/ [] /subprop/? | Nesne dizileri birleşim sorguları gibi ve dizin yolu gerekli yineleme sunmak için [{subprop: "a"}, {subprop: "b"}]:<br><br>SEÇİN etiket etiket IN collection.props WHERE tag.subprop = "değeri"<br><br>SEÇİN etiket koleksiyonu c birleştirme etiketi IN c.props WHERE tag.subprop = "değeri"                                  |
 | / prop/subprop /?     | Dizin yolu sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5                                                                                                                    |
 
@@ -371,7 +369,7 @@ Aşağıdaki değişiklikleri JSON belirtiminde uygulanan:
 * Her yol, birden fazla dizin tanımı olabilir. Her bir veri türü için bir tane sağlayabilirsiniz.
 * Duyarlık dizin oluşturma, 1 ile 8 numaraları için 1 ile 100 dizeleri ve -1 (en yüksek duyarlık) destekler.
 * Yol kesimleri her yol kaçınmak için çift tırnak gerekmez. Örneğin, bir yolu ekleyebilirsiniz   **/başlık /?** yerine **/ "title" /?**.
-* "Tüm yolları" temsil eden kök yolu olarak temsil edilebilir  **/ \***  (ek olarak  **/** ).
+* "Tüm yolları" temsil eden kök yolu olarak temsil edilebilir **/ \*** (ek olarak **/**).
 
 SDK'sı sürüm 1.2.0, taşımak için .NET SDK'sı 1.1.0 sürümü veya önceki bir sürümü ile yazılmış özel bir dizin oluşturma ilkesi ile bu hükümleri koleksiyonları kodu varsa, bu değişiklikler işlenecek uygulama kodunuz değiştirmeniz gerekir. SDK'ın önceki bir sürümünü kullanmaya devam etmeyi planlıyorsanız, değişiklik gerekmez veya kodu yoksa, dizin oluşturma ilkesini yapılandırır.
 

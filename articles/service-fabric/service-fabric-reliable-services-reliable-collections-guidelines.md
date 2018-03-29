@@ -1,6 +1,6 @@
 ---
-title: "Yönergeleri & Azure güvenilir koleksiyonlar için öneriler hizmeti doku | Microsoft Docs"
-description: "Kılavuzları ve önerileri Service Fabric güvenilir koleksiyonları kullanma"
+title: Yönergeleri & Azure güvenilir koleksiyonlar için öneriler hizmeti doku | Microsoft Docs
+description: Kılavuzları ve önerileri Service Fabric güvenilir koleksiyonları kullanma
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 27ea71bcc378100e613a8edd1c57a93f3c9ed925
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b0eb6a5aab5e71c0a8ac8263e177c493a07dafc0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Kılavuzları ve önerileri Azure Service Fabric güvenilir koleksiyonlar için
 Bu bölümde, durum Yöneticisi'ni güvenilir ve güvenilir koleksiyonları kullanma yönergeleri sağlar. Amacı kullanıcıların yaygın tehlikesinden yardımcı olmaktır.
@@ -52,7 +52,6 @@ Göz önünde bulundurmanız gereken bazı şeyler şunlardır:
 ### <a name="next-steps"></a>Sonraki adımlar
 * [Güvenilir Koleksiyonlar ile çalışma](service-fabric-work-with-reliable-collections.md)
 * [İşlemler ve kilitleri](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-* [Güvenilir durum Yöneticisi'ni ve koleksiyon dahili bileşenleri](service-fabric-reliable-services-reliable-collections-internals.md)
 * Veri Yönetimi
   * [Yedekleme ve Geri Yükleme](service-fabric-reliable-services-backup-restore.md)
   * [Bildirimler](service-fabric-reliable-services-notifications.md)

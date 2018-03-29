@@ -1,8 +1,8 @@
 ---
-title: "Azure üzerinde hizmet haritası yapılandırma | Microsoft Docs"
-description: "Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar."
+title: Azure üzerinde hizmet haritası yapılandırma | Microsoft Docs
+description: Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: daveirwin1
 manager: jwhit
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2a5e6367cef02b53cb0e24d644b7e3e8025e19ab
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c01d18b17906a2b243a46241a6ec5c4b1d9ab8d9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configure-service-map-in-azure"></a>Hizmet eşlemesi Azure'da yapılandırın
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Bunları--Kritik hizmetler sunan birbirine bağlı sistemler olarak düşündüğünüz sunucularınızı görüntülemek için kullanabilirsiniz. Hizmet eşlemesi gerekli, bir aracı yüklemesini dışındaki herhangi bir yapılandırma TCP bağlı mimarisiyle boyunca sunucuları, işlemleri ve bağlantı noktaları arasındaki bağlantıları gösterir.
@@ -28,8 +28,8 @@ Bu makalede hizmet Haritası ve ekleme aracıları yapılandırma ayrıntıları
 ## <a name="dependency-agent-downloads"></a>Bağımlılık Aracısı indirir
 | Dosya | İşletim Sistemi | Sürüm | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.4.1 | 0DCCE16495E7A3254A5FE1B5EADE66110984C3BE799A1FAAD7D119F23614592E |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.4.2 | E0888727125FA4E4ECACFB4B2633284C014933EE0CC2F7A9F93F36AEDBD6C2C4  |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.0 | 4125A88E60650FF168D6254AB4FCD14CDD3CC1C7B4CF168F3F5F3C1AF30895DD  |
 
 
 ## <a name="connected-sources"></a>Bağlı kaynaklar
@@ -168,7 +168,7 @@ ForEach-Object {
 }
 ```
 
-Emin olmak için daha kolay bir yol bağımlılık Aracısı'nı açıktır, VM'lerin her birinde Aracısı, Azure Resource Manager şablonu eklemektir.  Bağımlılık Aracısı'nı OMS aracısında hala bağlı olduğunu unutmayın böylece [OMS Aracısı VM uzantısı](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) önce dağıtılmalıdır.  Aşağıdaki kod parçacığında, JSON eklenebilir *kaynakları* bölümü.
+Bağımlılık Aracısı'nı, VM'lerin her birinde olduğundan emin olmak için daha kolay bir yol, Azure Resource Manager şablonunuzda aracı eklemektir.  Bağımlılık Aracısı'nı OMS aracısında hala bağlı olduğunu unutmayın böylece [OMS Aracısı VM uzantısı](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension) önce dağıtılmalıdır.  Aşağıdaki kod parçacığında, JSON eklenebilir *kaynakları* bölümü.
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -315,7 +315,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 
 #### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 7.0 | 3.10.0-123 |
 | 7.1 | 3.10.0-229 |
@@ -324,7 +324,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 7.4 | 3.10.0-693 |
 
 #### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 6.0 | 2.6.32-71 |
 | 6.1 | 2.6.32-131 |
@@ -338,7 +338,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 | 6.9 | 2.6.32-696 |
 
 #### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 5.8 | 2.6.18-308 |
 | 5.9 | 2.6.18-348 |
@@ -348,14 +348,14 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 ### <a name="ubuntu-server"></a>Ubuntu Server
 - Standart çekirdekleri yeniden derlemelerinin dahil olmak üzere özel çekirdekleri desteklenmez.
 
-| İşletim sistemi sürümü | Çekirdek sürümü |
+| OS sürümü | Çekirdek sürümü |
 |:--|:--|
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
 ### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux kesilemeyen kurumsal çekirdek ile
 #### <a name="oracle-linux-6"></a>Oracle Linux 6
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 6.2 | Oracle 2.6.32-300 (UEK R1) |
 | 6.3 | Oracle 2.6.39-200 (UEK R2) |
@@ -365,7 +365,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 
 #### <a name="oracle-linux-5"></a>Oracle Linux 5
 
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
@@ -373,7 +373,7 @@ Aşağıdaki bölümlerde bağımlılık aracısı için desteklenen işletim si
 #### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
 
 #### <a name="suse-linux-11"></a>SUSE Linux 11
-| İşletim sistemi sürümü | Çekirdek sürümü
+| OS sürümü | Çekirdek sürümü
 |:--|:--|
 | 11 SP2 | 3.0.101-0.7 |
 | 11 SP3 | 3.0.101-0.47 |

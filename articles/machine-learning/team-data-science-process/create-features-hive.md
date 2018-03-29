@@ -1,8 +1,8 @@
 ---
-title: "Veri özellikleri Hive sorgularını kullanarak, Hadoop küme oluşturma | Microsoft Docs"
-description: "Bir Azure Hdınsight Hadoop kümesinde depolanan verilerin özelliklerini Oluştur Hive sorguları örnekleri."
+title: Veri özellikleri Hive sorgularını kullanarak, Hadoop küme oluşturma | Microsoft Docs
+description: Bir Azure Hdınsight Hadoop kümesinde depolanan verilerin özelliklerini Oluştur Hive sorguları örnekleri.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: hangzh;bradsev
-ms.openlocfilehash: d72e10332263fac0b0ca0f937d394d2832d88781
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.author: bradsev
+ms.openlocfilehash: f49eeee2dd26d54674b4619e6c986952718caa47
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive sorgularını kullanarak bir Hadoop kümesinde veri özellikleri oluşturma
 Bu belge Hive sorgularını kullanarak, Azure Hdınsight Hadoop kümesi depolanan verilerin özelliklerini oluşturulacağını gösterir. Bu Hive sorguları katıştırılmış Hive User-Defined olduğu için komut dosyalarını sağlanan işlevler (UDF'ler) kullanın.
@@ -93,14 +93,14 @@ Hive, datetime alanları işlemek için UDF'ler kümesiyle birlikte gelir. Kovan
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Bu Hive sorgusu varsayar  *<datetime field>*  varsayılan tarih saat biçiminde değil.
+Bu Hive sorgusu varsayar *<datetime field>* varsayılan tarih saat biçiminde değil.
 
 Bir datetime alanı varsayılan biçiminde değilse, datetime alanı UNIX zaman damgası dönüştürmeniz ve UNIX zaman damgası varsayılan biçiminde bir tarih saat dizeye dönüştürmeniz gerekir. Datetime biçim varsayılan olduğunda, kullanıcılar katıştırılmış datetime özellikleri ayıklamak için UDF'ler uygulayabilir.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-Bu sorgu,  *<datetime field>*  gibi düzeni sahip *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Test etmek için kullanıcıların çalıştırabileceği
+Bu sorgu, *<datetime field>* gibi düzeni sahip *03/26/2015 12:04:39*,  *<pattern of the datetime field>'* olmalıdır `'MM/dd/yyyy HH:mm:ss'`. Test etmek için kullanıcıların çalıştırabileceği
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;

@@ -1,6 +1,6 @@
 ---
-title: "Dönüşümler - Azure Logic Apps ile XML verileri dönüştürmek | Microsoft Docs"
-description: "Dönüşümler veya XML verileri Kurumsal tümleştirme SDK'sını kullanarak logic apps içinde biçimleri arasında dönüştürme mapps oluşturma"
+title: Dönüşümler - Azure Logic Apps ile XML verileri dönüştürmek | Microsoft Docs
+description: Dönüşümler veya XML verileri Kurumsal tümleştirme SDK'sını kullanarak logic apps içinde biçimleri arasında dönüştürme mapps oluşturma
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f4ca7004432d28233888483424164456b008e992
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: fd59b6b3f51adb538e774bc5bb089880ca22e97e
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>XML dönüşümler ile Kurumsal tümleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -64,6 +64,7 @@ Bu noktada, map ayarlama tamamlandı. Gerçek dünya uygulamada bir LOB uygulama
 
 Artık HTTP uç noktası için bir istekte, dönüştürme test edebilirsiniz.  
 
+
 ## <a name="features-and-use-cases"></a>Özellikleri ve kullanım örnekleri
 * Bir harita oluşturulan dönüşüm bir ad ve adres bir belgeden diğerine kopyalama gibi basit olabilir. Veya, Giden kutusu eşleme işlemleri kullanarak daha karmaşık dönüşümleri oluşturabilirsiniz.  
 * Birden çok eşleme işlemleri veya İşlevler dizeler, tarih saat işlevleri vb. dahil olmak üzere kullanıma hazır.  
@@ -73,11 +74,49 @@ Artık HTTP uç noktası için bir istekte, dönüştürme test edebilirsiniz.
 * Var olan eşlemeleri karşıya yükle  
 * XML biçimi için destek içerir.
 
-## <a name="adanced-features"></a>Adanced özellikleri
-Aşağıdaki özellikler, yalnızca kod görünümünden erişilebilir.
+## <a name="advanced-features"></a>Gelişmiş özellikler
+
+### <a name="reference-assembly-or-custom-code-from-maps"></a>Referans derlemesini veya özel kod eşlemeleri 
+Dönüştürme eylem ayrıca, maps destekler veya başvuru içeren dış derleme dönüştürür. Bu özellik çağrılarından özel .NET kodu için doğrudan XSLT eşlemeleri sağlar. Derleme eşlemelerinin kullanmak için Önkoşullar aşağıda verilmiştir.
+
+* Harita ve olmasını harita gereksinimlerini başvurulan derleme [tümleştirme hesabına karşıya](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Harita ve derleme belirli bir sırada yüklenecek gereklidir. Bütünleştirilmiş koduna başvuruyor harita karşıya yüklemeden önce derleme yüklemeniz gerekir.
+
+* Harita Ayrıca bu öznitelikler ve derleme koduna çağrı içeren bir CDATA bölümü olması gerekir:
+
+    * **ad** özel derleme adı.
+    * **ad alanı** özel kod içerir, derlemesindeki ad alanıdır.
+
+  Bu örnek, "XslUtilitiesLib" ve çağrıları adlı bir derlemeye başvuran bir harita gösterir `circumreference` derlemesinden yöntemi.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+     <circles>
+        <xsl:for-each select="circle">
+            <circle>
+                <xsl:copy-of select="node()"/>
+                    <circumference>
+                        <xsl:value-of select="user:circumference(radius)"/>
+                    </circumference>
+            </circle>
+        </xsl:for-each>
+     </circles>
+    </xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### <a name="byte-order-mark"></a>Unicode bayt sırası işareti
-Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile başlar. Bu işlev devre dışı bırakmak için belirtmek `disableByteOrderMark` için `transformOptions` özelliği:
+Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile başlar. Bu işlevsellik yalnızca kod görünümü Düzenleyicisi'nde çalışırken erişebilir. Bu işlev devre dışı bırakmak için belirtmek `disableByteOrderMark` için `transformOptions` özelliği:
 
 ````json
 "Transform_XML": {
@@ -94,6 +133,10 @@ Varsayılan olarak, dönüştürme yanıttan bayt sırası işareti (BOM) ile ba
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 * [Enterprise Integration Pack hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")  

@@ -237,7 +237,7 @@
 ## Belirtimler
 ### [Canlı Alma - Bölünmüş MP4 canlı alma belirtimi](media-services-fmp4-live-ingest-overview.md)
 ### [Canlı Alma - Canlı Akışta Zamanlanmış Meta Verilere Sinyal Gönderme](media-services-specifications-live-timed-metadata.md)
-### [Kesintisiz Akış HEVC](media-services-specifications-ms-sstr-ammendment-hevc.md)
+### [Kesintisiz Akış HEVC](media-services-specifications-ms-sstr-amendment-hevc.md)
 
 # Kaynaklar
 ## [Azure Media Services topluluğu](media-services-community.md)

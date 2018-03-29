@@ -1,11 +1,11 @@
 ---
-title: "SQL veri ambarı Transact-SQL Başvurusu | Microsoft Docs"
-description: "SQL veri ambarı tarafından kullanılan Transact-SQL konular için referans içerik bağlantıları."
+title: SQL veri ambarı Transact-SQL Başvurusu | Microsoft Docs
+description: SQL veri ambarı tarafından kullanılan Transact-SQL konular için referans içerik bağlantıları.
 services: sql-data-warehouse
 documentationcenter: NA
 author: kevinvngo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 0abc5934-1e67-491a-b7d7-8b520d1ae98e
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 10/31/2016
+ms.date: 03/22/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: d6ad9db8eae0dc35580194f2ffbf02eeab6b70d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f2148f6087a43f9cec252df4ef2b97b4a7afcb3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="transact-sql-topics"></a>Transact-SQL konuları
 ## <a name="data-definition-language-ddl-statements"></a>Veri tanımlama dili (DDL) deyimleri
@@ -51,12 +51,12 @@ ms.lasthandoff: 10/11/2017
 * [TABLO BIRAKMA](https://msdn.microsoft.com/library/ms173790.aspx)
 * [ŞEMAYI](https://msdn.microsoft.com/library/ms186751.aspx)
 * [GÖRÜNÜMÜ](https://msdn.microsoft.com/library/ms173492.aspx)
-* [YENİDEN ADLANDIR](https://msdn.microsoft.com/library/mt631611.aspx)
+* [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>Veri işleme dili (DML) deyimleri
-* [SİL](https://msdn.microsoft.com/library/ms189835.aspx)
+* [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
 * [GÜNCELLEŞTİRME](https://msdn.microsoft.com/library/ms177523.aspx)
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 * [SEÇİN](https://msdn.microsoft.com/library/ms189499.aspx)
 * [Common_table_expression ile](https://msdn.microsoft.com/library/ms175972.aspx)
 * [DIŞINDA ve KESİŞTİĞİ](https://msdn.microsoft.com/library/ms188055.aspx)
-* [AÇIKLANMAKTADIR](https://msdn.microsoft.com/library/mt631615.aspx)
+* [EXPLAIN](https://msdn.microsoft.com/library/mt631615.aspx)
 * [KAYNAK](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Özet ve UNPIVOT kullanma](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GRUPLANDIRMA ÖLÇÜTÜ](https://msdn.microsoft.com/library/ms177673.aspx)
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [BİRLEŞİM](https://msdn.microsoft.com/library/ms180026.aspx)
 * [BURADA](https://msdn.microsoft.com/library/ms188047.aspx)
-* [SAYFANIN ÜSTÜ](https://msdn.microsoft.com/library/ms189463.aspx)
+* [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Diğer ad](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Arama koşulu](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Alt sorgular](https://msdn.microsoft.com/library/mt631613.aspx)
@@ -113,12 +113,12 @@ ms.lasthandoff: 10/11/2017
 * [ANA ANAHTARI AÇILAMIYOR](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla TSQL örnekler için bkz: [SQL Data Warehouse başvuru genel bakış][SQL Data Warehouse reference overview].
+Daha fazla TSQL başvuru için bkz: [SQL veri ambarı T-SQL dil öğeleri](sql-data-warehouse-reference-tsql-language-elements.md).
 
 <!--Image references-->
 
 <!--Article references-->
-[SQL Data Warehouse reference overview]: sql-data-warehouse-overview-reference.md
+
 
 <!--MSDN references-->
 

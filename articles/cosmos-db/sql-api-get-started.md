@@ -1,7 +1,7 @@
 ---
-title: "Azure Cosmos DB: SQL API başlangıç Öğreticisi | Microsoft Docs"
-description: "Çevrimiçi bir veritabanı ve SQL API'yi kullanarak C# konsol uygulaması oluşturan bir Öğreticisi."
-keywords: "nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması"
+title: 'Azure Cosmos DB: SQL API başlangıç Öğreticisi | Microsoft Docs'
+description: Çevrimiçi bir veritabanı ve SQL API'yi kullanarak C# konsol uygulaması oluşturan bir Öğreticisi.
+keywords: nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 28714106a6228b5bdaa1933d6e8ea89105eb4b30
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 870bdce0b909a882b99de92bbe5ad1e51db11a39
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API başlangıç Öğreticisi
 > [!div class="op_single_selector"]
@@ -31,8 +31,6 @@ ms.lasthandoff: 12/18/2017
 > * [C++](sql-api-cpp-get-started.md)
 >  
 > 
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB SQL API başlangıç öğreticisinde için Hoş Geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
@@ -52,7 +50,7 @@ Zamanınız yok mu? Endişelenmeyin! Eksiksiz çözümü [GitHub](https://github
 
 Şimdi başlayalım!
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
 

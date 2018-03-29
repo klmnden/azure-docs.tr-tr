@@ -1,6 +1,6 @@
 ---
-title: Azure Market danışmanlık teklifleri
-description: Uygunluk ölçütleri ve Azure markette Yeni Teklif türü için yayımlama gereksinimleri
+title: Azure Market Danışmanlık Hizmetleri
+description: Bu makalede, Azure Marketi'nde yeni danışmanlık hizmet tekliflerini yayınlama gereksinimleri ve uygunluk ölçütleri açıklanmaktadır.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,22 +14,22 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: e063721f2fa2ac87b2f9dd7385b2d114a1b76cb3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
-Müşteriler desteklemek ve Microsoft Azure kullanımını genişletmek için hizmetleriyle bağlanıyor hedefle, Azure Marketi Hizmetleri teklifleri sistem Tümleştirici (SI) ortaklarının Microsoft Danışmanlık listesine destekler. 
+Müşteri desteği ve bunların kullanılması Azure genişletmek için hizmetleriyle bağlanıyor bir hedef ile Azure Marketi sistem Tümleştirici (SI) ortaklarının Microsoft Danışmanlık hizmet teklifleri listesini destekler. 
 
-Bunlar danışmanlık hizmetleri teklifleri kapsamına ve süresine, sabit müşteriye özgü katılımlar olan fiyat sabit veya ücretsiz ve tanımlı bir sonuç olması. Olası müşteriler kolayca uyuşmazlık sorunsuz bir şekilde iş ortakları tarafından kurulacak isteyebilirsiniz. İş ortakları kendi CRM sisteminde bir bildirim alın ve kullanıcılara 48hrs içinde yanıt hedefleyin.
+Bu danışmanlık hizmet tekliflerini müşteriye özgü katılımlar ' dir. Kapsamına ve süresine sabit, sabit fiyat veya ücretsiz ve sağlayabilirsiniz tanımlı sonucu. Olası müşteriler kolayca iş ortakları tarafından kurulacak isteyebilirsiniz. İş ortakları kendi CRM sisteminde bildirim ve 48 saat içinde isteklerine yanıt hedefleyin.
 
-Microsoft Dynamics 365, Microsoft Office 365 ve Microsoft Power BI göre hizmeti sunar, üzerinde AppSource listelenmesi uygundur. Ayrıntılı İnceleme [yönergeleri burada bu hizmetler için](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Microsoft Dynamics 365, Office 365 ve Power BI göre hizmet teklifleri üzerinde AppSource listelenmesi uygundur. Daha fazla bilgi için bkz: [Microsoft AppSource danışmanlık hizmetleri listeleme yönergeleri](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
 ## <a name="eligible-services-and-partners"></a>Uygun hizmetlerin ve iş ortakları
 
-İş ortakları kendi hizmet ilgili alanda Gümüş veya gold uzmanlığına sahip için de gereklidir. Aşağıda için uygun yetkinlikleri bakın:
+İş ortakları kendi hizmet ilgili alanda Gümüş veya gold uzmanlığına sahip için de gereklidir. Uygun yetkinlikleri aşağıdaki tabloda listelenmiştir:
 
 |Uzmanlığı  |Çözüm alanı  |
 |---------|---------|
@@ -37,22 +37,21 @@ Microsoft Dynamics 365, Microsoft Office 365 ve Microsoft Power BI göre hizmeti
 |Uygulama geliştirme ve ISV     |  Uygulama geliştirme, uygulama tümleştirmesi, DevOps       |
 |Veri Yönetimi ve analizi    |  Veri analizi, bir veri platformu       |
 
-Teklifleri aşağıdaki beş hizmet türlerinden biri olmalıdır. Birden fazla teklif listeleyebilirsiniz dikkat edin: 
+Teklifleri (birden fazla listeleyebilirsiniz) aşağıdaki beş hizmet türlerinden biri olmalıdır: 
 
-1. **Değerlendirme:** bir çözüm uygulanabilirliğini belirlemek ve tahmini maliyet ve zamanlama sağlamak için Müşteri'nin ortamının değerlendirme. 
-2. Brifingi: Bir çözüm ya da Müşteri faiz çerçeveleri, gösterileri ve müşteri örnekler kullanarak çizmek için danışmanlık hizmet giriş. 
-3. **Uygulama:** tam olarak çalışan bir çözüm içinde sonuçları tam bir yüklemesi. 2 hafta içinde ya da daha az çözümleri sınırlama öneririz. 
-4. **Kavram kanıtı:**bir çözüm Müşteri'nin gereksinimlerini karşılayıp karşılamadığını belirlemek için sınırlı kapsam uygulama. 
-5. **Atölye:** etkileşimli bir katılım gerçekleştirilen bir müşterinin içi eğitim, brifingleri, değerlendirmeleri ya da Müşteri'nin veri veya ortam yerleşik gösterileri ilgili olabilir. 
+* **Değerlendirme**: bir çözüm uygulanabilirliğini belirlemek ve tahmini maliyet ve zamanlama sağlamak için Müşteri'nin ortamının değerlendirme. 
+* **Briefing**: bir çözüm ya da Müşteri faiz çerçeveleri, gösterileri ve müşteri örnekler kullanarak çizmek için danışmanlık hizmet giriş. 
+* **Uygulama**: tam olarak çalışan bir çözüm içinde sonuçları tam bir yüklemesi. İki hafta içinde ya da daha az çözümleri sınırlama öneririz. 
+* **Kavram kanıtı**: bir çözüm müşteri gereksinimlerini karşılayıp karşılamadığını belirlemek için sınırlı kapsam uygulama. 
+* **Atölye**: müşterinin şirket içinde gerçekleştirilen bir etkileşimli katılım. Eğitim, brifingleri, değerlendirmeleri ya da Müşteri'nin veri veya ortam yerleşik gösterileri içerebilir. 
 
-Brifingleri dışında danışmanlık hizmetleri yüz yüze (yani, yerinde bir müşterinin konum veya bir iş ortağının tesis) önerilebilir veya neredeyse (yani, aracılığıyla konferans, web konferans, uzak uygulama, vb.). Brifingleri kişisel olarak sunulan gerekir.
+Dışında *Brifingi* danışmanlık hizmetleri hizmet türü yüz yüze (diğer bir deyişle, yerinde bir müşterinin konum veya bir iş ortağının tesis) sunulan veya neredeyse (diğer bir deyişle, konferans aracılığıyla konferans veya uzaktan web Uygulama). Brifingleri kişisel olarak sunulan gerekir.
 
-Daha fazla bilgi edinin [yetkinlikleri Microsoft iş ortağı ağı üzerinden](https://partner.microsoft.com/en-US/membership/competencies#simple-tab-content-1). 
+Daha fazla bilgi için bkz: [yetkinlikleri Microsoft iş ortağı ağı üzerinden](https://partner.microsoft.com/en-US/membership/competencies). 
 
-## <a name="countries-supported"></a>Desteklenen ülkeler
+## <a name="supported-countries"></a>Desteklenen ülkelerdeki
 
-SI ortakları aşağıdaki 18 ülkeler için danışmanlık hizmetleri teklifleri gönderebilirsiniz. 
-
+SI ortakları danışmanlık hizmet tekliflerini aşağıdaki 18 ülkeler için gönderebilirsiniz. 
 
 |Uygun ülkelerde |  |  |
 |---------|---------|---------|
@@ -63,37 +62,36 @@ SI ortakları aşağıdaki 18 ülkeler için danışmanlık hizmetleri teklifler
 |Finlandiya     |Meksika         |Birleşik Krallık         |
 |Fransa     |Hollanda         |Amerika Birleşik Devletleri         |
 
-Azure Market danışmanlık hizmetleri başlatma ilk Avustralya, Kanada, İngiltere ve Amerika Birleşik Devletleri çalışmaya başlayacaktır. Anlamlı numarası ve ilgi çekici seçimi Hizmetleri tekliflerinin alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylandıktan sonra diğer ülkeler için katalogları çalışmaya başlayacaktır.
+Azure Market danışmanlık hizmetleri başlatma Avustralya, Kanada, İngiltere ve Amerika Birleşik Devletleri için Canlı ilk geçer. Katalog diğer ülkeler için anlamlı bir sayıdan sonra canlı geçilir ve hizmet tekliflerinin seçimi çekici alınan iş ortakları tarafından gönderilen ve Microsoft tarafından onaylanan.
 
 ## <a name="prepare-your-publishing-artifacts"></a>Yayımlama yapıtları hazırlama
 Hizmetinizi belirler bile önce toplamaya başlamak ve listenizi yardımcı olacak içerik hazırlama, hizmet ve hedef müşteri çözüme değerini iyileştirir. 
 
-
 |Yeni yayımcılar için ayarlama  |
 |---------|
 |MPN Kimliği     |
-|Şirket logoları (48 x 48, 216 x 216)     |
+|Şirket logolarını (48 &#215; 48, 216 &#215; 216)     |
 |Hedef yol     |
 
 
 |Yeni teklifleri için ayarlama  |
 |---------|
-|Ad sunar (200 karakterden) ve Açıklama (2000 karakter)    |
+|(200 karakterden) ad ve Açıklama (2000 karakter) sunma    |
 |Yetkinlikler     |
 |Ülke/bölge kullanılabilirliği     |
 |Katılım süresi     |
 |Geçerli sektörü, kategoriler ve arama anahtar sözcükleri     |
 |Ürün genel bakış videosu    |
-|Ekran görüntüleri (en fazla 5, 1280 x 720)     |
+|Screenshots (maximum of 5, 1280 &#215; 720)     |
 |Pazarlama belgeleri (en fazla 3)     |
 
 
 ## <a name="publishing-process"></a>Yayımlama işlemi
-Azure Market'te danışmanlık hizmeti teklifiniz listeleme aşağıdakileri içerir:
+Danışmanlık hizmeti teklifiniz Azure Market'te listeleyen aşağıdaki aşamaları içerir:
 
-1. **İsteği:** İsteğinizde Gönder [burada](https://azuremarketplace.microsoft.com/en-us/sell/nominate) ve kuruluşunuz hakkında daha fazla bize bildirin. 
-2. **Doğrulama:**isteğiniz uygunluk ölçütlere uyan doğrulamak için gözden geçirilmesi. Ardından, sunumu, danışmanlık hizmetleri listeleme yönergeler göndereceğiz. 
-3. **Gönder:** ' ndaki yönergeleri gerekli bilgileri sağlayın. Tüm içerik ve destekleyici malzeme İngilizce olarak gönderilmesi gerekiyor. 
-4. **İnceleme:** pazarlama ve düzenleme ekibimiz gönderiminiz gözden geçirin ve okunabilirliği, dilbilgisi ve verimliliği için en iyi duruma getirme değişiklikleri yapın. 
-5. **Hazırlama:** gönderiminiz ardından gözden geçirilmek üzere sizin tarafınızdan hazırlanır. 
-6. **Yayımlama:** Microsoft hazırlanmış içerikle karşılanır sonra listenizi Azure Marketi üzerinde çalışmaya hazırdır. Listenizi servise tarihini, Sunumda belirtilen ülkeyi bağlıdır. Seçili ülkeniz için katalog zaten Azure Marketi dinamik ise, listenizi birkaç saat içinde görüntülenir. Aksi takdirde, seçili ülkeniz için katalog Canlı gider hemen listenizi görünür.
+1. **İstek**: isteğinizi göndermek için kullanmak [Azure Market Adaylığı Form](https://azuremarketplace.microsoft.com/en-us/sell/nominate) ve kuruluşunuz hakkında daha fazla bize bildirin. 
+2. **Doğrulama**: isteğiniz uygunluk ölçütlere uyan emin olmak için incelenir. Size sonra sunumu, danışmanlık hizmetleri listeleme yönergeler göndereceğiz. 
+3. **Gönderme**:'ndaki yönergeleri listelenen gerekli bilgileri sağlayın. Tüm içerik ve destekleyici malzeme İngilizce olarak gönderilmesi gerekir. 
+4. **Gözden geçirme**: pazarlama ve düzenleme ekibimiz gönderiminiz gözden geçirir ve okunabilirliği, dilbilgisi ve verimliliğini iyileştirir. 
+5. **Hazırlama**: gönderiminiz gözden geçirmeniz için hazırdır. 
+6. **Yayımlama**: Microsoft hazırlanmış içerikle sağlandığında listenizi Azure Marketi üzerinde çalışmaya hazırdır. Listenizi servise tarihini, Sunumda belirtilen ülke bağlıdır. Seçili ülkeniz için katalog zaten Azure Marketi üzerinde dinamik ise, listenizi birkaç saat içinde görüntülenir. Aksi takdirde, katalog Canlı gider hemen listesi görüntülenir.

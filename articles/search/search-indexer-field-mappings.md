@@ -1,11 +1,11 @@
 ---
-title: "Azure Search'te dizin oluşturucular üzerinde alan eşlemeleri"
-description: "Alan adları ve veri Beyanları farklılıklar hesaba Azure Search dizin oluşturucu alan eşlemelerini yapılandırın"
+title: Azure Search'te dizin oluşturucular üzerinde alan eşlemeleri
+description: Alan adları ve veri Beyanları farklılıklar hesaba Azure Search dizin oluşturucu alan eşlemelerini yapılandırın
 services: search
-documentationcenter: 
+documentationcenter: ''
 author: chaosrealm
 manager: pablocas
-editor: 
+editor: ''
 ms.assetid: 0325a4de-0190-4dd5-a64d-4e56601d973b
 ms.service: search
 ms.devlang: rest-api
@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e4d6960e540641405b879064a8064d45521dc04f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure Search'te dizin oluşturucular üzerinde alan eşlemeleri
 Azure Search'te dizin oluşturucular kullanırken, kendiniz bazen burada giriş verilerinizi, hedef dizin şeması oldukça eşleşmediği durumlarda bulabilirsiniz. Bu durumda, kullandığınız **alan eşlemelerini** istenen şekle verilerinizi dönüştürecek.
@@ -60,7 +60,7 @@ Bir dizin oluşturucu, birden çok alan eşlemelerini olabilir. Nasıl, "bir ala
 
 "fieldMappings" : [
     { "sourceFieldName" : "text", "targetFieldName" : "textStandardEnglishAnalyzer" },
-    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" },
+    { "sourceFieldName" : "text", "targetFieldName" : "textSoundexAnalyzer" }
 ]
 ```
 
@@ -151,7 +151,7 @@ Aşağıdaki tabloda farklı base64 kodlaması dizesinin karşılaştırır `00>
 | Base64 ile doldurma | `MDA+MDA/MDA=` | URL için güvenli karakterler kullanmak ve doldurma kaldırın | Standart base64 karakterler ve doldurma ekleyin |
 | Base64 doldurma olmadan | `MDA+MDA/MDA` | URL için güvenli karakterler kullanın | Standart base64 karakterler kullanın |
 | URL için güvenli base64 ile doldurma | `MDA-MDA_MDA=` | Doldurma Kaldır | Doldurma ekleme |
-| URL için güvenli base64 doldurma olmadan | `MDA-MDA_MDA` | None | None |
+| URL için güvenli base64 doldurma olmadan | `MDA-MDA_MDA` | Hiçbiri | None |
 
 <a name="extractTokenAtPositionFunction"></a>
 

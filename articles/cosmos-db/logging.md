@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: mimig
-ms.openlocfilehash: b1921820b5a1d94c6f5d6413204ee7814cc25c74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
-Bir veya daha fazla Azure Cosmos DB veritabanı kullanmak başlattıktan sonra izlemek isteyebilir nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda bulunan günlüklerini genel bir bakış sağlar. İzleme günlükleri göndermek amacıyla tanılama günlük kaydını etkinleştirmeyi öğrenin [Azure Storage](https://azure.microsoft.com/services/storage/), günlüklere akışını nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarmak nasıl [Azure günlük analizi ](https://azure.microsoft.com/services/log-analytics/), parçası olduğu [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite).
+Bir veya daha fazla Azure Cosmos DB veritabanı kullanmak başlattıktan sonra izlemek isteyebilir nasıl ve ne zaman veritabanlarınızı erişilir. Bu makalede Azure platformunda bulunan günlüklerini genel bir bakış sağlar. İzleme günlükleri göndermek amacıyla tanılama günlük kaydını etkinleştirmeyi öğrenin [Azure Storage](https://azure.microsoft.com/services/storage/), günlüklere akışını nasıl [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)ve günlükleri dışarı aktarmak nasıl [Azure günlük analizi ](https://azure.microsoft.com/services/log-analytics/).
 
 ## <a name="logs-available-in-azure"></a>Azure'da kullanılabilir günlük
 
@@ -57,7 +57,7 @@ Etkinlik günlükleri (Denetim düzlemi işlemleri) doğası gereği daha zengin
 
 Azure tanılama günlüklerini bir kaynak tarafından gösterilen ve bu kaynağın işlemi hakkında zengin, sık veriler sağlar. Bu günlükler içeriğini kaynak türüne göre değişir. Kaynak düzeyi tanılama günlüklerini de konuk işletim sistemi düzeyinde tanılama günlükleri farklılık gösterir. Konuk işletim sistemi tanılama günlüklerini bir sanal makine veya diğer desteklenen içinde çalışan bir aracı tarafından toplanan kaynak türü. Kaynak düzeyi tanılama günlüklerini Azure platformu hiçbir aracı ve yakalama kaynak özgü veri gerektirir. Konuk işletim sistemi düzeyinde tanılama günlükleri, işletim sistemi ve bir sanal makinede çalışan uygulamalardan veri yakalayın.
 
-![Tanılama günlük depolama, olay hub'ları veya günlük analizi aracılığıyla Operations Management Suite](./media/logging/azure-cosmos-db-logging-overview.png)
+![Depolama, olay hub'ları veya günlük analizi için tanılama günlükleri](./media/logging/azure-cosmos-db-logging-overview.png)
 
 ### <a name="what-is-logged-by-azure-diagnostic-logs"></a>Azure tanılama günlükleri tarafından günlüğe kaydedilenler?
 

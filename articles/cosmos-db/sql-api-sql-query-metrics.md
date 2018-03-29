@@ -1,9 +1,9 @@
 ---
-title: "SQL sorgu ölçümleri Azure Cosmos DB SQL API'si | Microsoft Docs"
-description: "İzleme ve Azure Cosmos DB istekleri SQL sorgu performansını hata ayıklama hakkında bilgi edinin."
-keywords: "SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri"
+title: SQL sorgu ölçümleri Azure Cosmos DB SQL API'si | Microsoft Docs
+description: İzleme ve Azure Cosmos DB istekleri SQL sorgu performansını hata ayıklama hakkında bilgi edinin.
+keywords: SQL söz dizimi, sql sorgusu, sql sorguları, json sorgu dili, veritabanı kavramlarını ve sql sorguları, toplama işlevleri
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -15,15 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a2a42fd65ba4344f703ca423dc451802f3f0ac76
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Sorgu performans Azure Cosmos DB ile ayarlama
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 Azure Cosmos DB sağlayan bir [SQL veri sorgulama için API](sql-api-sql-query.md), şema veya ikincil dizinler gerektirmeden. Bu makalede, geliştiriciler için aşağıdaki bilgileri sağlar:
 
@@ -151,7 +149,7 @@ Aşağıdaki Azure Cosmos DB sorgu performansı etkileyen en yaygın faktörlerd
 | Bölümleme ve bölüm anahtarları | Sorguları ayrıcalık tanıma ile düşük gecikme süresi filtre yan tümcesi bölüm anahtar değeri. |
 | SDK ve sorgu seçenekleri | Doğrudan bağlantı gibi SDK en iyi uygulamaları izleyin ve istemci tarafı sorgu yürütme seçeneklerini ayarlayın. |
 | Ağ gecikmesi | Ağ Yükü ölçüm için hesap ve yakın bölgesinden okumak için çok girişli API'leri kullanın. |
-| Dizin oluşturma ilkesi | Gerekli dizin yolları/ilke sorgu için olduğundan emin olun. |
+| Dizin Oluşturma İlkesi | Gerekli dizin yolları/ilke sorgu için olduğundan emin olun. |
 | Sorgu yürütme ölçümleri | Sorgu ve veri şekilleri, olası yeniden yazdırmaya tanımlamak için sorgu yürütme ölçümleri analiz edin.  |
 
 ### <a name="provisioned-throughput"></a>Sağlanan aktarım hızı
@@ -177,7 +175,7 @@ Bölümlendirme ve bölüm anahtarları hakkında daha fazla bilgi için bkz: [A
 Bkz: [performans ipuçları](performance-tips.md) ve [performans testi](performance-testing.md) için en iyi istemci tarafında performans Azure Cosmos DB'den alma. Bu, son SDK'ları kullanarak, platforma özgü yapılandırmaları bağlantıları, atık toplama sıklığını varsayılan sayısı gibi yapılandırma ve doğrudan/TCP gibi basit bağlantı seçenekleri kullanarak içerir. 
 
 
-#### <a name="max-item-count"></a>En Fazla Öğe Sayısı
+#### <a name="max-item-count"></a>En fazla öğe sayısı
 Sorgular, değeri için `MaxItemCount` uçtan uca sorgu zamanında önemli bir etkisi olabilir. Her sunucuya gidiş dönüş öğelerin sayısı en fazla döndürülecek `MaxItemCount` (100 öğelerinin varsayılan). Bu daha yüksek bir değere ayarlamak (-1, en fazla ve önerilen), sorgu süresi genel sorgular büyük sonuç kümeleri ile için özellikle istemci ve sunucu arasındaki gidiş dönüş sayısı sınırlayarak geliştirecektir.
 
 ```cs
@@ -191,7 +189,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 ```
 
 #### <a name="max-degree-of-parallelism"></a>Maksimum paralellik derecesi
-Sorguları için ayarlama `MaxDegreeOfParallelism` özellikle çapraz bölüm sorgular (olmadan bir filtre bölüm anahtarı değeri) gerçekleştirirseniz, uygulamanız için en iyi yapılandırmaları tanımlamak için. `MaxDegreeOfParallelism`en fazla sayısını Paralel Görevler, yani, en fazla paralel olarak ziyaret etme bölüm denetler. 
+Sorguları için ayarlama `MaxDegreeOfParallelism` özellikle çapraz bölüm sorgular (olmadan bir filtre bölüm anahtarı değeri) gerçekleştirirseniz, uygulamanız için en iyi yapılandırmaları tanımlamak için. `MaxDegreeOfParallelism`  en fazla sayısını Paralel Görevler, yani, en fazla paralel olarak ziyaret etme bölüm denetler. 
 
 ```cs
 IDocumentQuery<dynamic> query = client.CreateDocumentQuery(

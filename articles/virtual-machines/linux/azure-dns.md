@@ -1,6 +1,6 @@
 ---
-title: "Linux sanal makinelerinin Azure DNS ad çözümleme seçenekleri"
-description: "Ad çözümleme sağlanan senaryoları Azure Iaas dahil olmak üzere, Linux sanal makineler için DNS hizmetleri, karma dış DNS ve Getir bilgisayarınızı kendi DNS sunucusu."
+title: Linux sanal makinelerinin Azure DNS ad çözümleme seçenekleri
+description: Ad çözümleme sağlanan senaryoları Azure Iaas dahil olmak üzere, Linux sanal makineler için DNS hizmetleri, karma dış DNS ve Getir bilgisayarınızı kendi DNS sunucusu.
 services: virtual-machines
 documentationcenter: na
 author: RicksterCDN
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a445de3e1bfbeb2cd2e5674418688d6bb610a3c2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Linux sanal makinelerinin Azure DNS ad çözümlemesi seçenekleri
 Azure DNS ad çözümlemesi tek bir sanal ağdaki tüm sanal makineler için varsayılan olarak sağlar. Azure barındıran sanal makinelerde kendi DNS hizmetleri yapılandırarak kendi DNS ad çözümlemesi çözüm uygulayabilirsiniz. Aşağıdaki senaryolarda durumunuz için çalışan bir seçmenize yardımcı olmalıdır.
@@ -30,7 +30,7 @@ Kullandığınız ad çözümlemesi türünün nasıl sanal makineler ve rol ör
 
 Aşağıdaki tabloda senaryoları ve karşılık gelen ad çözümlemesi çözümleri gösterilmektedir:
 
-| **Senaryo** | **Çözüm** | **Son eki** |
+| **Senaryo** | **Çözüm** | **Suffix** |
 | --- | --- | --- |
 | Rol örnekleri ya da sanal makineleri aynı sanal ağda arasındaki ad çözümlemesi |[Azure sağlar ad çözümlemesi](#azure-provided-name-resolution) |ana bilgisayar adı veya tam etki alanı adı (FQDN) |
 | Rol örnekleri veya sanal makineleri farklı sanal ağlar arasındaki ad çözümlemesi |Sorguları Azure (DNS proxy) tarafından çözümlemesi için sanal ağlar arasında iletecek müşteri tarafından yönetilen DNS sunucuları. Bkz: [kendi DNS sunucu kullanılarak ad çözümleme](#name-resolution-using-your-own-dns-server). |Yalnızca FQDN |
@@ -112,7 +112,7 @@ Resolv.conf dosyası otomatik olarak oluşturulan ve düzenlenmemelidir. 'Seçen
 2. 'Netconfig Güncelleştirme' Çalıştır güncelleştirmek için.
 
 **CentOS yanlış Wave yazılımı (önceki adıyla OpenLogic) tarafından** (NetworkManager kullanır)
-1. 'Yankı "seçenekleri timeout:1 denemeleri: 5" ' eklemek ' / etc/NetworkManager/dispatcher.d/11-dhclient'.
+1. Ekle ' RES_OPTIONS "timeout:1 denemeleri: 5" =' için '/ sysconfig/etc/Ağ'.
 2. 'Ağ yeniden hizmet' Çalıştır güncelleştirmek için.
 
 ## <a name="name-resolution-using-your-own-dns-server"></a>Kendi DNS sunucu kullanılarak ad çözümleme

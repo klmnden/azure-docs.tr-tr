@@ -1,24 +1,24 @@
 ---
-title: "Redis Premium Azure Redis önbelleği için kümeleri yapılandırma | Microsoft Docs"
-description: "Oluşturma ve Azure Redis önbelleği örnekleri için Premium katman kümeleme Redis yönetme hakkında bilgi edinin"
+title: Redis Premium Azure Redis önbelleği için kümeleri yapılandırma | Microsoft Docs
+description: Oluşturma ve Azure Redis önbelleği örnekleri için Premium katman kümeleme Redis yönetme hakkında bilgi edinin
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 03/26/2018
 ms.author: wesmc
-ms.openlocfilehash: 16281cca4e4bc95e145317365d42382ab11fde93
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4af6545058ab0031d7cd1b38618b6d80204f83b9
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-redis-cache"></a>Redis Premium Azure Redis önbelleği için kümeleri yapılandırma
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bu makalede, premium Azure Redis önbelleği örneği içinde kümelemeyi yapılandırmayı açıklar.
@@ -33,7 +33,7 @@ Azure Redis önbelleği Redis kümesi olarak sunar [Redis içinde uygulanan](htt
 * Daha fazla verimlilik: verimliliğini artırır doğrusal olarak parça sayısı arttıkça. 
 * Daha fazla bellek boyutu: parça sayısı arttıkça doğrusal olarak artırır.  
 
-Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için bkz: [hangi Redis önbelleği teklifini ve boyutunu kullanmalıyım?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+Kümeleme kümelenmiş önbelleği için kullanılabilir bağlantı sayısını artırmaz. Boyut, işleme ve premium önbelleklere sahip bant genişliği hakkında daha fazla bilgi için bkz: [hangi Redis önbelleği teklifini ve boyutunu kullanmalıyım?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 
 Azure'da Redis kümesi her parça çoğaltma birincil/çoğaltma çiftiyle çoğaltma Azure Redis önbelleği hizmeti tarafından yönetildiği sahip olduğu birincil/çoğaltma modeli olarak sunulur. 
 
@@ -75,6 +75,8 @@ Her parça Azure tarafından yönetilen bir birincil/çoğaltma önbelleği çif
 ![Küme boyutu redis][redis-cache-redis-cluster-size]
 
 Küme boyutunu değiştirmek için kaydırıcıyı kullanın veya 1 ile 10 arasında bir sayı yazın **parça sayısı** metin kutusu ve tıklatın **Tamam** kaydetmek için.
+
+Küme boyutu artırıldığında, en fazla üretilen iş ve önbellek boyutu artar. Küme boyutunu artırma en büyük değil. bağlantıları istemciler için kullanılabilir.
 
 > [!NOTE]
 > Küme ölçeklendirme çalıştıran [geçirme](https://redis.io/commands/migrate) pahalı bir komuttur, komutu, bu nedenle düşük etkili için göz önünde bulundurun yoğun olmayan saatlerde bu işlem çalıştırılmadan. Geçiş işlemi sırasında bir ani artış sunucu iş yükü görürsünüz. Bir küme ölçeklendirme uzun işlemi çalışıyor ve geçen süre miktarı anahtar sayısı ve bu anahtarla ilişkili değerler boyutunu bağlıdır.
@@ -132,7 +134,7 @@ En büyük premium önbellek boyutu 53 GB'dir. En fazla 10 parça 530 GB en büy
 Aynı kullanarak önbelleğiniz bağlanabilir [uç noktaları](cache-configure.md#properties), [bağlantı noktalarını](cache-configure.md#properties), ve [anahtarları](cache-configure.md#access-keys) kümeleme özelliği etkinleştirilmiş sahip olmayan bir önbellek bağlanırken kullandığınız. Redis istemcinizden yönetmek zorunda kalmamak için arka uç kümeleme yönetir.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Doğrudan de benim önbellek tek tek parça için bağlanabilir miyim?
-Bu resmi olarak desteklenmez. İle denirse her parça topluca bir önbellek örneği olarak bilinen bir birincil/çoğaltma önbelleği çifti oluşur. Redis-cli yardımcı programı kullanarak bu önbelleği örnekleri bağlanabileceği [kararsız](http://redis.io/download) github'da Redis deponun dalı. Bu sürüm ile başlatıldığında temel destek uygulayan `-c` geçin. Daha fazla bilgi için bkz: [kümeyle çalma](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) üzerinde [http://redis.io](http://redis.io) içinde [Redis küme Öğreticisi](http://redis.io/topics/cluster-tutorial).
+Bu resmi olarak desteklenmez. İle denirse her parça topluca bir önbellek örneği olarak bilinen bir birincil/çoğaltma önbelleği çifti oluşur. Redis-cli yardımcı programı kullanarak bu önbelleği örnekleri bağlanabileceği [kararsız](http://redis.io/download) github'da Redis deponun dalı. Bu sürüm ile başlatıldığında temel destek uygulayan `-c` geçin. Daha fazla bilgi için bkz: [kümeyle çalma](http://redis.io/topics/cluster-tutorial#playing-with-the-cluster) üzerinde [ http://redis.io ](http://redis.io) içinde [Redis küme Öğreticisi](http://redis.io/topics/cluster-tutorial).
 
 Ssl olmayan için aşağıdaki komutları kullanın.
 

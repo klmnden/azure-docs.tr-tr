@@ -1,8 +1,8 @@
 ---
-title: "Azure Machine Learning otomatik veri ardışık düzen kopya sayfası | Microsoft Docs"
-description: "Verilerinizi azure'da veya bir üçüncü taraf bulut hizmetindeki akış şirket olup Azure Machine Learning web hizmetiniz için bir otomatik veri ardışık nasıl ayarlanacağını gösterir yazdırılabilir hızlı başvuru sayfası."
+title: Azure Machine Learning otomatik veri ardışık düzen kopya sayfası | Microsoft Docs
+description: Verilerinizi azure'da veya bir üçüncü taraf bulut hizmetindeki akış şirket olup Azure Machine Learning web hizmetiniz için bir otomatik veri ardışık nasıl ayarlanacağını gösterir yazdırılabilir hızlı başvuru sayfası.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: mithal;garye
-ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: garye
+ms.openlocfilehash: f07e7cc9c97dcd5ef6ebc2d4c16d31b831869352
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Azure Machine Learning öngörüleri için otomatik veri işlem hattı kopya sayfası
 **Microsoft Azure Machine Learning otomatik veri ardışık düzen kopya sayfası** yardımcı gidin, Machine Learning, verileri almak için kullanabileceğiniz teknolojisi aracılığıyla web hizmeti burada bunu skoru Tahmine dayalı analiz modelinizi tarafından.

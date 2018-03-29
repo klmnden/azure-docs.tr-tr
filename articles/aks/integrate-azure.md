@@ -1,6 +1,6 @@
 ---
-title: "Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme"
-description: "Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme"
+title: Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
+description: Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 services: container-service
 author: sozercan
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: 594cb0afbdb0a44e9f092b9afc5af13b21e763a4
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b1b51b6c36143747a81d1c1fc035ee6d54d34076
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Azure için Açık Hizmet Aracısı (OSBA) kullanarak Azure tarafından yönetilen hizmetlerle tümleştirme
 
@@ -76,17 +76,45 @@ Sonraki adımda, Azure tarafından yönetilen hizmetler için kataloğu içeren 
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-Sonra, [Hizmet Sorumlusu][create-service-principal] oluşturmak ve çeşitli değişkenleri doldurmak için aşağıdaki komut dosyasını kullanın. Bu değişkenler, hizmet aracısını yüklemek için Helm grafiği çalıştırırken kullanılır.
+Aşağıdaki Azure CLI komutuyla bir [Hizmet Sorumlusu][create-service-principal] oluşturun:
 
 ```azurecli-interactive
-SERVICE_PRINCIPAL=$(az ad sp create-for-rbac)
-AZURE_CLIENT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 4)
-AZURE_CLIENT_SECRET=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 16)
-AZURE_TENANT_ID=$(echo $SERVICE_PRINCIPAL | cut -d '"' -f 20)
-AZURE_SUBSCRIPTION_ID=$(az account show --query id --output tsv)
+az ad sp create-for-rbac
 ```
 
-Bu ortam değişkenlerini doldurduktan sonra, aşağıdaki komutu yürüterek hizmet aracısını yükleyin.
+Çıktının aşağıdakine benzer olması gerekir. Sonraki adımda kullanacağınız `appId`, `password` ve `tenant` değerlerini not edin.
+
+```JSON
+{
+  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
+  "displayName": "azure-cli-2017-10-15-02-20-15",
+  "name": "http://azure-cli-2017-10-15-02-20-15",
+  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
+  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+}
+```
+
+Aşağıdaki ortam değişkenlerini yukarıdaki değerlerle ayarlayın:
+
+```azurecli-interactive
+AZURE_CLIENT_ID=<appId>
+AZURE_CLIENT_SECRET=<password>
+AZURE_TENANT_ID=<tenant>
+```
+
+Şimdi Azure abonelik kimliğinizi alın:
+
+```azurecli-interactive
+az account show --query id --output tsv
+```
+
+Yine, aşağıdaki ortam değişkenlerini yukarıdaki değerle ayarlayın:
+
+```azurecli-interactive
+AZURE_SUBSCRIPTION_ID=[your Azure subscription ID from above]
+```
+
+Bu ortam değişkenlerini doldurduktan sonra, aşağıdaki komutu yürüterek Helm grafiği ile Azure için Açık Hizmet Aracısı’nı yükleyin:
 
 ```azurecli-interactive
 helm install azure/open-service-broker-azure --name osba --namespace osba \

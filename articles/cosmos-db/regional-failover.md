@@ -1,25 +1,25 @@
 ---
-title: "Bölgesel yük devretme Azure Cosmos veritabanı | Microsoft Docs"
-description: "Azure Cosmos DB ile nasıl elle ve otomatik yük devretme çalıştığı hakkında bilgi edinin."
+title: Bölgesel yük devretme Azure Cosmos veritabanı | Microsoft Docs
+description: Azure Cosmos DB ile nasıl elle ve otomatik yük devretme çalıştığı hakkında bilgi edinin.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 446e2580-ff49-4485-8e53-ae34e08d997f
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2017
+ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a8b32440ce3ec6cd2da7aaccf218a94e0ee3e77
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>İş sürekliliği Azure Cosmos veritabanı için bölgesel otomatik yük devretme
 Azure Cosmos DB basitleştirir verilerin genel dağıtım sunarak tam olarak yönetilen, [bölgeli veritabanı hesaplarını](distribute-data-globally.md) tutarlılık, kullanılabilirlik ve karşılık gelen tüm ile performans arasında NET bileşim sağlayın güvence altına alır. Cosmos DB hesapları teklif yüksek kullanılabilirlik, tek bir basamak ms gecikme [iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md), çok girişli API'leri ile bölgesel saydam yük devretme ve Özellikler esnek işleme ve depolama genelinde ölçeklenme olanağı Dünya. 
@@ -30,9 +30,10 @@ Cosmos DB açık destekler ve yük devretme işlemlerini güdümlü İlkesi, hat
 * Nasıl Cosmos DB otomatik yük devretme iş ve veri olduğunda neler gider aşağı center?
 * Nasıl el ile yük devretme işlemlerini uygulama mimarilerinde kullanabilir miyim?
 
-Ayrıca bu Azure bölgesel yük devretme işlemlerini Cuma video Scott Hanselman ve sorumlu mühendislik Yöneticisi Karthik Raman öğrenebilirsiniz.
+Bölgesel yük devretme dahil olmak üzere genel dağıtım özelliklerini gösteren Azure Cosmos DB Program Yöneticisi Barış Liu tarafından bu videoda bölgesel yük devretmeler hakkında bilgi edinebilirsiniz.
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
+>
 
 ## <a id="ConfigureMultiRegionApplications"></a>Bölgeli uygulamaları yapılandırma
 Biz yük devretme modları dalın önce bölgeli kullanılabilirlik yararlanabilir ve bölgesel yük devretme işlemlerini karşısında dayanıklı olmasını bir uygulama nasıl yapılandırabileceğiniz en arayın.
@@ -138,7 +139,7 @@ Burada el ile yük devretme yararlı olabilir yaygın senaryolardan bazıları �
 
 Bu makalede, Cosmos DB nasıl elle ve otomatik yük devretme işlemlerini işlerinde ve Cosmos DB hesaplar ve genel olarak kullanılabilir olması için uygulamaları nasıl yapılandıracağınızı gözden. Cosmos DB'ın genel çoğaltma desteği kullanarak, uçtan uca gecikme geliştirmek ve hatta bölge hataları durumunda yüksek oranda kullanılabilir olduğundan emin olun. 
 
-## <a id="NextSteps"></a>Sonraki Adımlar
+## <a id="NextSteps"></a>Sonraki adımlar
 * Cosmos DB nasıl desteklediği hakkında bilgi edinin [genel dağıtım](distribute-data-globally.md)
 * Hakkında bilgi edinin [Azure Cosmos DB ile genel tutarlılık](consistency-levels.md)
 * Azure Cosmos veritabanı kullanarak birden fazla bölge ile geliştirme [SQL API](tutorial-global-distribution-sql-api.md)

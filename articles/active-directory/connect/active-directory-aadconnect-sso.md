@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Sorunsuz çoklu oturum açma | Microsoft Docs"
-description: "Bu konuda, Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma ve nasıl Kurumsal ağınızdaki Kurumsal Masaüstü Kullanıcıları için doğru çoklu oturum açma sağlamak üzere tanır açıklanmaktadır."
+title: 'Azure AD Connect: Sorunsuz çoklu oturum açma | Microsoft Docs'
+description: Bu konuda, Azure Active Directory (Azure AD) sorunsuz çoklu oturum açma ve nasıl Kurumsal ağınızdaki Kurumsal Masaüstü Kullanıcıları için doğru çoklu oturum açma sağlamak üzere tanır açıklanmaktadır.
 services: active-directory
-keywords: "Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD, SSO, gerekli bileşenleri yükleme Active Directory, Azure AD Connect nedir çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/22/2018
 ms.author: billmath
-ms.openlocfilehash: 14018db3cbe34c9eca9048ceaf376ff3a06a4353
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b1c82727e97b85fae5f315ceb1cd79cfdd111b45
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory sorunsuz çoklu oturum açma
 
@@ -50,7 +50,8 @@ Sorunsuz SSO ile birleştirilebilir [parola karması eşitlemesi](active-directo
 
 - Oturum açma kullanıcı adı ya da şirket içi varsayılan kullanıcı adı olabilir (`userPrincipalName`) veya Azure AD Connect içinde yapılandırılmış başka bir öznitelik (`Alternate ID`). Sorunsuz SSO kullandığı için her ikisini de durumlarda iş kullanmak `securityIdentifier` Azure AD içinde karşılık gelen kullanıcı nesnesi aramak için Kerberos bileti talep.
 - Sorunsuz SSO fırsatçılıktan bir özelliktir. Herhangi bir nedenle başarısız olursa, kullanıcı oturum açma deneyimi normal davranışını - yani, kullanıcı oturum açma sayfasında parolalarını girmeleri gerekir geri gider.
-- Bir uygulama iletirse bir `domain_hint` (Openıd Connect) veya `whr` (SAML) parametre - kiracınız, tanımlama veya `login_hint` kullanıcı tanımlama parametre - kendi Azure AD oturum açma isteğine, kullanıcıların otomatik olarak onları girme kullanıcı adlarını veya parolaları oturum açtınız.
+- Bir uygulama varsa (örneğin, https://myapps.microsoft.com/contoso.com) iletir bir `domain_hint` (Openıd Connect) veya `whr` (SAML) parametre - kiracınız, tanımlama veya `login_hint` kullanıcı tanımlama parametre - kendi Azure AD oturum açma isteğinde kullanıcılardır otomatik olarak onları girme kullanıcı adlarını veya parolaları oturum.
+- Kullanıcılar ayrıca alırsanız sessiz bir oturum açma deneyimi uygulama (örneğin, https://contoso.sharepoint.com) diğer bir deyişle, Azure AD kiralanan Uç noktalara - oturum açma istekleri gönderir https://login.microsoftonline.com/contoso.com/<..> veya https://login.microsoftonline.com/<tenant_ID>/<..> - Azure AD ortak bir uç - diğer bir deyişle, yerine https://login.microsoftonline.com/common/<...>.
 - Oturum kapatma desteklenir. Bu, otomatik olarak otomatik olarak kullanarak sorunsuz SSO imzalanmakta yerine oturum açmak için başka bir Azure AD hesabının seçmelerini sağlar.
 - Office 365 istemcileri (16.0.8730.xxxx ve üstü) etkileşimli olmayan bir akış kullanarak desteklenir.
 - Azure AD Connect üzerinden etkinleştirilebilir.

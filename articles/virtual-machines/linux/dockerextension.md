@@ -1,11 +1,11 @@
 ---
-title: "Azure Docker VM uzantısını kullanan | Microsoft Docs"
-description: "Docker VM uzantısı hızlı ve güvenli bir şekilde Azure Resource Manager şablonları ve Azure CLI 2.0 kullanarak Docker bir ortamda dağıtmak için nasıl kullanılacağını öğrenin"
+title: Azure Docker VM uzantısını kullanan | Microsoft Docs
+description: Docker VM uzantısı hızlı ve güvenli bir şekilde Azure Resource Manager şablonları ve Azure CLI 2.0 kullanarak Docker bir ortamda dağıtmak için nasıl kullanılacağını öğrenin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: fe4013eefc0a7a896d6e8eb737ee8e2bc26ecf61
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısı kullanarak Azure'da bir Docker ortam oluşturma
 Docker popüler kapsayıcı yönetimi ve hızlı bir şekilde ile kapsayıcıları Linux üzerinde çalışmanıza olanak sağlar görüntüleme platform ' dir. Azure'da, sizin ihtiyaçlarınıza göre Docker dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Docker VM uzantısı ve Azure Resource Manager şablonları ile Azure CLI 2.0 kullanarak odaklanır. Bu adımları [Azure CLI 1.0](dockerextension-nodejs.md) ile de gerçekleştirebilirsiniz.
+
+> [!WARNING]
+> Linux için Azure Docker VM uzantısı kullanım dışıdır ve Kasım 2018 kullanımdan kaldırılacaktır.
+> Yalnızca uzantısı Docker, yüklediği, bulut init veya özel betik uzantısı gibi Alternatiflere seçim Docker sürümünü yüklemek için daha iyi bir yöntemdir. Bulut init kullanma hakkında daha fazla bilgi için bkz: [bulut init bir Linux VM özelleştirme](tutorial-automate-vm-deployment.md).
 
 ## <a name="azure-docker-vm-extension-overview"></a>Azure Docker VM uzantısı genel bakış
 Azure Docker VM uzantısı yükler ve Docker arka plan programı, Docker istemcisi ve Docker Compose, Linux sanal makine (VM) yapılandırır. Azure Docker VM uzantısı kullanarak, daha fazla denetim ve yalnızca Docker makine kullanarak veya kendiniz Docker ana oluşturarak daha özelliklere sahip. Gibi bu ek özellikler [Docker Compose](https://docs.docker.com/compose/overview/), Azure Docker VM uzantısı daha sağlam geliştirici veya üretim ortamları için uygun olun.

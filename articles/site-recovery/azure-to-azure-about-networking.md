@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Kurtarma'yı kullanarak Azure için Azure olağanüstü durum kurtarma de ağ oluşturmayla ilgili | Microsoft Docs"
-description: "Azure Site Recovery kullanarak Azure VM'ler, çoğaltma için ağ genel bir bakış sağlar."
+title: Azure Site Kurtarma'yı kullanarak Azure için Azure olağanüstü durum kurtarma de ağ oluşturmayla ilgili | Microsoft Docs
+description: Azure Site Recovery kullanarak Azure VM'ler, çoğaltma için ağ genel bir bakış sağlar.
 services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/08/2018
+ms.date: 03/26/2018
 ms.author: sujayt
-ms.openlocfilehash: 5ce85761df4e0ad62c22a829f67464a3145fd827
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 48be55632d9c1bece3f1a6e4f9ac12a68f9cb7ab
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma ağ oluşturma hakkında
 
@@ -53,7 +53,7 @@ login.microsoftonline.com | Yetkilendirme ve kimlik doğrulaması için Site Rec
 *.hypervrecoverymanager.windowsazure.com | Site Recovery hizmeti iletişimi sanal makineden gerçekleştirilmesi gerekir.
 *.servicebus.windows.net | Böylece Site Recovery izleme ve tanılama verilerini sanal makineden yazılabilir gereklidir.
 
-## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP adres aralıkları için giden bağlantı
+## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP adresi aralıkları için giden bağlantı
 
 Giden bağlantıyı denetlemek için bir IP tabanlı bir güvenlik duvarı proxy ya da NSG kuralları kullanıyorsanız, bu IP aralıkları izin verilmesi gerekir.
 
@@ -154,9 +154,10 @@ Hedef konumu ve şirket içi konumunuz bağlantılar için bu yönergeleri izley
 ### <a name="expressroute-configuration"></a>ExpressRoute yapılandırma
 ExpressRoute yapılandırması için bu en iyi uygulamaları izleyin:
 
-- Bir expressroute bağlantı hattı hem kaynak hem de hedef bölgelerde oluşturmanız gerekir. Ardından arasında bir bağlantı oluşturmanız gerekir:
-  - Kaynak sanal ağ ve expressroute bağlantı hattı.
-  - Hedef sanal ağ ve expressroute bağlantı hattı.
+- Bir expressroute bağlantı hattı kaynak ve hedef bölgeler oluşturun. Ardından arasında bir bağlantı oluşturmanız gerekir:
+    - Kaynak sanal ağ ve şirket içi ağ kaynak bölgesindeki expressroute bağlantı hattı üzerinden.
+    - Hedef sanal ağ ve hedef bölgede expressroute bağlantı hattı üzerinden şirket içi ağ.
+
 
 - ExpressRoute standart bir parçası olarak, aynı coğrafi bölgede devreler oluşturabilirsiniz. ExpressRoute bağlantı hatları farklı coğrafi bölgelerde oluşturmak için Azure ExpressRoute Premium gereklidir artımlı bir maliyet içerir. (ExpressRoute Premium zaten kullanıyorsanız, var. ek bir maliyeti yoktur.) Daha fazla ayrıntı için bkz: [ExpressRoute konumları belge](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) ve [ExpressRoute fiyatlandırma](https://azure.microsoft.com/pricing/details/expressroute/).
 

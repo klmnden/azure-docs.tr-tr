@@ -1,6 +1,6 @@
 ---
-title: "Azure Otomasyonu Windows Karma Runbook Çalışanı"
-description: "Bu makale bir Azure Otomasyon karma Runbook yerel veri merkezinde veya Bulut ortamında Windows tabanlı bilgisayarlarda runbook'ların çalışmasına izin veren Worker yükleme hakkında bilgi sağlar."
+title: Azure Otomasyonu Windows Karma Runbook Çalışanı
+description: Bu makale bir Azure Otomasyon karma Runbook yerel veri merkezinde veya Bulut ortamında Windows tabanlı bilgisayarlarda runbook'ların çalışmasına izin veren Worker yükleme hakkında bilgi sağlar.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c03b124e21603056219a6ff6458469b4ecd60969
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: fa74f2e2d8fb9fc9f11810a4af4978fb4b443bcc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Windows karma Runbook çalışanı dağıtma
 
@@ -68,7 +68,7 @@ Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale ge
         -ResourceGroupName <NameofOResourceGroup> -HybridGroupName <NameofHRWGroup> `
         -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfOMSWorkspace>
 
-4. Yüklemeyi kabul istenir **NuGet** ve Azure kimlik bilgilerinizle kimliğinizi isteyip istemediğiniz sorulur.<br><br> ![Yeni OnPremiseHybridWorker betik yürütme işlemi](media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
+4. Yüklemeyi kabul istenir **NuGet** ve Azure kimlik bilgilerinizle kimliğinizi isteyip istemediğiniz sorulur.<br><br>![Yeni OnPremiseHybridWorker betik yürütme işlemi](/media/automation-hybrid-runbook-worker/new-onpremisehybridworker-scriptoutput.png)
 
 5. Komut dosyası tamamlandıktan sonra yeni Grup ve üye sayısı karma çalışan grupları sayfası gösterilir veya varolan bir grubu, üye sayısı artar.  Grup listesinden seçebilirsiniz **karma çalışan grupları** sayfasından seçim yapıp **karma çalışanları** döşeme.  Üzerinde **karma çalışanları** sayfasında, listelenen grubun her üyesi bakın.  
 

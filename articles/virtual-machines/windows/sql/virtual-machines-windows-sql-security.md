@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Server için güvenlik konuları | Microsoft Docs"
-description: "Bu konu, bir Azure sanal makinede çalışan SQL Server güvenliğini sağlamaya yönelik genel rehberlik sağlar."
+title: Azure SQL Server için güvenlik konuları | Microsoft Docs
+description: Bu konu, bir Azure sanal makinede çalışan SQL Server güvenliğini sağlamaya yönelik genel rehberlik sağlar.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2017
+ms.date: 03/23/2018
 ms.author: jroth
-ms.openlocfilehash: 609e18cf2bdfdd84c71b67e31b66cd0ca7d47577
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b91638b6b76675711150323bee4aa9ad9d9a73d1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler'de SQL Server için Güvenlikle İlgili Dikkat Edilmesi Gerekenler
 
@@ -44,7 +44,7 @@ Bir galeri görüntüsü ile bir SQL Server sanal makine oluşturduğunuzda **SQ
 
 ![SQL Server bağlantısı](./media/virtual-machines-windows-sql-security/sql-vm-connectivity-option.png)
 
-En iyi güvenlik için senaryonuza en kısıtlayıcı seçeneği belirleyin. Bir uygulama çalıştırıyorsanız, örneğin, aynı VM SQL Server'da sonra erişen **yerel** en güvenli seçenektir. Ardından SQL Server'a erişim gerektiren bir Azure uygulama çalıştırıyorsanız, **özel** yalnızca içinde belirtilen SQL Server iletişimi güvenli hale getirdiği [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Gerektiriyorsa **ortak** VM, SQL Server (internest) erişimi daha sonra saldırı alanını azaltmak için bu konudaki diğer en iyi uygulamaları izleyerek emin olun.
+En iyi güvenlik için senaryonuza en kısıtlayıcı seçeneği belirleyin. Bir uygulama çalıştırıyorsanız, örneğin, aynı VM SQL Server'da sonra erişen **yerel** en güvenli seçenektir. Ardından SQL Server'a erişim gerektiren bir Azure uygulama çalıştırıyorsanız, **özel** yalnızca içinde belirtilen SQL Server iletişimi güvenli hale getirdiği [Azure Virtual Network](../../../virtual-network/virtual-networks-overview.md). Gerektiriyorsa **ortak** (Internet) erişmek için SQL Server VM sonra saldırı alanını azaltmak için bu konudaki diğer en iyi uygulamaları takip ettiğinizden emin olun.
 
 Seçili seçenekler portalında sanal makinelerin gelen güvenlik kurallarını kullanın [ağ güvenlik grubu](../../../virtual-network/virtual-networks-nsg.md) veya sanal makinenize ağ trafiği reddetmek için (NSG). Değiştirin veya SQL Server bağlantı noktası (varsayılan 1433) trafiğine izin verecek şekilde, yeni gelen NSG kuralları oluşturun. Bu bağlantı noktası üzerinden iletişim kurmasına izin belirli IP adreslerini de belirtebilirsiniz.
 
@@ -98,5 +98,5 @@ Bu konuda açıklanan yöntemler yanı sıra, gözden geçirin ve uygun olan yer
 
 Ayrıca performans geçici en iyi yöntemler ilgilendiğiniz olup [Azure Virtual Machines'de SQL Server için performans en iyi uygulamaları](virtual-machines-windows-sql-performance.md).
 
-Azure Vm'lerde SQL Server çalıştırma ile ilgili diğer konular için bkz: [Azure sanal makinelere genel bakış SQL Server'da](virtual-machines-windows-sql-server-iaas-overview.md). SQL Server sanal makineler hakkında sorularınız varsa bkz [ilgili sık sorulan sorular](virtual-machines-windows-sql-server-iaas-faq.md).
+Azure Vm'lerde SQL Server çalıştırma ile ilgili diğer konular için bkz: [Azure sanal makinelere genel bakış SQL Server'da](virtual-machines-windows-sql-server-iaas-overview.md). SQL Server sanal makineleri hakkında sorularınız olursa [Sık Sorulan Sorular](virtual-machines-windows-sql-server-iaas-faq.md) bölümüne bakın.
 

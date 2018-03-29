@@ -1,11 +1,11 @@
 ---
-title: "Github'dan Azure Linux Aracısı güncelleştirme | Microsoft Docs"
-description: "Azure'da, Linux VM için Azure Linux Aracısı güncelleştirme öğrenin"
+title: Github'dan Azure Linux Aracısı güncelleştirme | Microsoft Docs
+description: Azure'da, Linux VM için Azure Linux Aracısı güncelleştirme öğrenin
 services: virtual-machines-linux
-documentationcenter: 
-author: SuperScottz
-manager: timlt
-editor: 
+documentationcenter: ''
+author: danielsollondon
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: f1f19300-987d-4f29-9393-9aba866f049c
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: mingzhan
-ms.openlocfilehash: 62e365c46d48285b2c03493debff86508b94348a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: danis
+ms.openlocfilehash: ed5bea98bc9b4849436ff5fafc90f85c99d582aa
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Bir VM üzerinde Azure Linux Aracısı güncelleştirme
 
@@ -120,7 +120,7 @@ Debian bu sürümü bir sürümü mevcut değil > = 2.0.16, bu nedenle edinebilm
 #### <a name="check-your-current-package-version"></a>Geçerli paket sürümü denetleyin
 
 ```bash
-apt list --installed | grep walinuxagent
+apt list --installed | grep waagent
 ```
 
 #### <a name="update-package-cache"></a>Güncelleştirme paketi önbelleği
@@ -389,7 +389,7 @@ Ardından yazın:
 sudo yum update WALinuxAgent
 ```
 
-Genellikle tüm gerekir, ancak herhangi bir nedenden dolayı doğrudan https://github.com yüklemeniz gerekiyorsa, aşağıdaki adımları kullanın budur.
+Tüm yapmanız gereken, herhangi bir nedenden dolayı ondan yüklemeniz gerekir, ancak budur genellikle https://github.com doğrudan, aşağıdaki adımları kullanın.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>Dağıtım için hiçbir aracı paketi mevcut olduğunda Linux aracısını güncelleştirme

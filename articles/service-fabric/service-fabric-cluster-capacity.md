@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric kümesi kapasite planlaması | Microsoft Docs"
-description: "Service Fabric kümesi kapasite planlama konuları. Nodetypes, işlemleri, dayanıklılık ve güvenilirlik katmanları"
+title: Service Fabric kümesi kapasite planlaması | Microsoft Docs
+description: Service Fabric kümesi kapasite planlama konuları. Nodetypes, işlemleri, dayanıklılık ve güvenilirlik katmanları
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: ad5f396cd71eb0136fe683bbccb9360291be2d59
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b39c22fb45b0e20a3aa7a6dcf59619a87df32ca1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
@@ -69,7 +69,7 @@ Dayanıklılık katmanı ile Azure altyapının Vm'leriniz sahip ayrıcalıklar�
 
 Bu ayrıcalık, aşağıdaki değerleri ifade edilir:
 
-* Altın - altyapı işleri UD başına iki saatlik bir süre duraklatılabilir. Altın dayanıklılık yalnızca tam düğüm L32s, GS5, G5, DS15_v2, D15_v2 (genel olarak tüm VM boyutları 'Örneği notta tek bir müşteriye ayrılmış donanım için ayrılmış olarak' işaretlenen http://aka.ms/vmspecs listelenmiş vb. gibi VM SKU'ları üzerinde etkin Tam düğümü VM'ler)
+* Altın - altyapı işleri UD başına iki saatlik bir süre duraklatılabilir. Altın dayanıklılık, yalnızca tam düğüm L32s, GS5, G5, DS15_v2, D15_v2 vb. gibi VM SKU'ları üzerinde etkinleştirilebilir (tüm VM boyutları genel listelenmiş http://aka.ms/vmspecs, 'Örneği notta tek bir müşteriye ayrılmış donanım için ayrılmış olarak' olarak işaretlenmiş, tam düğümü VM'ler)
 * Gümüş - altyapı işleri UD başına 10 dakikalık bir süre duraklatıldı ve tüm standart vm'lerde tek çekirdek ve yukarıdaki kullanılabilir.
 * Bronz - ayrıcalıkların. Varsayılan değer budur. Yalnızca bu dayanıklılık düzeyi düğüm türleri için Çalıştır kullanın _yalnızca_ durum bilgisiz iş yükleri. 
 
@@ -87,7 +87,7 @@ Her düğüm türleri için dayanıklılık düzeyini seçin alın. Gümüş ve 
 **Dezavantajlarını Gümüş veya altın dayanıklılık düzeyleri**
  
 1. Sanal makine ölçek kümesi ve diğer ilgili Azure kaynaklarını dağıtımlar) Gecikmeli, zaman aşımına ya da tamamen sorunları kümenizdeki veya altyapı düzeyinde tarafından engellendi. 
-2. Sayısı artar [çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle ) (örneğin, birincil takasları) nedeniyle Azure altyapı işlemleri sırasında düğüm deactivations otomatik.
+2. Sayısı artar [çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-lifecycle.md) (örneğin, birincil takasları) nedeniyle Azure altyapı işlemleri sırasında düğüm deactivations otomatik.
 3. Azure platformu yazılım güncelleştirmeleri veya donanım bakım etkinlikleri yaşanan süreler için hizmet dışına düğümleri alır. Bu etkinlikler sırasında düğüm durumu devre dışı bırakılması/devre dışı olan görebilirsiniz. Bu, kümenizi kapasitesini geçici olarak azaltır, ancak küme veya uygulamaların kullanılabilirliğini etkileyen değil.
 
 ### <a name="recommendations-on-when-to-use-silver-or-gold-durability-levels"></a>Zaman Gümüş veya altın dayanıklılık düzeyleri kullanılacağı hakkında öneriler
@@ -101,10 +101,10 @@ Durum bilgisi olan hizmetleri beklediğiniz ölçek bileşenini barındıran tü
 
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Düğümü için işletimsel öneriler, Gümüş veya altın dayanıklılık düzeyi ayarlamış olduğunuz yazın.
 
-1. Küme ve uygulamalar her zaman sağlıklı tutmak ve uygulamaların tümüne yanıt emin olun [hizmet çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (derleme yinelemede kalmış gibi) zamanında.
+1. Küme ve uygulamalar her zaman sağlıklı tutmak ve uygulamaların tümüne yanıt emin olun [hizmet çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-lifecycle.md) (derleme yinelemede kalmış gibi) zamanında.
 2. (Ölçek yukarı/aşağı) VM SKU değişiklik yapmak için daha güvenli şekilde benimsemeyi: bir sanal makine ölçek kümesi VM SKU'su değiştirme doğası gereği güvenli olmayan bir işlemdir ve bu nedenle, mümkünse kaçınılmalıdır. Sık karşılaşılan sorunları önlemek için izleyebileceğiniz işlem şöyledir.
     - **Birincil olmayan nodetypes için:** yeni sanal makine ölçek kümesi oluşturmanız önerilir, yeni sanal makine ölçek kümesi/düğüm türü eklemek ve eski sanal makine ölçek kümesi örnek azaltmak için hizmet yerleşimi kısıtlamasını değiştirme 0 olarak (düğümleri kaldırılmasını küme güvenilirliğini etkilemeyen emin olmak için budur) bir seferde bir düğüm sayısı.
-    - **Birincil nodetype için:** birincil düğüm türünde VM SKU değiştirmeyin bizim önerilir. SKU desteklenmiyor birincil düğüm türü değiştirme. Yeni SKU kapasitesi nedeni, daha fazla örnekleri ekleme öneririz. Bu, mümkün değildir, yeni bir küme oluşturun ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa), eski kümeden. Herhangi bir sistem hizmet durumu geri yükleme gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda yeniden oluşturulur. Yalnızca olsaydı tüm bunu daha sonra durum bilgisiz uygulamaların, küme üzerinde çalışan uygulamalarınızı yeni kümeye dağıtabilir, geri yüklenecek bir şey vardır. Desteklenmeyen rota gidin ve VM SKU değiştirmek istediğiniz karar verirseniz, sanal makine ölçek kümesi modeli tanımını yeni SKU yansıtacak şekilde değişiklikler yapma. Yalnızca bir nodetype kümeniz varsa, daha sonra durum bilgisi olan uygulamaların tümüne yanıt emin olun [hizmet çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (derleme yinelemede kalmış gibi) zamanında ve hizmet çoğaltma yeniden oluşturma süresi beş dakikadan daha kısa bir süre (için Gümüş dayanıklılık düzeyi) olur. 
+    - **Birincil nodetype için:** birincil düğüm türünde VM SKU değiştirmeyin bizim önerilir. SKU desteklenmiyor birincil düğüm türü değiştirme. Yeni SKU kapasitesi nedeni, daha fazla örnekleri ekleme öneririz. Bu, mümkün değildir, yeni bir küme oluşturun ve [uygulama durumunu geri yükle](service-fabric-reliable-services-backup-restore.md) (varsa), eski kümeden. Herhangi bir sistem hizmet durumu geri yükleme gerekmez, uygulamalarınızı yeni kümenize dağıttığınızda yeniden oluşturulur. Yalnızca olsaydı tüm bunu daha sonra durum bilgisiz uygulamaların, küme üzerinde çalışan uygulamalarınızı yeni kümeye dağıtabilir, geri yüklenecek bir şey vardır. Desteklenmeyen rota gidin ve VM SKU değiştirmek istediğiniz karar verirseniz, sanal makine ölçek kümesi modeli tanımını yeni SKU yansıtacak şekilde değişiklikler yapma. Yalnızca bir nodetype kümeniz varsa, daha sonra durum bilgisi olan uygulamaların tümüne yanıt emin olun [hizmet çoğaltma yaşam döngüsü olayları](service-fabric-reliable-services-lifecycle.md) (derleme yinelemede kalmış gibi) zamanında ve hizmet çoğaltma yeniden oluşturma süresi beş dakikadan daha kısa bir süre (için Gümüş dayanıklılık düzeyi) olur. 
 
 
 > [!WARNING]
