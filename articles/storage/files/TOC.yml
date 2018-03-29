@@ -26,14 +26,20 @@
       items:
         - name: Depolama hesabı seçenekleri
           href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Dosyaları dağıtımı planlama
-          href: storage-files-planning.md
         - name: Azure Dosyaları’nı dağıtma
-          href: storage-files-deployment-guide.md
-        - name: Azure Dosya Eşitleme dağıtımı planlama
-          href: storage-sync-files-planning.md
-        - name: Azure Dosya Eşitleme işlemi dağıtma
-          href: storage-sync-files-deployment-guide.md
+          items:
+            - name: Azure Dosyaları dağıtımı planlama
+              href: storage-files-planning.md
+            - name: Azure Dosyaları’nı dağıtma
+              href: storage-files-deployment-guide.md
+        - name: Azure Dosya Eşitleme’yi dağıtma
+          items:
+            - name: Azure Dosya Eşitleme dağıtımı planlama
+              href: storage-sync-files-planning.md
+            - name: Azure Dosya Eşitleme işlemi dağıtma
+              href: storage-sync-files-deployment-guide.md
+            - name: Azure Dosya Eşitleme proxy’si ve güvenli duvarı ayarları
+              href: storage-sync-files-firewall-and-proxy.md
         - name: Dosya paylaşımı anlık görüntüleri hakkında
           href: storage-snapshots-files.md
         - name: Dosya paylaşımı anlık görüntüleri ile çalışma

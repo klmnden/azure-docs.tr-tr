@@ -1,11 +1,11 @@
 ---
-title: "Yenilikler Azure Active Directory için sürüm notları | Microsoft Docs"
-description: "Bilinen sorunlar, hata düzeltmeleri, kullanım dışı bırakılan işlevsellik ve yaklaşan değişiklikleri en son sürüm notlarını gibi Azure Active Directory (Azure AD) ile yenilikleri öğrenin."
+title: Yenilikler Azure Active Directory için sürüm notları | Microsoft Docs
+description: Bilinen sorunlar, hata düzeltmeleri, kullanım dışı bırakılan işlevsellik ve yaklaşan değişiklikleri en son sürüm notlarını gibi Azure Active Directory (Azure AD) ile yenilikleri öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 03/26/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a30b5d08377594b8ad7e10b63a23e2a9d168af9c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: MT
+ms.openlocfilehash: d356535bf1a7daf45108bc790a19578108a50bb7
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory'de yenilikler nelerdir?
 
@@ -39,6 +39,218 @@ Azure AD geliştirmeleri düzenli olarak alır. En son gelişmeler ile güncel k
 -   Değişiklikleri planları
 
 Bu sayfayı aylık güncelleştirilir, böylece, düzenli aralıklarla yeniden ziyaret.
+
+## <a name="march-2018"></a>Mart 2018
+ 
+
+### <a name="certificate-expire-notification"></a>Sertifika sona bildirim
+
+**Tür:** sabit  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** SSO
+ 
+Azure AD bir galeri için bir sertifika olduğunda bir bildirim gönderir veya dolmak üzere galeri olmayan uygulamasıdır. 
+
+Bazı kullanıcılar SAML tabanlı çoklu oturum açma için yapılandırılmış Kurumsal uygulamaları için bildirim almadı. Bu sorun çözüldü. Azure AD, 7, 30 ve 60 gün içinde süresi dolacak sertifikalara bildirim gönderir. Ere, bu durumda bir denetim günlüklerini görmeyebilir. 
+
+Daha fazla bilgi için bkz.
+
+- [Federasyon tek oturum açma için Azure Active Directory'de sertifikaları yönetme](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [Azure Active Directory portalında denetim etkinlik raporları](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
+
+ 
+---
+ 
+
+### <a name="twitter-and-github-identity-providers-in-azure-ad-b2c"></a>Azure AD B2C'de twitter ve GitHub kimlik sağlayıcıları
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** B2C - tüketici Kimlik Yönetimi  
+**Ürün yetenek:** B2B/B2C
+ 
+Azure AD B2C, kimlik sağlayıcısı Twitter veya GitHub artık ekleyebilirsiniz. Twitter İST için genel Önizlemesi'nden taşıma GitHub genel Önizleme'de serbest bırakılır.
+
+
+Daha fazla bilgi için bkz: [Azure AD B2B işbirliği nedir?](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+ 
+---
+ 
+
+### <a name="app-proxy-cmdlets-in-powershell-ga-module"></a>Uygulama proxy'si cmdlet'leri Powershell GA Modülü
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** uygulama proxy'si  
+**Ürün yetenek:** erişim denetimi
+ 
+Destek için uygulama proxy'si cmdlet'leri Powershell GA modülünde sunulmuştur! Lütfen bu Powershell modülleri hakkında güncel kalmak ihtiyaç duyduğunuz Not - arkasındaki bir yıldan duruma gelirse, bazı cmdlet'ler çalışmamaya başlayabilir. 
+
+
+Daha fazla bilgi için bkz: [Azuread'i](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0).
+ 
+---
+ 
+### <a name="office-365-native-clients-are-supported-by-seamless-sso-using-a-non-interactive-protocol"></a>Office 365 yerel istemciler tarafından etkileşimli olmayan protokolünü kullanarak sorunsuz SSO desteklenir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+Office 365 yerel istemci kullanarak kullanıcı (sürüm 16.0.8730.xxxx ve üstü) sorunsuz SSO kullanarak bir sessiz oturum açma deneyimi alın. Bu destek ekleyerek etkileşimli olmayan bir iletişim kuralı (WS-Trust) Azure AD ile sağlanır.
+
+Daha fazla bilgi için bkz: [nasıl oturum sorunsuz SSO iş yerel bir istemcide açma?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-how-it-works#how-does-sign-in-on-a-native-client-with-seamless-sso-work).
+
+ 
+---
+ 
+
+### <a name="users-get-a-silent-sign-on-experience-with-seamless-sso-if-an-application-sends-sign-in-requests-to-azure-ads-tenanted-endpoints"></a>Bir uygulamayı Azure AD kiralanan uç noktaları için oturum açma isteği gönderirse kullanıcılar bir sessiz oturum açma deneyimi, sorunsuz SSO alır.
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+Kullanıcıların alırsanız bir sessiz oturum açma deneyimi, sorunsuz SSO ile bir uygulama (örneğin, `https://contoso.sharepoint.com`) Azure AD kiralanan Uç noktalara - diğer bir deyişle, oturum açma istekleri gönderir `https://login.microsoftonline.com/contoso.com/<..>` veya `https://login.microsoftonline.com/<tenant_ID>/<..>` - Azure AD ortak uç nokta yerine (`https://login.microsoftonline.com/common/<...>` ).
+
+Daha fazla bilgi için bkz: [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+
+---
+ 
+
+### <a name="need-to-add-only-one-azure-ad-url-instead-of-two-urls-previously-to-users-intranet-zone-settings-to-roll-out-seamless-sso"></a>Kullanıcıların Intranet bölgesi ayarlarını sorunsuz SSO alma için daha önce iki URL'leri yerine yalnızca bir Azure AD URL eklemeniz gerekir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+Kullanıcılarınız için sorunsuz SSO alma için yalnızca bir Azure AD URL'si kullanıcıların intranet bölgesi ayarlarını Active Directory'de Grup İlkesi kullanılarak eklemeniz gerekir: `https://autologon.microsoftazuread-sso.com`. Daha önce müşterilerin iki URL'leri eklemek için gerekli olmuştur.
+
+Daha fazla bilgi için bkz: [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso). 
+ 
+---
+ 
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Yeni Federal Apps mevcut Azure AD uygulama galerisinde
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Kurumsal uygulamaları  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+Mart 2018 bizim uygulama galerisinde Federasyon ile aşağıdaki 15 yeni uygulamaları desteği ekledik:
+
+[Boxcryptor](https://docs.microsoft.com/azure/active-directory/active-directory-saas-boxcryptor-tutorial), [CylancePROTECT](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cylanceprotect-tutorial), Wrike, [SignalFx](https://docs.microsoft.com/azure/active-directory/active-directory-saas-signalfx-tutorial), Yardımcısı FirstAgenda tarafından [YardiOne](https://docs.microsoft.com/azure/active-directory/active-directory-saas-yardione-tutorial), Vtiger CRM, inwink, [Genliğidir](https://docs.microsoft.com/azure/active-directory/active-directory-saas-amplitude-tutorial), [Spacio](https://docs.microsoft.com/azure/active-directory/active-directory-saas-spacio-tutorial), [ContractWorks](https://docs.microsoft.com/azure/active-directory/active-directory-saas-contractworks-tutorial), [Bersin](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bersin-tutorial), [Mercell](https://docs.microsoft.com/azure/active-directory/active-directory-saas-mercell-tutorial), [Trisotech dijital Enterprise Server](https://docs.microsoft.com/azure/active-directory/active-directory-saas-trisotechdigitalenterpriseserver-tutorial), [Qumu bulut](https://docs.microsoft.com/azure/active-directory/active-directory-saas-qumucloud-tutorial).
+ 
+Tüm uygulamalar için burada bulabilirsiniz: [https://aka.ms/appstutorial](https://aka.ms/appstutorial)
+
+
+ 
+---
+ 
+
+### <a name="pim-for-azure-resources-is-generally-available"></a>PIM Azure kaynakları için genel olarak kullanılabilir
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Privileged Identity Management  
+**Ürün yetenek:** Privileged Identity Management
+ 
+Dizin rolleri için Azure AD Privileged Identity Management kullanıyorsanız, artık PIM'in zaman sınırlı erişim ve atama yetenekleri abonelikler, kaynak grupları, sanal makineler ve desteklenen herhangi bir kaynağa gibi Azure kaynak rolleri için kullanabilirsiniz Azure kaynak yöneticisi tarafından. Çok faktörlü kimlik doğrulaması rolleri zaman içinde sadece etkinleştirirken zorlamak ve onaylanan değişiklik windows birlikte etkinleştirmeleri zamanlayabilirsiniz. Ayrıca, bu sürüm geliştirmeleri güncelleştirilmiş bir kullanıcı Arabirimi, onay iş akışları ve özelliği süresi yakında doluyor rolleri genişletmek ve süresi dolan rolleri yenilemek için de dahil olmak üzere genel Önizleme sırasında kullanılamaz ekler.
+
+Daha fazla bilgi için bkz: [PIM için Azure kaynaklarını (Önizleme)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/azure-pim-resource-rbac)
+ 
+---
+ 
+
+### <a name="adding-optional-claims-to-your-apps-tokens-public-preview"></a>Uygulamaları belirteçlerinizi (genel Önizleme) için isteğe bağlı talep ekleme
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+İstek özel veya isteğe bağlı Jwt'ler veya SAML belirteçleri talepleri artık Azure AD uygulaması açabilir.  Bu varsayılan boyutu veya Uygulanabilirlik kısıtlamaları nedeniyle belirteçte dahil edilmeyen kullanıcı veya Kiracı hakkında taleplerdir.  Şu anda v1.0 ve v2.0 uç noktalarda Azure AD uygulamalarınız için genel önizlemede budur.  Bilgi için bkz: hangi taleplerine eklenebilir ve bunları istemek için uygulama bildiriminizi düzenleme.  
+
+Daha fazla bilgi için bkz: [isteğe bağlı Azure AD içinde talep](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims).
+ 
+---
+ 
+
+### <a name="azure-ad-supports-pkce-for-more-secure-oauth-flows"></a>Azure AD PKCE daha güvenli OAuth akışlar için destekler.
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+Azure AD belgeleri OAuth 2.0 yetkilendirme kodu verme akışı sırasında daha güvenli iletişim için verir PKCE desteği not etmek için güncelleştirilmiştir.  S256 ve düz metin code_challenges v1.0 ve v2.0 uç noktaları üzerinde desteklenir. 
+
+Daha fazla bilgi için bkz: isteği bir yetkilendirme kodu[](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-code#request-an-authorization-code). 
+
+ 
+---
+ 
+
+### <a name="support-for-provisioning-all-user-attribute-values-available-in-the-workday-getworkers-api"></a>Tüm kullanıcı öznitelik değerleri Workday Get_Workers API kullanılabilir sağlama desteği
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** uygulama sağlama  
+**Ürün yetenek:** 3 taraf tümleştirme
+ 
+Gelen Workday'deki Active Directory ve Azure AD şimdi sağlama genel önizleme özelliği ayıklamak ve tüm öznitelik değerleri Workday Get_Workers API kullanılabilir sağlama destekler. Bu ek standart yüzlerce için desteklenen ekler ve özel öznitelikler gününün ilk sürüm ile birlikte gelen açıkladıklarımızın çok ötesinde gelen bağlayıcı sağlama.
+
+Daha fazla bilgi için bkz: [Workday kullanıcı özniteliklerinin listesi özelleştirme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-workday-inbound-tutorial#customizing-the-list-of-workday-user-attributes)
+
+---
+
+
+
+### <a name="changing-group-membership-from-dynamic-to-static-and-vice-versa"></a>Grup üyeliğini dinamik gelen statik ve tersi yönde değiştirme
+
+**Tür:** yeni özellik  
+**Servis kategorisi:** Grup Yönetimi  
+**Ürün yetenek:** işbirliği
+ 
+Bir gruptaki üyelik nasıl yönetilir değiştirmek mümkündür. Grubuna varolan tüm başvuruların hala geçerli olduğundan için aynı grup adı ve kimliği sistemde tutmak istediğiniz gerektiğinde bu faydalıdır; Yeni grup oluşturma bu başvuruları güncelleştirilmesi gerekir.
+Bu işlevsellik şu desteği eklemek için Azure AD Yönetim Merkezi güncelleştirdik. Şimdi, müşterilerin mevcut grupları dinamik üyeliğinden atanan üyeliği ve tam tersini dönüştürebilirsiniz. Varolan PowerShell cmdlet'leri de hala kullanılabilir.
+
+Daha fazla bilgi için bkz: [statik ve tam tersini dinamik üyelik değiştirme](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal#changing-dynamic-membership-to-static-and-vice-versa)
+
+ 
+
+ 
+---
+ 
+
+### <a name="improved-sign-out-behavior-with-seamless-sso"></a>Sorunsuz SSO ile geliştirilmiş oturum kapatma davranışı
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** kimlik doğrulamaları (oturum açma bilgileri)  
+**Ürün yetenek:** kullanıcı kimlik doğrulaması
+ 
+Kullanıcılar, Azure AD tarafından güvenli hale getirilmiş bir uygulamaya dışında açıkça imzalı olsa bile, daha önce bunlar otomatik olarak yeniden kendi corpnet içinde Azure AD uygulaması etki alanına katılmış cihazlarından erişmeleri çalışıyorsanız geri sorunsuz SSO kullanarak imzalanması. Bu değişiklikle, oturum kapatma desteklenir.  Bu aynı veya farklı Azure seçmelerini sağlar AD hesabı geri, otomatik olarak sorunsuz SSO kullanarak oturum açmayı yerine oturum açın.
+
+Daha fazla bilgi için bkz: [Azure Active Directory sorunsuz çoklu oturum açma](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)
+
+ 
+---
+ 
+
+### <a name="application-proxy-connector-version-154020-released"></a>Uygulama Proxy Bağlayıcısı sürümü yayımlanan 1.5.402.0
+
+**Tür:** değiştirilen özelliği  
+**Servis kategorisi:** uygulama proxy'si  
+**Ürün yetenek:** kimlik güvenlik ve koruma
+ 
+Bu bağlayıcı sürüm kademeli olarak Kasım alınmakta. Bu yeni Bağlayıcısı sürüm aşağıdaki değişiklikleri içerir:
+
+- Bağlayıcı artık etki alanı düzeyi tanımlama bilgilerini bunun yerine alt etki alanı düzeyi ayarlar. Bu sorunsuz SSO bir deneyim sağlar ve yedek kimlik doğrulama istekleri önler.
+- Öbekli kodlama istekleri için destek
+- Geliştirilmiş bağlayıcı sistem durumu izleme 
+- Çeşitli hata düzeltmeleri ve kararlılık iyileştirmeleri
+
+Daha fazla bilgi için bkz: [anlamak Azure AD uygulama proxy'si Bağlayıcılar](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors).
+
+ 
+---
+ 
+
+ 
 
 
 

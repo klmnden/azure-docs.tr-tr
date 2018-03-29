@@ -8,20 +8,20 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/22/2018
 ms.author: bonova
-ms.openlocfilehash: e13583e0364b01c3a4560d88882eb1dcf82b8c99
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
 Azure SQL veritabanı örneği (Önizleme) yönetilen yerel sağlama % 100 uyumluluk SQL Server şirket içi (Enterprise Edition) sağlayan Azure SQL veritabanı'nın yeni bir özellik olan [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md) uygulamasında, genel güvenlik sorunları giderir ve [iş modeli](https://azure.microsoft.com/pricing/details/sql-database/) şirket içi SQL Server müşterileri için olumlu. Yönetilen örneği var olan SQL Server müşterilerin kaldırın ve şirket uygulamalarını küçük uygulama ve veritabanı değişiklikler ile bulut shift olanak tanır. Aynı anda yönetilen örnek yönetim yükünüzü ve toplam sahip olma Maliyetini önemli ölçüde azaltan PaaS olanaklarına (otomatik düzeltme eki uygulama ve sürüm güncelleştirmeleri, yedekleme, yüksek kullanılabilirlik) korur.
 
 > [!IMPORTANT]
-> Yönetilen örneği olduğu şu anda kullanılabilir bölgelerin bir listesi için bkz: [yönetilen Azure SQL veritabanı örneği ile tam olarak yönetilen bir hizmet veritabanlarınızı geçirilecek](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
+> Yönetilen Örneğin şu anda kullanılabilir olduğu bölgelerin listesi için bkz. [Azure SQL Veritabanı Yönetilen Örneği ile tam yönetilen hizmete veritabanlarınızı geçirme](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/).
  
 Aşağıdaki diyagramda yönetilen örneğinin temel özellikleri özetlenmektedir:
 
@@ -34,16 +34,16 @@ Aşağıdaki senaryolar için tercih edilen platformu olarak yönetilen örneği
 
 Genel kullanılabilirlik tarafından yönetilen örneği en son sürümle şirket içi SQL Server hazırlanmış yayın planı aracılığıyla % 100 yüzey alanını uyumluluk yakın sunmak için amaçlar. 
 
-Aşağıdaki tablo anahatları farklar anahtar ve SQL Iaas, Azure SQL Database, yönetilen örneği arasında kullanım senaryoları envisioned:
+Aşağıdaki tablo anahatları farklar anahtar ve SQL Iaas, Azure SQL Database ve SQL veritabanı yönetilen örneği arasında kullanım senaryoları envisioned:
 
 | | Kullanım senaryosu | 
 | --- | --- | 
-|Yönetilen Örnek |Şirket içi veya otomatik olarak oluşturulan, Iaas veya sağlanan, ISV çok sayıda uygulamaları geçirmek isteyen müşteriler için ile mümkün olduğunca düşük geçiş çaba olarak yönetilen örneği önerin. Tam otomatik kullanarak [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview) Azure'da, müşterilerinizin kaldırın ve kendi şirket içi SQL Server örneğine bir yönetilen şirket içi SQL Server ve tam yalıtımını uyumluluğu sunan kaydırma Yerel VNET desteğiyle müşteri örnekleri.  Yazılım Güvencesi ile kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için var olan, lisansları değiştirebilir [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen bulut yüksek güvenlik ve zengin programlamasına yüzeyini gerektiren SQL Server örnekleri için en iyi geçiş hedef örneğidir. |
-|Azure SQL Database |**Esnek havuzlar**: yeni SaaS çok kiracılı uygulamaları geliştirme veya kasıtlı olarak var olan dönüştürme müşteriler uygulamaları SaaS çok müşterili bir uygulamaya şirket için esnek havuzlar önerin. Bu model avantajları şunlardır: <br><ul><li>Servis abonelikleri (ISV'ler için) satış lisansları satış gelen iş modeli dönüştürme</li></ul><ul><li>Kolay ve madde işareti kanıt Kiracı yalıtımı</li></ul><ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul><ul><li>Olası sabit bir tavan basarsa olmadan ölçeği genişletme</li></ul>**Tek veritabanlarını**: iş yükü kararlı ve öngörülebilir, SaaS çok kiracılı dışında yeni uygulama geliştirme müşterilerin tek veritabanlarını önermek için. Bu model avantajları şunlardır:<ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul>  <ul><li>Her veritabanı için tahmin edilebilir performans</li></ul>|
-|SQL IaaS |İşletim sistemini veya veritabanı sunucusu yanı sıra (aynı VM'de), SQL Server ile yan yana çalışan üçüncü taraf uygulamalar açısından belirli gereksinimlerine sahip müşteriler özelleştirmek ihtiyaç duyan müşteriler SQL VM'ler önermek için / Iaas en iyi çözümü olarak|
+|SQL Veritabanı Yönetilen Örneği |Şirket içi veya otomatik olarak oluşturulan, Iaas veya sağlanan, ISV çok sayıda uygulamaları geçirmek isteyen müşteriler için ile mümkün olduğunca düşük geçiş çaba olarak yönetilen örneği önerin. Tam otomatik kullanarak [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview) Azure'da, müşterilerinizin kaldırın ve kendi şirket içi SQL Server örneğine bir yönetilen şirket içi SQL Server ve tam yalıtımını uyumluluğu sunan kaydırma Yerel VNET desteğiyle müşteri örnekleri.  Yazılım Güvencesi ile kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için var olan, lisansları değiştirebilir [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen bulut yüksek güvenlik ve zengin programlamasına yüzeyini gerektiren SQL Server örnekleri için en iyi geçiş hedef örneğidir. |
+|Azure SQL veritabanı (tek veya havuz) |**Esnek havuzlar**: yeni SaaS çok kiracılı uygulamaları geliştirme veya kasıtlı olarak var olan dönüştürme müşteriler uygulamaları SaaS çok müşterili bir uygulamaya şirket için esnek havuzlar önerin. Bu model avantajları şunlardır: <br><ul><li>Servis abonelikleri (ISV'ler için) satış lisansları satış gelen iş modeli dönüştürme</li></ul><ul><li>Kolay ve madde işareti kanıt Kiracı yalıtımı</li></ul><ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul><ul><li>Olası sabit bir tavan basarsa olmadan ölçeği genişletme</li></ul>**Tek veritabanlarını**: iş yükü kararlı ve öngörülebilir, SaaS çok kiracılı dışında yeni uygulama geliştirme müşterilerin tek veritabanlarını önermek için. Bu model avantajları şunlardır:<ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul>  <ul><li>Her veritabanı için tahmin edilebilir performans</li></ul>|
+|SQL Iaas sanal makine|İşletim sistemini veya veritabanı sunucusu yanı sıra (aynı VM'de), SQL Server ile yan yana çalışan üçüncü taraf uygulamalar açısından belirli gereksinimlerine sahip müşteriler özelleştirmek ihtiyaç duyan müşteriler SQL VM'ler önermek için / Iaas en iyi çözümü olarak|
 |||
 
-![Konumlandırma](./media/sql-database-managed-instance/positioning.png)
+<!---![positioning](./media/sql-database-managed-instance/positioning.png)--->
 
 ## <a name="how-to-programmatically-identify-a-managed-instance"></a>Program aracılığıyla yönetilen örneği tanımlama
 

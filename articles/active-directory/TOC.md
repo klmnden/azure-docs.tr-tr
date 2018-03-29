@@ -77,8 +77,8 @@
 ## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
 ### Grupları yönetme
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell Resource Manager modeli](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure PowerShell klasik dağıtım modeli](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Graph için Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline (v1)](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)

@@ -19,12 +19,16 @@
       href: tutorial-simulate-device-windows.md
     - name: 'C# modülü geliştirme'
       href: tutorial-csharp-module.md
+    - name: Python modülü geliştirme
+      href: tutorial-python-module.md
     - name: Azure Stream Analytics’i dağıtma
       href: tutorial-deploy-stream-analytics.md
     - name: Azure Machine Learning’i dağıtma
       href: tutorial-deploy-machine-learning.md
     - name: Azure İşlevleri’ni dağıtma
       href: tutorial-deploy-function.md
+    - name: VS Code’da birden çok modülle çalışma
+      href: tutorial-multiple-modules-in-vscode.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Ağ geçidi oluşturma

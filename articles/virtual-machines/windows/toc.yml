@@ -351,6 +351,8 @@
           href: extensions-diagnostics-template.md
         - name: Ağ İzleyicisi Aracısı
           href: extensions-nwa.md
+        - name: Uzantı yüklemesini kısıtlama
+          href: extensions-rmpolicy-howto-ps.md
     - name: VM’leri geçirme
       items:
         - name: AWS’Den ve şirket içi VM’lerden geçiş
@@ -396,6 +398,8 @@
           href: reset-network-interface.md
         - name: Önyükleme tanılamaları
           href: boot-diagnostics.md
+        - name: Seri konsol
+          href: serial-console.md
         - name: VM oluşturma
           href: troubleshoot-deployment-new-vm.md
         - name: Dağıtım sorunları
