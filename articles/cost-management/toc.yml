@@ -39,6 +39,8 @@
       href: connect-google-account.md
     - name: AWS hesabı bağlama
       href: connect-aws-account.md
+    - name: Depolama hesaplarını yapılandırma
+      href: storage-accounts.md
     - name: Maliyet Yönetimi raporlarını kullanma
       href: use-reports.md
 - name: Kaynaklar

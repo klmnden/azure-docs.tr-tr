@@ -1,449 +1,455 @@
-- name: Cosmos DB Belgeleri
-  href: index.yml
-- name: Genel Bakış
-  items:
-    - name: Azure Cosmos DB hakkında
-      href: introduction.md
-    - name: 20 günde 20 ipucu
-      href: 20-days-of-tips.md
-- name: Hızlı Başlangıçlar
-  expanded: true
-  items:
-    - name: SQL
-      items:
-        - name: .NET
-          href: create-sql-api-dotnet.md
-        - name: Java
-          href: create-sql-api-java.md
-        - name: Node.js
-          href: create-sql-api-nodejs.md
-        - name: Python
-          href: create-sql-api-python.md
-        - name: Xamarin
-          href: create-sql-api-xamarin-dotnet.md
-    - name: MongoDB
-      items:
-        - name: Node.js
-          href: create-mongodb-nodejs.md
-        - name: .NET
-          href: create-mongodb-dotnet.md
-        - name: Java
-          href: create-mongodb-java.md
-        - name: Golang
-          href: create-mongodb-golang.md
-        - name: Python
-          href: create-mongodb-flask.md
-    - name: Graf
-      items:
-        - name: .NET
-          href: create-graph-dotnet.md
-        - name: Gremlin konsolu
-          href: create-graph-gremlin-console.md
-        - name: Java
-          href: create-graph-java.md
-        - name: Node.js
-          href: create-graph-nodejs.md
-        - name: Python
-          href: create-graph-python.md
-        - name: PHP
-          href: create-graph-php.md
-    - name: Tablo
-      items:
-        - name: .NET
-          href: create-table-dotnet.md
-        - name: Java
-          href: create-table-java.md
-        - name: Node.js
-          href: create-table-nodejs.md
-        - name: Python
-          href: create-table-python.md
-    - name: Cassandra
-      items:
-        - name: Node.js
-          href: create-cassandra-nodejs.md
-        - name: Java
-          href: create-cassandra-java.md
-        - name: .NET
-          href: create-cassandra-dotnet.md
-        - name: Python
-          href: create-cassandra-python.md
-- name: Öğreticiler
-  items:
-    - name: 1 - Oluştur
-      items:
-        - name: SQL
-          href: tutorial-develop-sql-api-dotnet.md
-        - name: .NET ile MongoDB
-          href: tutorial-develop-mongodb.md
-        - name: Angular ile MongoDB
-          href: tutorial-develop-mongodb-nodejs.md
-        - name: React ile MongoDB
-          href: tutorial-develop-mongodb-react.md
-        - name: Tablo
-          href: tutorial-develop-table-dotnet.md
-        - name: Graf
-          href: tutorial-develop-graph-dotnet.md
-        - name: Cassandra
-          href: tutorial-develop-cassandra-java.md
-    - name: 2 - İçeri Aktarma
-      items:
-        - name: SQL
-          href: import-data.md
-        - name: MongoDB
-          href: mongodb-migrate.md
-        - name: Tablo
-          href: table-import.md
-        - name: Cassandra
-          href: cassandra-import-data.md
-    - name: 3 - Sorgu
-      items:
-        - name: SQL
-          href: tutorial-query-sql-api.md
-        - name: MongoDB
-          href: tutorial-query-mongodb.md
-        - name: Tablo
-          href: tutorial-query-table.md
-        - name: Graf
-          href: tutorial-query-graph.md
-    - name: 4 - Global olarak dağıtma
-      items:
-        - name: SQL
-          href: tutorial-global-distribution-sql-api.md
-        - name: MongoDB
-          href: tutorial-global-distribution-mongodb.md
-        - name: Tablo
-          href: tutorial-global-distribution-table.md
-        - name: Graf
-          href: tutorial-global-distribution-graph.md
-    - name: 5 - Yerel Olarak Geliştirme
-      items:
-        - name: Öykünücüyü kullanma
-          href: local-emulator.md
-        - name: Sertifikaları dışarı aktarma
-          href: local-emulator-export-ssl-certificates.md
-    - name: 6 - İşlevler ile tümleştirme
-      items:
-        - name: HTTP tetikleyicisi
-          href: tutorial-functions-http-trigger.md
-- name: Örnekler
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: PowerShell
-      href: powershell-samples.md
-    - name: Azure Resource Manager şablonları
-      href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
-- name: Kavramlar
-  items:
-    - name: Sunucusuz veritabanı
-      href: serverless-computing-database.md
-    - name: Genel dağıtım
-      href: distribute-data-globally.md
-    - name: Bölümleme
-      href: partition-data.md
-    - name: Benzersiz anahtarlar
-      href: unique-keys.md
-    - name: Tutarlılık
-      href: consistency-levels.md
-    - name: Aktarım hızı
-      href: request-units.md
-    - name: Çoklu model API’ler
-      items:
-        - name: SQL
-          href: sql-api-introduction.md
-        - name: MongoDB
-          href: mongodb-introduction.md
-        - name: Tablo
-          href: table-introduction.md
-        - name: Graf
-          href: graph-introduction.md
-        - name: Cassandra
-          href: cassandra-introduction.md
-    - name: Güvenlik
-      href: database-security.md
-    - name: TCO
-      href: 'https://aka.ms/documentdb-tco-paper'
-    - name: Uygulama alanları
-      href: use-cases.md
-      items:
-        - name: Sosyal medya uygulamaları
-          href: social-media-apps.md
-- name: Nasıl Yapılır Kılavuzları
-  items:
-    - name: Geliştirme
-      items:
-        - name: SQL API’si
-          href: sql-api-index.md
-          items:
-            - name: Kaynaklar
-              href: sql-api-resources.md
-            - name: SQL sorguları
-              href: sql-api-sql-query.md
-            - name: SQL sorgu performansı
-              href: sql-api-sql-query-metrics.md
-            - name: SQL oyun alanı
-              href: 'https://www.documentdb.com/sql/demo'
-            - name: Bölümleme
-              href: sql-api-partition-data.md
-            - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
-              href: programming.md
-            - name: Performansı test etme
-              href: performance-testing.md
-            - name: .NET için performans ipuçları
-              href: performance-tips.md
-            - name: Java için performans ipuçları
-              href: performance-tips-java.md
-            - name: Çok yöneticili kurulum
-              href: multi-region-writers.md
-            - name: DateTimes
-              href: working-with-dates.md
-            - name: Belge verilerini modelleme
-              href: modeling-data.md
-            - name: Öğreticiler
-              items:
-                - name: İlk uygulamanızı yazma
-                  items:
-                    - name: .NET
-                      href: sql-api-get-started.md
-                    - name: .NET Core
-                      href: sql-api-dotnetcore-get-started.md
-                    - name: Java
-                      href: sql-api-java-get-started.md
-                    - name: Node.js
-                      href: sql-api-nodejs-get-started.md
-                    - name: C++
-                      href: sql-api-cpp-get-started.md
-                - name: Web uygulaması oluşturma
-                  items:
-                    - name: .NET
-                      href: sql-api-dotnet-application.md
-                    - name: Xamarin
-                      href: mobile-apps-with-xamarin.md
-                    - name: Node.js
-                      href: sql-api-nodejs-application.md
-                    - name: Java
-                      href: sql-api-java-application.md
-                    - name: Python Flask
-                      href: sql-api-python-application.md
-            - name: Örnekler
-              items:
-                - name: .NET örnekleri
-                  href: sql-api-dotnet-samples.md
-                - name: Java örnekleri
-                  href: sql-api-java-samples.md
-                - name: Node.js örnekleri
-                  href: sql-api-nodejs-samples.md
-                - name: Python örnekleri
-                  href: sql-api-python-samples.md
-            - name: Kaynaklar
-              items:
-                - name: Videolar
-                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
-                - name: Hizmet güncelleştirmeleri
-                  href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
-                - name: Şemadan bağımsız dizinleme sayfası
-                  href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
-                - name: 'S1, S2, S3’ü devre dışı bırakma'
-                  href: performance-levels.md
-        - name: MongoDB API’si
-          href: mongodb-index.md
-          items:
-            - name: MongoDB hesabınıza bağlanma
-              href: connect-mongodb-account.md
-            - name: Studio 3T kullanma
-              href: mongodb-mongochef.md
-            - name: Robomongo kullanma
-              href: mongodb-robomongo.md
-            - name: Mongoose'u kullanma
-              href: mongodb-mongoose.md
-            - name: Okuma Tercihini Kullanma
-              href: mongodb-readpreference.md
-            - name: Dizinleme
-              href: mongodb-indexing.md
-            - name: MongoDB özellik desteği
-              href: mongodb-feature-support.md
-            - name: Angular öğretici serisi
-              items:
-                - name: Bölüm 2 - Node uygulama oluşturma
-                  href: tutorial-develop-mongodb-nodejs-part2.md
-                - name: Bölüm 3 - Angular kullanıcı arabirimi ekleme
-                  href: tutorial-develop-mongodb-nodejs-part3.md
-                - name: Bölüm 4 - Cosmos DB oluşturma
-                  href: tutorial-develop-mongodb-nodejs-part4.md
-                - name: Bölüm 5 - Cosmos DB’ye bağlanma
-                  href: tutorial-develop-mongodb-nodejs-part5.md
-                - name: Bölüm 6 - Uygulamaya yazma
-                  href: tutorial-develop-mongodb-nodejs-part6.md
-            - name: Daha fazla öğretici
-              items:
-                - name: Node.js konsol uygulaması
-                  href: mongodb-samples.md
-        - name: Graph API
-          items:
-            - name: Gremlin desteği
-              href: gremlin-support.md
-        - name: Tablo API’si
-          items:
-            - name: Tablo geliştirme
-              href: table-support.md
-            - name: PowerShell ile Tablo API’si işlemleri
-              href: table-powershell.md
-            - name: Azure Tablo depolama
-              items:
-                - name: Tablo depolamaya genel bakış
-                  href: table-storage-overview.md
-                - name: Tablo depolama tasarım kılavuzu
-                  href: table-storage-design-guide.md
-                - name: Tablo depolama REST API'leri
-                  href: /rest/api/storageservices/Table-Service-Concepts
-                - name: Geliştirme
-                  items:
-                    - name: .NET
-                      href: table-storage-how-to-use-dotnet.md
-                    - name: 'F#'
-                      href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
-                    - name: Node.js
-                      href: table-storage-cloud-service-nodejs.md
-                    - name: Java
-                      href: table-storage-how-to-use-java.md
-                    - name: Node.js
-                      href: table-storage-how-to-use-nodejs.md
-                    - name: C++
-                      href: table-storage-how-to-use-c-plus.md
-                    - name: PHP
-                      href: table-storage-how-to-use-php.md
-                    - name: Python
-                      href: table-storage-how-to-use-python.md
-                    - name: Ruby
-                      href: table-storage-how-to-use-ruby.md
-                    - name: PowerShell
-                      href: table-storage-how-to-use-powershell.md
-        - name: Akışı değiştirme
-          href: change-feed.md
-        - name: Jeo-uzamsal
-          href: geospatial.md
-        - name: Dizinleme
-          href: indexing-policies.md
-        - name: Visual Studio'da Bağlı Hizmet
-          href: connected-service.md
-    - name: Yönetme
-      items:
-        - name: Düşük maliyetli okuma ve yazmalar
-          href: key-value-store-cost.md
-        - name: Verilerin süresini otomatik olarak sonlandırma
-          href: time-to-live.md
-        - name: Yedekleme ve geri yükleme
-          href: online-backup-and-restore.md
-        - name: Bölgesel yük devretme
-          href: regional-failover.md
-        - name: Aktarım hızı ayarlama
-          href: set-throughput.md
-        - name: SLA’ları izleme
-          href: monitor-accounts.md
-        - name: Ölçümleri kullanma
-          href: use-metrics.md
-        - name: Tanılama günlüğüne kaydetme
-          href: logging.md
-        - name: Anahtarları yönetme ve tutarlılık
-          href: manage-account.md
-        - name: Erişim denetimi
-          href: access-control.md
-        - name: Azure Depolama Gezgini
-          href: storage-explorer.md
-        - name: Güvenlik
-          items:
-            - name: Bekleme sırasında şifreleme
-              href: database-encryption-at-rest.md
-            - name: Güvenlik duvarı desteği
-              href: firewall-support.md
-            - name: Veriye erişimi güvenli hale getirme
-              href: secure-access-to-data.md
-    - name: Tümleştirme
-      items:
-        - name: HDInsight ile lambda mimarisi uygulama
-          href: lambda-architecture.md
-        - name: Spark’a bağlanma
-          href: spark-connector.md
-        - name: Spark GraphX’e bağlanma
-          href: spark-connector-graph.md
-        - name: HDInsight üzerinde Kafka ve Spark ile akış yapma
-          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
-          maintainContext: true
-        - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
-          href: create-website.md
-        - name: Logic Apps ile uygulama günlüğü kaydı
-          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
-        - name: Azure İşlevlerine Bağlama
-          href: ../azure-functions/functions-bindings-documentdb.md
-        - name: Azure Search ile Tümleştirme
-          href: ../search/search-howto-index-documentdb.md
-        - name: Azure Data Factory ile veri taşıma
-          href: ../data-factory/connector-azure-cosmos-db.md
-        - name: Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme
-          href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
-        - name: Logic Apps kullanarak HL7 FHIR kaydını değiştirme
-          href: change-feed-hl7-fhir-logic-apps.md
-        - name: Gerçek zamanlı sensör verisi işleme
-          href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
-        - name: Power BI ile verilerinizi görselleştirme
-          href: powerbi-visualize.md
-        - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
-          href: odbc-driver.md
-        - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
-- name: Başvuru
-  items:
-    - name: Kod örnekleri
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
-    - name: SQL API’leri
-      items:
-        - name: Async Java
-          href: sql-api-sdk-async-java.md
-        - name: Java
-          href: sql-api-sdk-java.md
-        - name: .NET
-          href: sql-api-sdk-dotnet.md
-        - name: .NET Akış değiştirme
-          href: sql-api-sdk-dotnet-changefeed.md
-        - name: .NET Core
-          href: sql-api-sdk-dotnet-core.md
-        - name: Node.js
-          href: sql-api-sdk-node.md
-        - name: Python
-          href: sql-api-sdk-python.md
-        - name: REST
-          href: /rest/api/documentdb/
-        - name: REST Kaynak Sağlayıcısı
-          href: /rest/api/documentdbresourceprovider/
-        - name: SQL
-          href: sql-api-sql-query-reference.md
-    - name: Tablo API’leri
-      items:
-        - name: .NET
-          href: table-sdk-dotnet.md
-        - name: Java
-          href: table-sdk-java.md
-        - name: Node.js
-          href: table-sdk-nodejs.md
-        - name: Python
-          href: table-sdk-python.md
-    - name: Graph API’si
-      items:
-        - name: .NET
-          href: graph-sdk-dotnet.md
-- name: Kaynaklar
-  items:
-    - name: Sorgu kopya kağıdı
-      href: query-cheat-sheet.md
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Azure Cosmos DB’yi ücretsiz deneyin
-      href: 'https://azure.microsoft.com/try/cosmosdb/'
-    - name: Fiyatlandırma
-      href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
-    - name: SSS
-      href: faq.md
-    - name: Beyzbol örneği ile açıklanan veri tutarlılığı
-      href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
-    - name: Azure Cosmos DB’de sorun giderme
-      href: troubleshoot-azure-cosmosdb.md
+metadata: {}
+items:
+  - name: Cosmos DB Belgeleri
+    href: index.yml
+  - name: Genel Bakış
+    items:
+      - name: Azure Cosmos DB hakkında
+        href: introduction.md
+      - name: Belge deneme
+        href: experiment.md
+  - name: Hızlı Başlangıçlar
+    expanded: true
+    items:
+      - name: SQL
+        items:
+          - name: .NET
+            href: create-sql-api-dotnet.md
+          - name: Java
+            href: create-sql-api-java.md
+          - name: Node.js
+            href: create-sql-api-nodejs.md
+          - name: Python
+            href: create-sql-api-python.md
+          - name: Xamarin
+            href: create-sql-api-xamarin-dotnet.md
+      - name: MongoDB
+        items:
+          - name: Node.js
+            href: create-mongodb-nodejs.md
+          - name: .NET
+            href: create-mongodb-dotnet.md
+          - name: Java
+            href: create-mongodb-java.md
+          - name: Golang
+            href: create-mongodb-golang.md
+          - name: Python
+            href: create-mongodb-flask.md
+      - name: Graf
+        items:
+          - name: .NET
+            href: create-graph-dotnet.md
+          - name: Gremlin konsolu
+            href: create-graph-gremlin-console.md
+          - name: Java
+            href: create-graph-java.md
+          - name: Node.js
+            href: create-graph-nodejs.md
+          - name: Python
+            href: create-graph-python.md
+          - name: PHP
+            href: create-graph-php.md
+      - name: Tablo
+        items:
+          - name: .NET
+            href: create-table-dotnet.md
+          - name: Java
+            href: create-table-java.md
+          - name: Node.js
+            href: create-table-nodejs.md
+          - name: Python
+            href: create-table-python.md
+      - name: Cassandra
+        items:
+          - name: Node.js
+            href: create-cassandra-nodejs.md
+          - name: Java
+            href: create-cassandra-java.md
+          - name: .NET
+            href: create-cassandra-dotnet.md
+          - name: Python
+            href: create-cassandra-python.md
+  - name: Öğreticiler
+    items:
+      - name: 1 - Oluştur
+        items:
+          - name: SQL
+            href: tutorial-develop-sql-api-dotnet.md
+          - name: .NET ile MongoDB
+            href: tutorial-develop-mongodb.md
+          - name: Angular ile MongoDB
+            href: tutorial-develop-mongodb-nodejs.md
+          - name: React ile MongoDB
+            href: tutorial-develop-mongodb-react.md
+          - name: Tablo
+            href: tutorial-develop-table-dotnet.md
+          - name: Graf
+            href: tutorial-develop-graph-dotnet.md
+          - name: Cassandra
+            href: tutorial-develop-cassandra-java.md
+      - name: 2 - İçeri Aktarma
+        items:
+          - name: SQL
+            href: import-data.md
+          - name: MongoDB
+            href: mongodb-migrate.md
+          - name: Tablo
+            href: table-import.md
+          - name: Cassandra
+            href: cassandra-import-data.md
+      - name: 3 - Sorgu
+        items:
+          - name: SQL
+            href: tutorial-query-sql-api.md
+          - name: MongoDB
+            href: tutorial-query-mongodb.md
+          - name: Tablo
+            href: tutorial-query-table.md
+          - name: Graf
+            href: tutorial-query-graph.md
+      - name: 4 - Global olarak dağıtma
+        items:
+          - name: SQL
+            href: tutorial-global-distribution-sql-api.md
+          - name: MongoDB
+            href: tutorial-global-distribution-mongodb.md
+          - name: Tablo
+            href: tutorial-global-distribution-table.md
+          - name: Graf
+            href: tutorial-global-distribution-graph.md
+      - name: 5 - Yerel Olarak Geliştirme
+        items:
+          - name: Öykünücüyü kullanma
+            href: local-emulator.md
+          - name: Sertifikaları dışarı aktarma
+            href: local-emulator-export-ssl-certificates.md
+      - name: 6 - İşlevler ile tümleştirme
+        items:
+          - name: HTTP tetikleyicisi
+            href: tutorial-functions-http-trigger.md
+  - name: Örnekler
+    items:
+      - name: Azure CLI
+        href: cli-samples.md
+      - name: PowerShell
+        href: powershell-samples.md
+      - name: Azure Resource Manager şablonları
+        href: 'https://azure.microsoft.com/resources/templates/?term=cosmos+db&pageNumber=1'
+  - name: Kavramlar
+    items:
+      - name: Sunucusuz veritabanı
+        href: serverless-computing-database.md
+      - name: Genel dağıtım
+        href: distribute-data-globally.md
+      - name: Bölümleme
+        href: partition-data.md
+      - name: Benzersiz anahtarlar
+        href: unique-keys.md
+      - name: Tutarlılık
+        href: consistency-levels.md
+      - name: Aktarım hızı
+        href: request-units.md
+      - name: Çoklu model API’ler
+        items:
+          - name: SQL
+            href: sql-api-introduction.md
+          - name: MongoDB
+            href: mongodb-introduction.md
+          - name: Tablo
+            href: table-introduction.md
+          - name: Graf
+            href: graph-introduction.md
+          - name: Cassandra
+            href: cassandra-introduction.md
+      - name: Güvenlik
+        href: database-security.md
+      - name: TCO
+        href: 'https://aka.ms/documentdb-tco-paper'
+      - name: Uygulama alanları
+        href: use-cases.md
+        items:
+          - name: Sosyal medya uygulamaları
+            href: social-media-apps.md
+  - name: Nasıl Yapılır Kılavuzları
+    items:
+      - name: Geliştirme
+        items:
+          - name: SQL API’si
+            href: sql-api-index.md
+            items:
+              - name: Kaynaklar
+                href: sql-api-resources.md
+              - name: SQL sorguları
+                href: sql-api-sql-query.md
+              - name: SQL sorgu performansı
+                href: sql-api-sql-query-metrics.md
+              - name: SQL oyun alanı
+                href: 'https://www.documentdb.com/sql/demo'
+              - name: Bölümleme
+                href: sql-api-partition-data.md
+              - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
+                href: programming.md
+              - name: Performansı test etme
+                href: performance-testing.md
+              - name: .NET için performans ipuçları
+                href: performance-tips.md
+              - name: Java için performans ipuçları
+                href: performance-tips-java.md
+              - name: Çok yöneticili kurulum
+                href: multi-region-writers.md
+              - name: DateTimes
+                href: working-with-dates.md
+              - name: Belge verilerini modelleme
+                href: modeling-data.md
+              - name: Öğreticiler
+                items:
+                  - name: İlk uygulamanızı yazma
+                    items:
+                      - name: .NET
+                        href: sql-api-get-started.md
+                      - name: .NET Core
+                        href: sql-api-dotnetcore-get-started.md
+                      - name: Java
+                        href: sql-api-java-get-started.md
+                      - name: Node.js
+                        href: sql-api-nodejs-get-started.md
+                      - name: C++
+                        href: sql-api-cpp-get-started.md
+                  - name: Web uygulaması oluşturma
+                    items:
+                      - name: .NET
+                        href: sql-api-dotnet-application.md
+                      - name: Xamarin
+                        href: mobile-apps-with-xamarin.md
+                      - name: Node.js
+                        href: sql-api-nodejs-application.md
+                      - name: Java
+                        href: sql-api-java-application.md
+                      - name: Python Flask
+                        href: sql-api-python-application.md
+              - name: Örnekler
+                items:
+                  - name: .NET örnekleri
+                    href: sql-api-dotnet-samples.md
+                  - name: Java örnekleri
+                    href: sql-api-java-samples.md
+                  - name: Node.js örnekleri
+                    href: sql-api-nodejs-samples.md
+                  - name: Python örnekleri
+                    href: sql-api-python-samples.md
+              - name: Kaynaklar
+                items:
+                  - name: SQL dil bilgisi kopya kağıdı
+                    href: sql-api-sql-query-cheat-sheet.md
+                  - name: Videolar
+                    href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
+                  - name: Hizmet güncelleştirmeleri
+                    href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
+                  - name: Şemadan bağımsız dizinleme sayfası
+                    href: 'http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf'
+                  - name: 'S1, S2, S3’ü devre dışı bırakma'
+                    href: performance-levels.md
+          - name: MongoDB API’si
+            href: mongodb-index.md
+            items:
+              - name: MongoDB hesabınıza bağlanma
+                href: connect-mongodb-account.md
+              - name: Studio 3T kullanma
+                href: mongodb-mongochef.md
+              - name: Robomongo kullanma
+                href: mongodb-robomongo.md
+              - name: Mongoose'u kullanma
+                href: mongodb-mongoose.md
+              - name: Okuma Tercihini Kullanma
+                href: mongodb-readpreference.md
+              - name: Dizinleme
+                href: mongodb-indexing.md
+              - name: MongoDB özellik desteği
+                href: mongodb-feature-support.md
+              - name: Angular öğretici serisi
+                items:
+                  - name: Bölüm 2 - Node uygulama oluşturma
+                    href: tutorial-develop-mongodb-nodejs-part2.md
+                  - name: Bölüm 3 - Angular kullanıcı arabirimi ekleme
+                    href: tutorial-develop-mongodb-nodejs-part3.md
+                  - name: Bölüm 4 - Cosmos DB oluşturma
+                    href: tutorial-develop-mongodb-nodejs-part4.md
+                  - name: Bölüm 5 - Cosmos DB’ye bağlanma
+                    href: tutorial-develop-mongodb-nodejs-part5.md
+                  - name: Bölüm 6 - Uygulamaya yazma
+                    href: tutorial-develop-mongodb-nodejs-part6.md
+              - name: Daha fazla öğretici
+                items:
+                  - name: Node.js konsol uygulaması
+                    href: mongodb-samples.md
+          - name: Graph API
+            items:
+              - name: Gremlin desteği
+                href: gremlin-support.md
+          - name: Tablo API’si
+            items:
+              - name: Tablo geliştirme
+                href: table-support.md
+              - name: PowerShell ile Tablo API’si işlemleri
+                href: table-powershell.md
+              - name: Azure Tablo depolama
+                items:
+                  - name: Tablo depolamaya genel bakış
+                    href: table-storage-overview.md
+                  - name: Tablo depolama tasarım kılavuzu
+                    href: table-storage-design-guide.md
+                  - name: Tablo depolama REST API'leri
+                    href: /rest/api/storageservices/Table-Service-Concepts
+                  - name: Geliştirme
+                    items:
+                      - name: .NET
+                        href: table-storage-how-to-use-dotnet.md
+                      - name: 'F#'
+                        href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                      - name: Node.js
+                        href: table-storage-cloud-service-nodejs.md
+                      - name: Java
+                        href: table-storage-how-to-use-java.md
+                      - name: Node.js
+                        href: table-storage-how-to-use-nodejs.md
+                      - name: C++
+                        href: table-storage-how-to-use-c-plus.md
+                      - name: PHP
+                        href: table-storage-how-to-use-php.md
+                      - name: Python
+                        href: table-storage-how-to-use-python.md
+                      - name: Ruby
+                        href: table-storage-how-to-use-ruby.md
+                      - name: PowerShell
+                        href: table-storage-how-to-use-powershell.md
+          - name: Akışı değiştirme
+            href: change-feed.md
+          - name: Jeo-uzamsal
+            href: geospatial.md
+          - name: Dizinleme
+            href: indexing-policies.md
+          - name: Visual Studio'da Bağlı Hizmet
+            href: connected-service.md
+      - name: Yönetme
+        items:
+          - name: Düşük maliyetli okuma ve yazmalar
+            href: key-value-store-cost.md
+          - name: Verilerin süresini otomatik olarak sonlandırma
+            href: time-to-live.md
+          - name: Yedekleme ve geri yükleme
+            href: online-backup-and-restore.md
+          - name: Bölgesel yük devretme
+            href: regional-failover.md
+          - name: Aktarım hızı ayarlama
+            href: set-throughput.md
+          - name: SLA’ları izleme
+            href: monitor-accounts.md
+          - name: Ölçümleri kullanma
+            href: use-metrics.md
+          - name: Tanılama günlüğüne kaydetme
+            href: logging.md
+          - name: Anahtarları yönetme ve tutarlılık
+            href: manage-account.md
+          - name: Erişim denetimi
+            href: access-control.md
+          - name: Azure Depolama Gezgini
+            href: storage-explorer.md
+          - name: Güvenlik
+            items:
+              - name: Bekleme sırasında şifreleme
+                href: database-encryption-at-rest.md
+              - name: Güvenlik duvarı desteği
+                href: firewall-support.md
+              - name: Veriye erişimi güvenli hale getirme
+                href: secure-access-to-data.md
+      - name: Tümleştirme
+        items:
+          - name: HDInsight ile lambda mimarisi uygulama
+            href: lambda-architecture.md
+          - name: Spark’a bağlanma
+            href: spark-connector.md
+          - name: Spark GraphX’e bağlanma
+            href: spark-connector-graph.md
+          - name: HDInsight üzerinde Kafka ve Spark ile akış yapma
+            href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
+            maintainContext: true
+          - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
+            href: create-website.md
+          - name: Logic Apps ile uygulama günlüğü kaydı
+            href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+          - name: Azure İşlevlerine Bağlama
+            href: ../azure-functions/functions-bindings-documentdb.md
+          - name: Azure Search ile Tümleştirme
+            href: ../search/search-howto-index-documentdb.md
+          - name: Azure Data Factory ile veri taşıma
+            href: ../data-factory/connector-azure-cosmos-db.md
+          - name: Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme
+            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+          - name: Logic Apps kullanarak HL7 FHIR kaydını değiştirme
+            href: change-feed-hl7-fhir-logic-apps.md
+          - name: Gerçek zamanlı sensör verisi işleme
+            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+          - name: Power BI ile verilerinizi görselleştirme
+            href: powerbi-visualize.md
+          - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
+            href: odbc-driver.md
+          - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+  - name: Başvuru
+    items:
+      - name: Kod örnekleri
+        href: 'https://azure.microsoft.com/resources/samples/?service=cosmos-db'
+      - name: SQL API’leri
+        items:
+          - name: Async Java
+            href: sql-api-sdk-async-java.md
+          - name: Java
+            href: sql-api-sdk-java.md
+          - name: .NET
+            href: sql-api-sdk-dotnet.md
+          - name: .NET Akış değiştirme
+            href: sql-api-sdk-dotnet-changefeed.md
+          - name: .NET Core
+            href: sql-api-sdk-dotnet-core.md
+          - name: Node.js
+            href: sql-api-sdk-node.md
+          - name: Python
+            href: sql-api-sdk-python.md
+          - name: REST
+            href: /rest/api/documentdb/
+          - name: REST Kaynak Sağlayıcısı
+            href: /rest/api/documentdbresourceprovider/
+          - name: SQL
+            href: sql-api-sql-query-reference.md
+      - name: Tablo API’leri
+        items:
+          - name: .NET
+            href: table-sdk-dotnet.md
+          - name: Java
+            href: table-sdk-java.md
+          - name: Node.js
+            href: table-sdk-nodejs.md
+          - name: Python
+            href: table-sdk-python.md
+      - name: Graph API’si
+        items:
+          - name: .NET
+            href: graph-sdk-dotnet.md
+  - name: Kaynaklar
+    items:
+      - name: Sorgu kopya kağıdı
+        href: query-cheat-sheet.md
+      - name: 20 günde 20 ipucu
+        href: 20-days-of-tips.md
+      - name: Azure Yol Haritası
+        href: 'https://azure.microsoft.com/roadmap/'
+      - name: Azure Cosmos DB’yi ücretsiz deneyin
+        href: 'https://azure.microsoft.com/try/cosmosdb/'
+      - name: Fiyatlandırma
+        href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
+      - name: SSS
+        href: faq.md
+      - name: Beyzbol örneği ile açıklanan veri tutarlılığı
+        href: 'http://research.microsoft.com/apps/pubs/default.aspx?id=206913'
+      - name: Azure Cosmos DB’de sorun giderme
+        href: troubleshoot-azure-cosmosdb.md

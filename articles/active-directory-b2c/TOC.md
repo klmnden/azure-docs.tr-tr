@@ -33,7 +33,7 @@
 ### [ASP.NET API’sini koruma](active-directory-b2c-tutorials-web-api.md)
 ### [ASP.NET](active-directory-b2c-devquickstarts-api-dotnet.md)
 ### [ASP.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi)
-### [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+### [Node.js](active-directory-b2c-devquickstarts-api-node.md)
 ### [.NET web API'si çağırma](active-directory-b2c-devquickstarts-web-api-dotnet.md)
 
 # Kılavuzlar
@@ -67,6 +67,7 @@
 ## [Özel ilkeler](active-directory-b2c-overview-custom.md)
 ## Kılavuzlar
 ### [Kullanmaya başlama](active-directory-b2c-get-started-custom.md)
+### [Başlangıç paketi](active-directory-b2c-reference-custom-policies-understanding-contents.md)
 ### OIDC/OAUTH sağlayıcılarını yapılandırma
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft Hesabı](active-directory-b2c-custom-setup-msa-idp.md)
