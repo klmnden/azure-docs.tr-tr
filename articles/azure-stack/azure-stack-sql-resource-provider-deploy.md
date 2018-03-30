@@ -1,11 +1,11 @@
 ---
-title: "SQL veritabanları Azure yığında kullanarak | Microsoft Docs"
-description: "SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin."
+title: SQL veritabanları Azure yığında kullanarak | Microsoft Docs
+description: SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4d2a00f04e5b07aeb3585fb3ab6c8966e0de7e19
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1754d4b121fdaf4f7b8e4c1954dfd4202ba344b1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 
@@ -71,7 +71,7 @@ Siz bir (veya daha fazla) SQL Server örneklerini oluşturmak veya dış SQL Ser
     | 1710: 1.0.171028.1 | [SQL RP sürüm 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
   
 
-4. Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. Azure yığın SDK'sı için bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Tümleşik sistemler için uygun bir sertifika sağlamanız gerekir.
+4. Gerekli sertifikayı sağlayın. Azure yığın SDK'sı, bu işlemin bir parçası olarak oluşturulan kendinden imzalı bir sertifika, başka bir sertifika gereklidir. Tümleşik sistemler için uygun bir sertifika sağlamanız gerekir.
 
    Kendi sertifikanızı sağlamak için bir .pfx dosyasına yerleştirin **DependencyFilesLocalPath** gibi:
 
@@ -307,7 +307,7 @@ Defender tanımlarını güncelleştirmek için aşağıdaki adımları izleyin:
 
     Bu sayfada "El ile yükleyip tanımları altında" indir "Windows 10 ve Windows 8.1" 64-bit dosya için Windows Defender Antivirus. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    Doğrudan bağlantı: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
 
 2. Bir PowerShell oturumuna SQL RP bağdaştırıcısı sanal makinenin bakım uç noktası oluşturma
 3. Bakım uç nokta oturumu kullanarak DB bağdaştırıcısı makineye tanımları güncelleştirme dosyasını kopyalayın
