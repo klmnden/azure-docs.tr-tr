@@ -56,7 +56,7 @@
 ## Azure AD Connect Sync'i yönetme
 ### [GDPR uyumluluğu ve Azure AD Connect](active-directory-aadconnect-gdpr.md)
 ### [Yanlışlıkla silmeleri engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)
-### [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md)
+### [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md)
 ### [Azure AD hizmet hesabı](active-directory-aadconnectsync-howto-azureadaccount.md)
 ### [Yükleme sihirbazı](active-directory-aadconnectsync-installation-wizard.md)
 ### [UserPrincipalName nasıl doldurulur?](active-directory-aadconnect-userprincipalname.md)
@@ -86,7 +86,7 @@
 ### [Eşitleme sırasında karşılaşılan hatalar](active-directory-aadconnect-troubleshoot-sync-errors.md)
 ### [Nesne eşitlenmemiş](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md)
 ### [Sorun giderme görevini kullanarak nesne eşitleme](active-directory-aadconnect-troubleshoot-objectsync.md)
-### [Parola eşitleme](active-directory-aadconnectsync-troubleshoot-password-synchronization.md)
+### [Parola karması eşitleme](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md)
 ### [userCertificate’in neden olduğu LargeObject hatası](active-directory-aadconnectsync-largeobjecterror-usercertificate.md)
 ### [LocalDB 10 GB sınırından kurtarma](active-directory-aadconnect-recover-from-localdb-10gb-limit.md)
 
