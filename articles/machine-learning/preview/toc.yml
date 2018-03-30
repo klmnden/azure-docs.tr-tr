@@ -197,7 +197,7 @@
     - name: Azure yol haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma
-      href: aml-services-pricing.md
+      href: aml-pricing.md
     - name: Bölge kullanılabilirliği
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Team Data Science Process
