@@ -6,6 +6,7 @@
 ## [Kaynak Durumu nedir?](resource-health-overview.md)
 # Nasıl yapılır
 ## [Hizmet durumu olayları için uyarıları yapılandırma](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [Azure portalını kullanarak hizmet durumu bildirimlerini görüntüleme](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [Web kancası kullanarak bildirimleri yapılandırma](service-health-alert-webhook-guide.md)
 ### [ServiceNow ile yapılandırma](service-health-alert-webhook-servicenow.md)
 ### [PagerDuty ile yapılandırma](service-health-alert-webhook-pagerduty.md)

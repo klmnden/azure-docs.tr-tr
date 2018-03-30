@@ -39,7 +39,7 @@
       href: monitor-alerts-unified-log.md
     - name: Etkinlik günlüğü uyarıları (Önizleme)
       href: monitoring-activity-log-alerts-new-experience.md
-    - name: Uyarıları OMS’den Azure’a genişletme
+    - name: Uyarıları Log Analytics’ten Azure’a genişletme
       href: monitoring-alerts-extend.md
     - name: Eylem grupları
       href: monitoring-action-groups.md
@@ -53,45 +53,45 @@
   items:
     - name: Azure İzleyici’yle ilgili adım adım kılavuz
       href: monitoring-get-started.md
+    - name: Ölçüm Gezgini’nde ölçüm grafikleri oluşturma
+      href: monitoring-metric-charts.md
     - name: Uyarıları kullanma
       items:
-        - name: Azure portalında yeni uyarılar yapılandırma
-          href: monitoring-near-real-time-metric-alerts.md
+        - name: Azure portalında yeni ölçüm veya günlük uyarıları yapılandırma
+          href: monitor-alerts-unified-usage.md
         - name: Azure portalında klasik uyarıları yapılandırma
           href: insights-alerts-portal.md
-        - name: Azure portalında ölçüm veya günlük uyarılarını yapılandırma
-          href: monitor-alerts-unified-usage.md
-        - name: CLI ile uyarıları yapılandırma
+        - name: CLI ile klasik uyarıları yapılandırma
           href: insights-alerts-command-line-interface.md
-        - name: Azure PowerShell ile uyarıları yapılandırma
+        - name: Azure PowerShell ile klasik uyarıları yapılandırma
           href: insights-alerts-powershell.md
         - name: Günlük uyarıları için web kancası eylemleri
           href: monitor-alerts-unified-log-webhook.md
-        - name: Resource Manager şablonu ile ölçüm uyarısı oluşturma
+        - name: Kaynak Yöneticisi şablonu ile klasik ölçüm uyarısı oluşturma
           href: monitoring-enable-alerts-using-template.md
-        - name: Uyarıları OMS’den Azure’a genişletmeye başlama
+        - name: Uyarıları OMS portalından Azure portalına kopyalama
           href: monitoring-alerts-extend-tool.md
-    - name: Otomatik ölçeklendirmeyi kullanma
+    - name: Eylem gruplarını uyarılarla kullanma
       items:
-        - name: Otomatik ölçeklendirmeyle ilgili adım adım kılavuz
-          href: monitoring-autoscale-get-started.md
-        - name: Otomatik Ölçeklendirme ayarlarını anlama
-          href: monitoring-understanding-autoscale-settings.md
-        - name: En iyi uygulamalar
-          href: insights-autoscale-best-practices.md
-        - name: Ortak ölçümler
-          href: insights-autoscale-common-metrics.md
-        - name: Ortak desenler
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Özel ölçüm kullanarak otomatik ölçekleme
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: Resource Manager şablonlarını kullanarak VM ölçek kümelerini otomatik ölçeklendirme
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Bir VM ölçek kümesindeki makineleri otomatik ölçeklendirme
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Otomatik ölçeklendirmede web kancalarını ve e-posta bildirimlerini yapılandırma
-          href: insights-autoscale-to-webhook-email.md
-    - name: Ekinlik günlüğünü kullanma
+        - name: Web kancası şeması hakkında bilgi edinme
+          href: monitoring-activity-log-alerts-webhook.md
+        - name: SMS uyarısı davranışı
+          href: monitoring-sms-alert-behavior.md
+        - name: Uyarı hızı sınırlama
+          href: monitoring-alerts-rate-limiting.md
+        - name: Resource Manager ile eylem grupları oluşturma
+          href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Tanılama günlüklerini kullanma
+      items:
+        - name: Arşiv
+          href: monitoring-archive-diagnostic-logs.md
+        - name: Log Analytics’e gönderme
+          href: monitor-stream-diagnostic-logs-log-analytics.md
+        - name: Event Hubs’a akış sağlama
+          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+        - name: Tanılama Ayarlarını Kaynak Yöneticisi şablonlarıyla etkinleştirme
+          href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Etkinlik günlüğünü kullanma
       items:
         - name: Etkinlik günlüğünde olayları görüntüleme
           href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
@@ -113,27 +113,13 @@
           href: monitoring-service-notifications.md
         - name: Hizmet bildirimlerinde uyarı yapılandırma
           href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Eylem gruplarını kullanma
+    - name: Programlı erişim
       items:
-        - name: Web kancası şeması hakkında bilgi edinme
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: SMS uyarısı davranışı
-          href: monitoring-sms-alert-behavior.md
-        - name: Uyarı hızı sınırlama
-          href: monitoring-alerts-rate-limiting.md
-        - name: Resource Manager ile eylem grupları oluşturma
-          href: monitoring-create-action-group-with-resource-manager-template.md
-    - name: Tanılama günlüklerini kullanma
-      items:
-        - name: Arşiv
-          href: monitoring-archive-diagnostic-logs.md
-        - name: Log Analytics’e gönderme
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Event Hubs’a akış sağlama
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Resource Manager şablonlarını kullanarak tanılama ayarlarını etkinleştirme
-          href: monitoring-enable-diagnostic-logs-using-template.md
-    - name: REST API kullanma
+        - name: REST API’sini kullanma hakkında kılavuz
+          href: monitoring-rest-api-walkthrough.md
+        - name: Azure PowerShell örnekleri
+          href: insights-powershell-samples.md
+    - name: Azure Tanılama uzantısı kullanma
       items:
         - name: Application Insights’a gönderme
           href: azure-diagnostics-configure-application-insights.md
@@ -141,12 +127,32 @@
           href: azure-diagnostics-streaming-event-hubs.md
         - name: Sorun giderme
           href: azure-diagnostics-troubleshooting.md
-    - name: Ölçüm Gezgini’nde Ölçüm Grafikleri Oluşturma
-      href: monitoring-metric-charts.md
-    - name: Grafana’ya ölçüm gönderme
-      href: monitor-send-to-grafana.md
-    - name: İzleme verilerini olay hub’ına gönderme
-      href: monitor-stream-monitoring-data-event-hubs.md
+    - name: Otomatik ölçeklendirmeyi kullanma
+      items:
+        - name: Otomatik ölçeklendirmeyle ilgili adım adım kılavuz
+          href: monitoring-autoscale-get-started.md
+        - name: Otomatik Ölçeklendirme ayarlarını anlama
+          href: monitoring-understanding-autoscale-settings.md
+        - name: En iyi uygulamalar
+          href: insights-autoscale-best-practices.md
+        - name: Ortak ölçümler
+          href: insights-autoscale-common-metrics.md
+        - name: Ortak desenler
+          href: monitoring-autoscale-common-scale-patterns.md
+        - name: Özel ölçüm kullanarak otomatik ölçekleme
+          href: monitoring-autoscale-scale-by-custom-metric.md
+        - name: Resource Manager şablonlarını kullanarak VM ölçek kümelerini otomatik ölçeklendirme
+          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+        - name: Bir VM ölçek kümesindeki makineleri otomatik ölçeklendirme
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+        - name: Otomatik ölçeklendirmede web kancalarını ve e-posta bildirimlerini yapılandırma
+          href: insights-autoscale-to-webhook-email.md
+    - name: Diğer konumlara yönlendirme
+      items:
+        - name: Grafana’ya ölçüm gönderme
+          href: monitor-send-to-grafana.md
+        - name: İzleme verilerini olay hub’ına gönderme
+          href: monitor-stream-monitoring-data-event-hubs.md
 - name: Başvuru
   items:
     - name: Azure CLI
@@ -157,6 +163,8 @@
       href: /rest/api/monitor/
     - name: Desteklenen ölçümler
       href: monitoring-supported-metrics.md
+    - name: Yeni uyarılarda desteklenen ölçümler
+      href: monitoring-near-real-time-metric-alerts.md
     - name: 'Tanılama günlüklerine yönelik hizmetler, kategoriler ve şemalar'
       href: monitoring-diagnostic-logs-schema.md
     - name: Etkinlik günlüğü olay şeması

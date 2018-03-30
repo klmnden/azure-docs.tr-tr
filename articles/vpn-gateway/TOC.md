@@ -6,6 +6,10 @@
 ## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Başlarken
+## [Rota temelli VPN ağ geçidi oluşturma - Azure portalı](create-routebased-vpn-gateway-portal.md)
+## [Rota temelli VPN ağ geçidi oluşturma - PowerShell](create-routebased-vpn-gateway-powershell.md)
+
+# Kavramlar
 ## [VPN Gateway için planlama ve tasarım](vpn-gateway-plan-design.md)
 ## [VPN Gateway ayarları hakkında](vpn-gateway-about-vpn-gateway-settings.md)
 ## [VPN cihazları hakkında](vpn-gateway-about-vpn-devices.md)
