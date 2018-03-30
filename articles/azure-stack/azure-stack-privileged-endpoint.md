@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
-ms.openlocfilehash: f786d99718b82dba052909e566f1b0571701127e
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.reviewer: fiseraci
+ms.openlocfilehash: f176e0689c630a406ab6e2f82e9320a214ff8a1a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure yığınında ayrıcalıklı uç noktası kullanma
 
@@ -43,18 +44,20 @@ CESARETLENDİRİCİ CESARETLENDİRİCİ barındıran sanal makinede uzak PowerSh
 
 Tümleşik bir sistem için bu yordama başlamadan önce IP adresi veya DNS aracılığıyla CESARETLENDİRİCİ erişebildiğinden emin olun. Azure yığın ilk dağıtımdan sonra DNS tümleştirme henüz ayarlanmamış olduğundan yalnızca IP adresine göre CESARETLENDİRİCİ erişebilir. OEM donanım satıcınıza adlı bir JSON dosyası sağlayacak **AzureStackStampDeploymentInfo** CESARETLENDİRİCİ IP adreslerini içerir.
 
-Sizin için CESARETLENDİRİCİ yalnızca donanım yaşam döngüsü ana bilgisayarından veya ayrılmış, güvenli bir bilgisayarda gibi bağlanmasını öneririz bir [ayrıcalıklı erişim iş istasyonu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations).
 
-1. Ayrıcalıklı erişim istasyonunuzdan erişebilirsiniz.
+> [!NOTE]
+> Güvenlik nedenleriyle, biz, CESARETLENDİRİCİ yalnızca donanım yaşam döngüsü ana bilgisayar üzerinde çalışan bir sağlamlaştırılmış sanal makine veya ayrılmış, güvenli bir bilgisayar gibi bağlanmasını gerektirecek bir [ayrıcalıklı erişim iş istasyonu](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations). Yeni yazılım yükleme de dahil olmak üzere kendi özgün yapılandırmadan sonra özgün yapılandırmanın donanım yaşam döngüsü konağının değiştirilmemelidir veya CESARETLENDİRİCİ bağlanmak için kullanılmalıdır.
 
-    - Tümleşik bir sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak ya da ayrıcalıklı erişim iş istasyonu güvenilen bir konak olarak eklemek için aşağıdaki komutu çalıştırın.
+1. Güven oluşturun.
+
+    - Tümleşik bir sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sağlamlaştırılmış sanal makineye güvenilen bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - ADSK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
-2. Donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde yükseltilmiş bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ barındıran sanal makinede uzak oturum oluşturmak için aşağıdaki komutları çalıştırın:
+2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonunda çalıştıran sanal makine üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ barındıran sanal makinede uzak oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
     - Tümleşik bir sistemde:
       ````PowerShell
@@ -74,11 +77,12 @@ Sizin için CESARETLENDİRİCİ yalnızca donanım yaşam döngüsü ana bilgisa
       ```` 
    İstendiğinde, aşağıdaki kimlik bilgilerini kullanın:
 
-      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\accountname**. (ASDK için kullanıcı adı. **azurestack\accountname**.) 
+      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
+
     > [!NOTE]
     > ERCS uç noktasını bağlamak adımları birinci ve ikinci bir ERCS olduğu zaten bağlanmaya çalıştığınız henüz VM IP adresiyle yeniden deneyin.
-    
+
 3.  Bağlandıktan sonra istemi değiştirir **[*IP adresi veya ERCS VM adı*]: PS >** veya **[azs-ercs01]: PS >**ortamına bağlı olarak. Buradan, çalıştırmak `Get-Command` kullanılabilir cmdlet'lerinin listesini görüntülemek için.
 
     Bu cmdlet'lerin çoğu yalnızca tümleşik sistemi ortamları (örneğin, veri merkezi tümleştirmesiyle ilgili cmdlet'leri) yöneliktir. Aşağıdaki cmdlet ASDK içinde doğrulandı:
@@ -116,16 +120,16 @@ Alternatif olarak, kullanabileceğiniz [alma-PSSession](https://docs.microsoft.c
 
 Yerel makinenizde CESARETLENDİRİCİ oturum içeri aktarmak için aşağıdaki adımları uygulayın:
 
-1. Ayrıcalıklı erişim istasyonunuzdan erişebilirsiniz.
+1. Güven oluşturun.
 
-    - Tümleşik bir sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak ya da ayrıcalıklı erişim iş istasyonu güvenilen bir konak olarak eklemek için aşağıdaki komutu çalıştırın.
+    -Bir tümleşik sistemde CESARETLENDİRİCİ donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde çalışan sağlamlaştırılmış sanal makineye güvenilen bir konak olarak eklemek için yükseltilmiş bir Windows PowerShell oturumunda aşağıdaki komutu çalıştırın.
 
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
     - ADSK çalıştırıyorsanız, Geliştirme Seti ana bilgisayara oturum açın.
 
-2. Donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonu üzerinde yükseltilmiş bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ barındıran sanal makinede uzak oturum oluşturmak için aşağıdaki komutları çalıştırın:
+2. Sağlamlaştırılmış donanım yaşam döngüsü konak veya ayrıcalıklı erişim iş istasyonunda çalıştıran sanal makine üzerinde bir Windows PowerShell oturumu açın. CESARETLENDİRİCİ barındıran sanal makinede uzak oturum oluşturmak için aşağıdaki komutları çalıştırın:
  
     - Tümleşik bir sistemde:
       ````PowerShell
@@ -145,7 +149,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturum içeri aktarmak için aşağıdaki 
       ```` 
    İstendiğinde, aşağıdaki kimlik bilgilerini kullanın:
 
-      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\accountname**. (ASDK için kullanıcı adı. **azurestack\accountname**.) 
+      - **Kullanıcı adı**: CloudAdmin hesabı biçiminde belirtin  **&lt; *Azure yığın etki alanı*&gt;\cloudadmin**. (ASDK için kullanıcı adı. **azurestack\cloudadmin**.)
       - **Parola**: AzureStackAdmin etki alanı yönetici hesabı için yükleme sırasında sağlanan parolanın aynısını girin.
 
 3. Yerel makinenize CESARETLENDİRİCİ oturum içe
@@ -157,7 +161,7 @@ Yerel makinenizde CESARETLENDİRİCİ oturum içeri aktarmak için aşağıdaki 
 
 ## <a name="close-the-privileged-endpoint-session"></a>Ayrıcalıklı endpoint oturumunu kapatma
 
- Daha önce belirtildiği gibi her eylem (ve karşılık gelen çıktısını) PowerShell oturumunda gerçekleştiren CESARETLENDİRİCİ kaydeder. Kullanarak oturumunu kapatmalısınız `Close-PrivilegedEndpoint` cmdlet'i. Bu cmdlet doğru uç nokta kapatır ve bir dış dosya paylaşımı bekletme için günlük dosyaları aktarır.
+ Daha önce belirtildiği gibi her eylem (ve karşılık gelen çıktısını) PowerShell oturumunda gerçekleştiren CESARETLENDİRİCİ kaydeder. Kullanarak oturumu kapatmanız gerekir `Close-PrivilegedEndpoint` cmdlet'i. Bu cmdlet doğru uç nokta kapatır ve bir dış dosya paylaşımı bekletme için günlük dosyaları aktarır.
 
 Uç nokta oturumu kapatmak için:
 
@@ -167,7 +171,11 @@ Uç nokta oturumu kapatmak için:
 
     ![Dökümü hedef yolu belirlediğiniz gösterir Kapat PrivilegedEndpoint cmdlet çıktısında](media/azure-stack-privileged-endpoint/closeendpoint.png)
 
-Dökümü günlük dosyaları dosya paylaşımına başarıyla aktarıldıktan sonra otomatik olarak CESARETLENDİRİCİ silinmiş. Cmdlet'lerini kullanarak CESARETLENDİRİCİ oturumu kapatmak, `Exit-PSSession` veya `Exit`, veya PowerShell Konsolu kapatmanız yeterlidir, dökümü günlükleri için bir dosya paylaşımı transfer yok. CESARETLENDİRİCİ kalırlar. Sonraki çalıştırmanızda `Close-PrivilegedEndpoint` ve bir dosya paylaşımı içerir, önceki dökümü günlüklerinden oturumlara ayrıca aktarır.
+Dökümü günlük dosyaları dosya paylaşımına başarıyla aktarıldıktan sonra otomatik olarak CESARETLENDİRİCİ silinmiş. 
+
+> [!NOTE]
+> Cmdlet'lerini kullanarak CESARETLENDİRİCİ oturumu kapatmak, `Exit-PSSession` veya `Exit`, veya PowerShell Konsolu kapatmanız yeterlidir, dökümü günlükleri için bir dosya paylaşımı transfer yok. CESARETLENDİRİCİ kalırlar. Sonraki çalıştırmanızda `Close-PrivilegedEndpoint` ve bir dosya paylaşımı içerir, önceki dökümü günlüklerinden oturumlara ayrıca aktarır. Kullanmayın `Exit-PSSession` veya `Exit` ; CESARETLENDİRİCİ oturumu kapatmaya kullanmak `Close-PrivilegedEndpoint` yerine.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure yığın tanılama araçları](azure-stack-diagnostics.md)
