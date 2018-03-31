@@ -1,8 +1,8 @@
 ---
-title: "Operations Management Suite (OMS) yönetim çözümleri görünümlerde | Microsoft Docs"
-description: "Yönetim çözümleri Operations Management Suite (OMS) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede, Görünüm Tasarımcısı tarafından oluşturulan bir görünüm vermek ve bir yönetim çözümü dahil açıklar. "
+title: Yönetim çözümleri görünümlerde | Microsoft Docs
+description: 'Yönetim çözümleri genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede, Görünüm Tasarımcısı tarafından oluşturulan bir görünüm vermek ve bir yönetim çözümü dahil açıklar. '
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -14,22 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: c103ee748446c4819b7925af04d90c22225a21a3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: b44763fe67b1c70c0b6ecdff73c32d8bb4fab3a4
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="views-in-operations-management-suite-oms-management-solutions-preview"></a>Operations Management Suite (OMS) yönetim çözümleri (Önizleme) görünümlerde
+# <a name="views-in-management-solutions-preview"></a>Görünümlerde yönetim çözümleri (Önizleme)
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.    
->
->
+> Bu, şu anda önizlemede olan yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.    
 
-[Yönetim çözümleri Operations Management Suite (OMS)](operations-management-suite-solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve bir yönetim çözümü içerir.  
+
+[Yönetim çözümleri](operations-management-suite-solutions.md) genellikle verileri görselleştirmek için bir veya daha fazla görünümleri içerir.  Bu makalede tarafından oluşturulan bir görünüm dışarı aktarma [Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) ve bir yönetim çözümü içerir.  
 
 > [!NOTE]
-> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md)
+> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [tasarım ve yapı Azure Yönetimi çözümünde](operations-management-suite-solutions-creating.md)
 >
 >
 
@@ -48,7 +47,7 @@ Görünüm bir çözüme eklemek için temel adımlar aşağıda belirtilmiştir
 ## <a name="export-the-view-to-a-file"></a>Görünüm bir dosyaya dışarı aktarma
 Bölümündeki yönergeleri izleyin [günlük analizi Görünüm Tasarımcısı](../log-analytics/log-analytics-view-designer.md) bir görünüm bir dosyaya vermek için.  Dışarı aktarılan dosyayı aynı JSON biçiminde olacaktır [öğeleri çözüm dosyası olarak](operations-management-suite-solutions-solution-file.md).  
 
-**Kaynakları** görünüm dosyası öğe türüne sahip bir kaynak olacaktır **Microsoft.OperationalInsights/workspaces** , OMS çalışma alanını temsil eder.  Bu öğe bir alt öğe türüne sahip olacaktır **görünümleri** görünümü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntılarını kopyalamanız ve ardından çözümünüze kopyalayın.
+**Kaynakları** görünüm dosyası öğe türüne sahip bir kaynak olacaktır **Microsoft.OperationalInsights/workspaces** , günlük analizi çalışma alanını temsil eder.  Bu öğe bir alt öğe türüne sahip olacaktır **görünümleri** görünümü temsil eder ve ayrıntılı yapılandırmasını içerir.  Bu öğenin ayrıntılarını kopyalamanız ve ardından çözümünüze kopyalayın.
 
 ## <a name="create-the-view-resource-in-the-solution"></a>Çözümde görünüm kaynağı oluşturma
 Aşağıdaki görünüm kaynağa eklemek **kaynakları** çözüm dosyanızın öğesi.  Bu, aynı zamanda eklemelisiniz seçeneklerdir değişkenleri kullanır.  Unutmayın **Pano** ve **OverviewTile** dışarı aktarılan görünüm dosyasından karşılık gelen özelliklerle kılacak yer tutucuları özelliklerdir.
@@ -97,8 +96,8 @@ Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını ö
 | Çalışma alanında sürümü | API sürümü | Sorgu |
 |:---|:---|:---|
 | V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
-| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; Burada EventLevelName "Error" ==  |
-| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; Burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; burada EventLevelName "Error" ==  |
 
 
 ## <a name="add-the-view-details"></a>Görünüm ayrıntılarını Ekle

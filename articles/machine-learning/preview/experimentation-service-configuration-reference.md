@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning deneme hizmeti yapılandırma dosyaları"
-description: "Bu belgede Azure ML deneme hizmeti için yapılandırma ayarlarını ayrıntılarını verir."
+title: Azure Machine Learning deneme hizmeti yapılandırma dosyaları
+description: Bu belgede Azure ML deneme hizmeti için yapılandırma ayarlarını ayrıntılarını verir.
 services: machine-learning
 author: gokhanuluderya-msft
 ms.author: gokhanu
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 75b55b45c355f585fd73bdc1d97bc6adbbc4e9a0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning deneme hizmeti yapılandırma dosyaları
 
@@ -149,6 +149,8 @@ _\<Hedef adı işlem > .compute_ dosyasını işlem hedef bağlantı ve yapılan
 **nativeSharedDirectory**: Bu özellik, temel dizin belirtir (örneğin: _~/.azureml/share/_) dosyaları arasında paylaşılması için kaydedilebileceği aynı işlem hedef çalıştırır. Bu ayar bir Docker kapsayıcısı üzerinde çalışırken kullandıysanız _sharedVolumes_ ayarlanmalıdır true. Aksi takdirde yürütme başarısız olur.
 
 **userManagedEnvironment**: Bu özellik bu işlem hedef kullanıcı tarafından doğrudan yönetilen veya deneme hizmeti aracılığıyla yönetilen olup olmadığını belirtir.  
+
+**pythonLocation**: Bu özellik işlem hedef kullanıcının programı çalıştırmak için kullanılmak üzere python çalışma zamanı konumunu belirtir. 
 
 ### <a name="run-configuration-namerunconfig"></a>\<Yapılandırma adı Çalıştır > .runconfig
 _\<Yapılandırma adı Çalıştır > .runconfig_ Azure ML denemeler yürütme davranışını belirtir. Ne yanı sıra diğer birçok kullanmak için hedef işlem veya izleme çalıştırma geçmişi gibi yürütme davranışını yapılandırabilirsiniz. Çalışma yapılandırması dosyaların adlarını Azure ML çalışma ekranı masaüstü uygulaması yürütme bağlamı açılır doldurmak için kullanılır.

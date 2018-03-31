@@ -1,11 +1,11 @@
 ---
-title: "Bir bulut Hizmeti performansını test etme | Microsoft Docs"
-description: "Visual Studio profil oluşturucu kullanılarak bir bulut Hizmeti performansını test etme"
+title: Bir bulut Hizmeti performansını test etme | Microsoft Docs
+description: Visual Studio profil oluşturucu kullanılarak bir bulut Hizmeti performansını test etme
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 7a5501aa-f92c-457c-af9b-92ea50914e24
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: 483b8b1c7c75c407cb55a1b3b027ae043c506ebb
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 74ffd70bdb204cee75b86a1e922ac67873a88758
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>Bir bulut Hizmeti performansını test etme
 ## <a name="overview"></a>Genel Bakış
@@ -106,7 +106,7 @@ Bulut hizmetinizde rolünün her örneği için bir profil oluşturma oturumu ol
 2. Azure işlem düğümü seçin ve ardından Visual Studio'dan yayımlandığında profiline seçili bulut hizmetini Azure dağıtım düğümünü seçin.
 3. Bir örneği için profil oluşturma raporları görüntülemek için rol hizmeti seçin, belirli bir örneği için kısayol menüsünü açın ve ardından **profil oluşturma raporunu görüntüle**.
    
-    Rapor, bir .vsp dosyası artık Azure'dan indirilir ve Azure etkinlik günlüğü yükleme durumu görüntülenir. Yükleme tamamlandığında, profil oluşturma raporu Düzenleyicisi adlı Visual Studio için bir sekmede görünür <Role name>  *<Instance Number>*  <identifier>.vsp. Rapor için Özet veriler görüntülenir.
+    Rapor, bir .vsp dosyası artık Azure'dan indirilir ve Azure etkinlik günlüğü yükleme durumu görüntülenir. Yükleme tamamlandığında, profil oluşturma raporu Düzenleyicisi adlı Visual Studio için bir sekmede görünür <Role name> *<Instance Number>* <identifier>.vsp. Rapor için Özet veriler görüntülenir.
 4. Geçerli Görünüm listesinde raporun farklı görünümleri görüntülemek için istediğiniz görünüm türünü seçin. Daha fazla bilgi için bkz: [profil oluşturma Araçlar rapor görünümlerini](https://msdn.microsoft.com/library/azure/bb385755.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar

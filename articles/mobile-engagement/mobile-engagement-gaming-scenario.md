@@ -1,11 +1,11 @@
 ---
-title: "Oyun uygulaması için Azure Mobile Engagement uygulaması"
-description: "Azure Mobile Engagement uygulamak için oyun uygulaması senaryosu"
+title: Oyun uygulaması için Azure Mobile Engagement uygulaması
+description: Azure Mobile Engagement uygulamak için oyun uygulaması senaryosu
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2cafc044-4902-4058-8037-49399bf6bf7f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,14 +14,18 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e827b57e804cc91798859bc906e49046decede
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>Oyun uygulaması ile Mobile Engagement uygulama
 ## <a name="overview"></a>Genel Bakış
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Oyun başlatma yeni bir temel Balıkçılık role play/stratejisi oyun uygulaması sunmuştur. Oyun 6 ay için hazır ve çalışır olmuştur. Bu oyun büyük bir başarı ve yüklemeleri milyonlarca sahiptir ve bekletme diğer başlatma oyun uygulamalara kıyasla çok yüksek. Üç aylık gözden geçirme toplantı adresindeki Paydaşlar (ARPU) kullanıcı başına ortalama gelir artırmak ihtiyaç duydukları kabul etmiş olursunuz. Premium oyun paketlerin özel teklifler kullanılabilir. Oyun bu paketleri, kullanıcıların kendi Balıkçılık satırları ve lures veya tackles oyundaki performansını ve görünümünü yükseltme izin verin. Bununla birlikte, paket satış çok düşük. Bu nedenle bunlar ilk olarak Müşteri Deneyimi analiz aracı ile analiz etmek karar verin ve ardından bir katılım geliştirmek için kesimleme satış kullanarak artırmak için program Gelişmiş.
 
 Temel [Azure Mobile Engagement - en iyi yöntemlerle Başlangıç Kılavuzu](mobile-engagement-getting-started-best-practices.md) bir katılım stratejisi oluşturmaya.
@@ -61,7 +65,7 @@ Gelişmiş katılım programı oluşturulmadan önce mobil proje Director projed
 * 20 düzeyi geçtiğinde kullanıcılar birden fazla 10/hafta harcamanız başlatın.
 * Kullanıcılar, 16, 24 ve 32 düzeyinde premium paketleri satın eğilimindedir.
 
-Bu çözümleme sayesinde mobil proje Director belirli itme uygulama satış artırmak için bildirim dizileri oluşturmaya karar verir. Halil, kendisine çağıran üç anında iletme sıralarını oluşturur: program, satış programı ve etkin olmayan programı'na Hoş Geldiniz. Daha fazla bilgi için bkz [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
+Bu çözümleme sayesinde mobil proje Director belirli itme uygulama satış artırmak için bildirim dizileri oluşturmaya karar verir. Halil, kendisine çağıran üç anında iletme sıralarını oluşturur: program, satış programı ve etkin olmayan programı'na Hoş Geldiniz. Daha fazla bilgi için bkz [Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks) ![][1]
 
 <!--Image references-->
 

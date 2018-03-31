@@ -1,25 +1,24 @@
 ---
 title: Azure Stream Analytics sorgu testi | Microsoft Docs
-description: "Stream Analytics işlerine sorgularınızı test etme."
-keywords: "Sorguyu sınamak, sorgu sorun giderme"
-documentation center: 
+description: Stream Analytics işlerine sorgularınızı test etme.
+keywords: Sorguyu sınamak, sorgu sorun giderme
+documentation center: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.author: jeanb
+ms.openlocfilehash: 50bfce426bf48ba986887f8a2e2873fe04ea2507
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Azure portalında Azure akış analizi sorgu testi
 
@@ -29,7 +28,7 @@ Azure Stream Analytics ile başlatmak veya bir işi durdurmak zorunda kalmadan s
 
 1. Örnek giriş verilerle sınamak için girişlerinizi hiçbirini sağ tıklayın ve ardından **dosyasından örnek verileri yükleme**. Şu anda yalnızca biçimlendirilmiş JSON verilerini karşıya yükleyebilir. Verilerinizi CSV gibi farklı bir biçimde ise, karşıya yüklemeden önce şu JSON biçiminde seri hale bunu dönüştürmeniz. Herhangi bir açık kaynaklı dönüştürme aracı gibi kullanabilir [JSON Dönüştürücüsü CSV'ye](http://www.convertcsv.com/csv-to-json.htm) için JSON, verilerinizi dönüştürmek için.
 
-    ![Stream analytics sorgu Düzenleyicisi'ni test sorgusu](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
+    ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
 2. Yükleme tamamlandıktan sonra tıklayın **Test** bu sorguyu sağladığınız örnek verileri karşı test etmek için.
 

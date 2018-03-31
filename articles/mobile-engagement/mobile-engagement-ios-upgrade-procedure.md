@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK Yükseltme yordamı | Microsoft Docs"
-description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
+title: Azure Mobile Engagement iOS SDK Yükseltme yordamı | Microsoft Docs
+description: En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72a9e493-3f14-4e52-b6e2-0490fd04b184
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ac03593cf0c983297e583985a3e68ea6c17e39de
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Yükseltme yordamları
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
 SDK'sı için her yeni sürümü, ilk değiştirmeniz gerekir (kaldırın ve yeniden xcode'da içeri aktarın) EngagementSDK ve EngagementReach klasörler.
@@ -48,7 +52,7 @@ XCode 8 SDK 4.0.0 sürümünden başlayarak zorunludur.
 ### <a name="usernotifications-framework"></a>UserNotifications framework
 Eklemenize gerek `UserNotifications` derleme aşamaları framework.
 
-Proje Gezgini'nde, proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -bağlantı olarak ayarlayın`Optional`
+Proje Gezgini'nde, proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -bağlantı olarak ayarlayın `Optional`
 
 ### <a name="application-push-capability"></a>Uygulamayı anında iletme yeteneği
 XCode 8 uygulamanızı sıfırlama anında iletme yeteneği, lütfen tekrar gözden geçirin `capability` seçilen hedef sekmesi.
@@ -204,7 +208,7 @@ Tüm sınıflar "CP" öneki "AE" önekiyle adlandırılır.
 
 Örnek:
 
-* `CPModule.h`yeniden adlandırılır `AEModule.h`.
+* `CPModule.h` yeniden adlandırılır `AEModule.h`.
 
 Tüm sınıflar "İle Capptain" öneki "Katılım" önekiyle adlandırılır.
 

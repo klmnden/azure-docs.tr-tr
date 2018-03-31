@@ -1,12 +1,11 @@
 ---
-title: "Power BI Panosu üzerinde Azure akış analizi | Microsoft Docs"
-description: "İş Zekası toplamak ve yüksek hacimli bir akış analizi işi verileri çözümlemek için gerçek zamanlı akış Power BI panosuna kullanın."
-keywords: "Analytics Pano, gerçek zamanlı Panosu"
+title: Power BI Panosu üzerinde Azure akış analizi | Microsoft Docs
+description: İş Zekası toplamak ve yüksek hacimli bir akış analizi işi verileri çözümlemek için gerçek zamanlı akış Power BI panosuna kullanın.
+keywords: Analytics Pano, gerçek zamanlı Panosu
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: b446e2296f2747012849936b994c4a4a2044869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analizler ve Power BI akış: veri akışı için gerçek zamanlı analiz Panosu
 Azure Stream Analytics, başında iş zekası araçları birini yararlanmak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, bilgi nasıl iş zekası araçları, Azure akış analizi işi için çıkış olarak Power BI kullanarak oluşturun. Ayrıca oluşturmak ve gerçek zamanlı bir Panoda kullanmak hakkında bilgi edinin.
@@ -29,7 +28,7 @@ Bu makalede Stream Analytics'ten devam [gerçek zamanlı sahtekarlık algılama]
 İzleyebilir [video](https://www.youtube.com/watch?v=SGUpT-a99MA) bu senaryo gösterilmektedir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
@@ -72,7 +71,7 @@ Gerçek zamanlı sahtekarlık algılama öğreticide çıktı Azure Blob depolam
     > Siz açıkça bu veri kümesi ve tablo Power BI hesabınızı oluşturmamanızı öneririz. İş pompa çıkış Power BI'da oturum başlatır ve akış analizi işi başlattığınızda otomatik olarak oluşturulur. Sorgu iş herhangi bir sonuç döndürmezse, veri kümesi ve tablo oluşturulmaz.
     >
 
-8. **Oluştur**'a tıklayın.
+8. **Oluştur**’a tıklayın.
 
 Veri kümesi aşağıdaki ayarlara sahip oluşturulur:
 
@@ -113,7 +112,7 @@ Power BI veri kümeleri hakkında daha fazla bilgi için bkz: [Power BI REST API
         WHERE CS1.SwitchNum != CS2.SwitchNum
         GROUP BY TumblingWindow(Duration(second, 1))
 
-4. **Kaydet** düğmesine tıklayın.
+4. **Kaydet**’e tıklayın.
 
 
 ## <a name="test-the-query"></a>Sorgu testi
@@ -134,7 +133,7 @@ Bu bölümde, isteğe bağlı ancak önerilir.
 4. Tıklatın **Test** ve sonuçları alınırken emin olun.
 
 
-## <a name="run-the-job"></a>İşi çalıştır
+## <a name="run-the-job"></a>İşini çalıştır
 
 1. TelcoStreaming uygulama çalıştığından emin olun.
 
@@ -242,7 +241,7 @@ Bu yapılandırmayı göz önüne alarak, özgün sorgu aşağıdaki değiştire
         dspl
 
 
-### <a name="renew-authorization"></a>Yetkilendirmeyi yenileyin
+### <a name="renew-authorization"></a>Yetkilendirmeyi yenile
 Parola işinizi oluşturulmuş veya son kimliği doğrulanmış oluşturulmasından sonra değiştirilmişse, Power BI hesabınızı yeniden kimlik doğrulamaya gerekir. Azure Active Directory (Azure AD) kiracınızın Azure çok faktörlü kimlik doğrulaması yapılandırılmışsa, ayrıca Power BI yetkilendirme iki haftada yenilemek gerekir. Yenilemezseniz, iş çıktısı eksikliği gibi Belirtiler görebilir veya bir `Authenticate user error` işlem günlüğüne kaydeder.
 
 Benzer şekilde, belirtecin süresi dolduktan sonra bir iş başlatılır, bir hata oluşur ve işi başarısız olur. Bu sorunu çözmek için çalışan işini durdurmak ve Power BI çıktısına gidin. Veri kaybını önlemek için seçin **yetkilendirmeyi yenileyin** işinin dışında yeniden başlatın ve bağlama **son durdurulma zamanı**.

@@ -1,29 +1,24 @@
 ---
-title: "Azure SQL Data Warehouse için ELT tasarlama | Microsoft Docs"
-description: "Azure'a veri taşıma ve Azure SQL Data Warehouse için ayıklama, yükleme ve dönüştürme (ELT) işlem tasarlamak için SQL veri ambarında verileri yüklenirken teknolojileri birleştirin."
+title: ETL yerine ELT Azure SQL Data Warehouse için Tasarım | Microsoft Docs
+description: ETL yerine, verileri veya Azure SQL Data Warehouse yüklenmesi için ayıklama, yükleme ve dönüştürme (ELT) bir işlem tasarlayın.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
-ms.assetid: 2253bf46-cf72-4de7-85ce-f267494d55fa
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 12/12/2017
-ms.author: cakarst;barbkess
-ms.openlocfilehash: e94dca69c77c46034e318205279be5188e1371f5
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.topic: conceptual
+ms.component: design
+ms.date: 03/28/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ayıklama, yükleme ve dönüştürme (ELT) Azure SQL veri ambarı için tasarlama
 
-Giriş verileri Azure depolama ve Azure SQL Data Warehouse için ayıklama, yükleme ve dönüştürme (ELT) işlem tasarlamak için SQL veri ambarına verilerin yüklenmesi için teknolojileri birleştirin. Bu makalede Polybase ile yüklenmesini destekler ve Azure depolama biriminden SQL veri ambarında verileri yüklemek için T-SQL ile PolyBase kullanan bir ELT işlem tasarlama odaklanır teknolojiler sunar.
+Ayıklama, dönüştürme ve yükleme (ETL) yerine, Azure SQL Data Warehouse'a veri yükleme için ayıklama, yükleme ve dönüştürme (ELT) bir işlem tasarlayın. Bu makale bir Azure data warehouse'a veri taşınır ELT işlemi tasarlamanız yollarını açıklar.
 
 ## <a name="what-is-elt"></a>ELT nedir?
 
@@ -63,7 +58,7 @@ PolyBase UTF-8'den verileri yükler ve UTF-16 kodlu sınırlandırılmış metin
 Verilerinizi PolyBase ile uyumlu değilse, kullanabileceğiniz [bcp](sql-data-warehouse-load-with-bcp.md) veya [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP Azure Blob Depolama geçmeden doğrudan SQL Data Warehouse için yükler ve yalnızca küçük yükler için tasarlanmıştır. Bu seçenekler yükü performansını önemli ölçüde PolyBase yavaştır unutmayın. 
 
 
-## <a name="extract-source-data"></a>Kaynak veri ayıklamak
+## <a name="extract-source-data"></a>Kaynak verileri ayıklama
 
 Kaynak sisteminiz dışında veri alma kaynağa bağlıdır.  Sınırlandırılmış metin dosyalarına verileri taşımak için belirtilir. SQL Server kullanıyorsanız, kullanabileceğiniz [bcp komut satırı aracı](/sql/tools/bcp-utility) verilerini dışarı aktarmak için.  
 
@@ -104,7 +99,7 @@ Metin dosyaları biçimlendirmek için:
 - SQL veri ambarı hedef tabloda sütun ve veri türleriyle hizalamak için metin dosyasındaki veri biçimi. Dış metin dosyalarında veri türleri ve veri ambarı tablosu arasında uyuşmazlığın yüklenmesi sırasında reddedilmesi satırları neden olur.
 - Metin dosyası bir sonlandırıcı ile ayrı alanlarda.  Bir karakter ya da kaynak verilerinizi bulunamadı bir karakter dizisi kullandığınızdan emin olun. Belirtilen ile Sonlandırıcı kullanmak [oluşturmak dış dosya BİÇİMİNİ](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
-## <a name="load-to-a-staging-table"></a>Hazırlama tabloya yükleyin
+## <a name="load-to-a-staging-table"></a>Hazırlama tablosuna yükleme
 Veri ambarına veri almak için bu da ilk yük verileri hazırlama tabloya çalışır. Hazırlama tablosunda kullanarak üretim tablolarla engellemeden hataları işleyebilir ve geri alma tablosu üzerinde işlem üretim çalıştırmayın. Hazırlama tablosunu de üretim tablolara verileri eklemeden önce dönüşümleri çalıştırmak için SQL Data Warehouse kullanma olanağı sunar.
 
 T-SQL ile yüklemek için Çalıştır [oluşturma tablo AS seçin (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse.md) T-SQL ifadesi. Bu komut bir select deyimi sonucunu yeni bir tabloya ekler. İfadesi bir dış tablosundan seçtiğinde, dış veri aktarır. 
@@ -124,7 +119,7 @@ AS SELECT * FROM [ext].[Date]
 ## <a name="transform-the-data"></a>Veri dönüştürme
 Veri hazırlama tablosunda olsa da, İş yükünüzün gerektirdiği dönüştürmeleri gerçekleştirebilirsiniz. Ardından verileri üretim tabloya taşıyın.
 
-## <a name="insert-data-into-production-table"></a>Üretim tabloya veri ekleme
+## <a name="insert-data-into-production-table"></a>Üretim tablosuna veri ekleme
 
 INSERT INTO... SELECT deyimi veri kalıcı tabloya hazırlama tablosundan taşır. 
 

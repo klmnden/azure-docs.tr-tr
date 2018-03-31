@@ -1,11 +1,11 @@
 ---
-title: "Android API katılım kullanma"
-description: "En son Android SDK - Android API katılım kullanma"
+title: Android API katılım kullanma
+description: En son Android SDK - Android API katılım kullanma
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 09b62659-82ae-4a55-8784-fca0b6b22eaf
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79d0652be227dd6703a35d31409cf8e0d9c59519
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>Android API katılım kullanma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu belge belgeye bir eklentidir [Android Mobile Engagement SDK'sı için Gelişmiş raporlama seçenekleri](mobile-engagement-android-advanced-reporting.md). Katılım API uygulama istatistikleri rapor için nasıl kullanılacağı hakkındaki derinliği ayrıntıları sağlar.
 
 Uygulamanızın oturumları, etkinlikleri, kilitlenme ve teknik bilgileri raporlamak için katılım yalnızca istiyorsanız, sonra en basit yolu tüm olduğunu aklınızda bulundurun, `Activity` alt sınıfları devralır denk gelen `EngagementActivity` sınıfı.
@@ -224,7 +228,7 @@ Rastgele veriler, olaylar, hatalar, etkinlikler ve işler eklenebilir.
 Bu verileri yapılandırılmış, Android'ın paket sınıfı kullanır (aslında, Android hedefleri ek parametreleri gibi çalışır). Bir paket dizileri veya başka bir paket örneklerini içerebileceğini unutmayın.
 
 > [!IMPORTANT]
-> Parcelable veya seri hale getirilebilir parametrelerinde yerleştirirseniz emin olun, `toString()` yöntemi okunabilir dize döndürecek şekilde gerçekleştirilir. Çağıracaksınız sırasında serileştirilebilir olmayan geçici olmayan alanlar içeriyor serileştirilebilir sınıflardan Android kilitlenme yapar`bundle.putSerializable("key",value);`
+> Parcelable veya seri hale getirilebilir parametrelerinde yerleştirirseniz emin olun, `toString()` yöntemi okunabilir dize döndürecek şekilde gerçekleştirilir. Çağıracaksınız sırasında serileştirilebilir olmayan geçici olmayan alanlar içeriyor serileştirilebilir sınıflardan Android kilitlenme yapar `bundle.putSerializable("key",value);`
 > 
 > [!WARNING]
 > Ek parametreler seyrek dizilerde desteklenmez, diğer bir deyişle, bir dizi olarak seri hale getirilmesi olmaz. Bunları standart diziye ek parametreler kullanmadan önce dönüştürmeniz.

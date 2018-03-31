@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
-description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
+title: Azure Mobile Engagement Android SDK tümleştirmesi
+description: En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a7d719ec-67b3-4be3-9d7f-0b61a57fe978
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c3b8f60333e6096411aad8499bb4bfc36e53f3c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>ADM katılım ile tümleştirme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!IMPORTANT]
 > Tümleştirme katılım nasıl Android belge üzerinde bu kılavuzu izlemeden önce açıklanan tümleştirme yordamı izlemeniz gerekir.
 > 
@@ -41,7 +45,7 @@ SDK her zaman gönderilen ADM yüklerini içeren `azme` veri nesnesindeki anahta
 ## <a name="sign-up-to-adm"></a>ADM için kaydolun
 Yapmadıysanız, Amazon hesabınızdaki ADM etkinleştirmeniz gerekir.
 
-Yordamı, ayrıntılı: [ <https://developer.amazon.com/sdk/adm/credentials.html>].
+Yordamı, ayrıntılı: [ <https://developer.amazon.com/sdk/adm/credentials.html> ].
 
 Yordamı tamamladığınızda, şunları alırsınız:
 
@@ -104,7 +108,7 @@ Aşağıdaki izinlere sahip olmak, `AndroidManifest.xml` (önce `</application>`
 ## <a name="grant-engagement-oauth-credentials"></a>GRANT katılım OAuth kimlik bilgileri
 OAuth kimlik bilgilerinizi (istemci kimliği ve istemci gizli anahtarı) Engagement portalında gönderin.
 
-[< https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
+[<https://developer.amazon.com/sdk/adm/credentials.html>]:https://developer.amazon.com/sdk/adm/credentials.html
 [ADM istemci Kitaplığı]:https://developer.amazon.com/sdk/adm/setup.html
 [ADM tümleşik]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [bu yordamı]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset

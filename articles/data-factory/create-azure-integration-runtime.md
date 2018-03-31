@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: e2ebb3db4d51bf4ec1dea4f2f5cc4cc9dcb2ad70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: db757c5a8a1b51278ada24a5ff50a2da1b357397
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Oluşturma ve Azure tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla bilgi için bkz: [tümleştirmesi çalışma zamanı](concepts-integration-runtime.md).
@@ -29,7 +29,7 @@ Azure IR yerel işlem Hdınsight gibi hizmetleri için veri hareketlerini ve gö
 Bu belge nasıl oluşturma ve Azure tümleştirmesi çalışma zamanı yapılandırma tanıtır. 
 
 ## <a name="default-azure-ir"></a>Varsayılan Azure IR
-Varsayılan olarak, her veri fabrikası Azure IR verileri depolar ve ortak ağ Hizmetleri'nde işlem buluttaki işlemlerini destekleyen arka uç vardır. Bu Azure IR otomatik Çözümle konumdur. Varsa **connectVia** özelliği belirtilmedi bağlantılı hizmet tanımında belirtilen Azure IR kullanılır. Yalnızca bir Azure IR açıkça IR konumunu tanımlamak istersiniz veya neredeyse yönetim amaçla farklı IRS üzerinde etkinlik yürütmeleri Grup istiyorsanız açıkça oluşturmanız gerekir. 
+Varsayılan olarak, her veri fabrikası Azure IR verileri depolar ve ortak ağ Hizmetleri'nde işlem buluttaki işlemlerini destekleyen arka uç vardır. Bu Azure IR otomatik Çözümle konumdur. Varsa **connectVia** Özelliği Azure IR kullanılan varsayılan bağlantılı hizmet tanımı'nda belirtilmedi. Yalnızca bir Azure IR açıkça IR konumunu tanımlamak istersiniz veya neredeyse yönetim amaçla farklı IRS üzerinde etkinlik yürütmeleri Grup istiyorsanız açıkça oluşturmanız gerekir. 
 
 ## <a name="create-azure-ir"></a>Azure IR oluşturma
 Tümleştirme çalışma zamanı kullanılarak oluşturulabilir **kümesi AzureRmDataFactoryV2IntegrationRuntime** PowerShell cmdlet'i. Bir Azure IR oluşturmak için ad, konum ve türünü komutu belirtin. Bir Azure IR "Batı Avrupa" ayarladığınız konumu oluşturmak için bir örnek komut şöyledir:

@@ -1,11 +1,11 @@
 ---
-title: "Windows Phone Silverlight Reach SDK tümleştirmesi"
-description: "Azure Mobile Engagement Reach Windows Phone Silverlight uygulamaları ile tümleştirme"
+title: Windows Phone Silverlight Reach SDK tümleştirmesi
+description: Azure Mobile Engagement Reach Windows Phone Silverlight uygulamaları ile tümleştirme
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d3516a6b-db9f-4cdb-a475-4148edf81af1
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,17 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 0738f33df94d14fbb393bfaaf09e94c6560213cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34e5ce414ebf72fbecef6c921e57128e2658c921
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-phone-silverlight-reach-sdk-integration"></a>Windows Phone Silverlight Reach SDK tümleştirmesi
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Açıklanan tümleştirme yordamı izlemelisiniz [Windows Phone Silverlight Engagement SDK tümleştirmesi](mobile-engagement-windows-phone-integrate-engagement.md) bu kılavuz aşağıdaki önce.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-phone-silverlight-project"></a>Windows Phone Silverlight projenize Engagement Reach SDK'sı ekleme
-Eklemek için herhangi bir şey yok. `EngagementReach`Projenizde başvuruları ve kaynak zaten var.
+Eklemek için herhangi bir şey yok. `EngagementReach` Projenizde başvuruları ve kaynak zaten var.
 
 > [!TIP]
 > Görüntüleri bulunan özelleştirebilirsiniz `Resources` klasörü projenizin, özellikle marka simgesi (Bu varsayılan katılım simgesine).

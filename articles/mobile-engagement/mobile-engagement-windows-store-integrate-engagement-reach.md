@@ -1,11 +1,11 @@
 ---
-title: "Windows Evrensel uygulamaları Reach SDK tümleştirmesi"
-description: "Azure Mobile Engagement Reach Windows Evrensel uygulamaları ile tümleştirme"
+title: Windows Evrensel uygulamaları Reach SDK tümleştirmesi
+description: Azure Mobile Engagement Reach Windows Evrensel uygulamaları ile tümleştirme
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a31ca1d6-856f-4aec-898a-07969ae5f7ec
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,17 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8472af2ac72a1976871970963851be775b19859b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Windows Evrensel uygulamaları Reach SDK tümleştirmesi
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Açıklanan tümleştirme yordamı izlemelisiniz [Windows Evrensel Engagement SDK tümleştirmesi](mobile-engagement-windows-store-integrate-engagement.md) bu kılavuz aşağıdaki önce.
 
 ## <a name="embed-the-engagement-reach-sdk-into-your-windows-universal-project"></a>Windows Evrensel projenize Engagement Reach SDK'sı ekleme
-Eklemek için herhangi bir şey yok. `EngagementReach`Projenizde başvuruları ve kaynak zaten var.
+Eklemek için herhangi bir şey yok. `EngagementReach` Projenizde başvuruları ve kaynak zaten var.
 
 > [!TIP]
 > Görüntüleri bulunan özelleştirebilirsiniz `Resources` klasörü projenizin, özellikle marka simgesi (Bu varsayılan katılım simgesine). Evrensel uygulamaları, aynı zamanda taşıyabilirsiniz `Resources` tutmak klasör içeriğini uygulamalar, ancak arasında paylaşmak için paylaşılan bir proje üzerinde olacaktır `Resources\EngagementConfiguration.xml` platform bağımlı olduğu gibi varsayılan konumuna dosya.
@@ -67,7 +71,7 @@ Bu şekilde iki tümleştirme arasında seçim özetlenen:
 ### <a name="overlay-integration"></a>Yer paylaşımlı tümleştirme
 Katılım katmana sayfanızda Reach kampanyaları görüntülemek için kullanılan kullanıcı Arabirimi öğeleri dinamik olarak ekler. Katmana düzeninize uyacak değil, web görünümleri bunun yerine el ile tümleştirme düşünmelisiniz.
 
-.Xaml dosya değişikliği `EngagementPage` başvuru`EngagementPageOverlay`
+.Xaml dosya değişikliği `EngagementPage` başvuru `EngagementPageOverlay`
 
 * Ad alanı bildirimlerinize aşağıdakini ekleyin:
   
@@ -279,7 +283,7 @@ Geri arama, "Ortak App() {}" yönteminde ayarlayabilirsiniz, `App.xaml.cs` dosya
 > 
 > 
 
-## <a id="push-channel-sharing"></a>Kanal paylaşımı gönderme
+## <a id="push-channel-sharing"></a> Kanal paylaşımı gönderme
 Ardından, uygulamanızda anında iletme bildirimleri başka bir amaç için kullanıyorsanız, paylaşımı özelliğini Engagement SDK'ın itme kanal kullanmak zorunda. Bu, kaçırılan itme önlemek için gerekir.
 
 * Engagement Reach başlatma kendi itme kanala sağlayabilir. SDK'ın yeni bir tane isteyen yerine kullanır.

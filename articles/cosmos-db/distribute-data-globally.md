@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2018
 ms.author: arramac
-ms.openlocfilehash: e31b66f20c51e95dbc2d8285bb5602590abd4f4f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 567f035bdb293353090ee107f8d24da845e15154
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB genel verilerle dağıtmak nasıl
 Azure bulunabilen - 30 + coğrafi bölgeler arasında genel ayak izini sahiptir ve sürekli genişleyen. Dünya çapında iletişim durumu ile Azure, geliştiricilere sunduğu farklı özellikleri oluşturmak, dağıtmak ve genel olarak dağıtılmış uygulamaları kolayca yönetin olanağı biridir. 
@@ -36,7 +36,7 @@ Biz Azure Cosmos DB oluşturulurken öğrendiğiniz gibi genel dağıtım ekleme
 Bu makalede, Azure Cosmos veritabanı genel dağıtım özelliklerine genel bakış sağlar. Biz de kapsamlı SLA sağlayan Azure Cosmos DB'ın benzersiz yaklaşımı açıklanmaktadır. 
 
 ## <a id="EnableGlobalDistribution"></a>Anahtar teslimi genel dağıtım etkinleştirme
-Azure Cosmos DB planet ölçek uygulamaları kolayca yazmanızı etkinleştirmek için aşağıdaki özellikleri sağlar. Bu özellikler Azure Cosmos veritabanı kaynak sağlayıcı tabanlı kullanılabilir [REST API'leri](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) yanı sıra Azure portalı.
+Azure Cosmos DB planet ölçek uygulamaları kolayca yazmanızı etkinleştirmek için aşağıdaki özellikleri sağlar. Bu özellikler Azure Cosmos veritabanı kaynak sağlayıcı tabanlı kullanılabilir [REST API'leri](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) yanı sıra Azure portalı.
 
 Aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu anahtar teslimi genel dağıtım özellikleri gösterir.
 

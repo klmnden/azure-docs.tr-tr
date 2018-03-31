@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/20/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: da2d95bc100a6160282c93682ad76f7ee881e105
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2838d8fd53d4e2e564bb7784cb5489e9a167d5bb
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Otomasyonu (Önizleme) çözümde yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler
 
@@ -55,7 +55,7 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
 
 1. **Çözüm Ekle** sayfası görüntülenir. Otomasyon aboneliğinizi içeri aktarmadan önce çözümü yapılandırmak için istenir.
    ![VM yönetim Çözüm Ekle sayfası](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
-1. Üzerinde **Çözüm Ekle** sayfasında, **çalışma**. Otomasyon hesabının bulunduğu aynı Azure aboneliğine bağlı bir OMS çalışma alanını seçin. Bir çalışma alanı yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **OMS çalışma** sayfasında, aşağıdakileri yapın:
+1. Üzerinde **Çözüm Ekle** sayfasında, **çalışma**. Otomasyon hesabının bulunduğu aynı Azure aboneliğine bağlı bir günlük analizi çalışma alanını seçin. Bir çalışma alanı yoksa, seçin **yeni çalışma alanı oluştur**. Üzerinde **OMS çalışma** sayfasında, aşağıdakileri yapın:
    * Yeni **OMS Çalışma Alanı** için bir ad belirtin.
    * Seçin bir **abonelik** varsayılan seçili uygun değilse, aşağı açılan listeden seçerek bağlantı sağlamak için.
    * İçin **kaynak grubu**, yeni bir kaynak grubu oluşturabilir veya varolan bir tanesini seçin.
@@ -63,13 +63,13 @@ Başlat/Durdur VM'ler sırasında yoğun olmayan saatlerde çözüm Otomasyon he
    * Bir **Fiyatlandırma katmanı** seçin. İki katmanı çözümü sunar: **serbest** ve **başına düğüm (OMS)**. Ücretsiz katmanı her gün, saklama dönemi ve runbook iş çalışma zamanı dakika toplanan veri miktarı bir sınırı vardır. Düğüm başına katmanı bir sınır günlük toplanan veri miktarına sahip değil.
 
         > [!NOTE]
-        > İsteğe bağlı olarak her GB (tek başına)'i Ücretli katmanı görüntülenmesine rağmen geçerli değildir. Seçin ve bu çözümü oluşturma işlemine aboneliğinizde devam edin, başarısız olur. Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır. Bu çözüm yalnızca kullanır Otomasyon iş dakikaları ve günlük alım. Ortamınıza ek OMS düğümleri eklemez.
+        > İsteğe bağlı olarak her GB (tek başına)'i Ücretli katmanı görüntülenmesine rağmen geçerli değildir. Seçin ve bu çözümü oluşturma işlemine aboneliğinizde devam edin, başarısız olur. Bu çözüm resmi olarak yayımlandığında, bu sorun da ele alınacaktır. Bu çözüm yalnızca kullanır Otomasyon iş dakikaları ve günlük alım. Ek düğümler ortamınıza eklemez.
 
 1. Üzerinde gerekli bilgileri girdikten sonra **OMS çalışma** sayfasında, **oluşturma**. Altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünden döndüğü size **Çözüm Ekle** sayfasında yapıldığında.
-1. Üzerinde **Çözüm Ekle** sayfasında, **Otomasyon hesabı**. Yeni bir OMS çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı da oluşturmanız gerekir. Seçin **Automation hesabı oluşturma**ve **eklemek Otomasyon hesabı** sayfasında, şunları sağlar:
+1. Üzerinde **Çözüm Ekle** sayfasında, **Otomasyon hesabı**. Yeni bir günlük analizi çalışma alanı oluşturuyorsanız, kendisiyle ilişkilendirilmiş olması için yeni bir Otomasyon hesabı da oluşturmanız gerekir. Seçin **Automation hesabı oluşturma**ve **eklemek Otomasyon hesabı** sayfasında, şunları sağlar:
    * **Ad** alanına Otomasyon hesabının adını girin.
 
-    Diğer tüm seçenekleri seçili OMS çalışma alanını otomatik olarak doldurulur. Bu seçenek değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıklattıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Automation hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
+    Diğer tüm seçenekleri seçili günlük analizi çalışma alanı otomatik olarak doldurulur. Bu seçenek değiştirilemez. Bu çözüme dahil olan runbook'lar için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Tıklattıktan sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Automation hesabı oluşturulur. Bu işlemin ilerleme durumunu menüdeki **Bildirimler**’in altından izleyebilirsiniz.
 
 1. Son olarak, üzerinde **Çözüm Ekle** sayfasında, **yapılandırma**. **Parametreleri** sayfası görüntülenir.
 
@@ -230,7 +230,7 @@ Bu çakışan zamanlama eylemleri oluşturabilirsiniz çünkü tüm zamanlamalar
 
 ## <a name="log-analytics-records"></a>Log Analytics kayıtları
 
-Otomasyon OMS depoya kayıtları iki tür oluşturur: İş günlükleri ve iş akışları.
+Otomasyon için günlük analizi çalışma alanında iki tür kayıtları oluşturur: İş günlükleri ve iş akışları.
 
 ### <a name="job-logs"></a>İş günlükleri
 

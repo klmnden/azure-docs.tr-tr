@@ -1,25 +1,24 @@
 ---
-title: "Azure Stream Analytics tanılama günlükleri ile ilgili sorunları giderme | Microsoft Docs"
-description: "Tanılama günlüklerini Microsoft Azure Stream Analytics işlerine çözümlemeyi öğrenin."
-keywords: 
-documentationcenter: 
+title: Azure Stream Analytics tanılama günlükleri ile ilgili sorunları giderme | Microsoft Docs
+description: Tanılama günlüklerini Microsoft Azure Stream Analytics işlerine çözümlemeyi öğrenin.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: c9772df2c216d465ca6e90e69bce011969dd4f02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 164d522d7beaea222dbc408765877fa67a34c203
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Azure Stream Analytics tanılama günlükleri kullanarak sorun giderme
 
@@ -84,7 +83,7 @@ resourceId | İşlemi bir yerde, büyük harflerle sürdü kaynak kimliği. Abon
 category | Kategori ya da oturum **yürütme** veya **yazma**.
 operationName | Oturum açmış işlemin adı. Örneğin, **olayları göndermek: SQL çıktı yazma hatası için mysqloutput**.
 durum | İşlem durumu. Örneğin, **başarısız** veya **başarılı**.
-düzeyi | Günlük düzeyi. Örneğin, **hata**, **uyarı**, veya **bilgilendirici**.
+düzey | Günlük düzeyi. Örneğin, **hata**, **uyarı**, veya **bilgilendirici**.
 properties | JSON bir dize olarak serileştirilmiş günlük girişi özgü ayrıntısı. Daha fazla bilgi için aşağıdaki bölümlere bakın.
 
 ### <a name="execution-log-properties-schema"></a>Yürütme günlüğü özellikleri şeması

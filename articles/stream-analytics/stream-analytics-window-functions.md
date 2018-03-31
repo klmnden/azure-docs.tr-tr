@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics penceresi işlevleri giriş | Microsoft Docs"
-description: "Akış (dönen atlamalı, kayan) analizi üç pencere işlevleri hakkında bilgi edinin."
-keywords: "dönen pencere, kayan pencere atlamalı pencere"
-documentationcenter: 
+title: Stream Analytics penceresi işlevleri giriş | Microsoft Docs
+description: Akış (dönen atlamalı, kayan) analizi üç pencere işlevleri hakkında bilgi edinin.
+keywords: dönen pencere, kayan pencere atlamalı pencere
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Stream Analytics penceresi işlevleri giriş
 Pek çok gerçek senaryolar akışı sırasında yalnızca zamana bağlı Windows'da bulunan veriler üzerinde işlem gerçekleştirmek gereklidir. Pencereleme işlevler için yerel destek karmaşık akış işleme işleri yazma, geliştirici üretkenliğine iğnenin taşır Azure akış analizi, anahtar bir özelliğidir. Akış analizi sağlar geliştiriciler [ **dönen**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) ve [ **hareketli** ](https://msdn.microsoft.com/library/dn835051.aspx) veri akışı üzerinde zamana bağlı işlemleri gerçekleştirmek için windows. Değer belirtmeye olan tüm [penceresi](https://msdn.microsoft.com/library/dn835019.aspx) operations çıktı sonuçlarına **son** penceresinin. Çıktı penceresi tek olay kullanılan üzerinde toplama işlevi tabanlı olacaktır. Olay penceresinin bitiş zaman damgası sahip olur ve tüm pencere işlevleri sabit uzunluk ile tanımlanır. Son olarak, tüm pencere işlevleri de kullanılması gerektiğini dikkate almak önemlidir bir [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) yan tümcesi.

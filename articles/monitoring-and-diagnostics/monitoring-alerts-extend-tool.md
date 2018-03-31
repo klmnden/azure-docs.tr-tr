@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 76b7481223566f16a5da8c08d9d76f2bdb6b542a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5e8a66214efc27e8e59da354e54d68bb48d274cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="initiate-extending-alerts-from-oms-into-azure"></a>Azure'da OMS genişletme uyarıları başlatır
 Başlangıç **23 Nisan 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
@@ -155,7 +155,7 @@ POST başarılı olursa, 200 Tamam yanıt ile birlikte Döndür:
     "version": 2
 }
 ```
-Uyarılar, Azure'da genişletilmiştir sürüm 2 tarafından belirtildiği şekilde gösteren. Uyarıları Azure'da genişletilmiş ve şifrelemeyle kullanımı ile varsa yalnızca denetlemek için bu sürümüdür [günlük analizi arama API](../log-analytics/log-analytics-api-alerts.md). Çalışma alanındaki Yönetici ve katkıda bulunan rolleriyle ilişkili olan tüm kullanıcıları uyarıları başarıyla Azure'da genişletilmiş sonra yapılan değişiklikleri ayrıntılarını içeren bir e-posta alırsınız.
+Uyarılar, Azure'da genişletilmiştir sürüm 2 tarafından belirtildiği şekilde gösteren. Uyarıları Azure'da genişletilmiş ve şifrelemeyle kullanımı ile varsa yalnızca denetlemek için bu sürümüdür [günlük analizi arama API](../log-analytics/log-analytics-api-alerts.md). Uyarıları başarıyla Azure'da genişletilmiş sonra tüm sırasında sağlanan e-posta adreslerini GET yapılan değişiklikleri ayrıntılarını içeren bir rapor gönderilir.
 
 
 Ve son olarak, belirtilen çalışma alanında, tüm uyarıları zaten zamanlandı, Azure'da - genişletilmesi POST yanıtı 403 Yasak olacaktır.

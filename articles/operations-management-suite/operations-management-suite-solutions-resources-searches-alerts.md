@@ -1,8 +1,8 @@
 ---
-title: "OMS çözümlerinde Kaydedilmiş aramaları ve Uyarıları | Microsoft Docs"
-description: "OMS çözümlerinde genellikle Kaydedilmiş aramaları çözümü tarafından toplanan verileri çözümlemek için günlük analizi dahil edin.  Ayrıca kullanıcıya bildirmek için uyarılar tanımlayın olabilir veya otomatik olarak yanıt kritik bir sorun için adımları uygulayın.  Bu makalede, günlük yönetim çözümlerine dahil şekilde bir Resource Manager şablonunda kaydedilmiş aramaları ve Uyarıları analizi tanımlamak açıklar."
+title: Aramaları ve uyarılar yönetim çözümlerine kayıtlı | Microsoft Docs
+description: Yönetim çözümleri genellikle Kaydedilmiş aramaları çözümü tarafından toplanan verileri çözümlemek için günlük analizi dahil edin.  Ayrıca kullanıcıya bildirmek için uyarılar tanımlayın olabilir veya otomatik olarak yanıt kritik bir sorun için adımları uygulayın.  Bu makalede, günlük yönetim çözümlerine dahil şekilde bir Resource Manager şablonunda kaydedilmiş aramaları ve Uyarıları analizi tanımlamak açıklar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -14,29 +14,29 @@ ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e25ad9b9be6d02550b4be9c09496021cd7fe2d2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: cb787de23022cd7a48ec476968e05dec6560b419
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilmiş OMS yönetim çözümü (Önizleme)
+# <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.   
+> Bu, şu anda önizlemede olan yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.   
 
 
-[OMS yönetim çözümlerine](operations-management-suite-solutions.md) genellikle içerecektir [kayıtlı aramalar](../log-analytics/log-analytics-log-searches.md) çözümü tarafından toplanan verileri çözümlemek için günlük analizi içinde.  Ayrıca tanımlayabilir [uyarıları](../log-analytics/log-analytics-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt kritik bir sorun için adımları uygulayın.  Bu makalede nasıl günlük kayıtlı aramalar analizi tanımlayacağınızı açıklar ve Uyarıları gelen bir [kaynak yönetimi şablonu](../resource-manager-template-walkthrough.md) içinde eklenebilir şekilde [yönetim çözümleri](operations-management-suite-solutions-creating.md).
+[Yönetim çözümleri](operations-management-suite-solutions.md) genellikle içerecektir [kayıtlı aramalar](../log-analytics/log-analytics-log-searches.md) çözümü tarafından toplanan verileri çözümlemek için günlük analizi içinde.  Ayrıca tanımlayabilir [uyarıları](../log-analytics/log-analytics-alerts.md) kullanıcıya bildir veya otomatik olarak yanıt kritik bir sorun için adımları uygulayın.  Bu makalede nasıl günlük kayıtlı aramalar analizi tanımlayacağınızı açıklar ve Uyarıları gelen bir [kaynak yönetimi şablonu](../resource-manager-template-walkthrough.md) içinde eklenebilir şekilde [yönetim çözümleri](operations-management-suite-solutions-creating.md).
 
 > [!NOTE]
-> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md)  
+> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [tasarım ve yapı Azure Yönetimi çözümünde](operations-management-suite-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makale, zaten nasıl hakkında bilgi sahibi olduğunuzu varsayar [bir yönetim çözümü oluşturma](operations-management-suite-solutions-creating.md) ve yapısı bir [Resource Manager şablonu](../resource-group-authoring-templates.md) ve çözüm dosya.
 
 
 ## <a name="log-analytics-workspace"></a>Günlük analizi çalışma alanı
-Günlük analizi tüm kaynaklarında bulunan bir [çalışma](../log-analytics/log-analytics-manage-access.md).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), çalışma alanı yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
+Günlük analizi tüm kaynaklarında bulunan bir [çalışma](../log-analytics/log-analytics-manage-access.md).  Bölümünde açıklandığı gibi [günlük analizi çalışma alanı ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account), çalışma alanı yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
 
 Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır **çalışma** savedsearch kaynak aşağıdaki örnekteki gibi parametre.
 
@@ -50,8 +50,8 @@ Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını ö
 | Çalışma alanında sürümü | API sürümü | Sorgu |
 |:---|:---|:---|
 | V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
-| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; Burada EventLevelName "Error" ==  |
-| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; Burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; burada EventLevelName "Error" ==  |
+| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; burada EventLevelName "Error" ==  |
 
 
 

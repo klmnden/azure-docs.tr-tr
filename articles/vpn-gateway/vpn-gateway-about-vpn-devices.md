@@ -1,25 +1,25 @@
 ---
-title: "Şirket içi Azure bağlantıları için VPN cihazları hakkında | Microsoft Docs"
-description: "Bu makalede VPN cihazları ve S2S VPN Gateway şirketler arası bağlantılar için IPsec parametreleri ele alınmaktadır. Yapılandırma yönergeleri ve örnekler için bağlantılar verilmektedir."
+title: Şirket içi Azure bağlantıları için VPN cihazları hakkında | Microsoft Docs
+description: Bu makalede VPN cihazları ve S2S VPN Gateway şirketler arası bağlantılar için IPsec parametreleri ele alınmaktadır. Yapılandırma yönergeleri ve örnekler için bağlantılar verilmektedir.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager, azure-service-management
 ms.assetid: ba449333-2716-4b7f-9889-ecc521e4d616
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: f75732761cefd7706fe1555484148efe6cdc0e56
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
@@ -72,6 +72,7 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 | ShareTech | Yeni Nesil UTM (NU serisi) | 9.0.1.3 | Uyumlu değil | [Yapılandırma kılavuzu](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ Series, NSA Series<br>SuperMassive Series<br>E-Class NSA Series |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |Uyumlu değil |[Yapılandırma kılavuzu](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG Yeni Nesil Güvenlik Duvarı | XG v17 | | [Yapılandırma kılavuzu](https://community.sophos.com/kb/127546) |
+| Ubiquiti | EdgeRouter | EdgeOS v1.10 |  | [Ikev2/IPSec üzerinden BGP](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012374708&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=2EF5KFljZwtAGQDSm8%2FF2f6DqI2bkmA2qKG4u0rPgbQ%3D&reserved=0)<br><br>[VTI over IKEv2/IPsec](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fhelp.ubnt.com%2Fhc%2Fen-us%2Farticles%2F115012305347&data=02%7C01%7Cmaafiri%40microsoft.com%7C7580cdf59eb94528c0de08d4f9fd78bd%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636408314443168072&sdata=ycgiDJCOQYTPN7sAEBSigphzC6mBaADz%2FgdCOm7TsXA%3D&reserved=0)
 | WatchGuard |Tümü |Fireware XTM<br> PolicyBased: v11.11.x<br>RouteBased: v11.12.x |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[Yapılandırma kılavuzu](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
 > [!NOTE]
@@ -79,6 +80,10 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 > (*) Cisco ASA 8.4 ve üzeri sürümleri IKEv2 desteği ekler, "UsePolicyBasedTrafficSelectors" seçeneğiyle özel IPsec/IKE ilkesini kullanarak Azure VPN ağ geçidine bağlanabilir. Bu [nasıl yapılır makalesine](vpn-gateway-connect-multiple-policybased-rm-ps.md) başvurun.
 >
 > (\*\*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
+
+## <a name="Download VPN device configuration scripts from Azure"></a>Azure VPN cihazı yapılandırma komut dosyaları indirme
+
+Belirli cihazlar, doğrudan Azure'dan yapılandırma komut indirebilirsiniz. Daha fazla bilgi ve yükleme yönergeleri için bkz: [karşıdan VPN cihazı yapılandırma komut](vpn-gateway-download-vpndevicescript.md).
 
 ## <a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
 
@@ -140,7 +145,7 @@ Aşağıdaki tablolarda:
 | SA Yaşam Süresi (Zaman)            |3.600 saniye  |27.000 saniye                                |
 | SA Yaşam Süresi (Bayt)           |102.400.000 KB | -                                           |
 | Kusursuz İletme Gizliliği (PFS) |Hayır             |[RouteBased QM SA Teklifleri](#RouteBasedOffers) |
-| Kullanılmayan Eş Algılama (DPD)     |Desteklenmiyor  |Destekleniyor                                    |
+| Kullanılmayan Eş Algılama (DPD)     |Desteklenmiyor  |Desteklenen                                    |
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Güvenlik İlişkisi (IKE Hızlı Mod SA) Teklifleri
@@ -153,8 +158,8 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |Yok         |
-| 4 |AES256        |SHA256            |Yok         |
+| 3 |3DES          |SHA1              |Hiçbiri         |
+| 4 |AES256        |SHA256            |None         |
 | 5 |AES128        |SHA1              |None         |
 | 6 |3DES          |SHA256            |None         |
 
@@ -162,13 +167,13 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 
 |-  |**Şifreleme**|**Kimlik doğrulaması**|**PFS Grubu**|
 |---| ---          | ---              |---          |
-| 1 |GCM AES256    |GCM (AES256)      |Yok         |
+| 1 |GCM AES256    |GCM (AES256)      |Hiçbiri         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |Yok         |
+| 3 |3DES          |SHA1              |Hiçbiri         |
 | 4 |AES256        |SHA256            |None         |
-| 5 |AES128        |SHA1              |Yok         |
-| 6 |3DES          |SHA256            |Yok         |
-| 7 |DES           |SHA1              |Yok         |
+| 5 |AES128        |SHA1              |Hiçbiri         |
+| 6 |3DES          |SHA256            |Hiçbiri         |
+| 7 |DES           |SHA1              |None         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |

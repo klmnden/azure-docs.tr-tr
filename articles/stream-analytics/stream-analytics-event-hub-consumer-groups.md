@@ -1,25 +1,24 @@
 ---
-title: "Azure Stream Analytics olay hub'ı alıcıları ile hata ayıklama | Microsoft Docs"
-description: "Olay hub'ları tüketici grupları, Stream Analytics işlerini dikkate için en iyi uygulamaları sorgulayın."
-keywords: "Olay hub'ı sınırı, tüketici grubu"
+title: Azure Stream Analytics olay hub'ı alıcıları ile hata ayıklama | Microsoft Docs
+description: Olay hub'ları tüketici grupları, Stream Analytics işlerini dikkate için en iyi uygulamaları sorgulayın.
+keywords: Olay hub'ı sınırı, tüketici grubu
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+documentationcenter: ''
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: ede3137de92e251f4ad020bc1ce3f041918242b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: ba54e4c0146e797e300579415db170fd6d290034
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debug-azure-stream-analytics-with-event-hub-receivers"></a>Azure Stream Analytics olay hub'ı alıcıları ile hata ayıklama
 

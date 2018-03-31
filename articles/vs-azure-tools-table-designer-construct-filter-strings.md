@@ -1,11 +1,11 @@
 ---
-title: "Filtre dizeleri için Tablo Tasarımcısı oluşturma | Microsoft Docs"
-description: "Filtre dizeleri için Tablo Tasarımcısı oluşturma"
+title: Filtre dizeleri için Tablo Tasarımcısı oluşturma | Microsoft Docs
+description: Filtre dizeleri için Tablo Tasarımcısı oluşturma
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.service: storage
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: kraigb
-ms.openlocfilehash: 069224d84462b4955912ce1462a65298a5acc04a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 722052e351062efba85eb143b2ea7bd0136002a0
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Filtre dizeleri için Tablo Tasarımcısı oluşturma
 ## <a name="overview"></a>Genel Bakış
@@ -33,8 +33,8 @@ Aşağıdaki mantıksal işleçler tüm özellik türleri için desteklenir:
 | --- | --- | --- |
 | EQ |Eşittir |Şehir eq 'Redmond' |
 | gt |Şu değerden fazla: |Fiyat gt 20 |
-| Ge |Büyüktür veya eşittir |Fiyat ge 10 |
-| lt |Şu değerden az: |Fiyat lt 20 |
+| Ge |Büyük veya eşit |Fiyat ge 10 |
+| lt |Şu değerden az: |Price lt 20 |
 | le |Küçüktür veya eşittir |Fiyat le 100 |
 | ne |Eşit değildir |Şehir ne 'Londra' |
 | ve |Ve |Fiyat le 200 ve fiyat gt 3.5 |
@@ -44,8 +44,8 @@ Aşağıdaki mantıksal işleçler tüm özellik türleri için desteklenir:
 Aşağıdaki kuralları, bir filtre dizesi oluşturulurken önemlidir:
 
 * Mantıksal işleçler bir özellik için bir değer karşılaştırmak için kullanın. Özelliği dinamik bir değere karşılaştırmak mümkün olmadığını göz önünde bulundurun; ifade bir tarafındaki bir sabit olmalıdır.
-* Filtre dizesi tüm parçalarını büyük/küçük harfe duyarlıdır.
-* Geçerli sonuçları döndürmek için aynı veri türünde filtre sırasını özelliği olarak sabit değeri olmalıdır. Desteklenen özellik türleri hakkında daha fazla bilgi için bkz: [tablo hizmeti veri modelini anlama](http://go.microsoft.com/fwlink/p/?LinkId=400448).
+* Filtre dizesinin tüm kısımları büyük/küçük harfe duyarlıdır.
+* Filtrenin geçerli sonuçlar döndürmesi için sabit değer, özellikle aynı veri türünde olmalıdır. Desteklenen özellik türleri hakkında daha fazla bilgi için bkz. [Tablo Hizmeti Veri Modelini anlama](http://go.microsoft.com/fwlink/p/?LinkId=400448).
 
 ## <a name="filtering-on-string-properties"></a>Dize özellikleri filtreleme
 Dize özellikleri filtre uygularken dize sabiti tek tırnak işaretleri içine alın.

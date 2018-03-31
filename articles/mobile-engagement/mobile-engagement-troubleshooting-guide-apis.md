@@ -1,11 +1,11 @@
 ---
-title: "Sorun giderme kılavuzu - API'leri azure Mobile Engagement"
-description: "Azure Mobile Engagement - API'leri için kılavuzları sorunlarını giderme"
+title: Sorun giderme kılavuzu - API'leri azure Mobile Engagement
+description: Azure Mobile Engagement - API'leri için kılavuzları sorunlarını giderme
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3efc8a52-2b74-4917-b887-815ae8277474
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/04/2016
 ms.author: piyushjo
-ms.openlocfilehash: a7ae0a83046f2d67b790f672dcd3ae261987357a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cda11c8d2f1d147a807083c5479d2b2cda65462c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-api-issues"></a>API sorunları için sorun giderme kılavuzu
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Azure Mobile engagement API'leri aracılığıyla nasıl Yöneticiler etkileşimde karşılaşabileceğiniz olası sorunlar şunlardır:
 
 ## <a name="syntax-issues"></a>Sözdizimi sorunları

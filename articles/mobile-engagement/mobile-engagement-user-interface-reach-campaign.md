@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - Reach kampanya"
-description: "Laern oluşturmak ve anında iletme bildirimi yönetmek için Azure Mobile Engagement kullanarak kampanyaları nasıl"
+title: Azure Mobile Engagement kullanıcı arabirimi - Reach kampanya
+description: Laern oluşturmak ve anında iletme bildirimi yönetmek için Azure Mobile Engagement kullanarak kampanyaları nasıl
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 2fe124a2-a86f-4136-81ba-a9d298ec798a
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fc88db8db11d1ed12fa95c2087c9a32b21bf4de5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d457a8d5f68f70f6bf7a5f086b5e1d65bd1ea95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-push-notification-campaigns"></a>Oluşturma ve anında iletme bildirimi kampanyaları yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Kullanıcı arabirimini ulaşma bölümünü bir anında iletme bildirimi göndermek için gereken tüm bilgileri sağlayarak karmaşık bir formülü yeni bir itme kampanya oluşturmak için kullanabilirsiniz. Anında iletme kampanya seçenekleri dört kampanya türlerine bağlı olarak biraz farklılık: Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone).
 
 ### <a name="option-applies-to"></a>Seçenek için geçerlidir:
@@ -32,12 +36,12 @@ Kullanıcı arabirimini ulaşma bölümünü bir anında iletme bildirimi gönde
 * Zaman çerçevesi: Duyurular, anketler, döşeme
 * Sınama: Tüm (Duyurular, anketler, veri gönderimleri, kutucukları)
 
-![Reach Campaign1][20]
+![Reach-Campaign1][20]
 
 ## <a name="languages"></a>Diller
 Dilleri açılan menüsünde, anında iletme farklı bir sürümünü farklı dillerde kullanacak şekilde ayarlanmış olan cihazlara göndermek için kullanabilirsiniz. Varsayılan olarak, tüm cihazlar aynı itme kullanmak üzere ayarlanmış hangi dilde bağımsız olarak alır. Kullanıcılar için farklı bir dil cihazını itme varsayılan dil sürümünü alır. Anında iletme kampanya seçeneklerinin birçoğu, her seçtiğiniz ek diller için alternatif içerik belirtmenizi sağlar. 
 
-![Reach Campaign2][21]
+![Reach-Campaign2][21]
 
 ### <a name="language-differences-apply-to"></a>Dil farklar geçerlidir:
 * Diller: Benzersiz dilleri yanı sıra varsayılan dili seçilebilir.
@@ -63,7 +67,7 @@ Dilleri açılan menüsünde, anında iletme farklı bir sürümünü farklı di
 * Almanca (de) 
 * Yunanca (el) 
 * İbranice (.) 
-* Hintçe (yüksek) 
+* Hindi (hi) 
 * Macarca (hu) 
 * Endonezya dili (ID) 
 * İtalyanca () 
@@ -94,7 +98,7 @@ Kampanya bölüm adı ve kategoriyi de kampanyanızın itme kampanya İzleyici b
 > [!WARNING]
 > Kampanya otomatik olarak göndermez, Reach kampanya "Kampanyası" bölümünde "Yoksay İzleyici API aracılığıyla kullanıcılara bir gönderim" seçeneğini kullanırsanız, el ile ulaşmak API üzerinden göndermek gerekir.
 
-![Reach Campaign3][22]
+![Reach-Campaign3][22]
 
 ### <a name="option-applies-to"></a>Seçenek için geçerlidir:
 * Ad: tüm
@@ -111,7 +115,7 @@ Bildirim bölümü, anında iletme dahil etmek için temel ayarları ayarlamak i
 * Bildirim Capptain teslim sistemi kullanıcı erişmek için kullanır. Düzen/görünümünü, anında tam olarak özelleştirebilirsiniz.
 * Herhangi bir zaman: Ya da uygulama veya çalıştığı bildirim göndermek bu seçeneği sağlar.
 
-![Reach Campaign4][23]
+![Reach-Campaign4][23]
 
 ### <a name="option-applies-to"></a>Seçenek için geçerlidir:
 * Bildirim: Duyurular, anketler
@@ -122,7 +126,7 @@ Bildirim bölümü, anında iletme dahil etmek için temel ayarları ayarlamak i
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - ulaşmak - içerik gönderme][Link 29]
 
-![Reach Campaign5][24]
+![Reach-Campaign5][24]
 
 ## <a name="audience"></a>Hedef kitle
 Hedef kitle bölümü, standart bir kampanya veya kampanyanızı özelleştirilmiş ölçütlere göre sınırları sınırlamak için öğe listesi tanımlamak için kullanabilirsiniz. Standart kitlenizi sınırlamak için seçenekleri kümesi, yeni veya eski kullanıcılara veya yalnızca yerel gönderim kullanıcılara anında iletme olanak sağlar. Anında iletme alan kullanıcıların sayısını sınırlamak için bir kota de ayarlayabilirsiniz. Hedef kullanıcılar için bir veya daha fazla ölçüt eklemek için kampanyanızı nasıl filtre için ifade el ile düzenleyebilirsiniz. Bir hedef kitle ifadesi el ile yazabilirsiniz. Bu tür bir ifade, ölçütler arasındaki ilişkiyi açıkça tanımlamanız gerekir. Bir ölçüt büyük harfle başlamalı ve boşluk içeremez bir tanımlayıcı tarafından tanımlanır. Ölçütler arasındaki ilişkiyi kullanılarak tanımlanabilir 'and', 'or', 'not' işleçleri yanı sıra '(',')'. Örnek: "Criterion1 veya (Criterion1 ve değil Criterion2)".
@@ -138,10 +142,10 @@ Hedef kitle bölümü, standart bir kampanya veya kampanyanızı özelleştirilm
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
 
-![Reach Campaign6][25]
+![Reach-Campaign6][25]
 
 ### <a name="edit-expression"></a>İfade Düzenle
-![Reach Campaign7][26]
+![Reach-Campaign7][26]
 
 ### <a name="limit-your-audience-option-applies-to"></a>Hedef kitle seçeneğinizi uygulandığı sınırı:
 * Yalnızca bir kullanıcı alt kümesini göster: tüm (Duyurular, anketler, veri iter, kutucukları)
@@ -160,7 +164,7 @@ Gönderim veya zaman çerçevesi kampanya hemen başlatmak için boş bırakabil
 ### <a name="see-also"></a>Ayrıca bkz.
 * [Ulaşmaya - nasıl yapılır – planlama][Link 3] 
 
-![Reach Campaign8][27]
+![Reach-Campaign8][27]
 
 ### <a name="settings-apply-to"></a>Ayarlar için geçerlidir:
 * Zaman çerçevesi: Duyurular, anketler, döşeme
@@ -174,7 +178,7 @@ Test bölümü kampanya kaydetmeden önce bu itme kendi test aygıta göndermek 
 ### <a name="see-also"></a>Ayrıca bkz.
 * [UI belgeleri - hesabım][Link 14]
 
-![Reach Campaign9][28]
+![Reach-Campaign9][28]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - izleme"
-description: "Azure Mobile Engagement kullanarak uygulamanız hakkında gerçek zamanlı verileri nasıl izleyeceğinizi öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - izleme
+description: Azure Mobile Engagement kullanarak uygulamanız hakkında gerçek zamanlı verileri nasıl izleyeceğinizi öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 5f8a02e35db93585e0fe46d77b3ad18b94c99597
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b370a5db1acee37ce234f5ec3f004be20719cfea
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-monitor-real-time-data-about-your-application"></a>Uygulamanız hakkında gerçek zamanlı verileri nasıl izleyeceğinizi
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu makalede **İZLEYİCİ** sekmesinde **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. Portalı kullanmaya başlamak için önce oluşturmanız gerektiğini unutmayın bir **Azure Mobile Engagement** hesabı. 
 
 UI izleme bölümü gerçek zamanlı analiz bilgileri sağlar ve kullanılabilir ise aynı bilgilerin çoğu için eşiklerine ulaşıldığında uyarıları ayarlamak geçmişte içinde verir [ANALYTICS](mobile-engagement-user-interface-analytics.md) UI bölümü. Bkz: **sözlüğü** bölümüne [kavramları](http://go.microsoft.com/fwlink/?LinkId=525555) konu terim ve kısaltmaları analizi ve izleme tanımları için (aşağıdaki gibi: etkin kullanıcı, yeni kullanıcı, korunur kullanıcı, oturum, kullanıcı yolu grafik, kullanıcıların eşlemesi, izleme URL'leri, eğilimleri, etkinlik, olay, iş, hata, ek bilgileri, kilitlenme ve App-info).

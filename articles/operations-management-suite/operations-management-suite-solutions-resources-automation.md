@@ -1,8 +1,8 @@
 ---
-title: "Azure Automation kaynaklarını OMS çözümlerinde | Microsoft Docs"
-description: "OMS çözümlerinde, toplama ve izleme verilerini işleme gibi işlemleri otomatik hale getirmek için Azure Automation runbook'ları genellikle dahil edilir.  Bu makalede, runbook'ları ve ilgili kaynaklarını bir çözüme eklemek açıklar."
+title: Azure Automation kaynaklarını Yönetimi çözümlerinde | Microsoft Docs
+description: Yönetim çözümleri, toplama ve izleme verilerini işleme gibi işlemleri otomatik hale getirmek için Azure Automation runbook'ları genellikle dahil edilir.  Bu makalede, runbook'ları ve ilgili kaynaklarını bir çözüme eklemek açıklar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -15,21 +15,21 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1097b1ddd2e8f2fae0ffc809aee63be5c2ed4cb1
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 5750cd1147ec861ea38ff2ebc9ce481d256c1959
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="adding-azure-automation-resources-to-an-oms-management-solution-preview"></a>Azure Automation kaynaklarınız OMS yönetim çözümünü (Önizleme) ekleme
+# <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Bir yönetim çözümü (Önizleme) Azure Automation kaynaklarını ekleme
 > [!NOTE]
-> Bu, şu anda önizlemede OMS yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.   
+> Bu, şu anda önizlemede olan yönetim çözümleri oluşturmak için başlangıç belgesidir. Aşağıda açıklanan herhangi bir şema değiştirilebilir ' dir.   
 
 
-[OMS yönetim çözümlerine](operations-management-suite-solutions.md) toplama ve izleme verilerini işleme gibi işlemleri otomatik hale getirmek için Azure Automation runbook'ları tipik olarak içerecektir.  Runbook'ları yanı sıra Automation hesapları değişkenleri ve çözümde kullanılan runbook'ları destek zamanlamaları gibi varlıkları içerir.  Bu makalede, runbook'ları ve ilgili kaynaklarını bir çözüme eklemek açıklar.
+[Yönetim çözümleri](operations-management-suite-solutions.md) toplama ve izleme verilerini işleme gibi işlemleri otomatik hale getirmek için Azure Automation runbook'ları tipik olarak içerecektir.  Runbook'ları yanı sıra Automation hesapları değişkenleri ve çözümde kullanılan runbook'ları destek zamanlamaları gibi varlıkları içerir.  Bu makalede, runbook'ları ve ilgili kaynaklarını bir çözüme eklemek açıklar.
 
 > [!NOTE]
-> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [Operations Management Suite (OMS) yönetimi çözümleri oluşturma](operations-management-suite-solutions-creating.md) 
+> Bu makaledeki örnekler parametreleri ve gerekli olduğunu veya yönetim çözümleri için ortak olduğunu ve açıklanan değişkenleri kullanma [tasarım ve yapı Azure Yönetimi çözümünde ](operations-management-suite-solutions-creating.md) 
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -40,7 +40,7 @@ Bu makale, zaten aşağıdaki bilgilerle aşina olduğunuzu varsayar.
 - Nasıl yapılır [Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## <a name="automation-account"></a>Otomasyon hesabı
-Azure Otomasyonu tüm kaynakları bulunan bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview).  Bölümünde açıklandığı gibi [OMS çalışma ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Otomasyon hesabı Yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
+Azure Otomasyonu tüm kaynakları bulunan bir [Otomasyon hesabı](../automation/automation-security-overview.md#automation-account-overview).  Bölümünde açıklandığı gibi [og analizi çalışma alanı ve Automation hesabı](operations-management-suite-solutions.md#log-analytics-workspace-and-automation-account) Otomasyon hesabı Yönetimi çözümünde dahil değildir ancak çözüm yüklenmeden önce mevcut olması gerekir.  Kullanılabilir değilse, çözüm yükleme başarısız olur.
 
 Her Otomasyon kaynağın adını kendi Otomasyon hesabının adını içerir.  Bu çözümle yapılır **accountName** bir runbook kaynağın aşağıdaki örnekteki gibi parametre.
 
@@ -118,7 +118,7 @@ Otomasyon işleri için özellikler aşağıdaki tabloda açıklanmıştır.
 
 İş, runbook adı ve runbook'a gönderilmek üzere parametre değerlerini içerir.  İş gereken [bağımlı](operations-management-suite-solutions-solution-file.md#resources) bu yana runbook başlatma runbook işinden önce oluşturulması gerekir.  Başlatılması gereken birden çok runbook varsa, ilk çalışması gereken tüm diğer işler bağımlı bir iş sağlayarak sıralarına tanımlayabilirsiniz.
 
-Bir iş kaynağı adı genellikle parametresi tarafından atanan bir GUID içermelidir.  Daha fazla bilgiyi GUID parametreler hakkında [Operations Management Suite (OMS) çözümleri oluşturma](operations-management-suite-solutions-solution-file.md#parameters).  
+Bir iş kaynağı adı genellikle parametresi tarafından atanan bir GUID içermelidir.  Daha fazla bilgiyi GUID parametreler hakkında [Azure'da bir yönetim çözümü dosyası oluşturma](operations-management-suite-solutions-solution-file.md#parameters).  
 
 
 ## <a name="certificates"></a>Sertifikalar
@@ -281,9 +281,9 @@ Değişken için ilk değeri ayarlarsanız, doğru veri türü olarak yapıland�
 
 | Veri türü | Açıklama | Örnek | Çözümler |
 |:--|:--|:--|:--|
-| dize   | Değeri çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
+| string   | Değeri çift tırnak içine alın.  | "\"Merhaba Dünya\"" | "Hello world" |
 | sayısal  | Tek tırnak sahip bir sayısal değer.| "64" | 64 |
-| boole  | **doğru** veya **false** tırnak.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | doğru |
+| boole  | **doğru** veya **false** tırnak.  Bu değer küçük harfli olması gerektiğini unutmayın. | "true" | true |
 | datetime | Serileştirilmiş tarih değeri.<br>Bu değer için belirli bir tarih oluşturmak için PowerShell'de ConvertTo-Json cmdlet'ini kullanabilirsiniz.<br>Örnek: get-date "24/5/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Modüller

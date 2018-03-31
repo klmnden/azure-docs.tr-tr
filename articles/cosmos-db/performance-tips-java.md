@@ -1,12 +1,12 @@
 ---
-title: "Java için Azure Cosmos DB performans ipuçları | Microsoft Docs"
-description: "Azure Cosmos DB veritabanı performansını iyileştirmek için istemci yapılandırma seçenekleri öğrenin"
-keywords: "Veritabanı performansı nasıl"
+title: Java için Azure Cosmos DB performans ipuçları | Microsoft Docs
+description: Azure Cosmos DB veritabanı performansını iyileştirmek için istemci yapılandırma seçenekleri öğrenin
+keywords: Veritabanı performansı nasıl
 services: cosmos-db
 author: mimig1
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: dfe8f426-3c98-4edc-8094-092d41f2795e
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: fef5ed126575727c23cdff496c6684b9bf3192cf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/30/2018
 ---
 > [!div class="op_single_selector"]
 > * [Java](performance-tips-java.md)
@@ -86,11 +86,11 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Azure Cosmos DB SQL Java SDK sürüm 1.9.0 ve paralel bölümlendirilmiş bir koleksiyon sorgulamak etkinleştirme desteği paralel sorgular yukarıda (bkz [SDK'ları ile çalışma](sql-api-partition-data.md#working-with-the-azure-cosmos-db-sdks) ve ilgili [kod örnekleri](https://github.com/Azure/azure-documentdb-java/tree/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples) için Daha fazla bilgi). Paralel sorgular seri bunların karşılık gelen sorgu gecikme süresi ve üretilen işi artırmak için tasarlanmıştır.
 
-    (a) ***setMaxDegreeOfParallelism ayarlama\: *** paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, tek tek bölümlendirilmiş bir koleksiyon verileri seri olarak sorgu göre getirilir. Bu nedenle, kullanmak [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) en kullanıcı sorgu elde maksimum sıkıştırılabilmesi bölüm sayısı ayarlamak için sağlanan diğer tüm sistem koşulları aynı kalır. Bölüm sayısı bilmiyorsanız, yüksek bir sayı ayarlamak için setMaxDegreeOfParallelism kullanabilirsiniz ve maksimum paralellik derecesi (bölüm, kullanıcı tarafından sağlanan girdi sayısı) minimum sistem seçer. 
+    (a) ***setMaxDegreeOfParallelism ayarlama\:***  paralel iş birden çok bölümü paralel sorgulayarak sorgular. Ancak, tek tek bölümlendirilmiş bir koleksiyon verileri seri olarak sorgu göre getirilir. Bu nedenle, kullanmak [setMaxDegreeOfParallelism](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxdegreeofparallelism) en kullanıcı sorgu elde maksimum sıkıştırılabilmesi bölüm sayısı ayarlamak için sağlanan diğer tüm sistem koşulları aynı kalır. Bölüm sayısı bilmiyorsanız, yüksek bir sayı ayarlamak için setMaxDegreeOfParallelism kullanabilirsiniz ve maksimum paralellik derecesi (bölüm, kullanıcı tarafından sağlanan girdi sayısı) minimum sistem seçer. 
 
     Verileri sorgu göre tüm bölümleri arasında eşit olarak dağıtılır, paralel sorgular en iyi avantajları oluşturduğunun dikkate almak önemlidir. Bölümlenmiş koleksiyonu (en kötü durumda bir bölüm) birkaç bölümlerdeki tamamı veya bir sorgu tarafından döndürülen verilerin çoğunu bir yoğunlaşmıştır, ardından sorgu performansını tarafından bu bölümler nedeniyle düşük performansa şekilde bölümlenmiş durumunda.
 
-    (b) ***setMaxBufferedItemCount ayarlama\: *** paralel sorgu sonuçlarının geçerli toplu işlem istemci tarafından gerçekleştirilirken sonuçları önceden getirmek için tasarlanmıştır. Önceden getirme sorgu genel gecikme gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) beklenen sayıda sonuç döndürdü (veya daha yüksek bir sayı), bu önceden getirme maksimum avantajı almak sorgu sağlar.
+    (b) ***setMaxBufferedItemCount ayarlama\:***  paralel sorgu sonuçlarının geçerli toplu işlem istemci tarafından gerçekleştirilirken sonuçları önceden getirmek için tasarlanmıştır. Önceden getirme sorgu genel gecikme gelişme yardımcı olur. setMaxBufferedItemCount önceden getirilen sonuç sayısını sınırlar. Ayarlayarak [setMaxBufferedItemCount](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setmaxbuffereditemcount) beklenen sayıda sonuç döndürdü (veya daha yüksek bir sayı), bu önceden getirme maksimum avantajı almak sorgu sağlar.
 
     Önceden getirme MaxDegreeOfParallelism bağımsız olarak aynı şekilde çalışır ve tüm bölümleri verileri için tek bir arabellek yok.  
 
@@ -110,7 +110,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Ne zaman bir toplu gerçekleştirme belgelerin okuma kullanarak okunur işlevselliği akış (örneğin, [readDocuments]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.readdocuments#com_microsoft_azure_documentdb__document_client_readDocuments_String_FeedOptions_c) veya sonuç kümesi çok büyük ise bir SQL sorgusu verilirken sonuçlar bölümlenmiş bir şekilde döndürülür. Varsayılan olarak, ilk isabet sınırlarından hangisi olduğunu, sonuçları 100 öğeleri ya da 1 MB yığınlar halinde döndürdü.
 
-    Sayısını azaltmak için ağ gidiş dönüşleri uygulanabilir tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-öğesi-count](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Burada yalnızca birkaç sonuçları görüntülemek için gereken durumlarda Örneğin, kullanıcı arabirimi veya uygulama API yalnızca 10 döndürürse birer sonuçları, aynı zamanda okuma ve sorgular için tüketilen verimlilik azaltmak için 10 sayfa boyutunu azaltabilirsiniz.
+    Sayısını azaltmak için ağ gidiş dönüşleri uygulanabilir tüm sonuçları almak için gereken, sayfa boyutu kullanarak artırabilirsiniz [x-ms-max-öğesi-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) en fazla 1000 istek üstbilgisi. Burada yalnızca birkaç sonuçları görüntülemek için gereken durumlarda Örneğin, kullanıcı arabirimi veya uygulama API yalnızca 10 döndürürse birer sonuçları, aynı zamanda okuma ve sorgular için tüketilen verimlilik azaltmak için 10 sayfa boyutunu azaltabilirsiniz.
 
     Sayfa boyutu kullanarak da yerleştirebilir [setPageSize yöntemi](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options_base.setpagesize#com_microsoft_azure_documentdb__feed_options_base_setPageSize_Integer).
 
@@ -143,7 +143,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Bir sorgu karmaşıklığını kaç tane istek birimi için bir işlem tüketilen etkiler. Koşulları sayısı, koşulları, UDF'ler sayısı ve tüm kaynak veri kümesi boyutunu yapısını sorgu işlemlerinin maliyetini etkiler.
 
-    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) incelemek [x-ms-istek-ücret](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) üstbilgi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) veya [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) bu işlemler tarafından tüketilen isteği birim sayısını ölçmek için.
+    Herhangi bir işlem yükü ölçmek için (oluşturma, güncelleştirme veya silme) incelemek [x-ms-istek-ücret](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) üstbilgi (veya eşdeğer RequestCharge özelliği [ResourceResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._resource_response) veya [FeedResponse<T> ](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response) bu işlemler tarafından tüketilen isteği birim sayısını ölçmek için.
 
     ```Java
     ResourceResponse<Document> response = client.createDocument(collectionLink, documentDefinition, null, false);
@@ -155,7 +155,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 <a id="429"></a>
 2. **Tanıtıcı oranı sınırlama istek oranı çok büyük**
 
-    Bir istemci bir hesap için ayrılmış işleme aşan girişiminde bulunduğunda, sunucuda bir performans düşüşü olmadan ve işleme kapasitesi ayrılmış düzeyinin ötesine hiçbir kullanımını yoktur. Sunucu erken önlem RequestRateTooLarge (HTTP durum kodu 429) istekle sonlandırmak ve dönmek [x-ms-yeniden deneme-sonra-ms](https://docs.microsoft.com/rest/api/documentdb/common-documentdb-rest-response-headers) kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten üstbilgisi İstek.
+    Bir istemci bir hesap için ayrılmış işleme aşan girişiminde bulunduğunda, sunucuda bir performans düşüşü olmadan ve işleme kapasitesi ayrılmış düzeyinin ötesine hiçbir kullanımını yoktur. Sunucu erken önlem RequestRateTooLarge (HTTP durum kodu 429) istekle sonlandırmak ve dönmek [x-ms-yeniden deneme-sonra-ms](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) kullanıcı reattempting önce beklemesi gereken milisaniye cinsinden süreyi belirten üstbilgisi İstek.
 
         HTTP Status 429,
         Status Line: RequestRateTooLarge

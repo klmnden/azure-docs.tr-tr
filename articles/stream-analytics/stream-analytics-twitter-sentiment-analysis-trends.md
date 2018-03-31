@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics ile gerçek zamanlı Twitter düşünceleri çözümleme | Microsoft Docs"
-description: "Akış analizi için gerçek zamanlı Twitter düşünceleri analizi kullanmayı öğrenin. Olay oluşturma hakkında adım adım kılavuzdan verileri canlı bir Pano üzerinde."
-keywords: "gerçek zamanlı twitter eğilim analizi, düşünceleri analiz, sosyal medya analizi, eğilim analizi örneği"
+title: Azure Stream Analytics ile gerçek zamanlı Twitter düşünceleri çözümleme | Microsoft Docs
+description: Akış analizi için gerçek zamanlı Twitter düşünceleri analizi kullanmayı öğrenin. Olay oluşturma hakkında adım adım kılavuzdan verileri canlı bir Pano üzerinde.
+keywords: gerçek zamanlı twitter eğilim analizi, düşünceleri analiz, sosyal medya analizi, eğilim analizi örneği
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
-ms.author: samacha
-ms.openlocfilehash: 96a169343481f1cdf43af82a7768cfe08cbd4886
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 87a9ecc5984075d700ddc64a1377342d5fe7e494
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics gerçek zamanlı Twitter düşünceleri analizi
 
@@ -114,7 +113,7 @@ Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim vere
 ## <a name="configure-and-start-the-twitter-client-application"></a>Yapılandırma ve Twitter istemci uygulamasını başlatın
 İstemci uygulaması tweet olayları doğrudan Twitter'dan alır. Bunu yapmak için Twitter akış API'leri çağırmak için izniniz gerekiyor. Bu izni yapılandırmak için benzersiz kimlik bilgilerini (örneğin, OAuth belirteci) oluşturur Twitter içinde bir uygulama oluşturun. API çağrıları yaptığında, bu kimlik bilgilerini kullanmak için istemci uygulaması sonra yapılandırabilirsiniz. 
 
-### <a name="create-a-twitter-application"></a>Bir Twitter uygulaması oluşturma
+### <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 Bu öğretici için kullanabileceğiniz bir Twitter uygulaması zaten yoksa bir tane oluşturabilirsiniz. Zaten bir Twitter hesabı olması gerekir.
 
 > [!NOTE]

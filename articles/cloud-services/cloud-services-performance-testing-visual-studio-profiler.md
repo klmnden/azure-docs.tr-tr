@@ -1,12 +1,12 @@
 ---
-title: "Bir bulut hizmeti yerel olarak işlem öykünücüsü'nde profil oluşturma | Microsoft Docs"
+title: Bir bulut hizmeti yerel olarak işlem öykünücüsü'nde profil oluşturma | Microsoft Docs
 services: cloud-services
-description: "Visual Studio Profil Oluşturucu ile bulut Hizmetleri performans sorunları araştırmak"
-documentationcenter: 
+description: Visual Studio Profil Oluşturucu ile bulut Hizmetleri performans sorunları araştırmak
+documentationcenter: ''
 author: mikejo
-manager: ghogen
-editor: 
-tags: 
+manager: douge
+editor: ''
+tags: ''
 ms.assetid: 25e40bf3-eea0-4b0b-9f4a-91ffe797f6c3
 ms.service: cloud-services
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/18/2016
 ms.author: mikejo
-ms.openlocfilehash: ee7febeb04d3a956b4a0a11b69f8f34acee23067
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 8ff7b88a3086488ab669288687c274237ca30b47
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="testing-the-performance-of-a-cloud-service-locally-in-the-azure-compute-emulator-using-the-visual-studio-profiler"></a>Bir bulut Hizmeti performansını Visual Studio profil oluşturucu kullanılarak Azure işlem öykünücüsü yerel olarak test etme
 Çeşitli araçları ve teknikleri, bulut Hizmetleri performansını test etmek için kullanılabilir.
@@ -30,7 +30,7 @@ Buluta dağıtmadan önce uygulamanızda yerel olarak işlem öykünücüsü pro
 Bu makale, öykünücüde yer olarak uygulanabilen, profil oluşturma için CPU Örnekleme yöntemini kapsar. CPU örnekleme, profil oluşturma yöntemi çok zorlayıcı değildir. Belirlenen örnekleme aralığı sırasında profil oluşturucu çağrı yığınının bir anlık görüntüsünü alır. Veriler, bir süre boyunca toplanan ve bir raporda. Profil oluşturma yöntemi, burada bir pkı'ya yoğun uygulamasında CPU işlerin çoğunu yapılır belirtmek eğilimindedir.  Bu, uygulamanızın en uzun süre burada harcama "etkin yolunuzda" odak fırsatı verir.
 
 ## <a name="1-configure-visual-studio-for-profiling"></a>1: profil oluşturma için Visual Studio'yu yapılandırma
-İlk olarak, profil oluşturma zaman yararlı olabilecek birkaç Visual Studio yapılandırma seçenekleri mevcuttur. Profil oluşturma raporları anlamlı için uygulama ve ayrıca sistem kitaplıkları simgelerini simge (.pdb dosyaları) gerekir. Kullanılabilir simge sunucuları başvuru emin olmak istersiniz. Bunu yapmak için **Araçları** Visual Studio'da menüsünü seçin **seçenekleri**, ardından **hata ayıklama**, ardından **simgeleri**. Microsoft simge sunucuları altında listelendiğini doğrulayın **simge (.pdb) dosya konumları**.  Ayrıca ek simge dosyaları olabilir http://referencesource.microsoft.com/symbols başvuruda bulunabilir.
+İlk olarak, profil oluşturma zaman yararlı olabilecek birkaç Visual Studio yapılandırma seçenekleri mevcuttur. Profil oluşturma raporları anlamlı için uygulama ve ayrıca sistem kitaplıkları simgelerini simge (.pdb dosyaları) gerekir. Kullanılabilir simge sunucuları başvuru emin olmak istersiniz. Bunu yapmak için **Araçları** Visual Studio'da menüsünü seçin **seçenekleri**, ardından **hata ayıklama**, ardından **simgeleri**. Microsoft simge sunucuları altında listelendiğini doğrulayın **simge (.pdb) dosya konumları**.  Ayrıca başvurabilir http://referencesource.microsoft.com/symbols, ek simge dosyaları olabilir.
 
 ![Sembol Seçenekleri][4]
 

@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri için Azure tablo depolama bağlamaları"
-description: "Azure Table depolama bağlamaları Azure işlevlerini kullanmak nasıl anlayın."
+title: Azure işlevleri için Azure tablo depolama bağlamaları
+description: Azure Table depolama bağlamaları Azure işlevlerini kullanmak nasıl anlayın.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme dinamik işlem sunucusuz mimarisi
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 8c028bd20518a07a5fb35e36d0819c001eb2a7d5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e6d2891a8ea531bf5c7cc7e1c74b890e01f2b56b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure tablo depolama bağlamaları
 
@@ -388,6 +388,9 @@ Tablo depolama giriş bağlama aşağıdaki senaryoları destekler:
 ## <a name="output"></a>Çıktı
 
 Bir Azure depolama hesabındaki bir tablo varlıkları yazılacak bağlama Azure Table depolama çıktı kullanın.
+
+> [!NOTE]
+> Bu çıktı bağlama varolan varlıkları güncelleştirme desteklemez. Kullanım `TableOperation.Replace` işlemi [Azure depolama SDK](https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet#replace-an-entity) var olan bir varlığı güncelleştirmek için.   
 
 ## <a name="output---example"></a>Çıktı - örnek
 

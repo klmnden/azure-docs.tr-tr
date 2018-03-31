@@ -1,20 +1,20 @@
 ---
-title: "Yönetilmeyen (sayfa bloblarını) ve Microsoft Azure Windows VM'ler için diskleri depolama yönetilen hakkında | Microsoft Docs"
-description: "İle ilgili temel bilgileri öğrenin (sayfa bloblarını) yönetilmeyen ve yönetilen azure'da Windows sanal makineler için diskleri depolama."
+title: Yönetilmeyen (sayfa bloblarını) ve Microsoft Azure Windows VM'ler için diskleri depolama yönetilen hakkında | Microsoft Docs
+description: İle ilgili temel bilgileri öğrenin (sayfa bloblarını) yönetilmeyen ve yönetilen azure'da Windows sanal makineler için diskleri depolama.
 services: virtual-machines
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 ms.service: virtual-machines
 ms.workload: storage
 ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: iainfou
-ms.openlocfilehash: bf5c5cc0637b9a515bf567ff8933170d7fc1a8ba
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.author: rogarana
+ms.openlocfilehash: 3d82416b7382b8e09706fd7fb8af9e1d3fe79f01
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows VM'ler için diskleri depolama hakkında
 Yalnızca başka bir bilgisayarda gibi azure'daki sanal makinelerde bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak diskleri kullanın. Tüm Azure sanal makineler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diske sahip. İşletim sistemi diski bir görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün sanal bir Azure depolama hesabında depolanan sabit diskler (VHD). Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir. 

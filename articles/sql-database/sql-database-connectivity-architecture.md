@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı bağlantısı mimarisi | Microsoft Docs"
-description: "Bu belgede Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklanmaktadır Azure dışında."
+title: Azure SQL veritabanı bağlantısı mimarisi | Microsoft Docs
+description: Bu belgede Azure SQLDB bağlantı mimarisinden Azure içinde veya gelen açıklanmaktadır Azure dışında.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 98784b2d1ede5354c965e483b34b5fcb323394aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f7dc584c8fa9f4452b2bd9288df86492399c036c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL veritabanı bağlantısı mimarisi 
 
@@ -91,7 +91,7 @@ Aşağıdaki tabloda Azure SQL veritabanı ağ geçidi tüm veri bölgeleri içi
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Azure SQL veritabanı bağlantı ilkesini değiştirme
 
-Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirmek için kullanın [REST API](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirmek için kullanın [bağlantı İlkesi](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) komutu.
 
 - Bağlantı ilkeniz ayarlanmışsa **Proxy**, tüm Azure SQL veritabanı ağ geçidi üzerinden paket akışı ağ. Bu ayar, yalnızca Azure SQL veritabanı ağ geçidi IP giden izin vermeniz gerekir. Ayarı kullanarak **Proxy** ayarı'den daha fazla gecikme sahip **yeniden yönlendirme**.
 - Bağlantı ilkeniz ayarlıyorsanız **yeniden yönlendirme**, tüm paketler akışına doğrudan ara proxy ağ. Bu ayar için birden çok IP giden izin vermeniz gerekir.
@@ -181,6 +181,6 @@ az resource update --ids $id --set properties.connectionType=Proxy
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirme hakkında daha fazla bilgi için bkz: [oluşturma veya güncelleştirme sunucusu bağlantısı REST API kullanarak İlkesi](https://msdn.microsoft.com/library/azure/mt604439.aspx).
+- Bir Azure SQL veritabanı sunucusu için Azure SQL veritabanı bağlantı ilkesini değiştirme hakkında daha fazla bilgi için bkz: [bağlantı İlkesi](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - ADO.NET 4.5 veya sonraki bir sürümünü kullanan istemciler için Azure SQL veritabanı bağlantı davranışı hakkında bilgi için bkz: [ADO.NET 4.5 1433 dışındaki bağlantı noktaları](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Genel uygulama geliştirme genel bakış bilgileri için bkz: [SQL veritabanı uygulaması geliştirmeye genel bakış](sql-database-develop-overview.md).

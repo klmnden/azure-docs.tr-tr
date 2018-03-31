@@ -1,246 +1,176 @@
 ---
-title: "Windows Azure için sanal makine ölçek kümeleri oluşturma | Microsoft Docs"
-description: "Windows sanal makine ölçek kümesini kullanarak sanal makineleri üzerinde yüksek oranda kullanılabilir bir uygulama oluşturun ve dağıtın"
+title: Windows Azure için sanal makine ölçek kümeleri oluşturma | Microsoft Docs
+description: Windows sanal makine ölçek kümesini kullanarak sanal makineleri üzerinde yüksek oranda kullanılabilir bir uygulama oluşturun ve dağıtın
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 03/29/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d190d046f7572c51df0c5c9e14e14a41d93e3248
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 81d8cc85827b29beaaec03fd258b550948798641
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows"></a>Bir sanal makine ölçek kümesi oluşturma ve yüksek oranda kullanılabilir bir Windows uygulamasını dağıtma
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. Ölçek kümesindeki VM'lerin sayısını elle ölçeklendirme ya da CPU, bellek isteğe bağlı veya ağ trafiğini gibi kaynak kullanımına bağlı olarak otomatik ölçeklendirme kurallarını tanımlayabilirsiniz. Bu öğreticide, Azure üzerinde ayarlanmış bir sanal makine ölçek dağıtın. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesi içindeki VM sayısını el ile ölçeklendirebilir veya CPU, bellek isteği ya da ağ trafiği gibi kaynak kullanımını temel alan otomatik ölçeklendirme kuralları tanımlayabilirsiniz. Bu öğreticide, Azure’da bir sanal makine ölçek kümesi dağıtılmaktadır. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Bir IIS sitesi ölçeklendirme tanımlamak için özel betik uzantısı kullanın
 > * Ölçek kümesi için bir yük dengeleyici oluşturma
-> * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Sanal makine ölçek kümesi oluşturma
+> * Ölçek kümesindeki örnek sayısını artırma veya azaltma
 > * Otomatik ölçeklendirme kuralları oluşturma
 
-Bu öğreticide Azure PowerShell modülü sürümü 5.1.1 gerektirir veya sonraki bir sürümü. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps).
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürüm 5.6 veya üstü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 
-## <a name="scale-set-overview"></a>Ölçek kümesi'ne genel bakış
-Bir sanal makine ölçek kümesini dağıtmak ve aynı, otomatik ölçeklendirme sanal makineler kümesi yönetmenize olanak sağlar. VM ölçek kümesindeki bir veya daha mantığı arıza ve güncelleştirme alanlarında dağıtılır *yerleştirme grupları*. Benzer şekilde yapılandırılmış sanal makineleri, benzer şekilde, bunlar gruplarıdır [kullanılabilirlik kümeleri](tutorial-availability-sets.md).
+## <a name="scale-set-overview"></a>Ölçek Kümesine genel bakış
+Sanal makine ölçek kümesi, birbiriyle aynı ve otomatik olarak ölçeklendirilen sanal makine kümesi dağıtmanızı ve yönetmenizi sağlar. Ölçek kümesindeki VM’ler, bir veya daha fazla *yerleştirme grubu* şeklinde mantık hatası ve güncelleme etki alanlarında dağıtılır. Bu gruplar, [kullanılabilirlik kümeleri](tutorial-availability-sets.md) gibi benzer şekilde yapılandırılmış VM’lerdir.
 
-VM ölçek kümesindeki gerektiği şekilde oluşturulur. Nasıl ve ne zaman VM'ler eklendiğinde veya kaldırıldığında ölçek kümesi denetlemek için otomatik ölçeklendirme kurallarını tanımlayın. Bu kurallar temel alınarak ölçümleri CPU yükünü, bellek kullanımı veya ağ trafiğini gibi tetikleyebilir.
+VM’ler, ölçek kümesinde gerektiğinde oluşturulur. Ölçek kümesinde VM eklenmesi veya kaldırılması işlemlerinin nasıl ve ne zaman gerçekleştirileceğini denetlemek için otomatik ölçeklendirme kurallarını tanımlanır. Bu kurallar temel alınarak ölçümleri CPU yükünü, bellek kullanımı veya ağ trafiğini gibi tetikleyebilir.
 
-Bir Azure platform görüntüsü kullandığınızda ölçek 1.000 VM'ler kadar destek ayarlar. Önemli yükleme veya VM özelleştirme gereksinimleri ile iş yükleri için istediğiniz [özel bir VM görüntüsü oluşturma](tutorial-custom-images.md). Özel görüntü kullanırken ayarlayın bir ölçek kadar 300 VM'ler oluşturabilirsiniz.
+Bir Azure platform görüntüsü kullanılırsa ölçek kümeleri 1.000 adede kadar VM'i destekler. Ciddi derecede yükleme veya VM özelleştirme gereksinimleri olan iş yükleri için [özel bir VM görüntüsü oluşturulması](tutorial-custom-images.md) iyi olabilir. Özel bir görüntü kullanırken ölçek kümesinde 300 adede kadar VM oluşturabilirsiniz.
 
 
-## <a name="create-an-app-to-scale"></a>Ölçeklendirmek için uygulama oluşturma
-Ölçek kümesini oluşturmadan önce bir kaynak grubuyla oluşturmanız [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupAutomate* içinde *EastUS* konumu:
+## <a name="create-a-scale-set"></a>Ölçek kümesi oluşturma
+Bir sanal makine ölçek kümesi oluşturma [yeni AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvmss). Aşağıdaki örnek *myScaleSet* adına sahip olan ve *Windows Server 2016 Datacenter* platform görüntüsünü kullanan bir ölçek kümesi oluşturur. Sanal ağ, genel IP adresi ve yük dengeleyici için Azure ağ kaynakları otomatik olarak oluşturulur. İstendiğinde, Ölçek kümesi VM örnekleri için kendi istediğiniz yönetici kimlik bilgilerini sağlayın:
 
-```powershell
-New-AzureRmResourceGroup -ResourceGroupName myResourceGroupScaleSet -Location EastUS
+```azurepowershell-interactive
+New-AzureRmVmss `
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -Location "EastUS" `
+  -VMScaleSetName "myScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicy "Automatic"
 ```
 
-Bir önceki öğreticide öğrenilen nasıl [otomatikleştirmek VM Yapılandırması](tutorial-automate-vm-deployment.md) özel betik uzantısı kullanma. Ölçek kümesi yapılandırması oluşturun, sonra IIS yüklemesi ve yapılandırması için bir özel betik uzantısı Uygula:
+Tüm ölçek kümesi kaynaklarının ve VM'lerin oluşturulup yapılandırılması birkaç dakika sürer.
 
-```powershell
-# Create a config object
-$vmssConfig = New-AzureRmVmssConfig `
-    -Location EastUS `
-    -SkuCapacity 2 `
-    -SkuName Standard_DS2 `
-    -UpgradePolicyMode Automatic
 
+## <a name="deploy-sample-application"></a>Örnek uygulama dağıtma
+Ölçek kümesini test etmek için bir temel web uygulamasını yükleyin. Azure özel betik uzantısının karşıdan yükleyip IIS VM örneklerinde yükleyen bir komut dosyası çalıştırmak için kullanılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Daha fazla bilgi için bkz. [Özel Betik Uzantısı'na genel bakış](extensions-customscript.md).
+
+Temel bir IIS web sunucusu yüklemek için özel betik uzantısı kullanın. IIS uygulamasını yükleyen Özel Betik Uzantısı'nı aşağıdaki şekilde uygulayın:
+
+```azurepowershell-interactive
 # Define the script for your Custom Script Extension to run
 $publicSettings = @{
     "fileUris" = (,"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/automate-iis.ps1");
     "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
 }
 
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+            -ResourceGroupName "myResourceGroupScaleSet" `
+            -VMScaleSetName "myScaleSet"
+
 # Use Custom Script Extension to install IIS and configure basic website
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig `
+Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
     -Name "customScript" `
     -Publisher "Microsoft.Compute" `
     -Type "CustomScriptExtension" `
     -TypeHandlerVersion 1.8 `
     -Setting $publicSettings
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
-## <a name="create-scale-load-balancer"></a>Ölçek yük dengeleyici oluşturma
-Bir Azure yük dengeleyici gelen trafiği sağlıklı VM'ler arasında dağıtarak yüksek kullanılabilirlik sağlayan bir katman 4 (TCP, UDP) yük dengeleyicidir. Bir yük dengeleyici durum araştırması her VM üzerinde belirli bir bağlantı noktasını izler ve yalnızca trafiği işletimsel bir VM dağıtır. Daha fazla bilgi için sonraki öğretici bakın [nasıl yükleneceğini Windows sanal makineleri Bakiye](tutorial-load-balancer.md).
 
-Bir ortak IP adresi ve bağlantı noktası 80 üzerinde web trafiği dağıtan bir yük dengeleyicisi oluşturun:
+## <a name="test-your-scale-set"></a>Sınama, Ölçek kümesi
+Eylem ayarlayın, yük dengeleyici ile genel IP adresi elde, Ölçek görmek için [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek IP adresi alacağı *myPublicIP* ölçek kümesinin bir parçası olarak oluşturulan:
 
-```powershell
-# Create a public IP address
-$publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Location EastUS `
-  -AllocationMethod Static `
-  -Name myPublicIP
-
-# Create a frontend and backend IP pool
-$frontendIP = New-AzureRmLoadBalancerFrontendIpConfig `
-  -Name myFrontEndPool `
-  -PublicIpAddress $publicIP
-$backendPool = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name myBackEndPool
-
-# Create the load balancer
-$lb = New-AzureRmLoadBalancer `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myLoadBalancer `
-  -Location EastUS `
-  -FrontendIpConfiguration $frontendIP `
-  -BackendAddressPool $backendPool
-
-# Create a load balancer health probe on port 80
-Add-AzureRmLoadBalancerProbeConfig -Name myHealthProbe `
-  -LoadBalancer $lb `
-  -Protocol tcp `
-  -Port 80 `
-  -IntervalInSeconds 15 `
-  -ProbeCount 2
-
-# Create a load balancer rule to distribute traffic on port 80
-Add-AzureRmLoadBalancerRuleConfig `
-  -Name myLoadBalancerRule `
-  -LoadBalancer $lb `
-  -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
-  -BackendAddressPool $lb.BackendAddressPools[0] `
-  -Protocol Tcp `
-  -FrontendPort 80 `
-  -BackendPort 80
-
-# Update the load balancer configuration
-Set-AzureRmLoadBalancer -LoadBalancer $lb
+```azurepowershell-interactive
+Get-AzureRmPublicIPAddress `
+    -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myPublicIPAddress" | select IpAddress
 ```
 
-## <a name="create-a-scale-set"></a>Bir ölçek kümesi oluşturma
-Şimdi bir sanal makine ölçek kümesi oluşturmak [yeni AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm). Aşağıdaki örnek, ölçeği adlandırılmış Ayarla oluşturur *myScaleSet*:
-
-```powershell
-# Reference a virtual machine image from the gallery
-Set-AzureRmVmssStorageProfile $vmssConfig `
-  -ImageReferencePublisher MicrosoftWindowsServer `
-  -ImageReferenceOffer WindowsServer `
-  -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
-
-# Set up information for authenticating with the virtual machine
-Set-AzureRmVmssOsProfile $vmssConfig `
-  -AdminUsername azureuser `
-  -AdminPassword P@ssword! `
-  -ComputerNamePrefix myVM
-
-# Create the virtual network resources
-$subnet = New-AzureRmVirtualNetworkSubnetConfig `
-  -Name "mySubnet" `
-  -AddressPrefix 10.0.0.0/24
-$vnet = New-AzureRmVirtualNetwork `
-  -ResourceGroupName "myResourceGroupScaleSet" `
-  -Name "myVnet" `
-  -Location "EastUS" `
-  -AddressPrefix 10.0.0.0/16 `
-  -Subnet $subnet
-$ipConfig = New-AzureRmVmssIpConfig `
-  -Name "myIPConfig" `
-  -LoadBalancerBackendAddressPoolsId $lb.BackendAddressPools[0].Id `
-  -SubnetId $vnet.Subnets[0].Id
-
-# Attach the virtual network to the config object
-Add-AzureRmVmssNetworkInterfaceConfiguration `
-  -VirtualMachineScaleSet $vmssConfig `
-  -Name "network-config" `
-  -Primary $true `
-  -IPConfiguration $ipConfig
-
-# Create the scale set with the config object (this step might take a few minutes)
-New-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -Name myScaleSet `
-  -VirtualMachineScaleSet $vmssConfig
-```
-
-Oluşturun ve tüm sanal makineleri ve ölçek kümesi kaynakları yapılandırmak için birkaç dakika sürer.
-
-
-## <a name="test-your-app"></a>Uygulamanızı test etme
-Eylem, IIS Web sitesinin görmek için yük dengeleyici ile genel IP adresi elde [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress). Aşağıdaki örnek IP adresi alacağı *myPublicIP* ölçek kümesinin bir parçası olarak oluşturulan:
-
-```powershell
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupScaleSet -Name myPublicIP | select IpAddress
-```
-
-Ortak IP adresini bir web tarayıcısına girin. Ana bilgisayar trafiği için yük dengeleyici dağıtılmış VM adını dahil olmak üzere uygulama gösterilir:
+Genel IP adresini bir web tarayıcısına girin. Ana bilgisayar trafiği için yük dengeleyici dağıtılmış VM adını dahil olmak üzere web uygulaması görüntülenir:
 
 ![Çalışan IIS sitesi](./media/tutorial-create-vmss/running-iis-site.png)
 
-Eylem kümesini görmek için zorla uygulamanızı çalıştıran tüm VM'ler arasında trafiği dağıtmak yük dengeleyici görmek için web tarayıcınızın yenileme.
+Ölçek kümesini çalışırken görmek için web tarayıcınızı yenilemeye zorlayarak yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtmasını görebilirsiniz.
 
 
 ## <a name="management-tasks"></a>Yönetim görevleri
-Ölçek kümesini yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevleri otomatikleştiren komut dosyaları oluşturmak isteyebilirsiniz. Azure PowerShell, bu görevleri gerçekleştirmek için hızlı bir yoludur. Birkaç ortak görevler şunlardır.
+Ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Azure PowerShell, bu görevleri gerçekleştirmek için hızlı bir yoludur. Aşağıda birkaç yaygın görev açıklanmaktadır.
 
-### <a name="view-vms-in-a-scale-set"></a>Görünüm VM ölçek kümesindeki
-Ölçek kümesinde çalışan sanal makineler listesini görüntülemek için kullanın [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) gibi:
+### <a name="view-vms-in-a-scale-set"></a>Ölçek kümesindeki VM’leri görüntüleme
+Ölçek kümesindeki VM örneklerinin bir listesini görüntülemek için kullanın [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm) gibi:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet"
+```
+
+Aşağıdaki örnek çıkış ölçek kümesinde iki VM örneğini gösterir:
 
 ```powershell
-# Get current scale set
-$scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+ResourceGroupName                 Name Location             Sku InstanceID ProvisioningState
+-----------------                 ---- --------             --- ---------- -----------------
+MYRESOURCEGROUPSCALESET   myScaleSet_0   eastus Standard_DS1_v2          0         Succeeded
+MYRESOURCEGROUPSCALESET   myScaleSet_1   eastus Standard_DS1_v2          1         Succeeded
+```
 
-# Loop through the instanaces in your scale set
-for ($i=1; $i -le ($scaleset.Sku.Capacity - 1); $i++) {
-    Get-AzureRmVmssVM -ResourceGroupName myResourceGroupScaleSet `
-      -VMScaleSetName myScaleSet `
-      -InstanceId $i
-}
+Belirli bir VM örneği hakkında ek bilgi görüntülemek için add `-InstanceId` parametresi [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Aşağıdaki örnek görünümleri VM örneği hakkında bilgi *1*:
+
+```azurepowershell-interactive
+Get-AzureRmVmssVM -ResourceGroupName "myResourceGroupScaleSet" -VMScaleSetName "myScaleSet" -InstanceId "1"
 ```
 
 
-### <a name="increase-or-decrease-vm-instances"></a>Artırma veya azaltma VM örnekleri
+### <a name="increase-or-decrease-vm-instances"></a>VM örneklerinin sayısını artırma veya azaltma
 Ölçek kümesindeki şu anda sahip örneklerinin sayısını görmek için [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) ve sorgulayın *sku.capacity*:
 
-```powershell
-Get-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -VMScaleSetName myScaleSet | `
+```azurepowershell-interactive
+Get-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -VMScaleSetName "myScaleSet" | `
     Select -ExpandProperty Sku
 ```
 
-Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [güncelleştirme AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Aşağıdaki örnek VM'lerin sayısını ayarlamak, Ölçek ayarlar *3*:
+Daha sonra el ile artırabilir veya sanal makine ölçek kümesi sayısını azaltmak [güncelleştirme AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Aşağıdaki örnek, ölçek kümenizdeki VM'lerin sayısını *3* olarak ayarlar:
 
-```powershell
+```azurepowershell-interactive
 # Get current scale set
 $scaleset = Get-AzureRmVmss `
-  -ResourceGroupName myResourceGroupScaleSet `
-  -VMScaleSetName myScaleSet
+  -ResourceGroupName "myResourceGroupScaleSet" `
+  -VMScaleSetName "myScaleSet"
 
 # Set and update the capacity of your scale set
 $scaleset.sku.capacity = 3
-Update-AzureRmVmss -ResourceGroupName myResourceGroupScaleSet `
-    -Name myScaleSet `
+Update-AzureRmVmss -ResourceGroupName "myResourceGroupScaleSet" `
+    -Name "myScaleSet" `
     -VirtualMachineScaleSet $scaleset
 ```
 
 Bir örneği, Ölçek belirtilen sayısı güncelleştirilmesi birkaç dakika sürer ayarlarsanız.
 
 
-### <a name="configure-autoscale-rules"></a>Otomatik ölçeklendirme kurallarını yapılandırma
-Örnek sayısı, Ölçek el ile ölçeklendirme ayarlamak yerine otomatik ölçeklendirme kurallarını tanımlayın. Bu kurallar, Ölçek kümesinin örneklerini izlemek ve buna göre ölçümleri ve tanımladığınız eşikleri göre yanıt. Ortalama CPU yükü 5 dakikalık bir süre içinde % 60'den büyük olduğunda aşağıdaki örnekte, biri tarafından örneklerinin sayısını olarak ölçeklendirir. Ortalama CPU yükünü daha sonra 5 dakikalık bir süre içinde % 30 düşerse örnekleri içinde bir örneği tarafından ölçeklenir:
+### <a name="configure-autoscale-rules"></a>Otomatik ölçeklendirme kuralları yapılandırma
+Örnek sayısı, Ölçek el ile ölçeklendirme ayarlamak yerine otomatik ölçeklendirme kurallarını tanımlayın. Bu kurallar, ölçek kümenizdeki örnekleri izler ve tanımladığınız ölçüm ve eşiklere göre müdahale eder. Aşağıdaki örnek, ortalama CPU yükü 5 dakika süresince %60’dan yüksek olursa örnek sayısını bir tane artırır. Ortalama CPU yükünü daha sonra 5 dakikalık bir süre içinde % 30 düşerse örnekleri içinde bir örneği tarafından ölçeklenir:
 
-```powershell
+```azurepowershell-interactive
 # Define your scale set information
-$mySubscriptionId = (Get-AzureRmSubscription).Id
+$mySubscriptionId = (Get-AzureRmSubscription)[0].Id
 $myResourceGroup = "myResourceGroupScaleSet"
 $myScaleSet = "myScaleSet"
 $myLocation = "East US"
@@ -288,20 +218,20 @@ Add-AzureRmAutoscaleSetting `
   -AutoscaleProfiles $myScaleProfile
 ```
 
-Daha fazla tasarım otomatik ölçeklendirme, kullanımı hakkında bilgi için [otomatik ölçeklendirme en iyi yöntemler](/azure/architecture/best-practices/auto-scaling).
+Otomatik ölçeklendirme kullanımıyla ilgili diğer tasarım bilgileri için [otomatik ölçeklendirmeye yönelik en iyi yöntemlere](/azure/architecture/best-practices/auto-scaling) bakın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir sanal makine ölçek kümesi oluşturuldu. Şunları öğrendiniz:
+Bu öğreticide, bir sanal makine ölçek kümesi oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Bir IIS sitesi ölçeklendirme tanımlamak için özel betik uzantısı kullanın
 > * Ölçek kümesi için bir yük dengeleyici oluşturma
-> * Bir sanal makine ölçek kümesi oluşturma
-> * Artırma veya azaltma ölçek kümesindeki örnek sayısı
+> * Sanal makine ölçek kümesi oluşturma
+> * Ölçek kümesindeki örnek sayısını artırma veya azaltma
 > * Otomatik ölçeklendirme kuralları oluşturma
 
-Yük Dengeleme sanal makineler için kavramları hakkında daha fazla bilgi için sonraki öğretici ilerleyin.
+Sanal makinelere ilişkin yük dengeleme kavramları hakkında daha fazla bilgi edinmek için sıradaki öğreticiye geçin.
 
 > [!div class="nextstepaction"]
-> [Sanal makinelerin yük dengelemesini](tutorial-load-balancer.md)
+> [Sanal makinelerde yük dengeleme](tutorial-load-balancer.md)

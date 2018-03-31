@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - ulaşma içeriği"
-description: "Anında iletme bildirimi kampanyaları Azure Mobile Engagement, farklı türdeki benzersiz içerik yönetmeyi öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - ulaşma içeriği
+description: Anında iletme bildirimi kampanyaları Azure Mobile Engagement, farklı türdeki benzersiz içerik yönetmeyi öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: add64f06-43c9-475c-8722-51cd00bb844b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 3741a43b74af5846e95e42d8a7b533621e780f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 982cc66ffe98aa6dff8fe290cc1c2d4bad03c9ac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-unique-content-of-the-different-types-of-push-notification-campaigns"></a>Anında iletme bildirimi kampanyaları farklı türde benzersiz içeriği yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 İçerik Duyurular, anketler, veri iter ve Kutucuklar (yalnızca Windows Phone) değiştirmek için yeni bir reach kampanya içerik bölümünü kullanın. İçerik anında iletme kampanyalarını kampanya türüne belirli ayarıdır. 
 
 ### <a name="content-types"></a>İçerik türleri:
@@ -30,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 * Kutucuklar (yalnızca Windows Phone)
 
 ## <a name="content-of-announcements"></a>Duyurular içeriği
- ![Reach Content1][30] 
+ ![Reach-Content1][30] 
 
 ### <a name="choose-the-type-of-your-announcement"></a>Duyurunuzun türünü seçin:
 * Yalnızca bildirim: Basit standart bir bildirim değil. Bu kullanıcı üzerinde tıklatır, ek görünüm yok görünür, ancak yalnızca kendisine ilişkili eylemin oluşacağını anlamına gelir.
@@ -49,58 +53,58 @@ Bir tam ekran web görünümü oluşturmak isterseniz (sağladığımız varsay�
 
 ### <a name="choose-your-action"></a>Eylem seçin:
 ### <a name="about-action-urls"></a>Eylem URL'ler hakkında:
-Hedeflenen cihazın işletim sistemi tarafından yorumlanabilen herhangi bir URL, eylem URL'si olarak kullanılabilir.
-Uygulamanızın destekleyebileceği herhangi bir ayrılmış URL de (örn. kullanıcıların belirli bir ekrana atlaması için) eylem URL'si olarak kullanılabilir.
+Hedeflenen cihazın işletim sistemi tarafından yorumlanabilen herhangi bir URL'nin bir eylem URL'si olarak kullanılabilir.
+Herhangi bir ayrılmış uygulamanızın destekleyebileceği URL (örn. kullanıcıların belirli bir ekrana atlaması için) eylem URL'si olarak da kullanılabilir.
 {DeviceID} deseninin her oluşumu, eylemi gerçekleştiren cihazın tanımlayıcısı ile otomatik olarak değiştirilir. Bu işlem arka ofisinizde barındırılan bir dış web hizmeti aracılığıyla Azure Mobile Engagement cihaz tanımlayıcılarını kolayca almak için kullanılabilir.
 
 * **Android + iOS Eylemler**
-  * Web sayfası aç
-  * http://\[web-sitesi-etki alanı\] 
-  * Örnek: http://www.azure.com
-  * E-posta gönder
-  * mailto:\[e-posta alıcı\]? konu =\[konu\]& Gövde =\[iletisi\] 
-  * Example:mailto:foo@example.com? Konu Tebrikler % 20from % 20Azure % 20Mobile % 20Engagement =! & Gövde iyi % 20stuff =!
+  * Bir web sayfasını açın
+  * http://\[web-site-domain\] 
+  * Örnek:http://www.azure.com
+  * Bir e-posta Gönder
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
   * SMS gönder
   * SMS:\[telefon numarası\] 
-  * Örnek: sms:2125551212
+  * Example:sms:2125551212
   * Telefon numarası çevir
   * Tel:\[telefon numarası\] 
-  * Örnek: tel:2125551212
+  * Example:tel:2125551212
 * **Android yalnızca Eylemler**
   * Play Store'dan bir uygulama indirin
   * Market://details?id=\[uygulama paketi\] 
   * Örnek: market://details?id=com.microsoft.office.word
-  * Coğrafi olarak yerelleştirilmiş arama başlat
-  * GEO:0, 0? q =\[arama sorgusu\] 
+  * Coğrafi olarak yerelleştirilmiş bir arama Başlat
+  * geo:0,0?q=\[search query\] 
   * Örnek: geo:0, 0? q starbucks, paris =
 * **iOS yalnızca Eylemler**
   * App Store'dan bir uygulama indirin
-  * http://iTunes.apple.com/ [Ülke] /app/ [uygulama adı] /id [uygulama kimliği]? mt = 8 
-  * Örnek: http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
+  * http://itunes.apple.com/[country] /app/ [uygulama adı] /id [uygulama kimliği]? mt = 8 
+  * Örnek:http://itunes.apple.com/fr/app/briquet-virtuel/id430154748?mt=8
   * Windows işlemleri
-  * Web sayfası aç
-  * http://\[web-sitesi-etki alanı\] 
-  * Örnek: http://www.azure.com
-  * E-posta gönder
-  * mailto:\[e-posta alıcı\]? konu =\[konu\]& Gövde =\[iletisi\] 
-  * Example:mailto:foo@example.com? Konu Tebrikler % 20from % 20Azure % 20Mobile % 20Engagement =! & Gövde iyi % 20stuff =!
-  * SMS gönder (Skype Store App gerekli)
+  * Bir web sayfasını açın
+  * http://\[web-site-domain\] 
+  * Örnek:http://www.azure.com
+  * Bir e-posta Gönder
+  * mailto:\[e-mail-recipient\]?subject=\[subject\]&body=\[message\] 
+  * Example:mailto:foo@example.com?subject=Greetings%20from%20Azure%20Mobile%20Engagement!&body=Good%20stuff!
+  * (Skype Store App gereklidir) SMS gönder
   * SMS:\[telefon numarası\] 
-  * Örnek: sms:2125551212
-  * Telefon numarası çevir (Skype Store App gereklidir)
+  * Example:sms:2125551212
+  * Bir telefon numarası (Skype Store App gereklidir) arama
   * Tel:\[telefon numarası\] 
-  * Örnek: tel:2125551212
+  * Example:tel:2125551212
   * Play Store'dan bir uygulama indirin
   * MS-windows-deposu: PDP? PFN =\[uygulama paket kimliği\] 
-  * Örnek: ms-windows-deposu: PDP? PFN 4d91298a-07cb-40fb-aecc-4cb5615d53c1 =
-  * Bingmaps araması başlat
-  * bingmaps:? q =\[arama sorgusu\] 
+  * Example:ms-windows-store:PDP?PFN=4d91298a-07cb-40fb-aecc-4cb5615d53c1
+  * Bingmaps Arama Başlat
+  * bingmaps:?q=\[search query\] 
   * Örnek: bingmaps:? q starbucks, paris =
-  * Özel şema kullan
+  * Özel bir şema kullanın
   * \[Özel şema\]://\[özel şema parametreleri\] 
-  * Örnek: myCustomProtocol://myCustomParams
+  * Example:myCustomProtocol://myCustomParams
   * Paket verileri (Store App gerekli okuma uzantısı) kullan
-  * \[klasör\]\[veri\].\[ uzantısı\] 
+  * \[folder\]\[data\].\[extension\] 
   * Example:myfolderdata.txt
 
 ### <a name="build-a-tracking-url"></a>Bir izleme URL'si oluşturun:
@@ -113,7 +117,7 @@ Başlık, içerik ve düğmesi duyurunuzun metinlerini doldurun. Kullanıcılar 
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
 
 ## <a name="content-of-polls"></a>Anketler içeriği
-![Reach Content2][31] 
+![Reach-Content2][31] 
 
 Başlık, açıklama ve düğmesi duyurunuzun metinlerini doldurun. Ardından, sorular ve sorularınızın yanıtlarını seçenekleri ekleyin.
 Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekteki bir kampanyanın bir izleyici hedefleyebilirsiniz. Dinleyici olup bu kampanyayı yalnızca, yanıtlanan, eylem yapılan veya Çıkılan gönderilen bağlı olabilir. Dinleyici da yoklama yanıt geri bildirim, soru ve yanıt seçim ölçütü olarak kullanıldığı temel alabilir.
@@ -122,7 +126,7 @@ Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekte
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
 
 ## <a name="content-of-data-pushes"></a>Veri gönderimleri içeriği
-![Reach Content3][32] 
+![Reach-Content3][32] 
 
 ### <a name="choose-the-type-of-your-data"></a>Verilerinizin türünü seçin:
 * Metin
@@ -138,7 +142,7 @@ Kullanıcılar bu kampanyaya nasıl yanıt, erişim görüş dayanarak gelecekte
 * [UI belgeleri - Reach - yeni itme ölçüt][Link 28]
 
 ## <a name="content-of-tiles-windows-phone-only"></a>İçerik döşeme (yalnızca Windows Phone)
-![Reach Content4][33]
+![Reach-Content4][33]
 
 ### <a name="define-the-content-of-your-tile"></a>Kutucuğunuzun içeriğini tanımlayın
 Döşeme yükü uygulamanızı Windows Phone cihazlarda döşemesinin görüntülenecek metindir.

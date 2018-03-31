@@ -1,8 +1,8 @@
 ---
-title: "Azure üzerinde bir Linux CentOS veri bilimi sanal makine sağlama | Microsoft Docs"
-description: "Yapılandırın ve analizi yapabilir ve makine Azure'da bir Linux veri bilimi sanal makine oluşturun."
+title: Azure üzerinde bir Linux CentOS veri bilimi sanal makine sağlama | Microsoft Docs
+description: Yapılandırın ve analizi yapabilir ve makine Azure'da bir Linux veri bilimi sanal makine oluşturun.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 550d49e3d6007c6b494deec95b785ea9bc214f3a
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure üzerinde bir Linux CentOS veri bilimi sanal makine sağlama
 
@@ -153,14 +153,16 @@ Yalnızca bir Python etkileşimli oturum başlatmak için şunu yazın **python*
 
 Ek Python kitaplıkları yükleme için çalıştırmanız gerekir ```conda``` veya ````pip```` komut sudo altında ve Python Paket Yöneticisi (conda veya PIP) doğru Python ortamı yüklemek için tam yolunu girin. Örneğin:
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
+    sudo /anaconda/bin/pip install <package> #pip for Python 2.7
+    sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
+    sudo /anaconda/bin/conda install [-n py27] <package> #conda for Python 2.7, default behavior
+    sudo /anaconda/bin/conda install -n py35 <package> #conda for Python 3.5
 
 
 ### <a name="jupyter-notebook"></a>Jupyter not defteri
 Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum açın.
 
-Jupyter not defteri sunucunun Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için Not Defteri" adlı bir masaüstü simgesi yoktur. SSH veya X2Go istemcisi VM kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:8000 /](https://localhost:8000/) Jupyter not defteri sunucusuna erişmek için.
+Jupyter not defteri sunucunun Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için Not Defteri" adlı bir masaüstü simgesi yoktur. SSH veya X2Go istemcisi VM kullanıyorsanız, de ziyaret edebilirsiniz [ https://localhost:8000/ ](https://localhost:8000/) Jupyter not defteri sunucusuna erişmek için.
 
 > [!NOTE]
 > Hiçbir sertifika uyarısı alırsanız devam edin.
@@ -361,7 +363,7 @@ Sekmeleri bir dizi artık bir grafik arabirim açılır. Bir örnek hava veri k�
 7. Tıklatın **değerlendir** sekmesi.
 8. ' I tıklatın **Risk** radyo düğmesinin öğesini tıklatıp **yürütme** iki Risk (kümülatif) performans çizimleri görüntülemek için.
 9. Tıklatın **günlük** önceki işlemleri Oluştur R kodunu göstermek için sekmesi.
-   (Eklemek için gerek Çıngırağı geçerli sürümünde bir hata nedeniyle, bir  *#*  önüne karakter *... Bu günlüğünü Dışarı Aktar*  günlük metninde.)
+   (Eklemek için gerek Çıngırağı geçerli sürümünde bir hata nedeniyle, bir *#* önüne karakter *... Bu günlüğünü Dışarı Aktar*  günlük metninde.)
 10. Tıklatın **verme** adlı R betiği kaydetmek için düğmesini *weather_script. R* giriş klasörü için.
 
 Çıngırağı ve r çıkabilirsiniz Şimdi oluşturulan R betiği değiştirmek veya çalıştırmak için her zaman içinde Rattle UI yapıldığı her şeyi yinelemek için olduğu gibi kullanın. Özellikle yeni başlayanlar için R içinde bu hızlı bir şekilde analiz yapın ve basit bir grafik arabirim öğrenmede R değiştirmek ve/veya öğrenmek için otomatik kod oluşturma sırasında makine için kolay bir yoludur.

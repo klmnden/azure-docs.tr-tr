@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement hizmet API'leri erişmek için .NET SDK kullanarak"
-description: "Mobile Engagement .NET SDK'sı Azure Mobile Engagement hizmet API'leri erişmek için nasıl kullanılacağını açıklar"
+title: Azure Mobile Engagement hizmet API'leri erişmek için .NET SDK kullanarak
+description: Mobile Engagement .NET SDK'sı Azure Mobile Engagement hizmet API'leri erişmek için nasıl kullanılacağını açıklar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c07728aa-43f2-4238-8b4a-c9eddf9d838b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 6a497189268c5a1b7e269cc57904ebc77c1906fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99595eb1f9a1eab1db51796632d58df35bf45be6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-net-sdk-to-access-azure-mobile-engagement-service-apis"></a>Azure Mobile Engagement hizmet API'leri erişmek için .NET SDK kullanarak
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Azure Mobile Engagement kullanıma sunan bir dizi API aygıtları yönetebilmeniz için Reach/anında iletme kampanyalarını vb. Bu API'leri ile etkileşim kurmak için de size sağladığımız bir [Swagger dosyası](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-mobileengagement/2014-12-01/swagger/mobile-engagement.json) için tercih ettiğiniz dili SDK'ları oluşturmak için Araçlar ile kullanabilirsiniz. Kullanmanızı öneririz [AutoRest](https://github.com/Azure/AutoRest) aracı, SDK bizim Swagger dosyasından oluşturun.
 
 > [!NOTE]

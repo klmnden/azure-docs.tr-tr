@@ -1,11 +1,11 @@
 ---
-title: "Windows Evrensel uygulamaları Engagement SDK tümleştirmesi"
-description: "Azure Mobile Engagement Windows Evrensel uygulamaları ile tümleştirme"
+title: Windows Evrensel uygulamaları Engagement SDK tümleştirmesi
+description: Azure Mobile Engagement Windows Evrensel uygulamaları ile tümleştirme
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 71236b68-5ebd-44aa-8c82-c7ca8098ea05
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 56a382a348609df1d1d308aeac39f47ca82ac4c8
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: dc075ffe6565b4ef60e77f74ba4f065629c99952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-engagement-sdk-integration"></a>Windows Evrensel uygulamaları Engagement SDK tümleştirmesi
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Evrensel Windows](mobile-engagement-windows-store-integrate-engagement.md) 
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md) 
@@ -57,7 +61,7 @@ NuGet SDK kaynakları otomatik olarak dağıtan `Resources` uygulama projesi kö
 NuGet UWP uygulaması Henüz SDK kaynakları otomatik olarak dağıtmaz. Bunu yapmanın el ile kaynakların dağıtımı NuGet içinde yeniden girmesini kadar vardır:
 
 1. Dosya Gezgini'ni açın.
-2. Şu konuma gidin (**x.x.x** yüklemekte katılım sürümüdür): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\**x.x.x**\\content\win81*
+2. Şu konuma gidin (**x.x.x** yüklemekte katılım sürümüdür): *% USERPROFILE %\\.nuget\packages\MicrosoftAzure.MobileEngagement\\  **x.x.x**\\content\win81*
 3. Sürükleme ve bırakma **kaynakları** dosya Gezgini'nde projenizi Visual Studio'da kök klasörüne.
 4. Visual Studio projenizi seçin ve etkinleştirme **tüm dosyaları göster** simgesinin üstüne **Çözüm Gezgini**.
 5. Bazı dosyalar projede dahil edilmez. İçeri aktarmak için bunları aynı anda sağ tıklayın **kaynakları** klasörünü **projeden hariç** üzerinde başka bir sağ tıklayın ardından **kaynakları** klasörü, **Proje Ekle** tüm klasör yeniden eklemek için. Tüm dosyaları **kaynakları** klasörü projenizde eklenmiştir.

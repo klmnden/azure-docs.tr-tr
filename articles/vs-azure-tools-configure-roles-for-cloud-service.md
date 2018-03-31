@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio ile rolleri bir Azure bulut hizmeti için yapılandırma | Microsoft Docs"
-description: "Ayarlama ve rolleri Visual Studio kullanarak Azure bulut Hizmetleri için yapılandırma hakkında bilgi edinin."
+title: Visual Studio ile rolleri bir Azure bulut hizmeti için yapılandırma | Microsoft Docs
+description: Ayarlama ve rolleri Visual Studio kullanarak Azure bulut Hizmetleri için yapılandırma hakkında bilgi edinin.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: d397ef87-64e5-401a-aad5-7f83f1022e16
 ms.service: multiple
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/21/2017
-ms.author: kraigb
-ms.openlocfilehash: 17da71ac0c5ab9330b9244c0354e4d161d98229e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 8a1eb75e9f38aae29cbb0012e5f15404299d011d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-cloud-service-roles-with-visual-studio"></a>Azure bulut hizmeti rollerinizi ile Visual Studio'yu yapılandırma
 Bir Azure bulut hizmeti bir veya daha fazla çalışan ya da web rolleri olabilir. Her rol için bu rolü nasıl ayarlanacağını tanımlayın ve ayrıca bu rolü nasıl çalışacağını yapılandırmak gerekir. Bulut Hizmetleri rolleri hakkında daha fazla bilgi edinmek için video bkz [Azure Cloud Services giriş](https://channel9.msdn.com/Series/Windows-Azure-Cloud-Services-Tutorials/Introduction-to-Windows-Azure-Cloud-Services). 
@@ -120,7 +120,7 @@ Her hizmet yapılandırması için farklı bir değer kullanarak, bulut hizmetin
 
     - **Microsoft Azure storage öykünücüsü** -bu seçeneği seçerseniz, yalnızca Azure uygularken kalan Ayarları iletişim kutusunda devre dışı bırakılır. **Tamam**’ı seçin.
     - **Aboneliğinizi** - bu seçeneği seçerseniz seçin ve bir Microsoft hesabına oturum için açılır listeyi kullanın veya bir Microsoft hesabı ekleyin. Bir Azure aboneliği ve depolama hesabı seçin. **Tamam**’ı seçin.
-    - **Kimlik bilgileri'el ile girilen** -birincil ya da ikinci anahtar ve depolama hesabı adı girin. Bir seçenek belirleyin **bağlantı** (HTTPS çoğu senaryolar için önerilir.) **Tamam**’ı seçin.
+    - **Kimlik bilgileri'el ile girilen** -birincil ya da ikinci anahtar ve depolama hesabı adı girin. Bir seçenek belirleyin **bağlantı** (HTTPS çoğu senaryolar için önerilir.) Seçin **Tamam**.
 
 1. Bir bağlantı dizesi silmek için bağlantı dizesi seçin ve ardından **Kaldır ayarını**.
 

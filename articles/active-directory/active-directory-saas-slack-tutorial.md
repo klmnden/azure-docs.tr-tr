@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme kayma ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Slack'e arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme kayma ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Slack'e arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: jeedes
-ms.openlocfilehash: cd0cecde7f98e73911e7dec734cffeeee6f09a72
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6a4c64fb8400eaf2e09be049b032535e09969fb8
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Öğretici: Azure Active Directory Tümleştirme kayma ile
 
@@ -44,7 +44,7 @@ Azure AD tümleştirme kayma ile yapılandırmak için aşağıdaki öğeleri ge
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -115,14 +115,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://slack.com`
 
     > [!NOTE] 
-    > Değer gerçek değil. Değerin gerçek oturum üzerinde URL ile güncelleştirmeniz gerekir. Kişi [Slack destek ekibi](https://slack.com/help/contact) değeri alınamıyor
+    > Değer gerçek değil. Değerin gerçek oturum üzerinde URL ile güncelleştirmeniz gerekir. Kişi [Slack destek ekibi](https://slack.com/help/contact) değeri alınamıyor.
      
 4. Slack uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir.
     
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Kullanıcının varsa **e-posta adresi** yalnızca onu, aksi takdirde doldurulur Office365 kullanılarak atanan **e-posta adresi** talep SAML belirteci görünmez.
+    > Atanmış kullanıcılar varsa **e-posta adresi** Office365 lisansı olmayan **User.Email** talep SAML belirteci görünmez. Bu durumlarda, kullanarak olan önerdiğimiz **user.userprincipalname** olarak **User.Email** öznitelik değeri olarak eşlemek için **benzersiz tanımlayıcı** yerine.
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda **user.mail** olarak **kullanıcı tanımlayıcısı** ve aşağıdaki tabloda gösterilen her satır için aşağıdaki adımları gerçekleştirin:
     
@@ -180,12 +180,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     d. Yukarıdaki üç ayarlarını Slack ekibiniz için uygun şekilde yapılandırın. Ayarlar hakkında daha fazla bilgi için lütfen bulma **Slack'e'nın SSO Yapılandırma Kılavuzu'nda** burada. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Tıklatın **yapılandırmasını kaydetmek**.
-     
-    <!-- Deselect **Allow users to change their email address**.
-
-    e.  Select **Allow users to choose their own username**.
-
-    f.  As **Authentication for your team must be used by**, select **It’s optional**. -->
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -229,7 +223,7 @@ Bu bölümün amacı kayma içinde Britta Simon adlı bir kullanıcı oluşturma
 Bu bölümde, eylem öğe yok. Yeni bir kullanıcı henüz yoksa kayma erişme denemesi sırasında oluşturulur.
 
 > [!NOTE]
-> Bir kullanıcı el ile oluşturmanız gerekiyorsa, kişiye gereksinim [Slack destek ekibi](https://slack.com/help/contact).
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [Slack destek ekibi](https://slack.com/help/contact).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
@@ -271,8 +265,6 @@ Slack kutucuğa tıkladığınızda erişim panelinde, otomatik olarak Slack uyg
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

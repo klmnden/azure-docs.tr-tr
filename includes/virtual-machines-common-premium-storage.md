@@ -45,11 +45,11 @@ Premium depolama özelliklerden bazıları şunlardır:
 
 * **Premium depolama hesabı**
 
-    Premium Storage'ı kullanmaya başlamak için yönetilmeyen diskler bir premium depolama hesabı oluşturun. İçinde [Azure portal](https://portal.azure.com), premium depolama hesabı oluşturma, seçin **Premium** performans katmanı. Seçin **yerel olarak yedekli depolama (LRS)** çoğaltma seçeneği. Premium depolama hesabı türü ayarlayarak oluşturabilirsiniz **Premium_LRS** aşağıdaki konumlardan birinde:
-    * [Storage REST API'sini](https://docs.microsoft.com/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference) (2014-02-14 sürümünü veya sonraki bir sürümünü)
-    * [Hizmet Yönetimi REST API'si](http://msdn.microsoft.com/library/azure/ee460799.aspx) (sürüm 2014-10-01 veya sonraki bir sürümünü; Azure Klasik dağıtımlar için)
-    * [Azure depolama kaynak sağlayıcısı REST API](https://docs.microsoft.com/rest/api/storagerp) (için Azure Resource Manager dağıtımları)
-    * [Azure PowerShell](/powershell/azureps-cmdlets-docs.md) (sürüm 0.8.10 veya sonraki bir sürümünü)
+    Premium Storage'ı kullanmaya başlamak için yönetilmeyen diskler bir premium depolama hesabı oluşturun. İçinde [Azure portal](https://portal.azure.com), premium depolama hesabı oluşturma, seçin **Premium** performans katmanı. Seçin **yerel olarak yedekli depolama (LRS)** çoğaltma seçeneği. Performans katmanı ayarlayarak bir premium depolama hesabı oluşturabilirsiniz **Premium_LRS**. Performans katmanını değiştirmek için aşağıdaki yaklaşımlardan birini kullanın:
+     
+    - [Azure Storage için PowerShell](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+    - [Azure depolama için Azure CLI](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+    - [Azure depolama kaynak sağlayıcısı REST API](https://docs.microsoft.com/rest/api/storagerp) (için Azure Resource Manager dağıtımları) veya Azure depolama kaynak sağlayıcısı istemci kitaplıklarından birini
 
     Premium depolama hesabı sınırları hakkında bilgi edinmek için [Premium Storage ölçeklenebilirlik ve performans hedefleri](#premium-storage-scalability-and-performance-targets).
 

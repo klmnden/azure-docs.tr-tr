@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK genel bakış | Microsoft Docs"
-description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
+title: Azure Mobile Engagement iOS SDK genel bakış | Microsoft Docs
+description: En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3a03bbd6-bcf8-436c-9775-5a8188629252
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6c9d2ddeacd1d05142019f22eedf4eb3bb4f06cd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement için iOS SDK’sı
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Azure Mobile Engagement bir iOS uygulaması tümleştirme hakkında tüm ayrıntıları almak buradan başlayın. Try ilk vermek istiyorsanız, bunu emin olun bizim [15 dakika Öğreticisi](mobile-engagement-ios-get-started.md).
 
 Görmek için tıklatın [SDK içerik](mobile-engagement-ios-sdk-content.md)
@@ -69,7 +73,7 @@ XCode 8 SDK 4.0.0 sürümünden başlayarak zorunludur.
 #### <a name="usernotifications-framework"></a>UserNotifications framework
 Eklemenize gerek `UserNotifications` derleme aşamaları framework.
 
-Proje Gezgini'nde, proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -bağlantı olarak ayarlayın`Optional`
+Proje Gezgini'nde, proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde framework eklemek `UserNotifications.framework` -bağlantı olarak ayarlayın `Optional`
 
 #### <a name="application-push-capability"></a>Uygulamayı anında iletme yeteneği
 XCode 8 uygulamanızı sıfırlama anında iletme yeteneği, lütfen tekrar gözden geçirin `capability` seçilen hedef sekmesi.

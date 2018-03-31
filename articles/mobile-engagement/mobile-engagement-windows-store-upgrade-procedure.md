@@ -1,11 +1,11 @@
 ---
-title: "Windows Evrensel uygulamaları SDK yükseltme yordamları"
-description: "Azure Mobile Engagement için Windows Evrensel uygulamaları SDK yükseltme yordamları"
+title: Windows Evrensel uygulamaları SDK yükseltme yordamları
+description: Azure Mobile Engagement için Windows Evrensel uygulamaları SDK yükseltme yordamları
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4c898175-2cd6-43db-b350-bb408332f24d
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: a9d6cbcdf353f7eea991c344c3efe65378abe336
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows Evrensel uygulamaları SDK yükseltme yordamları
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Uygulamanıza katılım daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
 SDK çeşitli sürümleri eksik, birçok yordamı uygulamanız gerekebilir. Örneğin, 0.10.1 önce "Kimden 0.9.0'dan 0.10.1 için" yordamını takip etmek için sahip 0.11.0 sonra "Kimden 0.10.1 0.11.0 için" yordamı geçiş ise.
@@ -185,7 +189,7 @@ Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulama
 ### <a name="nuget-package"></a>Nuget paketi
 Değiştir **Capptain.WindowsPhone** tarafından **MicrosoftAzure.MobileEngagement** Nuget paketi.
 
-### <a name="applying-mobile-engagement"></a>Mobil katılım uygulama
+### <a name="applying-mobile-engagement"></a>Applying Mobile Engagement
 Terimi SDK kullanan `Engagement`. Projenizi bu değişikliği eşleşecek şekilde güncelleştirmeniz gerekir.
 
 Geçerli Capptain nuget paketini kaldırmanız gerekir. Tüm değişikliklerinizi Capptain Kaynaklar klasörünü kaldırılacak göz önünde bulundurun. Bu dosyaları saklamak isterseniz bir kopyasını oluşturun.

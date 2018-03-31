@@ -1,11 +1,11 @@
 ---
-title: "Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanarak nereden başlayacaksınız"
+title: Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama | Microsoft Docs
+description: Visual Studio bağlantılı hizmetler kullanarak bir depolama hesabı bağlandıktan sonra Visual Studio'da ASP.NET projesinde Azure kuyruk depolama kullanarak nereden başlayacaksınız
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 94ca3413-5497-433f-abbe-836f83a9de72
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2016
-ms.author: kraigb
-ms.openlocfilehash: 4687e5dfce72583728068c176d86d100313badf6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 89baa741dcd916b70514f9703255b9e6d01c689b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Azure kuyruk depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) kullanmaya başlama
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -29,7 +29,7 @@ Azure kuyruk depolama uygulama bileşenleri arasında Mesajlaşma bulut sağlar.
 
 Bu öğretici Azure kuyruk depolama varlıkları kullanarak bazı genel senaryolar için ASP.NET kodunun nasıl yazılacağını gösterir. Bu senaryolar, bir Azure kuyruk oluşturma ve ekleme, değiştirme, okuma ve iletileri kuyruğa kaldırma gibi genel görevleri içerir.
 
-##<a name="prerequisites"></a>Ön koşullar
+##<a name="prerequisites"></a>Önkoşullar
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure depolama hesabı](../storage/common/storage-create-storage-account.md#create-a-storage-account)
@@ -139,7 +139,7 @@ Aşağıdaki adımlar bir sıranın nasıl oluşturulacağını gösterir:
 
 1. Uygulamayı çalıştırmak ve seçmek **Oluşturma sırası** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
   
-    ![Kuyruk oluşturma](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
+    ![Kuyruk oluştur](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
     Daha önce belirtildiği gibi **CloudQueue.CreateIfNotExists** yöntemi döndürür **doğru** yalnızca sıranın yok ve oluşturulur. Bu nedenle, sıranın mevcut olduğunda uygulama çalıştırırsanız, yöntem döndürür **false**. Birden çok kez uygulamayı çalıştırmak için uygulamayı yeniden çalıştırmadan önce sıranın silmeniz gerekir. Aracılığıyla sıra silme yapılabilir **CloudQueue.Delete** yöntemi. Kuyruğu kullanarak silebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) veya [Microsoft Azure Storage Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
@@ -572,7 +572,7 @@ Bu bölümde, bir kuyruk silme göstermektedir.
 
 1. Uygulamayı çalıştırmak ve seçmek **alma sırası uzunluğu** aşağıdaki ekran görüntüsüne benzer sonuçlar görmek için:
   
-    ![Kuyruğu silin](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
+    ![Kuyruğu silme](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure’da veri depolama ile ilgili ek seçenekler hakkında daha fazla bilgi edinmek için daha fazla özellik kılavuzu görüntüleyin.

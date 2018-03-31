@@ -1,11 +1,11 @@
 ---
-title: "Kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeleri) | Microsoft Docs"
-description: "Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra bir Web işi projesinin Azure kuyruk depolama ile çalışmaya başlamak nasıl Hizmetleri bağlı."
+title: Kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeleri) | Microsoft Docs
+description: Visual Studio kullanarak bir depolama hesabı bağlandıktan sonra bir Web işi projesinin Azure kuyruk depolama ile çalışmaya başlamak nasıl Hizmetleri bağlı.
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: 5c3ef267-2a67-44e9-ab4a-1edd7015034f
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: kraigb
-ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: ghogen
+ms.openlocfilehash: 52c089d2657d61ee42730a00def060dec74439fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Azure kuyruk depolama ve Visual Studio ile çalışmaya başlama bağlı Hizmetleri (Web işi projeler)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -79,9 +79,9 @@ Zaman uyumsuz işlevleri sürebilir bir [iptal belirteci](http://www.asp.net/mvc
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Türleri QueueTrigger öznitelik birlikte çalışır.
 Kullanabileceğiniz **QueueTrigger** şu türden:
 
-* **dize**
+* **Dize**
 * JSON olarak serileştirilen bir POCO türü
-* **byte]**
+* **byte[]**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Yoklama algoritması
@@ -302,7 +302,7 @@ Bir blob için bir nesne bağlama önce işlevinizi bazı iş gerçekleştirmeni
 * **dize çıkışı** (yazma; işlevi döndüğünde yalnızca dize parametresi null olmayan ise bir blob oluşturur)
 * POCO (okuma)
 * POCO out (yazma; her zaman bir blob oluşturur, işlevi döndüğünde POCO parametre null ise null nesnesi olarak oluşturur)
-* **CloudBlobStream** (yazma)
+* **CloudBlobStream** (write)
 * **ICloudBlob** (okuma veya yazma)
 * **CloudBlockBlob** (okuma veya yazma)
 * **CloudPageBlob** (okuma veya yazma)

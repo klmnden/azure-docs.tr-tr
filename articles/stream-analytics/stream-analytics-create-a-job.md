@@ -1,12 +1,11 @@
 ---
-title: "Akış analizi için veri analizi işlem işi oluşturma | Microsoft Docs"
-description: "Akış analizi için veri analizi işlem işi oluşturma | yol kesimi öğrenme."
-keywords: "veri analizi işleme"
-documentationcenter: 
+title: Akış analizi için veri analizi işlem işi oluşturma | Microsoft Docs
+description: Akış analizi için veri analizi işlem işi oluşturma | yol kesimi öğrenme.
+keywords: veri analizi işleme
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: e825fbcf-69e9-443f-b402-3b7a4568f415
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 98784783beccc19df916920fc41364a23e6bae11
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeanb
+ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Akış analizi için veri analizi işlem işi oluşturma
 Üst düzey Azure akış analizi, akış analizi işi kaynaktır.  Bir veya daha fazla giriş veri kaynağı, veri dönüştürme ifade bir sorgu ve sonuçları yazılan bir veya daha fazla çıkış hedefleri oluşur. Birlikte bu veri analitik veri senaryoları akış için işleme gerçekleştirmek kullanıcının etkinleştirir.

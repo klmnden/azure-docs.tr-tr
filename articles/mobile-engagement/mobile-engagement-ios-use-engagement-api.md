@@ -1,11 +1,11 @@
 ---
-title: "İos'ta katılım API kullanma"
-description: "En son iOS SDK - iOS katılım API kullanma"
+title: İos'ta katılım API kullanma
+description: En son iOS SDK - iOS katılım API kullanma
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1fb4509e-3804-46c1-949f-1cf727f91f9f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 189a3029449a3161da2a20f940b77a5bb63bd1ef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>İos'ta katılım API kullanma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu belge belgeye bir eklentidir tümleştirmek katılım iOS nasıl: katılım API uygulama istatistikleri rapor için nasıl kullanılacağı hakkında derinliği ayrıntıları sağlar.
 
 Uygulamanızın oturumları, etkinlikleri, kilitlenme ve teknik bilgileri raporlamak için katılım yalnızca istiyorsanız, sonra en basit yolu, tüm özel yapmak için olduğunu aklınızda bulundurun `UIViewController` nesneleri devralır denk gelen `EngagementViewController` sınıfı.
@@ -29,7 +33,7 @@ Daha fazla bilgi için uygulama belirli olaylar, hatalar ve işleri, rapor gerek
 
 Katılım API'si tarafından sağlanan `EngagementAgent` sınıfı. Bu sınıfın örneğini çağırarak alınabilir `[EngagementAgent shared]` statik yöntemi (unutmayın `EngagementAgent` döndürülen tek nesnesidir).
 
-Her API çağrıları önce `EngagementAgent` yöntemini çağırarak nesne başlatılmalı`[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
+Her API çağrıları önce `EngagementAgent` yöntemini çağırarak nesne başlatılmalı `[EngagementAgent init:@"Endpoint={YOUR_APP_COLLECTION.DOMAIN};SdkKey={YOUR_SDK_KEY};AppId={YOUR_APPID}"];`
 
 ## <a name="engagement-concepts"></a>Engagement kavramları
 Aşağıdaki bölümleri yaygın İyileştir [Mobile Engagement kavramları](mobile-engagement-concepts.md) iOS platformu için.

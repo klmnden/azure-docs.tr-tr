@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - Panosu"
-description: "Görüntülemek ve Azure Mobile Engagement kullanarak uygulamanızı ilgili veriler grafiklerini yönetme hakkında bilgi edinin"
+title: Azure Mobile Engagement kullanıcı arabirimi - Panosu
+description: Görüntülemek ve Azure Mobile Engagement kullanarak uygulamanızı ilgili veriler grafiklerini yönetme hakkında bilgi edinin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 72d5965e-8e79-48a3-9e63-0b66b7457d3c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d941b9858b964e11308061bae9e6dbc5e2fda767
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>Görüntüleme ve uygulamanız ile ilgili verilerin grafiklerini yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 UI Pano bölümü kendi saat için analytics bölümünde arama yerine istedikleri tam bilgileri sağlayarak en üst düzeye çıkarmak özelleştirilmiş grafik oluşturmalarına olanak tanır. Bir Pano (saat/gün/hafta/ay/özelleştirilmiş) uygulamanız ve belirli bir zaman sırasında uygulamanız farklı sürümleri için etkin sayılarını kullanıcı eğilimlerini gösterir. Gösterilen eğilimleri son 7 gün temel alır.
 
 ### <a name="see-also"></a>Ayrıca bkz.
