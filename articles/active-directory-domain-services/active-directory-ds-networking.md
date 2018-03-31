@@ -1,8 +1,8 @@
 ---
-title: "Azure AD etki alanı Hizmetleri: Ağ yönergeleri | Microsoft Docs"
-description: "Azure Active Directory etki alanı Hizmetleri için ağ konuları"
+title: 'Azure AD etki alanı Hizmetleri: Ağ yönergeleri | Microsoft Docs'
+description: Azure Active Directory etki alanı Hizmetleri için ağ konuları
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: eee7905db4faedef3217118e8d491e2cb019fa30
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a56413490decc928ff2643213084155ae469871c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -73,7 +73,7 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 **Bağlantı noktası 443 (Azure AD ile eşitleme)**
 * Azure AD dizininizi yönetilen etki alanı ile eşitlemek için kullanılır.
 * Bu bağlantı noktası, nsg'deki erişmesine izin vermek için zorunludur. Bu bağlantı noktası erişimi olmadan, yönetilen etki alanınızı Azure AD dizini ile eşitlenmiş değil. Kullanıcılar yönetilen etki alanınıza parolalarını yapılan değişiklikler eşitlenmez oturum açmak mümkün olmayabilir.
-* Azure IP adresi aralığına ait IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz.
+* Azure IP adresi aralığına ait IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz. Azure IP adresi aralığı kuralda gösterilen PowerShell aralığından daha farklı bir aralık olduğuna dikkat edin.
 
 **Bağlantı noktası 5986 (PowerShell uzaktan iletişimi)**
 * PowerShell uzaktan iletişimi yönetilen etki alanınızda kullanarak yönetim görevlerini gerçekleştirmek için kullanılır.

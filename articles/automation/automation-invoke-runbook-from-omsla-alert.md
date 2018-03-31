@@ -1,6 +1,6 @@
 ---
 title: Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
-description: Bu makalede, Operations Management Suite’te Log Analytics uyarısından Otomasyon runbook’u çağırma işlemine genel bakış sunulmaktadır.
+description: Bu makalede Azure günlük analizi uyarıdan bir Otomasyon runbook'u çağırmak nasıl bir bakış sağlar.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3f95d6b9385b252bce05f19b38ae38f11e88a88c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2a0e497535f783cbffc21004331ccd2a50ab8eef
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
 
@@ -23,11 +23,11 @@ Azure Log Analytics’te sonuçlar ölçütlerinizle eşleştiğinde uyarı kayd
 Uyarı yapılandırmasında runbook'u çağırmak için iki seçenek vardır:
 
 * Web kancası kullanma.
-   * Operations Management Suite çalışma alanınız bir Otomasyon hesabına bağlı değilse kullanılabilecek tek seçenek budur.
-   * Operations Management Suite çalışma alanına bağlı bir Otomasyon hesabınız varsa bu seçenek yine de kullanılabilir.  
+   * Günlük analizi çalışma alanınız için bir Otomasyon hesabı bağlanmamışsa kullanılabilir tek seçenek budur.
+   * Günlük analizi çalışma alanına bağlı bir Otomasyon hesabınız zaten varsa, bu seçenek kullanılabilir durumda kalır.  
 
 * Doğrudan bir runbook seçme.
-   * Bu seçenek yalnızca Operations Management Suite çalışma alanı bir Otomasyon hesabına bağlı olduğunda kullanılabilir.
+   * Bu seçenek, yalnızca bir Otomasyon hesabı için günlük analizi çalışma alanı bağlıysa kullanılabilir.
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Web kancası kullanarak bir runbook çağırma
 
@@ -35,7 +35,7 @@ Web kancası kullanarak tek bir HTTP isteği ile Azure Otomasyonu’nda belirli 
 
 ## <a name="calling-a-runbook-directly"></a>Doğrudan bir runbook çağırma
 
-Operations Management Suite çalışma alanınıza Automation and Control teklifini yükleyip yapılandırabilirsiniz. Uyarı için runbook eylemleri seçeneğini yapılandırırken tüm runbook'ları **Runbook seç** açılır listesinden görüntüleyebilir ve uyarıya yanıt olarak çalıştırmak istediğiniz runbook'u seçebilirsiniz. Seçili runbook, Azure çalışma alanında veya bir karma runbook çalışanında çalışabilir. 
+Yükleyin ve otomasyon ve denetim günlük analizi çalışma alanınızda sunumu yapılandırın. Uyarı için runbook eylemleri seçeneğini yapılandırırken tüm runbook'ları **Runbook seç** açılır listesinden görüntüleyebilir ve uyarıya yanıt olarak çalıştırmak istediğiniz runbook'u seçebilirsiniz. Seçili runbook, Azure çalışma alanında veya bir karma runbook çalışanında çalışabilir. 
 
 Runbook seçeneğini kullanarak uyarıyı oluşturduktan sonra, runbook için bir web kancası oluşturulur. Otomasyon hesabını açıp seçili runbook'un web kancası bölmesine ulaştığınızda web kancasını görebilirsiniz. 
 
@@ -90,7 +90,7 @@ $SearchResult.SvcDisplayName_CF
 
 Hizmet durdurulduğunda, Log Analytics'teki uyarı kuralı bir eşleşme saptar ve runbook’u tetikleyip uyarı bağlamını runbook'a gönderir. Runbook, hizmetin durdurulduğunu doğrulamaya çalışır. Doğrulayabilirse, runbook hizmeti yeniden başlatmayı, doğru şekilde başlatıldığını doğrulamayı ve sonuçları göstermeyi dener.     
 
-Alternatif olarak, Otomasyon hesabınız Operations Management Suite çalışma alanına bağlı değilse, uyarı kuralını bir web kancası eylemiyle yapılandırabilirsiniz. Web kancası eylemi runbook’u tetikler. Runbook’u ayrıca JSON biçimli dizeyi dönüştürecek ve daha önce bahsedilen yönergeleri izleyerek **SearchResult** ile filtreleyecek şekilde yapılandırır.    
+Alternatif olarak, günlük analizi çalışma alanına bağlı Automation hesabınız yoksa, bir Web kancası eylemiyle uyarı kuralı yapılandırabilirsiniz. Web kancası eylemi runbook’u tetikler. Runbook’u ayrıca JSON biçimli dizeyi dönüştürecek ve daha önce bahsedilen yönergeleri izleyerek **SearchResult** ile filtreleyecek şekilde yapılandırır.    
 
 >[!NOTE]
 > Çalışma alanınız [yeni Log Analytics sorgu diline](../log-analytics/log-analytics-log-search-upgrade.md) yükseltilmişse ağ kancası yükü değiştirilmiştir. Biçimle ilgili ayrıntılar için bkz. [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse).

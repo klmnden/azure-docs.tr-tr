@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8da3e2c970ab1e60e3396cb0aaeaba64dba1713c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4bdc49c5ab36a5026095b5d7b6f9856b020e1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>İş sürekliliği Azure Cosmos veritabanı için bölgesel otomatik yük devretme
 Azure Cosmos DB basitleştirir verilerin genel dağıtım sunarak tam olarak yönetilen, [bölgeli veritabanı hesaplarını](distribute-data-globally.md) tutarlılık, kullanılabilirlik ve karşılık gelen tüm ile performans arasında NET bileşim sağlayın güvence altına alır. Cosmos DB hesapları teklif yüksek kullanılabilirlik, tek bir basamak ms gecikme [iyi tanımlanmış tutarlılık düzeylerini](consistency-levels.md), çok girişli API'leri ile bölgesel saydam yük devretme ve Özellikler esnek işleme ve depolama genelinde ölçeklenme olanağı Dünya. 
@@ -86,7 +86,7 @@ Etkilenen bölge kesintisi kurtarır sonra etkilenen tüm Cosmos DB hesapların 
 
 **Bir yazma bölge kesinti varsa ne olur?**
 
-Etkilenen bölge geçerli yazma bölgedir ve otomatik yük devretme için Azure Cosmos DB hesabı etkinleştirildiğinde, ardından bölge otomatik olarak çevrimdışı olarak işaretlenir. Ardından, alternatif bir bölge etkilenen Azure Cosmos DB hesabı için yazma bölge olarak yükseltilir. Otomatik Yük devretme etkinleştirin ve tam olarak Azure Portalı aracılığıyla Azure Cosmos DB hesaplarınız için bölge seçimi sırasını denetlemek veya [program aracılığıyla](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Etkilenen bölge geçerli yazma bölgedir ve otomatik yük devretme için Azure Cosmos DB hesabı etkinleştirildiğinde, ardından bölge otomatik olarak çevrimdışı olarak işaretlenir. Ardından, alternatif bir bölge etkilenen Azure Cosmos DB hesabı için yazma bölge olarak yükseltilir. Otomatik Yük devretme etkinleştirin ve tam olarak Azure Portalı aracılığıyla Azure Cosmos DB hesaplarınız için bölge seçimi sırasını denetlemek veya [program aracılığıyla](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Azure Cosmos DB için yük devretme öncelikler](./media/regional-failover/failover-priorities.png)
 
@@ -98,7 +98,7 @@ Etkilenen bölge kesintisi kurtarır sonra etkilenen tüm Cosmos DB hesapların 
 
 * Bölgeler sırasında kesinti okumak için yinelenemedi önceki yazma bölgede mevcut verileri akış çakışma yayımlanır. Uygulamaları çakışması akış okuyun, uygulama belirli mantığına göre çakışmalarını çözme ve güncelleştirilen verileri Azure Cosmos DB hesabı uygun olarak geri yazma. 
 * Önceki yazma bölge okuma bir bölgede yeniden ve otomatik olarak yeniden çevrimiçi duruma. 
-* Yeniden çevrimiçi otomatik yazma bölge Azure Portalı aracılığıyla el ile bir yük devretme gerçekleştirerek olana okuma bölge yapılandırabilirsiniz ya da [program aracılığıyla](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Yeniden çevrimiçi otomatik yazma bölge Azure Portalı aracılığıyla el ile bir yük devretme gerçekleştirerek olana okuma bölge yapılandırabilirsiniz ya da [program aracılığıyla](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
 
 Aşağıdaki kod parçacığında, etkilenen bölge kesintisi kurtarıldıktan sonra çakışmaları işlemek üzere verilmektedir.
 
@@ -123,7 +123,7 @@ do
 
 ## <a id="ManualFailovers"></a>El ile yük devretme
 
-Otomatik Yük devretme işlemlerini ek olarak, geçerli yazma bölge belirtilen Cosmos DB hesabının el ile dinamik olarak mevcut okuma bölgeler biri olarak değiştirilebilir. El ile yük devretme işlemlerini Azure portalı üzerinden başlatılabilir veya [program aracılığıyla](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
+Otomatik Yük devretme işlemlerini ek olarak, geçerli yazma bölge belirtilen Cosmos DB hesabının el ile dinamik olarak mevcut okuma bölgeler biri olarak değiştirilebilir. El ile yük devretme işlemlerini Azure portalı üzerinden başlatılabilir veya [program aracılığıyla](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/databaseaccounts#DatabaseAccounts_CreateOrUpdate). 
 
 El ile yük devretme sağlamak **sıfır veri kaybı** ve **sıfır kullanılabilirlik** kaybına ve düzgün biçimde aktarımı yazma eski durumundan belirtilen Cosmos DB hesap için yeni bir bölge yazma. Gibi otomatik yük devretme Cosmos DB SDK'yı otomatik olarak yazma bölge değişiklikleri el ile yük devretme işlemleri sırasında işler ve çağrıları otomatik olarak yeni yazma bölgesi yönlendirilir sağlar. Kod veya yapılandırma değişiklik yük devretme işlemlerini yönetmek için uygulamanızda gerekli değildir. 
 

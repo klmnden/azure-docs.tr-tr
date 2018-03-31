@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: arramac
-ms.openlocfilehash: a92d2ed1686765a54812ff82066bc30c1d48848d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c0ba9934afef6cb4d546e315c271cc19b6d3fa02
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Sorgu performans Azure Cosmos DB ile ayarlama
 
@@ -138,7 +138,7 @@ Sorgudan döndürülen anahtar yanıt üstbilgilerini aşağıdakileri içerir:
 | `x-ms-documentdb-query-metrics` | Sorgu istatistiklerini yürütme. Bu, sorgu yürütme çeşitli aşamalarında harcanan zamanın istatistikleri içeren sınırlandırılmış bir dizedir. Döndürülen IF `x-ms-documentdb-populatequerymetrics` ayarlanır `True`. | 
 | `x-ms-request-charge` | Sayısı [istek birimleri](request-units.md) sorgu tarafından tüketilen. | 
 
-REST API isteği üstbilgileri ve seçenekleri hakkında daha fazla bilgi için bkz: [REST API kullanarak kaynak sorgulaması](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api).
+REST API isteği üstbilgileri ve seçenekleri hakkında daha fazla bilgi için bkz: [REST API kullanarak kaynak sorgulaması](https://docs.microsoft.com/rest/api/cosmos-db/querying-cosmosdb-resources-using-the-rest-api).
 
 ## <a name="best-practices-for-query-performance"></a>Sorgu performansı için en iyi yöntemler
 Aşağıdaki Azure Cosmos DB sorgu performansı etkileyen en yaygın faktörlerdir. Bu makalede bu konuların her derinlere.

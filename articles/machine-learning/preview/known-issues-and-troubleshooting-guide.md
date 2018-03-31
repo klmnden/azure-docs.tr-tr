@@ -1,6 +1,6 @@
 ---
-title: "Bilinen sorunlar ve sorun giderme kılavuzu | Microsoft Docs"
-description: "Bilinen sorunların listesi ve gidermenize yardımcı olması için bir kılavuz"
+title: Bilinen sorunlar ve sorun giderme kılavuzu | Microsoft Docs
+description: Bilinen sorunların listesi ve gidermenize yardımcı olması için bir kılavuz
 services: machine-learning
 author: svankam
 ms.author: svankam
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: 62207fa20c4660d1e828053ee73953cb68af1b9d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3699e2a59061d8a2870a263588917268ca504866
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning çalışma ekranı - bilinen sorunlar ve sorun giderme kılavuzu 
 Bu makalede, bulma ve hataları düzeltin ya da Azure Machine Learning çalışma ekranı uygulamasını kullanarak bir parçası olarak karşılaşılan hataları yardımcı olur. 
@@ -231,13 +231,21 @@ Ayrıca maliyet, ayarlayarak küçük bir performans adresindeki paylaşma sorun
 ## <a name="wipe-clean-workbench-installation"></a>Temiz çalışma ekranı yükleme silme
 Genellikle bu yapmanız gerekmez. Ancak, yüklemenin tamamen temizlerler durumda adımlar şunlardır:
 
-- Windows:
+- Windows'da:
   - Öncelikle, kullandığınızdan emin olun _Program Ekle veya Kaldır_ uygulaması _Denetim Masası_ kaldırmak için _Azure Machine Learning çalışma ekranı_ uygulama girişi.  
   - Ardından yükleyin ve aşağıdaki komut dosyalarından birini çalıştırın:
     - [Windows komut satırı komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.cmd).
     - [Windows PowerShell komut dosyası](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_win.ps1). (Çalıştırmanız gerekebilir `Set-ExecutionPolicy Unrestricted` komut dosyasını çalıştırmadan önce bir ayrıcalık yükseltilmiş PowerShell penceresinde.)
 - On macOS:
   - Yalnızca indirme ve çalıştırma [macOS bash Kabuk betiği](https://github.com/Azure/MachineLearning-Scripts/blob/master/cleanup/cleanup_mac.sh).
+
+## <a name="azure-ml-using-a-different-python-location-than-the-azure-ml-installed-python-environment"></a>Azure ML yüklü python ortamı farklı python konumundan kullanarak azure ML
+Azure Machine Learning çalışma ekranı son zamanlarda bir değişiklik nedeniyle, kullanıcılar yerel çalıştırmalar Azure ML çalışma ekranı tarafından artık yüklü python ortamı göstermiyor olabilir fark edebilirsiniz. Bu kullanıcı bilgisayarlarında yüklü başka bir python ortamı varsa ve bu ortama işaret edecek şekilde "Python" yolunu ayarlama ortaya çıkabilir. Azure ML çalışma ekranı kullanılabilmesi için Python ortamı yüklü, şu adımları izleyin:
+- Proje kökü altındaki aml_config klasörünüze altında local.compute dosyasına gidin.
+- Değişiklik Azure ML ekranının fiziksel yolunu işaret edecek şekilde "pythonLocation" değişkeni python ortamı yüklü. Bu yol iki yolla alabilirsiniz:
+    - Azure ML python konumu %localappdata%\AmlWorkbench\python\python.exe bulunabilir
+    - Azure ML çalışma ekranından cmd açın, python komut satırına yazın, sys.exe içeri aktarabilir, sys.executable çalıştırın ve buradan yolu. 
+
 
 
 ## <a name="some-useful-docker-commands"></a>Bazı yararlı Docker komutları

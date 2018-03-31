@@ -1,11 +1,11 @@
 ---
-title: "Gelişmiş Azure Mobile Engagement Android SDK için raporlama seçenekleri"
-description: "Analiz için Azure Mobile Engagement Android SDK yakalamak için Gelişmiş raporlama yapmak açıklar"
+title: Gelişmiş Azure Mobile Engagement Android SDK için raporlama seçenekleri
+description: Analiz için Azure Mobile Engagement Android SDK yakalamak için Gelişmiş raporlama yapmak açıklar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7da7abd5-19d6-4892-94d8-818e5424b2cd
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 2a1445afa2c2fca1a31ad9c012b9c8a917ebf65c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 419b65250d2b65e184e6e36349b17b5ac9e7a6ba
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-reporting-with-engagement-on-android"></a>Gelişmiş Android katılım ile raporlama
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Evrensel Windows](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -76,7 +80,7 @@ Olamaz ya da tekrar etmek istiyor musunuz, `Activity` sınıfları, bunun yerine
 
 Bu örnek benzer `EngagementActivity` sınıfı ve kaynak kodu sağlanır türevleri `src` klasör.
 
-## <a name="using-applicationoncreate"></a>Application.onCreate() kullanma
+## <a name="using-applicationoncreate"></a>Using Application.onCreate()
 Yerleştirdiğiniz içinde herhangi bir kod `Application.onCreate()` ve başka bir uygulamada geri aramalar katılım hizmeti dahil olmak üzere tüm uygulama işlemleri için çalıştırılır. Gereksiz bellek ayırma ve iş parçacıkları Engagement'ın işlemi veya yinelenen yayın alıcıları ya da Hizmetleri gibi istenmeyen yan etkileri olabilir.
 
 Geçersiz kılarsanız `Application.onCreate()`, aşağıdaki kod parçacığını başında ekleme öneririz, `Application.onCreate()` işlevi:

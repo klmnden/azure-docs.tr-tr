@@ -1,18 +1,18 @@
 ---
-title: "Bir Azure sanal makinesini stok toplama ile yönetme | Microsoft Docs"
-description: "Bir sanal makineyi stok toplama ile yönetme"
+title: Bir Azure sanal makinesini stok toplama ile yönetme | Microsoft Docs
+description: Bir sanal makineyi stok toplama ile yönetme
 services: automation
-keywords: "stok, otomasyon, değişiklik, izleme"
+keywords: stok, otomasyon, değişiklik, izleme
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 7b0e39e98a81231b68414f36ac5c1fc0897304a1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b23132f6e5693f5d731bf044ac5c2544a9308ee1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Bir Azure sanal makinesini stok toplama ile yönetme
 
@@ -66,4 +66,4 @@ Sanal makinenizi stok yönetiminden kaldırmak için:
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Sanal makinelerinizdeki dosya ve kayıt defteri ayarlarında yapılan değişiklikleri yönetme hakkında bilgi almak için bkz. [Değişiklik İzleme çözümüyle ortamınızdaki yazılım değişikliklerini izleme](../log-analytics/log-analytics-change-tracking.md).
-* Sanal makinelerinizde Windows ve paket güncelleştirmelerini yönetme hakkında bilgi almak için bkz. [OMS'de Güncelleştirme Yönetimi çözümü](../operations-management-suite/oms-solution-update-management.md).
+* Windows ve paket güncelleştirmesi, sanal makinelerde yönetme hakkında bilgi edinmek için [Azure Güncelleştirme Yönetim çözümüne](../operations-management-suite/oms-solution-update-management.md).

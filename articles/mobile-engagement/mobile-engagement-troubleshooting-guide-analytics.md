@@ -1,11 +1,11 @@
 ---
-title: "Sorun giderme kılavuzu - Analytics'i azure Mobile Engagement"
-description: "Azure Mobile Engagement Analytics, izleme, Segment ve Pano sorunlarını giderme"
+title: Sorun giderme kılavuzu - Analytics'i azure Mobile Engagement
+description: Azure Mobile Engagement Analytics, izleme, Segment ve Pano sorunlarını giderme
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 04a7020a-ad74-4491-be69-0bd574890029
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19d018b83ee8b3d5848d29afff190d3dcaf3fde
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>Analiz, izleme, Segment ve Pano sorunları için sorun giderme kılavuzu
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Olası sorunlar aşağıda verilmiştir Azure Mobile Engagement'ın uygulamaları, cihazlar ve kullanıcılar hakkında bilgileri nasıl toplar karşılaşabilirsiniz.
 
 ## <a name="missingdelayed-information"></a>Eksik Gecikmeli bilgi

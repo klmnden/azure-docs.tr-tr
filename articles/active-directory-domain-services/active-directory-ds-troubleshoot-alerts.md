@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 436fa31b9fd1231b38b39d911d9b6c2d4829461d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5a9f1bfee1df41d25309e84fe9958ff19a368943
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD etki alanı Hizmetleri - sorun giderme uyarıları
 Bu makalede, yönetilen etki alanınızda karşılaşabileceğiniz herhangi bir uyarı için sorun giderme kılavuzları sağlar.
@@ -34,7 +34,7 @@ Karşılık gelen sorun giderme adımlarını kimliği veya ileti uyarıda seçi
 | AADDS102 | *Azure AD dizininizi Azure AD etki alanı Hizmetleri düzgün çalışması gerekli bir hizmet sorumlusu silinmiş olabilir. Bu yapılandırma, izleme, yönetme, düzeltme eki, Microsoft'un yeteneğini etkiler ve yönetilen etki alanınızı eşitleyin.* | [Hizmet sorumlusu eksik](active-directory-ds-troubleshoot-service-principals.md) |
 | AADDS103 | *Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz sanal ağı için IP adres aralığı bir ortak IP aralığında değil. Azure AD etki alanı Hizmetleri, bir sanal ağdaki bir özel IP adres aralığı ile etkinleştirilmelidir. Bu yapılandırma, izleme, yönetme, düzeltme eki Microsoft'un yeteneğini etkiler ve yönetilen etki alanınızı eşitleyin.* | [Bir ortak IP aralığında adresidir](#aadds103-address-is-in-a-public-ip-range) |
 | AADDS104 | *Microsoft, bu yönetilen etki alanı için etki alanı denetleyicilerinin ulaşmasını alamıyor. Bu sanal ağ blokları erişiminizi yönetilen etki alanı için yapılandırılmış bir ağ güvenlik grubu (NSG) durum. Başka bir olası neden, bu blokları gelen trafiğin internet'ten bir kullanıcı tanımlı yol olup olmadığını olmasıdır.* | [Ağ hatası](active-directory-ds-troubleshoot-nsg.md) |
-| AADDS105 | *Uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silinir ve yeniden oluşturulur. Bu hizmet sorumlusu başka bir hizmet sorumlusu ve parola eşitleme için kullanılan bir uygulama yönetir. Yönetilen hizmet sorumlusu ve/veya uygulama yetkilendirilmemiş altında yeni oluşturulan hizmet asıl şekilde hizmetimizi tarafından yönetilemez. Bu, yeni oluşturulan hizmet asıl eski yönetilen uygulamaların güncelleştiremiyor olacaktır ve parola eşitleme etkileneceğini anlamına gelir.* | [Parola Eşitleme uygulama güncel değil](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
+| AADDS105 | *Uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silinir ve yeniden oluşturulur. Dinlenme tutarsız izinleri yönetilen etki alanınızı hizmet vermek için gereken Azure AD etki alanı Hizmetleri kaynakları bırakır. Eşitleme, yönetilen etki alanınızda parolaların etkilenebilir.* | [Parola Eşitleme uygulama güncel değil](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *Yönetilen etki alanı son [date] üzerinde Azure AD ile eşitlendi. Kullanıcılar yönetilen etki alanında oturum açmak olabilir veya grup üyeliklerini Azure AD ile eşitlenmiş olmayabilir.* | [Eşitleme bir süre içinde gerçekleşen tamamlanmadı](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *Yönetilen etki alanı son [date] üzerinde yedeklendi.* | [Bir yedek bir süre gerçekleştirilecek tamamlanmadı](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *Yönetilen etki alanı için güvenli LDAP sertifika XX sona erecek.* | [Güvenli LDAP sertifikanın sona ermesinden](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |

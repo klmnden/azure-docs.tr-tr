@@ -1,6 +1,6 @@
 ---
-title: ".NET izleme günlükleri Application ınsights'ta keşfedin"
-description: "İzleme, NLog veya Log4Net ile oluşturulan günlükleri arayın."
+title: .NET izleme günlükleri Application ınsights'ta keşfedin
+description: İzleme, NLog veya Log4Net ile oluşturulan günlükleri arayın.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlükleri Application ınsights'ta keşfedin
 NLog, log4Net veya System.Diagnostics.Trace, ASP.NET uygulamanızda Tanılama izleme için kullanıyorsanız günlüklerinizi gönderilmesini sağlayabilirsiniz [Azure Application Insights][start], burada keşfedin aramak ve bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmeti ile ilişkilendirilmiş izlemeleri belirlemek ve diğer olayları ve özel durum raporları ile ilişkilendirmek, uygulamadan gelen telemetri ile birleştirilir.
@@ -62,8 +62,8 @@ Proje türü (örneğin Windows Masaüstü projesi) Application Insights yükley
 3. "Application Insights" araması yapın
 4. Uygun paket - aşağıdakilerden birini seçin:
 
-   * Microsoft.ApplicationInsights.TraceListener (System.Diagnostics.Trace çağrıları yakalamak için)
-   * Microsoft.ApplicationInsights.EventSourceListener (EventSource olaylarını yakalamak için)
+   * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
+   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
    * Microsoft.ApplicationInsights.EtwListener (ETW olaylarını yakalamak için)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
@@ -91,15 +91,15 @@ Yapılandırabileceğiniz [System.Diagnostics.Tracing.EventSource](https://msdn.
 ```
 
 Her bir kaynağı için şu parametreleri ayarlayabilirsiniz:
- * `Name`Toplanacak EventSource adını belirtir.
- * `Level`Toplanacak günlüğe kaydetme düzeyini belirtir. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(İsteğe bağlı) kullanmak için anahtar sözcükler birleşimleri tamsayı değerini belirtir.
+ * `Name` Toplanacak EventSource adını belirtir.
+ * `Level` Toplanacak günlüğe kaydetme düzeyini belirtir. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (İsteğe bağlı) kullanmak için anahtar sözcükler birleşimleri tamsayı değerini belirtir.
 
 ## <a name="using-diagnosticsource-events"></a>DiagnosticSource olaylarını kullanma
 Yapılandırabileceğiniz [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) Application Insights izlemeleri olarak gönderilmesini olaylar. İlk olarak, yükleme [ `Microsoft.ApplicationInsights.DiagnosticSourceListener` ](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet paketi. Daha sonra Düzenle `TelemetryModules` bölümünü [Applicationınsights.config](app-insights-configuration-with-applicationinsights-config.md) dosya.
 
 ```xml
-    <Add Type="Microsoft.ApplicationInsights.DiagnsoticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
+    <Add Type="Microsoft.ApplicationInsights.DiagnosticSourceListener.DiagnosticSourceTelemetryModule, Microsoft.ApplicationInsights.DiagnosticSourceListener">
       <Sources>
         <Add Name="MyDiagnosticSourceName" />
       </Sources>
@@ -123,10 +123,10 @@ Application Insights izlemeleri olarak gönderilmesini ETW olayları yapılandı
 ```
 
 Her bir kaynağı için şu parametreleri ayarlayabilirsiniz:
- * `ProviderName`Toplanacak ETW sağlayıcı adıdır.
- * `ProviderGuid`Toplama ETW sağlayıcı GUID belirtir yerine kullanılabilir `ProviderName`.
- * `Level`Toplanacak günlüğe kaydetme düzeyi ayarlar. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
- * `Keywords`(İsteğe bağlı) kullanmak için anahtar sözcüğü birleşimleri tamsayı değerini ayarlar.
+ * `ProviderName` Toplanacak ETW sağlayıcı adıdır.
+ * `ProviderGuid` Toplama ETW sağlayıcı GUID belirtir yerine kullanılabilir `ProviderName`.
+ * `Level` Toplanacak günlüğe kaydetme düzeyi ayarlar. Aşağıdakilerden biri olabilir `Critical`, `Error`, `Informational`, `LogAlways`, `Verbose`, `Warning`.
+ * `Keywords` (İsteğe bağlı) kullanmak için anahtar sözcüğü birleşimleri tamsayı değerini ayarlar.
 
 ## <a name="using-the-trace-api-directly"></a>Kullanarak doğrudan API izleme
 Application Insights izleme API doğrudan çağırabilir. Günlüğe kaydetme bağdaştırıcıları bu API'yi kullanın.

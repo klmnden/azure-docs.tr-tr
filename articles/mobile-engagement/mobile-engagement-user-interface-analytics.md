@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - Analytics'i"
-description: "Azure Mobile Engagement kullanarak uygulamanız hakkındaki geçmiş verilerini çözümlemeyi öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - Analytics'i
+description: Azure Mobile Engagement kullanarak uygulamanız hakkındaki geçmiş verilerini çözümlemeyi öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6b2533ac-b8ec-4e35-872c-d563895bdc0c
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ad05676919d6c254d60fd010c3f589f663c4745d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fceae1ffff40fc525170121181e21726fe2bd3f7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-analyze-historical-data-about-your-application"></a>Uygulamanız hakkındaki geçmiş verilerini analiz etme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu makalede **ANALYTICS** sekmesinde **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. Portalı kullanmaya başlamak için önce oluşturmanız gerektiğini unutmayın bir **Azure Mobile Engagement** hesabı.
 
 UI Analytics bölüm, 24 saatte bir güncelleştirilir geçmiş verilere dayanan uygulamanızı ilgili olarak toplanan bilgiler sağlar. Bilgi çubuğu/satır/pasta grafikler, kılavuzları ve haritalar oluşan farklı panolarda görüntülenir. Verileri de .csv dosyaları olarak indirilebilir. Bu aynı bilgilerin çoğunu, gerçek zamanlı izleme bölümünde UI kullanılabilir ve ayrıca Analytics API'SİNDEN erişilebilir.
@@ -41,7 +45,7 @@ Azure Mobile Engagement SDK'sı ile uygulamanızı tümleştirmek hemen çizileb
 * Bekletme: Bir kullanıcı ilk oturumunu bu zaman aralığında gerçekleştirdiyse bir belirli bir zaman aralığında elde tutulmuş kabul edilir. Elde tutulmuş kullanıcıların (ve yeni kullanıcıların) sayıldığı zaman aralıklarını saat, gün, hafta veya ay olarak değiştirebilirsiniz. Kullanıcı bekletme analytics cohorts üzerinde oluşturulmuştur. Belirli bir dönemdeki algılanan tüm yeni kullanıcıları içeren bir kohort kümesidir (yani, bu süre boyunca ilk oturumuna gerçekleştiren kullanıcı kümesini). 1 gün, 2 gün, 4 gün, 7 gün veya 1 aylık cohorts kullanırız. Bir kohort verildiğinde, her 1 gün, 2-gün, 4 gün, 7 gün veya 1 aylık, Azure Mobile Engagement kohort ve misiniz ait tüm kullanıcılar kümesi hesaplar hala etkin (yani, en az bir oturum boyunca kullanıcılar kümesi). Bu kullanıcı kümesi kohort sürüm adı verilir. (Azure Mobile Engagement, kullanıcılarınızın kaç uygulamanızı kullanmaya devam gösterebilir, ancak yalnızca platform belirli deposu kullanıcılarınızın kaç Windows mağazası, app - Örneğin, GooglePlay, iTunes kaldırılması anlayabilirsiniz vs.).
 * Oturumlar: Tek bir kullanıcı tarafından uygulama kullanımı. Oturumlar, kullanıcılar tarafından gerçekleştirilen etkinlikleri serisi oluşturulur (bir etkinlik genellikle uygulamanın bir ekran kullanımını ilişkilidir, ancak bu SDK uygulamada bütünleştirilmiştir şekilde bağlı olarak değişebilir). Bir kullanıcı aynı anda yalnızca bir etkinlik gerçekleştirebilirsiniz: kullanıcı ilk etkinliğini başlar ve kendisine son etkinliğini bitirdiğinde durur hemen bir oturumu başlatır. Bir kullanıcı birden fazla birkaç saniye herhangi bir etkinlik yapmadan kalırsa, kendi etkinlik dizisini iki ayrı oturumlara ayrılır.
 * Etkinlikler: Her ekranda, uygulamanızdaki her ekran adlarını ve kullanıcılar uzunluğu ayırın. Etkinlikler kendi uygulamanız için ayarladığınız "uygulama bilgisini" etiketleri karşılık gelir özel bir analitik seçeneği şunlardır:
-* Kullanıcı yolu: kullanıcılarınızın uygulama etkinlikleri (ekranları) içinde nasıl gezindiğini gösterir. Ayrıntı düzeyini ayarlamak için kaydırıcıyı hareket ettirebilirsiniz. Mavi düğümler uygulamanızın etkinliklerini ifade eder. Kendi boyutu süresi orantılıdır kullanıcıların bunlar içinde geçirdiği. Beyaz düğümler oturum başlangıcını ve bitişini ifade eder. Kırmızı düğümler çökme (Crash) ifade eder. Bağlantılar uygulamanızın etkinlikleri arasındaki (veya etkinlikler ile çökmeler arasındaki) geçişleri ifade eder. Bir düğüm veya verileriniz hakkında daha fazla bilgi içeren bir araç ipucunu görüntülemek için bir bağlantıya tıklayarak: belirli bir ekranda, geçiş sayısı ve kaynak etkinliğinden hedef etkinliğine geçiş yüzdesi harcanan zamanı. (Bir---60%---> B A etkinliğindeki kullanıcıların B etkinliğine gittiği anlamına gelir süresi % 60.) Bunu açıklamak istediğiniz kadar grafiği yeniden düzenleyebilirsiniz; Her bir değişiklik yaptığınızda konumu kaydedilir. Grafiği aydınlatmak için çökmeleri (crash) gösterebilir veya gizleyebilirsiniz.
+* Kullanıcı yolu: kullanıcılarınızın uygulama etkinlikleri (ekranları) içinde nasıl gezindiğini gösterir. Ayrıntı düzeyini ayarlamak için kaydırıcıyı hareket ettirebilirsiniz. Mavi düğümler uygulamanızın etkinliklerini ifade eder. Kendi boyutu süresi orantılıdır kullanıcıların bunlar içinde geçirdiği. Beyaz düğümler oturum başlangıcını ve bitişini ifade eder. Kırmızı düğümler çökmeleri (crash) ifade eder. Bağlantılar uygulamanızın etkinlikleri arasındaki (veya etkinlikler ile çökmeler arasındaki) geçişleri ifade eder. Bir düğüm veya verileriniz hakkında daha fazla bilgi içeren bir araç ipucunu görüntülemek için bir bağlantıya tıklayarak: belirli bir ekranda, geçiş sayısı ve kaynak etkinliğinden hedef etkinliğine geçiş yüzdesi harcanan zamanı. (Bir---60%---> B A etkinliğindeki kullanıcıların B etkinliğine gittiği anlamına gelir süresi % 60.) Bunu açıklamak istediğiniz kadar grafiği yeniden düzenleyebilirsiniz; Her bir değişiklik yaptığınızda konumu kaydedilir. Grafiği aydınlatmak için çökmeleri (crash) gösterebilir veya gizleyebilirsiniz.
 * Olayları: uygulama bir kullanıcı tarafından yapılan belirli eylemler. Olayları dağıtımını kullanıcı oturum başına olay sayısı olarak gösterilir. Bir olay anlık bir eylemi, örneğin, bir düğmeye veya bildirim alma tıklama temsil eder. (Olayların anlamı SDK uygulamada nasıl tümleştirildiğine üzerinde bağlıdır.) Bir olay bir oturum ya da iş sırasında oluşabilir veya tek başına olabilir.
 * İşlerini: Eylem uzunluğu odak dışında olaylara benzer. Örneğin, iş yükü veya web hizmetine yapılan bir çağrı içerik süreyi hakkında teknik bilgiler söyleyebilirsiniz. Ayrıca, kullanıcının bir formu doldurun, bir hesap oluşturun veya satın alma süreyi gösterebilirsiniz. Bir işi bir görevin süresini temsil eder, örneğin, bir indirme görevinin süresi veya saati bir başlık ekranda görüntülenir. (İşlerin anlamı, SDK uygulamada nasıl tümleştirildiğine üzerinde bağlıdır.) İşlerini genellikle (yani, herhangi bir kullanıcı etkinliği olmadan) bir oturumun kapsamı dışında gerçekleştirilen arka plan görevleri ile ilişkilendirilir.
 * Technicals: Hakkında teknik bilgiler aygıtları izlemek, yerel ayar, taşıyıcı, ağ, aygıt, bellenim, gibi ve ekran kullanıcıların aygıtlarından boyutunu ve uygulamanızı sürümü ve uygulamanızda kullanılan SDK sürümü, uygulamanızın kullanıcılarının.

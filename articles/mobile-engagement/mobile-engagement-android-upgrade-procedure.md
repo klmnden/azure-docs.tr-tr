@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
-description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
+title: Azure Mobile Engagement Android SDK tümleştirmesi
+description: En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 11618586-c709-49ca-bcd8-745323ff1af6
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 1f047f93fa8bc852b28c86e91d0c007a94fb4299
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77047cb1dc39fa3c05f58550ceea74e78396157f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="upgrade-procedures"></a>Yükseltme yordamları
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Uygulamanıza bizim SDK daha eski bir sürümü zaten bütünleştirdiyseniz, SDK'yı yükseltirken aşağıdaki noktaları dikkate almanız gerekir.
 
 SDK çeşitli sürümleri eksik, birçok yordamı uygulamanız gerekebilir. Örneğin, 1.4.0 önce "Kimden 1.4.0 1.5.0 için" yordamını takip etmek için sahip 1.6.0 sonra "Kimden 1.5.0 1.6.0 için" yordamı geçiş ise.
@@ -152,7 +156,7 @@ Aşağıdaki nasıl Azure Mobile Engagement tarafından desteklenen bir uygulama
 > 
 > 
 
-### <a name="jar-file"></a>JAR dosyasını
+### <a name="jar-file"></a>JAR file
 Değiştir `capptain.jar` tarafından `mobile-engagement-VERSION.jar` içinde `libs` klasörü.
 
 ### <a name="resource-files"></a>Kaynak dosyaları

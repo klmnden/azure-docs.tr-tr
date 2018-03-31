@@ -1,12 +1,12 @@
 ---
-title: "Azure içerik teslim ağı kuralları önbelleğe alma ile önbelleğe alma davranışı denetlemek | Microsoft Docs"
-description: "Kuralları önbelleğe alma CDN ayarlamak veya hem genel hem de URL yolu ve dosya uzantılarını gibi koşullarla varsayılan önbellek süre sonu davranışını değiştirmek için kullanabilirsiniz."
+title: Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı denetlemek | Microsoft Docs
+description: Kuralları önbelleğe alma CDN ayarlamak veya hem genel hem de URL yolu ve dosya uzantılarını gibi koşullarla varsayılan önbellek süre sonu davranışını değiştirmek için kullanabilirsiniz.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 735978a0986b2b16b4f96faca78c06d798915002
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Denetim Azure içerik teslim ağı kuralları önbelleğe alma ile önbelleğe alma davranışı
+# <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Denetim Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı
 
 > [!NOTE] 
 > Önbelleğe alma kuralları yalnızca kullanılabilir **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı**. İçin **Azure CDN Verizon Premium'a**, kullanabileceğiniz [Azure CDN kurallar altyapısı](cdn-rules-engine.md) içinde **Yönet** benzer işlevselliği için portal.
  
-Azure içerik teslim ağı dosyalarınızı nasıl önbelleğe denetlemek için iki yol sunar: 
+Azure içerik teslim ağı (CDN) dosyalarınızı nasıl önbelleğe denetlemek için iki yol sunar: 
 
 - Kuralları önbelleğe alma: Bu makalede ayarlamak veya hem genel hem de bir URL yolu ve dosya uzantısı gibi özel koşullarla varsayılan önbellek süre sonu davranışını değiştirmek için kuralları önbelleğe alma içerik teslim ağı (CDN) nasıl kullanabileceğinizi açıklar. Azure CDN iki tür kuralları önbelleğe almayı sağlar:
    - Genel kurallar önbelleğe alma: uç nokta için tüm istekleri etkiler, profilinizi her bitiş noktasıyla ilgili genel bir önbellek kuralı ayarlayabilirsiniz. Genel önbellek kuralı tüm HTTP önbellek yönergesi üstbilgileri kılar ayarlayın.
@@ -40,11 +40,11 @@ Varsayılan önbelleğe alma davranışını etkinleştirmek ve yönerge üstbil
 CDN önbelleğe alma nasıl ayarlanacağı kuralları:
 
 1. Azure Portalı'nı açın, bir CDN profili seçin ve sonra bir uç nokta seçin.
-2. Sol bölmede ayarları altında tıklatın **kuralları önbelleğe alma**.
+2. Ayarları altındaki sol bölmede seçin **kuralları önbelleğe alma**.
 
    ![Kuralları düğmesini CDN önbelleğe alma](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
 
-1. Genel bir önbellek kuralı gibi oluşturun:
+3. Genel bir önbellek kuralı gibi oluşturun:
    1. Altında **genel kurallar önbelleğe alma**ayarlayın **sorgu dizesini önbelleğe alma davranışı** için **sorgu dizelerini yoksayabilir**.
    2. Ayarlama **önbelleğe alma davranışı** için **eksikse ayarlamak**.
        
@@ -60,8 +60,9 @@ CDN önbelleğe alma nasıl ayarlanacağı kuralları:
        
        Bu özel önbellek kuralını herhangi bir önbellek süre olan 30 günden ayarlar `.jpg` görüntü dosyaları `/images` uç noktanızı klasörü. Tüm geçersiz kılmaları `Cache-Control` veya `Expires` kaynak sunucu tarafından gönderilen HTTP üstbilgileri.
 
-    ![Özel kurallar önbelleğe alma](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
+    ![Özel önbelleğe alma kuralları](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
+    
 > [!NOTE] 
 > Bir kural değişiklikten önce önbelleğe alınan dosyalar kendi kaynak önbellek süresi ayarı koruyun. Önbellek süreler sıfırlamak için şunları yapmalısınız [dosya temizleme](cdn-purge-endpoint.md). İçin **verizon'dan Azure CDN** uç noktaları, onu etkili olması için kuralları önbelleği 90 dakika sürebilir.
 
@@ -102,13 +103,13 @@ Genel ve özel önbelleğe alma kuralları aşağıdaki sırayla işlenir:
 
 - Özel kural #1 önbelleğe alma:
    - Eşleşen koşul: **yolu**
-   - Eşleşen değer:`/home/*`
+   - Eşleşen değer: `/home/*`
    - Önbelleğe alma davranışı: **geçersiz kıl**
    - Önbellek yenileme süresi: 2 gün
 
 - Özel kural #2 önbelleğe alma:
    - Eşleşen koşul: **uzantısı**
-   - Eşleşen değer:`.html`
+   - Eşleşen değer: `.html`
    - Önbelleğe alma davranışı: **eksikse ayarlayın**
    - Önbellek yenileme süresi: 3 gün
 

@@ -1,24 +1,23 @@
 ---
-title: "Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler | Microsoft Docs"
-description: "JavaScript kullanıcı tanımlı işlevler ile Gelişmiş sorgu mekanizması gerçekleştirmek"
-keywords: "JavaScript, kullanıcı tanımlı işlevler, udf"
+title: Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler | Microsoft Docs
+description: JavaScript kullanıcı tanımlı işlevler ile Gelişmiş sorgu mekanizması gerçekleştirmek
+keywords: JavaScript, kullanıcı tanımlı işlevler, udf
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+author: jseb225
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: e8c1c784a598416b478d1430258201053185fdee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: f2b14029ebea7f9cf1fa74a384ecbb72b08b7ad6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-functions"></a>Azure Stream Analytics JavaScript kullanıcı tanımlı işlevler
 Azure akış analizi, kullanıcı tanımlı işlevler JavaScript'te yazılmış destekler. İle zengin kümesi **dize**, **RegExp**, **matematik**, **dizi**, ve **tarih** yöntemleri, JavaScript sağlar, karmaşık veri dönüşümleri ile Stream Analytics işleri oluşturmak daha kolay hale gelir.
@@ -87,10 +86,10 @@ Stream Analytics dil ve JavaScript desteği sorgu türleri farklılıklar vardı
 Akış Analizi | JavaScript
 --- | ---
 bigint | Sayı (JavaScript yalnızca tam olarak 2 kadar tamsayılar temsil eden ^ 53)
-Tarih saat | Tarih (JavaScript yalnızca destekler milisaniye)
+DateTime | Tarih (JavaScript yalnızca destekler milisaniye)
 Çift | Sayı
 nvarchar(max) | Dize
-Kayıt | Nesne
+Kaydet | Nesne
 Dizi | Dizi
 NULL | Null
 
@@ -101,9 +100,9 @@ JavaScript Stream Analytics dönüşümleri şunlardır:
 JavaScript | Akış Analizi
 --- | ---
 Sayı | Bigint (sayı yuvarlak ve uzun arasında ise. MinValue ve uzun süre. MaxValue; Aksi takdirde, çift)
-Tarih | Tarih saat
+Tarih | DateTime
 Dize | nvarchar(max)
-Nesne | Kayıt
+Nesne | Kaydet
 Dizi | Dizi
 Null, tanımlanmamış | NULL
 Herhangi bir türü (örneğin, bir işlev veya hata) | (Çalışma zamanı hatası sonuçlarında) desteklenmiyor

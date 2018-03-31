@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3f33703ec86f131d18c89cf4b29514c5002349d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -214,7 +214,7 @@ Evet. Bir ExpressRoute ağ geçidi sanal ağınızdaki oluşturmanız gerekir. �
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>Neden bir sanal ağda ExpressRoute ağ geçidi ile ilgili genel bir IP adresi var mı?
 
-Genel IP adresi, yalnızca dahili yönetimi için kullanılır. Bu genel IP adresi Internet'e açık değildir ve güvenlik açıklarını sanal ağınızın niteliğinde değildir.
+Genel IP adresi yalnızca dahili yönetimi için kullanılır ve sanal ağınızda güvenlik riskini niteliğinde değildir.
 
 ### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>ExpressRoute Azure depolama alanına bağlanmak için ne gerekir?
 
