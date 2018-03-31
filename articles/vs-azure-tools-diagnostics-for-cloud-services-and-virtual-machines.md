@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services ve sanal makineler için tanılama ayarlama | Microsoft Docs"
-description: "Azure cloude Hizmetleri ve sanal makineleri (VM'ler) Visual Studio hata ayıklama için tanılama ayarlanacağını öğrenin."
+title: Azure Cloud Services ve sanal makineler için tanılama ayarlama | Microsoft Docs
+description: Azure cloude Hizmetleri ve sanal makineleri (VM'ler) Visual Studio hata ayıklama için tanılama ayarlanacağını öğrenin.
 services: visual-studio-online
 documentationcenter: na
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
 ms.devlang: dotnet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: mikejo
-ms.openlocfilehash: f00771d89749e7507d7f303f366fe63f537900ff
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 34c667b0a594682e4d099e7bff64bfdb336b850b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services ve sanal makineler için tanılama ayarlayın
 Bir Azure bulut hizmeti ya da sanal makineyi gidermek gerektiğinde, daha kolay Azure tanılama ayarlamak için Visual Studio'yu kullanabilirsiniz. Tanılama sistem verileri ve sanal makineler ve bulut hizmeti çalıştıran sanal makine örnekleri günlük verilerini yakalar. Tanılama veri seçtiğiniz bir depolama hesabı aktarılır. Azure'da oturum Tanılama hakkında daha fazla bilgi için bkz [Azure App Service'te Web uygulamalarını için tanılama günlüğünü etkinleştirme](app-service/web-sites-enable-diagnostic-log.md).
@@ -145,7 +145,7 @@ Windows olay günlüklerini yakalamak için seçin **etkinleştirmek aktarımı,
 
 ![Olay günlükleri](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC796664.png)
 
-Azure SDK 2.6 veya sonraki sürümünü kullanıyorsanız ve bir özel veri kaynağı belirtmek istiyorsanız bu alana giriş  **\<veri kaynağı adı\>**  metin kutusuna ve ardından **Ekle**. Veri kaynağı diagnostics.cfcfg dosyasına eklenir.
+Azure SDK 2.6 veya sonraki sürümünü kullanıyorsanız ve bir özel veri kaynağı belirtmek istiyorsanız bu alana giriş **\<veri kaynağı adı\>** metin kutusuna ve ardından **Ekle**. Veri kaynağı diagnostics.cfcfg dosyasına eklenir.
 
 Azure SDK 2.5 kullanıyorsanız ve bir özel veri kaynağı belirtmek istiyorsanız, ona ekleyebilirsiniz `WindowsEventLog` diagnostics.wadcfgx bölümünü dosyası gibi aşağıdaki örnekte:
 
@@ -223,7 +223,7 @@ Bir bulut hizmeti veya sanal makine için tanılama verilerini derledik sonra g�
    | Performans sayaçları |Sanal makinede kullanılabilir herhangi bir performans sayacı hakkında veri toplar. İşletim sistemi, bellek kullanımı ve işlemci süresi gibi birçok istatistikleri dahil performans sayaçları sağlar. |WADPerformanceCountersTable |
    | Altyapı günlükleri |Tanılama Altyapısı kendisini oluşturulan günlükleri. |WADDiagnosticInfrastructureLogsTable |
    | IIS günlükleri |Kayıt web istekleri günlüğe kaydedilir. Bulut hizmetiniz bir miktarda trafiği alır, bu günlükler uzun olabilir. Toplamak ve yalnızca gerektiğinde bu verileri depolamak için iyi bir fikirdir. |İsteği başarısız oldu blob kapsayıcısı wad-IIS-failedreqlogs, bu dağıtım, rol ve örneği için bir yol altında altında kaydeder bulabilirsiniz. Tam günlükleri wad IIS logfiles altında bulabilirsiniz. Her dosya için girişler WADDirectories tablosunda oluşturulur. |
-   | Kilitlenme bilgi dökümleri |İkili bulut hizmetinizin işlemin (genellikle çalışan rolü) sağlar. |wad crush dökümleri blob kapsayıcısı |
+   | Kilitlenme bilgi dökümleri |İkili bulut hizmetinizin işlemin (genellikle çalışan rolü) sağlar. |wad-crush-dumps blob container |
    | Özel günlük dosyaları |Günlükleri, önceden tanımlanmış veri. |Depolama hesabınızı kodda özel günlük dosyalarının konumu belirtebilirsiniz. Örneğin, bir özel blob kapsayıcısını belirtebilirsiniz. |
 4. Herhangi bir türde veriler kesildi, bu verileri için arabellek boyutu artırmayı deneyebilirsiniz türü veya veri depolama hesabınıza aktarımları sanal makineden arasındaki aralığı kısaltmayı.
 5. (İsteğe bağlı) Bazen genel depolama maliyetleri azaltmak için depolama hesabından verilerini temizle.

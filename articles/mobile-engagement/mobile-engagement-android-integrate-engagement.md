@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
-description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
+title: Azure Mobile Engagement Android SDK tümleştirmesi
+description: En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a5487793-1a12-4f6c-a1cf-587c5a671e6b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 35bd92e52b7a02f58620a03156902f9f91be57ae
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fffff6de996b8295639b3d595c5f778de8a0f74f
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-android"></a>Android'de katılım tümleştirme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Evrensel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -267,7 +271,7 @@ Mobile Engagement bağlamında, çalışma zamanında onayı iste izinler şunla
 
 * `ACCESS_COARSE_LOCATION`
 * `ACCESS_FINE_LOCATION`
-* `WRITE_EXTERNAL_STORAGE`(yalnızca Android API düzeyini 23 bunu hedeflerken)
+* `WRITE_EXTERNAL_STORAGE` (yalnızca Android API düzeyini 23 bunu hedeflerken)
 
 Harici depolama yalnızca ulaşma büyük resmi özelliği için kullanılır. Görürseniz yalnızca Mobile Engagement için ancak büyük resmi özelliği devre dışı bırakma, kullandıysanız kullanıcılar kesintiye uğratan olması için bu izin isteyen, kaldırabilirsiniz.
 
@@ -352,7 +356,7 @@ Bu işlev çağırdığınızda katılım etkinse durdurmak hizmet için 1 dakik
 
 Yeniden ile aynı işlevini çağırarak raporlama günlüğü etkinleştirebilirsiniz `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Kendi tümleştirme`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Kendi tümleştirme `PreferenceActivity`
 Bu işlevi çağırmak yerine, ayrıca bu ayarı doğrudan var olan tümleştirebilirsiniz `PreferenceActivity`.
 
 Tercihler dosyanız (istenen moduyla) kullanmak için katılım yapılandırabileceğiniz `AndroidManifest.xml` ile dosya `application meta-data`:

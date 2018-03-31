@@ -1,13 +1,12 @@
 ---
-title: "Azure Stream Analytics sınama sorgu | Microsoft Docs"
-description: "Akış analizi işleri giderirken sorunları belirlemenize."
-keywords: "Giriş, giriş örnekleme sorun giderme"
-documentationcenter: 
+title: Azure Stream Analytics sınama sorgu | Microsoft Docs
+description: Akış analizi işleri giderirken sorunları belirlemenize.
+keywords: Giriş, giriş örnekleme sorun giderme
+documentationcenter: ''
 services: stream-analytics
 author: jseb225
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
+manager: ryanw
+ms.assetid: ''
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics sorgu testi ve Giriş akışı örnekleme
 

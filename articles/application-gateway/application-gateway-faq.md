@@ -1,24 +1,19 @@
 ---
-title: Azure uygulama ağ geçidi için sık sorulan sorular | Microsoft Docs
+title: Azure uygulama ağ geçidi için sık sorulan sorular
 description: Bu sayfa, Azure uygulama ağ geçidi hakkında sık sorulan soruların yanıtlarını sağlar.
-documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
-editor: tysonn
-ms.assetid: d54ee7ec-4d6b-4db7-8a17-6513fda7e392
+author: vhorne
+manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/19/2017
-ms.author: davidmu
-ms.openlocfilehash: 5b400b373577fc38fe108a74eb8bad936a82be0c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 3/29/2018
+ms.author: victorh
+ms.openlocfilehash: b4b627d16414ea7e4553a18e6620fba60e95ec91
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -38,7 +33,19 @@ Uygulama ağ geçidi web trafiği ile yalnızca (HTTP/HTTPS/WebSocket) çalışt
 
 **Q. Hangi protokollerin, uygulama ağ geçidi destekliyor mu?**
 
-Uygulama ağ geçidi, HTTP, HTTPS ve WebSocket destekler.
+Uygulama ağ geçidi, HTTP, HTTPS, HTTP/2 ve WebSocket destekler.
+
+**Q. Uygulama ağ geçidi HTTP/2 nasıl destekler?**
+
+HTTP/2 protokolü desteği yalnızca uygulama ağ geçidi dinleyicileri bağlanan istemciler kullanılabilir. Arka uç sunucu havuzu için HTTP/1.1 iletişimidir. 
+
+Varsayılan olarak HTTP/2 desteği devre dışıdır. Azure PowerShell kod parçacığı aşağıda nasıl etkinleştirebilirsiniz gösterir:
+
+```
+$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw.EnableHttp2 = $true
+Set-AzureRmApplicationGateway -ApplicationGateway $gw
+```
 
 **Q. Hangi kaynaklara arka uç havuzu bir parçası olarak bugün destekleniyor mu?**
 
@@ -104,7 +111,7 @@ Ağ güvenlik grupları, aşağıdaki kısıtlamalarla uygulama ağ geçidi alt 
 
 * Özel durumlar gelen trafiği 65503-65534 düzgün çalışması arka uç sistem durumu için bağlantı noktalarında koyun gerekir.
 
-* Giden internet bağlantısı engellenebilir değil.
+* Giden internet bağlantısı engellenemez.
 
 * AzureLoadBalancer etiketi gelen trafiği için izin verilmelidir.
 
@@ -314,7 +321,7 @@ Denetim günlükleri, uygulama ağ geçidi için kullanılabilir. Portalı'nda t
 
 **Q. Uygulama ağ geçidi uyarılarla ayarlayabilir miyim?**
 
-Evet, uygulama ağ geçidi uyarıları destek, uyarılar ölçümleri yapılandırılır.  Uygulama ağ geçidi şu anda yapılandırılabilir "işleme" ölçüsü yok uyarı. Uyarılar hakkında daha fazla bilgi için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Evet, uygulama ağ geçidi uyarıları destek, uyarılar ölçümleri yapılandırılır. Uygulama ağ geçidi şu anda yapılandırılabilir "işleme" ölçüsü yok uyarı. Uyarılar hakkında daha fazla bilgi için [uyarı bildirimleri alma](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 **Q. Arka uç sistem durumu bilinmeyen durum, bu durum neden olabilecek verir?**
 

@@ -1,24 +1,18 @@
 ---
-title: "Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme"
-description: "Hangi teknolojinin kullanılacağını karar depolamak ve yardımcı olmak için Azure verilerine erişmek için farklı yollar öğrenin."
+title: Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme
+description: Hangi teknolojinin kullanılacağını karar depolamak ve yardımcı olmak için Azure verilerine erişmek için farklı yollar öğrenin.
 services: storage
-documentationcenter: 
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: b9c7913d1e95693a5ec72b24cf020928d67f0133
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure BLOB'ları, Azure dosyaları ya da Azure diskleri kullanmaya karar verme
 
@@ -46,10 +40,10 @@ Aşağıdaki tabloda Azure dosyaları Azure BLOB'ları ile karşılaştırır.
 |Bağlantı|REST API'leri--dünya çapında|REST API'leri - dünya çapında<br /><br /> SMB 2.1--bölge içinde<br /><br /> SMB 3.0 -- Worldwide|  
 |Uç Noktalar|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |Dizinler|Düz ad alanı|Doğru dizin nesneleri|  
-|Adları büyük/küçük harfe duyarlılık|Büyük/küçük harfe duyarlı|Servis talebi küçük harflere duyarlı değildir, ancak servis talebi koruma|  
-|Kapasite|En fazla 500 TB kapsayıcıları|5 TB dosya paylaşımları|  
-|Aktarım hızı|Blok blobu başına en fazla 60 MB/sn|Paylaşım başına en fazla 60 MB/sn|  
-|Nesne boyutu|En fazla 200 GB/blok blobu|1 TB/dosya kadar|  
+|Adları büyük/küçük harfe duyarlılık|Büyük/Küçük harfe duyarlı|Servis talebi küçük harflere duyarlı değildir, ancak servis talebi koruma|  
+|Kapasite|En fazla 500 Tıb kapsayıcıları|5 Tıb dosya paylaşımları|  
+|Aktarım hızı|Blok blobu başına en fazla 60 MIB/s|Paylaşım başına en fazla 60 MIB/s|  
+|Nesne boyutu|Blok blobu başına yaklaşık 4.75 TiB kadar|Dosya başına en fazla 1 Tıb|  
 |Faturalanan kapasite|Yazılan bayt dayalı|Dosya boyutuna göre|  
 |İstemci kitaplıkları|Birden çok dil|Birden çok dil|  
   
@@ -68,9 +62,9 @@ Aşağıdaki tabloda Azure dosyaları Azure diskler ile karşılaştırır.
 |Kimlik Doğrulaması|Yerleşik|NET kullanmak üzere ayarlanmış|  
 |Temizleme|Automatic|El ile|  
 |REST kullanarak erişimi|VHD içindeki dosyaları erişilemiyor|Bir paylaşımda depolanan dosyalara erişilebilir|  
-|En Yüksek Boyut|4 TB disk|5 TB dosya paylaşımı ve 1 TB Dosya paylaşımındaki|  
+|En Yüksek Boyut|4 Tıb disk|5 Tıb dosya paylaşımı ve 1 Tıb Dosya paylaşımındaki|  
 |En fazla 8KB IOPS|500 IOPS|1000 IOPS|  
-|Aktarım hızı|Disk başına en fazla 60 MB/sn|Dosya Paylaşımı başına en fazla 60 MB/sn|  
+|Aktarım hızı|Disk başına en fazla 60 MIB/s|Dosya Paylaşımı başına en fazla 60 MIB/s|  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

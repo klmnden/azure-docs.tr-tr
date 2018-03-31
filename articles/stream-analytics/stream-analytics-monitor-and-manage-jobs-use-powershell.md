@@ -1,12 +1,11 @@
 ---
-title: "İzleme ve akış analizi işleri PowerShell ile yönetme | Microsoft Docs"
-description: "Akış analizi işleri yönetmek ve izlemek için Azure PowerShell ve cmdlet'lerini kullanmayı öğrenin."
-keywords: "Azure powershell, azure powershell cmdlet'leri, powershell komutu, powershell komut dosyası"
+title: İzleme ve akış analizi işleri PowerShell ile yönetme | Microsoft Docs
+description: Akış analizi işleri yönetmek ve izlemek için Azure PowerShell ve cmdlet'lerini kullanmayı öğrenin.
+keywords: Azure powershell, azure powershell cmdlet'leri, powershell komutu, powershell komut dosyası
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: b8d362a2789c4e1f5594baa2b86a16e523757037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>İzleme ve akış analizi işleri Azure PowerShell cmdlet'leri ile yönetme
 İzleme ve Azure PowerShell cmdlet'leri ve powershell komut dosyası ile temel akış analizi görevleri yürütün akış analizi kaynaklarını yönetme hakkında bilgi edinin.
@@ -189,7 +188,7 @@ Azure PowerShell 1.0:
 
 Bu PowerShell komutunu iş StreamingJob StreamingJob adlı dönüştürme hakkında bilgi döndürür.
 
-### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>AzureStreamAnalyticsInput yeni | AzureRMStreamAnalyticsInput yeni
+### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
 Akış analizi işi içinde yeni bir giriş oluşturur veya mevcut bir belirtilen giriş güncelleştirir.
 
 Giriş adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
@@ -236,7 +235,7 @@ Azure PowerShell 1.0:
 
 Bu PowerShell komut dosyasından tanımıyla EntryStream adlı varolan giriş kaynağı tanımını değiştirir.
 
-### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>AzureStreamAnalyticsJob yeni | AzureRMStreamAnalyticsJob yeni
+### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
 Microsoft Azure'da yeni bir akış analizi işi oluşturur veya mevcut bir belirtilen iş tanımı güncelleştirir.
 
 İş adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
@@ -271,7 +270,7 @@ Azure PowerShell 1.0:
 
 Bu PowerShell komutunu iş tanımı için StreamingJob yerini alır.
 
-### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>AzureStreamAnalyticsOutput yeni | AzureRMStreamAnalyticsOutput yeni
+### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
 Akış analizi işi yeni çıktısı oluşturur veya mevcut bir çıktı güncelleştirir.  
 
 Çıktı adı .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.
@@ -306,7 +305,7 @@ Azure PowerShell 1.0:
 
 Bu PowerShell komutunu "çıktı" tanımı iş StreamingJob yerini alır.
 
-### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>AzureStreamAnalyticsTransformation yeni | AzureRMStreamAnalyticsTransformation yeni
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>New-AzureStreamAnalyticsTransformation | New-AzureRMStreamAnalyticsTransformation
 Akış analizi işi içinde yeni bir dönüştürme oluşturur veya mevcut dönüştürme güncelleştirir.
 
 Dönüştürme adını .json dosyası veya komut satırında belirtilebilir. Her ikisi de belirtilirse, komut satırında adı bir dosya ile aynı olması gerekir.

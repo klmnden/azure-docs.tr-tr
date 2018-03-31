@@ -1,32 +1,32 @@
 ---
-title: "Ad için Grup İlkesi ayarları Office 365 grupları Azure Active Directory'de (Önizleme) | Microsoft Docs"
-description: "Office 365 grupları Azure Active Directory'de (Önizleme) için sona erme kurma"
+title: Ad için Grup İlkesi ayarları Office 365 grupları Azure Active Directory'de (Önizleme) | Microsoft Docs
+description: Office 365 grupları Azure Active Directory'de (Önizleme) için sona erme kurma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: michael.tillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: cc3ea7f81a924f3f4baa6fd2866c4e552b7c160e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c21706a591d0e1aa00279edf7a5534ada95fd8c1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Office 365 grupları Azure Active Directory'de (Önizleme) için adlandırma ilkesini zorunlu kılma
 
 Oluşturulan veya kullanıcılarınız tarafından düzenlenmiş Office 365 grupları için tutarlı adlandırma kurallarını zorlamak için bir Grup İlkesi Azure Active Directory'de (Azure AD), kiracılar için adlandırma ayarlayın. Örneğin, bir grup üyeliği, coğrafi bölge işlevi iletişim kurmak için adlandırma ilkesini kullanabilir veya grup oluşturan kişiyi. Adres Defteri'ni gruplarında kategorilere ayırma yardımcı olmak için adlandırma İlkesi'ni de kullanabilirsiniz. Grup adları ve diğer adları kullanılmasını belirli kelimeleri engellemek için ilke kullanabilirsiniz.
 
 > [!IMPORTANT]
-> Office 365 grupları adlandırma ilkesi Preview sürümünü kullanarak bir veya daha fazla Office 365 grupların üyesi olan her benzersiz bir kullanıcı için Azure Active Directory Premium P1 lisansı gerektirir.
+> Office 365 grupları adlandırma ilkesi Preview sürümünü kullanarak bir veya daha fazla Office 365 grupların üyesi olan her benzersiz bir kullanıcı için Azure Active Directory Premium P1 lisansları veya Azure AD temel eğitim lisansı gerektirir.
 
 Oluşturma veya düzenleme (örneğin, Outlook, Microsoft Teams, SharePoint, Exchange veya Planlayıcısı) iş yüklerinde oluşturulan grupları adlandırma ilkesi uygulanır. Grup adı ve grup diğer adı için uygulanır. Azure AD'de adlandırma ilkenizi ayarlayın ve varolan bir Exchange Grup İlkesi adlandırma varsa, ilke adlandırma Azure AD uygulanır.
 

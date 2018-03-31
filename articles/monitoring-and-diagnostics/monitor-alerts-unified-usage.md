@@ -1,9 +1,9 @@
 ---
-title: "Oluşturun, görüntüleyin ve Uyarıları (Önizleme) uyarıları Azure İzleyici kullanarak - yönetme | Microsoft Docs"
-description: "Yazar, görüntülemek ve ölçüm yönetmek ve uyarı kuralları tek bir yerden oturum için yeni birleşik Azure uyarıları deneyimi kullanın."
+title: Oluşturun, görüntüleyin ve Uyarıları (Önizleme) uyarıları Azure İzleyici kullanarak - yönetme | Microsoft Docs
+description: Yazar, görüntülemek ve ölçüm yönetmek ve uyarı kuralları tek bir yerden oturum için yeni birleşik Azure uyarıları deneyimi kullanın.
 author: msvijayn
 manager: kmadnani1
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: b6b6bfee5b9e9036a6d7ff17ff1a8d4de542bbd3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6bd2c452059950f714de304cc30c7b4bd023fd86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor---alerts-preview"></a>Oluşturun, görüntüleyin ve Uyarıları yönetme Azure İzleyicisi - uyarıları (Önizleme) kullanma
 
@@ -136,7 +136,7 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 
 1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları (Önizleme)**.  
 
-2. **(Önizleme) Panosu uyarıları** görüntülenir - tüm Azure uyarıları birleşik ve tekil panosunda görüntülenir; burada görüntülerle ![uyarı Panosu](./media/monitoring-overview-unified/alerts-preview-overview.png)
+2. **(Önizleme) Panosu uyarıları** görüntülenir - tüm Azure uyarıları birleşik ve tekil panosunda görüntülenir; burada görüntülerle ![uyarı Panosu](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Üst soldan sağa, Pano ayrıntılı listesini görmek için tıklattığınız aşağıdaki - bir bakışta gösterir:
     - *Uyarıları harekete*: mantığı karşılanır ve içinde durum harekete uyarılar şu anda sayısı
     - *Toplam uyarı kuralları*: oluşturulan uyarı kuralları ve alt, şu an etkin olan numarasını sayısı
@@ -147,7 +147,7 @@ Ayrıntılı İleri Azure Uyarıları'ni (Önizleme) kullanarak adım adım Kıl
 1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları (Önizleme)**.  
 2. Seçin **yönetmek kuralları** düğmesini oluşturulan tüm uyarı kuralları burada listelenen kural Yönetimi bölümüne - gitmek için üst çubukta; devre dışı bırakılmış uyarıları dahil olmak üzere.
 3. Belirli uyarı kuralları için bulmak için bir ya da aşağı açılan filtreleri shortlist uyarı kuralları için özel izin üstteki kullanabilirsiniz *abonelik, kaynak grupları ve/veya kaynak*. Uyarı kuralı listesinin bölmesi arama'yı kullanarak alternatif olarak işaretlenmiş *filtre uyarıları*, bir karşı eşleşen anahtar sözcüğü sağlayabilir *uyarı adı, koşul ve hedef kaynak*; yalnızca görüntülemek için eşleştirme kuralları.
-   ![Uyarı kurallarını yönetme](./media/monitoring-overview-unified/alerts-preview-rules.png)
+   ![Uyarı kurallarını yönetme](./media/monitoring-alerts-unified-usage/alerts-preview-rules.png)
 4. Görüntülemek veya belirli uyarı kuralı değiştirmek için tıklatılabilir bir bağlantı gösterilen adını tıklatın.
 5. Tanımlanan uyarısı gösterilir - üç aşama yapısındaki: 1) Uyarı koşulu 2) uyarı ayrıntı 3) eylem grubu. **Hedef ölçütleri** uyarı mantığı ya da yeni bir değişiklik için tıklattığınız ölçütleri önceki mantığı silmek için Kutusu'nu kullandıktan sonra eklenebilir. Benzer şekilde, uyarı Ayrıntıları bölümünde - **açıklama** ve **önem** değiştirilebilir. Eylem grubunu değiştirilebilir ve yeni bir uyarı kullanmaya bağlama için hazırlanmış **yeni eylem grup** düğmesi.
 

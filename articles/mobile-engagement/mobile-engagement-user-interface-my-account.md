@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - hesabım"
-description: "Azure Mobile Engagement hesabı profili ve test cihazlarınızı yönetmeyi öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - hesabım
+description: Azure Mobile Engagement hesabı profili ve test cihazlarınızı yönetmeyi öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 22832678-3959-4b8c-9fb2-f2ff5974e5d1
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 4e463e973dcfa1faa7b08e4738192161980b3aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89ef4f97a03ab0334f5474fb5b0ad2fd44f23518
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-your-account-profile-and-test-devices"></a>Hesap profili ve test cihazları yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu makalede **giriş** sayfasında **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. 
 
 Almak için **Hesabımı** sayfasında, sayfanın üst kısmında, hesabınızı tıklayın.
@@ -44,7 +48,7 @@ Anında iletme API'si veya Device API'sini kullanmak için kullanıcılarınız�
 1. Arka ucunuzdan, cihaz tanımlayıcılarını tam listesini almak için cihaz API "Get" özelliğini kullanabilirsiniz.
 2. Uygulamanızdan almak için SDK'yı kullanabilirsiniz. (Android, aracı sınıfının ve iOS, getDeviceID() işlevini çağırın Aracısı sınıfın DeviceID özelliği okuyun.)
 3. Duyuru ile ilişkili eylem URL'si {DeviceID} desenini içeriyorsa ulaşma duyurudan, otomatik olarak eylemi tetikleyen cihazın tanımlayıcısı ile değiştirilecek.
-   http://<example>.com/registeruser? DeviceID {DeviceID} = & otherparam = myparamdata tarafından değiştirilecek: http://<example>.com/registeruser? DeviceID XXXXXXXXXXXXXXXX & otherparam = myparamdata = 
+   http://<example>.com/registeruser?deviceid={deviceid}&otherparam=myparamdata will be replaced by: http://<example>.com/registeruser?deviceid=XXXXXXXXXXXXXXXX&otherparam=myparamdata 
 4. Duyurunun HTML kodu {DeviceID} desenini içeriyorsa ulaşma web duyurudan onu otomatik olarak web duyuruyu görüntüleyen cihazın tanımlayıcısı ile değiştirilecek.
    My cihaz tanımlayıcısı şöyledir: {DeviceID} tarafından değiştirilecek: my cihaz tanımlayıcısı şöyledir: XXXXXXXXXXXXXXXX
 5. Uygulamanız, Cihazınızda açın ve bir olay hangi etiketlendiği uygulamanızda gerçekleştirin.

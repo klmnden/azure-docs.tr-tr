@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: e0a398075b01b3c3750a33a9dd74b5ad1c0f71fd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -357,7 +357,7 @@ Bu özellik, sanal makine disklerdeki tüm veriler şifrelenir, Azure Storage RE
 
 #### <a name="iaas-vms-and-their-vhd-files"></a>Iaas Vm'leri ve bunların VHD dosyaları
 
-Iaas VM'ler tarafından kullanılan veri diskleri için Azure Disk şifrelemesi önerilir. Azure Marketi'nde bir görüntü kullanarak bir VM'i oluşturursanız, Azure gerçekleştiren bir [kopyalama yüzeysel](https://en.wikipedia.org/wiki/Object_copying) SSE etkin olsa bile, depolama resmi ve Azure depolama hesabında şifrelenmez. Bu VM oluşturur ve görüntüsünü güncelleştirme başladıktan sonra verileri şifrelemek SSE başlar. Bu nedenle, bunları tam olarak şifrelenmiş istiyorsanız Azure Market görüntülerini oluşturulan Vm'lerinde Azure Disk şifrelemesi kullanmak en iyisidir.
+Iaas VM'ler tarafından kullanılan veri diskleri için Azure Disk şifrelemesi önerilir. Azure Market'teki bir görüntü kullanarak yönetilmeyen disklerle VM oluşturursanız, Azure gerçekleştiren bir [kopyalama yüzeysel](https://en.wikipedia.org/wiki/Object_copying) SSE etkin olsa bile, depolama resmi ve Azure depolama hesabında şifrelenmez. Bu VM oluşturur ve görüntüsünü güncelleştirme başladıktan sonra verileri şifrelemek SSE başlar. Bu nedenle, bunları tam olarak şifrelenmiş istiyorsanız Azure Market görüntülerini oluşturulan yönetilmeyen disklerle Vm'lerinde Azure Disk şifrelemesi kullanmak en iyisidir. Yönetilen disklerle VM oluşturursanız, SSE yönetilen platform anahtarlar kullanılarak varsayılan olarak tüm verileri şifreler. 
 
 Şirket içinden Azure'a önceden şifrelenmiş VM getirirseniz, şifreleme anahtarları Azure anahtar Kasası'na karşıya yükleyin ve şirket içi kullanmakta olduğunuz o VM için şifreleme kullanmaya devam edebilirsiniz. Bu senaryo işlemek için Azure Disk şifrelemesi etkin.
 

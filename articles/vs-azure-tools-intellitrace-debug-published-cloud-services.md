@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure bulut hizmeti Visual Studio ve IntelliTrace ile bir yayımlanan hata ayıklama | Microsoft Docs"
-description: "Bir bulut hizmeti Visual Studio ve IntelliTrace ile hata ayıklama öğrenin"
+title: Bir Azure bulut hizmeti Visual Studio ve IntelliTrace ile bir yayımlanan hata ayıklama | Microsoft Docs
+description: Bir bulut hizmeti Visual Studio ve IntelliTrace ile hata ayıklama öğrenin
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 5e6662fc-b917-43ea-bf2b-4f2fc3d213dc
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: mikejo
-ms.openlocfilehash: d33a8338b37f7479196449238388c7dbf391bbb6
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 2ca15bd5ffa88d2e8053decf5b81c265b1d9c6e1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>Yayımlanan Azure bulut hizmeti Visual Studio ve IntelliTrace ile hata ayıklama
 IntelliTrace ile Azure içinde çalıştığında bir rol örneği için kapsamlı hata ayıklama bilgileri oturum açabilir. Bir sorunun nedenini bulmak gerekiyorsa, Azure'da çalışıyormuş gibi kodunuzu Visual Studio'dan adım için IntelliTrace günlüklerini kullanabilirsiniz. Etkin, Azure uygulamanız Azure'daki bir bulut hizmeti olarak çalışan ve Visual Studio kaydedilen verileri yeniden yürütme olanak tanır, IntelliTrace kayıtları kodu yürütme ve ortam verilerini anahtarı. 
@@ -46,7 +46,7 @@ IntelliTrace için Azure uygulama etkinleştirmek için oluşturma ve Visual Stu
    
 1. Temel IntelliTrace yapılandırmasını özelleştirmek için seçin **ayarları** yanına **IntelliTrace'i etkinleştirin**.
 
-    ![IntelliTrace ayarları bağlantısı](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/intellitrace-settings-link.png)
+    ![IntelliTrace settings link](./media/vs-azure-tools-intellitrace-debug-published-cloud-services/intellitrace-settings-link.png)
    
 1. İçinde **IntelliTrace ayarları** iletişim kutusunda, günlük, mi çağrı bilgileri toplamak, hangi modülleri ve toplamak için işlemler günlüklerde ve kayıt ayırmak için ne kadar alan hangi olayların belirtebilirsiniz. IntelliTrace hakkında daha fazla bilgi için bkz: [IntelliTrace ile hata ayıklama](http://go.microsoft.com/fwlink/?LinkId=214468).
    

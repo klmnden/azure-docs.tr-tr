@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 045a7f97d9c4d380e83325c04c209a6afcc761a7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: abab73a047fb923fa2cd57a1c7194e440697bf64
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="extend-alerts-from-oms-into-azure"></a>Uyarıları OMS Azure'da genişletir.
 Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** portalındaki Azure monitöründe birlikte ortak bir yerde - etkinlik günlüğü uyarıları, ölçüm uyarıları ve Application Insights yanı sıra günlük analizi günlük uyarılar getirdi. 
@@ -28,8 +28,8 @@ Ancak bazı kullanıcılar için günlük analizi ve Uyarıları gibi allied iş
 Azure portal dışında gidin zorunluluğunu tahakkuk avantajı dışında diğer belirgin yararları vardır uyarıları OMS Azure'da genişletme
 
 - Aksine, burada yalnızca 250 uyarıları oluşturulabilir ve görüntülenebilir; eklemek için Azure Uyarıları'nda bu sınırlamaya mevcut değil
-- Azure uyarıları, tüm sizi uyarır türleri, numaralandırılmış, görüntülenebilir ve yönetilebilir; yalnızca günlük analizi uyarılarını OMS durumuyla olarak
-- Azure uyarıları kullanan [Eylem grupları](monitoring-action-groups.md), hangi izin sahip her biri için uyarı SMS, sesli arama, Otomasyon Runbook'u, Web kancası, ITSM bağlayıcı ve benzeri birden çok eylem. Burada OMS uyarıları hem sayı olarak Eylemler olası türünü sınırlıdır
+- Azure uyarıları, tüm uyarı türleri, numaralandırılmış, görüntülenebilir ve yönetilebilir; OMS olduğu gibi yalnızca günlük analizi uyarıları
+- Azure uyarıları kullanma [Eylem grupları](monitoring-action-groups.md), SMS, sesli arama, Otomasyon Runbook'u, Web kancası, ITSM bağlayıcı ve benzeri her uyarı için birden fazla eylem sahip sağlar. OMS uyarıları her iki numarayı da sınırlı ise Eylemler olası gibi yazın
 
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
 Uyarıları OMS Azure genişletme işlemi mu **değil** uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırma değiştirilmektedir. Gerekli yalnızca Azure, e-posta bildirimi gibi tüm eylemler Otomasyon runbook'u çalıştıran veya ITSM Aracı'na bağlanma Web kancası çağrı yapılır, eylem grubu değişikliktir. Uyarınız ile - uygun eylemi Grup ilişkiliyse bu nedenle bunlar Azure'da genişletilmiş hale.

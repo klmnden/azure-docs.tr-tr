@@ -1,24 +1,24 @@
 ---
-title: "Bağlanamıyor bir Azure siteden siteye VPN bağlantısı sorunlarını giderme | Microsoft Docs"
-description: "Aniden çalışmayı durduruyor ve bağlanılamaz bir siteden siteye VPN bağlantısı sorunlarını giderme öğrenin."
+title: Bağlanamıyor bir Azure siteden siteye VPN bağlantısı sorunlarını giderme | Microsoft Docs
+description: Aniden çalışmayı durduruyor ve bağlanılamaz bir siteden siteye VPN bağlantısı sorunlarını giderme öğrenin.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
 manager: cshepard
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/13/2017
+ms.date: 03/29/2018
 ms.author: genli
-ms.openlocfilehash: 96a1705d651b9a2d17a466b9c43721bec7b4972c
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3e590df66f84cd88ba7ba251373c14a44a94ca77
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Sorun giderme: Bir Azure siteden siteye VPN bağlantısı bağlanamıyor ve çalışmayı durduruyor
 
@@ -52,7 +52,7 @@ Paylaşılan anahtar Azure sanal ağ anahtarların eşleştiğinden emin olmak i
 
 Azure VPN bağlantısı için paylaşılan anahtar görüntülemek için aşağıdaki yöntemlerden birini kullanın:
 
-**Azure portalı**
+**Azure Portal**
 
 1. Oluşturduğunuz VPN ağ geçidi siteden siteye bağlantısı gidin.
 
@@ -92,14 +92,16 @@ Denetleyin ve kullanıcı tanımlı yönlendirme (UDR) veya ağ güvenlik grupla
 
 ### <a name="step-7-verify-the-azure-gateway-health-probe"></a>7. Adım. Azure ağ geçidi durumu araştırması doğrulayın
 
-1. Sistem durumu araştırma gidin.
+1. Aşağıdaki URL'ye giderek açık durumu araştırması:
+
+    `https://<YourVirtualNetworkGatewayIP>:8081/healthprobe`
 
 2. Sertifika uyarısı aracılığıyla'ı tıklatın.
 3. Bir yanıtı alırsanız, VPN ağ geçidi sağlıklı olarak kabul edilir. Bir yanıt almazsanız, ağ geçidi sağlıklı olmayabilir veya ağ geçidi alt ağı üzerinde bir NSG sorunu neden oluyor. Aşağıdaki örnek yanıt metindir:
 
     &lt;? xml version = "1.0"? > <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">birincil örneği: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6 < / dize&gt;
 
-### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>8. adım. Şirket içi VPN cihazı kusursuz iletme gizliliği özelliğinin etkin olup olmadığını denetleyin
+### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>8. Adım Şirket içi VPN cihazı kusursuz iletme gizliliği özelliğinin etkin olup olmadığını denetleyin
 
 Kusursuz iletme gizliliği özelliği, bağlantı kesme sorunlara neden olabilir. VPN cihazı etkin kusursuz iletme gizliliği varsa, özelliği devre dışı bırakın. Ardından VPN ağ geçidi IPSec ilkesi güncelleştirin.
 

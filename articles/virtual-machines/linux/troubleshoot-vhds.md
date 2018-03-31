@@ -1,21 +1,21 @@
 ---
-title: "Azure Linux sanal makineleri bağlı Vhd'lere sorunlarını giderme | Microsoft Docs"
-description: "Beklenmeyen yeniden başlatmalar Linux VM'ler veya içeren bir depolama hesabını silerken sorun gibi sorunları gidermek nasıl VHD'ler bağlı."
-keywords: "SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu"
+title: Azure Linux sanal makineleri bağlı Vhd'lere sorunlarını giderme | Microsoft Docs
+description: Beklenmeyen yeniden başlatmalar Linux VM'ler veya içeren bir depolama hesabını silerken sorun gibi sorunları gidermek nasıl VHD'ler bağlı.
+keywords: SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu
 services: virtual-machines-linux
-author: iainfoulds
+author: roygara
 manager: jeconnoc
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/28/2018
-ms.author: iainfou
-ms.openlocfilehash: 10f5e2f4a48d335c6b7d05b5eb5b577765675c0e
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: rogarana
+ms.openlocfilehash: 3e1bac226a75ace3efdbc9886d152da055075920
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-attached-vhds-on-azure-linux-virtual-machines"></a>Azure Linux sanal makineleri bağlı Vhd'lere sorun giderme
 
@@ -24,7 +24,7 @@ Azure sanal makineleri bağlı sanal sabit disk (VHD) işletim sistemi diski ve 
   * [Ekli VHD ile VM'lerin beklenmeyen yeniden başlatma]
   * [Resource Manager dağıtımında depolama silme hataları]
 
-## <a name="you-are-experiencing-unexpected-reboots">Ekli VHD ile VM'lerin beklenmeyen yeniden başlatma</a>
+## <a name="you-are-experiencing-unexpected-reboots"></a>Ekli VHD ile VM'lerin beklenmeyen yeniden başlatma
 
 Bir Azure sanal makine (VM) çok sayıda aynı depolama hesabında olan ekli VHD'ler varsa, VM başarısız olmasına neden olan bir depolama hesabı ölçeklenebilirlik hedefleri aşabilir. Depolama hesabı için dakika ölçümleri denetleyin (**TotalRequests**/**Totalıngress**/**TotalEgress**) aşan ani için bir depolama hesabı ölçeklenebilirlik hedefleri. Depolama hesabınıza azaltma oluştuysa belirleme konusunda yardım almak için "PercentThrottlingError artış bir [ölçümleri Göster]" bölümüne bakın.
 
@@ -32,7 +32,7 @@ Genel olarak, her tek tek giriş veya çıkış işlemi bir sanal makineden bir 
 
 Depolama hesabınız için ölçeklenebilirlik hedefleri aşan, etkinliğin ayrı ayrı her hesap azaltmak için birden çok depolama hesaplarındaki Vhd'lerinizi koyun.
 
-## <a name="storage-delete-errors-in-rm">Resource Manager dağıtımında depolama silme hataları</a>
+## <a name="storage-delete-errors-in-rm"></a>Resource Manager dağıtımında depolama silme hataları
 
 Bu bölüm, aşağıdaki hatalardan biri gerçekleştiğinde bir Azure depolama hesabı, kapsayıcı ya da Azure Resource Manager dağıtımında blob silmeye çalışırken sorun giderme kılavuzu sağlar.
 

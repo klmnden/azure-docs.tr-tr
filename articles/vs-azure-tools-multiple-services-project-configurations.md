@@ -1,11 +1,11 @@
 ---
-title: "Birden çok hizmet yapılandırmalarını kullanarak projenizi Azure yapılandırma | Microsoft Docs"
-description: "Bir Azure bulut hizmeti projesi ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg ve ServiceConfiguration.Cloud.cscfg dosyaları değiştirerek yapılandırmayı öğrenin."
+title: Birden çok hizmet yapılandırmalarını kullanarak projenizi Azure yapılandırma | Microsoft Docs
+description: Bir Azure bulut hizmeti projesi ServiceDefinition.csdef, ServiceConfiguration.Local.cscfg ve ServiceConfiguration.Cloud.cscfg dosyaları değiştirerek yapılandırmayı öğrenin.
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
 ms.devlang: multiple
@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
-ms.author: kraigb
-ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.author: ghogen
+ms.openlocfilehash: 919568922ada2d842233ade029a54d474b4a1a0e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Birden çok hizmet yapılandırması kullanmak için Visual Studio'da Azure projenizi yapılandırma
 
 Visual Studio'da bir Azure bulut hizmeti projesi üç yapılandırma dosyalarını içerir: `ServiceDefinition.csdef`, `ServiceConfiguration.Local.cscfg`, ve `ServiceConfiguration.Cloud.cscfg`:
 
-- `ServiceDefinition.csdef`Azure bulut hizmeti ve rollerini gereksinimlerini tanımlamak ve tüm örnekleri için geçerli olan ayarları sağlamak için dağıtılır. Azure hizmet barındırma çalışma zamanı API'sini kullanarak çalışma zamanında ayarlarını okuyabilirsiniz. Yalnızca bulut hizmeti durdurulduğunda bu dosyayı Azure üzerinde güncelleştirilebilir.
-- `ServiceConfiguration.Local.cscfg`ve `ServiceConfiguration.Cloud.cscfg` tanımı'ndaki ayarları dosya ve her rol için çalıştırılacak örneklerinin sayısını belirtmek için değerler sağlayın. "Yerel" dosya yerel hata ayıklama kullanılan değerleri içeren; "Bulut" dosyası olarak Azure dağıtılır `ServiceConfiguration.cscfg` ve sunucu ortamınız için ayarları sağlar. Azure'da, bulut hizmetinizin çalışırken bu dosyanın güncelleştirilebilir.
+- `ServiceDefinition.csdef` Azure bulut hizmeti ve rollerini gereksinimlerini tanımlamak ve tüm örnekleri için geçerli olan ayarları sağlamak için dağıtılır. Azure hizmet barındırma çalışma zamanı API'sini kullanarak çalışma zamanında ayarlarını okuyabilirsiniz. Yalnızca bulut hizmeti durdurulduğunda bu dosyayı Azure üzerinde güncelleştirilebilir.
+- `ServiceConfiguration.Local.cscfg` ve `ServiceConfiguration.Cloud.cscfg` tanımı'ndaki ayarları dosya ve her rol için çalıştırılacak örneklerinin sayısını belirtmek için değerler sağlayın. "Yerel" dosya yerel hata ayıklama kullanılan değerleri içeren; "Bulut" dosyası olarak Azure dağıtılır `ServiceConfiguration.cscfg` ve sunucu ortamınız için ayarları sağlar. Azure'da, bulut hizmetinizin çalışırken bu dosyanın güncelleştirilebilir.
 
 Yapılandırma ayarları yönetilen ve Visual Studio'da geçerli rol için özellik sayfalarını kullanma değiştirdi (role sağ tıklayıp seçin **özellikleri**, veya rol çift tıklatın). Değişiklikleri hangi yapılandırma seçilir için kapsamı olan **hizmet yapılandırmasını** açılır. Web ve çalışan rolleri özelliklerini aşağıdaki bölümlerde açıklanan burada dışında benzerdir.
 
@@ -58,7 +58,7 @@ Bir HTTPS uç nokta zaten eklediyseniz, HTTPS uç noktası seçeneği varsayıla
 
 Varsayılan olarak, tanılama Web rolü için etkinleştirilir. Azure bulut hizmeti projesi ve depolama hesabı yerel depolama öykünücüsünü kullanmak için ayarlanır. Azure'a dağıtmak hazır olduğunuzda Oluşturucu düğmesini seçebilir (**...** ) Azure storage kullanmayı. İsteğe bağlı veya otomatik olarak zamanlanan aralıklarla depolama hesabına tanılama verilerini aktarabilirsiniz. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure Cloud Services ve sanal makineleri etkinleştirme tanılamada](cloud-services/cloud-services-dotnet-diagnostics.md).
 
-## <a name="settings-page"></a>Ayarları sayfası
+## <a name="settings-page"></a>Ayarlar sayfası
 
 Üzerinde **ayarları** sayfası, ad-değer çiftleri olarak bir yapılandırma ayarları ekleyebilirsiniz. Rolünde çalışan kodu okuyabilir, yapılandırma ayarlarınızı tarafından sağlanan sınıflarını kullanarak çalışma zamanında değerlerini [Azure yönetilen kitaplık](http://go.microsoft.com/fwlink?LinkID=171026), özellikle [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx) yöntemi.
 

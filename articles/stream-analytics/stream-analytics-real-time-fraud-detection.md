@@ -1,12 +1,11 @@
 ---
-title: "Akış analizi: Gerçek zamanlı sahtekarlık algılama | Microsoft Docs"
-description: "Akış Analizi ile gerçek zamanlı sahtekarlık algılama çözüm oluşturmayı öğrenin. Gerçek zamanlı Olay işleme için bir olay hub'ı kullanın."
-keywords: "anomali algılama, sahtekarlık algılama, gerçek zamanlı anomali algılama"
+title: 'Akış analizi: Gerçek zamanlı sahtekarlık algılama | Microsoft Docs'
+description: Akış Analizi ile gerçek zamanlı sahtekarlık algılama çözüm oluşturmayı öğrenin. Gerçek zamanlı Olay işleme için bir olay hub'ı kullanın.
+keywords: anomali algılama, sahtekarlık algılama, gerçek zamanlı anomali algılama
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: kfile
 ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a3b61b0eeef9ffc97b0cc06a8de44859e4d6db85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a622b7851f52f65efe4450191c2cf65e73e816bc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -149,7 +148,7 @@ TelcoGenerator uygulama başlamadan önce böylece çağrısı kayıtları oluş
 
 Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlardan bazıları şunlardır:
 
-|**Kayıt**|Tanımı|
+|**Kayıt**|**Tanımı**|
 |----------|--------------|
 |`CallrecTime`|Arama için zaman damgası başlangıç saati. |
 |`SwitchNum`|Çağrı bağlanmak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri şunlardır. |

@@ -1,11 +1,11 @@
 ---
-title: "Çalıştırın ve bir Azure bulut hizmeti yerel makinede hata ayıklamak için emulator Express kullanarak | Microsoft Docs"
-description: "Öykünücü Express'i çalıştırın ve bir bulut hizmeti yerel makinede hata ayıklamak için kullanma"
+title: Çalıştırın ve bir Azure bulut hizmeti yerel makinede hata ayıklamak için emulator Express kullanarak | Microsoft Docs
+description: Öykünücü Express'i çalıştırın ve bir bulut hizmeti yerel makinede hata ayıklamak için kullanma
 services: visual-studio-online
 documentationcenter: n/a
 author: mikejo
-manager: ghogen
-editor: 
+manager: douge
+editor: ''
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
 ms.service: visual-studio-online
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: mikejo
-ms.openlocfilehash: 9c258ad7de5e25b4b304f5e56d93abeff1187f71
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 638aa005321963ce8bdcbb7df4317fc4bdec74ae
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>Öykünücü Express'i çalıştırın ve bir Azure bulut hizmeti yerel makinede hata ayıklamak için kullanma
 Öykünücü Express kullanarak, test ve yönetici olarak Visual Studio çalıştırmadan bir bulut hizmetinde hata ayıklama. Proje ayarlarınızı Emulator Express veya Bulut hizmetinizin gereksinimlerine bağlı olarak tam öykünücü kullanacak şekilde ayarlayabilirsiniz. Tam öykünücü hakkında daha fazla bilgi için bkz: [Azure uygulamanın işlem Öykünücüde çalıştırma](storage/common/storage-use-emulator.md).

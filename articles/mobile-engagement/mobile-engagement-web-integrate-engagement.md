@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Web SDK tümleştirmesi | Microsoft Docs"
-description: "En son güncelleştirmeleri ve Azure Mobile Engagement Web SDK'sı için yordamlar"
+title: Azure Mobile Engagement Web SDK tümleştirmesi | Microsoft Docs
+description: En son güncelleştirmeleri ve Azure Mobile Engagement Web SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b5daa2a2-942b-489d-aa1d-568c3b25e56f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: js
 ms.topic: article
 ms.date: 02/29/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7d8eaa180e277741a583522ee62d68f5247b92bb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: bccfbdfe9d99900f58d5dbfa44183146c79b9c88
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="integrate-azure-mobile-engagement-in-a-web-application"></a>Bir web uygulamasına Azure Mobile Engagement tümleştirme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Evrensel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,12 +49,12 @@ Mobile Engagement Web SDK tek bir JavaScript dosyası sevk site veya web uygulam
 ## <a name="browser-compatibility"></a>Tarayıcı uyumluluğu
 Mobile Engagement Web SDK'sı, kodlama ve etki alanları arası AJAX istekleri (W3C CORS belirtimi olan) yanı sıra kod çözme yerel JSON kullanır. Aşağıdaki tarayıcılarla uyumludur:
 
-* Microsoft Edge 12 +
-* Internet Explorer 10 +
-* Firefox 3.5 +
-* Chrome 4 +
-* Safari 6 +
-* Opera 12 +
+* Microsoft Edge 12+
+* Internet Explorer 10+
+* Firefox 3.5+
+* Chrome 4+
+* Safari 6+
+* Opera 12+
 
 ## <a name="configure-mobile-engagement"></a>Mobil katılım yapılandırın
 Bir genel oluşturan bir komut dosyası yazma `azureEngagement` aşağıdaki örnekteki gibi JavaScript nesne. Sitenizi katları sayfaları olabileceğinden, bu örnek, bu komut dosyası her sayfada dahil olduğunu varsayar. Bu örnekte, JavaScript nesne adlı `azure-engagement-conf.js`.
@@ -64,7 +68,7 @@ Bir genel oluşturan bir komut dosyası yazma `azureEngagement` aşağıdaki ör
 `connectionString` Uygulamanızı Azure portalında görüntülenen için bir değer.
 
 > [!NOTE]
-> `appVersionName`ve `appVersionCode` isteğe bağlıdır. Ancak, böylece analytics sürüm bilgileri işleyebilmesi için bunları yapılandırmanızı öneririz.
+> `appVersionName` ve `appVersionCode` isteğe bağlıdır. Ancak, böylece analytics sürüm bilgileri işleyebilmesi için bunları yapılandırmanızı öneririz.
 > 
 > 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - parçaları"
-description: "Oluşturma ve Azure Mobile Engagement kullanarak kullanım düzenlerini tanımlamak için kullanıcı kesimleri yönetme hakkında bilgi edinin"
+title: Azure Mobile Engagement kullanıcı arabirimi - parçaları
+description: Oluşturma ve Azure Mobile Engagement kullanarak kullanım düzenlerini tanımlamak için kullanıcı kesimleri yönetme hakkında bilgi edinin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 6a4f2205-4a3c-406e-a04f-5e6f2a36653f
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 53c5b1b672a0d7212a3d298c3e411a9cc6ac0807
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>Oluşturma ve kullanım düzenlerini tanımlamak için kullanıcı kesimleri yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu makalede **KESİMLERİ** sekmesinde **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal.
 
 UI kesimleri bölümü farklı bir davranışı ve uygulamadan elde edebilirsiniz ve kesimleri API aracılığıyla da erişebilirsiniz analytics göre kullanıcılarınızın kesimlere üzerinde çalışmanıza olanak sağlar. Segment ilk 24 saat sonra oluşturuldukları ve bunların en son analytics bilgilere göre 24 saatte yeniden hesaplanır. Kesimi hesaplanan sonra her gün bir "günlük geçmişine gün" grafiğini görüntüler.

@@ -1,13 +1,13 @@
 ---
-title: "İzleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama | Microsoft Docs"
-description: "Ölçümleri Azure Cosmos DB'de ortak hatalarını ayıklamanıza ve veritabanını izlemek için kullanın."
+title: İzleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama | Microsoft Docs
+description: Ölçümleri Azure Cosmos DB'de ortak hatalarını ayıklamanıza ve veritabanını izlemek için kullanın.
 keywords: metrics
 services: cosmos-db
 author: gnot
 manager: jhubbard
-editor: 
-documentationcenter: 
-ms.assetid: 
+editor: ''
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3b3de91c3850071d7c3fbff1faccde6c17a606e3
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 37ef1bc01bd3679e664e71e6a6e3bede84615305
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>İzleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama
 
@@ -34,7 +34,7 @@ Bu makalede, ortak kullanım durumları ve analiz etmek ve bu sorunların hatala
 
 ## <a name="understanding-how-many-requests-are-succeeding-or-causing-errors"></a>Kaç istek doğrulamanın başarılı olması veya hatalara neden anlama
 
-Başlamak için head [Azure portal](https://portal.azure.com) gidin **ölçümleri** dikey. Dikey penceresinde Bul **istek sayısını 1 dakika başına kapasitesi aşıldı** grafik. Bu grafik durum kodu tarafından bölümlenmiş bir dakika tarafından dakika toplam istek sayısı gösterilir. HTTP durum kodları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB için HTTP durum kodları](https://docs.microsoft.com/rest/api/documentdb/http-status-codes-for-documentdb).
+Başlamak için head [Azure portal](https://portal.azure.com) gidin **ölçümleri** dikey. Dikey penceresinde Bul **istek sayısını 1 dakika başına kapasitesi aşıldı** grafik. Bu grafik durum kodu tarafından bölümlenmiş bir dakika tarafından dakika toplam istek sayısı gösterilir. HTTP durum kodları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB için HTTP durum kodları](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Azure Cosmos DB isteklerine sağlanan işleme aşan anlamına gelir (azaltma) 429 en sık karşılaşılan hata durum kodu var. Bunun en yaygın çözüm [RUs ölçeklendirme](./set-throughput.md) bir koleksiyon için.
 

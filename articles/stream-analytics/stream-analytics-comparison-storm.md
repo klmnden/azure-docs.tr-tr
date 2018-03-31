@@ -1,12 +1,11 @@
 ---
-title: "Analytics platformları: akış analizi için Apache Storm karşılaştırma | Microsoft Docs"
-description: "Akış analizi için Apache Storm karşılaştırma kullanarak bulut analizi platformu seçme kılavuzu edinin. Özellikler ve farklar anlayın."
-keywords: "Analiz platformu analytics platformları, bulut analizi platformu, storm karşılaştırma"
+title: 'Analytics platformları: akış analizi için Apache Storm karşılaştırma | Microsoft Docs'
+description: Akış analizi için Apache Storm karşılaştırma kullanarak bulut analizi platformu seçme kılavuzu edinin. Özellikler ve farklar anlayın.
+keywords: Analiz platformu analytics platformları, bulut analizi platformu, storm karşılaştırma
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
-ms.author: samacha
-ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Akış analizi platformu seçme: Apache Storm ve Azure akış analizi karşılaştırma
 Azure veri akışı çözümleme için birden çok çözümü sağlar: [Azure akış analizi](https://docs.microsoft.com/azure/stream-analytics/) ve [Azure hdınsight'ta Apache Storm](https://azure.microsoft.com/services/hdinsight/apache-storm/). Her iki analytics platformları bir PaaS çözümü yararları sağlar. Ancak platformları nasıl yapılandırmak ve bunları yönetmek gibi yeteneklerini de önemli farklılıklar vardır. 
@@ -87,12 +86,12 @@ Evet </p>
             </td>
             <td width="204" valign="top">
                 <p>
-yok. Azure Stream Analytics bir Azure hizmetidir.
+Yok. Azure Stream Analytics bir Azure hizmetidir.
                 </p>
             </td>
             <td width="246" valign="top">
                 <p>
-yok. Apache Storm bir Azure hizmetidir.
+Yok. Apache Storm bir Azure hizmetidir.
                 </p>
             </td>
         </tr>

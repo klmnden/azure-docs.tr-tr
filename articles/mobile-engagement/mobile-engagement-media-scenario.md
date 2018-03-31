@@ -1,11 +1,11 @@
 ---
-title: "Medya uygulaması için Azure Mobile Engagement uygulaması"
-description: "Azure Mobile Engagement uygulamak için medya uygulaması senaryosu"
+title: Medya uygulaması için Azure Mobile Engagement uygulaması
+description: Azure Mobile Engagement uygulamak için medya uygulaması senaryosu
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 48201cc8-4e04-485c-a8dc-d6406d23f3ed
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e5d4585b47a4ca26b81b7168aa499f25722415a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>Medya uygulaması ile Mobile Engagement uygulama
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 ## <a name="overview"></a>Genel Bakış
 John, büyük media şirket için bir mobil proje yöneticisidir. Daha kısa bir süre önce bir çok yüksek indirme sayısı sahip yeni bir uygulama başlattı. Kendisine indirme için kendi hedefleri erişti ancak hala kendi dönüş üzerinde Investment(ROI) kullanıcı başına kendi gereksinimlerini karşılamıyor. 
 
@@ -56,7 +60,7 @@ BT Ekibi önerilerine dayalı olarak, aşağıdaki teknik KPI'ları, aşağıdak
 Her KPI için kendisine gerekli verileri sınıflandırır ve kendisine onun playbook doğru konumda kaydeder.
 
 ## <a name="engagement-program-and-integration"></a>Katılım programı ve tümleştirme
-Bu John kendi KPI'leri tanımlamaya bitirdi artık, kendisinin kendi katılım stratejisi Aşama 4 katılım programları ve bunların hedefler tanımlayarak başlar:![][1]
+Bu John kendi KPI'leri tanımlamaya bitirdi artık, kendisinin kendi katılım stratejisi Aşama 4 katılım programları ve bunların hedefler tanımlayarak başlar: ![][1]
 
 Sonra John anında iletme bildirimleri her program için ayrıntılı tarafından daha derin gider. Anında iletme bildirimi beş öğeleri tarafından tanımlanır:
 

@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics & AzureML işlevleriyle ölçeklendirme iş | Microsoft Docs"
-description: "Akış analizi işleri (bölümlendirme, SU miktar ve daha fazla) düzgün ölçeklenir öğrenin Azure Machine Learning işlevleri kullanırken."
-keywords: 
-documentationcenter: 
+title: Azure Stream Analytics & AzureML işlevleriyle ölçeklendirme iş | Microsoft Docs
+description: Akış analizi işleri (bölümlendirme, SU miktar ve daha fazla) düzgün ölçeklenir öğrenin Azure Machine Learning işlevleri kullanırken.
+keywords: ''
+documentationcenter: ''
 services: stream-analytics
-author: samacha
-manager: jhubbard
-editor: cgronlun
+author: jseb225
+manager: ryanw
 ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 1e1c3724462a4d2a67eab3ef42867d2aeb5d3fa1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işiniz Azure Machine Learning işlevlerini ölçeklendirme
 Genellikle, bir akış analizi işi ayarlamak ve bazı örnek veriler üzerinden çalıştırmak kolaydır. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde biz neler? Stream Analytics işi, ölçeklenebilir şekilde yapılandırmak nasıl anlamak için bize gerektirir. Bu belgede, şu özel akış analizi işleri Machine Learning işlevlerle ölçeklendirme yönlerini odaklanılmaktadır. Genel Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz: [işlerini ölçeklendirme](stream-analytics-scale-jobs.md).
@@ -77,13 +76,13 @@ Düşünceleri analiz Machine Learning web hizmeti gecikmesi 200 ms 1000 olay to
 
 Stream Analytics işi işleme için bir tablo farklı SUs ve toplu boyutları (saniye başına etkinlik sayısı) için aşağıdadır.
 
-| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
+| Toplu iş boyutu (ML gecikme) | 500 (200 ms) | 1,000 (200 ms) | 5,000 (250 ms) | 10,000 (300 ms) | 25,000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
 | **1 SU** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **3 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
 | **6 SUs** |2,500 |5,000 |20,000 |30,000 |50,000 |
-| **12 SUs** |5,000 |10,000 |40,000 |60,000 |100,000 |
-| **18 SUs** |7,500 |15,000 |60,000 |90,000 |150,000 |
+| **12 SUs** |5.000 |10,000 |40,000 |60,000 |100,000 |
+| **18 SUs** |7.500 |15,000 |60,000 |90,000 |150,000 |
 | **24 SUs** |10,000 |20,000 |80,000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
 | **60 SUs** |25,000 |50,000 |200,000 |300,000 |500,000 |

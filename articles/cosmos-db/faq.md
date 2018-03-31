@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB sık sorulan sorular | Microsoft Docs"
-description: "Azure Cosmos DB, genel olarak dağıtılmış, birden çok model veritabanı hizmeti hakkında sık sorulan soruların yanıtlarını alın. Kapasite, performans düzeyleri ve ölçeklendirme hakkında bilgi edinin."
-keywords: "Sık sorulan sorular, documentdb, azure, Microsoft azure veritabanı soruları"
+title: Azure Cosmos DB sık sorulan sorular | Microsoft Docs
+description: Azure Cosmos DB, genel olarak dağıtılmış, birden çok model veritabanı hizmeti hakkında sık sorulan soruların yanıtlarını alın. Kapasite, performans düzeyleri ve ölçeklendirme hakkında bilgi edinin.
+keywords: Sık sorulan sorular, documentdb, azure, Microsoft azure veritabanı soruları
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: monicar
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 466abbffd250685baf886b7fc7cc772ee9e327f2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -76,7 +76,7 @@ Aynı zamanda [Azure Cosmos DB öykünücüsü](local-emulator.md) geliştirmek 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Ek Yardım Azure Cosmos DB ile nasıl alabilirim?
 
 Teknik bir soru sormak için bu iki soru birine göndermek ve forumlar yanıtlayın:
-* [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soruları programlama için en iyisidir. Sorunuzun yanıtını olduğundan emin olun [konuyla ilgili](https://stackoverflow.com/help/on-topic) ve [NET ve yanıtlanamaz soru yapmadan mümkün olduğu kadar ayrıntılarını sağlayın](https://stackoverflow.com/help/how-to-ask). 
 
 Yeni özellikler istemek için yeni bir istek oluşturmak [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -244,7 +244,7 @@ Bu farklılıklar, projeniz için bir sorun varsa temasa [ askcosmosdb@microsoft
 Geri bildiriminiz aşağıdaki yollardan biriyle paylaşabilirsiniz:
 
 * [Uservoice](https://feedback.azure.com/forums/599062-azure-cosmos-db-table-api)
-* [MSDN forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB)
+* [MSDN forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Yığın Taşması](http://stackoverflow.com/questions/tagged/azure-cosmosdb). Yığın taşması soruları programlama için en iyisidir. Sorunuzun yanıtını olduğundan emin olun [konuyla ilgili](https://stackoverflow.com/help/on-topic) ve [NET ve yanıtlanamaz soru yapmadan mümkün olduğu kadar ayrıntılarını sağlayın](https://stackoverflow.com/help/how-to-ask).
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>Tablo API'sine bağlanmak için kullanılacak ihtiyacım bağlantı dizesi nedir?

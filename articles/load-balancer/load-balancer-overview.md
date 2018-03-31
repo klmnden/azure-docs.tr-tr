@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2018
 ms.author: kumud
-ms.openlocfilehash: 3a5d1e897d8ffe063ecf9277bef346c8b7c5092b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f4410932f00f8505ae5a894caa002e1223196d95
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-load-balancer-overview"></a>Azure Load Balancer’a genel bakış
 
@@ -142,7 +142,7 @@ Yük dengeli bir uç nokta için genel ve özel TCP bağlantı noktası 80 üç 
 
 ![Ortak yük dengeleyici örneği](./media/load-balancer-overview/IC727496.png)
 
-**Şekil 1: web trafiği ortak bir yük dengeleyicisi kullanarak Dengeleme yükleme**
+*Şekil: web trafiği ortak bir yük dengeleyicisi kullanarak Dengeleme yükleme*
 
 Internet istemcilerinin, TCP bağlantı noktası 80 üzerinde bir web uygulaması genel IP adresi için web sayfası istekleri gönderdiğinizde, Azure yük dengeleyici istekleri için yük dengeli kümesi içinde üç sanal makine arasında dağıtır. Yük Dengeleyici algoritmalar hakkında daha fazla bilgi için bkz: [yük dengeleyici genel bakış sayfasında](load-balancer-overview.md#load-balancer-features).
 
@@ -161,7 +161,7 @@ Varsayılan olarak, Azure yük dengeleyici ağ trafiği birden çok sanal makine
 
 ![İç yük dengeleyici örneği](./media/load-balancer-overview/IC744147.png)
 
-**Şekil 2 - Yük Dengeleme hem genel hem iç yük dengeleyici kullanan çok katmanlı uygulamalar**
+*Şekil - Yük Dengeleme hem genel hem iç yük dengeleyici kullanan çok katmanlı uygulamalar*
 
 ## <a name="pricing"></a>Fiyatlandırma
 Standart yük dengeleyici Yük Dengeleme kuralları yapılandırılmış ve işlenen tüm gelen ve giden veri sayısına göre kartınızdan bir üründür. Standart fiyatlandırma bilgileri için yük dengeleyici, ziyaret [yük dengeleyici fiyatlandırma](https://azure.microsoft.com/pricing/details/load-balancer/) sayfası.

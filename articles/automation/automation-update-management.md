@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e426f2b90e3ac3ac6bcb9825c7848c76e52a1021
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -119,7 +119,7 @@ Heartbeat
 
 Bir Windows bilgisayarda günlük analizi ile Aracısı bağlanabilirliği doğrulamak için aşağıdakileri gözden geçirebilirsiniz:
 
-1.  Denetim Masası’nda Microsoft Monitoring Agent’i açın; **Azure Log Analytics (OMS)** sekmesinde aracı şöyle bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.   
+1.  Açık Microsoft Monitoring Agent Denetim Masası'ndaki ve üzerinde **Azure günlük analizi** sekmesinde, aracıyı görüntüler belirten iletiyi: **Microsoft Monitoring Agent için günlük analizi başarıyla bağlandı** .   
 2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın. Bu olaylar, bilgisayar günlük analizi çalışma alanı ile kayıtlı ve yapılandırmayı almayı gösterir.  
 
 Aracı günlük analizi ile iletişim kurabildiğinden değil ve bir güvenlik duvarı veya proxy sunucu üzerinden internet ile iletişim kuracak şekilde yapılandırıldı, güvenlik duvarı veya proxy sunucusu düzgün yapılandırılmış gözden geçirerek onaylayın [için ağ yapılandırması Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
@@ -131,7 +131,7 @@ Aracı günlük analizi ile iletişim kurabildiğinden değil ve bir güvenlik d
 
 Yeni eklenen Linux aracılarında, değerlendirme yapıldıktan sonra **Güncelleştirildi** durumu gösterilir. Bu işlem 6 saat kadar sürebilir.
 
-Bir Operations Manager yönetim grubu günlük analizi ile iletişim onaylamak için bkz: [OMS ile Operations Manager tümleştirmesini doğrulama](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
+Bir Operations Manager yönetim grubu günlük analizi ile iletişim onaylamak için bkz: [günlük analizi ile Operations Manager tümleştirmesini doğrulama](../log-analytics/log-analytics-om-agents.md#validate-operations-manager-integration-with-oms).
 
 ## <a name="data-collection"></a>Veri toplama
 
@@ -173,7 +173,7 @@ Tıklatın **eksik güncelleştirmeler** , makinelerden eksik güncelleştirmele
 
 ## <a name="viewing-update-deployments"></a>Güncelleştirme dağıtımlarını görüntüleme
 
-Tıklatın **güncelleştirme dağıtımları** var olan güncelleştirme dağıtımları listesini görüntülemek için. Herhangi bir güncelleştirme dağıtımlarının listesinde tıklayarak açılan **güncelleştirme dağıtımı çalıştırın** Bu güncelleştirme dağıtımı için sayfa.
+Tıklatın **güncelleştirme dağıtımları** var olan güncelleştirme dağıtımları listesini görüntülemek için. Herhangi bir güncelleştirme dağıtımlarının tablosundaki tıklayarak açılan **güncelleştirme dağıtımı çalıştırın** Bu güncelleştirme dağıtımı için sayfa.
 
 ![Güncelleştirme Dağıtımı Sonuçlarına genel bakış](./media/automation-update-management/update-deployment-run.png)
 
@@ -186,7 +186,7 @@ Tıklayarak yeni bir güncelleştirme dağıtımı oluşturmak **zamanlama günc
 | Adı |Güncelleştirme dağıtımını tanımlamak için benzersiz bir ad. |
 |İşletim Sistemi| Linux veya Windows|
 | Makineleri güncelleştirmek için |Kayıtlı aramayı seçin veya makine açılan listeden seçin ve tek tek makineleri seçin |
-|Güncelleştirme sınıflandırması|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin.|
+|Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin.|
 |Dışlanacak güncelleştirmeleri|'KB' öneki de hariç KB girin|
 |Zamanlama ayarları|Başlangıç ve her iki kez seçmek için saati seçin veya yineleme için yinelenen|
 | Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
@@ -213,7 +213,7 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 PC, sunucu ve mobil cihazları yönetmek için System Center Configuration Manager’a yatırım yapmış müşteriler aynı zamanda yazılım güncelleştirme yönetimi (SUM) döngüsünün bir parçası olarak yazılım güncelleştirmelerini yönetme gücünden ve olgunluğundan yararlanmaktadır.
 
-OMS güncelleştirme yönetimi çözümü System Center Configuration Manager ile tümleşik öğrenmek için bkz: [OMS güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md).
+Yönetim çözümü System Center Configuration Manager ile tümleştirmek öğrenmek için bkz: [güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md).
 
 ## <a name="patching-linux-machines"></a>Linux makineler düzeltme eki uygulama
 

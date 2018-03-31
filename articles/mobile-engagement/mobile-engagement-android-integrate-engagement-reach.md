@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Android SDK tümleştirmesi"
-description: "En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK"
+title: Azure Mobile Engagement Android SDK tümleştirmesi
+description: En son güncelleştirmeler ve yordamlar için Azure Mobile Engagement Android SDK
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ec3fab3-35ec-458e-bf41-6cdd69e3fa44
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e71d8aeb8c8060161ade4262e0be0a093b5650
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>Android'de Engagement Reach tümleştirme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!IMPORTANT]
 > Tümleştirme katılım nasıl Android belge üzerinde bu kılavuzu izlemeden önce açıklanan tümleştirme yordamı izlemeniz gerekir.
 > 
@@ -102,7 +106,7 @@ Düzenleme, `AndroidManifest.xml` dosyası:
   
   Bu izin olmadan Android engeller sistem bildirimleri engeller halka veya Reach kampanya Yöneticisi'nde vibrate seçeneğini işaretli gösterilir.
 
-## <a name="native-push"></a>Yerel gönderim
+## <a name="native-push"></a>Yerel Gönderim
 Reach modülünün yapılandırılmış, cihazda Kampanyalar şekilde alabilmesi için yerel gönderimi yapılandırmanız gerekir.
 
 Android iki hizmet destekliyoruz:
@@ -160,8 +164,8 @@ Dönüş parametresi düzgün işlenecek yönergelere `onDataPushStringReceived`
 
 Dönüş türü yalnızca ulaşma istatistikleri kullanılır:
 
-* `Replied`yayın alıcıları birini ya da döndürülürse artırılır `true` veya `false`.
-* `Actioned`yalnızca yayın alıcıları birini döndürülürse artırılır `true`.
+* `Replied` yayın alıcıları birini ya da döndürülürse artırılır `true` veya `false`.
+* `Actioned` yalnızca yayın alıcıları birini döndürülürse artırılır `true`.
 
 ## <a name="how-to-customize-campaigns"></a>Kampanyalar özelleştirme
 Kampanyalar özelleştirmek için Reach SDK'ın sağlanan düzenleri değiştirebilirsiniz.
@@ -233,7 +237,7 @@ Etkinliğiniz için eklenecek katmana istemediğiniz ve kendi düzende bildirim 
               <meta-data android:name="engagement:notification:overlay" android:value="false"/>
             </activity>
 
-#### <a name="categories"></a>Kategorileri
+#### <a name="categories"></a> kategorileri
 Sağlanan düzenleri değiştirdiğinizde, tüm bildirimlerinizi görünümünü değiştirin. Kategoriler, bildirimler için çeşitli hedeflenen görünüyor (büyük olasılıkla davranışları) tanımlamanıza olanak sağlar. Bir kategori Reach kampanya oluşturduğunuzda belirtilebilir. Bu belgenin sonraki bölümlerinde açıklanan kategoriler de duyuruları ve yoklamaları, özelleştirmenize olanak tanır olduğunu aklınızda bulundurun.
 
 Bildirimlerinizi için bir kategori işleyici kaydetmek için uygulama başlatıldığında bir çağrı eklemeniz gerekir.

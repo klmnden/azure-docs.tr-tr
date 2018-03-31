@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK tümleştirmesi | Microsoft Docs"
-description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
+title: Azure Mobile Engagement iOS SDK tümleştirmesi | Microsoft Docs
+description: En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 947ea44b-00c1-450f-9a3b-74437954dc56
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 01fdbb43c21ac6932e8462f4a6507fc63e50542d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: f0d650205ca86205ad857003f892c1a60b3831bf
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-on-ios"></a>Katılım tümleştirmek için iOS hakkında
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Windows Evrensel](mobile-engagement-windows-store-integrate-engagement.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -45,8 +49,8 @@ Aşağıdaki adım kullanıcıları, oturumlar, etkinlikleri, kilitlenme ve Tech
 * Engagement SDK'sı iOS projenize ekleyin: Xcode'da, sağ, proje seçin tıklayın ve **"Ekle dosyaları..."** ve `EngagementSDK` klasör.
 * Katılım çalışmak için ek çerçeveleri gerektirir: Proje Gezgini'nde proje bölmesini açın ve doğru hedef seçin. Ardından, açın **"Derleme aşamaları"** sekmesi ve **"Bağlantı ikiliyi kitaplıklara"** menüsünde bu çerçeveleri ekleyin:
 
-  * `UserNotifications.framework`-bağlantı olarak ayarla`Optional`
-  * `AdSupport.framework`-bağlantı olarak ayarla`Optional`
+  * `UserNotifications.framework` -bağlantı olarak ayarla `Optional`
+  * `AdSupport.framework` -bağlantı olarak ayarla `Optional`
   * `SystemConfiguration.framework`
   * `CoreTelephony.framework`
   * `CFNetwork.framework`

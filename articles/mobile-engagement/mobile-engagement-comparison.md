@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement benzer diğer Azure hizmetleriyle karşılaştırma"
-description: "Diğer benzer Azure hizmetleriyle - HockeyApp, Appınsights'dan, bildirim hub'ları Azure Mobile Engagement karşılaştırma"
+title: Azure Mobile Engagement benzer diğer Azure hizmetleriyle karşılaştırma
+description: Diğer benzer Azure hizmetleriyle - HockeyApp, Appınsights'dan, bildirim hub'ları Azure Mobile Engagement karşılaştırma
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f114775-3a9a-4dd4-8d59-b10d1da9a68b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57be3b235c5f439741155a70df7ddbe8a80906f2
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>Azure Mobile Engagement benzer diğer Azure hizmetleriyle karşılaştırma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Microsoft Azure tarafından sunulan hizmetlerin listesini her zamankinden genişletme ve bazen, nasıl Azure Mobile Engagement yalnızca okuma veya hakkında duymak bu hizmet farklı merak ediyor olabilirsiniz. Bu makalede, karışıklığı temizlemek çalışır ve kullanımınız için en uygun olduğunda Azure Mobile Engagement seçmenizi yönlendirir. 
 
 Azure Mobile Engagement, özellikle hedeflenen bir hizmettir **dijital Pazarlamacılar/CMOs için** tarafından kullanılabilir ancak **mobil uygulama sahibi veya yayımcı** isteyen kullanım, bekletme ve mobil uygulamalarını farklılaştırabilmelerini artırmak. 

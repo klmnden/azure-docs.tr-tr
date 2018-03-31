@@ -4,7 +4,7 @@ description: Azure'da Windows sanal makine görüntülerini oluşturmak için Pa
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -12,13 +12,13 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: b53b301a45fb7482aa05f24b386b79fcedc148e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f174837b8d370ffabdf4148b18d3425d9f3d9f10
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanma
 Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure Market birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturabilirsiniz. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -51,8 +51,8 @@ Azure için kimlik doğrulaması için Azure Kiracı ve abonelik kimlikleri ile 
 
 ```powershell
 $sub = Get-AzureRmSubscription
-$sub.TenantId
-$sub.SubscriptionId
+$sub.TenantId[0]
+$sub.SubscriptionId[0]
 ```
 
 Sonraki adımda bu iki kimlikleri kullanın.
@@ -117,7 +117,7 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
 }
 ```
 
-Bu şablon Windows Server 2016 VM oluşturur, IIS yükler ve sonra Sysprep ile VM genelleştirir.
+Bu şablon Windows Server 2016 VM oluşturur, IIS yükler ve sonra Sysprep ile VM genelleştirir. IIS Yükleme ek komutları çalıştırmak için PowerShell sağlayıcısı nasıl kullanabileceğinizi gösterir. Son Packer görüntü sonra gerekli yazılım yükleme ve yapılandırma içerir.
 
 
 ## <a name="build-packer-image"></a>Packer yansıması oluştur
@@ -206,90 +206,35 @@ ManagedImageLocation: eastus
 VM oluşturmak için provisioners çalıştırıp dağıtım temizlemek Packer birkaç dakika sürer.
 
 
-## <a name="create-vm-from-azure-image"></a>Azure görüntüden VM oluşturma
-Artık bir VM ile görüntüden oluşturabilirsiniz [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). İlk olarak, bir yönetici kullanıcı adı ve parola ile VM ayarlamak [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential).
+## <a name="create-a-vm-from-the-packer-image"></a>Packer görüntüden bir VM oluşturma
+Artık bir VM ile görüntüden oluşturabilirsiniz [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). Zaten mevcut destekleyen ağ kaynaklarına oluşturulur. İstendiğinde, bir yönetici kullanıcı adı ve parola VM oluşturulacak girin. Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myPackerImage*:
 
 ```powershell
-$cred = Get-Credential
-```
-
-Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myPackerImage*.
-
-```powershell
-# Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
-    -Name mySubnet `
-    -AddressPrefix 192.168.1.0/24
-
-# Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+New-AzureRmVm `
     -ResourceGroupName $rgName `
+    -Name "myVM" `
     -Location $location `
-    -Name myVnet `
-    -AddressPrefix 192.168.0.0/16 `
-    -Subnet $subnetConfig
-
-# Create a public IP address and specify a DNS name
-$publicIP = New-AzureRmPublicIpAddress `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -AllocationMethod "Static" `
-    -IdleTimeoutInMinutes 4 `
-    -Name "myPublicIP"
-
-# Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
-    -Name myNetworkSecurityGroupRuleWWW  `
-    -Protocol Tcp `
-    -Direction Inbound `
-    -Priority 1001 `
-    -SourceAddressPrefix * `
-    -SourcePortRange * `
-    -DestinationAddressPrefix * `
-    -DestinationPortRange 80 `
-    -Access Allow
-
-# Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -Name myNetworkSecurityGroup `
-    -SecurityRules $nsgRuleWeb
-
-# Create a virtual network card and associate with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
-    -Name myNic `
-    -ResourceGroupName $rgName `
-    -Location $location `
-    -SubnetId $vnet.Subnets[0].Id `
-    -PublicIpAddressId $publicIP.Id `
-    -NetworkSecurityGroupId $nsg.Id
-
-# Define the image created by Packer
-$image = Get-AzureRMImage -ImageName myPackerImage -ResourceGroupName $rgName
-
-# Create a virtual machine configuration
-$vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS2 | `
-Set-AzureRmVMOperatingSystem -Windows -ComputerName myVM -Credential $cred | `
-Set-AzureRmVMSourceImage -Id $image.Id | `
-Add-AzureRmVMNetworkInterface -Id $nic.Id
-
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
+    -VirtualNetworkName "myVnet" `
+    -SubnetName "mySubnet" `
+    -SecurityGroupName "myNetworkSecurityGroup" `
+    -PublicIpAddressName "myPublicIpAddress" `
+    -OpenPorts 80 `
+    -Image "myPackerImage"
 ```
 
 VM Packer görüntünüzü oluşturmak için birkaç dakika sürer.
 
 
-## <a name="test-vm-and-iis"></a>Test VM ve IIS
+## <a name="test-vm-and-webserver"></a>Test VM ve Web sunucusu
 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) ile VM’nizin genel IP adresini alın. Aşağıdaki örnek, daha önce oluşturulan *myPublicIP* için IP adresini alır:
 
 ```powershell
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName $rgName `
-    -Name "myPublicIP" | select "IpAddress"
+    -Name "myPublicIPAddress" | select "IpAddress"
 ```
 
-Daha sonra genel IP adresini bir web tarayıcısına girebilirsiniz.
+Packer sağlayıcısı IIS yükle eylemde içeren, VM'nizi görmek için bir web tarayıcısı ortak IP adresini girin.
 
 ![Varsayılan IIS sitesi](./media/build-image-with-packer/iis.png) 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - ulaşma"
-description: "Azure Mobile Engagement kullanarak anında iletme bildirimleri ile uygulamanızın kullanıcılarına ulaşın öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - ulaşma
+description: Azure Mobile Engagement kullanarak anında iletme bildirimleri ile uygulamanızın kullanıcılarına ulaşın öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d96e2590-08dd-4481-a352-2c18f26a1643
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d999b83df7d9d467f08ce8ec72468c738e8acfa5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>Nasıl anında iletme bildirimleri ile uygulamanızın kullanıcılarına ulaşın
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu makalede **ULAŞMAK** sekmesinde **Mobile Engagement** portal. Kullandığınız **Mobile Engagement** izlemek ve mobil uygulamalarınızı yönetmek için portal. Portalı kullanmaya başlamak için önce oluşturmanız gerektiğini unutmayın bir **Azure Mobile Engagement** hesabı. Daha fazla bilgi için bkz: [bir Azure Mobile Engagement hesabı oluşturma](mobile-engagement-create.md).
 
 UI ulaşma bölüm oluşturma/düzenleme/etkinleştirmek/bitiş/İzleyici yapabileceğiniz itme kampanya yönetim aracıdır ve anında iletme bildirimi kampanyaları ve ayrıca Reach API'sini (ve düşük düzeydeki itme API bazı öğeler) erişilebilen özelliklere istatistiklerini alın. API'ler veya kullanıcı arabirimini kullanıp kullanmadığınızı tümleştirmek gereken unutmayın Azure Mobile Engagement ve her platform için uygulamanıza ulaşma kullanabilmeniz için SDK ile Reach kampanyaları.

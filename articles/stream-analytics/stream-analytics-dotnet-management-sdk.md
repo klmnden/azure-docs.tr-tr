@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics yönetimi .NET SDK'sı | Microsoft Docs"
-description: "Stream Analytics yönetimi .NET SDK ile çalışmaya başlayın. Ayarlama ve analytics işleri çalıştırma hakkında bilgi edinin. Proje, giriş, çıkış ve dönüşümleri oluşturun."
+title: Azure Stream Analytics yönetimi .NET SDK'sı | Microsoft Docs
+description: Stream Analytics yönetimi .NET SDK ile çalışmaya başlayın. Ayarlama ve analytics işleri çalıştırma hakkında bilgi edinin. Proje, giriş, çıkış ve dönüşümleri oluşturun.
 keywords: .NET SDK, API analizi
 services: stream-analytics
-documentationcenter: 
-author: samacha
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jseb225
+manager: ryanw
 ms.assetid: 5e93de87-0c6f-4f4b-be98-08d63f832897
 ms.service: stream-analytics
 ms.devlang: na
@@ -14,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
-ms.author: samacha
-ms.openlocfilehash: 2ac5d305aae110eff46459ecb7d89ca50ae1823d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: jeanb
+ms.openlocfilehash: 269491beb2acb854098f6513007c5390f318f945
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>.NET SDK'sı Yönetimi: Ayarlama ve .NET için Azure Stream Analytics API'sini kullanarak analytics işleri çalıştırma
 Ayarlamak ve yönetim .NET SDK kullanarak .NET için Stream Analytics API kullanarak analytics işleri çalıştırma hakkında bilgi edinin. Bir projesi ayarlayın, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturun ve işleri durdurur. Analytics işleriniz için Blob depolama biriminden veya event hub'ındaki veri akışını sağlayabilirsiniz.
@@ -31,7 +30,7 @@ Azure Stream Analytics akış verileri bulutta üzerinden düşük gecikmeli, y�
 > [!NOTE]
 > Azure Stream Analytics yönetimi .NET SDK'sı v2.x sürümüyle Biz bu makaledeki örnek kod güncelleştirdiniz. Kullanır lagecy (1.x) SDK sürümü kullanan örnek kod için lütfen bkz [için Stream Analytics yönetimi .NET SDK'sı v1.x kullanmak](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk-v1).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * Visual Studio 2017 veya 2015 yükleyin.

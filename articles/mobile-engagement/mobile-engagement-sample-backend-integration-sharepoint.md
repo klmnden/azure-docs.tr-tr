@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement - arka uç tümleştirme"
-description: "SharePoint'ten kampanyalar oluşturmak için SharePoint arka ucu ile Azure Mobile Engagement Bağlan"
+title: Azure Mobile Engagement - arka uç tümleştirme
+description: SharePoint'ten kampanyalar oluşturmak için SharePoint arka ucu ile Azure Mobile Engagement Bağlan
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 06297b43-579f-46e6-8a58-961a68f9aa09
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: d49f1094f4c3f170f3618f3e19e42266f9ae8858
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf530ca6dce32050487f367aa80b10bf7f20b7e7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement---api-integration"></a>Azure Mobile Engagement - API tümleştirme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Otomatik bir pazarlama sisteminde, oluşturma ve pazarlama kampanyaları etkinleştirme de otomatik olarak gerçekleşir. Bu amaçla - Azure Mobile Engagement API'lerini de kullanarak bu tür otomatik pazarlama kampanyaları oluşturma sağlar. 
 
 Genellikle müşteriler kendi pazarlama kampanyaları bir parçası olarak Duyurular/yoklamalar vb. oluşturmak için Mobile Engagement ön uç arabirimi kullanın. Ancak pazarlama kampanyaları olgun dönüşürken, böylece tam otomatik bir işlem hattı, arka uç sistemlerden akan verilere dinamik olarak temel Mobile Engagement, kampanyalar oluşturan oluşturulabilir (örneğin, CRM sistem veya CMS sistemi SharePoint gibi) arka uç sistemlerindeki kilitli verilerden yararlanın gerek yoktur. 
@@ -155,7 +159,7 @@ Bu öğretici burada bir SharePoint iş kullanıcı bir SharePoint listesi Pazar
 4. Oluşturulan duyuru olduktan sonra aşağıdakine benzer Mobile Engagement portalında görürsünüz (unutmayın durumu Taslak ve etkinleştirildi = = yok)
    
     ![][3]
-5. `CreateAzMECampaign`Bir duyurunun kampanya oluşturur ve çağırana kimliğini döndürür. `ActivateAzMECampaign`Bu kimliği kampanyayı etkinleştirmek için parametre olarak gerektirir. 
+5. `CreateAzMECampaign` Bir duyurunun kampanya oluşturur ve çağırana kimliğini döndürür. `ActivateAzMECampaign` Bu kimliği kampanyayı etkinleştirmek için parametre olarak gerektirir. 
    
         static async Task<bool> ActivateAzMECampaign(int campaignId)
         {

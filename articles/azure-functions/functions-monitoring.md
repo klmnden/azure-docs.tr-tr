@@ -1,12 +1,12 @@
 ---
-title: "Azure İşlevlerini İzleme"
-description: "Azure Application Insights ile Azure işlevleri işlev yürütme izleme için kullanmayı öğrenin."
+title: Azure İşlevlerini İzleme
+description: Azure Application Insights ile Azure işlevleri işlev yürütme izleme için kullanmayı öğrenin.
 services: functions
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari"
+editor: ''
+tags: ''
+keywords: azure işlevleri, işlevler, olay işleme, web kancaları, dinamik işlem, sunucusuz mimari
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: d2a61f5f51e3c4a1de6baa79493cb2c7380c76b6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 5b141924266630bfd3b63ec5129f9f225da3170b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="monitor-azure-functions"></a>Azure İşlevlerini İzleme
 
@@ -493,7 +493,7 @@ Daha fazla veri ve verileri çözümlemek için daha iyi yol sağladığından i
 
 ### <a name="logging-to-storage"></a>Depolama için günlükleri
 
-Yerleşik günlüğü bağlantı dizesinde belirtilen depolama hesabı kullanan `AzureWebJobsDashboard` uygulama ayarı. Bu uygulama ayarı yapılandırıldıysa, Azure portalında günlük verilerini görebilirsiniz. Bir işlev uygulaması sayfasında bir işlevi seçin ve ardından **İzleyici** sekmesi ve işlev yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
+Yerleşik günlüğü bağlantı dizesinde belirtilen depolama hesabı kullanan `AzureWebJobsDashboard` uygulama ayarı. Bu uygulama ayarı yapılandırıldıysa, Azure portalında günlük verilerini görebilirsiniz. Depolama kaynak dosyaları için işlevi için dosya hizmeti seçin ve ardından gidin Git `LogFiles > Application > Functions > Function > your_function` günlük dosyasını görmek için. Bir işlev uygulaması sayfasında bir işlevi seçin ve ardından **İzleyici** sekmesi ve işlev yürütmeleri listesini alın. Bir işlev yürütme süresi, giriş verilerini, hataları ve ilişkili günlük dosyalarını gözden geçirmek için seçin.
 
 Application Insights kullanın ve varsa [devre dışı yerleşik günlük](#disable-built-in-logging), **İzleyici** sekmesini Application Insights'a alır.
 

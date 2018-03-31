@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - ulaşma ölçütü"
-description: "Azure Mobile Engagement kullanarak kullanıcılarınız için bir select alt anında iletme kampanyalarını göndermek için hedefleme ölçütleri kullanmayı öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - ulaşma ölçütü
+description: Azure Mobile Engagement kullanarak kullanıcılarınız için bir select alt anında iletme kampanyalarını göndermek için hedefleme ölçütleri kullanmayı öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a4ed03a0-55b1-4dd8-b0bd-c475005afb66
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Kullanıcılarınız için bir select alt anında iletme kampanyalarını göndermek için hedefleme ölçütleri kullanma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 "Yeni ölçüt" düğmesiyle belirli ölçütlere göre kitlenizi hedefleme biridir anında iletme bildirimleri ilgili gönderdiğiniz yardımcı Azure Mobile Engagement en güçlü açıklanan kavramlar herkes istenmeyen posta yerine müşteriler için yanıtlar. Standart ölçütlere göre kitlenizi sınırlamak ve kaç kişinin bildirim alırsınız belirlemek için gönderim benzetimini yapma.
 
 **Ayrıca bkz.:**
@@ -48,7 +52,7 @@ Yalnızca bir uygulama içi satın alma eylem gerçekleştirmiş kullanıcılar�
 > [!NOTE]
 > Uygulama bilgisi etiketleri başka ölçütlere göre hedefleme itme gönderilmeden önce ve bir gecikmeye neden olabilir, kullanıcıların cihazlarından bilgileri toplamak Azure Mobile Engagement gerektirir. Karmaşık gönderim yapılandırması (rozetleri güncelleştirme gibi) seçenekler de geciktirebilir iter. Mutlak hızlı itme yönteminde Azure Mobile Engagement bir "tek seferde" kampanyası itme API'sinden kullanmaktır. Uygulama bilgileri etiketleri sunucu tarafında depolandığından Reach Kampanya (ya da Reach API'sini veya kullanıcı arabirimini) için anında iletme ölçüt olarak yalnızca uygulama bilgisi etiketleri kullanarak sonraki en hızlı yöntemdir. Kampanya göndermek için aygıtlarını sorgulamak Azure Mobile Engagement sahip olduğundan hedefleme diğer ölçütleri itme kampanya için en esnek ancak yavaş anında yöntemini kullanmaktır.
 
-![Reach Criterion1][29] 
+![Reach-Criterion1][29] 
 
 ## <a name="criterion-options-apply-to"></a>Ölçüt seçenekleri için geçerlidir:
 * **Technicals**     

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: e2b6651f0d341567f1d02d0ca16b8f445e3d26f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4259715fbb062bfb170509c928b5a1ad898ea394
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure çok faktörlü kimlik doğrulama ayarlarını yapılandırın
 
@@ -228,11 +228,7 @@ Güvenilen IP'ler özelliği etkinleştirilip etkinleştirilmediği bağımsız 
 
 Bazı uygulamalar, Office 2010 gibi veya önceki sürümleri ve Apple Mail iki aşamalı doğrulamayı desteklemez. Uygulamalar, ikinci doğrulama kabul edecek şekilde yapılandırılmamışlardır. Bu uygulamaları kullanmak için yararlanmak _uygulama parolaları_ özelliği. İki aşamalı Doğrulamayı atla ve çalışmaya devam etmek uygulama izin vermek için bir uygulama parolası yerine geleneksel parolanızı kullanabilirsiniz.
 
->[!NOTE]
->Daha sonra ve Microsoft Office 2013 istemcilerin için modern kimlik doğrulaması
-> 
->Office 2013 istemcileri ve daha sonra (Outlook gibi), modern kimlik doğrulama protokollerini destekler ve iki aşamalı doğrulamayla birlikte çalışmak üzere etkinleştirilebilir. İstemciye etkinleştirildikten sonra uygulama parolaları istemci için gerekli değildir. Daha fazla bilgi için bkz: [Office 2013 modern kimlik doğrulaması genel önizlemesi duyuru](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
->
+Modern kimlik doğrulaması, Microsoft Office 2013 istemcileri ve daha sonra desteklenir. Office 2013 istemciler Outlook gibi modern kimlik doğrulama protokollerini destekler ve iki aşamalı doğrulamayla birlikte çalışmak üzere etkinleştirilebilir. İstemciye etkinleştirildikten sonra uygulama parolaları istemci için gerekli değildir.
 
 ### <a name="considerations-about-app-passwords"></a>Uygulama parolaları hakkında dikkat edilecek noktalar
 

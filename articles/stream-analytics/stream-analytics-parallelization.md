@@ -1,12 +1,11 @@
 ---
-title: "Azure Stream Analytics içinde sorgu paralelleştirme yararlanın | Microsoft Docs"
-description: "Giriş bölümlerini yapılandırma sorgu tanımı ayarlama ve iş akış birimleri ayarlama Stream Analytics işlerini ölçeklendirme öğrenin."
-keywords: "veri akış, veri işleme, akış analizi ayarlama"
+title: Azure Stream Analytics içinde sorgu paralelleştirme yararlanın | Microsoft Docs
+description: Giriş bölümlerini yapılandırma sorgu tanımı ayarlama ve iş akış birimleri ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
+keywords: veri akış, veri işleme, akış analizi ayarlama
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: JSeb225
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: dd60026cad9246da8eba141125aebf061ecf7e9d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics içinde sorgu paralelleştirme yararlanın
 Bu makalede Azure akış analizi paralelleştirme yararlanmak nasıl gösterir. Giriş bölümlerini yapılandırma ve analizi sorgu tanımı ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
@@ -77,7 +76,7 @@ Bir *utandırıcı derecede paralel* iş Azure akış analizi sahibiz en ölçek
 
 Aşağıdaki bölümlerde utandırıcı derecede paralel bazı örnek senaryolar açıklanmaktadır.
 
-### <a name="simple-query"></a>Basit Sorgu
+### <a name="simple-query"></a>Basit sorgu
 
 * Giriş: 8 bölümlerle olay hub'ı
 * Çıktı: 8 bölümlerle olay hub'ı

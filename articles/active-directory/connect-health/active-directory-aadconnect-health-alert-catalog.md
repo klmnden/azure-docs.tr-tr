@@ -13,17 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: zhiweiw
-ms.openlocfilehash: a57bb4a019ce51e67516761ae6fb89461fe89e15
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6803d0a5cff45736013a840451b940ef7108bca1
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-active-directory-connect-health-alert-catalog"></a>Azure Active Directory Connect'i durumu uyarısı Kataloğu 
 
 Azure AD Connect Health hizmet gönderme uyarıları kimlik altyapınızı sağlıklı olmadığını gösterir. Bu makalede, uyarıları başlık, açıklama ve her uyarı için düzeltme adımları içerir. <br />
 Hata, uyarı ve Connect Health hizmetinden oluşturulan uyarıların üç aşaması olan Prewarning. Tetiklenen uyarılar hemen eylemleri öneririz. <br />
 Azure AD Connect Health uyarıları, bir başarı koşulu çözülmüş. Azure AD Connect Health aracılarını algılamak ve başarılı koşullar hizmete düzenli aralıklarla rapor. Birkaç uyarıları gizleme zaman tabanlıdır. Aynı hata durumuna uyarı oluşturma 72 saat içinde gözlenir değil, diğer bir deyişle, uyarı otomatik olarak çözümlenir.
+
+## <a name="general-alerts"></a>Genel uyarıları
+
+| Uyarı Adı | Açıklama | Düzeltme |
+| --- | --- | ----- |
+| Sistem sağlığı hizmeti verileri güncel değil | Bir veya daha fazla sunucuları üzerinde çalışan sistem durumu aracıların sağlık hizmetine bağlı değilse ve sistem sağlığı hizmeti bu sunucudan en son verileri almıyor. Sistem sağlığı hizmeti tarafından işlenen son veriler 2 saatten daha eski olduğunda. | Durum aracılarını aşağıdaki hizmet uç noktalarına giden bağlantı olduğundan emin olun. [Daha fazla bilgi edinin](active-directory-aadconnect-health-data-freshness.md) |
 
 ## <a name="alerts-for-azure-ad-connect-sync"></a>Azure AD için uyarılar (eşitleme) bağlanma
 
@@ -35,10 +41,10 @@ Azure AD Connect Health uyarıları, bir başarı koşulu çözülmüş. Azure A
 | Başarısız Active Directory'ye verme | Active Directory Bağlayıcısı'na aktarma işlemi başarısız oldu. | Dışarı aktarma işlemi daha ayrıntılı bilgi için olay günlüğü hatalarını araştırın. | 
 | Başarısız Active Directory'den içeri aktarma | Active Directory'den içeri aktarma işlemi başarısız oldu. Sonuç olarak bu orman bazı etki alanlarından nesnelerden alınamayabilir. | <li>DC bağlantısını doğrulayın</li> <li>İçeri aktarma el ile yeniden çalıştırın</li> <li> İçeri aktarma işlemi daha ayrıntılı bilgi için olay günlüğü hatalarını araştırın. | 
 | Azure Active başarısız dizinine aktarın | Azure Active Directory Bağlayıcısı'na aktarma işlemi başarısız oldu. Sonuç olarak, bazı nesneler başarıyla Azure Active Directory'ye aktarılamayabilir. | Dışarı aktarma işlemi daha ayrıntılı bilgi için olay günlüğü hatalarını araştırın. |
-| Parola eşitleme sinyali son 120 dakika içinde atlandı | Parola Eşitleme son 120 dakika içinde Azure Active Directory'ye bağlanmadı. Sonuç olarak, parolalar Azure Active Directory ile eşitlenmeyecek. | Microsoft Azure Active Directory Eşitleme hizmetlerini yeniden başlatın:</b><br> Şu anda çalışan tüm eşitleme işlemlerinin kesintiye uğrar. Hiçbir eşitleme işlemi sürdüğünden, aşağıdaki adımları gerçekleştirmek seçebilirsiniz.<br> 1. Tıklatın <b>Başlat</b>, tıklatın <b>çalıştırmak</b>, türü <b>Services.msc</b>ve ardından <b>Tamam</b>.<br> 2. Bulun <b>Microsoft Azure AD eşitleme</b>, sağ tıklatın ve ardından <b>yeniden</b>. | 
+| Parola karma eşitleme sinyali son 120 dakika içinde atlandı | Parola karma eşitlemesi son 120 dakika içinde Azure Active Directory'ye bağlanmadı. Sonuç olarak, parolalar Azure Active Directory ile eşitlenmeyecek. | Microsoft Azure Active Directory Eşitleme hizmetlerini yeniden başlatın:</b><br> Şu anda çalışan tüm eşitleme işlemlerinin kesintiye uğrar. Hiçbir eşitleme işlemi sürdüğünden, aşağıdaki adımları gerçekleştirmek seçebilirsiniz.<br> 1. Tıklatın <b>Başlat</b>, tıklatın <b>çalıştırmak</b>, türü <b>Services.msc</b>ve ardından <b>Tamam</b>.<br> 2. Bulun <b>Microsoft Azure AD eşitleme</b>, sağ tıklatın ve ardından <b>yeniden</b>. | 
 | Yüksek CPU Kullanımı algılandı | CPU tüketimi yüzdesi bu sunucu üzerinde önerilen eşiği aşıldı. | <li>Bu geçici bir aşırı CPU tüketimi olabilir. CPU kullanım eğilim izleme bölümünden denetleyin.</li><li>Sunucu üzerinde en yüksek CPU kullanımı tüketen üst işlemleri inceleyin.<ol type="a"><li>Görev Yöneticisi'ni olabilir veya şu PowerShell komutu çalıştırın: <br> <i>Get-process \| Sort-Object-Descending CPU \| Select-Object - ilk 10</i></li><li>Yüksek CPU kullanımı tüketen beklenmeyen işlemler varsa, aşağıdaki PowerShell komutunu kullanarak işlemleri durdurun: <br> <i>Stop-process - işlemadı [işlemin adı]</i></li></li></ol><li>Lütfen yukarıdaki listede görünen işlemler, sunucuda çalışan hedeflenen işlemlerdir ve CPU tüketimi sürekli olarak eşik ise bu sunucu dağıtım gereksinimlerini yeniden değerlendirme düşünün.</li><li>Bir yedek operatördür seçeneği olarak sunucuyu yeniden başlatmayı düşünebilirsiniz. |
 | Yüksek Bellek Tüketimi Algılandı | Sunucunun bellek tüketimi yüzdesi bu sunucu üzerinde önerilen eşiği dışındadır. | Sunucuda en yüksek bellek tükettikten üst işlemleri inceleyin. Görev Yöneticisi'ni olabilir veya şu PowerShell komutu çalıştırın:<br> <i>Get-process \| Sort-Object-Descending WS \| Select-Object - ilk 10</i> </br> Yüksek bellek tükettikten beklenmeyen işlemler varsa, aşağıdaki PowerShell komutunu kullanarak işlemleri durdurun:<br><i>Stop-process - işlemadı [işlemin adı] </i></li><li> Yukarıdaki listede görünen işlemler sunucuda çalışan hedeflenen işlemler varsa, lütfen bu sunucu dağıtım gereksinimlerini yeniden değerlendirme göz önünde bulundurun.</li><li>Hatasız seçeneği olarak sunucuyu yeniden başlatmayı düşünebilirsiniz. | 
-| Parola Eşitleme çalışmayı durdurdu | Parola Eşitleme durdu. Sonuç olarak parolalar Azure Active Directory ile eşitlenmeyecek. | Microsoft Azure Active Directory Eşitleme hizmetlerini yeniden başlatın: <br /> Şu anda çalışan tüm eşitleme işlemlerinin kesintiye uğrar. Hiçbir eşitleme işlemi sürdüğünden, aşağıdaki adımları gerçekleştirmek seçebilirsiniz. <br /> <ol> <li>Tıklatın <b>Başlat</b>, tıklatın <b>çalıştırmak</b>, türü <b>Services.msc</b>ve ardından <b>Tamam</b>.</li> <li>Bulun <b>Microsoft Azure AD eşitleme</b>, sağ tıklatın ve ardından <b>yeniden</b>.</li> </ol> </p>  | 
+| Parola karma eşitlemesi çalışmayı durdurdu | Parola karma eşitlemesi durduruldu. Sonuç olarak parolalar Azure Active Directory ile eşitlenmeyecek. | Microsoft Azure Active Directory Eşitleme hizmetlerini yeniden başlatın: <br /> Şu anda çalışan tüm eşitleme işlemlerinin kesintiye uğrar. Hiçbir eşitleme işlemi sürdüğünden, aşağıdaki adımları gerçekleştirmek seçebilirsiniz. <br /> <ol> <li>Tıklatın <b>Başlat</b>, tıklatın <b>çalıştırmak</b>, türü <b>Services.msc</b>ve ardından <b>Tamam</b>.</li> <li>Bulun <b>Microsoft Azure AD eşitleme</b>, sağ tıklatın ve ardından <b>yeniden</b>.</li> </ol> </p>  | 
 | Azure Active Directory'ye aktarma işlemi durduruldu. Yanlışlıkla silme eşiğine ulaşıldı | Azure Active Directory'ye aktarma işlemi başarısız oldu. Yapılandırılan eşik değerinden silinecek daha çok nesne vardı. Sonuç olarak, hiçbir nesne dışarı aktarılmadı. | <li> Silme için ayarlanan eşik değerinden büyük nesne sayısı işaretlenir. Bu sonucu istenen emin olun.</li> <li> Devam etmek dışa aktarma izin vermek için aşağıdaki adımları gerçekleştirin: <ol type="a"> <li>Disable-ADSyncExportDeletionThreshold çalıştırarak eşiği devre dışı bırak</li> <li>Eşitleme Hizmeti Yöneticisi'ni başlatın</li> <li>Dışarı aktarma çalıştırma türü ile bağlayıcı üzerinde Azure Active Directory =</li> <li>Nesneleri başarıyla verdikten sonra çalıştırarak eşiği etkinleştirin: Enable-ADSyncExportDeletionThreshold</li> </ol> </li> |
 
 ## <a name="alerts-for-active-directory-federation-services"></a>Active Directory Federasyon Hizmetleri için uyarılar

@@ -1,11 +1,11 @@
 ---
-title: "Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) | Microsoft Docs"
-description: "Nasıl başlayacağınızı Visual Studio'da ASP.NET projesinde Azure Blob storage kullanarak Visual Studio kullanarak bir depolama hesabına bağlandıktan sonra hizmetleri bağlı"
+title: Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET) | Microsoft Docs
+description: Nasıl başlayacağınızı Visual Studio'da ASP.NET projesinde Azure Blob storage kullanarak Visual Studio kullanarak bir depolama hesabına bağlandıktan sonra hizmetleri bağlı
 services: storage
-documentationcenter: 
-author: kraigb
-manager: ghogen
-editor: 
+documentationcenter: ''
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: b3497055-bef8-4c95-8567-181556b50d95
 ms.service: storage
 ms.workload: web
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: kraig
-ms.openlocfilehash: cb406e528568dafd1e142943f5273ad58e550609
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.author: ghogen
+ms.openlocfilehash: 657eff077f9a72bad97e8bea3ad3efc0da1420d5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET)
 
@@ -89,7 +89,7 @@ Aşağıdaki adımlar bağlantı dizesini kullanarak depolama hesabına bağlanm
 > [!NOTE]
 > Olsa bile *test blob kapsayıcısı* yok henüz, bu kod bir başvuru oluşturur. Kapsayıcı ile oluşturulan böylelikle `CreateIfNotExists` sonraki adımda gösterilen yöntemi.
 
-## <a name="create-a-blob-container"></a>Bir blob kapsayıcı oluşturun
+## <a name="create-a-blob-container"></a>Blob kapsayıcısı oluşturma
 
 Aşağıdaki adımları bir blob kapsayıcı oluşturulacağını gösterir:
 

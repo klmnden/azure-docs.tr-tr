@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK tümleştirmesi ulaşmak | Microsoft Docs"
-description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
+title: Azure Mobile Engagement iOS SDK tümleştirmesi ulaşmak | Microsoft Docs
+description: En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1f5f5857-867c-40c5-9d76-675a343a0296
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d531f5850e8f7f352774f5894285402bd4cc53e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>Engagement Reach tümleştirmek için iOS hakkında
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Açıklanan tümleştirme yordamı izlemelisiniz [tümleştirmek katılım iOS belgesinde nasıl](mobile-engagement-ios-integrate-engagement.md) bu kılavuz aşağıdaki önce.
 
 Bu belge, XCode 8 gerektirir. XCode 7'de gerçekten bağımlı sonra kullanabilirsiniz [iOS Engagement SDK'sı v3.2.4](https://aka.ms/r6oouh). Bir bilinen hata varsa bu önceki sürüm 10 ios'de çalıştırılırken: Sistem bildirimleri işleme alınan değildir. Bu kullanım dışı API uygulamak için olacaktır sorunu gidermek için `application:didReceiveRemoteNotification:` uygulamanızda temsilci gibi:
@@ -267,7 +271,7 @@ Bildirimlerinizi için bir kategori işleyici kaydetmek için reach modülünün
     [reach registerNotifier:myNotifier forCategory:@"my_category"];
     ...
 
-`myNotifier`protokol uyan bir nesne örneği olmalıdır `AENotifier`.
+`myNotifier` protokol uyan bir nesne örneği olmalıdır `AENotifier`.
 
 Kendi kendinize Protokolü yöntemleri uygulayabilirsiniz veya varolan bir sınıfı yeniden uygulamalı seçtiğiniz `AEDefaultNotifier` işlerin çoğunu zaten gerçekleştirir.
 
@@ -292,8 +296,8 @@ Bu basit örnek kategorisinin varsayalım adında bir dosyanız varsa `MyNotific
 Sağlanan nib dosyası aşağıdaki kuralları dikkate:
 
 * Yalnızca bir görünüm içermesi gerekir.
-* Sağlanan nib dosyası içindeki olanlarla aynı türlerinin subviews adlı`AENotificationView.xib`
-* Subviews anahtarlarla sağlanan içinde aynı etiketleri olması gerektiğini adlı nib dosyası`AENotificationView.xib`
+* Sağlanan nib dosyası içindeki olanlarla aynı türlerinin subviews adlı `AENotificationView.xib`
+* Subviews anahtarlarla sağlanan içinde aynı etiketleri olması gerektiğini adlı nib dosyası `AENotificationView.xib`
 
 > [!TIP]
 > Yalnızca adlı sağlanan nib dosya kopyalama `AENotificationView.xib`ve buradan çalışmaya başlayın. Ancak dikkatli olun, görünüm bu nib dosyası içinde sınıfla ilişkilendirilen `AENotificationView`. Bu sınıf yöntemi yeniden tanımlandı `layoutSubViews` taşımak ve kendi subviews bağlamı göre yeniden boyutlandırmak için. Değiştirmek istediğiniz bir `UIView` ya da size özel görünüm sınıfı.
@@ -344,7 +348,7 @@ Bizim bildirim düzeni varolan görünümlerinizi içerecek şekilde karar vereb
        notificationView.tag = NOTIFICATION_AREA_VIEW_TAG;
        [self.view addSubview:notificationView];
 
-`NOTIFICATION_AREA_VIEW_TAG`Makro bulunabilir `AEDefaultNotifier.h`.
+`NOTIFICATION_AREA_VIEW_TAG` Makro bulunabilir `AEDefaultNotifier.h`.
 
 > [!NOTE]
 > Varsayılan bildirim bildirim düzeni bu görünüme dahil edilmiştir ve bir katmana için eklemez otomatik olarak algılar.

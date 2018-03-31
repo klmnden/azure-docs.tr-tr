@@ -1,10 +1,10 @@
 ---
-title: "Anomali algılama (Önizleme) Azure kullanım kılavuzda | Microsoft Docs"
-description: "Akış analizi ve makine öğrenimi anormallikleri algılamak kullanın."
+title: Anomali algılama (Önizleme) Azure kullanım kılavuzda | Microsoft Docs
+description: Akış analizi ve makine öğrenimi anormallikleri algılamak kullanın.
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: dubansal
-manager: jhubbard
+manager: katicad
 ms.service: stream-analytics
 ms.devlang: na
 ms.topic: article
@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/12/2018
 ms.author: dubansal
-ms.openlocfilehash: d8762ea608afed707d41a3c0a1a8725457a0e4dc
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9d301f8586038f635ee97a3acdc9c4dc8a2bbcc6
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics anomali algılama
 
@@ -45,7 +45,7 @@ AnomalyDetection işleci kullanırken belirtmelisiniz **Limit Duration** yan tü
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 
-* **scalar_expression** -anomali algılama gerçekleştirilen bir skaler ifade. Bu parametre Float eklemek veya bu dönüş tek bir (sayı) değerini Bigint veri türleri için izin verilen değerler. Joker karakter ifadesini  **\***  verilmez. Skaler ifade diğer analitik işlevler veya dış işlevler içeremez. 
+* **scalar_expression** -anomali algılama gerçekleştirilen bir skaler ifade. Bu parametre Float eklemek veya bu dönüş tek bir (sayı) değerini Bigint veri türleri için izin verilen değerler. Joker karakter ifadesini **\*** verilmez. Skaler ifade diğer analitik işlevler veya dış işlevler içeremez. 
 
 * **partition_by_clause** - `PARTITION BY <partition key>` yan tümcesi, ayrı bölümler öğrenme ve eğitim böler. Diğer bir deyişle, ayrı bir model değerini kullanılacak `<partition key>` ve bu değer yalnızca olaylarla öğrenme ve bu modelde eğitim için kullanılabilir. Örneğin, aşağıdaki sorgu trenler ve yalnızca aynı algılayıcı başka okumalar karşı okuma yapan:
 
@@ -97,7 +97,7 @@ Diagrammatically, adımları aşağıdaki gibi görünür:
 
 ![Eğitim modelleri](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
 
-|modeli | **Eğitim başlangıç zamanı** | **Kendi puan kullanmaya başlama zamanı** |
+|**modeli** | **Eğitim başlangıç zamanı** | **Kendi puan kullanmaya başlama zamanı** |
 |---------|---------|---------|
 |M1     | 11:20   | 11:33   |
 |M2     | 11:30   | 11:40   |

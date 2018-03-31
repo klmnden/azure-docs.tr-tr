@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement iOS SDK sürüm notları | Microsoft Docs"
-description: "En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar"
+title: Azure Mobile Engagement iOS SDK sürüm notları | Microsoft Docs
+description: En son güncelleştirmeler ve iOS için Azure Mobile Engagement SDK'sı için yordamlar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a43ff0f6-90d5-4b3c-8d7a-a1db21bc776b
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0268d65d2c0ea3cefeb8f06793838bc263e443bd
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Azure Mobile Engagement iOS SDK'sı sürüm notları
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 
 ## <a name="410-07172017"></a>4.1.0 (07/17/2017)
 * Sabit rozetleri arka planda temizlendi.

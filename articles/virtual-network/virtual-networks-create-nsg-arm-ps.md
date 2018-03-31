@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - Azure PowerShell oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak ağ güvenlik grupları oluşturup öğrenin."
+title: Ağ güvenlik grupları - Azure PowerShell oluşturma | Microsoft Docs
+description: PowerShell kullanarak ağ güvenlik grupları oluşturup öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/23/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 26fe67b43d63c6685d8ae7644dd7df6931a4d2a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/31/2018
 ---
 # <a name="create-network-security-groups-using-powershell"></a>Ağ güvenlik grupları PowerShell kullanarak oluşturma
 
@@ -37,7 +37,7 @@ Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz Po
 ## <a name="how-to-create-the-nsg-for-the-front-end-subnet"></a>Ön uç alt ağı için NSG oluşturma
 Adlı bir NSG oluşturmak için *NSG ön uç* senaryoya bağlı olarak, aşağıdaki adımları tamamlayın:
 
-1. Daha önce Azure PowerShell kullanmadıysanız, [Azure PowerShell’i Yükleme ve Yapılandırma](/powershell/azure/overview) sayfasına gidin ve Azure’da oturum açıp aboneliğinizi seçmek için talimatları sonuna kadar uygulayın.
+1. Azure PowerShell’i hiç kullanmadıysanız bkz. [Azure PowerShell’i yükleme ve yapılandırma](/powershell/azure/overview) ve Azure'a giriş yapıp aboneliğinizi seçene kadar da tüm bu süreç boyunca tüm talimatları uygulayın.
 2. Internet'ten 3389 numaralı bağlantı noktasına veren bir güvenlik kural oluşturun.
 
     ```powershell

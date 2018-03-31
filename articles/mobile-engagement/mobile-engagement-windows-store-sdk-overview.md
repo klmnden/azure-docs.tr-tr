@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Windows Evrensel SDK tümleştirmesi | Microsoft Docs"
-description: "Azure Mobile Engagement SDK'sı tümleştirmesi Evrensel Windows"
+title: Azure Mobile Engagement Windows Evrensel SDK tümleştirmesi | Microsoft Docs
+description: Azure Mobile Engagement SDK'sı tümleştirmesi Evrensel Windows
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9ded187d-5c07-4377-a41c-ce205dd38b50
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,16 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c513d5b05afaee4c49d0d2e96a0dcda78761421
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>Azure Mobile Engagement için Windows Evrensel SDK tümleştirmesi
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu belgede, tümleştirme ve yapılandırma için tüm seçenekleri kullanılabilir Azure Mobile Engagement Windows Evrensel SDK açıklanmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce ilk tamamlamalısınız bizim [15 dakikalık Öğreticisi](mobile-engagement-windows-store-dotnet-get-started.md).
 
 ## <a name="advanced-features"></a>Gelişmiş özellikler
