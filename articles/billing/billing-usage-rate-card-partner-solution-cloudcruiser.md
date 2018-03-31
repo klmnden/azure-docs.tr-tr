@@ -1,11 +1,11 @@
 ---
-title: "Bulut Cruiser ve Microsoft Azure API tümleştirme faturalama | Microsoft Docs"
-description: "Microsoft Azure fatura ortağında bulut Cruiser kendi üründe Azure faturalama API'ları tümleştirme deneyimlerini benzersiz bir perspektif sağlar.  Bu, özellikle kullanarak/bulut Cruiser Microsoft Azure Pack için çalışırken ilginizi çekiyor mu Azure ve bulut Cruiser müşteriler için kullanışlıdır."
-services: 
-documentationcenter: 
-author: BryanLa
+title: Bulut Cruiser ve Microsoft Azure API tümleştirme faturalama | Microsoft Docs
+description: Microsoft Azure fatura ortağında bulut Cruiser kendi üründe Azure faturalama API'ları tümleştirme deneyimlerini benzersiz bir perspektif sağlar.  Bu, özellikle kullanarak/bulut Cruiser Microsoft Azure Pack için çalışırken ilginizi çekiyor mu Azure ve bulut Cruiser müşteriler için kullanışlıdır.
+services: ''
+documentationcenter: ''
+author: tonguyen
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: mobandyo;sirishap;bryanla
-ms.openlocfilehash: 7d66cac98afa72c807f597403b1e2bd278e45cec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ddb81078e8019284c0481d4ea8d72253d3f0a5a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cruiser ve Microsoft Azure API tümleştirme faturalama bulut
 Bu makalede nasıl yeni Microsoft Azure fatura API'lerden toplanan bilgiler bulut Cruiser iş akışı maliyet benzetimi ve analiz için kullanılabileceği açıklanır.
@@ -123,7 +123,7 @@ Son aşağıdakine benzer raporlar oluşturun ve maliyet ve etiketlere göre dol
 
 ![Şekil 10 - etiketleri kullanarak dökümleri raporla][10]
 
-### <a name="microsoft-azure-tags"></a>Microsoft Azure etiketleri
+### <a name="microsoft-azure-tags"></a>Microsoft Azure Tags
 Azure kullanım API aracılığıyla kullanılabilir verileri yalnızca tüketim bilgileri, aynı zamanda kendisiyle ilişkilendirilmiş herhangi bir etiket dahil olmak üzere kaynak meta verileri içerir. Etiketleri kaynaklarınızı düzenleme, ancak etkili olması için kolay bir yol sağlar, emin olmanız gerekir:
 
 * Etiketleri doğru sağlama zaman kaynaklarına uygulanır

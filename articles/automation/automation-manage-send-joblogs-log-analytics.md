@@ -1,6 +1,6 @@
 ---
 title: Azure Otomasyonu iş verilerini Log Analytics’e iletme
-description: Bu makalede iş durumu ve runbook iş akışları için ek bilgiler sunmak için Microsoft Operations Management Suite günlük analizi ve Yönetimi nasıl gönderileceğini gösterir.
+description: Bu makalede, iş durumunu ve runbook ek bilgiler ve yönetim sağlamak üzere Azure günlük analizi için iş akışlarını göndermek gösterilmiştir.
 services: automation
 ms.service: automation
 author: georgewallace
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9b604b0fc7a3524686bec6832a19ee9f85f6ed2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 116096fb27af299545a0f9a6adf57d794bbb2f6e
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
 Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:

@@ -1,11 +1,11 @@
 ---
-title: "Gelişmiş yapılandırma için Azure Mobile Engagement Android SDK"
-description: "Android bildirim Azure Mobile Engagement Android SDK ile de dahil olmak üzere gelişmiş yapılandırma seçenekleri açıklanmaktadır"
+title: Gelişmiş yapılandırma için Azure Mobile Engagement Android SDK
+description: Android bildirim Azure Mobile Engagement Android SDK ile de dahil olmak üzere gelişmiş yapılandırma seçenekleri açıklanmaktadır
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 37d2c09a-86fa-473d-8987-c7e35a0eb3e8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 0301f71c76872714aa1bf727a6c21dd7a63db036
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 29a7bb7daae59e2034504ce27c9ba66755b11e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="advanced-configuration-for-azure-mobile-engagement-android-sdk"></a>Gelişmiş yapılandırma için Azure Mobile Engagement Android SDK
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 > [!div class="op_single_selector"]
 > * [Evrensel Windows](mobile-engagement-windows-store-advanced-configuration.md)
 > * [Windows Phone Silverlight](mobile-engagement-windows-phone-integrate-engagement.md)
@@ -48,7 +52,7 @@ Burada aşağıdaki tablodan uygun izni doldurmanız aşağıdaki gibi aramak iz
 | ACCESS_NETWORK_STATE |Gereklidir. Temel raporlama için |
 | RECEIVE_BOOT_COMPLETED |Gereklidir. Cihaz yeniden başlatıldıktan sonra bildirimleri center göstermek için |
 | WAKE_LOCK |Önerilir. WiFi kullanırken veya ekran kapalı olduğunda verilerin toplanmasını sağlar |
-| TİTRET |İsteğe bağlı. Bildirim alındığında titreşimi sağlar |
+| VIBRATE |İsteğe bağlı. Bildirim alındığında titreşimi sağlar |
 | DOWNLOAD_WITHOUT_NOTIFICATION |İsteğe bağlı. Android büyük resmi bildirim sağlar |
 | WRITE_EXTERNAL_STORAGE |İsteğe bağlı. Android büyük resmi bildirim sağlar |
 | ACCESS_COARSE_LOCATION |İsteğe bağlı. Gerçek zamanlı konum raporlama sağlar |
@@ -88,7 +92,7 @@ Bu işlev çağırdığınızda katılım etkinse durdurmak hizmet için bir dak
 
 Yeniden ile aynı işlevini çağırarak raporlama günlüğü etkinleştirebilirsiniz `true`.
 
-### <a name="integration-in-your-own-preferenceactivity"></a>Kendi tümleştirme`PreferenceActivity`
+### <a name="integration-in-your-own-preferenceactivity"></a>Kendi tümleştirme `PreferenceActivity`
 Bu işlevi çağırmak yerine, ayrıca bu ayarı doğrudan var olan tümleştirebilirsiniz `PreferenceActivity`.
 
 Tercihler dosyanız (istenen moduyla) kullanmak için katılım yapılandırabileceğiniz `AndroidManifest.xml` ile dosya `application meta-data`:

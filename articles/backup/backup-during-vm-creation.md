@@ -1,23 +1,23 @@
 ---
-title: "Oluşturma sırasında Azure VM yedeklemeyi etkinleştirme | Microsoft Docs"
-description: "Azure sanal makine yedeklemesi oluşturma işlemi sırasında etkinleştirme adımları bakın."
+title: Oluşturma sırasında Azure VM yedeklemeyi etkinleştirme | Microsoft Docs
+description: Azure sanal makine yedeklemesi oluşturma işlemi sırasında etkinleştirme adımları bakın.
 services: backup, virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
+ms.assetid: ''
 ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4041fc555fe4b61d10f84236dcae5156c6282fd3
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure sanal makine oluşturma sırasında yedeklemeyi etkinleştirme 
 
@@ -57,6 +57,10 @@ Zaten hesabınızda oturum içinde değilse, oturum [Azure portal](http://portal
 ## <a name="initiate-a-backup-after-creating-the-vm"></a>VM oluşturduktan sonra bir yedekleme başlatmak 
 
 Yedekleme İlkesi oluşturuldu ancak ilk yedeği oluşturmak iyi bir uygulamadır. Sanal bir kez VM oluşturma şablonu sonlandığında gelen makine için yedekleme ayrıntılarını görüntülemek için **Operations** sol menüde ayarı tıklatın **yedekleme**. Bu, bir isteğe bağlı yedeklemeyi tetikleyin, tam bir VM veya tüm diskleri geri yüklemek, dosyaları VM yedekten geri yükleyin veya sanal makine ile ilişkili yedekleme ilkesini değiştirmek için kullanabilirsiniz.  
+
+## <a name="using-a-resource-manager-template-to-deploy-a-protected-vm"></a>Korumalı VM dağıtmak için bir Resource Manager şablonu kullanma
+
+Önceki adımları Azure portalında bir sanal makine oluşturun ve bir kurtarma Hizmetleri kasası korumak için nasıl kullanılacağı açıklanmaktadır. Hızlı bir şekilde bir veya daha fazla sanal makine dağıtmak ve bir kurtarma Hizmetleri kasası korumak istiyorsanız, şablon bkz [Windows VM dağıtmak ve yedeklemeyi etkinleştirme](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
 
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular 
 

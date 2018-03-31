@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio'da bağlı hizmetler kullanarak bir Azure Active Directory'ye ekleme | Microsoft Docs"
-description: "Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak bir Azure Active Directory'ye ekleme"
+title: Visual Studio'da bağlı hizmetler kullanarak bir Azure Active Directory'ye ekleme | Microsoft Docs
+description: Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak bir Azure Active Directory'ye ekleme
 services: visual-studio-online
 documentationcenter: na
-author: kraigb
-manager: ghogen
-editor: 
+author: ghogen
+manager: douge
+editor: ''
 ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.service: active-directory
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/12/2018
-ms.author: kraigb
-ms.openlocfilehash: b21761b6fc166ecbb2fec9c13e5e207481fa9a39
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: ghogen
+ms.openlocfilehash: 882ba1c7ea8ef6889bc9ad20031070cd54100026
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio'da bağlı hizmetler kullanarak bir Azure Active Directory'ye ekleme
 
@@ -60,8 +60,8 @@ Bu makalede ve yardımcı makalelerinden Active Directory için Visual Studio ba
 
 1. İşlemi tamamlandığında, Visual Studio Proje türü için uygun şekilde aşağıdaki makaleleri birine tarayıcınızı açar:
 
-    - [.NET MVC projeleri ile çalışmaya başlama](vs-active-directory-dotnet-getting-started.md)
-    - [Webapı projeleri ile çalışmaya başlama](vs-active-directory-webapi-getting-started.md)
+    - [.NET MVC projelerini kullanmaya başlama](vs-active-directory-dotnet-getting-started.md)
+    - [.NET WebAPI projelerini kullanmaya başlama](vs-active-directory-webapi-getting-started.md)
 
 1. Active Directory etki alanı üzerinde görebilirsiniz [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -69,7 +69,7 @@ Bu makalede ve yardımcı makalelerinden Active Directory için Visual Studio ba
 
 Bağlı hizmet sihirbaz eklediğinizde, Visual Studio Azure Active Directory ve ilişkili başvuruları projenize ekler. Azure AD için destek eklemek için yapılandırma dosyalarını ve kod dosyaları projenizdeki değiştirilir. Visual Studio yapar belirli değişiklikleri proje türüne bağlıdır. Ayrıntılar için aşağıdaki makalelere bakın:
 
-- [.NET MVC proje için ne oldu?](vs-active-directory-dotnet-what-happened.md)
+- [.NET MVC projeme ne oldu?](vs-active-directory-dotnet-what-happened.md)
 - [My Web API projesi ne oldu?](vs-active-directory-webapi-what-happened.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar

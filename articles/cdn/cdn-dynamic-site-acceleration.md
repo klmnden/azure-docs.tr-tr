@@ -1,12 +1,12 @@
 ---
-title: "Azure CDN aracılığıyla dinamik site hızlandırma"
-description: "Dinamik site hızlandırma derinlemesine bakış"
+title: Azure CDN aracılığıyla dinamik site hızlandırma
+description: Azure CDN dinamik site Hızlandırma (DSA) iyileştirme dinamik içerik olan dosyaları destekler.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
 manager: akucer
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: rli
-ms.openlocfilehash: 713f00f432095b7a8a19996fb7bdb7e5f8d79b63
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: d105c88105512df4a9f8d999f64ad001b5d54917
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Azure CDN aracılığıyla dinamik site hızlandırma
 
@@ -29,9 +29,9 @@ Standart içerik teslim ağı (CDN) özelliği, statik dosyaların teslimat hız
 **Akamai'den Azure CDN** ve **verizon'dan Azure CDN** her ikisi de DSA iyileştirme ile teklif **için en iyi duruma getirilmiş** uç nokta oluşturma sırasında menüsü.
 
 > [!Important]
-> İçin **akamai'den Azure CDN** profilleri yalnızca, izin verilen oluşturulduktan sonra bir CDN uç noktası iyileştirme değiştirmenizi.
+> İçin **akamai'den Azure CDN** profilleri, oluşturulduktan sonra bir CDN uç noktası iyileştirme değiştirmek izin verilir.
 >   
-> **Verizon'dan Azure CDN** profilleri, onu oluşturulduktan sonra bir CDN uç noktası iyileştirme değiştirmek mümkün değildir.
+> İçin **verizon'dan Azure CDN** profilleri değiştiremediğiniz bir CDN uç noktası iyileştirme oluşturulduktan sonra.
 
 ## <a name="configuring-cdn-endpoint-to-accelerate-delivery-of-dynamic-files"></a>Dinamik dosyaları teslimini hızlandırmak için CDN uç noktası yapılandırma
 
@@ -104,7 +104,7 @@ Uncacheable olsa bile sonuç olarak, tam olarak dinamik ve işlem içeriği daha
 
 TCP *yavaş başlangıç* bir algoritmadır TCP protokolünün ağ üzerinden gönderilen veri miktarını sınırlandırarak Ağ Tıkanıklığı engeller. Bu küçük tıkanıklık pencere boyutları gönderici ve alıcı arasındaki ile maksimum sınıra veya paket kaybı algılandığında kadar başlamanızı sağlar.
 
- Her ikisi de **akamai'den Azure CDN** ve **verizon'dan Azure CDN** TCP yavaş başlatma aşağıdaki üç adımı ile ortadan:
+ Her ikisi de **akamai'den Azure CDN** ve **verizon'dan Azure CDN** profilleri ortadan TCP yavaş aşağıdaki üç adımı başlayın:
 
 1. Sistem durumu ve bant genişliği izleme kenar PoP sunucuları arasındaki bağlantılar bant ölçmek için kullanılır.
     
@@ -152,19 +152,32 @@ Bile kaynak içerdiğinde DSA ile önbelleğe alma CDN varsayılan olarak kapal�
 
 Statik ve dinamik varlıklar karışımını içeren bir Web sitesi varsa, bir karma yaklaşımı en iyi performansı elde etmek en iyisidir. 
 
-İçin **Azure CDN Verizon Premium'a** profilleri, kapatma özel durumları için önbelleğe almayı kullanarak [kurallar altyapısı](cdn-rules-engine.md) DSA uç noktalar için. Oluşturulan herhangi bir kuralın yalnızca profilinizi DSA için en iyi duruma getirilir uç etkiler. 
+İçin **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri kapatma kullanarak belirli DSA uç noktaları için önbelleğe almayı [kuralları önbelleğe alma](cdn-caching-rules.md).
 
-DSA uç noktalar için kurallar altyapısı erişmek için:
+Önbelleğe alma kurallarını erişmek için:
+
+1. Gelen **CDN profili** sayfasında, ayarları altında select **kuralları önbelleğe alma**.  
+    
+    ![Kuralları düğmesini CDN önbelleğe alma](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
+
+    **Kuralları önbelleğe alma** sayfası açılır.
+
+2. DSA uç noktanız için önbelleğe almayı etkinleştirmek için genel veya özel önbelleğe alma bir kural oluşturun. 
+
+İçin **Azure CDN Verizon Premium'a** yalnızca profillerini, Aç kullanarak belirli DSA uç noktaları için önbelleğe almayı [kurallar altyapısı](cdn-rules-engine.md). Oluşturulan herhangi bir kuralın yalnızca profilinizi DSA için en iyi duruma getirilir uç etkiler. 
+
+Kurallar altyapısı erişmek için:
     
 1. Gelen **CDN profili** sayfasında, **Yönet**.  
     
-    ![CDN profili Yönet düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![CDN profili Yönet düğmesi](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
     CDN Yönetim Portalı'nı açar.
 
 2. CDN Yönetim Portalı'ndan seçin **ADN**seçeneğini belirleyip **kurallar altyapısı**. 
 
-    ![DSA için kurallar altyapısı](./media/cdn-rules-engine/cdn-dsa-rules-engine.png)
+    ![DSA için kurallar altyapısı](./media/cdn-dynamic-site-acceleration/cdn-dsa-rules-engine.png)
+
 
 
 Alternatif olarak, iki CDN uç kullanabilirsiniz: bir uç nokta en iyi duruma getirilmiş dinamik varlıklar ve başka bir uç nokta genel gibi bir statik en iyi duruma getirme türü ile en iyi duruma getirilmiş sunmak için DSA ile teslim alınabilir varlıklar için web teslim. Varlık kullanmayı planladığınız bir CDN uç noktada doğrudan bağlantı oluşturmak için Web sayfası URL'leri değiştirin. 

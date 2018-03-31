@@ -1,32 +1,32 @@
 ---
-title: "Uygulamanız Azure Active Directory Uygulama galerisinde listeleme | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory Uygulama galerisinde destekleyen bir uygulama listelemek nasıl"
+title: Uygulamanız Azure Active Directory Uygulama galerisinde listeleme | Microsoft Docs
+description: Çoklu oturum açma Azure Active Directory Uygulama galerisinde destekleyen bir uygulama listelemek nasıl
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/09/2018
+ms.date: 03/20/2018
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 502fb555bd3b381c9be0ff04e210cc07f9bf6cd8
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: e02c60d46fe709c8d418ea4743ba383147e9ddac
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
 
 ##  <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD uygulama galerisinde nedir?
 
-Azure Active Directory (Azure AD), bir bulut tabanlı kimlik hizmetidir. [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı hazırlama için Azure Marketi uygulama mağazası bulunmaktadır. Azure AD kimlik sağlayıcısı olarak kullanan müşteriler, burada yayımlanan farklı SaaS uygulama bağlayıcıları bulun. BT yöneticileri uygulama Galeriden bağlayıcılar ekleyin ve sonra yapılandırmak ve çoklu oturum açma ve sağlama için bağlayıcıları kullanın. Azure AD çoklu oturum SAML 2.0, Openıd Connect, OAuth ve WS-Fed dahil olmak üzere açma için tüm ana Federasyon protokollerini destekler. 
+Azure Active Directory (Azure AD), bir bulut tabanlı kimlik hizmetidir. [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/) burada tüm uygulama bağlayıcıları yayımlanır çoklu oturum açma ve kullanıcı hazırlama için Azure Marketi uygulama mağazası bulunmaktadır. Azure AD kimlik sağlayıcısı olarak kullanan müşteriler, burada yayımlanan farklı SaaS uygulama bağlayıcıları bulun. BT yöneticileri uygulama Galeriden bağlayıcılar ekleyin ve sonra yapılandırmak ve çoklu oturum açma ve sağlama için bağlayıcıları kullanın. Azure AD çoklu oturum SAML 2.0, Openıd Connect, OAuth ve WS-Fed dahil olmak üzere açma için tüm ana Federasyon protokollerini destekler.
 
 ## <a name="what-are-the-benefits-of-listing-an-application-in-the-gallery"></a>Bir uygulama galerisinde listeleme yararları nelerdir?
 
@@ -51,7 +51,21 @@ Bir uygulamayı Azure AD uygulama galerisinde listelemek için ilk Azure AD tara
 
 *   **SAML 2.0** veya **WS-Fed**: uygulamanızı SP veya IDP modunda SAML/WS-Fed SSO tümleştirme yapmak için özelliği olması gerekir. Uygulamanızı SAML 2.0 destekliyorsa, doğrudan Azure AD kiracısı ile kullanarak tümleştirebilirsiniz [özel bir uygulama eklemek için yönergeleri](../active-directory-saas-custom-apps.md).
 
-*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../active-directory-appssoaccess-whatis.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır. 
+*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../active-directory-appssoaccess-whatis.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır.
+
+##  <a name="updateremove-existing-listing"></a>Güncelleştirme veya varolan listeleme Kaldır
+
+Güncelleştirmek veya Azure AD uygulama galerisinde varolan bir uygulamayı kaldırmak için ilk isteği göndermek gereken [uygulama ağ Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Office 365 hesabı varsa, bu portalda oturum açmak için kullanın. Aksi durumda, oturum açmak için Microsoft hesabınızı (örneğin, Outlook veya Hotmail) kullanın.
+
+* Uygun seçeneği seçin görüntüsünün altındaki
+
+    ![Galeri saml uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/updateorremove.png)
+
+    * Var olan bir uygulamayı güncelleştirmek isteyip istemediğinizi seçin **varolan uygulama listeleme güncelleştirme**.
+
+    * Azure AD Galeriden var olan bir uygulamayı kaldırmak isteyip istemediğinizi seçin **varolan uygulama listeleme Kaldır**
+
+    * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
 ## <a name="submit-the-request-in-the-portal"></a>Portalı'nda isteme
 
@@ -75,5 +89,4 @@ Bir Openıd Connect uygulama galerisinde listeleme işlemi için zaman çizelges
 
 ## <a name="escalations"></a>Çözümler
 
-Tüm çözümler için e-posta Gönder [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) ve mümkün olan en kısa sürede yanıt vermemiz.
-
+Tüm çözümler için e-posta Gönder [Azure AD SSO tümleştirme takım](mailto:SaaSApplicationIntegrations@service.microsoft.com) olduğu SaaSApplicationIntegrations@service.microsoft.com ve mümkün olan en kısa sürede yanıt vermemiz.

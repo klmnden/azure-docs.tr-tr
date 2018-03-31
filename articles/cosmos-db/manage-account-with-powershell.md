@@ -1,13 +1,13 @@
 ---
-title: "Azure Cosmos DB Otomasyon - Powershell ile Yönetimi | Microsoft Docs"
-description: "Kullanım Azure PowerShell'i Azure Cosmos DB hesaplarınızı yönetin."
+title: Azure Cosmos DB Otomasyon - Powershell ile Yönetimi | Microsoft Docs
+description: Kullanım Azure PowerShell'i Azure Cosmos DB hesaplarınızı yönetin.
 services: cosmos-db
 author: dmakwana
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 12c7800ee2a823cca5394841cae86eeacc20fb1b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>PowerShell kullanarak bir Azure Cosmos DB hesabı oluşturma
 
@@ -34,7 +34,7 @@ Aşağıdaki kılavuz, Azure Powershell kullanarak Azure Cosmos DB veritabanı h
 * İsterseniz kullanıcı onayı gerektirmeden aşağıdaki komutları yürütün, ekleme `-Force` bayrağı komutu.
 * Aşağıdaki komutların tümünü zaman uyumlu.
 
-## <a id="create-documentdb-account-powershell"></a>Bir Azure Cosmos DB hesabı oluşturma
+## <a id="create-documentdb-account-powershell"></a> Bir Azure Cosmos DB hesabı oluşturma
 
 Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanızı sağlar. Yeni veritabanı hesabınız ya da tek bölge yapılandırmak veya [bölgeli] [ scaling-globally] belirli bir ile [tutarlılık İlkesi](consistency-levels.md).
 
@@ -44,15 +44,15 @@ Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanızı sağlar. Yeni
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name>  -Location "<resource-group-location>" -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>`Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
-* `<read-region-location>`Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
-* `<ip-range-filter>`İstemci IP verilen veritabanı hesabı için izin verilen listesi olarak dahil edilecek CIDR formunda IP adreslerini veya IP adresi aralıkları kümesini belirtir. IP adresleri/aralıklarına virgülle ayrılmış ve boşluk içermemelidir olması gerekir. Daha fazla bilgi için bkz: [Azure Cosmos DB güvenlik duvarı desteği](firewall-support.md)
-* `<default-consistency-level>`Azure Cosmos DB hesap varsayılan tutarlılık düzeyi. Daha fazla bilgi için bkz: [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md).
-* `<max-interval>`Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin süre miktarı (saniye cinsinden) eskime durumu temsil eder. Bu değer için kabul edilebilir aralık 1-100'dür.
-* `<max-staleness-prefix>`Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin eski istek sayısını temsil eder. Bu değer için kabul edilebilir aralık 1 – 2,147,483,647 şeklindedir.
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<resource-group-location>`Yeni Azure Cosmos DB veritabanı hesabının ait olduğu Azure kaynak grubu konumu.
-* `<database-account-name>`Oluşturulacak Azure Cosmos DB veritabanı hesabının adı. Yalnızca küçük harfler, rakamlar, kullanabilirsiniz '-' karakteri ve 3-50 karakter arasında olmalıdır.
+* `<write-region-location>` Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
+* `<read-region-location>` Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
+* `<ip-range-filter>` İstemci IP verilen veritabanı hesabı için izin verilen listesi olarak dahil edilecek CIDR formunda IP adreslerini veya IP adresi aralıkları kümesini belirtir. IP adresleri/aralıklarına virgülle ayrılmış ve boşluk içermemelidir olması gerekir. Daha fazla bilgi için bkz: [Azure Cosmos DB güvenlik duvarı desteği](firewall-support.md)
+* `<default-consistency-level>` Azure Cosmos DB hesap varsayılan tutarlılık düzeyi. Daha fazla bilgi için bkz: [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md).
+* `<max-interval>` Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin süre miktarı (saniye cinsinden) eskime durumu temsil eder. Bu değer için kabul edilebilir aralık 1-100'dür.
+* `<max-staleness-prefix>` Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin eski istek sayısını temsil eder. Bu değer için kabul edilebilir aralık 1 – 2,147,483,647 şeklindedir.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<resource-group-location>` Yeni Azure Cosmos DB veritabanı hesabının ait olduğu Azure kaynak grubu konumu.
+* `<database-account-name>` Oluşturulacak Azure Cosmos DB veritabanı hesabının adı. Yalnızca küçük harfler, rakamlar, kullanabilirsiniz '-' karakteri ve 3-50 karakter arasında olmalıdır.
 
 Örnek: 
 
@@ -66,7 +66,7 @@ Bu komut, bir Azure Cosmos DB veritabanı hesabı oluşturmanızı sağlar. Yeni
 * Önceki örnekte ile iki bölgede bir veritabanı hesabı oluşturur. Veritabanı hesabı (hangi yazma bölge atanır ve bir yük devretme öncelik değeri 0 olan) bir bölge veya ikiden fazla bölgeleri ile oluşturmak mümkündür. Daha fazla bilgi için bkz: [bölgeli veritabanı hesaplarını][scaling-globally].
 * Konumlarına bölgeler Azure Cosmos DB genel olarak kullanılabilir olması gerekir. Geçerli bölgelerin listesi üzerinde sağlanan [Azure bölgeleri sayfa](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a>Bir Azure Cosmos DB veritabanı hesabını güncelleştirme
+## <a id="update-documentdb-account-powershell"></a> Bir Azure Cosmos DB veritabanı hesabını güncelleştirme
 
 Bu komut, Azure Cosmos DB veritabanı hesabı özelliklerinizi güncelleştirmenizi sağlar. Bu tutarlılık ilke ve veritabanı hesabı bulunmaktadır konumları içerir.
 
@@ -79,15 +79,15 @@ Bu komut, Azure Cosmos DB veritabanı hesabı özelliklerinizi güncelleştirmen
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName <resource-group-name> -Name <database-account-name> -Properties $CosmosDBProperties
     
-* `<write-region-location>`Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
-* `<read-region-location>`Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
-* `<default-consistency-level>`Azure Cosmos DB hesap varsayılan tutarlılık düzeyi. Daha fazla bilgi için bkz: [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md).
-* `<ip-range-filter>`İstemci IP verilen veritabanı hesabı için izin verilen listesi olarak dahil edilecek CIDR formunda IP adreslerini veya IP adresi aralıkları kümesini belirtir. IP adresleri/aralıklarına virgülle ayrılmış ve boşluk içermemelidir olması gerekir. Daha fazla bilgi için bkz: [Azure Cosmos DB güvenlik duvarı desteği](firewall-support.md)
-* `<max-interval>`Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin süre miktarı (saniye cinsinden) eskime durumu temsil eder. Bu değer için kabul edilebilir aralık 1-100'dür.
-* `<max-staleness-prefix>`Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin eski istek sayısını temsil eder. Bu değer için kabul edilebilir aralık 1 – 2,147,483,647 şeklindedir.
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<resource-group-location>`Yeni Azure Cosmos DB veritabanı hesabının ait olduğu Azure kaynak grubu konumu.
-* `<database-account-name>`Güncelleştirilecek Azure Cosmos DB veritabanı hesabının adı.
+* `<write-region-location>` Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
+* `<read-region-location>` Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
+* `<default-consistency-level>` Azure Cosmos DB hesap varsayılan tutarlılık düzeyi. Daha fazla bilgi için bkz: [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md).
+* `<ip-range-filter>` İstemci IP verilen veritabanı hesabı için izin verilen listesi olarak dahil edilecek CIDR formunda IP adreslerini veya IP adresi aralıkları kümesini belirtir. IP adresleri/aralıklarına virgülle ayrılmış ve boşluk içermemelidir olması gerekir. Daha fazla bilgi için bkz: [Azure Cosmos DB güvenlik duvarı desteği](firewall-support.md)
+* `<max-interval>` Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin süre miktarı (saniye cinsinden) eskime durumu temsil eder. Bu değer için kabul edilebilir aralık 1-100'dür.
+* `<max-staleness-prefix>` Sınırlanmış eskime durumu tutarlılığı ile kullanıldığında, bu değer izin eski istek sayısını temsil eder. Bu değer için kabul edilebilir aralık 1 – 2,147,483,647 şeklindedir.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<resource-group-location>` Yeni Azure Cosmos DB veritabanı hesabının ait olduğu Azure kaynak grubu konumu.
+* `<database-account-name>` Güncelleştirilecek Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek: 
 
@@ -97,33 +97,33 @@ Bu komut, Azure Cosmos DB veritabanı hesabı özelliklerinizi güncelleştirmen
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a>Bir Azure Cosmos DB veritabanı hesabını silme
+## <a id="delete-documentdb-account-powershell"></a> Bir Azure Cosmos DB veritabanı hesabını silme
 
 Bu komut, var olan bir Azure Cosmos DB veritabanı hesabını silmenize olanak sağlar.
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Silinecek Azure Cosmos DB veritabanı hesabının adı.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Silinecek Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a>Bir Azure Cosmos DB veritabanı hesabının özelliklerini al
+## <a id="get-documentdb-properties-powershell"></a> Bir Azure Cosmos DB veritabanı hesabının özelliklerini al
 
 Bu komut, var olan bir Azure Cosmos DB veritabanı hesabının özelliklerini almak sağlar.
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Azure Cosmos DB veritabanı hesabının adı.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek:
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="update-tags-powershell"></a>Bir Azure Cosmos DB veritabanı hesabını güncelleştirme etiketleri
+## <a id="update-tags-powershell"></a> Bir Azure Cosmos DB veritabanı hesabını güncelleştirme etiketleri
 
 Aşağıdaki örnekte nasıl ayarlanacağını açıklar [Azure kaynak etiketleri] [ azure-resource-tags] Azure Cosmos DB için veritabanı hesabı.
 
@@ -135,57 +135,57 @@ Aşağıdaki örnekte nasıl ayarlanacağını açıklar [Azure kaynak etiketler
     $tags = @{"dept" = "Finance”; environment = “Production”}
     Set-AzureRmResource -ResourceType “Microsoft.DocumentDB/databaseAccounts”  -ResourceGroupName "rg-test" -Name "docdb-test" -Tags $tags
 
-## <a id="list-account-keys-powershell"></a>Liste hesabı anahtarları
+## <a id="list-account-keys-powershell"></a> Liste hesabı anahtarları
 
 Bir Azure Cosmos DB hesabı oluşturduğunuzda, hizmet Azure Cosmos DB hesap erişildiğinde, kimlik doğrulaması için kullanılan iki ana erişim tuşu oluşturur. İki erişim tuşu sağlayarak Azure Cosmos DB kesinti olmadan Azure Cosmos DB hesabınıza anahtarları yeniden sağlar. Salt okunur işlemler kimlik doğrulaması için salt okunur anahtar de kullanılabilir. Var. iki okuma-yazma anahtarları (birincil ve ikincil) ve iki salt okunur anahtarları (birincil ve ikincil)
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Azure Cosmos DB veritabanı hesabının adı.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek:
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="list-connection-strings-powershell"></a>Liste bağlantı dizeleri
+## <a id="list-connection-strings-powershell"></a> Liste bağlantı dizeleri
 
 MongoDB hesapları için aşağıdaki komutu kullanarak MongoDB uygulamanızı veritabanı hesabınıza bağlanmak için bağlantı dizesi alınabilir.
 
     $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Azure Cosmos DB veritabanı hesabının adı.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek:
 
     $keys = Invoke-AzureRmResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="regenerate-account-key-powershell"></a>Hesap anahtarını yeniden oluşturma
+## <a id="regenerate-account-key-powershell"></a> Hesap anahtarını yeniden oluşturma
 
 Düzenli aralıklarla bağlantılarınızı daha güvenli tutmaya yardımcı olmak için Azure Cosmos DB hesabınıza erişim tuşlarını değiştirmeniz gerekir. Bir erişim anahtarı kullanırken, bir erişim anahtarı yeniden Azure Cosmos DB hesabına bağlantılar sağlamanıza olanak tanıyan iki erişim tuşu atanır.
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Azure Cosmos DB veritabanı hesabının adı.
-* `<key-kind>`Anahtarların dört türlerinden birini: ["Birincil" | " İkincil "|" PrimaryReadonly "|" SecondaryReadonly"], yeniden oluşturmak istiyor musunuz.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Azure Cosmos DB veritabanı hesabının adı.
+* `<key-kind>` Anahtarların dört türlerinden birini: ["Birincil" | " İkincil "|" PrimaryReadonly "|" SecondaryReadonly"], yeniden oluşturmak istiyor musunuz.
 
 Örnek:
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"keyKind"="Primary"}
 
-## <a id="modify-failover-priority-powershell"></a>Bir Azure Cosmos DB veritabanı hesabının yük devretme öncelik değiştirme
+## <a id="modify-failover-priority-powershell"></a> Bir Azure Cosmos DB veritabanı hesabının yük devretme öncelik değiştirme
 
 Bölgeli veritabanı hesapları için de Azure Cosmos DB veritabanı hesabı var olan çeşitli bölgelere yük devretme önceliğini değiştirebilirsiniz. Azure Cosmos DB veritabanı hesabınızda yük devretme hakkında daha fazla bilgi için bkz: [Azure Cosmos DB genel verilerle dağıtmak][distribute-data-globally].
 
     $failoverPolicies = @(@{"locationName"="<write-region-location>"; "failoverPriority"=0},@{"locationName"="<read-region-location>"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-* `<write-region-location>`Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
-* `<read-region-location>`Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
-* `<resource-group-name>`Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
-* `<database-account-name>`Azure Cosmos DB veritabanı hesabının adı.
+* `<write-region-location>` Veritabanı hesabı yazma bölgesini konum adı. Bu konum bir yük devretme öncelik değeri 0 olması gerekir. Veritabanı hesabı başına tam olarak bir yazma bölge olması gerekir.
+* `<read-region-location>` Veritabanı hesabının okuma bölge konum adı. Bu konum yük devretme öncelik değeri 0'dan büyük olması gerekir. Veritabanı hesabı başına birden fazla okuma bölgeler olabilir.
+* `<resource-group-name>` Adını [Azure kaynak grubu] [ azure-resource-groups] yeni Azure Cosmos DB veritabanı hesabının ait olduğu.
+* `<database-account-name>` Azure Cosmos DB veritabanı hesabının adı.
 
 Örnek:
 
@@ -203,4 +203,4 @@ Bölgeli veritabanı hesapları için de Azure Cosmos DB veritabanı hesabı var
 [distribute-data-globally]: distribute-data-globally.md
 [azure-resource-groups]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-[rp-rest-api]: https://docs.microsoft.com/rest/api/documentdbresourceprovider/
+[rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/

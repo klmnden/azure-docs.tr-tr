@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: d1a605ae5c0ea598ba507de0b21a841333df79ef
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7cd16d64d18b4cdcb710f68c55a8251904acda86
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Yönetilen etki alanınız için geçersiz hizmet asıl yapılandırma sorunlarını giderme
 
@@ -93,7 +93,7 @@ Bir hizmet sorumlusu IF kimliği ile adımları ```d87dcbc6-a371-462e-88e3-28ad1
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Uyarı AADDS105: Parola eşitleme uygulama güncel değil
 
-**Uyarı iletisi:** uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silinir ve yeniden oluşturulur. Bu hizmet sorumlusu başka bir hizmet sorumlusu ve parola eşitleme için kullanılan bir uygulama yönetir. Yönetilen hizmet sorumlusu ve/veya uygulama yetkilendirilmemiş altında yeni oluşturulan hizmet asıl şekilde hizmetimizi tarafından yönetilemez. Bu, yeni oluşturulan hizmet asıl eski yönetilen uygulamaların güncelleştiremiyor olacaktır ve parola eşitleme etkileneceğini anlamına gelir.
+**Uyarı iletisi:** uygulama kimliği ile "d87dcbc6-a371-462e-88e3-28ad15ec4e64" hizmet asıl silinir ve yeniden oluşturulur. Dinlenme tutarsız izinleri yönetilen etki alanınızı hizmet vermek için gereken Azure AD etki alanı Hizmetleri kaynakları bırakır. Eşitleme, yönetilen etki alanınızda parolaların etkilenebilir.
 
 
 **Çözüm:** bu adımları tamamlamak için Azure AD PowerShell gerekir. Azure AD PowerShell yükleme hakkında daha fazla bilgi için bkz: [bu makalede](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).

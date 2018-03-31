@@ -1,11 +1,11 @@
 ---
-title: "Windows Phone Silverlight'ın katılım API kullanma"
-description: "Windows Phone Silverlight'ın katılım API kullanma"
+title: Windows Phone Silverlight'ın katılım API kullanma
+description: Windows Phone Silverlight'ın katılım API kullanma
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ae2ba2e8-f75b-4dee-a164-a7dd65d35a23
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: ec8b6c13ea052c8063dfde4321cdd286ab6cb817
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03673924ee7734fcf6f1f4f7c744616844fdc87a
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-use-the-engagement-api-on-windows-phone-silverlight"></a>Windows Phone Silverlight'ın katılım API kullanma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 Bu belge belgeye bir eklentidir [Mobile Engagement Windows Phone Silverlight uygulamanıza tümleştirmek nasıl](mobile-engagement-windows-phone-integrate-engagement.md). Katılım API uygulama istatistikleri rapor için nasıl kullanılacağı hakkındaki derinliği ayrıntıları sağlar.
 
 Yalnızca uygulamanızın oturumları, etkinlikleri, kilitlenme ve teknik bilgileri raporlamak için katılım istediğiniz sonra en basit yolu, tüm olmasını sağlamaktır, `PhoneApplicationPage` alt sınıfları `EngagementPage` sınıfı.
@@ -229,7 +233,7 @@ Eklemek zorunda `EngagementAgent.Instance.OnActivated(e)` içinde `Application_A
               EngagementAgent.Instance.OnActivated(e);
             }
 
-## <a name="device-id"></a>Cihaz kimliği
+## <a name="device-id"></a>Cihaz Kimliği
             String GetDeviceId()
 
 Bu yöntemi çağrılarak engagement cihaz kimliğini elde edebilirsiniz.

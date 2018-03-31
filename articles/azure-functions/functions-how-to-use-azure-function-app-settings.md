@@ -1,24 +1,25 @@
 ---
-title: "Azure işlev uygulaması ayarlarını yapılandır | Microsoft Docs"
-description: "Azure işlevi uygulama ayarlarını yapılandırmayı öğrenin."
-services: 
+title: Azure işlev uygulaması ayarlarını yapılandır | Microsoft Docs
+description: Azure işlevi uygulama ayarlarını yapılandırmayı öğrenin.
+services: ''
 documentationcenter: .net
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.openlocfilehash: 2aa35cf814f8de2af89c6f7e0eda1f919301d6a3
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Azure portalında bir işlev uygulaması yönetme 
 
@@ -27,6 +28,24 @@ Azure işlevleri, bir işlev uygulaması, tek tek işlevleri için yürütme ba�
 Başlamak için Git [Azure portal](http://portal.azure.com) ve Azure hesabınızda oturum açın. Portalın en üstündeki arama çubuğunda, işlev uygulamanızın adını yazın ve uygulamayı listeden seçin. İşlev uygulamanızı seçtikten sonra aşağıdaki sayfaya bakın:
 
 ![Azure portalında işlevi uygulama genel bakış](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+
+## <a name="favorite"></a>Sık kullanılan işlevler portalında 
+
+Bu bazen kaynaklarınızı zor olabilir [Azure portal]. Oluşturduğunuz işlev uygulamalarının bulmayı kolaylaştırmak için Sık Kullanılanlar listenize portalında işlev uygulamalarının ekleyin. 
+
+1. [Azure portal]’da oturum açın.
+
+2. Sol altta bulunan oka tıklayarak tüm hizmetleri genişletin, **Filtre** alanına `Functions` yazın ve **İşlev Uygulamaları**'nın yanındaki yıldıza tıklayın.  
+ 
+    ![Azure portalında işlev uygulaması oluşturma](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+
+    Bunu yaptığınızda portalın sol tarafındaki menüye İşlevler simgesi eklenir.
+
+3. Menüyü kapatın ve İşlevler simgesini görmek için sayfayı aşağı kaydırın. Tüm işlev uygulamalarınızın bir listesini görmek için bu simgeye tıklayın. Bu uygulamadaki işlevlerle çalışmak için işlev uygulamanıza tıklayın. 
+ 
+    ![Sık Kullanılanlar uygulamalarında işlevi](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
+ 
+[Azure portal]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>İşlev uygulama ayarları sekmesi
 
@@ -66,7 +85,7 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 
 ![Uygulama hizmeti Düzenleyicisi](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings">Uygulama ayarları</a>
+### <a name="settings"></a>Uygulama ayarları
 
 | | |
 |-|-|
@@ -82,7 +101,7 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 
 ![Uygulama Konsolu işlevi](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu">Gelişmiş araçlar (Kudu)</a>
+### <a name="kudu"></a>Gelişmiş araçlar (Kudu)
 
 | | |
 |-|-|
@@ -115,7 +134,7 @@ Uygulama hizmeti ayarları ile çalışma hakkında daha fazla bilgi için bkz: 
 ![Bir işlev uygulaması için kimlik doğrulamasını yapılandırma](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
-### <a name="swagger">API tanımı</a>
+### <a name="swagger"></a>API tanımı
 
 | | |
 |-|-|

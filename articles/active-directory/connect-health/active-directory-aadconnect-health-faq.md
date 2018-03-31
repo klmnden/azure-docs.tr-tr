@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 983c2c8aeb4c9d37213061dd70d6d64bae3de9d7
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health hakkında sık sorulan sorular
 Bu makale, Azure Active Directory (Azure AD) Connect Health hakkında sık sorulan sorular (SSS) yanıtlarını içerir. Bu SSS, özellikleri, sınırlamalar ve Destek faturalama modeli içerir hizmetini kullanma hakkında sorular kapsar.
@@ -181,7 +181,7 @@ CheckForMS17-010
 
 **My ADFS neden olan değil oluşturulan denetimleri?**
 
-Lütfen PowerShell cmdlet'ini kullanın <i>Get-AdfsProperties - AuditLevel</i> denetim günlüklerini değil de emin olmak için durumu devre dışı. Daha fazla bilgi edinin [ADFS denetim günlükleri](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)
+Lütfen PowerShell cmdlet'ini kullanın <i>Get-AdfsProperties - AuditLevel</i> denetim günlüklerini değil de emin olmak için durumu devre dışı. Daha fazla bilgi edinin [ADFS denetim günlüklerini](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Gelişmiş ADFS sunucusuna gönderilen denetim ayarları, değişiklikleri auditpol.exe ile (uygulama üretilen yapılandırılmamışsa üzerine olay) olacaktır dikkat edin. Bu durumda, lütfen üretilen uygulama hatalarını ve başarı oturum için yerel güvenlik ilkesi ayarlayın. 
 
 
 ## <a name="related-links"></a>İlgili bağlantılar

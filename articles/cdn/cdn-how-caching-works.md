@@ -1,12 +1,12 @@
 ---
-title: "Önbelleğe alma nasıl çalışır | Microsoft Docs"
-description: "Önbelleğe alma verileri daha hızlı bir şekilde erişilebilir için gelecekte istekleri böylece verilerini yerel olarak depolamak işlemidir."
+title: Önbelleğe alma nasıl çalışır | Microsoft Docs
+description: Önbelleğe alma verileri daha hızlı bir şekilde erişilebilir için gelecekte istekleri böylece verilerini yerel olarak depolamak işlemidir.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 284b4bcbeafc422a2ed91cec00a5b5b83bb37b7b
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-caching-works"></a>Önbelleğe alma nasıl çalışır
 
@@ -59,51 +59,50 @@ Bir kaynak eski olarak değerlendirilir, kaynak sunucunun istedi, yani doğrulam
 
 Önbelleğe alma nasıl uygulandığını benzeyen bir web tarayıcısında nasıl önbelleğe alma bir CDN önbellek yönergesi üstbilgileri göndererek gerçekleştirildiğini denetleyebilirsiniz. Önbellek yönergesi üstbilgileri genellikle kaynak sunucu tarafından eklenen HTTP üstbilgileri ' dir. Bu üstbilgileri çoğunu ilk olarak istemci tarayıcılarında önbelleğe alma adresi için tasarlanmış olsa da, şimdi de CDN'ler gibi tüm ara önbellekleri tarafından kullanılır. 
 
-İki üstbilgi önbellek yenilik tanımlamak için kullanılabilir: `Cache-Control` ve `Expires`. `Cache-Control`Daha fazla geçerli olduğundan ve önceliklidir `Expires`, ikisi de varsa. Ayrıca üstbilgileri (doğrulayıcıları denir) doğrulama için kullanılan iki tür vardır: `ETag` ve `Last-Modified`. `ETag`Daha fazla geçerli olduğundan ve önceliklidir `Last-Modified`, her ikisi de tanımlanır.  
+İki üstbilgi önbellek yenilik tanımlamak için kullanılabilir: `Cache-Control` ve `Expires`. `Cache-Control` Daha fazla geçerli olduğundan ve önceliklidir `Expires`, ikisi de varsa. Ayrıca üstbilgileri (doğrulayıcıları denir) doğrulama için kullanılan iki tür vardır: `ETag` ve `Last-Modified`. `ETag` Daha fazla geçerli olduğundan ve önceliklidir `Last-Modified`, her ikisi de tanımlanır.  
 
 ## <a name="cache-directive-headers"></a>Önbellek yönergesi üstbilgileri
 
 > [!IMPORTANT]
-> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. Önbelleğe almayı etkinleştirmek için kuralları önbelleğe alma CDN kullanarak Azure CDN uç bu üstbilgileri nasıl işler ayarlayabilirsiniz. Daha fazla bilgi için bkz: [denetim Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı](cdn-caching-rules.md).
+> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. İçin **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri, nasıl Azure CDN uç kullanarak bu üstbilgileri değerlendirir ayarlayabilirsiniz [CDN önbelleği kurallarını](cdn-caching-rules.md)önbelleğe almayı etkinleştirmek için. İçin **verizon'dan Azure CDN** yalnızca profilleri, kullandığınız [kurallar altyapısı](cdn-rules-engine.md) önbelleğe almayı etkinleştirmek için.
 
-Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki HTTP önbellek yönergesi üstbilgileri destekler: 
+Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki HTTP önbellek yönergesi üstbilgileri destekler.
 
-`Cache-Control`
+**Cache-Control:**
 - HTTP 1.1 web yayımcılar içeriklerini üzerinde daha fazla denetime ve sınırlamaları yönelik olarak sunulan `Expires` üstbilgi.
 - Geçersiz kılmaları `Expires` başlığı, her iki onu ve `Cache-Control` tanımlanır.
-- İstek üstbilgisinde kullanıldığında `Cache-Control` Azure CDN tarafından varsayılan olarak sayılır.
-- Bir yanıt üstbilgisi kullanıldığında, aşağıdaki Azure CDN destekleyen `Cache-Control` ürün göre yönergeleri: 
-   - **Verizon'dan Azure CDN**: tüm destekler `Cache-Control` yönergeleri. 
-   - **Akamai'den Azure CDN**: yalnızca aşağıdakileri destekler `Cache-Control` yönergeleri; tüm diğerleri yoksayılır: 
-      - `max-age`: Bir önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
-      - `no-cache`: İçeriği önbelleğe ancak içeriği önce önbellekten teslim etmeden her zaman doğrulayın. Eşdeğer `Cache-Control: max-age=0`.
-      - `no-store`: Hiçbir zaman önbellek içeriği. Daha önce depolanmışsa içeriğini kaldırın.
+- Bir HTTP isteği kullanıldığında `Cache-Control` Azure CDN tarafından varsayılan olarak sayılır.
+- **Verizon'dan Azure CDN** profilleri destekleyen tüm `Cache-Control` bir HTTP yanıtının kullanıldığında yönergeleri.
+- **Akamai'den Azure CDN** profiller, yalnızca aşağıdaki yönergeleri bir HTTP yanıtının kullanıldığında destekler; diğerleri yoksayılır:
+   - `max-age`: Bir önbellek içeriği için belirtilen saniye sayısı depolayabilirsiniz. Örneğin, `Cache-Control: max-age=5`. Bu yönerge içeriği yeni olarak kabul edilir en uzun süreyi belirtir.
+   - `no-cache`: İçeriği önbelleğe ancak içeriği önce önbellekten teslim etmeden her zaman doğrulayın. Eşdeğer `Cache-Control: max-age=0`.
+   - `no-store`: Hiçbir zaman önbellek içeriği. Daha önce depolanmışsa içeriğini kaldırın.
 
-`Expires`
+**Zaman aşımı:**
 - HTTP 1.0 sunulan eski başlığı; Geriye dönük uyumluluk desteklenen.
 - Tarih temelli bir süre ile ikinci duyarlık kullanır. 
 - Benzer şekilde `Cache-Control: max-age`.
 - Kullanılabilir `Cache-Control` yok.
 
-`Pragma`
+**Pragma:**
    - Azure CDN tarafından varsayılan olarak dikkate alınır değil.
    - HTTP 1.0 sunulan eski başlığı; Geriye dönük uyumluluk desteklenen.
    - Bir istemci istek üstbilgisi aşağıdaki yönergesi olarak kullanılan: `no-cache`. Bu yönerge kaynak yeni bir sürümünü sunmak için sunucusuna bildirir.
-   - `Pragma: no-cache`eşdeğer olan `Cache-Control: no-cache`.
+   - `Pragma: no-cache` eşdeğer olan `Cache-Control: no-cache`.
 
 ## <a name="validators"></a>Doğrulayıcıları
 
-Önbellek eski olduğunda, HTTP önbellek doğrulayıcıları önbelleğe alınan bir dosya sürümü kaynak sunucu sürüm ile karşılaştırmak için kullanılır. **Verizon'dan Azure CDN** ETag ve son değiştirilen doğrulayıcıları varsayılan olarak, destekler ancak **akamai'den Azure CDN** yalnızca son değiştirilen varsayılan olarak destekler.
+Önbellek eski olduğunda, HTTP önbellek doğrulayıcıları önbelleğe alınan bir dosya sürümü kaynak sunucu sürüm ile karşılaştırmak için kullanılır. **Verizon'dan Azure CDN** destekler `ETag` ve `Last-Modified` varsayılan olarak, doğrulayıcıları sırada **akamai'den Azure CDN** yalnızca destekler `Last-Modified` varsayılan olarak.
 
-`ETag`
+**ETag:**
 - **Verizon'dan Azure CDN** kullanan `ETag` sırasında varsayılan olarak **akamai'den Azure CDN** desteklemez.
-- `ETag`her dosya ve bir dosya sürümü için benzersiz bir dizeye tanımlar. Örneğin, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
+- `ETag` her dosya ve bir dosya sürümü için benzersiz bir dizeye tanımlar. Örneğin, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - HTTP 1.1 içinde sunulmuştur ve daha güncel `Last-Modified`. Son değiştirilme tarihini belirlemek zor olduğu durumlarda faydalıdır.
 - Güçlü doğrulama ve zayıf doğrulama destekler; Ancak, Azure CDN yalnızca güçlü doğrulama destekler. Güçlü doğrulama için iki kaynak Beyanları bayt için bayt olmalıdır aynı. 
 - Bir önbellek kullanan bir dosyayı doğrular `ETag` göndererek bir `If-None-Match` üstbilgi bir veya daha fazla `ETag` istekte doğrulayıcıları. Örneğin, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Sunucunun sürüm eşleşiyorsa bir `ETag` Doğrulayıcı listesinde, gönderdiği durum kodu 304 (değişiklik) yanıt olarak. Sürüm farklıysa, sunucu durum kodu 200 (Tamam) ve güncelleştirilmiş kaynak yanıt verir.
 
-`Last-Modified`
-- İçin **yalnızca verizon'dan Azure CDN**, son değiştirilen ETag HTTP yanıtı parçası değilse kullanılır. 
+**Son değiştirilen:**
+- İçin **yalnızca verizon'dan Azure CDN**, `Last-Modified` kullanılır `ETag` HTTP yanıtı parçası değil. 
 - Kaynak son değiştirilen kaynak sunucunun belirledi saat ve tarihi belirtir. Örneğin, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Bir önbellek dosyası kullanarak doğrular `Last-Modified` göndererek bir `If-Modified-Since` sahip bir tarih ve saat istekteki üstbilgi. Kaynak sunucu, tarihle karşılaştırır `Last-Modified` son kaynak üstbilgisi. Kaynağın belirtilen zamanından bu yana değiştirilmemiş, sunucu durum kodu 304 (değişiklik) yanıt olarak döndürür. Kaynak değiştirilirse sunucu durumu döndürür kod 200 (Tamam) ve güncelleştirilmiş kaynak.
 
@@ -114,17 +113,17 @@ Tüm kaynaklar önbelleğe alınabilir. Aşağıdaki tabloda, hangi kaynaklara, 
 |                   | Verizon'dan Azure CDN | Akamai'den Azure CDN            |
 |------------------ |------------------------|----------------------------------|
 | HTTP durum kodları | 200                    | 200, 203, 300, 301, 302 ve 401 |
-| HTTP yöntemi       | GET                    | GET                              |
+| HTTP yöntemi       | AL                    | AL                              |
 | Dosya boyutu         | 300 GB                 | -Genel web teslim en iyi duruma getirme: 1,8 GB<br />-En iyi duruma getirme medya: 1,8 GB<br />-Büyük dosya en iyi duruma getirme: 150 GB |
 
 ## <a name="default-caching-behavior"></a>Varsayılan önbelleğe alma davranışı
 
 Aşağıdaki tabloda, önbelleğe alma davranışı Azure CDN ürünü ve bunların en iyi duruma getirme için varsayılan açıklanmaktadır.
 
-|                    | Verizon - genel web teslim | Verizon – DSA | Akamai - genel web teslim | Akamai - DSA | Akamai - büyük dosya indirme | Akamai - genel veya medya VOD akışı |
+|                    | Verizon: Genel web teslim | Verizon: DSA | Akamai: Genel web teslim | Akamai: DSA | Akamai: büyük dosya indirme | Akamai: genel veya medya VOD akışı |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Uy kaynağı**   | Evet    | Hayır   | Evet | Hayır | Evet | Evet |
-| **CDN önbellek süresi** | 7 gün | Hiçbiri | 7 gün | Hiçbiri | 1 gün | 1 yıl |
+| **CDN önbellek süresi** | 7 gün | Hiçbiri | 7 gün | None | 1 gün | 1 yıl |
 
 **Kaynak dikkate**: vermenizin belirtir [önbellek yönergesi üstbilgileri desteklenen](#http-cache-directive-headers) kaynak sunucudan HTTP yanıt varsa.
 

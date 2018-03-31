@@ -1,11 +1,11 @@
 ---
-title: "Mobil katılım REST API'leri ile kimlik doğrulaması"
-description: "Azure Mobile Engagement REST API'leri ile kimlik doğrulaması açıklar"
+title: Mobil katılım REST API'leri ile kimlik doğrulaması
+description: Azure Mobile Engagement REST API'leri ile kimlik doğrulaması açıklar
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: da82cb36-957a-4e19-a805-b44733cf6597
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 10/05/2016
 ms.author: wesmc;ricksal
-ms.openlocfilehash: 574e699a1cfca2caef0cf20872570bbb8650117b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 5979ded9afaa31054f835b5f16fe525809f5730d
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis"></a>Mobil katılım REST API'leri ile kimlik doğrulaması
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -102,11 +105,11 @@ Bir PowerShell komut dosyası kullanarak kurulumu gerçekleştirmek için aşağ
 
 1. API aşağıdaki parametrelerle çağırın. Değiştirdiğinizden emin olun **KİRACI\_kimliği**, **istemci\_kimliği**, ve **istemci\_gizli**:
    
-   * **İstek URL'si** olarak`https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
+   * **İstek URL'si** olarak `https://login.microsoftonline.com/{TENANT_ID}/oauth2/token`
 
-   * **HTTP Content-Type üstbilgisi** olarak`application/x-www-form-urlencoded`
+   * **HTTP Content-Type üstbilgisi** olarak `application/x-www-form-urlencoded`
    
-   * **HTTP istek gövdesi** olarak`grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
+   * **HTTP istek gövdesi** olarak `grant_type=client\_credentials&client_id={CLIENT_ID}&client_secret={CLIENT_SECRET}&resource=https%3A%2F%2Fmanagement.core.windows.net%2F`
      
     Bir örnek isteği verilmiştir:
     ```

@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB tasarım deseni: sosyal medya uygulamalar | Microsoft Docs"
-description: "Sosyal ağlar için Azure Cosmos DB ve diğer Azure hizmetleriyle depolama esnekliğini yararlanarak tasarım deseni hakkında bilgi edinin."
+title: 'Azure Cosmos DB tasarım deseni: sosyal medya uygulamalar | Microsoft Docs'
+description: Sosyal ağlar için Azure Cosmos DB ve diğer Azure hizmetleriyle depolama esnekliğini yararlanarak tasarım deseni hakkında bilgi edinin.
 keywords: Sosyal medya uygulamalar
 services: cosmos-db
 author: ealsur
 manager: jhubbard
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 2dbf83a7-512a-4993-bf1b-ea7d72e095d9
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: d223187ab1f8338c57e6aa32903ea9b762393ab5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile sosyal gitme
 Yüksek düzeyde birbirine topluluğu içinde yaşayan anlamına gelir hayatta bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar tutmak arkadaşlarınız, iş arkadaşlarınızı, aile olmanızı sağlar, veya bazen bizim tutku ortak ilgi alanlarına sahip kişilerle paylaşmak için kullanın.
@@ -229,7 +229,7 @@ Cosmos DB destekleyen [dinamik bölümleme](https://azure.microsoft.com/blog/10-
 
 Bir söz değerinde ilginç noktasıdır Cosmos DB sorgularınızı çalıştırın (de dahil olmak üzere [toplamalar](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)), tüm bölümler saydam, verilerinizi büyüdükçe herhangi bir mantık eklemeniz gerekmez.
 
-Saat ile sonunda trafik ve kaynak tüketimini büyüyecektir (cinsinden [RUs](request-units.md), veya istek birimleri) artmasına neden olur. Okuma ve daha sık, userbase büyüdükçe ve oluşturma ve daha fazla içerik okuma başlayacak şekilde yazma; özelliğini **, üretilen iş ölçeklendirme** önemlidir. Bizim RUs artırma çok kolay, size Azure portalında birkaç tıklama ile yapabilirsiniz ya da [API'si aracılığıyla komutları veren](https://docs.microsoft.com/rest/api/documentdb/replace-an-offer).
+Saat ile sonunda trafik ve kaynak tüketimini büyüyecektir (cinsinden [RUs](request-units.md), veya istek birimleri) artmasına neden olur. Okuma ve daha sık, userbase büyüdükçe ve oluşturma ve daha fazla içerik okuma başlayacak şekilde yazma; özelliğini **, üretilen iş ölçeklendirme** önemlidir. Bizim RUs artırma çok kolay, size Azure portalında birkaç tıklama ile yapabilirsiniz ya da [API'si aracılığıyla komutları veren](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
 ![Yükseltme ve bölüm anahtarı tanımlama](./media/social-media-apps/social-media-apps-scaling.png)
 

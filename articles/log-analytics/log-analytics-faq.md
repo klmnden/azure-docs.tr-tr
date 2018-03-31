@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 398a62cbba952f35f29c1b1f411a6d5b901d2973
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ Microsoft Azure Log Analytics hakkında sık sorulan soruların listesidir. Günlük analizi hakkında ek herhangi bir sorunuz varsa, Git [tartışma Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -51,7 +51,7 @@ A: No. Günlük analizi, işler ve büyük miktarlarda veri depolayan bir ölçe
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Günlük analizi artık veri toplama, nasıl giderebilirim?
 
-A: üzerinde ücretsiz fiyatlandırma katmanı ve birden fazla veri 500 MB günde göndermiş varsa, veri toplama gün geri kalanı için durur. Günlük sınıra ulaşması günlük analizi veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
+Y: için bir abonelik ve açık olan 2 Nisan 2018 önce oluşturulan bir çalışma alanı *serbest* fiyatlandırma katmanı, bir gün içinde birden fazla 500 MB veri gönderirse, günlük geri kalanı için veri toplamayı durdurur. Günlük sınıra ulaşması günlük analizi veri toplamayı durdurur ya da veri eksik gibi görünüyor yaygın bir nedenidir.  
 
 Günlük analizi oluşturur olay türü *sinyal* ve veri toplama vermediğinde belirlemek için kullanılabilir. 
 
@@ -68,7 +68,7 @@ Aşağıdaki tabloda veri toplamayı durdurur nedenleri açıklanmaktadır ve ve
 | Boş veri sınırına<sup>1</sup>       | Koleksiyonun otomatik olarak yeniden başlatmak aşağıdaki aya kadar bekleyin veya<br> Ücretli bir fiyatlandırma katmanı değiştirme |
 | Azure aboneliği nedeniyle askıya alınmış durumda olduğundan: <br> Ücretsiz deneme sürümü sona erdi <br> Azure geçiş süresi <br> Aylık harcama sınırı (örneğin bir MSDN veya Visual Studio abonelikte) ulaşıldı                          | Ücretli bir aboneliğe Dönüştür <br> Ücretli bir aboneliğe Dönüştür <br> Sınırı kaldırın veya sınırı sıfırlar kadar bekleyin |
 
-<sup>1</sup> çalışma alanınızı ücretsiz fiyatlandırma katmanını ise, hizmete 500 MB günde veri göndermeye sınırlı. Günlük sınıra ulaştığınızda, sonraki güne kadar veri toplamayı durdurur. Veri toplama durdurulduğunda gönderilen veriler dizinli değil ve arama amacıyla kullanılamıyor. Veri toplama çıktığında işleme gönderilen yalnızca yeni verileri oluşur. 
+<sup>1</sup> çalışma alanınızı açıksa *serbest* fiyatlandırma katmanı, hizmete 500 MB günde veri göndermeye sınırlı. Günlük sınıra ulaştığınızda, sonraki güne kadar veri toplamayı durdurur. Veri toplama durdurulduğunda gönderilen veriler dizinli değil ve arama amacıyla kullanılamıyor. Veri toplama çıktığında işleme gönderilen yalnızca yeni verileri oluşur. 
 
 Günlük analizi UTC saati kullanır ve her gün UTC gece yarısı başlar. Çalışma alanı günlük sınıra ulaşırsa, ilk günün sonraki UTC sırasında işlemeyi sürdürür.
 
@@ -96,7 +96,7 @@ A. Hayır, şu anda rasgele tablolar veya Azure depolama kapsayıcıları okuma 
 
 A. Günlük analizi hizmeti, Azure üzerinde oluşturulmuştur. Günlük analizi IP adresleri olan [Microsoft Azure veri merkezi IP aralıkları](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Hizmet dağıtımları yaptığınız gibi günlük analizi hizmeti gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin adresinde belgelenen [günlük analizi proxy ve güvenlik duvarı ayarlarını yapılandırma](log-analytics-proxy-firewall.md).
+Hizmet dağıtımları yaptığınız gibi günlük analizi hizmeti gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin belgelenmiştir [sistem gereksinimleri](log-analytics-concept-hybrid.md#prerequisites).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. I ExpressRoute Azure'a bağlanmak için kullanın. My günlük analizi trafik ExpressRoute bağlantım kullanıyor mu?
 
@@ -144,7 +144,7 @@ A. Ücretsiz planı çalışma alanı bir günlük sınır 500 MB'lık ayarlar. 
 
 Günlük analizi aracı, küçük bir yer olan emin olmak için tasarlanmıştır. Veri birimi etkinleştirmeniz çözümleri göre değişir. Veri birimi ile ilgili ayrıntılı bilgiler bulmak ve çözümde tarafından dökümünü görmek [kullanım](log-analytics-usage.md) sayfası.
 
-Daha fazla bilgi için okuduğunuz bir [müşteri blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) OMS Aracısı'nın küçük ayak hakkında.
+Daha fazla bilgi için okuduğunuz bir [müşteri blog](http://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html) OMS Aracısı'nın kaynak kullanımı (ayak izini) değerlendirdikten sonra bunların sonuçları gösteriliyor.
 
 ### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>Q. Ne kadar ağ bant genişliği için günlük analizi veri gönderirken, Microsoft Yönetim Aracısı (MMA) tarafından kullanılıyor?
 

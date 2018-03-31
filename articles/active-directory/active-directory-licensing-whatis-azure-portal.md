@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 1d4151d6c00da618cc008257bcdad4607f8fec49
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1fc4b64a879f090955a5611672acb6b58eb19d73
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory'de Grup tabanlı lisans temelleri
 
@@ -30,6 +30,9 @@ Microsoft Office 365, Enterprise Mobility + güvenlik, Dynamics CRM ve benzer di
 Şimdiye kadar lisansları yalnızca büyük ölçekli yönetim zorlaştırabilir tek tek kullanıcı düzeyinde atanabilir. Örneğin, katılma veya kuruluş ya da bir bölüm bırakarak kullanıcılar gibi kuruluş değişikliklere göre kullanıcı lisans eklemek veya kaldırmak için yönetici genellikle karmaşık bir PowerShell komut dosyası yazmanız gerekir. Bu komut, bulut hizmetine tek tek çağrılar.
 
 Bu sorunları çözmek için Grup tabanlı lisans artık Azure AD içerir. Bir gruba bir veya daha fazla ürün lisansları atayabilirsiniz. Azure AD lisans grubunun tüm üyeleri atanmasını sağlar. Gruba katılma herhangi bir yeni üyeler uygun lisansları atanır. Gruptan ayrılmak, bu lisansların kaldırılır. Bu, bir kullanıcı başına temelinde kuruluş ve departman yapısını değişiklikleri yansıtmak üzere PowerShell aracılığıyla Lisans Yönetimi otomatikleştirme gereğini ortadan kaldırır.
+
+>[!NOTE]
+>Bu özellik şu anda genel önizlemede değil. Geri veya herhangi bir değişiklik kaldırmak hazırlıklı olun. Genel Önizleme sırasında herhangi bir Azure Active Directory (Azure AD) Abonelik özelliği kullanılabilir. Ancak, özellik genel olarak kullanılabilir hale geldiğinde, bazı yönlerini özelliği bir veya daha fazla Azure Active Directory Premium lisansları gerektirebilir.
 
 ## <a name="features"></a>Özellikler
 

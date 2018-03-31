@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3451f268e78df6efa5e3fc489b88415349efe169
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a83ed5f7dba3e4d68204a2c9dffb4459cadfef9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Dayanıklı işlevleri uzantısı ve örnekleri (Azure işlevleri) yükleyin
 
 [Dayanıklı işlevleri](durable-functions-overview.md) uzantısı Azure işlevleri için NuGet paketi sağlanan [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask). Bu makalede, paket ve örnekler için aşağıdaki geliştirme ortamlarını kümesi nasıl yükleneceği gösterilmektedir:
 
 * Visual Studio 2017 (önerilir) 
-
+* Visual Studio Code
 * Azure portalına
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017
@@ -48,11 +48,7 @@ Visual Studio şu anda sağlam işlevleri kullanan uygulamalar geliştirmek içi
 Örnek ile başlatma için olduğu gibi aynı yönergeleri izleyin, ancak indirmek yerine aşağıdaki adımları uygulayın *.zip* dosyası:
 
 1. Bir işlev uygulaması projesi oluşturun.
-2. Aşağıdaki NuGet paketi başvuru ekleyin, *.csproj* dosyası:
-
-   ```xml
-   <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="1.0.0-beta" />
-   ```
+2. Aşağıdaki NuGet paketi başvurusu kullanmak için arama *Nuget paketlerini Yönet* ve bunu projeye ekleyin: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.1.0-beta2 (denetleyin *dahil et* Bu paket için aranacak)
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -129,6 +125,8 @@ Visual Studio Code tüm önemli platformlar - Windows, macOS ve Linux kapsayan b
 1. En yeni bir işlev uygulaması oluşturmak [functions.azure.com](https://functions.azure.com/signin).
 
 2. İşlev uygulaması yapılandırma [2.0 çalışma zamanı sürümü kullanmak](set-runtime-version.md).
+
+   Dayanıklı işlevleri uzantısı 1.X çalışma zamanı hem 2.0 çalışma zamanı çalışır, ancak Azure Portal şablonları yalnızca 2.0 çalışma zamanı hedeflendiğinde kullanılabilir.
 
 3. Seçerek yeni bir işlev oluşturun **"özel işlevinizi oluşturun."** .
 

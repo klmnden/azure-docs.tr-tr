@@ -1,5 +1,5 @@
 ---
-title: Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma
+title: Azure Otomasyon hesabı günlük analizi bağlantısını | Microsoft Docs
 description: Bu makalede, Azure Automation hesabınız bir günlük analizi çalışma alanından bağlantısının nasıl genel bakış sağlar.
 services: automation
 ms.service: automation
@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 2e6f887a7684ae995e9b7da84dace523843ff555
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Günlük analizi çalışma alanı penceresinden Otomasyon hesabınızı bağlantısının nasıl
 
@@ -46,4 +46,4 @@ Bu çözümlerin kaldırdıktan sonra Automation hesabınız bağlantısını ka
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Otomasyon hesabınızı OMS günlük analizi ile tümleştirmek üzere yapılandırmak için bkz: [Otomasyon iş durumu ve iş akışları günlük analizi (OMS) iletmek](automation-manage-send-joblogs-log-analytics.md). 
+Otomasyon hesabınızı günlük analizi ile tümleştirmek üzere yapılandırmak için bkz: [Otomasyon iş durumu ve iş akışları için günlük analizi iletmek](automation-manage-send-joblogs-log-analytics.md). 

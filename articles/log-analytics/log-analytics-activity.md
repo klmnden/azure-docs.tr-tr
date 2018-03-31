@@ -1,24 +1,24 @@
 ---
-title: "Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin | Microsoft Docs"
-description: "Azure etkinlik günlükleri çözüm çözümlemek ve tüm Azure abonelikleri Azure etkinlik günlüğü aramak için kullanabilirsiniz."
+title: Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin | Microsoft Docs
+description: Azure etkinlik günlükleri çözüm çözümlemek ve tüm Azure abonelikleri Azure etkinlik günlüğü aramak için kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dbac4c73-0058-4191-a906-e59aca8e2ee0
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c13890862c058701268c07d032d6d990c659287a
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: b6e823d9338d76a350569091d6794e3ac4a2eae9
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Toplamak ve günlük analizi içinde Azure etkinlik günlüklerini analiz edin
 
@@ -40,7 +40,7 @@ Azure etkinlik günlükleriniz için günlük analizi bağlandığınızda, şun
 - Kaynaklarınızın etkileyen kesintisinden veya hizmet sistem durumu sorunlarını belirle
 - Kullanıcı etkinlikleri, otomatik ölçeklendirme işlemleri, yetkilendirme değişikliklerini ve diğer günlükler veya ölçümleri hizmet sistem durumu, ortamınızdan ilişkilendirmek için günlük Ara'yı kullanın
 
-<sup>1</sup>ücretsiz katmanında olsa bile, varsayılan olarak, günlük analizi Azure etkinlik günlüklerinizi 90 gün boyunca tutar. Veya 90 günden çalışma saklama ayarı varsa. Çalışma alanınızı 90 günden daha uzun bekletme varsa, etkinlik günlükleri için çalışma alanınızı Bekletme dönemi tutulur.
+<sup>1</sup>ücretsiz katmanında olsa bile, varsayılan olarak, günlük analizi Azure etkinlik günlüklerinizi 90 gün boyunca tutar. Veya 90 günden çalışma saklama ayarı varsa. Çalışma alanınızı 90 günden daha uzun bekletme varsa, etkinlik günlükleri çalışma alanınızı saklama dönemi göre tutulur.
 
 Günlük analizi, etkinlik günlükleri ücretsiz toplar ve ücretsiz 90 gün için günlükleri depolar. 90 günden daha uzun süre günlüklerini saklıyorsanız 90 günden daha uzun depolanan veriler için veri bekletme ücret uygulanabilir.
 

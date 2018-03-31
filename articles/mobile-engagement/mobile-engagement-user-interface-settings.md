@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement kullanıcı arabirimi - ayarlar"
-description: "Azure Mobile Engagement kullanarak uygulamanızı genel ayarlarını yönetmeyi öğrenin"
+title: Azure Mobile Engagement kullanıcı arabirimi - ayarlar
+description: Azure Mobile Engagement kullanarak uygulamanızı genel ayarlarını yönetmeyi öğrenin
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 858f4cb4-14de-4bb5-826f-28cadbfc928b
 ms.service: mobile-engagement
 ms.devlang: na
@@ -14,13 +14,17 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: af5c81df2b9f288161b38625d3ac2adde8fb195d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31df9f151febcb7e5f0f2cd4a83053b3aac416a3
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="how-to-manage-the-global-settings-of-your-application"></a>Uygulamanızın genel ayarlarını yönetme
+> [!IMPORTANT]
+> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> 
+
 **Ayarları** menü seçeneklerini uygulama ve size verildi uygulama için izinler platforma bağlı olarak bir uygulama ayırmayı için kullanılabilir. Ayarları aşağıdakileri içerir: ayrıntıları, projeler, yerel gönderim, anında iletme hız, etiket (uygulama bilgisi) ve Ticari baskının. Etiket (uygulama bilgisi) menü seçeneği ayarları bölümünün uygulamanız (SDK'yı kullanarak) veya (cihaz API'sini kullanarak), arka uç tarafından yönetilebilir. 
 
 > [!NOTE]
@@ -35,7 +39,7 @@ Analizi Yapılandırması hafta başlatmak gün ve gün bekletme zamanında gör
 
   ![Ayarları1][46]
 
-## <a name="projects"></a>Projeleri
+## <a name="projects"></a>Projeler
 Uygulamanızın görünmesini istediğiniz tüm projeleri seçmenize olanak sağlar. 
 
 Ayrıca, proje için arama ve adı, açıklama, sahibi ve rol izinleri, uygulamanın parçası olduğu projesinin görüntüleyebilirsiniz.
@@ -44,7 +48,7 @@ Daha fazla bilgi için bkz: [UI belgelerine – giriş][Link 13]
 
   ![settings3][48]
 
-## <a name="native-push"></a>Yerel gönderim
+## <a name="native-push"></a>Yerel Gönderim
 Yeni bir sertifika veya Sil ve kullanmak için var olan sertifika ile yerel gönderim kaydetmenizi sağlar. Yerel gönderim sağlayan herhangi bir zamanda uygulamanıza göndermek Azure Mobile Engagement bile zaman çalışır durumda. 
 
 Kimlik bilgileri veya sertifikalar için en az bir yerel gönderim hizmet sağladıktan sonra "Herhangi bir zaman" seçebilirsiniz Reach kampanyaları ve ayrıca kullan "bildirim" parametresi anında API oluştururken.
@@ -61,7 +65,7 @@ Windows Bildirim Hizmeti'ni kullanarak Yerel Gönderim özelliğini etkinleştir
 
 ![settings5][50]
 
-### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging (GCM) Android için
+### <a name="google-cloud-messaging-for-android-gcm"></a>Google Cloud Messaging for Android (GCM)
 GCM kullanarak yerel gönderim özelliğini etkinleştirmek için Google yönergeleri izleyerek gerekir. Bir sunucu basit API anahtarı yapıştırmanız gerekir sonra IP kısıtlamaları yapılandırılmış. Android v1.12.0 + için SDK'sı ile tümleştirme gerektirir.
 
 Daha fazla bilgi için bkz. 
@@ -79,7 +83,7 @@ Daha fazla bilgi için bkz.
 
 ![settings6][51]
 
-## <a name="push-speed"></a>Gönderim hızı
+## <a name="push-speed"></a>Gönderim Hızı
 Uygulamanızın gönderim hızını tanımlamanıza olanak sağlar ve geçerli, uygulamanızın gönderim hızını gösterir.
 
   ![settings7][52]

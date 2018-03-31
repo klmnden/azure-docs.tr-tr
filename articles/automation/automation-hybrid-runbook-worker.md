@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/21/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 157db4a9de41c9895d39469d3d42a45c1a929649
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b317a2d9241016b66651af4659c7daf2e8d8f2cc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="automate-resources-in-your-data-center-or-cloud-with-hybrid-runbook-worker"></a>Veri merkezi veya karma Runbook çalışanı ile bulut kaynakları otomatikleştirme
 
@@ -38,7 +38,7 @@ Varolan bir SMA kullanıcı varsa, Azure Automation'ın herhangi bir değişikli
 
 Azure Otomasyon karma Runbook çalışanı ya da hizmet yönetimi Otomasyonu ile gereksinimleriniz için daha uygun olup olmadığını belirlemek için aşağıdaki ölçütleri kullanabilirsiniz.
 
-* SMA grafiksel Yönetim arabirimine gerekiyorsa, Windows Azure Pack bağlı temel bileşenlerinin yerel bir yükleme gerektirir. Daha fazla yerel kaynaklar yalnızca yerel runbook çalışanları üzerinde yüklü bir aracı gereken Azure Otomasyonu daha yüksek bakım maliyetleri gereklidir. Aracılar daha fazla bakım maliyetlerini azaltmak Operations Management Suite tarafından yönetilir.
+* SMA grafiksel Yönetim arabirimine gerekiyorsa, Windows Azure Pack bağlı temel bileşenlerinin yerel bir yükleme gerektirir. Daha fazla yerel kaynaklar yalnızca yerel runbook çalışanları üzerinde yüklü bir aracı gereken Azure Otomasyonu daha yüksek bakım maliyetleri gereklidir. Aracılar daha fazla bakım maliyetlerini azaltmak Azure tarafından yönetilir.
 * Azure Otomasyonu runbook bulutta depolar ve bunları şirket içi karma Runbook çalışanları için sunar. Güvenlik ilkeniz Bu davranış izin vermez, SMA kullanmanız gerekir.
 * System Center ile SMA bulunur; ve bu nedenle, System Center 2012 R2 lisansı gerektirir. Azure Otomasyonu, bir katmanlı abonelik modeline dayanır.
 * Azure Otomasyonu Gelişmiş Özellikler SMA'da kullanılamaz grafik runbook'lar gibi.
@@ -92,27 +92,25 @@ Yükleme ve Windows karma çalışan rolü yapılandırmasını otomatik hale ge
 
 İlk iki adımı Otomasyon ortamınız için bir kez gerçekleştirin ve sonra her bir çalışan bilgisayar için kalan adımları yineleyin.
 
-#### <a name="1-create-operations-management-suite-workspace"></a>1. Operations Management Suite çalışma alanı oluşturma
+#### <a name="1-create-log-analytics-workspace"></a>1. Log Analytics çalışma alanı oluşturma
+Günlük analizi çalışma alanı zaten yoksa yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetmek](../log-analytics/log-analytics-manage-access.md). Zaten varsa, varolan bir çalışma alanını kullanabilirsiniz.
 
-Bir Operations Management Suite çalışma alanı zaten yoksa yönergeleri kullanarak bir tane oluşturmak [çalışma alanınızı yönetmek](../log-analytics/log-analytics-manage-access.md). Zaten varsa, varolan bir çalışma alanını kullanabilirsiniz.
+#### <a name="2-add-automation-solution-to-log-analytics-workspace"></a>2. Otomasyon çözümünü günlük analizi çalışma alanıma Ekle
 
-#### <a name="2-add-automation-solution-to-operations-management-suite-workspace"></a>2. Otomasyon çözümünü Operations Management Suite çalışma alanına ekleyin
+Çözümler, Log Analytics’e işlevler ekler. Otomasyon çözümünü Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm, çalışma alanına eklediğinizde, otomatik olarak çalışan bileşenleri sonraki adımda yükleyecek aracı bilgisayar için iter.
 
-Çözümleri işlevselliği için Operations Management Suite ekleyin. Otomasyon çözümünü Azure Otomasyon karma Runbook çalışanı desteği dahil olmak üzere için işlevsellik ekler. Çözüm, çalışma alanına eklediğinizde, otomatik olarak çalışan bileşenleri sonraki adımda yükleyecek aracı bilgisayar için iter.
-
-Bölümündeki yönergeleri izleyin [Çözümleri Galerisi kullanarak bir çözüm eklemek için](../log-analytics/log-analytics-add-solutions.md) eklemek için **Otomasyon** Operations Management Suite çalışma alanınızı çözüme.
+Bölümündeki yönergeleri izleyin [Çözümleri Galerisi kullanarak bir çözüm eklemek için](../log-analytics/log-analytics-add-solutions.md) eklemek için **Otomasyon** günlük analizi çalışma alanınız çözüme.
 
 #### <a name="3-install-the-microsoft-monitoring-agent"></a>3. Microsoft Monitoring Agent Yükleme
-
-Microsoft Monitoring Agent, Operations Management Suite bilgisayarlara bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve alanınıza bağlanın, karma Runbook çalışanı için gerekli bileşenleri yükler.
+Microsoft Monitoring Agent için günlük analizi bilgisayarlara bağlanır. Şirket içi bilgisayarınıza aracıyı yüklemek ve alanınıza bağlanın, karma Runbook çalışanı için gerekli bileşenleri otomatik olarak indirir.
 
 Bölümündeki yönergeleri izleyin [günlük analizi bağlanmak Windows bilgisayarlara](../log-analytics/log-analytics-windows-agent.md) şirket içi bilgisayara aracı yüklemek için. Birden çok Worker ortamınıza eklemek için birden çok bilgisayar için bu işlemi yineleyebilirsiniz.
 
-Aracı başarıyla Operations Management Suite bağlandığında, listelendiğini **bağlı kaynakları** Operations Management Suite sekmesinde **ayarları** bölmesi. Adlı bir klasör varsa, aracı doğru Otomasyon çözümünü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not gezinebilirsiniz \\ *sürüm* alt klasörü.
+Adlı bir klasör varsa, aracı doğru Otomasyon çözümünü indirdiğini doğrulamak **AzureAutomationFiles** C:\Program Files\Microsoft Monitoring Agent\Agent içinde. Karma Runbook çalışanı sürümünü onaylamak için C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\ ve Not gezinebilirsiniz \\ *sürüm* alt klasörü.  
 
 #### <a name="4-install-the-runbook-environment-and-connect-to-azure-automation"></a>4. Runbook ortamını yüklemek ve Azure Otomasyonu bağlanın
 
-Bir aracı Operations Management Suite eklediğinizde, Otomasyon çözümünü iter **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet, bilgisayarda runbook ortamını yüklemek ve Azure Automation ile kaydetmek için kullanın.
+Bir aracı için günlük analizi eklediğinizde, Otomasyon çözümünü iter **HybridRegistration** içeren PowerShell Modülü **Add-HybridRunbookWorker** cmdlet'i. Bu cmdlet, bilgisayarda runbook ortamını yüklemek ve Azure Automation ile kaydetmek için kullanın.
 
 Modülü içeri aktarmak için Yönetici modunda bir PowerShell oturumu açın ve aşağıdaki komutları çalıştırın:
 
