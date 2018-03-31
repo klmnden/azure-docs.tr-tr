@@ -45,7 +45,7 @@
 ### [SAML tabanlı SSO hata ayıklama](active-directory-saml-debugging.md)
 ### [Çoklu oturum açma SAML protokolü](active-directory-single-sign-on-protocol-reference.md)
 ### [Çoklu oturum kapatma SAML protokolü](active-directory-single-sign-out-protocol-reference.md)
-### [Kiracı oluşturma](active-directory-howto-tenant.md)
+## [Kiracı oluşturma](active-directory-howto-tenant.md)
 ## [Marka yönergeleri](active-directory-branding-guidelines.md)
 ## Mobil ve Masaüstü SSO
 ### [Android’de SSO etkinleştirme](active-directory-sso-android.md)
