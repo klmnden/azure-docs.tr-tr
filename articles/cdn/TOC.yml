@@ -1,0 +1,158 @@
+- name: CDN Belgeleri
+  href: index.md
+- name: Genel Bakış
+  href: cdn-overview.md
+  items:
+    - name: Azure CDN nedir?
+      href: ../best-practices-cdn.md?toc=%2fazure%2fcdn%2ftoc.json
+- name: Başlarken
+  items:
+    - name: Azure CDN'yi etkinleştirme
+      href: cdn-create-new-endpoint.md
+- name: Nasıl yapılır
+  items:
+    - name: Tümleştirme
+      items:
+        - name: Web Apps
+          href: ../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json
+        - name: Cloud Services
+          href: cdn-cloud-service-with-cdn.md
+        - name: Depolama
+          items:
+            - name: Depolama hesabı tümleştirme
+              href: cdn-create-a-storage-account-with-cdn.md
+            - name: SAS depolama desteği
+              href: cdn-sas-storage-support.md
+        - name: Çıkış noktaları arası kaynak paylaşma
+          href: cdn-cors.md
+        - name: CDN uç noktanıza özel etki alanı ekleme
+          href: cdn-map-content-to-custom-domain.md
+        - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
+          href: cdn-custom-ssl.md
+    - name: İçeriği iyileştirme
+      items:
+        - name: İyileştirmeye genel bakış
+          href: cdn-optimization-overview.md
+          items:
+            - name: Büyük dosya iyileştirmesi
+              href: cdn-large-file-optimization.md
+            - name: Medya akışını iyileştirme
+              href: cdn-media-streaming-optimization.md
+            - name: Dinamik site hızlandırma
+              href: cdn-dynamic-site-acceleration.md
+    - name: Yönetme
+      items:
+        - name: Azure PowerShell ile yönetme
+          href: cdn-manage-powershell.md
+        - name: Ülkeye göre erişimi kısıtlama
+          href: cdn-restrict-access-by-country.md
+        - name: Dosyaları sıkıştırarak performansı geliştirme
+          href: cdn-improve-performance.md
+        - name: Önbelleğe alma davranışını denetleme
+          items:
+            - name: Önbelleğe alma nasıl işler?
+              href: cdn-how-caching-works.md
+            - name: Önbelleğe alma davranışını önbelleğe alma kurallarıyla denetleme
+              href: cdn-caching-rules.md
+            - name: Sorgu dizesine göre içeriği önbelleğe alma
+              items:
+                - name: Standart katman
+                  href: cdn-query-string.md
+                - name: Premium katman
+                  href: cdn-query-string-premium.md
+            - name: Önbelleğe alınan varlıkları temizleme
+              href: cdn-purge-endpoint.md
+            - name: Önbelleğe alınan varlıkları önceden yükleme
+              href: cdn-preload-endpoint.md
+        - name: Yaşam süresi yapılandırma
+          items:
+            - name: Azure web içeriği
+              href: cdn-manage-expiration-of-cloud-service-content.md
+            - name: Azure Blob depolama
+              href: cdn-manage-expiration-of-blob-content.md
+        - name: Belirteç kimlik doğrulaması
+          href: cdn-token-auth.md
+        - name: Kaynakları izleme
+          href: cdn-resource-health.md
+        - name: Davranışı kurallarla geçersiz kılma
+          href: cdn-rules-engine.md
+        - name: Gerçek zamanlı uyarılar alma
+          href: cdn-real-time-alerts.md
+        - name: HTTP/2 desteği
+          href: cdn-http2.md
+    - name: Çözümleme
+      items:
+        - name: Azure CDN kullanım biçimlerini çözümleme
+          href: cdn-log-analysis.md
+          items:
+            - name: Azure tanılama günlükleri
+              href: cdn-azure-diagnostic-logs.md
+            - name: Verizon'dan alınan Azure CDN için Analytics araçları
+              items:
+                - name: Verizon’dan alınan çekirdek raporlar
+                  href: cdn-analyze-usage-patterns.md
+                - name: Verizon özel raporları
+                  href: cdn-verizon-custom-reports.md
+            - name: Verizon'dan alınan Azure CDN Premium için Analytics araçları
+              items:
+                - name: Gelişmiş HTTP raporları oluşturma
+                  href: cdn-advanced-http-reports.md
+                - name: Gerçek zamanlı istatistikleri görüntüleme
+                  href: cdn-real-time-stats.md
+                - name: Kenar düğümü performansını çözümleme
+                  href: cdn-edge-performance.md
+    - name: Geliştirme
+      items:
+        - name: .NET
+          href: cdn-app-dev-net.md
+        - name: Node.js
+          href: cdn-app-dev-node.md
+    - name: Sorun giderme
+      items:
+        - name: 404 durumu
+          href: cdn-troubleshoot-endpoint.md
+        - name: Dosya sıkıştırma
+          href: cdn-troubleshoot-compression.md
+- name: Başvuru
+  items:
+    - name: Kural altyapısı başvurusu
+      href: cdn-rules-engine-reference.md
+      items:
+        - name: Kural altyapısı koşullu ifadeleri
+          href: cdn-rules-engine-reference-conditional-expressions.md
+        - name: Kural altyapısı eşleştirme koşulları
+          href: cdn-rules-engine-reference-match-conditions.md
+        - name: Kural altyapısı özellikleri
+          href: cdn-rules-engine-reference-features.md
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cdn'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.cdn
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: Java
+      href: /java/api/com.microsoft.azure.management.cdn
+    - name: REST
+      href: /rest/api/cdn/
+- name: Kaynaklar
+  items:
+    - name: Azure CDN POP konumları
+      items:
+        - name: Bölgeye göre POP konumları
+          href: cdn-pop-locations.md
+        - name: Kısaltmaya göre POP konumları
+          href: cdn-pop-abbreviations.md
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: MSDN forumu
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cdn/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=cdn'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-cdn'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=cdn'

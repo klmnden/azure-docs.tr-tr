@@ -25,6 +25,10 @@
   items:
     - name: Azure İlkesi tanım yapısı
       href: policy-definition.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Programlı olarak ilkeler oluşturma
+      href: policy-insights.md
 - name: Başvuru
   items:
     - name: Azure CLI

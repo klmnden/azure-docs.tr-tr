@@ -37,8 +37,6 @@
           href: log-analytics-log-search-faq.md
     - name: Log Analytics SSS
       href: log-analytics-faq.md
-    - name: Veri tüketimi
-      href: log-analytics-usage.md
     - name: Veri güvenliği
       href: log-analytics-data-security.md
     - name: Erişimi yönetme
@@ -156,7 +154,11 @@
         - name: Aracı yönetimi
           href: log-analytics-agent-manage.md
         - name: Çalışma alanı maliyetlerini yönetme
-          href: log-analytics-manage-cost-storage.md
+          items:
+            - name: Veri hacmi ve saklama
+              href: log-analytics-manage-cost-storage.md
+            - name: Kullanımı izleme
+              href: log-analytics-usage.md
         - name: Çalışma alanını silme
           href: log-analytics-manage-del-workspace.md
     - name: Sorun giderme

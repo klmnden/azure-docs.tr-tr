@@ -8,6 +8,7 @@
 # Başlarken
 ## [Rota temelli VPN ağ geçidi oluşturma - Azure portalı](create-routebased-vpn-gateway-portal.md)
 ## [Rota temelli VPN ağ geçidi oluşturma - PowerShell](create-routebased-vpn-gateway-powershell.md)
+## [Rota temelli VPN ağ geçidi oluşturma - CLI](create-routebased-vpn-gateway-cli.md)
 
 # Kavramlar
 ## [VPN Gateway için planlama ve tasarım](vpn-gateway-plan-design.md)
