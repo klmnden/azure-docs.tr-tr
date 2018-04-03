@@ -1,25 +1,25 @@
 ---
-title: "Azure yığın Geliştirme Seti temel kavramları | Microsoft Docs"
-description: "Temel yönetim Azure yığın geliştirme Seti'nin gerçekleştirmeyi açıklar."
+title: Azure yığın Geliştirme Seti temel kavramları | Microsoft Docs
+description: Azure yığın Geliştirme Seti (ASDK) için temel yönetim görevlerini gerçekleştirmek açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 03/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: cb169c2d2a5aa918fb6d330ebc4677d6c16d308d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="asdk-administration-basics"></a>ASDK Yönetimi temelleri 
 Azure yığın Geliştirme Seti (ASDK) yönetim için yeni bilmeniz gereken birkaç nokta vardır. Bu kılavuz rolünüze değerlendirme ortamı Azure yığın işlecinde olarak genel bir bakış sağlar ve test kullanıcılarınızın emin olmak nasıl hızla üretken olabilirsiniz.
@@ -27,6 +27,17 @@ Azure yığın Geliştirme Seti (ASDK) yönetim için yeni bilmeniz gereken birk
 İlk olarak, gözden geçirmeniz gereken [Azure yığın Geliştirme Seti nedir?](asdk-what-is.md) makale amacını ASDK ve kendi kısıtlamaları anladığınızdan emin olun. Burada, Azure geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek için yığın değerlendirebilmeniz bir "korumalı," Geliştirme Seti kullanmanız gerekir. 
 
 Biz düzenli olarak ASDK, yeni derlemeler yayın böylece Azure gibi Azure yığın hızlı bir şekilde innovates. Ancak, Azure tümleşik yığını sistemleri dağıtımları gibi ASDK yükseltemezsiniz. En son sürüme taşımak istiyorsanız, bu nedenle, tamamen gerekir [ASDK dağıtmanız](asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak kullanılabilir durumda olduklarında hemen sonra en son özellikleri denemek avantajdır. 
+
+## <a name="what-account-should-i-use"></a>Hangi hesabı kullanmalıyım?
+Azure yığın yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak noktalar vardır. Özellikle dağıtımlarda, kimlik sağlayıcısı Azure Active Directory (Azure AD) yerine Windows Server Active Directory Federasyon Hizmetleri (AD FS) kullanarak. Aşağıdaki hesabında dikkate alınacak noktalar hem Azure tümleşik yığını sistemleri hem de ASDK dağıtımları için geçerlidir:
+
+|Hesap|Azure AD|AD FS|
+|-----|-----|-----|
+|Local Administrator (.\Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
+|AzureStack\AzureStackAdmin|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın Yönetim Portalı'nda oturum için kullanılabilir<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın yönetim portalı için erişim yok<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim<br><br>Artık sahibi varsayılan sağlayıcı abonelik (DPS)|
+|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın<br><br>ASDK ana bilgisayara oturum değil<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|
+|Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|Uygulanamaz|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Yönetmek için hangi Araçlar kullanıyor?
 Kullanabileceğiniz [Azure yığın Yönetici portalı](https://adminportal.local.azurestack.external) veya Azure yığın yönetmek için PowerShell. Portalı aracılığıyla temel kavramları öğrenmeniz en kolay yoludur. PowerShell kullanmak istiyorsanız, yüklemenize gerek [Azure yığını için PowerShell](asdk-post-deploy.md#install-azure-stack-powershell) ve [Azure yığın araçları Github'dan indirdiğinizde](asdk-post-deploy.md#download-the-azure-stack-tools).

@@ -1,24 +1,24 @@
 ---
-title: "Azure yığın depolama için Araçlar"
-description: "Aktarım araçları Azure yığın depolama birimi verileri hakkında bilgi edinin"
+title: Azure yığın depolama için Araçlar
+description: Aktarım araçları Azure yığın depolama birimi verileri hakkında bilgi edinin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/21/2018
+ms.date: 03/30/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 9318b7af3c3dd545207f1896c9008207f562b735
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e26a38b8fd7d008a46eba2c41075c5af09a6616a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure yığın depolama için Araçlar
 
@@ -181,7 +181,7 @@ Azure CLI Azure kaynaklarını yönetmek için Azure komut satırı deneyimidir.
 
 Azure CLI, yönetmek ve komut satırından Azure kaynaklarını yönetme ve Azure Resource Manager karşı iş otomasyon komut dosyaları oluşturmak için optimize edilmiştir. Birçok zengin veri erişimi de dahil olmak üzere Azure yığın portalda bulunan aynı işlevleri sağlar.
 
-Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure yığın ile yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure yığın CLI yapılandırma](azure-stack-connect-cli.md). Azure CLI 2.0 ile Azure yığın depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure CLI2.0 Azure Storage ile kullanma](../../storage/storage-azure-cli.md)
+Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure yığın ile yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure yığın CLI yapılandırma](azure-stack-version-profiles-azurecli2.md). Azure CLI 2.0 ile Azure yığın depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure CLI2.0 Azure Storage ile kullanma](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI örnek komut dosyasında Azure yığını 
 CLI yükleme ve yapılandırmasını tamamladıktan sonra Azure yığın depolama kaynakları ile etkileşim kurmak için bir küçük Kabuk örnek betiği çalışmak için aşağıdaki adımları deneyebilirsiniz. Betik önce depolama hesabınıza yeni bir kapsayıcı oluşturur sonra varolan bir dosyayı (blob) bu kapsayıcıya yükler, kapsayıcıdaki tüm blob'lara listeler ve son olarak, yerel bilgisayarınızda belirttiğiniz bir hedefe dosyasını indirir. Bu komut dosyasını çalıştırmadan önce başarılı bir şekilde bağlandığınızdan emin olun ve hedef Azure yığın oturum açın. 

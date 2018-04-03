@@ -1,24 +1,24 @@
 ---
-title: "Fiziksel disk Azure yığınında değiştirme | Microsoft Docs"
-description: "Bir fiziksel disk Azure yığınında değiştirme işlemini açıklar."
+title: Fiziksel disk Azure yığınında değiştirme | Microsoft Docs
+description: Bir fiziksel disk Azure yığınında değiştirme işlemini açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: a95617a8dd2a8f296164c672e2b4b2628574ce5a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure yığınında fiziksel disk değiştirme
 
@@ -40,6 +40,9 @@ Uyarı açarsanız, uyarı açıklaması ölçek birimi düğümü ve değiştir
  ## <a name="replace-the-disk"></a>Disk değiştirme
 
 Gerçek disk değiştirme OEM donanım satıcısının FRU yönergeleri izleyin.
+
+> [!note]
+> Bir ölçek birimi düğümü için diskleri aynı anda değiştirin. Sanal disk onarım işleri sonraki ölçek birimi düğüme geçmeden önce tamamlanması için bekleyin
 
 Tümleşik bir sistemde desteklenmeyen bir diske kullanılmasını önlemek için sistem satıcınız tarafından desteklenmeyen diskleri engeller. Desteklenmeyen bir diske kullanmayı denerseniz, yeni bir uyarı, bir disk desteklenmeyen modeli veya bellenim nedeniyle karantinaya alınan olduğunu bildirir.
 

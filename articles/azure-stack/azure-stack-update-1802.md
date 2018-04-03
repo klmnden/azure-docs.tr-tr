@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 71862463a62f11a4f2cea7dfcc60961331ded377
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -129,6 +129,8 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 - Hem Yönetim Portalı ve Kullanıcı Portalı, daha eski bir API sürümüyle oluşturulmuş depolama hesapları için genel bakış dikey seçtiğinizde yüklemeye genel bakış dikey penceresinde başarısız (örnek: 2015-06-15). Bu sistem depolama hesapları gibi içerir **updateadminaccount** düzeltme ve güncelleştirme sırasında kullanılır. 
 
   Geçici bir çözüm olarak çalıştırmak için PowerShell kullanın **başlangıç ResourceSynchronization.ps1** için depolama hesabı ayrıntıları erişimi geri yüklemek için komut dosyası. [Komut dosyası Github'dan edinilebilir]( https://github.com/Azure/AzureStack-Tools/tree/master/Support/scripts)ve Hizmet Yöneticisi kimlik bilgileriyle ayrıcalıklı noktadaki çalıştırmanız gerekir. 
+
+- **Hizmet durumu** dikey başarısız yüklenemiyor. Yönetici veya Kullanıcı Portalı'nda Azure yığın hizmet durumu dikey penceresini açtığınızda bir hata görüntüler ve bilgi yüklemez. Bu beklenen bir davranıştır. Seçin ve hizmetin sistem durumunu açın, ancak bu özellik henüz kullanılabilir değil ancak Azure yığın gelecek bir sürümünde uygulanacaktır.
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme

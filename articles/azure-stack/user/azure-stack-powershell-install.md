@@ -1,11 +1,11 @@
 ---
-title: "PowerShell için Azure yığın yükleme | Microsoft Docs"
-description: "PowerShell için Azure yığınına yüklemeyi öğrenin."
+title: PowerShell için Azure yığın yükleme | Microsoft Docs
+description: PowerShell için Azure yığınına yüklemeyi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: F8D99A91-15B5-4073-BE07-A43514A6D2CF
 ms.service: azure-stack
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: mabrigg
-ms.openlocfilehash: b5cc53387b6867d776059856b6e7793abbc67c9a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle  
 
@@ -53,10 +53,10 @@ Aşağıdaki bölümlerde Azure yığını için PowerShell yüklemek için gere
 
 ## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>PowerShell bağlı bir senaryoda (internet bağlantısı ile) yükleyin.
 
-Azure yığın uyumlu AzureRM modülleri API sürümü profilleri yüklenir. Azure yığın gerektirir **2017-03-09-profili** AzureRM.Bootstrapper modülü yükleyerek kullanılabilir API sürümü profili. API sürümü profilleri ve onlar tarafından sağlanan cmdlet'leri hakkında bilgi edinmek için bkz [API sürümü profillerini yönetmek](azure-stack-version-profiles.md). AzureRM modülleri yanı sıra Azure yığın özgü PowerShell modülleri de yüklemeniz gerekir. Bu modüller, geliştirme iş istasyonunda yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
+Azure yığın uyumlu AzureRM modülleri API sürümü profilleri yüklenir. Azure yığın gerektirir **2017-03-09-profili** AzureRM.Bootstrapper modülü yükleyerek kullanılabilir API sürümü profili. API sürümü profilleri ve onlar tarafından sağlanan cmdlet'leri hakkında bilgi edinmek için bkz [API sürümü profillerini yönetmek](azure-stack-version-profiles-powershell.md). AzureRM modülleri yanı sıra Azure yığın özgü PowerShell modülleri de yüklemeniz gerekir. Bu modüller, geliştirme iş istasyonunda yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> [!IMPORTANT]  
+> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -85,7 +85,7 @@ Yükleme işlemini onaylamak için aşağıdaki komutu çalıştırın:
 Bağlantısı kesilmiş veya kısmen bağlı senaryoda, PowerShell modülleri Internet bağlantısına sahip bir makine için ilk indirme ve yükleme için Azure yığın Geliştirme Seti için Aktarım gerekir.
 
 > [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).
+> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Burada Internet bağlantısına sahip ve aşağıdaki komut dosyasını indirme AzureRM ve AzureStack paketleri için yerel bilgisayarınıza kullanın bir bilgisayarda oturum açın:
 
@@ -134,6 +134,6 @@ Bağlantısı kesilmiş veya kısmen bağlı senaryoda, PowerShell modülleri In
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure yığın araçları Github'dan yükleyin](azure-stack-powershell-download.md)
+* [Azure yığın araçları Github'dan yükleyin](azure-stack-powershell-download.md)  
 * [Azure yığın kullanıcının PowerShell ortamını yapılandırma](azure-stack-powershell-configure-user.md)  
-* [Azure yığınında API sürümü profillerini yönet](azure-stack-version-profiles.md)  
+* [Azure yığınında API sürümü profillerini yönet](azure-stack-version-profiles-powershell.md)  

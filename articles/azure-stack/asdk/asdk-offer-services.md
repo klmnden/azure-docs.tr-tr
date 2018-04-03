@@ -1,26 +1,26 @@
 ---
-title: "Bu öğreticide, bir Azure yığın teklifi oluştur | Microsoft Docs"
-description: "Planları ve kotalar dahil olmak üzere Azure yığın teklif oluşturmayı öğrenin."
+title: Bu öğreticide, bir Azure yığın teklifi oluştur | Microsoft Docs
+description: Planları ve kotalar dahil olmak üzere Azure yığın teklif oluşturmayı öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 03/27/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 083b5e20b89f22cb8e523926858fe9ffb1441319
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 8bcc2f3077e79ff83ac2e90db0bb0fa53ae83adc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-offer-azure-stack-iaas-services"></a>Öğretici: Azure yığın Iaas hizmetleri sunar
 Azure yığın bulut yönetici olarak (bazen kiracılar adlandırılır), kullanıcılarınızın abone olabilirsiniz teklifleri oluşturabilirsiniz. Aboneliğini kullanarak, kullanıcılar sonra Azure yığın hizmetleri kullanmasını sağlayabilirsiniz.
@@ -32,7 +32,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > [!div class="checklist"]
 > * Teklif oluşturma
 > * Plan oluşturma
-> * Kotaları belirleyin
+> * Kota ayarlama
 > * Ortak kümesi teklife
 
 Azure yığınında services Abonelikleri, teklifleri ve planları kullanan kullanıcılar teslim edilir. Kullanıcıların birden çok teklifleri için abone olabilirsiniz. Bir veya daha fazla plan teklifleri olabilir ve planları, aşağıdaki çizimde gösterildiği gibi bir veya daha fazla hizmet sahip olabilir:
@@ -73,7 +73,7 @@ Temel teklif bilgileri girdikten sonra en az bir temel plan teklife eklemeniz ge
    ![Plan hizmetleri](media/asdk-offer-services/select-services.png)
 
 
-## <a name="set-quotas"></a>Kotaları belirleyin
+## <a name="set-quotas"></a>Kota ayarlama
 Teklif hizmetleri içeren bir planına sahip, bunların her biri için kotalar ayarlamanız gerekir. 
 
 **Kotalar** önerilmesini plana dahil her hizmet için bir kullanıcı tüketebileceği kaynakları miktarını belirler.
@@ -112,14 +112,24 @@ Teklifler olabilir:
 > Teklif değişiklikleri kullanıcılara hemen görünür değildir. Değişiklikleri görmek için kullanıcıların oturum kapatma ve yeniden oturum açma gerekebilir [kullanıcı portalı](https://portal.local.azurestack.external) yeni teklif görmek için.
 
 Yeni Teklif ortak olarak ayarlamak için: 
+   - 1803 ve sonraki sürüm: 
+     1. Pano menüsünde **sunar** ve oluşturduğunuz teklif'ı tıklatın.
 
-1. Pano menüsünde **sunar** ve oluşturduğunuz teklif'ı tıklatın.
+     2. Tıklatın **erişilebilirlik durumu**ve ardından **ortak**.
 
-2. **Change State** (Durumu Değiştir) öğesine ve **Public** (Genel) seçeneğine tıklayın.
+        ![Durumu değiştir](media/asdk-offer-services/change-state.png)
 
-   ![Genel durum](media/asdk-offer-services/set-public.png)
+     3. Teklif artık Azure yığın Kullanıcı Portalı'nda kullanılabilir.
 
-3. Teklif artık Azure yığın Kullanıcı Portalı'nda kullanılabilir.
+
+   - Sürüm 1803 önce:  
+     1. Pano menüsünde **sunar** ve oluşturduğunuz teklif'ı tıklatın.
+
+     2. **Change State** (Durumu Değiştir) öğesine ve **Public** (Genel) seçeneğine tıklayın.
+
+        ![Genel durum](media/asdk-offer-services/set-public.png)
+
+     3. Teklif artık Azure yığın Kullanıcı Portalı'nda kullanılabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -128,7 +138,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Teklif oluşturma
 > * Plan oluşturma
-> * Kotaları belirleyin
+> * Kota ayarlama
 > * Ortak kümesi teklife
 
 Bir Azure yığın kullanıcı olarak oluşturduğunuz teklif abone öğrenmek için sonraki öğretici ilerleyin.

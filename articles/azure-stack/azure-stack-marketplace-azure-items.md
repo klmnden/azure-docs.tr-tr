@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: cdce5ad971e345971aa5de9a9bb79379fb1ead48
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b91cfdfe89f1f15354595400ed9547496fdcd796
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -220,4 +220,5 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![PT uygulaması güvenlik duvarı](media/azure-stack-marketplace-azure-items/pt.png) | [PT uygulaması güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT uygulaması güvenlik duvarı bilinen & bilinmeyen güvenlik açıkları algılar ve web uygulamaları üzerinde saldırılarını önler. <b>Her iki PT Market öğesi indirin.</b> | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet kuruluş Azure yığın altyapınızın tüm yaşam döngüsü otomatikleştirmenizi sağlar. <b>Her iki Puppet Market öğesi indirin.</b> | Puppet |
 | ![SUSE Yöneticisi 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | En iyi sınıf açık kaynak altyapı yönetimi. | SUSE |
+| ![Veeam yedekleme ve çoğaltma](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam yedekleme ve çoğaltma ](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication) | Veeam yedekleme ve çoğaltma 9.5. | Veeam |
 | ![ZeroDown yazılım aracı](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown Software |
