@@ -1,11 +1,11 @@
 ---
-title: "Azure yığınında Azure CLI kullanarak bir Linux sanal makine oluşturma | Microsoft Docs"
-description: "Azure yığınında CLI ile Linux sanal makine oluşturun."
+title: Azure yığınında Azure CLI kullanarak bir Linux sanal makine oluşturma | Microsoft Docs
+description: Azure yığınında CLI ile Linux sanal makine oluşturun.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 21F7D599-1FEC-4827-A5C3-06495C5F53A4
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 160893f5b2e9c78bd62355782c279fb08f7f6b48
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 69036b522b375eced604256340b532ad14a8708e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-linux-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Azure yığınında Azure CLI kullanarak bir Linux sanal makine oluşturma
 
@@ -31,7 +31,7 @@ Azure CLI oluşturmak ve komut satırından Azure yığın kaynakları yönetmek
 
 * Azure yığın operatörünüze Azure yığın Market "Ubuntu Server 16.04 LTS" görüntü ekledi emin olun. 
 
-* Azure yığını, Azure CLI oluşturmak ve kaynakları yönetmek için belirli bir sürümünü gerektirir. Azure CLI Azure yığını için yapılandırılmış yoksa, oturum [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) ve adımlarını izleyin [yükleyin ve Azure CLI yapılandırma](azure-stack-connect-cli.md).
+* Azure yığını, Azure CLI oluşturmak ve kaynakları yönetmek için belirli bir sürümünü gerektirir. Azure CLI Azure yığını için yapılandırılmış yoksa, oturum [Geliştirme Seti](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), veya kullanıyorsanız Windows tabanlı bir dış istemcinin [VPN üzerinden bağlı](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) ve adımlarını izleyin [yükleyin ve Azure CLI yapılandırma](azure-stack-version-profiles-azurecli2.md).
 
 * Genel SSH anahtarı adı id_rsa.pub ile Windows kullanıcı profiliniz .ssh dizininin oluşturulması gerekir. SSH anahtarları oluşturma hakkında ayrıntılı bilgi için bkz: [oluşturma SSH anahtarları Windows'da](../../virtual-machines/linux/ssh-from-windows.md). 
 
