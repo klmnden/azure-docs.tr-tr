@@ -1,46 +1,44 @@
 ---
-title: "Azure Cosmos DB: .NET içinde SQL API geliştirme | Microsoft Docs"
-description: ".NET kullanarak Azure Cosmos veritabanı SQL API'si ile geliştirmeyi öğrenin"
+title: "Azure Cosmos DB: .NET'te SQL API ile geliştirme | Microsoft Docs"
+description: .NET kullanarak Azure Cosmos DB SQL API'si ile geliştirmeyi öğrenin
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: rafats
 manager: jhubbard
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: e37a0993567b6cec7ed6a91e6dad1f2e2c097198
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 7fca9f184097ed50ace665cde0c5ef8fb180feda
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: .NET içinde SQL API geliştirin
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+# <a name="azure-cosmosdb-develop-with-the-sql-api-in-net"></a>Azure CosmosDB: .NET'te SQL API ile geliştirme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz. 
 
-Bu öğreticide Azure portalını kullanarak bir Azure Cosmos DB hesabı oluşturmak ve bir belge veritabanı ve koleksiyonu oluşturmak nasıl gösteren bir [bölüm anahtarı](sql-api-partition-data.md#partition-keys) kullanarak [SQL .NET API](sql-api-introduction.md). Bir koleksiyon oluşturduğunuzda bir bölüm anahtarı tanımlayarak, uygulamanızın verilerinizi büyüdükçe harcamadan ölçeklendirmek için hazırlanır. 
+Bu öğreticide Azure portalı kullanılarak Azure Cosmos DB hesabı oluşturma, ardından [SQL .NET API](sql-api-introduction.md) kullanılarak [bölüm anahtarı](sql-api-partition-data.md#partition-keys) ile belge veritabanı ve koleksiyon oluşturma işlemleri gösterilir. Koleksiyon oluştururken bölüm anahtarı tanımlandığında, verileriniz arttıkça uygulamanız zorlanmadan ölçeklendirilmeye hazırlanır. 
 
-Bu öğretici kullanarak aşağıdaki görevleri kapsar [SQL .NET API](sql-api-sdk-dotnet.md):
+Bu öğretici [SQL. NET API](sql-api-sdk-dotnet.md) kullanılarak aşağıda görevlerin yerine getirilmesini kapsar:
 
 > [!div class="checklist"]
 > * Azure Cosmos DB hesabı oluşturma
-> * Bir bölüm anahtarının bir veritabanınızı ve koleksiyonunuzu oluşturun
+> * Bölüm anahtarıyla veritabanı ve koleksiyon oluşturma
 > * JSON belgeleri oluşturma
 > * Bir belgeyi güncelleştirme
-> * Bölümlenmiş koleksiyonlar sorgulama
+> * Bölümlenmiş koleksiyonları sorgulama
 > * Saklı yordamları çalıştırma
 > * Bir belgeyi silme
-> * Bir veritabanını silin
+> * Veritabanı silme
 
 ## <a name="prerequisites"></a>Ön koşullar
 Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
@@ -53,11 +51,11 @@ Lütfen aşağıdakilere sahip olduğunuzdan emin olun:
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 
-Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
+İlk olarak Azure portalında bir Azure Cosmos DB hesabı oluşturalım.
 
 > [!TIP]
-> * Zaten Azure Cosmos DB hesabınız var mı? Bu durumda, İleri için atlayabilirsiniz [, Visual Studio çözümü ayarlama](#SetupVS)
-> * Azure Cosmos DB öykünücüsü kullanıyorsanız, lütfen bölümündeki adımları izleyin [Azure Cosmos DB öykünücüsü](local-emulator.md) öykünücü kurulması ve için İleri atlayabilirsiniz [, Visual Studio çözümünü kurmak](#SetupVS). 
+> * Zaten Azure Cosmos DB hesabınız var mı? Öyleyle, [Visual Studio çözümünüzü ayarlama](#SetupVS) adımına atlayın
+> * Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız öykünücünün kurulumunu gerçekleştirmek için lütfen [Azure Cosmos DB Öykünücüsü](local-emulator.md) konusundaki adımları izleyin ve [Visual Studio Çözümünüzü ayarlama](#SetupVS) adımına atlayın. 
 >
 >
 
@@ -66,24 +64,24 @@ Azure portalında bir Azure Cosmos DB hesabı oluşturarak başlayalım.
 ## <a id="SetupVS"></a>Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio**'yu açın.
 2. **Dosya** menüsünde **Yeni**'yi seçin ve ardından **Proje**'yi seçin.
-3. İçinde **yeni proje** iletişim kutusunda **şablonları** / **Visual C#** / **konsol uygulaması (.NET Framework)** , projenizi adlandırın ve ardından **Tamam**.
+3. **Yeni Proje** iletişim kutusunda, **Şablonlar** / **Visual C#** / **Konsol Uygulaması (.NET Framework)** öğesini seçin, projenizi adlandırın ve ardından **Tamam**'a tıklayın.
    ![Yeni Proje penceresinin ekran görüntüsü](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-new-project-2.png)
 
 4. **Çözüm Gezgini**'nde Visual Studio çözümünüzün altındaki yeni konsol uygulamanıza sağ tıklayın ve **NuGet Paketlerini Yönet...** öğesine tıklayın.
     
     ![Proje için Sağ Tıklama Menüsünün ekran görüntüsü](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges.png)
-5. İçinde **NuGet** sekmesini tıklatın, **Gözat**ve türü **documentdb** arama kutusuna.
+5. **NuGet** sekmesinde **Gözat**'a tıklayın ve arama kutusuna **documentdb** yazın.
 <!---stopped here--->
 6. Sonuçlarda **Microsoft.Azure.DocumentDB**'yi bulun ve **Yükle**'ye tıklayın.
-   Azure Cosmos DB istemci kitaplığı için paket kimliği [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB).
-   ![Azure Cosmos DB istemci SDK'sını bulmak için NuGet menüsünün ekran görüntüsü](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
+   Azure Cosmos DB İstemci Kitaplığı'nın paket kimliği [Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB)’dir.
+   ![Azure Cosmos DB İstemci SDK'sını bulmak için NuGet Menüsünün ekran görüntüsü](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
-## <a id="Connect"></a>Başvuruları projenize ekleme
-Bu öğreticide kalan adımlar oluşturmak ve Azure Cosmos DB kaynakları projenize güncelleştirmek için gereken SQL API kod parçacıkları sağlar.
+## <a id="Connect"></a>Projenize başvurular ekleme
+Bu öğreticinin kalan adımları, projenizde Azure Cosmos DB kaynaklarını oluşturmak ve güncelleştirmek için gereken SQL API kod parçacıklarını sağlar.
 
-İlk olarak, uygulamanız bu başvurular ekleyin.
+İlk olarak, bu başvuruları uygulamanıza ekleyin.
 <!---These aren't added by default when you install the pkg?--->
 
 ```csharp
@@ -95,7 +93,7 @@ using Newtonsoft.Json;
 
 ## <a id="add-references"></a>Uygulamanızı bağlama
 
-Ardından, bu iki sabitleri ekleyin ve *istemci* uygulamanızda değişken.
+Sonra bu iki sabiti ve *client* değişkeninizi uygulamanıza ekleyin.
 
 ```csharp
 private const string EndpointUrl = "<your endpoint URL>";
@@ -103,45 +101,45 @@ private const string PrimaryKey = "<your primary key>";
 private DocumentClient client;
 ```
 
-Head ardından, yeniden [Azure portal](https://portal.azure.com) uç noktasının URL'sini ve birincil anahtar alınamadı. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
+Ardından, uç nokta URL’nizi ve birincil anahtarınızı almak için tekrar [Azure portalına](https://portal.azure.com) gidin. Uç nokta URL’si ve birincil anahtar, uygulamanızın nereye bağlanacağını anlaması ve Azure Cosmos DB’nin uygulamanızın bağlantısına güvenmesi için gereklidir.
 
-Azure portalında Azure Cosmos DB hesabınıza gidin, tıklatın **anahtarları**ve ardından **okuma-yazma anahtarları**.
+Azure portalında Azure Cosmos DB hesabınıza gidin **Anahtarlar**’a ve sonra da **Okuma-Yazma Anahtarları**'na tıklayın.
 
-URI Portal'dan kopyalayın ve üzerinden yapıştırın `<your endpoint URL>` program.cs dosyasındaki. Ardından portaldan birincil anahtarı kopyalayın ve üzerinden yapıştırın `<your primary key>`. Kaldırdığınızdan emin olun `<` ve `>` , değerlerinden.
+Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URL>` üzerine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your primary key>` üzerine yapıştırın. Değerlerinizden `<` ve `>` bölümünü kaldırdığınızdan emin olun.
 
-![C# konsol uygulaması oluşturmak için NoSQL Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLARI ve anahtarlar dikey penceresinde URI ve birincil anahtar değerleri içeren bir Azure Cosmos DB hesabını gösterir](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
+![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure portalının ekran görüntüsü. Azure Cosmos DB hesabı dikey penceresinde ANAHTARLAR vurgulanmış ve Anahtarlar dikey penceresinde URI ve BİRİNCİL ANAHTAR değerleri vurgulanmış bir Azure Cosmos DB hesabını gösterir](./media/tutorial-develop-sql-api-dotnet/nosql-tutorial-keys.png)
 
-## <a id="instantiate"></a>DocumentClient örneği
+## <a id="instantiate"></a>DocumentClient örneği oluşturma
 
-Şimdi, yeni bir örneğini oluşturmak **DocumentClient**.
+Şimdi yeni bir **DocumentClient** örneği oluşturun.
 
 ```csharp
 DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
-## <a id="create-database"></a>Bir veritabanı oluşturun
+## <a id="create-database"></a>Veritabanı oluşturma
 
-Ardından, bir Azure Cosmos DB Oluştur [veritabanı](sql-api-resources.md#databases) kullanarak [Documentclient](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemi veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemi  **DocumentClient** sınıfıyla [SQL .NET SDK'sı](sql-api-sdk-dotnet.md). Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
+Ardından, [SQL .NET SDK](sql-api-sdk-dotnet.md)'dan **DocumentClient** sınıfının [CreateDatabaseAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) yöntemini veya [CreateDatabaseIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync.aspx) yöntemini kullanarak bir Azure Cosmos DB [veritabanı](sql-api-resources.md#databases) oluşturun. Veritabanı, koleksiyonlar genelinde bölümlenmiş JSON belgesi depolama alanının mantıksal bir kapsayıcısıdır.
 
 ```csharp
 await client.CreateDatabaseAsync(new Database { Id = "db" });
 ```
-## <a name="decide-on-a-partition-key"></a>Bir bölüm anahtarı karar verin 
+## <a name="decide-on-a-partition-key"></a>Bölüm anahtarına karar verme 
 
-Koleksiyonlar, belgeleri depolamak için kapsayıcılardır. Mantıksal kaynaklar ve yapabilirsiniz [bir veya daha fazla fiziksel bölüm span](partition-data.md). A [bölüm anahtarı](sql-api-partition-data.md) verilerinizi sunucuları veya bölümleri arasında dağıtmak için kullanılan belgelerinizi içinde bir özellik (veya yol) olduğu. Aynı bölüm anahtarına sahip tüm belgeleri aynı bölümünde depolanır. 
+Koleksiyonlar, belgelerin depolandığı kapsayıcılardır. Bunlar mantıksal kaynaklardır ve [bir veya birden çok fiziksel bölüme yayılabilir](partition-data.md). [Bölüm anahtarı](sql-api-partition-data.md), belgelerinizin içinde yer alan ve verilerinizi sunucular veya bölümler arasında dağıtmak için kullanılan bir özelliktir (veya yol). Aynı bölüm anahtarına sahip olan tüm belgeler aynı bölümü paylaşır. 
 
-Bölüm anahtarı belirleme koleksiyonu oluşturmadan önce yapmak için önemli bir karardır. Bölüm anahtarlarını özelliği (veya yol) birden fazla sunucu veya bölümleri arasında verilerinizi dağıtmak için Azure Cosmos DB tarafından kullanılan belgelerinizi ağdadır. Cosmos DB bölüm anahtarı değerini karma hale getirir ve karma hale getirilen sonuç belge depolanacağı bölüm belirlemek için kullanır. Aynı bölüm anahtarına sahip tüm belgeleri aynı bölümünde depolanır ve bir koleksiyon oluşturulduktan sonra bölüm anahtarlarını değiştirilemez. 
+Bölüm anahtarı belirlemek, koleksiyon oluşturmadan önce verilmesi gereken önemli bir karardır. Bölüm anahtarları, belgelerinizin içinde yer alan ve Azure Cosmos DB tarafından verilerinizi birden çok sunucu veya bölüm arasında dağıtmak için kullanılabilen bir özelliktir (veya yol). Cosmos DB bölüm anahtarı değerini karma haline getirir ve belgeyi hangi bölümde depolayacağını belirlemek için karma sonucu kullanır. Aynı bölüm anahtarına sahip tüm belgeler aynı bölümünde depolanır ve koleksiyon oluşturulduktan sonra bölüm anahtarları değiştirilemez. 
 
-Bu öğretici için bölüm anahtarı kümesine oluşturacağız `/deviceId` tek bir bölüm böylece tüm verileri tek bir cihaz için depolanır. Değerlerin her biri en aynı frekansı hakkında verilerinizi büyür ve koleksiyon tam verimini elde Cosmos DB yükünü dengelemek sağlamak için kullanılır, çok sayıda sahip bir bölüm anahtarı seçmek istediğiniz. 
+Bu öğretici için, tek bir cihazdaki tüm verilerin tek bölümde depolanmasını sağlayacak şekilde bölüm anahtarını `/deviceId` olarak ayarlayacağız. Verileriniz arttıkça Cosmos DB'nin yükü dengeleyebilmesi ve koleksiyonda tam aktarım hızına ulaşılabilmesi için, her biri yaklaşık aynı sıklıkta kullanılan çok fazla sayıda değeri olan bir bölüm anahtarı seçmek istersiniz. 
 
-Bölümleme hakkında daha fazla bilgi için bkz: [bölümleme ve Azure Cosmos veritabanı ölçek?](partition-data.md) 
+Bölümleme hakkında daha fazla bilgi için bkz. [Azure Cosmos DB'de bölümleme ve ölçeklendirme](partition-data.md) 
 
-## <a id="CreateColl"></a>Bir koleksiyon oluşturma 
+## <a id="CreateColl"></a>Koleksiyon oluşturma 
 
-Biz bizim bölüm anahtarı bildiğinize göre `/deviceId`, oluşturma sağlayan bir [koleksiyonu](sql-api-resources.md#collections) kullanarak [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) yöntemi veya [CreateDocumentCollectionIfNotExistsAsync ](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) yöntemi **DocumentClient** sınıfı. Koleksiyon, JSON belgelerinin ve tüm ilişkili JavaScript uygulama mantığının bir kapsayıcısıdır. 
+Artık bölüm anahtarımızı bildiğimize göre (`/deviceId`), **DocumentClient** sınıfının [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) yöntemini veya [CreateDocumentCollectionIfNotExistsAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync.aspx) yöntemini kullanarak bir [koleksiyon](sql-api-resources.md#collections) oluşturalım. Koleksiyon, JSON belgelerinin ve ilişkili her JavaScript uygulama mantığının kapsayıcısıdır. 
 
 > [!WARNING]
-> Uygulamanın Azure Cosmos DB ile iletişim kurmak işleme ayırma gibi bir koleksiyon oluşturma, fiyatlandırmaya vardır. Daha fazla ayrıntı için lütfen ziyaret bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> Koleksiyon oluşturmanın bir fiyatı vardır çünkü Azure Cosmos DB'yle iletişim kurması için uygulamaya aktarım hızı ayırırsınız. Daha ayrıntılı bilgi için lütfen [fiyatlandırma sayfamızı](https://azure.microsoft.com/pricing/details/cosmos-db/) ziyaret edin
 > 
 > 
 
@@ -160,10 +158,10 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 2500 });
 ```
 
-Bu yöntem için Azure Cosmos DB ve hizmet hükümleri istenen işlemeyi temel alan bölüm sayısı çağırın bir REST API sağlar. Performansınızı SDK'sını kullanarak geliştikçe koleksiyonu verimini değiştirebilir veya [Azure portal](set-throughput.md).
+Bu yöntemde Azure Cosmos DB'ye bir REST API çağrısı yapılır ve hizmet, istenen aktarım hızı temelinde belirli bir sayıda bölüm sağlar. Performans gereksinimleriniz arttıkça, SDK'yı veya [Azure portalını](set-throughput.md) kullanarak koleksiyonun aktarım hızını değiştirebilirsiniz.
 
 ## <a id="CreateDoc"></a>JSON belgeleri oluşturma
-Şimdi bazı JSON belgeleri Azure Cosmos Veritabanına ekler. Bir [belge](sql-api-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Bu örnek sınıfı okuma bir aygıtı ve Documentclient bir koleksiyona okuma yeni aygıt eklemek için bir çağrı içerir.
+Şimdi de Azure Cosmos DB'ye bazı JSON belgeleri ekleyelim. Bir [belge](sql-api-resources.md#documents), **DocumentClient** sınıfının [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) yöntemi kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Bu örnek sınıf bir cihaz okuması ve koleksiyona yeni cihaz okuması eklemek için CreateDocumentAsync çağrısı içerir.
 
 ```csharp
 public class DeviceReading
@@ -204,7 +202,7 @@ await client.CreateDocumentAsync(
 ```
 ## <a name="read-data"></a>Verileri okuma
 
-Şimdi ReadDocumentAsync yöntemi kullanılarak kimliği ve bölüm anahtarı tarafından belgeyi okuyun. Okumaları PartitionKey değeri içerdiğini unutmayın (karşılık gelen `x-ms-documentdb-partitionkey` REST API istek üstbilgisinde).
+Şimdi ReadDocumentAsync yöntemini kullanarak bölüm anahtarına ve kimliğine göre belgeyi okuyalım. Okumaların bir PartitionKey değeri (REST API'de `x-ms-documentdb-partitionkey` istek üst bilgisine karşılık gelir) içerdiğine dikkat edin.
 
 ```csharp
 // Read document. Needs the partition key and the Id to be specified
@@ -217,7 +215,7 @@ DeviceReading reading = (DeviceReading)(dynamic)result;
 
 ## <a name="update-data"></a>Verileri güncelleştirme
 
-Şimdi şimdi ReplaceDocumentAsync yöntemini kullanarak bazı verileri güncelleştirin.
+Şimdi ReplaceDocumentAsync yöntemini kullanarak bazı verileri güncelleştirelim.
 
 ```csharp
 // Update the document. Partition key is not required, again extracted from the document
@@ -231,7 +229,7 @@ await client.ReplaceDocumentAsync(
 
 ## <a name="delete-data"></a>Verileri silme
 
-Şimdi bir belgenin bölüm anahtarı kimliği DeleteDocumentAsync yöntemini kullanarak silip olanak sağlar.
+Şimdi DeleteDocumentAsync yöntemini kullanarak bölüm anahtarına ve kimliğine göre bir belgeyi silelim.
 
 ```csharp
 // Delete a document. The partition key is required.
@@ -239,9 +237,9 @@ await client.DeleteDocumentAsync(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
 ```
-## <a name="query-partitioned-collections"></a>Bölümlenmiş koleksiyonlar sorgulama
+## <a name="query-partitioned-collections"></a>Bölümlenmiş koleksiyonları sorgulama
 
-Bölümlenmiş koleksiyonlar verileri sorguladığınızda Azure Cosmos DB sorgu otomatik olarak (varsa) filtrede belirtilen bölüm anahtarı değerine karşılık gelen bölümleri yönlendirir. Örneğin, bu sorgu "XMS-0001" Bölüm anahtarı içeren bölümün yalnızca yönlendirilir.
+Bölümlenmiş koleksiyonlardaki verileri sorguladığınızda, Azure Cosmos DB sorguyu otomatik olarak filtrede belirtilen bölüm anahtarı değerlerine (varsa) karşılık gelen bölümlere yönlendirir. Örneğin, bu sorgu doğrudan "XMS-0001" bölüm anahtarını içeren bölüme yönlendirilir.
 
 ```csharp
 // Query using partition key
@@ -250,7 +248,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
     .Where(m => m.MetricType == "Temperature" && m.DeviceId == "XMS-0001");
 ```
     
-Aşağıdaki sorgu bir filtre bölüm anahtarı (DeviceID) sahip değil ve bölümün dizin karşı yürütüldüğü tüm bölümler için Dağıtılmış. EnableCrossPartitionQuery belirtmek zorunda Not (`x-ms-documentdb-query-enablecrosspartition` REST API'sindeki) SDK'sını bölümler bir sorguyu çalıştırmak için.
+Aşağıdaki sorgunun bölüm anahtarında (DeviceId) filtresi yoktur ve bölümün dizinine göre yürütüldüğü tüm bölümleri yayılır. SDK'nın bölümler arasında sorgu yürütmesini sağlamak için EnableCrossPartitionQuery (REST API'de `x-ms-documentdb-query-enablecrosspartition`) belirtmeniz gerektiğini aklınızda bulundurun.
 
 ```csharp
 // Query across partition keys
@@ -261,7 +259,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
 ```
 
 ## <a name="parallel-query-execution"></a>Paralel sorgu yürütme
-Azure Cosmos DB SQL SDK 1.9.0 ve hatta bunlar çok sayıda bölüm touch gerektiğinde bölümlenmiş koleksiyonlar, düşük gecikme süresi sorguları gerçekleştirmesine izin destek paralel sorgu yürütme seçenekleri üstünde. Örneğin, aşağıdaki sorguyu bölümler paralel olarak çalıştırmak için yapılandırılır.
+Azure Cosmos DB SQL SDK 1.9.0 ve üstü, çok fazla sayıda bölüme dokunması gerekse bile, bölümlenmiş sorgularda düşük gecikme süreli sorgular yürütmenize olanak tanıyan paralel sorgu yürütme seçeneklerini destekler. Örneğin, aşağıdaki sorgu bölümler arasında paralel çalıştırılacak şekilde yapılandırılmıştır.
 
 ```csharp
 // Cross-partition Order By queries
@@ -272,15 +270,15 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .OrderBy(m => m.MetricValue);
 ```
     
-Aşağıdaki parametreleri ayarlama tarafından paralel sorgu yürütme yönetebilirsiniz:
+Aşağıdaki parametreleri ayarlayarak paralel sorgu yürütme işlemini yönetebilirsiniz:
 
-* Ayarlayarak `MaxDegreeOfParallelism`, yani, en fazla eşzamanlı ağ bağlantı sayısı koleksiyonunun bölümlere paralellik derecesini kontrol edebilirsiniz. Bu ayar, -1 olarak paralellik derecesini SDK tarafından yönetilir. Varsa `MaxDegreeOfParallelism` varsayılan değer, belirtilen veya ayarlanmış 0 değil, tek bir ağ bağlantısı koleksiyonunun bölümlere olacaktır.
-* Ayarlayarak `MaxBufferedItemCount`, sorgu gecikme süresi ve istemci tarafı bellek kullanımı devre dışı ticari. Bu parametreyi veya bu ayarlarsanız -1 olarak paralel sorgu yürütme sırasında arabelleğe alınan öğe sayısı SDK tarafından yönetilir.
+* `MaxDegreeOfParallelism` parametresini ayarlayarak paralellik derecesini, başka bir deyişle koleksiyonun bölümlerine yönelik eşzamanlı ağ bağlantısı sayısı üst sınırını denetleyebilirsiniz. Bunu -1 olarak ayarlarsanız, paralellik derecesi SDK tarafından yönetilir. `MaxDegreeOfParallelism` belirtilmezse veya 0 olarak ayarlanırsa, koleksiyonun bölümlerine tek ağ bağlantısı kurulur.
+* `MaxBufferedItemCount` parametresini ayarlayarak, sorgu gecikme süresiyle istemci tarafı bellek kullanımını dengeleyebilirsiniz. Bu parametreyi atlarsanız veya -1 olarak ayarlarsanız, paralel sorgu yürütme işlemi sırasında arabelleğe alınan öğelerin sayısı SDK tarafından yönetilir.
 
-Koleksiyon aynı durumu verildiğinde, paralel sorgu sonuçları seri yürütme olduğu gibi aynı sırada döndürür. Sıralama (ORDER BY ve/veya üst) içeren bir çapraz bölüm sorgusu gerçekleştirirken, SQL SDK'sı paralel sorguda bölümler sorunları ve genel olarak sipariş edilen sonuçlar için istemci tarafı kısmen sıralanmış sonuçları birleştirir.
+Koleksiyonun durumu aynı olduğunda, paralel sorgu sonuçları seri yürütme ile aynı sırada döndürür. Sıralama (ORDER BY ve/veya TOP) içeren bir bölümler arası sorgu gerçekleştirirken, SQL SDK sorguyu bölümler arasında paralel olarak gönderir ve genel olarak sıralanmış sonuçları oluşturmak için sunucu tarafında kısmen sıralanmış sonuçları birleştirir.
 
-## <a name="execute-stored-procedures"></a>Saklı yordam yürütme
-Son olarak, aynı aygıt kimliği belgelerle karşı atomik işlemleri örneğin yürütebilir, toplamalar veya bir cihazı tek bir belgenin en son durumunu projenize aşağıdaki kodu ekleyerek koruma durumunda.
+## <a name="execute-stored-procedures"></a>Saklı yordamları yürütme
+Son olarak, cihaz kimliği aynı olan belgelerde (başka bir deyişle cihazın toplamlarını veya son durumunu tek belgede tutuyorsanız) projenize aşağıdaki kodu ekleyerek atomik işlemler yürütebilirsiniz.
 
 ```csharp
 await client.ExecuteStoredProcedureAsync<DeviceReading>(
@@ -289,30 +287,30 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
     "XMS-001-FE24C");
 ```
 
-Ve bu kadar! ana veri dağıtım bölümler ölçeklendirilmesine olanak bölüm anahtarı kullanan bir Azure Cosmos DB uygulama bileşenlerinin olanlardır.  
+Hepsi bu! Bölümler arasında veri dağılımını verimli bir şekilde ölçeklendirmek için bölüm anahtarı kullanan bir Azure Cosmos DB uygulamasının ana bileşenleri bunlardır.  
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu uygulamayı kullanmaya devam etmek için değil kullanacaksanız, bu öğreticide aşağıdaki adımlarla Azure portal tarafından oluşturulan tüm kaynakları silin:
+Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanarak Azure portalında bu öğretici tarafından oluşturulan tüm kaynakları silin:
 
-1. Azure portalında sol taraftaki menüden **kaynak grupları** ve oluşturduğunuz kaynak benzersiz adına tıklayın. 
+1. Azure portalında sol taraftaki menüden, **Kaynak grupları**'na ve ardından oluşturduğunuz kaynağın benzersiz adına tıklayın. 
 2. Kaynak grubu sayfanızda, **Sil**'e tıklayın, metin kutusuna silinecek kaynağın adını yazın ve ardından **Sil**'e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan: 
+Bu öğreticide aşağıdakileri yaptınız: 
 
 > [!div class="checklist"]
-> * Bir Azure Cosmos DB hesabı oluşturuldu
-> * Bir veritabanı ve koleksiyonu bir bölüm anahtarı ile oluşturulan
-> * Oluşturulan JSON belgeleri
-> * Bir belge güncelleştirildi
-> * Sorgulanan bölümlenmiş koleksiyonlar
-> * Saklı yordam çalıştı
-> * Bir belge silindi
-> * Bir veritabanı silindi
+> * Azure Cosmos DB hesabı oluşturma
+> * Bölüm anahtarıyla veritabanı ve koleksiyon oluşturma
+> * JSON belgeleri oluşturma
+> * Belgeyi güncelleştirme
+> * Bölümlenmiş koleksiyonları sorgulama
+> * Saklı yordam çalıştırma
+> * Belgeyi silme
+> * Veritabanını silme
 
-Şimdi, sonraki öğretici devam ve Cosmos DB hesabınıza ek verileri alın. 
+Şimdi bir sonraki öğreticiye geçebilir ve Cosmos DB hesabınıza ek veri aktarabilirsiniz. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)
