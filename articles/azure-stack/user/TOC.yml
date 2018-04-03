@@ -99,12 +99,19 @@
               href: azure-stack-powershell-download.md
             - name: PowerShell yapılandırma - Kullanıcı
               href: azure-stack-powershell-configure-user.md
-            - name: Azure Stack CLI hizmetini yükleme ve yapılandırma
-              href: azure-stack-connect-cli.md
             - name: Visual Studio yükleme
               href: azure-stack-install-visual-studio.md
-            - name: API sürümü profillerini yönetme
+            - name: API sürümü profillerini kullanma
               href: azure-stack-version-profiles.md
+              items:
+                - name: PowerShell
+                  href: azure-stack-version-profiles-powershell.md
+                - name: Azure CLI 2.0
+                  href: azure-stack-version-profiles-azurecli2.md
+                - name: GİT
+                  href: azure-stack-version-profiles-go.md
+                - name: Kaynak sağlayıcısı profili tarafından desteklenen API'leri
+                  href: azure-stack-profiles-azure-resource-manager-versions.md
         - name: İlke modülü kullanma
           href: azure-stack-policy-module.md
         - name: Şablon kullanma

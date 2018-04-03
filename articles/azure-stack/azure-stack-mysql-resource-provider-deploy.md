@@ -1,24 +1,24 @@
 ---
-title: "MySQL veritabanları PaaS Azure yığında kullanın | Microsoft Docs"
-description: "MySQL kaynak sağlayıcı dağıtmak ve Azure yığında bir hizmet olarak MySQL veritabanları sağlar nasıl öğrenin."
+title: MySQL veritabanları PaaS Azure yığında kullanın | Microsoft Docs
+description: MySQL kaynak sağlayıcı dağıtmak ve Azure yığında bir hizmet olarak MySQL veritabanları sağlar nasıl öğrenin.
 services: azure-stack
-documentationCenter: 
+documentationCenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: 15a1648193555ecc5847170ab65f48dfa4f6417b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 66e1d5691b431be0c3d040570b13e8d16b1669ef
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığında MySQL veritabanları kullanın
 
@@ -80,7 +80,7 @@ Sistem hesabı aşağıdaki ayrıcalıklara sahip olmalıdır:
     | 1711: 1.0.171122.1 | [MySQL RP sürüm 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1710: 1.0.171028.1 | [MySQL RP sürüm 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
 
-4.  Azure yığın kök sertifikası ayrıcalıklı uç noktasından alınır. İçin Azure SDK, bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
+4.  İçin Azure SDK, bu işlemin bir parçası olarak otomatik olarak imzalanan bir sertifika oluşturulur. Birden çok düğümlü için uygun bir sertifika sağlamanız gerekir.
 
     Kendi sertifikanızı sağlamanız gerekiyorsa, bir .pfx dosyasına yerleştirin **DependencyFilesLocalPath** ve şu ölçütlere uymalıdır:
 
@@ -110,7 +110,7 @@ Komut dosyası, aşağıdaki adımları gerçekleştirir:
 * Kaynak sağlayıcısı yerel Azure Resource Manager ile (Kiracı ve yönetim) kaydeder.
 
 
-Yapabilecekleriniz:
+Şunları yapabilirsiniz:
 - Komut satırında gerekli parametreleri belirtin.
 - Hiçbir parametre olmadan çalıştırın ve bunları istendiğinde girin.
 
@@ -399,7 +399,7 @@ Defender tanımlarını güncelleştirmek için aşağıdaki adımları izleyin:
 
     Bu sayfada "El ile yükleyip tanımları altında" indir "Windows 10 ve Windows 8.1" 64-bit dosya için Windows Defender Antivirus. 
     
-    Direct link: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
+    Doğrudan bağlantı: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64
 
 2. Bir PowerShell oturumuna MySQL RP bağdaştırıcısı sanal makinenin bakım uç noktası oluşturma
 3. Bakım uç nokta oturumu kullanarak DB bağdaştırıcısı makineye tanımları güncelleştirme dosyasını kopyalayın

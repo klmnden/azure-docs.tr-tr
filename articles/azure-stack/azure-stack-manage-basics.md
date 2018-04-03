@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: 799651caf937ca2bafc79dc76f99ae43e700673a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-administration-basics"></a>Azure yığın Yönetimi temelleri
 Azure yığın yönetim yeni bilmeniz gereken birkaç nokta vardır. Bu kılavuz, rol Azure yığın işleç olarak genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -31,9 +31,9 @@ Bir Azure tümleşik yığını sistemi kullanıyorsanız, Azure yığın günce
  
 ### <a name="development-kit"></a>Geliştirme Seti
 
-Azure yığın Geliştirme Seti kullanıyorsanız, gözden [Azure yığın nedir?](azure-stack-poc.md) makale amacını Geliştirme Seti ve onun kısıtlamaları anladığınızdan emin olun. "Burada Azure yığın değerlendirmek ve geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz: [Azure yığın Geliştirme Seti dağıtım](azure-stack-deploy-overview.md) quickstart.)
+Azure yığın Geliştirme Seti kullanıyorsanız, gözden [Azure yığın nedir?](.\asdk\asdk-what-is.md) makale amacını Geliştirme Seti ve onun kısıtlamaları anladığınızdan emin olun. "Burada Azure yığın değerlendirmek ve geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz: [Azure yığın Geliştirme Seti dağıtım](.\asdk\asdk-deploy.md) öğretici.)
 
-Azure gibi biz hızlı bir şekilde yenilik. Biz düzenli olarak yeni yayın derlemeleri. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme için yapmanız gerekenler istediğiniz [Azure yığın dağıtmanız](azure-stack-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyebilirsiniz avantajdır. Bizim Web sitesi Geliştirme Seti belgelerine en son sürüm yapı yansıtır.
+Azure gibi biz hızlı bir şekilde yenilik. Biz düzenli olarak yeni yayın derlemeleri. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme için yapmanız gerekenler istediğiniz [Azure yığın dağıtmanız](.\asdk\asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyebilirsiniz avantajdır. Bizim Web sitesi Geliştirme Seti belgelerine en son sürüm yapı yansıtır.
 
 ## <a name="learn-about-available-services"></a>Kullanılabilir hizmetler hakkında bilgi edinin
 
@@ -63,6 +63,18 @@ Bu hizmetler, bunları kullanılabilir kullanıcılarınıza hale getirmeden ön
 **Hizmet yol haritası**
 
 Azure yığını, Azure Hizmetleri için destek eklemek devam eder. Tahmini yol haritası için bkz: [Azure yığın: Azure uzantısı](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) teknik incelemesi. Da izleyebilirsiniz [Azure yığın blog gönderileri](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) yeni duyuruları için.
+
+## <a name="what-account-should-i-use"></a>Hangi hesabı kullanmalıyım?
+Azure yığın yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak noktalar vardır. Özellikle dağıtımlarda, kimlik sağlayıcısı Azure Active Directory (Azure AD) yerine Windows Server Active Directory Federasyon Hizmetleri (AD FS) kullanarak. Aşağıdaki hesabında dikkate alınacak noktalar hem Azure tümleşik yığını sistemleri hem de ASDK dağıtımları için geçerlidir:
+
+
+|Hesap|Azure AD|AD FS|
+|-----|-----|-----|
+|Local Administrator (.\Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
+|AzureStack\AzureStackAdmin|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın Yönetim Portalı'nda oturum için kullanılabilir<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın yönetim portalı için erişim yok<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim<br><br>Artık sahibi varsayılan sağlayıcı abonelik (DPS)|
+|AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın<br><br>ASDK ana bilgisayara oturum değil<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|
+|Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|Uygulanamaz|
+|
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Yönetmek için hangi Araçlar kullanıyor?
  
