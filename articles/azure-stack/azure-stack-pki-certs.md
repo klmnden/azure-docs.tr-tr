@@ -3,7 +3,7 @@ title: Azure yığın Azure yığın ortak anahtar altyapısı sertifika gereksi
 description: Azure tümleşik yığını sistemler için Azure yığın PKI sertifikası dağıtım gereksinimleri açıklanır.
 services: azure-stack
 documentationcenter: ''
-author: mabriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2018
-ms.author: mabrigg
+ms.date: 03/29/2018
+ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: a5712e556d7b3bdcce38b8b8d39a08414ce0fd2f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
+
 Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler kümesine atanmış dışarıdan erişilebilir ortak IP adresleri kullanan bir ortak altyapı ağı Azure yığınına sahiptir. Bu Azure yığın ortak altyapısı uç noktalar için uygun DNS adları ile birlikte PKI sertifikalarını Azure yığın dağıtımı sırasında gereklidir. Bu makalede, hakkında bilgi sağlar:
 
 - Hangi sertifikaların Azure yığın dağıtmak için gerekli
@@ -37,7 +38,7 @@ Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksin
 - Azure yığın altyapınızı, sertifikaları imzalamak için kullanılan sertifika yetkilisi için ağ erişimi olması gerekir
 - Sertifikaları döndürme, sertifikalar ya da dağıtım veya herhangi bir ortak sertifika yetkilisi yukarıda verilen sertifikaları imzalamak için kullanılan aynı iç sertifika yetkilisi tarafından verilen olmalıdır
 - Otomatik olarak imzalanan sertifikaların kullanımını desteklenmez
-- Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, uç noktaları acs ve anahtar kasası gerekli olduğu gibi joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz. 
+- Sertifika konu alternatif adı (SAN) alanındaki tüm ad alanlarını kapsayan tek bir joker sertifika olabilir. Alternatif olarak, uç noktaları için gibi joker karakterler kullanarak tek tek sertifikaları kullanabilirsiniz **acs** ve bulundukları yerde gerekli anahtar kasası. 
 - Sertifika imza algoritması güçlü olmalıdır SHA1, olamaz. 
 - Ortak ve özel anahtarlar Azure yığın yükleme için gerekli olan sertifika biçimi PFX, olması gerekir. 
 - Sertifika pfx dosyaları bir değer "Dijital imza" ve "KeyEncipherment", "Anahtar kullanımı" alanında olması gerekir.
@@ -58,6 +59,23 @@ Her iki Azure AD için gerekli olan Azure yığın ortak uç nokta PKI sertifika
 Her Azure yığın ortak altyapısı uç noktası için uygun DNS adları olan sertifikaları gereklidir. Her uç noktanın DNS adı biçiminde ifade edilir:  *&lt;öneki >.&lt; bölge >. &lt;fqdn >*. 
 
 Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın sisteminiz için seçtiğiniz dış etki alanı adları eşleşmelidir. Bölge adı ise bir örnek olarak *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi olurdu *&lt;öneki >. redmond.contoso.com*.  *&lt;Öneki >* değerleri sertifika tarafından güvenliği sağlanan uç nokta açıklamak için Microsoft tarafından predesignated. Ayrıca,  *&lt;öneki >* dış altyapı uç noktaları değerler belirli uç noktası kullanan Azure yığın hizmet bağlıdır. 
+
+> [!note]  
+> Tüm ad alanlarını tüm dizinlere kopyalanan konusu ve konu alternatif adı (SAN) alanları kapsayan bir tek joker sertifikası olarak veya tek sertifikaların her uç nokta karşılık gelen dizine kopyaladı sağlanan sertifika olabilir. Unutmayın, her iki seçenek için uç noktaları gibi joker karakterli sertifikalar kullanmanızı gerektirir **acs** ve bulundukları yerde gerekli anahtar kasası. 
+
+| Dağıtım klasörü | Gerekli sertifika konusu ve konu alternatif adları (SAN) | Kapsam (her bölge) | Alt etki alanı ad alanı |
+|-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
+| Ortak portalı | portal.&lt;region>.&lt;fqdn> | Portallar | &lt;region>.&lt;fqdn> |
+| Yönetim Portalı | adminportal.&lt;region>.&lt;fqdn> | Portallar | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager genel | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Admin | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Blob Depolama | blob.&lt;region>.&lt;fqdn> |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Tablo Depolama | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Kuyruk Depolama | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Anahtar Kasası | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) |  İç Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+
+### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Öncesi 1803 sürümlerinde Azure yığın ortamı için
 
 |Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
@@ -93,7 +111,7 @@ Aşağıdaki tabloda, SQL ve MySQL bağdaştırıcıları ve uygulama hizmeti i�
 |Kapsam (her bölge)|Sertifika|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL ve MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Joker SSL sertifikası)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>(Birden çok etki alanı joker SSL sertifikası<sup>1</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Birden çok etki alanı joker SSL sertifikası<sup>1</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|SSO|SSO.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

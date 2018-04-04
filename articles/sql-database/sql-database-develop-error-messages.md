@@ -1,7 +1,7 @@
 ---
-title: "SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs"
-description: "Ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL Database istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. "
-keywords: "SQL hata kodu, erişim sql, veritabanı bağlantı hatası, sql hata kodları"
+title: SQL hata kodları - veritabanı bağlantı hatası | Microsoft Docs
+description: 'Ortak veritabanı bağlantı hataları, veritabanı kopyalama sorunlarını ve genel hataları gibi SQL Database istemci uygulamaları için SQL hata kodları hakkında bilgi edinin. '
+keywords: SQL hata kodu, erişim sql, veritabanı bağlantı hatası, sql hata kodları
 services: sql-database
 author: stevestein
 manager: craigg
@@ -48,10 +48,10 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
-| 4060 |16 |Veritabanı açılamıyor. "%. & #x2a; ls" oturum açma tarafından istenen. Oturum açma başarısız. |
+| 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |
 | 40197 |17 |Hizmet isteğinizi işlerken bir hatayla karşılaştı. Lütfen yeniden deneyin. Hata kodu %d.<br/><br/>Hizmet aşağı yazılım veya donanım yükseltmeleri, donanım hataları ya da başka bir yük devretme sorunlar nedeniyle olduğunda bu hatayı alırsınız. Katıştırılmış 40197 hata iletisi içinde hata kodu (%d) tür hata veya oluştu yük devretme hakkında ek bilgi sağlar. Bazı kodlar hata 40197 ileti içinde katıştırılmış hata 40020, 40143, 40166 ve 40540 gösterilebilir.<br/><br/>SQL veritabanı sunucusuna otomatik olarak yeniden bağlanmayı veritabanınızın sağlıklı bir kopyasını bağlanır. Uygulamanız hata 40197, günlük sorun giderme için iletisindeki katıştırılmış hata kodu (%d) yakalamak ve SQL veritabanına kaynaklar kullanılabilir ve, bağlantı yeniden kurulana kadar yeniden bağlanmayı deneyin. |
 | 40501 |20 |Hizmet şu anda meşgul. İsteği 10 saniye sonra yeniden deneyin. Olay Kimliği: %ls. Kodu: %d.<br/><br/>Daha fazla bilgi için bkz.<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers.md). |
-| 40613 |17 |Veritabanı '%. & #x2a; ls' sunucusundaki '%. & #x2a; ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%. & #x2a; ls'. |
+| 40613 |17 |Veritabanı '%.&#x2a;ls' sunucusundaki '%.&#x2a;ls' şu anda kullanılamıyor. Lütfen bağlantıyı daha sonra yeniden deneyin. Sorun devam ederse müşteri desteğine başvurun ve oturum izleme Kimliğini verin '%.&#x2a;ls'. |
 | 49918 |16 |İsteği işleyemiyor. İsteği işlemek için yeterli kaynak yok.<br/><br/>Hizmet şu anda meşgul. Lütfen isteği daha sonra yeniden deneyin. |
 | 49919 |16 |İşlem oluşturulamıyor veya istek güncelleştirilemiyor. Çok sayıda oluşturma veya güncelleştirme devam eden işlemleri aboneliği için "% ld".<br/><br/>Hizmet meşgul birden çok işleme oluştur veya güncelleştir abonelik veya sunucu için istekleri. İstek şu anda kaynak iyileştirme için engellenir. Sorgu [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) için bekleyen işlemler. Kasa Oluştur bekleyin veya güncelleştirme isteklerinin tamamlandığı veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
 | 49920 |16 |İsteği işleyemiyor. Devam eden çok fazla işlemleri aboneliği için "% ld".<br/><br/>Hizmet, bu abonelik için birden çok istek işleme meşgul. İstek şu anda kaynak iyileştirme için engellenir. Query [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) for operation status. Bekleyen istekler kadar bekleyin, tam veya bekleyen istekler birini silin ve isteğinizi daha sonra yeniden deneyin. |
@@ -62,7 +62,7 @@ Azure SQL veritabanında bir veritabanı kopyalanırken şu hatalarla karşıla�
 
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
-| 40635 |16 |İstemci IP adresi '%. & #x2a; ls' geçici olarak devre dışıdır. |
+| 40635 |16 |İstemci IP adresi '%.&#x2a;ls' geçici olarak devre dışıdır. |
 | 40637 |16 |Oluşturma veritabanı kopyalama şu anda devre dışı. |
 | 40561 |16 |Veritabanı kopyalama başarısız oldu. Kaynak veya hedef veritabanı yok. |
 | 40562 |16 |Veritabanı kopyalama başarısız oldu. Kaynak veritabanı bırakılmış. |
@@ -138,35 +138,35 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 | Hata kodu | Önem Derecesi | Açıklama |
 | ---:| ---:|:--- |
 | 15006 |16 |(Admınıstratorlogın), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
-| 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%. & #x2a; ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
-| 18456 |14 |Kullanıcı için oturum açma başarısız ' %. #x2a;ls'.%. & #x2a ls %. & #x2a; ls (kullanıcı için oturum açma başarısız "%. & #x2a; ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor.) |
-| 18470 |14 |Kullanıcı için oturum açma başarısız '%. & #x2a; ls'. Neden: Disabled.%. & #x2a; hesaptır ls |
+| 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |
+| 18456 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(kullanıcı için oturum açma başarısız "%.&#x2a;ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor.) |
+| 18470 |14 |Kullanıcı için oturum açma başarısız '%.&#x2a;ls'. Neden: Disabled.%.&#x2a;ls hesaptır ls |
 | 40014 |16 |Birden çok veritabanı aynı işlemde kullanılamaz. |
 | 40054 |16 |Kümelenmiş dizini olmayan tablolar, SQL Server'ın bu sürümünde desteklenmez. Kümelenmiş bir dizin oluşturun ve yeniden deneyin. |
 | 40133 |15 |Bu işlem, SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40506 |16 |Belirtilen SID bu SQL Server sürümü için geçersiz. |
-| 40507 |16 |' %. & #x2a; ls'SQL Server'ın bu sürümünde parametrelerle çağrılacak olamaz. |
+| 40507 |16 |'%.&#x2a;ls' SQL Server'ın bu sürümünde parametrelerle çağrılacak olamaz. |
 | 40508 |16 |USE deyiminin veritabanları arasında geçiş yapmak için desteklenmiyor. Farklı bir veritabanına bağlanmak için yeni bir bağlantı kullanın. |
-| 40510 |16 |Deyimi '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor |
-| 40511 |16 |Yerleşik işlevi '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40510 |16 |Deyimi '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor |
+| 40511 |16 |Yerleşik işlevi '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40512 |16 |Kullanım dışı özelliği '%ls' SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40513 |16 |Sunucu değişkeni '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40513 |16 |Sunucu değişkeni '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40514 |16 |'%ls' SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40515 |16 |Veritabanı ve/veya sunucu adına başvuru içinde '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40515 |16 |Veritabanı ve/veya sunucu adına başvuru içinde '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40516 |16 |Genel geçici nesneler bu SQL Server sürümünde desteklenmiyor. |
-| 40517 |16 |Anahtar sözcüğü veya deyim seçeneği '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40518 |16 |DBCC komutu '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40517 |16 |Anahtar sözcüğü veya deyim seçeneği '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40518 |16 |DBCC komutu '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40520 |16 |Güvenliği sağlanabilir sınıfı '% S_MSG' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40521 |16 |Güvenliği sağlanabilir sınıfı '% S_MSG' SQL Server'ın bu sürümünde sunucu kapsamında desteklenmiyor. |
-| 40522 |16 |Veritabanı asıl '%. & #x2a; ls' türü SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40523 |16 |'%. & #X2a; ls' örtük kullanıcı oluşturma, SQL Server'ın bu sürümünde desteklenmiyor. Açıkça kullanmadan önce kullanıcı oluşturun. |
-| 40524 |16 |Veri türü '%. & #x2a; ls' SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40522 |16 |Veritabanı asıl '%.&#x2a;ls' türü SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40523 |16 |'%.&#x2a;ls' örtük kullanıcı oluşturma, SQL Server'ın bu sürümünde desteklenmiyor. Açıkça kullanmadan önce kullanıcı oluşturun. |
+| 40524 |16 |Veri türü '%.&#x2a;ls' SQL Server'ın bu sürümünde desteklenmiyor. |
 | 40525 |16 |'%.Ls' ile SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40526 |16 |' %. & #x2a; ls satır kümesi sağlayıcısı bu SQL Server sürümünde desteklenmiyor. |
+| 40526 |16 |'%.&#x2a;ls satır kümesi sağlayıcısı bu SQL Server sürümünde desteklenmiyor. |
 | 40527 |16 |Bağlantılı sunucular, SQL Server'ın bu sürümünde desteklenmez. |
 | 40528 |16 |Kullanıcıların sertifikalar, asimetrik anahtarlar veya SQL Server'ın bu sürümünde Windows oturumları eşlenemiyor. |
-| 40529 |16 |Yerleşik işlevi '%. & #x2a; ls' kimliğe bürünme bağlam, SQL Server'ın bu sürümünde desteklenmiyor. |
-| 40532 |11 |Sunucu açamıyor "%. & #x2a; ls" oturum açma tarafından istenen. Oturum açma başarısız. |
+| 40529 |16 |Yerleşik işlevi '%.&#x2a;ls' kimliğe bürünme bağlam, SQL Server'ın bu sürümünde desteklenmiyor. |
+| 40532 |11 |Sunucu açamıyor "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |
 | 40553 |16 |Aşırı bellek kullanımı nedeniyle oturum sonlandırıldı. Sorgunuzu daha az sayıda satır işleyecek şekilde değiştirmeyi deneyin.<br/><br/> Sayısının azaltılması `ORDER BY` ve `GROUP BY` Transact-SQL kodunuzu işlemlerinde yardımcı sorgunuzun bellek gereksinimlerini azaltın. |
 | 40604 |16 |Sunucunun kotasını aşacağından CREATE/ALTER DATABASE verebilir. |
 | 40606 |16 |Veritabanları ekleme SQL Server'ın bu sürümünde desteklenmiyor. |
@@ -176,12 +176,12 @@ Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 | 40615 |16 |Sunucu '{0}' oturum açma tarafından istenen açamıyor. IP adresi '{1}' olan istemcinin sunucuya erişmek için izin verilmiyor.<br /><br />Erişimi etkinleştirmek için SQL veritabanı Portalı'nı kullanın veya sp çalıştırın\_ayarlamak\_Güvenlik Duvarı\_bu IP adresi veya adres aralığı için bir güvenlik duvarı kuralı oluşturmak için ana veritabanı üzerinde kuralı. Bu değişikliğin etkili olması beş dakika kadar sürebilir. |
 | 40617 |16 |(Kural adı) ile başlayan güvenlik duvarı kuralı adı çok uzun. En fazla uzunluk 128'dir. |
 | 40618 |16 |Güvenlik duvarı kuralı adı boş olamaz. |
-| 40620 |16 |Kullanıcı için oturum açma başarısız "%. & #x2a; ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor. |
+| 40620 |16 |Kullanıcı için oturum açma başarısız "%.&#x2a;ls". Parola değiştirme başarısız oldu. Oturum açma sırasında parola değiştirme bu SQL Server sürümünde desteklenmiyor. |
 | 40627 |20 |Sunucu '{0}' ve veritabanı '{1}' işlemi devam ediyor. Yeniden denemeden önce birkaç dakika bekleyin. |
 | 40630 |16 |Parola doğrulama başarısız oldu. Parola çok kısa olduğundan ilke gereksinimlerini karşılamıyor. |
 | 40631 |16 |Belirttiğiniz parola çok uzun. Parola en fazla 128 karakter olmalıdır. |
 | 40632 |16 |Parola doğrulama başarısız oldu. Parola yeterince karmaşık olmadığı için ilke gereksinimlerini karşılamıyor. |
-| 40636 |16 |Ayrılmış veritabanı adı kullanamazsınız '%. & #x2a; ls' Bu işlemde. |
+| 40636 |16 |Ayrılmış veritabanı adı kullanamazsınız '%.&#x2a;ls' Bu işlemde. |
 | 40638 |16 |Geçersiz abonelik kimliği (subscrıptıon-ID). Abonelik yok. |
 | 40639 |16 |İstek şemaya uymuyor: (şema hatası). |
 | 40640 |20 |Sunucu beklenmeyen bir özel durumla karşılaştı. |
