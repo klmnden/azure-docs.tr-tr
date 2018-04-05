@@ -1,18 +1,18 @@
 ---
-title: "Görevleri durumunu - Azure Batch tarafından sayım tarafından bir işin ilerleme durumunu izlemek | Microsoft Docs"
-description: "Bir iş için görevleri saymak için görev sayar alma işlemi çağırarak bir işin ilerleme durumunu izleyin. Etkin, çalışan ve tamamlanan görevler ve başarılı veya başarısız olduğunu görevler tarafından sayımı elde edebilirsiniz."
+title: Görevleri durumunu - Azure Batch tarafından sayım tarafından bir işin ilerleme durumunu izlemek | Microsoft Docs
+description: Bir iş için görevleri saymak için görev sayar alma işlemi çağırarak bir işin ilerleme durumunu izleyin. Etkin, çalışan ve tamamlanan görevler ve başarılı veya başarısız olduğunu görevler tarafından sayımı elde edebilirsiniz.
 services: batch
-author: tamram
-manager: timlt
+author: dlepow
+manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: tamram
-ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: bc112ed5b481560362962d6b550d336de6b3d9b4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Görevler bir işin ilerleme durumunu (Önizleme) izlemek için duruma göre Say
 
@@ -31,7 +31,7 @@ Görev sayar alma işlemi aşağıdaki gibi görevleri durumuna göre sayar:
 - Bir görev olarak sayılır **çalıştıran** ne zaman bir işlem düğümüne atanmış, ancak henüz tamamlanmadı. Bir görev olarak sayılır **çalıştıran** durumuna olduğunda ya da `preparing` veya `running`belirtildiği gibi [bir görev hakkında bilgi alma] [ rest_get_task] işlemi.
 - Bir görev olarak sayılır **tamamlandı** olduğu zaman artık çalıştırmak uygun. Bir görev olarak sayılan **tamamlandı** sahip genellikle başarıyla tamamlandı ya da veya başarısız sona erdi ve ayrıca, yeniden deneme sınırını aştı. 
 
-Görev sayar alma işlemi de kaç görevlerin başarılı veya başarısız olduğunu bildirir. Toplu göreve başarılı olup kontrol ederek belirler **sonuç** [executionInfo] [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] özelliğinin özelliği:
+Görev sayar alma işlemi de kaç görevlerin başarılı veya başarısız olduğunu bildirir. Toplu göreve başarılı olup kontrol ederek belirler **sonuç** [executionInfo] özelliği [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] özelliği:
 
     - Bir görev olarak sayılır **başarılı** görev yürütme sonuç ise `success`.
     - Bir görev olarak sayılır **başarısız** görev yürütme sonuç ise `failure`.

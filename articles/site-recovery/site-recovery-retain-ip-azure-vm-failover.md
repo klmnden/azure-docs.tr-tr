@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal makineleri başka bir Azure bölgesine üzerinden başarısız olduğunda IP adreslerini korumak | Microsoft Docs"
-description: "Azure Site Recovery ile Azure için Azure yük devretme senaryoları için IP adreslerini korumak açıklar"
+title: Azure sanal makineleri başka bir Azure bölgesine üzerinden başarısız olduğunda IP adreslerini korumak | Microsoft Docs
+description: Azure Site Recovery ile Azure için Azure yük devretme senaryoları için IP adreslerini korumak açıklar
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: mayanknayar
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: manayar
-ms.openlocfilehash: 15f87ba87d90cee765f52d3188796bc1ff7b8a35
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 8e128e057e45f6966067ebaaf039d9b14349d926
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure sanal makine yük devretme için IP adresi bekletme
 
@@ -84,11 +84,7 @@ Daha fazla uygulama içerir ve ağ bağlantıları için örnek yalıtılmış y
 
 ### <a name="further-considerations"></a>Dikkat edilecek diğer konular
 
-VPN ağ geçitleri, genel IP adresleri ve ağ geçidi atlama bağlantıları kurmak için kullanır. Genel IP kullanın ve/veya ek atlama önlemek istiyorsanız istemiyorsanız, artık genel VNet eşlemesi Azure bölgeler arasında sanal ağlar arası kullanabilirsiniz.
-
-Bu özellik şu anda genel önizlemede ve daha bölgesini desteklemek için genişletilen — tüm ortak Internet katılımı veya herhangi bir ek atlama olmadan doğrudan VM VM bağlantıyı etkinleştirme.
-
-Daha fazla bilgi için bkz [eşleme belgelerine](../virtual-network/tutorial-connect-virtual-networks-portal.md#register) ve [fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-network/).
+VPN ağ geçitleri, genel IP adresleri ve ağ geçidi atlama bağlantıları kurmak için kullanır. Genel IP kullanın ve/veya ek atlama önlemek istiyorsanız istemiyorsanız, Azure kullanabilirsiniz [sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md) sanal ağlar arasında eşe [Azure bölgeleri desteklenen](../virtual-network/virtual-network-manage-peering.md#cross-region).
 
 ## <a name="on-premises-to-azure-connectivity"></a>Şirket içi-Azure'a bağlantısı
 

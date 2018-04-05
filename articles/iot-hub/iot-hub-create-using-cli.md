@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI (az.py) kullanarak IOT Hub oluşturma | Microsoft Docs"
-description: "Platformlar arası Azure CLI 2.0 (az.py) kullanan bir Azure IOT hub oluşturma"
+title: Azure CLI (az.py) kullanarak IOT Hub oluşturma | Microsoft Docs
+description: Platformlar arası Azure CLI 2.0 (az.py) kullanan bir Azure IOT hub oluşturma
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: azurecli
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dobett
-ms.openlocfilehash: 161089159999a4a63a39b059e69a08b7a9297445
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: c89ecc31754d355d6469d54dcd45e1cc2ef106f0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan IOT hub oluşturma
 
@@ -42,21 +42,21 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
-1. Komut istemine [oturum açma komut][lnk-login-command]:
+1. Komut isteminde [oturum açma komutunu][lnk-login-command] çalıştırın:
     
     ```azurecli
     az login
     ```
 
-    Kod kullanarak kimlik doğrulaması yapmak için yönergeleri izleyin ve bir web tarayıcısı aracılığıyla Azure hesabınızda oturum açın.
+    Kodu kullanarak kimlik doğrulaması gerçekleştirmek için yönergeleri uygulayın ve bir web tarayıcısı üzerinden Azure hesabınızda oturum açın.
 
-2. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgilerinizle ilişkilendirilen tüm Azure hesaplar için size erişim verir. Aşağıdaki [Azure hesapları listelemek için komut] [ lnk-az-account-command] kullanmanız için kullanılabilir:
+2. Birden fazla Azure aboneliğiniz varsa Azure’da oturum açtığınızda, kimlik bilgilerinizle ilişkili tüm Azure hesaplarınıza erişim izni elde edersiniz. Kullanabileceğiniz [Azure hesaplarını listelemek için aşağıdaki komutu][lnk-az-account-command] kullanın:
     
     ```azurecli
     az account list 
     ```
 
-    IOT hub'ınızı oluşturması için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
+    IoT hub’ınızı oluşturmak için komutları çalıştırmak amacıyla kullanmak istediğiniz aboneliği seçmek üzere aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -66,14 +66,14 @@ Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
 Bir kaynak grubu oluşturun ve IOT hub'ı eklemek için Azure CLI kullanın.
 
-1. IOT hub'ı oluşturduğunuzda, bir kaynak grubunda oluşturmanız gerekir. Varolan bir kaynak grubunu kullanın veya aşağıdaki komutu çalıştırarak [bir kaynak grubu oluşturmak için komutu][lnk-az-resource-command]:
+1. IOT hub'ı oluşturduğunuzda, bir kaynak grubunda oluşturmanız gerekir. Mevcut bir kaynak grubunu kullanın veya [kaynak grubu oluşturmak için aşağıdaki komutu][lnk-az-resource-command] çalıştırabilirsiniz:
     
     ```azurecli
      az group create --name {your resource group name} --location westus
     ```
 
     > [!TIP]
-    > Önceki örnekte Batı ABD konumunda kaynak grubu oluşturur. Komutunu çalıştırarak kullanılabilir konumların bir listesini görüntüleyebilirsiniz `az account list-locations -o table`.
+    > Önceki örnekte kaynak grubu Batı ABD konumunda oluşturulur. `az account list-locations -o table` komutunu çalıştırarak kullanılabilir konumların listesini görüntüleyebilirsiniz.
     >
     >
 
@@ -89,19 +89,18 @@ Bir kaynak grubu oluşturun ve IOT hub'ı eklemek için Azure CLI kullanın.
 > [!NOTE]
 > Önceki komutu fiyatlandırma katmanı için faturalandırılır S1 bir IOT hub oluşturur. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-iot-pricing].
 >
->
 
 ## <a name="remove-an-iot-hub"></a>IOT hub'ı kaldırma
 
 Azure CLI için kullanabileceğiniz [tek başına bir kaynak silme][lnk-az-resource-command]bir IOT hub'ı veya silme gibi bir kaynak grubu ve tüm IOT hub'ları da dahil olmak üzere tüm kaynaklarını,.
 
-Bir IOT hub'ını silmek için aşağıdaki komutu çalıştırın:
+Bir IoT hub’ını silmek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az iot hub delete --name {your iot hub name} --resource-group {your resource group name}
 ```
 
-Bir kaynak grubu ve tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
+Bir kaynak grubuyla birlikte bu kaynak grubunun tüm kaynaklarını silmek için aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az group delete --name {your resource group name}

@@ -1,24 +1,24 @@
 ---
-title: "Azure CLI (azure.js) kullanarak IOT hub oluşturma | Microsoft Docs"
-description: "Platformlar arası Azure CLI (azure.js) kullanarak Azure IOT hub oluşturma"
+title: Azure CLI (azure.js) kullanarak IOT hub oluşturma | Microsoft Docs
+description: Platformlar arası Azure CLI (azure.js) kullanarak Azure IOT hub oluşturma
 services: iot-hub
 documentationcenter: .net
-author: BeatriceOltean
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 46a17831-650c-41d9-b228-445c5bb423d3
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
-ms.author: boltean
-ms.openlocfilehash: 7ad0efeeacbdb5dd0185c6336e9bf0e4d7937c99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/01/2018
+ms.author: kgremban
+ms.openlocfilehash: 7e761ba66f4b28dd7cc59dc8998c23810dd2b7d1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Azure CLI kullanarak IOT hub oluşturma
 
@@ -90,8 +90,8 @@ azure iothub create -g <resource-group> -n <name> -l <location> -s <sku-name> -u
 * **kaynak grubu**. Kaynak grubu adı. Büyük küçük harfe duyarlı alfasayısal, alt çizgi ve tire, 1-64 uzunluğu biçimindedir.
 * **name**. Oluşturulacak IOT hub adı. Büyük küçük harfe duyarlı bir biçimidir alfasayısal ve kısa çizgi, 3-50 uzunluğu.
 * **Konum**. IOT hub'ı sağlamak için konum (azure bölge/veri merkezi).
-* **SKU adı**. Sku birini adı: [F1, S1, S2, S3]. En son tam listesi için IOT Hub için fiyatlandırma sayfasına bakın.
-* **birimleri**. Sağlanan birim sayısı. Aralık: F1 [1-1]: S1, S2 [1-200]: [1-10] S3. IOT Hub birimleri toplam ileti sayınıza ve bağlamak istediğiniz cihaz sayısını temel alır.
+* **SKU adı**. Sku birini adı: [F1, S1, S2, S3]. Her sku hakkında daha fazla ayrıntı için bkz: [Azure IOT Hub fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-hub/). Temel katmanları şu anda yalnızca Portalı aracılığıyla olarak kullanılabilir. 
+* **birimleri**. Sağlanan birim sayısı. Birim sınırları hakkında daha fazla ayrıntı için bkz: [Azure IOT Hub fiyatlandırma](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 

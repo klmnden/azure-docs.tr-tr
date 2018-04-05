@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 01/22/2018
+ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 7e3fd12b2157d28c5d61bfa8d5fb69a00557a1f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5b7af290a5e5c45d3f64ccb50586db0811dd592
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>.NET SDK’sını kullanarak veri fabrikası ve işlem hattı oluşturma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -102,12 +102,12 @@ Bu makaledeki kılavuzda Visual Studio 2017 kullanılır. Visual Studio 2013 vey
 [Azure .NET SDK’sını](http://azure.microsoft.com/downloads/) indirip makinenize yükleyin.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Azure Active Directory’de uygulama oluşturma
-Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) yönergeleri izleyin: 
+Aşağıdaki görevleri gerçekleştirmek için [bu makaledeki](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) bölümlerde yer alan yönergeleri izleyin: 
 
 1. **Azure Active Directory uygulaması oluşturma**. Azure Active Directory'de, bu öğreticide oluşturduğunuz .NET uygulamasını temsil eden bir uygulama oluşturma. Oturum açma URL'si için, makalede gösterildiği gibi bir işlevsiz URL sağlayabilirsiniz (`https://contoso.org/exampleapp`).
-2. Makaledeki **Uygulama kimliği ve kimlik doğrulama anahtarını alma** bölümünde bulunan yönergeleri kullanarak **uygulama kimliği** ve **kimlik doğrulama anahtarını**** alın. Bu öğreticide daha sonra kullanacağınız için bu değerleri not alın. 
-3. Makaledeki **Kiracı kimliği alma** bölümünde verilen yönergeleri kullanarak **kiracı kimliğini** alın. Bu değeri not edin. 
-4. Uygulamanın abonelikte veri fabrikaları oluşturabilmesi için uygulamayı **Katkıda Bulunan** rolüne atayın. Makaledeki **Uygulamayı role atama** bölümünde yer alan yönergeleri izleyin. 
+2. **Uygulama kimliği** ve **kimlik doğrulaması anahtarı** değerlerini alın ve bu öğreticinin ilerleyen kısmında kullanmak üzere bu değerleri not edin. 
+3. **Kiracı kimliği** değerini alın ve bu öğreticinin ilerleyen kısmında kullanmak üzere bu değeri not edin.
+4. Uygulamanın abonelikte veri fabrikaları oluşturabilmesi için uygulamayı **Katkıda Bulunan** rolüne atayın.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio projesi oluşturma
 

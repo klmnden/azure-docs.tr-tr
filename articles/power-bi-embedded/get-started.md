@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Power BI Embedded kullanmaya başlama | Microsoft Docs"
-description: "İş zekası uygulamanıza Power BI Embedded"
+title: Microsoft Power BI Embedded kullanmaya başlama | Microsoft Docs
+description: İş zekası uygulamanıza Power BI Embedded
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 4787cf44-5d1c-4bc3-b3fd-bf396e5c1176
 ms.service: power-bi-embedded
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: asaxton
-ms.openlocfilehash: 79ec87ad7d7dc4a4dc003e4163c8e609c828f545
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 3ea302d8cdd9a08d41f863917adeb4505552649d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded kullanmaya başlama
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/12/2018
 
 ![Ekleme akış şeması](media/get-started/introduction.png)
 
-Power BI Embedded; ISV'lere, geliştiricilerine ve müşterilerine avantajlar sunar. Örneğin bir ISV, Power BI Desktop kullanarak ücretsiz görsel oluşturmaya başlayabilir. ISV'ler analitik geliştirme çabalarını en aza indirerek pazarlama süresini kısaltabilir ve farklı veri deneyimleri sunarak rakiplerinden sıyrılabilir. ISV'ler ayrıca eklenmiş analitiklerle oluşturulan katma değer için ek ücret tahsil edebilir.
+Power BI Embedded; ISV'lere, geliştiricilerine ve müşterilerine avantajlar sunar. Örneğin bir ISV, Power BI Desktop kullanarak ücretsiz görsel oluşturmaya başlayabilir. ISV'ler görsel analitik geliştirme çabalarını en aza indirerek pazarlama süresini hızlandırabilir ve farklı veri deneyimleri sunarak rakiplerinden sıyrılabilir. ISV'ler ayrıca eklenmiş analitiklerle oluşturulan katma değer için ek ücret tahsil edebilir.
 
 Geliştiriciler zamanlarını görselleri ve analitikleri geliştirmeye harcamak yerine uygulamalarının temel özelliklerini geliştirmeye ayırabilir. Geliştiriciler ayrıntılı belgelere sahip API'leri ve SDK'ları kullanarak müşteri raporlarının ve panoların taleplerini hızlı bir şekilde karşılayabilir. Son olarak ISV'ler uygulamalarında gezinmesi kolay veri bağlamını kullanarak müşterilerin tüm cihazlardan bağlam dahilinde ve rahat veri kaynaklı kararlar almasını sağlayabilir.
 

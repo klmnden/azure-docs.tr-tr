@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage kesinti durumunda yapmanız gerekenler | Microsoft Docs"
-description: "Azure Storage kesinti durumunda yapmanız gerekenler"
+title: Azure Storage kesinti durumunda yapmanız gerekenler | Microsoft Docs
+description: Azure Storage kesinti durumunda yapmanız gerekenler
 services: storage
 documentationcenter: .net
 author: tamram
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
-ms.openlocfilehash: 66406ed327f496dce7e77bb9ff650e0eec44bbdd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Bir Azure depolama kesinti oluşursa yapmanız gerekenler
 Microsoft, biz sabit hizmetlerimizle her zaman kullanılabilir olduğundan emin olmak için çalışır. Bazen bizim denetim etkisi bize bir veya daha fazla bölgelerde planlanmayan hizmet kesintileri neden yolla zorlar. Bu nadir örnekleri işlemenize yardımcı olmak için Azure depolama hizmetleri için aşağıdaki üst düzey Kılavuzu sunuyoruz.
@@ -42,10 +42,10 @@ Bir veya daha fazla depolama hizmetleri bir veya daha fazla bölgelerinde aynı 
 Bu durumda, herhangi bir eyleminiz gereklidir. Titizlikle Azure hizmeti kullanılabilirlik geri yüklemek için çalışıyoruz. Hizmet durumunu izleyebilirsiniz [Azure hizmet sağlığı panosunu](https://azure.microsoft.com/status/).
 
 ### <a name="option-2-copy-data-from-secondary"></a>Seçenek 2: ikincil veri kopyalama
-Seçerseniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (depolama hesapları için önerilir), okuma erişimi verilerinizi ikincil bölgesinden gerekir. Araçları gibi kullanabilir [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)ve [Azure veri hareketi Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) veri unimpacted bir bölgede başka bir depolama hesabı ikincil bölgesinden kopyalayın ve hem okuma hem kullanılabilirlik için bu depolama hesabı, uygulamalarınızı noktası.
+Seçerseniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (depolama hesapları için önerilir), okuma erişimi verilerinizi ikincil bölgesinden gerekir. Araçları gibi kullanabilir [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)ve [Azure veri hareketi Kitaplığı](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/) veri unimpacted bir bölgede başka bir depolama hesabı ikincil bölgesinden kopyalayın ve hem okuma hem kullanılabilirlik için bu depolama hesabı, uygulamalarınızı noktası.
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>Bir depolama yük devretme oluşursa beklenmesi gerekenler
-Seçerseniz [coğrafi olarak yedekli depolama (GRS)](storage-redundancy.md#geo-redundant-storage) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy.md#read-access-geo-redundant-storage) (önerilen), Azure Storage verilerinizin iki bölgelerde (birincil ve ikincil) dayanıklı tutar. Her iki bölgelerde, Azure Storage verilerinizin birden çok çoğaltma sürekli tutar.
+Seçerseniz [coğrafi olarak yedekli depolama (GRS)](storage-redundancy-grs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (önerilen), Azure Storage verilerinizin iki bölgelerde (birincil ve ikincil) dayanıklı tutar. Her iki bölgelerde, Azure Storage verilerinizin birden çok çoğaltma sürekli tutar.
 
 Bölgesel bir olağanüstü durumda birincil bölge etkilediğinde, biz öncelikle bu bölgede hizmeti geri yüklemeye çalışır. Olağanüstü durum ve bazı nadir durumlarda, kendi etkileri doğasına bağlı biz birincil bölge geri yükleme mümkün olmayabilir. Bu noktada, biz bir coğrafi yük devretme işlemini gerçekleştirecek. Bölgeler arası veri çoğaltma ikincil bölge'ye henüz çoğaltılmamış değişiklikler kaybolabilir mümkün olacak şekilde, bir gecikme içerebileceği zaman uyumsuz bir işlemdir. Sorgulayabileceğiniz ["Son eşitleme zamanı" değerini depolama hesabınızın](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/) çoğaltma durumu hakkında bilgi almak için.
 

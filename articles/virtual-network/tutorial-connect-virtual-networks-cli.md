@@ -1,42 +1,42 @@
 ---
-title: "Sanal Ağ eşlemesi ile - sanal ağlara bağlanabilir Azure CLI | Microsoft Docs"
-description: "Sanal Ağ eşlemesi ile sanal ağları bağlamayı öğrenin."
+title: Sanal Ağ eşlemesi ile - sanal ağlara bağlanabilir Azure CLI | Microsoft Docs
+description: Bu makalede, eşliği, Azure CLI kullanarak sanal ağ ile sanal ağlara bağlanabilir öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: bbf2e757e2d9ad76c59394ba0138a61fd4029d15
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: 29ab957e97c6aa57be6192e6ee4d86fe642ae95d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ eşlemesi ile sanal ağlara bağlanabilir
 
 Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * İki sanal ağ oluşturma
-> * Sanal Ağ eşlemesi iki sanal ağlara bağlanabilir
-> * Her sanal ağ içinde bir sanal makine (VM) dağıtma
-> * VM'ler arasında iletişim
+* İki sanal ağ oluşturma
+* Sanal Ağ eşlemesi iki sanal ağlara bağlanabilir
+* Her sanal ağ içinde bir sanal makine (VM) dağıtma
+* VM'ler arasında iletişim
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure CLI Sürüm 2.0.28 çalıştırıyorsanız bu hızlı başlangıç yükleyip CLI yerel olarak kullanmak seçerseniz, gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, bu makalede, Azure CLI Sürüm 2.0.28 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). 
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
@@ -197,30 +197,8 @@ Artık gerektiğinde kullanmak [az grubu Sil](/cli/azure/group#az_group_delete) 
 az group delete --name myResourceGroup --yes
 ```
 
-**<a name="register"></a>Genel sanal ağ eşleme Önizleme için kaydolun**
-
-Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Sanal ağlar farklı bölgelerde şu anda önizlemede eşleme. Bkz: [sanal ağı güncelleştirmelerini](https://azure.microsoft.com/updates/?product=virtual-network) bölgeleri için kullanılabilir. Sanal ağlar bölgeler arasında eş için önce (içinde eş istediğiniz her sanal ağ kullanılıyor abonelik) aşağıdaki adımları tamamlayarak Önizleme için kaydetmeniz gerekir:
-
-1. Önizleme için aşağıdaki komutları girerek kaydedin:
-
-  ```azurecli-interactive
-  az feature register --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  az provider register --name Microsoft.Network
-  ```
-
-2. Aşağıdaki komutu girerek Önizleme için kayıtlı olduklarını doğrulayın:
-
-  ```azurecli-interactive
-  az feature show --name AllowGlobalVnetPeering --namespace Microsoft.Network
-  ```
-
-  Sanal ağlar farklı bölgelerde önce eş çalışırsanız **RegistrationState** önceki komutunu girdikten sonra aldığınız çıktı **kayıtlı** hem de abonelikleri için başarısız eşleme .
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, sanal ağ eşlemesi ile iki ağlara bağlanmak nasıl öğrendiniz. Bu makalede, sanal ağ eşlemesi ile aynı Azure konumunda iki ağlara bağlanmak nasıl öğrendiniz. Ayrıca sanal ağlarda eş [farklı bölgelerde](#register), [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal) ve oluşturabileceğiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile. Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetmek](virtual-network-manage-peering.md), ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Bu makalede, sanal ağ eşlemesi ile iki ağ aynı Azure bölgesinde bağlanma öğrendiniz. Ayrıca farklı sanal ağlar eş [bölgeler desteklenen](virtual-network-manage-peering.md#cross-region) ve [farklı Azure abonelikleri](create-peering-different-subscriptions.md#cli), yanı sıra oluşturma [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) ile eşleme. Sanal Ağ eşlemesi hakkında daha fazla bilgi için bkz: [sanal ağ eşleme genel bakış](virtual-network-peering-overview.md) ve [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md).
 
-Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim. Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için kod örnekleri devam edin.
-
-> [!div class="nextstepaction"]
-> [Sanal ağ kod örnekleri](../networking/cli-samples.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Yapabilecekleriniz [kendi bilgisayarınızda bir sanal ağa bağlanmak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bir VPN üzerinden ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim. Birçok sanal ağ makalelerinde ele görevi tamamlamak yeniden kullanılabilir komut dosyaları için bkz: [komut örnekleri](cli-samples.md).

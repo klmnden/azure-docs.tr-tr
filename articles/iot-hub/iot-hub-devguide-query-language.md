@@ -1,11 +1,11 @@
 ---
 title: Azure IOT Hub sorgu dili anlama | Microsoft Docs
-description: "Geliştirici Kılavuzu - IOT hub'dan cihaz çiftlerini ve işleri hakkında bilgi almak için kullanılan SQL benzeri IOT hub'ı sorgu dili açıklaması."
+description: Geliştirici Kılavuzu - IOT hub'dan cihaz çiftlerini ve işleri hakkında bilgi almak için kullanılan SQL benzeri IOT hub'ı sorgu dili açıklaması.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 851a9ed3-b69e-422e-8a5d-1d79f91ddf15
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 624f706532645034f19af15d10352dbc6db0b6c1
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: ef0d135a744cd37d888496073c7959ddc815ec91
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Cihaz çiftlerini, işler ve ileti yönlendirme için IOT hub'ı sorgulama dili
 
@@ -26,6 +26,8 @@ IOT hub'ı sağlayan bilgi almak için güçlü bir SQL benzeri dili ile ilgili 
 
 * Önemli özellikleri giriş IOT hub'ı sorgu dili ve
 * Dil ayrıntılı açıklaması.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-twin-queries"></a>Cihaz çifti sorguları
 [Cihaz çiftlerini] [ lnk-twins] etiketleri ve özellikleri rastgele JSON nesnelerini içerebilir. IOT Hub, tüm cihaz çifti bilgilerini içeren tek bir JSON belgesi olarak sorgu cihaz çiftlerini sağlar.

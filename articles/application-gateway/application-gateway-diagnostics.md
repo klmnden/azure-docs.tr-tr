@@ -1,25 +1,22 @@
 ---
-title: Uygulama ağ geçidi için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme | Microsoft Docs
+title: Uygulama ağ geçidi için erişim günlükleri, performans günlükleri, arka uç sistem durumu ve ölçümleri izleme
 description: Etkinleştirme ve uygulama ağ geçidi için erişim günlüklerini ve performans günlüklerini yönetme hakkında bilgi edinin
 services: application-gateway
-documentationcenter: na
 author: amitsriva
 manager: rossort
-editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 300628b8-8e3d-40ab-b294-3ecc5e48ef98
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/23/2018
+ms.date: 4/2/2018
 ms.author: amitsriva
-ms.openlocfilehash: 885ae8b97175cac4cd29793eb0a935e81d54d0e4
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Arka uç sistem durumu, tanılama günlüklerini ve uygulama ağ geçidi ölçümleri
 
@@ -29,7 +26,7 @@ Azure uygulama ağ geçidi kullanarak, aşağıdaki yollarla kaynakları izleyeb
 
 * [Günlükleri](#diagnostic-logging): günlükleri izin performans, erişim ve diğer veri kaydedilmeyecek veya izleme amacıyla bir kaynaktan tüketilen.
 
-* [Ölçümleri](#metrics): uygulama ağ geçidi şu anda bir ölçüm yok. Bu ölçüm, saniye başına bayt uygulama ağ geçidi verimini ölçer.
+* [Ölçümleri](#metrics): uygulama ağ geçidi şu anda performans sayaçlarını görüntülemek için yedi ölçümleri yok.
 
 ## <a name="back-end-health"></a>Arka uç sistem durumu
 
@@ -318,13 +315,22 @@ Ayrıca, depolama hesabınıza bağlanın ve erişim ve performans günlüklerin
 
 Ölçümleri portalda performans sayaçları görüntüleyebileceğiniz belirli Azure kaynakları için bir özelliğidir. Uygulama ağ geçidi için aşağıdaki ölçümleri kullanılabilir:
 
-- Geçerli bağlantı
-- Başarısız Olan İstekler
-- Sağlıklı ana bilgisayar sayısı
-- Yanıt durumu
-- Aktarım hızı
-- Toplam İstek Sayısı
-- Sağlıksız ana bilgisayar sayısı
+- **Geçerli bağlantı**
+- **Başarısız istekler**
+- **Sağlıklı ana bilgisayar sayısı**
+
+   Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.
+
+
+- **Yanıt durumu**
+
+   Yanıt durum kodu dağıtım 2xx, 3xx, 4xx ve 5xx kategorileri yanıtları göstermek için daha fazla sınıflandırılabilir.
+
+- **Aktarım hızı**
+- **Toplam istek sayısı**
+- **Sağlıksız ana bilgisayar sayısı**
+
+   Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.
 
 Bir uygulama ağ geçidi için altında Gözat **izleme** tıklatın **ölçümleri**. Kullanılabilir değerler görüntülemek için seçin **ÖLÇÜM** aşağı açılan liste.
 

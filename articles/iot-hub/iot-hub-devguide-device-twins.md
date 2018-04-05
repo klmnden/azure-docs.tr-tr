@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz çiftlerini anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - kullanım cihaz çiftlerini IOT Hub ve aygıtlarınızın arasında durumu ve yapılandırma verileri eşitlemek için"
+title: Azure IOT Hub cihaz çiftlerini anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - kullanım cihaz çiftlerini IOT Hub ve aygıtlarınızın arasında durumu ve yapılandırma verileri eşitlemek için
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,16 +15,19 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5bf2d24d0d5eadfea5ec8fd239a115c05a54fe99
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 01e94298aa3691d5bce33a12745b54fd398c7ad3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Anlama ve IOT hub'da cihaz çiftlerini kullanın
 
-*Cihaz çiftlerini* meta verileri, yapılandırmaları ve koşullar dahil olmak üzere cihaz durumu bilgilerini depolamak JSON belgeleri. Azure IOT Hub cihaz çifti IOT Hub'ına bağlanan her aygıt için tutar. Bu makalede açıklanır:
+*Cihaz çiftlerini* meta verileri, yapılandırmaları ve koşullar dahil olmak üzere cihaz durumu bilgilerini depolamak JSON belgeleri. Azure IOT Hub cihaz çifti IOT Hub'ına bağlanan her aygıt için tutar. 
 
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
+Bu makalede açıklanır:
 
 * Cihaz çifti yapısını: *etiketleri*, *istenen* ve *özellikleri bildirilen*.
 * Cihaz uygulamalarını hem de arka uçları cihaz çiftlerini üzerinde gerçekleştirebileceğiniz işlemler.

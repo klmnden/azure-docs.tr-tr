@@ -1,49 +1,49 @@
 ---
-title: "Bir ORTALAMASI oluşturma azure'da bir Linux VM yığında | Microsoft Docs"
-description: "Azure'da bir Linux VM üzerinde MongoDB, Express, AngularJS ve Node.js (ortalama) yığın oluşturmayı öğrenin."
+title: Azure’da bir Linux sanal makinesi üzerinde MEAN yığını oluşturma | Microsoft Docs
+description: Azure’da bir Linux sanal makinesi üzerinde nasıl MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturulacağını öğrenin.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: davidmu1
-manager: timlt
-editor: tysonn
+author: iainfoulds
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: davidmu
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 2bd89bf25f619caef07ae099232add55dbe0cda7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>MongoDB, Express, AngularJS ve Node.js (ortalama) yığın azure'da bir Linux VM oluşturma
+# <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Azure’da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığını oluşturun.
 
-Bu öğretici azure'da bir Linux VM üzerinde MongoDB, Express, AngularJS ve Node.js (ortalama) yığın uygulamak nasıl gösterir. Oluşturduğunuz ortalama yığın ekleme, silme ve bir veritabanında books listeleme sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure’da bir Linux sanal makinesi üzerinde MongoDB, Express, AngularJS ve Node.js (MEAN) yığınının nasıl uygulanacağı gösterilmektedir. Oluşturduğunuz MEAN yığını bir veritabanına kitap eklenmesine, veritabanındaki kitapların silinmesine ve listelenmesine olanak sağlar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Linux VM oluşturma
 > * Node.js yükleme
-> * MongoDB yükleme ve sunucu ayarlama
-> * Hızlı yükleme ve sunucu yolları ayarlama
-> * AngularJS yollar erişim
+> * MongoDB yükleme ve sunucuyu ayarlama
+> * Express yükleme ve sunucuya rotalar ayarlama
+> * AngularJS ile rotalara erişme
 > * Uygulamayı çalıştırma
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.4 çalıştırmasını gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 
 ## <a name="create-a-linux-vm"></a>Linux VM oluşturma
 
-Sahip bir kaynak grubu oluşturma [az grubu oluşturma](https://docs.microsoft.com/cli/azure/group#az_group_create) komut ve bir Linux VM oluşturma [az vm oluşturma](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutu. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
+[az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) komutuyla bir kaynak grubu oluşturun ve [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) komutuyla bir Linux sanal makinesi oluşturun. Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır.
 
-Aşağıdaki örnek, bir kaynak grubu oluşturmak için Azure CLI kullanır *myResourceGroupMEAN* içinde *eastus* konumu. Bir VM adlandırılmış oluşturulur *myVM* zaten bir varsayılan anahtar konumda yoksa, SSH anahtarları. Anahtarlarını belirli bir kümesini kullanmak için ssh-anahtar-değer seçeneği.
+Aşağıdaki örnekte Azure CLI kullanılarak *eastus* konumunda *myResourceGroupMEAN* adlı bir kaynak grubu oluşturulur. Varsayılan anahtar konumunda henüz yoksa SSH anahtarları ile *myVM* adlı bir sanal makine oluşturulur. Belirli bir anahtar kümesini kullanmak için --ssh-key-value seçeneğini kullanın.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMEAN --location eastus
@@ -57,7 +57,7 @@ az vm create \
 az vm open-port --port 3300 --resource-group myResourceGroupMEAN --name myVM
 ```
 
-Azure CLI bilgileri aşağıdaki örneğe benzer şekilde VM oluşturduğunuz sırada gösterir: 
+Sanal makine oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgiler gösterir: 
 
 ```azurecli-interactive
 {
@@ -73,7 +73,7 @@ Azure CLI bilgileri aşağıdaki örneğe benzer şekilde VM oluşturduğunuz s�
 ```
 `publicIpAddress` değerini not edin. Bu adres, VM’ye erişmek için kullanılır.
 
-VM ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Doğru ortak IP adresi kullandığınızdan emin olun. Örneğimizde yukarıda bizim IP adresi 13.72.77.9 oluştu.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Doğru genel IP adresini kullandığınızdan emin olun. Yukarıdaki örneğimizde IP adresi 13.72.77.9 şeklindedir.
 
 ```bash
 ssh azureuser@13.72.77.9
@@ -81,45 +81,45 @@ ssh azureuser@13.72.77.9
 
 ## <a name="install-nodejs"></a>Node.js yükleme
 
-[Node.js](https://nodejs.org/en/) Chrome'nın V8 JavaScript altyapısında oluşturulmuş bir JavaScript Çalışma Zamanı Modülü. Node.js, bu öğreticide, Express yollar ve AngularJS denetleyicisi ayarlamak için kullanılır.
+[Node.js](https://nodejs.org/en/), Chrome’un V8 JavaScript altyapısında derlenen bir JavaScript çalışma zamanıdır. Express rotalarını ve AngularJS denetleyicilerini ayarlamak için bu öğreticide Node.js kullanılmaktadır.
 
-SSH ile açılmış bash Kabuğu'nu kullanarak VM, Node.js yükleyin.
+Sanal makinede, SSH ile açtığınız bash kabuğunu kullanarak Node.js yükleyin.
 
 ```bash
 sudo apt-get install -y nodejs
 ```
 
-## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB yükleme ve sunucu ayarlama
-[MongoDB](http://www.mongodb.com) esnek, JSON benzeri belgelerde verileri depolar. Bir veritabanı alanları belge başka bir belge değişebilir ve veri yapısı zaman içinde değiştirilebilir. Bizim örnek uygulama için rehberi adı, ISBN numarası, yazar ve sayfa sayısını içeren MongoDB defteri kayıtları ekliyoruz. 
+## <a name="install-mongodb-and-set-up-the-server"></a>MongoDB yükleme ve sunucuyu ayarlama
+[MongoDB](http://www.mongodb.com), verileri JSON benzeri esnek belgelerde depolar. Bir veritabanındaki alanlar, belgeden belgeye değişiklik gösterebilir ve veri yapısı zaman içinde değiştirilebilir. Örnek uygulamamız için MongoDB anahtarına kitap adını, isbn numarasını, yazarı ve sayfa sayısını içeren kitap kayıtları ekliyoruz. 
 
-1. VM, SSH ile açılmış bash Kabuğu'nu kullanarak MongoDB anahtarı ayarlayın.
+1. Sanal makinede, SSH ile açtığınız bash kabuğunu kullanarak MongoDB anahtarını ayarlayın.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
     echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
-2. Paket Yöneticisi anahtarı ile güncelleştirin.
+2. Paket yöneticisini anahtarla güncelleştirin.
   
     ```bash
     sudo apt-get update
     ```
 
-3. MongoDB yükleyin.
+3. MongoDB’yi yükleyin.
 
     ```bash
     sudo apt-get install -y mongodb
     ```
 
-4. Sunucuyu başlatır.
+4. Sunucuyu başlatın.
 
     ```bash
     sudo service mongodb start
     ```
 
-5. Ayrıca yüklemek ihtiyacımız [gövde ayrıştırıcı](https://www.npmjs.com/package/body-parser-json) isteklerinde sunucuya geçirilen JSON işlem yardımcı olmak için paket.
+5. Ayrıca sunucuya yönelik isteklerde geçirilen JSON’u işlememize yardımcı olması için [body-parser](https://www.npmjs.com/package/body-parser-json) paketini de yüklememiz gerekir.
 
-    Npm Paket Yöneticisi'ni yükleyin.
+    Npm paket yöneticisini yükleyin.
 
     ```bash
     sudo apt-get install npm
@@ -131,7 +131,7 @@ sudo apt-get install -y nodejs
     sudo npm install body-parser
     ```
 
-6. Adlı bir klasör oluşturun *Books* ve dosya adında ekleyin *server.js* , web sunucusu için yapılandırmayı içerir.
+6. *Kitaplar* adlı bir klasör oluşturun ve web sunucusu yapılandırmasını içeren *server.js* adlı bir dosyayı bu klasöre ekleyin.
 
     ```node.js
     var express = require('express');
@@ -146,17 +146,17 @@ sudo apt-get install -y nodejs
     });
     ```
 
-## <a name="install-express-and-set-up-routes-to-the-server"></a>Hızlı yükleme ve sunucu yolları ayarlama
+## <a name="install-express-and-set-up-routes-to-the-server"></a>Express’i yükleme ve sunucuya rotalar ayarlama
 
-[Express](https://expressjs.com) web ve mobil uygulamaları için özellikler sağlayan bir minimal ve esnek Node.js web uygulama çerçevesidir. Express Bu öğreticide geçirmek için kullanılan kitap bilgileri bizim MongoDB veritabanı gelen ve giden. [Mongoose](http://mongoosejs.com) uygulama verilerinizi modellemek için düz İleri, şema tabanlı bir çözüm sağlar. Mongoose Bu öğreticide, veritabanı için bir kitap şema sağlamak için kullanılır.
+[Express](https://expressjs.com), web uygulamaları ve mobil uygulamalar için özellikler sağlayan minimal ve esnek bir Node.js web uygulaması çerçevesidir. Bu öğreticide Express, MongoDB veritabanına/veritabanından kitap bilgilerini geçirmek için kullanılmaktadır. [Mongoose](http://mongoosejs.com), uygulama verilerinizi modellemek için kolay ve şema temelli bir çözüm sağlar. Bu öğreticide Mongoose, veritabanına yönelik bir kitap şeması sağlamak için kullanılmaktadır.
 
-1. Express ve Mongoose yükleyin.
+1. Express’i ve Mongoose’u yükleyin.
 
     ```bash
     sudo npm install express mongoose
     ```
 
-2. İçinde *Books* klasörünü adlı bir klasör oluşturun *uygulamaları* ve adlı bir dosya eklemek *routes.js* tanımlanan express yollar.
+2. *Kitaplar* klasöründe *uygulamalar* adlı bir klasör oluşturun ve express rotaları tanımlanmış şekilde *routes.js* adlı bir dosya ekleyin.
 
     ```node.js
     var Book = require('./models/book');
@@ -198,7 +198,7 @@ sudo apt-get install -y nodejs
     };
     ```
 
-3. İçinde *uygulamaları* klasörünü adlı bir klasör oluşturun *modelleri* ve adlı bir dosya eklemek *book.js* tanımlanan kitap modeli yapılandırmasına sahip.  
+3. *uygulamalar* klasöründe *modeller* adlı bir klasör oluşturun ve kitap modeli yapılandırması tanımlanmış şekilde *book.js* adlı bir dosya ekleyin.  
 
     ```node.js
     var mongoose = require('mongoose');
@@ -216,11 +216,11 @@ sudo apt-get install -y nodejs
     module.exports = mongoose.model('Book', bookSchema); 
     ```
 
-## <a name="access-the-routes-with-angularjs"></a>AngularJS yollar erişim
+## <a name="access-the-routes-with-angularjs"></a>AngularJS ile rotalara erişme
 
-[AngularJS](https://angularjs.org) dinamik görünümleri, web uygulamaları oluşturmak için bir web çerçevesidir sağlar. Bu öğreticide, hızlı web sayfamızı bağlanmak ve kitap Veritabanımıza eylemleri gerçekleştirmek için AngularJS kullanın.
+[AngularJS](https://angularjs.org), web uygulamalarınızda dinamik görünümler oluşturmaya yönelik bir web çerçevesi sağlar. Bu öğreticide, Express ile web sayfamıza bağlanmak ve kitap veritabanımızda eylemler gerçekleştirmek için AngularJS kullanırız.
 
-1. Dizin geri kadar değiştirin *Books* (`cd ../..`) ve ardından adlı bir klasör oluşturun *ortak* ve adlı bir dosya eklemek *script.js* denetleyici yapılandırması tanımlı.
+1. Dizini *Kitaplar* (`cd ../..`) olarak tekrar değiştirin, sonra *genel* adlı bir klasör oluşturun ve denetleyici yapılandırması tanımlanmış şekilde *script.js* adlı bir dosya ekleyin.
 
     ```node.js
     var app = angular.module('myApp', []);
@@ -262,7 +262,7 @@ sudo apt-get install -y nodejs
     });
     ```
     
-2. İçinde *ortak* klasörünü adlı bir dosya oluşturun *index.html* tanımlanan web sayfası.
+2. *genel* klasöründe, web sayfası tanımlanmış şekilde *index.html* adlı bir dosya oluşturun.
 
     ```html
     <!doctype html>
@@ -317,39 +317,39 @@ sudo apt-get install -y nodejs
 
 ##  <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-1. Dizin geri kadar değiştirin *Books* (`cd ..`) ve şu komutu çalıştırarak sunucu başlatın:
+1. Dizini *Kitaplar* (`cd ..`) olarak tekrar değiştirin ve şu komutu çalıştırarak sunucuyu başlatın:
 
     ```bash
     nodejs server.js
     ```
 
-2. VM için kaydedilen adresine bir web tarayıcısı açın. Örneğin, *http://13.72.77.9:3300*. Aşağıdaki sayfayı gibi bir şey görmeniz gerekir:
+2. Bir web tarayıcısında, sanal makine için kaydettiğiniz adresi açın. Örneğin, *http://13.72.77.9:3300*. Aşağıdaki sayfaya benzer bir şey görmeniz gerekir:
 
-    ![Kayıt defteri](media/tutorial-mean/meanstack-init.png)
+    ![Kitap kaydı](media/tutorial-mean/meanstack-init.png)
 
-3. Veri tıklatın ve metin kutuları girin **Ekle**. Örneğin:
+3. Metin kutularına veri girin ve **Ekle**’ye tıklayın. Örnek:
 
     ![Kitap kaydı ekleme](media/tutorial-mean/meanstack-add.png)
 
-4. Sayfa yenilendikten sonra bu sayfa şöyle görmeniz gerekir:
+4. Sayfayı yeniledikten sonra aşağıdaki sayfaya benzer bir şey görmeniz gerekir:
 
-    ![Liste defteri kayıtları](media/tutorial-mean/meanstack-list.png)
+    ![Kitap kayıtlarını listeleme](media/tutorial-mean/meanstack-list.png)
 
-5. Tıklattığınız **silmek** ve defter kaydı veritabanından kaldırın.
+5. **Sil**’e tıklayıp veritabanından kitap kaydını kaldırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir ortalama kullanarak kitap kaydı ve bir web uygulaması oluşturan bir Linux VM yığında. Şunları öğrendiniz:
+Bu öğreticide, Linux sanal makinesi üzerinde MEAN yığınını kullanarak kitap kayıtlarını takip eden bir web uygulaması oluşturdunuz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Linux VM oluşturma
 > * Node.js yükleme
-> * MongoDB yükleme ve sunucu ayarlama
-> * Hızlı yükleme ve sunucu yolları ayarlama
-> * AngularJS yollar erişim
+> * MongoDB yükleme ve sunucuyu ayarlama
+> * Express’i yükleme ve sunucuya rotalar ayarlama
+> * AngularJS ile rotalara erişme
 > * Uygulamayı çalıştırma
 
-SSL sertifikaları web sunucularıyla güvenli öğrenmek için sonraki öğretici ilerleyin.
+SSL sertifikalarını kullanarak güvenli web sunucularının güvenliğini nasıl sağlayabileceğinizi öğrenmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [SSL ile güvenli web sunucusu](tutorial-secure-web-server.md)
+> [SSL ile web sunucusunun güvenliğini sağlama](tutorial-secure-web-server.md)

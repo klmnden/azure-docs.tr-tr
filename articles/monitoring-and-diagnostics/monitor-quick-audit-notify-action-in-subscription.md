@@ -1,6 +1,6 @@
 ---
-title: "Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma | Microsoft Docs"
-description: "Kaynak yönetiminin geçmişini, hizmet durumunu ve Etkinlik Günlüğü'ndeki diğer abonelik etkinliklerini anlayın, ardından aboneliğinizde üst düzeyde ayrıcalıklı bir işlem yapıldığında e-posta bildirimi almak için bir Etkinlik Günlüğü uyarısı kullanın."
+title: Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma | Microsoft Docs
+description: Kaynak yönetiminin geçmişini, hizmet durumunu ve Etkinlik Günlüğü'ndeki diğer abonelik etkinliklerini anlayın, ardından aboneliğinizde üst düzeyde ayrıcalıklı bir işlem yapıldığında e-posta bildirimi almak için bir Etkinlik Günlüğü uyarısı kullanın.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b0a79f46788dc7efb588110dc50805c45c373a49
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma
 
@@ -74,7 +74,7 @@ Olay ayrıntılarının tamamını görüntülemek için **JSON** sekmesine tık
 
 5. **Şu şekilde bildir** alanında **Yeni** eylem grubunu seçin, ardından eylem grubu için **ad** ve **kısa ad** sağlayın. Eylem grubu, uyarı etkinleştirildiğinde (ölçütler yeni bir olayla eşleştiğinde) gerçekleştirilecek eylemler kümesini tanımlar.
 
-6. **Eylemler**'in altında 1 veya daha çok eylem ekleyin; eylem için **Ad**, **Eylem türü** (örneğin, e-posta veya SMS) ve bu özel eylem türünün **Ayrıntılarını** sağlayın (örneğin, web kancası URL'si, e-posta adresi veya SMS numarası).
+6. **Eylemler**'in altında 1 veya daha çok eylem ekleyin; eylem için **Ad**, **Eylem türü** (örneğin, e-posta, SMS veya web kancası) ve bu özel eylem türünün **Ayrıntılarını** sağlayın (örneğin, web kancası URL'si, e-posta adresi veya SMS numarası).
 
     ![Portalda ağ güvenlik grubu oluşturma](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -83,7 +83,7 @@ Olay ayrıntılarının tamamını görüntülemek için **JSON** sekmesine tık
 ## <a name="test-the-activity-log-alert"></a>Etkinlik Günlüğü uyarısını test etme
 
 > [!NOTE]
-> Etkinlik Günlüğü uyarısının tümüyle etkinleştirilmesi yaklaşık 10 dakika sürer. Etkinlik Günlüğü uyarısı tümüyle etkinleştirilmeden önce gerçekleşen yeni olaylar bildirim üretmez.
+> Etkinlik Günlüğü uyarısının tümüyle etkinleştirilmesi yaklaşık 5 dakika sürer. Etkinlik Günlüğü uyarısı tümüyle etkinleştirilmeden önce gerçekleşen yeni olaylar bildirim üretmez.
 >
 >
 

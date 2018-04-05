@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub bulut cihaz Mesajlaşma anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - bulut cihaz IOT Hub ile Mesajlaşma kullanma. İleti yaşam döngüsü ve yapılandırma seçenekleri hakkında bilgi içerir."
+title: Azure IOT Hub bulut cihaz Mesajlaşma anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - bulut cihaz IOT Hub ile Mesajlaşma kullanma. İleti yaşam döngüsü ve yapılandırma seçenekleri hakkında bilgi içerir.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -13,15 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: d265d35c7d5a394afa0e59f40ff1a5741e0ec35c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IOT Hub'ından bulut cihaza ileti gönderme
 
 Çözüm arka ucu cihaz uygulamasının tek yönlü bildirimleri göndermek için bulut aygıtları iletileri IOT hub'ından aygıtınıza gönderin. IOT Hub tarafından desteklenen diğer bulut aygıtları seçenekleri tartışma için bkz [bulut-cihaz iletişimi Kılavuzu][lnk-c2d-guidance].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bir hizmet'e yönelik uç noktası aracılığıyla bulut cihaz göndermek (**/iletileri/devicebound**). Bir aygıt sonra bir cihaza özel uç noktası aracılığıyla iletileri alır (**/devices/ {DeviceID} / iletileri/devicebound**).
 

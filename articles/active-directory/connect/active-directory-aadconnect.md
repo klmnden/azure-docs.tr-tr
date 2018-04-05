@@ -1,33 +1,35 @@
 ---
-title: "Azure Active Directory ile Active Directory’yi bağlayın. | Microsoft Docs"
-description: "Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz."
-keywords: "Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme"
+title: Azure Active Directory ile Active Directory’yi bağlayın. | Microsoft Docs
+description: Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik oluşturabilirsiniz.
+keywords: Azure AD Connect’e giriş, Azure AD Connect’e genel bakış, Azure AD Connect nedir, active directory yükleme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 59bd209e-30d7-4a89-ae7a-e415969825ea
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/02/2017
+ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 83654a406019c4ac3837a3e961a6de640c98f31c
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
 
 > [!IMPORTANT]
-> [Azure AD Connect, şirket içi dizininizi Azure AD'ye ve Office 365'e bağlamanın en iyi yoludur. Microsoft Azure Active Directory Eşitleme (DirSync) ve Azure AD Eşitleme araçları artık kullanım dışı olduğundan ve 13 Nisan 2017’den itibaren desteklenmediğinden şimdi Azure AD Connect’e yükseltmenin tam zamanı.](active-directory-aadconnect-dirsync-deprecated.md)
+> [Azure AD Connect, şirket içi dizininizi Azure AD'ye ve Office 365'e bağlamanın en iyi yoludur. Microsoft Azure Active Directory Eşitleme (DirSync) ve Azure AD Eşitleme araçları artık kullanım dışı olduğundan ve 13 Nisan 2017’den itibaren desteklenmediğinden şimdi Azure AD Connect’e yükseltmenin tam zamanı.](active-directory-aadconnect-dirsync-deprecated.md)  Ayrıca:
 > 
-> 
+> - Kullanıcıların Azure AD ile eşitlenmesi **ücretsiz bir özellik** olup müşterilerin ücretli bir aboneliğinin olmasını gerektirmez.
+>- Eşitlenmiş kullanıcılara **otomatik olarak herhangi bir** lisans *verilmez*. Yöneticiler, lisans ataması üzerinde halen tam denetime sahiptir. 
+> - Microsoft, BT yöneticilerinin tüm kullanıcılarını eşitlemesini önerir. Böylece hem kullanıcıların tüm Azure AD tümleşik kaynaklarına erişmesinin engeli kaldırılır hem de BT yöneticilerinin kullanıcılarının hangi uygulamalara eriştiğini görmesi için daha kapsamlı bir görünüm sunulur. 
 
 ![Azure AD Connect nedir?](media/active-directory-aadconnect/arch.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "Ölçüm değeri bir koşula uyduğunda bildirim alma | Microsoft Docs"
-description: "Kullanıcıların bir Mantıksal Uygulama için ölçüm oluşturmasına yardımcı olmaya yönelik bir hızlı başlangıç kılavuzu"
+title: Ölçüm değeri bir koşula uyduğunda bildirim alma | Microsoft Docs
+description: Kullanıcıların bir Mantıksal Uygulama için ölçüm oluşturmasına yardımcı olmaya yönelik bir hızlı başlangıç kılavuzu
 author: anirudhcavale
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 3c1a6271d0cb2157cb23f1dd4193eadba2c1679b
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ölçüm değeri bir koşula uyduğunda bildirim alma
 
@@ -34,20 +34,20 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 2. **Mantıksal Uygulama**'yı arayıp bulun ve seçin. **Oluştur** düğmesine tıklayın.
 
-3. Şu resimde gösterilen mantıksal uygulama bilgilerini girin.  Varsayılan konumu kullanın. **Panoya Sabitle** seçeneğini işaretleyin.  Tamamlandığında **Oluştur**’a tıklayın. 
+3. myLogicApp adını ve myResourceGroup Kaynak Grubunu girin. Aboneliğinizi kullanın.  Varsayılan konumu kullanın. **Panoya Sabitle** seçeneğini işaretleyin.  Tamamlandığında **Oluştur**’a tıklayın. 
 
-    ![Portalda mantıksal uygulamanızla ilgili temel bilgileri girin](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
+    ![Portalda mantıksal uygulamanızla ilgili temel bilgileri girin](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-portal.png)  
 
 
 4. Mantıksal uygulama panonuza sabitlenmiş olmalıdır. Mantıksal uygulamanın üzerine tıklayarak bu uygulamaya gidin.
 
 5. Mantıksal Uygulama panelinde **Mantıksal Uygulama Tasarımcısı**'nı seçin.
 
-     ![Portal panelindeki mantıksal uygulama tasarımcısında bir yinelenme tetikleyicisi oluşturulmuş](./media/monitoring-quick-resource-metric-alert-portal/logic-app-designer.png)  
+     ![Portal panelindeki mantıksal uygulama tasarımcısında bir yinelenme tetikleyicisi oluşturulmuş](./media/monitor-quick-resource-metric-alert-portal/logic-app-designer.png)  
 
 6. Aşağıdaki diyagramda görüldüğü gibi değerlerinizi ayarlayın.
 
-    ![Portal panelinde mantıksal uygulama tetikleyicisini yapılandırın](./media/monitoring-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Portal panelinde mantıksal uygulama tetikleyicisini yapılandırın](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
 
 7. Tasarımcıda **Yinelenme** tetikleyicisini seçin.
 
@@ -75,7 +75,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 5. Artık geçtiğimiz saat içinde mantıksal uygulamanızın başlatmış olduğu toplam çalıştırma sayısının çizildiği grafiği görmelisiniz. Görmüyorsanız, yukarıdaki adımdan sonra en az 5 dakika beklediğinizden emin olun. Ardından tarayıcınızı yenileyin. 
 
-    ![Mantıksal uygulama kaynağı için bir ölçüm grafiği çizin](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
+    ![Mantıksal uygulama kaynağı için bir ölçüm grafiği çizin](./media/monitor-quick-resource-metric-alert-portal/logic-app-metric-chart.png)
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>Mantıksal uygulamanız için ölçüm uyarısı oluşturma
 
@@ -87,7 +87,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 4. Son olarak, **Ek yönetici e-postaları**'nın altına e-posta adresinizi girin. Bu uyarı, mantıksal uygulamanızda 5 dakikalık bir dönemde 10'dan fazla başarısız çalıştırma olması durumunda size bir e-posta gönderilmesini güvence altına alır.
 
-    ![Portal panelinde mantıksal uygulama uyarısını yapılandırın](./media/monitoring-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
+    ![Portal panelinde mantıksal uygulama uyarısını yapılandırın](./media/monitor-quick-resource-metric-alert-portal/logic-app-metrics-alert-portal.png)
 
 ## <a name="receive-metric-alert-notifications-for-your-logic-app"></a>Mantıksal uygulamanız için ölçüm uyarısı bildirimleri alma
 1. Birkaç saniye içinde 'Microsoft Azure Uyarılar' tarafından gönderilen ve size uyarının 'etkinleştirildiğini' bildiren bir e-posta almalısınız.

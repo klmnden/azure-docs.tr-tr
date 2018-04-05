@@ -1,5 +1,5 @@
 ---
-title: Dil özelleştirme - Azure AD B2C kullanarak | Microsoft Docs
+title: Azure AD B2C dil özelleştirme | Microsoft Docs
 description: Dil deneyimini özelleştirme hakkında bilgi edinin.
 services: active-directory-b2c
 documentationcenter: ''
@@ -11,74 +11,78 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 7c72c1d43d9a5fa541c72a8ba7a5ccedeafdaaff
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3d0f1f2ffd02873df2e2e7eab9894d9c3421b0f7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C: Kullanarak dil özelleştirme
+# <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C dil özelleştirme
 
 >[!NOTE]
 >Bu özellik genel önizlemede değil.
 >
 
-Dil özelleştirme ilkeniz müşteri gereksinimlerinize uygun olarak farklı dillerde uyum sağlar.  Microsoft, 36 diller için çeviriler sağlar (bkz [ek bilgi](#additional-information)), ancak herhangi bir dil için kendi Çeviriler de sağlayabilirsiniz.  Deneyiminizi yalnızca tek bir dil için sağlanan olsa bile herhangi bir metin sayfalarında özelleştirebilirsiniz.  
+Azure Active Directory B2C dil özelleştirmesinde (Azure AD B2C) ilkeniz müşteri gereksinimlerinize uygun olarak farklı dillerde uyum sağlar.  Microsoft, çevirilerini sağlar [36 dilleri](#supported-languages), ancak herhangi bir dil için kendi Çeviriler de sağlayabilirsiniz. Deneyiminizi yalnızca tek bir dil için sağlanan olsa bile, herhangi bir metin sayfalarında özelleştirebilirsiniz.  
 
-## <a name="how-does-language-customization-work"></a>Dil özelleştirme nasıl çalışır?
-Dil özelleştirme kullanıcı Yolculuğunuzun kullanılabilir diller seçmenize olanak sağlar.  Bu özellik etkinleştirildikten sonra sorgu dizesi parametresi ui_locales, uygulamanızdan sağlayabilir.  Azure AD B2C çağırdığınızda, biz belirttiniz yerel sayfanıza çevir.  Bu tür bir yapılandırma kullanıcı Yolculuğunuzun dilleri üzerinde tam denetim verir ve Müşteri'nin tarayıcı dil ayarlarını yoksayar. Alternatif olarak, müşteriniz bkz hangi dilde üzerinde denetim düzeyini gerekmeyebilir.  Ui_locales parametresi sağlamazsanız, müşteri deneyimi, tarayıcının ayarları tarafından dikte edilir.  Kullanıcı Yolculuğunuzun desteklenen bir dil ekleyerek çevrilir hangi dilleri hala kontrol edebilirsiniz.  Müşteri'nin tarayıcı desteklemek istemediğiniz bir dili göstermek üzere ayarlarsanız, varsayılan olarak desteklenen kültürler seçilen dil yerine gösterilir.
+## <a name="how-language-customization-works"></a>Dil özelleştirme nasıl çalışır?
+Dil özelleştirme kullanıcı Yolculuğunuzun kullanılabilir diller seçmek için kullanın. Bu özellik etkinleştirildikten sonra sorgu dizesi parametresi sağlayabilirsiniz `ui_locales`, uygulamanızdan. Azure AD B2C çağırdığınızda, sayfanızın belirttiniz yerel çevrilir. Bu tür bir yapılandırma kullanıcı Yolculuğunuzun dilleri üzerinde tam denetim verir ve Müşteri'nin tarayıcı dil ayarlarını yoksayar. 
 
-1. **kullanıcı arabirimi yerel ayarlar belirtilen dil** -dil özelleştirme etkinleştirdiğinizde, kullanıcı Yolculuğunuzun burada belirtilen dil çevrilmiştir
-2. **Tarayıcı istenen dil** -kullanıcı arabirimi yerel belirtildi, tarayıcıya çevirir dil, istenen **desteklenen dilleri eklediyseniz**
-3. **İlke varsayılan dil** -tarayıcı bir dil belirtmeyen veya desteklenmeyen bir belirtir, ilkesi varsayılan dili çevirir
+Müşterinizin görür hangi dilde üzerinde denetim düzeyini gerekmeyebilir. Sağlamıyorsa bir `ui_locales` parametresi, müşteri deneyimi, tarayıcının ayarları tarafından dikte edilir.  Kullanıcı Yolculuğunuzun desteklenen bir dil ekleyerek çevrilir hangi dilleri hala kontrol edebilirsiniz. Müşteri'nin tarayıcı desteklemek istemediğiniz bir dili göstermek üzere ayarlarsanız, varsayılan olarak desteklenen kültürler seçilen dil yerine gösterilir.
+
+- **kullanıcı arabirimi yerel ayarlar belirtilen dil**: dil özelleştirme etkinleştirdikten sonra kullanıcı Yolculuğunuzun burada belirtilen dili çevrilir.
+- **Tarayıcı istenen dil**: yoksa `ui_locales` parametre belirtildi, kullanıcı Yolculuğunuzun tarayıcı istenen dil için çevrilmiş *dil destekleniyorsa*.
+- **İlke varsayılan dili**: tarayıcı bir dil belirtmeyen veya desteklenmeyen bir belirtir, kullanıcı gezisine ilkesi varsayılan dili çevrilir.
 
 >[!NOTE]
->Özel kullanıcı özniteliklerini kullanıyorsanız, kendi çevirileri sağlamanız gerekir. Bkz. '[dizelerinizi özelleştirme](#customize-your-strings)' Ayrıntılar için.
+>Özel kullanıcı özniteliklerini kullanıyorsanız, kendi çevirileri sağlamanız gerekir. Daha fazla bilgi için bkz: [dizelerinizi özelleştirme](#customize-your-strings).
 >
 
-## <a name="support-uilocales-requested-languages"></a>Dil desteği ui_locales istendi 
-Dil özelleştirme genel kullanılabilirlik sürümü önce oluşturulan ilkeleri bu özellik ilk etkinleştirmeniz gerekir.  Sonra oluşturulan ilkeler, varsayılan olarak etkin dil özelleştirme sahip olur.  Bir ilkedeki ' dil özelleştirme' etkinleştirerek ui_locales parametresini ekleyerek kullanıcı gezisine dilinin şimdi kontrol edebilirsiniz.
-1. [Azure portalındaki B2C özellikleri sayfasına gitmek için aşağıdaki adımları izleyin.](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
-2. Çevirileri için etkinleştirmek istediğiniz ilkesine gidin.
-3. Tıklatın **dil özelleştirme**.  
-4. Tıklayın **etkinleştirmek dil özelleştirme** üstte.
-5. İletişim kutusunu okuyun ve 'Evet'i tıklatın.
+## <a name="support-requested-languages-for-uilocales"></a>Ui_locales için istenen dil desteği 
+Dil özelleştirme genel kullanılabilirlik önce oluşturulan ilkeleri bu özellik ilk etkinleştirmeniz gerekir. Varsayılan olarak etkin dil özelleştirme sonra oluşturulan ilkeleri vardır. 
+
+Dil özelleştirme ilkesinde etkinleştirdiğinizde ekleyerek kullanıcı gezisine dilinin denetleyebilirsiniz `ui_locales` parametresi.
+1. [Azure portalındaki B2C özellikleri sayfasına gidin](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings).
+2. Çevirileri için etkinleştirmek istediğiniz bir ilke göz atın.
+3. Seçin **dil özelleştirme**.  
+4. Seçin **etkinleştirmek dil özelleştirme**.
+5. İletişim kutusu bilgileri okuyun ve seçin **Evet**.
 
 ## <a name="select-which-languages-in-your-user-journey-are-enabled"></a>Kullanıcı Yolculuğunuzun hangi dillerde etkin seçin 
-Kullanıcı Yolculuğunuzun ui_locales parametresi sağlanmadığında içinde çevrilmesi için dil kümesini sağlar.
-1. 'Önceki yönergeleri etkin dil özelleştirme' ilkeniz olduğundan emin olun.
-2. Öğesinden, **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
-3. Desteklemek istediğiniz dili seçin.
-4. Özellikler bölmesinde geçiş **etkin** Evet.  
-5. Tıklatın **kaydetmek** Özellikler bölmesinde üstünde.
+Diller için ne zaman çevrilecek kullanıcı Yolculuğunuzun için bir dizi etkinleştirmek `ui_locales` parametresi sağlanmadı.
+1. İlkeniz dil özelleştirme önceki yönergeleri etkin olduğundan emin olun.
+2. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
+3. Desteklemek istediğiniz bir dil seçin.
+4. Özellikler bölmesinde değiştirmek **etkin** için **Evet**.  
+5. Seçin **kaydetmek** Özellikler bölmesinde üstünde.
 
 >[!NOTE]
->Ui_locales parametresi sağlanmazsa, yalnızca etkinse, sonra sayfanın Müşteri'nin tarayıcı dil çevrilmiştir.
+>Varsa bir `ui_locales` parametresi sağlanmadığından, yalnızca etkinse, sayfa için Müşteri'nin tarayıcının dili çevrilir.
 >
 
 ## <a name="customize-your-strings"></a>Dizelerinizi özelleştirme
-'Dil özelleştirme' kullanıcı Yolculuğunuzun herhangi bir dize özelleştirmenizi sağlar.
-1. 'Önceki yönergeleri etkin dil özelleştirme' ilkeniz olduğundan emin olun.
-2. Öğesinden, **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
+Dil özelleştirme kullanıcı Yolculuğunuzun herhangi bir dize özelleştirmenize olanak tanır.
+1. İlkeniz dil özelleştirme önceki yönergeleri etkin olduğundan emin olun.
+2. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
 3. Özelleştirmek istediğiniz dili seçin.
 4. Düzenlemek istediğiniz sayfasını seçin.
-5. Tıklatın **karşıdan varsayılanları** (veya **karşıdan geçersiz kılmaları** bu dilde daha önce düzenlediyseniz). 
+5. Seçin **karşıdan varsayılanları** (veya **karşıdan geçersiz kılmaları** bu dilde daha önce düzenlediyseniz). 
 
 Bu adımları dizelerinizi düzenlemeye başlamak için kullanabileceğiniz bir JSON dosyası verin.
 
-### <a name="changing-any-string-on-the-page"></a>Sayfadaki herhangi bir dize değiştirme
+### <a name="change-any-string-on-the-page"></a>Sayfadaki herhangi bir dize değiştirme
 1. Önceki yönergeleri bir JSON Düzenleyicisi'ni indirilen JSON dosyasını açın.
-2. Değiştirmek istediğiniz öğesi bulunamıyor.  Bulabileceğiniz `StringId` aramakta olduğunuz veya aramak dizenin `Value` değiştirmek istediğinizde.
+2. Değiştirmek istediğiniz öğesi bulunamıyor.  Bulabileceğiniz `StringId` dize aramakta olduğunuz veya aramak için `Value` değiştirmek istediğiniz özniteliği.
 3. Güncelleştirme `Value` görüntülenmesini istediğiniz ile özniteliği.
-4. Geçiş yapmak değiştirmek istediğiniz her dize için unutmayın `Override` için **doğru**.
-5. Dosyayı kaydedin ve değişikliklerinizi (karşıya yükleme denetimi JSON dosyasını indirdiğiniz olarak aynı yerde bulabilirsiniz) karşıya yükleyin. 
+4. Değiştirmek istediğiniz her dizesini değiştirin `Override` için `true`.
+5. Dosyayı kaydedin ve değişikliklerinizi karşıya yükleyin. (Karşıya yükleme denetimi JSON dosyasını indirdiğiniz olarak aynı yerde bulabilirsiniz.) 
 
 >[!IMPORTANT]
 >Bir dize geçersiz kılmak gerekiyorsa, ayarladığınızdan emin olun `Override` değeri `true`.  Giriş değeri değiştirilmez, göz ardı edilir. 
 >
 
-### <a name="changing-extension-attributes"></a>Uzantı özniteliklerini değiştirme
-Özel kullanıcı öznitelik dizesini değiştirebilir veya JSON birine eklemek istediğiniz arıyorsanız, biçimi aşağıda gösterilmiştir:
+### <a name="change-extension-attributes"></a>Uzantı öznitelikleri Değiştir
+Bir JSON eklemek istediğiniz veya özel kullanıcı özniteliği dizesi değiştirmek istediğinizde, aşağıdaki biçimde şöyledir:
 ```JSON
 {
   "LocalizedStrings": [
@@ -97,8 +101,8 @@ Değiştir `<ExtensionAttribute>` ile özel kullanıcı özniteliğinin adı.
 
 Değiştir `<ExtensionAttributeValue>` görüntülenecek yeni dizesiyle.
 
-### <a name="using-localizedcollections"></a>LocalizedCollections kullanma
-Yanıtlar için bir değer kümesi listesi sağlamak istiyorsanız, oluşturmak gereken bir `LocalizedCollections`.  A `LocalizedCollections` dizisidir `Name` ve `Value` çiftleri.  `Name` Görüntülenenleri olduğu ve `Value` talep döndürülen değil.  Eklemek için bir `LocalizedCollections`, aşağıdaki biçime sahiptir:
+### <a name="provide-a-list-of-values-by-using-localizedcollections"></a>LocalizedCollections kullanarak değerler listesini sağlayın
+Yanıtlar için bir değer kümesi listesi sağlamak istiyorsanız, oluşturmak gereken bir `LocalizedCollections` özniteliği.  `LocalizedCollections` dizisidir `Name` ve `Value` çiftleri. Eklemek için `LocalizedCollections`, aşağıdaki biçimi kullanın:
 
 ```JSON
 {
@@ -122,58 +126,59 @@ Yanıtlar için bir değer kümesi listesi sağlamak istiyorsanız, oluşturmak 
 }
 ```
 
-* `ElementId` Kullanıcı bu özniteliği olan `LocalizedCollections` yanıt olarak
-* `Name` değer, kullanıcıya gösterilir
-* `Value` Bu seçenek belirlendiğinde talepte döndürülür olduğu
+* `ElementId` Kullanıcı bu özniteliği olan `LocalizedCollections` yanıt olarak bir özniteliktir.
+* `Name` kullanıcıya görüntülenen bir değerdir.
+* `Value` Bu seçenek belirlendiğinde talepte döndürülür olur.
 
 ### <a name="upload-your-changes"></a>Değişikliklerinizi karşıya yüklemek
-1. JSON dosyanız değişiklikleri tamamladıktan sonra B2C kiracınızın geri gidin.
-2. Öğesinden, **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
-3. Çeviriler sağlamak istediğiniz dili seçin.
+1. JSON dosyanız değişiklikleri tamamladıktan sonra B2C kiracınızın geri dönün.
+2. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
+3. İçin çevirmek istediğiniz dili seçin.
 4. Çeviriler sağlamak istediğiniz sayfasını seçin.
-5. Klasör simgesine tıklayın ve karşıya yüklemek için JSON dosyasını seçin.
-6. Bu değiştirilen ilkeniz için otomatik olarak kaydedilir.
+5. Klasör simgesini seçin ve karşıya yüklemek için JSON dosyasını seçin.
+ 
+Değişiklikler ilkeniz için otomatik olarak kaydedilir.
 
-## <a name="using-page-ui-customization-with-language-customization"></a>Sayfanın UI Özelleştirme dil özelleştirme ile kullanma
+## <a name="customize-the-page-ui-by-using-language-customization"></a>Dil özelleştirmesi kullanarak UI sayfasını özelleştirme
 
-HTML içeriğinizi yerelleştirme için iki yolu vardır.  Açarak ['Dil özelleştirme'](active-directory-b2c-reference-language-customization.md).  Bu özelliği etkinleştirmek sağlayan Open ID Connect parametre iletmek Azure AD B2C `ui-locales`, uç noktanız için.  İçeriğinize dile özgü özelleştirilmiş HTML sayfaları sağlamak için bu parametreyi kullanabilirsiniz.
+HTML içeriğinizi yerelleştirme için iki yolu vardır. Açmak için tek yönlü olduğu [dil özelleştirme](active-directory-b2c-reference-language-customization.md). Bu özelliği etkinleştirmek sağlayan Open ID Connect parametre iletmek Azure AD B2C `ui-locales`, uç noktanız için.  İçeriğinize dile özgü özelleştirilmiş HTML sayfaları sağlamak için bu parametreyi kullanabilirsiniz.
 
-Alternatif olarak, biz kullanılan bölgesel ayarına göre farklı konumlardan içerik çeker.  CORS'yi uç noktanızı belirli diller için içeriği barındırmak için bir klasör yapısı ayarlayabilirsiniz ve joker karakter değeri yerleştirirseniz doğru olanı arayacağız `{Culture:RFC5646}`.  Örneğin, bu my özel sayfa URI sahipsem:
+Alternatif olarak, farklı yerlerde kullanılan bölgesel ayarına göre içerik isteyecek. CORS etkin uç noktanızı içinde belirli diller için içeriği barındırmak için bir klasör yapısı ayarlayabilirsiniz. Joker karakter değeri kullanırsanız, doğru olanı çağırmanız `{Culture:RFC5646}`.  Örneğin, bu özel sayfanızı URI olduğunu varsayın:
 
 ```
 https://wingtiptoysb2c.blob.core.windows.net/{Culture:RFC5646}/wingtip/unified.html
 ```
-Sayfamda yük yükleyebilirsiniz `fr` ve html ve css içeriği çekme, gelen çeker:
+Sayfanın yükleyebilir `fr`. Sayfanın HTML ve CSS içerik çeker, gelen çekiyor:
 ```
 https://wingtiptoysb2c.blob.core.windows.net/fr/wingtip/unified.html
 ```
 
-## <a name="custom-locales"></a>Özel yerel ayarlar
+## <a name="add-custom-locales"></a>Özel yerel ayarlar ekleme
 
-Microsoft çevirileri için şu anda sağlamaz dilleri de ekleyebilirsiniz.  İlke tüm dizelerde çevirileri sağlamanız gerekir.
+Microsoft çevirileri için şu anda sağlamaz dilleri de ekleyebilirsiniz. İlke tüm dizelerde çevirileri sağlamak gerekir.
 
-1. Öğesinden, **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
+1. Gelen **Düzenle İlkesi** sayfasında, **dil özelleştirme**.
 2. Seçin **özel dil eklemek** sayfasının üstten.
-3. Açılır içerik bölmesinde, hangi dil geçerli yerel ayar kodunu girerek çevirileri için sağlanmaktadır tanımlayın.
+3. Dili, çevirileri için geçerli bir yerel ayar kodunu girerek sağlama açan bağlam bölmesinde tanımlayın.
 4. Her bir sayfa için geçersiz kılmaları kümesi için İngilizce indirin ve çevirileri üzerinde çalışır.
-5. JSON dosyalarıyla tamamladıktan sonra her bir sayfa için karşıya yükleyebilirsiniz.
-6. Seçin **etkinleştirmek** ve ilkeniz artık, kullanıcı için bu dil gösterebilir.
-7. Bunu etkinleştirdikten sonra dil kaydetmeyi unutmayın.
+5. JSON dosyalarıyla bitirdikten sonra her bir sayfa için karşıya yükleyebilirsiniz.
+6. Seçin **etkinleştirmek**, ve ilkeniz şimdi kullanıcılarınız için bu dilde gösterebilir.
+7. Dil kaydedin.
 
 ## <a name="additional-information"></a>Ek bilgiler
 
-### <a name="page-ui-customization-labels-are-persisted-as-your-first-set-of-overrides-once-language-customization-is-enabled"></a>'Dil özelleştirme' etkinleştirildikten sonra sayfası kullanıcı Arabirimi özelleştirme etiketleri ilk geçersiz kılmaları kümesi olarak kalıcı
-'Dil özelleştirme' etkinleştirdiğinizde, önceki düzenlemeleriniz sayfa UI Özelleştirme kullanarak etiketleri için İngilizce (TR) için bir JSON dosyası kalıcıdır.  Dil Kaynakları 'Dil özelleştirmesinde' yükleyerek etiketleri ve diğer dizeleri değiştirmeye devam edebilirsiniz.
-### <a name="microsoft-is-committed-to-provide-the-most-up-to-date-translations-for-your-use"></a>Microsoft kullanımınız için en güncel Çeviriler sağlamayı taahhüt eder
-Biz sürekli çevirileri geliştirmek ve bunları sizin için Uyumluluk tutun.  Biz hatalar ve genel terminolojisi değişiklikleri tanımlamak ve çalışacak güncelleştirmeleri sorunsuz kullanıcı Yolculuğunuzun yapın.
+### <a name="page-ui-customization-labels-as-overrides"></a>Sayfanın UI Özelleştirme etiketleri olarak geçersiz kılmaları
+Dil özelleştirme etkinleştirdiğinizde, önceki düzenlemeleriniz sayfası kullanıcı arabirimini özelleştirme kullanarak etiketleri için İngilizce (TR) için bir JSON dosyası kalıcıdır. Dil özelleştirme dil kaynaklarının yükleyerek etiketleri ve diğer dizeleri değiştirmeye devam edebilirsiniz.
+### <a name="up-to-date-translations"></a>Güncel çevirileri
+Microsoft, kullanımınız için en güncel çevirileri sağlamayı taahhüt eder. Microsoft, sürekli olarak çevirileri artırır ve bunları sizin için Uyumluluk tutar. Microsoft hatalar ve genel terminolojisi değişiklikleri tanımlamak ve çalışacak güncelleştirmeleri sorunsuz kullanıcı Yolculuğunuzun yapın.
 ### <a name="support-for-right-to-left-languages"></a>Sağdan sola yazılan diller için destek
-Bu özellik Lütfen oy bu özelliği için gerekiyorsa biz şu anda desteği sağdan sola yazılan diller için sağlama olmayan [Azure geri bildirim](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
+Microsoft, şu anda sağdan sola yazılan diller için destek sağlamaz. Bu özellik gerekiyorsa, lütfen için oy [Azure geri bildirim](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/19393000-provide-language-support-for-right-to-left-languag).
 ### <a name="social-identity-provider-translations"></a>Sosyal kimlik sağlayıcısı çevirileri
-Sosyal oturum açmalar ui_locales OIDC parametresi sağladığımız ancak Facebook ve Google dahil olmak üzere bazı sosyal kimlik sağlayıcıları tarafından onaylanmaz. 
+Microsoft sağlar `ui_locales` sosyal oturum açmalar OIDC parametresi. Ancak, Facebook ve Google, dahil olmak üzere bazı sosyal kimlik sağlayıcıları dikkate yok. 
 ### <a name="browser-behavior"></a>Tarayıcı davranışı
-Chrome ve Firefox her ikisini de kümesi dillerini iste ve desteklenen bir dil ise, önce varsayılan görüntülenir.  Edge şu anda bir dil istemez ve düz varsayılan dili geçer.
+Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil ise, önce varsayılan görüntülenir. Edge şu anda bir dil istemez ve düz varsayılan dili geçer.
 
-### <a name="what-languages-are-supported"></a>Hangi dilleri destekleniyor mu?
+### <a name="supported-languages"></a>Desteklenen diller
 
 | Dil              | Dil kodu |
 |-----------------------|---------------|

@@ -1,12 +1,12 @@
 ---
-title: "Dayanıklı işlevlerinde - Azure tanılama"
-description: "Azure işlevleri için dayanıklı işlevleri uzantılı sorunları tanılamak öğrenin."
+title: Dayanıklı işlevlerinde - Azure tanılama
+description: Azure işlevleri için dayanıklı işlevleri uzantılı sorunları tanılamak öğrenin.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 5ebab8660dfe21984e1a7f9a1cb925aea60de213
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f2fc1c87a0eee9e822ffc997f67320ed23dd5916
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Tanılama dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -50,6 +50,7 @@ Her yaşam döngüsü olay orchestration örneğinin yazılması bir izleme olay
 * **neden**: izleme olayla ilişkili ek veriler. Örneğin, bir dış olay bildirimi için bekliyor. bir örneği varsa, bu alan için bekleyen olay adını gösterir. Bir işlev başarısız olursa, bu hata ayrıntılarını içerir.
 * **isReplay**: izleme olayı için olup olmadığını belirten Boolean değer yeniden yürütme.
 * **extensionVersion**: dayanıklı görev uzantısı'nın sürümü. Bu özellikle önemli uzantısı'nda olası hataları bildirilirken verilerdir. Bir güncelleştirme çalışırken ortaya çıkarsa uzun süre çalışan örnekleri birden çok sürümü bildirebilir. 
+* **sequenceNumber**: bir olay için yürütme sıra numarası. Olayları yürütme zamanına göre sıralamak için zaman damgası yardımcı birlikte. *Bu sayı her zaman zaman damgası tarafından ilk sıralama önemlidir örneği çalışırken, ana bilgisayar yeniden başlatılırsa sıfıra sıfırlama sonra sequenceNumber olacağını unutmayın.*
 
 İzleme verilerini Application Insights'a yayılan ayrıntı yapılandırılabilir `logger` bölümünü `host.json` dosya.
 
@@ -72,11 +73,11 @@ Varsayılan olarak, tüm izleme olaylarını gösterilen. Veri birimi ayarlayara
 
 ### <a name="single-instance-query"></a>Tek örnek sorgu
 
-Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [uygulama Öngörüler sorgu dili (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Bu nedenle, yalnızca yeniden yürütme yürütme filtreleri *mantıksal* yürütme yolu gösterilir.
+Geçmiş izleme verilerini tek bir örneği için aşağıdaki sorguyu gösterir [Hello dizisi](durable-functions-sequence.md) işlev düzenleme. Kullanılarak yazılmış [uygulama Öngörüler sorgu dili (AIQL)](https://docs.loganalytics.io/docs/Language-Reference). Bu nedenle, yalnızca yeniden yürütme yürütme filtreleri *mantıksal* yürütme yolu gösterilir. Olayları göre sıralayarak sipariş edilen `timestamp` ve `sequenceNumber` sorguda gösterildiği gibi: 
 
 ```AIQL
-let targetInstanceId = "bf71335b26564016a93860491aa50c7f";
-let start = datetime(2017-09-29T00:00:00);
+let targetInstanceId = "ddd1aaa685034059b545eb004b15d4eb";
+let start = datetime(2018-03-25T09:20:00);
 traces
 | where timestamp > start and timestamp < start + 30m
 | where customDimensions.Category == "Host.Triggers.DurableTask"
@@ -84,16 +85,17 @@ traces
 | extend instanceId = customDimensions["prop__instanceId"]
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
+| extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
 | where isReplay == false
 | where instanceId == targetInstanceId
-| project timestamp, functionName, state, instanceId, appName = cloud_RoleName
+| sort by timestamp asc, sequenceNumber asc
+| project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
 ```
-Tüm etkinlik işlevler de dahil olmak üzere, orchestration yürütme yolunu gösteren olayları izleme listesi sonucudur.
 
-![Uygulama Öngörüler sorgu](media/durable-functions-diagnostics/app-insights-single-instance-query.png)
+Artan düzende yürütme süresi göre sıralanmış tüm etkinlik işlevler de dahil olmak üzere, orchestration yürütme yolunu gösteren olayları izleme listesi sonucudur.
 
-> [!NOTE]
-> Olayları izleme bunlardan bazıları kesinlik eksikliği nedeniyle bozuk olabilir `timestamp` sütun. Bu github'da izlenmekte olan [sorun #71](https://github.com/Azure/azure-functions-durable-extension/issues/71).
+![Uygulama Öngörüler sorgu](media/durable-functions-diagnostics/app-insights-single-instance-ordered-query.png)
+
 
 ### <a name="instance-summary-query"></a>Örnek Özet sorgusu
 

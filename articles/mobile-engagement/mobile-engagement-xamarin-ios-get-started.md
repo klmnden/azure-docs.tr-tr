@@ -1,11 +1,11 @@
 ---
-title: "Xamarin.iOS için Azure Mobile Engagement kullanmaya başlama"
-description: "Xamarin.iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
+title: Xamarin.iOS için Azure Mobile Engagement kullanmaya başlama
+description: Xamarin.iOS Uygulamaları için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
 services: mobile-engagement
 documentationcenter: xamarin
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0448209e-fff6-47bd-985c-2cf074bac12f
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: 9938c3e994acf31244825b1afb347f8c9f90ebe3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 78ba376eb4552468810a1de72d53ceb59ec9d395
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-xamarinios-apps"></a>Xamarin.iOS Uygulamaları için Azure Mobile Engagement kullanmaya başlama
+> [!IMPORTANT]
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konu size uygulama kullanımınızı anlamak ve Xamarin.iOS uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermek için Azure Mobile Engagement kullanmayı gösterir.

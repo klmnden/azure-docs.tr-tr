@@ -1,19 +1,19 @@
 ---
-title: "Azure Stream Analytics Azure IOT Edge ile dağıtma | Microsoft Docs"
-description: "Sınır cihazı bir modüle olarak Azure akış analizi dağıtma"
+title: Azure Stream Analytics Azure IOT Edge ile dağıtma | Microsoft Docs
+description: Sınır cihazı bir modüle olarak Azure akış analizi dağıtma
 services: iot-edge
-keywords: 
-author: msebolt
+keywords: ''
+author: kgremban
 manager: timlt
-ms.author: v-masebo
+ms.author: kgremban
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: c94652017216bd9c8ff319e0b19fa3597c75e81c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Azure Stream Analytics IOT kenar modül olarak dağıtma - Önizleme
 
@@ -132,10 +132,10 @@ Artık IOT kenar Cihazınızı Azure Stream Analytics işinde dağıtmaya hazır
 
 1. Azure portalında IOT hub'ınızı Git **IOT kenar (Önizleme)**ve IOT kenar cihazınız için Ayrıntılar sayfasını açın.
 
-2. Seçin **ayarlamak modülleri**.  
+2. **Modül ayarla**’yı seçin.  
     Bu aygıtta tempSensor modülü daha önce dağıttıysanız, otomatik olarak doldurma olabilir. Yoksa, aşağıdakileri yaparak modüle ekleyin:
 
-   a. Seçin **IOT kenar Modül Ekle**.
+   a. **IoT Edge Modülü Ekle**'yi seçin.
 
    b. Bir ad yazın **tempSensor**.
     
@@ -172,9 +172,9 @@ Artık IOT kenar Cihazınızı Azure Stream Analytics işinde dağıtmaya hazır
     }
     ```
 
-9. Seçin **sonraki**.
+9. **İleri**’yi seçin.
 
-10. İçinde **gözden geçirme şablonu** adım, select **gönderme**.
+10. **Şablonu Gözden Geçirin** adımında **Gönder**’i seçin.
 
 11. Cihaz ayrıntıları sayfasına dönün ve ardından **yenileme**.  
     IOT kenar aracı modülü ve IOT kenar hub'ı ile birlikte çalışan yeni akış analizi modülü görmeniz gerekir.

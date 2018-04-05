@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama bölümü UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Common.Section kullanıcı Arabirimi öğesi açıklar"
+title: Azure bölüm UI öğesi | Microsoft Docs
+description: Azure portalı için Microsoft.Common.Section kullanıcı Arabirimi öğesi açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a460fde88982c53a7ef3a1ec444d50c1c482fc4
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 46ea2e3d404ac3ec9b7f909257451991dbb55f53
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI öğesi
-Bir veya daha fazla öğe bir başlık altında grupları denetim. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md).
+Bir veya daha fazla öğe bir başlık altında grupları denetim.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
@@ -48,7 +48,7 @@ Bir veya daha fazla öğe bir başlık altında grupları denetim. Bu öğe kull
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `elements`en az bir öğe içermelidir ve dışındaki tüm öğe türleri içerebilir `Microsoft.Common.Section`.
+- `elements` en az bir öğe içermelidir ve dışındaki tüm öğe türleri içerebilir `Microsoft.Common.Section`.
 - Bu öğe desteklemiyor `toolTip` özelliği.
 
 ## <a name="sample-output"></a>Örnek çıktı
@@ -61,6 +61,5 @@ basics('section1').element1
 Türündeki öğeler `Microsoft.Common.Section` hiçbir çıktı değerlere sahip.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
 * UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

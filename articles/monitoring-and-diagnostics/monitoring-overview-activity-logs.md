@@ -1,9 +1,9 @@
 ---
-title: "Azure etkinlik günlüğü'ne genel bakış | Microsoft Docs"
-description: "Azure etkinlik günlüğü nedir öğrenin ve Azure aboneliğinizi içinde gerçekleşen olayların anlamak için nasıl kullanabilirsiniz."
+title: Azure etkinlik günlüğü'ne genel bakış | Microsoft Docs
+description: Azure etkinlik günlüğü nedir öğrenin ve Azure aboneliğinizi içinde gerçekleşen olayların anlamak için nasıl kullanabilirsiniz.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: johnkem
-ms.openlocfilehash: aef427483d647c53ba45688ce33a75f876115d08
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6e373740d6b5af4b3b7d3dca8877c952d79f8b20
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 **Azure etkinlik günlüğü** , Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Etkinlik günlüğü önceden aboneliklerinizi yönetim kategorisi raporları denetim düzlemi olayları itibaren "Denetim günlüklerini" veya "İşlem günlükleri," olarak bilinirdi. Etkinlik günlüğü kullanarak, belirleyebilirsiniz ' ne, kimin, ne zaman ve ' herhangi yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri veya işlemleri kullanan Klasik kaynakları için içermeyen / "RDFE" modeli.
@@ -38,7 +38,7 @@ Olaylar, etkinlik CLI, PowerShell cmdlet'leri, Azure portalını kullanarak gün
 
 > [!NOTE]
 
->  [Uyarıları (Önizleme)](monitoring-overview-unified-alerts.md) şu anda oluşturma ve etkinlik günlüğü uyarı kurallarını yönetme, Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
+>  [Yeni uyarılar)](monitoring-overview-unified-alerts.md) uyarı kuralları oluşturma ve etkinlik yönetme oturum açtığınızda, Gelişmiş bir deneyim sunar.  [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
 
 Etkinlik günlüğü Tanıtımı aşağıdaki videoyu izleyin.
@@ -126,7 +126,7 @@ Bir olay Hub'ına etkinlik günlüğü akışla aktarmak veya bunları Azure por
   * Bu olaylar akış için oluşturulacak bir Event Hub istediğiniz hizmet veri yolu Namespace.
 
      ![Etkinlik günlüğü dikey dışarı aktarma](./media/monitoring-overview-activity-logs/activity-logs-portal-export-blade.png)
-4. Tıklatın **kaydetmek** bu ayarları kaydetmek için. Ayarları olan hemen uygulanması aboneliğinize.
+4. Tıklatın **kaydetmek** bu ayarları kaydetmek için. Ayarlar aboneliğinize hemen uygulanır.
 
 ### <a name="configure-log-profiles-using-the-azure-powershell-cmdlets"></a>Azure PowerShell cmdlet'lerini kullanarak günlük profillerini yapılandırma
 #### <a name="get-existing-log-profile"></a>Var olan günlük profilini Al

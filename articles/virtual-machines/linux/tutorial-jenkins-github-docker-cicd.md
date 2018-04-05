@@ -1,26 +1,26 @@
 ---
-title: "Jenkins ile Azure’da bir geliştirme işlem hattı oluşturma | Microsoft Docs"
-description: "Azure’da her kod işlendiğinde GitHub’dan çekerek uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenin"
+title: Jenkins ile Azure’da bir geliştirme işlem hattı oluşturma | Microsoft Docs
+description: Azure’da her kod işlendiğinde GitHub’dan çekerek uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/15/2017
+ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8a595ead7da8dfa5544903bd698bfdff40555eb9
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturmayı öğrenin
 Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
@@ -64,7 +64,6 @@ runcmd:
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
   - usermod -aG docker jenkins
-  - touch /var/lib/jenkins/jenkins.install.InstallUtil.lastExecVersion
   - service jenkins restart
 ```
 
@@ -118,10 +117,13 @@ Dosya henüz kullanılamıyorsa cloud-init tarafından Jenkins ve Docker yüklem
 
 Şimdi bir web tarayıcısı açıp `http://<publicIps>:8080` adresine gidin. Aşağıdaki adımları uygulayarak ilk Jenkins kurulumunu tamamlayın:
 
-- Kullanıcı adı olarak **admin** yazıp ardından bir önceki adımda VM’den edinilen *initialAdminPassword* değerini sağlayın.
-- **Jenkins’i Yönet**’i, sonra **Eklentileri yönet**’i seçin.
-- **Kullanılabilir**’i seçin, sonra üstteki metin kutusundan *GitHub* araması yapın. *GitHub eklentisi* kutusunu işaretleyip **Şimdi indir ve yeniden başlatma işleminden sonra yükle**’yi seçin.
-- **Yükleme tamamlandığında ve çalışan iş kalmadığında Jenkins’i yeniden başlat** kutusunu işaretleyin ve eklenti yükleme işleminin tamamlanmasını bekleyin.
+- **Yüklenecek eklentileri seçin** seçeneğini belirleyin
+- Üstteki metin kutusundan *GitHub* araması yapın. *GitHub* kutusunu işaretleyin ve **Yükle**’yi seçin
+- İlk yönetici kullanıcıyı oluşturun. **admin** gibi bir kullanıcı adı girin ve sonra kendi güvenli parolanızı belirtin. Son olarak, bir tam ad ve e-posta adresi yazın.
+- **Kaydet ve Bitir**’i seçin
+- Jenkins hazır olduktan sonra **Jenkins kullanmaya başla**’yı seçin
+  - Jenkins kullanmaya başladığınızda web tarayıcınız boş bir sayfa görüntülerse, Jenkins hizmetini yeniden başlatın. SSH oturumundan `sudo service jenkins restart` yazın ve web tarayıcınızı yenileyin.
+- Oluşturduğunuz kullanıcı adı ve parola ile Jenkins’te oturum açın.
 
 
 ## <a name="create-github-webhook"></a>GitHub web kancası oluşturma
@@ -139,12 +141,12 @@ Oluşturduğunuz çatalın içinde bir web kancası oluşturun:
 
 
 ## <a name="create-jenkins-job"></a>Jenkins işi oluşturma
-Jenkins’in GitHub’daki kod işleme gibi olaylara yanıt vermesini sağlamak için bir Jenkins işi oluşturun. 
+Jenkins’in GitHub’daki kod işleme gibi olaylara yanıt vermesini sağlamak için bir Jenkins işi oluşturun. Kendi GitHub çatalınız için URL’leri kullanın.
 
 Jenkins web sitenizde, giriş sayfasından **Yeni iş oluştur**’u seçin:
 
 - İş adı olarak *HelloWorld* adını girin. **Serbest tarzda proje**’yi seçip **Tamam**’ı seçin.
-- **Genel** bölümünden **GitHub** projesini seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world* şeklinde girin
+- **Genel** bölümünden **GitHub projesi**’ni seçip çatalı oluşturulan deponuzun URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world* şeklinde girin
 - **Kaynak kodu yönetimi** bölümünden **Git**’i seçip çatalı oluşturulan deponuzun *.git* URL’sini *https://github.com/iainfoulds/nodejs-docs-hello-world.git* şeklinde girin
 - **Derleme Tetikleyicileri** bölümünden **GITScm yoklaması için GitHub kanca tetikleyicisi**’ni seçin.
 - **Derleme** bölümünden **Derleme adımı ekle**’yi seçin. **Kabuğu yürüt**’ü seçin ve komut penceresine `echo "Testing"` ifadesini girin.

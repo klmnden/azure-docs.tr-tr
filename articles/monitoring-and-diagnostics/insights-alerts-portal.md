@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: 4acf1f549a6c901fb0b772c4591f1f35d61365ad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Klasik ölçüm uyarılar için Azure services - Azure İzleyicisi'nde oluşturma Azure portalı
 > [!div class="op_single_selector"]
@@ -31,25 +31,25 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Genel Bakış
 
 > [!NOTE]
-> Bu makalede, eski ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici şimdi destekleyen yeni, daha iyi ölçüm uyarıları. Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Daha fazla bilgi edinmek [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md).
+> Bu makalede, eski classic ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). 
 >
 >
 
-Bu makalede Azure portalını kullanarak Azure ölçüm uyarılarını ayarlama gösterilmiştir. 
+Bu makalede Azure portalını kullanarak Klasik Azure ölçüm uyarıları ayarlamak gösterilmiştir. 
 
 İzleme ölçümlerini ya da olayları, Azure hizmetlerinizi göre bir uyarı alabilirsiniz.
 
 * **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
 * **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olayı oluşur. Daha fazla bilgi edinmek [etkinlik günlüğü uyarıları](monitoring-activity-log-alerts.md).
 
-Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabilirsiniz:
+Tetikler, aşağıdakileri yapmak için Klasik bir ölçüm uyarısı yapılandırabilirsiniz:
 
 * Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönder
 * Belirttiğiniz ek e-postalar için e-posta gönderin.
 * bir Web kancası çağırın
 * (yalnızca Azure portalından) Azure bir runbook'un yürütülmesi Başlat
 
-Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
+Yapılandırma ve klasik ölçüm uyarı kuralları kullanma hakkında bilgi edinin
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -63,7 +63,7 @@ Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
 
     ![İzleme](./media/insights-alerts-portal/AlertRulesButton.png)
 
-3. Seçin **ölçüm uyarı Ekle** komut ve alanları doldurun.
+3. Seçin **ölçüm uyarı Ekle (Klasik)** komut ve alanları doldurun.
 
     ![Uyarı Ekle](./media/insights-alerts-portal/AddAlertOnlyParamsPage.png)
 

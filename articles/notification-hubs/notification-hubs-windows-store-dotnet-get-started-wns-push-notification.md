@@ -1,11 +1,11 @@
 ---
-title: "Evrensel Windows Platformu uygulamaları için Azure Notification Hubs ile çalışmaya başlama | Microsoft Docs"
-description: "Bu öğreticide, bir Windows Evrensel Platform uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz."
+title: Evrensel Windows Platformu uygulamaları için Azure Notification Hubs ile çalışmaya başlama | Microsoft Docs
+description: Bu öğreticide, bir Windows Evrensel Platform uygulamasına anında iletme bildirimleri göndermek için Azure Notification Hubs'ın nasıl kullanılacağını öğrenirsiniz.
 services: notification-hubs
 documentationcenter: windows
 author: jwhitedev
 manager: kpiteira
-editor: 
+editor: ''
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 12/22/2017
 ms.author: jawh
-ms.openlocfilehash: c09621d1152aafbe15039130f6ca24082dc5bd21
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 8464a7e48a02be39fb624322fac6c26f4c6c6806
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="get-started-with-notification-hubs-for-universal-windows-platform-apps"></a>Evrensel Windows Platformu uygulamaları için Notification Hubs'ı kullanmaya başlama
 
@@ -94,11 +94,11 @@ Bildirim hub'ınız WNS ile birlikte çalışacak şekilde yapılandırıldı. U
 1. Visual Studio'da çözüme sağ tıklayın ve ardından **NuGet Paketlerini Yönet**'i seçin.  
     **NuGet Paketlerini Yönet** penceresi açılır.
 
-2. Arama kutusuna **WindowsAzure.Messaging.Managed** yazın, **Yükle**'yi seçin ve kullanım koşullarını kabul edin.
+2. Arama kutusuna **Microsoft.Azure.NotificationHubs** yazın, **Yükle**'yi seçin ve kullanım koşullarını kabul edin.
    
     ![NuGet Paketlerini Yönet penceresi][20]
    
-    Bu eylem [WindowsAzure.Messaging.Managed NuGet paketini](http://nuget.org/packages/WindowsAzure.Messaging) kullanarak Windows için Azure Mesajlaşma kitaplığına bir başvuruyu indirir, ekler ve yükler.
+    Bu eylem [Microsoft.Azure.NotificationHubs NuGet paketini](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs) kullanarak Windows için Azure Notification Hubs kitaplığına bir başvuru indirir, yükler ve ekler.
 
 3. App.xaml.cs proje dosyasını açın ve aşağıdaki `using` deyimleri ekleyin: 
    

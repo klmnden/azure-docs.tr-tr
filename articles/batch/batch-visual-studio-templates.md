@@ -1,25 +1,25 @@
 ---
-title: "Visual Studio Proje şablonları - Azure batch çözümleriyle oluşturmaya başlayın | Microsoft Docs"
-description: "Visual Studio Proje şablonları uygulamak ve Azure Batch işlem yoğunluklu iş yüklerini çalıştırmak nasıl yardımcı olabileceğini öğrenin."
+title: Visual Studio şablonları - Azure batch çözümleriyle yapı | Microsoft Docs
+description: Visual Studio Proje şablonları uygulamak ve Azure Batch işlem yoğunluklu iş yüklerini çalıştırmak nasıl yardımcı olabileceğini öğrenin.
 services: batch
 documentationcenter: .net
-author: fayora
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da77ce827c65deb18d9d84ce5cf768d89788e205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5241c62e8b423b20477fc72c87303daf3d4ab43c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Batch çözümleri hızla başlatmak için Visual Studio Proje şablonları kullanın
 
@@ -51,7 +51,7 @@ Aşağıdaki çizimde gösterildiği gibi bu şablonları kullanan bir işlem i�
 
 ![İstemci kodu Batch hizmeti ile nasıl etkileşim kurduğunu gösteren diyagram][diagram01]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Toplu işlem şablonlarını kullanmak için aşağıdakiler gerekir:
 
 * Visual Studio 2015 yüklü bir bilgisayar. Toplu işlem şablonları, şu anda yalnızca Visual Studio 2015 için desteklenir.

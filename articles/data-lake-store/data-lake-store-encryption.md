@@ -1,24 +1,24 @@
 ---
-title: "Azure Data Lake Store'da şifreleme | Microsoft Belgeleri"
-description: "Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır."
+title: Azure Data Lake Store'da şifreleme | Microsoft Belgeleri
+description: Azure Data Lake Store’da şifreleme; verilerinizi koruma, kurumsal güvenlik ilkeleri uygulama ve yasal uyumluluk gereksinimlerini karşılamaya yardımcı olur. Bu makale tasarıma genel bir bakış sunarken uygulamanın birkaç teknik yönünü ele almaktadır.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: esung22
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/31/2018
+ms.date: 03/26/2018
 ms.author: yagupta
-ms.openlocfilehash: 4df0ce3d705361f20fa003929fed6a019f8b2f5e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53d5f413f58cea7bc8eab081d46eff2ab83e7ecb
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="encryption-of-data-in-azure-data-lake-store"></a>Azure Data Lake Store'da veri şifreleme
 
@@ -83,7 +83,7 @@ Veri şifreleme tasarımında kullanılan üç tür anahtar vardır. Aşağıdak
 |-----------------------|--------------|-----------------|----------------------------------------------|------------|---------------------------------------------------------------------------------------------------------|
 | Ana Şifreleme Anahtarı | MEK          | Bir Data Lake Store hesabı | Anahtar Kasası                              | Asimetrik | Data Lake Store veya sizin tarafınızdan yönetilebilir.                                                              |
 | Veri Şifreleme Anahtarı   | DEK          | Bir Data Lake Store hesabı | Kalıcı depolama, Data Lake Store hizmeti tarafından yönetilir | Simetrik  | DEK, MEK ile şifrelenir. Şifrelenmiş DEK, kalıcı medyada depolanır. |
-| Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | Yok                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
+| Blok Şifreleme Anahtarı  | BEK          | Bir veri bloğu | None                                         | Simetrik  | BEK, DEK’ten ve veri bloğundan türetilir.                                                      |
 
 Aşağıdaki diyagram bu kavramları göstermektedir:
 
@@ -106,7 +106,7 @@ Aşağıdaki diyagram bu kavramları göstermektedir:
 4.  Şifrelenmiş veri bloğu kalıcı depolama alanında depolanır.
 
 > [!NOTE] 
-> Performans nedeniyle, DEK kısa bir süre için önbelleğe alınır ve sonrasında hemen silinir. Kalıcı ortamda her zaman MEK tarafından şifrelenmiş olarak depolanır.
+> DEK her zaman, kalıcı medyada veya bellekte önbelleğe alınmış olarak MEK tarafından şifrelenmiş olarak depolanır.
 
 ## <a name="key-rotation"></a>Anahtar döndürme
 

@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB güvenlik duvarı & IP erişim denetimi | Microsoft Docs"
-description: "Azure Cosmos DB veritabanı hesaplarında güvenlik duvarı desteği için IP erişim denetimi ilkeleri kullanmayı öğrenin."
-keywords: "IP erişim denetimi, güvenlik duvarı desteği"
+title: Azure Cosmos DB güvenlik duvarı & IP erişim denetimi | Microsoft Docs
+description: Azure Cosmos DB veritabanı hesaplarında güvenlik duvarı desteği için IP erişim denetimi ilkeleri kullanmayı öğrenin.
+keywords: IP erişim denetimi, güvenlik duvarı desteği
 services: cosmos-db
-author: shahankur11
+author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
-ms.author: ankshah
-ms.openlocfilehash: 85f5e0e076f92afc79ed8f4ce652bb0f31923113
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.date: 03/30/2018
+ms.author: mimig
+ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB güvenlik duvarı desteği
 Bir Azure Cosmos DB veritabanı hesapta depolanan verilerin güvenliğini sağlamak için Azure Cosmos DB desteği dayalı bir gizlilik için sağladığınız [yetkilendirme modelini](https://msdn.microsoft.com/library/azure/dn783368.aspx) güçlü karma tabanlı ileti kimlik doğrulama kodu (HMAC) kullanır. Şimdi, gizli tabanlı yetkilendirme modeli yanı sıra Azure Cosmos DB gelen güvenlik duvarı desteği için IP tabanlı erişim denetimlerini güdümlü İlkesi destekler. Bu model, geleneksel veritabanı sistem güvenlik duvarı kurallarına benzer ve ek bir Azure Cosmos DB veritabanı hesabı için güvenlik düzeyi sağlar. Bu modelde, artık yalnızca onaylanan bir makineler kümesinden erişilebilir olması ve/veya Bulut Hizmetleri için bir Azure Cosmos DB veritabanı hesabı yapılandırabilirsiniz. Bu onaylanmış kümelerinden makineleri ve Hizmetleri Azure Cosmos DB kaynaklarına erişimi hala geçerli bir yetkilendirme belirteci sunmak arayan gerektirir.
@@ -30,16 +30,14 @@ Varsayılan olarak, bir Azure Cosmos DB veritabanı hesabı tarafından geçerli
 
 ![IP tabanlı erişim denetimi için bağlantı işlemini gösteren diyagram](./media/firewall-support/firewall-support-flow.png)
 
-## <a id="configure-ip-policy"></a>IP erişim denetimi ilkesini yapılandırma
-IP erişim denetimi ilkesini Azure portalında veya program aracılığıyla aracılığıyla ayarlanabilir [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), veya [REST API](/rest/api/documentdb/) güncelleştirerek**ipRangeFilter** özelliği. 
+## <a id="configure-ip-policy"></a> IP erişim denetimi ilkesini yapılandırma
+IP erişim denetimi ilkesini Azure portalında veya program aracılığıyla aracılığıyla ayarlanabilir [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md), veya [REST API](/rest/api/cosmos-db/) güncelleştirerek**ipRangeFilter** özelliği. 
 
-Azure portalında IP erişim denetimi ilkesini ayarlamak için Azure Cosmos DB hesap sayfasına gidin, **Güvenlik Duvarı** Gezinti menüsünde sonra değiştirmek **IP erişim denetimi etkinleştir** değerine**ON**. 
+Azure portalında IP erişim denetimi ilkesini ayarlamak için Azure Cosmos DB hesap sayfasına gidin, **Güvenlik Duvarı** Gezinti menüsünde sonra değiştirmek **izni** değeri  **Ağları seçili**ve ardından **kaydetmek**. 
 
 ![Azure portalında güvenlik duvarı sayfasını açmak nasıl gösteren ekran görüntüsü](./media/firewall-support/azure-portal-firewall.png)
 
-Üzerinde IP erişim denetimi olduktan sonra portal, Azure portalı, diğer Azure hizmetleriyle ve geçerli IP erişimi etkinleştirmek için anahtarlar sağlar. Aşağıdaki bölümlerde bu anahtarları hakkında ek bilgi sağlanmıştır.
-
-![Bir nasıl gösteren ekran görüntüsü Azure portalında güvenlik duvarı ayarlarını yapılandırmak için](./media/firewall-support/azure-portal-firewall-configure.png)
+Portal, üzerinde IP erişim denetimi olduktan sonra IP adresleri ve aralıkları yanı sıra diğer Azure hizmetleriyle ve Azure portalına erişim sağlamak için anahtarları belirtme olanağı sağlar. Aşağıdaki bölümlerde bu anahtarları hakkında ek bilgi sağlanmıştır.
 
 > [!NOTE]
 > Azure Cosmos DB veritabanı hesabınız için bir IP erişim denetimi İlkesi etkinleştirerek, tüm Azure Cosmos DB veritabanı hesabınızı yapılandırılmış dışında makinelerden IP adresi aralıkları listesi engellendi erişebileceğini. Bu model, Portalı'ndan veri düzlemi işlemi tarama de erişim denetimi bütünlüğünü sağlamak için engellenir.
@@ -55,12 +53,14 @@ Program aracılığıyla bir IP erişim denetimi İlkesi etkinleştirdiğinizde,
 |Çin|139.217.8.252|
 |ABD Devleti|52.244.48.71|
 
-Azure Portalı aracılığıyla Azure portalına erişim etkinleştirmek iççin **Azure portalına erişime izin ver** değeri **ON** Azure portalında ( **IP erişim denetimi etkinleştir** değeri ayarlanmalıdır **ON** görüntülemek ve değiştirmek için **Azure portalına erişim izin** değeri).
+Azure portalına erişim, varsayılan olarak etkindir, güvenlik duvarı ayarı değiştirdiğinizde **seçili ağları** Azure portalında. 
 
 ![Azure portal erişiminin nasıl etkinleştirileceği gösteren ekran görüntüsü](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-other-azure-paas-services"></a>Diğer Azure PaaS hizmetlerinden bağlantıları 
-Azure'da, PaaS Hizmetleri Azure Stream analytics, Azure işlevleri ve Azure App Service gibi Azure Cosmos DB ile birlikte kullanılır. Azure Cosmos DB erişimi etkinleştirmek için IP adres kullanıma hazır olmayan bu Hizmetleri veritabanı hesabından IP adresi 0.0.0.0 program aracılığıyla Azure Cosmos DB veritabanı hesabınızla ilişkili IP adreslerinin izin verilenler listesine ekleyin veya ayarlama **Azure hizmetlerine erişime izin ver** açık bir değer Azure Portalı'ndaki ( **IP erişim denetimi etkinleştir** değeri ayarlanmalıdır **ON** görüntülemek ve değiştirmek için **izin ver Azure hizmetlerine erişim** değeri). Bu, Azure PaaS Hizmetleri Azure Cosmos DB hesap erişebilmesini sağlar. 
+Azure'da, PaaS Hizmetleri Azure Stream analytics, Azure işlevleri ve Azure App Service gibi Azure Cosmos DB ile birlikte kullanılır. Veritabanı hesabı, IP adres kullanıma hazır olmayan hizmetlerin Azure Cosmos DB erişimi etkinleştirmek için program aracılığıyla Azure Cosmos DB veritabanı hesabınızla ilişkili IP adreslerinin izin verilenler listesine IP adresi 0.0.0.0 ekleyin. 
+
+Diğer Azure hizmetlerine erişim, varsayılan olarak etkindir, güvenlik duvarı ayarı değiştirdiğinizde **seçili ağları** Azure portalında. 
 
 ![Azure portalında güvenlik duvarı sayfasını açmak nasıl gösteren ekran görüntüsü](./media/firewall-support/enable-azure-services.png)
 
@@ -68,10 +68,12 @@ Azure'da, PaaS Hizmetleri Azure Stream analytics, Azure işlevleri ve Azure App 
 
 Makinenizde çalışan uygulamalar Azure Cosmos DB hesap erişebilmesi için geliştirme basitleştirmek için Azure portalında tanımlamak ve istemci makinenizde IP izin verilenler listesine ekleyin yardımcı olur. İstemci IP adresi portal tarafından görülen algılandı. Makinenizin istemci IP adresi olabilir, ancak ağ geçidinizin IP adresi olabilir. Üretime geçmeden önce kaldırmayı unutmayın.
 
+Geçerli IP etkinleştirmek için seçin **my geçerli IP eklemek**, hangi geçerli IP IP'leri listesine ekler ve ardından **kaydetmek**.
+
 ![Bir nasıl gösteren ekran görüntüsü geçerli IP Güvenlik Duvarı ayarlarını yapılandırmak için](./media/firewall-support/enable-current-ip.png)
 
 ## <a name="connections-from-cloud-services"></a>Bulut hizmetleri gelen bağlantıları
-Azure'da, bulut Hizmetleri Azure Cosmos DB kullanan Orta katman hizmet mantığı barındırmak için ortak bir yol sağlar. Bir bulut hizmetinden bir Azure Cosmos DB veritabanı hesabına erişimi etkinleştirmek için bulut hizmetini genel IP adresi izin verilenler tarafından Azure Cosmos DB veritabanı hesabınızla ilişkili IP adreslerinin eklenmeli [IP erişim denetimi ilkesini yapılandırma](#configure-ip-policy).  Bu, bulut Hizmetleri tüm rol örneklerini Azure Cosmos DB veritabanı hesabınıza erişimi olmasını sağlar. Aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında bulut hizmetleriniz için IP adreslerini alabilirsiniz:
+Azure'da, bulut Hizmetleri Azure Cosmos DB kullanan Orta katman hizmet mantığı barındırmak için ortak bir yol sağlar. Bir bulut hizmetinden bir Azure Cosmos DB veritabanı hesabına erişimi etkinleştirmek için bulut hizmetini genel IP adresi izin verilenler tarafından Azure Cosmos DB veritabanı hesabınızla ilişkili IP adreslerinin eklenmeli [IP erişim denetimi ilkesini yapılandırma](#configure-ip-policy). Bu, bulut Hizmetleri tüm rol örneklerini Azure Cosmos DB veritabanı hesabınıza erişimi olmasını sağlar. Aşağıdaki ekran görüntüsünde gösterildiği gibi Azure portalında bulut hizmetleriniz için IP adreslerini alabilirsiniz:
 
 ![Azure portalında görüntülenen bir bulut hizmeti için genel IP adresi gösteren ekran görüntüsü](./media/firewall-support/public-ip-addresses.png)
 
@@ -91,7 +93,7 @@ Ek sanal makine örnekleri gruba eklediğinizde, bunlar otomatik olarak Azure Co
 ### <a name="portal-operations"></a>Portal işlemleri
 Azure Cosmos DB veritabanı hesabınız için bir IP erişim denetimi İlkesi etkinleştirerek, tüm Azure Cosmos DB veritabanı hesabınızı yapılandırılmış dışında makinelerden IP adresi aralıkları listesi engellendi erişebileceğini. Koleksiyonlar ve sorgu belgeleri gözatma gibi portal veri düzlemi işlemlerini etkinleştirmek istiyorsanız, bu nedenle, açıkça kullanarak Azure portal erişimini izin vermeniz gereken **Güvenlik Duvarı** portalında sayfası. 
 
-![Bir nasıl gösteren ekran görüntüsü Azure portalına erişim etkinleştirmek için](./media/firewall-support/enable-azure-portal.png)
+![Bir nasıl gösteren ekran görüntüsü Azure portalına erişim etkinleştirmek için](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK & Rest API'si
 Güvenlik nedeniyle, SDK veya REST API aracılığıyla erişime izin verilenler olmayan makinelere karşı genel 404 bulunamadı yanıtta başka ek ayrıntı döndürülecek için. Doğru ilke yapılandırması Azure Cosmos DB veritabanı hesabınıza uygulanan emin olmak için izin verilen listesine Azure Cosmos DB veritabanı hesabınız için yapılandırılan IP doğrulayın.

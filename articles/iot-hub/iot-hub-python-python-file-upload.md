@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: kgremban
-ms.openlocfilehash: 6f1a40f254473ae7d02168f0cfd6ad5c0d461d82
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7f64783f5e1c79436b671ef98f30f5e3594b94e6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IOT Hub ile bulut cihazınızdan dosyaları karşıya yükleme
 
@@ -29,7 +29,7 @@ Bu öğretici nasıl kullanılacağını izleyen [dosya karşıya yükleme özel
 - Güvenli bir şekilde bir dosya yüklemek için bir depolama kapsayıcısı sağlar.
 - IOT hub'ınız aracılığıyla bir dosyayı karşıya yüklemek için Python istemcisini kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-node-node-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Bir aygıttan upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT Hub'ının kullanmaya devam edebilirsiniz.
+[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) öğretici, IOT hub'ı temel cihaz bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Bir aygıttan upland dosyalara ihtiyacınız olduğunda, güvenlik ve güvenilirlik IOT Hub'ının kullanmaya devam edebilirsiniz.
 
 > [!NOTE]
 > IOT Hub Python SDK'sı şu anda yalnızca destekler karakter tabanlı dosyaları gibi yükleme **.txt** dosyaları.

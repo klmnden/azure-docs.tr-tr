@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri için olay kılavuz tetikleyici"
-description: "Azure işlevleri olay kılavuz olayları nasıl ele alınacağını anlayın."
+title: Azure işlevleri için olay kılavuz tetikleyici
+description: Azure işlevleri olay kılavuz olayları nasıl ele alınacağını anlayın.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5039798d76017d93b77d724b2e6bca6712af0370
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2d8f66b0364535cbb7e8cadd8067dd8f7facb2c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
 Bu makalede nasıl yapılacağını açıklar [olay kılavuz](../event-grid/overview.md) Azure işlevleri olayları.
 
-Olay kılavuz içinde gerçekleşen olayları hakkında bilgilendirmek için HTTP istekleri gönderir bir Azure hizmeti olduğundan *yayımcılar*. Bir yayımcı hizmet veya olay kaynağı kaynak değil. Örneğin, bir Azure blob storage hesabı bir yayımcı ve bir blob karşıya yükleme veya silme bir olaydır. Bazı [Azure hizmetlerine sahip olayları olay kılavuza yayımlamak için yerleşik destek](../event-grid/overview.md#event-publishers). 
+Olay kılavuz içinde gerçekleşen olayları hakkında bilgilendirmek için HTTP istekleri gönderir bir Azure hizmeti olduğundan *yayımcılar*. Bir yayımcı hizmet veya olay kaynağı kaynak değil. Örneğin, bir Azure blob storage hesabı bir yayımcı ve bir blob karşıya yükleme veya silme bir olaydır. Bazı [Azure hizmetlerine sahip olayları olay kılavuza yayımlamak için yerleşik destek](../event-grid/overview.md#event-sources). 
 
 Olay *işleyicileri* almak ve işlemek olaylar. Azure işlevleri biridir birkaç [olay kılavuz olayları işlemek için yerleşik destek sahip Azure Hizmetleri](../event-grid/overview.md#event-handlers). Bu makalede, bir olay kılavuz tetikleyicisi bir olay Olay kılavuzdan alındığında bir işlevi çağırmak için nasıl kullanılacağını öğrenin.
 

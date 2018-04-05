@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights, birden çok bileşenleri, mikro ve kapsayıcıları için desteği | Microsoft Docs"
-description: "Birden çok bileşenleri veya performans ve kullanım için rolleri oluşur uygulamaları izleme."
+title: Azure Application Insights, birden çok bileşenleri, mikro ve kapsayıcıları için desteği | Microsoft Docs
+description: Birden çok bileşenleri veya performans ve kullanım için rolleri oluşur uygulamaları izleme.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Application Insights (Önizleme) ile birden çok bileşen uygulamaları izleme
 
@@ -42,7 +42,7 @@ Birden çok bileşen uygulama eşlemesi almak için bu hedefleri başarmanın ge
 
 * **En son ön sürümü yüklemek** her bileşen uygulamanın Application Insights paketinde. 
 * **Tek bir Application Insights kaynağı paylaşma** uygulamanızın tüm bileşenler için.
-* **Birden çok rol uygulama eşlemesi etkinleştirmek** önizlemeleri dikey penceresinde.
+* **Bileşik uygulama eşlemesi etkinleştirmek** önizlemeleri dikey penceresinde.
 
 Her bileşen türü için uygun yöntemi kullanarak, uygulamanızın yapılandırın. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
@@ -57,8 +57,8 @@ Güncelleştirme veya projesinde her sunucu bileşeni için Application Insights
     Aksi takdirde, göz atın ve uygun paketi yükleyin:
     
     * Microsoft.ApplicationInsights.WindowsServer
-    * Microsoft.ApplicationInsights.ServiceFabric - Konuk yürütülebilir dosyalar ve Docker kapsayıcıları içinde bir Service Fabric uygulaması çalıştıran çalışan bileşenleri için
-    * Microsoft.ApplicationInsights.ServiceFabric.Native - ServiceFabric uygulamaları güvenilir hizmetler için
+    * Microsoft.ApplicationInsights.ServiceFabric - for components running as guest executables and Docker containers running a in Service Fabric application
+    * Microsoft.ApplicationInsights.ServiceFabric.Native - for reliable services in ServiceFabric applications
     * Docker içinde Kubernetes üzerinde çalışan bileşenleri için Microsoft.ApplicationInsights.Kubernetes
 
 ### <a name="2-share-a-single-application-insights-resource"></a>2. Tek bir Application Insights kaynağı paylaşma
@@ -68,14 +68,14 @@ Güncelleştirme veya projesinde her sunucu bileşeni için Application Insights
 
    1. İçinde [Azure portal](https://portal,azure.com), başka bir bileşen için önceden oluşturulmuş Application Insights kaynağı açın.
    2. Genel Bakış dikey penceresinde, açık Essentials açılan sekmesi ve kopyalama **izleme anahtarı.**
-   3. Projenizdeki Applicationınsights.config açın ve Ekle:`<InstrumentationKey>your copied key</InstrumentationKey>`
+   3. Projenizdeki Applicationınsights.config açın ve Ekle: `<InstrumentationKey>your copied key</InstrumentationKey>`
 
 ![.Config dosyasına izleme anahtarını kopyalama](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-multi-role-application-map"></a>3. Birden çok rol uygulama eşlemesi etkinleştir
+### <a name="3-enable-composite-application-map"></a>3. Bileşik uygulama eşlemesi etkinleştir
 
-Azure Portal'da, uygulamanız için kaynak açın. Önizlemeler dikey penceresinde, etkinleştirme *birden çok rol uygulama eşlemesi*.
+Azure Portal'da, uygulamanız için kaynak açın. Yapılandırma alt başlığı altında önizlemeleri önizlemeleri dikey penceresini açmak için tıklatın. Önizlemeler dikey penceresinde, etkinleştirme *bileşik uygulama eşlemesi*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Docker ölçümleri (isteğe bağlı) etkinleştir 
 

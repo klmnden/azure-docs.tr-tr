@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Özel yükleme | Microsoft Belgeleri"
-description: "Bu belgede Azure AD Connect için özel yükleme seçenekleri ayrıntılı olarak açıklanmaktadır. Active Directory'yi Azure AD Connect aracılığı ile yüklemek için bu yönergeleri kullanın."
+title: 'Azure AD Connect: Özel yükleme | Microsoft Belgeleri'
+description: Bu belgede Azure AD Connect için özel yükleme seçenekleri ayrıntılı olarak açıklanmaktadır. Active Directory'yi Azure AD Connect aracılığı ile yüklemek için bu yönergeleri kullanın.
 services: active-directory
-keywords: "Azure AD Connect nedir, Active Directory yükleme, Azure AD için gerekli bileşenler"
-documentationcenter: 
+keywords: Azure AD Connect nedir, Active Directory yükleme, Azure AD için gerekli bileşenler
+documentationcenter: ''
 author: billmath
 manager: mtillman
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: billmath
-ms.openlocfilehash: ee16fe9e15e52fea482e0db34857780449c2ccb4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 680e70ce572e182aa35c736f61036415d8714ea0
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -49,7 +49,7 @@ Gerekli bileşenleri yükledikten sonra kullanıcı çoklu oturumu açma yöntem
 
 | Çoklu Oturum Açma Seçeneği | Açıklama |
 | --- | --- |
-| Parola Karması Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). |
+| Parola Karması Eşitleme |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir. Kullanıcı parolaları, parola karması olarak Azure AD ile eşitlenir ve bulutta bir kimlik doğrulaması gerçekleşir. Daha fazla bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md). |
 |Doğrudan Kimlik Doğrulama|Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcının parolası, doğrulanmak üzere şirket içi Active Directory etki alanı denetleyicisine geçirilir.
 | AD FS ile Federasyon |Kullanıcılar, Office 365 gibi Microsoft bulut hizmetlerinde kendi şirket içi ağlarında kullandıkları parolayla oturum açabilir.  Kullanıcılar oturum açmak üzere kendi şirket içi AD FS örneklerine yönlendirilir ve şirket içi kimlik doğrulaması gerçekleşir. |
 | Yapılandırmayın |Kullanıcı oturum açma özelliği yüklenmez ve yapılandırılmaz. Zaten 3. taraf bir federasyon sunucunuz varsa veya başka bir çözümden faydalanıyorsanız bu seçeneği belirleyin. |
@@ -165,7 +165,7 @@ Bu ekran, belirli senaryolarınız için isteğe bağlı özellikler seçmenizi 
 | Exchange Karma Dağıtımı |Exchange Karma Dağıtımı özelliği, Exchange posta kutularının hem şirket içinde hem de Office 365'te aynı anda var olmalarına olanak sağlar. Azure AD Connect, Azure AD'den belirli bir [öznitelikler](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) kümesini şirket içi dizininize geri eşitler. |
 | Exchange Posta Ortak Klasörleri | Exchange Posta Ortak Klasörleri özelliğini kullanarak, posta özellikli Ortak Klasör nesnelerini şirket içi Active Directory’den Azure AD’ye eşitleyebilirsiniz. |
 | Azure AD uygulaması ve öznitelik filtreleme |Azure AD uygulaması ve öznitelik filtreleme etkinleştirilerek, eşitlenen öznitelikler kümesi uyarlanabilir. Bu seçenek sihirbaza iki yapılandırma sayfası daha ekler. Daha fazla bilgi için bkz. [Azure AD uygulaması ve öznitelik filtreleme](#azure-ad-app-and-attribute-filtering). |
-| Parola eşitleme |Oturum açma çözümü olarak federasyonu seçtiyseniz bu seçeneği etkinleştirebilirsiniz. Bu durumda parola eşitleme, bir yedekleme seçeneği olarak kullanılabilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Doğrudan Kimlik Doğrulama’yı seçtiyseniz bu seçenek, eski istemcilere yönelik destek sağlanması ve yedek bir seçenek olarak kullanılması için etkinleştirilebilir. Ek bilgi için bkz. [Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Parola karması eşitleme |Oturum açma çözümü olarak federasyonu seçtiyseniz bu seçeneği etkinleştirebilirsiniz. Bu durumda parola karması eşitleme, bir yedekleme seçeneği olarak kullanılabilir. Ek bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md). </br></br>Doğrudan Kimlik Doğrulama’yı seçtiyseniz bu seçenek, eski istemcilere yönelik destek sağlanması ve yedek bir seçenek olarak kullanılması için etkinleştirilebilir. Ek bilgi için bkz. [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md).|
 | Parola geri yazma |Parola geri yazma etkinleştirildiğinde Azure AD'de gerçekleşen parola değişiklikleri şirket içi dizininize geri yazılır. Daha fazla bilgi için bkz. [Parola yönetimine başlarken](../active-directory-passwords-getting-started.md). |
 | Grup geri yazma |**Office 365 Grupları** özelliğini kullanıyorsanız bu gruplar şirket içi Active Directory'nizde de temsil edilir. Bu seçenek yalnızca şirket içi Active Directory'nizde Exchange varsa kullanılır. Daha fazla bilgi için bkz. [Grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Cihaz geri yazma |Koşullu erişim senaryoları için, Azure AD'deki cihaz nesnelerini şirket içi Active Directory'nize geri yazmanızı sağlar. Daha fazla bilgi için bkz. [Azure AD Connect'te cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md). |
@@ -338,9 +338,9 @@ Doğrula düğmesine tıkladığınızda Azure AD Connect sizin için DNS ayarla
 
 Ayrıca şu doğrulama adımlarını uygulayın:
 
-* İntranet üzerinde etki alanına katılmış bir makinedeki tarayıcıdan oturum açabildiğinizi doğrulayın: https://myapps.microsoft.com adresine bağlanın ve oturum açtığınız hesabınız ile oturum açma işlemini doğrulayın. Yerleşik AD DS yönetici hesabı eşitlenmez ve doğrulama için kullanılamaz.
+* İntranet üzerinde etki alanına katılmış bir makinedeki tarayıcıdan oturum açabildiğinizi doğrulayın: https://myapps.microsoft.com adresine bağlanın ve giriş yaptığınız hesabınız ile oturum açma işlemini doğrulayın. Yerleşik AD DS yönetici hesabı eşitlenmez ve doğrulama için kullanılamaz.
 * Extranet üzerinde bir cihazdan oturum açabildiğinizi doğrulayın. Ana makineden veya bir mobil cihazdan https://myapps.microsoft.com adresine bağlanın ve kimlik bilgilerinizi girin.
-* Zengin istemci oturumu açma işlemini doğrulayın. https://testconnectivity.microsoft.com adresine bağlanın, **Office 365** sekmesini ve ardından **Office 365 Çoklu Oturum Açma Testi** seçeneğini belirleyin seçin.
+* Zengin istemci oturumu açma işlemini doğrulayın. https://testconnectivity.microsoft.com adresine bağlanın, **Office 365** sekmesini ve ardından **Office 365 Çoklu Oturum Açma Testi** seçeneğini belirleyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Yükleme tamamlandıktan sonra Synchronization Service Manager'ı veya Synchronization Rule Editor'ı kullanmadan önce Windows oturumunuzu kapatıp tekrar açın.

@@ -1,6 +1,6 @@
 ---
-title: Azure'da - genel bakış OMS uyarılar genişletmek | Microsoft Docs
-description: Uyarıları genişletme sorunları OMS Azure uyarıları, ortak müşteri ayrıntılarla içine işlemine genel bakış.
+title: Azure'da - genel bakış OMS Portalı'ndan (kopya) uyarıları genişletmek | Microsoft Docs
+description: Azure uyarıları, ortak müşteri sorunları ayrıntılarla OMS portalında kopyalama uyarıları işlemine genel bakış.
 author: msvijayn
 manager: kmadnani1
 editor: ''
@@ -13,40 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: abab73a047fb923fa2cd57a1c7194e440697bf64
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 356c1343443b33e565c65ef0693b8d8455ff1d1b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="extend-alerts-from-oms-into-azure"></a>Uyarıları OMS Azure'da genişletir.
-Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** portalındaki Azure monitöründe birlikte ortak bir yerde - etkinlik günlüğü uyarıları, ölçüm uyarıları ve Application Insights yanı sıra günlük analizi günlük uyarılar getirdi. 
+# <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Azure'da OMS Portalı'ndan (kopya) uyarıları genişletme
+Operations Management Suite (OMS) portal yalnızca günlük analizi uyarıları gösterir.  Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** altında Azure İzleyicisi Azure portal etkinlik günlüğü uyarıları, ölçüm uyarıları ve günlük uyarıları günlük analizi ve Application Insights için içerir. 
 
-Ancak bazı kullanıcılar için günlük analizi ve Uyarıları gibi allied işlevsellik kullanımı aracılığıyla açıldı [Microsoft işlemi Yönetim Paketi (OMS)](../operations-management-suite/operations-management-suite-overview.md). Ve bu nedenle izin vermek üzere kimliklerini kolaylıkla günlük analizi - kullanımını yanı sıra diğer Azure kaynaklarını yönetmek sistematik olarak Microsoft OMS yeteneklerini de Azure portalında kullanılabilir olduğundan emin. Şekilde, Azure uyarıları zaten tanır için günlük analizi, daha fazla bilgi için bkz: Sorgu tabanlı uyarıları yönetmek kullanıcılar, [oturum Azure uyarıları uyarılar](monitor-alerts-unified-log.md). İçindeki uyarıları Azure İzleyicisi altında OMS içinde oluşturulan uyarıların zaten uygun günlük analizi çalışma alanı altında listelenir. Ancak herhangi bir düzenleme veya OMS içinde oluşturulan bu tür uyarıların değiştirmek, Azure bırakın ve OMS kullanmak kullanıcının gerektiren; başka bir hizmet yönetmek gerekirse Azure'a geri dönün. Bu güçlük azaltmak için Microsoft şimdi uyarılarını OMS Azure'da genişletmek kullanıcıların imkan verir.
+
+Ancak bazı kullanıcılar için günlük analizi ve Uyarıları gibi allied işlevsellik kullanımı aracılığıyla açıldı [Microsoft işlemi Yönetim Paketi (OMS) portal](../operations-management-suite/operations-management-suite-overview.md). Yapın ve bu nedenle izin vermek üzere kimliklerini kolaylıkla günlük analizi - kullanımını yanı sıra diğer Azure kaynaklarını yönetmek sistematik olarak Microsoft OMS portalı yeteneklerini de Azure portalında kullanılabilir olduğundan emin. Şekilde, Azure uyarıları zaten tanır için günlük analizi, daha fazla bilgi için bkz: Sorgu tabanlı uyarıları yönetmek kullanıcılar, [oturum Azure uyarıları uyarılar](monitor-alerts-unified-log.md). İçindeki uyarıları Azure İzleyicisi altında OMS portalında oluşturulan uyarıların zaten uygun günlük analizi çalışma alanı altında listelenir. Ancak herhangi bir düzenleme veya OMS portalında oluşturulan bu tür uyarılar değiştirmek, Azure bırakın ve OMS portalı kullanmak kullanıcının gerektiren; başka bir hizmet yönetmek gerekirse Azure'a geri dönün. Bu güçlük azaltmak için Microsoft şimdi uyarılarını OMS Portalı'ndan Azure'da genişletmek kullanıcıların imkan verir.
 
 ## <a name="benefits-of-extending-your-alerts"></a>Uyarılarınızı kullanmanın yararları
-Azure portal dışında gidin zorunluluğunu tahakkuk avantajı dışında diğer belirgin yararları vardır uyarıları OMS Azure'da genişletme
+Azure portal dışında gidin zorunluluğunu tahakkuk avantajı dışında diğer belirgin yararları vardır uyarıları OMS Portalı'ndan Azure'da genişletme
 
-- Aksine, burada yalnızca 250 uyarıları oluşturulabilir ve görüntülenebilir; eklemek için Azure Uyarıları'nda bu sınırlamaya mevcut değil
-- Azure uyarıları, tüm uyarı türleri, numaralandırılmış, görüntülenebilir ve yönetilebilir; OMS olduğu gibi yalnızca günlük analizi uyarıları
-- Azure uyarıları kullanma [Eylem grupları](monitoring-action-groups.md), SMS, sesli arama, Otomasyon Runbook'u, Web kancası, ITSM bağlayıcı ve benzeri her uyarı için birden fazla eylem sahip sağlar. OMS uyarıları her iki numarayı da sınırlı ise Eylemler olası gibi yazın
+- Aksine OMS portalında burada yalnızca 250 uyarıları oluşturulabilir ve görüntülenebilir; Azure Uyarıları'nda bu sınırlamaya mevcut değil
+- Azure uyarıları, tüm uyarı türleri, numaralandırılmış, görüntülenebilir ve yönetilebilir; OMS portalı ile olduğu gibi yalnızca günlük analizi uyarıları
+- Azure uyarıları kullanma [Eylem grupları](monitoring-action-groups.md), SMS, sesli arama, Otomasyon Runbook'u, Web kancası, ITSM bağlayıcı ve benzeri her uyarı için birden fazla eylem sahip sağlar. Günlük analizi uyarılarını her iki numarayı da sınırlı ise Eylemler olası olarak yazın.
 
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
-Uyarıları OMS Azure genişletme işlemi mu **değil** uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırma değiştirilmektedir. Gerekli yalnızca Azure, e-posta bildirimi gibi tüm eylemler Otomasyon runbook'u çalıştıran veya ITSM Aracı'na bağlanma Web kancası çağrı yapılır, eylem grubu değişikliktir. Uyarınız ile - uygun eylemi Grup ilişkiliyse bu nedenle bunlar Azure'da genişletilmiş hale.
+Uyarıları OMS Portalı'ndan Azure genişletme işlemi mu **değil** uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırma değiştirilmektedir. Gerekli yalnızca Azure, e-posta bildirimi gibi tüm eylemler Otomasyon runbook'u çalıştıran veya ITSM Aracı'na bağlanma Web kancası çağrı yapılır, eylem grubu değişikliktir. Uyarınız ile - uygun eylemi Grup ilişkiliyse bu nedenle bunlar Azure'da genişletilmiş hale.
 
-Genişletme işlemi dönüşlü ve değil interruptive olduğundan, Microsoft Operations Management Suite (OMS) Azure uyarıları otomatik olarak oluşturulan - başlayarak uyarıları uzatır **23 Nisan 2018**. Bu tarihten itibaren Microsoft Azure'da uyarıları genişletme zamanlamak başlar ve kademeli olarak eklemek için Azure portaldan yönetilebilir mevcut tüm uyarıları olun. 
+Genişletme işlemi dönüşlü ve değil interruptive olduğundan, Microsoft Azure uyarılar OMS portalında otomatik olarak oluşturulan - başlayarak uyarıları uzatır **23 Nisan 2018**. Bu tarihten itibaren Microsoft Azure'da uyarıları genişletme zamanlamak ve tüm uyarıları OMS portalında, Azure portaldan yönetilebilir mevcut kademeli olarak yapmak başlar. 
 
-Azure'da genişletmek için OMS çalışma alanında uyarılar zamanlandığında, bunlar çalışma ve devam eder **değil** izlemenizi herhangi bir şekilde tehlikeye. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi/düzenleme için kullanılamıyor olabilir; Ancak bu kısa süre içinde oluşturulacak yeni Azure uyarılar devam edebilirsiniz. Herhangi bir düzenleme veya uyarının oluşturulmasını OMS yapıldığında bu kısa süre içinde kullanıcıların Azure Log Analytics veya Azure uyarıları devam seçeneğiniz vardır.
+Azure'da genişletmek için günlük analizi çalışma alanındaki uyarılar zamanlandığında, bunlar çalışma ve devam edecek **değil** izlemenizi herhangi bir şekilde tehlikeye. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi/düzenleme için kullanılamıyor olabilir; Ancak bu kısa süre içinde oluşturulacak yeni Azure uyarılar devam edebilirsiniz. Herhangi bir düzenleme veya uyarının oluşturulmasını OMS Portalı'ndan yapıldığında bu kısa süre içinde kullanıcıların Azure Log Analytics veya Azure uyarıları devam seçeneğiniz vardır.
 
  ![Zamanlanmış süresi boyunca, kullanıcı eylemi Azure'a yeniden yönlendirilen uyarılar hakkında](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Uyarıları Operations Management Suite (OMS) Azure'a genişletme ücret ve kullanım Azure günlük analizi uyarılar değil faturalandırılacaksınız, belirtilen koşullar ve sınırları içinde kullanıldığında için sorgu tabanlı uyarılar [Azure fiyatlandırma ilkesi İzleyicisi](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
+> Uyarılar için Azure OMS Portalı'ndan genişletme ücret ve kullanım Azure günlük analizi uyarılar değil faturalandırılacaksınız, belirtilen koşullar ve sınırları içinde kullanıldığında için sorgu tabanlı uyarılar [Azure fiyatlandırma ilkesi İzleyicisi](https://azure.microsoft.com/en-us/pricing/details/monitor/)  
 
 Kullanıcılar bu tarihten önce uyarıları genişletmenin avantajlarından; Gönüllü uyarılarını Azure yönetilebilir hale getirmek amacıyla kullanmama tarafından.
 
 ### <a name="how-to-voluntarily-extending-your-alerts"></a>Uyarılarınızı gönüllü genişletme nasıl
-Azure uyarıları kolay bir geçişinde OMS kullanıcılar etkinleştirmek için Microsoft uyarıları genişletme araç oluşturdu. Microsoft Operations Management Suite (OMS) müşteriler uyarılarını Azure OMS portalında (veya) yeni bir API kullanarak programlı bir yaklaşım sihirbazından genişletebilirsiniz. Daha fazla bilgi için bkz: [uyarıları OMS portalı ve API kullanarak Azure genişletme](monitoring-alerts-extend-tool.md).
+Azure uyarıları kolay bir geçişinde OMS kullanıcılar etkinleştirmek için Microsoft uyarıları genişletme araç oluşturdu. Microsoft OMS portalı müşteriler uyarılarını Azure OMS portalında (veya) yeni bir API kullanarak programlı bir yaklaşım sihirbazından genişletebilirsiniz. Daha fazla bilgi için bkz: [uyarıları OMS portalı ve API kullanarak Azure genişletme](monitoring-alerts-extend-tool.md).
 
 
 ## <a name="usage-after-extending-your-alerts"></a>Uyarılarınızı genişlettikten sonra kullanım

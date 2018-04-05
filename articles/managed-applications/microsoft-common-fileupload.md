@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama dosya yükleme UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Common.FileUpload kullanıcı Arabirimi öğesi açıklar"
+title: Azure dosya yükleme UI öğesi | Microsoft Docs
+description: Azure portalı için Microsoft.Common.FileUpload kullanıcı Arabirimi öğesi açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 095880322ba801895a22efcf3476fa37d9e2ac3c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: bfde11a189348472942248a6b90fd5ef1b5a1c89
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI öğesi
-Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir denetimi. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md).
+Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir denetimi.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
@@ -47,12 +47,12 @@ Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir de
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `constraints.accept`Tarayıcının dosyası iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
+- `constraints.accept` Tarayıcının dosyası iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
 - Varsa `options.multiple` ayarlanır **doğru**, kullanıcının tarayıcısının dosyası iletişim kutusunda birden fazla dosya seçmesine izin verilen. Varsayılan değer **false**.
 - Bu öğe değerine göre iki modda karşıya yükleme dosyalarını destekler `options.uploadMode`. Varsa **dosya** belirtildi, çıktıyı bir BLOB dosyanın içeriğini içerir. Varsa **url** belirtilmişse dosyanın geçici bir konuma yüklenir ve çıktı blob URL'sini içerir. Geçici BLOB'lar 24 saat sonra temizlenecek. Varsayılan değer **dosya**.
 - Değeri `options.openMode` nasıl dosyayı okuma belirler. Dosya düz metin olması bekleniyor, belirtin **metin**; başka belirtin **ikili**. Varsayılan değer **metin**.
 - Varsa `options.uploadMode` ayarlanır **dosya** ve `options.openMode` ayarlanır **ikili**, base64 ile kodlanmış çıktı.
-- `options.encoding`Dosya okunurken kullanılacak kodlama belirtir. Varsayılan değer **UTF-8**ve kullanılan yalnızca `options.openMode` ayarlanır **metin**.
+- `options.encoding` Dosya okunurken kullanılacak kodlama belirtir. Varsayılan değer **UTF-8**ve kullanılan yalnızca `options.openMode` ayarlanır **metin**.
 
 ## <a name="sample-output"></a>Örnek çıktı
 Options.Multiple false ise ve options.uploadMode dosyadır, çıktı JSON dizesi olarak dosyanın içeriğini içerir:
@@ -91,6 +91,5 @@ Bir CreateUiDefinition test edilirken (Google Chrome gibi) bazı tarayıcılar t
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
 * UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

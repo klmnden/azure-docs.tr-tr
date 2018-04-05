@@ -1,11 +1,11 @@
 ---
-title: "Açık bir Linux VM için bağlantı noktaları ile Azure CLI 1.0 | Microsoft Docs"
-description: "Bir bağlantı noktasını açmak Azure resource manager dağıtım modeli ve Azure CLI 1.0 kullanarak, Linux VM için bir uç noktası oluşturma hakkında bilgi edinin"
+title: Açık bir Linux VM için bağlantı noktaları ile Azure CLI 1.0 | Microsoft Docs
+description: Bir bağlantı noktasını açmak Azure resource manager dağıtım modeli ve Azure CLI 1.0 kullanarak, Linux VM için bir uç noktası oluşturma hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13998e583c5b4e04d5930d7a117ac7e0a183a344
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Bağlantı noktaları ve uç noktaları bir Linux VM için Azure'da Azure CLI 1.0 kullanarak açma
 Bir bağlantı noktasını açmak veya bir alt ağ veya VM ağ arabirimine bir ağ filtre oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturun. Trafiği alır kaynağa bağlı bir ağ güvenlik grubu hem gelen hem de giden trafiği denetleyen bu filtreler yerleştir. Bağlantı noktası 80 üzerinde web trafiği yaygın bir örneği kullanalım. Bu makalede Azure CLI 1.0 kullanarak bir VM için bir bağlantı noktasını açmak nasıl gösterir.
@@ -81,7 +81,7 @@ azure network vnet subnet set \
 ```
 
 ## <a name="more-information-on-network-security-groups"></a>Ağ güvenlik grupları hakkında daha fazla bilgi
-Burada hızlı komutlar VM'nize akan trafikle başlamak ve çalıştırmak için olanak sağlar. Ağ güvenlik grupları birçok harika özellikler ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi edinebilirsiniz [bir ağ güvenlik grubu ve ACL oluşturma kuralları burada](../../virtual-network/virtual-networks-create-nsg-arm-cli.md).
+Burada hızlı komutlar VM'nize akan trafikle başlamak ve çalıştırmak için olanak sağlar. Ağ güvenlik grupları birçok harika özellikler ve kaynaklarınıza erişimi denetlemek için ayrıntı düzeyi sağlar. Daha fazla bilgi edinebilirsiniz [bir ağ güvenlik grubu ve ACL oluşturma kuralları burada](../../virtual-network/tutorial-filter-network-traffic-cli.md).
 
 Azure Resource Manager şablonları bir parçası olarak ağ güvenlik grupları ve ACL kuralları tanımlayabilirsiniz. Daha fazla bilgi edinin [şablonları ile ağ güvenlik grupları oluşturma](../../virtual-network/virtual-networks-create-nsg-arm-template.md).
 

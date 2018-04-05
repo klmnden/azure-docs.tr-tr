@@ -1,24 +1,24 @@
 ---
-title: "Sonuçları ya da bir veri deposu - Azure Batch tamamlanan işler ve görevler günlüklerine kalıcı | Microsoft Docs"
-description: "Toplu iş görevlerini ve işleri kalıcı çıktı verileri için farklı seçenekler hakkında bilgi edinin. Verileri Azure Storage veya başka bir veri deposu devam edebilir."
+title: Sonuçları ya da bir veri deposu - Azure Batch tamamlanan işler ve görevler günlüklerine kalıcı | Microsoft Docs
+description: Toplu iş görevlerini ve işleri kalıcı çıktı verileri için farklı seçenekler hakkında bilgi edinin. Verileri Azure Storage veya başka bir veri deposu devam edebilir.
 services: batch
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3ca93e823f02b1483ed290cf89de191937d1e2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="persist-job-and-task-output"></a>İş ve görev çıktılarını kalıcı hale getirme
 
@@ -79,7 +79,7 @@ Görev çıkış devam ettirmek için Batch hizmeti API'si kullanın:
 - Veri göre adlı bir Azure Storage kapsayıcısına kalıcı hale getirmek istediğiniz [toplu iş dosyası kuralları standart](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
-> Batch hizmeti API'si, bulut hizmet yapılandırmasıyla oluşturulan havuzlarında çalışan görevler kalıcı verileri desteklemez. Bulut Hizmetleri yapılandırmasını çalıştıran havuzlarından çıktı kalıcı görev hakkında daha fazla bilgi için bkz: [iş ve görev verileri Azure depolama kalıcı hale getirmek .NET için toplu iş dosyası kuralları kitaplığıyla Sürdür](batch-task-output-file-conventions.md)
+> Batch hizmeti API'si, bulut hizmet yapılandırmasıyla oluşturulan havuzlarında çalışan görevler kalıcı verileri desteklemez. Bulut Hizmetleri yapılandırmasını çalıştıran havuzlarından çıktı kalıcı görev hakkında daha fazla bilgi için bkz: [iş ve görev verileri Azure depolama kalıcı hale getirmek .NET için toplu iş dosyası kuralları kitaplığıyla Sürdür ](batch-task-output-file-conventions.md)
 > 
 > 
 
@@ -113,7 +113,7 @@ Kanıtlanmış adlandırma şeması istediğinizde ya da görev çıktısını A
 
 Ayrıca kendi tam dosya taşıma çözümü uygulayabilirsiniz. Bu yaklaşımını durumlarda kullanın:
 
-- Azure Storage dışındaki bir veri deposu için görev verilerini kalıcı hale getirmek istediğiniz. Azure SQL veya Azure DataLake gibi bir veri deposu dosyaları yüklemek için bir özel komut dosyası veya yürütülebilir dosyayı bu konuma yüklemek için oluşturabilirsiniz. Ardından komut satırında birincil yürütülebilir dosyanın çalıştırdıktan sonra çağırabilirsiniz. Örneğin, bir Windows düğümünde, şu iki komutu deniyor olabilir:`doMyWork.exe && uploadMyFilesToSql.exe`
+- Azure Storage dışındaki bir veri deposu için görev verilerini kalıcı hale getirmek istediğiniz. Azure SQL veya Azure DataLake gibi bir veri deposu dosyaları yüklemek için bir özel komut dosyası veya yürütülebilir dosyayı bu konuma yüklemek için oluşturabilirsiniz. Ardından komut satırında birincil yürütülebilir dosyanın çalıştırdıktan sonra çağırabilirsiniz. Örneğin, bir Windows düğümünde, şu iki komutu deniyor olabilir: `doMyWork.exe && uploadMyFilesToSql.exe`
 - İlk sonuçları onay işaret eden veya erken karşıya yükleme yapmak istiyorsunuz.
 - Hata işleme üzerinde ayrıntılı denetim korumak istiyorsunuz. Örneğin, belirli bir görev çıkış kodları bağlı belirli karşıya yükleme eylemleri için görev bağımlılık eylemleri kullanmak istiyorsanız, kendi çözümünüzü uygulamak isteyebilirsiniz. Görev bağımlılık eylemleri hakkında daha fazla bilgi için bkz: [diğer görevlere bağlı görevleri çalıştırmak için görev bağımlılıkları oluşturmak](batch-task-dependencies.md). 
 

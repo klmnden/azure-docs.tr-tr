@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub işleri anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - birden çok cihaz üzerinde çalışmasına işlerini zamanlama IOT hub'ına bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden çok aygıta doğrudan yöntemleri çağırma."
+title: Azure IOT Hub işleri anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - birden çok cihaz üzerinde çalışmasına işlerini zamanlama IOT hub'ına bağlı. İşler, etiketler ve istenen özelliklerini güncelleştirmek ve birden çok aygıta doğrudan yöntemleri çağırma.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fe78458f-4f14-4358-ac83-4f7bd14ee8da
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 7e0af40b2fd5bbb12d5565765aae4026922aec5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 367eb703465b2fbc6f1e06a383bc9df709cabe78
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Birden fazla cihazda işleri zamanlama
 
 Azure IOT hub'ı etkinleştirir yapı taşları gibi çeşitli [cihaz çifti özellikleri ve etiketleri] [ lnk-twin-devguide] ve [doğrudan yöntemleri][lnk-dev-methods].  Genellikle, arka uç uygulamaları cihaz yöneticileri ve işleçleri güncelleştirmek ve IOT cihazları toplu ve zamanlanan saatte etkileşim etkinleştirir.  İşler, zamanlanmış bir saatte cihaz çifti güncelleştirmeleri ve bir cihaz kümesi karşı doğrudan yöntemleri yürütün.  Örneğin, bir işleç başlatır ve bir grup oluşturma işlemlerini kesintiye uğratan olmayacaktır zaman 43 ve 3 kat oluşturmanın cihazı yeniden başlatmak için bir iş izleyen bir arka uç uygulaması kullanırsınız.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Zamanlamak ve ilerleme durumunu izlemek gerektiğinde işleri şu etkinlikler herhangi bir cihaz kümesi üzerinde kullanmayı dikkate alın:
 
@@ -106,10 +108,10 @@ Aşağıdaki listede, özelliklerini ve sorgulanırken işleri veya iş sonuçla
 | **jobId** |Uygulama Kimliği iş için sağlanan. |
 | **startTime** |Uygulama için iş başlangıç zamanı (ISO 8601) sağlanan. |
 | **endTime** |IOT hub'ı zaman iş tamamlandı (ISO 8601) tarihi sağlanır. Yalnızca iş 'Tamamlandı' durumuna ulaştıktan sonra geçerli. |
-| **türü** |İşlerini türleri: |
+| **Türü** |İşlerini türleri: |
 | | **scheduledUpdateTwin**: İstenen özellikleri veya etiketleri kümesi güncelleştirmek için kullanılan bir işi. |
 | | **scheduledDeviceMethod**: cihaz çiftlerini kümesi üzerinde bir aygıt yöntemi çağırmak için kullanılan bir işi. |
-| **durumu** |İşin geçerli durumu. Durum için olası değerler: |
+| **Durumu** |İşin geçerli durumu. Durum için olası değerler: |
 | | **Bekleyen**: Zamanlanmış ve iş hizmeti tarafından çekilmesi bekleniyor. |
 | | **Zamanlanmış**: gelecekteki bir zamanı için zamanlanan. |
 | | **çalışan**: şu anda etkin iş. |

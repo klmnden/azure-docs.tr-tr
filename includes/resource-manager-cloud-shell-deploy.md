@@ -1,6 +1,6 @@
 ## <a name="deploy-template-from-cloud-shell"></a>Cloud Shell'den şablon dağıtma
 
-Şablonunuzu dağıtmak için [Cloud Shell](../articles/cloud-shell/overview.md) kullanabilirsiniz. Ancak, ilk olarak şablonunuzu Cloud Shell dosya paylaşımına yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../articles/cloud-shell/overview.md).
+Şablonunuzu dağıtmak için [Cloud Shell](../articles/cloud-shell/overview.md) kullanabilirsiniz. Ancak, ilk şablonunuzu storage hesabınıza bulut Kabuğunuzu yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../articles/cloud-shell/overview.md).
 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 
@@ -12,33 +12,37 @@
 
    ![Depolama hesabı seçme](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
-1. **Dosyalar**’ı seçin.
+1. Seçin **BLOB'lar**.
 
-   ![Dosya seçme](./media/resource-manager-cloud-shell-deploy/select-files.png)
+   ![BLOB'ları seçin](./media/resource-manager-cloud-shell-deploy/select-blobs.png)
 
-1. Cloud Shell için dosya paylaşımı seçin. Ad deseni `cs-<user>-<domain>-com-<uniqueGuid>` şeklindedir.
+1. Seçin **+ kapsayıcı**.
 
-   ![Dosya paylaşımı seçme](./media/resource-manager-cloud-shell-deploy/select-file-share.png)
+   ![Kapsayıcı ekleme](./media/resource-manager-cloud-shell-deploy/add-container.png)
 
-1. **Dizin ekle**’yi seçin.
+1. Kapsayıcı bir ad ve bir erişim düzeyi verilir. Bu makaledeki örnek şablonu hiçbir hassas bilgiler içerir, böylece anonim okuma erişimine izin verir. **Tamam**’ı seçin.
 
-   ![Dizin ekleme](./media/resource-manager-cloud-shell-deploy/select-add-directory.png)
+   ![Kapsayıcı değerleri sağlayın](./media/resource-manager-cloud-shell-deploy/provide-container-values.png)
 
-1. **Şablonlar** olarak adlandırıp **Tamam**’ı seçin.
+1. Oluşturduğunuz kapsayıcısı seçin.
 
-   ![Ad dizini](./media/resource-manager-cloud-shell-deploy/name-templates.png)
-
-1. Yeni dizininizi seçin.
-
-   ![Dizin seçme](./media/resource-manager-cloud-shell-deploy/select-templates.png)
+   ![Yeni kapsayıcı seçin](./media/resource-manager-cloud-shell-deploy/select-container.png)
 
 1. **Karşıya Yükle**’yi seçin.
 
-   ![Karşıya yükleme seçme](./media/resource-manager-cloud-shell-deploy/select-upload.png)
+   ![BLOB karşıya yükleme](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
 
 1. Şablonunuzu bulup karşıya yükleyin.
 
-   ![Dosya yükleme](./media/resource-manager-cloud-shell-deploy/upload-files.png)
+   ![Dosya yükleme](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+
+1. Karşıya sonra şablonu seçin.
+
+   ![Yeni şablonu seçin](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
+
+1. URL'yi kopyalayın.
+
+   ![URL'yi kopyalayın](./media/resource-manager-cloud-shell-deploy/copy-url.png)
 
 1. İstemi açın.
 

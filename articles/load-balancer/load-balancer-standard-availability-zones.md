@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: 9f5a68972015f54e2333199652075cda2535a3c8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standart yük dengeleyici ve kullanılabilirlik bölgeleri
 
 Azure yük dengeleyicinin standart SKU destekleyen [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md) senaryoları. Bazı yeni kavramlar yanı sıra uçtan uca senaryonuz kullanılabilirlik bölgeleri kaynaklarla hizalayarak en iyi duruma dilimlerinde dağıtmak izin standart yük dengeleyici ile kullanılabilir.  Gözden geçirme [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md) kullanılabilirlik bölgeleri nelerdir ile ilgili yönergeler için hangi bölgelerin kullanılabilirlik bölgeleri ve diğer desteklemekte kavramları ve ürünleri ilgili. Standart yük dengeleyici ile birlikte kullanılabilirlik bölgeleri birçok farklı senaryolar oluşturabilirsiniz korunmalarını ve esnek özellik kümesidir.  Bunlar anlamak için bu belgeyi gözden [kavramları](#concepts) ve temel senaryo [Tasarım Kılavuzu](#design).
 
 >[!NOTE]
->Gözden geçirme [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) diğer için İlgili Konular. 
+>Gözden geçirme [kullanılabilirlik bölgeleri](https://aka.ms/availabilityzones) diğer için İlgili Konular. 
 
 ## <a name="concepts"></a> Yük Dengeleyici ile uygulanan kullanılabilirlik bölgeleri kavramları
 
@@ -43,7 +43,7 @@ Bir yük dengeleyici kaynak Bölgesel ve hiçbir zaman zonal değildir.  Ve her 
 
 Bir yük dengeleyici ön başvuran genel bir IP adresi kaynağı veya bir sanal ağ kaynağın alt ağ içindeki özel bir IP adresi ön uç IP bir yapılandırmadır.  Yük dengeli uç nokta hizmetinizi Burada sunulan oluşturur.
 
-Bir yük dengeleyici kaynak zonal ve bölge olarak yedekli ön uçlar aynı anda içerebilir.
+Bir yük dengeleyici kaynak zonal ve bölge olarak yedekli ön uçlar aynı anda içerebilir. 
 
 Genel IP kaynağı bölgeye garanti, zonality (veya bunların olmaması) değişebilir değil.  Değiştirme veya bir ortak IP ön zonality atlamak istiyorsanız, uygun bölge'deki ortak IP yeniden oluşturmanız gerekecek.  
 
@@ -219,3 +219,5 @@ Diğer hizmet mimarisi bilerek olmadan daha iyi bir seçim biridir genel bir yö
 ## <a name="next-steps"></a>Sonraki adımlar
 - Daha fazla bilgi edinmek [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md)
 - Daha fazla bilgi edinmek [standart yük dengeleyici](load-balancer-standard-overview.md)
+- Bilgi edinmek için nasıl [zonal bir ön uç ile standart bir yük dengeleyici kullanarak bir bölgedeki Yük Dengelemesi VM'ler](load-balancer-standard-public-zonal-cli.md)
+- Bilgi edinmek için nasıl [bölge olarak yedekli bir ön uç ile standart bir yük dengeleyici kullanarak bölgeler arasında Yük Dengelemesi VM'ler](load-balancer-standard-public-zone-redundant-cli.md)

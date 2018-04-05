@@ -1,11 +1,11 @@
 ---
-title: "Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Belgeleri"
-description: "Sanal makine ölçek kümelerinde bağlı veri disklerinin nasıl kullanılacağını öğrenin"
+title: Azure Sanal Makine Ölçek Kümeleri Bağlı Veri Diskleri | Microsoft Belgeleri
+description: Sanal makine ölçek kümelerinde bağlı veri disklerinin nasıl kullanılacağını öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,52 +15,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: 52ea7e35b941d5b1e45f39203757e4a3644cc9a5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure sanal makine ölçek kümeleri ve bağlı veri diskleri
-Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri olan sanal makineleri artık desteklemektedir. Veri diskleri, Azure Yönetilen Diskler ile oluşturulmuş olan ölçek kümeleri için depolama profilinde tanımlanabilir. Daha önce, ölçek kümelerindeki sanal makinelere doğrudan bağlı depolama seçeneği olarak yalnızca işletim sistemi sürücüsü ve geçici sürücüler kullanılabiliyordu.
+Kullanılabilir depolama alanınızı genişletmek için Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri içeren sanal makine örneklerini destekler. Ölçek kümesi oluşturulduğunda veya mevcut bir ölçek kümesine veri diskleri ekleyebilirsiniz.
 
 > [!NOTE]
->  Bağlı veri diskleri tanımlanmış bir ölçek kümesi oluşturduğunuz durumlarda da tek başına Azure sanal makinelerinde olduğu gibi, diskleri kullanabilmek için bir VM içinde takmanız ve biçimlendirmeniz gerekir. Bu işlemi tamamlamanın uygun bir yolu, bir VM üzerindeki tüm verileri bölümlemek ve biçimlendirmek için standart bir betik çağıran özel bir betik uzantısı kullanılmasıdır.
+>  Bağlı veri diskleri içeren bir ölçek kümesi oluşturduğunuzda tek başına Azure sanal makinelerinde olduğu gibi, diskleri kullanabilmek için bir sanal makine içinde takmanız ve biçimlendirmeniz gerekir. Bu işlemi tamamlamanın uygun bir yolu, bir sanal makine üzerindeki tüm verileri bölümlemek ve biçimlendirmek için bir betik çağıran Özel Betik Uzantısı kullanılmasıdır. Bununla ilgili örnekler için bkz. [Azure CLI 2.0](tutorial-use-disks-cli.md#prepare-the-data-disks) [Azure PowerShell](tutorial-use-disks-powershell.md#prepare-the-data-disks).
 
-## <a name="create-a-scale-set-with-attached-data-disks"></a>Bağlı veri diskleri olan ölçek kümesi oluşturma
-Bağlı diskleri olan bir ölçek kümesi oluşturmanın basit bir yolu, [az vmss create](/cli/azure/vmss#az_vmss_create) komutunu kullanmaktır. Aşağıdaki örnekte bir Azure kaynak grubu ile birlikte, her birinin boyutu sırasıyla 50 GB ve 100 GB olan 2 bağlı veri diski içeren 10 Ubuntu sanal makinesiyle bir sanal makine ölçek kümesi oluşturulmaktadır.
 
-```bash
-az group create -l southcentralus -n dsktest
-az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --data-disk-sizes-gb 50 100
-```
+## <a name="create-and-manage-disks-in-a-scale-set"></a>Ölçek kümesinde diskler oluşturma ve yönetme
+Bağlı veri diskleri içeren bir ölçek kümesi oluşturma, veri diskleri hazırlayıp biçimlendirme veya veri diskleri ekleme ve kaldırma işlemlerine ilişkin ayrıntılı bilgiler için aşağıdaki öğreticilerden birine bakın:
 
-Belirtmemeniz durumunda, [az vmss create](/cli/azure/vmss#az_vmss_create) komutu bazı yapılandırma değerlerini varsayılan olarak kullanır. Geçersiz kılabileceğiniz seçenekleri görmek için şunları deneyin:
+- [Azure CLI 2.0](tutorial-use-disks-cli.md)
+- [Azure PowerShell](tutorial-use-disks-powershell.md)
 
-```bash
-az vmss create --help
-```
+Bu makalenin geri kalanında, veri diskleri gerektiren Service Fabric kümeleri gibi belirli kullanım senaryoları veya bir ölçek kümesine içerik barındıran mevcut veri disklerinin eklenmesi açıklanmaktadır.
 
-Bağlı diskleri olan bir ölçek kümesi oluşturmanın başka bir yolu ise bir Azure Resource Manager şablonunda ölçek kümesi tanımlamak, _storageProfile_ içine bir _dataDisks_ bölümü eklemek ve şablonu dağıtmaktır. Önceki örnekte yer alan 50 GB ve 100 GB disk, aşağıdaki şablon örneğinde gösterildiği gibi tanımlanır:
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    }
-]
-```
-
-Bağlı diski olan bir ölçek kümesi şablonunun dağıtıma hazır, tam bir örneğini şurada görebilirsiniz: [https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data](https://github.com/chagarw/MDPP/tree/master/101-vmss-os-data).
 
 ## <a name="create-a-service-fabric-cluster-with-attached-data-disks"></a>Eklenen veri diskleri ile bir Service Fabric kümesi oluşturma
 Azure’da çalışan bir [Service Fabric](/azure/service-fabric) kümesindeki her [düğüm türü](../service-fabric/service-fabric-cluster-nodetypes.md), bir sanal makine ölçek kümesi tarafından desteklenir.  Azure Resource Manager şablonunu kullanarak, Service Fabric kümesini oluşturan ölçek kümelerine veri diskleri ekleyebilirsiniz. Başlangıç noktası olarak [mevcut bir şablonu](https://github.com/Azure-Samples/service-fabric-cluster-templates) kullanabilirsiniz. Şablonda, _Microsoft.Compute/virtualMachineScaleSets_ kaynaklarının _storageProfile_ seçeneğine _dataDisks_ bölümü ekleyin ve şablonu dağıtın. Aşağıdaki örnekte 128 GB veri diski kullanıma açılır:
@@ -115,56 +90,6 @@ Bir Linux kümesinde veri disklerini otomatik olarak hazırlamak için şunları
 }
 ```
 
-## <a name="adding-a-data-disk-to-an-existing-scale-set"></a>Mevcut ölçek kümesine veri diski ekleme
-> [!NOTE]
->  Veri disklerini yalnızca [Azure Yönetilen Diskler](./virtual-machine-scale-sets-managed-disks.md) ile oluşturulmuş olan bir ölçek kümesine ekleyebilirsiniz.
-
-Azure CLI _az vmss disk attach_ komutunu kullanarak bir sanal makine ölçek kümesine veri diski ekleyebilirsiniz. Henüz kullanımda olmayan bir LUN belirttiğinizden emin olun. Aşağıdaki CLI örneği LUN 3’e 50 GB sürücü ekler:
-
-```bash
-az vmss disk attach -g dsktest -n dskvmss --size-gb 50 --lun 3
-```
-
-Aşağıdaki PowerShell örneği LUN 3’e 50 GB sürücü ekler:
-
-```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName myvmssrg -VMScaleSetName myvmss
-$vmss = Add-AzureRmVmssDataDisk -VirtualMachineScaleSet $vmss -Lun 3 -Caching 'ReadWrite' -CreateOption Empty -DiskSizeGB 50 -StorageAccountType StandardLRS
-Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScaleSet $vmss
-```
-
-> [!NOTE]
-> Farklı VM boyutları, destekledikleri bağlı sürücü sayısı ile ilgili farklı sınırlara sahiptir. Yeni bir disk eklemeden önce [sanal makine boyut özelliklerini](../virtual-machines/windows/sizes.md) denetleyin.
-
-Ayrıca bir ölçek kümesi tanımının _storageProfile_ kısmındaki _dataDisks_ özelliğine yeni bir giriş ekleyip değişikliği uygulayarak da bir disk ekleyebilirsiniz. Bunu test etmek için [Azure Kaynak Gezgini](https://resources.azure.com/)’nde var olan bir ölçek kümesi tanımı bulun. _Düzenle_’yi seçin ve aşağıdaki örnekte gösterildiği gibi veri diskleri listesine yeni bir disk ekleyin:
-
-```json
-"dataDisks": [
-    {
-    "lun": 1,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 50
-    },
-    {
-    "lun": 2,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 100
-    },
-    {
-    "lun": 3,
-    "createOption": "Empty",
-    "caching": "ReadOnly",
-    "diskSizeGB": 20
-    }          
-]
-```
-
-Ardından _PUT_ öğesini seçerek değişiklikleri ölçek kümenize uygulayın. Bu örnek, ikiden fazla bağlı veri diskini destekleyen bir VM boyutu kullandığınız sürece işe yarar.
-
-> [!NOTE]
-> Ölçek kümesi tanımında, veri diski ekleme veya kaldırma gibi bir değişiklik yaptığınızda değişiklik yeni oluşturulan tüm sanal makineler için geçerli olur. Ancak _upgradePolicy_ özelliği "Otomatik" olarak ayarlanırsa, değişiklik yalnızca mevcut sanal makinelere uygulanır. Bu özellik "El ile" olarak ayarlanırsa, yeni modeli mevcut sanal makinelere el ile uygulamanız gerekir. Bu işlemi portalda _Update-AzureRmVmssInstance_ PowerShell komutunu veya _az vmss update-instances_ CLI komutunu kullanarak yapabilirsiniz.
 
 ## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Önceden doldurulmuş veri disklerini mevcut bir ölçek kümesine ekleme 
 > Tasarım gereği, mevcut ölçek kümesi modeline disk eklediğinizde, disk her zaman boş oluşturulur. Bu senaryo ayrıca ölçek kümesi tarafından oluşturulan yeni örnekleri içerir. Bu davranışın nedeni ölçek kümesinin boş veri diski tanımına sahip olmasıdır. Mevcut bir ölçek kümesi modeli için önceden doldurulmuş veri sürücüleri oluşturmak için iki seçenekten birini seçebilirsiniz:
@@ -176,12 +101,6 @@ Ardından _PUT_ öğesini seçerek değişiklikleri ölçek kümenize uygulayın
 
 > Kullanıcının gerekli verileri içeren örnek 0 VM’yi yakalaması, ardından da görüntü tanımı için bu VHD’yi kullanması gerekir.
 
-## <a name="removing-a-data-disk-from-a-scale-set"></a>Bir ölçek kümesinden veri diski kaldırma
-Azure CLI _az vmss disk detach_ komutunu kullanarak bir sanal makine ölçek kümesinden veri diski kaldırabilirsiniz. Örneğin, aşağıdaki komut LUN 2’de tanımlanmış diski kaldırır:
-```bash
-az vmss disk detach -g dsktest -n dskvmss --lun 2
-```  
-Benzer şekilde, _storageProfile_ içindeki _dataDisks_ özelliğinden bir girişi kaldırıp değişikliği uygulayarak da diski ölçek kümesinden kaldırabilirsiniz. 
 
 ## <a name="additional-notes"></a>Ek notlar
 Azure Yönetilen diskleri ve ölçek kümesi bağlı veri diskleri için destek, Microsoft.Compute API’sinin [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) veya üstü sürümlere eklenmiştir.

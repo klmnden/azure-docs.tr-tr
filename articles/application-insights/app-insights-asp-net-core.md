@@ -1,6 +1,6 @@
 ---
-title: "ASP.NET Core için Azure Application Insights | Microsoft Docs"
-description: "Kullanılabilirlik, performans ve kullanım için Web uygulamalarını izleyin."
+title: ASP.NET Core için Azure Application Insights | Microsoft Docs
+description: Kullanılabilirlik, performans ve kullanım için Web uygulamalarını izleyin.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 77c48a22f974e027b4e8858d5e38018bbf5bb54f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3f57eb3ede3b57e28c13e053b86ab022fdd21b7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core için Application Insights
 
@@ -95,7 +95,7 @@ Uygulamanızı başlatma tıklattıktan sonra geçici bağlantıları el ile tes
 
 1. IIS Express'i tıklatarak uygulamanızı çalıştırma ![Ekran görüntüsü, Visual Studio IIS Express simgesi](./media/app-insights-asp-net-core/0012-iis-express.png)
 
-2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın. Biçim http://localhost olduğu: {rastgele bağlantı noktası numarası}
+2. Tarayıcınızın adres çubuğundan URL'yi kopyalayın. Şu biçimdedir http://localhost:{random bağlantı noktası numarası}
 
    ![Tarayıcı url adres çubuğunun ekran görüntüsü](./media/app-insights-asp-net-core/0013-copy-url.png)
 
@@ -159,7 +159,7 @@ Birden çok onay istekleri ortaya okuyup değişikliklerle onaylıyorsanız kabu
    ```
      ![Kod değişikliği _viewımports.cshtml için ekran görüntüsü](./media/app-insights-asp-net-core/00018-view-imports.png)
 
-3. İçinde **Layout.cshtml** önce aşağıdaki satırı ekleyin ``</head>`` etiketi, ancak herhangi bir betiği öncesinde.
+3. İçinde **_Layout.cshtml** önce aşağıdaki satırı ekleyin ``</head>`` etiketi, ancak herhangi bir betiği öncesinde.
 
     ```C#
     @Html.Raw(snippet.FullScript)

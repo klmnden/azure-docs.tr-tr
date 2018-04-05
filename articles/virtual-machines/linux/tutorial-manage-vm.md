@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e7dab67b46a2853e9585c88c8e4d4263f844c3b2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 487ffffca445fb3f98dcaa6550b0b1b74290b803
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
 
@@ -91,7 +91,7 @@ exit
 
 ## <a name="understand-vm-images"></a>VM görüntülerini anlama
 
-Azure market, VM oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Önceki adımlarda, bir Ubuntu görüntüsünü kullanarak bir sanal makine oluşturduk. Bu adımda, markette bir CentOS görüntüsü aramak ve ikinci bir sanal makineyi dağıtmak üzere kullanmak için Azure CLI’si kullanılır.  
+Azure market, VM oluşturmak için kullanılabilecek çok sayıda görüntü içerir. Önceki adımlarda, bir Ubuntu görüntüsünü kullanarak bir sanal makine oluşturduk. Bu adımda, markette bir CentOS görüntüsü aramak ve ikinci bir sanal makineyi dağıtmak üzere kullanmak için Azure CLI’si kullanılır. 
 
 Yaygın olarak kullanılan görüntülerin bir listesini görmek için, [az vm image list](/cli/azure/vm/image#az_vm_image_list) komutunu kullanın.
 
@@ -136,7 +136,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Bir VM’yi belirli bir görüntüyü kullanarak dağıtmak için, *Urn* sütunundaki değeri not edin. Görüntüyü belirtirken, görüntü sürümü sayısı “en yeni” ile değiştirilerek dağıtımın en yeni sürümü seçilebilir. Bu örnekte, bir CentOS 6.5 görüntüsünün son sürümünü belirtmek için `--image` bağımsız değişkeni kullanılmıştır.  
+Belirli bir görüntü kullanarak bir sanal makineyi dağıtmak için, görüntüyü [tanımlamak](cli-ps-findimage.md#terminology) amacıyla *Urn* sütunundaki yayımcı, teklif, SKU ve isteğe bağlı olarak sürüm numarasından oluşan değeri not edin. Görüntüyü belirtirken, görüntü sürümü sayısı “en yeni” ile değiştirilerek dağıtımın en yeni sürümü seçilebilir. Bu örnekte, bir CentOS 6.5 görüntüsünün son sürümünü belirtmek için `--image` bağımsız değişkeni kullanılmıştır.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -259,7 +259,7 @@ Bir Azure VM’si birçok güç durumuna sahip olabilir. Bu durum VM’nin hiper
 
 ### <a name="find-power-state"></a>Güç durumunu bulma
 
-Belirli bir VM’nin durumunu almak için, [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
+Belirli bir VM’nin durumunu almak için, [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) komutunu kullanın. Sanal makine ve kaynak grubu için geçerli bir ad belirttiğinizden emin olun. 
 
 ```azurecli-interactive 
 az vm get-instance-view \

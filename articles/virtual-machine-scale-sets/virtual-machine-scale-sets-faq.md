@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 4dd908908877a222c708c9b2ab6255ab9a4b414a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -63,7 +63,11 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 **S.** Ölçek kümeleri Azure kullanılabilirlik kümeleri ile birlikte çalışır mı?
 
-**C.** Evet. Bir ölçek kümesi, beş hata etki alanı ve beş güncelleştirme etki alanına sahip örtülü bir kullanılabilirlik kümesidir. 100’den fazla sanal makineden oluşan ölçek kümeleri, birden fazla kullanılabilirlik kümesine eşdeğer olan birden fazla *yerleştirme grubuna* yayılır. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
+**C.** Kullanan bir bölgesel (zonal olmayan) ölçek kümesi *yerleştirme grupları*, her biri örtük kullanılabilirlik beş hata etki alanları ile kümesi olarak davranmak için yapılandırılabilir ve beş güncelleme etki alanları. 100'den fazla VM ölçek kümesi birden çok yerleştirme grupları span. Yerleştirme grupları hakkında daha fazla bilgi için bkz. [Büyük sanal makine ölçek kümeleri ile çalışma](virtual-machine-scale-sets-placement-groups.md). Bir sanal makine kullanılabilirlik kümesi, sanal makine ölçek kümesiyle aynı sanal ağda bulunabilir. Genellikle bir kullanılabilirlik kümesinde benzersiz yapılandırma gerektiren denetim düğümünü sanal makinelere, veri düğümlerini ise ölçek kümesine yerleştirmek, yaygın bir yapılandırmadır.
+
+**S.** Ayarlar çalışma Azure kullanılabilirlik bölgeleri ile ölçeklendirme?
+
+**C.** Evet! Daha fazla bilgi için bkz: [ölçek kümesi bölge belge](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme

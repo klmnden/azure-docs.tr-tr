@@ -141,13 +141,15 @@
       href: sql-data-warehouse-troubleshoot.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Hizmet özellikleri
+    - name: Yükseltme
+      href: upgrade-to-latest-generation.md
+    - name: Geri Yükleme
       items:
-        - name: Bir veri ambarını geri yükleme - portal
+        - name: Portal
           href: sql-data-warehouse-restore-database-portal.md
-        - name: Bir veri ambarını geri yükleme - PowerShell
+        - name: PowerShell
           href: sql-data-warehouse-restore-database-powershell.md
-        - name: Bir veri ambarını geri yükleme - REST API’si
+        - name: REST API’si
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Güvenlik
       items:

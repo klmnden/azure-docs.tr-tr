@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks Not Defteri çalıştırma
-description: Bir Azure veri fabrikasında databricks iş kümesine göre Databricks Not Defteri çalıştırmak için Databricks Not Defteri Etkinliğini nasıl kullanabileceğinizi öğrenin.
+description: Bir Azure veri fabrikasında databricks iş kümesine göre Databricks not defteri çalıştırmak için Databricks Not Defteri Etkinliğini nasıl kullanabileceğinizi öğrenin.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -13,21 +13,21 @@ ms.topic: get-started-article
 ms.date: 3/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: d1dcec26529c747a209dd10fcefbbadaa40365a3
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7a90906f0bb41b0ced368e9010e0c8a4981f038c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks Not Defteri çalıştırma
+# <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Azure Data Factory’de Databricks Not Defteri etkinliği ile bir Databricks not defteri çalıştırma
 
-Bu öğreticide, databricks iş kümesine göre bir Databricks Not Defteri yürüten Azure Data Factory işlem hattı oluşturmak için Azure portalını kullanırsınız. Bu işlem ayrıca yürütme sırasında Databricks Not Defteri’ne Azure Data Factory parametrelerini geçirir.
+Bu öğreticide, databricks iş kümesine göre bir Databricks not defteri yürüten Azure Data Factory işlem hattı oluşturmak için Azure portalını kullanırsınız. Bu işlem ayrıca yürütme sırasında Databricks not defterine Azure Data Factory parametrelerini geçirir.
 
 Bu öğreticide aşağıdaki adımları gerçekleştireceksiniz:
 
   - Veri fabrikası oluşturma.
 
-  - Databricks Not Defteri etkinliğini kullanan bir işlem hattı oluşturun.
+  - Databricks Not Defteri Etkinliği’ni kullanan bir işlem hattı oluşturun.
 
   - İşlem hattı çalıştırması tetikleyin.
 
@@ -37,7 +37,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-  - **Azure Databricks çalışma alanı**. [Bir databricks çalışma alanı oluşturun](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) veya var olanı kullanın. Azure Databricks çalışma alanınızda bir Python Not Defteri oluşturun. Ardından, Not Defteri’ni yürütün ve Azure Data Factory kullanarak parametreleri Not Defteri’ne geçirin.
+  - **Azure Databricks çalışma alanı**. [Bir Databricks çalışma alanı oluşturun](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) veya var olanı kullanın. Azure Databricks çalışma alanınızda bir Python not defteri oluşturun. Ardından, not defterini yürütün ve Azure Data Factory kullanarak parametreleri not defterine geçirin.
 
 ## <a name="create-a-data-factory"></a>Veri fabrikası oluşturma
 
@@ -125,7 +125,7 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
     ![Yeni işlem hattı oluşturma düğmeleri](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-2.  **İşlem hattı** içinde kullanılacak bir **parametre** oluşturun. Daha sonra bu parametreyi Databricks Not Defteri etkinliğine geçireceksiniz. Boş işlem hattında **Parametreler** sekmesine, ardından **Yeni**’ye tıklayın ve '**name**' olarak adlandırın.
+2.  **İşlem hattı** içinde kullanılacak bir **parametre** oluşturun. Daha sonra bu parametreyi Databricks Not Defteri Etkinliği’ne geçireceksiniz. Boş işlem hattında **Parametreler** sekmesine, ardından **Yeni**’ye tıklayın ve '**name**' olarak adlandırın.
 
     ![Yeni parametre oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -149,13 +149,13 @@ Bu bölümde bir Databricks bağlı hizmetini yazacaksınız. Bu bağlı hizmet,
 
           ![Yeni klasör oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       3. [Yeni Not Defteri oluşturun](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Bu not defterini **adftutorial** Klasörü altında **mynotebook** olarak adlandırıp **Oluştur**’a tıklayın.
+       3. [Yeni not defteri oluşturun](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python). Bu not defterini **adftutorial** Klasörü altında **mynotebook** olarak adlandırıp**,** **Oluştur**’a tıklayın.
 
-          ![Yeni Not Defteri oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
+          ![Yeni not defteri oluşturma](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
-          ![Yeni Not Defterinin özelliklerini ayarlama](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
+          ![Yeni not defterinin özelliklerini ayarlama](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image15.png)
 
-       4. Yeni oluşturulan "mynotebook" adlı Not Defterine aşağıdaki kodu ekleyin:
+       4. Yeni oluşturulan "mynotebook" adlı not defterine aşağıdaki kodu ekleyin:
 
            ```
            # Creating widgets for leveraging parameters, and printing the parameters

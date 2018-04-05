@@ -1,6 +1,6 @@
 ---
-title: "Azure Table storage: bir Node.js web uygulaması oluşturma | Microsoft Docs"
-description: "Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi."
+title: 'Azure Table storage: bir Node.js web uygulaması oluşturma | Microsoft Docs'
+description: Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi.
 services: cosmos-db
 documentationcenter: nodejs
 author: mimig1
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 03/29/2018
 ms.author: mimig
-ms.openlocfilehash: 9acd197c26e6365e396fd8f6321d764bba7bbb6c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: b63f6b3be2e4576b304c1a73ff326a937815b27e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js Web uygulaması
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/18/2018
 ## <a name="overview"></a>Genel Bakış
 Bu öğreticide, uygulamayı oluşturduğunuz [Express kullanarak Node.js Web uygulaması] Öğreticisi, Node.js için Microsoft Azure istemci kitaplıkları veri Yönetim Hizmetleri ile birlikte çalışmak üzere kullanımı genişletilir. Uygulamanız için Azure dağıtabileceğiniz bir web tabanlı görev listesi uygulama oluşturarak genişletir. Görev listesi, kullanıcının görevleri almak, yeni görevler ekleyin ve Görevler tamamlandı olarak işaretle izin verir.
 
-Görev öğeleri Azure depolama alanında depolanır. Azure depolama hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama sağlar. Azure depolama burada depolamak ve verilere birkaç veri yapılarını içerir. Depolama Hizmetleri REST API'leri aracılığıyla veya Node.js için Azure SDK'ın dahil API'leri kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama ve veri erişim].
+Görev öğeleri Azure Storage veya Azure Cosmos DB depolanır. Azure depolama ve Azure Cosmos DB hataya dayanıklı ve yüksek oranda kullanılabilir yapılandırılmamış veri depolama alanı sağlar. Azure depolama ve Azure Cosmos DB sakladığınız ve veri erişim birkaç veri yapılarını içerir. Depolama ve REST API'leri aracılığıyla veya Node.js için Azure SDK'ın dahil API'ları Azure Cosmos DB hizmetlerini kullanabilirsiniz. Daha fazla bilgi için bkz: [depolama ve veri erişim].
 
 Bu öğretici, tamamladığınızı varsaymaktadır [Node.js Web uygulaması] ve [Node.js Express ile][Express kullanarak Node.js Web uygulaması] öğreticileri.
 
@@ -40,7 +40,7 @@ Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir:
 ![Internet Explorer'da tamamlanan web sayfası](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config dosyasında depolama kimlik bilgilerini ayarlama
-Azure depolama alanına erişmek için depolama kimlik bilgilerini geçmesi gerekir. Bu, web.config uygulama ayarları yararlanarak gerçekleştirilir.
+Azure Storage veya Azure Cosmos DB erişmek için depolama kimlik bilgilerini geçmesi gerekir. Bu, web.config uygulama ayarları yararlanarak gerçekleştirilir.
 Web.config ayarları ortam değişkenleri olarak düğümü için Azure SDK'sı tarafından ardından okuma geçirilir.
 
 > [!NOTE]
@@ -144,7 +144,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     Task.prototype = {
       find: function(query, callback) {
         self = this;
-        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
+        self.storageClient.queryEntities(this.tablename, query, null, null, function entitiesQueried(error, result) {
           if(error) {
             callback(error);
           } else {
@@ -181,7 +181,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
             callback(error);
           }
           entity.completed._ = true;
-          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+          self.storageClient.replaceEntity(self.tableName, entity, function entityUpdated(error) {
             if(error) {
               callback(error);
             }
@@ -215,7 +215,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
     TaskList.prototype = {
       showTasks: function(req, res) {
         self = this;
-        var query = azure.TableQuery()
+        var query = new azure.TableQuery()
           .where('completed eq ?', false);
         self.task.find(query, function itemsFound(error, items) {
           res.render('index',{title: 'My ToDo List ', tasks: items});
@@ -224,7 +224,10 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
 
       addTask: function(req,res) {
         var self = this
-        var item = req.body.item;
+        var item = {
+            name: req.body.name, 
+            category: req.body.category
+        };
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
             throw error;
@@ -307,7 +310,7 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
             td Category
             td Date
             td Complete
-          if tasks != []
+          if tasks == []
             tr
               td
           else
@@ -325,9 +328,9 @@ Bu bölümde, temel uygulama tarafından oluşturulan **express** komutu ekleyer
       hr
       form.well(action="/addtask", method="post")
         label Item Name:
-        input(name="item[name]", type="textbox")
+        input(name="name", type="textbox")
         label Item Category:
-        input(name="item[category]", type="textbox")
+        input(name="category", type="textbox")
         br
         button.btn(type="submit") Add item
     ```
@@ -414,7 +417,7 @@ Aşağıdaki adımlar durdurmak ve uygulamanızı silmek nasıl gösterir.
    Hizmetin silinmesi birkaç dakika sürebilir. Hizmet silindikten sonra hizmet silinmiş olduğunu belirten bir ileti alırsınız.
 
 [Express kullanarak Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
-[depolama ve veri erişim]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+[depolama ve veri erişim]: https://docs.microsoft.com/azure/storage/
 [Node.js Web uygulaması]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
 
 

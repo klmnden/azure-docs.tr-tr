@@ -1,64 +1,39 @@
 ---
-title: "Azure AD kiracısı edinme | Microsoft Belgeleri"
-description: "Uygulamaları kaydetmek ve oluşturmak üzere Azure Active Directory kiracısı edinme."
+title: Azure AD kiracısı edinme | Microsoft Belgeleri
+description: Uygulamaları kaydetmek ve oluşturmak üzere Azure Active Directory kiracısı edinme.
 services: active-directory
-documentationcenter: 
-author: bryanla
+documentationcenter: ''
+author: mtillman
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: bryanla
+ms.date: 03/23/2018
+ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 85783d58b2b02a9d0c6230429bebf2806514dee5
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ab7db49fa07f260de6ebbe4b2cee943b64cab7fe
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory kiracısı edinme
-Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant), bir kuruluşun temsilcisidir.  Bir kuruluşun, Azure, Microsoft Intune veya Office 365 gibi bir Microsoft bulut hizmetine kaydolduğunda aldığı ve sahip olduğu adanmış bir Azure AD hizmeti örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
+Azure Active Directory'de (Azure AD) [kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#Anchor_0), bir kuruluşun temsilcisidir.  Bu, bir kuruluşun, Azure, Microsoft Intune veya Office 365 gibi bir Microsoft bulut hizmetine kaydolduğunda olduğu gibi, Microsoft ile bir ilişki oluşturduğunda aldığı ve sahip olduğu adanmış bir Azure AD hizmeti örneğidir.  Her Azure AD kiracısı benzersizdir ve diğer Azure AD kiracılarından ayrıdır.  
 
 Kiracı, bir şirket içindeki kullanıcıları ve bunlarla ilgili bilgileri (parolalarını, kullanıcı profili verilerini, izinlerini vb.) barındırır.  Ayrıca bir kuruluşa ve kuruluşun güvenliğine ilişkin grupları, uygulamaları ve diğer bilgileri de içerir.
 
-Azure AD kullanıcılarının uygulamanızda oturum açmasına olanak tanımak için uygulamanızı kendi kiracınıza kaydetmeniz gerekir.  Bir Azure AD kiracısında uygulama yayımlamak **tamamen ücretsizdir**.  Hatta çoğu geliştirici, deneme, geliştirme, hazırlama ve test etme amacıyla çeşitli kiracılar ve uygulamalar oluşturur.  Uygulamanıza kaydolan ve uygulamanızı kullanan kuruluşlar, gelişmiş dizin özelliklerinden faydalanmak istemeleri halinde isteğe bağlı olarak lisans satın almayı tercih edebilir.
+Azure AD kullanıcılarının uygulamanızda oturum açmasına olanak tanımak için uygulamanızı kendi kiracınıza kaydetmeniz gerekir.  Azure AD kiracısı oluşturma ve bu kiracıda bir uygulama yayımlama **kesinlikle ücretsizdir** (öte yandan, kiracınızdan premium özellikler için ödeme yapmayı seçebilirsiniz).  Hatta birçok geliştirici, deneme, geliştirme, hazırlama ve test etme amacıyla çeşitli kiracılar ve uygulamalar oluşturur.
 
-Peki, Azure AD kiracısını nasıl edinebilirsiniz?  Bu işlem, aşağıdaki koşullarda biraz farklı olabilir:
+## <a name="use-an-existing-azure-ad-tenant"></a>Mevcut bir Azure AD kiracısı kullanma
 
-* [Mevcut bir Office 365 aboneliğiniz varsa](#use-an-existing-office-365-subscription)
-* [Bir Microsoft Hesabı ile ilişkili olan mevcut bir Azure aboneliğiniz varsa](#use-an-msa-azure-subscription)
-* [Bir kuruluş hesabı ile ilişkili olan mevcut bir Azure aboneliğiniz varsa](#use-an-organizational-azure-subscription)
-* [Yukarıdakilerden hiçbirine sahip değilseniz ve sıfırdan başlamak istiyorsanız](#start-from-scratch)
+Birçok geliştiricinin, Azure AD kiracılarına bağlı abonelikler veya hizmetler (örneğin: Office 365 veya Azure abonelikleri) aracılığıyla zaten kiracıları vardır.  Önceden bir kiracınız olup olmadığını denetlemek için, uygulamanızı yönetmek için kullanmak istediğiniz hesapla [Azure portalında](https://portal.azure.com) oturum açın ve hesap bilgilerinizin gösterildiği sağ üst köşeyi denetleyin.  Bir kiracınız varsa, otomatik olarak bu kiracıda oturum açar ve kiracı adını doğrudan hesap adınızın altında görürsünüz.  Hesabınız birden çok kiracıyla ilişkiliyse, kiracılar arasında geçiş yapabileceğiniz bir menüyü açmak için hesap adınıza tıklayabilirsiniz.
 
-## <a name="use-an-existing-office-365-subscription"></a>Mevcut bir Office 365 aboneliğini kullanma
-Mevcut bir Office 365 aboneliğiniz varsa zaten bir Azure AD kiracınız vardır! O365 hesabınızla [Azure portal](https://portal.azure.com)’da oturum açabilir ve Azure AD’yi kullanmaya başlayabilirsiniz.
+Hesabınızla ilişkili mevcut bir kiracınız yoksa, hesap adınızın altında bir GUID görürsünüz ve siz [yeni bir kiracı oluşturmadan](#create-a-new-azure-ad-tenant) uygulamaları kaydetme gibi işlemler gerçekleştiremezsiniz.
 
-## <a name="use-an-msa-azure-subscription"></a>MSA Azure aboneliğini kullanma
-Daha önce bireysel Microsoft Hesabınız ile bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure portalı](https://portal.azure.com)’nda oturum açtığınızda, otomatik olarak varsayılan kiracınızda oturumunuz açılır. Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz ancak bir Kuruluş yöneticisi hesabı oluşturmak isteyebilirsiniz.
+## <a name="create-a-new-azure-ad-tenant"></a>Yeni Azure AD kiracısı oluşturma
 
-Bunu yapmak için şu adımları uygulayın.  Alternatif olarak, benzer bir işlemi izleyerek yeni bir kiracı oluşturmak ve kiracı içinde bir yönetici oluşturmak isteyebilirsiniz.
-
-1. Bireysel hesabınızla [Azure portalı](https://portal.azure.com)'nda oturum açın
-2. Portalın "Azure Active Directory" bölümüne (sol gezinti çubuğunda, **Tüm hizmetler**’in altında bulunur) gidin
-3. Otomatik olarak "Varsayılan Dizin"de oturumunuzun açılması gerekir. Oturum açılmazsa sağ üst köşede hesap adınıza tıklayarak dizinleri değiştirebilirsiniz.
-4. **Hızlı Görevler** bölümünde **Kullanıcı ekle**’yi seçin.
-5. Kullanıcı Ekleme Formu'nda şu bilgileri sağlayın:
-
-   * Ad: (uygun bir değer seçin)
-   * Kullanıcı adı: (bu yönetici için bir kullanıcı adı seçin)
-   * Profil: (Ad, Soyadı, İş unvanı ve Bölüm için uygun değerleri girin)
-   * Rol: Genel Yönetici
-6. Kullanıcı Ekleme Formu'nu doldurduktan ve yeni yönetici kullanıcı için geçici parolayı aldıktan sonra, parolayı değiştirmek üzere bu yeni kullanıcı ile oturum açmanız gerekeceğinden, bu parolayı kaydettiğinizden emin olun. Ayrıca alternatif bir e-posta adresi kullanarak parolayı doğrudan kullanıcıya da gönderebilirsiniz.
-7. Yeni kullanıcıyı oluşturmak için **Oluştur**’a tıklayın.
-8. Geçici parolayı değiştirmek için [https://login.microsoftonline.com](https://login.microsoftonline.com) adresinde bu yeni kullanıcı hesabı ile oturum açın ve istendiğinde parolayı değiştirin.
-
-## <a name="use-an-organizational-azure-subscription"></a>Kuruluş Azure aboneliği kullanma
-Daha önce kuruluş hesabınızla bir Azure aboneliğine kaydolduysanız kiracınız zaten mevcuttur!  [Azure portalı](https://portal.azure.com)’nda, "Tüm hizmetler" ve "Azure Active Directory"e gittiğinizde bir kiracı bulmanız gerekir.  Bu kiracıyı uygun gördüğünüz şekilde kullanabilirsiniz.
-
-## <a name="start-from-scratch"></a>Sıfırdan başlama
-Yukarıdakilerin hiçbiri sizin için bir anlam ifade etmiyorsa endişelenmeyin. Yeni bir Azure AD dizini oluşturmak için [Azure portalı](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory)’nı ziyaret edin. İşlemi tamamladıktan sonra, kayıt sırasında seçtiğiniz etki alanı adıyla kendi Azure AD kiracınıza sahip olursunuz.  [Azure portalı](https://portal.azure.com)'nda, sol gezinti çubuğunda bulunan **Azure Active Directory** konumuna giderek kiracınızı bulabilirsiniz.
+Önceden bir Azure AD kiracınız yoksa veya yeni bir Azure AD kiracısı oluşturmak istiyorsanız, [Azure portalındaki](https://portal.azure.com) [dizin oluşturma deneyimini](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) kullanarak bunu yapabilirsiniz.  İşlem yaklaşık bir dakika sürer ve sonunda, yeni oluşturulan kiracınıza gitmeniz istenir.

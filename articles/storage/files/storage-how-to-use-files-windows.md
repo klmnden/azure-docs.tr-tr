@@ -1,12 +1,12 @@
 ---
-title: "Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme | Microsoft Docs"
-description: "Azure Dosya paylaşımını bağlayın ve Windows’da paylaşıma erişin."
+title: Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme | Microsoft Docs
+description: Azure Dosya paylaşımını bağlayın ve Windows’da paylaşıma erişin.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 5d6d81678d1b3c63b52b34e79979d06fdc981ad0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure Dosya paylaşımını bağlama ve Windows’da paylaşıma erişme
 [Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure Dosya paylaşımları, Windows ve Windows Server’a bağlanabilir. Bu makale Windows’da Azure Dosya paylaşımının üç farklı yolla bağlanmasını gösterir: Dosya Gezgini kullanıcı arabirimi ile, Powershell ve Komut İstemi aracılığıyla. 
@@ -29,14 +29,14 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 
 | Windows Sürümü        | SMB Sürümü | Azure VM'de Bağlanabilir | Şirket İçinde Bağlanabilir |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server yarı yıllık kanal<sup>1</sup> | SMB 3.0 | Evet | Evet |
-| Windows 10<sup>2</sup>  | SMB 3.0 | Evet | Evet |
-| Windows Server 2016    | SMB 3.0     | Evet                   | Evet                  |
-| Windows 8.1            | SMB 3.0     | Evet                   | Evet                  |
-| Windows Server 2012 R2 | SMB 3.0     | Evet                   | Evet                  |
-| Windows Server 2012    | SMB 3.0     | Evet                   | Evet                  |
-| Windows 7              | SMB 2.1     | Evet                   | Hayır                   |
-| Windows Server 2008 R2 | SMB 2.1     | Evet                   | Hayır                   |
+| Windows Server yarı yıllık kanal<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>2</sup>  | SMB 3.0 | Yes | Yes |
+| Windows Server 2016    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 8.1            | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | Yes                   | Yes                  |
+| Windows Server 2012    | SMB 3.0     | Yes                   | Yes                  |
+| Windows 7              | SMB 2.1     | Yes                   | Hayır                   |
+| Windows Server 2008 R2 | SMB 2.1     | Yes                   | Hayır                   |
 
 <sup>1</sup>Windows Server sürüm 1709.  
 <sup>2</sup>Windows 10 sürüm 1507, 1607, 1703 ve 1709.
@@ -50,6 +50,31 @@ Azure VM üzerinde veya şirket içinde çalışan bir Windows yüklemesinde Azu
 * **Depolama Hesabı Anahtarı**: Azure Dosya paylaşımını bağlayabilmeniz için birincil (veya ikincil) depolama anahtarı gerekir. SAS anahtarları şu an bağlama için desteklenmemektedir.
 
 * **Bağlantı noktası 445'in açık olduğundan emin olun**: Azure Dosyaları SMB protokolünü kullanır. SMB, TCP bağlantı noktası 445 üstünden iletişim kurar. İstemci makinenizde güvenlik duvarının TCP bağlantı noktaları 445’i engellemediğinden emin olun.
+
+## <a name="persisting-connections-across-reboots"></a>Yeniden başlatma işlemlerinde bağlantıları kalıcı hale getirme
+### <a name="cmdkey"></a>CmdKey
+Kalıcı bağlantılar kurmanın en kolay yolu, “CmdKey” komut satırı yardımcı programını kullanarak depolama hesabı kimlik bilgilerinizi Windows’a kaydetmektir. Aşağıda, sanal makinenizde depolama hesabı kimlik bilgilerinizin kalıcı hale getirilmesine yönelik örnek bir komut satırı verilmiştir:
+```
+C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
+```
+> [!Note]
+> Burada Domainname, "AZURE" olacaktır
+
+CmdKey, depoladığı kimlik bilgilerini de listelemenize olanak sağlar:
+
+```
+C:\>cmdkey /list
+```
+Çıktı aşağıdaki gibi olur:
+
+```
+Currently stored credentials:
+
+Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Type: Domain Password
+User: AZURE\<yourstorageaccountname>
+```
+Kimlik bilgileri kalıcı hale getirildikten sonra, paylaşımınıza bağlanırken artık kimlik bilgilerini sağlamanız gerekmez. Herhangi bir kimlik bilgisi belirtmeden bağlanabilirsiniz.
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>Azure Dosya paylaşımını Dosya Gezgini ile bağlama
 > [!Note]  

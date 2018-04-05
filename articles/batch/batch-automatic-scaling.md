@@ -1,25 +1,25 @@
 ---
-title: "Ölçek işlem düğümlerini Azure Batch havuzunda otomatik olarak | Microsoft Docs"
-description: "Havuzdaki işlem düğümü sayısını dinamik olarak ayarlamak için bir bulut havuzunda otomatik ölçeklendirmeyi etkinleştirebilirsiniz."
+title: Ölçek işlem düğümlerini Azure Batch havuzunda otomatik olarak | Microsoft Docs
+description: Havuzdaki işlem düğümü sayısını dinamik olarak ayarlamak için bir bulut havuzunda otomatik ölçeklendirmeyi etkinleştirebilirsiniz.
 services: batch
-documentationcenter: 
-author: tamram
-manager: timlt
-editor: tysonn
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0e49cd8a64a48c53f5b6104703164a597c797f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1114ea90ae6976a3bc3580ebae5fd853de0274a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Bir Batch havuzunda işlem düğümlerini ölçeklendirme bir otomatik ölçeklendirme formülü oluşturma
 
@@ -125,17 +125,17 @@ Bu tür bir formüle desteklenir:
 * Çift
 * doubleVec
 * doubleVecList
-* Dize
+* string
 * zaman damgası--zaman damgası aşağıdaki üyeleri içeren bileşik bir yapıdır:
 
-  * Yıl
+  * yıl
   * Ay (1-12)
   * gün (1-31)
   * Haftanın günü (biçimde numarasının; Örneğin, Pazartesi günü için 1)
   * saat (24 saatlik sayı biçiminde; Örneğin, 13 13'te anlamına gelir)
   * dakika (00-59)
   * İkinci (00-59)
-* TimeInterval
+* timeinterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -154,16 +154,16 @@ Bu işlemler önceki bölümde listelenen türlerine izin verilir.
 | İşlem | Desteklenen işleçleri | Sonuç türü |
 | --- | --- | --- |
 | çift *işleci* çift |+, -, *, / |Çift |
-| çift *işleci* TimeInterval |* |TimeInterval |
+| çift *işleci* TimeInterval |* |timeinterval |
 | doubleVec *işleci* çift |+, -, *, / |doubleVec |
-| doubleVec *işleci* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *işleci* çift |*, / |TimeInterval |
-| TimeInterval *işleci* TimeInterval |+, - |TimeInterval |
+| doubleVec *operator* doubleVec |+, -, *, / |doubleVec |
+| TimeInterval *işleci* çift |*, / |timeinterval |
+| TimeInterval *işleci* TimeInterval |+, - |timeinterval |
 | TimeInterval *işleci* zaman damgası |+ |timestamp |
 | zaman damgası *işleci* TimeInterval |+ |timestamp |
-| zaman damgası *işleci* zaman damgası |- |TimeInterval |
+| zaman damgası *işleci* zaman damgası |- |timeinterval |
 | *İşleç*çift |-, ! |Çift |
-| *İşleç*TimeInterval |- |TimeInterval |
+| *operator*timeinterval |- |timeinterval |
 | çift *işleci* çift |<, <=, ==, >=, >, != |Çift |
 | dize *işleci* dize |<, <=, ==, >=, >, != |Çift |
 | zaman damgası *işleci* zaman damgası |<, <=, ==, >=, >, != |Çift |
@@ -175,10 +175,10 @@ Bir çift Üçlü operatör ile sınarken (`double ? statement1 : statement2`), 
 ## <a name="functions"></a>İşlevler
 Bu önceden tanımlanmış **işlevleri** otomatik ölçeklendirme formülü tanımlarken kullanmanız için kullanılabilir.
 
-| İşlevi | Dönüş türü | Açıklama |
+| İşlev | Dönüş türü | Açıklama |
 | --- | --- | --- |
-| AVG(doubleVecList) |Çift |Tüm değerler için ortalama değer doubleVecList döndürür. |
-| Len(doubleVecList) |Çift |DoubleVecList oluşturulan vektör uzunluğunu döndürür. |
+| avg(doubleVecList) |Çift |Tüm değerler için ortalama değer doubleVecList döndürür. |
+| len(doubleVecList) |Çift |DoubleVecList oluşturulan vektör uzunluğunu döndürür. |
 | LG(double) |Çift |Günlük çift temel 2 döndürür. |
 | LG(doubleVecList) |doubleVec |Component-wise günlük doubleVecList temel 2 döndürür. Bir vec(double) parametresi için açıkça geçirilmelidir. Aksi takdirde, çift lg(double) sürümü varsayılır. |
 | ln(double) |Çift |Çift doğal günlüğü döndürür. |
@@ -186,13 +186,13 @@ Bu önceden tanımlanmış **işlevleri** otomatik ölçeklendirme formülü tan
 | log(double) |Çift |Günlük çift temel 10 döndürür. |
 | log(doubleVecList) |doubleVec |Component-wise günlük doubleVecList temel 10 döndürür. Bir vec(double) açıkça için tek bir çift parametre geçirilmelidir. Aksi takdirde, çift log(double) sürümü varsayılır. |
 | max(doubleVecList) |Çift |En büyük değer doubleVecList döndürür. |
-| Min(doubleVecList) |Çift |En düşük değer doubleVecList döndürür. |
+| min(doubleVecList) |Çift |En düşük değer doubleVecList döndürür. |
 | Norm(doubleVecList) |Çift |DoubleVecList oluşturulan vektör norm iki döndürür. |
 | Yüzdelik (doubleVec v, çift p) |Çift |V vektör yüzdebirlik öğesi döndürür. |
 | rand() |Çift |0,0 ile 1,0 arasında rastgele bir değeri döndürür. |
 | Range(doubleVecList) |Çift |En az ve maksimum değerleri arasındaki farkı doubleVecList döndürür. |
 | Std(doubleVecList) |Çift |DoubleVecList değerleri örnek standart sapmasını döndürür. |
-| Stop() | |Otomatik ölçeklendirmeyi ifadesi değerlendirmesi durdurur. |
+| stop() | |Otomatik ölçeklendirmeyi ifadesi değerlendirmesi durdurur. |
 | SUM(doubleVecList) |Çift |DoubleVecList tüm bileşenleri toplamını döndürür. |
 | saat (dateTime dize = "") |timestamp |Kendisine geçirilen parametre aktarılırsa geçerli zaman zaman damgası veya zaman damgası tarih saat dizesi döndürür. Desteklenen tarih/saat biçimleri W3C DTF ve RFC 1123 olacaktır. |
 | VAL (doubleVec v, çift i) |Çift |Konumda i vektör v, sıfır başlangıç dizinine sahip olan öğe değerini döndürür. |
@@ -212,7 +212,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Yöntem | Açıklama |
 | --- | --- |
-| GetSample() |`GetSample()` Yöntemi vektör verilerini örnekleri döndürür.<br/><br/>Ölçüm verilerini 30 saniyede bir örnektir. Diğer bir deyişle, örnekleri her 30 saniyede elde edilir. Ancak aşağıda belirtildiği gibi bir formülün kullanılabilir olduğunda ve bir örnek ne zaman toplanan arasında bir gecikme yoktur. Bu nedenle, belirli bir süre için tüm örnekleri bir formüle değerlendirme için kullanılabilir.<ul><li>`doubleVec GetSample(double count)`<br/>Toplanan en son örneklerini almak için örnek sayısını belirtir.<br/><br/>`GetSample(1)`Son kullanılabilir örneği döndürür. Ölçümleri ister için `$CPUPercent`, bilmeniz mümkün olduğundan ancak, bu kullanılmamalıdır *zaman* örnek toplanan. Son olabilir ya da sistem sorunları nedeniyle daha eski olabilir. Aşağıda gösterildiği gibi bir zaman aralığı kullanmak için bu gibi durumlarda daha iyidir.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Örnek verileri toplamak için bir zaman çerçevesi belirtir. İsteğe bağlı olarak, ayrıca istenen zaman dilimi içinde kullanılabilir olmalıdır örnekleri yüzdesini belirtir.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`Son 10 dakika için tüm örnekleri CPUPercent geçmişinde mevcut olup olmadığını 20 örnekleri döndürecektir. Son dakika geçmişi kullanılabilir değilse, ancak yalnızca 18 örnekleri döndürülür. Bu durumda:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`örnekler yüzde 90'ından yalnızca kullanılabilir olmadığından başarısız olur.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`başarılı.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Başlangıç zamanı ve bitiş saati ile veri toplama için bir zaman çerçevesi belirtir.<br/><br/>Yukarıda belirtildiği gibi bir formülün kullanılabilir olduğunda ve bir örnek ne zaman toplanan arasında bir gecikme olur. Bu gecikme kullanırken dikkate `GetSample` yöntemi. Bkz: `GetSamplePercent` aşağıda. |
+| GetSample() |`GetSample()` Yöntemi vektör verilerini örnekleri döndürür.<br/><br/>Ölçüm verilerini 30 saniyede bir örnektir. Diğer bir deyişle, örnekleri her 30 saniyede elde edilir. Ancak aşağıda belirtildiği gibi bir formülün kullanılabilir olduğunda ve bir örnek ne zaman toplanan arasında bir gecikme yoktur. Bu nedenle, belirli bir süre için tüm örnekleri bir formüle değerlendirme için kullanılabilir.<ul><li>`doubleVec GetSample(double count)`<br/>Toplanan en son örneklerini almak için örnek sayısını belirtir.<br/><br/>`GetSample(1)` Son kullanılabilir örneği döndürür. Ölçümleri ister için `$CPUPercent`, bilmeniz mümkün olduğundan ancak, bu kullanılmamalıdır *zaman* örnek toplanan. Son olabilir ya da sistem sorunları nedeniyle daha eski olabilir. Aşağıda gösterildiği gibi bir zaman aralığı kullanmak için bu gibi durumlarda daha iyidir.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Örnek verileri toplamak için bir zaman çerçevesi belirtir. İsteğe bağlı olarak, ayrıca istenen zaman dilimi içinde kullanılabilir olmalıdır örnekleri yüzdesini belirtir.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` Son 10 dakika için tüm örnekleri CPUPercent geçmişinde mevcut olup olmadığını 20 örnekleri döndürecektir. Son dakika geçmişi kullanılabilir değilse, ancak yalnızca 18 örnekleri döndürülür. Bu durumda:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` örnekler yüzde 90'ından yalnızca kullanılabilir olmadığından başarısız olur.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` başarılı.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Başlangıç zamanı ve bitiş saati ile veri toplama için bir zaman çerçevesi belirtir.<br/><br/>Yukarıda belirtildiği gibi bir formülün kullanılabilir olduğunda ve bir örnek ne zaman toplanan arasında bir gecikme olur. Bu gecikme kullanırken dikkate `GetSample` yöntemi. Bkz: `GetSamplePercent` aşağıda. |
 | GetSamplePeriod() |Gerçekleştirilen örnekleri süresi geçmiş örnek veri kümesinde döndürür. |
 | Count() işlevi |Ölçüm geçmişinde örneklerin toplam sayısını döndürür. |
 | HistoryBeginTime() |Eski kullanılabilir veri örneği ölçümü için zaman damgasını döndürür. |
@@ -385,7 +385,7 @@ Batch .NET yanı sıra herhangi diğer kullanabilirsiniz [Batch SDK'ları](batch
 ### <a name="automatic-scaling-interval"></a>Otomatik ölçeklendirme aralığı
 Varsayılan olarak, Batch hizmeti her 15 dakikada bir havuzun boyutu otomatik ölçeklendirme formülü göre ayarlar. Bu aralık aşağıdaki havuzu özellikleri kullanılarak yapılandırılabilir:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST API'si)
 
 Minimum aralık beş dakikadır ve en fazla 168 saattir. Bu aralığın dışında kalan bir aralık belirtilirse, Batch hizmeti hatalı istek (400) bir hata döndürür.
@@ -399,7 +399,7 @@ Minimum aralık beş dakikadır ve en fazla 168 saattir. Bu aralığın dışın
 
 Her Batch SDK otomatik ölçeklendirmeyi etkinleştirmek için bir yol sağlar. Örneğin:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Otomatik bir havuz üzerinde ölçeklendirmeyi etkinleştirmek] [ rest_enableautoscale] (REST API'si)
 
 Var olan bir havuzu üzerinde otomatik ölçeklendirmeyi etkinleştirdiğinizde, aşağıdaki noktaları göz önünde bulundurun:
@@ -454,7 +454,7 @@ Bir havuza uygulamadan önce bir formül değerlendirebilirsiniz. Bu şekilde, n
 
 Otomatik ölçeklendirme formülü değerlendirmek için önce geçerli bir formül havuzuyla üzerinde otomatik ölçeklendirmeyi etkinleştirmeniz gerekir. Formül etkin otomatik ölçeklendirmeyi henüz yok bir havuz üzerinde test etmek için tek satır formülü kullanın `$TargetDedicatedNodes = 0` ilk etkinleştirdiğinizde otomatik ölçeklendirmeyi. Ardından, aşağıdakilerden birini test etmek istediğiniz formülü değerlendirmek için kullanın:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) veya [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+* [BatchClient.PoolOperations.EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) or [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Bu Batch .NET yöntemleri değerlendirmek var olan bir havuzu ve otomatik ölçeklendirme formülü içeren bir dize kimliği gerektirir.
 

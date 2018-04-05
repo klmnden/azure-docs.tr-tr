@@ -1,26 +1,26 @@
 ---
-title: "Bir Azure sanal ağı - Azure CLI oluşturun | Microsoft Docs"
-description: "Hızlı bir şekilde Azure CLI kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ özel olarak birbirleriyle ve internet ile iletişim kurmak için sanal makineler gibi Azure kaynakları sağlar."
+title: Bir Azure sanal ağı - Azure CLI oluşturun | Microsoft Docs
+description: Hızlı bir şekilde Azure CLI kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ özel olarak birbirleriyle ve internet ile iletişim kurmak için sanal makineler gibi Azure kaynakları sağlar.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 46fec48720c817072ce838dd2e4c07725be5a7fe
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: d07f06a1a70c859544c3b1ceb6146dc11e4d10aa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-virtual-network-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal ağ oluşturma
 
@@ -129,4 +129,4 @@ Bu makalede, bir varsayılan sanal ağ ve iki VM oluşturdunuz. Internet'ten bir
 Varsayılan olarak, Azure sanal makineler arasında Kısıtlanmamış özel iletişime olanak sağlar, ancak yalnızca gelen SSH oturumları Linux VM'ler için Internet'ten izin verir. İzin vermek veya farklı türlerde ağ iletişimi için ve VM'ler kısıtlamak nasıl öğrenmek için sonraki öğretici ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Ağ trafiği filtreleme](virtual-networks-create-nsg-arm-cli.md)
+> [Ağ trafiği filtreleme](tutorial-filter-network-traffic-cli.md)

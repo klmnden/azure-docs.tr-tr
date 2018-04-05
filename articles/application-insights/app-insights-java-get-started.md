@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights ile Java web uygulaması analizi | Microsoft Docs"
-description: "Application Insights ile Java web uygulamaları için Uygulama Performansı İzleme. "
+title: Azure Application Insights ile Java web uygulaması analizi | Microsoft Docs
+description: 'Application Insights ile Java web uygulamaları için Uygulama Performansı İzleme. '
 services: application-insights
 documentationcenter: java
 author: harelbr
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1ec845a6491b406c1aef34609b155a9c3d087427
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -30,7 +30,7 @@ Application Insights; Linux, Unix veya Windows üzerinde çalışan Java uygulam
 
 Gerekenler:
 
-* Oracle JRE 1.6 veya sonraki sürümleri ya da Zulu JRE 1.6 veya sonraki sürümleri
+* Oracle ya da Zulu JRE sürüm 1.7 veya 1.8
 * Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği.
 
 *Zaten canlı olan bir web uygulaması varsa, [web sunucusuna çalışma zamanında SDK eklemek](app-insights-java-live.md) için alternatif bir yordam izleyebilirsiniz. Bu alternatif yordam, kodun yeniden derlenmesini engellese de, kullanıcı etkinliğini izlemek için kod yazma seçeneğini elde etmezsiniz.*
@@ -169,8 +169,7 @@ Application Insights SDK’sı anahtarı şu sırayla arar:
 Ayrıca [kod içinde ayarlayabilirsiniz](app-insights-api-custom-events-metrics.md#ikey):
 
 ```Java
-
-    telemetryClient.InstrumentationKey = "...";
+    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
 ```
 
 ## <a name="4-add-an-http-filter"></a>4. HTTP filtresi ekleme

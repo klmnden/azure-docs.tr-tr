@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: da43e122c3e7d5e852107d4e4cca237ce4824267
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="how-caching-works"></a>Önbelleğe alma nasıl çalışır
+# <a name="how-caching-works"></a>Önbelleğe alma nasıl işler?
 
 Bu makalede genel önbelleğe alma kavramlara genel bakış sağlar ve nasıl [Azure içerik teslim ağı (CDN)](cdn-overview.md) önbelleğe alma performansını artırmak için kullanır. CDN uç noktanız önbelleğe alma davranışını özelleştirmek için bkz: hakkında bilgi almak isterseniz [denetim Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı](cdn-caching-rules.md) ve [denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle](cdn-query-string.md).
 
@@ -64,7 +64,7 @@ Bir kaynak eski olarak değerlendirilir, kaynak sunucunun istedi, yani doğrulam
 ## <a name="cache-directive-headers"></a>Önbellek yönergesi üstbilgileri
 
 > [!IMPORTANT]
-> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. İçin **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri, nasıl Azure CDN uç kullanarak bu üstbilgileri değerlendirir ayarlayabilirsiniz [CDN önbelleği kurallarını](cdn-caching-rules.md)önbelleğe almayı etkinleştirmek için. İçin **verizon'dan Azure CDN** yalnızca profilleri, kullandığınız [kurallar altyapısı](cdn-rules-engine.md) önbelleğe almayı etkinleştirmek için.
+> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. İçin **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri, nasıl Azure CDN uç kullanarak bu üstbilgileri değerlendirir ayarlayabilirsiniz [CDN önbelleği kurallarını](cdn-caching-rules.md)önbelleğe almayı etkinleştirmek için. İçin **Azure CDN Verizon Premium'a** yalnızca profilleri, kullandığınız [kurallar altyapısı](cdn-rules-engine.md) önbelleğe almayı etkinleştirmek için.
 
 Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki HTTP önbellek yönergesi üstbilgileri destekler.
 
@@ -123,7 +123,7 @@ Aşağıdaki tabloda, önbelleğe alma davranışı Azure CDN ürünü ve bunlar
 |                    | Verizon: Genel web teslim | Verizon: DSA | Akamai: Genel web teslim | Akamai: DSA | Akamai: büyük dosya indirme | Akamai: genel veya medya VOD akışı |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Uy kaynağı**   | Evet    | Hayır   | Evet | Hayır | Evet | Evet |
-| **CDN önbellek süresi** | 7 gün | Hiçbiri | 7 gün | None | 1 gün | 1 yıl |
+| **CDN önbellek süresi** | 7 gün | None | 7 gün | None | 1 gün | 1 yıl |
 
 **Kaynak dikkate**: vermenizin belirtir [önbellek yönergesi üstbilgileri desteklenen](#http-cache-directive-headers) kaynak sunucudan HTTP yanıt varsa.
 

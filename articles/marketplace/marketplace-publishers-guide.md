@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 94bf1a8fd9ac37087862823317bde5f3d130a3d6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -335,7 +335,7 @@ Yayımlama işlemi başlamadan önce bir teklifi oluşturmak için gerekli bile�
 |Bu yayımlama yapı gerekir  |Bu teklif türü için  |
 |---------|---------|
 |**(200 karakterden) ad ve Açıklama (2.000 karakter) sunma**    |  Tümü        |
-|**MPN kimliği ve yetkinlikleri**   |  Danışmanlık Hizmetleri       |
+|**Microsoft iş ortağı ağı (MPN) kimliği**   |  Tümü       |
 |**Ülke/bölge kullanılabilirliği**   | Tümü        |
 |**Katılım süresi**     |   Danışmanlık Hizmetleri      |
 |**Geçerli sektörü, kategoriler ve arama anahtar sözcükleri**     |  Tümü       |
@@ -412,6 +412,7 @@ Bu bölümde, adımları açıklanır:
 
 |Market kayıt adımı  |Zaman  |Açıklama  |
 |---------|---------|---------|
+| Microoft iş ortağı ağı kaydet | 15 dakika | Yayımcı, Microsoft Partner Network (Hesap doğrulama ilk düzeyine sahip ve ek avantajların yanı sıra ve bir Azure Market yayımcı olabilme desteği için MPN) kayıtlı olması gerekir |
 |Microsoft kimlik oluşturun     |   15 dakika      |   İş ortaklarının Microsoft ID. olması gerekir Bu Microsoft ID bulut iş ortağı portalına erişmek için kullanılır.       |
 |Market Adaylığı form gönderme     |  1-3 gün       |  Market onay işlemini başlatmak üzere Adaylığı form gönderilemedi ortakları gerekir. Form gönderildikten sonra Market hazırlanma ekibi uygulama gözden geçirin ve istek doğrulayın.       |
 |Geliştirici Merkezi'nde kaydetme     |    5-10 gün     | Microsoft iş ortağı kayıtlı olduğu ülkede için geçerli vergi numarası geçerli yasal bir varlıkla olduğunu doğrulamak için Microsoft Developer Center'da kayıt gereklidir. Geliştirici Merkezi kayıtlı Microsoft geliştirici olmanız ve bunları Azure Geliştirici programı erişim sağlamak için ortağı olanak sağlar. <br><br>Market Adaylığı form tamamladıysanız henüz 99 kayıt ücret ödemeniz istenir, olduğunu unutmayın. Kullanıma başlama öncesi bu ücret sağlamak için Market Adaylığı formu doldurun ve e-posta yoluyla bir promosyon kodu alırsınız.  |
@@ -425,6 +426,9 @@ Azure Market ve AppSource Teklifleriniz için yalnızca bir Microsoft ID hesabı
 
 Seçilen e-posta adresi şirket etki alanınızda tercihen olmalıdır ve BT ekibi tarafından denetlenir. Bir kimliği oluşturmadan önce yönergeleri gözden geçirmek için aşağıdaki bölümlerde [kılavuzları ve nasıl yapılır](#guidelines-and-how-tos). 
 
+#### <a name="register-in-microsoft-partner-network"></a>Microsoft iş ortağı ağı kaydet 
+Bir Azure Marketi veya AppSource yayımcı şirketiniz olma Microsoft ile ortaklık. Microsoft Partner Network (MPN) katılarak, şirketinizin teknik çözümleri geliştirmek ve işinizi genişletmenize yardımcı olmak için çekirdek yararları ayarlamak için erişim sağlama (örn: teknik destek içerir). Bir yayımcı olarak Market katılarak Avantajlarınızı Microsoft iş ortağı ağı içinde tahakkuk. MPN kaydetmek için lütfen ziyaret [Microsoft iş ortağı ağı](https://partner.microsoft.com/en-us/membership/). Şirket içinde MPN zaten kayıtlı değilse doğrulamalıdır. Kaydedildikten sonra MPN kimliğinizi hesabınızı doğrulamak yayımcı profilinizde doğrulamak için isteyeceğiz [bulut iş ortağı portalını](https://cloudpartner.azure.com/). 
+
 #### <a name="submit-the-marketplace-nomination-form"></a>Market Adaylığı form gönderme
 Market ekleme işleminin bir parçası olarak Adaylığı form gönderme gerekir. Form uygulamanızı veya hizmet teklifi, şirketinizin bilgilerini ve düzeyde sağlayacağınız desteği hakkında bilgi içerir. 
 
@@ -435,7 +439,7 @@ Formu gönderdikten sonra Market Ekibi uygulama gözden geçirin ve istek doğru
 
 #### <a name="register-in-the-developer-center"></a>Geliştirici Merkezi'nde kaydetme
 
-[Microsoft Developer Center'da](https://developer.microsoft.com/) şirketinizin bilgilerini kaydetmek için kullanılır. Registrant şirketin geçerli temsilcisi olması ve kullanıcıların kimliğini doğrulamak için kendi kişisel bilgilerini sağlamanız gerekir. Şirket için paylaşılan a Microsoft ID registrant kullanmanız gerekir ve aynı hesabı kullanılmalıdır [bulut iş ortağı portalını](https://cloudpartner.azure.com/). 
+[Microsoft Developer Center'da](https://developer.microsoft.com/) sahip olan uygulamalar yayımlamayı sanal makineler, çözüm şablonları ve Azure ile yönetilen uygulamalar gibi özellikler transact için gereklidir. Bu gereksinim, şirket bilgileri şirketinizin yasal, vergi ve varlıkları bankacılık doğrulamak Microsoft izin verir. Registrant şirketin geçerli temsilcisi olması ve kullanıcıların kimliğini doğrulamak için kendi kişisel bilgilerini sağlamanız gerekir. Kaydetme kişinin şirket için paylaşılan a Microsoft ID kullanmanız gerekir ve aynı hesabı kullanılmalıdır [bulut iş ortağı portalını](https://cloudpartner.azure.com/). 
 
 >[!IMPORTANT]
 >Microsoft Developer Center'da hesabı oluşturmak denemeden önce şirketinizin zaten olmayan emin olun.
@@ -453,9 +457,9 @@ Bu işlem hakkında adım adım açıklama için bkz: [Geliştirici Merkezi'nde 
 
 #### <a name="sign-in-to-the-cloud-partner-portal"></a>Bulut iş ortağı portalında oturum açın
 
-Adaylığı onaylanmış ve kayıtlı Market Ekibi'nden gelen onay aldıktan sonra [Microsoft Developer Center'da](https://dev.windows.com), bir hesap erişmek için oluşturulan [bulut iş ortağı portalı ](https://cloudpartner.azure.com). İlk kez oturum açma kimlik bilgileri Adaylığı onay e-postayla dahil edilir. 
+Adaylığı onaylanmış ve içinde kaydettiğiniz Market Ekibi'nden gelen onay aldıktan sonra [Microsoft iş ortağı ağı](https://partner.microsoft.com/en-us/membership/) ve [Microsoft Developer Center'da](https://dev.windows.com) (IF gerekli), bir hesap erişmek için oluşturulacak [bulut iş ortağı portalını](https://cloudpartner.azure.com). İlk kez oturum açma kimlik bilgileri Adaylığı onay e-postayla dahil edilir. 
 
-Yayımcı profilinizi erişmek için Market hesabınızı (Microsoft ID) kullanın. Bulut iş ortağı Portalı'nda olduğunuzda, Geliştirici Merkezi hesabına yayımlamak için ilgili Market yayımcı profiliyle ilişkilendirmek için son adım olacaktır. Ekranın altındaki düğmesiyle yayımcı profilinizde bulut iş ortağı Portalı'nda bu ilişkilendirme yapabilirsiniz.
+Yayımcı profilinizi erişmek için Market hesabınızı (Microsoft ID) kullanın. Bir kez bulut iş ortağı Portalı'nda Microsoft iş ortağı ağı ve Geliştirme Merkezi hesabı (gerekliyse) ilgili Market yayımcı yayımlama profiliyle ilişkilendirmek için son adım olacaktır. Bu ekranın altındaki düğmesiyle yayımcı profilinizde bulut iş ortağı portalında yapılabilir.
 
 Bulut iş ortağı portalının nasıl kullanılacağı hakkında ayrıntılı bilgi için Git [öğrenin](https://cloudpartner.azure.com/#Learn) gözden geçirme ve portal menüsünde **belgelerine** bölümü. 
 
@@ -621,6 +625,5 @@ Geliştirici Merkezi kayıt sorunları varsa bir destek bileti oturum:
    !["Bir olay Gönder" düğmesi](./media/marketplace-publishers-guide/devcentersubmitincident.png)
 
 3. Seçin **Yardım Dev Center'a** olarak **sorun türü**seçip **Yayımla ve uygulamaları yönetme** olarak **kategori**. Bundan sonra seçin **Başlat e-posta** düğmesi.   
-
 4. Oturum açma sayfasında oturum açmak için herhangi bir Microsoft hesabı kullanın. Bir Microsoft hesabınız yoksa, bağlantıyı kullanarak bir tane oluşturun. 
 5. Sorun ayrıntıları doldurun ve seçerek bilet gönderme **gönderme** düğmesi.

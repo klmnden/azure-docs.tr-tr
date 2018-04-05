@@ -1,11 +1,11 @@
 ---
-title: "Düğüm ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs"
-description: "Node.js için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır."
+title: Düğüm ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
+description: Node.js için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
 services: iot-hub
 documentationcenter: nodejs
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
 ms.devlang: node
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: v-masebo
-ms.openlocfilehash: cff0f2fc664e0c09bfa1f8f0e0d488a049a6f448
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: dd6f25173806d6e420bfeebaae3f81e39f8fd97f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IOT Hub ile bulut cihazınızdan dosyaları karşıya yükleme
 
@@ -29,7 +29,7 @@ Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme]
 - Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
 - IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-node-node-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-node-node-getstarted.md) öğretici, IOT hub'ı temel cihaz bulut Mesajlaşma işlevlerini gösterir. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar

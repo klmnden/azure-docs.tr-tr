@@ -1,9 +1,9 @@
 ---
-title: "HDInsight üzerinde Apache Storm ile ilgili storm-starter örnekleri - Azure | Microsoft Docs"
-description: "HDInsight üzerinde Apache Storm'u ve storm-starter örneklerini kullanarak nasıl büyük veri analizi yapabileceğinizi ve verileri gerçek zamanlı olarak nasıl işleyebileceğinizi öğrenin."
-keywords: "Storm-starter, Apache Storm örneği"
+title: HDInsight üzerinde Apache Storm ile ilgili storm-starter örnekleri - Azure | Microsoft Docs
+description: HDInsight üzerinde Apache Storm'u ve storm-starter örneklerini kullanarak nasıl büyük veri analizi yapabileceğinizi ve verileri gerçek zamanlı olarak nasıl işleyebileceğinizi öğrenin.
+keywords: Storm-starter, Apache Storm örneği
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -16,13 +16,13 @@ ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 6abdb15917508152529990c434eb48a9983b9432
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0490ba63e651b0ef16175dca46b85a3e48bfd26f
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
-#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
+# <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm ile çalışmaya başlama
 
 Storm-starter örneklerini kullanarak HDInsight üzerinde Apache Storm'u kullanmayı öğrenin.
 
@@ -108,7 +108,7 @@ HDInsight kümesinde Storm oluşturmak için aşağıdaki adımları kullanın:
     >
     > WordCount örneği ve diğer storm-starter örnekleri `/usr/hdp/current/storm-client/contrib/storm-starter/` konumunda kümenize zaten dahil edilmiştir.
 
-Storm-starter örneklerinin kaynağını görüntülemek isterseniz kodu [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter) adresinde bulabilirsiniz. Bu bağlantı, HDInsight 3.6 ile birlikte sağlanan Storm 1.1.x içindir. Diğer Storm sürümleri için sayfanın üstündeki __Dal__ düğmesini kullanarak farklı bir Storm sürümü seçin.
+Storm-starter örneklerinin kaynağını görüntülemek istiyorsanız, kodu [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter) adresinde bulabilirsiniz. Bu bağlantı, HDInsight 3.6 ile birlikte sağlanan Storm 1.1.x içindir. Diğer Storm sürümleri için sayfanın üstündeki __Dal__ düğmesini kullanarak farklı bir Storm sürümü seçin.
 
 ## <a name="monitor-the-topology"></a>Topolojiyi izleme
 

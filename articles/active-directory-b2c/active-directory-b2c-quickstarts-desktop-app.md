@@ -1,22 +1,21 @@
 ---
-title: "Bir Azure AD B2C etkin masaüstü uygulaması için test sürüşü"
-description: "Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET masaüstü uygulamasını denemeye yönelik hızlı başlangıç."
+title: Bir Azure AD B2C etkin masaüstü uygulaması için test sürüşü
+description: Kullanıcı oturum açma adı sağlamak için Azure Active Directory B2C’yi kullanan örnek bir ASP.NET masaüstü uygulamasını denemeye yönelik hızlı başlangıç.
 services: active-directory-b2c
-author: PatAltimore
+author: davidmu1
 manager: mtillman
+editor: ''
 ms.service: active-directory-b2c
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 2/13/2018
-ms.author: patricka
-ms.openlocfilehash: 18c378f82255df3a999703bc319d551af4b2705c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.author: davidmu
+ms.openlocfilehash: 8726a5816623d42deb495aa062ef82f1f95b76b7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-test-drive-an-azure-ad-b2c-enabled-desktop-app"></a>Hızlı Başlangıç: Bir Azure AD B2C etkin masaüstü uygulaması için test sürüşü
 
@@ -101,11 +100,11 @@ Azure AD B2C korumalı bir web API’si için yetkili bir çağrıda bulunmak ü
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Başka Azure AD B2C hızlı başlangıçlarını ve öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+Diğer Azure AD B2C hızlı başlangıçlarını veya öğreticilerini denemeyi planlıyorsanız Azure AD B2C kiracınızı kullanabilirsiniz. Artık ihtiyaç duymuyorsanız [Azure AD B2C kiracınızı silebilirsiniz](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bir sonraki adım kendi Azure AD B2C kiracınızı oluşturup, örneği kiracınızı kullanarak çalışacak şekilde yapılandırmanızdır. 
+Sonraki adımda kendi Azure AD B2C kiracınızı oluşturup kiracınızı kullanarak çalıştırmak için örneği yapılandıracaksınız. 
 
 > [!div class="nextstepaction"]
-> [Azure portalında bir Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)
+> [Azure portalında Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)

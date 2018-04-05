@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1a430f5c6349741e5d04626158dc89d42169a15b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f3f479de8bc3975f4da07a7761ffc99f976db20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Bir genel yük dengeleyiciye standart Azure CLI kullanarak bölge olarak yedekli ön uç ile oluşturma
 
@@ -27,23 +27,20 @@ Bu makalede adımları genel oluşturmada size [yük dengeleyici standart](https
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-## <a name="register-for-availability-zones-preview"></a>Kullanılabilirlik bölgeleri Önizleme için kaydolun
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Yüklemek ve CLI yerel olarak kullanmak seçerseniz, Bu öğretici, Azure CLI Sürüm 2.0.17 çalıştırmasını gerektirir ya da daha yüksek.  Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+Yüklemek ve CLI yerel olarak kullanmak seçerseniz, en son yüklediğinizden emin olun [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve bir Azure hesabı ile oturum açmış [az oturum açma](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 > [!NOTE]
-> Kullanılabilirlik bölgeleri önizlemede ve geliştirme için hazır olduğunu ve test senaryoları. Destek select Azure kaynaklarını ve bölgeler ve VM boyutu aileleri için kullanılabilir. Başlamak hakkında daha fazla bilgi ve hangi Azure kaynaklarını, bölgeler ve kullanılabilirlik bölgeleri deneyebilirsiniz VM boyutu aileleri için bkz: [kullanılabilirlik bölgeleri genel bakış](https://docs.microsoft.com/azure/availability-zones/az-overview). Destek için [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) üzerinden bize ulaşabilir veya [bir Azure destek bileti açabilirsiniz](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  
+ Kullanılabilirlik bölgeler için destek, select Azure kaynaklarını ve bölgeler ve VM boyutu aileleri için kullanılabilir. Başlamak hakkında daha fazla bilgi ve hangi Azure kaynaklarını, bölgeler ve kullanılabilirlik bölgeleri deneyebilirsiniz VM boyutu aileleri için bkz: [kullanılabilirlik bölgeleri genel bakış](https://docs.microsoft.com/azure/availability-zones/az-overview). Destek için [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) üzerinden bize ulaşabilir veya [bir Azure destek bileti açabilirsiniz](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-En son yüklediğinizden emin olun [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ve bir Azure hesabı ile oturum açmış [az oturum açma](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az_login).
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
 Aşağıdaki komutu kullanarak bir kaynak grubu oluşturun:
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroupSLB --location westeurope
 ```
 
 ## <a name="create-a-public-ip-standard"></a>Ortak IP standart oluşturma
@@ -51,7 +48,7 @@ az group create --name myResourceGroup --location westeurope
 Bir ortak IP aşağıdaki komutu kullanarak standart oluşturun:
 
 ```azurecli-interactive
-az network public-ip create --resource-group myResourceGroup --name myPublicIP --sku Standard
+az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku Standard
 ```
 
 ## <a name="create-a-load-balancer"></a>Yük dengeleyici oluşturma
@@ -59,7 +56,7 @@ az network public-ip create --resource-group myResourceGroup --name myPublicIP -
 Bir genel yük dengeleyiciye standart standart genel aşağıdaki komutu kullanarak önceki adımda oluşturduğunuz IP oluşturun:
 
 ```azurecli-interactive
-az network lb create --resource-group myResourceGroup --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --sku Standard
+az network lb create --resource-group myResourceGroupSLB --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEnd --backend-pool-name myBackEndPool --sku Standard
 ```
 
 ## <a name="create-an-lb-probe-on-port-80"></a>Bağlantı noktası 80 üzerinde bir LB araştırması oluştur
@@ -67,7 +64,7 @@ az network lb create --resource-group myResourceGroup --name myLoadBalancer --pu
 Aşağıdaki komutu kullanarak bir yük dengeleyici durum araştırması oluşturun:
 
 ```azurecli-interactive
-az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+az network lb probe create --resource-group myResourceGroupSLB --lb-name myLoadBalancer \
   --name myHealthProbe --protocol tcp --port 80
 ```
 
@@ -77,12 +74,12 @@ Aşağıdaki komutu kullanarak bir yük dengeleyici kuralı oluşturun:
 
 ```azurecli-interactive
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer --name myLoadBalancerRuleWeb \
-  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEndPool \
+  --protocol tcp --frontend-port 80 --backend-port 80 --frontend-ip-name myFrontEnd \
   --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Bilgi nasıl [bir kullanılabilirlik bölgesinde bir genel IP oluşturun](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Daha fazla bilgi edinmek [standart yük dengeleyici ve kullanılabilirlik bölgeleri](load-balancer-standard-availability-zones.md).
 
 
 

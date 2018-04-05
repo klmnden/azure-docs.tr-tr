@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT cihaz SDK'sı c - seri hale getirici | Microsoft Docs"
-description: "Azure IOT cihaz SDK'sı C için seri hale getirici kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını."
+title: Azure IOT cihaz SDK'sı c - seri hale getirici | Microsoft Docs
+description: Azure IOT cihaz SDK'sı C için seri hale getirici kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: da9a2dd8bad68c03bb75d1772cf9e5dc539892aa
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IOT cihaz SDK'sı için C – seri hale getirici hakkında daha fazla bilgi
 [İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Daha ayrıntılı bir açıklaması sonraki makalede sağlanan [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Bu makalede daha ayrıntılı bir açıklama kalan bileşeninin sağlayarak SDK'ın kapsamı tamamlar: **seri hale getirici** kitaplığı.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Giriş makalesi nasıl kullanılacağını açıklanan **seri hale getirici** olayları göndermek ve IOT Hub'ından iletileri almak için kitaplık. Bu makalede, biz bu tartışma verilerinizle modellemek nasıl daha eksiksiz bir açıklaması sağlayarak genişletmek **seri hale getirici** makro dili. Makale ayrıca nasıl kitaplığı iletileri serileştiren hakkında daha fazla ayrıntı içerir (ve bazı durumlarda serileştirme davranışı nasıl kontrol edebilir). Biz de oluşturduğunuz modelleri boyutunu belirleyen değiştirebileceğiniz bazı parametreleri açıklayan.
 

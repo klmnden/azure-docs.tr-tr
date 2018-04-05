@@ -20,13 +20,19 @@
 
 # Nasıl yapılır
 
+## [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma](load-balancer-get-started-internet-az-portal.md)
+### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
+## [Bölgesel genel Standard Load Balancer oluşturma](load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+### [Bölgesel genel Standard Load Balancer oluşturma (PowerShell)](load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (CLI)](load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+## [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](load-balancer-standard-public-availability-zones-portal.md)
+###  [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme (CLI)](load-balancer-standard-public-zone-redundant-cli.md)
+##  [Bir bölge içerisindeki VM’lerde yük dengeleme (CLI)](load-balancer-standard-public-zonal-cli.md)   
+## [Basic Load Balancer (Şablon) oluşturma](load-balancer-get-started-internet-arm-template.md)
 ## [IPv6 ile genel Load Balancer oluşturma](load-balancer-ipv6-internet-ps.md)
 ### [IPv6 ile genel Load Balancer oluşturma (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [IPv6 ile genel Load Balancer oluşturma (Şablon)](load-balancer-ipv6-internet-template.md)
-## [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](load-balancer-get-started-internet-az-portal.md)
-### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
-### [Bölgesel olarak yedekli Genel Load Balancer Standard oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
-## [Basic Load Balancer (Şablon) oluşturma](load-balancer-get-started-internet-arm-template.md)
 ## [İç Load Balancer’ı yapılandırma](load-balancer-get-started-ilb-arm-portal.md)
 ### [İç Load Balancer’ı yapılandırma (PowerShell)](load-balancer-get-started-ilb-arm-ps.md)
 ### [İç Load Balancer’ı yapılandırma (CLI)](load-balancer-get-started-ilb-arm-cli.md)

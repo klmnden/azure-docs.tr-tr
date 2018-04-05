@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 0f51b52d9f4d5c8979ba636311e63089c11cd114
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Öğretici: Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 Bu öğretici, bir serinin dördüncü bölümüdür. Service Fabric kümesinde çalışan bir ASP.NET Core uygulaması için Application Insights kullanarak izleme ve tanılamayı ayarlama adımlarında yol gösterilir. Öğreticinin ilk bölümü olan [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde geliştirilen uygulamadan telemetri toplarız. 
@@ -83,7 +83,7 @@ Uygulamanızda Application Insights'ı yapılandırmayı tamamlamak için uygula
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>Hizmetlere Microsoft.ApplicationInsights.ServiceFabric.Native NuGet'ini ekleme
 
-Application Insights'ın senaryoya bağlı olarak kullanılabilecek Service Fabric'e özgü iki NuGet'i vardır. Biri Service Fabric'in yerel hizmetleriyle, diğeri de kapsayıcılar ve konuk yürütülebilir dosyalarıyla kullanılır. Bizim durumumuzda, getirdiği hizmet bağlamı anlayışından yararlanmak için Microsoft.ApplicationInsights.ServiceFabric.Native NuGet'ini kullanacağız. Application Insights SDK'sı ve Service Fabric'e özgü NuGet'ler hakkındaki diğer yazıları okumak için, bkz. [Service Fabric için Microsoft Application Insights](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/develop/README.md). 
+Application Insights'ın senaryoya bağlı olarak kullanılabilecek Service Fabric'e özgü iki NuGet'i vardır. Biri Service Fabric'in yerel hizmetleriyle, diğeri de kapsayıcılar ve konuk yürütülebilir dosyalarıyla kullanılır. Bizim durumumuzda, getirdiği hizmet bağlamı anlayışından yararlanmak için Microsoft.ApplicationInsights.ServiceFabric.Native NuGet'ini kullanacağız. Application Insights SDK'sı ve Service Fabric'e özgü NuGet'ler hakkındaki diğer yazıları okumak için, bkz. [Service Fabric için Microsoft Application Insights](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md). 
 
 NuGet'i ayarlama adımları şunlardır:
 1. Çözüm Gezgininizin üst kısmındaki **Çözüm 'Oylama'** öğesine sağ tıklayın ve **Çözüm için NuGet Paketlerini Yönet...** öğesine tıklayın.

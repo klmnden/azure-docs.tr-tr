@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 241f872b3069a58a35df7104f3335964298c7a20
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 2ad995c4b48c2c298edd7c6b4da92ea8f3c4a060
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authorize-access-to-web-applications-using-oauth-20-and-azure-active-directory"></a>OAuth 2.0 ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi verme
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuzda dilden bağımsızdır ve bizim açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine açıklar.
@@ -59,7 +59,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
 | login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir.  Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
-| code_challenge_method | isteğe bağlı    | Kodlanması için kullanılan yöntem `code_verifier` için `code_challenge` parametresi. Aşağıdakilerden biri olabilir `plain` veya `S256`.  Dışlanan, `code_challenge` düz metin olarak kabul edilir `code_challenge` bulunur.  Azure AAD v2.0 destekler `plain` ve `S256`. Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | isteğe bağlı    | Kodlanması için kullanılan yöntem `code_verifier` için `code_challenge` parametresi. Aşağıdakilerden biri olabilir `plain` veya `S256`.  Dışlanan, `code_challenge` düz metin olarak kabul edilir `code_challenge` bulunur.  Azure AAD v1.0 destekler `plain` ve `S256`. Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | code_challenge        | isteğe bağlı    | Yetkilendirme kodu verir kanıt anahtarı aracılığıyla native client'kod Exchange (PKCE için) güvenliğini sağlamak için kullanılır. Gerekli olursa `code_challenge_method` bulunur.  Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 > [!NOTE]

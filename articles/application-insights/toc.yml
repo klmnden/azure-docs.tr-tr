@@ -238,6 +238,9 @@
       items:
         - name: Fiyatlandırmayı ve veri hacmini yönetme
           href: app-insights-pricing.md
+          items:
+            - name: Kurumsal plan ayrıntıları
+              href: app-insights-pricing-enterprise-details.md
         - name: SCOM için Application Insights kullanarak uygulama performansı izleme
           href: app-insights-scom.md
     - name: Dışarı Aktarma

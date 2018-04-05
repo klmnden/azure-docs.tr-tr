@@ -1,6 +1,6 @@
 ---
-title: "Azure’da Kubernetes öğreticisi - Uygulamayı Dağıtma"
-description: "AKS öğreticisi - Uygulamayı Dağıtma"
+title: Azure’da Kubernetes öğreticisi - Uygulamayı Dağıtma
+description: AKS öğreticisi - Uygulamayı Dağıtma
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 095bfe328f3e3ed220de71b3410e34b9be86cff1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 9fad9627be453fb00508d1f6ec9594bd2bde6fad
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="run-applications-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) uygulamaları çalıştırma
+# <a name="tutorial-run-applications-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) uygulamaları çalıştırma
 
 Sekiz bölümün dördüncüsü olan bu öğreticide Kubernetes kümesine örnek bir uygulama dağıtılır. Tamamlanan adımlar:
 
@@ -24,7 +24,7 @@ Sekiz bölümün dördüncüsü olan bu öğreticide Kubernetes kümesine örnek
 > * Kubernetes'te uygulama çalıştırma
 > * Uygulamayı test etme
 
-Sonraki öğreticilerde bu uygulama ölçeklendirilir, güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
+Sonraki öğreticilerde bu uygulamanın ölçeği genişletilir, uygulama güncelleştirilir ve Log Analytics, Kubernetes kümesini izlemek için yapılandırılır.
 
 Bu öğreticide temel Kubernetes kavramlarını bildiğiniz varsayılmıştır. Kubernetes hakkında ayrıntılı bilgi için [Kubernetes belgelerine][kubernetes-documentation] bakın.
 

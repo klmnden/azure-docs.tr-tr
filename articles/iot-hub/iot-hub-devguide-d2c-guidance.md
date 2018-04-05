@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz bulut seçeneklerini | Microsoft Docs"
-description: "Geliştirici Kılavuzu - Kılavuzu ne zaman cihaz bulut iletilerini, bildirilen özellikleri veya karşıya dosya yükleme bulut-cihaz iletişimi için kullanılır."
+title: Azure IOT Hub cihaz bulut seçeneklerini | Microsoft Docs
+description: Geliştirici Kılavuzu - Kılavuzu ne zaman cihaz bulut iletilerini, bildirilen özellikleri veya karşıya dosya yükleme bulut-cihaz iletişimi için kullanılır.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 979136db-c92d-4288-870c-f305e8777bdd
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: a9a062ebb8d6e3b37d917064209eda618d0dd308
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a870852d937732bb38f08420a07bfe696860e08b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Cihaz bulut iletişimleri Kılavuzu
 Ne zaman çözüm arka ucu, IOT Hub cihaz uygulaması gönderen bilgileriyle üç seçenek sunar:
@@ -26,6 +26,8 @@ Ne zaman çözüm arka ucu, IOT Hub cihaz uygulaması gönderen bilgileriyle ü�
 * [Cihaz bulut iletilerini] [ lnk-d2c] zaman serisi telemetri ve Uyarılar için.
 * [Cihaz çifti özellikleri bildirilen] [ lnk-twins] kullanılabilir özellikleri, koşullar veya uzun süre çalışan iş akışları durumu gibi cihaz durumu bilgilerini raporlama. Örneğin, yapılandırma ve yazılım güncelleştirmeleri.
 * [Dosya yüklemeleri] [ lnk-fileupload] ortam dosyaları ve büyük telemetri toplu aralıklı bağlı cihazlar tarafından karşıya veya bant genişliğini korumak amacıyla sıkıştırılmış.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Aşağıda, çeşitli cihaz bulut iletişim seçenekleri ayrıntılı karşılaştırması verilmiştir.
 

@@ -1,25 +1,25 @@
 ---
-title: "Sanal makinedeki çalıştırma Linux işlem düğümlerini - Azure Batch | Microsoft Docs"
-description: "Linux sanal makinelerin Azure Batch havuzları, paralel işlem iş yükünü işlemek öğrenin."
+title: Sanal makinedeki çalıştırma Linux işlem düğümlerini - Azure Batch | Microsoft Docs
+description: Linux sanal makinelerin Azure Batch havuzları, paralel işlem iş yükünü işlemek öğrenin.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 05/22/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b2257917e2368478beb75957677de23d4157865
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümlerini sağlama
 
@@ -30,7 +30,7 @@ Linux ve Windows sanal makinelerde paralel işlem iş yüklerini çalıştırmak
 >
 >
 
-## <a name="virtual-machine-configuration"></a>Sanal Makine Yapılandırması
+## <a name="virtual-machine-configuration"></a>Sanal makine yapılandırması
 Toplu işlem düğümleri havuzu oluşturduğunuzda, işletim sistemi ve düğüm boyutu seçmek için iki seçeneğiniz vardır: Bulut Hizmetleri Yapılandırması ve sanal makine yapılandırma.
 
 **Cloud Services Yapılandırması** *yalnızca* Windows işlem düğümleri sağlar. Kullanılabilir işlem düğümü boyutları içinde listelenen [Cloud Services boyutları](../cloud-services/cloud-services-sizes-specs.md), ve kullanılabilir işletim sistemleri olarak listelenen [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](../cloud-services/cloud-services-guestos-update-matrix.md). Azure Cloud Services düğümleri içeren bir havuz oluşturduğunuzda yukarıda açıklanan makalelerinde açıklanan düğüm boyutu ve işletim sistemi ailesi belirtin. Bulut Hizmetleri, Windows havuzları işlem düğümleri için en yaygın olarak kullanılır.
@@ -57,8 +57,8 @@ Bir sanal makine görüntü başvurusunu yapılandırdığınızda sanal makine 
 ### <a name="node-agent-sku"></a>Düğüm Aracısı SKU
 Toplu işlem düğüm Aracısı havuzdaki her düğüm üzerinde çalışır ve düğümü ile Batch hizmeti arasındaki komut ve denetim arabirimi sağlayan bir programdır. Farklı işletim sistemleri için SKU'ları bilinen düğüm Aracısı'nın farklı uygulamaları vardır. Esas olarak, bir sanal makine yapılandırması oluşturduğunuzda, önce sanal makine görüntü başvurusunu belirtin ve ardından görüntüde yüklenecek düğüm Aracısı belirtin. Genellikle, her düğüm Aracısı SKU birden çok sanal makine görüntüsü ile uyumludur. Düğüm Aracısı SKU'ları bazı örnekleri şunlardır:
 
-* Batch.node.ubuntu 14.04
-* Batch.node.centos 7
+* batch.node.ubuntu 14.04
+* batch.node.centos 7
 * Batch.node.Windows amd64
 
 > [!IMPORTANT]
@@ -215,25 +215,25 @@ Aşağıdaki tabloda, bu makalenin en son güncelleştirildiği kullanılabilir 
 
 | **Yayımcı** | **Teklif** | **Görüntü SKU** | **Sürüm** | **Düğüm Aracısı SKU kimliği** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | en son | Batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | en son | Batch.node.ubuntu 16.04 |
-| Credativ | Debian | 8 | en son | Batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS HPC | 7.1 | en son | Batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | en son | Batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.0 | en son | Batch.node.centos 7 |
-| Oracle | Oracle Linux | 7.2 | en son | Batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | en son | Batch.node.opensuse 13.2 |
-| SUSE | openSUSE artık | 42.1 | en son | Batch.node.opensuse 42.1 |
+| Canonical | UbuntuServer | 14.04.5-LTS | en son | batch.node.ubuntu 14.04 |
+| Canonical | UbuntuServer | 16.04.0-LTS | en son | batch.node.ubuntu 16.04 |
+| Credativ | Debian | 8 | en son | batch.node.debian 8 |
+| OpenLogic | CentOS | 7.0 | en son | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.1 | en son | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | en son | batch.node.centos 7 |
+| OpenLogic | CentOS | 7.2 | en son | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.0 | en son | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.2 | en son | batch.node.centos 7 |
+| SUSE | openSUSE | 13.2 | en son | batch.node.opensuse 13.2 |
+| SUSE | openSUSE-Leap | 42.1 | en son | Batch.node.opensuse 42.1 |
 | SUSE | SLES | 12 SP1 | en son | Batch.node.opensuse 42.1 |
 | SUSE | SLES HPC | 12 SP1 | en son | Batch.node.opensuse 42.1 |
-| Microsoft reklam | Linux veri bilimi vm | linuxdsvm | en son | Batch.node.centos 7 |
-| Microsoft reklam | Standart veri bilimi vm | Standart veri bilimi vm | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008 R2 SP1 | en son | Batch.node.Windows amd64 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | en son | batch.node.centos 7 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | Kapsayıcılar ile 2016 Datacenter | en son | Batch.node.Windows amd64 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH kullanarak Linux düğümüne bağlanma
@@ -322,7 +322,7 @@ Python kullanarak Batch ile çalışma hakkında daha ayrıntılı bir öğretic
 ### <a name="batch-python-code-samples"></a>Batch Python kod örnekleri
 [Python kod örnekleri] [ github_samples_py] içinde [azure-batch-samples] [ github_samples] github'daki nasıl gerçekleştirileceğini Göster komut dosyalarını içerir havuz, iş ve görev oluşturma gibi ortak toplu işlemleri. [Benioku] [ github_py_readme] Python eşlik örnekleri gerekli paketleri yüklemek nasıl kullanılacağı hakkındaki ayrıntıları sahiptir.
 
-### <a name="batch-forum"></a>Toplu İşlem forumu
+### <a name="batch-forum"></a>Batch forumu
 [Azure toplu işlem Forumu] [ forum] MSDN'de toplu ele almaktadır ve hizmet hakkında sorular sormak için iyi bir yerdir. "Okuma yararlı sabitlenmiş" yazılarını ve Batch çözümlerinizi derleme sırasında çıktıkları anda sorularınızı gönderin.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

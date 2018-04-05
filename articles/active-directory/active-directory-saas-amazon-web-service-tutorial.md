@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 92189eba7df49aa45adaee7ee3c93c8972b5594b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 018893a2124f1ab9c98e0728bc90ad0a69cf471f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Öğretici: Azure Active Directory Tümleştirme Amazon Web Hizmetleri (AWS)
 
@@ -146,7 +146,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 8. Farklı bir tarayıcı penceresinde Amazon Web Hizmetleri (AWS) şirket sitenize yönetici olarak oturum.
 
-9. Tıklatın **konsol giriş**.
+9. Tıklatın **AWS giriş**.
    
     ![Çoklu oturum açma giriş yapılandırın][11]
 
@@ -174,65 +174,53 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     ![Çoklu oturum açma yapılandırma doğrulayın][15]
 
-14. Tıklatın **rolleri**ve ardından **yeni rol oluşturma**. 
+14. Tıklatın **rolleri**ve ardından **rol oluşturma**. 
     
     ![Çoklu oturum açma rollerini yapılandırma][16]
 
-15. Üzerinde **ayarlamak rol adı** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
-    
-    ![Çoklu oturum açma adı yapılandırma][17] 
-
-    a. İçinde **rol adı** metin kutusuna, bir rol adı yazın (örneğin: *TestUser*). 
-
-    b. Tıklatın **sonraki adım**.
-
-16. Üzerinde **rol türünü seç** iletişim kutusunda, aşağıdaki adımları gerçekleştirin: 
-    
-    ![Oturum açma tek rol türü yapılandırma][18] 
-
-    a. Seçin **kimlik sağlayıcısı erişim için rol**. 
-
-    b. İçinde **Grant Web çoklu oturum açma (WebSSO) erişim SAML sağlayıcılarına** 'yi tıklatın **seçin**.
-
-17. Üzerinde **kurmak güven** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:  
+15. Üzerinde **rol oluşturma** sayfasında, aşağıdaki adımları gerçekleştirin:  
     
     ![Çoklu oturum açma güvenini yapılandırma][19] 
 
-    a. SAML sağlayıcısı, daha önce oluşturmuş SAML sağlayıcısını seçin (örneğin: *WAAD*) 
+    a. Seçin **SAML 2.0 Federasyon** altında **seçin güvenilir varlığın türü**.
+
+    b. Altında **bir SAML 2.0 sağlayıcı bölümü seçin**seçin **SAML sağlayıcısı** daha önce oluşturduğunuz (örneğin: *WAAD*)
+
+    c. Seçin **izin programlı ve AWS Yönetim Konsolu erişim**.
   
-    b. Tıklatın **sonraki adım**.
+    d. Tıklatın **sonraki: izinleri**.
 
-18. Üzerinde **doğrulayın rol güven** iletişim kutusunda, tıklatın **sonraki adım**. 
-    
-    ![Oturum açma tek rol güvenini yapılandırma][32]
-
-19. Üzerinde **ekleme İlkesi** iletişim kutusunda, tıklatın **sonraki adım**.  
+16. Üzerinde **ekleme izinleri ilkeleri** iletişim kutusunda, tıklatın **sonraki: gözden geçirme**.  
     
     ![Çoklu oturum açma ilkesini yapılandırma][33]
 
-20. Üzerinde **gözden geçirme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:   
+17. Üzerinde **gözden geçirme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:   
     
     ![Çoklu oturum açma gözden geçirme yapılandırın][34] 
+
+    a. İçinde **rol adı** metin kutusuna, rolü adı girin.
+
+    b. İçinde **rol açıklaması** metin kutusuna, bir açıklama girin.
 
     a. Tıklatın **rolü oluşturma**.
 
     b. Gerektiğinde kadar rolleri oluşturun ve bunları kimlik sağlayıcısı eşleyin.
 
-21. AWS hizmeti hesabı kimlik bilgileri, Azure AD Kullanıcı hazırlama AWS hesabından rolleri getiriliyor için kullanın. Bunun için giriş AWS konsolu açın.
+18. AWS hizmeti hesabı kimlik bilgileri, Azure AD Kullanıcı hazırlama AWS hesabından rolleri getiriliyor için kullanın. Bunun için giriş AWS konsolu açın.
 
-22. Tıklayın **Hizmetleri** -> **güvenlik, Identity & Uyumluluk** -> **IAM**.
+19. Tıklayın **Hizmetleri** -> **güvenlik, Identity & Uyumluluk** -> **IAM**.
 
     ![AWS hesabından rolleri getiriliyor](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-23. Seçin **ilkeleri** IAM bölümündeki sekmesinde.
+20. Seçin **ilkeleri** IAM bölümündeki sekmesinde.
 
     ![AWS hesabından rolleri getiriliyor](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
 
-24. Tıklayarak yeni bir ilke oluşturmak **ilkesi oluşturma**.
+21. Tıklayarak yeni bir ilke oluşturmak **ilkesi oluşturma** için Azure AD Kullanıcı hazırlama AWS hesabından rolleri getiriliyor.
 
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
- 
-25. Aşağıdaki adımları gerçekleştirerek tüm rolleri AWS hesaplarından getirmek için kendi ilke oluştur:
+
+22. Aşağıdaki adımları gerçekleştirerek tüm rolleri AWS hesaplarından getirmek için kendi ilke oluştur:
 
     ![Yeni ilke oluşturma](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
@@ -272,7 +260,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy5.png)
 
-26. Tanımlamak **yeni ilke** aşağıdaki adımları gerçekleştirerek:
+23. Tanımlamak **yeni ilke** aşağıdaki adımları gerçekleştirerek:
 
     ![Yeni ilke tanımlama](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
@@ -281,8 +269,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. Size sağlayabilir **açıklama** İlkesi **AWS hesaplarından rolleri getirmek için bu ilkeyi sağlayacak**.
     
     c. Tıklayın **"İlke oluştur"** düğmesi.
-        
-27. Yeni bir kullanıcı hesabı, aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde oluşturun:
+
+24. Üzerinde **gözden geçirme** iletişim kutusunda, aşağıdaki adımları gerçekleştirin:   
+    
+    ![Çoklu oturum açma gözden geçirme yapılandırın][34] 
+
+    a. Tıklatın **rolü oluşturma**.
+
+    b. Gerektiğinde kadar rolleri oluşturun ve bunları kimlik sağlayıcısı eşleyin.
+
+
+25. Yeni bir kullanıcı hesabı, aşağıdaki adımları gerçekleştirerek AWS IAM hizmetinde oluşturun:
 
     a. Tıklayın **kullanıcılar** AWS IAM konsolundaki gezinti.
 
@@ -302,7 +299,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     * Tıklayın **sonraki izinleri** sağ alt köşesindeki düğmesini.
 
-28. Şimdi aşağıdaki adımları gerçekleştirerek bu kullanıcı için yeni bir ilke oluşturun:
+26. Şimdi aşağıdaki adımları gerçekleştirerek bu kullanıcı için yeni bir ilke oluşturun:
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
     
@@ -312,7 +309,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     c. Seçin **İlkesi** tıklayın **sonraki: gözden geçirme** düğmesi.
 
-29. İlke bağlı kullanıcı için aşağıdaki adımları gerçekleştirerek gözden geçirin:
+27. İlke bağlı kullanıcı için aşağıdaki adımları gerçekleştirerek gözden geçirin:
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
     
@@ -320,7 +317,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     b. Tıklayın **kullanıcı oluşturma** kullanıcı oluşturmak için sağ alt köşedeki düğmesini.
 
-30. Bir kullanıcının kullanıcı kimlik bilgileri, aşağıdaki adımları uygulayarak yükleyin:
+28. Bir kullanıcının kullanıcı kimlik bilgileri, aşağıdaki adımları uygulayarak yükleyin:
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
     
@@ -330,11 +327,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     c. Tıklayın **Kapat** altındaki düğmesini.
 
-31. Gidin **kullanıcı sağlamayı** Azure AD yönetim portalında Amazon Web Services uygulama bölümü.
+29. Gidin **kullanıcı sağlamayı** Azure AD yönetim portalında Amazon Web Services uygulama bölümü.
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
 
-32. Girin **erişim tuşu** ve **gizli** içinde **gizli** ve **gizli belirteci** sırasıyla alan.
+30. Girin **erişim tuşu** ve **gizli** içinde **gizli** ve **gizli belirteci** sırasıyla alan.
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
     
@@ -346,13 +343,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     d. Tıklayarak ayarı kaydedin **kaydetmek** üstündeki düğmesi.
  
-33. Şimdi sağlama durumu etkinleştirdiğinizden emin olun **üzerinde** üzerinde geçiş yapma ve üzerinde tıklatarak ayarları bölümünde **kaydetmek** üstündeki düğmesi.
+31. Şimdi sağlama durumu etkinleştirdiğinizden emin olun **üzerinde** üzerinde geçiş yapma ve üzerinde tıklatarak ayarları bölümünde **kaydetmek** üstündeki düğmesi.
 
     ![Kullanıcı ekle](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

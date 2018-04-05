@@ -1,8 +1,8 @@
 ---
-title: "PowerShell ile Azure Application Insights otomatikleştirmek | Microsoft Docs"
-description: "Bir Azure Resource Manager şablonu kullanarak PowerShell'de oluşturma kaynak, uyarı ve kullanılabilirlik testlerini otomatikleştirme."
+title: PowerShell ile Azure Application Insights otomatikleştirmek | Microsoft Docs
+description: Bir Azure Resource Manager şablonu kullanarak PowerShell'de oluşturma kaynak, uyarı ve kullanılabilirlik testlerini otomatikleştirme.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 9f73b87f-be63-4847-88c8-368543acad8b
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: f4f9d1558d2ef9dc5e1b7b248ad5bc8753f59cf9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 46ba4ce992640e8a6d171ab839dd7cdb24e0b404
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>PowerShell ile Application Insights kaynakları oluşturma
 Bu makalede oluşturulması ve güncelleştirilmesini otomatikleştirmek gösterilmiştir [Application Insights](app-insights-overview.md) Azure kaynak yönetimi kullanarak otomatik olarak kaynakları. Örneğin, bir derleme işleminin parçası olarak bunu olabilir. Temel Application Insights kaynağı yanı sıra oluşturduğunuz [kullanılabilirlik web testleri](app-insights-monitor-web-app-availability.md), ayarlayın [uyarıları](app-insights-alerts.md)ayarlayın [düzeni fiyatlandırma](app-insights-pricing.md)ve diğer Azure kaynakları oluşturun .
@@ -166,9 +166,9 @@ Yeni bir .json dosyası oluşturma - şimdi çağrı `template1.json` Bu örnekt
 
     ``` 
    
-   * `-ResourceGroupName`Yeni kaynak oluşturmak istediğiniz grubudur.
-   * `-TemplateFile`Özel Parametreler önce gerçekleşmesi gerekir.
-   * `-appName`Oluşturmak için kaynağın adı.
+   * `-ResourceGroupName` Yeni kaynak oluşturmak istediğiniz grubudur.
+   * `-TemplateFile` Özel Parametreler önce gerçekleşmesi gerekir.
+   * `-appName` Oluşturmak için kaynağın adı.
 
 Diğer parametreler ekleyebilirsiniz - açıklamalarının Şablon Parametreler bölümünde bulabilirsiniz.
 
@@ -196,7 +196,7 @@ Yukarıdaki şablonu kullanarak kurumsal fiyat planı ile bir uygulama kaynağı
                -appName myNewApp
 ```
 
-|priceCode|Planlama|
+|priceCode|plan|
 |---|---|
 |1|Temel|
 |2|Enterprise|
@@ -204,7 +204,7 @@ Yukarıdaki şablonu kullanarak kurumsal fiyat planı ile bir uygulama kaynağı
 * Yalnızca varsayılan temel fiyat planı kullanmak istiyorsanız, şablon CurrentBillingFeatures kaynaktan atlayabilirsiniz.
 * Bileşen kaynak oluşturulduktan sonra fiyat planı değiştirmek isterseniz, "microsoft.insights/components" kaynak atlar bir şablon kullanabilirsiniz. Ayrıca, atlayın `dependsOn` fatura kaynak düğümden. 
 
-Güncelleştirilmiş fiyat planı doğrulamak için bakmak "Özellikleri + fiyatlandırma" dikey tarayıcı penceresinde. **Tarayıcı görünümünü yenileyin** en son durumunu gördüğünüzden emin olmak için.
+Güncelleştirilmiş fiyat planı doğrulamak için bakmak **kullanım ve tahmini maliyetleri sayfa** dikey tarayıcı penceresinde. **Tarayıcı görünümünü yenileyin** en son durumunu gördüğünüzden emin olmak için.
 
 
 
@@ -426,7 +426,7 @@ Olmak istersiniz değişimler örnekleri aşağıda verilmiştir. Her değiştir
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"`(küçük harf) |`"[toLower(parameters('appName'))]"` |
+| `"myappname"` (küçük harf) |`"[toLower(parameters('appName'))]"` |
 | `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Delete GUID ve kimliği. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Kaynakları arasındaki bağımlılıkların ayarlama

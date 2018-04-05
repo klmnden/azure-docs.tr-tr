@@ -1,19 +1,19 @@
 ---
-title: "Azure kapsayıcı örnekleri gruplarında çok kapsayıcı dağıtma"
-description: "Azure kapsayıcı örnekleri birden çok kapsayıcı kapsayıcı grubuyla dağıtmayı öğrenin."
+title: Azure kapsayıcı örnekleri gruplarında çok kapsayıcı dağıtma
+description: Azure kapsayıcı örnekleri birden çok kapsayıcı kapsayıcı grubuyla dağıtmayı öğrenin.
 services: container-instances
 author: neilpeterson
 manager: timlt
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 03/30/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 41a47adb1f1da417038757934f0a6cf7e11555da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 58fd4c18df5ec0a5d02be0e6e89cb2b4af26b20e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
@@ -22,7 +22,7 @@ Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilg
 Bu belge, Azure Resource Manager şablonu dağıtarak basit çok kapsayıcı sepet yapılandırmasını çalıştırma açıklanmaktadır.
 
 > [!NOTE]
-> Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılara getirmek için çalışıyoruz, ancak geçerli platform farklılıkları bulabilirsiniz [kotalar ve Azure kapsayıcı örnekleri için bölge kullanılabilirliği](container-instances-quotas.md).
+> Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
@@ -45,7 +45,7 @@ Bu örnekte, iki kapsayıcı, bir kapsayıcı grubuyla bir ortak IP adresi ve ik
     {
       "name": "myContainerGroup",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2017-10-01-preview",
+      "apiVersion": "2018-04-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -202,7 +202,7 @@ Gördüğünüz gibi sepet bir HTTP isteği düzenli aralıklarla çalıştığ�
 Bu makalede, bir çok kapsayıcı Azure kapsayıcı örneği dağıtmak için gerekli olan adımları ele. Bir uçtan uca Azure kapsayıcı örnekleri deneyimi için Azure kapsayıcı örnekleri öğretici bakın.
 
 > [!div class="nextstepaction"]
-> [Azure kapsayıcı örnekleri Öğreticisi][aci-tutorial]
+> [Azure Container Instances öğreticisi][aci-tutorial]
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

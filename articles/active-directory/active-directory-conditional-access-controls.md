@@ -1,32 +1,32 @@
 ---
-title: "Erişim denetimleri de Azure Active Directory koşullu erişim | Microsoft Docs"
-description: "Azure Active Directory koşullu erişim işlerinde nasıl erişim denetimleri hakkında bilgi edinin."
+title: Erişim denetimleri de Azure Active Directory koşullu erişim | Microsoft Docs
+description: Azure Active Directory koşullu erişim işlerinde nasıl erişim denetimleri hakkında bilgi edinin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/09/2018
+ms.date: 03/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c5a2ab3b8d2fe55eee1f67e4b697a1e5b0dd2daf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: e38b7db2699cd3e4cf76d4a8e8fc558b133dd35b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri 
 
 İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
-![denetimi](./media/active-directory-conditional-access-controls/10.png)
+![Denetim](./media/active-directory-conditional-access-controls/10.png)
 
 
 Koşullu erişim bağlamında 
@@ -38,7 +38,7 @@ Koşullu erişim bağlamında
 
 Bir koşul deyimi, denetimleri ile birlikte bir koşullu erişim ilkesi temsil eder.
 
-![denetimi](./media/active-directory-conditional-access-controls/61.png)
+![Denetim](./media/active-directory-conditional-access-controls/61.png)
 
 Her denetimidir kişi tarafından yerine getirilmesi gereken bir gereksinim veya sistem oturum açma veya bir kısıtlama hangi kullanıcı oturum açtıktan sonra yapabilirsiniz. 
 
@@ -57,7 +57,7 @@ GRANT denetimleriyle için tamamen engelleyin veya istenen denetimleri seçerek 
 - Tüm seçilen yerine getirilmesi için denetimleri (*ve*) 
 - Bir seçili yerine getirilmesi için denetimi (*veya*)
 
-![denetimi](./media/active-directory-conditional-access-controls/17.png)
+![Denetim](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -75,11 +75,15 @@ Belirtilen bulut uygulamasında erişmek için çok faktörlü kimlik doğrulama
 
 ### <a name="compliant-device"></a>Uyumlu cihaz
 
-Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Amacı bir cihaz temelli koşullu erişim ilkesi, yalnızca güvenilen cihazlardan yapılandırılmış kaynaklarına erişim sağlamaktır. Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek güvenilir cihazlar olduğunu. Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
+Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Amacı bir cihaz temelli koşullu erişim ilkesi, yalnızca güvenilen cihazlardan yapılandırılmış kaynaklarına erişim sağlamaktır. Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek güvenilir cihazlar olduğunu. Bu seçenek belirlenirse, koşullu erişim ilkenizi, Azure Active Directory'ye katıldığında ve MDM çözümü tarafından uyumlu olarak işaretlenmiş aygıtlara yapılan erişim için erişim denemesi verir.
+
+Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
 
 ### <a name="domain-joined-device"></a>Cihaz etki alanına katılmış
 
-Etki alanına katılmış bir cihaz başka bir seçenektir gerektiren cihaz temelli koşullu erişim ilkelerini yapılandırmanız gerekir. Bu gereksinim Windows Masaüstü ve dizüstü bilgisayarlar ile bir şirket içi Active Directory'e katılmayan Kurumsal tabletlerde ifade eder. Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
+Etki alanına katılmış bir cihaz başka bir seçenektir gerektiren cihaz temelli koşullu erişim ilkelerini yapılandırmanız gerekir. Bu gereksinim Windows Masaüstü ve dizüstü bilgisayarlar ile bir şirket içi Active Directory'e katılmayan Kurumsal tabletlerde ifade eder. Bu seçenek belirlenirse, koşullu erişim ilkesini, şirket içi Active Directory ve Azure Active Directory'yi katılmış cihazları yapılan erişim için erişim denemesi verir.  
+
+Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
 
 
 
@@ -127,12 +131,12 @@ JSON verilerini kopyalayın ve ardından ilgili metin kutusuna yapıştırın. D
 
 Özel bir denetim oluşturmak için seçeneği olarak **Yönet** bölümünü **koşullu erişim** sayfası.
 
-![denetimi](./media/active-directory-conditional-access-controls/82.png)
+![Denetim](./media/active-directory-conditional-access-controls/82.png)
 
 Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin kutusu ile bir dikey pencere açılır.  
 
 
-![denetimi](./media/active-directory-conditional-access-controls/81.png)
+![Denetim](./media/active-directory-conditional-access-controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Özel denetimler silme
@@ -156,7 +160,7 @@ Tıklatarak **yeni bir özel denetim**, denetiminizin JSON verilerini bir metin 
 
 Oturum denetimleri, bulut uygulaması içinde sınırlı deneyim sağlar. Oturum denetimleri bulut uygulamaları tarafından zorunlu tutulmaz ve oturumla ilgili uygulama için Azure AD tarafından sağlanan ek bilgileri kullanır.
 
-![denetimi](./media/active-directory-conditional-access-controls/31.png)
+![Denetim](./media/active-directory-conditional-access-controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Uygulama tarafından zorlanan kısıtlamaları kullan
 

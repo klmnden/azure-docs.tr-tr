@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: cd36d52df24610af1d2cb2d9e6e41f33bb7ea5fe
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e22c656218abcd0564faec6fae6d6979f09b386a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="run-a-service-as-a-group-managed-service-account"></a>Bir hizmet farklı bir grup yönetilen hizmet hesabı olarak çalıştır
-Azure Service Fabric kullanarak, kümedeki farklı kullanıcı hesabı altında çalışan uygulamaları güvenliğini sağlayabilirsiniz. Çalışan uygulamalar farklı hesaplar bile paylaşılan bir barındırılan ortamda, bunları birbirinden daha güvenli yapar. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Bir Windows Server tek başına küme için bir grup olarak yönetilen hizmet hesabı (gMSA) bir hizmet çalıştırabilirsiniz veya bir [Active Directory kullanıcı veya grup](service-fabric-run-service-as-ad-user-or-group.md) RunAs İlkesi'ni kullanarak. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın. Bir gmsa'yı kullanarak, bir parola olduğundan veya şifrelenmiş parola depolanır `Application Manifest`.
+# <a name="run-a-service-as-a-group-managed-service-account"></a>Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
+Bir Windows Server tek başına kümede bir grup olarak yönetilen hizmet hesabı (gMSA) bir RunAs ilke kullanan bir hizmet çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Çalışan uygulamalar farklı hesaplar bile paylaşılan bir barındırılan ortamda, bunları birbirinden daha güvenli yapar. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın. Bir gmsa'yı kullanarak, parola veya yoktur uygulama bildiriminde depolanan şifrelenmiş parola.  Bir hizmet olarak da çalıştırılabilir bir [Active Directory kullanıcı veya grup](service-fabric-run-service-as-ad-user-or-group.md).
 
 Aşağıdaki örnek olarak adlandırılan bir gMSA hesabının nasıl oluşturulacağını gösterir *svc Test$*; Bu yönetilen hizmet hesabı küme düğümlerine; dağıtma ve kullanıcı asıl adı yapılandırma.
 

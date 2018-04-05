@@ -5,14 +5,14 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 54ab118ca9a8dcc591b275f87be2894d2bfad54d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 GPU en iyi duruma getirilmiş VM ile tek veya birden çok NVIDIA GPU kullanılabilir özelleştirilmiş sanal makineler boyutlarıdır. Bu boyutlar işlem yoğunluklu, grafik yoğun ve görselleştirme iş yükleri için tasarlanmıştır. Bu makale numarası ve gpu, Vcpu, veri diskleri ve NIC yanı sıra depolama üretilen iş ve ağ bant genişliğini her boyutu Bu gruplandırma türü hakkında bilgi sağlar. 
 
@@ -27,7 +27,7 @@ NC-serisi VM'ler tarafından desteklenir [NVIDIA Tesla K80](http://images.nvidia
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 380 | 1 | 24 | 1 |
+| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
 | Standard_NC24 |24 |224 | 1440 | 4 | 64 | 4 |
 | Standard_NC24r* |24 |224 | 1440 | 4 | 64 | 4 |
@@ -46,10 +46,10 @@ NCv2-serisi VM'ler tarafından desteklenir [NVIDIA Tesla P100](http://images.nvi
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
 | --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = bir P100 kart.
 
@@ -65,10 +65,10 @@ NCv3-serisi VM'ler tarafından desteklenir [NVIDIA Tesla nı V100](http://www.nv
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 672 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 1344 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = bir nı V100 kart.
 
@@ -84,10 +84,10 @@ ND-serisi sanal makine AI ve derin öğrenme iş yükleri için tasarlanmış GP
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 336 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 672 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 1344 | 4 | 32 | 8 |
-| Standard_ND24rs * |24 |448 | 1344 | 4 | 32 | 8 |
+| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
+| Standard_ND24rs * |24 |448 | 2948 | 4 | 32 | 8 |
 
 1 GPU = bir P40 kart.
 
@@ -101,7 +101,7 @@ Her GPU NV durumlarda bir kılavuz lisansı ile birlikte gelir. Bu lisans NV ör
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | GPU | Maksimum veri diskleri | En fazla NIC | Sanal iş istasyonları | Sanal uygulamalar | 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |380 | 1 | 24 | 1 | 1 | 25 |
+| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
 | Standard_NV24 |24 |224 |1440 | 4 | 64 | 4 | 4 | 100 |
 

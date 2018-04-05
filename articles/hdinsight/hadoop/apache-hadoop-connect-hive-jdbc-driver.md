@@ -1,8 +1,8 @@
 ---
-title: "JDBC sürücüsü aracılığıyla - Azure Hdınsight Hive sorgusu | Microsoft Docs"
-description: "Hdınsight'ta Hadoop Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanın. Program aracılığıyla ve SQuirrel SQL istemciden bağlanın."
+title: JDBC sürücüsü aracılığıyla - Azure Hdınsight Hive sorgusu | Microsoft Docs
+description: Hdınsight'ta Hadoop Hive sorguları göndermek için bir Java uygulamasında JDBC sürücüsü kullanın. Program aracılığıyla ve SQuirrel SQL istemciden bağlanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/20/2018
+ms.date: 04/02/2018
 ms.author: larryfr
-ms.openlocfilehash: c56a4ec4d1abea5a862172966697747cbb3d234c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 876d6169f1ecb2f9cdecc59f3f7c8d0a82a8fe7e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hdınsight'ta JDBC sürücüsü aracılığıyla Hive sorgusu
 
@@ -32,7 +32,7 @@ Hive JDBC arabirimi hakkında daha fazla bilgi için bkz: [HiveJDBCInterface](ht
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Hdınsight kümesi Hadoop'ta. Linux tabanlı veya Windows tabanlı kümeler çalışır.
+* Hdınsight kümesi Hadoop'ta.
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight 3.3 devre dışı bırakma](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -65,76 +65,49 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL uzaktan Hdınsight kümenizle Hive sorguları çalıştırmak için kullanılan bir JDBC istemcidir. Aşağıdaki adımlarda SQuirreL SQL zaten yüklemiş olduğunuz varsayılmaktadır.
 
-1. Hive JDBC sürücülerini Hdınsight kümenize kopyalayın.
+1. Dosyaları içeren bir dizin oluşturun. Örneğin, `mkdir hivedriver`.
 
-    * İçin **Linux tabanlı Hdınsight** sürüm 3.5 ya da gerekli jar karşıdan yüklemek için aşağıdaki adımları kullanın 3.6 dosyaları küme.
+2. Bir komut satırından Hdınsight küme dosyaları kopyalamak için aşağıdaki komutları kullanın:
 
-        1. Dosyaları içeren bir dizin oluşturun. Örneğin, `mkdir hivedriver`.
+    ```bash
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
+    scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
+    ```
 
-        2. Bir komut satırından Hdınsight küme dosyaları kopyalamak için aşağıdaki komutları kullanın:
+    Değiştir `USERNAME` küme için SSH kullanıcı hesap adına sahip. Değiştir `CLUSTERNAME` Hdınsight küme adı ile.
 
-            ```bash
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-auth.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/log4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/lib/slf4j-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/hive-*-1.2*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpclient-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/httpcore-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/libfb*.jar .
-            scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-logging-*.jar .
-            ```
-
-            Değiştir `USERNAME` küme için SSH kullanıcı hesap adına sahip. Değiştir `CLUSTERNAME` Hdınsight küme adı ile.
-
-    * İçin **Windows tabanlı Hdınsight**, jar dosyalarını indirmek için aşağıdaki adımları kullanın.
-
-        1. Azure portalı, Hdınsight kümenize seçin ve ardından **Uzak Masaüstü** simgesi.
-
-            ![Uzak Masaüstü simgesi](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopicon.png)
-
-        2. Uzak Masaüstü bölümünü kullanın **Bağlan** düğmesi kümeye bağlanın. Uzak Masaüstü etkin değilse, bir kullanıcı adı ve parola sağlayın, sonra seçmek için formu kullanın **etkinleştirmek** küme için Uzak Masaüstü'nü etkinleştirmek için.
-
-            ![Uzak Masaüstü bölümünde](./media/apache-hadoop-connect-hive-jdbc-driver/remotedesktopblade.png)
-
-            Seçtikten sonra **Bağlan**,. RDP dosyasını karşıdan yüklenir. Uzak Masaüstü İstemcisini başlatmak için bu dosyayı kullanın. İstendiğinde, kullanıcı adını ve Uzak Masaüstü erişimi için girdiğiniz parola kullanın.
-
-        3. Bağlantı kurulduktan sonra aşağıdaki dosyaları Uzak Masaüstü oturumundan yerel makinenize kopyalayın. Adlı yerel bir dizinde put `hivedriver`.
-
-            * C:\apps\dist\hive-0.14.0.2.2.9.1-7\lib\hive-jdbc-0.14.0.2.2.9.1-7-standalone.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\hadoop-common-2.6.0.2.2.9.1-7.jar
-            * C:\apps\dist\hadoop-2.6.0.2.2.9.1-7\share\hadoop\common\lib\hadoop-auth-2.6.0.2.2.9.1-7.jar
-
-            > [!NOTE]
-            > Yol ve dosya adlarını dahil sürüm numaralarını, kümeniz için farklı olabilir.
-
-        4. Dosyaları kopyaladıktan tamamladıktan sonra Uzak Masaüstü oturumu bağlantısını kesin.
-
-2. SQuirreL SQL uygulaması başlatın. Pencerenin soldan seçin **sürücüleri**.
+3. SQuirreL SQL uygulaması başlatın. Pencerenin soldan seçin **sürücüleri**.
 
     ![Pencerenin sol sürücüler sekmesinde](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
 
-3. Başındaki simgeler gelen **sürücüleri** iletişim kutusunda  **+**  bir sürücüsü oluşturmak için simge.
+4. Başındaki simgeler gelen **sürücüleri** iletişim kutusunda **+** bir sürücüsü oluşturmak için simge.
 
     ![Sürücüleri simgeler](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
 
-4. Sürücü Ekle iletişim kutusunda aşağıdaki bilgileri ekleyin:
+5. Sürücü Ekle iletişim kutusunda aşağıdaki bilgileri ekleyin:
 
     * **Ad**: yığını
     * **Örnek URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Ek sınıf yolu**: daha önce indirilen jar dosyalarını eklemek için Ekle düğmesini kullanın
+    * **Ek sınıf yolu**: daha önce indirdiğiniz jar dosyalarını tüm eklemek için Ekle düğmesini kullanın
     * **Class Name**: org.apache.hive.jdbc.HiveDriver
 
    ![sürücü iletişim ekleyin](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
    Tıklatın **Tamam** bu ayarları kaydetmek için.
 
-5. SQuirreL SQL pencerenin sol tarafta seçin **diğer adlar**. Ardından  **+**  bağlantısı diğer adı oluşturmak için simge.
+6. SQuirreL SQL pencerenin sol tarafta seçin **diğer adlar**. Ardından **+** bağlantısı diğer adı oluşturmak için simge.
 
     ![Yeni diğer ad ekleyin](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
-6. İçin aşağıdaki değerleri kullanın **diğer ad eklemek** iletişim.
+7. İçin aşağıdaki değerleri kullanın **diğer ad eklemek** iletişim.
 
     * **Ad**: Hdınsight'ta Hive
 
@@ -150,15 +123,16 @@ SQuirreL SQL uzaktan Hdınsight kümenizle Hive sorguları çalıştırmak için
 
  ![diğer iletişim ekleyin](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
-    Kullanım **Test** bağlantı çalıştığını doğrulamak için düğmesi. Zaman **bağlanın: Hdınsight'ta Hive** seçin iletişim kutusu görüntülenirse, **Bağlan** testi gerçekleştirmek için. Test başarılı olursa, gördüğünüz bir **bağlantı başarılı** iletişim. Bir hata oluşursa, bakınız [sorun giderme](#troubleshooting).
+    > [!IMPORTANT] 
+    > Kullanım **Test** bağlantı çalıştığını doğrulamak için düğmesi. Zaman **bağlanın: Hdınsight'ta Hive** seçin iletişim kutusu görüntülenirse, **Bağlan** testi gerçekleştirmek için. Test başarılı olursa, gördüğünüz bir **bağlantı başarılı** iletişim. Bir hata oluşursa, bakınız [sorun giderme](#troubleshooting).
 
     Bağlantı diğer ad kaydetmek için kullanın **Tamam** alt kısmındaki düğmesi **diğer ad eklemek** iletişim.
 
-7. Gelen **bağlanmak** SQuirreL SQL üstündeki açılan seçin **Hdınsight'ta Hive**. İstendiğinde, seçin **Bağlan**.
+8. Gelen **bağlanmak** SQuirreL SQL üstündeki açılan seçin **Hdınsight'ta Hive**. İstendiğinde, seçin **Bağlan**.
 
     ![Bağlantı iletişim kutusu](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-8. Bağlantı kurulduktan sonra aşağıdaki sorguyu SQL sorgusu iletişim kutusuna girin ve ardından **çalıştırmak** simgesi. Sonuç alanında sorgu sonuçlarını göstermesi gerekir.
+9. Bağlantı kurulduktan sonra aşağıdaki sorguyu SQL sorgusu iletişim kutusuna girin ve ardından **çalıştırmak** simgesi. Sonuç alanında sorgu sonuçlarını göstermesi gerekir.
 
         select * from hivesampletable limit 10;
 
@@ -166,7 +140,7 @@ SQuirreL SQL uzaktan Hdınsight kümenizle Hive sorguları çalıştırmak için
 
 ## <a name="connect-from-an-example-java-application"></a>Bir örnek Java uygulaması Bağlan
 
-Hdınsight'ta Hive sorgusu için Java İstemcisi'ni kullanarak bir örnek kullanılabilir [https://github.com/Azure-Samples/hdinsight-java-hive-jdbc](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Derleme ve çalıştırma örnek depo'ndaki yönergeleri izleyin.
+Hdınsight'ta Hive sorgusu için Java İstemcisi'ni kullanarak bir örnek kullanılabilir [ https://github.com/Azure-Samples/hdinsight-java-hive-jdbc ](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Derleme ve çalıştırma örnek depo'ndaki yönergeleri izleyin.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

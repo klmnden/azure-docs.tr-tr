@@ -14,21 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 74645f3fdece14790311592a0fdd4ce6570a5bae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>IOT Hub cihaz kimliklerinizi toplu yönetme
 
 Her IOT hub kimlik kayıt defteri hizmeti aygıt başına kaynakları oluşturmak için kullanabilirsiniz sahiptir. Kimlik kayıt defteri aygıt'e yönelik uç noktalar için erişim denetim sağlar. Bu makalede, alabilir ve toplu cihaz kimliklerini bir kimlik kayıt defterinden verin açıklar.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 İçeri ve dışarı aktarma işlemleri sürer bağlamında yerinde *işleri* IOT hub'ı karşı toplu hizmet işlemlerini yürütmek etkinleştirin.
 
 **RegistryManager** sınıfı içerir **ExportDevicesAsync** ve **ImportDevicesAsync** kullanan yöntemleri **iş** framework. Bu yöntemler, verme, almak ve bir IOT hub kimlik kayıt defteri tamamen eşitlemek etkinleştirin.
 
 Bu konuda ele alınmıştır kullanarak **RegistryManager** sınıfı ve **iş** toplu içeri ve dışarı aktarmalar için ve bir IOT hub'ın kimlik kayıt defterinden aygıtların gerçekleştirmek için sistem. Azure IOT Hub cihaz sağlama hizmeti, sıfır-touch, yalnızca insan etkileşimi olmadan bir veya daha fazla IOT hub'ları için sağlama zaman etkinleştirmek için de kullanabilirsiniz. Daha fazla bilgi için bkz: [hizmet belgeleri sağlama][lnk-dps].
+
 
 ## <a name="what-are-jobs"></a>İşlerini nelerdir?
 

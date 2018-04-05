@@ -1,16 +1,16 @@
 ---
-title: "Azure geçirmek değerlendirme ayarlarını özelleştirme | Microsoft Docs"
-description: "Ayarlar ve bir değerlendirme geçirme VMware Vm'leri için Azure geçiş Planlayıcısını kullanarak Azure çalıştırırsınız açıklar"
+title: Azure geçirmek değerlendirme ayarlarını özelleştirme | Microsoft Docs
+description: Ayarlar ve bir değerlendirme geçirme VMware Vm'leri için Azure geçiş Planlayıcısını kullanarak Azure çalıştırırsınız açıklar
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: raynew
-ms.openlocfilehash: efb4ad59d25a0c1209e4f0f6cd406c2f0d48159c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 459a29012ec879d4d4989e51b5688b9042adc1a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="customize-an-assessment"></a>Bir değerlendirmeyi özelleştirme
 
@@ -24,8 +24,8 @@ ms.lasthandoff: 02/27/2018
 
     **Ayar** | **Ayrıntılar** | **Varsayılan**
     --- | --- | ---
-    **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/> Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Kanada Merkezi, Doğu Kanada, Orta Hindistan, Orta ABD, Çin, Doğu, Kuzey Çin, Doğu Asya, Doğu ABD, Almanya Merkezi, Almanya Kuzeydoğu, Doğu ABD 2, Japonya dahil olmak üzere 30 bölgeler şu anda Azure geçirme destekler Doğu, Japonya Batı, Orta, Kore Güney Kore, Kuzey Orta ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Güney Hindistan, Birleşik Krallık Güney, Birleşik Krallık Batı, Batı Orta ABD, Batı Avrupa, Batı Hindistan, Batı ABD ve Batı US2. |  Batı ABD 2 varsayılan konumdur.
-    **Depolama yedekliliği** | Azure sanal makinelerini geçişten sonra kullanacağı depolama artıklığı türü. | [Yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) varsayılan değerdir. Disk tabanlı değerlendirmeleri Azure geçirme yalnızca destekler yönetilen ve yönetilen diskler yalnızca LRS destekler, bu nedenle özelliği şu anda yalnızca LRS seçeneği vardır. 
+    **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/> Şu anda Azure Geçişi tarafından desteklenen 30 bölge şunlardır: ABD Batı, ABD Batı 2, ABD Doğu, ABD Doğu 2, ABD Orta, ABD Orta Batı, ABD Orta Güney, ABD Orta Kuzey, Almanya Kuzeydoğu, Almanya Orta, Avustralya Doğu, Avustralya Güneydoğu, Batı Avrupa, Batı Hindistan, Brezilya Güney, Çin Doğu, Çin Kuzey, Doğu Asya, Güney Hindistan, Güneydoğu Asya, Hindistan Orta, Japonya Batı, Japonya Doğu, Kanada Doğu, Kanada Orta, Kore Güney, Kore Orta, Kuzey Avrupa, UK Batı ve UK Güney. |  Batı ABD 2 varsayılan konumdur.
+    **Depolama yedekliliği** | Azure sanal makinelerini geçişten sonra kullanacağı depolama artıklığı türü. | [Yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) varsayılan değerdir. Disk tabanlı değerlendirmeleri Azure geçirme yalnızca destekler yönetilen ve yönetilen diskler yalnızca LRS destekler, bu nedenle özelliği şu anda yalnızca LRS seçeneği vardır. 
     **Boyutlandırma ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Her iki yapabilirsiniz *performans tabanlı* boyutlandırma veya VM'ler boyut *şirket içi olarak*, performans geçmişi dikkate olmadan. | Performans tabanlı boyutlandırma varsayılan seçenektir.
     **Performans geçmişi** | VM'lerin performansını değerlendirmek için dikkate alınması gereken süre. Bu özellik yalnızca boyutlandırma ölçütü olduğunda geçerlidir *performans tabanlı boyutlandırma*. | Varsayılan bir gündür.
     **Yüzdelik kullanımı** | Yüzdelik değer performans örnek boyutlandırmaya için kabul edilmesi için ayarlayın. Bu özellik yalnızca boyutlandırma ölçütü olduğunda geçerlidir *performans tabanlı boyutlandırma*.  | 95 varsayılandır.

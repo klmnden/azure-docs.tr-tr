@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 300b9b7786c17972c5c48df7e5b6d28491adc095
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: d0614e2eae0f60068e69b7a4687fc62fbe082c64
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights’ta örnekleme
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 03/29/2018
 ## <a name="in-brief"></a>Kısaca:
 * Örnekleme korur 1'de *n* kaydeder ve rest atar. Örneğin, 1, 5 olayları, % 20 örnekleme oranını korumak. 
 * Uygulamanız çok sayıda telemetri, ASP.NET web sunucusu uygulamalarında gönderirse örnekleme otomatik olarak gerçekleşir.
-* El ile örnekleme de ayarlayabilirsiniz ya da portal Fiyatlandırma sayfasında; veya ASP.NET SDK .config dosyasına; ya da ağ trafiğini azaltmak için Java SDK Applicationınsights.xml dosyasında.
+* El ile örnekleme de ayarlayabilirsiniz, ya da portal kullanımı ve tahmini maliyetleri sayfa; veya ASP.NET SDK .config dosyasına; ya da ağ trafiğini azaltmak için Java SDK Applicationınsights.xml dosyasında.
 * Özel olayları günlüğe kaydedin ve olayların kümesini korunur veya birlikte atılan emin emin olmak istiyorsanız aynı Operationıd değere sahip olduğundan emin olun.
 * Örnekleme bölen *n* özelliğinde her bir kayıttaki bildirilen `itemCount`, arama göründüğü kolay adı "istek sayısı" veya "olay sayısı" altında. Örnekleme işlemi içinde olmadığında `itemCount==1`.
 * Analitik sorguları yazma durumunda [örnekleme hesaba](app-insights-analytics-tour.md#counting-sampled-data). Özellikle, yalnızca kayıtları sayım yerine, kullanmanız gereken `summarize sum(itemCount)`.
@@ -49,7 +49,7 @@ Bu biçimi örnekleme, burada web sunucusu, tarayıcılar ve cihazlar telemetris
 
 Bu tür örnekleme uygulamanızı genellikle aylık kotasına gider ve örnekleme SDK tabanlı tür kullanma seçeneğiniz yoksa kullanın. 
 
-Örnekleme hızı, kotalar ve fiyatlandırma dikey ayarlayın:
+Örnekleme hızı kullanım ve tahmini maliyetleri sayfa ayarlayın:
 
 ![Uygulama genel bakış dikey penceresinden ayarları, kota, örnekleri, tıklatın ardından örnekleme hızını seçin ve Güncelleştir'i tıklatın.](./media/app-insights-sampling/04.png)
 

@@ -1,25 +1,25 @@
 ---
-title: "İşlerini ve işlem düğümlerinde - Azure Batch tam işleri hazırlamak için Görevler oluşturun | Microsoft Docs"
-description: "Azure toplu işlem düğümleri için veri aktarımını en aza indirmek için iş düzeyinde hazırlama görevleri kullanın ve iş tamamlanma düğümü temizleme görevleri bırakın."
+title: İşlerini ve işlem düğümlerinde - Azure Batch tam işleri hazırlamak için Görevler oluşturun | Microsoft Docs
+description: Azure toplu işlem düğümleri için veri aktarımını en aza indirmek için iş düzeyinde hazırlama görevleri kullanın ve iş tamamlanma düğümü temizleme görevleri bırakın.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 63d9d4f1-8521-4bbb-b95a-c4cad73692d3
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 543c03c22b31389c3d6e048cc9f13c24add5aae7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>İş hazırlama ve iş sürüm görevleri toplu işlem düğümleri
 
@@ -63,7 +63,7 @@ Bir iş görevlerinin çalışmaya başlamadan önce toplu bir görevi çalışt
 İş hazırlama görevi görevi çalıştırmak için zamanlanan düğümlerinde yürütülür. Bir düğüm görev atanmamış durumunda bu hazırlık görevi gereksiz yürütme önler. Bir iş için görevleri sayısı bir havuzdaki düğümlerin sayısından daha az olduğunda bu durum oluşabilir. Ne zaman da uygulanır [eşzamanlı görev yürütme](batch-parallel-node-tasks.md) olduğu etkin görev sayısı, bazı düğümler boşta IF bırakır toplam olası eş zamanlı görevleri düşüktür. İş hazırlama görevi boşta düğümlerinde çalıştırarak değil, veri aktarımı ücretlerine üzerinde daha az para harcamanız.
 
 > [!NOTE]
-> [JobPreparationTask] [ net_job_prep_cloudjob] farklıdır [CloudPool.StartTask] [ pool_starttask] StartTask yalnızca bir işlem düğümünde olduğunda çalışır ancak her bir iş başlangıcında JobPreparationTask yürütür, önce bir havuz katıldığında veya yeniden başlatır.
+> [JobPreparationTask] [ net_job_prep_cloudjob] farklıdır [CloudPool.StartTask] [ pool_starttask] JobPreparationTask ancak her bir iş başlangıcında yürütür, StartTask yalnızca zaman bir işlem düğümünde önce bir havuz birleştirir yürütür veya yeniden başlatır.
 > 
 > 
 

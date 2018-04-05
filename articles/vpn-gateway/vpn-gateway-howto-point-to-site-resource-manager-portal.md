@@ -1,11 +1,11 @@
 ---
-title: "Noktadan Siteye bağlantısı ve yerel Azure sertifika doğrulaması kullanarak bir bilgisayarı Azure sanal ağına bağlama: Azure Portal | Microsoft Docs"
-description: "P2S ve otomatik olarak imzalanan veya CA tarafından verilen sertifikaları kullanarak Windows ve Mac OS X istemcilerini bir Azure sanal ağa güvenli bir şekilde bağlayın. Bu makalede Azure portalı kullanılmaktadır."
+title: 'Noktadan Siteye bağlantısı ve yerel Azure sertifika doğrulaması kullanarak bir bilgisayarı Azure sanal ağına bağlama: Azure Portal | Microsoft Docs'
+description: P2S ve otomatik olarak imzalanan veya CA tarafından verilen sertifikaları kullanarak Windows ve Mac OS X istemcilerini bir Azure sanal ağa güvenli bir şekilde bağlayın. Bu makalede Azure portalı kullanılmaktadır.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2018
+ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 0a45430491e1e06080ae2eca2124088402c17f54
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Yerel Azure sertifika doğrulaması kullanarak Noktadan Siteye sanal ağ bağlantısını yapılandırma: Azure portal
 
@@ -78,6 +78,10 @@ Sanal ağınızı oluşturduktan sonra ad çözünürlüğünü işlemek için b
 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
+>[!NOTE]
+>Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez.
+>
+
 ## <a name="generatecert"></a>5. İstemci sertifikaları oluşturma
 
 Sertifikalar, Noktadan Noktaya VPN bağlantısı üzerinden VNet’e bağlanan istemcilerin kimliğini doğrulamak için Azure tarafından kullanılır. Kök sertifika edindiğinizde, ortak anahtar bilgilerini Azure'a [yüklersiniz](#uploadfile). Bunun üzerine, kök sertifika P2S üzerinden sanal ağa bağlantı için Azure tarafından 'güvenilir' olarak görülür. Ayrıca, güvenilen kök sertifikadan istemci sertifikaları da oluşturur ve bunları her bir istemci bilgisayara yüklersiniz. İstemci sertifikası, sanal ağ ile bağlantı başlattığında istemcinin kimliğini doğrulamak için kullanılır. 
@@ -103,6 +107,10 @@ Sertifikalar, Noktadan Noktaya VPN bağlantısı üzerinden VNet’e bağlanan i
 3. **Noktadan siteye** yapılandırma sayfasında, **Adres havuzu** kutusunda kullanmak istediğiniz özel IP adresi aralığını ekleyin. VPN istemcileri, belirttiğiniz aralıktan dinamik olarak bir IP adresi alır. Ayarı doğrulayıp kaydetmek için **Kaydet**’e tıklayın.
 
   ![İstemci adres havuzu](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
+
+  >[!NOTE]
+  >Bu sayfadaki portalda Tünel türü veya Kimlik Doğrulama türü görmüyorsanız, ağ geçidiniz Temel SKU kullanıyor demektir. Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez.
+  >
 
 ## <a name="tunneltype"></a>7. Tünel türünü yapılandırma
 

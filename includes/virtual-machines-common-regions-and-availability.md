@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines
+author: iainfoulds
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/27/2018
+ms.author: iainfou
+ms.custom: include file
+ms.openlocfilehash: a6b75b3804e7736fe5203caecb8c6badcfbf9ab4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/03/2018
+---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için kullanılabilirlik ve bölgeler
 Azure, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. Sanal makinelerinizin (VM’ler) Azure’da nasıl ve hangi konumda çalıştığının yanı sıra performans, kullanılabilirlik ve yedekliliği artırmak için kullanabileceğiniz seçeneklerin de anlaşılması önemlidir. Bu makalede, Azure’un kullanılabilirlik ve yedeklilik özelliklerine genel bakış sunulmaktadır.
 
@@ -90,11 +106,9 @@ Güncelleme etki alanı, bakımdan geçirilebilen ya da aynı anda yeniden başl
 
 ## <a name="availability-zones"></a>Kullanılabilirlik bölgeleri
 
-[Kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md) kullanılabilirlik için bir alternatif (Önizleme), ayarlar, uygulamaları ve verileri, vm'lerde kullanılabilirliğini sürdürmek zorunda denetim düzeyini genişletin. Kullanılabilirlik Alanı, bir Azure bölgesinin içinde fiziksel olarak ayrılmış bir alandır. Desteklenen bir Azure bölgesine başına üç kullanılabilirlik bölge vardır. Her kullanılabilirlik bölge farklı olan güç kaynağı, ağ ve soğutma ve diğer bölgelerden kullanılabilirlik Azure bölge içindeki mantıksal olarak farklıdır. Çoğaltılmış VM'ler bölgeleri kullanmak için çözüm mimarisi oluşturma, uygulamaları ve verileri bir veri merkezinde kaybına karşı koruyabilirsiniz. Bir bölge aşılırsa, ardından çoğaltılan uygulamaları ve verileri başka bir bölgede hemen kullanılabilir. 
+[Kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md)Alternatif Kullanılabilirlik ayarlar, uygulamaları ve verileri, vm'lerde kullanılabilirliğini sürdürmek zorunda denetim düzeyini genişletin. Kullanılabilirlik Alanı, bir Azure bölgesinin içinde fiziksel olarak ayrılmış bir alandır. Desteklenen bir Azure bölgesine başına üç kullanılabilirlik bölge vardır. Her kullanılabilirlik bölge farklı olan güç kaynağı, ağ ve soğutma ve diğer bölgelerden kullanılabilirlik Azure bölge içindeki mantıksal olarak farklıdır. Çoğaltılmış VM'ler bölgeleri kullanmak için çözüm mimarisi oluşturma, uygulamaları ve verileri bir veri merkezinde kaybına karşı koruyabilirsiniz. Bir bölge aşılırsa, ardından çoğaltılan uygulamaları ve verileri başka bir bölgede hemen kullanılabilir. 
 
 ![Kullanılabilirlik bölgeleri](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
-
-[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
 
 Dağıtma hakkında daha fazla bilgi bir [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) veya [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) kullanılabilirlik bölgesinde VM.
 

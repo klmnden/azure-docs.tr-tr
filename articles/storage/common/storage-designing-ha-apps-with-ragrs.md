@@ -1,6 +1,6 @@
 ---
-title: "Yüksek oranda kullanılabilir Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanan uygulamalar tasarlama | Microsoft Docs"
-description: "Azure RA-GRS depolama bir yüksek oranda kullanılabilir uygulama kesintiler işlemek için esnek mimari için nasıl kullanılacağını."
+title: Yüksek oranda kullanılabilir Azure okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) kullanan uygulamalar tasarlama | Microsoft Docs
+description: Azure RA-GRS depolama bir yüksek oranda kullanılabilir uygulama kesintiler işlemek için esnek mimari için nasıl kullanılacağını.
 services: storage
 documentationcenter: .net
 author: tamram
@@ -12,28 +12,26 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: fe7c6d1f2530b43ac7b10c5b6b0723452452a97a
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Yüksek oranda kullanılabilir RA-GRS kullanarak uygulamalar tasarlama
 
 Ortak bir Azure depolama gibi bulut tabanlı altyapılarının uygulamalarını barındırmak için yüksek oranda kullanılabilir bir platform sağlar özelliktir. Bulut tabanlı uygulaması geliştiricileri, kullanıcılar için yüksek oranda kullanılabilir uygulamalarını sunmak üzere bu platform yararlanmak nasıl dikkatle dikkate almanız gerekir. Bu makalede nasıl geliştiriciler okuma erişimli coğrafi olarak yedekli depolama (RA-GRS) sağlamak için Azure Storage uygulamalarını yüksek oranda kullanılabilir olan kullanabilirsiniz üzerine odaklanır.
 
-Azure depolama artıklığı depolama hesabınızdaki veriler için dört seçenek sunar:
-
-- LRS (yerel olarak yedekli depolama)
-- ZRS (bölge olarak yedekli depolama) 
-- GRS (coğrafi olarak yedekli depolama)
-- RA-GRS (coğrafi olarak yedekli depolamaya okuma erişimi). 
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
 Bu makalede, GRS ve RA-GRS odaklanır. GRS ile depolama hesabı oluştururken seçtiğiniz birincil bölgede verilerinizin üç kopyasını tutulur. Üç ek kopya Azure tarafından belirtilen bir ikincil bölge içinde zaman uyumsuz olarak korunur. İkincil kopya okuma erişimi olması dışında RA-GRS GRS olarak aynı şeydir. Farklı Azure Storage artıklık seçenekleri hakkında daha fazla bilgi için bkz: [Azure Storage çoğaltma](https://docs.microsoft.com/azure/storage/storage-redundancy). Çoğaltma makalede ayrıca birincil ve ikincil bölgeler eşleştirmeleri gösterilmektedir.
 
 Bu makalede ve tam bir örnek, indirin ve çalıştırın sonunda bağlantı dahil kod parçacıkları vardır.
+
+> [!NOTE]
+> Azure Storage artık yüksek oranda kullanılabilir uygulamaları oluşturmak için bölge olarak yedekli depolama (ZRS) destekler. ZRS birçok uygulama, artıklık ihtiyaçları için basit bir çözüm sunar. ZRS donanım hataları veya tek bir veri merkezinde etkileyen geri dönülemez afetler karşı koruma sağlar. Daha fazla bilgi için bkz: [bölge olarak yedekli depolama (ZRS): yüksek oranda kullanılabilir Azure Storage uygulamaları](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS temel özellikleri
 
@@ -105,7 +103,7 @@ Salt okunur modda çalışırken güncelleştirme isteklerini işlemek için bir
 
 Bunu nasıl hangi hataları yeniden denenebilir bilmeniz? Bu depolama istemcisi kitaplığı tarafından belirlenir. Örneğin, onu yeniden deneniyor başarılı şekilde neden büyük olasılıkla olmadığından 404 hatası (kaynak bulunamadı) yeniden denenebilir değil. Öte yandan, bir 500 sunucu hatası olduğundan ve yalnızca geçici bir sorun olabilir yeniden denenebilir hatasıdır. Daha fazla ayrıntı için kullanıma [açık kaynak kodu ExponentialRetry sınıfı için](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) .NET depolama istemci Kitaplığı'nda. (ShouldRetry yöntemi arayın.)
 
-### <a name="read-requests"></a>Okuma isteği
+### <a name="read-requests"></a>Okuma istekleri
 
 Birincil depolama ile ilgili bir sorun ise ikincil depolamaya Okuma isteği yönlendirilebilir. İçinde yukarıda olarak belirtildiği [sonunda tutarlı verileri kullanarak](#using-eventually-consistent-data), potansiyel olarak eski verileri okumak, uygulamanız için kabul edilebilir olmalıdır. RA-GRS verilere erişmek için depolama istemci kitaplığı kullanıyorsanız için bir değer ayarlayarak Okuma isteği yeniden deneme davranışını belirtebilirsiniz **LocationMode** özelliğini şunlardan biri:
 
@@ -135,7 +133,7 @@ Bu senaryolarda, bunları olmadığını birincil uç noktası ile devam eden bi
 
 Devre kesici düzeni, ayrıca güncelleştirme isteklerinin uygulanabilir. Ancak, güncelleştirme isteklerinin salt okunur ikincil depolama yönlendirilemez. Bu istekler için bırakmanız **LocationMode** özelliğini **PrimaryOnly** (varsayılan). Bu hataları işlemek için bu istekleri – bir satırda – 10 hataları gibi bir ölçümü uygulamak ve, eşiğine ulaşıldığında salt okunur modda uygulamasına geçiş yapabilirsiniz. Aynı yöntemleri döndürmek için bu aşağıda devre kesici desen hakkında sonraki bölümde açıklanan şekilde modu güncelleştirmek için kullanabilirsiniz.
 
-## <a name="circuit-breaker-pattern"></a>Devre kesici düzeni
+## <a name="circuit-breaker-pattern"></a>Devre Kesici düzeni
 
 Devre kesici düzeni uygulamanızda kullanarak büyük olasılıkla art arda başarısız olan işlem yeniden deneniyor engelleyebilirsiniz. Uygulama çalışmaya devam etmesini sağlar yapmak yerine alma işlemi sırasında süresini üstel olarak denenir. Hataya sabit olduğunda, aynı zamanda uygulama işlemi yeniden deneyebilirsiniz de algılar.
 
@@ -200,7 +198,7 @@ Belirli bir noktada geri kullanan birincil uç noktasını ve güncelleştirmele
 
 ## <a name="handling-eventually-consistent-data"></a>Sonuçta tutarlı verileri işleme
 
-RA-GRS işlemleri birincil sunucudan ikincil bölge'ye yineleyerek çalışır. Bu çoğaltma işlemi ikincil bölge verilerde olduğunu garanti *sonuçta tutarlı*. Birincil bölge içinde tüm işlemlerin sonunda ikincil bölge'de görünür, ancak bunlar ilk olarak birincil bölgede uygulanan aynı sırada ikincil bölgede olabileceğini bir gecikme göründükleri önce ve işlemleri garantisi yoktur gelmesini bu anlamına gelir. İşlemlerinizi sırasıyla dışında ikincil bölgede ulaşırsa, *olabilir* hizmet arayı kapatıncaya kadar tutarsız bir durumda olmasını ikincil bölge verilerinizi göz önünde bulundurun.
+RA-GRS, birincil bölgedeki işlemleri ikincil bölgede çoğaltarak çalışır. Bu çoğaltma işlemi ikincil bölge verilerde olduğunu garanti *sonuçta tutarlı*. Birincil bölge içinde tüm işlemlerin sonunda ikincil bölge'de görünür, ancak bunlar ilk olarak birincil bölgede uygulanan aynı sırada ikincil bölgede olabileceğini bir gecikme göründükleri önce ve işlemleri garantisi yoktur gelmesini bu anlamına gelir. İşlemlerinizi sırasıyla dışında ikincil bölgede ulaşırsa, *olabilir* hizmet arayı kapatıncaya kadar tutarsız bir durumda olmasını ikincil bölge verilerinizi göz önünde bulundurun.
 
 Aşağıdaki tabloda her bir üyesi yapmak için bir çalışan ayrıntılarını güncelleştirdiğinizde ne gerçekleşebilir örneği gösterilmektedir *Yöneticiler* rol. Bu örnek amacıyla, bu güncelleştirme gerektirir **çalışan** varlık ve güncelleştirme bir **Yönetici rolü** varlık ile yöneticiler sayısı toplam sayısı. Nasıl güncelleştirmeleri bozuk ikincil bölge'de uygulandığını dikkat edin.
 

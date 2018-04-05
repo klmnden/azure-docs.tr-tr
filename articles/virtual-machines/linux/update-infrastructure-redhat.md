@@ -1,11 +1,11 @@
 ---
-title: "Red Hat güncelleştirme altyapısı | Microsoft Docs"
-description: "Microsoft Azure isteğe bağlı Red Hat Enterprise Linux örneklerinin Red Hat güncelleştirme altyapısı hakkında bilgi edinin"
+title: Red Hat güncelleştirme altyapısı | Microsoft Docs
+description: Microsoft Azure isteğe bağlı Red Hat Enterprise Linux örneklerinin Red Hat güncelleştirme altyapısı hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: BorisB2015
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/10/2017
 ms.author: borisb
-ms.openlocfilehash: ea9a5cbd9b9b7b67ceb131cb8ba1d2476dbd5f72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe354c6c9415c1525527dd6b95d1b3a481b5a2de
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat güncelleştirme altyapısı için isteğe bağlı Red Hat Enterprise Linux VM'ler için Azure'da
  [Red Hat güncelleştirme altyapısını](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) Red Hat barındırılan depo içeriğini yansıtmak, özel depoları ile Azure özgü içerik oluşturmak ve son kullanıcı VM'ler için kullanılabilir hale getirmek için Azure gibi bulut sağlayıcıları sağlar.
@@ -50,6 +50,7 @@ Daha fazla RHEL PAYG Vm'lerden erişimi kısıtlamak için bir ağ yapılandırm
 40.85.190.91
 52.187.75.218
 52.174.163.213
+52.237.203.198
 
 # Azure US Government
 13.72.186.193

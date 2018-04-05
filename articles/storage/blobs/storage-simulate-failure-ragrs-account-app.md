@@ -10,15 +10,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 57296d828156184aa36532cd649fbec0c81b5e27
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0e7ab68075fbce729d3905375acce0dace22c483
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme
 
-Bu öğretici, bir dizinin ikinci bölümüdür.  Bu öğreticide, [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik istekler için hata benzetimi yapmak amacıyla [Fiddler](#simulate-a-failure-with-fiddler)’ı veya [Statik Yönlendirme](#simulate-a-failure-with-an-invalid-static-route)’yi kullanabilir ve uygulamanın ikincil uç noktadan okumasını sağlayabilirsiniz.
+Bu öğretici, bir dizinin ikinci bölümüdür.  Bu öğreticide, [okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik istekler için hata benzetimi yapmak amacıyla [Fiddler](#simulate-a-failure-with-fiddler)’ı veya [Statik Yönlendirme](#simulate-a-failure-with-an-invalid-static-route)’yi kullanabilir ve uygulamanın ikincil uç noktadan okumasını sağlayabilirsiniz.
 
 ![Senaryo uygulaması](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
@@ -117,7 +117,7 @@ Fiddler’a gidip **Kurallar**’ı ve **Kuralları Özelleştir...** seçeneği
 
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>Geçersiz bir statik rota ile hata benzetimi yapma 
-[Okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik tüm istekler için geçersiz bir statik rota oluşturabilirsiniz. Bu öğreticide, isteklerin depolama hesabına yönlendirilmesi için ağ geçidi olarak yerel ana bilgisayar kullanılır. Yerel ana bilgisayarın ağ geçidi olarak kullanılması, depolama hesabınızın birincil uç noktasına yönelik tüm isteklerin ana bilgisayara dönecek şekilde bir döngüye girmesine ve sonuçta başarısız olmasına yol açar. Geçersiz bir statik rota ile bir hata ve birincil uç noktayı geri yükleme benzetimi yapmak için aşağıdaki adımları izleyin. 
+[Okuma erişimli coğrafi olarak yedekli](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) depolama hesabınızın birincil uç noktasına yönelik tüm istekler için geçersiz bir statik rota oluşturabilirsiniz. Bu öğreticide, isteklerin depolama hesabına yönlendirilmesi için ağ geçidi olarak yerel ana bilgisayar kullanılır. Yerel ana bilgisayarın ağ geçidi olarak kullanılması, depolama hesabınızın birincil uç noktasına yönelik tüm isteklerin ana bilgisayara dönecek şekilde bir döngüye girmesine ve sonuçta başarısız olmasına yol açar. Geçersiz bir statik rota ile bir hata ve birincil uç noktayı geri yükleme benzetimi yapmak için aşağıdaki adımları izleyin. 
 
 ### <a name="start-and-pause-the-application"></a>Uygulamayı başlatma ve duraklatma
 

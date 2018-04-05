@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/29/2018
 ms.author: tomfitz
-ms.openlocfilehash: 94f11504597c127d505d103a417c3d78744d99d1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -131,7 +131,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Anahtar Kasası
 * Yük Dengeleyici - bkz [yük dengeleyici sınırlamaları](#lb-limitations)
 * Logic Apps
-* Machine Learning
+* Machine Learning - Machine Learning Studio web hizmetleri için bir kaynak grubunda aynı abonelik ancak farklı bir abonelik taşınabilir. Diğer Machine Learning kaynakları abonelikler arasında taşınabilir.
 * Media Services
 * Mobile Engagement
 * Notification Hubs

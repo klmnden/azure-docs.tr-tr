@@ -1,36 +1,34 @@
 ---
 title: Birimleri iste & verimlilik - Azure Cosmos DB tahmin etme | Microsoft Docs
-description: "Anlamak, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin."
+description: Anlamak, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin.
 services: cosmos-db
 author: mimig1
 manager: jhubbard
 editor: mimig
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: d0a3c310-eb63-4e45-8122-b7724095c32f
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2018
+ms.date: 03/30/2018
 ms.author: mimig
-ms.openlocfilehash: 3679aa76d4a6b9fd6335371e1639f1f246867fa5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 5f733e9cbd90829eded80b1401093e2331a1eb16
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB birimlerinde isteği
-Artık kullanılabilir: Azure Cosmos DB [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner). Daha fazla bilgi edinin [, üretilen iş gerektiğini tahmin etme](request-units.md#estimating-throughput-needs).
 
-![Üretilen iş hesaplayıcısı][5]
-
-## <a name="introduction"></a>Giriş
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) Microsoft'un Genel dağıtılmış birden çok model veritabanıdır. Azure Cosmos DB ile sanal makineleri kiralamak, yazılım dağıtma veya veritabanlarını izleme gerekmez. Azure Cosmos DB işletilen ve sürekli olarak world sınıfı kullanılabilirliği, performansı ve veri koruma sağlamak üzere Microsoft üst mühendisleri tarafından izlenir. Tercih ettiğiniz API'leri gibi kullanarak, verilerinizi erişebilirsiniz [SQL API](documentdb-introduction.md), [MongoDB API](mongodb-introduction.md), [tablo API](table-introduction.md)ve Gremlin aracılığıyla [grafik API'si](graph-introduction.md) - tüm yerel olarak desteklenir. Azure Cosmos DB para istek birimi (RU) birimidir. RUs ile okuma/yazma kapasiteleri veya sağlama CPU, bellek ve IOPS ayırmak gerekmez.
 
 Azure Cosmos DB Basit okuma arasında değişen farklı işlemlerle API'lerini destekler ve karmaşık grafik sorguları yazar. Tüm istekleri eşit olduğundan, normalleştirilmiş bir miktar atanan **istek birimleri** isteğe hizmet vermek için gerekli hesaplama miktarına göre. Bir işlem için istek birim sayısı belirleyici ve bir yanıt üstbilgisi aracılığıyla Azure Cosmos veritabanı herhangi bir işlem tarafından kullanılan istek birim sayısını izleyebilirsiniz. 
 
-Tahmin edilebilir performans sağlamak için işleme birimi 100 RU/saniye yedek gerekir. 
+Tahmin edilebilir performans sağlamak için işleme birimi 100 RU/saniye yedek gerekir. Yapabilecekleriniz [, üretilen iş gereken tahmin](request-units.md#estimating-throughput-needs) Azure Cosmos DB kullanarak [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
+
+![Üretilen iş hesaplayıcısı][5]
 
 Bu makaleyi okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:  
 
@@ -46,9 +44,9 @@ Azure Cosmos DB tarafından hızlı ve tahmin edilebilir performans sunar *ayır
 
 Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimler cinsinden belirtilir. İstek birimleri yapabildiği verimlilik para birimi olarak düşünebilirsiniz, *yedek* garantili istek birimleri uygulamanıza kullanılabilir miktardaki saniye başına temelinde.  Azure Cosmos - bir belge yazma, bir belge güncelleştirme bir sorgu gerçekleştirme - DB her bir işlemin CPU, bellek ve IOPS tüketir.  Diğer bir deyişle, her işlemi uygulanan bir *isteği ücret*, içinde ifade *istek birimleri*.  İstek birimi ücretleri, uygulamanızın işleme gereksinimleri etkileyen faktörler anlama, uygulamanızın maliyeti etkili bir şekilde olabildiğince olarak çalıştırmak sağlar. Azure portalında Veri Gezgini ayrıca bir sorgu çekirdek test etmek için bir harika aracıdır.
 
-İstek birimleri ve Azure Cosmos DB tahmin edilebilir performansla Aravind Ramachandran burada açıklanmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz.
+Burada Azure Cosmos DB Program Yöneticisi Barış Liu istek birimleri anlatılmaktadır aşağıdaki videoyu izleyerek çalışmaya başlamanızı öneririz.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Predictable-Performance-with-DocumentDB/player]
+> [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
 > 
 

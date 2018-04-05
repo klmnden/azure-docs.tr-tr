@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB için Visual Studio Bağlı Hizmeti"
-description: "Geliştiricilerin Azure Cosmos DB hesabını kolayca bağlayarak kaynakları Visual Studio Bağlı Hizmetleri üzerinden yönetmesini sağlar"
+title: Azure Cosmos DB için Visual Studio Bağlı Hizmeti
+description: Geliştiricilerin Azure Cosmos DB hesabını kolayca bağlayarak kaynakları Visual Studio Bağlı Hizmetleri üzerinden yönetmesini sağlar
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
 manager: DJ
 +tags: cosmos-db
 editor: Jenny Jiang
-ms.assetid: 
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.openlocfilehash: f63c20831a2700f1024507bef614a5a7cc87d00e
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 93be368d34f02e64d11abe9a04b11272ce18124d
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB: Visual Studio Bağlı Hizmeti (Önizleme)
 
@@ -36,11 +36,13 @@ Aşağıdaki öğelere sahip olduğunuzdan emin olun:
 * Bir Azure Cosmos DB hesabı. Hesabınız yoksa [Bir Azure Cosmos DB hesabı oluşturun](create-sql-api-dotnet.md) sayfasındaki adımları izleyerek Azure portalında hesap oluşturabilir veya [Bağlı Hizmet aracında bir Azure Cosmos DB hesabı oluşturma](#Create-an-Azure-Cosmo-DB-account-in-Connected-Service-tool) sayfasını inceleyebilirsiniz. 
 * Geliştirme amacıyla yerel ortam kullanmak istiyorsanız [Azure Cosmos DB Öykünücüsü](local-emulator.md)'nü kullanabilirsiniz. Ortam Azure Cosmos DB hizmetine öykünür.
 * [Visual Studio](http://www.visualstudio.com/).
-* En son Azure Cosmos DB Bağlı Hizmeti bitleri. Azure Cosmos DB Bağlı Hizmetini aşağıdaki ekran görüntüsünde gösterilen şekilde Visual Studio Market'ten indirebilirsiniz. Bilgisayarınızda **Visual Studio**'yu açın. **Araçlar** menüsünde **Uzantılar ve güncelleştirme...** öğesini seçin ve ardından **Çevrimiçi** / **Visual Studio Market**'i belirleyin. Bitleri aramak için **cosmosdb** yazın.
+* En son Azure Cosmos DB Bağlı Hizmeti bitleri. Azure Cosmos DB Bağlı Hizmetini aşağıdaki ekran görüntüsünde gösterilen şekilde Visual Studio Market'ten indirebilirsiniz. Bilgisayarınızda **Visual Studio**'yu açın. **Araçlar** menüsünde **Uzantılar ve Güncelleştirmeler...** öğesini seçin ve ardından **Çevrimiçi** / **Visual Studio Market**'i belirleyin. Bitleri aramak için **cosmosdb** yazın.
 
     Azure Cosmos DB Bağlı Hizmetini uygulamasını [Visual Studio Market](https://go.microsoft.com/fwlink/?linkid=858709)'ten de yükleyebilirsiniz.
 
     ![Bağlı Hizmet bitlerini indirme ekran görüntüsü.png](./media/connected-service/connected-service-downloadbits.png) 
+
+Azure Cosmos DB Connected Service uzantısını indirdikten sonra, uzantıyı yüklemek için Visual Studio’yu kapatın.
 
 ## <a id="SetupVS"></a>Visual Studio çözümünüzü kurma
 1. Bilgisayarınızda **Visual Studio**'yu açın.

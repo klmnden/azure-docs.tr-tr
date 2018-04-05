@@ -1,12 +1,12 @@
 ---
-title: "Azure Logic Apps ile tümleşen bir işlev oluşturma | Microsoft Docs"
-description: "Tweet duyarlılığını kategorilere ayırmak ve duyarlılık düşük olduğunda bildirim göndermek için Azure Logic Apps ve Azure Bilişsel Hizmetler ile tümleşen bir işlev oluşturun."
+title: Azure Logic Apps ile tümleşen bir işlev oluşturma | Microsoft Docs
+description: Tweet duyarlılığını kategorilere ayırmak ve duyarlılık düşük olduğunda bildirim göndermek için Azure Logic Apps ve Azure Bilişsel Hizmetler ile tümleşen bir işlev oluşturun.
 services: functions, logic-apps, cognitive-services
-keywords: "iş akışı, bulut uygulamaları, bulut hizmetleri, iş süreçleri, sistem tümleştirme, kuruluş uygulaması tümleştirme, EAI"
-documentationcenter: 
+keywords: iş akışı, bulut uygulamaları, bulut hizmetleri, iş süreçleri, sistem tümleştirme, kuruluş uygulaması tümleştirme, EAI
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: functions
 ms.workload: na
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 9e9369d9dc9f7298b93927b49685f4e24de8a7fd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps ile tümleşen bir işlev oluşturma
 
@@ -71,8 +71,6 @@ Bilişsel Hizmetler API'leri Azure’da tek kaynaklar halinde kullanılabilir. �
 5. Sol gezinti sütununda **Anahtarlar**’a tıklayın ve sonra **Anahtar 1** değerini kopyalayıp kaydedin. Bu anahtarı kullanarak mantıksal uygulamayı Bilişsel Hizmetler API'sine bağlayabilirsiniz. 
  
     ![Anahtarlar](media/functions-twitter-email/keys.png)
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-the-function-app"></a>İşlev uygulaması oluşturma
 

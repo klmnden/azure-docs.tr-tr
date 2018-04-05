@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1276fb119199b9dbb9b50bed8ac12cff0a55d2dd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -59,7 +59,7 @@ Veri Geçiş Aracı, verileri Azure Cosmos DB bir çeşitli kaynaklardan dahil o
 Bir grafik kullanıcı arabirimi (dtui.exe) alma aracı içerir, ancak bunu da komut satırından (dt.exe) bulunarak belirlenebilir. Aslında, kullanıcı Arabirimi aracılığıyla içe kurduktan sonra ilişkili komut çıktısı için bir seçenek yoktur. Hiyerarşik ilişkileri (alt) içeri aktarma sırasında oluşturulabilir, tablo kaynak verileri (örn. SQL Server ya da CSV dosyaları) dönüştürülebilir. Kaynak seçenekleri hakkında daha fazla bilgi için her bir kaynak, hedef seçenekleri ve görüntüleme içeri aktarma sonuçları almak için komut satırları örnek okuma tutun.
 
 ## <a id="Install"></a>Yükleme
-Geçiş Aracı kaynak kodu Github'da üzerinde kullanılabilir [bu havuzda](https://github.com/azure/azure-documentdb-datamigrationtool). Karşıdan yükle ve yerel olarak çözüm derlemek sonra çalıştırın:
+Geçiş Aracı kaynak kodu Github'da üzerinde kullanılabilir [bu havuzda](https://github.com/azure/azure-documentdb-datamigrationtool). Karşıdan yükle ve yerel olarak çözüm derlemek veya [önceden derlenmiş ikili dosya indirme](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip), ya da çalıştırın:
 
 * **Dtui.exe**: grafik arabirim aracı sürümü
 * **Dt.exe**: komut satırı aracı sürümü

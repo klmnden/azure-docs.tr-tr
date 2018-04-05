@@ -1,31 +1,31 @@
 ---
-title: "Azure Cosmos DB: Python ve Azure Cosmos DB MongoDB API’si ile bir Flask web uygulaması derleme | Microsoft Docs"
-description: "Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python Flask kodu örneği sunar"
+title: 'Azure Cosmos DB: Python ve Azure Cosmos DB MongoDB API’si ile bir Flask web uygulaması derleme | Microsoft Docs'
+description: Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Python Flask kodu örneği sunar
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: hshapiro
 manager: scicoria
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: hshapiro
-ms.openlocfilehash: f86c6cce82812e02f373d7307c76ace26ea3e99b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ea6920c179bfee22c0aa545ccc3d0386940205e4
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: MongoDB API’si ile bir Flask uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu hızlı başlangıç kılavuzu aşağıdaki [Flask örneğini](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) kullanır ve MongoDB yerine [Azure Cosmos DB Emulator](/local-emulator.md) ile basit bir To-Do Flask uygulaması derlemeyi gösterir.
+Bu hızlı başlangıç kılavuzu aşağıdaki [Flask örneğini](https://github.com/Azure-Samples/CosmosDB-Flask-Mongo-Sample) kullanır ve MongoDB yerine [Azure Cosmos DB Emulator](/local-emulator.md) ve Azure Cosmos DB [MongoDB API](mongodb-introduction.md) ile basit bir To-Do Flask uygulaması derlemeyi gösterir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -114,7 +114,7 @@ Kodu canlı bir Azure Cosmos DB Hesabına karşı test etmek isterseniz, Azure p
 
 Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. Öncekiyle aynı şekilde çalıştırabilirsiniz.
 
-## <a name="deploy-to-azure"></a>Azure’a Dağıt
+## <a name="deploy-to-azure"></a>Azure’a dağıtma
 
 Bu uygulamayı dağıtmak için Azure'da yeni bir web uygulaması oluşturabilir ve bu github deposunun çatalı ile sürekli dağıtımı etkinleştirebilirsiniz. Azure’da Github ile sürekli dağıtımı ayarlamak için bu [öğreticiyi](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment) izleyin.
 

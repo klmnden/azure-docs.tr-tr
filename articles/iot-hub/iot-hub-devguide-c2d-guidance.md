@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT hub'ı bulut aygıt seçenekleri | Microsoft Docs"
-description: "Geliştirici Kılavuzu - Kılavuzu ne zaman doğrudan yöntemleri, cihaz çifti'nin istediğiniz özellikler veya Bulut-cihaz iletilerini bulut-cihaz iletişimi için kullanılır."
+title: Azure IOT hub'ı bulut aygıt seçenekleri | Microsoft Docs
+description: Geliştirici Kılavuzu - Kılavuzu ne zaman doğrudan yöntemleri, cihaz çifti'nin istediğiniz özellikler veya Bulut-cihaz iletilerini bulut-cihaz iletişimi için kullanılır.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: fsautomata
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: dc8256022aca37823245ecb9a9326240f1c449c2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Bulut-cihaz iletişimi Kılavuzu
 IOT Hub cihaz uygulamaların bir arka uç uygulamasının işlevselliğini göstermek üç seçenek sunar:
@@ -26,6 +26,8 @@ IOT Hub cihaz uygulamaların bir arka uç uygulamasının işlevselliğini göst
 * [Doğrudan yöntemleri] [ lnk-methods] sonucunun hemen onay gerektiren iletişimleri için. Doğrudan yöntemleri genellikle üzerinde fan kapatma gibi aygıtların etkileşimli denetimi için kullanılır.
 * [Twin özellikleri istenen] [ lnk-twins] cihaz belirli bir yerleştirilecek hedeflenen uzun süre çalışan komutlar durumu istenen için. Örneğin, telemetri gönderme aralığı 30 dakikaya ayarlayın.
 * [Bulut-cihaz iletilerini] [ lnk-c2d] cihaz uygulaması için tek yönlü bildirimler için.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Aşağıda, çeşitli bulut-cihaz iletişimi seçenekleri ayrıntılı karşılaştırması verilmiştir.
 

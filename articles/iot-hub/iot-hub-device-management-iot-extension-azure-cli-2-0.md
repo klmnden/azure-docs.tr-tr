@@ -1,12 +1,12 @@
 ---
-title: "Azure IOT cihaz yönetimini IOT uzantısı ile Azure CLI 2.0 | Microsoft Docs"
-description: "Azure IOT Hub cihaz yönetimi, doğrudan yöntemleri ve Twin'ın istenen özellikleri yönetim seçenekleri için Azure CLI 2.0 aracı IOT uzantısını kullanır."
+title: Azure IOT cihaz yönetimini IOT uzantısı ile Azure CLI 2.0 | Microsoft Docs
+description: Azure IOT Hub cihaz yönetimi, doğrudan yöntemleri ve Twin'ın istenen özellikleri yönetim seçenekleri için Azure CLI 2.0 aracı IOT uzantısını kullanır.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: chrissie926
 manager: timlt
-tags: 
-keywords: "Azure IOT cihaz yönetimi, azure IOT hub cihaz yönetimi, cihaz yönetim IOT, IOT hub cihaz Yönetimi"
+tags: ''
+keywords: Azure IOT cihaz yönetimi, azure IOT hub cihaz yönetimi, cihaz yönetim IOT, IOT hub cihaz Yönetimi
 ms.assetid: b34f799a-fc14-41b9-bf45-54751163fffe
 ms.service: iot-hub
 ms.devlang: arduino
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2018
 ms.author: menchi
-ms.openlocfilehash: 07b9f14048b6618863efd5bd8eb8bcc8f52ec735
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ceace7331c7548c5b4e27f8529152fd69d5469cd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-iot-extension-for-azure-cli-20-for-azure-iot-hub-device-management"></a>IOT uzantısı Azure CLI 2.0 için Azure IOT Hub cihaz yönetimi için kullanın.
 
@@ -27,7 +27,9 @@ ms.lasthandoff: 03/09/2018
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-[Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) yeni bir açık kaynak eklediğinden IOT uzantısı [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) Azure Kaynak Yöneticisi'ni ve yönetim uç ile etkileşim için komutlar içerir. Azure CLI 2.0 Azure Kaynak Yöneticisi'ni ve yönetim uç ile etkileşim için komutlar içerir. Örneğin, bir Azure VM veya bir IOT hub'ı oluşturmak için Azure CLI 2.0 kullanabilirsiniz. CLI uzantısını ek hizmete özgü özellikleri erişim Azure CLI vermiş büyütmek bir Azure hizmetini etkinleştirir. IOT uzantısı IOT geliştiriciler, tüm IOT Hub, IOT kenarı ve IOT Hub cihaz hizmeti sağlama olanağı komut satırı erişim sağlar.
+[Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) yeni bir açık kaynak eklediğinden IOT uzantısı [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest). Azure CLI 2.0 Azure Kaynak Yöneticisi'ni ve yönetim uç ile etkileşim için komutlar içerir. Örneğin, bir Azure VM veya bir IOT hub'ı oluşturmak için Azure CLI 2.0 kullanabilirsiniz. CLI uzantısını ek hizmete özgü özellikleri erişim Azure CLI vermiş büyütmek bir Azure hizmetini etkinleştirir. IOT uzantısı IOT geliştiriciler, tüm IOT Hub, IOT kenarı ve IOT Hub cihaz hizmeti sağlama olanağı komut satırı erişim sağlar.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 | Yönetim seçeneği          | Görev                                                                                                                            |
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
@@ -39,8 +41,7 @@ ms.lasthandoff: 03/09/2018
 
 Daha ayrıntılı açıklama farklara ve bu seçenekleri kullanma konusunda yönergeler için bkz: [cihaz bulut iletişimi Kılavuzu](iot-hub-devguide-d2c-guidance.md) ve [bulut-cihaz iletişimi Kılavuzu](iot-hub-devguide-c2d-guidance.md).
 
-> [!NOTE]
-> Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir. Cihaz çiftlerini hakkında daha fazla bilgi için bkz: [cihaz çiftlerini ile çalışmaya başlama](iot-hub-node-node-twin-getstarted.md).
+Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir. Cihaz çiftlerini hakkında daha fazla bilgi için bkz: [cihaz çiftlerini ile çalışmaya başlama](iot-hub-node-node-twin-getstarted.md).
 
 ## <a name="what-you-learn"></a>Öğrenecekleriniz
 
@@ -61,12 +62,12 @@ Azure CLI 2.0 ve IOT uzantısı Azure CLI 2.0 için çeşitli yönetim seçenekl
 
 - [Python 2.7x veya Python 3.x](https://www.python.org/downloads/)
 
-- Azure CLI 2.0 yükleyin. Windows yüklemek için bir basit yoludur indirmek ve yüklemek için [MSI](https://aka.ms/InstallAzureCliWindows). De yükleme yönergelerini izleyebilirsiniz [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI 2.0 ortamınızda kurulumu. En azından, Azure CLI 2.0 sürümünüzün 2.0.24 olması gerekir veya üstü. Kullanım `az –version` doğrulamak için. 
+- Azure CLI 2.0 yükleyin. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir. De yükleme yönergelerini izleyebilirsiniz [Microsoft Docs](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI 2.0 ortamınızda kurulumu. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –version` kullanın. 
 
-- IOT uzantısını yükleyin. En basit yolu çalıştırmaktır `az extension add --name azure-cli-iot-ext`. [IOT uzantısı Benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) uzantıyı yüklemek için çeşitli yollar açıklanmaktadır.
+- IOT uzantısını yükleyin. En basit yol `az extension add --name azure-cli-iot-ext` komutunu çalıştırmaktır. [IoT uzantısı benioku](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md) dosyası, uzantıyı yüklemenin birkaç yolunu açıklar.
 
 
-## <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açın
+## <a name="log-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
 Aşağıdaki komutu çalıştırarak Azure hesabınızda oturum açın:
 

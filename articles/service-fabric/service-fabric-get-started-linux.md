@@ -1,11 +1,11 @@
 ---
-title: "Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Belgeleri"
-description: "Linux üzerinde çalışma zamanını ve SDK'yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz."
+title: Linux üzerinde geliştirme ortamınızı ayarlama | Microsoft Belgeleri
+description: Linux üzerinde çalışma zamanını ve SDK'yı yükleyip yerel bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra uygulama derlemek için hazır hale gelirsiniz.
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 20239acba46996ed7ec84a2fbaf300190deebc7f
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c98a5e742356e24cee9e9d1414121faabac03084
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Linux üzerinde geliştirme ortamınızı hazırlama
 > [!div class="op_single_selector"]
@@ -29,6 +29,10 @@ ms.lasthandoff: 02/24/2018
 >  
 
 Linux geliştirme makinenizde [Azure Service Fabric uygulamaları](service-fabric-application-model.md) dağıtıp çalıştırmak için çalışma zamanını ve ortak SDK'yı yükleyin. Ayrıca isteğe bağlı Java ve .NET Core geliştirme SDK'larını yükleyebilirsiniz.
+
+> [!NOTE]
+> Linux için Windows Alt Sistemine SDK ve Service Fabric çalışma zamanının yüklenmesi desteklenmez. Ancak bulutta veya şirket içinde başka bir yerde barındırılan Service Fabric varlıklarını yönetmenize olanak sağlayan Azure Service Fabric komut satırı arabirimi (CLI) desteklenir. CLI yükleme hakkında bilgi için bkz. [Service Fabric CLI'sini ayarlama](./service-fabric-cli.md).
+>
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -108,6 +112,12 @@ sudo apt-get install servicefabricsdkcommon
 >   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
+Yukarıdaki yüklemeyle birlikte gelen Service Fabric çalışma zamanı, aşağıdaki tabloda yer alan paketleri içerir. 
+
+ | | DotNetCore | Java | Python | NodeJS | 
+--- | --- | --- | --- |---
+Ubuntu | 2.0.0 | OpenJDK 1.8 | Npm’de örtük | en son |
+
 ## <a name="set-up-a-local-cluster"></a>Yerel küme oluşturma
   Yükleme başarıyla tamamlandığında yerel bir küme başlatabilmeniz gerekir.
 
@@ -184,7 +194,7 @@ Service Fabric için Eclipse eklentisini Java Geliştiricileri için Eclipse IDE
 
 2. Service Fabric eklentisini yüklemek için **Yardım** > **Yeni Yazılım Yükle**’yi seçin.
 
-3. **Birlikte çalışın** kutusuna şunu yazın: **http://dl.microsoft.com/eclipse**.
+3. **Birlikte çalış** kutusuna **http://dl.microsoft.com/eclipse** yazın.
 
 4. **Ekle**'ye tıklayın.
 

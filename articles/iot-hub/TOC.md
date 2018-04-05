@@ -43,11 +43,12 @@
 ## MXChip IoT DevKit kullanma
 ### [Azure Bilişsel Hizmetler'le sesli mesajı çevirme](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Nasıl yapılır kılavuzları
 ## Planlama
 ### [IoT Hub ile Event Hubs’ı karşılaştırma](iot-hub-compare-event-hubs.md)
-### [Çözümünüzü ölçeklendirme](iot-hub-scaling.md)
+### [Doğru katmanı seçme](iot-hub-scaling.md)
 ### [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](iot-hub-ha-dr.md)
 ### [Ek protokollerin desteklenmesi](iot-hub-protocol-gateway.md)
 ### [İleti ve olay yönlendirmeyi karşılaştırma](iot-hub-event-grid-routing-comparison.md)
@@ -147,6 +148,7 @@
 ### [Tanılama ile izleme](iot-hub-monitor-resource-health.md)
 #### [Tanılama ayarlarına geçirme](iot-hub-migrate-to-diagnostics-settings.md)
 #### [İşlemleri izleme](iot-hub-operations-monitoring.md)
+### [IoT hub’ı yükseltme](iot-hub-upgrade.md)
 ### [Ölçümleri kullanma](iot-hub-metrics.md)
 ### [IoT cihazlarını toplu yönetme](iot-hub-bulk-identity-mgmt.md)
 ### [IP filtrelemeyi yapılandırma](iot-hub-ip-filtering.md)

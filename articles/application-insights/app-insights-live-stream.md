@@ -1,8 +1,8 @@
 ---
-title: "Ölçümleri akışı özel ölçümleri ve Tanılama, Azure Application Insights ile canlı | Microsoft Docs"
-description: "Özel ölçümleri ile gerçek zamanlı web uygulamanızı izlemek ve canlı akış hataları, izlemeleri ve olayları ile ilgili sorunları tanılamak."
+title: Ölçümleri akışı özel ölçümleri ve Tanılama, Azure Application Insights ile canlı | Microsoft Docs
+description: Özel ölçümleri ile gerçek zamanlı web uygulamanızı izlemek ve canlı akış hataları, izlemeleri ve olayları ile ilgili sorunları tanılamak.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: SoubhagyaDash
 manager: carmonm
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: mbullwin
-ms.openlocfilehash: 866fc729b3167863c2d423d0e6ac0d7640e3425e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: f0338642ab99af2fd5ec4f6432bbb8d626daea29
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri akış: 1 saniye gecikme süresi ile Tanıla & zle 
 
@@ -115,12 +115,15 @@ Belirttiğiniz özel filtreler ölçütlere geri Application Insights SDK'sı Ca
 ![API anahtarı oluşturma](./media/app-insights-live-stream/live-metrics-apikeycreate.png)
 
 ### <a name="add-api-key-to-configuration"></a>API anahtarı yapılandırmasına ekleyin
+
+# <a name="net-standardtabnet-standard"></a>[.NET Standard](#tab/.net-standard)
+
 Applicationınsights.config dosyasında AuthenticationApiKey QuickPulseTelemetryModule ekleyin:
 ``` XML
 
 <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
       <AuthenticationApiKey>YOUR-API-KEY-HERE</AuthenticationApiKey>
-</Add> 
+</Add>
 
 ```
 Veya isteğe bağlı olarak kod içinde üzerinde QuickPulseTelemetryModule ayarlayın:
@@ -130,6 +133,34 @@ Veya isteğe bağlı olarak kod içinde üzerinde QuickPulseTelemetryModule ayar
     module.AuthenticationApiKey = "YOUR-API-KEY-HERE";
 
 ```
+# <a name="net-core-tabnet-core"></a>[.NET Core] (#tab/.net-core)
+
+Haline dosyanız aşağıdaki gibi değiştirin:
+
+Önce ekleyin.
+
+``` C#
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+using Microsoft.ApplicationInsights.Extensibility;
+```
+
+Daha sonra altında yapılandırma yöntemi ekleyin:
+
+``` C#
+  QuickPulseTelemetryModule dep;
+            var modules = app.ApplicationServices.GetServices<ITelemetryModule>();
+            foreach (var module in modules)
+            {
+                if (module is QuickPulseTelemetryModule)
+                {
+                    dep = module as QuickPulseTelemetryModule;
+                    dep.AuthenticationApiKey = "YOUR-API-KEY-HERE";
+                    dep.Initialize(TelemetryConfiguration.Active);
+                }
+            }
+```
+
+---
 
 Ancak, algılar ve tüm bağlı sunucular güveniyorsanız, kimliği doğrulanmış kanal olmadan özel filtreler deneyebilirsiniz. Bu seçenek altı ay için kullanılabilir. Bu geçersiz kılma kez her yeni bir oturum gereklidir veya ne zaman yeni bir sunucu gelir çevrimiçi.
 

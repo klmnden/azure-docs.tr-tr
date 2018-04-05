@@ -1,12 +1,12 @@
 ---
 title: Azure Backup nedir? | Microsoft Docs
-description: "Azure Backup’ı, Windows Server’lardan, Windows iş istasyonlarından, System Center DPM sunucularından ve Azure sanal makinelerinden verileri ve iş yüklerini yedeklemek ve geri yüklemek için kullanın."
+description: Azure Backup’ı, Windows Server’lardan, Windows iş istasyonlarından, System Center DPM sunucularından ve Azure sanal makinelerinden verileri ve iş yüklerini yedeklemek ve geri yüklemek için kullanın.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri"
+editor: ''
+keywords: yedekleme ve geri yükleme; kurtarma hizmetleri; yedekleme çözümleri
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: mvc
-ms.openlocfilehash: 600c4a29d7d7daabbbf6d1825671d109ea499c4b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 00ed2a64c672e1d2ae9a0037905a544b6c4424b7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure Backup özelliklerine genel bakış
 Azure Backup, verilerinizi Microsoft bulutunda yedeklemek (veya korumak) ve geri yüklemek için kullanabileceğiniz Azure tabanlı bir hizmettir. Azure Backup, var olan şirket içi veya şirket dışı yedekleme çözümünüzün yerine, güvenilir, güvenli ve maliyet açısından rekabetçi bir bulut tabanlı çözüm sunar. Azure Backup, indirdikten sonra uygun bilgisayar, sunucu veya buluta dağıtabileceğiniz birden fazla bileşene sahiptir. Dağıtacağınız bileşen veya aracı, korumak istediğiniz nesnelere göre değişiklik gösterir. Tüm Azure Backup bileşenleri (koruduğunuz veriler şirket içi veya bulut verileri olabilir), verileri Azure’daki bir Kurtarma Hizmetleri kasasına yedeklemek için kullanılabilir. Belirli verileri, uygulamaları veya iş yüklerini korumak için kullanılacak bileşenler hakkında bilgi almak için [Azure Backup bileşen tablosuna](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (bu makalenin ilerleyen bölümlerinde) bakın.
@@ -34,7 +34,7 @@ Geleneksel yedekleme çözümleri, bulutu disk veya bantlara benzer bir uç nokt
 
 **Sınırsız ölçekleme** - Azure Backup, yüksek kullanılabilirlik sunmak için Azure bulutunun gücünü ve sınırsız ölçekleme özelliğini kullanır. Üstelik bakım ve izleme maliyetleri yoktur. Olaylar hakkında bilgi almak için uyarılar oluşturabilirsiniz ancak buluttaki verilerinizin yüksek kullanılabilirliği konusunda endişelenmeniz gerekmez.
 
-**Birden çok depolama seçeneği** - Yüksek kullanılabilirliğin bir özelliği de depolama çoğaltmadır. Azure Backup iki tür çoğaltma sunar: [Yerel olarak yedekli depolama](../storage/common/storage-redundancy.md#locally-redundant-storage) ve [coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#geo-redundant-storage). İhtiyacınız olan yedek depolama seçeneğini belirleyin:
+**Birden çok depolama seçeneği** - Yüksek kullanılabilirliğin bir özelliği de depolama çoğaltmadır. Azure Backup iki tür çoğaltma sunar: [Yerel olarak yedekli depolama](../storage/common/storage-redundancy-lrs.md) ve [coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md). İhtiyacınız olan yedek depolama seçeneğini belirleyin:
 
 * Yerel olarak yedekli depolama (LRS), verilerinizi veri merkezine yer alan bir depolama ölçek birimine üç kez kopyalar (verilerinizin üç kopyasını oluşturur). Verilerin tüm kopyaları aynı bölgenin içinde yer alır. LRS, verilerinizi yerel donanım hatalarına karşı korumak için düşük maliyetli bir seçenektir.
 
@@ -219,7 +219,7 @@ Korumalı örneklere sanal makineler, uygulama sunucuları, veritabanları ve Wi
 
 
 ## <a name="what-is-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası nedir?
-Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yedekleme ilkeleri gibi verilerin tutulması için kullanılan bir çevrimiçi depolama varlığıdır. Azure hizmetleri, şirket içi sunucular ve iş istasyonları için yedekleme verilerini tutmak üzere Kurtarma Hizmetleri kasalarını kullanabilirsiniz. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. Her Azure aboneliğinde, Azure bölgesi başına en çok 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Verilerinizi nereye depolayacağınızı düşünürken, tüm bölgelerin aynı olmadığını unutmayın. Bölge eşleştirmeleri ve ek depolama alanı konuları hakkında bilgi edinmek için [Coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#geo-redundant-storage) bölümüne bakın.
+Kurtarma Hizmetleri kasası Azure'da yedek kopyalar, kurtarma noktaları ve yedekleme ilkeleri gibi verilerin tutulması için kullanılan bir çevrimiçi depolama varlığıdır. Azure hizmetleri, şirket içi sunucular ve iş istasyonları için yedekleme verilerini tutmak üzere Kurtarma Hizmetleri kasalarını kullanabilirsiniz. Kurtarma Hizmetleri kasaları, yedekleme verilerinizi düzenlemeyi kolaylaştırırken yönetim zorluklarını da en aza indirir. Her Azure aboneliğinde, Azure bölgesi başına en çok 25 Kurtarma Hizmetleri kasası oluşturabilirsiniz. Verilerinizi nereye depolayacağınızı düşünürken, tüm bölgelerin aynı olmadığını unutmayın. Bölge eşleştirmeleri ve ek depolama alanı konuları hakkında bilgi edinmek için [Coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) bölümüne bakın.
 
 Azure Service Manager'a dayalı Yedekleme kasaları ilk kasa sürümüdür. Azure Resource Manager modeli özelliklerinin eklendiği Kurtarma Hizmetleri kasaları kasanın ikinci sürümüdür. Özellikler arasındaki farkların kapsamlı açıklamaları için [Kurtarma Hizmetleri kasasına genel bakış makalesine](backup-azure-recovery-services-vault-overview.md) göz atın. Artık Yedekleme kasaları oluşturamazsınız ve var olan tüm Yedekleme kasaları Kurtarma Hizmetleri kasalarına yükseltilmiştir. Kurtarma Hizmetleri kasalarına yükseltilmiş kasaları yönetmek için Azure portalını kullanabilirsiniz.
 

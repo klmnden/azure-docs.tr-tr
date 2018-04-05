@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: 716e61840f4bfb5a68a995683e67dae0b43d3854
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak blobları yükleme, indirme ve listeleme
 
@@ -25,21 +25,23 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 Bu hızlı başlangıcı tamamlamak için ilk olarak [Azure portalında](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) bir Azure depolama hesabı oluşturun. Hesap oluşturmayla ilgili yardım için bkz. [Depolama hesabı oluşturma](../common/storage-quickstart-create-account.md).
 
-Ardından, işletim sisteminiz için .NET Core 2.0’ı indirip yükleyin. Ayrıca, işletim sisteminizle birlikte kullanmak için bir düzenleyici yüklemeyi seçebilirsiniz.
+Ardından, işletim sisteminiz için .NET Core 2.0’ı indirip yükleyin. Windows kullanıyorsanız, isterseniz Visual Studio yükleyip .NET Framework kullanabilirsiniz. Ayrıca, işletim sisteminizle birlikte kullanmak için bir düzenleyici yüklemeyi seçebilirsiniz.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-- [Windows için .NET Core](https://www.microsoft.com/net/download/windows/build) yükleyin 
-- İsteğe bağlı olarak [Windows için Visual Studio](https://www.visualstudio.com/) yükleyin 
+- [Windows için .NET Core](https://www.microsoft.com/net/download/windows) veya [.NET Framework](https://www.microsoft.com/net/download/windows) (Windows için Visual Studio ile birlikte gelir) yükleyin
+- [Windows için Visual Studio](https://www.visualstudio.com/) yükleyin. .NET Core kullanıyorsanız, Visual Studio yüklenmesi isteğe bağlıdır.  
+
+.NET Core ve .NET Framework arasında seçim yapma hakkında bilgi için bkz: [Sunucu uygulamaları için .NET Framework ve .NET Core arasında seçim yapma](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server).
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-- [Linux için .NET Core](https://www.microsoft.com/net/download/linux/build) yükleyin
+- [Linux için .NET Core](https://www.microsoft.com/net/download/linux) yükleyin
 - İsteğe bağlı olarak [Visual Studio Code](https://www.visualstudio.com/) ve [C# uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068) yükleyin
 
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-- [macOS için .NET Core](https://www.microsoft.com/net/download/macos/build) yükleyin.
+- [macOS için .NET Core](https://www.microsoft.com/net/download/macos) yükleyin.
 - İsteğe bağlı olarak [Mac için Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/) yükleyin
 
 ---
@@ -58,7 +60,22 @@ Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü 
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bu bağlantı dizesini uygulamayı çalıştıran yerel makine üzerindeki bir ortam değişkeninde depolayabilirsiniz. İşletim sisteminize bağlı olarak aşağıdaki komutlardan birini kullanarak ortam değişkenini oluşturun. `<yourconnectionstring>` değerini gerçek bağlantı dizesiyle değiştirin.
+Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bağlantı dizenizi Azure portalından kopyalayıp yeni bir ortam değişkenine yazın. Örnekte, ortam değişkenindeki bağlantı dizesi okunmakta ve Azure Depolama’ya yönelik isteklerinizin kimlik doğrulaması için bu dize kullanılmaktadır.
+
+### <a name="copy-your-connection-string-from-the-azure-portal"></a>Bağlantı dizenizi Azure portalından kopyalama
+
+Bağlantı dizenizi kopyalamak için:
+
+1. [Azure portalına](https://portal.azure.com) gidin.
+2. Depolama hesabınızı bulun.
+3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin.
+4. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesine tıklayarak bağlantı dizesini kopyalayın.  
+
+    ![Azure portalından bağlantı dizesinin kopyalanmasını gösteren ekran görüntüsü](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
+
+## <a name="write-your-connection-string-to-an-environment-variable"></a>Bağlantı dizenizi bir ortam değişkenine yazma
+
+Ardından, uygulamayı çalıştıran yerel makinede yeni ortam değişkenini yazın. Ortam değişkenini ayarlamak için bir konsol penceresi açın ve işletim sisteminizin yönergelerini izleyin. `<yourconnectionstring>` değerini gerçek bağlantı dizenizle değiştirin:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
@@ -66,21 +83,25 @@ Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
+Ortam değişkenini ekledikten sonra, konsol penceresi de dahil olmak üzere ortam değişkenini okumak için gereken tüm çalışan programları yeniden başlatmanız gerekebilir. Örneğin, düzenleyici olarak Visual Studio kullanıyorsanız, örneği çalıştırmadan önce Visual Studio’yu yeniden başlatın. 
+
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
 ```
 
+Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için konsol pencerenizden `source ~/.bashrc` çalıştırın.
+
 # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 .bash_profile dosyanızı düzenleyin ve ortam değişkenini ekleyin:
 
-```
-export STORAGE_CONNECTION_STRING=
+```bash
+export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 ```
 
-Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için oturumu kapatıp tekrar açın. Alternatif olarak, terminalinizden "source .bash_profile" yazabilirsiniz.
+Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için konsol pencerenizden `source .bash_profile` çalıştırın.
 
 ---
 
@@ -88,23 +109,50 @@ Ortam değişkenini ekledikten sonra değişiklikleri uygulamak için oturumu ka
 
 Bu örnek, yerel **MyDocuments** klasörünüzde bir sınama dosyası oluşturur ve Blob depolama alanına yükler. Örnek daha sonra kapsayıcı içindeki blobları listeler ve eski ve yeni dosyaları karşılaştırabilmeniz için dosyayı yeni bir adla indirir. 
 
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+Düzenleyici olarak Visual Studio kullanıyorsanız **F5** tuşuna basarak çalıştırın. 
+
+Aksi takdirde uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
+
+```
+dotnet run
+```
+
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
 Uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
 
 ```
 dotnet run
 ```
 
-Gösterilen çıkış aşağıdaki örneğe benzer:
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+Uygulama dizininize gidip `dotnet run` komutuyla uygulamayı çalıştırın.
 
 ```
-Azure Blob storage quick start sample
-Temp file = /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Uploading to Blob storage as blob 'QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt'
-List blobs in container.
-https://mystorageaccount.blob.core.windows.net/quickstartblobs/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374.txt
-Downloading blob to /home/admin/QuickStart_b73f2550-bf20-4b3b-92ec-b9b31c56b374_DOWNLOADED.txt
-The program has completed successfully.
-Press the 'Enter' key while in the console to delete the sample files, example container, and exit the application.
+dotnet run
+```
+
+---
+
+Örnek uygulama çıktısı aşağıdaki örneğe benzer:
+
+```
+Azure Blob storage - .NET Quickstart sample
+
+Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
+
+Temp file = C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+Uploading to Blob storage as blob 'QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt'
+
+Listing blobs in container.
+https://storagesamples.blob.core.windows.net/quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f/QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db.txt
+
+Downloading blob to C:\Users\myusername\Documents\QuickStart_c5e7f24f-a7f8-4926-a9da-9697c748f4db_DOWNLOADED.txt
+
+Press any key to delete the sample files and example container.
 ```
 
 Devam etmek için **Enter** tuşuna bastığınızda uygulama, depolama kapsayıcısını ve dosyaları siler. Silmeden önce, **MyDocuments** klasörünüzde iki dosyayı denetleyin. Dosyaları açarak aynı olduklarını görebilirsiniz. Konsol penceresinden blob URL’sini kopyalayıp tarayıcıya yapıştırarak blobun içeriğini görüntüleyin.
@@ -123,8 +171,8 @@ Ardından, nasıl çalıştığını anlayabilmeniz için örnek kodu inceleyin.
 // Retrieve the connection string for use with the application. The storage connection string is stored
 // in an environment variable on the machine running the application called storageconnectionstring.
 // If the environment variable is created after the application is launched in a console or with Visual
-// Studio, the shell needs to be closed and reloaded to take the environment variable into account.
-string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring", EnvironmentVariableTarget.User);
+// Studio, the shell or application needs to be closed and reloaded to take the environment variable into account.
+string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))

@@ -1,10 +1,10 @@
 ---
 title: Php'den kuyruk depolama kullanma | Microsoft Docs
-description: "Oluşturmak ve Kuyruklar silmek için Azure kuyruk depolama hizmeti kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Örnekleri PHP ile yazılmıştır."
+description: Oluşturmak ve Kuyruklar silmek için Azure kuyruk depolama hizmeti kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Örnekleri PHP ile yazılmıştır.
 documentationcenter: php
 services: storage
-author: tamram
-manager: timlt
+author: roygara
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
 ms.service: storage
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 01/11/2018
-ms.author: tamram
-ms.openlocfilehash: 02ffd817f34ae7d5fa1557db0a74e8ff06ab69fc
-ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
+ms.author: rogarana
+ms.openlocfilehash: ec0c6e22919e84bbaed284e16211ef52e526991d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -48,7 +48,7 @@ Bu kılavuzda, bir PHP uygulamanızda yerel olarak veya bir Azure web rolü, ça
       }
     }
     ```
-2. Karşıdan  **[composer.phar] [ composer-phar]**  proje kök.
+2. Karşıdan **[composer.phar] [ composer-phar]** proje kök.
 3. Bir komut istemi açın ve proje kök dizininde aşağıdaki komutu yürütün
    
     ```

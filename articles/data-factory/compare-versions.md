@@ -1,11 +1,10 @@
 ---
-title: "Azure Data Factory sürüm 1 ve 2’nin karşılaştırması | Microsoft Docs"
-description: "Bu makale Azure Data Factory V1 ile Azure Data Factory V2’yi karşılaştırır."
+title: Azure Data Factory sürüm 1 ve 2’nin karşılaştırması | Microsoft Docs
+description: Bu makale Azure Data Factory V1 ile Azure Data Factory V2’yi karşılaştırır.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: kromerm
-manager: jhubbard
-editor: spelluru
+manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +12,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/24/2018
 ms.author: makromer
-ms.openlocfilehash: 673bc4e0d1609e445e3d18e7cf516ad532be4bc2
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9aed1e903b5af3e5bcf53987ba80c1dcdb06f202
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1 ile V2’yi karşılaştırma
 Bu makale, Azure Data Factory’nin V2 sürümünü V1 sürümüyle karşılaştırır. V1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye giriş](v1/data-factory-introduction.md). V2 hakkında giriş bilgileri için bkz. [Data Factory'ye giriş (V2 - önizleme)](introduction.md).
@@ -112,7 +111,7 @@ V1’de, IDotNetActivity arabiriminin Execute yöntemini uygulayan bir sınıfa 
 
 V2 özel etkinliğinde .NET arabirimi uygulamanız gerekmez. Doğrudan komutlarla betikler çalıştırabilir ve yürütülmeye uygun olan kendi özel kodunuzu çalıştırabilirsiniz. 
 
-Daha fazla bilgi için bkz. [V1 ve V2’de özel etkinlikler arasındaki farklar](transform-data-using-dotnet-custom-activity.md#difference-between-custom-activity-in-azure-data-factory-v2-and-custom-dotnet-activity-in-azure-data-factory-v1).
+Daha fazla bilgi için bkz. [V1 ve V2’de özel etkinlikler arasındaki farklar](transform-data-using-dotnet-custom-activity.md#compare-v2-v1).
 
 ## <a name="sdks"></a>SDK’lar
  Data Factory V2, işlem hatlarını yazmak, yönetmek ve izlemek için kullanılabilen daha geniş SDK seçenekleri sunar.
@@ -138,6 +137,13 @@ V2 için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyumlu değildir.
 | Python SDK'sı | [Evet](quickstart-create-data-factory-python.md) | Hayır |
 | Resource Manager şablonu | [Evet](quickstart-create-data-factory-resource-manager-template.md) | [Evet](data-factory-build-your-first-pipeline-using-arm.md) | 
 
+## <a name="roles-and-permissions"></a>Roller ve izinler
+
+v2 Veri Fabrikası için alt kaynaklar oluşturmak ve yönetmek için:
+
+-   Sürüm 1 Veri Fabrikası Katkıda Bulunan rolü, v2 kaynakları oluşturmak ve yönetmek için kullanılamaz.
+-   Veri Fabrikası kaynağında oluşturulan standart ARM Katkıda Bulunan rolü, PowerShell veya SDK’lar ile dağıtılan bir v2 Veri Fabrikası için alt kaynakları oluşturup yönetmek için yeterlidir. Azure portalından veya ARM şablon dağıtımı ile dağıtılan v2 Veri Fabrikasına yönelik alt kaynakları oluşturup yönetmek için yeterli değildir.
+-   Azure portalından veya ARM şablon dağıtımı ile dağıtılan v2 Veri Fabrikasına yönelik alt kaynaklar oluşturup yönetmek için kaynak grubu düzeyinde veya abonelik düzeyinde ‘Otomasyon İşi İşleci’ rolünün üyesi olmanız gerekir. Kuruluşunuz, [Azure Rol Tabanlı Erişim Denetimi için özel roller oluşturma ](../active-directory/role-based-access-control-custom-roles.md) bölümünde açıklandığı gibi, "Eylemler" listesinde "Microsoft.Resources/deployments/*" içeren bir özel rol de oluşturabilir.
 
 ## <a name="monitoring-experience"></a>İzleme deneyimi
 V2'de, [Azure İzleyici](monitor-using-azure-monitor.md)’yi kullanarak veri fabrikalarını izleyebilirsiniz. Yeni PowerShell cmdlet’leri, [tümleştirme çalışma zamanlarını](monitor-integration-runtime.md) izlemeyi destekler. V1 ve V2, Azure portalından başlatılabilen izleme uygulaması aracılığıyla görsel izleme desteği sunar.

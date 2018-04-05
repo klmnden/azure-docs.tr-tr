@@ -1,12 +1,12 @@
 ---
-title: "Azure yedekleme hatası sorunlarını giderme: Konuk Aracısı durumu kullanılamıyor | Microsoft Docs"
-description: "Belirtiler, nedenler ve çözümler Aracısı, uzantı ve diskleri ilgili Azure Backup hatalar."
+title: 'Azure yedekleme hatası sorunlarını giderme: Konuk Aracısı durumu kullanılamıyor | Microsoft Docs'
+description: Belirtiler, nedenler ve çözümler Aracısı, uzantı ve diskleri ilgili Azure Backup hatalar.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
-keywords: "Azure yedekleme; VM Aracısı; Ağ bağlantısı;"
+editor: ''
+keywords: Azure yedekleme; VM Aracısı; Ağ bağlantısı;
 ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: a18718aba3ef7f70caa541c6eb56311082d02bed
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -78,21 +78,6 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 **4. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **5. neden: [güncelleştirmek veya yüklemek backup uzantısı başarısız](#the-backup-extension-fails-to-update-or-load)**  
 **6. neden: [Backup hizmeti, bir kaynak grubu kilit nedeniyle eski geri yükleme noktaları silmek için izne sahip değil](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
-
-## <a name="disk-configuration-is-not-supported"></a>Disk yapılandırması desteklenmiyor
-
-Hata iletisi: "belirtilen Disk yapılandırması desteklenmiyor"
-
-> [!NOTE]
-> 1 TB'den büyük disklere sahip sanal makineleri için yedeklemeleri destekleyecek özel Önizleme sunuyoruz. Ayrıntılar için bkz [büyük disk VM yedekleme desteği için özel Önizleme](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a).
->
->
-
-Azure Backup disklerinin şu anda desteklemiyor [1,023 GB'den büyük](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm). 1 TB'den büyük diskiniz varsa:  
-1. [Yeni diskleri ekleme](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) , 1 TB'den küçük.  
-2. Yeni oluşturulan disklere 1 TB'den küçük olan 1 TB'den büyük disklerden verileri kopyalayın.  
-3. Tüm verileri kopyaladığınız emin olun. Ardından, 1 TB'den büyük disklerin kaldırın.  
-4. Yedeklemeyi başlatın.
 
 ## <a name="causes-and-solutions"></a>Nedenler ve çözümler
 

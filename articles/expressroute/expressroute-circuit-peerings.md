@@ -1,11 +1,11 @@
 ---
-title: "Azure ExpressRoute bağlantı hatları ve Yönlendirme etki alanları | Microsoft Docs"
-description: "Bu sayfa ExpressRoute bağlantı hatları ve Yönlendirme etki alanları genel bir bakış sağlar."
+title: Azure ExpressRoute bağlantı hatları ve Yönlendirme etki alanları | Microsoft Docs
+description: Bu sayfa ExpressRoute bağlantı hatları ve Yönlendirme etki alanları genel bir bakış sağlar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6f0c5d8e-cc60-4a04-8641-2c211bda93d9
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 943305c78a17031d647bf2fa0977d10c51213ef5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute bağlantı hatları ve Yönlendirme etki alanları
  Sipariş gerekir bir *expressroute bağlantı hattı* şirket içi altyapınızı bağlantı sağlayıcı Microsoft'a bağlanmak için. Aşağıdaki şekilde bir mantıksal temsilini WAN ve Microsoft arasında bağlantı gösterilmektedir.
@@ -72,7 +72,7 @@ Bkz: [SSS sayfasını](expressroute-faqs.md) daha fazla bilgi desteklenen Hizmet
 ## <a name="routing-domain-comparison"></a>Yönlendirme etki alanı karşılaştırma
 Aşağıdaki tabloda, üç yönlendirme etki alanları karşılaştırılır:
 
-|  | **Özel eşleme** | **Ortak eşleme** | **Microsoft eşlemesi*** |
+|  | **Özel eşleme** | **Ortak eşleme** (yeni oluşturmaları için kullanım dışı) | **Microsoft eşlemesi** |
 | --- | --- | --- | --- |
 | **Maks. eşleme başına desteklenen # önekleri** |Varsayılan olarak, ExpressRoute Premium 10.000 4000 |200 |200 |
 | **Desteklenen IP adres aralıkları** |WAN'ınız dahilinde geçerli bir IP adresi. |Siz veya bağlantı sağlayıcınız tarafından sahip olunan genel IP adresleri. |Siz veya bağlantı sağlayıcınız tarafından sahip olunan genel IP adresleri. |
@@ -81,7 +81,7 @@ Aşağıdaki tabloda, üç yönlendirme etki alanları karşılaştırılır:
 | **Yönlendirme arabirimi IP adresleri** |RFC1918 ve genel IP adresleri |Genel IP adresleri kayıt defterlerini yönlendirme kaydettiniz. |Genel IP adresleri kayıt defterlerini yönlendirme kaydettiniz. |
 | **MD5 karma değeri desteği** |Evet |Evet |Evet |
 
-(*) Premium eklenti SKU katmanı gerektirir
+
 
 Bir veya daha fazla Yönlendirme etki alanları, expressroute bağlantı hattı bir parçası olarak etkinleştirmeyi seçebilirsiniz. Tek bir yönlendirme etki alanına birleştirmek istiyorsanız aynı VPN put tüm Yönlendirme etki alanları sahip olmayı seçebilirsiniz. Ayrıca bunları farklı yönlendirme etki alanları, diyagrama benzer koyabilirsiniz. Önerilen özel eşleme çekirdek ağı'na doğrudan bağlı ve genel ve Microsoft eşleme bağlantıları çevre ağınız bağlı yapılandırmadır.
 

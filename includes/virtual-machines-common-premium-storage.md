@@ -35,7 +35,7 @@ Premium depolama özelliklerden bazıları şunlardır:
 
 * **Premium depolama diskleri**
 
-    Premium depolama belirli boyutu-serisi VM'ler eklenebilecek VM diskleri destekler. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve Esv3 serisi VM'ler. Yedi disk boyutları seçmesini: P4 (32GB), P6 (64GB), P10 (128GB), P20 (512GB), P30 (1024GB), P40 (2048GB), P50 (4095GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, VM için bir veya daha fazla disk ekleyebilirsiniz. Biz belirtimleri daha ayrıntılı olarak açıklayan [Premium Storage ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
+    Premium depolama belirli boyutu-serisi VM'ler eklenebilecek VM diskleri destekler. Premium depolama destekleyen DS serisi, DSv2 serisi, GS serisi, Ls serisi, Fs-serisi ve Esv3 serisi VM'ler. Yedi disk boyutları seçmesini: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 ve P6 disk boyutları henüz yalnızca yönetilen diskler için desteklenir. Her disk boyutu, kendi performans özellikleri vardır. Uygulama gereksinimlerinize bağlı olarak, VM için bir veya daha fazla disk ekleyebilirsiniz. Biz belirtimleri daha ayrıntılı olarak açıklayan [Premium Storage ölçeklenebilirlik ve performans hedefleri](#scalability-and-performance-targets).
 
 * **Premium sayfa BLOB'ları**
 
@@ -103,7 +103,7 @@ DS serisi, DSv2 serisi, GS serisi özelliklerden bazıları bunlar Ls-serisi ve 
 
     Şu anda, DS serisi en büyük VM'yi Standard_DS15_v2 değil. Standard_DS15_v2 kadar 960 MB/sn tüm disklerde sağlayabilir. GS serisi en büyük VM'yi Standard_GS5 ' dir. Standard_GS5 en fazla 2000 MB/sn tüm disklerde sağlayabilir.
 
-    Bu sınırlar yalnızca disk trafiği olduğunu unutmayın. Bu sınırlar İsabetli Önbellek okuma sayısı ve ağ trafiğini eklemeyin. VM ağ trafiği için ayrı bir bant genişliği kullanılabilir. Ağ trafiği için bant genişliği, premium depolama diskleri tarafından kullanılan ayrılmış bant genişliği farklıdır.
+    Bu sınırı yalnızca disk trafiği mevcuttur. Bu sınırlar İsabetli Önbellek okuma sayısı ve ağ trafiğini eklemeyin. VM ağ trafiği için ayrı bir bant genişliği kullanılabilir. Ağ trafiği için bant genişliği, premium depolama diskleri tarafından kullanılan ayrılmış bant genişliği farklıdır.
 
     En güncel hakkında bilgi için maksimum IOPS ve üretilen işi (bant) Premium depolama desteklenen VM'ler için bkz: [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md) veya [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
 
@@ -129,11 +129,11 @@ Yönetilmeyen diskler için premium depolama hesapları kullanıyorsanız ve uyg
 ### <a name="premium-storage-disk-limits"></a>Premium depolama disk sınırları
 Premium depolama diskini sağladığınızda, diskin boyutunu en yüksek IOPS ve üretilen işi (bant) belirler. Azure premium depolama disklerinin yedi türleri sunar: P4 (yönetilen diskler yalnızca), P6 (yönetilen diskler yalnızca), P10, P20, P30, P40 ve P50. Her premium depolama disk türü IOPS ve üretilen iş için belirli sınırları vardır. Disk türleri için sınırları aşağıdaki tabloda açıklanmıştır:
 
-| Premium diskler türü  | P4    | P6    | P10   | P20   | P30   | P40   | P50   | 
-|---------------------|-------|-------|-------|-------|-------|-------|-------|
-| Disk boyutu           | 32 GB| 64 GB| 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
-| Disk başına IOPS       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Disk başına aktarım hızı | Saniye başına 25 MB  | Saniye başına 50 MB  | Saniyede 100 MB | 150 MB / saniye | 200 MB / saniye | Saniye başına 250 MB | Saniye başına 250 MB | 
+| Premium diskler türü  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
+| Disk boyutu           | 32 GB| 64 GB| 128 GB| 256 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
+| Disk başına IOPS       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 
+| Disk başına aktarım hızı | Saniye başına 25 MB  | Saniye başına 50 MB  | Saniyede 100 MB | Saniye başına 125 MB | 150 MB / saniye | 200 MB / saniye | Saniye başına 250 MB | Saniye başına 250 MB | 
 
 > [!NOTE]
 > Bölümünde açıklandığı gibi yeterli bant genişliği VM'nize sürücü disk trafiği üzerinde kullanılabilir olduğundan emin olun [Premium depolama desteklenen VM'ler](#premium-storage-supported-vms). Aksi takdirde, disk verimlilik ve IOPS kısıtlanması değerleri daha düşük. En yüksek verimlilik ve IOPS VM sınırları değil yukarıdaki tabloda açıklanan disk sınırlarını dayanır.  
@@ -144,11 +144,11 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
 
 * **Sağlanan kapasite ve performans**
 
-    Standart depolama, farklı bir premium depolama diskini sağladığınızda kapasite, IOPS ve bu disk verimini sağlanır. Örneğin, bir P50 disk oluşturursanız, Azure 4.095 GB depolama kapasitesi, 7.500 IOPS ve bu disk için 250 MB/sn üretilen iş sağlar. Uygulamanız, kapasite ve performans bölümünü veya tümünü kullanabilir.
+    Standart depolama, farklı bir premium depolama diskini sağladığınızda kapasite, IOPS ve bu disk verimini sağlanır. Örneğin, bir P50 disk oluşturursanız, Azure 4.095 GB depolama kapasitesi, 7.500 IOPS ve bu disk için 250-MB/sn işleme sağlar. Uygulamanız, kapasite ve performans bölümünü veya tümünü kullanabilir.
 
 * **Disk boyutu**
 
-    Azure (yuvarlanan) disk boyutu en yakın premium depolama disk seçeneğini tablonun önceki bölümde belirtildiği gibi eşler. Örneğin, 100 GB disk boyutunu P10 seçeneği olarak sınıflandırılır. En fazla 100 MB/sn üretilen iş ile en fazla 500 IOPS gerçekleştirebilirsiniz. Benzer şekilde, bir disk boyutu 400 GB P20 sınıflandırılır. 150 MB/sn üretilen iş ile en fazla 2,300 IOPS gerçekleştirebilirsiniz.
+    Azure (yuvarlanan) disk boyutu en yakın premium depolama disk seçeneğini tablonun önceki bölümde belirtildiği gibi eşler. Örneğin, 100 GB disk boyutunu P10 seçeneği olarak sınıflandırılır. Bunu 500 IOPS kadar ile 100-MB/sn'ye kadar gerçekleştirebilir. Benzer şekilde, bir disk boyutu 400 GB P20 sınıflandırılır. 150-MB/sn üretilen iş ile 2,300 IOPS kadar gerçekleştirebilir.
     
     > [!NOTE]
     > Kolayca var olan disklerin boyutunu artırabilirsiniz. Örneğin, 128 GB ve hatta 1 TB 30 GB disk boyutunu artırmak isteyebilirsiniz. Ya da daha fazla kapasite ya da daha fazla IOPS ve üretilen iş gerektiğinden P20 diskinizin P30 Diske Dönüştür isteyebilirsiniz. 
@@ -160,7 +160,7 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
 
 * **Aktarım hızı**
 
-    Üretilen iş sınırı disk yazma işlemlerini içerir ve önbellekten hizmet olmayan disk okuma işlemleri içerir. Örneğin, 100 MB/sn'ye disk başına P10 disk vardır. Geçerli işleme bir P10 disk için bazı örnekleri aşağıdaki tabloda gösterilmiştir:
+    Üretilen iş sınırı disk yazma işlemlerini içerir ve önbellekten hizmet olmayan disk okuma işlemleri içerir. Örneğin, 100-MB/sn'ye disk başına P10 disk vardır. Geçerli işleme bir P10 disk için bazı örnekleri aşağıdaki tabloda gösterilmiştir:
 
     | P10 disk başına en fazla üretilen işi | Diskten olmayan önbelleğini okur | Diske olmayan önbellek yazma |
     | --- | --- | --- |
@@ -170,7 +170,7 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
 
 * **İsabetli Önbellek okuma sayısı**
 
-    Ayrılmış IOPS veya disk verimini İsabetli Önbellek okuma sayısı sınırlı değildir. Örneğin, bir veri diski ile kullandığınızda bir **ReadOnly** Premium depolama, önbellekten sunulan okuma tarafından desteklenen bir VM'de önbellek ayarı olmayan IOPS ve üretilen iş tabi diskin caps. Bir disk iş yükünü daha ise okur, çok yüksek performans alabilirsiniz. Önbellek ayrı IOPS ve üretilen iş sınırları VM adresindeki VM boyutuna göre düzeyi, tabidir. DS serisi VM'ler yaklaşık 4.000 IOPS ve çekirdek önbelleği ve yerel SSD g/ç için başına 33 MB/sn üretilen iş vardır. GS serisi VM'ler 5.000 IOPS'yi ve çekirdek önbelleği ve yerel SSD g/ç için başına 50 MB/sn üretilen iş sınırı vardır. 
+    Ayrılmış IOPS veya disk verimini İsabetli Önbellek okuma sayısı sınırlı değildir. Örneğin, bir veri diski ile kullandığınızda bir **ReadOnly** Premium depolama, önbellekten sunulan okuma tarafından desteklenen bir VM'de önbellek ayarı olmayan IOPS ve üretilen iş tabi diskin caps. Bir disk iş yükünü daha ise okur, çok yüksek performans alabilirsiniz. Önbellek ayrı IOPS ve üretilen iş sınırları VM adresindeki VM boyutuna göre düzeyi, tabidir. DS serisi VM'ler yaklaşık 4.000 IOPS ve çekirdek önbelleği ve yerel SSD g/ç için başına 33-MB/sn üretilen iş vardır. GS serisi VM'ler 5.000 IOPS'yi ve çekirdek önbelleği ve yerel SSD g/ç için başına 50-MB/sn üretilen iş sınırı vardır. 
 
 ## <a name="throttling"></a>Azaltma
 Uygulamanızı IOPS veya verimlilik premium depolama diski için ayrılmış sınırlarını aşıyor azaltma, meydana gelebilir. Toplam disk trafiğinizi VM üzerindeki tüm diskleri arasında disk için bant genişliği sınırı kullanılabilir VM aşarsa azaltma de oluşabilir. Azaltma önlemek için bekleyen disk g/ç istek sayısı sınırlamanızı öneririz. Sağlanan bir disk için ölçeklenebilirlik ve performans hedefleri ve disk kullanılabilen bant genişliği VM dayalı bir sınır kullanın.  
@@ -186,7 +186,7 @@ Uygulamanızı bir P10 diskte bir saniye içinde 16 KB boyutunu 495 g/ç birimle
 Uygulamanızı bir P10 diskte 256 KB boyutunu 400 g/ç birimleri işledi. Kullanılan toplam bant genişliği (400 &#215; 256) / 1.024 KB = 100 MB/s. P10 disk, 100 MB/sn üretilen iş sınırı vardır. Uygulamanız bu saniye içinde daha fazla g/ç işlemleri gerçekleştirmeye çalışırsa, ayrılmış sınırını aştığı için kısıtlanır.
 
 ### <a name="example-3"></a>Örnek 3
-Bağlı iki P30 disklerle DS4 VM var. Her P30 disk 200 MB/sn verimini yeteneğine sahiptir. Ancak, bir DS4 VM 256 MB/sn toplam disk bant genişliği kapasitesine sahiptir. Eklenen her iki diskin en yüksek verimlilik bu DS4 VM üzerinde aynı anda sürücüsü olamaz. Bu sorunu çözmek için bir disk üzerindeki 200 MB/sn ve diğer diskteki 56 MB/sn, trafiği karşılayabilir. Toplam disk trafiğinizin 256 MB/sn kalırsa, disk trafiği azaltılır.
+Bağlı iki P30 disklerle DS4 VM var. Her P30 disk 200-MB/sn verimini yeteneğine sahiptir. Ancak, bir DS4 VM 256 MB/sn toplam disk bant genişliği kapasitesine sahiptir. Eklenen her iki diskin en yüksek verimlilik bu DS4 VM üzerinde aynı anda sürücüsü olamaz. Bu sorunu çözmek için bir disk üzerindeki 200 MB/sn ve diğer diskteki 56 MB/sn, trafiği karşılayabilir. Toplam disk trafiğinizin 256 MB/sn kalırsa, disk trafiği azaltılır.
 
 > [!NOTE]
 > Disk trafiğinizi çoğunlukla küçük g/ç boyutlarını oluşuyorsa, büyük olasılıkla, uygulamanızın üretilen iş sınırı önce IOPS sınırı karşılaşır. Disk trafiği çoğunlukla büyük g/ç boyutlarını oluşuyorsa, ancak, büyük olasılıkla, uygulamanızın üretilen iş sınırı ilk olarak, IOPS sınırı yerine karşılaşır. Uygulamanızın IOPS ve işleme kapasitesi en iyi g/ç boyutları kullanarak en üst düzeye çıkarabilirsiniz. Ayrıca, bekleyen bir disk g/ç istek sayısını sınırlayabilirsiniz.
@@ -297,14 +297,3 @@ Zaman tabanlı yedeklemeler sayesinde bir yedekleme işi oluşturmak için kolay
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Premium depolama hakkında daha fazla bilgi için aşağıdaki makalelere bakın.
-
-### <a name="design-and-implement-with-premium-storage"></a>Premium depolama ile tasarlayıp
-* [Premium depolama alanına sahip bir performans için tasarlama](../articles/virtual-machines/windows/premium-storage-performance.md)
-* [Premium depolama alanına sahip BLOB Depolama işlemleri](http://go.microsoft.com/fwlink/?LinkId=521969)
-
-### <a name="operational-guidance"></a>İşlemsel kılavuz
-* [Azure Premium depolama alanına geçiş](../articles/storage/common/storage-migration-to-premium-storage.md)
-
-### <a name="blog-posts"></a>Blog yazıları
-* [Azure Premium Storage genel olarak kullanılabilir](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
-* [GS serisi tanışın: en büyük sanal makineleri genel bulut Premium depolama ekleme desteği](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)

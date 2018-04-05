@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory tümleştirme çalışma zamanında izleme | Microsoft Docs"
-description: "Farklı Azure Data Factory içinde Integration zamanının izlemek öğrenin."
+title: Azure Data Factory tümleştirme çalışma zamanında izleme | Microsoft Docs
+description: Farklı Azure Data Factory içinde Integration zamanının izlemek öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 74a4ad6438f9e66331f76e87d20d1eb8b29e8451
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory bir tümleştirme çalışma zamanı izleme  
 **Tümleştirme çalışma zamanı** olan farklı ağ ortamlar genelinde çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan bilgi işlem altyapısı. Veri fabrikası tarafından sunulan tümleştirme çalışma zamanları üç tür vardır:
@@ -162,10 +162,10 @@ Azure SSIS tümleştirmesi çalışma zamanı SSIS paketleri çalıştırmak iç
 | NodeSize | Her düğüm, Azure SSIS Integration zamanının boyutu. |
 | NodeCount | Azure SSIS tümleştirme çalışma zamanındaki düğüm sayısı. |
 | MaxParallelExecutionsPerNode | Paralel yürütmeleri Azure SSIS tümleştirme çalışma zamanındaki düğüm başına sayısı. |
-| CatalogServerEndpoint | Mevcut Azure SQL veritabanı/yönetilen örneği sunucunuza konak SSISDB uç noktası. |
-| CatalogAdminUserName | Mevcut Azure SQL veritabanı/yönetilen örneği sunucunuzu yönetici kullanıcı adı. Data Factory Hizmeti'ne hazırlamak ve sizin adınıza SSISDB yönetmek için bu bilgileri kullanır. |
-| CatalogAdminPassword | Mevcut Azure SQL veritabanı/yönetilen örneği sunucunuzu yönetici parolası. |
-| CatalogPricingTier | Mevcut Azure SQL veritabanı sunucunuz tarafından barındırılan SSISDB için fiyatlandırma katmanı.  Azure SQL örneğine yönetilen SSISDB barındırma geçerli değil. |
+| CatalogServerEndpoint | Mevcut Azure SQL veritabanı/yönetilen örneği (Önizleme) sunucunuzun konak SSISDB için uç nokta. |
+| CatalogAdminUserName | Mevcut Azure SQL veritabanı/yönetilen örneği (Önizleme) sunucunuzu yönetici kullanıcı adı. Data Factory Hizmeti'ne hazırlamak ve sizin adınıza SSISDB yönetmek için bu bilgileri kullanır. |
+| CatalogAdminPassword | Mevcut Azure SQL veritabanı/yönetilen örneği (Önizleme) sunucunuzun yönetici parolası. |
+| CatalogPricingTier | Mevcut Azure SQL veritabanı sunucunuz tarafından barındırılan SSISDB için fiyatlandırma katmanı.  Azure SQL örneğine yönetilen SSISDB barındırma (Önizleme) geçerli değil. |
 | VNetId | Katılmak için sanal ağ (VNet) kaynak kimliği, Azure SSIS tümleştirmesi çalışma zamanı için. |
 | Alt ağ | Katılmak, Azure SSIS tümleştirmesi çalışma zamanı için alt ağ adı. |
 | Kimlik | Kaynak Kimliği, Azure SSIS Integration zamanının. |
@@ -199,7 +199,7 @@ Azure SSIS tümleştirmesi çalışma zamanı hakkında daha fazla bilgi için a
 
 - [Azure SSIS tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede Azure SSIS IR genel dahil tümleştirme çalışma zamanları hakkında kavramsal bilgiler sağlar 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (özel önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makalede öğreticiyi genişletir ve Azure SQL yönetilen örneğini (Önizleme) kullanarak ve bir sanal ağa IR katılması yönergeler sağlar. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, IR’ye daha fazla düğüm ekleyerek Azure-SSIS IR’nizi ölçeklendirmeyi gösterir. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına (VNet) ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure portalını kullanarak Azure-SSIS IR’nin sanal ağa katılmasını sağlayacak şekilde sanal ağı yapılandırma adımları sunar. 
 

@@ -1,6 +1,6 @@
 ---
-title: "SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - önkoşulları | Microsoft Docs"
-description: "Bu öğreticide Azure Vm'lerinde SQL Server Always On kullanılabilirlik grubu oluşturmak için önkoşulların nasıl yapılandırılacağı gösterilmiştir."
+title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - önkoşulları | Microsoft Docs
+description: Bu öğreticide Azure Vm'lerinde SQL Server Always On kullanılabilirlik grubu oluşturmak için önkoşulların nasıl yapılandırılacağı gösterilmiştir.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 85ad53f0b7b4b14784bb0755ee22763d124e63ba
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f2a0af65af068f3a78a08e46e0e42caefd87d7b1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Azure sanal makinelerde Always On kullanılabilirlik grupları oluşturmak için önkoşulları tamamlamanız
 
@@ -42,7 +42,7 @@ Bir Azure hesabınız olmalıdır. Yapabilecekleriniz [ücretsiz bir Azure hesab
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 1. [Azure Portal](http://portal.azure.com)’da oturum açın.
-2. Tıklatın  **+**  Portalı'nda yeni bir nesne oluşturmak için.
+2. Tıklatın **+** Portalı'nda yeni bir nesne oluşturmak için.
 
    ![Yeni nesne](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-portalplus.png)
 
@@ -51,9 +51,9 @@ Bir Azure hesabınız olmalıdır. Yapabilecekleriniz [ücretsiz bir Azure hesab
    ![Kaynak grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroupsymbol.png)
 4. Tıklatın **kaynak grubu**.
 5. **Oluştur**’a tıklayın.
-6. Üzerinde **kaynak grubu** dikey altında **kaynak grubu adı**, kaynak grubu için bir ad yazın. Örneğin, **sql-ha-rg**.
+6. Altında **kaynak grubu adı**, kaynak grubu için bir ad yazın. Örneğin, **sql-ha-rg**.
 7. Birden çok Azure aboneliğiniz varsa, aboneliğin kullanılabilirlik grubunda oluşturmak istediğiniz Azure aboneliği olduğundan emin olun.
-8. Bir konum seçin. Kullanılabilirlik grubu oluşturmak istediğiniz Azure bölgesini konumdur. Bu öğretici için tüm kaynakları tek bir Azure konumda derlemeleri yapacağız.
+8. Bir konum seçin. Kullanılabilirlik grubu oluşturmak istediğiniz Azure bölgesini konumdur. Bu makale bir Azure konumdaki tüm kaynaklar oluşturur.
 9. Doğrulayın **panoya Sabitle** denetlenir. Bu isteğe bağlı ayar Azure portal panosunda kaynak grubu için bir kısayol yerleştirir.
 
    ![Kaynak grubu](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/01-resourcegroup.png)
@@ -69,14 +69,14 @@ Sonraki adım ağlar ve alt ağlar Azure kaynak grubu oluşturmaktır.
 
 Sanal ağ oluşturmak için:
 
-1. Azure portalında, kaynak grubunuzun tıklatın **+ Ekle**. Azure açılır **her şeyi** dikey.
+1. Azure portalında, kaynak grubunuzun tıklatın **+ Ekle**. 
 
    ![Yeni öğe](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/02-newiteminrg.png)
 2. Arama **sanal ağ**.
 
      ![Arama sanal ağ](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/04-findvirtualnetwork.png)
 3. Tıklatın **sanal ağ**.
-4. Üzerinde **sanal ağ** dikey penceresinde tıklatın **Resource Manager** dağıtım modeli ve ardından **oluşturma**.
+4. Üzerinde **sanal ağ**, tıklatın **Resource Manager** dağıtım modeli ve ardından **oluşturma**.
 
     Aşağıdaki tabloda sanal ağ ayarlarını gösterir:
 
@@ -106,14 +106,14 @@ Yeni sanal ağ, bir alt ağ, sahip **yönetici**. Etki alanı denetleyicileri bu
 1. Panonuzda, oluşturduğunuz kaynak grubunu tıklatın **SQL-HA-RG**. Kaynak grubu altında ağ bulun **kaynakları**.
 
     Varsa **SQL-HA-RG** görünmeyen, bunu bulmak **kaynak grupları** ve kaynak grubu adına göre filtreleme.
-2. Tıklatın **autoHAVNET** kaynaklar listesi üzerinde. Azure ağ yapılandırma dikey pencere açılır.
-3. Üzerinde **autoHAVNET** sanal ağ dikey altında **ayarları** , tıklatın **alt ağlar**.
+2. Tıklatın **autoHAVNET** kaynaklar listesi üzerinde. 
+3. Üzerinde **autoHAVNET** sanal ağ, altında **ayarları** , tıklatın **alt ağlar**.
 
     Önceden oluşturulmuş alt ağ unutmayın.
 
    ![Sanal ağ yapılandırma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/07-addsubnet.png)
 5. İkinci bir alt ağ oluşturun. Tıklatın **+ alt**.
-6. Üzerinde **alt ağ Ekle** dikey penceresinde alt yazarak yapılandırın **sqlsubnet** altında **adı**. Azure otomatik olarak belirtir geçerli bir **adres aralığı**. Bu adres aralığı en az 10 adresleri içinde olduğunu doğrulayın. Bir üretim ortamında, daha fazla adresleri gerektirebilir.
+6. Üzerinde **alt ağ Ekle**, alt yazarak yapılandırın **sqlsubnet** altında **adı**. Azure otomatik olarak belirtir geçerli bir **adres aralığı**. Bu adres aralığı en az 10 adresleri içinde olduğunu doğrulayın. Bir üretim ortamında, daha fazla adresleri gerektirebilir.
 7. **Tamam**’a tıklayın.
 
     ![Sanal ağ yapılandırma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/08-configuresubnet.png)
@@ -134,7 +134,7 @@ Ağ yapılandırması ayarları aşağıdaki tabloda özetlenmiştir:
 
 ## <a name="create-availability-sets"></a>Kullanılabilirlik kümeleri oluşturma
 
-Sanal makineleri oluşturmadan önce kullanılabilirlik kümelerini oluşturmanız gerekir. Kullanılabilirlik kümeleri, planlı veya plansız bir bakım olayları için kapalı kalma süresini kısaltabilir. Bir Azure kullanılabilirlik kümesi, fiziksel hata etki alanları ve güncelleme etki alanına Azure yerleştirir kaynakların mantıksal bir gruptur. Hata etki alanı kullanılabilirlik kümesi üyeleri ayrı güç ve ağ kaynaklarına sahip olmasını sağlar. Bir güncelleştirme etki alanı kullanılabilirlik kümesi üyeleri bakım için aynı anda duruma olmayan olmasını sağlar. Daha fazla bilgi için bkz: [sanal makinelerin kullanılabilirliğini yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Sanal makineleri oluşturmadan önce kullanılabilirlik kümelerini oluşturmanız gerekir. Kullanılabilirlik kümeleri, planlı veya plansız bir bakım olayları için kapalı kalma süresini kısaltabilir. Bir Azure kullanılabilirlik kümesi, fiziksel hata etki alanları ve güncelleme etki alanına Azure yerleştirir kaynakların mantıksal bir gruptur. Hata etki alanı kullanılabilirlik kümesi üyeleri ayrı güç ve ağ kaynaklarına sahip olmasını sağlar. Bir güncelleştirme etki alanı kullanılabilirlik kümesi üyeleri bakım için aynı anda duruma olmayan olmasını sağlar. Ek bilgi için bkz: [sanal makinelerin kullanılabilirliğini yönetme](../manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 İki kullanılabilirlik kümesi gerekir. Etki alanı denetleyicileri biridir. SQL Server VM'ler için saniyedir.
 
@@ -157,9 +157,9 @@ Ağ, alt ağlar, kullanılabilirlik kümeleri ve bir Internet'e yönelik Yük De
 ### <a name="create-virtual-machines-for-the-domain-controllers"></a>Etki alanı denetleyicileri için sanal makineler oluşturun
 Oluşturma ve etki alanı denetleyicilerini yapılandırmak için dönmek **SQL-HA-RG** kaynak grubu.
 
-1. **Ekle**'ye tıklayın. **Her şeyi** dikey pencere açılır.
+1. **Ekle**'ye tıklayın. 
 2. Tür **Windows Server 2016 Datacenter**.
-3. Tıklatın **Windows Server 2016 Datacenter**. İçinde **Windows Server 2016 Datacenter** dikey penceresinde dağıtım modeli olduğunu doğrulayın **Resource Manager**ve ardından **oluşturma**. Azure açılır **sanal makine oluşturma** dikey.
+3. Tıklatın **Windows Server 2016 Datacenter**. İçinde **Windows Server 2016 Datacenter**, dağıtım modeli olduğunu doğrulayın **Resource Manager**ve ardından **oluşturma**. 
 
 İki sanal makine oluşturmak için önceki adımları yineleyin. İki sanal makine adı:
 
@@ -202,7 +202,7 @@ Sanal makineler oluşturulduktan sonra etki alanı denetleyicisi yapılandırın
 ### <a name="configure-the-domain-controller"></a>Etki alanı denetleyicisini Yapılandır
 Aşağıdaki adımlarda yapılandırma **ad birincil dc** corp.contoso.com etki alanı denetleyicisi olarak makine.
 
-1. Portalı'nda açmak **SQL-HA-RG** kaynak grubu ve select **ad birincil dc** makine. Üzerinde **ad birincil dc** dikey penceresinde tıklatın **Bağlan** Uzak Masaüstü erişimi için RDP dosyasını açın.
+1. Portalı'nda açmak **SQL-HA-RG** kaynak grubu ve select **ad birincil dc** makine. Üzerinde **ad birincil dc**, tıklatın **Bağlan** Uzak Masaüstü erişimi için RDP dosyasını açın.
 
     ![Bir sanal makineye bağlanma](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/20-connectrdp.png)
 2. Yapılandırılmış Yönetici hesabınızla oturum açın (**\DomainAdmin**) ve parolayı (**Contoso! 0000**).
@@ -246,7 +246,7 @@ Birincil etki alanı denetleyicisi IP adresini almak için bir Azure portalı ü
 
 2. Birincil etki alanı denetleyicisini tıklatın.
 
-3. Birincil etki alanı denetleyicisi dikey penceresinde **ağ arabirimleri**.
+3. Birincil etki alanı denetleyicisinde **ağ arabirimleri**.
 
 ![Ağ arabirimleri](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/25-primarydcip.png)
 
@@ -266,7 +266,7 @@ Bu sunucu için özel IP adresini not edin.
 ### <a name="configure-the-second-domain-controller"></a>İkinci etki alanı denetleyicisi yapılandırma
 Birincil etki alanı denetleyicisi yeniden başlatıldıktan sonra ikinci etki alanı denetleyicisi yapılandırabilirsiniz. Bu isteğe bağlı yüksek kullanılabilirlik için bir adımdır. İkinci etki alanı denetleyicisi yapılandırmak için aşağıdaki adımları izleyin:
 
-1. Portalı'nda açmak **SQL-HA-RG** kaynak grubu ve select **ad ikincil dc** makine. Üzerinde **ad ikincil dc** dikey penceresinde tıklatın **Bağlan** Uzak Masaüstü erişimi için RDP dosyasını açın.
+1. Portalı'nda açmak **SQL-HA-RG** kaynak grubu ve select **ad ikincil dc** makine. Üzerinde **ad ikincil dc**, tıklatın **Bağlan** Uzak Masaüstü erişimi için RDP dosyasını açın.
 2. VM, yapılandırılmış yönetici hesabı kullanarak oturum açın (**BUILTIN\DomainAdmin**) ve parolayı (**Contoso! 0000**).
 3. Tercih edilen DNS sunucusu adresi ve etki alanı denetleyicisinin adresine değiştirin.
 4. İçinde **ağ ve Paylaşım Merkezi**, ağ arabirimi'ı tıklatın.
@@ -305,7 +305,7 @@ Yapılandırma değişiklikleri tamamlandıktan sonra sunucu, sunucuyu yeniden b
 
 ### <a name="add-the-private-ip-address-to-the-second-domain-controller-to-the-vpn-dns-server"></a>VPN DNS sunucusuna ikinci etki alanı denetleyicisine özel IP adresi Ekle
 
-Azure portalında, sanal ağ, DNS sunucusu ikincil etki alanı denetleyicisinin IP adresi eklemek için değiştirin. Bu, DNS hizmeti artıklık sağlar.
+Azure portalında, sanal ağ, DNS sunucusu ikincil etki alanı denetleyicisinin IP adresi eklemek için değiştirin. Bu ayar, DNS hizmeti artıklık sağlar.
 
 ### <a name=DomainAccounts></a> Etki alanı hesaplarını yapılandırma
 
@@ -313,7 +313,7 @@ Sonraki adımlarda Active Directory hesaplarını yapılandırın. Aşağıdaki 
 
 | |Yükleme hesabı<br/> |sqlserver-0 <br/>SQL Server ve SQL aracısı hizmet hesabı |sqlserver-1<br/>SQL Server ve SQL aracısı hizmet hesabı
 | --- | --- | --- | ---
-|İlk adı |Yükleme |SQLSvc1 | SQLSvc2
+|**İlk adı** |Yükleme |SQLSvc1 | SQLSvc2
 |**Kullanıcı SamAccountName** |Yükleme |SQLSvc1 | SQLSvc2
 
 Her hesap oluşturmak için aşağıdaki adımları kullanın.
@@ -350,7 +350,7 @@ Active Directory ve kullanıcı nesneleri yapılandırma bitirdikten sonra iki S
 
 Üç ek sanal makineler oluşturun. Çözüm, SQL Server örnekleri iki sanal makinelerle gerektirir. Üçüncü sanal makineye bir tanığı olarak çalışır. Windows Server 2016 kullanabileceğiniz bir [bulut Tanık](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness), ancak bu belgenin önceki işletim sistemleri ile tutarlılığını tanığı için bir sanal makine kullanır.  
 
-Devam etmeden önce aşağıdaki deisign kararlarını göz önünde bulundurun.
+Devam etmeden önce aşağıdaki tasarım kararlarını göz önünde bulundurun.
 
 * **Depolama - Azure tarafından yönetilen disklerde**
 
@@ -358,7 +358,7 @@ Devam etmeden önce aşağıdaki deisign kararlarını göz önünde bulundurun.
 
 * **Ağ - üretimde özel IP adresleri**
 
-   Sanal makineler için Bu öğretici ortak IP adreslerini kullanır. Bu uzak bağlantı sanal makine için doğrudan internet üzerinden sağlar - yapılandırma adımlarını kolaylaştırır. Üretim ortamlarında, Microsoft SQL Server örneğinin VM kaynak güvenlik açığı ayak izini azaltmak için yalnızca özel IP adresleri önerir.
+   Sanal makineler için Bu öğretici ortak IP adreslerini kullanır. Bir ortak IP adresi internet üzerinden doğrudan sanal makineye uzak bağlantı sağlar - yapılandırma adımlarını kolaylaştırır. Üretim ortamlarında, Microsoft SQL Server örneğinin VM kaynak güvenlik açığı ayak izini azaltmak için yalnızca özel IP adresleri önerir.
 
 ### <a name="create-and-configure-the-sql-server-vms"></a>Oluşturma ve SQL Server Vm'lerinin yapılandırma
 Ardından, üç sanal makineleri--iki SQL Server VM'ler ve ek bir küme düğümüne için bir VM oluşturun. VM'lerin her birinde oluşturmak için geri dönüp **SQL-HA-RG** kaynak grubu tıklatın **Ekle**, arama için uygun galeri öğesi,'ı tıklatın **sanal makine**ve 'ıtıklatın **Galeriden**. VM'ler oluşturmanıza yardımcı olması için aşağıdaki tablodaki bilgileri kullanın:
@@ -383,7 +383,7 @@ Bunlara katılmak gereken üç VM'ler tam olarak sağlandıktan sonra **corp.con
 
 ### <a name="joinDomain"></a>Sunucusunu etki alanına katma
 
-Şimdi Vm'lere katılamayacak **corp.contoso.com**. SQL Server Vm'lerinin ve dosya paylaşımı tanığı sunucusu için aşağıdakileri yapın:
+Şimdi Vm'lere katılamayacak **corp.contoso.com**. SQL Server Vm'lerinin ve dosya paylaşımı tanığı sunucusu için aşağıdaki adımları uygulayın:
 
 1. Sanal makineyle uzaktan bağlanmak **BUILTIN\DomainAdmin**.
 2. İçinde **Sunucu Yöneticisi'ni**, tıklatın **yerel sunucu**.
@@ -449,7 +449,7 @@ Bir SQL Server VM üzerinde önceki adımları yineleyin.
 
 ## <a name="add-failover-clustering-features-to-both-sql-server-vms"></a>Her iki SQL Server Vm'lerinin yük devretme kümeleme özellikleri ekleyin
 
-Yük devretme kümeleme özellikleri eklemek için her iki SQL Server VM üzerinde aşağıdakileri yapın:
+Yük devretme kümeleme özellikleri eklemek için her iki SQL Server VM üzerinde aşağıdaki adımları uygulayın:
 
 1. Kullanarak SQL Server sanal makineye Uzak Masaüstü Protokolü (RDP) üzerinden bağlanan *CORP\install* hesabı. Açık **Sunucu Yöneticisi Panosu**.
 2. Tıklatın **rol ve Özellik Ekle** Panoda bağlantı.
@@ -492,6 +492,36 @@ Bağlantı noktaları açma yöntemi, güvenlik duvarı çözüm bağlıdır. So
 8. Üzerinde **adı** sayfasında, bir kural adı belirtin (gibi **Azure LB araştırma**) içinde **adı** metin kutusuna ve ardından **son**.
 
 İkinci SQL Server VM üzerinde bu adımları yineleyin.
+
+## <a name="configure-system-account-permissions"></a>System hesabının izinlerini yapılandırma
+
+Sistem hesabı için bir hesap oluşturun ve uygun izinleri vermek için her SQL Server örneği için aşağıdaki adımları tamamlayın:
+
+1. İçin bir hesap oluşturma `[NT AUTHORITY\SYSTEM]` her SQL Server örneğinde. Aşağıdaki komut dosyası bu hesabı oluşturur:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Aşağıdaki izinleri `[NT AUTHORITY\SYSTEM]` her SQL Server örneği:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   Aşağıdaki komut dosyası bu izinleri verir:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

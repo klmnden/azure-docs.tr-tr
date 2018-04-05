@@ -1,6 +1,6 @@
 ---
-title: "Azure depolama alanı geçişi ile ilgili SSS | Microsoft Docs"
-description: "Azure depolama geçirme hakkında genel soruların yanıtları için"
+title: Azure depolama alanı geçişi ile ilgili SSS | Microsoft Docs
+description: Azure depolama geçirme hakkında genel soruların yanıtları için
 services: storage
 documentationcenter: na
 author: genlin
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 11/16/2017
 ms.author: genli
-ms.openlocfilehash: 362614d28cf62bd288d8aff10539c81381474955
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 89d1a4767c240c7e4fedb9d7ac47d6d4fb0aa737
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure depolama geçişi hakkında sık sorulan sorular
 
@@ -168,7 +168,7 @@ AzCopy veri yüklemek için kullanın. Daha fazla bilgi için bkz: [Windows AzCo
 
 **Bir depolama hesabı için Avrupa bölgeye ikincil konum nasıl değiştirebilirim?**
 
-Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge seçimini birincil bölge üzerinde temel alır ve değiştirilemez. Daha fazla bilgi için bkz: [Azure Storage çoğaltma](storage-redundancy.md).
+Bir depolama hesabı oluşturduğunuzda, hesap için birincil bölge seçin. İkincil bölge seçimini birincil bölge üzerinde temel alır ve değiştirilemez. Daha fazla bilgi için bkz: [coğrafi olarak yedekli depolama (GRS): Azure Storage için çapraz bölge çoğaltma](storage-redundancy.md).
 
 **Daha fazla bilgi Azure depolama hizmeti şifreleme (SSE) hakkında nereden alabilirim?**  
   
@@ -284,7 +284,7 @@ Diğer kişilerin depolama kaynaklarına erişmesini sağlamak için:
 
     - **SAS belirteci**: uç noktasından verilere erişmek için bir SAS belirteci kullanın. Daha fazla bilgi için bkz: [kullanarak paylaşılan erişim imzaları](storage-dotnet-shared-access-signature-part-1.md).
 
-**Depolama Hesabımı ile nasıl bir HTTPS özel etki alanı kullanıyor? Örneğin, nasıl yaptığım "https://mystorageaccountname.blob.core.windows.net/images/image.gif" "https://www.contoso.com/images/image.gif" görüntülenir?**
+**Depolama Hesabımı ile nasıl bir HTTPS özel etki alanı kullanıyor? Örneğin, nasıl yaptığım "https://mystorageaccountname.blob.core.windows.net/images/image.gif"olarak görünür"https://www.contoso.com/images/image.gif"?**
 
 SSL özel etki alanları ile depolama hesapları şu anda desteklenmiyor.
 Ancak, HTTPS olmayan özel etki alanlarını kullanabilirsiniz. Daha fazla bilgi için bkz: [Blob storage uç noktanız için özel etki alanı adı yapılandırma](../blobs/storage-custom-domain-name.md).

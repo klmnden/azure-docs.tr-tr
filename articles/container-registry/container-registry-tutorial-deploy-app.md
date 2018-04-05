@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı kayıt defteri Öğreticisi - Azure kapsayıcı kayıt defterinden web uygulaması dağıtma"
-description: "Coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü kullanarak Linux tabanlı bir web uygulamasını dağıtın. Bölümü iki üç bölümlük olması gerekir."
+title: Azure Container Registry öğreticisi - Azure Container Registry’den web uygulamasını dağıtma
+description: Coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterinden bir kapsayıcı görüntüsü kullanarak Linux tabanlı bir web uygulamasını dağıtın. Üç bölümden oluşan bir serinin ikinci bölümü.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,110 +9,110 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: d775a17cb8069a7521788d850d7d52b92cc67526
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
-ms.translationtype: MT
+ms.openlocfilehash: 51aa3c6fc56e974fc1729a1d2fe35c889adf35e2
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="deploy-web-app-from-azure-container-registry"></a>Azure kapsayıcı kayıt defterinden Web uygulaması dağıtma
+# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Öğretici: Azure Container Registry’den web uygulaması dağıtma
 
-Bu iki üç bölümlü öğretici serisinde bir parçasıdır. İçinde [bölüm bir](container-registry-tutorial-prepare-registry.md), özel, coğrafi olarak çoğaltılmış kapsayıcı kayıt defteri oluşturuldu ve bir kapsayıcı görüntüsü kaynağından yerleşik ve kayıt defterine gönderilir. Bu makalede, iki Web uygulaması örneği coğrafi olarak çoğaltılmış kayıt defteri ağ Kapat yönünü yararlanmak için iki farklı Azure bölgelerinde içine kapsayıcı dağıtın.
+Bu, üç bölümden oluşan bir öğretici serisinin ikinci bölümüdür. [Birinci bölümde](container-registry-tutorial-prepare-registry.md), özel bir coğrafi olarak çoğaltılmış kapsayıcı kayıt defteri oluşturuldu, kaynaktan bir kapsayıcı görüntüsü derlendi ve kayıt defterine gönderildi. Bu makalede, kapsayıcıyı iki farklı Azure bölgesinde iki Web App örneğine dağıtarak coğrafi olarak çoğaltılmış kayıt defterinin ağa yakın özelliğinden yararlanacaksınız.
 
-Bu öğreticide, iki serideki Kısım:
+Bu öğreticide, serinin ikinci kısmı:
 
 > [!div class="checklist"]
-> * Bir kapsayıcı görüntü iki dağıtmak *kapsayıcıları için Web Apps* örnekleri
-> * Dağıtılmış uygulamanın doğrulayın
+> * İki *Kapsayıcılar için Web Uygulamaları* örneğine bir kapsayıcı görüntüsü dağıtma
+> * Dağıtılan uygulamayı doğrulama
 
-Coğrafi olarak çoğaltılmış bir kayıt defteri henüz oluşturmadıysanız ve kayıt defteri kapsayıcılı örnek uygulamaya görüntüsü gönderilen serisi önceki öğreticide dönün. [coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defteri hazırlama](container-registry-tutorial-prepare-registry.md).
+Henüz coğrafi olarak çoğaltılmış bir kayıt defteri oluşturmadıysanız ve kapsayıcılı örnek uygulamanın görüntüsünü kayıt defterine gönderdiyseniz, serideki [Coğrafi olarak çoğaltılmış bir Azure kapsayıcı kayıt defteri hazırlama](container-registry-tutorial-prepare-registry.md) adlı önceki öğreticiye geri dönün.
 
-Serinin sonraki bölümü, uygulamayı güncelleştirme ardından yeni bir kapsayıcı görüntüsü için kayıt anında. Son olarak, otomatik olarak her ikisinde de, yansıtılan değişikliği görmek için çalışan her Web uygulaması örneği Azure kapsayıcı kayıt defteri coğrafi çoğaltma ve Web kancalarını eylemde gösteren göz atın.
+Serinin sonraki bölümünde, uygulamayı güncelleştirecek, sonra kayıt defterine yeni bir kapsayıcı görüntüsü göndereceksiniz. Son olarak, çalıştırılan her Web App örneğine göz atarak, değişikliğin her ikisinde otomatik olarak yansıtılıp yansıtılmadığına bakar ve Azure Container Registry coğrafi çoğaltma ve web kancalarını çalışır halde görürsünüz.
 
-## <a name="automatic-deployment-to-web-apps-for-containers"></a>Kapsayıcıları için Web uygulamaları için otomatik dağıtım
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Kapsayıcılar için Web Uygulamalarına otomatik dağıtım
 
-Azure kapsayıcı kayıt defterini doğrudan kapsayıcılı uygulamalarını dağıtmak için destek sağlar [kapsayıcıları için Web Apps](../app-service/containers/index.yml). Bu öğreticide, farklı Azure bölgelerinde bulunan iki web uygulaması planlara önceki öğreticideki oluşturulan kapsayıcı görüntüsü dağıtmak için Azure Portalı'nı kullanın.
+Azure Container Registry, kapsayıcılı uygulamaları doğrudan [Kapsayıcılar için Web Uygulamaları](../app-service/containers/index.yml)’na dağıtma desteği sağlar. Bu öğreticide, Azure portalını kullanarak, önceki öğreticide oluşturulan kapsayıcı görüntüsünü, farklı Azure bölgelerinde bulunan iki web uygulaması planına dağıtacaksınız.
 
-Kayıt defterinde bir kapsayıcı görüntüsünden bir web uygulaması dağıtma ve coğrafi olarak çoğaltılmış bir kayıt defteri aynı bölgede olması, bir görüntü dağıtımı Azure kapsayıcı kayıt defteri oluşturur [Web kancası](container-registry-webhook.md) sizin için. Yeni bir görüntü kapsayıcısı deponuza bastığınızda, Web kancası değişiklik seçer ve otomatik olarak yeni kapsayıcı görüntüsü, web uygulamanızın dağıtır.
+Kayıt defterinizdeki bir kapsayıcı görüntüsünden web uygulaması dağıttığınızda ve aynı bölgede coğrafi olarak çoğaltılmış bir kayıt defteriniz olduğunda Azure Container Registry sizin için bir görüntü dağıtımı [web kancası](container-registry-webhook.md) oluşturur. Kapsayıcı deponuza yeni bir görüntü gönderdiğinizde web kancası değişikliği alır ve otomatik olarak yeni kapsayıcı görüntüsünü web uygulamanıza dağıtır.
 
-## <a name="deploy-a-web-app-for-containers-instance"></a>Kapsayıcıları örneği için bir Web uygulaması dağıtma
+## <a name="deploy-a-web-app-for-containers-instance"></a>Kapsayıcılar için Web App örneğini dağıtma
 
-Bu adımda, bir Web uygulaması kapsayıcıları örneği için oluşturduğunuz *Batı ABD* bölge.
+Bu adımda, *Batı ABD* bölgesinde bir Kapsayıcılar için Web App örneği oluşturacaksınız.
 
-Oturum [Azure portal](https://portal.azure.com) ve önceki öğreticide oluşturduğunuz kayıt defteri gidin.
+[Azure portalında](https://portal.azure.com) oturum açın ve önceki öğreticide oluşturduğunuz kayıt defterine gidin.
 
-Seçin **depoları** > **acr helloworld**, sonra sağ tıklayın **v1** altında etiketi **etiketleri** seçip**Web uygulamasına dağıtma**.
+**Depolar** > **acr-helloworld** seçeneğini belirleyin, ardından **Etiketler** bölümünde **v1** etiketine tıklayın ve **Web uygulamasına dağıt**’ı seçin.
 
-![Azure portalında app Service'e dağıtma][deploy-app-portal-01]
+![Azure portalında uygulama hizmetine dağıtma][deploy-app-portal-01]
 
-Altında **kapsayıcıları için Web uygulaması** görüntülenen, her ayar için aşağıdaki değerleri belirtin:
-
-| Ayar | Değer |
-|---|---|
-| **Site adı** | Web uygulaması için genel benzersiz bir ad. Bu örnekte, kullanırız biçimi `<acrName>-westus` bölge web uygulaması dağıtılır ve kayıt defteri kolay tanımlamak için. |
-| **Kaynak Grubu** | **Varolanı kullanma** > `myResourceGroup` |
-| **App service planı/konumu** | Adlı yeni bir plan oluşturmak `plan-westus` içinde **Batı ABD** bölge. |
-| **Görüntü** | `acr-helloworld:v1`
-
-Seçin **oluşturma** web uygulaması'na sağlamak için *Batı ABD* bölge.
-
-![Web uygulaması Linux yapılandırma Azure portalında][deploy-app-portal-02]
-
-## <a name="view-the-deployed-web-app"></a>Dağıtılan web uygulamasının görüntüleyin
-
-Dağıtım tamamlandığında, çalışan uygulama URL'sini tarayıcınızın giderek görüntüleyebilirsiniz.
-
-Portalı'nda seçin **uygulama hizmetleri**, web uygulaması önceki adımda sağlanan sonra. Bu örnekte, web uygulaması adlı *uniqueregistryname westus*.
-
-Sağ üst içinde köprülü URL web uygulamasının seçin **uygulama hizmeti** çalışan uygulama tarayıcınızda görüntülemek için genel bakış.
-
-![Web uygulaması Linux yapılandırma Azure portalında][deploy-app-portal-04]
-
-Coğrafi olarak çoğaltılmış kapsayıcı kayıt defterinden Docker görüntü dağıtıldığında, siteyi kapsayıcı kayıt defteri barındırma Azure bölgesini temsil eden bir görüntü görüntüler.
-
-![Bir tarayıcıda görüntülenen dağıtılan web uygulaması][deployed-app-westus]
-
-## <a name="deploy-second-web-app-for-containers-instance"></a>Kapsayıcıları örneği için ikinci Web uygulaması dağıtma
-
-İkinci bir web uygulamasına dağıtmak için önceki bölümde özetlenen yordamı kullanın *Doğu ABD* bölge. Altında **kapsayıcıları için Web uygulaması**, aşağıdaki değerleri belirtin:
+Görüntülenen **Kapsayıcılar için Web App** bölümünde, her bir ayar için aşağıdaki değerleri belirtin:
 
 | Ayar | Değer |
 |---|---|
-| **Site adı** | Web uygulaması için genel benzersiz bir ad. Bu örnekte, kullanırız biçimi `<acrName>-eastus` bölge web uygulaması dağıtılır ve kayıt defteri kolay tanımlamak için. |
-| **Kaynak Grubu** | **Varolanı kullanma** > `myResourceGroup` |
-| **App service planı/konumu** | Adlı yeni bir plan oluşturmak `plan-eastus` içinde **Doğu ABD** bölge. |
+| **Site Adı** | Web uygulaması için genel benzersiz bir ad. Bu örnekte, web uygulamasının içinden dağıtıldığı bölgeyi ve kayıt defterini kolayca belirlemek için `<acrName>-westus` biçimini kullanıyoruz. |
+| **Kaynak Grubu** | **Var olanı kullan** > `myResourceGroup` |
+| **Uygulama hizmeti planı/Konumu** | **Batı ABD** bölgesinde `plan-westus` adlı yeni bir plan oluşturun. |
 | **Görüntü** | `acr-helloworld:v1`
 
-Seçin **oluşturma** web uygulaması'na sağlamak için *Doğu ABD* bölge.
+**Oluştur**’u seçerek, web uygulamasını *Batı ABD* bölgesine sağlayın.
 
-![Web uygulaması Linux yapılandırma Azure portalında][deploy-app-portal-06]
+![Azure portalında Linux yapılandırmasındaki web uygulaması][deploy-app-portal-02]
 
-## <a name="view-the-deployed-web-app"></a>Dağıtılan web uygulamasının görüntüleyin
+## <a name="view-the-deployed-web-app"></a>Dağıtılan web uygulamasını görüntüleme
 
-Olarak daha önce çalışan uygulama URL'sini tarayıcınızın giderek görüntüleyebilirsiniz.
+Dağıtım tamamlandığında, çalıştırılan uygulamanın URL’sine tarayıcınızda giderek bu uygulamayı görüntüleyebilirsiniz.
 
-Portalı'nda seçin **uygulama hizmetleri**, web uygulaması önceki adımda sağlanan sonra. Bu örnekte, web uygulaması adlı *uniqueregistryname eastus*.
+Portalda **Uygulama Hizmetleri** seçeneğini belirleyin ve önceki adımda sağladığınız web uygulamasını seçin. Bu örnekte, web uygulaması *uniqueregistryname-westus* olarak adlandırılmıştır.
 
-Sağ üst içinde köprülü URL web uygulamasının seçin **App Service'e genel bakış** çalışan uygulama tarayıcınızda görüntülemek için.
+Çalıştırılan uygulamayı tarayıcınızda görüntülemek için, **App Service** genel bakışının sağ üst kısmında web uygulamasının köprülü URL’sini seçin.
 
-![Web uygulaması Linux yapılandırma Azure portalında][deploy-app-portal-07]
+![Azure portalında Linux yapılandırmasındaki web uygulaması][deploy-app-portal-04]
 
-Coğrafi olarak çoğaltılmış kapsayıcı kayıt defterinden Docker görüntü dağıtıldığında, siteyi kapsayıcı kayıt defteri barındırma Azure bölgesini temsil eden bir görüntü görüntüler.
+Coğrafi olarak çoğaltılmış kapsayıcı kayıt defterinizden Docker görüntüsü dağıtıldıktan sonra site, kapsayıcı kayıt defterini barındıran Azure bölgesini temsil eden bir görüntü gösterir.
 
-![Bir tarayıcıda görüntülenen dağıtılan web uygulaması][deployed-app-eastus]
+![Bir tarayıcıda görüntülenen, dağıtılan web uygulaması][deployed-app-westus]
+
+## <a name="deploy-second-web-app-for-containers-instance"></a>İkinci Kapsayıcılar için Web App örneğini dağıtma
+
+İkinci bir web uygulamasını *Doğu ABD* bölgesine dağıtmak için önceki bölümde açıklanan yordamı kullanın. **Kapsayıcılar için Web App** bölümünde aşağıdaki değerleri belirtin:
+
+| Ayar | Değer |
+|---|---|
+| **Site Adı** | Web uygulaması için genel benzersiz bir ad. Bu örnekte, web uygulamasının içinden dağıtıldığı bölgeyi ve kayıt defterini kolayca belirlemek için `<acrName>-eastus` biçimini kullanıyoruz. |
+| **Kaynak Grubu** | **Var olanı kullan** > `myResourceGroup` |
+| **Uygulama hizmeti planı/Konumu** | **Doğu ABD** bölgesinde `plan-eastus` adlı yeni bir plan oluşturun. |
+| **Görüntü** | `acr-helloworld:v1`
+
+**Oluştur**’u seçerek, web uygulamasını *Doğu ABD* bölgesine sağlayın.
+
+![Azure portalında Linux yapılandırmasındaki web uygulaması][deploy-app-portal-06]
+
+## <a name="view-the-deployed-web-app"></a>Dağıtılan web uygulamasını görüntüleme
+
+Daha önce olduğu gibi, çalıştırılan uygulamanın URL’sine tarayıcınızda giderek bu uygulamayı görüntüleyebilirsiniz.
+
+Portalda **Uygulama Hizmetleri** seçeneğini belirleyin ve önceki adımda sağladığınız web uygulamasını seçin. Bu örnekte, web uygulaması *uniqueregistryname-eastus* olarak adlandırılmıştır.
+
+Çalıştırılan uygulamayı tarayıcınızda görüntülemek için, **App Service** genel bakışının sağ üst kısmında web uygulamasının köprülü URL’sini seçin.
+
+![Azure portalında Linux yapılandırmasındaki web uygulaması][deploy-app-portal-07]
+
+Coğrafi olarak çoğaltılmış kapsayıcı kayıt defterinizden Docker görüntüsü dağıtıldıktan sonra site, kapsayıcı kayıt defterini barındıran Azure bölgesini temsil eden bir görüntü gösterir.
+
+![Bir tarayıcıda görüntülenen, dağıtılan web uygulaması][deployed-app-eastus]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure kapsayıcı coğrafi olarak çoğaltılmış bir kayıt defteri kapsayıcıları örnekleri için iki Web uygulaması dağıtılmış. Bu öğreticide adımları izleyerek:
+Bu öğreticide, coğrafi olarak çoğaltılmış Azure kapsayıcı kayıt defterinden iki Kapsayıcılar için Web App örneğini dağıttınız. Bu öğreticideki adımları izleyerek şunları yaptınız:
 
 > [!div class="checklist"]
-> * Bir kapsayıcı görüntüsü iki dağıtılan *kapsayıcıları için Web Apps* örnekleri
-> * Dağıtılmış uygulamanın doğrulandı
+> * İki *Kapsayıcılar için Web Uygulamaları* örneğine bir kapsayıcı görüntüsü dağıttınız
+> * Dağıtılan uygulamayı doğruladınız
 
-Güncelleştirme ve ardından yeni bir kapsayıcı görüntüsü kapsayıcı kayıt defterine dağıtma sonraki öğretici ilerletmek sonra her iki bölgelerde çalışan web uygulamaları otomatik olarak güncelleştirildiğini doğrulayın.
+Yeni bir kapsayıcı görüntüsünü güncelleştirmek ve kapsayıcı kayıt defterine dağıtmak, ardından her iki bölgede çalıştırılan web uygulamalarının otomatik olarak güncelleştirildiğini doğrulamak için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [Coğrafi olarak çoğaltılmış kapsayıcı görüntü için bir güncelleştirme dağıtın](./container-registry-tutorial-deploy-update.md)
+> [Coğrafi olarak çoğaltılmış kapsayıcı görüntüsüne güncelleştirmeyi dağıtma](./container-registry-tutorial-deploy-update.md)
 
 <!-- IMAGES -->
 [deploy-app-portal-01]: ./media/container-registry-tutorial-deploy-app/deploy-app-portal-01.png

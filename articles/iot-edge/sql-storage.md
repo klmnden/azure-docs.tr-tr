@@ -1,19 +1,20 @@
 ---
-title: "Azure IOT kenar SQL Modülü | Microsoft Docs"
-description: "Microsoft SQL modüllerle verilerin biçimlendirilmesi için Azure işlevleri ile kenara verileri depolar."
+title: Azure IOT kenar SQL Modülü | Microsoft Docs
+description: Microsoft SQL modüllerle verilerin biçimlendirilmesi için Azure işlevleri ile kenara verileri depolar.
 services: iot-edge
-keywords: 
+keywords: ''
 author: kgremban
 manager: timlt
-ms.author: kgremban, ebertrams
+ms.author: kgremban
+ms.reviewer: ebertrams
 ms.date: 02/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 792e754b84f1dc03a32780ed94d274c833be68f5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c755d171b34d59d2746a965ab3511a0df00c98db
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server veritabanlarına sahip sınırda veri depolama
 
@@ -35,10 +36,10 @@ Gerekli öğreticileri tamamladıktan sonra tüm gerekli Önkoşullar hazır mak
 * Etkin bir Azure IOT hub.
 * En az 2 GB RAM ve 2 GB disk sürücüsü olan bir IOT sınır cihazı.
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Visual Studio Code için Azure IOT kenar uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# Visual Studio Code (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/)
-* [.NET 2.0 SDK çekirdek](https://www.microsoft.com/net/core#windowscmd). 
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 * [Python 2.7](https://www.python.org/downloads/)
 * [IOT kenar denetim komut dosyası](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * AzureIoTEdgeFunction şablonu (`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
@@ -97,7 +98,7 @@ Adım 3'te, ortam değişkenleri ve persistant depolama kurmak için önemli ola
 3. Değiştir `<docker registry address>` tamamlanmış öğreticiye doldurulmuş adresiyle [Azure işlevi dağıtmak bir IOT kenar modül - Önizleme](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-function)
 
    >[!NOTE]
-   >Kapsayıcı kayıt defteri adresi kayıt defterinden kopyaladığınız oturum açma sunucusu ile aynıdır. Biçiminde olmalıdır `<your container registry name>.azurecr.io`
+   >Kapsayıcı kayıt defteri adresi, kayıt defterinizden kopyaladığınız oturum açma sunucusuyla aynıdır. Biçiminde olmalıdır `<your container registry name>.azurecr.io`
 
 4. Çalıştırdığınız işletim sistemi'ne bağlı olarak SQL Modülü aşağıdaki kod ile güncelleştirin: 
 
@@ -296,7 +297,7 @@ Yaptığınız değişiklikleri uygulamak için kapsayıcı Görüntünüzü gü
 2. Kullanmakta olduğunuz platformu temel alarak, genişletin **windows nano** veya **linux x64** klasör. 
 3. Sağ **Dockerfile** dosya ve seçin **yapı IOT kenar modülü Docker görüntü**.
 4. Gidin **FilterFunction** proje klasörünü ve tıklatın **EXE_DIR olarak klasörü seçin**.
-5. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin, `<your container registry address>/filterfunction:latest`. Yerel bir kayıt defterine dağıtıyorsanız, ad olmalıdır `<localhost:5000/filterfunction:latest>`.
+5. VS Code penceresinin en üstündeki açılan metin kutusuna görüntü adını girin. Örneğin, `<your container registry address>/filterfunction:latest`. Yerel bir kayıt defterine dağıtıyorsanız, ad olmalıdır `<localhost:5000/filterfunction:latest>`.
 6. VS Code komutu palette seçin **kenar: anında IOT kenar modülü Docker görüntü**. 
 7. Açılır metin kutusuna aynı görüntü adı girin. 
 8. VS Code komutu palette seçin **kenar: kenar yeniden**.

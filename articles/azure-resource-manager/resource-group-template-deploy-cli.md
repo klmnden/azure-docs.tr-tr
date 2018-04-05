@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI ve şablon kaynaklarla dağıtma | Microsoft Docs"
-description: "Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure CLI kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır."
+title: Azure CLI ve şablon kaynaklarla dağıtma | Microsoft Docs
+description: Bir kaynakları Azure'a dağıtmak için Azure Resource Manager ve Azure CLI kullanın. Kaynaklar, bir Resource Manager şablonunda tanımlanır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c8b352194e3a624097a48b5d312356a0ead4276
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: f920165448f4197778faec07c9d49e0bddf1b555
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Kaynakları Resource Manager şablonları ve Azure CLI ile dağıtma
 
@@ -34,7 +34,7 @@ Azure CLI yüklenmiş yoksa kullanabileceğiniz [bulut Kabuk](#deploy-template-f
 
 Kaynakları Azure'a dağıtırken:
 
-1. Azure hesabınızda oturum açın
+1. Azure hesabınızda oturum açma
 2. Dağıtılan kaynaklar için kapsayıcı görevi gören bir kaynak grubu oluşturun. Kaynak grubu adı yalnızca alfasayısal karakterler, nokta, alt çizgi, kısa çizgi ve parantez içerebilir. En fazla 90 karakter olabilir. Bir nokta ile bitemez.
 3. Kaynak grubu oluşturmak için kaynakları tanımlayan şablonu dağıtma
 
@@ -82,10 +82,12 @@ az group deployment create \
 
 Bulut Kabuğu'nda aşağıdaki komutları kullanın:
 
-   ```azurecli-interactive
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
-   ```
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup \
+  --template-uri <copied URL> \
+  --parameters storageAccountType=Standard_GRS
+```
 
 ## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Birden fazla kaynak grubuna veya aboneliğe dağıtma
 
@@ -185,7 +187,7 @@ az group deployment create \
     --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 Aşağıdaki şablonu, bu makaledeki örnekler için kullanılır. Kopyalayın ve storage.json adlı bir dosya kaydedin. Bu şablonun nasıl oluşturulacağını anlamak için bkz: [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).  
 

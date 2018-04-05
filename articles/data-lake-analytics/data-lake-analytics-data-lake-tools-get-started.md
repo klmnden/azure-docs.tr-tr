@@ -1,8 +1,8 @@
 ---
-title: "Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme | Microsoft Docs"
-description: "Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğinizi ve U-SQL betiklerini nasıl geliştirip test edeceğinizi öğrenin."
+title: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme | Microsoft Docs
+description: Visual Studio için Data Lake Araçları'nı nasıl yükleyeceğinizi ve U-SQL betiklerini nasıl geliştirip test edeceğinizi öğrenin.
 services: data-lake-analytics
-documentationcenter: 
+documentationcenter: ''
 author: saveenr
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
-ms.openlocfilehash: a48ce209bf3d5b7e5060acf2850144df5418828d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94c035083a00867139b6c58bc8b2ded08e970b0
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -36,7 +36,17 @@ Azure Data Lake Analytics hesapları oluşturmak, [U-SQL](data-lake-analytics-u-
 * **.NET için Microsoft Azure SDK** 2.7.1 sürümü veya sonraki sürümleri.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
 * **Data Lake Analytics** hesabı. Hesap oluşturmak için bkz. [Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md).
 
-## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake Araçları’nı yükleme 
+## <a name="install-azure-data-lake-tools-for-visual-studio"></a>Visual Studio için Azure Data Lake Araçları’nı yükleme
+
+### <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Visual Studio 2017 için Azure Data Lake Araçları’nı yükleme
+
+Visual Studio için Azure Data Lake Araçları, Visual Studio 2017 15.3 veya üzeri sürümlerde desteklenir. Araç, Visual Studio Yükleyicisi’ndeki **Veri depolama ve işleme** ve **Azure Geliştirme** iş yüklerinin parçasıdır. Visual Studio yüklemenizin parçası olarak bu iki iş yükünden birini etkinleştirin.  
+
+![Veri depolama ve işleme iş yükünü etkinleştirme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-01.png) bölümünde gösterildiği gibi **Veri depolama ve işleme** iş yükünü etkinleştirin
+
+![Azure geliştirme iş yükünü etkinleştirme](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-tools-for-vs-2017-install-02.png) bölümünde gösterildiği gibi **Azure geliştirme** iş yükünü etkinleştirin
+
+### <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Visual Studio 2013 ve 2015 için Azure Data Lake Araçları’nı yükleme
 
 [İndirme Merkezi'nden](http://aka.ms/adltoolsvs) Visual Studio için Azure Data Lake Araçları’nı indirip yükleyin. Yükleme işleminden sonra şunları kontrol edin:
 * **Sunucu Gezgini** > **Azure** düğümü, **Data Lake Analytics** düğümü içerir. 

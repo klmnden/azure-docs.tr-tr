@@ -1,11 +1,12 @@
 ---
-title: "Azure Machine Learning hakkında sık sorulan sorular (SSS) | Microsoft Belgeleri"
+title: Azure Machine Learning hakkında sık sorulan sorular (SSS) | Microsoft Belgeleri
 description: "Azure Machine Learning'e giriş: Kolaylaştırılmış tahmine dayalı modelleme için bir bulut hizmetinin faturalamasını, özelliklerini ve sınırlamalarını kapsayan SSS."
-keywords: "machine learning giriş,tahmini modelleme,machine learning nedir"
+keywords: machine learning giriş,tahmini modelleme,machine learning nedir
 services: machine-learning
-documentationcenter: 
-author: garyericson
-manager: paulettm
+documentationcenter: ''
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -14,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.author: garye
-ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ceec69ee822e118adfa3825620a31575109894ea
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -458,11 +458,11 @@ Geliştirme/Test fiyatlandırma katmanı atanmış hizmetler sonraki döneme kad
 
 Bir RRS iş yükünde yaptığınız her API işlemi çağrısının yanı sıra bu isteklerle ilişkili işlem süreleri ücretlendirilir. RRS üretim API’si işlem maliyetleri, yaptığınız toplam API çağrısı sayısının 1.000 işlem başına fiyatla (tek işlem için eşit oranda bölünmüş şekilde) çarpılmasıyla hesaplanır. RRS API üretim API’si işlem saati maliyetleriniz her bir API çağrısının çalışması için gereken süre miktarının toplam API işlemi sayısıyla çarpılması ve çıkan sonucun üretim API’si için uygulanan işlem saati başına fiyatla çarpılmasıyla hesaplanır.
 
-Örneğin, Standart S1 fazla kullanımı için her birinin çalışması 0,72 saniye süren 1.000.000 API işlemi, üretim API’si işlem maliyetlerinde (1.000.000 \* 0,50 $/1000 API işlemi) 500 $ ve üretim API’si işlem saatlerinde (1.000.000 \* 0,72 saniye * 2 $/saat) 400 $ olmak üzere toplam 900 $ ile sonuçlanır.
+Örneğin, Standart S1 fazla kullanımı için her birinin çalışması 0,72 saniye süren 1.000.000 API işlemi, üretim API’si işlem maliyetlerinde (1.000.000  0,50 $/1000 API işlemi) 500 $ ve üretim API’si işlem saatlerinde (1.000.000  0,72 saniye * 2 $/saat) 400 $ olmak üzere toplam 900 $ ile sonuçlanır.
 
 BES iş yükleri için de aynı şekilde ücretlendirilirsiniz. Bununla birlikte, API işlem maliyetleri gönderdiğiniz toplu iş sayısını, işlem maliyetleri ise bu toplu işlerle ilişkili işlem süresini temsil eder. BES üretim API’si işlem maliyetleri gönderdiğiniz toplam iş sayısının 1.000 işlem başına fiyatla (tek işlem için eşit oranda bölünmüş şekilde) çarpılmasıyla hesaplanır. BES API üretim API’si işlem saati maliyetleriniz, işinizdeki her satır için gereken süre miktarının, işinizdeki toplam satır sayısı çarpı toplam iş sayısı çarpı üretim API’si işlem saati başına fiyat ile çarpımı olarak hesaplanır. Machine Learning hesaplayıcısını kullanırken işlem ölçer, göndermeyi planladığınız iş sayısını; işlem alanı başına süreyse çalıştırılacak her bir işteki tüm satırlar için gereken birleşik süreyi temsil eder.
 
-Örneğin, Standart S1 fazla kullanımı gerçekleştiğini ve günlük her biri 0,72 saniye süren 500’er satırdan oluşan 100 iş gönderdiğinizi varsayalım. Aylık fazla kullanım maliyetleriniz üretim API’si işlem maliyetlerinden (günde 100 iş = 3.100 iş/ay \* 0,50 $/1000 API işlemi) 1,55 $ ve üretim API’si işlem saatlerinden (500 satır \* 0,72 saniye \* 3.100 İş \* 2 $/sa) 620 $ olmak üzere toplam 621,55 $ olur.
+Örneğin, Standart S1 fazla kullanımı gerçekleştiğini ve günlük her biri 0,72 saniye süren 500’er satırdan oluşan 100 iş gönderdiğinizi varsayalım. Aylık fazla kullanım maliyetleriniz üretim API’si işlem maliyetlerinden (günde 100 iş = 3.100 iş/ay  0,50 $/1000 API işlemi) 1,55 $ ve üretim API’si işlem saatlerinden (500 satır  0,72 saniye  3.100 İş  2 $/sa) 620 $ olmak üzere toplam 621,55 $ olur.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Azure Machine Learning Klasik web hizmetleri
 **Kullandıkça Öde seçeneği hâlâ mevcut mu?**

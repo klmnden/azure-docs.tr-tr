@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 3caa3d2b8640c83f1001aeac3b0a5e9ada143183
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2c05407d761a8848f9e032aa219960cd7ea6fa93
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-protect-an-api-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory ve API Management ile OAuth 2.0 kullanan bir API korumak nasıl
 
@@ -45,7 +45,7 @@ Azure AD ile bir API korumak için ilk API temsil eden Azure AD'de uygulama kayd
 
 Azure AD kiracınıza gidin ve ardından gidin **uygulama kayıtlar**.
 
-Seçin **yeni uygulama kaydı**. 
+**Yeni uygulama kaydı**’nı seçin. 
 
 Uygulamanın adını sağlayın. Bu örnekte, `backend-app` kullanılır.  
 
@@ -181,9 +181,9 @@ Tıklatın **Gönder** ve API başarıyla çağırabilmesi.
 
 ## <a name="configure-a-jwt-validation-policy-to-pre-authorize-requests"></a>İstekleri önceden yetkilendirmek için JWT doğrulama ilkesini yapılandırma
 
-Bu noktada, geliştirici konsolundan arama yapmak bir kullanıcı çalıştığında, kullanıcı oturum açmak için istenir ve geliştirici konsolunda bir erişim belirteci kullanıcı adına alacaktır. Her şeyin beklendiği gibi çalışmaktadır. Ancak, ne birisi bizim API bir belirteç olmadan veya geçersiz bir belirteç çağrılarının? Örneğin, silmeyi deneyebilirsiniz `Authorization` üstbilgi ve yine de API çağrısı tüketimi bulur. APIM erişim belirteci bu noktada doğrulamadığı için nedenidir. Bunu geçirir `Auhtorization` arka uç API'si için üstbilgi.
+Bu noktada, geliştirici konsolundan arama yapmak bir kullanıcı çalıştığında, kullanıcı oturum açmak için istenir ve geliştirici konsolunda bir erişim belirteci kullanıcı adına alacaktır. Her şeyin beklendiği gibi çalışmaktadır. Ancak, ne birisi bizim API bir belirteç olmadan veya geçersiz bir belirteç çağrılarının? Örneğin, silmeyi deneyebilirsiniz `Authorization` üstbilgi ve yine de API çağrısı tüketimi bulur. APIM erişim belirteci bu noktada doğrulamadığı için nedenidir. Yalnızca geçirir `Auhtorization` arka uç API'si için üstbilgi.
 
-Biz kullanabilirsiniz [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) APIM isteklerinde her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. Bir isteğin geçerli bir belirteci yoksa, API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz. Ekleyebiliriz ilkesine aşağıda `Echo API`. 
+Biz kullanabilirsiniz [doğrulamak JWT](api-management-access-restriction-policies.md#ValidateJWT) APIM isteklerinde her gelen istek erişim belirteçleri doğrulayarak önceden yetkilendirmek için ilke. Bir isteğin geçerli bir belirteci yoksa, API Management tarafından engellenir ve boyunca arka ucuna aktarılmaz. Örneğin, ekleyebiliriz ilkesine aşağıda `<inbound>` ilke bölümünü `Echo API`. Bir erişim belirteci İzleyici talepte denetler ve belirtecin geçerli değilse, bir hata iletisi döndürür. İlkeleri yapılandırma hakkında daha fazla bilgi için bkz: [ayarlayın veya ilkeleri düzenleme](set-edit-policies.md).
 
 ```xml
 <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -196,7 +196,12 @@ Biz kullanabilirsiniz [doğrulamak JWT](api-management-access-restriction-polici
 </validate-jwt>
 ```
 
+## <a name="build-an-application-to-call-the-api"></a>API'yi çağırmak için bir uygulama oluşturma
+
+Bu kılavuzda, biz APIM Geliştirici konsolunda örnek istemci uygulaması olarak çağırmak için kullanılan `Echo API` OAuth 2.0 tarafından korumalı. Bir uygulama oluşturmak ve OAuth 2.0 akışını uygulama hakkında daha fazla bilgi için lütfen bkz [Azure Active Directory kod örnekleri](../active-directory/develop/active-directory-code-samples.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
+* Daha fazla bilgi edinmek [Azure Active Directory ve OAuth2.0](../active-directory/develop/active-directory-authentication-scenarios.md)
 * Daha fazla bilgi denetleyin [videolar](https://azure.microsoft.com/documentation/videos/index/?services=api-management) API Management hakkında.
 * Arka uç hizmetinizin güvenliğini sağlamak diğer yolları için bkz: [karşılıklı sertifika kimlik doğrulaması](api-management-howto-mutual-certificates.md).
 

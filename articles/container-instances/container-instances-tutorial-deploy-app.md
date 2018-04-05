@@ -1,62 +1,66 @@
 ---
-title: "Azure Container Instances öğreticisi - Uygulamayı dağıtma"
-description: "Azure Container Instances öğreticisi bölüm 3/3 - Uygulamayı dağıtma"
+title: Azure Container Instances öğreticisi - Uygulamayı dağıtma
+description: Azure Container Instances öğreticisi bölüm 3/3 - Uygulamayı dağıtma
 services: container-instances
-author: seanmck
+author: mmacy
 manager: timlt
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 02/22/2018
-ms.author: seanmck
+ms.date: 03/21/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 0532d255b271b2155ae3115f8f96c4cbb53916e4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 29d7114f288f7387d0c7cd5c6afe2eaaa7a8c560
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="deploy-a-container-to-azure-container-instances"></a>Azure Container Instances‘a kapsayıcı dağıtma
+# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>Öğretici: Azure Container Instances’a kapsayıcı dağıtma
 
-Bu, üç kısımdan oluşan serinin son öğreticisidir. Serinin önceki kısımlarında [bir kapsayıcı görüntüsü oluşturuldu](container-instances-tutorial-prepare-app.md) ve [Azure Container Registry’ye gönderildi](container-instances-tutorial-prepare-acr.md). Bu makalede, kapsayıcı Azure Container Instances’a dağıtılarak öğretici serisi tamamlanır.
+Bu, üç kısımdan oluşan serinin son öğreticisidir. Serinin önceki kısımlarında [bir kapsayıcı görüntüsü oluşturuldu](container-instances-tutorial-prepare-app.md) ve [Azure Container Registry’ye gönderildi](container-instances-tutorial-prepare-acr.md). Bu makalede, Azure Container Instances’a kapsayıcı dağıtılarak seri tamamlanır.
 
 Bu öğreticide şunları yaptınız:
 
 > [!div class="checklist"]
-> * Azure CLI’yi kullanarak Azure Container Registry’den kapsayıcıyı dağıtma
-> * Uygulamayı tarayıcıda görüntüleme
-> * Kapsayıcı günlüklerini görüntüleme
+> * Azure Container Registry’den Azure Container Instances’a kapsayıcıyı dağıtma
+> * Tarayıcıda çalıştırılan uygulamayı görüntüleme
+> * Kapsayıcının günlüklerini görüntüleme
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu öğretici için Azure CLI 2.0.27 veya sonraki bir sürümü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme][azure-cli-install].
-
-Bu öğreticiyi tamamlamak için yerel olarak yüklü bir Docker geliştirme ortamı gerekir. Docker [Mac][docker-mac], [Windows][docker-windows] veya [Linux][docker-linux]'ta Docker'ı kolayca yapılandırmanızı sağlayan paketler sağlar.
-
-Azure Cloud Shell, bu öğreticideki her adımı tamamlamak için gerekli olan Docker bileşenlerini içermez. Bu öğreticiyi tamamlamak için, yerel bilgisayarınıza Azure CLI ve Docker geliştirme ortamını yüklemeniz gerekir.
+[!INCLUDE [container-instances-tutorial-prerequisites](../../includes/container-instances-tutorial-prerequisites.md)]
 
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Azure CLI’yi kullanarak kapsayıcıyı dağıtma
 
-Azure CLI, tek bir komutta bir kapsayıcının Azure Container Instances’a dağıtımını sağlar. Kapsayıcı görüntüsü özel Azure Container Registry’de barındırıldığından, ona erişmek için gerekli kimlik bilgilerini dahil etmeniz gerekir. Aşağıdaki Azure CLI komutlarıyla kimlik bilgilerini edinin.
+Bu bölümde, [birinci öğreticide](container-instances-tutorial-prepare-app.md) derlenen ve [ikinci öğreticide](container-instances-tutorial-prepare-acr.md) Azure Container Registry’ye gönderilen görüntüyü dağıtmak için Azure CLI’yi kullanırsınız. Devam etmeden önce bu öğreticileri tamamladığınızdan emin olun.
 
-Kapsayıcı kayıt defteri oturum açma sunucusu (kayıt defteri adınızla güncelleştirin):
+### <a name="get-registry-credentials"></a>Kayıt defteri kimlik bilgilerini alma
+
+[İkinci öğreticide](container-instances-tutorial-prepare-acr.md) oluşturulana benzer bir özel kapsayıcı kayıt defterinde barındırılan bir görüntüyü dağıtırken kayıt defterinin kimlik bilgilerini sağlamanız gerekir.
+
+İlk olarak, kapsayıcı kayıt defteri oturum açma sunucusunun tam adını alın (`<acrName>` değerini, kayıt defterinizin adıyla değiştirin):
 
 ```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
-Kapsayıcı kayıt defteri parolası:
+Sonra kapsayıcı kayıt defteri parolasını alın:
 
 ```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Uygulamanızın [önceden hazırlanması][prepare-app] gerekir; 1 CPU çekirdeği ve 1 GB bellek için kaynak isteğiyle kapsayıcı kayıt defterinden kapsayıcı görüntünüzü dağıtmak üzere aşağıdaki [az container create][az-container-create] komutunu çalıştırın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` değerini kapsayıcı kayıt defterinizin adıyla değiştirin; ayrıca `aci-tutorial-app` değerini de yeni uygulamaya vermek istediğiniz adla değiştirebilirsiniz.
+### <a name="deploy-container"></a>Kapsayıcıyı dağıtma
+
+Şimdi kapsayıcıyı dağıtmak için [az container create][az-container-create] komutunu kullanın. `<acrLoginServer>` ve `<acrPassword>` değerlerini, önceki iki komuttan aldığınız değerlerle değiştirin. `<acrName>` komutunu, kapsayıcı kayıt defterinizin adıyla değiştirin.
 
 ```azurecli
 az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
 ```
 
-Birkaç saniye içinde Azure Resource Manager’dan bir ilk yanıt almanız gerekir. `--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Komutu yürütürken bir **DNS ad etiketi** hata iletisi alırsanız önceki örnekte yer alan değeri güncelleştirin.
+Birkaç saniye içinde Azure’dan bir ilk yanıt almanız gerekir. `--dns-name-label` değeri, kapsayıcı örneğini oluşturduğunuz Azure bölgesi içinde benzersiz olmalıdır. Komutu yürütürken bir **DNS ad etiketi** hata iletisi alırsanız önceki komutta yer alan değeri değiştirin.
+
+### <a name="verify-deployment-progress"></a>Dağıtım ilerleme durumunu doğrulama
 
 Dağıtımın durumunu görüntülemek için [az container show][az-container-show] komutunu kullanın:
 
@@ -74,7 +78,11 @@ Dağıtım başarılı olduktan sonra, [az container show][az-container-show] ko
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Örnek çıktı: `"aci-demo.eastus.azurecontainer.io"`
+Örnek:
+```console
+$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+"aci-demo.eastus.azurecontainer.io"
+```
 
 Çalışan uygulamayı görmek için, sık kullandığınız tarayıcıda görüntülenen DNS adına gidin:
 
@@ -86,12 +94,13 @@ Kapsayıcının günlük çıktısını da görüntüleyebilirsiniz:
 az container logs --resource-group myResourceGroup --name aci-tutorial-app
 ```
 
-Çıktı:
+Örnek çıktı:
 
 ```bash
+$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
-::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
@@ -104,12 +113,17 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure Container Instances’a kapsayıcıları dağıtma işlemini tamamladınız. Aşağıdaki adımlar tamamlandı:
+Bu öğreticide, Azure Container Instances’a kapsayıcınızı dağıtma işlemini tamamladınız. Aşağıdaki adımlar tamamlandı:
 
 > [!div class="checklist"]
 > * Azure CLI kullanılarak Azure Container Registry’den kapsayıcı dağıtıldı
 > * Tarayıcıda uygulama görüntülendi
 > * Kapsayıcı günlükleri görüntülendi
+
+Temel bilgileri edindiğinize göre şimdi kapsayıcı gruplarının nasıl çalıştığı gibi, Azure Container Instances hakkında daha fazla bilgi edinmeye geçebilirsiniz:
+
+> [!div class="nextstepaction"]
+> [Azure Container Instances’taki kapsayıcı grupları](container-instances-container-groups.md)
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

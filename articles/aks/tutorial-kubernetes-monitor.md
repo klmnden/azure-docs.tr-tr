@@ -1,6 +1,6 @@
 ---
 title: Azure’da Kubernetes öğreticisi - Kubernetes’i izleme
-description: AKS öğreticisi - Microsoft Operations Management Suite (OMS) ile Kubernetes’i izleme
+description: AKS öğreticisi - Azure Log Analytics ile Kubernetes’i izleme
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 227601858dbe07e6cb774a2d24878ddca05aaf56
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 86ae0c5ab302c49fa58df887d9dffef6cec31708
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="monitor-azure-container-service-aks"></a>Azure Container Service’i (AKS) izleme
+# <a name="tutorial-monitor-azure-container-service-aks"></a>Öğretici: Azure Container Service’i (AKS) izleme
 
 Kubernetes kümenizin ve kapsayıcılarınızın izlenmesi, özellikle de birden fazla uygulama ile ölçekli olarak bir üretim kümesi çalıştırılırken kritik önem taşır.
 
@@ -40,11 +40,11 @@ Azure portalında **Kaynak oluştur**’u seçin ve `Container Monitoring Soluti
 
 ![Çözüm ekleme](./media/container-service-tutorial-kubernetes-monitor/add-solution.png)
 
-Yeni bir OMS çalışma alanı oluşturun veya mevcut bir çalışma alanını seçin. OMS Çalışma Alanı formu, bu işlem boyunca size yol gösterir.
+Yeni bir Log Analytics çalışma alanı oluşturun veya mevcut bir çalışma alanını seçin. Log Analytics Çalışma Alanı formu, bu işlem boyunca size yol gösterir.
 
 Çalışma alanını oluştururken kolayca almak için **Panoya sabitle**’yi seçin.
 
-![OMS Çalışma Alanı](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
+![Log Analytics Çalışma Alanı](./media/container-service-tutorial-kubernetes-monitor/oms-workspace.png)
 
 İşiniz bittiğinde **Tamam**’ı seçin. Doğrulama tamamlandıktan sonra **Oluştur**’u seçerek kapsama izleme çözümünü oluşturun.
 
@@ -58,7 +58,7 @@ Bu değerleri almak için kapsayıcı çözümlerinin sol tarafındaki menüden 
 
 ## <a name="create-kubernetes-secret"></a>Kubernetes gizli dizisi oluşturma
 
-[kubectl create secret][kubectl-create-secret] komutunu kullanarak OMS çalışma alanı ayarlarını `omsagent-secret` adlı Kubernetes gizli dizisinde depolayın. `WORKSPACE_ID` değerini OMS çalışma alanı kimliği, `WORKSPACE_KEY` değerini ise çalışma alanı anahtarı ile güncelleştirin.
+[kubectl create secret][kubectl-create-secret] komutunu kullanarak Log Analytics çalışma alanı ayarlarını `omsagent-secret` adlı Kubernetes gizli dizisinde depolayın. `WORKSPACE_ID` değerini Log Analytics çalışma alanı kimliğiyle, `WORKSPACE_KEY` değerini ise çalışma alanı anahtarı ile güncelleştirin.
 
 ```console
 kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID --from-literal=KEY=WORKSPACE_KEY
@@ -154,7 +154,7 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR 
 omsagent   3         3         3         3            3           beta.kubernetes.io/os=linux   8m
 ```
 
-Aracılar çalıştırıldıktan sonra OMS’nin verileri alıp işlemesi birkaç dakika sürer.
+Aracılar çalıştırıldıktan sonra Log Analytics’in verileri alıp işlemesi birkaç dakika sürer.
 
 ## <a name="access-monitoring-data"></a>İzleme verilerine erişme
 
@@ -166,7 +166,7 @@ Verileri sorgulamaya ve analiz etmeye ilişkin ayrıntılı yönergeler için [A
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, OMS ile Kubernetes kümenizi izlediniz. Dahil edilen görevler:
+Bu öğreticide, Log Analytics ile Kubernetes kümenizi izlediniz. Dahil edilen görevler:
 
 > [!div class="checklist"]
 > * Kapsayıcı izleme çözümünü yapılandırma

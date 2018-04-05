@@ -1,12 +1,12 @@
 ---
-title: "Cihaz üretici yazılımı güncelleştirmesi ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs"
-description: "Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
+title: Cihaz üretici yazılımı güncelleştirmesi ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs
+description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 services: iot-hub
 documentationcenter: .net
 author: JimacoMS2
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: v-jamebr
-ms.openlocfilehash: bd0a227861d75dc66af8fb4865a17a3b6d0f70ba
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Bir cihaz üretici yazılımı güncelleştirmesi (.NET/.NET) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## <a name="introduction"></a>Giriş
 İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu desen bellenim güncelleştirme uygulaması için kullanılan [Raspberry Pi'yi cihaz uygulaması örnek][lnk-rpi-implementation].
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 
@@ -75,7 +77,7 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
     static string targetDevice = "{deviceIdForTargetDevice}";
     ```
         
-6. Aşağıdaki yöntemi ekleyin **Program** sınıfı. Bu yöntem, her 500 milisaniye güncelleştirilmiş durumu için cihaz çifti yoklar. Yalnızca durum gerçekte değiştiğinde konsola yazar. Aboneliğinize ek IOT hub'ı iletilerinde tüketen önlemek için bu örnek için yoklama durakları cihaz durumu bildirdiğinde **applyComplete** veya bir hata oluştu.  
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin. Bu yöntem, her 500 milisaniye güncelleştirilmiş durumu için cihaz çifti yoklar. Yalnızca durum gerçekte değiştiğinde konsola yazar. Aboneliğinize ek IOT hub'ı iletilerinde tüketen önlemek için bu örnek için yoklama durakları cihaz durumu bildirdiğinde **applyComplete** veya bir hata oluştu.  
    
     ```csharp   
     public static async Task QueryTwinFWUpdateReported(DateTime startTime)
@@ -134,7 +136,7 @@ Bu bölümde, bir cihazda uzaktan yazılımı güncelleştirmesi başlatır (C# 
     Console.ReadLine();
     ```
         
-9. Çözümü oluşturun.
+9. Çözümü derleyin.
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:
@@ -371,7 +373,7 @@ Bu bölümde şunları yapacaksınız:
     }
     ```
         
-15. Çözümü oluşturun.       
+15. Çözümü derleyin.       
 
 > [!NOTE]
 > Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.

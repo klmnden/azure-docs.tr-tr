@@ -1,19 +1,19 @@
 ---
-title: "Oluşturma ve Azure veritabanı MySQL sunucusu için Azure portalını kullanarak yönetme"
-description: "Bu makalede nasıl hızlı bir şekilde MySQL sunucusu için yeni bir Azure veritabanı oluşturabilir ve Azure Portalı'nı kullanarak sunucu yönetimi açıklanmaktadır."
+title: Oluşturma ve Azure veritabanı MySQL sunucusu için Azure portalını kullanarak yönetme
+description: Bu makalede nasıl hızlı bir şekilde MySQL sunucusu için yeni bir Azure veritabanı oluşturabilir ve Azure Portalı'nı kullanarak sunucu yönetimi açıklanmaktadır.
 services: mysql
 author: ajlam
-ms.author: nolanwu
+ms.author: andrela
 editor: jasonwhowell
 manager: kfile
 ms.service: mysql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0e274c0ada3de5e9000ae41516e5b9b67ef1490b
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Oluşturma ve Azure veritabanı MySQL sunucusu için Azure portalını kullanarak yönetme
 Bu konu, yeni bir Azure veritabanı MySQL sunucusu için hızlı bir şekilde nasıl oluşturabileceğinizi açıklar. Ayrıca Azure portalını kullanarak sunucuyu yönetme hakkında bilgi içerir. Sunucu ayrıntıları ve parola sıfırlama kaynaklarını ölçeklendirme ve sunucuyu silmek veritabanlarının görüntüleme sunucu yönetimi içerir.
@@ -46,7 +46,7 @@ MySQL server "mydemoserver." adlı bir Azure veritabanı oluşturmak için aşa�
     | *Konum* | Güneydoğu Asya (Kuzey Avrupa ve Batı ABD arasında seçim) |
     | *Sürüm* | 5.7 (Azure veritabanı için MySQL sunucusu sürümü seçin) |
 
-4. Tıklatın **fiyatlandırma katmanı** yeni sunucunuzu Hizmet katmanını ve performans düzeyini belirtmek için. Seçin **genel amaçlı** sekmesi. *4 gen*, *2 vCores*, *5 GB*, ve *7 gün* için varsayılan değerler **işlem oluşturma**, **vCore** , **Depolama**, ve **yedekleme Bekletme dönemi**. Bu kaydırıcılar olduğu gibi bırakabilirsiniz. Sunucu Yedeklemelerinizin coğrafi olarak yedekli depolama seçin etkinleştirmek için **coğrafi olarak yedekli** gelen **yedekleme artıklık seçenekleri**.
+4. Tıklatın **fiyatlandırma katmanı** yeni sunucunuzu Hizmet katmanını ve performans düzeyini belirtmek için. Seçin **genel amaçlı** sekmesi. *Gen 4*, *2 sanal çekirdek*, *5 GB* ve *7 gün*; **İşlem Nesli**, **Sanal Çekirdek**, **Depolama** ve **Yedekleme Bekletme Dönemi** için varsayılan değerlerdir. Bu kaydırıcıları olduğu gibi bırakabilirsiniz. Coğrafi olarak yedekli depolamada sunucu yedeklerinizi etkinleştirmek için, **Fazladan Yedek Seçenekleri**’nde **Coğrafi Olarak Yedeklemeli**’yi seçin.
 
    ![create-server-pricing-tier](./media/howto-create-manage-server-portal/create-server-pricing-tier.png)
 

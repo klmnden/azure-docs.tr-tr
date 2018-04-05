@@ -1,11 +1,11 @@
 ---
-title: "Dönüştürme ve API'nizi Azure API Management ile koruma | Microsoft Docs"
-description: "API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin."
+title: Azure API Yönetimi ile API’nizi dönüştürme ve koruma | Microsoft Docs
+description: API’nizi kotalar ve azaltma (hız sınırlama) ilkeleriyle korumayı öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,129 +14,129 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 772f3828d85c54e7b8bb44c857e555175b7444cc
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: fb56b8489b086b724df9f3c9179f2c3265cd05a7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="transform-and-protect-your-api"></a>Dönüştürme ve API'nizi koruma 
+# <a name="transform-and-protect-your-api"></a>API’nizi dönüştürme ve koruma 
 
-Öğretici, özel bir arka uç bilgileri açığa çıkarmadığınızdan şekilde API'nizi dönüştürme gösterilmektedir. Örneğin, arka uçta çalıştıran teknoloji yığınını hakkında bilgi gizlemek isteyebilirsiniz. API'nin HTTP yanıt gövdesinde yer ve bunun yerine APIM ağ geçidine yeniden yönlendirme özgün URL'leri gizlemek isteyebilirsiniz.
+Öğreticide, özel bir arka uç bilgisini açığa çıkarmaması için API’nizin nasıl dönüştürüleceği gösterilmektedir. Örneğin, arka uçta çalıştırılan teknoloji yığını hakkındaki bilgileri gizlemek isteyebilirsiniz. API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’leri gizlemek ve bunları APIM ağ geçidine yeniden yönlendirmek isteyebilirsiniz.
 
-Bu öğreticinin Ayrıca, Azure API Management ile hız sınırı yapılandırarak arka uç API'niz için koruma eklemek için ne kadar kolay olduğunu gösterir. Örneğin, API, geliştiriciler tarafından aşırı kullanılmasına olmayan biçimde adlandırılır çağrıları sayısını sınırlamak isteyebilirsiniz. Daha fazla bilgi için bkz: [API Management ilkeleri](api-management-policies.md)
+Bu öğreticide size Azure API Yönetimi ile hız sınırı yapılandırarak arka uç API’niz için koruma eklemenin ne kadar kolay olduğu gösterilmektedir. Örneğin, geliştiriciler tarafından aşırı kullanılmaması için API çağrısı sayısını sınırlamak isteyebilirsiniz. Daha fazla bilgi için bkz. [API Yönetimi ilkeleri](api-management-policies.md)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Yanıt Üstbilgileri çıkarabilmesi bir API dönüştürme
-> * API yanıt gövdesine özgün URL'leri APIM ağ geçidi URL'ler ile değiştir
-> * Hız sınırı İlkesi (azaltma) ekleyerek bir API koruma
-> * Dönüştürmeleri sınamak
+> * Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
+> * API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
+> * Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
+> * Dönüştürmeleri test etme
 
 ![İlkeler](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-+ Aşağıdaki Hızlı Başlangıç tamamlamak: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
-+ Ayrıca, aşağıdaki öğreticiye: [alma ve ilk API'nizi yayımlama](import-and-publish.md).
++ Şu hızlı başlangıcı tamamlayın: [Azure API Management örneği oluşturma](get-started-create-service-instance.md).
++ Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
  
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="transform-an-api-to-strip-response-headers"></a>Yanıt Üstbilgileri çıkarabilmesi bir API dönüştürme
+## <a name="transform-an-api-to-strip-response-headers"></a>Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
 
-Bu bölümde, Göster kullanıcılarınıza istemediğiniz HTTP üstbilgilerini gizleme gösterilmektedir. Bu örnekte, aşağıdaki üst bilgiler HTTP yanıt olarak silindi:
+Bu bölümde, kullanıcılarınıza göstermek istemediğiniz HTTP üst bilgilerinin nasıl gizleneceği gösterilmektedir. Bu örnekte, aşağıdaki üst bilgiler HTTP yanıtında silinir:
 
-* **X-gücü-tarafından**
-* **X AspNet sürümü**
+* **X-Destekleyen:**
+* **X-AspNet-Sürümü**
 
-### <a name="test-the-original-response"></a>Özgün yanıt sınama
+### <a name="test-the-original-response"></a>Özgün yanıtı test etme
 
 Özgün yanıtı görmek için:
 
-1. Seçin **API** sekmesi.
-2. Tıklatın **Demo konferans API** API listenizden.
-3. Seçin **GetSpeakers** işlemi.
-4. Tıklatın **Test** ekranın üst kısmındaki sekme.
-5. Tuşuna **Gönder** ekranın altındaki düğmesi. 
+1. **API** sekmesini seçin.
+2. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+3. **GetSpeakers** işlemini seçin.
+4. Ekranın üst kısmındaki **Test** sekmesine tıklayın.
+5. Ekranın alt kısmındaki **Gönder** düğmesine basın. 
 
-    Gördüğünüz gibi özgün yanıtı şuna benzer:
+    Gördüğünüz gibi özgün yanıt şuna benzer:
 
     ![İlkeler](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>Dönüştürme ilkesi ayarlama
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Seçin **tüm işlemleri**.
-5. Ekranın üst kısmında seçin **tasarım** sekmesi.
-6. İçinde **giden işlem** penceresinde üçgen (yanındaki kalem) tıklayın.
-7. Seçin **Kod düzenleyicisinde**.
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **Tüm işlemler**’i seçin.
+5. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+6. **Gelen işlem** penceresinde üçgene (kalemin yanındaki) tıklayın.
+7. **Kod düzenleyicisi**’ni seçin.
     
-     ![İlkeyi düzenle](./media/set-edit-policies/set-edit-policies01.png)
-9. İç imleç Konumlandır  **<outbound>**  öğesi.
-10. Sağ penceresinde altında **dönüştürme ilkelerini**, tıklatın **+ kümesi HTTP üstbilgisi** iki kez (iki ilke parçacıkları eklemek için).
+     ![İlkeyi düzenleme](./media/set-edit-policies/set-edit-policies01.png)
+9. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
+10. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ HTTP üst bilgisini ayarla** seçeneğine iki defa tıklayın (iki ilke kod parçacığı eklemek için).
 
     ![İlkeler](./media/transform-api/transform-api.png)
-11. Değiştirme,  **<outbound>**  kod şöyle görünür:
+11. **<outbound>** kodunuzu aşağıdaki gibi görünecek şekilde değiştirin:
 
         <set-header name="X-Powered-By" exists-action="delete" />
         <set-header name="X-AspNet-Version" exists-action="delete" />
                 
-## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API yanıt gövdesine özgün URL'leri APIM ağ geçidi URL'ler ile değiştir
+## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
 
-Bu bölümde, API'nin HTTP yanıt gövdesinde yer ve bunun yerine APIM ağ geçidine yeniden yönlendirme özgün URL'leri gizleme gösterilmektedir.
+Bu bölümde, API’lerin HTTP yanıt gövdesinde görüntülenen özgün URL’lerin nasıl gizleneceği ve bunların APIM ağ geçidine nasıl yeniden yönlendirileceği gösterilmektedir.
 
-### <a name="test-the-original-response"></a>Özgün yanıt sınama
+### <a name="test-the-original-response"></a>Özgün yanıtı test etme
 
 Özgün yanıtı görmek için:
 
-1. Seçin **API** sekmesi.
-2. Tıklatın **Demo konferans API** API listenizden.
-3. Seçin **GetSpeakers** işlemi.
-4. Tıklatın **Test** ekranın üst kısmındaki sekme.
-5. Tuşuna **Gönder** ekranın altındaki düğmesi. 
+1. **API** sekmesini seçin.
+2. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+3. **GetSpeakers** işlemini seçin.
+4. Ekranın üst kısmındaki **Test** sekmesine tıklayın.
+5. Ekranın alt kısmındaki **Gönder** düğmesine basın. 
 
-    Gördüğünüz gibi özgün yanıtı şuna benzer:
+    Gördüğünüz gibi özgün yanıt şuna benzer:
 
     ![İlkeler](./media/transform-api/original-response2.png)
 
 ### <a name="set-the-transformation-policy"></a>Dönüştürme ilkesi ayarlama
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Seçin **tüm işlemleri**.
-5. Ekranın üst kısmında seçin **tasarım** sekmesi.
-6. İçinde **giden işlem** penceresinde üçgen (yanındaki kalem) tıklayın.
-7. Seçin **Kod düzenleyicisinde**.
-8. İç imleç Konumlandır  **<outbound>**  öğesi.
-9. Sağ penceresinde altında **dönüştürme ilkelerini**, tıklatın **+ bulun ve gövde dizesinde**.
-10. Değiştirme, **< Bul ve Değiştir** kod (içinde  **<outbound>**  öğesi) APIM ağ geçidiniz eşleşecek şekilde URL'sini değiştirmek için. Örneğin:
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **Tüm işlemler**’i seçin.
+5. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+6. **Gelen işlem** penceresinde üçgene (kalemin yanındaki) tıklayın.
+7. **Kod düzenleyicisi**’ni seçin.
+8. İmleci **&lt;giden&gt;** öğesinin içine konumlandırın.
+9. Sağ pencerede **Dönüştürme ilkeleri** bölümünde **+ Gövdedeki dizeyi bul ve değiştir** seçeneğine tıklayın.
+10. URL’yi API ağ geçidinizle eşleşecek şekilde değiştirmek için **<find-and-replace** kodunuzu (**<outbound>** öğesinde) değiştirin. Örnek:
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
-## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Hız sınırı İlkesi (azaltma) ekleyerek bir API koruma
+## <a name="protect-an-api-by-adding-rate-limit-policy-throttling"></a>Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
 
-Bu bölümde, oran sınırları yapılandırarak arka uç API'niz için koruma ekleyin gösterilmektedir. Örneğin, API, geliştiriciler tarafından aşırı kullanılmasına olmayan biçimde adlandırılır çağrıları sayısını sınırlamak isteyebilirsiniz. Bu örnekte, her abonelik kimliği için 15 saniye başına 3 çağrı sınırı ayarlanır 15 saniye sonra API'yi çağıran bir geliştirici yeniden deneyebilirsiniz.
+Bu bölümde, hız sınırları yapılandırılarak arka uç API’niz için nasıl koruma ekleneceği gösterilmektedir. Örneğin, geliştiriciler tarafından aşırı kullanılmaması için API çağrısı sayısını sınırlamak isteyebilirsiniz. Bu örnekte, her bir abonelik kimliği için sınır 15 saniyede 3 çağrıya ayarlanmıştır. 15 saniye sonra geliştirici, API’yi çağırmayı yeniden deneyebilir.
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Seçin **tüm işlemleri**.
-5. Ekranın üst kısmında seçin **tasarım** sekmesi.
-6. İçinde **gelen işleme** penceresinde üçgen (yanındaki kalem) tıklayın.
-7. Seçin **Kod düzenleyicisinde**.
-8. İç imleç Konumlandır  **<inbound>**  öğesi.
-9. Sağ penceresinde altında **erişim kısıtlama ilkeleri**, tıklatın **+ anahtar başına çağrı hızını sınırla**.
-10. Değiştirme, **< anahtar tarafından hızı sınırı** kod (içinde  **<inbound>**  öğesi) aşağıdaki kodu için:
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **Tüm işlemler**’i seçin.
+5. Ekranın üst kısmında **Tasarım** sekmesini seçin.
+6. **Gelen işlem** penceresinde (kalemin yanındaki) üçgene tıklayın.
+7. **Kod düzenleyicisi**’ni seçin.
+8. İmleci **&lt;gelen&gt;** öğesinin içine konumlandırın.
+9. Sağ pencerede **Erişim kısıtlama ilkeleri** bölümünde **+ Anahtar başına çağrıyı sınırla** seçeneğine tıklayın.
+10. **<rate-limit-by-key** kodunuzu (**<inbound>** öğesinde) aşağıdaki kodla değiştirin:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
-## <a name="test-the-transformations"></a>Dönüştürmeleri sınamak
+## <a name="test-the-transformations"></a>Dönüştürmeleri test etme
         
-Bu noktada, bu kod görülüyor ilkeler:
+Bu noktada ilkelerinizin kodu şöyle görünür:
 
     <policies>
         <inbound>
@@ -157,45 +157,45 @@ Bu noktada, bu kod görülüyor ilkeler:
         </on-error>
     </policies>
 
-Bu bölümün geri kalanında bu makalede ayarladığınız İlkesi dönüşümleri sınar.
+Bu bölümün geri kalanında, bu makalede ayarladığınız ilke dönüştürmeleri test edilmektedir.
 
-### <a name="test-the-stripped-response-headers"></a>Kırpılmış yanıt üstbilgileri test
+### <a name="test-the-stripped-response-headers"></a>Gizlenmiş yanıt üst bilgilerini test etme
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Tıklatın **GetSpeakers** işlemi.
-5. Seçin **Test** sekmesi.
-6. Tuşuna **Gönder**.
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **GetSpeakers** işlemine tıklayın.
+5. **Test** sekmesini seçin.
+6. **Gönder**’e basın.
 
-    Üstbilgileri atılmış görebileceğiniz gibi:
+    Gördüğünüz gibi üst bilgiler gizlenmiştir:
 
     ![İlkeler](./media/transform-api/final-response1.png)
 
-### <a name="test-the-replaced-url"></a>Değiştirilen URL test etme
+### <a name="test-the-replaced-url"></a>Değiştirilen URL’yi test etme
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Tıklatın **GetSpeakers** işlemi.
-5. Seçin **Test** sekmesi.
-6. Tuşuna **Gönder**.
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **GetSpeakers** işlemine tıklayın.
+5. **Test** sekmesini seçin.
+6. **Gönder**’e basın.
 
     Gördüğünüz gibi URL değiştirilmiştir.
 
     ![İlkeler](./media/transform-api/final-response2.png)
 
-### <a name="test-the-rate-limit-throttling"></a>(Azaltma) Hız sınırını test etme
+### <a name="test-the-rate-limit-throttling"></a>Hız sınırını test etme (azaltma)
 
-1. APIM örneğine göz atın.
-2. Seçin **API** sekmesi.
-3. Tıklatın **Demo konferans API** API listenizden.
-4. Tıklatın **GetSpeakers** işlemi.
-5. Seçin **Test** sekmesi.
-6. Tuşuna **Gönder** üç kez.
+1. APIM örneğinize göz atın.
+2. **API** sekmesini seçin.
+3. API listenizden **Tanıtım Konferansı API’sine** tıklayın.
+4. **GetSpeakers** işlemine tıklayın.
+5. **Test** sekmesini seçin.
+6. Art arda üç defa **Gönder** düğmesine basın.
 
-    3 kez İsteği gönderdikten sonra get **429 çok fazla istek** yanıt.
-7. 15 saniye veya bunu bekleyin ve basın **Gönder** yeniden. Almanız bu süre bir **200 Tamam** yanıt.
+    İsteği 3 defa gönderdikten sonra **429 Çok sayıda istek var** yanıtını alırsınız.
+7. 15 saniye kadar bekleyin ve tekrar **Gönder** düğmesine basın. Bu defa **200 OK** yanıtını almanız gerekir.
 
     ![Azaltma](./media/transform-api/test-throttling.png)
 
@@ -210,12 +210,12 @@ Bu bölümün geri kalanında bu makalede ayarladığınız İlkesi dönüşüml
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Yanıt Üstbilgileri çıkarabilmesi bir API dönüştürme
-> * API yanıt gövdesine özgün URL'leri APIM ağ geçidi URL'ler ile değiştir
-> * Hız sınırı İlkesi (azaltma) ekleyerek bir API koruma
-> * Dönüştürmeleri sınamak
+> * Yanıt üst bilgilerini gizlemek için API’yi dönüştürme
+> * API yanıt gövdesindeki özgün URL’leri, APIM ağ geçidi URL’leri ile değiştirme
+> * Hız sınırı ilkesi ekleyerek (azaltma) bir API’yi koruma
+> * Dönüştürmeleri test etme
 
-Sonraki öğretici ilerleyin:
+Sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [API'nizi izleme](api-management-howto-use-azure-monitor.md)
+> [API’nizi izleme](api-management-howto-use-azure-monitor.md)

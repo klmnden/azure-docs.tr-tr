@@ -1,30 +1,30 @@
 ---
-title: "Azure PIM kaynak RBAC genel bakış | Microsoft Docs"
-description: "RBAC özelliğine genel bakış içinde terminoloji ve bildirimler gibi PIM Al"
+title: Azure PIM kaynak RBAC genel bakış | Microsoft Docs
+description: RBAC özelliğine genel bakış içinde terminoloji ve bildirimler gibi PIM Al
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
-ms.author: barclayn
-ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.date: 03/30/2018
+ms.author: billmath
+ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="pim-for-azure-resources-preview"></a>PIM için Azure kaynaklarını (Önizleme)
+# <a name="pim-for-azure-resources"></a>PIM Azure kaynakları için
 
-İle Azure Active Directory ayrıcalıklı Kimlik Yönetimi (PIM), artık yönetebilir, denetleme ve izleme kuruluşunuz içinde (Önizleme) Azure kaynaklarına erişim. Bu abonelik, kaynak grupları ve hatta sanal makineler içerir. Azure rol tabanlı erişim denetimi (RBAC) işlevselliği yararlanır Azure portalındaki herhangi bir kaynağa sunmak için Azure AD PIM sahip tüm harika güvenlik ve yaşam döngüsü yönetimi özellikleri yararlanabilir ve getirmek planlıyoruz bazı harika yeni özellikler Yakında Azure AD rolleri için. 
+İle Azure Active Directory ayrıcalıklı Kimlik Yönetimi (PIM), artık yönetebilir, denetleme ve izleme kuruluşunuz içinde Azure kaynaklarına erişim. Bu abonelik, kaynak grupları ve hatta sanal makineler içerir. Azure rol tabanlı erişim denetimi (RBAC) işlevselliği yararlanır Azure portalındaki herhangi bir kaynağa sunmak için Azure AD PIM sahip tüm harika güvenlik ve yaşam döngüsü yönetimi özellikleri yararlanabilir ve getirmek planlıyoruz bazı harika yeni özellikler Yakında Azure AD rolleri için. 
 
-## <a name="pim-for-azure-resources-preview-helps-resource-administrators"></a>PIM Azure kaynakları (Önizleme) için kaynak yöneticileri yardımcı olur.
+## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM Azure kaynakları için kaynak yöneticileri yardımcı olur.
 
 - Hangi kullanıcıların ve grupların yönettiğiniz Azure kaynakları için rolleri atanmış bakın
 - İsteğe bağlı, abonelikler, kaynak grupları ve daha fazlasını gibi kaynakları yönetmek için "tam zamanında" erişimi etkinleştir
@@ -49,15 +49,15 @@ Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure
 
 PIM rolleri etkinleştirmek için bekleyen etkinleştirmeleri/istekler, bekleyen onayları görüntülemek için uygun erişim sağlar (için [Azure AD directory rolleri](azure-ad-pim-approval-workflow.md)) ve yanıtınız sol gezinti menüsünde görevleri bölümünden bekleyen inceler.
 
-Görevler menüsü öğeleri genel bakış giriş noktasından erişirken, sonuçta elde edilen görünümü sonuçları Azure AD directory roller ve Azure kaynak rolleri (Önizleme) içerir. 
+Görevler menüsü öğeleri genel bakış giriş noktasından erişirken, Azure AD directory rolleri ve Azure kaynak rolleri için sonuçları elde edilen görünümü içerir. 
 
 ![](media/azure-pim-resource-rbac/role-settings-details.png)
 
-My rolleri Azure AD directory rolleri ve Azure kaynak rolleri (Önizleme), etkin ve uygun rol atamalarını listesini içerir.
+My rolleri Azure AD directory rolleri ve Azure kaynak rolleri için etkin ve uygun rol atamalarını listesini içerir.
 
 ## <a name="activate-roles"></a>Rollerini etkinleştir
 
-(Önizleme) Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlayın ve belirli etkinleştirme süresi (yöneticiler tarafından yapılandırılmış) maksimum içinde seçmek uygun Rol üyeleri izin veren yeni bir deneyim sunar. Hakkında bilgi edinin [burada Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md).
+Azure kaynakları için rol etkinleştirme, etkinleştirme için gelecekteki bir tarih/saat zamanlayın ve belirli etkinleştirme süresi (yöneticiler tarafından yapılandırılmış) maksimum içinde seçmek uygun Rol üyeleri izin veren yeni bir deneyim sunar. Hakkında bilgi edinin [burada Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md).
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -73,7 +73,7 @@ Etkinleştirme bir gelecek tarih zaman için planlandıysa bekleyen istek sol ge
 
 ## <a name="discover-and-manage-azure-resources"></a>Keşfetmek ve Azure kaynaklarını yönetmek
 
-Bul ve rolleri için bir Azure kaynağı yönetmek için sol gezinti menüsünde Yönet sekmesi altında Azure kaynakları (Önizleme) seçin. Bir kaynak bulmak için sayfanın en üstünde filtreleri veya arama çubuğu'ı kullanın.
+Bul ve rolleri için bir Azure kaynağı yönetmek için sol gezinti menüsünde Yönet sekmesi altında Azure kaynaklarını seçin. Bir kaynak bulmak için sayfanın en üstünde filtreleri veya arama çubuğu'ı kullanın.
 
 ![](media/azure-pim-resource-rbac/azure-resources.png)
 
@@ -173,10 +173,10 @@ Son güncelleştirilme tarihi zamanı ve ayarlarında değişiklik yönetici de 
 
 ![](media/azure-pim-resource-rbac/role-settings-02.png)
 
-## <a name="resource-audit"></a>Kaynak Denetim
+## <a name="resource-audit"></a>Kaynak denetimi
 
 Kaynak Denetim tüm rol etkinlik kaynak için bir görünümünü sağlar. Önceden tanımlanmış tarih veya özel aralığı kullanarak bilgi filtreleyebilirsiniz.
-![](media/azure-pim-resource-rbac/last-day.png)Kaynak Denetim ayrıca kullanıcının Etkinlik ayrıntıları görüntülemek için hızlı erişim sağlar. Görünümü'nde "rolünü etkinleştirmek" tüm eylemler belirli istek sahibinin kaynak etkinliği bağlantılardır.
+![](media/azure-pim-resource-rbac/last-day.png) Kaynak Denetim ayrıca kullanıcının Etkinlik ayrıntıları görüntülemek için hızlı erişim sağlar. Görünümü'nde "rolünü etkinleştirmek" tüm eylemler belirli istek sahibinin kaynak etkinliği bağlantılardır.
 ![](media/azure-pim-resource-rbac/resource-audit.png)
 
 ## <a name="just-enough-administration"></a>Tam yetecek kadar yönetim

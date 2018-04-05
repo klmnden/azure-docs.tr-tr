@@ -1,8 +1,8 @@
 ---
 title: "Python: Azure Data Lake Store'daki hesap yönetimi işlemleri | Microsoft Docs"
-description: "Data Lake Store hesap yönetim işlemleriyle çalışmak için Python SDK'yı nasıl kullanacağınızı öğrenin."
+description: Data Lake Store hesap yönetim işlemleriyle çalışmak için Python SDK'yı nasıl kullanacağınızı öğrenin.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 834dbc93348e00b0a0821bcbca989b0c2d539056
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 5f060dfd061af07f220576f17110afccd01fdae5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-python"></a>Python kullanılarak gerçekleştirilen Azure Data Lake Store'daki hesap yönetimi işlemleri
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 01/10/2018
 
 Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, Data Lake Store hesaplarını listeleme gibi temel hesap yönetim işlemlerini gerçekleştirme amacıyla kullanmayı öğrenin. Data Lake Store'da dosya sistemi işlemlerini Python kullanarak gerçekleştirme talimatları için bkz. [Data Lake Store'da Python kullanılarak gerçekleştirilen dosya sistemi işlemleri](data-lake-store-data-operations-python.md).
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
 * **Python**. Python’u [buradan](https://www.python.org/downloads/) indirebilirsiniz. Bu makalede Python 3.6.2 kullanılmıştır.
 
@@ -43,7 +43,7 @@ Azure Data Lake Store için Python SDK'yı Data Lake Store hesabı oluşturma, D
 Data Lake Store ile Python kullanarak çalışabilmeniz için üç modül yüklemeniz gerekir.
 
 * `azure-mgmt-resource` modülü, Active Directory gibi şeyler için Azure modüllerini içerir.
-* `azure-mgmt-datalake-store` modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* `azure-mgmt-datalake-store` modülü, Azure Data Lake Store hesap yönetim işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Yönetimi modül başvurusu](http://azure-sdk-for-python.readthedocs.io/sample_azure-mgmt-datalake-store.html).
 * `azure-datalake-store` modülü, Azure Data Lake Store dosya sistemi işlemlerini içerir. Bu modül hakkında daha fazla bilgi için bkz. [Azure Data Lake Store Dosya Sistemi modül başvurusu](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Modülleri yüklemek için aşağıdaki komutları kullanın.

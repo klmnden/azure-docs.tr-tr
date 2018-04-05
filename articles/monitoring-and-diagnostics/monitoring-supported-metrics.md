@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: fc7a4062af9e73383af46f0c36eb22710ce9b6e1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 68f5784f1724441ff6f18e2581c8e01d66c60c5e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir.
@@ -308,7 +308,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından şu anda kullanılan ayrılmış işlem birimlerinin yüzdesi.|Hiç boyut|
+|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından şu anda kullanılan ayrılmış işlem birimlerinin yüzdesi.|Hiç boyut|
 |Ağ Girişi|Ağ Girişi|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik).|Hiç boyut|
 |Ağ Çıkışı|Ağ Çıkışı|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik).|Hiç boyut|
 |Disk Okuma Bayt/sn|Disk Okuma|BytesPerSecond|Ortalama|İzleme dönemi boyunca diskten okunan ortalama bayt.|Hiç boyut|
@@ -320,7 +320,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından şu anda kullanılan ayrılmış işlem birimlerinin yüzdesi.|Hiç boyut|
+|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından şu anda kullanılan ayrılmış işlem birimlerinin yüzdesi.|Hiç boyut|
 |Ağ Girişi|Ağ Girişi|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik).|Hiç boyut|
 |Ağ Çıkışı|Ağ Çıkışı|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik).|Hiç boyut|
 |Disk Okuma Bayt/sn|Disk Okuma|BytesPerSecond|Ortalama|İzleme dönemi boyunca diskten okunan ortalama bayt.|Hiç boyut|
@@ -349,7 +349,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
 |Ağ Girişi|Ağ Girişi|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
 |Ağ Çıkışı|Ağ Çıkışı|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
 |Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
@@ -363,7 +363,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
 |Ağ Girişi|Ağ Girişi|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
 |Ağ Çıkışı|Ağ Çıkışı|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
 |Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
@@ -377,7 +377,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CPU Yüzdesi|CPU Yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
+|CPU yüzdesi|CPU yüzdesi|Yüzde|Ortalama|Sanal Makineler tarafından kullanılan ayrılmış işlem birimlerinin geçerli yüzdesi|Hiç boyut|
 |Ağ Girişi|Ağ Girişi|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde alınan bayt sayısı (Gelen Trafik)|Hiç boyut|
 |Ağ Çıkışı|Ağ Çıkışı|Bayt|Toplam|Sanal Makineler tarafından tüm ağ arabirimleri üzerinde gönderilen bayt sayısı (Giden Trafik)|Hiç boyut|
 |Diskten Okunan Bayt|Diskten Okunan Bayt|Bayt|Toplam|İzleme dönemi boyunca diskten okunan toplam bayt|Hiç boyut|
@@ -811,11 +811,11 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
 |Aktarım hızı|Aktarım hızı|BytesPerSecond|Toplam|Uygulama ağ geçidi hizmet verdi Saniyedeki bayt sayısı|Hiç boyut|
-|UnhealthyHostCount|Sağlıksız ana bilgisayar sayısı|Sayı|Ortalama|Sağlıksız arka uç ana bilgisayar sayısı|BackendSettingsPool|
-|HealthyHostCount|Sağlıklı ana bilgisayar sayısı|Sayı|Ortalama|Sağlıklı arka uç ana bilgisayar sayısı|BackendSettingsPool|
+|UnhealthyHostCount|Sağlıksız ana bilgisayar sayısı|Sayı|Ortalama|Sağlıksız arka uç ana bilgisayar sayısı. Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.|BackendSettingsPool|
+|HealthyHostCount|Sağlıklı ana bilgisayar sayısı|Sayı|Ortalama|Sağlıklı arka uç ana bilgisayar sayısı. Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.|BackendSettingsPool. |
 |TotalRequests|Toplam İstek Sayısı|Sayı|Toplam|Uygulama ağ geçidi hizmet verdi başarılı istek sayısı|BackendSettingsPool|
 |FailedRequests|Başarısız Olan İstekler|Sayı|Toplam|Uygulama ağ geçidi hizmet verdi başarısız isteği sayısı|BackendSettingsPool|
-|ResponseStatus|Yanıt durumu|Sayı|Toplam|Uygulama ağ geçidi tarafından döndürülen http yanıt durumu|HttpStatusGroup|
+|ResponseStatus|Yanıt durumu|Sayı|Toplam|Uygulama ağ geçidi tarafından döndürülen http yanıt durumu. Yanıt durum kodu dağıtım categoized 2xx, 3xx, 4xx ve 5xx kategorileri yanıtları göstermek için daha fazla olabilir.|HttpStatusGroup|
 |CurrentConnections|Geçerli bağlantı|Sayı|Toplam|Uygulama ağ geçidi ile kurulan geçerli bağlantı sayısı|Hiç boyut|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.Network/virtualNetworkGateways

@@ -1,31 +1,46 @@
+---
+title: Azure Cosmos DB genel dağıtımı
+description: Azure portalında Azure Cosmos DB ile genel olarak verilerin nasıl çoğaltılacağını öğrenin
+services: cosmos-db
+author: mimig1
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 03/26/2018
+ms.author: mimig
+ms.custom: include file
+ms.openlocfilehash: b62d1cc3b7ea79adbf24f214ba3bb9e92c3a1f0c
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/28/2018
+---
+Azure Cosmos DB Program Yöneticisi Manager Andrew Liu’nun genel dağıtım işlevini açıkladığı aşağıdaki videodan Azure Cosmos DB genel dağıtımı hakkında bilgi edinebilirsiniz.
 
-Azure Cosmos DB genel dağıtım bu Azure Cuma video Scott Hanselman ve sorumlu mühendislik Yöneticisi Karthik Raman hakkında bilgi edinebilirsiniz.
+>[!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
 
->[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
+Genel veritabanı çoğaltmasının Azure Cosmos DB’de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Cosmos DB ile verileri genel olarak dağıtma](../articles/cosmos-db/distribute-data-globally.md).
 
-Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Cosmos DB genel verilerle dağıtmak](../articles/cosmos-db/distribute-data-globally.md).
+## <a id="addregion"></a>Azure portalını kullanarak genel veritabanı bölgeleri ekleme
+Azure Cosmos DB, dünya genelindeki tüm [Azure bölgelerinde][azureregions] kullanılabilir. Veritabanı hesabınız için varsayılan tutarlılık düzeyini seçtikten sonra bir veya daha fazla bölgeyi (tercih ettiğiniz varsayılan tutarlılık düzeyine ve genel dağıtım gereksinimlerine bağlı olarak) ilişkilendirebilirsiniz.
 
-## <a id="addregion"></a>Azure Portalı'nı kullanarak genel veritabanı bölgeleri ekleyin
-Azure Cosmos DB kullanılabilir tüm [Azure bölgeleri] [ azureregions] dünya çapında. Veritabanı hesabınız için varsayılan tutarlılık düzeyi seçtikten sonra bir veya daha fazla bölgeler (tercih ettiğiniz varsayılan tutarlılık düzeyi ve genel dağıtım gereksinimlerine bağlı olarak) ilişkilendirebilirsiniz.
-
-1. İçinde [Azure portal](https://portal.azure.com/), sol çubuğunda **Azure Cosmos DB**.
-2. İçinde **Azure Cosmos DB** veritabanı hesabı değiştirmek için dikey penceresinde, seçin.
-3. Hesap dikey penceresinde tıklayın **genel veri çoğaltma** menüsünde.
-4. İçinde **genel veri çoğaltma** dikey penceresinde, harita bölgelerde tıklayarak Ekle/Kaldır için bölge seçin ve ardından **kaydetmek**. Bölgeler ekleme maliyeti, bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/cosmos-db/) veya [Azure Cosmos DB genel verilerle dağıtmak](../articles/cosmos-db/distribute-data-globally.md) daha fazla bilgi için makalenin.
+1. [Azure portalında](https://portal.azure.com/), soldaki çubuktan **Azure Cosmos DB** seçeneğine tıklayın.
+2. **Azure Cosmos DB** sayfasında, değiştirilecek veritabanı hesabını seçin.
+3. Hesap sayfasındaki menüden **Verileri genel olarak çoğaltma** seçeneğine tıklayın.
+4. **Verileri genel olarak çoğaltma** sayfasında, haritadaki bölgelere tıklayarak eklenecek veya kaldırılacak bölgeleri seçin ve sonra **Kaydet**’e tıklayın. Bölgeleri eklemenin bir maliyeti yoktur. Daha fazla bilgi için [fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/cosmos-db/) veya [Azure Cosmos DB ile verileri genel olarak dağıtma](../articles/cosmos-db/distribute-data-globally.md) makalesine bakın.
    
-    ![Bölgeleri eklemek veya bunları kaldırmak için eşlemesindeki'i tıklatın][1]
+    ![Haritadaki bölgelere tıklayarak bölgeler ekleyin veya kaldırın][1]
     
-İkinci bir bölgeye eklediğinizde **elle yük devretme** seçeneğini etkinleştirerek **genel veri çoğaltma** portaldaki dikey pencere. Sınama yük devretme işlemi veya birincil yazma bölge değiştirmek için bu seçeneği kullanın. Üçüncü bir bölgeye eklediğinizde **yük devretme öncelikleri** seçeneği, aynı dikey penceresinde etkinleştirildiyse, böylece okumalar için yük devretme sırasını değiştirebilirsiniz.  
+İkinci bir bölge eklediğinizde, portaldaki **Verileri genel olarak çoğaltma** sayfasında **El İle Yük Devretme** seçeneği etkinleştirilir. Yük devretme işlemini test etmek veya birincil yazma bölgesini değiştirmek için bu seçeneği kullanabilirsiniz. Üçüncü bir bölge eklemenizin ardından, okuma için yük devretme sırasını değiştirebilmeniz için aynı sayfada **Yük Devretme Öncelikleri** seçeneği etkinleştirilir.  
 
-### <a name="selecting-global-database-regions"></a>Genel veritabanı bölgeler seçme
-İki veya daha fazla bölge yapılandırma için iki yaygın senaryolar şunlardır:
+### <a name="selecting-global-database-regions"></a>Genel veritabanı bölgelerini seçme
+İki veya daha fazla bölge yapılandırma için iki yaygın senaryo vardır:
 
-1. Dünya nerede bulundukları olsun, son kullanıcılara verileri için düşük gecikmeli erişim gönderiliyor
-2. İş devamlılığı ve olağanüstü durum kurtarma (BCDR) için bölgesel esnekliği ekleme
+1. Dünya nerede bulunurlarsa bulunsunlar, son kullanıcılara düşük gecikmeli veri erişimi sunma
+2. İş sürekliliği ve olağanüstü durum kurtarma (BCDR) için bölgesel dayanıklılık ekleme
 
-Düşük gecikme süreli son kullanıcılara teslim etmek için her iki uygulamayı dağıtmak ve uygulamanın kullanıcıların bulunduğu için karşılık gelen olduğu bölgelerde Azure Cosmos DB eklemek için önerilir.
+Son kullanıcılara düşük gecikme sunmak için, uygulama kullanıcılarının bulunduğu yere karşılık gelen bölgelerde hem uygulamayı hem de Azure Cosmos DB’yi dağıtmanız önerilir.
 
-Açıklanan bölge çiftleri temel bölgeler eklemek için önerilen BCDR için [iş devamlılığı ve olağanüstü durum kurtarma (BCDR): Azure eşleştirilmiş bölgeleri] [ bcdr] makalesi.
+BCDR için, [İş sürekliliği ve olağanüstü durum kurtarma (BCDR): Azure Eşlenmiş Bölgeleri][bcdr] makalesinde açıklanan bölge çiftlerine göre bölgeler eklenmesi önerilir.
 
 <!--
 

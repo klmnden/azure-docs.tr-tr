@@ -6,14 +6,14 @@ author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 842c65987dc97872751071dbcf138794a14940e2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
@@ -114,13 +114,13 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | [Set deyimleri](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | Çoğu - tek tek deyimleri bakın | Evet - bkz [T-SQL farkları](sql-database-managed-instance-transact-sql-information.md)|
 | [SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | Evet | Evet |
 | [Uzamsal](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | Evet | Evet |
-| [SQL veri eşitleme](sql-database-get-started-sql-data-sync.md) | Evet | Evet |
+| [SQL veri eşitleme](sql-database-get-started-sql-data-sync.md) | Evet | Hayır |
 | [SQL Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/what-is) | Evet | Evet |
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Hayır - bkz [esnek işler](sql-database-elastic-jobs-getting-started.md) | Evet - bkz [SQL Server Agent farklar](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) | Hayır - bkz [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server denetimi](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | Hayır - bkz [SQL veritabanı denetimi](sql-database-auditing.md) | Evet - bkz [farklar denetleme](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [SQL Server veri Araçları (SSDT)] (https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) | Evet | Evet |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Kısmi – SQL Server veri araçları paketini geliştirme desteklenmiyor. | Genel Önizleme'de Hayır |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Evet, Azure SQL veritabanı tarafından barındırılan ve üzerinde yürütülen SSISDB içinde paketler depolandığı Azure veri fabrikası (ADF) ortamında yönetilen SSIS ile [Azure SSIS tümleştirmesi çalışma zamanı](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). | Evet, Azure veri fabrikası (ADF) ortamında, yönetilen örneği tarafından barındırılan ve üzerinde yürütülen SSISDB içinde paketler depolandığı yönetilen SSIS ile [Azure SSIS tümleştirmesi çalışma zamanı](../data-factory/tutorial-deploy-ssis-packages-azure-powershell.md). |
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Evet | Evet |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Evet | Evet |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Hayır - bkz [olaylar genişletilmiş](sql-database-xevent-db-diff-from-svr.md) | Evet |

@@ -7,6 +7,8 @@
 
 Cihaz çiftleri, cihaz durumu bilgilerini (meta veriler, yapılandırmalar ve koşullar) depolayan JSON belgelerdir. IOT Hub cihaz çifti ona bağlanan her aygıt için devam ettirir.
 
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
+
 Cihaz çiftlerini kullanın:
 
 * Çözüm arka ucunuz cihaz meta verilerini depolar.
@@ -14,8 +16,7 @@ Cihaz çiftlerini kullanın:
 * Cihaz uygulama ve arka uç uygulama arasında uzun süre çalışan iş akışları (örneğin, bellenim ve yapılandırma güncelleştirmeleri) durumunu eşitleyin.
 * Cihaz meta verilerini, yapılandırma veya durumu sorgu.
 
-> [!NOTE]
-> Cihaz çiftlerini cihaz yapılandırmalarını ve koşullar sorgulamak için ve eşitleme için tasarlanmıştır. Ne zaman cihaz çiftlerini kullanılacağı hakkında daha fazla bilgi bulunabilir [cihaz çiftlerini anlamak][lnk-twins].
+Cihaz çiftlerini cihaz yapılandırmalarını ve koşullar sorgulamak için ve eşitleme için tasarlanmıştır. Ne zaman cihaz çiftlerini kullanılacağı hakkında daha fazla bilgi bulunabilir [cihaz çiftlerini anlamak][lnk-twins].
 
 Cihaz çiftlerini bir IOT hub ' depolanır ve içerir:
 
