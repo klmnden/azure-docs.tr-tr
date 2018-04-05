@@ -1,11 +1,11 @@
 ---
 title: SendGrid e-posta hizmetine (Node.js) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. Node.js API kullanılarak yazılan kod örnekleri."
-services: 
+description: Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. Node.js API kullanılarak yazılan kod örnekleri.
+services: ''
 documentationcenter: nodejs
 author: erikre
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: cac444b4-26b0-45ea-9c3d-eca28d57dacb
 ms.service: multiple
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>SendGrid node.js'den kullanarak e-posta gönderme
 Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler, Node.js API kullanılarak yazılır. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**, ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
@@ -33,7 +33,7 @@ SendGrid olan bir [bulut tabanlı e-posta hizmeti] güvenilir sağlayan [işleme
 * Müşteri sorguları iletme
 * Uygulamanızdan e-posta bildirimleri
 
-Daha fazla bilgi için bkz: [https://sendgrid.com](https://sendgrid.com).
+Daha fazla bilgi için bkz. [https://sendgrid.com](https://sendgrid.com).
 
 ## <a name="create-a-sendgrid-account"></a>SendGrid hesabı oluşturma
 [!INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
@@ -123,7 +123,7 @@ Filtreler uygulanabilir bir iletiyi kullanarak **filtreleri** özelliği.
 Her filtre filtre özgü ayarları içeren bir karma tarafından belirtilir.
 Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
 
-### <a name="footer"></a>Altbilgi
+### <a name="footer"></a>Alt bilgi
     var email = new sendgrid.Email({
         to: 'john@contoso.com',
         from: 'anna@contoso.com',
@@ -161,7 +161,7 @@ Aşağıdaki örnekler altbilgi göstermek ve filtreleri İzleme'yi tıklatın:
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>Nasıl yapılır: güncelleştirme e-posta özellikleri
-Bazı e-posta özellikleri kullanılarak üzerine yazılabilir  **ayarlamak*özelliği*** veya kullanarak eklenmiş  **ekleme*özelliği***. Örneğin, kullanarak ek alıcılar ekleyebilirsiniz.
+Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak * özellik*** veya kullanarak eklenmiş **ekleme*özelliği ***. Örneğin, kullanarak ek alıcılar ekleyebilirsiniz.
 
     email.addTo('jeff@contoso.com');
 
@@ -180,7 +180,7 @@ SendGrid e-posta hizmeti temel bilgileri öğrendiğinize göre daha fazla bilgi
 
 * SendGrid Node.js modülü deposu: [sendgrid nodejs][sendgrid-nodejs]
 * SendGrid API belgelerine: <https://sendgrid.com/docs>
-* SendGrid özel teklif Azure müşteriler: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
+* SendGrid özel teklif Azure müşteriler için: [http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 
 [special offer]: https://sendgrid.com/windowsazure.html
 [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs

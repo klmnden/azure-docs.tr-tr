@@ -1,6 +1,6 @@
 ---
-title: "System Center Configuration Manager kullanarak Azure Site Recovery Mobility hizmetinin yüklenmesini otomatikleştirmek | Microsoft Docs"
-description: "Bu makalede, System Center Configuration Manager kullanarak Mobility hizmetinin yüklenmesini otomatikleştirmek yardımcı olur."
+title: System Center Configuration Manager kullanarak Azure Site Recovery Mobility hizmetinin yüklenmesini otomatikleştirmek | Microsoft Docs
+description: Bu makalede, System Center Configuration Manager kullanarak Mobility hizmetinin yüklenmesini otomatikleştirmek yardımcı olur.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 8382fadc02a7e80b6f28bd777f423013aed9add3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatikleştirme
 
@@ -192,7 +192,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="deploy-the-package"></a>Paketi dağıtma
 1. Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.
+2. Seçin **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** paketleri kopyalanmalıdır açın.
 3. Sihirbazı tamamlayın. Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.
 4. Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
@@ -415,7 +415,7 @@ cd /tmp
 ### <a name="deploy-the-package"></a>Paketi dağıtma
 1. Configuration Manager konsolunda, pakete sağ tıklayın ve seçin **içeriği Dağıt**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Seçin  **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)**  paketleri kopyalanmalıdır açın.
+2. Seçin **[dağıtım noktaları](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** paketleri kopyalanmalıdır açın.
 3. Sihirbazı tamamlayın. Paket sonra belirtilen dağıtım noktalarına çoğaltmaya başlar.
 4. Paket dağıtımı yapıldıktan sonra pakete sağ tıklayın ve seçin **dağıtma**.
   ![Ekran görüntüsü, Configuration Manager Konsolu](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)

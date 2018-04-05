@@ -1,6 +1,6 @@
 | Kaynak | Hedef |
 |----------|---------------|
-| Bir dosya paylaşımı en büyük boyutu | 5 Tıb |
+| Bir dosya paylaşımı en büyük boyutu | 5 TiB |
 | Bir dosya paylaşımı bir dosyada en büyük boyutu | 1 Tıb |
 | Bir dosya paylaşımında dosyalar sayısı üst sınırı | Sınırsız |
 | Paylaşım başına maksimum IOPS | 1000 IOPS |

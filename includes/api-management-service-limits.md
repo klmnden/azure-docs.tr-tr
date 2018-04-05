@@ -1,10 +1,32 @@
+---
+title: include dosyası
+description: include dosyası
+services: api-management
+author: vladvino
+ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
+ms.service: api-management
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: vlvinogr
+ms.custom: include file
+ms.openlocfilehash: bee289da3f18edd0cb425f3d9acde084567a3b13
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/05/2018
+---
 | Kaynak | Sınır |
 | --- | --- |
-| API çağrıları (her bir ölçek birimi) |gün başına 32 milyon<sup>1</sup> |
-| Veri aktarımı (her bir ölçek birimi) |Gün başına 161 GB<sup>1</sup> |
-| Önbellek |5 GB<sup>1</sup> |
-| Ölçek birimleri |Sınırsız<sup>1</sup> |
-| Azure Active Directory Tümleştirmesi |Sınırsız kullanıcı hesapları<sup>1</sup> |
+| Ölçek birimleri | Bölge başına 10<sup>1</sup> |
+| Önbellek | Birim başına 5 GB<sup>1</sup> |
+| Eşzamanlı arka uç bağlantı<sup>2</sup> HTTP yetkilisi başına | Birim başına 2048<sup>3</sup> |
+| Önbelleğe alınan en büyük yanıt boyutu | 10MB |
+| En fazla özel ağ geçidi etki alanları | Hizmet örneği başına 20<sup>4</sup> |
 
-<sup>1</sup>API Management sınırları her fiyatlandırma katmanının için farklıdır. Fiyatlandırma katmanlarına ve bunların ilişkili sınırlarını ve ölçeklendirme seçenekleri görmek için bkz: [API Management fiyatlandırması](https://azure.microsoft.com/pricing/details/api-management/).
+
+<sup>1</sup>API Management sınırları her fiyatlandırma katmanının için farklıdır. Fiyatlandırma görmek için katmanlarına ve bunların ölçeklendirme sınırlarını Git [API Management fiyatlandırması](https://azure.microsoft.com/pricing/details/api-management/).
+<sup>2</sup> bağlantıları havuza alınmış ve arka uç tarafından açıkça kapalı sürece yeniden kullanılır.
+<sup>3</sup> temel, standart ve Premium katmanlar, birim başına. Geliştirici katmanı için 1024 sınırlıdır.
+<sup>4</sup> yalnızca Premium katmanında kullanılabilir.
+
 

@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulama onay gerçekleştirirken beklenmeyen bir hata | Microsoft Docs"
-description: "Bir uygulamaya ve bunları hakkında neler yapabileceğinizi onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır"
+title: Bir uygulama onay gerçekleştirirken beklenmeyen bir hata | Microsoft Docs
+description: Bir uygulamaya ve bunları hakkında neler yapabileceğinizi onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Bir uygulama onay gerçekleştirirken beklenmeyen bir hata
 
@@ -50,7 +50,7 @@ Bu hata, bir aralıklı Hizmet tarafı sorunu oluştuğunu gösterir. Uygulamay�
 Uygulama geliştiricisine başvurun.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Kaynak Kiracı hata mevcut değil
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; bir kaynağa erişim isteğinde &lt;resourceAppDisplayName&gt; , kuruluşunuzda mevcut değil &lt; tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; is requesting access to a resource &lt;resourceAppDisplayName&gt; that is not available in your organization &lt;tenantDisplayName&gt;. 
 
 Bu kaynak kullanılabilir olduğundan emin olun veya bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;.
 

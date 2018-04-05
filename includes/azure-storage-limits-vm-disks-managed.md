@@ -12,7 +12,7 @@
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | Disk boyutu           | 32 GB | 64 GB | 128 GB| 512 GB            | 1024 GB (1 TB)    | 2048 GB (2 TB)    | 4095 GB (4 TB)    | 
 | Disk başına IOPS       | 120   | 240   | 500   | 2300              | 5000              | 7500              | 7500              | 
-| Disk başına aktarım hızı | 25 MB/sn | 50 MB/sn  | 100 MB/sn | 150 MB/sn | 200 MB/sn | 250 MB/sn | 250 MB/sn |
+| Disk başına aktarım hızı | 25 MB/sn | 50 MB/sn  | 100 MB/sec | 150 MB/sec | 200 MB/sec | 250 MB/sec | 250 MB/sec |
 
 **Premium yönetilen sanal makine diskleri: VM başına limitler**
 

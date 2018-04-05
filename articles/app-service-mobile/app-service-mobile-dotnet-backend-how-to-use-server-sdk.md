@@ -1,12 +1,12 @@
 ---
-title: "Mobil uygulamalar için .NET arka uç sunucusu SDK ile çalışmaya nasıl | Microsoft Docs"
-description: "Azure App Service Mobile Apps için .NET arka uç sunucusu SDK ile çalışmayı öğrenin."
-keywords: "uygulama hizmeti, azure uygulama hizmeti, mobil uygulama, mobil hizmet, Ölçek, ölçeklenebilir, uygulama dağıtımı, azure uygulama dağıtımı"
+title: Mobil uygulamalar için .NET arka uç sunucusu SDK ile çalışmaya nasıl | Microsoft Docs
+description: Azure App Service Mobile Apps için .NET arka uç sunucusu SDK ile çalışmayı öğrenin.
+keywords: uygulama hizmeti, azure uygulama hizmeti, mobil uygulama, mobil hizmet, Ölçek, ölçeklenebilir, uygulama dağıtımı, azure uygulama dağıtımı
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps için .NET arka uç sunucu SDK’sı ile çalışma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -62,7 +62,7 @@ SDK kullanılabilir [NuGet.org]. Bu paket için SDK'sını kullanmaya başlamak 
 ### <a name="install-the-sdk"></a>SDK yükle
 SDK yüklemek için sunucu projesi Visual Studio'da seçin sağ tıklayın **NuGet paketlerini Yönet**, arama [Microsoft.Azure.Mobile.Server] paketini ve ardından **yükleme**.
 
-### <a name="server-project-setup"></a>Sunucu projesi başlatma
+### <a name="server-project-setup"></a> Sunucu projesi başlatma
 Bir .NET arka uç sunucu projesi benzer diğer ASP.NET projeleri için OWIN başlangıç sınıfı dahil ederek başlatıldı. NuGet paketi başvurulan olun `Microsoft.Owin.Host.SystemWeb`. Visual Studio'da bu sınıf eklemek için sunucu projenize sağ tıklayın ve seçin **Ekle** >
 **yeni öğe**, ardından **Web** > **genel** > **OWIN başlangıç sınıfı**.  Bir sınıf aşağıdaki öznitelik oluşturulur:
 
@@ -105,23 +105,23 @@ Azure portal aramalardan server Hızlı Başlangıç **UseDefaultConfiguration()
 
 Kullanılan genişletme yöntemleri şunlardır:
 
-* `AddMobileAppHomeController()`Varsayılan Azure Mobile Apps giriş sayfası sağlar.
-* `MapApiControllers()`Webapı denetleyicileri ile donatılmış özel API yetenekleri sağlar `[MobileAppController]` özniteliği.
-* `AddTables()`bir eşlenmesini sağlar `/tables` tablo denetleyicilerine uç noktaları.
-* `AddTablesWithEntityFramework()`bir kısaltılmış eşlemesi için olan `/tables` Entity Framework kullanarak uç noktaları alarak denetleyicileri.
-* `AddPushNotifications()`Bildirim hub'ları için cihazları kaydetme, basit bir yöntem sağlar.
-* `MapLegacyCrossDomainController()`Standart CORS üstbilgilerini yerel geliştirme için sağlar.
+* `AddMobileAppHomeController()` Varsayılan Azure Mobile Apps giriş sayfası sağlar.
+* `MapApiControllers()` Webapı denetleyicileri ile donatılmış özel API yetenekleri sağlar `[MobileAppController]` özniteliği.
+* `AddTables()` bir eşlenmesini sağlar `/tables` tablo denetleyicilerine uç noktaları.
+* `AddTablesWithEntityFramework()` bir kısaltılmış eşlemesi için olan `/tables` Entity Framework kullanarak uç noktaları alarak denetleyicileri.
+* `AddPushNotifications()` Bildirim hub'ları için cihazları kaydetme, basit bir yöntem sağlar.
+* `MapLegacyCrossDomainController()` Standart CORS üstbilgilerini yerel geliştirme için sağlar.
 
 ### <a name="sdk-extensions"></a>SDK uzantıları
 Aşağıdaki NuGet tabanlı uzantısı paketleri, uygulamanız tarafından kullanılabilen çeşitli mobil özellikleri sağlar. Kullanarak başlatma sırasında uzantılarını etkinleştirme **MobileAppConfiguration** nesnesi.
 
-* [Microsoft.Azure.Mobile.Server.Quickstart] temel Mobile Apps Kurulumu destekler. Çağırarak yapılandırmaya eklenmiş **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, Azure portalında kullanılabilir Mobile Apps Quickstart tarafından kullanılır.
+* [Microsoft.Azure.Mobile.Server.Quickstart] Supports the basic Mobile Apps setup. Çağırarak yapılandırmaya eklenmiş **UseDefaultConfiguration** başlatma sırasında genişletme yöntemi. Bu uzantı uzantıları aşağıdaki içerir: bildirimleri, kimlik doğrulama, varlık, tablolar, etki alanları arası ve giriş paketleri. Bu paket, Azure portalında kullanılabilir Mobile Apps Quickstart tarafından kullanılır.
 * [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) varsayılan uygulayan *bu mobil uygulamayı çalışır durumda olduğundan sayfa* bir web sitesi kök. Yapılandırmaya çağırarak eklemek **AddMobileAppHomeController** genişletme yöntemi.
 * [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) verilerle çalışmak için sınıflar içerir ve veri ardışık kümeleri yukarı. Yapılandırmaya çağırarak eklemek **AddTables** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) SQL veritabanındaki verilere erişmek Entity Framework sağlar. Yapılandırmaya çağırarak eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.Authentication] kimlik doğrulaması sağlar ve ayarlar yukarı belirteçleri doğrulamak için kullanılan OWIN ara yazılımı. Yapılandırmaya çağırarak eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
-* [Microsoft.Azure.Mobile.Server.Notifications] anında iletme bildirimleri ve anında iletme kayıt uç noktasını tanımlar sağlar. Yapılandırmaya çağırarak eklemek **AddPushNotifications** genişletme yöntemi.
-* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) verilerini mobil uygulamanızdan eski tarayıcılar için hizmet veren bir denetleyiciyi oluşturur. Yapılandırmaya çağırarak eklemek **MapLegacyCrossDomainController** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) Enables the Entity Framework to access data in the SQL Database. Yapılandırmaya çağırarak eklemek **AddTablesWithEntityFramework** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.Authentication] Enables authentication and sets-up the OWIN middleware used to validate tokens. Yapılandırmaya çağırarak eklemek **AddAppServiceAuthentication** ve **Iappbuilder**. **UseAppServiceAuthentication** genişletme yöntemleri.
+* [Microsoft.Azure.Mobile.Server.Notifications] Enables push notifications and defines a push registration endpoint. Yapılandırmaya çağırarak eklemek **AddPushNotifications** genişletme yöntemi.
+* [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) Creates a controller that serves data to legacy web browsers from your Mobile App. Yapılandırmaya çağırarak eklemek **MapLegacyCrossDomainController** genişletme yöntemi.
 * [Microsoft.Azure.Mobile.Server.Login] özel kimlik doğrulama senaryoları sırasında kullanılan bir statik yöntem AppServiceLoginHandler.CreateToken() yöntemi sağlar.
 
 ## <a name="publish-server-project"></a>Nasıl yapılır: Sunucu projesi yayımlama
@@ -144,7 +144,7 @@ Bu bölümde, .NET arka uç projeniz Visual Studio'dan yayımlamak nasıl göste
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-success.png)
 
-## <a name="define-table-controller"></a>Nasıl yapılır: bir tablo denetleyicisi tanımlayın
+## <a name="define-table-controller"></a> Nasıl yapılır: bir tablo denetleyicisi tanımlayın
 Mobil istemcilerin bir SQL tablosuna kullanıma sunmak için bir tablo denetleyicisi tanımlayın.  Bir tablo denetleyicisi yapılandırma üç adımı gerektirir:
 
 1. Bir veri aktarım nesnesini (DTO) sınıf oluşturun.

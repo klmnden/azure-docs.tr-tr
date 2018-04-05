@@ -1,8 +1,8 @@
 ---
-title: "MySQL çalıştıran klasik bir Azure VM oluşturma | Microsoft Docs"
-description: "Windows Server 2012 R2 ve klasik dağıtım modeli kullanılarak MySQL veritabanı çalıştıran bir Azure sanal makine oluşturun."
+title: MySQL çalıştıran klasik bir Azure VM oluşturma | Microsoft Docs
+description: Windows Server 2012 R2 ve klasik dağıtım modeli kullanılarak MySQL veritabanı çalıştıran bir Azure sanal makine oluşturun.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: timlt
 editor: tysonn
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
 ms.openlocfilehash: e4135f96027cc25e1e0a149857ace1672570fc4b
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Windows Server 2016 çalıştıran Klasik dağıtım modeli kullanılarak oluşturulmuş bir sanal makinede MySQL yükleme
 [MySQL](https://www.mysql.com) bir popüler açık kaynak, SQL veritabanı. Bu öğreticide, yüklemek ve çalıştırmak nasıl gösterilir **5.7.18 MySQL community sürümü** MySQL sunucusu çalıştıran bir sanal makine olarak **Windows Server 2016**. Deneyiminizi MySQL veya Windows Server'ın diğer sürümleri için biraz farklı olabilir.
@@ -51,7 +51,7 @@ MySQL Server topluluk sürümünü çalıştıran yüklemek ve yapılandırmak i
 
 1. Uzak Masaüstü kullanarak sanal makineye bağlandıktan sonra tıklatın **Internet Explorer** başlangıç ekranından.
 2. Seçin **Araçları** sağ üst köşesinde (cogged tekerleği simgesi) düğmesine tıklayın ve ardından **Internet Seçenekleri**. Tıklatın **güvenlik** sekmesini tıklatın, **Güvenilen siteler** simgesine ve ardından **siteleri** düğmesi. Http://*.MySQL.com Güvenilen siteler listesine ekleyin. Tıklatın **Kapat**ve ardından **Tamam**.
-3. Adres çubuğu, Internet Explorer'ın, https://dev.mysql.com/downloads/mysql/ yazın.
+3. Adres çubuğu, Internet Explorer'ın, yazın https://dev.mysql.com/downloads/mysql/.
 4. Bulun ve Windows için MySQL yükleyicisi en son sürümünü indirmek için MySQL sitesini kullanın. MySQL yükleyici seçerken, tam kümesi (örneğin, mysql-yükleyici-topluluk-5.7.18.0.msi dosya boyutuna 352.8 MB) dosya ve yükleyici kaydedin sürümü yükleyin.
 5. Yükleyici, indirme tamamlandığında tıklatın **çalıştırmak** Kurulum başlatmak için.
 6. Üzerinde **Lisans Sözleşmesi'ni** sayfasında lisans anlaşmasını kabul etmeniz ve tıklayın **sonraki**.
@@ -114,11 +114,11 @@ MySQL sunucusu hizmetini çalıştıran Azure VM'ye uzak bağlantınızı sınam
    ![](media/mysql-2008r2/MySQL_DNSName.png)
 3. MySQL veya MySQL istemcisini çalıştıran bir yerel bilgisayardan MySQL kullanıcı olarak oturum açmak için aşağıdaki komutu çalıştırın.
 
-     MySQL -u <yourMysqlUsername> - p -h<yourDNSname>
+     MySQL -u <yourMysqlUsername> - p -h <yourDNSname>
 
    Örneğin, MySQL kullanıcı adı kullanarak _dbadmin3_ ve _testmysql.cloudapp.net_ DNS adı sanal makine için aşağıdaki komutu kullanarak MySQL başlayabilirsiniz:
 
-     MySQL -u dbadmin3 -p -h testmysql.cloudapp.net
+     mysql -u dbadmin3 -p -h testmysql.cloudapp.net
 
 ## <a name="next-steps"></a>Sonraki adımlar
 MySQL çalıştırma hakkında daha fazla bilgi için bkz: [MySQL belgeleri](http://dev.mysql.com/doc/).

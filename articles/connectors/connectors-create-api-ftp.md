@@ -1,11 +1,11 @@
 ---
-title: "Logic apps içinde FTP Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. Dosyalarınızı yönetmek için FTP sunucusuna bağlanın. Karşıya yükleme gibi çeşitli eylemleri, güncelleştirme, almak ve FTP sunucusu dosyaları silin."
+title: Logic apps içinde FTP Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs
+description: Logic apps ile Azure uygulama hizmeti oluşturun. Dosyalarınızı yönetmek için FTP sunucusuna bağlanın. Karşıya yükleme gibi çeşitli eylemleri, güncelleştirme, almak ve FTP sunucusu dosyaları silin.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
 ms.service: logic-apps
@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/22/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP Bağlayıcısı ile çalışmaya başlama
 İzleme, yönetme ve FTP sunucusunda bulunan dosyaları oluşturmak için FTP Bağlayıcısı'nı kullanın. 
@@ -50,7 +50,7 @@ Bu örnekte, ı size nasıl kullanılacağını gösterir **bir dosya eklendiği
    ![FTP tetikleyici görüntü 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
 2. Seçin **...**  denetimi sağ tarafta bulunur. Bu Klasör Seçici denetim açar  
    ![FTP tetikleyici görüntü 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
-3. Seçin  **>**  (sağ ok) için yeni veya değiştirilmiş dosyaları izlemek istediğiniz klasörü bulmak üzere göz atın. Klasör ve klasör gösterilen artık bildirim seçin **klasörü** denetim.  
+3. Seçin **>** (sağ ok) için yeni veya değiştirilmiş dosyaları izlemek istediğiniz klasörü bulmak üzere göz atın. Klasör ve klasör gösterilen artık bildirim seçin **klasörü** denetim.  
    ![FTP tetikleyici görüntü 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   
 
 Bu noktada, mantıksal uygulamanızı bir dosya değiştiren veya belirli FTP klasörde oluşturulan diğer tetikleyiciler ve Eylemler iş akışı bir farklı çalıştır başlayacak bir tetikleyici ile yapılandırıldı. 

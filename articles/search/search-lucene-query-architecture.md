@@ -1,10 +1,10 @@
 ---
 title: Tam metin arama motoru (Lucene) mimarisi Azure Search'te | Microsoft Docs
-description: "Lucene sorgu işleme ve belge alma kavramları açıklaması olarak Azure arama ile ilgili tam metin araması için."
+description: Lucene sorgu işleme ve belge alma kavramları açıklaması olarak Azure arama ile ilgili tam metin araması için.
 services: search
 manager: jhubbard
 author: yahnoosh
-documentationcenter: 
+documentationcenter: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search'te nasıl tam metin araması çalışır
 
@@ -282,7 +282,7 @@ Başlık alanında, yalnızca *otel* iki belgelerde görüntülenir: 1, 3.
 | Kuzey | 2
 | Okyanusu | 1, 2, 3
 | / | 2
-| üzerinde |2
+| açık |2
 | Sessiz | 4
 | odaları  | 1, 3
 | secluded | 4
@@ -292,7 +292,7 @@ Başlık alanında, yalnızca *otel* iki belgelerde görüntülenir: 1, 3.
 | - | 1
 | görünüm | 1, 2, 3
 | taramasını | 1
-| İle | 3
+| with | 3
 
 
 **Dizinli koşulları karşı sorgu terimlerinin eşleştirme**
@@ -363,7 +363,7 @@ Bu önemli neden bir örnek gösterilmektedir. Giriş farklı koşullarını ("t
 Azure Search'te ilgi puanları ayarlamak için iki yolu vardır:
 
 1. **Profilleri Puanlama** bir dizi kurala göre sonuçları dereceli listesi belgelerde Yükselt. Bizim örneğimizde, biz Açıklama alanına eşleşen belgeleri daha ilgili Başlık alanında eşleşen belgeleri düşünebilirsiniz. Ayrıca, dizinimizi her otel için bir fiyat alan olsaydı, biz alt fiyat belgelerle yükseltmek. Daha fazla öğrenmek için [Puanlama profilleri arama dizinine ekleyin.](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)
-2. **Terim** (yalnızca kullanılabilir tam Lucene sorgu söz dizimi) artırma işleci sağlar `^` sorgu ağaç herhangi bir kısmını uygulanabilir. Önek arama yerine örneğimizde *air-condition*\*, bir arama için tam terimi *air-condition* veya önek, ancak tam terimini eşleşen belgeleri derece yüksek terim sorguya artırma uygulayarak: *hava durumu ^ 2 || Air-Condition**. Daha fazla bilgi edinmek [terim](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+2. **Terim** (yalnızca kullanılabilir tam Lucene sorgu söz dizimi) artırma işleci sağlar `^` sorgu ağaç herhangi bir kısmını uygulanabilir. Önek arama yerine örneğimizde *air-condition*\*, bir arama için tam terimi *air-condition* veya önek, ancak tam terimini eşleşen belgeleri Terim sorguya artırma uygulayarak daha yüksek derece: * hava durumu ^ 2 || Air-Condition **. Daha fazla bilgi edinmek [terim](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Dağıtılmış bir dizinde Puanlama

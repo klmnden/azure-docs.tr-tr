@@ -1,8 +1,8 @@
 ---
-title: "Uygulama ağ geçidi ile sanal ağındaki Azure API Management kullanma | Microsoft Docs"
-description: "Kurulum ve iç sanal ağ ile uygulama ağ geçidi (WAF) ön uç olarak Azure API Management yapılandırmak hakkında bilgi edinin"
+title: Uygulama ağ geçidi ile sanal ağındaki Azure API Management kullanma | Microsoft Docs
+description: Kurulum ve iç sanal ağ ile uygulama ağ geçidi (WAF) ön uç olarak Azure API Management yapılandırmak hakkında bilgi edinin
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: solankisamir
 manager: kjoshi
 editor: antonba
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
 ms.openlocfilehash: f9bc3ffda9f943a37fd5aadf440abf7d33a6d1de
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Bir iç sanal ağ API Management'te uygulama ağ geçidi ile tümleştirme 
 
-##<a name="overview"></a> Genel bakış
+##<a name="overview"> </a> Genel bakış
  
 API Management hizmeti, bir sanal ağdaki sanal ağda yalnızca erişilebilir kılan iç modunda yapılandırılabilir. Azure uygulama ağ geçidi bir katman 7 yük dengeleyici sağlayan bir PAAS hizmetidir. Ters proxy hizmeti davranır ve onun bir Web uygulaması Güvenlik Duvarı (WAF) sunan arasında sağlar.
 
@@ -32,7 +32,7 @@ API uygulama ağ geçidi ön uç ile dahili bir VNET içinde sağlanan yönetim 
 * Bir alt kümesini API'leri dış Tüketiciler için kullanılabilir API Management tanımladığınız ve tek bir API Management kaynağı kullanın.
 * API Management genel Internet'ten açma ve kapatma anahtar erişimi için bir anahtar teslim yol sağlar. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmalısınız:
 
@@ -42,14 +42,14 @@ Bu makalede açıklanan adımları gerçekleştirmek için şunlara sahip olmal�
 
 + APIM örneği. Daha fazla bilgi için bkz: [bir Azure API Management örneği oluşturma](get-started-create-service-instance.md).
 
-##<a name="scenario"></a> Senaryosu
+##<a name="scenario"> </a> Senaryo
 Bu makalede, iç ve dış tüketicileri için tek bir API Management hizmeti kullanmak ve her iki şirket içi için tek bir ön uç görevi görür ve bulut API'leri hale alınmaktadır. Ayrıca dış uygulama ağ geçidi mevcut PathBasedRouting işlevselliğini kullanarak tüketimi için yalnızca bir alt kümesini Apı'lerinizi (yeşil renkte vurgulanır örnekte) kullanıma sunmak nasıl görürsünüz.
 
 İlk kurulum örnekte tüm API'leri yalnızca sanal ağınızın içinde yönetilir. İç tüketicileri (vurgulanmış turuncu) tüm iç ve dış API'leri erişebilir. Trafik hiçbir zaman yüksek performanslı teslim Internet'e Expressroute bağlantı hatları gider.
 
 ![URL rota](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 
-## <a name="before-you-begin"></a> Başlamadan önce
+## <a name="before-you-begin"> </a> Başlamadan önce
 
 1. Web Platformu Yükleyicisi’ni kullanarak Azure PowerShell cmdlet’lerin en son sürümünü yükleyin. **İndirmeler sayfası**’ndaki [Windows PowerShell](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) bölümünden en son sürümü indirip yükleyebilirsiniz.
 2. Bir sanal ağ oluşturma ve API Management ve uygulama ağ geçidi için ayrı alt ağlar oluşturun. 
@@ -65,7 +65,7 @@ Bu makalede, iç ve dış tüketicileri için tek bir API Management hizmeti kul
 * **Özel durum araştırması:** uygulama ağ geçidi, varsayılan olarak, kullanan IP adreslerini göre araştırmalar BackendAddressPool hangi sunucuları etkin olduğunu anlamak için. API Management hizmeti yalnızca doğru ana bilgisayar üstbilgisi olan isteklerine yanıt verir, bu nedenle varsayılan araştırmalar başarısız. Bir özel durum araştırması uygulama ağ geçidi hizmeti kullanımda ve isteklerini iletmek belirlemek amacıyla tanımlanması gerekiyor.
 * **Özel etki alanı sertifikası:** API Management kendi ana bilgisayar adı uygulama ağ geçidi ön uç DNS adına CNAME eşlemesi oluşturmanız internet'ten erişmek için. Bu uygulama için API Management ileten ağ geçidi için gönderilen sertifikayı ve ana bilgisayar üstbilgisi bir APIM geçerli olarak tanıyabilmesi için sağlanır.
 
-## <a name="overview-steps"></a> API Management ve uygulama ağ geçidi tümleştirmek için gerekli adımları 
+## <a name="overview-steps"> </a> API Management ve uygulama ağ geçidi tümleştirmek için gerekli adımları 
 
 1. Resource Manager için kaynak grubu oluşturun.
 2. Uygulama ağ geçidi için bir sanal ağ alt ağı ve genel IP oluşturun. API yönetimi için başka bir alt ağ oluşturun.
@@ -298,7 +298,7 @@ Aşağıdaki örnek, "/ Yankı /" yol yönlendirme trafiği için arka uç "apim
 $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" -Paths "/echo/*" -BackendAddressPool $apimProxyBackendPool -BackendHttpSettings $apimPoolSetting
 ```
 
-Yolun istiyoruz API Yönetimi'nden etkinleştirmek için yol kuralları eşleşmiyorsa, kural yol haritası yapılandırmasını da adlı bir varsayılan arka uç adres havuzu yapılandırır **dummyBackendPool**. Örneğin, http://api.contoso.net/calc/ * gider **dummyBackendPool** beklemediğiniz eşleşen trafik için varsayılan havuzu olarak tanımlanan.
+Yolun istiyoruz API Yönetimi'nden etkinleştirmek için yol kuralları eşleşmiyorsa, kural yol haritası yapılandırmasını da adlı bir varsayılan arka uç adres havuzu yapılandırır **dummyBackendPool**. Örneğin, http://api.contoso.net/calc/* gider **dummyBackendPool** beklemediğiniz eşleşen trafik için varsayılan havuzu olarak tanımlanan.
 
 ```powershell
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
@@ -347,10 +347,10 @@ Uygulama ağ geçidi DNS adı APIM proxy ana bilgisayar adını gösteren bir CN
 Get-AzureRmPublicIpAddress -ResourceGroupName "apim-appGw-RG" -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Özeti
+##<a name="summary"> </a> Özet
 Azure API Management sanal ağ içinde yapılandırılmış bir tek ağ geçidi arabirimi barındırılan şirket içi olmalarından bağımsız veya bulutta tüm yapılandırılmış API'ler sağlar. Uygulama ağ geçidi API Management ile tümleştirme, API Management örneği için bir ön olarak bir Web uygulaması güvenlik duvarı sağlama yanı sıra seçmeli olarak Internet üzerinden erişilebilir olması için belirli API'ler etkinleştirme esnekliğini sağlar.
 
-##<a name="next-steps"></a> Sonraki adımlar
+##<a name="next-steps"> </a> Sonraki adımlar
 * Azure uygulama ağ geçidi hakkında daha fazla bilgi edinin
   * [Uygulama ağ geçidi'ne genel bakış](../application-gateway/application-gateway-introduction.md)
   * [Uygulama ağ geçidi Web uygulaması güvenlik duvarı](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

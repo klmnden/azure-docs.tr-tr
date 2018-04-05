@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure bulut hizmeti Azure CDN ile tümleştirmek | Microsoft Docs"
-description: "Tümleşik bir Azure CDN uç noktasından içerik sunan bir bulut hizmeti dağıtmayı öğrenin"
+title: Bir Azure bulut hizmeti Azure CDN ile tümleştirmek | Microsoft Docs
+description: Tümleşik bir Azure CDN uç noktasından içerik sunan bir bulut hizmeti dağıtmayı öğrenin
 services: cdn, cloud-services
 documentationcenter: .net
 author: zhangmanling
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: f131eb021d85766f12b0fb6cb8b5a07f965f9c97
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="intro"></a>Bir bulut hizmeti Azure CDN ile tümleştirme
+# <a name="intro"></a> Bir bulut hizmeti Azure CDN ile tümleştirme
 Bir bulut hizmeti, bulut hizmetinin konumundan içerik sunan Azure CDN ile tümleştirilebilir. Bu yaklaşım, aşağıdaki avantajları sunar:
 
 * Kolayca dağıtın ve görüntüleri, komut dosyalarını ve stil sayfalarını bulut hizmetinizin proje dizinlerde güncelleştir
@@ -30,7 +30,7 @@ Bir bulut hizmeti, bulut hizmetinin konumundan içerik sunan Azure CDN ile tüml
 * ASP.NET paketleme ve küçültme Azure CDN ile tümleştirme
 
 ## <a name="what-you-will-learn"></a>Bilgi edineceksiniz
-Bu öğreticide şunları öğreneceksiniz nasıl yapılır:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 * [Azure CDN uç bulut hizmetiniz ile bütünleşir ve statik içerik Web sayfalarınıza Azure CDN hizmet](#deploy)
 * [Bulut hizmetinizde statik içeriği için önbellek ayarlarını yapılandırın](#caching)
@@ -146,18 +146,18 @@ Hangi CDN uç noktası aşağıdaki kaynak URL'de karşılık gelir:
 
     http://camcdnservice.cloudapp.net/Content/bootstrap.css
 
-Ne zaman gezinmek için **http://*&lt;cdnName>*.azureedge.net/Content/bootstrap.css** indirin veya gelen bootstrap.css açmak için bağlı olarak istenir, tarayıcınızdaki yayımlanan Web uygulamanızdan.
+Ne zaman gezinmek için **http://*&lt;cdnName >*.azureedge.net/Content/bootstrap.css**, tarayıcınıza bağlı olarak yükleyebilir veya gelen bootstrap.css açmak için istenir yayımlanan Web uygulamanızdan.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG)
 
-Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz **http://*&lt;serviceName>*.cloudapp.net/** doğrudan CDN uç noktanız gelen. Örneğin:
+Genel olarak erişilebilir bir URL'de benzer şekilde erişebilirsiniz **http://*&lt;serviceName >*.cloudapp.net/**, CDN uç noktasından düz. Örneğin:
 
 * / Script yolundan .js dosya
 * / Content içerik dosyanın yolu
 * Herhangi bir denetleyici/eylem
 * CDN uç noktanız, sorgu dizeleri içeren herhangi bir URL, sorgu dizesi etkinleştirilirse
 
-Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir **http://*&lt;cdnName>*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
+Aslında, yukarıdaki yapılandırma ile tüm bulut hizmetinden barındırabilir **http://*&lt;cdnName >*.azureedge.net/**. İçin giderseniz **http://camservice.azureedge.net/**, ev/dizinden eylem sonucu alıyorum.
 
 ![](media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG)
 
@@ -325,7 +325,7 @@ Bu denetleyici eylemi kurulumu için yukarıdaki adımları izleyin:
             <br />
             <input class="btn" type="submit" value="Generate meme" />
         </form>
-5. Bulut hizmeti yeniden yayımlamanız ve gidin **http://*&lt;serviceName>*.cloudapp.net/MemeGenerator/Index** tarayıcınızda.
+5. Bulut hizmeti yeniden yayımlamanız ve gidin **http://*&lt;serviceName >*.cloudapp.net/MemeGenerator/Index** tarayıcınızda.
 
 Form değerleri gönderdiğiniz zaman `/MemeGenerator/Index`, `Index_Post` eylem yöntemine döndürür bağlantı `Show` eylem yöntemi ile ilgili giriş tanımlayıcısı. Bağlantıya tıkladığınızda, aşağıdaki kodu ulaşmak:  
 
@@ -527,10 +527,10 @@ Azure CDN uç noktanız için herhangi bir nedenle başarısız olduğunda, Web 
    
     Zaman `CdnFallbackExpression` olan null değil, betik paket başarıyla yüklendi olup olmadığını sınamak ve değilse, paket kaynak Web sunucusundan doğrudan erişmek için HTML'e eklenmiş. Bu özellik, ilgili CDN paket düzgün şekilde yüklenmesini olup olmadığını, testleri bir JavaScript ifadesi ayarlanması gerekir. Her paket test etmek için gerekli ifade içeriği göre farklılık gösterir. Varsayılan paketleri için yukarıdaki:
    
-   * `window.jquery`JQuery-{version} .js tanımlanır
-   * `$.validator`JQuery.Validate.js tanımlanır
-   * `window.Modernizr`modernizer gibi-{version} .js tanımlanır
-   * `$.fn.modal`Bootstrap.js tanımlanır
+   * `window.jquery` JQuery-{version} .js tanımlanır
+   * `$.validator` JQuery.Validate.js tanımlanır
+   * `window.Modernizr` modernizer gibi-{version} .js tanımlanır
+   * `$.fn.modal` Bootstrap.js tanımlanır
      
      I CdnFallbackExpression için ayarlamamış fark etmiş olabilirsiniz `~/Cointent/css` paket. Şu anda bu olmadığından bir [System.Web.Optimization hatada](https://aspnetoptimization.codeplex.com/workitem/104) , yerleştirir bir `<script>` beklenen yerine geri dönüş CSS etiketini `<link>` etiketi.
      

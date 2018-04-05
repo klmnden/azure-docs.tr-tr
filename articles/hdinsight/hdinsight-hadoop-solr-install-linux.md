@@ -1,8 +1,8 @@
 ---
-title: "Linux tabanlı Hdınsight üzerinde - Azure Solr yüklemek için betik eylemi kullanın | Microsoft Docs"
-description: "Betik eylemleri kullanarak Linux tabanlı Hdınsight Hadoop kümeleri üzerinde Solr yüklemeyi öğrenin."
+title: Linux tabanlı Hdınsight üzerinde - Azure Solr yüklemek için betik eylemi kullanın | Microsoft Docs
+description: Betik eylemleri kullanarak Linux tabanlı Hdınsight Hadoop kümeleri üzerinde Solr yüklemeyi öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.openlocfilehash: f642a1f8060f566ec95b23995d0f82191b0c5315
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Yükleme ve Solr Hdınsight Hadoop kümeleri kullanma
 
@@ -39,7 +39,7 @@ Betik eylemi kullanarak Azure Hdınsight'ta Solr yüklemeyi öğrenin. Solr gü�
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak Microsoft tarafından desteklenir.
 >
-> Özel bileşenleri, Solr, örneğin, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Microsoft destek özel bileşenlerle sorunları gidermek mümkün olmayabilir. Yardım için açık kaynak toplulukları devreye gerekebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Özel bileşenleri, Solr, örneğin, daha fazla sorun gidermenize yardımcı olması için ticari koşulların elverdiği oranda makul destek alırsınız. Microsoft destek özel bileşenlerle sorunları gidermek mümkün olmayabilir. Yardım için açık kaynak toplulukları devreye gerekebilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 
 ## <a name="what-the-script-does"></a>Betiğin yaptığı
 
@@ -61,7 +61,7 @@ Solr yüklü olan bir küme oluşturmak için adımlarda kullanın [Hdınsight k
 1. Gelen __küme Özet__ bölümü, select__Advanced settings__, ardından __betik eylemleri__. Form doldurmak için aşağıdaki bilgileri kullanın:
 
    * **AD**: betik eylemi için kolay bir ad girin.
-   * **BETİK URI'si**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
+   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
    * **HEAD**: Bu seçeneği işaretleyin.
    * **ÇALIŞAN**: Bu seçeneği işaretleyin.
    * **ZOOKEEPER**: Zookeeper düğümüne yüklemek için bu seçeneği işaretleyin.
@@ -116,7 +116,7 @@ Solr için örnek veri eklemek için aşağıdaki adımları kullanın ve ardın
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    Bu komut arar **collection1** eşleşen herhangi bir belgeniz için  **\*:\***  (olarak kodlanmış \*% 3A\* sorgu dizesinde). Aşağıdaki JSON belgesi, yanıt örneğidir:
+    Bu komut arar **collection1** eşleşen herhangi bir belgeniz için **\*:\*** (olarak kodlanmış \*% 3A\* sorgu dizesinde). Aşağıdaki JSON belgesi, yanıt örneğidir:
 
             "response": {
                 "numFound": 2,
@@ -194,7 +194,7 @@ SSH tüneli kurduktan sonra Solr panoyu kullanmak için aşağıdaki adımları 
 
         Daha sonra kullanılmak üzere döndürdü, değer kaydedin.
 
-2. Tarayıcınızda, bağlanmak **solr/http://HOSTNAME:8983 / #/**, burada **ana bilgisayar adı** önceki adımlarda belirlenen adıdır.
+2. Tarayıcınızda, bağlanmak **http://HOSTNAME:8983/solr/#/**, burada **ana bilgisayar adı** önceki adımlarda belirlenen adıdır.
 
     İstek, kümenizde Solr Web Arabirimine SSH tüneli üzerinden yönlendirilir. Sayfa aşağıdaki görüntüye benzer görünür:
 
@@ -319,7 +319,7 @@ Kümeniz için varsayılan depolama Solr verileri yedeklemek için aşağıdaki 
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-Solr yedekleme ve geri yükleme ile çalışma hakkında daha fazla bilgi için bkz: [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
+Solr yedekleme ve geri yükleme ile çalışma hakkında daha fazla bilgi için bkz: [ https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups ](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

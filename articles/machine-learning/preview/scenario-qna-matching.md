@@ -1,11 +1,11 @@
 ---
-title: "Soru- cevap Azure Machine Learning çalışma ekranı kullanarak bir eşleşen | Microsoft Docs"
-description: "Çeşitli etkili machine learning yöntemleri açık eşleştirmek için kullanılacak önceden varolan sorguları sona erdi nasıl SSS soru/çiftleri yanıtlar."
+title: Soru- cevap Azure Machine Learning çalışma ekranı kullanarak bir eşleşen | Microsoft Docs
+description: Çeşitli etkili machine learning yöntemleri açık eşleştirmek için kullanılacak önceden varolan sorguları sona erdi nasıl SSS soru/çiftleri yanıtlar.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: mezmicrosoft
 editor: mezmicrosoft
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
 ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Soru- cevap Azure Machine Learning çalışma ekranı kullanarak bir eşleştirme
 Açık sona erdi sorulara yanıt verilmesi zordur ve genellikle konu uzmanları (SME) gelen el ile çaba gerektirir. İç SME taleplerini azaltmaya yardımcı olmak için şirketler genellikle kullanıcılar yardımcı olan bir araç olarak sık sorulan sorular (SSS) listesi oluşturun. Bu örnek SSS soru/yanıt çiftleri önceden varolan açık sona erdi sorguları eşleştirmek için çeşitli etkili makine öğrenme yöntemlerini gösterir. Bu örnek, Azure Machine Learning çalışma ekranı kullanarak çözüm oluşturmak için bir kolay geliştirme sürecini gösterir. 
@@ -51,7 +51,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**
+2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
 4.  İçinde **arama proje şablonları** arama kutusu, "Q & A eşleşen" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın

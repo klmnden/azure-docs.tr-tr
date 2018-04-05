@@ -1,12 +1,12 @@
 ---
 title: Azure hizmet durumu bildirimlerine nelerdir? | Microsoft Docs
-description: "Hizmet durumu bildirimlerine, Microsoft Azure tarafından yayınlanan hizmet sistem durumu iletileri görüntülemenize olanak sağlar."
+description: Hizmet durumu bildirimlerine, Microsoft Azure tarafından yayınlanan hizmet sistem durumu iletileri görüntülemenize olanak sağlar.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerine görüntüleme
 
@@ -43,7 +43,7 @@ eventDataId | Bir olay benzersiz tanımlayıcısı.
 EventName | Bir olay başlığı.
 düzey | Bir olay düzeyi. Aşağıdaki değerlerden birini: **kritik**, **hata**, **uyarı** veya **bilgilendirici**.
 resourceProviderName | Etkilenen kaynak için kaynak sağlayıcı adı.
-Kaynak türü| Etkilenen kaynağın kaynak türü.
+resourceType| Etkilenen kaynağın kaynak türü.
 alt durum | Genellikle HTTP durum kodu karşılık gelen REST çağrısı, ancak alt açıklayan diğer dizeleri de içerir. Örneğin: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu Hata (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504).
 eventTimestamp | Olay işleme olaya karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası.
 submissionTimestamp | Olay sorgulama için kullanılabilir duruma zaman damgası.
@@ -52,8 +52,8 @@ durum | İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır: 
 operationName | İşlemin adı.
 category | Bu özellik her zaman olduğu **ServiceHealth**.
 resourceId | Etkilenen kaynağının kaynak kimliği.
-Properties.Title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılandır.
-Properties.Communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
+Properties.title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılandır.
+Properties.communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
 Properties.incidentType | Aşağıdaki değerlerden birini: **AssistedRecovery**, **ActionRequired**, **bilgi**, **olay**,  **Bakım**, veya **güvenlik**.
 Properties.trackingId | Bu olay ilişkili olduğu olay. Bir olaya ilgili olayları ilişkilendirmek için bunu kullanın.
 Properties.impactedServices | Hizmetlerin ve olaydan etkilenen bölgeler açıklar kaçış karakterli bir JSON blobu. Özelliği Hizmetleri, her biri listesini içeren bir **ServiceName**ve her biri etkilenen bölgelerin bir listesi bir **RegionName**.

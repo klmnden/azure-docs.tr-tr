@@ -26,7 +26,7 @@ Cihazlarınızda yöntemleri çağırmak için **aygıtları** Uzaktan izleme ç
 
 1. Cihazınızda çağırabilir yöntemlerinin listesini görüntülemek için seçin **zamanlama**. Birden fazla cihazda çalıştırmak için bir yöntem zamanlamak için listede birden çok aygıt seçebilirsiniz. **Zamanlama** paneli yöntemi türlerini seçtiğiniz tüm cihazların ortak gösterir.
 
-1. Seçin **FirmwareUpdate**, iş adı ayarlamak **UpdatePhysicalChiller**. Ayarlama **bellenim sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından seçin **Uygulama**:
+1. Seçin **FirmwareUpdate**, iş adı ayarlamak **UpdatePhysicalChiller**. Ayarlama **bellenim sürümü** için **2.0.0**ayarlayın **bellenim URI** için **http://contoso.com/updates/firmware.bin**ve ardından **Uygula**:
 
     ![Zamanlama bellenimi güncelleştirme](media/iot-suite-visualize-connecting/deviceschedule.png)
 

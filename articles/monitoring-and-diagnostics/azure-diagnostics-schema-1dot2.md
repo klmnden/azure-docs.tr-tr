@@ -1,12 +1,12 @@
 ---
-title: "Azure tanılama 1.2 yapılandırma şeması | Microsoft Docs"
-description: "YALNIZCA Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric veya Bulut Hizmetleri ile Azure SDK 2.5 kullanıyorsanız ilgilidir."
+title: Azure tanılama 1.2 yapılandırma şeması | Microsoft Docs
+description: YALNIZCA Azure sanal makineler, sanal makine ölçek kümeleri, Service Fabric veya Bulut Hizmetleri ile Azure SDK 2.5 kullanıyorsanız ilgilidir.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 1e9cc6d0950945df8c4fba74d8e1f6196be224f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
 > [!NOTE]
@@ -97,14 +97,14 @@ Bu şemayı tanılama İzleyicisi başlatıldığında tanılama yapılandırma 
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 ```  
 
-## <a name="publicconfig-element"></a>PublicConfig öğesi  
+## <a name="publicconfig-element"></a>PublicConfig Element  
  Tanılama yapılandırma dosyasının en üst düzey öğesi. Aşağıdaki tabloda yapılandırma dosyasının öğelerini açıklar.  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
 |**WadCfg**|Gereklidir. Toplanacak telemetri verileri için yapılandırma ayarları.|  
 |**StorageAccount**|Verileri depolamak için Azure Storage hesabının adı. Bu da bir parametre olarak Set-AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
-|**LocalResourceDirectory**|Olay verilerini depolamak için izleme aracısı tarafından kullanılacak sanal makinede dizin. Aksi halde kümesi, varsayılan dizini kullanılır:<br /><br /> Worker/web rolü için:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> -                      **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizin.<br /><br /> -                      **expandEnvironment** -ortam değişkenleri yol adındaki genişletilmiş olup olmadığını denetler.|  
+|**LocalResourceDirectory**|Olay verilerini depolamak için izleme aracısı tarafından kullanılacak sanal makinede dizin. Aksi halde kümesi, varsayılan dizini kullanılır:<br /><br /> Worker/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> -                      **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizin.<br /><br /> -                      **expandEnvironment** -ortam değişkenleri yol adındaki genişletilmiş olup olmadığını denetler.|  
 
 ## <a name="wadcfg-element"></a>WadCFG öğesi  
 Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
@@ -113,11 +113,11 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Gereklidir. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **overallQuotaInMB** -tanılama verilerini çeşitli türleri tarafından tüketilen yerel disk alanı miktarını Azure tanılama tarafından toplanır. Varsayılan ayar 5120 MB'tır.<br /><br /> -                     **useProxyServer** -IE ayarlarının kümesinde olarak ara sunucu ayarlarını kullanmak için Azure Tanılama'yı yapılandırın.|  
 |**CrashDumps**|Kilitlenme bilgi dökümleri koleksiyonunu etkinleştirin. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **kapsayıcı adı** -kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.<br /><br /> -                     **crashDumpType** -Mini ya da tam kilitlenme toplamak için Azure Tanılama'yı yapılandırır dökümünü yapar.<br /><br /> -                     **directoryQuotaPercentage**-yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
-|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** - Configures the minimum severity level of the logs collected.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**Dizinleri**|Bir dizin, IIS başarısız erişim isteği günlükleri ve/veya IIS günlüklerini içeriğini koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**EtwProviders**|EventSource ETW olayları koleksiyonu yapılandırır ve/veya ETW bildirim dayalı sağlayıcıları.|  
 |**Ölçümler**|Bu öğe hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **performans sayaçları** öğesi performans sayacı tablo yanı sıra ölçüm tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -bu Azure tanılama dağıttığınız sanal makine kaynak kimliğidir. Alma **ResourceId** gelen [Azure portal](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Tıklatın **özellikleri** döşeme ve değerini kopyalayın **kimliği** alan.|  
-|**Performans sayaçları**|Performans sayaçları koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**PerformanceCounters**|Performans sayaçları koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 |**WindowsEventLog**|Windows olay günlüklerini toplama sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps öğesi  
@@ -184,7 +184,7 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 |------------------|-----------------|  
 |**MetricAggregation**|Gerekli öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
 
-## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
+## <a name="performancecounters-element"></a>PerformanceCounters Element  
  Performans sayaçları koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
@@ -196,11 +196,11 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -sayaç görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -sayaç adı görüntülerken kullanılacak yerel ayar|  
+|**Ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -sayaç görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -sayaç adı görüntülerken kullanılacak yerel ayar|  
 
-## <a name="windowseventlog-element"></a>WindowsEventLog öğesi  
+## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**Veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|
+|**DataSource**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|

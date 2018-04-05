@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: 2c10dcf185c62f3672be80ad2e3d049eae82fe6b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e37b63580d8cea4b5772bc54f7b2f79980afc0bc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stack-servicing-policy"></a>İlke bakım azure yığını
 Bu makalede hizmet ilkesi Azure tümleşik yığını sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekir. 
@@ -47,19 +47,6 @@ Destek almak devam etmek için geçerli Azure yığın dağıtımınızı tutmal
 
 Microsoft yazılım güncelleştirme paketleri, toplu olmayan ve bir önkoşul olarak önceki güncelleştirme paketini gerektirir. Bir veya daha fazla güncelleştirmelerinin erteleneceği karar verirseniz, en son sürümünü almak genel çalışma zamanı göz önünde bulundurun. 
 
-Aşağıdaki tabloda, örnek güncelleştirme paketi sürümleri, kendi önkoşul ve sisteminizin destek korumak için en gereken desteklenen minimum sürümü gösterir. Tablonun ilk güncelleştirme paketi sürümünde (1709) Eylül 2017 ilk sürümünden (1708 yapı) Azure tümleşik yığını sistemlerinin temel alır. 
-
-| Son güncelleştirme paketini (*örnek*) | Önkoşul | Desteklenen en düşük sürüm |
-| -- | -- | -- |
-| 1710 | 1709 | Yok |
-| 1711 | 1710 | 1709 |
-| 1712 | 1711 | 1710 |
-| 1802 | 1712 | 1711 |
-| 1803 | 1802 | 1712 |
-| 1804 | 1803 | 1802 |
-| 1805 | 1804 | 1803 |
-| | | 
-Önceki tabloda yayın sürümü 1801 yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

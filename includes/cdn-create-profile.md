@@ -1,27 +1,47 @@
-**Yeni bir CDN profili oluşturmak için**
+---
+title: include dosyası
+description: include dosyası
+services: cdn
+author: dksimpson
+ms.service: cdn
+ms.topic: include
+ms.date: 04/04/2018
+ms.author: rli; v-deasim
+ms.custom: include file
+ms.openlocfilehash: 692364e9b2e78b3bd1f63137148dfbc680364737
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/05/2018
+---
+## <a name="create-a-new-cdn-profile"></a>Yeni bir CDN profili oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com), sol üst seçin **kaynak oluşturma**.
-    
-2. **Yeni** dikey penceresinde **Web + Mobil**’i, ardından da **CDN**’yi seçin.
-   
-    **CDN profili** dikey penceresi görünür.
-   
-    ![Yeni CDN profili](./media/cdn-create-profile/new-cdn-profile-include.png)
-3. İçin **adı**, CDN profiliniz için benzersiz bir ad girin.
-    
-4. İçin **abonelik**, bu CDN profili için kullanmak istediğiniz aboneliği seçin.
-   
-5. İçin **kaynak grubu**bir kaynak grubu oluşturun veya seçin. Kaynak grupları hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](../articles/azure-resource-manager/resource-group-overview.md#resource-groups).
-    
-6. İçin **kaynak grubu konumu**, CDN Profil bilgilerinizin depolanacağı Azure konumu seçin. Bu konum CDN uç noktalarına bir etkisi yoktur.
-    
-7. İçin **fiyatlandırma katmanı**, bir katman seçin. Her fiyatlandırma katmanının ile kullanılabilen özelliklerin karşılaştırması için bkz: [Azure CDN özellikleri](../articles/cdn/cdn-overview.md#azure-cdn-features).
-   
-    ![CDN fiyatlandırma katmanı seçimi](./media/cdn-create-profile/cdn-choose-sku-include.png)
+CDN profili, CDN uç noktası için bir kapsayıcıdır ve bir fiyatlandırma katmanı belirtir.
 
-8. İsteğe bağlı olarak, seçin **yeni bir CDN uç noktası şimdi oluşturmak** profili oluştur aynı anda bir uç nokta oluşturma seçeneklerini görüntülemek için. Daha fazla bilgi için bkz: [yeni bir CDN uç noktası oluşturma](../articles/cdn/cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
-   
-9. Daha kolay bulmak, seçmek için oluşturulduktan sonra profili panonuza kaydetmek isteyip istemediğinizi **panoya Sabitle**.
+1. Azure portalında, sol üst köşedeki seçin **kaynak oluşturma**.
     
-10. Seçin **oluşturma** profili oluşturmak için. 
+    **Yeni** bölmesinde görünür.
+   
+2. Seçin **Web + mobil**, ardından **CDN**.
+   
+    ![CDN kaynak seçin](./media/cdn-create-profile/cdn-new-resource.png)
+
+    **CDN profili** bölmesinde görünür.
+
+    Görüntünün aşağıdaki tabloda belirtilen ayarları kullanın.
+   
+    ![Yeni CDN profili](./media/cdn-create-profile/cdn-new-profile.png)
+
+    | Ayar  | Değer |
+    | -------- | ----- |
+    | **Ad** | Girin *my-cdn-profili-123* profil adı. Bu ad genel olarak benzersiz olmalıdır; zaten kullanımda olduğundan, farklı bir girebilirsiniz. |
+    | **Abonelik** | Bir Azure aboneliği aşağı açılan listeden seçin.|
+    | **Kaynak grubu** | Seçin **Yeni Oluştur** ve girin *my-resource-Grup-123* kaynak grubu adı için. Bu ad genel olarak benzersiz olmalıdır; zaten kullanımda olduğundan, farklı bir girebilirsiniz. | 
+    | **Kaynak grubu konumu** | Seçin **Orta ABD** aşağı açılan listeden. |
+    | **Fiyatlandırma katmanı** | Seçin **standart Verizon** aşağı açılan listeden. |
+    | **Şimdi yeni bir CDN uç noktası oluşturma** | Seçili bırakın. |  
+   
+3. Seçin **panoya Sabitle** oluşturulduktan sonra profili panonuza kaydetmek için.
+    
+4. Seçin **oluşturma** profili oluşturmak için. 
 

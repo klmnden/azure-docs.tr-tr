@@ -9,10 +9,10 @@ ms.date: 03/29/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 29256b3bcfedb7fe5045ff4c6c3842eb25e00a28
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 Abonelik başına Log Analytics kaynakları için aşağıdaki sınırlar geçerlidir:
 
@@ -29,7 +29,7 @@ Aşağıdaki sınırlamalar Log Analytics çalışma alanlarının her biri içi
 
 |  | Ücretsiz | Standart | Premium | Tek Başına | OMS | GB başına |
 | --- | --- | --- | --- | --- | --- |--- |
-| Gün başına toplanan veri birimi |500 MB<sup>1</sup> |None |None | None | None | None
+| Gün başına toplanan veri birimi |500 MB<sup>1</sup> |None |None | None | Hiçbiri | None
 | Veri saklama süresi |7 gün |1 ay |12 ay | 1 ay<sup>2</sup> | 1 ay <sup>2</sup>| 1 ay <sup>2</sup>|
 
 <sup>1</sup> Müşteriler 500 MB günlük veri aktarımı sınırına ulaştığında veri analizi durur ve sonraki günün başlangıcında devam eder. Bir gün için UTC temel alınır.

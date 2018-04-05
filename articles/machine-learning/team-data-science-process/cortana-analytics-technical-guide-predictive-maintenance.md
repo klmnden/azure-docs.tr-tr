@@ -1,8 +1,8 @@
 ---
-title: "Azure - Cortana Intelligence çözüm teknik Kılavuzu ile Havacılık Tahmine dayalı bakım | Microsoft Docs"
-description: "Tahmine dayalı bakım Havacılık, yardımcı programlar ve taşıma için teknik Kılavuzu Microsoft Cortana Intelligence ile çözüm şablonu için."
+title: Azure - Cortana Intelligence çözüm teknik Kılavuzu ile Havacılık Tahmine dayalı bakım | Microsoft Docs
+description: Tahmine dayalı bakım Havacılık, yardımcı programlar ve taşıma için teknik Kılavuzu Microsoft Cortana Intelligence ile çözüm şablonu için.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
 ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Tahmine dayalı bakım Havacılık ve diğer işletmeler için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 
@@ -57,7 +57,7 @@ Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğü
 
 Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.
 
-### <a name="azure-event-hub"></a>Azure Event hub'ı
+### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) alıcı yapay veri kaynağı tarafından sağlanan girdi bir hizmettir.
 
 ## <a name="data-preparation-and-analysis"></a>Veri hazırlama ve çözümleme
@@ -85,7 +85,7 @@ Veri kümesi tarafından kullanılan veri kümesi eşleştiğini düşüktür [T
 
 Aşağıdaki bölümlerde değişiklikler yeni bir veri kümesi eklendiğinde gerektiren şablon bölümlerini açıklanmaktadır.
 
-### <a name="azure-event-hub"></a>Azure Event hub'ı
+### <a name="azure-event-hub"></a>Azure Event Hub
 Azure Event Hub genel; Veri, CSV veya JSON biçiminde hub'ına gönderilebilir. Azure Event Hub'ında hiçbir özel işlem gerçekleşir, ancak içine ssas'nin veriler anlamanız önemlidir.
 
 Bu belge, veri alma nasıl açıklamak değildir, ancak kolayca olayları ya da veri Azure olay Hub'ına olay hub'ı API'lerini kullanarak gönderebilirsiniz.
@@ -134,7 +134,7 @@ Bu [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) s
 
 Etkinlikler dahil şunlardır:
 
-* [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) mühendislik için gerekli özellik ve toplamalar gerçekleştirmek için komut dosyası [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) deneyin.
+* [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) mühendislik için gerekli özellik ve toplamalar gerçekleştirmek için komut dosyası [Azure makine Öğrenme](https://azure.microsoft.com/services/machine-learning/) deneyin.
   [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için komut dosyası ***PrepareMLInput.hql***.
 * [Kopya](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlarından taşır etkinlik [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) tek bir etkinliğe [Azure Storage](https://azure.microsoft.com/services/storage/) tarafından erişilen blob [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) Etkinlik.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) etkinlik çağrıları [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) tek bir yerleştirme sonuçlarla deneme [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
@@ -191,7 +191,7 @@ Aşağıdaki adımları pbıx dosyası çalışmaya görselleştirme için veril
 3. (İsteğe bağlı) Yolunuzda panoya yayımlama [çevrimiçi Power BI](http://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
    
    * Tıklatın **'Yayımla'** ve birkaç saniye sonra "Yayımlama Power BI başarılı!" görüntüleyen bir pencere görüntülenir. Yeşil bir onay işareti ile. "Açık PredictiveMaintenanceAerospace.pbix Power BI'da" aşağıdaki bağlantıya tıklayın. Ayrıntılı yönergeler için bkz [Power BI masaüstünden Yayımla](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Yeni bir Pano oluşturmak için: tıklatın  **+**  yanına oturum **panolar** sol bölmede bölümü. Bu yeni bir Pano için "Tahmine dayalı bakım Demo" adı girin.
+   * Yeni bir Pano oluşturmak için: tıklatın **+** yanına oturum **panolar** sol bölmede bölümü. Bu yeni bir Pano için "Tahmine dayalı bakım Demo" adı girin.
    * Raporu açtığınızda, tıklatın ![sabitleme simgesine](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png) panonuza tüm görselleştirmeler sabitleyin. Ayrıntılı yönergeler için bkz [bir kutucuk bir raporu Power BI panosuna Sabitle](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Pano sayfasına gidin ve boyutunu ve konumunu, görselleştirmeleri ayarlayın ve bunların başlıklarını düzenleyin. Kutucuklarınız düzenleme hakkında ayrıntılı yönergeler bulmak için bkz: [düzenleme Döşe--yeniden boyutlandırma, taşıma, yeniden adlandırma, PIN, Sil, köprü eklemek](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Burada, kendisine sabitlenmiş bazı yolunuzda görselleştirmeleri içeren bir örnek Pano verilmiştir.  Veri Oluşturucusu ne kadar süreyle çalıştırdığınız bağlı olarak numaralarınızı görselleştirmeler üzerinde farklı olabilir.
      <br/>

@@ -1,12 +1,12 @@
 ---
-title: "Azure tanılama uzantısını 1.3 ve daha sonra yapılandırma şeması | Microsoft Docs"
-description: "Microsoft Azure SDK 2.4 ve daha sonraki bir parçası olarak şema sürümü 1.3 ve daha sonra Azure tanılama geliyordu."
+title: Azure tanılama uzantısını 1.3 ve daha sonra yapılandırma şeması | Microsoft Docs
+description: Microsoft Azure SDK 2.4 ve daha sonraki bir parçası olarak şema sürümü 1.3 ve daha sonra Azure tanılama geliyordu.
 services: monitoring-and-diagnostics
 documentationcenter: .net
 author: rboucher
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: robb
 ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve daha sonra yapılandırma şeması
 > [!NOTE]
@@ -396,7 +396,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**WadCfg**|Gereklidir. Açıklama, bu sayfada başka bir yerde bakın.|  
 |**StorageAccount**|Verileri depolamak için Azure Storage hesabının adı. Ayrıca bir parametre olarak Set-AzureServiceDiagnosticsExtension cmdlet'ini çalıştırırken belirtilebilir.|  
 |**StorageType**|Olabilir *tablo*, *Blob*, veya *TableAndBlob*. Tablo varsayılandır. TableAndBlob seçildiğinde Tanılama verileri iki kez--her türü için bir kez yazılır.|  
-|**LocalResourceDirectory**|İzleme Aracısı olay verileri depoladığı sanal makinede dizin. Aksi takdirde, ayarlanırsa, varsayılan dizini kullanılır:<br /><br /> Worker/web rolü için:`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için:`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> - **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizin.<br /><br /> - **expandEnvironment** -ortam değişkenleri yol adındaki genişletilmiş olup olmadığını denetler.|  
+|**LocalResourceDirectory**|İzleme Aracısı olay verileri depoladığı sanal makinede dizin. Aksi takdirde, ayarlanırsa, varsayılan dizini kullanılır:<br /><br /> Worker/web rolü için: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Bir sanal makine için: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Gerekli öznitelikler şunlardır:<br /><br /> - **yol** -Azure tanılama tarafından kullanılmak üzere sistemde dizin.<br /><br /> - **expandEnvironment** -ortam değişkenleri yol adındaki genişletilmiş olup olmadığını denetler.|  
 
 ## <a name="wadcfg-element"></a>WadCFG öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG*
@@ -572,9 +572,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|İsteğe bağlı. Belirtilen verileri için kullanılabilir olan dosya sistemi depolaması en miktarını belirtir.<br /><br /> Varsayılan değer 0'dır.|  
-|**scheduledTransferLogLevelFilterr**|**dize**|İsteğe bağlı. Aktarılır günlük girişlerini en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgilere sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
-|**scheduledTransferPeriod**|**süre**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakika yuvarlanan arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
-|**İç havuzlar** 1.5 inç eklendi|**dize**|İsteğe bağlı. Ayrıca Tanılama verileri göndermek için bir havuz konuma noktaları. Örneğin, Application Insights.|  
+|**scheduledTransferLogLevelFilterr**|**Dize**|İsteğe bağlı. Aktarılır günlük girişlerini en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgilere sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
+|**scheduledTransferPeriod**|**Süre**|İsteğe bağlı. Zamanlanmış aktardığı veriler, en yakın dakika yuvarlanan arasındaki aralığı belirtir.<br /><br /> PT0S varsayılandır.|  
+|**İç havuzlar** 1.5 inç eklendi|**Dize**|İsteğe bağlı. Ayrıca Tanılama verileri göndermek için bir havuz konuma noktaları. Örneğin, Application Insights.|  
 
 ## <a name="dockersources"></a>DockerSources
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - DockerSources*
@@ -603,12 +603,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**adı**|dize|Sinkname tanımlayan bir dize.|  
+|**Adı**|string|Sinkname tanımlayan bir dize.|  
 
 |Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Application Insights**|dize|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
-|**Kanalları**|dize|Her ek, akış filtrelemesi için bir tane|  
+|**Application Insights**|string|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
+|**Kanalları**|string|Her ek, akış filtrelemesi için bir tane|  
 
 ## <a name="channels-element"></a>Kanallar öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları*
@@ -619,7 +619,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Channel**|dize|Açıklama, bu sayfada başka bir yerde bakın.|  
+|**Channel**|string|Açıklama, bu sayfada başka bir yerde bakın.|  
 
 ## <a name="channel-element"></a>Kanal öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları - kanal*
@@ -630,8 +630,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelikler|Tür|Açıklama|  
 |----------------|----------|-----------------|  
-|**logLevel**|**dize**|Aktarılır günlük girişlerini en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgilere sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
-|**adı**|**dize**|Kanal başvurmak için benzersiz bir ad|  
+|**logLevel**|**Dize**|Aktarılır günlük girişlerini en düşük önem derecesini belirtir. Varsayılan değer **tanımlanmamış**, tüm günlükleri aktarır. Diğer olası değerler (en az bilgilere sırasına göre) **ayrıntılı**, **bilgi**, **uyarı**, **hata**, ve **kritik**.|  
+|**Adı**|**Dize**|Kanal başvurmak için benzersiz bir ad|  
 
 
 ## <a name="privateconfig-element"></a>PrivateConfig Element 

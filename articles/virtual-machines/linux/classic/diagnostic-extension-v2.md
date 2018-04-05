@@ -1,10 +1,10 @@
 ---
-title: "Bir Linux VM VM uzantısı ile izleme | Microsoft Docs"
-description: "Linux tanılama uzantı performans ve Tanılama verileri azure'da bir Linux VM izlemek için nasıl kullanılacağını öğrenin."
+title: Bir Linux VM VM uzantısı ile izleme | Microsoft Docs
+description: Linux tanılama uzantı performans ve Tanılama verileri azure'da bir Linux VM izlemek için nasıl kullanılacağını öğrenin.
 services: virtual-machines-linux
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: f54a11c5-5a0e-40ff-af6c-e60bd464058b
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd22188042c60da7c761e1fa00a12921146caf25
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux Diagnostic Extension’ı kullanarak bir Linux VM’nin performansını ve tanılama verilerini izleme
 
@@ -59,7 +59,7 @@ Bu makalede etkinleştirmek ve Azure CLI komutları kullanarak uzantısını yap
 
 Burada açıklanan yapılandırma yöntemleri için Azure portalı çalışmaz unutmayın. Görüntülemek ve sistem ve performans verileri doğrudan Azure Portalı'nı yapılandırmak için dahili olarak portalı üzerinden etkinleştirilmesi gerekir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Azure Linux Aracısı sürüm 2.0.6 veya daha sonra**.
 
@@ -88,7 +88,7 @@ Burada açıklanan yapılandırma yöntemleri için Azure portalı çalışmaz u
         "storageAccountKey" : "the key of the account"
     }
 
-2. Adım Çalıştırma  **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.* --özel yapılandırma yolu PrivateConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 ayarlayın.* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Senaryo 2. Performans İzleyicisi ölçümlerini özelleştirme
 
@@ -111,7 +111,7 @@ Varsayılan olarak, her zaman Rsyslog verileri toplanır.
     }
 
 
-2. Adım Çalıştırma  **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
 
 ### <a name="scenario-3-upload-your-own-log-files"></a>Senaryo 3. Kendi günlük dosyalarını karşıya yükleme
 
@@ -147,7 +147,7 @@ Bu bölümde, günlükleri toplamayı gelen uzantısı durdurmayı açıklar. İ
     }
 
 
-2. Adım Çalıştırma  **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions ' 2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
+2. Adım Çalıştırma **azure vm uzantısı ayarlamak vm_name LinuxDiagnostic Microsoft.OSTCExtensions '2.*'--özel yapılandırma yolu PrivateConfig.json--ortak yapılandırma yolu PublicConfig.json**.
 
 ## <a name="review-your-data"></a>Verilerinizi gözden geçirin
 
@@ -155,10 +155,10 @@ Performans ve tanılama verilerini bir Azure Storage tablosunda depolanır. Göz
 
 Ayrıca, verilere erişmek için kullanıcı Arabirimi araçlarını kullanabilirsiniz:
 
-1. Visual Studio Sunucu Gezgini. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tabloları görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları verileri görüntülemek için çift tıklayın.
+1. Visual Studio Server Explorer. Depolama hesabınıza gidin. VM yaklaşık beş dakika boyunca çalıştıktan sonra dört varsayılan tabloları görürsünüz: "LinuxCpu", "LinuxDisk", "LinuxMemory" ve "Linuxsyslog". Tablo adları verileri görüntülemek için çift tıklayın.
 1. [Azure Storage Gezgini](https://azurestorageexplorer.codeplex.com/ "Azure Storage Gezgini").
 
-![Görüntü](./media/diagnostic-extension/no1.png)
+![görüntü](./media/diagnostic-extension/no1.png)
 
 FileCfg veya (senaryoları 2 ve 3'te açıklandığı gibi) perfCfg etkinleştirdiyseniz, varsayılan olmayan verileri görüntülemek için Visual Studio Sunucu Gezgini ve Azure Storage Gezgini kullanabilirsiniz.
 

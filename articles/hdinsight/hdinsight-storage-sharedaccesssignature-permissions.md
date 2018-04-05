@@ -1,8 +1,8 @@
 ---
-title: "Paylaşılan erişim imzaları - Azure Hdınsight kullanarak erişimi kısıtlama | Microsoft Docs"
-description: "Paylaşılan erişim imzaları Azure depolama blob'larda depolanan verilere Hdınsight erişimi kısıtlamak için nasıl kullanılacağını öğrenin."
+title: Paylaşılan erişim imzaları - Azure Hdınsight kullanarak erişimi kısıtlama | Microsoft Docs
+description: Paylaşılan erişim imzaları Azure depolama blob'larda depolanan verilere Hdınsight erişimi kısıtlamak için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 01/25/2018
 ms.author: larryfr
 ms.openlocfilehash: d3e37ba0f590cf0572b84a53bdd407af63a19d36
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Hdınsight'ta verilere erişimi kısıtlamak için Azure Storage paylaşılan erişim imzaları kullanın
 
@@ -44,7 +44,7 @@ Hdınsight kümesi ile ilişkili Azure depolama hesaplarındaki veri tam erişim
     > [!IMPORTANT]
     > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-* Örnek dosyaları [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Bu depo, aşağıdaki öğeleri içerir:
+* Örnek dosyaları [ https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature ](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature). Bu depo, aşağıdaki öğeleri içerir:
 
   * Hdınsight ile kullanmak için bir depolama kapsayıcısı, depolanan ilke ve SAS oluşturabilirsiniz bir Visual Studio projesi
   * Hdınsight ile kullanmak için bir depolama kapsayıcısı, depolanan ilke ve SAS oluşturabilirsiniz bir Python komut dosyası
@@ -196,13 +196,13 @@ Bu, genellikle yaklaşık 15 dakika tamamlamak bu komut dosyası için biraz uzu
 
 Varolan bir Linux tabanlı kümeniz varsa, SAS ekleyebilirsiniz **çekirdek site** yapılandırmasını aşağıdaki adımları kullanarak:
 
-1. Kümeniz için Ambari web kullanıcı arabirimini açın. Bu sayfa için https://YOURCLUSTERNAME.azurehdinsight.net adresidir. İstendiğinde, yönetici adı (Yönetici) kullanarak küme kimliğini ve ne zaman kullanılan parola küme oluşturma.
+1. Kümeniz için Ambari web kullanıcı arabirimini açın. Bu sayfa için adresi https://YOURCLUSTERNAME.azurehdinsight.net. İstendiğinde, yönetici adı (Yönetici) kullanarak küme kimliğini ve ne zaman kullanılan parola küme oluşturma.
 
 2. Ambari web kullanıcı Arabirimi sol taraftan seçin **HDFS** ve ardından **yapılandırmalar** sayfasının ortasında sekmesi.
 
 3. Seçin **Gelişmiş** sekmesini tıklatın ve ardından bulana kadar kaydırın **özel çekirdek site** bölümü.
 
-4. Genişletme **özel çekirdek site** bölüm sonra seçin ve son kaydırın **Özellik Ekle... ** bağlantı. İçin aşağıdaki değerleri kullanın **anahtar** ve **değeri** alanlar:
+4. Genişletme **özel çekirdek site** bölüm sonra seçin ve son kaydırın **Özellik Ekle...**  bağlantı. İçin aşağıdaki değerleri kullanın **anahtar** ve **değeri** alanlar:
 
    * **Anahtar**: fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net
    * **Değer**: SAS önceden çalıştırdığınız C# veya Python uygulama tarafından döndürülen

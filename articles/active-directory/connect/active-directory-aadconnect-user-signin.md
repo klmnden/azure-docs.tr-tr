@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.openlocfilehash: 6a6e83ad73f561cd8aa4fc629fb9b48449af6d0a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Bağlan aynı parolayı kullanarak Bulut ve şirket içi kaynaklara oturum açmalarını sağlar. Bu makalede, Azure AD ile oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -47,12 +47,12 @@ Hiçbir parolaları bulutta depolandığından emin olun.||x*|x|
 
 * İle basit bir aracıyı.
 
-### <a name="password-hash-synchronization"></a>Parola karma eşitlemesi
+### <a name="password-hash-synchronization"></a>Parola karması eşitleme
 Parola karma eşitlemesi ile kullanıcı parolalarını karmalarını şirket içi Active Directory'den Azure AD ile eşitlenir. Yeni parola karmaları parolalar değiştirilir veya şirket içi sıfırlama, Azure AD ile eşitlenir böylece hemen kullanıcılarınızın her zaman aynı parolayı bulut kaynaklarına ve şirket içi kaynaklar için kullanabilirsiniz. Parolalar hiçbir zaman Azure AD ile gönderilen veya düz metin Azure AD'de depolanabilir. Self Servis parola sıfırlama Azure AD'de etkinleştirmek için parola karma eşitlemesi parola geri yazma ile birlikte kullanabilirsiniz.
 
 Ayrıca, etkinleştirebilirsiniz [sorunsuz SSO](active-directory-aadconnect-sso.md) makinelerde şirket ağında olan etki alanına katılmış kullanıcılar için. Çoklu oturum açma ile etkin kullanıcılar yalnızca güvenli bir şekilde erişim bulut kaynakları yardımcı olmak için bir kullanıcı adı girmeniz gerekir.
 
-![Parola karma eşitlemesi](./media/active-directory-aadconnect-user-signin/passwordhash.png)
+![Parola karması eşitleme](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 Daha fazla bilgi için bkz: [parola karması eşitlemesi](active-directory-aadconnectsync-implement-password-hash-synchronization.md) makalesi.
 

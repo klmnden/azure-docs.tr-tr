@@ -16,6 +16,7 @@ Aşağıdaki tabloda IOT Hub kaynakları için geçerli olan sınırlar listelen
 | --- | --- |
 | Azure aboneliği başına en fazla ücretli IoT hub’ı sayısı |10 |
 | Azure aboneliği başına en fazla ücretsiz IoT hub’ı sayısı |1 |
+| Bir cihaz kimliği karakter sayısı | 128 |
 | En fazla cihaz kimliği sayısı<br/> (tek bir çağrıda döndürülen) |1000 |
 | Cihazdan buluta iletiler için IoT Hub en fazla ileti bekletme süresi |7 gün |
 | Cihazdan bulut iletinin en büyük boyutu |256 KB |

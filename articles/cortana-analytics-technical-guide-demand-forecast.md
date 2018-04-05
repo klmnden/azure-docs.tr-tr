@@ -1,8 +1,8 @@
 ---
-title: "Talep tahmin enerji teknik Kılavuzu | Microsoft Docs"
-description: "İsteğe bağlı enerji tahmin için teknik Kılavuzu Microsoft Cortana Intelligence ile çözüm şablonu için."
+title: Talep tahmin enerji teknik Kılavuzu | Microsoft Docs
+description: İsteğe bağlı enerji tahmin için teknik Kılavuzu Microsoft Cortana Intelligence ile çözüm şablonu için.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: yijichen
 manager: ilanr9
 editor: yijichen
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2016
 ms.author: inqiu;yijichen;ilanr9
 ms.openlocfilehash: bb3520d36e4c34c752fe388f3126da285e2161cd
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 ## <a name="overview"></a>**Genel Bakış**
@@ -42,7 +42,7 @@ Bu şablon için kullanılan veri kaynağı indirip yerel başarılı dağıtım
 
 Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.
 
-### <a name="azure-event-hub"></a>Azure Event hub'ı
+### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) alıcı açıklanan yapay veri kaynağı tarafından sağlanan girdi bir hizmettir.
 
 ## <a name="data-preparation-and-analysis"></a>**Veri hazırlama ve çözümleme**
@@ -70,7 +70,7 @@ Bu çözüm şablonu için kullanılan veri kümesi, Getir dataset eşleşir dü
 
 Aşağıdaki bölümlerde, yeni bir veri kümesi eklendiğinde değişiklikler gerektiren şablonu bölümlerini açıklanmaktadır.
 
-### <a name="azure-event-hub"></a>Azure Event hub'ı
+### <a name="azure-event-hub"></a>Azure Event Hub
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) hizmetidir genel, sağlayacak şekilde, CSV veya JSON biçiminde hub'ına veri gönderilebilir. Azure Event Hub'ında hiçbir özel işlem gerçekleşir, ancak içine sat verileri anlamak önemlidir.
 
 Bu belge, veri alma nasıl açıklamak değildir, ancak bir kolayca gönderebilir olayları ya da veri bir Azure olay Hub'ına kullanarak [olay hub'ı API](event-hubs/event-hubs-programming-guide.md).
@@ -182,7 +182,7 @@ Aşağıdaki adımları çözüm dağıtım zamanında oluşturulan akış anali
    * Tıklatın **KAYDETMEK** adı raporu "EnergyStreamDataReport" olarak ve üstünde. "EnergyStreamDataReport" adlı raporu, sol taraftaki Gezgini bölmesinde raporları bölümünde gösterilir.
    * Tıklatın **"Pin Visual"** ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) simgesini ekranın sağ üst köşesinde bu çizgi grafiği, bir "Pin için Pano" penceresi gösterebilir sizin için bir panoyu seçin. "EnergyStreamDataReport" seçip "Pin"'i tıklatın.
    * Panoda bu kutucuğu tıklayın "Düzenle" başlığı "İsteğe bağlı olarak zaman damgası" olarak değiştirmek için sağ üst köşedeki simgesine fare getirin
-4. Uygun veri kümelerinin bağlı diğer Pano kutucukları oluşturun. Son Pano görünümü:![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. Uygun veri kümelerinin bağlı diğer Pano kutucukları oluşturun. Son Pano görünümü: ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>Kurulum yolunuzda Panosu
 Yolunuzda veri ardışık düzeninde temel hedef her bölge, isteğe bağlı tahmin almaktır. Power BI tahmin sonuçlarını depolandığı, veri kaynağı olarak bir Azure SQL veritabanına bağlar.
@@ -213,7 +213,7 @@ Yolunuzda veri ardışık düzeninde temel hedef her bölge, isteğe bağlı tah
 3. (İsteğe bağlı) Yolunuzda panoya yayımlama [çevrimiçi Power BI](http://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
 
    * Tıklatın **"Yayımla"** ve birkaç saniye sonra "Yayımlama Power BI başarılı!" görüntüleyen bir pencere görüntülenir. Yeşil bir onay işareti ile. "Power bı'da Aç demoprediction.pbix" aşağıdaki bağlantıyı tıklatın. Ayrıntılı yönergeler için bkz [Power BI masaüstünden Yayımla](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * Yeni bir Pano oluşturmak için: tıklatın  **+**  yanına oturum **panolar** sol bölmede bölümü. Bu yeni bir Pano için "İsteğe bağlı tahmin Demo" adı girin.
+   * Yeni bir Pano oluşturmak için: tıklatın **+** yanına oturum **panolar** sol bölmede bölümü. Bu yeni bir Pano için "İsteğe bağlı tahmin Demo" adı girin.
    * Raporu açtığınızda, tıklatın ![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) panonuza tüm görselleştirmeler sabitleyin. Ayrıntılı yönergeler için bkz [bir kutucuk bir raporu Power BI panosuna Sabitle](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Pano sayfasına gidin ve boyutunu ve konumunu, görselleştirmeleri ayarlayın ve bunların başlıklarını düzenleyin. Kutucuklarınız düzenleme hakkında ayrıntılı yönergeler bulmak için bkz: [düzenleme Döşe--yeniden boyutlandırma, taşıma, yeniden adlandırma, PIN, Sil, köprü eklemek](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Burada, kendisine sabitlenmiş bazı yolunuzda görselleştirmeleri içeren bir örnek Pano verilmiştir.
 

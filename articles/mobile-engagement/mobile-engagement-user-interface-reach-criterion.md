@@ -15,14 +15,14 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 2adf473c6acea0f128eb14e2616748ff29d5d762
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>Kullanıcılarınız için bir select alt anında iletme kampanyalarını göndermek için hedefleme ölçütleri kullanma
 > [!IMPORTANT]
-> Azure Mobile Engagement 31/3/2018 üzerinde denemeler. Bu sayfa, kısa süre sonra silinir.
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
 > 
 
 "Yeni ölçüt" düğmesiyle belirli ölçütlere göre kitlenizi hedefleme biridir anında iletme bildirimleri ilgili gönderdiğiniz yardımcı Azure Mobile Engagement en güçlü açıklanan kavramlar herkes istenmeyen posta yerine müşteriler için yanıtlar. Standart ölçütlere göre kitlenizi sınırlamak ve kaç kişinin bildirim alırsınız belirlemek için gönderim benzetimini yapma.

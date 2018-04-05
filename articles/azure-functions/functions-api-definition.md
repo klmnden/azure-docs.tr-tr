@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri OpenAPI meta verilerde | Microsoft Docs"
-description: "Azure işlevleri OpenAPI desteği'ne genel bakış"
+title: Azure işlevleri OpenAPI meta verilerde | Microsoft Docs
+description: Azure işlevleri OpenAPI desteği'ne genel bakış
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>OpenAPI 2.0 meta verileri desteği Azure işlevlerinde (Önizleme)
 OpenAPI 2.0 (önceki adıyla Swagger) meta verileri desteği Azure işlevleri OpenAPI 2.0 tanımının bir işlev uygulaması içinde yazmak için kullanabileceğiniz bir önizleme özelliği değil. Bu dosyayı işlev uygulaması kullanarak ardından barındırabilir.
@@ -50,9 +50,9 @@ Adım adım yönergeler için bkz: [başlama Öğreticisi](./functions-api-defin
 
 Oluşturulan Swagger çatıyı eşlenmiş olarak aşağıdaki tabloda Azure portal ayarları ve function.json karşılık gelen verileri temsil eder.
 
-|Swagger.JSON|Portal UI|Function.JSON|
+|Swagger.json|Portal UI|Function.json|
 |:----|:-----|:-----|
-|[Ana bilgisayar](http://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
+|[Ana Bilgisayar](http://swagger.io/specification/#fixed-fields-15)|**İşlev uygulaması ayarları** > **App Service ayarlarını** > **genel bakış** > **URL'si**|*Mevcut değil*
 |[Yolları](http://swagger.io/specification/#paths-object-29)|**Tümleştirme** > **seçili HTTP yöntemleri**|Bağlamaları: yol
 |[Yol öğesi](http://swagger.io/specification/#path-item-object-32)|**Tümleştirme** > **rota şablonu**|Bağlamaları: yöntemler
 |[Güvenlik](http://swagger.io/specification/#security-scheme-object-112)|**Anahtarları**|*Mevcut değil*|

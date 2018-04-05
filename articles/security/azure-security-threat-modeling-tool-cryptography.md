@@ -1,6 +1,6 @@
 ---
-title: "Şifreleme - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: Şifreleme - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
 services: security
 documentationcenter: na
 author: RodSan
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
 ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 | **IOT bulut ağ geçidi** | <ul><li>[IOT Hub'ına kimlik doğrulaması için yeterli uzunlukta rastgele simetrik anahtar oluşturma](#random-hub)</li></ul> | 
 | **Dynamics CRM mobil istemcisi** | <ul><li>[Bir cihaz yönetim ilkesi kullanım PIN gerektirir ve Uzaktan sağlayan yerinde silme emin olun](#pin-remote)</li></ul> | 
 | **Dynamics CRM Outlook istemcisi** | <ul><li>[Bir cihaz yönetim ilkesi, bir parola/PIN/otomatik kilit gerektirir ve tüm verileri (örneğin Bitlocker) şifreler yerinde olduğundan emin olun](#bitlocker)</li></ul> | 
-| **Kimlik sunucusu** | <ul><li>[İmzalama anahtarları kimlik sunucusu kullanırken alınır emin olun](#rolled-server)</li><li>[Şifreleme açısından güçlü bir istemci kimliği, gizli olmasını kimlik sunucusunda kullanılan](#client-server)</li></ul> | 
+| **Identity Server** | <ul><li>[İmzalama anahtarları kimlik sunucusu kullanırken alınır emin olun](#rolled-server)</li><li>[Şifreleme açısından güçlü bir istemci kimliği, gizli olmasını kimlik sunucusunda kullanılan](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Yalnızca onaylanan simetrik bloğu şifreler ve anahtar uzunluklarını kullanın
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 10/11/2017
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Ürünler onaylanan rastgele sayı oluşturucuları kullanmanız gerekir. C çalışma zamanı işlevi rand, .NET Framework sınıf System.Random veya GetTickCount gibi sistem işlevleri gibi geçici rastgele işlevleri bu nedenle, hiçbir zaman böyle kodda kullanılmalıdır. Çift Eliptik Eğri rastgele sayı oluşturucu (DUAL_EC_DRBG) algoritması engellendi</p><ul><li>**CNG -** BCryptGenRandom (arayan [PASSIVE_LEVEL] 0'dan büyük herhangi IRQL konumunda çalışabilir sürece önerilen BCRYPT_USE_SYSTEM_PREFERRED_RNG bayrağı kullanın)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** (yeni uygulamalar kullanması gereken BCryptGenRandom veya CryptGenRandom) RtlGenRandom * rand_s * SystemPrng (için çekirdek modu)</li><li>**. NET -** RNGCryptoServiceProvider veya RNGCng</li><li>**Windows mağazası uygulamaları -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom veya. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef rasgele size_t sayısı, uint8_t *bayt)</li><li>**Apple OS X (< 10.7)-** kullanım / Geliştirme/rastgele sayılar almak için rastgele</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom sınıfı. (Jelly Çekirdeklere) Android 4.3 için geliştiricilere gerekir geçici çözüm önerilen Android izleyin ve açıkça PRNG entropi /dev/urandom veya /dev/random ile başlatmak için kendi uygulamalarını güncelleştirmelerini unutmayın</li></ul>|
+| **Adımları** | <p>Ürünler onaylanan rastgele sayı oluşturucuları kullanmanız gerekir. C çalışma zamanı işlevi rand, .NET Framework sınıf System.Random veya GetTickCount gibi sistem işlevleri gibi geçici rastgele işlevleri bu nedenle, hiçbir zaman böyle kodda kullanılmalıdır. Çift Eliptik Eğri rastgele sayı oluşturucu (DUAL_EC_DRBG) algoritması engellendi</p><ul><li>**CNG -** BCryptGenRandom (arayan [PASSIVE_LEVEL] 0'dan büyük herhangi IRQL konumunda çalışabilir sürece önerilen BCRYPT_USE_SYSTEM_PREFERRED_RNG bayrağı kullanın)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** (yeni uygulamalar kullanması gereken BCryptGenRandom veya CryptGenRandom) RtlGenRandom * rand_s * SystemPrng (için çekirdek modu)</li><li>**. NET -** RNGCryptoServiceProvider veya RNGCng</li><li>**Windows mağazası uygulamaları -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom veya. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef rasgele size_t sayısı, uint8_t *bayt)</li><li>** Apple OS X (< 10.7)-** / dev/rastgele rastgele sayılar almak için kullanın</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom sınıfı. (Jelly Çekirdeklere) Android 4.3 için geliştiricilere gerekir geçici çözüm önerilen Android izleyin ve açıkça PRNG entropi /dev/urandom veya /dev/random ile başlatmak için kendi uygulamalarını güncelleştirmelerini unutmayın</li></ul>|
 
 ## <a id="stream-ciphers"></a>Simetrik akış şifrelemeleri kullanmayın
 
@@ -227,7 +227,7 @@ Görüldüğü gibi aygıt birincil anahtarı kodda mevcut değil. Bunun yerine,
 | **SDL aşaması**               | Dağıtım |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Kimlik sunucusu - anahtarları, imzalar ve şifreleme](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
+| **Başvuruları**              | [Kimlik sunucusu - anahtarları, imzalar ve şifreleme ](https://identityserver.github.io/Documentation/docsv2/configuration/crypto.html) |
 | **Adımları** | İmzalama anahtarları kimlik sunucusu kullanırken alınır emin olun. Başvurular bölümündeki bağlantıyı nasıl bu kesintileri kimlik sunucusuna bağlı olan uygulamalara neden olmadan planlanmalıdır açıklanmaktadır. |
 
 ## <a id="client-server"></a>Şifreleme açısından güçlü bir istemci kimliği, gizli olmasını kimlik sunucusunda kullanılan

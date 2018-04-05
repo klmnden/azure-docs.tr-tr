@@ -31,7 +31,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Bir sanal makine veya rol örneği NIC eşzamanlı TCP veya UDP akışlar |500K |500K |
 | Ağ Arabirimleri (NIC) |350 |20000 |
 | Ağ Güvenlik Grupları (NSG) |100 |5000 |
-| NSG başına NSG kuralları |200 |500 |
+| NSG başına NSG kuralları |200 |1000 |
 | IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |2000 |4000 |
 | Uygulama güvenliği grupları |200 |500 |
 | NIC başına IP yapılandırması başına uygulama güvenlik grupları |10 |20 |
@@ -39,9 +39,9 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Ağ güvenlik grubunun tüm güvenlik kuralları içinde belirtilen uygulama güvenlik grupları |50 |100 |
 | Kullanıcı tanımlı yol tabloları |100 |200 |
 | Yol tablosu başına kullanıcı tanımlı yol sayısı |100 |400 |
-| Genel IP adresleri - dinamik |(Temel) 60 |desteğe başvurun |
+| Genel IP adresleri - dinamik |(Basic) 60 |desteğe başvurun |
 | Genel IP adresleri - statik |(Temel) 20 |desteğe başvurun |
-| Genel IP adresleri - statik |(Standart) 20 |desteğe başvurun |
+| Genel IP adresleri - statik |(Standard) 20 |desteğe başvurun |
 | VPN Ağ Geçidi başına Noktadan Siteye Kök Sertifika Sayısı |20 |20 |
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
@@ -52,11 +52,11 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Her bir kaynak, Basic kuralları | 150 | 250 |
 | Her bir kaynak, standart kuralları | 1250 | 1500 |
 | IP yapılandırması başına kuralı | 299 |299 |
-| Ön uç IP yapılandırmaları, Basic | 10 | desteğe başvurun |
+| Ön uç IP yapılandırmaları, Basic | 10 | 200 |
 | Ön uç IP yapılandırmaları, standart | 10 | 600 |
-| Arka uç havuzu, Basic | 100, tek bir kullanılabilirlik kümesi | - |
-| Arka uç havuzu, standart | VNet 1000 tek | desteğe başvurun |
-| HA bağlantı noktaları, standart | İç ön uç başına 1 | - |
+| Arka uç havuzu, Basic | 100, tek bir kullanılabilirlik kümesi | 100, tek bir kullanılabilirlik kümesi |
+| Arka uç havuzu, standart | VNet 1000 tek | VNet 1000 tek |
+| HA bağlantı noktaları, standart | İç ön uç başına 1 | İç ön uç başına 1 |
 
 Varsayılan sınırları artırmanız gerekirse [desteğe başvurun](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

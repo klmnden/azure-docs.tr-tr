@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management'te rol tabanlı erişim denetimini kullanma | Microsoft Docs"
-description: "Yerleşik roller kullanın ve Azure API Management'te özel roller oluşturma hakkında bilgi edinin"
+title: Azure API Management'te rol tabanlı erişim denetimini kullanma | Microsoft Docs
+description: Yerleşik roller kullanın ve Azure API Management'te özel roller oluşturma hakkında bilgi edinin
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management'te rol tabanlı erişim denetimi kullanma
 Azure API Management üzerinde Azure rol tabanlı erişim denetimi (API Management hizmet ve varlıkları (örneğin, API ve ilkeleri) için ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Management'te yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz: [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -31,7 +31,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Azure porta
 | Rol          | Okuma erişimi<sup>[1]</sup> | Yazma erişimi<sup>[2]</sup> | Hizmet oluşturma, silme, ölçeklendirme, VPN ve özel etki alanı yapılandırması | Eski yayımcı portalına erişim | Açıklama
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Azure API Management hizmeti katkıda bulunan | ✓ | ✓ | ✓ | ✓ | Süper kullanıcı. API Management hizmet ve varlıkları (örneğin, API ve ilkeleri) tam CRUD erişimi vardır. Eski yayımcı portalına erişebilir. |
-| Azure API Management hizmeti okuyucusu | ✓ | | || API Management hizmet ve varlıkları salt okunur erişimi vardır. |
+| Azure API Management Service Reader | ✓ | | || API Management hizmet ve varlıkları salt okunur erişimi vardır. |
 | Azure API Management hizmeti işleci | ✓ | | ✓ | | API Management services, ancak olmayan varlıklar yönetebilirsiniz.|
 | Azure API Management hizmeti Düzenleyicisi<sup>*</sup> | ✓ | ✓ | |  | API Management varlıklar, ancak değil hizmetleri yönetebilirsiniz.|
 | Azure API Management İçerik Yöneticisi<sup>*</sup> | ✓ | | | ✓ | Geliştirici Portalı yönetebilirsiniz. Hizmetler ve varlıklar için salt okunur erişim.|
@@ -40,7 +40,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Azure porta
 
 <sup>[2] yazma erişimi API Management hizmet ve aşağıdaki işlemleri dışında varlıklar: örnek oluşturma, silme ve ölçeklendirme; VPN yapılandırması; ve özel etki alanı kurulumu.</sup>
 
-<sup>\*Biz tüm yönetim kullanıcı Arabirimi var olan yayımcı Portalı'ndan Azure portalına geçirdikten sonra hizmet Düzenleyicisi rolü kullanılabilir. Yayımcı portalı yalnızca Geliştirici Portalı yönetmeyle ilgili işlevleri içerecek şekilde yeniden sonra içerik yöneticisi rolü kullanılabilir.</sup>  
+<sup>\* Biz tüm yönetim kullanıcı Arabirimi var olan yayımcı Portalı'ndan Azure portalına geçirdikten sonra hizmet Düzenleyicisi rolü kullanılabilir. Yayımcı portalı yalnızca Geliştirici Portalı yönetmeyle ilgili işlevleri içerecek şekilde yeniden sonra içerik yöneticisi rolü kullanılabilir.</sup>  
 
 ## <a name="custom-roles"></a>Özel roller
 Yerleşik roller hiçbiri belirli ihtiyaçlarınızı karşılamıyorsa, API Management varlıklar için daha ayrıntılı erişim yönetimini sağlamak için özel rolleri oluşturulabilir. Örneğin, bir API Management hizmeti salt okunur erişimi olan, ancak yalnızca belirli bir API yazma erişimi olan bir özel rolü oluşturabilirsiniz. Özel rolleri hakkında daha fazla bilgi için bkz: [Azure rbac'de özel roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles). 

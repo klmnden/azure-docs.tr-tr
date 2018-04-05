@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager birim grupları | Microsoft Docs"
-description: "StorSimple Snapshot Manager MMC ek bileşenini birim grupları oluşturmak ve yönetmek için nasıl kullanılacağını açıklar."
+title: StorSimple Snapshot Manager birim grupları | Microsoft Docs
+description: StorSimple Snapshot Manager MMC ek bileşenini birim grupları oluşturmak ve yönetmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Birim grupları oluşturmak ve yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın
 ## <a name="overview"></a>Genel Bakış
@@ -52,7 +52,7 @@ Tıklatırsanız **birim grupları** düğümü, **sonuçları** bölmesinde her
 | Ad |**Adı** sütun birim grubu adını içerir. |
 | Uygulama |**Uygulamaları** sütun Windows konakta VSS yazıcılarının şu anda yüklü ve çalışır durumda sayısını gösterir. |
 | Seçildi |**Seçili** sütun birim grubunda bulunan birimleri sayısını gösterir. Sıfır (0), uygulama birimlerin birim grubu ile ilişkili olduğunu gösterir. |
-| İçeri aktarılan |**Imported** sütun alınan birimler sayısını gösterir. Ayarlandığında **doğru**, bu sütun bir birim grubu Azure portalından alınan ve StorSimple Snapshot Manager'da oluşturulmadı belirtir. |
+| İçeri aktarıldı |**Imported** sütun alınan birimler sayısını gösterir. Ayarlandığında **doğru**, bu sütun bir birim grubu Azure portalından alınan ve StorSimple Snapshot Manager'da oluşturulmadı belirtir. |
 
 > [!NOTE]
 > StorSimple Snapshot Manager birim grupları ayrıca görüntülenir **yedekleme ilkeleri** Azure portalında sekmesi.

@@ -1,9 +1,9 @@
 ---
-title: "Azure sanal makineleri kullanarak otomatik ölçeklendirme Gelişmiş | Microsoft Docs"
-description: "Birden çok kural ve e-posta göndermek ve ölçek eylemleri ile Web kancası URL'leri çağrı profillerinin Resource Manager ve VM ölçek kümesi kullanır."
+title: Azure sanal makineleri kullanarak otomatik ölçeklendirme Gelişmiş | Microsoft Docs
+description: Birden çok kural ve e-posta göndermek ve ölçek eylemleri ile Web kancası URL'leri çağrı profillerinin Resource Manager ve VM ölçek kümesi kullanır.
 author: anirudhcavale
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 7e3576e2-4a2b-4736-b5ae-98c4689cdd2b
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
 ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>VM ölçek kümesi için Resource Manager şablonları kullanarak gelişmiş otomatik ölçeklendirme yapılandırma
 Ölçek ve sanal makine ölçek kümeleri yinelenen bir zamanlamaya göre veya belirli bir tarihe göre performans ölçüm eşiklere dayanarak genişleme kullanabilirsiniz. Ölçeklendirme eylemi için e-posta ve Web kancası bildirimleri de yapılandırabilirsiniz. Bu kılavuz, bir VM ölçek kümesi üzerinde bir Resource Manager şablonu kullanarak bu nesneleri yapılandırma örneği gösterilir.
@@ -35,7 +35,7 @@ Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.
 1. Bir temel otomatik ölçeklendirme ayarı ile yeni bir ölçek dağıtın. Bu makalede Windows sahip Azure hızlı başlama Galerisi adresinden kullanan ölçek temel otomatik ölçeklendirme şablonla ayarlayın. Linux ölçek kümeleri aynı şekilde çalışır.
 2. Ölçek kümesi oluşturulduktan sonra Azure kaynak Gezgini'nden ölçek kümesi kaynağa gidin. Aşağıdaki Microsoft.ınsights düğümü altında bakın.
 
-    ![Azure Gezgini](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
 
     Şablon yürütme varsayılan otomatik ölçeklendirme ayarı adı ile oluşturdu **'autoscalewad'**. Sağ tarafta, bu otomatik ölçeklendirme ayarı tam tanımını görüntüleyebilirsiniz. Bu durumda, varsayılan otomatik ölçeklendirme ayarında bir CPU tabanlı % genişleme ve ölçek bileşenini kuralı ile birlikte gelir.  
 
@@ -43,13 +43,13 @@ Bu kılavuzda, kullandığımız [Azure kaynak Gezgini](https://resources.azure.
 
     | Profilleri & kuralları | Açıklama |
     |--- | --- |
-    | **Profili** |**Performans/ölçü dayalı** |
+    | **Profil** |**Performans/ölçü dayalı** |
     | Kural |Hizmet veri yolu kuyruğu ileti sayısı > x |
     | Kural |Hizmet veri yolu kuyruğu ileti sayısı < y |
     | Kural |CPU % > n |
     | Kural |CPU % < p |
-    | **Profili** |**Hafta içi gün sabah saat (kuralları yok)** |
-    | **Profili** |**Ürün başlatma gün (kuralları yok)** |
+    | **Profil** |**Hafta içi gün sabah saat (kuralları yok)** |
+    | **Profil** |**Ürün başlatma gün (kuralları yok)** |
 
 4. Bu kılavuz için kullandığımız kuramsal bir ölçeklendirme senaryo aşağıda verilmiştir.
 

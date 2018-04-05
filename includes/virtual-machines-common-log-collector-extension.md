@@ -2,7 +2,7 @@
 Bir Microsoft Azure bulut hizmeti ile ilgili sorunları tanılama sorunları ortaya çıktığında sanal makinelerde hizmetin günlük dosyalarını toplama gerektirir. AzureLogCollector uzantısı isteğe bağlı bir veya daha fazla bulut hizmeti Vm'lerden (web rolleri ve çalışan rolleri) günlükleri tek seferlik koleksiyonunu gerçekleştirmek ve tüm açmadan uzaktan herhangi bir Azure depolama hesabı – toplanan dosya aktarmak için kullanabilirsiniz Vm'leri.
 
 > [!NOTE]
-> Günlüğe kaydedilen bilgileri çoğunu açıklamalarını http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp bulunabilir.
+> Günlüğe kaydedilen bilgileri çoğunu açıklamalarını bulunabilir http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp.
 > 
 > 
 
@@ -28,7 +28,7 @@ Her iki koleksiyon modlarında aşağıdaki yapısını koleksiyonunu kullanarak
 * Oluşturulan ZIP dosyaları kaydetmek uzantı için bir depolama hesabına sahip.
 * Azure PowerShell cmdlet'leri v0.8.0 kullanın veya üstü. Daha fazla bilgi için bkz: [Azure indirmeleri](https://azure.microsoft.com/downloads/).
 
-## <a name="add-the-extension"></a>Uzantısı Ekle
+## <a name="add-the-extension"></a>Uzantıyı ekleme
 Kullanabileceğiniz [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet'leri veya [Hizmet Yönetimi REST API'lerine](https://msdn.microsoft.com/library/ee460799.aspx) AzureLogCollector uzantısı eklemek için.
 
 Bulut Hizmetleri, var olan Azure Powershell cmdlet'i için **kümesi AzureServiceExtension**, bulut hizmet rolü örneklerinin uzantısını etkinleştirmek için kullanılabilir. Bu uzantı Bu cmdlet'i etkinleştirilmiş her zaman, günlük toplama seçili roller seçili rol örneklerini tetiklenir.
@@ -124,7 +124,7 @@ Bir veya daha fazla örneğini bir bulut hizmeti veya koleksiyonları çalışt�
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-5. (Makalenin sonunda yer alan) SetAzureServiceLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya altında bulabilirsiniz`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+5. (Makalenin sonunda yer alan) SetAzureServiceLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya altında bulabilirsiniz `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
   ```powershell
   .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances –Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -216,7 +216,7 @@ Azure PowerShell aboneliğinize bağlanmak için yönergeleri izleyin.
   $StorageAccountKey  = 'YourStorageAccountKey'
   ```
 
-3. (Makalenin sonunda yer alan) SetAzureVMLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya altında bulabilirsiniz`https://YourStorageAccountName.blob.core.windows.net/vmlogs`
+3. (Makalenin sonunda yer alan) SetAzureVMLogCollector.ps1 AzureLogCollector uzantısı için bir bulut hizmeti etkinleştirmek için şu şekilde çağırın. Yürütme tamamlandığında, yüklenen dosya altında bulabilirsiniz `https://YourStorageAccountName.blob.core.windows.net/vmlogs`
 
 Aşağıdaki komut dosyasına iletilen parametreler tanımıdır. (Bu aşağıda da kopyalanır.)
 

@@ -1,12 +1,12 @@
 ---
-title: "Bulut (Node.js) - Intel Edison'u Azure IOT Hub'ına bağlanmak için Intel Edison'u | Microsoft Docs"
-description: "Kurulum ve Intel Edison'u'nın bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub Intel Edison'u bağlanma hakkında bilgi edinin."
+title: Bulut (Node.js) - Intel Edison'u Azure IOT Hub'ına bağlanmak için Intel Edison'u | Microsoft Docs
+description: Kurulum ve Intel Edison'u'nın bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub Intel Edison'u bağlanma hakkında bilgi edinin.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: shizn
 manager: timlt
-tags: 
-keywords: "Azure IOT Intel edison'u, Intel edison'u IOT hub, Intel edison'u buluta, Intel veri Gönder edison'u bulut"
+tags: ''
+keywords: Azure IOT Intel edison'u, Intel edison'u IOT hub, Intel edison'u buluta, Intel veri Gönder edison'u bulut
 ms.assetid: a7c9cf2d-c102-41b0-aa45-41285c6877eb
 ms.service: iot-hub
 ms.devlang: nodejs
@@ -17,10 +17,10 @@ ms.date: 6/15/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Azure IOT Hub (Node.js) Intel Edison'u Bağlan
 
@@ -57,7 +57,7 @@ Intel Edison'u, oluşturduğunuz bir IOT hub'ına bağlanın. Ardından, örnek 
 * Bir Internet bağlantısı.
 * Tür bir USB kablosu mikro B
 * Bir doğrudan geçerli (DC) güç kaynağı. Güç kaynağı gibi derecelendirilmiş:
-  - 7 15V DC
+  - 7-15V DC
   - En az 1500mA
   - Merkezi/iç PIN güç kaynağı, pozitif kutbu'na olmalıdır
 
@@ -73,7 +73,7 @@ Kod örneği desteği algılayıcı verilerini benzetimli çünkü bu öğeler i
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-intel-edison"></a>Intel Edison'u Kurulumu
+## <a name="setup-intel-edison"></a>Setup Intel Edison
 
 ### <a name="assemble-your-board"></a>Panonuzu birleştirin
 
@@ -115,7 +115,7 @@ Panonuz artık derlenip.
 
 Artık, algılayıcı hazırdır.
 
-### <a name="power-up-edison"></a>Güç Edison'u ayarlama
+### <a name="power-up-edison"></a>Power up Edison
 
 1. Güç kaynağı takın.
 
@@ -154,7 +154,7 @@ En son yapılandırma aracından alma [bu bağlantıyı](https://software.intel.
    - Panonuzu, önceden kaydettiğiniz bilgisayarınızda bir görüntüyle flash için seçin `Select the local image`. Göz atın ve panonuz için flash istediğiniz görüntüyü seçin.
 3. Kurulum aracı panonuzu flash dener. Tüm yanıp sönen işlem 10 dakika kadar sürebilir.
 
-### <a name="set-password"></a>Parola ayarlama
+### <a name="set-password"></a>Parola belirleyin
 1. Üzerinde `Set up options` sayfasında, `Enable Security`.
 2. Intel® Edison'u panonuz için bir özel ad ayarlayabilirsiniz. Bu isteğe bağlıdır.
 3. Panonuz için bir parola yazın ve ardından `Set password`.

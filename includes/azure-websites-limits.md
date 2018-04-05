@@ -1,10 +1,10 @@
-| Kaynak | Ücretsiz | Paylaşılan (Önizleme) | Temel | Standart | Premium (Önizleme)</th> |
+| Kaynak | Ücretsiz | Paylaşılan (Önizleme) | Temel | Standart | Premium </th> |
 | --- | --- | --- | --- | --- | --- |
 | [Web, mobil ve API apps](https://azure.microsoft.com/services/app-service/) başına [uygulama hizmeti planı](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup> |10 |100 |Sınırsız<sup>2</sup> |Sınırsız<sup>2</sup> |Sınırsız<sup>2</sup> |
 | [Logic apps](https://azure.microsoft.com/services/app-service/logic/) başına [uygulama hizmeti planı](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)</a><sup>1</sup> |10 |10 |10 |Çekirdek başına 20 |Çekirdek başına 20 |
 | [App Service planı](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |Bölge başına 1 |kaynak grubu başına 10 |kaynak grubu başına 100 |kaynak grubu başına 100 |kaynak grubu başına 100 |
 | İşlem örneği türü |Paylaşılan |Paylaşılan |Ayrılmış<sup>3</sup> |Ayrılmış<sup>3</sup> |Ayrılmış<sup>3</sup></p> |
-| [Genişleme](../articles/app-service/web-sites-scale.md) (max örnekleri) |Paylaşılan 1 |Paylaşılan 1 |ayrılmış 3<sup>3</sup> |ayrılmış 10<sup>3</sup> |20 ayrılmış (ana 50)<sup>3,4</sup> |
+| [Scale-Out](../articles/app-service/web-sites-scale.md) (max instances) |Paylaşılan 1 |Paylaşılan 1 |ayrılmış 3<sup>3</sup> |ayrılmış 10<sup>3</sup> |20 ayrılmış (ana 50)<sup>3,4</sup> |
 | Depolama<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |500 GB<sup>4,5</sup></p> |
 | CPU süresi (5 dk.)<sup>6</sup> |3 dakika |3 dakika |Sınırsız, standart, ödeme [hızları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart tarifelere ödeme |Sınırsız, standart tarifelere ödeme |
 | CPU süresi (gün)<sup>6</sup> |60 dakika |240 dakika |Sınırsız, standart, ödeme [hızları](https://azure.microsoft.com/pricing/details/app-service/)</a> |Sınırsız, standart tarifelere ödeme |Sınırsız, standart tarifelere ödeme |
@@ -20,7 +20,7 @@
 | [Her zaman açık](../articles/app-service/web-sites-configure.md) | | |X |X |X |
 | [Zamanlanmış yedeklemeleri](../articles/app-service/web-sites-backup.md) | | | | Zamanlanmış yedeklemeleri her 2 saatte en fazla 12 yedekleri her gün (el ile + zamanlanmış) | Zamanlanmış yedeklemeleri her saat en çok 50 yedekleri her gün (el ile + zamanlanmış) |
 | [Otomatik ölçeklendirme](../articles/app-service/web-sites-scale.md) | | | |X |X |
-| [Web işleri](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
+| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |
 | [Azure Zamanlayıcı](https://azure.microsoft.com/services/scheduler/) desteği | |X |X |X |X |
 | [Uç Nokta izleme](../articles/app-service/web-sites-monitor.md) | | |X |X |X |
 | [Hazırlama yuvalarına](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |
