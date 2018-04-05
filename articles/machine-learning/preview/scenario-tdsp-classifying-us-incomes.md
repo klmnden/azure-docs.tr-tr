@@ -1,12 +1,12 @@
 ---
-title: "Gelir sınıflandırma - takım veri bilimi işlem - Azure Machine Learning | Microsoft Docs"
-description: "Azure Machine Learning ile ABD yüksek sınıflandırır bir proje oluşturmak için takım veri bilimi işlem şablonunu kullanma"
+title: Gelir sınıflandırma - takım veri bilimi işlem - Azure Machine Learning | Microsoft Docs
+description: Azure Machine Learning ile ABD yüksek sınıflandırır bir proje oluşturmak için takım veri bilimi işlem şablonunu kullanma
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
 ms.openlocfilehash: dc6279a1bac230146f4f0cebf2fbdbb6333cb7a1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Takım veri bilimi işlem (TDSP) proje ile gelir sınıflandırma
 
@@ -74,7 +74,7 @@ Kaydetmek istiyorsanız ve sürüm projenizi ve içeriğini, burada bu yapılabi
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturun:
 1.  Açık Azure Machine Learning çalışma ekranı
-2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**
+2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun
 4.  İçinde **arama proje şablonları** arama kutusu, "Sınıflandır ABD gelirler - TDSP proje" yazın ve şablonu seçin
 5.  **Oluştur**'a tıklayın

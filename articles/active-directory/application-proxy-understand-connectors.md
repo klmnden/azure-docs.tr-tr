@@ -1,11 +1,11 @@
 ---
-title: "Azure AD uygulama proxy'si bağlayıcılar anlama | Microsoft Docs"
-description: "Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır."
+title: Azure AD uygulama proxy'si bağlayıcılar anlama | Microsoft Docs
+description: Azure AD uygulama proxy'si bağlayıcılar hakkında temel bilgiler yer almaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,10 +16,10 @@ ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: fe8d5c40249431be60dc8844adf7efa1b8e87c5f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama proxy'si bağlayıcılar anlama
 
@@ -78,7 +78,7 @@ Bağlayıcılar otomatik olarak yük dengelemesi bir bağlayıcı grubundaki, an
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\*Bu makineye 800 bağlantı sınırı var. Diğer tüm makineler için varsayılan 200 bağlantı sınırı kullandık.
+\* Bu makineye 800 bağlantı sınırı var. Diğer tüm makineler için varsayılan 200 bağlantı sınırı kullandık.
  
 >[!NOTE]
 >En fazla TP'leri kadar fark 4, 8 ile 16 çekirdekli makine arasında değil. Bunlar arasındaki başlıca fark beklenen gecikme ' dir.  
@@ -157,7 +157,7 @@ Günlükleri görmek için açık Olay Görüntüleyici'ye gidin **Görünüm** 
 
 Hizmetleri penceresinde hizmetinin durumunu inceleyebilirsiniz. İki Windows Hizmetleri Bağlayıcısı oluşur: Gerçek Bağlayıcısı ve güncelleştirici. Bunların her ikisi de, her zaman çalıştırmanız gerekir.
 
- ![Azuread'i Hizmetleri yerel](./media/application-proxy-understand-connectors/aad-connector-services.png)
+ ![AzureAD Services Local](./media/application-proxy-understand-connectors/aad-connector-services.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

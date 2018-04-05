@@ -9,7 +9,7 @@ Aşağıdaki tabloda, IOT Hub cihaz hizmeti sağlama kaynaklara uygulamak sını
 | En çok sayıda CA | 10 |
 
 > [!NOTE]
-> Bu sınırı genel önizlemesi için mevcuttur. Hizmeti genel olarak kullanılabilir olduğunda başvurabilirsiniz [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizde örneklerinin sayısını artırmak için.
+> Sizinle iletişim [Microsoft Support](https://azure.microsoft.com/support/options/) aboneliğinizde örneklerinin sayısını artırmak için.
 
 Aşağıdaki kotalar aşıldığında aygıtı sağlama hizmeti istek kısıtlar:
 

@@ -1,8 +1,8 @@
 ---
-title: "Bir Windows PC Hdınsight - Azure Hadoop ile kullanma | Microsoft Docs"
-description: "Bir Windows PC hadoop'ta Hdınsight üzerinde çalışır. PowerShell, Visual Studio ve Linux araçlarıyla sorgu kümeleri ve yönetin. .NET ile büyük veri çözümleri geliştirin."
+title: Bir Windows PC Hdınsight - Azure Hadoop ile kullanma | Microsoft Docs
+description: Bir Windows PC hadoop'ta Hdınsight üzerinde çalışır. PowerShell, Visual Studio ve Linux araçlarıyla sorgu kümeleri ve yönetin. .NET ile büyük veri çözümleri geliştirin.
 services: hdinsight
-keywords: "windows, hadoop'ta windows için hadoop"
+keywords: windows, hadoop'ta windows için hadoop
 author: cjgronlund
 manager: jhubbard
 ms.author: cgronlun
@@ -11,10 +11,10 @@ ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows PC hdınsight'ta Hadoop ekosistemi ile çalışma
 

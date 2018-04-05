@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Hightail | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Hightail arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Hightail | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Hightail arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
 ms.openlocfilehash: 2333a56cd9369cb66c4944304472462d2f2f7511
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Öğretici: Azure Active Directory Tümleştirme Hightail ile
 
@@ -31,7 +31,7 @@ Hightail Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Hightail ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -57,7 +57,7 @@ Azure AD Hightail tümleştirilmesi yapılandırmak için yönetilen SaaS uygula
 
 **Galeriden Hightail eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde ** [Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
     ![Active Directory][1]
 
@@ -86,11 +86,11 @@ Hightail içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'
 
 Yapılandırma ve Azure AD çoklu oturum açma Hightail ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
-1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on) ** - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
-2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user) ** - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Hightail test kullanıcısı oluşturma](#creating-a-hightail-test-user) ** - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Hightail sağlamak için.
-4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user) ** - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
-5. **[Çoklu oturum açmayı test](#testing-single-sign-on) ** - yapılandırma çalışıp çalışmadığını doğrulayın.
+1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
+2. **[Bir Azure AD test kullanıcısı oluşturma](#creating-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
+3. **[Hightail test kullanıcısı oluşturma](#creating-a-hightail-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Hightail sağlamak için.
+4. **[Azure AD test kullanıcısı atama](#assigning-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
+5. **[Çoklu oturum açmayı test](#testing-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırma
 
@@ -110,7 +110,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-hightail-tutorial/tutorial_hightail_url.png)
 
-     İçinde **yanıt URL'si** metin olarak URL'yi yazın:`https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+     İçinde **yanıt URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
     > [!NOTE] 
     > Önceki değerin gerçek değeri değil. Değer, gerçek yanıt, öğreticide daha sonra açıklanan URL ile güncelleştirir.
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. Tıklatın **Göster Gelişmiş URL ayarları**.
 
-    b. İçinde **oturum üzerinde URL'si** metin olarak URL'yi yazın:`https://www.hightail.com/loginSSO`
+    b. İçinde **oturum üzerinde URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/loginSSO`
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
@@ -135,10 +135,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
-    | FirstName | User.givenName |
-    | Soyadı | User.surname |
-    | E-posta | User.Mail |    
-    | Userıdentity | User.Mail |
+    | FirstName | user.givenname |
+    | Soyadı | user.surname |
+    | Email | user.mail |    
+    | UserIdentity | user.mail |
     
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -190,7 +190,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     f. Örneğiniz için SAML tüketici URL'sini kopyalayın ve yapıştırın **yanıt URL'si** metin kutusuna **Hightail etki alanı ve URL'leri** Azure Portal'daki bölümü.
     
-    g. **Kaydet** düğmesine tıklayın.
+    g. **Kaydet**’e tıklayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -225,13 +225,13 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-hightail-test-user"></a>Hightail test kullanıcısı oluşturma
 
 Bu bölümün amacı Britta Simon içinde Hightail adlı bir kullanıcı oluşturmaktır. 
 
-Bu bölümde, eylem öğe yok. Yalnızca zaman kullanıcı hazırlama özel taleplere dayanarak destekler hightail. Özel talep bölümünde gösterildiği gibi yapılandırdıysanız ** [yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on) ** yukarıdaki kullanıcı henüz yok uygulamada otomatik olarak oluşturulur. 
+Bu bölümde, eylem öğe yok. Yalnızca zaman kullanıcı hazırlama özel taleplere dayanarak destekler hightail. Özel talep bölümünde gösterildiği gibi yapılandırdıysanız **[yapılandırma Azure AD çoklu oturum açma](#configuring-azure-ad-single-sign-on)** yukarıdaki kullanıcı henüz yok uygulamada otomatik olarak oluşturulur. 
 
 >[!NOTE]
 >Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [Hightail destek ekibi](mailto:support@hightail.com). 

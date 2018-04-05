@@ -1,11 +1,11 @@
 ---
-title: "Açık kaynak teknolojileri SSS Azure web uygulamaları | Microsoft Docs"
-description: "Azure App Service Web Apps özelliğini açık kaynak teknolojileri hakkında sık sorulan soruların yanıtlarını alın."
+title: Açık kaynak teknolojileri SSS Azure web uygulamaları | Microsoft Docs
+description: Azure App Service Web Apps özelliğini açık kaynak teknolojileri hakkında sık sorulan soruların yanıtlarını alın.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
 ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Açık kaynak teknolojileri Azure Web uygulamaları için sık sorulan sorular
 
@@ -49,10 +49,10 @@ PHP günlüğünü etkinleştirmek için:
 2. Üst menüde seçin **hata ayıklama Konsolu'nda** > **CMD**.
 3. Seçin **Site** klasör.
 4. Seçin **wwwroot** klasör.
-5. Seçin  **+**  simgesine ve ardından **yeni dosya**.
+5. Seçin **+** simgesine ve ardından **yeni dosya**.
 6. Dosya adı ayarlamak **. user.ini**.
 7. Kalem simgesini seçin **. user.ini**.
-8. Dosyasında bu kodu ekleyin:`log_errors=on`
+8. Dosyasında bu kodu ekleyin: `log_errors=on`
 9. **Kaydet**’i seçin.
 10. Kalem simgesini seçin **wp-config.php**.
 11. Metin aşağıdaki kodla değiştirin:
@@ -100,7 +100,7 @@ Node.js uygulaması sürümünü değiştirmek için aşağıdaki seçeneklerden
     Azure kaynak denetimi dağıtım işlemi aşağıdaki adımları içerir:
     1. İçerik Azure web uygulaması'na taşınır.
     2. Hiç yoksa (deploy.cmd, .deployment dosyaları) web uygulaması kök klasöründe bir varsayılan dağıtım betiğini oluşturur.
-    3. Hangi oluşturduğu bir iisnode.yml dosyasını package.json dosyası Node.js sürümünü Bahsediyor, bir dağıtım betiği çalıştıran > altyapısı`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+    3. Hangi oluşturduğu bir iisnode.yml dosyasını package.json dosyası Node.js sürümünü Bahsediyor, bir dağıtım betiği çalıştıran > altyapısı `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Aşağıdaki kod satırını iisnode.yml dosyasını sahiptir:
         ```
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -135,24 +135,24 @@ Django yükleme hakkında daha fazla bilgi için bkz: [bir Django uygulaması Ap
 
 Azure Market ve özel dağıtımlar için:
 
-* Klasör konumu: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Folder location: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
 * İlgilenilen dosyalar:
     * catalina. *yyyy-aa-gg*.log
-    * ana bilgisayar-yöneticisi. *yyyy-aa-gg*.log
-    * localhost. *yyyy-aa-gg*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
     * Yöneticisi. *yyyy-aa-gg*.log
-    * site_access_log. *yyyy-aa-gg*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 
 Portal için **uygulama ayarları** dağıtımlar:
 
-* Klasör konumu: D:\home\LogFiles
+* Folder location: D:\home\LogFiles
 * İlgilenilen dosyalar:
     * catalina. *yyyy-aa-gg*.log
-    * ana bilgisayar-yöneticisi. *yyyy-aa-gg*.log
-    * localhost. *yyyy-aa-gg*.log
+    * host-manager.*yyyy-mm-dd*.log
+    * localhost.*yyyy-mm-dd*.log
     * Yöneticisi. *yyyy-aa-gg*.log
-    * site_access_log. *yyyy-aa-gg*.log
+    * site_access_log.*yyyy-mm-dd*.log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Nasıl JDBC sürücüsü bağlantı hatalarını giderme?
 

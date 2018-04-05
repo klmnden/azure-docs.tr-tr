@@ -1,7 +1,7 @@
 ---
 title: SendGrid e-posta hizmetine (Java) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. Java dilinde yazılan kod örnekleri."
-services: 
+description: Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. Java dilinde yazılan kod örnekleri.
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>SendGrid Java kullanarak e-posta gönderme
 Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler Java'da yazılmış. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**, ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
@@ -158,7 +158,7 @@ SendGrid kullanım yoluyla ek e-posta işlevselliği sağlar *filtreleri*. Bu iz
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Nasıl yapılır: güncelleştirme e-posta özellikleri
-Bazı e-posta özellikleri kullanılarak üzerine yazılabilir  **ayarlamak*özelliği*** veya kullanarak eklenmiş  **ekleme*özelliği***.
+Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak * özellik*** veya kullanarak eklenmiş **ekleme*özelliği ***.
 
 Örneğin, belirtmek için **ReplyTo** adresleri aşağıdakileri kullanın:
 
@@ -182,7 +182,7 @@ SendGrid e-posta hizmeti temel bilgileri öğrendiğinize göre daha fazla bilgi
 * Bir Azure dağıtımında SendGrid kullanarak oluşturulduğunu gösteren örnek: [bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme](store-sendgrid-java-how-to-send-email-example.md)
 * SendGrid Java SDK: <https://sendgrid.com/docs/Code_Examples/java.html>
 * SendGrid API belgelerine: <https://sendgrid.com/docs/API_Reference/index.html>
-* SendGrid özel teklif Azure müşteriler: <https://sendgrid.com/windowsazure.html>
+* SendGrid özel teklif Azure müşteriler için: <https://sendgrid.com/windowsazure.html>
 
 [http://sendgrid.com]: https://sendgrid.com
 [http://sendgrid.com/pricing.html]: http://sendgrid.com/pricing.html

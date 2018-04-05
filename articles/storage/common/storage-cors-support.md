@@ -1,6 +1,6 @@
 ---
-title: "Çıkış noktaları arası kaynak paylaşımını (CORS) desteği | Microsoft Docs"
-description: "Microsoft Azure Storage Hizmetleri için CORS desteğini etkinleştirme hakkında bilgi edinin."
+title: Çıkış noktaları arası kaynak paylaşımını (CORS) desteği | Microsoft Docs
+description: Microsoft Azure Storage Hizmetleri için CORS desteğini etkinleştirme hakkında bilgi edinin.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Çıkış noktaları arası kaynak paylaşımı (CORS) Azure Storage Hizmetleri desteği
 Sürüm 2013-08-15'den başlayarak, Azure storage Hizmetleri için Blob, tablo, kuyruk ve Dosya Hizmetleri çıkış noktaları arası kaynak paylaşımı (CORS) destekler. CORS başka bir etki alanındaki kaynaklara erişmek bir etki alanında çalışan bir web uygulaması sağlayan bir HTTP özelliğidir. Web tarayıcıları uygulamak olarak bilinen bir güvenlik kısıtlama [kaynak aynı ilke](http://www.w3.org/Security/wiki/Same_Origin_Policy) arama API'leri; farklı bir etki alanındaki bir web sayfasından engelleyen CORS başka bir etki alanındaki API'leri çağırmak bir etki alanı (kaynak etki alanı) izin vermek için güvenli bir yol sağlar. Bkz: [CORS belirtimi](http://www.w3.org/TR/cors/) CORS hakkında ayrıntılı bilgi için.
@@ -71,7 +71,7 @@ Hizmet özelliklerini ayarlama işlemi belirtilen tek bir CORS kural örneği ş
 
 CORS kurala dahil her öğe aşağıda açıklanmıştır:
 
-* **AllowedOrigins**: depolama hizmeti CORS ile bir isteği yapmak için izin verilen çıkış noktası etki alanlarını. Kaynak etki alanı İsteğin kaynaklandığı etki alanıdır. Kaynak tam büyük/küçük harfe eşleşme kullanıcı yaş hizmetine gönderir kaynağına sahip olması gerektiğini unutmayın. Joker karakter kullanabilirsiniz ' *' CORS keşfi yapmak, tüm kaynak etki alanlarının izin vermek için. Etki alanları yukarıdaki örnekte [http://www.contoso.com](http://www.contoso.com) ve [http://www.fabrikam.com](http://www.fabrikam.com) CORS kullanarak hizmet isteklerinde yapabilirsiniz.
+* **AllowedOrigins**: depolama hizmeti CORS ile bir isteği yapmak için izin verilen çıkış noktası etki alanlarını. Kaynak etki alanı İsteğin kaynaklandığı etki alanıdır. Kaynak tam büyük/küçük harfe eşleşme kullanıcı yaş hizmetine gönderir kaynağına sahip olması gerektiğini unutmayın. Joker karakter kullanabilirsiniz ' *' CORS keşfi yapmak, tüm kaynak etki alanlarının izin vermek için. Etki alanları yukarıdaki örnekte [ http://www.contoso.com ](http://www.contoso.com) ve [ http://www.fabrikam.com ](http://www.fabrikam.com) CORS kullanarak hizmet isteklerinde yapabilirsiniz.
 * **AllowedMethods**: kaynak etki alanı için CORS istek kullanabilir yöntemleri (HTTP isteği fiiller). Yukarıdaki örnekte, yalnızca PUT ve GET isteklerini izin verilir.
 * **AllowedHeaders**: kaynak etki alanı CORS isteğini belirtebilir istek üstbilgileri. Yukarıdaki örnekte, x-ms-meta veri ile x-ms-meta-hedef ve x-ms-meta-abc başlayan tüm meta veri üstbilgileri izin verilir. Unutmayın joker karakteri ' *' Belirtilen önek herhangi üstbilgi başlayarak izin verildiğini gösterir.
 * **ExposedHeaders**: İstek veren tarayıcıya tarafından kullanıma sunulan ve CORS isteğine yanıt olarak gönderilen olabilir yanıt üstbilgileri. Yukarıdaki örnekte, tüm üst bilgisi x-ms-meta başlayarak kullanıma sunmak için tarayıcı talimatı verilir.
@@ -86,7 +86,7 @@ CORS kuralları aşağıdaki sınırlamalar uygulanır:
 * Bir izin verilen üst bilgi, sunulan üstbilgisi veya izin verilen kaynağı uzunluğu 256 karakteri aşamaz.
 * İzin verilen üstbilgileri ve sunulan üstbilgileri ya da olabilir:
   * Değişmez değer üst bilgiler, burada tam üstbilgi adı sağlanır, gibi **x-ms-meta-işlenen**. En fazla 64 değişmez değer üstbilgileri isteği belirtilebilir.
-  * Üst bilgiler, burada bir önek üstbilgisinin sağlanır, gibi önekli **x-ms-meta-data***. Bu şekilde bir önek belirtme izin verir veya belirtilen önek ile başlayan herhangi bir başlığını kullanıma sunar. En fazla iki önekli üstbilgi isteği belirtilebilir.
+  * Üst bilgiler, burada bir önek üstbilgisinin sağlanır, gibi önekli ** x-ms-meta-data ***. Bu şekilde bir önek belirtme izin verir veya belirtilen önek ile başlayan herhangi bir başlığını kullanıma sunar. En fazla iki önekli üstbilgi isteği belirtilebilir.
 * Belirtilen yöntemler (veya HTTP fiilleri) **AllowedMethods** öğesi Azure depolama hizmeti API tarafından desteklenen yöntemleri için uygun olmalıdır. Desteklenen yöntemler, silme, GET, HEAD, birleştirme, POST, seçenekleri ve PUT ' tur.
 
 ## <a name="understanding-cors-rule-evaluation-logic"></a>CORS kural değerlendirme mantığı anlama
@@ -133,10 +133,10 @@ Ardından, aşağıdaki CORS isteklerini göz önünde bulundurun:
 
 | İstek |  |  | Yanıt |  |
 | --- | --- | --- | --- | --- |
-| **Yöntemi** |**Kaynak** |**İstek üstbilgileri** |**Kural eşleştirme** |**Sonuç** |
+| **Yöntemi** |**Origin** |**İstek üstbilgileri** |**Kural eşleştirme** |**Sonuç** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |İlk kural |Başarılı |
-| **AL** |http://www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
-| **AL** |http://www.contoso.com |x-ms-istemci-request-id |İkinci kuralı |Hata |
+| **GET** |http://www.contoso.com |x-ms-blob-content-type |İkinci kuralı |Başarılı |
+| **GET** |http://www.contoso.com |x-ms-client-request-id |İkinci kuralı |Hata |
 
 İlk istek ilk kuralıyla eşleşen – kaynak etki alanı izin verilen çıkış noktası eşleştirir, izin verilen yöntemleri yöntem eşleşiyor ve üstbilgi izin verilen üstbilgileri – eşleşen ve bu nedenle başarılı.
 
@@ -167,13 +167,13 @@ Aşağıdaki tabloda nasıl Azure depolama gösterir üzerinde yukarıda açıkl
 
 | İstek | Hesabı ayarı ve kural değerlendirme sonucu |  |  | Yanıt |  |  |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **İstekte mevcut kaynak üstbilgisi** |**Bu hizmet için belirtilen CORS kuralları** |**Eşleşen kural mevcut tüm kaynaklara izin veren (*)** |**Tam kaynak eşleşme için eşleşen bir kural var** |**Yanıt kaynağa ayarlamak ayırmayı üstbilgisi içeriyor** |**Access-Control-izin verilen-Origin yanıtı içerir: "*"** |**Access-Control-kullanıma sunulan-Headers yanıtı içerir** |
+| **İstekte mevcut kaynak üstbilgisi** |**Bu hizmet için belirtilen CORS kuralları** |**Tüm origins(*) veren eşleşen kural var** |**Tam kaynak eşleşme için eşleşen bir kural var** |**Yanıt kaynağa ayarlamak ayırmayı üstbilgisi içeriyor** |**Access-Control-izin verilen-Origin yanıtı içerir: "*"** |**Access-Control-kullanıma sunulan-Headers yanıtı içerir** |
 | Hayır |Hayır |Hayır |Hayır |Hayır |Hayır |Hayır |
-| Hayır |Yes |Hayır |Hayır |Yes |Hayır |Hayır |
+| Hayır |Evet |Hayır |Hayır |Evet |Hayır |Hayır |
 | Hayır |Evet |Evet |Hayır |Hayır |Evet |Evet |
 | Evet |Hayır |Hayır |Hayır |Hayır |Hayır |Hayır |
 | Evet |Evet |Hayır |Evet |Evet |Hayır |Evet |
-| Evet |Evet |Hayır |Hayır |Yes |Hayır |Hayır |
+| Evet |Evet |Hayır |Hayır |Evet |Hayır |Hayır |
 | Evet |Evet |Evet |Hayır |Hayır |Evet |Evet |
 
 ## <a name="billing-for-cors-requests"></a>CORS isteklerini faturalama

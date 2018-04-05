@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 03/20/2018
-ms.openlocfilehash: 9d4e42df3137108248a043bb0d9def181d766c7a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c9a74aa00ee263b8fb4e19b77ad5be418e31c7d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -24,7 +24,7 @@ MySQL sunucusu için bir Azure veritabanı üç farklı fiyatlandırma katmanlar
 | İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. Nesil |
 | vCores | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | VCore başına bellek | Taban çizgisi | 2 x Basic | Genel amaçlı x 2 |
-| Depolama boyutu | 1 TB ' 5 GB | 1 TB ' 5 GB | 1 TB ' 5 GB |
+| Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Veritabanı yedekleme bekletme süresi | 7 için 35 gün | 7 için 35 gün | 7 için 35 gün |
 
@@ -46,9 +46,9 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı saniye iç
 |:---|:----------:|:--------------------:|
 | Orta ABD |  | X |
 | Doğu ABD | X | X |
-| Doğu ABD 2 | X |  |
+| Doğu ABD 2 | X | X |
 | Orta Kuzey ABD | X |  |
-| Orta Güney ABD | X |  |
+| Orta Güney ABD | X | X |
 | Batı ABD | X | X |
 | Batı ABD 2 |  | X |
 | Orta Kanada | X | X |
@@ -63,8 +63,8 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı saniye iç
 | Avustralya Doğu |  | X |
 | Orta Hindistan | X |  |
 | Batı Hindistan | X |  |
-| Japonya Doğu | X |  |
-| Japonya Batı | X |  |
+| Japonya Doğu | X | X |
+| Japonya Batı | X | X |
 | Kore Güney |  | X |
 
 Fiyatlandırma katmanına bağlı olarak, belirli bir bellek miktarı her vCore sağlanır. Artırabilir ya da vCores sayısını azaltmak için sunucunuzu, bellek artırır veya orantılı olarak azaltır. Genel amaçlı katmanı çift temel katmana göre vCore başına bellek miktarını sağlar. Bellek için iyileştirilmiş katmanı çift genel amaçlı katmanına karşılaştırıldığında bellek miktarını sağlar.
@@ -76,7 +76,7 @@ Sağlamanız depolama MySQL sunucusu için Azure veritabanınıza kullanılabili
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
-| Depolama boyutu | 1 TB ' 5 GB | 1 TB ' 5 GB | 1 TB ' 5 GB |
+| Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
 | Depolama artırım boyutu | 1 GB | 1 GB | 1 GB |
 | IOPS | Değişken |3 IOPS/GB<br/>Min 100 IOPS | 3 IOPS/GB<br/>Min 100 IOPS |
 

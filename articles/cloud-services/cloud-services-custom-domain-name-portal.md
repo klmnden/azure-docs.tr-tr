@@ -1,11 +1,11 @@
 ---
-title: "Bulut Hizmetleri'nde bir özel etki alanı adı yapılandırma | Microsoft Docs"
-description: "Azure uygulamanızı veya verilerin internet'te özel bir etki alanı için DNS ayarlarını yapılandırarak öğrenin.  Bu örnekler Azure Portalı'nı kullanın."
+title: Bulut Hizmetleri'nde bir özel etki alanı adı yapılandırma | Microsoft Docs
+description: Azure uygulamanızı veya verilerin internet'te özel bir etki alanı için DNS ayarlarını yapılandırarak öğrenin.  Bu örnekler Azure Portalı'nı kullanın.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5783a246-a151-4fb1-b488-441bfb29ee44
 ms.service: cloud-services
 ms.workload: tbd
@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
 ms.openlocfilehash: 139ec6578dc9e76039c5fb13e7a7741aa8ba4e0d
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Bir Azure bulut hizmeti için bir özel etki alanı adı yapılandırma
-Azure bulut hizmeti oluşturduğunuzda, bir alt etki alanı için atar **cloudapp.net**. Örneğin, bulut hizmetinizin "contoso" ise, kullanıcılarınız uygulamanızda http://contoso.cloudapp.net gibi bir URL erişebilir olacaktır. Azure de bir sanal IP adresi atar.
+Azure bulut hizmeti oluşturduğunuzda, bir alt etki alanı için atar **cloudapp.net**. Bulut hizmetinizi "contoso" ise, örneğin, kullanıcılarınız uygulamanızda gibi bir URL erişim kuramaz http://contoso.cloudapp.net. Azure de bir sanal IP adresi atar.
 
 Ancak, aynı zamanda uygulamanız kendi etki alanı adınızı gibi getirebilir **contoso.com**. Bu makalede, ayırmak veya Bulut hizmeti web rolleri için bir özel etki alanı adı yapılandırma açıklanmaktadır.
 
@@ -69,7 +69,7 @@ Bir CNAME kaydı oluşturmak için yeni bir giriş DNS tabloda özel etki alanı
      
        ![Hızlı Bakış bölümüne site URL'si gösterme][csurl]
      
-       **VEYA**
+       **OR**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
      
        ```powershell
@@ -86,7 +86,7 @@ Bir CNAME kaydı oluşturmak için yeni bir giriş DNS tabloda özel etki alanı
 
 | Diğer ad/ana bilgisayar adı/alt etki alanı | Kurallı etki alanı |
 | --- | --- |
-| www |contoso.cloudapp.NET |
+| www |contoso.cloudapp.net |
 
 > [!NOTE]
 > Bir ziyaretçi, **www.contoso.com** iletmeyi işlemdir son kullanıcıya görünmez şekilde doğru ana bilgisayar (contoso.cloudapp.net) hiçbir zaman görürsünüz.
@@ -104,7 +104,7 @@ Bir A kaydı oluşturmak için öncelikle sanal IP adresine bulut hizmetinizin b
      
        ![Hızlı Bakış bölümüne VIP gösterme][vip]
      
-       **VEYA**
+       **OR**
    * Yükleme ve yapılandırma [Azure Powershell](/powershell/azure/overview)ve ardından aşağıdaki komutu kullanın:
      
        ```powershell

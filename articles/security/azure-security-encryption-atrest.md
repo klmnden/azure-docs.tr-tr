@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure veri şifreleme çalışmıyorken-| Microsoft Docs"
-description: "Bu makalede, Microsoft Azure veri şifreleme çalışmıyorken genel bir bakış, genel özellikleri ve genel konular sağlar."
+title: Microsoft Azure veri şifreleme çalışmıyorken-| Microsoft Docs
+description: Bu makalede, Microsoft Azure veri şifreleme çalışmıyorken genel bir bakış, genel özellikleri ve genel konular sağlar.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
 ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure veri şifreleme çalışmıyorken-
 Microsoft, şirketinizin güvenlik ve uyumluluk gereksinimlerine göre verilerinizi korumak için Azure içinde birden çok araç vardır. Bu yazı odaklanır:
@@ -256,7 +256,7 @@ Desteği sever şifreleme şu anda saydam veri şifreleme adlı SQL özelliği s
 |                                  | **Anahtar Yönetimi** | **Hizmet anahtarı yönetilen** | **Anahtar kasasına yönetilen müşteri** | **Yönetilen müşterinin şirket içi** |        |
 | **Depolama ve veritabanları**            |                |                     |                              |                              |        |
 | Disk (Iaas)                      |                | -                   | Evet                          | Evet*                         | -      |
-| SQL Server (Iaas)                |                | Evet                 | Evet                          | Evet                          | Evet    |
+| SQL Server (IaaS)                |                | Evet                 | Evet                          | Evet                          | Evet    |
 | SQL Azure (PaaS)                 |                | Evet                 | Önizleme                      | -                            | Evet    |
 | Azure depolama (blok/sayfa Bloblarını) |                | Evet                 | Önizleme                      | -                            | Evet    |
 | Azure depolama (dosyaları)            |                | Evet                 | -                            | -                            | -      |

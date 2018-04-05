@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 serisi Veeam olan yedekleme hedefi olarak | Microsoft Docs
-description: "Veeam StorSimple yedekleme hedefi yapılandırmayla açıklar."
+description: Veeam StorSimple yedekleme hedefi yapılandırmayla açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
 ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>Yedekleme hedefi olarak StorSimple Veeam ile
 
@@ -93,10 +93,10 @@ Aşağıdaki tablolarda, cihaz modeli mimari ilk yönergeleri gösterilmektedir.
 
 | Depolama kapasitesi | 8100 | 8600 |
 |---|---|---|
-| Yerel depolama kapasitesi | &lt;10 Tıb\*  | &lt;20 Tıb\*  |
-| Bulut depolama kapasitesi | &gt;200 Tıb\* | &gt;500 Tıb\* |
+| Yerel depolama kapasitesi | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Bulut depolama kapasitesi | &gt; 200 TiB\* | &gt; 500 TiB\* |
 
-\*Depolama boyutu hiçbir yinelenenleri kaldırma veya sıkıştırma varsayar.
+\* Depolama boyutu hiçbir yinelenenleri kaldırma veya sıkıştırma varsayar.
 
 **Birincil ve ikincil yedeklemeleri StorSimple kapasiteleri**
 
@@ -183,7 +183,7 @@ Bu bölümde bazı yapılandırma örnekleri gösterilmektedir. Aşağıdaki ör
 
 ### <a name="set-up-storsimple"></a>StorSimple ayarlayın
 
-| StorSimple dağıtım görevleri  | Ek Açıklamalar |
+| StorSimple dağıtım görevleri  | Ek açıklamalar |
 |---|---|
 | Şirket içi StorSimple Cihazınızı dağıtma. | Desteklenen sürümleri: Update 3 ve sonraki sürümleri. |
 | Yedekleme hedef açın. | Bu komutlar, açma veya yedekleme hedefi modunu devre dışı bırakmak ve durumunu almak için kullanın. Daha fazla bilgi için bkz: [StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
@@ -264,7 +264,7 @@ Aşağıdaki örnekte, GFS döndürme kullanırız. Aşağıdaki örnekte varsay
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi |   | 38 |   |
 | Ek kota  | 4  |   | 42 toplam GFS gereksinim  |
-\*GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
+\* GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
 
 ## <a name="set-up-veeam-storage"></a>Veeam depolama alanı ayarlama
 
@@ -274,11 +274,11 @@ Aşağıdaki örnekte, GFS döndürme kullanırız. Aşağıdaki örnekte varsay
 
     ![Veeam Yönetim Konsolu, yedekleme deposu sayfası](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-2.  İçinde **yeni yedekleme deposu** iletişim kutusunda, bir ad ve havuz için bir açıklama girin. Seçin **sonraki**.
+2.  İçinde **yeni yedekleme deposu** iletişim kutusunda, bir ad ve havuz için bir açıklama girin. **İleri**’yi seçin.
 
     ![Veeam Yönetimi konsolunda, ad ve açıklama sayfası](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-3.  Türü için **Microsoft Windows server**. Veeam sunucuyu seçin. Seçin **sonraki**.
+3.  Türü için **Microsoft Windows server**. Veeam sunucuyu seçin. **İleri**’yi seçin.
 
     ![Veeam Yönetim Konsolu, yedekleme Havuz türü seçin](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
@@ -291,7 +291,7 @@ Aşağıdaki örnekte, GFS döndürme kullanırız. Aşağıdaki örnekte varsay
 
     ![Veeam Yönetim Konsolu, depolama uyumluluk ayarları](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-6.  İçinde **yeni yedekleme deposu** iletişim kutusunda **etkinleştirin (önerilen) bağlama sunucusunda vPower NFS hizmet** onay kutusu. Seçin **sonraki**.
+6.  İçinde **yeni yedekleme deposu** iletişim kutusunda **etkinleştirin (önerilen) bağlama sunucusunda vPower NFS hizmet** onay kutusu. **İleri**’yi seçin.
 
     ![Veeam Yönetim Konsolu, yedekleme deposu sayfası](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
@@ -383,7 +383,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalışaca
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
 | Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1 | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
-\*Toplam Kapasite 17 TiB, StorSimple diskleri ve yerel RAID birimi 1 TiB içerir.
+\* Toplam Kapasite 17 TiB, StorSimple diskleri ve yerel RAID birimi 1 TiB içerir.
 
 
 ### <a name="gfs-example-schedule"></a>GFS örnek zamanlama
@@ -497,7 +497,7 @@ Veeam ile hızlı, ayrıntılı, dosya düzeyinde kurtarma StorSimple Veeam kons
 
 Bir olağanüstü durum çeşitli etkenlere göre neden olabilir. Aşağıdaki tabloda, genel olağanüstü durum kurtarma senaryoları listeler.
 
-| Senaryo | Etkisi | Nasıl kurtarılır | Notlar |
+| Senaryo | Etki | Nasıl kurtarılır | Notlar |
 |---|---|---|---|
 | StorSimple cihaz hatası | Yedekleme ve geri yükleme işlemleri kesilir. | Başarısız aygıt değiştirin ve gerçekleştirmek [StorSimple yük devretme ve olağanüstü durum kurtarma](storsimple-device-failover-disaster-recovery.md). | Cihaz kurtarma işleminden sonra geri yüklemeyi gerçekleştirmek gerekiyorsa, tam veri çalışma kümeleri için yeni cihaz buluttan alınır. Bulut hızlarda tüm işlemleridir. Dizin ve işlemi yeniden tarama işlemi katalog tararken ve bu da zaman alan bir işlem olabilir yerel aygıt katmanına bulut Katmanı'ndan çekilen tüm yedekleme kümelerini neden olabilir. |
 | Veeam sunucu hatası | Yedekleme ve geri yükleme işlemleri kesilir. | Yedekleme sunucusunu yeniden oluşturmak ve veritabanı geri yükleme ayrıntılı biçimde açıklandığı gibi gerçekleştirin [Veeam Yardım Merkezi (teknik belgeler)](https://www.veeam.com/documentation-guides-datasheets.html).  | Yeniden oluşturmanız veya olağanüstü durum kurtarma sitesini Veeam sunucuda geri yükleyin. Veritabanını geri yüklemek için en son noktası. Geri yüklenen Veeam veritabanı son yedekleme işlerinizi ile eşitlenmiş durumda değilse, dizin oluşturma ve Katalog gereklidir. Bu dizin ve işlemi yeniden tarama işlemi katalog taranan ve bulut Katmanı'ndan yerel aygıt katmanına çekilen tüm yedekleme kümelerini neden olabilir. Bu, daha fazla zaman yoğunluklu kolaylaştırır. |

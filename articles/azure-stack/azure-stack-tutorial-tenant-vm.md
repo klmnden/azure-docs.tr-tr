@@ -17,10 +17,10 @@ ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
 ms.openlocfilehash: af97f32736959f8ebf8f3c4fbca400d6b0c41f3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Sanal makineler Azure yığın kullanıcılarınızın kullanımına sunun
 Azure yığın bulut yönetici olarak (bazen kiracılar adlandırılır), kullanıcılarınızın abone olabilirsiniz teklifleri oluşturabilirsiniz. Aboneliğini kullanarak, kullanıcılar sonra Azure yığın hizmetleri kullanmasını sağlayabilirsiniz.
@@ -113,7 +113,7 @@ Bir teklif oluşturduğunuza göre test edebilirsiniz. Bir kullanıcı olarak ot
    Artık, portala teklife abone olmak için bir kullanıcı olarak oturum açabilirsiniz.
 
    a. Oturum açma Kullanıcı Portalı'na bir kullanıcı ve tıklatın **bir abonelik edinmeniz**.
-   - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve biçim https://portal.&lt;*bölge*&gt;.&lt;*FQDN*&gt;.
+   - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *bölge*&gt;.&lt; *FQDN*&gt;.
    - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
    ![Abonelik edinin](media/azure-stack-subscribe-plan-provision-vm/image01.png)
@@ -131,7 +131,7 @@ Bir teklif oluşturduğunuza göre test edebilirsiniz. Bir kullanıcı olarak ot
    Şimdi portalına abonelik kullanarak bir sanal makine sağlamak için bir kullanıcı olarak oturum. 
 
    a. Kullanıcı Portalı'na bir kullanıcı olarak oturum açın.
-      - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve biçim https://portal.&lt;*bölge*&gt;.&lt;*FQDN*&gt;.
+      - Tümleşik bir sistem için URL operatörünüze'nın bölge ve dış etki alanı adına göre değişir ve şu biçimde olacaktır https://portal.&lt; *bölge*&gt;.&lt; *FQDN*&gt;.
    - Azure yığın Geliştirme Seti kullanıyorsanız, portalı adresidir https://portal.local.azurestack.external.
 
    b.  Panoda tıklatın **yeni** > **işlem** > **Windows Server 2016 Datacenter Eval**ve ardından **Oluştur**.

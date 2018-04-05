@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 serisi NetBackup olan yedekleme hedefi olarak | Microsoft Docs
-description: "VERITAS NetBackup StorSimple yedekleme hedefi yapılandırmayla açıklar."
+description: VERITAS NetBackup StorSimple yedekleme hedefi yapılandırmayla açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: harshakirank
 manager: matd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
 ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>Yedekleme hedefi olarak StorSimple NetBackup ile
 
@@ -91,9 +91,9 @@ Aşağıdaki tablolarda, cihaz modeli mimari ilk yönergeleri gösterilmektedir.
 
 | Depolama kapasitesi       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
-| Yerel depolama kapasitesi | &lt;10 Tıb\*  | &lt;20 Tıb\*  |
-| Bulut depolama kapasitesi | &gt;200 Tıb\* | &gt;500 Tıb\* |
-\*Depolama boyutu hiçbir yinelenenleri kaldırma veya sıkıştırma varsayar.
+| Yerel depolama kapasitesi | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
+| Bulut depolama kapasitesi | &gt; 200 TiB\* | &gt; 500 TiB\* |
+\* Depolama boyutu hiçbir yinelenenleri kaldırma veya sıkıştırma varsayar.
 
 **Birincil ve ikincil yedeklemeleri StorSimple kapasiteleri**
 
@@ -180,7 +180,7 @@ Bu bölümde bazı yapılandırma örnekleri gösterilmektedir. Aşağıdaki ör
 
 ### <a name="set-up-storsimple"></a>StorSimple ayarlayın
 
-| StorSimple dağıtım görevleri  | Ek Açıklamalar |
+| StorSimple dağıtım görevleri  | Ek açıklamalar |
 |---|---|
 | Şirket içi StorSimple Cihazınızı dağıtma. | Desteklenen sürümleri: Update 3 ve sonraki sürümleri. |
 | Yedekleme hedef açın. | Bu komutlar, açma veya yedekleme hedefi modunu devre dışı bırakmak ve durumunu almak için kullanın. Daha fazla bilgi için bkz: [StorSimple cihazı uzaktan bağlanma](storsimple-remote-connect.md).</br> Yedekleme modunu açmak için: `Set-HCSBackupApplianceMode -enable`. </br> Yedekleme modunu devre dışı bırakmak için: `Set-HCSBackupApplianceMode -disable`. </br> Yedekleme modu ayarları geçerli durumunu almak için: `Get-HCSBackupApplianceMode`. |
@@ -256,7 +256,7 @@ Aşağıdaki örnekte, GFS döndürme kullanırız. Aşağıdaki örnekte varsay
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi |   | 38 |   |
 | Ek kota  | 4  |   | 42 toplam GFS gereksinim  |
-\*GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
+\* GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
 
 ## <a name="set-up-netbackup-storage"></a>NetBackup depolama alanı ayarlama
 
@@ -325,7 +325,7 @@ Aşağıdaki sırada NetBackup ve hedef ana bilgisayarın NetBackup Aracısı y�
 
     ![NetBackup yönetim konsolunda, select ilke türü](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Ana bilgisayarınız seçin, **istemci işletim sistemini algılar** onay kutusunu işaretleyin ve ardından **Ekle**. Seçin **sonraki**.
+5.  Ana bilgisayarınız seçin, **istemci işletim sistemini algılar** onay kutusunu işaretleyin ve ardından **Ekle**. **İleri**’yi seçin.
 
     ![NetBackup yönetim konsolunda, yeni bir ilke listesi istemcileri](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
@@ -399,7 +399,7 @@ Aşağıdaki tabloda, yedekler yerel ve StorSimple diskler üzerinde çalışaca
 | Aylık tam |StorSimple disk (uzun süreli) | 1 | 12 | 12 |
 | Yıllık tam |StorSimple disk (uzun süreli) | 1 | 1 | 1 |
 |GFS birim boyutu gereksinimini |  |  |  | 18*|
-\*Toplam Kapasite 17 TiB, StorSimple diskleri ve yerel RAID birimi 1 TiB içerir.
+\* Toplam Kapasite 17 TiB, StorSimple diskleri ve yerel RAID birimi 1 TiB içerir.
 
 
 ### <a name="gfs-example-schedule-gfs-rotation-weekly-monthly-and-yearly-schedule"></a>GFS örnek zamanlama: GFS döndürme haftalık, aylık ve yıllık zamanlama
@@ -473,7 +473,7 @@ NetBackup çok çeşitli seçenekler ortamı ve Depolama Yönetimi için sağlad
 | Yıllık tam | 1  | 10 | 10 |
 | GFS gereksinimi  |     |     | 38 |
 | Ek kota  | 4  |    | 42 toplam GFS gereksinim |
-\*GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
+\* GFS çarpanı koruma ve yedekleme İlkesi gereksinimlerinizi karşılayacak şekilde korumak için ihtiyacınız kopya sayısıdır.
 
 ## <a name="storsimple-cloud-snapshots"></a>StorSimple bulut anlık görüntüleri
 
@@ -524,7 +524,7 @@ Herhangi bir blok depolama aygıtından geri yüklemeler gibi StorSimple cihazı
 
 Bir olağanüstü durum çeşitli etkenlere göre neden olabilir. Aşağıdaki tabloda, genel olağanüstü durum kurtarma senaryoları listeler.
 
-| Senaryo | Etkisi | Nasıl kurtarılır | Notlar |
+| Senaryo | Etki | Nasıl kurtarılır | Notlar |
 |---|---|---|---|
 | StorSimple cihaz hatası | Yedekleme ve geri yükleme işlemleri kesilir. | Başarısız aygıt değiştirin ve gerçekleştirmek [StorSimple yük devretme ve olağanüstü durum kurtarma](storsimple-device-failover-disaster-recovery.md). | Cihaz kurtarma işleminden sonra geri yüklemeyi gerçekleştirmek gerekiyorsa, tam veri çalışma kümeleri için yeni cihaz buluttan alınır. Bulut hızlarda tüm işlemleridir. Dizin ve işlemi yeniden tarama işlemi katalog tararken ve bu da zaman alan bir işlem olabilir yerel aygıt katmanına bulut Katmanı'ndan çekilen tüm yedekleme kümelerini neden olabilir. |
 | NetBackup sunucu hatası | Yedekleme ve geri yükleme işlemleri kesilir. | Yedekleme sunucusunu yeniden oluşturmak ve veritabanı geri yükleme gerçekleştirin. | Yeniden oluşturmanız veya olağanüstü durum kurtarma sitesini NetBackup sunucuda geri yükleyin. Veritabanını geri yüklemek için en son noktası. Geri yüklenen NetBackup veritabanı son yedekleme işlerinizi ile eşitlenmiş durumda değilse, dizin oluşturma ve Katalog gereklidir. Bu dizin ve işlemi yeniden tarama işlemi katalog taranan ve bulut Katmanı'ndan yerel aygıt katmanına çekilen tüm yedekleme kümelerini neden olabilir. Bu, daha fazla zaman yoğunluklu kolaylaştırır. |

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: f8dac5469e7160fae93e8251ab7f4195a383f8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN kurallar altyapısı eşleşen koşulları 
 Bu makalede kullanılabilir eşleşme koşullar için Azure içerik teslim ağı (CDN) ayrıntılı açıklamaları listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -726,7 +726,7 @@ Anahtar bilgileri:
 - CNAME URL kenar URL karşılaştırma önce CDN URL'ye yeniden yazılmıştır.
 
     Örneğin, aşağıdaki URL'ler her ikisi de aynı varlık noktası ve bu nedenle aynı URL yolu sahiptir:
-     - CDN URL'sine: http://wpc.0001. &lt;etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
+     - CDN URL'si: http://wpc.0001.&lt; etki alanı&gt;/800001/CustomerOrigin/path/asset.htm
      - Edge CNAME URL'si: http:\//&lt;endpoint&gt;.azureedge.net/path/asset.htm
     
     Ek bilgiler:
@@ -783,7 +783,7 @@ Anahtar bilgileri:
 
    Karakter | URL Encoding
    ----------|---------
-   Boşluk     | %20
+   Uzay     | %20
    &         | %25
 
 - Hangi önbelleğinde ayarları izlenen şekilde nedeniyle bu eşleşme koşul aşağıdaki özelliklerle uyumlu değil:
@@ -819,7 +819,7 @@ Anahtar bilgileri:
 
        Karakter | URL Encoding
        ----------|---------
-       Boşluk     | %20
+       Uzay     | %20
        &         | %25
 
 - Her biri tek bir boşluk ile sınırlandırma tarafından birden çok sorgu dizesi parametre değerlerini belirtin. Belirtilen ad/değer birleşimlerinden biri, bir istek içerdiğinde, bu eşleşme koşul karşılanır.
@@ -871,7 +871,7 @@ Ad  | Değer |  Sonuç
 ------|-------|--------
 Kullanıcı  | Joe   | İstenen URL için sorgu dizesi olduğunda bu deseni eşleşen "? kullanıcı joe =."
 Kullanıcı  | *     | İstenen URL için sorgu dizesi kullanıcı parametresini içerdiğinde bu deseni eşleştirilir.
-E-posta | Joe\* | İstenen URL için sorgu dizesi "Can" ile başlayan bir e-posta parametresini içerdiğinde bu deseni eşleşir
+Email | Joe\* | İstenen URL için sorgu dizesi "Can" ile başlayan bir e-posta parametresini içerdiğinde bu deseni eşleşir
 
 [Başa dön](#match-conditions-for-the-azure-cdn-rules-engine)
 
@@ -896,7 +896,7 @@ Anahtar bilgileri:
 
    Karakter | URL Encoding | Değer
    ----------|--------------|------
-   Boşluk     | %20          | \%20
+   Uzay     | %20          | \%20
    &         | %25          | \%25
 
    Yüzde simgeleri kaçış uygulanmalıdır unutmayın.
@@ -938,7 +938,7 @@ Anahtar bilgileri:
 
      Karakter | URL Encoding
      ----------|---------
-     Boşluk     | %20
+     Uzay     | %20
      &         | %25
 
 - Her biri tek bir boşluk ile sınırlandırma tarafından birden çok değer belirtin.

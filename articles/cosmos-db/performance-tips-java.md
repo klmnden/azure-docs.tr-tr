@@ -15,13 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: mimig
-ms.openlocfilehash: 3a6c7c51810375574895643cea2e0e24508fa382
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7aeb76f59b9489f7c930ef754ccbe6d3712e52a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 > [!div class="op_single_selector"]
+> * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
 > * [.NET](performance-tips.md)
 > 
@@ -80,7 +81,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
    <a id="max-connection"></a>
 3. **Ağ geçidi modu kullanırken ana bilgisayar başına MaxPoolSize artırın**
 
-    Azure Cosmos DB istekleri HTTPS/REST ağ geçidi modu kullanırken yapılır ve olan varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Azure Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxPoolSize daha yüksek bir değer (200-1000) ayarlamanız gerekebilir. İçin varsayılan değer Java SDK [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.gsetmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) değerini değiştirmek için.
+    Azure Cosmos DB istekleri HTTPS/REST ağ geçidi modu kullanırken yapılır ve olan varsayılan bağlantı sınırını ana bilgisayar adı veya IP adresi başına tabi. Böylece istemci kitaplığı Azure Cosmos DB birden çok eşzamanlı bağlantıların kullanabilir MaxPoolSize daha yüksek bir değer (200-1000) ayarlamanız gerekebilir. İçin varsayılan değer Java SDK [ConnectionPolicy.getMaxPoolSize](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.getmaxpoolsize) 100'dür. Kullanım [setMaxPoolSize]( https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._connection_policy.setmaxpoolsize) değerini değiştirmek için.
 
 4. **Paralel sorgular bölümlenmiş koleksiyonlar için ayarlama**
 
@@ -103,7 +104,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
 7. **Alan adı adresleme kullanın**
 
-    Ad tabanlı adresleme, bağlantılar biçimi sahip olduğu kullanan `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, SelfLinks (_self) yerine sahip olduğunuz biçimi `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` ResourceId bağlantı oluşturmak için kullanılan tüm kaynakları alma önlemek için. Bu kaynakları (büyük olasılıkla aynı ada sahip) yeniden gibi Ayrıca, bu önbelleğe alma yardımcı.
+    Ad tabanlı adresleme, bağlantılar biçimi sahip olduğu kullanan `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, SelfLinks yerine (\_kendini), biçime sahip `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` ResourceId bağlantı oluşturmak için kullanılan tüm kaynakları alma önlemek için. Bu kaynakları (büyük olasılıkla aynı ada sahip) yeniden gibi Ayrıca, bu önbelleğe alma yardımcı.
 
    <a id="tune-page-size"></a>
 8. **Sorguları/okuma akışları daha iyi performans için sayfa boyutunu ayarlama**

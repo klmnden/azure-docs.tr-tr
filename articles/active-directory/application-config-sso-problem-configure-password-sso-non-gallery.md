@@ -1,11 +1,11 @@
 ---
-title: "Parola tek oturum açma için Galeri olmayan uygulama yapılandırma sorunu | Microsoft Docs"
-description: "Azure AD uygulama galerisinde listelenmeyen Özel Galeri olmayan uygulamalar için parola çoklu oturum açmayı yapılandırırken ortak sorunları kişiler yüz anlama"
+title: Parola tek oturum açma için Galeri olmayan uygulama yapılandırma sorunu | Microsoft Docs
+description: Azure AD uygulama galerisinde listelenmeyen Özel Galeri olmayan uygulamalar için parola çoklu oturum açmayı yapılandırırken ortak sorunları kişiler yüz anlama
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: e5c8562b89b70236d9d65a5f8765ae386d6831b4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Parola tek oturum açma için Galeri olmayan uygulama yapılandırma sorunu
 
@@ -249,7 +249,7 @@ Daha fazla her bildirimin öğelerini anlamına gelir ve bunların her birini ö
 
 -   **Ayrıntılar** – ayrıntılı ne işlem sonucunda oluşan açıklaması
 
-    -   Örnek – **iç url 'http://bing.com/', zaten kullanımda olduğundan geçersiz**
+    -   Örnek – **iç url 'http://bing.com/' zaten kullanımda olduğundan geçerli değil**
 
 -   **Kopyalama hatası** – tıklatın **Kopyala simgesi** sağındaki **kopyalama hatası** desteği veya ürün grubu mühendislik ile paylaşmak için tüm bildirim ayrıntıları kopyalamak için metin kutusu
 

@@ -1,6 +1,6 @@
 | Kaynak | Hedef |
 |----------|---------------|
-| Tek bir tablo en büyük boyutu | 500 Tıb |
+| Tek bir tablo en büyük boyutu | 500 TiB |
 | Tablo varlığı en büyük boyutu | 1 MIB |
 | Tablo varlığı özelliklerinde sayısı üst sınırı | 252 |
 | Tablo başına depolanmış erişim ilkeleri sayısı üst sınırı | 5 |

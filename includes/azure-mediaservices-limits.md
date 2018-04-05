@@ -4,7 +4,7 @@
 | Kaynak | Varsayılan Sınır | 
 | --- | --- | 
 | Tek bir abonelikte Azure Media Services (AMS) hesabı sayısı | 25 (sabit) |
-| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1, S2)<br/>10 (S3) <sup>(1)</sup> | 
+| AMS hesabı başına Medya Ayrılmış Birimleri (RU’lar) |25 (S1)<br/>10 (S2, S3) <sup>(1)</sup> | 
 | AMS hesabı başına iş sayısı | 50,000<sup>(2)</sup> |
 | İş başına zincirleme görev sayısı | 30 (sabit) |
 | AMS hesabı başına varlık sayısı | 1.000.000|
@@ -20,7 +20,7 @@
 | İlkeler | 1,000,000<sup>(6)</sup> |
 | Dosya boyutu| Bazı senaryolarda, Media Services işlemek için desteklenen en büyük dosya boyutu üzerinde bir sınırı yoktur. <sup>7</sup> |
   
-<sup>1</sup> S3 RU’ları Hindistan Batı bölgesinde kullanılamaz. Türünden (örneğin, S1 S2) değiştirirseniz, max RU sınırları sıfırlanır.
+<sup>1</sup> türünden (örneğin, S1 S2) değiştirirseniz, max RU sınırları sıfırlanır.
 
 <sup>2</sup> Bu sayı kuyruğa alınan, tamamlanan, etkin ve iptal edilmiş işleri içerir. Silinmiş işleri içermez. **IJob.Delete** veya **DELETE** HTTP isteğini kullanarak eski işleri silebilirsiniz.
 

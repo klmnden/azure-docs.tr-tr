@@ -1,12 +1,12 @@
 ---
-title: "StorSimple destek koşulları | Microsoft Docs"
-description: "StorSimple 8000 serisi Kurumsal Depolama müşteriler için destek seçeneklerini açıklar."
+title: StorSimple destek koşulları | Microsoft Docs
+description: StorSimple 8000 serisi Kurumsal Depolama müşteriler için destek seçeneklerini açıklar.
 services: storsimple
 documentationcenter: NA
 author: GabiSocoteanu
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 6753b52b02373d03a9ed5fec775c899a806aff3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-solution-support"></a>StorSimple çözümü desteği
 

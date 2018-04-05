@@ -1,13 +1,13 @@
 ---
-title: "Azure sanal makineleri planlama ve uygulama için SAP NetWeaver | Microsoft Docs"
-description: "Azure sanal makineleri planlama ve uygulama SAP NetWeaver için"
+title: Azure sanal makineleri planlama ve uygulama için SAP NetWeaver | Microsoft Docs
+description: Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MSSedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: d7c59cc1-b2d0-4d90-9126-628f9c7a5538
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -18,10 +18,10 @@ ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9cd12808f7e3bbb8a4edfe0d8de1e5b0a007770a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure sanal makineleri planlama ve uygulama SAP NetWeaver için
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -798,8 +798,8 @@ Azure portalında Azure VM dağıtımları yönetmek için üç arabirimi biridi
 
 ![Microsoft Azure portal - sanal makineye genel bakış][planning-guide-figure-800]
 
-[comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
-[comment]: <> (MSSedusch * < https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/>)
+[comment]: <> (MSSedusch * <https://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/>)
 
 Sanal makine örneği için yönetim ve yapılandırma görevlerini Azure portalını mümkündür.
 
@@ -979,7 +979,7 @@ Bu durumda olan veya olmayan bir işletim sisteminde, bir VHD yüklemek ve bir v
 * Oturum açtığınızda, aboneliğinizle *az oturum açma*
 * Aboneliğinizi seçin *az hesabı kümesi--abonelik `<subscription name or id`>*
 * VHD ile karşıya *az depolama blob karşıya yükleme* -bkz [Azure Storage ile Azure CLI kullanma][storage-azure-cli]
-* (İsteğe bağlı) VHD ile yönetilen bir Disk oluşturmak *az disketi* -https://docs.microsoft.com/cli/azure/disk#az_disk_create bakın
+* (İsteğe bağlı) VHD ile yönetilen bir Disk oluşturmak *az disketi* -bakın https://docs.microsoft.com/cli/azure/disk#az_disk_create
 * Karşıya yüklenen VHD veya yönetilen Disk ile işletim sistemi diski olarak belirterek yeni bir VM oluşturmak *az vm oluşturma* ve parametre *--attach-os-disk*
 * Yeni bir VM ile bir veri diski Ekle *az vm diskini* ve parametre *--yeni*
 
@@ -1008,7 +1008,7 @@ Böyle bir VM veya VHD gereksinim bölümde listelenen gereksinimlerini karşıl
 * Oturum açtığınızda, aboneliğinizle *az oturum açma*
 * Aboneliğinizi seçin *az hesabı kümesi--abonelik `<subscription name or id`>*
 * VHD ile karşıya *az depolama blob karşıya yükleme* -bkz [Azure Storage ile Azure CLI kullanma][storage-azure-cli]
-* (İsteğe bağlı) VHD ile yönetilen bir Disk görüntüsü oluşturmak *az görüntü oluşturma* -https://docs.microsoft.com/cli/azure/image#az_image_create bakın
+* (İsteğe bağlı) VHD ile yönetilen bir Disk görüntüsü oluşturmak *az görüntü oluşturma* -bakın https://docs.microsoft.com/cli/azure/image#az_image_create
 * Karşıya yüklenen VHD veya yönetilen Disk görüntüsü ile işletim sistemi diski olarak belirterek yeni bir VM oluşturmak *az vm oluşturma* ve parametre *--görüntüsü*
 
 **Şablon**
@@ -1420,7 +1420,7 @@ $pip = New-AzureRmPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName
 $nic = New-AzureRmNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* Bir sanal makine oluşturun. Yalnızca bulut senaryosu için her VM aynı ada sahip olacaktır. Bu sanal makineleri SAP NetWeaver durumlarda SAP SID'si aynı de olacaktır. Azure kaynak grubu içinde VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux ' kök' varsayılan 'Yönetici' hesabı geçerli değil. Bu nedenle, yeni bir yönetici kullanıcı adı bir parola ile birlikte tanımlanması gerekiyor. VM boyutu da tanımlanması gerekiyor.
+* Sanal makine oluşturur. Yalnızca bulut senaryosu için her VM aynı ada sahip olacaktır. Bu sanal makineleri SAP NetWeaver durumlarda SAP SID'si aynı de olacaktır. Azure kaynak grubu içinde VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux ' kök' varsayılan 'Yönetici' hesabı geçerli değil. Bu nedenle, yeni bir yönetici kullanıcı adı bir parola ile birlikte tanımlanması gerekiyor. VM boyutu da tanımlanması gerekiyor.
 
 ```powershell
 #####
@@ -1534,7 +1534,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* Bir sanal makine oluşturun. Yalnızca bulut senaryosu için her VM aynı ada sahip olacaktır. Bu sanal makineleri SAP NetWeaver durumlarda SAP SID'si aynı de olacaktır. Azure kaynak grubu içinde VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux ' kök' varsayılan 'Yönetici' hesabı geçerli değil. Bu nedenle, yeni bir yönetici kullanıcı adı bir parola ile birlikte tanımlanması gerekiyor. VM boyutu da tanımlanması gerekiyor.
+* Sanal makine oluşturur. Yalnızca bulut senaryosu için her VM aynı ada sahip olacaktır. Bu sanal makineleri SAP NetWeaver durumlarda SAP SID'si aynı de olacaktır. Azure kaynak grubu içinde VM adının benzersiz olması gerekir, ancak farklı Azure kaynak grubunda aynı ada sahip VM'ler çalıştırabilirsiniz. Windows veya Linux ' kök' varsayılan 'Yönetici' hesabı geçerli değil. Bu nedenle, yeni bir yönetici kullanıcı adı bir parola ile birlikte tanımlanması gerekiyor. VM boyutu da tanımlanması gerekiyor.
 
 ```
 #####

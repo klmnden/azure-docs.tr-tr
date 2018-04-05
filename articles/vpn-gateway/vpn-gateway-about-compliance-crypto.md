@@ -1,11 +1,11 @@
 ---
-title: "Şifreleme gereksinimleri ve Azure VPN ağ geçitleri hakkında | Microsoft Docs"
-description: "Bu makalede, şifreleme gereksinimleri ve Azure VPN ağ geçitleri açıklanmaktadır"
+title: Şifreleme gereksinimleri ve Azure VPN ağ geçitleri hakkında | Microsoft Docs
+description: Bu makalede, şifreleme gereksinimleri ve Azure VPN ağ geçitleri açıklanmaktadır
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/22/2017
 ms.author: yushwang
 ms.openlocfilehash: d2f3da47f1d4eebe1b81964790ff6612dd78155d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Şifreleme gereksinimleri ve Azure VPN ağ geçitleri hakkında
 
@@ -38,7 +38,7 @@ Belirli şifreleme algoritmalarının veya parametreler gerektiren iletişimleri
 ## <a name="custom-ipsecike-policy-with-azure-vpn-gateways"></a>Azure VPN ağ geçitleri ile özel IPSec/IKE İlkesi
 Azure VPN ağ geçitleri artık bağlantı başına, özel IPSec/IKE ilke destekler. Siteden siteye veya VNet-VNet bağlantısı için şifreleme algoritmaları belirli bir bileşimini IPSec ve IKE için istenen anahtar gücü ile aşağıdaki örnekte gösterildiği gibi seçebilirsiniz:
 
-![IPSec IKE İlkesi](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Bir IPSec/IKE ilkesi oluşturun ve yeni veya var olan bağlantı uygulayın. 
 

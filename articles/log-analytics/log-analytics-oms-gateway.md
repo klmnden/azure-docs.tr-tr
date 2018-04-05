@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 66e5444f5346a44cfc8a43cf2b43dbaeacffedc9
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-oms-gateway"></a>İnternet erişimi olmayan bilgisayarları OMS ağ geçidi kullanarak bağlanma
 Bu belge, Azure Automation ile iletişimi yapılandırılacağını açıklar ve olduğunda, doğrudan OMS ağ geçidi kullanarak günlük analizi bağlı bilgisayarlar veya Operations Manager izlenen bilgisayarların internet erişimi yok. HTTP BAĞLAMAK komutunu kullanarak tünel HTTP destekleyen bir HTTP iletme proxy OMS geçididir. Bu verileri toplamak ve internet erişimi olmayan bilgisayarları adına Azure Automation ve günlük analizi gönderin.  

@@ -97,7 +97,7 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | Ağ |Sanal makineler ve web/çalışan rolleri içeren sanal ağlar |Bu şu anda desteklenmiyor. Geçirmeden önce Web/çalışan rolleri, kendi sanal ağa taşıyın. Klasik sanal ağ geçirildikten sonra geçirilen Azure Resource Manager sanal ağı Klasik sanal benzer yapılandırmasını eskisi elde etmek için ağ ile eşlenemez.|
 | Ağ | Klasik Expressroute bağlantı hatları |Bu şu anda desteklenmiyor. Bu bağlantı hatları Azure Resource Manager Iaas geçiş işlemine başlamadan önce geçirilmesi gerekir. Bunu hakkında daha fazla bilgi edinmek için [Resource Manager dağıtım modeline taşıma ExpressRoute bağlantı hatları Klasik](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Uygulama hizmeti ortamları içeren sanal ağlar |Bu şu anda desteklenmiyor. |
-| Azure Hdınsight |Hdınsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
+| Azure HDInsight |Hdınsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Microsoft Dynamics yaşam döngüsü Hizmetleri |Dynamics yaşam döngüsü Hizmetleri tarafından yönetilen sanal makineleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure AD Domain Services |Azure AD etki alanı hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure RemoteApp |Azure RemoteApp dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. |

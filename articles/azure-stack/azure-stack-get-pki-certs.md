@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 4a7432260167b8740567ad4308e102417abad82c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Azure yığın dağıtımı için PKI sertifikaları oluşturun
 Artık bildiğinize göre [PKI sertifikası gereksinimleri](azure-stack-pki-certs.md) Azure yığın dağıtımları için sertifika yetkilisi (CA) tercih ettiğiniz bu sertifikaları almak gerekir. 
@@ -75,4 +75,4 @@ Aşağıdaki iş akışını özelleştirme ve bir CA'dan sertifika istemek içi
 5. **Dışarı aktarma ve kopyalayın. PFX için dağıtım klasörleri**. (Özel anahtar dahil) sertifikayı Dışarı Aktar bir. PFX dosyası ve kopyalayın. PFX dosyası açıklanan dağıtım klasörleri için [Azure yığın dağıtım PKI gereksinimleri](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure yığın PKI sertifikaları hazırlama](prepare-pki-certs.md)
+[Azure yığın PKI sertifikaları hazırlama](azure-stack-prepare-pki-certs.md)

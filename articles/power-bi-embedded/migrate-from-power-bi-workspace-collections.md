@@ -1,12 +1,12 @@
 ---
-title: "Power BI çalışma alanı koleksiyonu içerik Power BI Embedded geçirme | Microsoft Docs"
-description: "Power BI çalışma koleksiyonlarından Power BI Embedded geçirmeyi öğrenme ve uygulamalardaki katıştırma Dengeleme ilerletir."
+title: Power BI çalışma alanı koleksiyonu içerik Power BI Embedded geçirme | Microsoft Docs
+description: Power BI çalışma koleksiyonlarından Power BI Embedded geçirmeyi öğrenme ve uygulamalardaki katıştırma Dengeleme ilerletir.
 services: power-bi-embedded
-documentationcenter: 
+documentationcenter: ''
 author: guyinacube
 manager: erikre
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: asaxton
 ms.openlocfilehash: 069f31c8213bd0d8586f7ca50e543acfdad8a2b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Power BI çalışma alanı koleksiyonu içerik Power BI Embedded geçirme
 
@@ -117,13 +117,13 @@ Rapor, her farklı geçiş akış gerektiren çeşitli türleri vardır.
 
 **Akış**
 
-1. GET https://api.powerbi.com/v1.0/collections/ çağrısı {collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources ve alınan bağlantı dizesini kaydedin.
+1. GET çağrı https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources ve alınan bağlantı dizesini kaydedin.
 2. Karşıdan PBIX API Power BI çalışma alanı koleksiyonu alanınızdan çağırın.
 3. PBIX kaydedin.
 4. İçeri aktarma PBIX için Power BI Embedded çalışma alanınızda çağırın.
-5. Bağlantı dizesi çağırarak güncelleştirmesi - https://api.powerbi.com/v1.0/myorg/datasets/ {dataset_id}/Default.SetAllConnections sonrası
-6. Çağırarak GW kimliği ve veri kaynağı kimliği get - https://api.powerbi.com/v1.0/myorg/datasets/ {dataset_id}/Default.GetBoundGatewayDataSources Al
-7. Kullanıcı kimlik bilgilerini çağırarak güncelleştirmesi - https://api.powerbi.com/v1.0/myorg/gateways/ {gateway_id} /datasources/ {datasource_id} düzeltme eki
+5. Bağlantı dizesi tarafından arama - POST güncelleştir  https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
+6. Çağırarak GW kimliği ve veri kaynağı kimliği get - Al https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
+7. Kullanıcı kimlik bilgilerini çağırarak güncelleştirmesi - düzeltme eki https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
 
 #### <a name="old-dataset-and-reports"></a>Eski veri kümesinin ve raporlar
 

@@ -7,7 +7,7 @@
 | Batch hesabı başına havuz sayısı | 20 - 100 | 2500 |
 
 > [!NOTE]
-> Varsayılan sınır abonelik toplu işlem hesabı oluşturmak için kullandığınız türüne bağlı olarak farklılık gösterir. Toplu işlem hesaplarını Batch hizmeti modunda gösterilen çekirdek kotaları içindir.
+> Varsayılan sınır abonelik toplu işlem hesabı oluşturmak için kullandığınız türüne bağlı olarak farklılık gösterir. Toplu işlem hesaplarını Batch hizmeti modunda gösterilen çekirdek kotaları içindir. [Batch hesabınızda kotaları görüntülemek](../articles/batch/batch-quota-limit.md#view-batch-quotas). 
 
 <sup>1</sup> toplu işlem hesabı başına ayrılmış çekirdek sayısı artırılabilir ancak en büyük sayı belirtilmemiş. Artış seçenekleri tartışmak için Azure desteğine başvurun.
 

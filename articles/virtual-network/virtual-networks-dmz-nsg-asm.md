@@ -1,11 +1,11 @@
 ---
-title: "Azure DMZ örnek – yapı Nsg'ler ile basit DMZ | Microsoft Docs"
-description: "Bir çevre ağ güvenlik grupları (NSG) ile derleme"
+title: Azure DMZ örnek – yapı Nsg'ler ile basit DMZ | Microsoft Docs
+description: Bir çevre ağ güvenlik grupları (NSG) ile derleme
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: f8622b1d-c07d-4ea6-b41c-4ae98d998fff
 ms.service: virtual-network
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>Örnek 1 – Nsg'ler ile klasik PowerShell kullanarak basit bir DMZ derleme
 [Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]

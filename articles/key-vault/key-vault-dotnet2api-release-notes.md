@@ -1,6 +1,6 @@
 ---
-title: "Anahtar kasası .NET 2.x API Sürüm Notları | Microsoft Docs"
-description: ".NET geliştiricileri için Azure anahtar kasası bu API için kod kullanır"
+title: Anahtar kasası .NET 2.x API Sürüm Notları | Microsoft Docs
+description: .NET geliştiricileri için Azure anahtar kasası bu API için kod kullanır
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/02/2017
 ms.author: alleonar
 ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure anahtar kasası .NET 2.0 - sürüm notları ve Geçiş Kılavuzu
 Aşağıdaki bilgiler, C# ve .NET için Azure anahtar kasası kitaplığı 2.0 sürümüne geçirme yardımcı olur.  Önceki sürümleri için yazılmış uygulamalar en son sürümünü destekleyecek şekilde güncelleştirilmesi gerekir.  Bu değişiklikler tam olarak yeni ve geliştirilmiş özellikler gibi desteklemek için gereken **anahtar kasası sertifikaları**.

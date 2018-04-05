@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: expressroute
+author: cherylmc
+ms.service: expressroute
+ms.topic: include
+ms.date: 03/22/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: 36f48e4cc321b534c0fd2e896bf3f43623c540bb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/05/2018
+---
 #### <a name="expressroute-limits"></a>ExpressRoute sınırları
 Abonelik başına ExpressRoute kaynaklarına aşağıdaki sınırları uygulayın.
 

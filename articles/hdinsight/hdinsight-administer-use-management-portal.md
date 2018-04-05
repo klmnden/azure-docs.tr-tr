@@ -1,8 +1,8 @@
 ---
-title: "Azure portalını kullanarak hdınsight'ta Hadoop Windows tabanlı kümeler yönetme | Microsoft Docs"
-description: "Hdınsight hizmetini yönetme hakkında bilgi edinin. Hdınsight kümesi oluşturma, etkileşimli JavaScript konsolunu açın ve Hadoop komut konsolunu açın."
+title: Azure portalını kullanarak hdınsight'ta Hadoop Windows tabanlı kümeler yönetme | Microsoft Docs
+description: Hdınsight hizmetini yönetme hakkında bilgi edinin. Hdınsight kümesi oluşturma, etkileşimli JavaScript konsolunu açın ve Hadoop komut konsolunu açın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Windows tabanlı Hadoop kümeleri hdınsight'ta yönetme
 
@@ -40,7 +40,7 @@ Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki i�
 * **Azure depolama hesabı** -bir Hdınsight kümesi bir Azure Blob storage kapsayıcısı varsayılan dosya sistemi olarak kullanır. Azure Blob storage Hdınsight kümeleri ile sorunsuz bir deneyim nasıl sağladığını hakkında daha fazla bilgi için bkz: [kullanım Azure Blob Storage Hdınsight ile](hdinsight-hadoop-use-blob-storage.md). Bir Azure Storage hesabı oluşturma hakkında daha fazla bilgi için bkz: [bir depolama hesabı oluşturmak nasıl](../storage/common/storage-create-storage-account.md).
 
 ## <a name="open-the-portal"></a>Portalını açın
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
+1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
 2. Portal açtıktan sonra şunları yapabilirsiniz:
 
    * Tıklatın **kaynak oluşturma** sol menüden yeni bir küme oluşturmak için:
@@ -73,7 +73,7 @@ Hdınsight geniş Hadoop bileşenleri ile çalışır. Doğrulandı ve desteklen
 Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklemesi desteklenmez. Kümeleri yeniden oluşturmanız gerekiyorsa, bunlar kaybolur gibi herhangi bir dosya baş düğümü sürücülerde depolamak kaçınmalısınız. Azure Blob Depolama dosyalarda depolamanızı öneririz. BLOB Depolama kalıcıdır.
 
 ## <a name="list-and-show-clusters"></a>Liste ve kümeleri Göster
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
+1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
 2. Tıklatın **Hdınsight kümeleri** sol menüden.
 3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmında filtresini kullanabilirsiniz.
 4. Ayrıntıları göstermek için listedeki bir kümeden çift tıklayın.
@@ -283,7 +283,7 @@ Hdınsight sorgu Konsolu aşağıdaki özellikleri içerir:
 
     ![Hdınsight portal dosya tarayıcısı Gözat](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    Ekran üzerindeki  **<Account>**  öğesi olan bir Azure depolama hesabı türünü belirtir.  Dosyalara göz atmak için hesap adına tıklayın.
+    Ekran üzerindeki **<Account>** öğesi olan bir Azure depolama hesabı türünü belirtir.  Dosyalara göz atmak için hesap adına tıklayın.
 * **Hadoop UI**.
 
     ![Hdınsight portal Hadoop kullanıcı Arabirimi](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)

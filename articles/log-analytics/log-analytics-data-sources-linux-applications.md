@@ -1,8 +1,8 @@
 ---
-title: "Linux uygulama performansını OMS günlük analizi toplamak | Microsoft Docs"
-description: "Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplanamadı Linux için OMS aracısının yapılandırma ayrıntıları sağlar."
+title: Linux uygulama performansını OMS günlük analizi toplamak | Microsoft Docs
+description: Bu makalede, MySQL ve Apache HTTP Server için performans sayaçları toplanamadı Linux için OMS aracısının yapılandırma ayrıntıları sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Günlük analizi Linux uygulamaları için performans sayaçlarını Topla 
 Bu makalede yapılandırmak için Ayrıntılar sunulmaktadır [Linux için OMS aracısının](https://github.com/Microsoft/OMS-Agent-for-Linux) belirli uygulamalar için performans sayaçları toplanamadı.  Bu makalede bulunan uygulamalar şunlardır:  
@@ -50,7 +50,7 @@ Giriş kimlik doğrulama dosyası aşağıdaki tabloda açıklanmıştır.
 | Özellik | Açıklama |
 |:--|:--|
 | Bağlantı noktası | MySQL örneğine dinlediği geçerli bağlantı noktası temsil eder. Aşağıdaki özellikler varsayılan örnek için kullanılan bağlantı noktası 0 belirtir. |
-| Bağ adresi| Geçerli MySQL bağlama-adresi. |
+| Bind-Address| Geçerli MySQL bağlama-adresi. |
 | kullanıcı adı| MySQL kullanıcı MySQL server örneği izlemek üzere kullanmak için kullanılır. |
 | Parola Base64 ile kodlanmış| Base64 ile kodlanmış MySQL izleme kullanıcının parolası. |
 | Otomatik güncelleştirme| My.cnf dosyasındaki değişiklikleri için yeniden tarayın ve MySQL OMI sağlayıcı yükseltildiğinde MySQL OMI kimlik doğrulaması bu dosyanın üzerine belirtir. |
@@ -78,10 +78,10 @@ Aşağıdaki tabloda, mycimprovauth kullanmak için söz dizimi hakkında ayrın
 
 | İşlem | Örnek | Açıklama
 |:--|:--|:--|
-| Otomatik güncelleştirme * false\|TRUE * | mycimprovauth otomatik güncelleştirme false | Desteklemediğini kimlik doğrulama dosyasını otomatik olarak güncelleştirilecek kümeleri üzerinde yeniden başlatın veya güncelleştirin. |
+| Otomatik güncelleştirme *false\|true* | mycimprovauth otomatik güncelleştirme false | Desteklemediğini kimlik doğrulama dosyasını otomatik olarak güncelleştirilecek kümeleri üzerinde yeniden başlatın veya güncelleştirin. |
 | Varsayılan *bağ adresi kullanıcı adı parolası* | mycimprovauth varsayılan 127.0.0.1 kök pwd | Varsayılan örnek MySQL OMI kimlik doğrulama dosyasını ayarlar.<br>Parola alanı düz metin olarak girilmelidir - MySQL OMI authentication dosyasındaki parola Base 64 kodlu olacaktır. |
-| silme * default\|port_num * | mycimprovauth 3308 | Belirtilen örnek ya da varsayılan olarak veya bağlantı noktası numarasına göre siler. |
-| Yardım | mycimprov Yardım | Kullanılacak komutların listesini yazdırır. |
+| silme *varsayılan\|port_num* | mycimprovauth 3308 | Belirtilen örnek ya da varsayılan olarak veya bağlantı noktası numarasına göre siler. |
+| yardım | mycimprov Yardım | Kullanılacak komutların listesini yazdırır. |
 | Yazdırma | mycimprov yazdırma | Yazdırır kolay bir kimlik doğrulama dosyasını MySQL OMI okuyun. |
 | port_num güncelleştirme *bağ adresi kullanıcı adı parolası* | mycimprov güncelleştirme 3307 127.0.0.1 kök pwd | Belirtilen örnek güncelleştirir veya henüz yoksa örneği ekler. |
 
@@ -99,7 +99,7 @@ MySQL kullanıcı MySQL Server performans verilerini toplamak için aşağıdaki
 
 MySQL kullanıcı aynı zamanda aşağıdaki varsayılan tabloları seçme erişim gerektirir.
 
-- INFORMATION_SCHEMA
+- information_schema
 - MySQL. 
 
 Bu ayrıcalıklar aşağıdaki grant komutlarını çalıştırarak verilebilir.
@@ -115,26 +115,26 @@ Bu ayrıcalıklar aşağıdaki grant komutlarını çalıştırarak verilebilir.
 
 Günlük analizi veri göndermek Linux için OMS aracısının yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Windows ve Linux performans veri kaynaklarında günlük analizi](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne adı | Sayaç adı |
+| Nesne Adı | Sayaç adı |
 |:--|:--|
 | MySQL Veritabanı | Disk alanı bayt |
 | MySQL Veritabanı | Tablolar |
-| MySQL sunucusu | Bağlantı durduruldu Pct |
-| MySQL sunucusu | Bağlantı kullanım yüzdesi |
-| MySQL sunucusu | Disk alanı kullanımını bayt |
-| MySQL sunucusu | Tam tablo tarama Pct |
-| MySQL sunucusu | Pct InnoDB arabellek havuzu ulaştı. |
-| MySQL sunucusu | InnoDB arabellek havuzu kullanım yüzdesi |
-| MySQL sunucusu | InnoDB arabellek havuzu kullanım yüzdesi |
-| MySQL sunucusu | Anahtar önbelleği isabet yüzdesi |
-| MySQL sunucusu | Anahtar önbelleği kullanım yüzdesi |
-| MySQL sunucusu | Anahtar önbelleği yazma Pct |
-| MySQL sunucusu | Sorgu önbellek isabet yüzdesi |
-| MySQL sunucusu | Sorgu önbellek ayıklar Pct |
-| MySQL sunucusu | Sorgu önbellek kullanım yüzdesi |
-| MySQL sunucusu | Tablo önbelleği isabet yüzdesi |
-| MySQL sunucusu | Tablo Önbellek kullanım yüzdesi |
-| MySQL sunucusu | Tablo kilit çekişmesini Pct |
+| MySQL Server | Bağlantı durduruldu Pct |
+| MySQL Server | Bağlantı kullanım yüzdesi |
+| MySQL Server | Disk alanı kullanımını bayt |
+| MySQL Server | Tam tablo tarama Pct |
+| MySQL Server | Pct InnoDB arabellek havuzu ulaştı. |
+| MySQL Server | InnoDB arabellek havuzu kullanım yüzdesi |
+| MySQL Server | InnoDB arabellek havuzu kullanım yüzdesi |
+| MySQL Server | Anahtar önbelleği isabet yüzdesi |
+| MySQL Server | Anahtar önbelleği kullanım yüzdesi |
+| MySQL Server | Anahtar önbelleği yazma Pct |
+| MySQL Server | Sorgu önbellek isabet yüzdesi |
+| MySQL Server | Query Cache Prunes Pct |
+| MySQL Server | Sorgu önbellek kullanım yüzdesi |
+| MySQL Server | Tablo önbelleği isabet yüzdesi |
+| MySQL Server | Tablo Önbellek kullanım yüzdesi |
+| MySQL Server | Tablo kilit çekişmesini Pct |
 
 ## <a name="apache-http-server"></a>Apache HTTP Server 
 Apache HTTP Server omsagent paket yüklü olduğunda bilgisayarda algılanırsa, bir performans izlemesi için Apache HTTP Server sağlayıcısı otomatik olarak yüklenir. Bu sağlayıcı Apache HTTP Server performans verilerini erişmek için yüklenmesi gereken bir Apache modülü kullanır. Modül aşağıdaki komutla yüklenebilir:
@@ -151,7 +151,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 Günlük analizi veri göndermek Linux için OMS aracısının yapılandırdıktan sonra Toplanacak performans sayaçlarını yapılandırmanız gerekir.  Yordamı kullanın [Windows ve Linux performans veri kaynaklarında günlük analizi](log-analytics-data-sources-windows-events.md) aşağıdaki tabloda sayaçlarla.
 
-| Nesne adı | Sayaç adı |
+| Nesne Adı | Sayaç adı |
 |:--|:--|
 | Apache HTTP Server | Meşgul çalışanların |
 | Apache HTTP Server | Boşta çalışan |

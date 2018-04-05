@@ -1,12 +1,12 @@
 ---
-title: "Ölçek U-SQL yerel çalıştırma ve test Azure Data Lake U-SQL SDK'sı | Microsoft Docs"
-description: "Azure Data Lake U-SQL SDK'sı için ölçek U-SQL işleri yerel çalıştırma ve test komut satırı ve yerel istasyonunuzda programlama arabirimleri ile nasıl kullanılacağını öğrenin."
+title: Ölçek U-SQL yerel çalıştırma ve test Azure Data Lake U-SQL SDK'sı | Microsoft Docs
+description: Azure Data Lake U-SQL SDK'sı için ölçek U-SQL işleri yerel çalıştırma ve test komut satırı ve yerel istasyonunuzda programlama arabirimleri ile nasıl kullanılacağını öğrenin.
 services: data-lake-analytics
-documentationcenter: 
-author: 
-manager: 
-editor: 
-ms.assetid: 
+documentationcenter: ''
+author: ''
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Ölçek U-SQL yerel çalıştırma ve test Azure Data Lake U-SQL SDK'sı
 
@@ -58,7 +58,7 @@ Veri kök klasör için kullanılır:
 
 U-SQL betikleri göreli bir yol ve yerel bir mutlak yolu kullanabilirsiniz. Göreli yolu göreli belirtilen veri kök klasör yoludur. Kullanmanızı öneririz "/" komut dosyalarınızı sunucu tarafı ile uyumlu hale getirmek için yol ayırıcısı olarak. Göreli yollar ve eşdeğer mutlak yollarına bazı örnekleri aşağıda verilmiştir. Bu örneklerde, C:\LocalRunDataRoot veri kök klasörüdür.
 
-|Göreli yolu|Mutlak yolu|
+|Göreli yol|Mutlak yolu|
 |-------------|-------------|
 |/ABC/DEF/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
 |ABC/DEF/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|
@@ -72,12 +72,12 @@ U-SQL betiği yerel olarak çalışırken, bir çalışma dizini geçerli çalı
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Karma dize çalışma zamanı sürümü|Çalışma zamanı dosyalarını yerel yürütme için gerekli gölge kopyası|
 | |Script_66AE4909AA0ED06C| |Ad script + betik yolu dizesi karma|Derleme çıktı ve yürütme günlüğü adım|
-| | |\_komut dosyası\_.abr|Derleyici çıktısı|Cebiri dosyası|
-| | |\_ScopeCodeGen\_. *|Derleyici çıktısı|Oluşturulan yönetilen kod|
-| | |\_ScopeCodeGenEngine\_. *|Derleyici çıktısı|Oluşturulan yerel kod|
+| | |\_script\_.abr|Derleyici çıktısı|Cebiri dosyası|
+| | |\_ScopeCodeGen\_.*|Derleyici çıktısı|Oluşturulan yönetilen kod|
+| | |\_ScopeCodeGenEngine\_.*|Derleyici çıktısı|Oluşturulan yerel kod|
 | | |Başvurulan derlemeler|Derleme başvurusu|Başvurulan derleme dosyaları|
 | | |deployed_resources|Kaynak dağıtma|Kaynak dağıtım dosyaları|
-| | |xxxxxxxx.xxx[1..n]\_\*. *|Yürütme günlüğü|Günlük yürütme adımları|
+| | |xxxxxxxx.xxx[1..n]\_\*.*|Yürütme günlüğü|Günlük yürütme adımları|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Komut satırından SDK'yı kullanma
@@ -153,13 +153,13 @@ U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yan�
 |-UdoRedirect|False|Udo derleme yeniden yönlendirme yapılandırması oluşturma|
 |-UseDatabase|ana|Geçici derleme kaydı arka plan kod için kullanılacak veritabanı|
 |-Verbose|False|Çalışma zamanı ayrıntılı çıkışlarından Göster|
-|-WorkDir|Geçerli dizin|Derleyici kullanım ve çıktı dizini|
+|-WorkDir|Geçerli Dizin|Derleyici kullanım ve çıktı dizini|
 |-RunScopeCEP|0|ScopeCEP modunu kullanmak için|
 |-ScopeCEPTempPath|Temp|Veri akış için kullanılacak geçici yol|
 |-OptFlags| |İyileştirici bayrakların virgülle ayrılmış listesi|
 
 
-Örnek aşağıda verilmiştir:
+Bir örneği aşağıda verilmiştir:
 
     LocalRunHelper run -Script d:\test\test1.usql -WorkDir d:\test\bin -CodeBehind -References "d:\asm\ref1.dll;d:\asm\ref2.dll" -UseDatabase testDB –Parallel 5 -Verbose
 
@@ -333,43 +333,43 @@ U-SQL betiği testi için örnek kod aşağıda verilmiştir. Test etmek için k
 
 LocalRunHelper.exe programlama arabirimleri çalıştırmak U-SQL yerel derleme, vb. için sağlar. Arabirimler aşağıda listelenmiştir.
 
-**Oluşturucusu**
+**Constructor**
 
-Ortak LocalRunHelper ([System.IO.TextWriter messageOutput = null])
+public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Parametre|Tür|Açıklama|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|Çıktı iletileri için konsol kullanmak için sıfıra ayarlayın|
 
-**Özellikleri**
+**özellikleri**
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
-|AlgebraPath|Dize|Cebiri dosyasının yolunu (cebiri dosya biridir derleme sonuçları)|
-|CodeBehindReferences|Dize|Komut dosyası başvuruları arkasında ek kod varsa, ile ayrılmış yollar belirtin ';'|
-|CppSdkDir|Dize|CppSDK dizini|
-|CurrentDir|Dize|Geçerli dizin|
-|DataRoot|Dize|Veri kök yolu|
-|DebuggerMailPath|Dize|Hata ayıklayıcı yuvası yolu|
+|AlgebraPath|string|Cebiri dosyasının yolunu (cebiri dosya biridir derleme sonuçları)|
+|CodeBehindReferences|string|Komut dosyası başvuruları arkasında ek kod varsa, ile ayrılmış yollar belirtin ';'|
+|CppSdkDir|string|CppSDK dizini|
+|CurrentDir|string|Geçerli dizin|
+|DataRoot|string|Veri kök yolu|
+|DebuggerMailPath|string|Hata ayıklayıcı yuvası yolu|
 |GenerateUdoRedirect|bool|Biz yeniden yönlendirmeyi geçersiz kılma config yüklenirken derleme oluşturmak istiyorsanız|
 |HasCodeBehind|bool|Komut dosyası arka plan kodu varsa|
-|InputDir|Dize|Giriş verileri için dizin|
-|MessagePath|Dize|İleti döküm dosyası yolu|
-|OutputDir|Dize|Çıktı verileri için dizin|
+|InputDir|string|Giriş verileri için dizin|
+|MessagePath|string|İleti döküm dosyası yolu|
+|OutputDir|string|Çıktı verileri için dizin|
 |Paralellik|Int|Paralellik cebiri çalıştırmak için|
 |ParentPid|Int|Hizmet çıkmak için izleyen üst PID 0 olarak ayarlayın veya yoksaymak için negatif|
-|ResultPath|Dize|Sonuç döküm dosyası yolu|
-|RuntimeDir|Dize|Çalışma zamanı dizini|
-|scriptPath|Dize|Komut dosyası nerede|
+|ResultPath|string|Sonuç döküm dosyası yolu|
+|RuntimeDir|string|Çalışma zamanı dizini|
+|ScriptPath|string|Komut dosyası nerede|
 |Basit|bool|Derleme veya basit|
-|TempDir|Dize|Geçici dizin|
-|UseDataBase|Dize|Geçici derleme kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
-|WorkDir|Dize|Tercih edilen çalışma dizini|
+|TempDir|string|Geçici dizin|
+|UseDataBase|string|Geçici derleme kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
+|WorkDir|string|Tercih edilen çalışma dizini|
 
 
 **Yöntemi**
 
-|Yöntem|Açıklama|Döndür|Parametre|
+|Yöntem|Açıklama|Dönüş|Parametre|
 |------|-----------|------|---------|
 |Ortak bool DoCompile()|U-SQL komut dosyası derleme|Başarı true| |
 |Ortak bool DoExec()|Derlenmiş sonuç yürütme|Başarı true| |

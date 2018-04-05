@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 serisi çözümüne genel bakış | Microsoft Docs"
-description: "StorSimple katmanlama, cihaz, sanal cihaz, hizmetleri ve depolama yönetimi açıklar ve StorSimple içinde kullanılan anahtar terimleri tanıtır."
+title: StorSimple 8000 serisi çözümüne genel bakış | Microsoft Docs
+description: StorSimple katmanlama, cihaz, sanal cihaz, hizmetleri ve depolama yönetimi açıklar ve StorSimple içinde kullanılan anahtar terimleri tanıtır.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7144d218-db21-4495-88fb-e3b24bbe45d1
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
 ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 serisi: karma bulut depolama çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -95,7 +95,7 @@ StorSimple bulut uygulaması iki modellerinde kullanılabilir: (önceden 1100 mo
 
 StorSimple bulut uygulaması hakkında daha fazla bilgi için Git [dağıtma ve azure'da bir StorSimple bulut uygulaması yönetmek](storsimple-8000-cloud-appliance-u2.md).
 
-## <a name="storsimple-device-manager-service"></a>StorSimple cihaz Yöneticisi hizmeti
+## <a name="storsimple-device-manager-service"></a>StorSimple Cihaz Yöneticisi hizmeti
 Microsoft Azure StorSimple ve merkezi olarak yönetebilmenizi veri merkezi depolama bulut olanak sağlayan bir web tabanlı kullanıcı arabirimi (StorSimple cihaz Yöneticisi hizmeti) sağlar. StorSimple cihaz Yöneticisi hizmeti, şu görevleri gerçekleştirmek için kullanabilirsiniz:
 
 * StorSimple cihazlar için sistem ayarlarını yapılandırın.
@@ -204,9 +204,9 @@ Yinelenenleri kaldırma genel depolanan veri kümesi içinde artıklık ortadan 
 ## <a name="storsimple-workload-summary"></a>StorSimple iş yükü özeti
 Desteklenen StorSimple iş yükleri özetini aşağıdaki tabloda verilmiştir.
 
-| Senaryo | İş yükü | Destekleniyor | Kısıtlamaları | Sürüm |
+| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Sürüm |
 | --- | --- | --- | --- | --- |
-| İş Birliği |Dosya Paylaşımı |Evet | |Tüm sürümler |
+| İş Birliği |Dosya paylaşımı |Evet | |Tüm sürümler |
 | İş Birliği |Dağıtılmış dosya paylaşımı |Evet | |Tüm sürümler |
 | İş Birliği |SharePoint |Evet* |Yalnızca yerel olarak sabitlenmiş birimleri ile desteklenen |Güncelleştirme 2 ve üstü |
 | Arşivleme |Basit dosya arşivleme |Evet | |Tüm sürümler |
@@ -216,7 +216,7 @@ Desteklenen StorSimple iş yükleri özetini aşağıdaki tabloda verilmiştir.
 | Backup |Birincil hedef yedekleme |Evet* |StorSimple cihazı yalnızca bu iş yüküne adanıp olduğunda desteklenir |Güncelleştirme 3 ve üzeri |
 | Backup |İkincil hedef yedekleme |Evet* |StorSimple cihazı yalnızca bu iş yüküne adanıp olduğunda desteklenir |Güncelleştirme 3 ve üzeri |
 
-*Evet &#42; -Çözüm yönergeleri ve kısıtlamaları uygulanmalıdır.*
+*Evet&#42; -çözüm yönergeleri ve kısıtlamaları uygulanamaz.*
 
 Aşağıdaki iş yüklerini StorSimple 8000 serisi cihazlar tarafından desteklenmez. StorSimple üzerinde dağıttıysanız, bu iş yükleri desteklenmeyen bir yapılandırmada neden olur.
 
@@ -225,13 +225,13 @@ Aşağıdaki iş yüklerini StorSimple 8000 serisi cihazlar tarafından destekle
 * VDI
 * Oracle
 * SAP
-* Büyük veriler
+* Big Data
 * İçerik dağıtımı
 * SCSI önyükleme
 
 Desteklenen StorSimple altyapı bileşenlerin bir listesi aşağıda verilmiştir.
 
-| Senaryo | İş yükü | Destekleniyor | Kısıtlamaları | Sürüm |
+| Senaryo | İş yükü | Desteklenen | Kısıtlamalar | Sürüm |
 | --- | --- | --- | --- | --- |
 | Genel |Express Route |Evet | |Tüm sürümler |
 | Genel |DataCore FC |Evet* |DataCore SANsymphony ile desteklenen |Tüm sürümler |
@@ -239,7 +239,7 @@ Desteklenen StorSimple altyapı bileşenlerin bir listesi aşağıda verilmişti
 | Genel |Dizinleme |Evet* |Katmanlı birimler için yalnızca meta veri dizinini desteklenir (verileri değil).<br>Yerel olarak sabitlenmiş birimler için dizin oluşturma tamamlandı desteklenir. |Tüm sürümler |
 | Genel |Virüsten koruma |Evet* |Katmanlı birimler için yalnızca tarama açık ve Kapat desteklenir.<br> Yerel olarak sabitlenmiş birimler için tam tarama desteklenir. |Tüm sürümler |
 
-*Evet &#42; -Çözüm yönergeleri ve kısıtlamaları uygulanmalıdır.*
+*Evet&#42; -çözüm yönergeleri ve kısıtlamaları uygulanamaz.*
 
 StorSimple ile çözümleri oluşturmak için kullanılan diğer yazılımların listesi verilmiştir.
 
@@ -257,7 +257,7 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | Terim (kısaltma veya kısaltması) | Açıklama |
 | --- | --- |
 | erişim denetimi kaydı (ACR) |Hangi ana bilgisayarların bağlanabileceği belirler, Microsoft Azure StorSimple cihaz üzerindeki bir birimi ile ilişkili bir kaydı. İSCSI belirlenmesi temel tam adını (IQN) StorSimple Cihazınızı bağlanan (ACR içinde yer alan) ana bilgisayar. |
-| AES 256 |Bulut gelen ve giden hareket ederken verileri şifrelemek için bir 256 bit Gelişmiş Şifreleme Standardı (AES) algoritması. |
+| AES-256 |Bulut gelen ve giden hareket ederken verileri şifrelemek için bir 256 bit Gelişmiş Şifreleme Standardı (AES) algoritması. |
 | ayırma birimi boyutu (Avustralya) |En küçük bir dosya, Windows'da tutmak için ayrılan disk alanı miktarını dosya sistemleri. Dosyanın (kadar sonraki birden çok küme boyutu) tutmak için bir dosya boyutu bir küme boyutunu değil, ek boşluk kullanılmalıdır kayıp alanı ve sabit disk parçalanması. <br>Azure StorSimple birimler için önerilen Avustralya 64 KB nedeni, yinelenenleri kaldırma algoritmalarıyla iyi çalışır. |
 | Otomatik depolama katmanlama |Otomatik olarak daha az etkin veri HDD ve ardından bir katman bulutta SSD taşıma ve tüm depolama biriminden bir merkezi kullanıcı arabirimi yönetimini etkinleştirme. |
 | Yedekleme kataloğu |Yedeklemeler, genellikle kullanılan uygulama türüne göre ilgili koleksiyonu. Bu koleksiyon, StorSimple cihaz Yöneticisi hizmeti UI yedekleme kataloğu dikey penceresinde görüntülenir. |
@@ -272,7 +272,7 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | Bulut depolama şifreleme anahtarı |Bir parola veya buluta cihazınız tarafından gönderilen şifrelenmiş verilere erişmek için StorSimple cihazınız tarafından kullanılan bir anahtar. |
 | Küme durumunu algılayan güncelleştirme |Güncelleştirmelerin en düşük böylece yük devretme kümesindeki sunucularda yazılım güncelleştirmelerini yönetme veya servis kullanılabilirliğini etkilemez. |
 | DataPath |Arası bağlı veri işleme işlemleri işlevsel birimlerini koleksiyonu. |
-| Devre dışı bırakma |StorSimple cihazı ile ilişkili bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Cihaz bulut anlık görüntüleri sonra bu işlemi kalmasını ve kopyalanması veya olağanüstü durum kurtarma için kullanılan. |
+| devre dışı bırak |StorSimple cihazı ile ilişkili bulut hizmeti arasındaki bağlantıyı keser kalıcı bir eylem. Cihaz bulut anlık görüntüleri sonra bu işlemi kalmasını ve kopyalanması veya olağanüstü durum kurtarma için kullanılan. |
 | Disk yansıtma |Mantıksal disk birimi ayrı sabit çoğaltmasını sürekli kullanılabilirliğini sağlamak için gerçek zamanlı olarak sürücüleri. |
 | dinamik disk yansıtma |Dinamik diskler mantıksal disk birimi çoğaltma. |
 | dinamik diskler |Veri depolamak ve birden çok fiziksel disklerde yönetmek için Mantıksal Disk Yöneticisi (LDM) kullanan bir disk birimi biçimi. Dinamik diskler, daha fazla boş alan sağlanacak büyütülebilir. |
@@ -281,7 +281,7 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | sabit disk sürücüsü (HDD) |Verileri depolamak için döndürme plaka kullanan bir sürücüye. |
 | karma bulut depolama |Bulut depolama da dahil olmak üzere, yerel ve şirket dışı kaynak kullanan bir depolama mimarisi. |
 | Internet küçük bilgisayar sistemi arabirimi (iSCSI) |Veri depolama donanımı veya tesis bağlama için bir Internet Protokolü IP tabanlı depolama ağ standardı. |
-| iSCSI başlatıcısı |Bir dış iSCSI tabanlı depolama ağına bağlanmak için Windows çalıştıran bir konak bilgisayar sağlayan bir yazılım bileşeni. |
+| iSCSI initiator |Bir dış iSCSI tabanlı depolama ağına bağlanmak için Windows çalıştıran bir konak bilgisayar sağlayan bir yazılım bileşeni. |
 | iSCSI tam adını (IQN) |Bir iSCSI hedefi veya Başlatıcı tanımlayan benzersiz bir ad. |
 | iSCSI hedefi |Merkezi iSCSI disk alt sistemleri depolama alanı ağlarında sağlayan bir yazılım bileşeni. |
 | Arşivleme Canlı |Arşiv verileri (Site dışındaki bantta, örneğin depolandıktan değil) her zaman erişilebilir olduğu depolama yaklaşımı. Microsoft Azure StorSimple Canlı arşivleme kullanır. |
@@ -296,9 +296,9 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | Hizmet kayıt anahtarı |Bir anahtar, daha fazla yönetim işlemleri için Azure Portalı'nda görünmesi StorSimple cihaz StorSimple cihaz Yöneticisi Hizmeti'ne kaydedin yardımcı olur. |
 | Küçük bilgisayar sistemi arabirimi (SCSI) |Fiziksel bilgisayarları birbirine bağlamak ve bunlar arasında veri geçirme için standartları kümesidir. |
 | katı hal sürücüsü (SSD) |Hiçbir taşıma bölümleri içeren bir diski; Örneğin, bir flash sürücüye. |
-| Depolama hesabı |Verilen bulut hizmeti sağlayıcı için depolama hesabınıza bağlı erişim kimlik bilgileri kümesi. |
+| depolama hesabı |Verilen bulut hizmeti sağlayıcı için depolama hesabınıza bağlı erişim kimlik bilgileri kümesi. |
 | SharePoint için StorSimple Bağdaştırıcısı |SharePoint server grupları StorSimple depolama ve veri koruma şeffaf bir şekilde genişletir Microsoft Azure StorSimple bileşeni. |
-| StorSimple cihaz Yöneticisi hizmeti |Azure StorSimple şirket içi ve sanal cihazları yönetmenize olanak sağlayan Azure portalı uzantısı. |
+| StorSimple Cihaz Yöneticisi hizmeti |Azure StorSimple şirket içi ve sanal cihazları yönetmenize olanak sağlayan Azure portalı uzantısı. |
 | StorSimple Snapshot Manager |Bir Microsoft Yönetim Konsolu (MMC) ek Microsoft Azure StorSimple yedekleme ve geri yükleme işlemleri yönetmek için bileşeni. |
 | yedek alın |Bir birim etkileşimli yedekleyin olanak tanır. bir özellik. El ile yedekleme tanımlanmış bir ilke aracılığıyla otomatik bir yedekleme yapmayı aksine bir birimin almaya alternatif bir yöntemdir. |
 | Ölçülü kaynak sağlama |Depolama sistemlerinde kullanılan kullanılabilir depolama alanı ile verimliliği en iyi duruma getirme yöntemi. Ölçülü kaynak sağlama depolama herhangi bir anda her kullanıcı tarafından gerekli en düşük alan göre birden çok kullanıcı arasında tahsis edilir. Ayrıca bkz. *fat sağlama*. |
