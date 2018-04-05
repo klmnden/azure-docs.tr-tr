@@ -1,21 +1,21 @@
 ---
-title: "Azure Batch ile paralel R simülasyonu"
-description: "Öğretici - Azure Batch’te R doAzureParallel paketi kullanılarak bir Monte Carlo finansal simülasyonu çalıştırmaya yönelik adım adım yönergeler"
+title: Azure Batch ile paralel R simülasyonu
+description: Öğretici - Azure Batch’te R doAzureParallel paketi kullanılarak bir Monte Carlo finansal simülasyonu çalıştırmaya yönelik adım adım yönergeler
 services: batch
-author: jiata
-manager: jkabat
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: jiata
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa12e38c1f2c86c44c00eb87906a7f0fe93cdca
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Öğretici: Azure Batch ile paralel R simülasyonu çalıştırma 
 
@@ -39,7 +39,7 @@ Bu öğreticide bir Batch havuzu dağıtma ve doğrudan RStudio içinde Azure Ba
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-[https://portal.azure.com](https://portal.azure.com) adresindeki Azure portalında oturum açın.
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>doAzureParallel yükleme

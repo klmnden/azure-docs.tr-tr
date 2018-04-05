@@ -1,11 +1,11 @@
 ---
-title: "Azure erişim denetimi Hizmeti'nden geçirme | Microsoft Docs"
-description: "Uygulamaları ve Hizmetleri Azure erişim denetimi Hizmeti'nden taşıma seçenekleri"
+title: Azure erişim denetimi Hizmeti'nden geçirme | Microsoft Docs
+description: Uygulamaları ve Hizmetleri Azure erişim denetimi Hizmeti'nden taşıma seçenekleri
 services: active-directory
 documentationcenter: dev-center-name
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2017
 ms.author: dastrock
-ms.openlocfilehash: f634adbacc8e1fc128ecef15ad38f2f8b28eb25d
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 6c22f85d3e76a005c45a4679ddfd8948a46acffc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Azure erişim denetimi Hizmeti'nden geçirme
 
-Azure erişim denetimi, Azure Active Directory (Azure AD), bir hizmet Kasım 2018 kullanımdan kaldırılacaktır. Uygulamalar ve şu anda erişim denetimi kullanan hizmetler için farklı kimlik doğrulama mekanizması ardından tarafından tam olarak geçirilmelidir. Erişim denetimi kullanımınız alanı onaylanamadı planlarken bu makalede geçerli müşteriler için öneriler açıklanmaktadır. Erişim denetimi şu anda kullanmıyorsanız, herhangi bir eylemde bulunmanız gerekmez.
+Azure erişim denetimi, Azure Active Directory (Azure AD), bir hizmet 7 Kasım 2018 kullanımdan kaldırılacaktır. Uygulamalar ve şu anda erişim denetimi kullanan hizmetler için farklı kimlik doğrulama mekanizması ardından tarafından tam olarak geçirilmelidir. Erişim denetimi kullanımınız alanı onaylanamadı planlarken bu makalede geçerli müşteriler için öneriler açıklanmaktadır. Erişim denetimi şu anda kullanmıyorsanız, herhangi bir eylemde bulunmanız gerekmez.
 
 
 ## <a name="overview"></a>Genel Bakış
@@ -54,11 +54,9 @@ Bu bileşenleri kullanmak için bir veya daha fazla erişim denetimi ad alanı o
 https://<mynamespace>.accesscontrol.windows.net
 ```
 
-STS ve yönetim işlemleri tüm iletişim bu URL'de yapılır. Farklı amaçlar için farklı yollar kullanın. Uygulamalara veya hizmetlere erişim denetimi kullanıp kullanmayacağınızı belirlemek için izleme https:// tüm trafik için\<ad alanı\>. accesscontrol.windows.net. Bu URL için tüm trafik, erişim denetimi tarafından işlenir ve kullanımdan kaldırılacak gerekiyor. 
+STS ve yönetim işlemleri tüm iletişim bu URL'de yapılır. Farklı amaçlar için farklı yollar kullanın. Uygulamalara veya hizmetlere erişim denetimi kullanıp kullanmayacağınızı belirlemek için izleme https:// tüm trafik için<namespace>. accesscontrol.windows.net. Bu URL için tüm trafik, erişim denetimi tarafından işlenir ve kullanımdan kaldırılacak gerekiyor. 
 
-Bunun özel durumu https://accounts.accesscontrol.windows.net için tüm trafiğidir. Bu URL için trafiği zaten farklı bir hizmet tarafından işlenir ve erişim denetimi kullanımdan tarafından etkilenmez. 
-
-Ayrıca Klasik Azure portalı ve sahip olduğunuz Aboneliklerde herhangi bir erişim denetimi ad alanları için onay oturum. Erişim denetimi ad listelenir **erişim denetimi ad** sekmesinde, altında **Active Directory** hizmet.
+Bunun özel durumu için tüm trafiğidir `https://accounts.accesscontrol.windows.net`. Bu URL için trafiği zaten farklı bir hizmet tarafından ele alınır ve **değil** erişim denetimi kullanımdan tarafından etkilenen. 
 
 Erişim denetimi hakkında daha fazla bilgi için bkz: [erişim denetimi hizmeti (arşivlenmiş) 2.0](https://msdn.microsoft.com/library/hh147631.aspx).
 
@@ -68,9 +66,9 @@ Kasım 2017'ten itibaren tüm erişim denetimi tam olarak desteklenen ve işleti
 
 Erişim denetimi bileşenleri onaysız kılınmadan zamanlamasını şöyledir:
 
-- **Kasım 2017**: Azure AD yönetim deneyimi Azure Klasik Portalı'nda [devre dışı bırakılmış](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, ad alanı yönetim erişim denetimi için yeni, özel bir URL kullanılabilir: http://manage.windowsazure.com?restoreClassic=true. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirin ve ad alanlarını devre dışı bırakma ve ad alanları, silmek için kullanın.
-- **Nisan 2018**: erişim denetimi ad alanı yönetimidir artık adanmış http://manage.windowsazure.com?restoreClassic=true URL'de kullanılabilir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanları numaralandırır. Ancak, erişim denetimi Yönetim Portalı'nı tam olarak işlevsel ve https:// konumunda bulunan olacaktır\<ad alanı\>. accesscontrol.windows.net. Tüm bileşenlerle erişim denetimi normal şekilde çalışmaya devam eder.
-- **Kasım 2018**: tüm erişim denetimi bileşenleri kalıcı olarak kapatıldı. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumunda bulunan \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için başka teknolojiler de bu süreden önce geçirmiş olmanız.
+- **Kasım 2017**: Azure AD yönetim deneyimi Azure Klasik Portalı'nda [devre dışı bırakılmış](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). Bu noktada, ad alanı yönetim erişim denetimi için yeni, özel bir URL kullanılabilir: `http://manage.windowsazure.com?restoreClassic=true`. İsterseniz bu URl, var olan ad alanları görüntülemek, etkinleştirin ve ad alanlarını devre dışı bırakma ve ad alanları, silmek için kullanın.
+- **2 Nisan 2018**: Klasik Azure portalı tamamen devre dışı, erişim denetimi ad alanı yönetimi herhangi bir URL adresi kullanılabilir, artık anlamına gelir. Bu noktada, devre dışı bırakmak veya etkinleştirmek, silemez veya erişim denetimi ad alanları numaralandırır. Ancak, erişim denetimi Yönetim Portalı'nı tam olarak işlevsel ve konumunda bulunan olacaktır `https://\<namespace\>.accesscontrol.windows.net`. Tüm bileşenlerle erişim denetimi normal şekilde çalışmaya devam eder.
+- **7 Kasım 2018**: tüm erişim denetimi bileşenleri kalıcı olarak kapatıldı. Bu, erişim denetimi Yönetim Portalı, yönetim hizmeti, STS ve belirteç dönüştürme kuralı altyapısı içerir. Bu noktada, erişim denetimi için gönderilen tüm istekler (konumunda bulunan \<ad alanı\>. accesscontrol.windows.net) başarısız. Var olan tüm uygulamaları ve Hizmetleri için başka teknolojiler de bu süreden önce geçirmiş olmanız.
 
 
 ## <a name="migration-strategies"></a>Geçiş stratejileri
@@ -98,6 +96,17 @@ Erişim denetimi tarafından şimdi verilen belirteçleri kabul eder her Microso
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
 
+
+### <a name="sharepoint-customers"></a>SharePoint müşteriler
+
+SharePoint 2013, 2016 ' yı ve SharePoint Online müşterilerine uzun ACS kimlik doğrulama amacıyla kullanılan karma Bulut ve şirket içi senaryolarda. Bazıları taşınmaz karşın bazı SharePoint özellikleri ve kullanım örnekleri tarafından ACS devre dışı bırakma, etkilenmez. En popüler SharePoint bazıları bu Dengeleme ACS özellik için aşağıdaki tabloyu Geçiş Kılavuzu özetlenmektedir:
+
+| Özellik | Rehber |
+| ------- | -------- |
+| Azure AD'den kullanıcıların kimlik doğrulaması | Daha önce Azure AD kimlik doğrulaması için SharePoint tarafından gerekli SAML 1.1 belirteçleri desteklemez ve Azure AD ile SharePoint uyumlu belirteci yapılan bir aracı biçimleri gibi ACS kullanıldı. Şimdi, şunları yapabilirsiniz [SharePoint belirteci verme ilkeleri kullanarak doğrudan Azure AD'ye bağlanma](https://docs.microsoft.com/Office365/Enterprise/using-azure-ad-for-sharepoint-server-authentication). |
+| [Uygulama kimlik doğrulaması ve SharePoint şirket içi sunucu-sunucu kimlik doğrulaması](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS devre dışı bırakma tarafından etkilenen değil; Gerekli değişiklik yok. | 
+| [Düşük güven yetkilendirme SharePoint eklentiler için (barındırılan sağlayıcısının ve barındırılan SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | ACS devre dışı bırakma tarafından etkilenen değil; Gerekli değişiklik yok. |
+| [SharePoint bulut karma arama](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | ACS devre dışı bırakma tarafından etkilenen değil; Gerekli değişiklik yok. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Pasif kimlik doğrulama kullanan web uygulamaları
 
@@ -243,7 +252,7 @@ Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geç
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
 Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 
@@ -305,7 +314,7 @@ Bu durumlarda, web uygulamanıza başka bir bulut kimlik doğrulama hizmeti geç
 |     |     | 
 | --- | --- |
 | ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) oluşturduğu bir esnek bulut kimlik hizmetidir [erişim denetimi müşterileri için üst düzey Geçiş Kılavuzu](https://auth0.com/acs)ve ACS mu neredeyse her özelliğini destekler. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
+| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping kimlik](https://www.pingidentity.com) ACS benzer iki çözümler sunar. PingOne birçok ACS aynı özellikleri destekleyen bir bulut kimlik hizmetidir ve PingFederate daha fazla esneklik sunar benzer bir şirket içi kimlik ürünlerinden biridir. Başvurmak [Ping'ın ACS devre dışı bırakma Kılavuzu](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) bu ürünleri kullanma hakkında daha fazla ayrıntı için.  |
 
 Ping kimlik ve Auth0 ile çalışırken bizim AIM tüm erişim denetimi müşteriler erişim denetiminden taşımak için gereken iş miktarını bir geçiş yolu uygulamaları ve Hizmetleri sahip olduğunuzdan emin olmaktır.
 

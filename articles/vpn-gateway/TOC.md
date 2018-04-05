@@ -6,9 +6,10 @@
 ## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Başlarken
-## [Rota temelli VPN ağ geçidi oluşturma - Azure portalı](create-routebased-vpn-gateway-portal.md)
-## [Rota temelli VPN ağ geçidi oluşturma - PowerShell](create-routebased-vpn-gateway-powershell.md)
-## [Rota temelli VPN ağ geçidi oluşturma - CLI](create-routebased-vpn-gateway-cli.md)
+## Rota temelli VPN ağ geçidi oluşturma
+### [Azure Portal](create-routebased-vpn-gateway-portal.md)
+### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
+### [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 # Kavramlar
 ## [VPN Gateway için planlama ve tasarım](vpn-gateway-plan-design.md)
@@ -87,13 +88,16 @@
 ### [Örnek: Cisco ASA cihazı (IKEv2/BGP yok)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
 ## [Klasikten Kaynak Yöneticisi’ne geçiş](vpn-gateway-classic-resource-manager-migration.md)
 ## [Sorun giderme](vpn-gateway-troubleshoot.md)
-### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
 ### [Topluluk tarafından önerilen VPN veya güvenlik duvarı cihaz ayarları](vpn-gateway-third-party-settings.md)
-### [Noktadan Siteye bağlantı sorunları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-#### [Noktadan Siteye bağlantı sorunları - Mac OS X VPN istemcisi](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
-### [Siteden Siteye bağlantı sorunları](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
-#### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [VNet veya VPN bağlantılarını yapılandırma ve doğrulama](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
+### [Bir sanal ağa VPN aktarım hızını doğrulama](vpn-gateway-validate-throughput-to-vnet.md)
+### Noktadan Siteye bağlantı sorunları
+#### [Noktadan Siteye bağlantı sorunları](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+#### [Noktadan Siteye bağlantı sorunları - Mac OS X VPN istemcisi](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+### Siteden Siteye bağlantı sorunları
+#### [Siteden Siteye bağlantı sorunları](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md)
+#### [Siteden Siteye bağlantı aralıklı olarak kesiliyor](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
+
 
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

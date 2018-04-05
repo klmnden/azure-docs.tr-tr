@@ -9,11 +9,11 @@ ms.date: 3/14/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 9f7d32d3d1208b6fe6075f7dacdd6d350aee03e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 45c5ccd0f891a5592eee7400de108c5097f75286
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-the-azure-rm-powershell-module"></a>Hızlı başlangıç: Azure RM PowerShell modülünü kullanarak Azure ortamınızda uyumlu olmayan kaynakları belirlemeye yönelik bir ilke ataması oluşturma
 
@@ -48,7 +48,7 @@ Yukarıdaki komutlarda aşağıdaki bilgiler kullanılmaktadır:
 - **Ad** - Bu, ilke ataması için görünen addır. Bu durumda, *Yönetilen Disk Ataması Olmayan Sanal Makineleri Denetle* seçeneğini kullanıyorsunuz.
 - **Tanım** - Bu, atamayı oluşturmak için kullandığınız ilke tanımıdır. Bu durumda, *Yönetilen Diskleri Olmayan Sanal Makineleri Denetle* ilke tanımıdır.
 - **Kapsam** - Kapsam, ilke atamasının hangi kaynaklarda veya kaynak gruplarında uygulanacağını belirler. Bir abonelikten kaynak gruplarına kadar değişiklik gösterebilir. &lt;Kapsam&gt; yerine kaynak grubunuzun adını yazdığınızdan emin olun.
-- **Sku** - Bu komut, standart katman ile bir ilke ataması oluşturur. Standart katman, ölçekli yönetim, uyumluluk değerlendirmesi ve düzeltme elde etmenize olanak sağlar. Şu anda standart katman ücretsizdir. Gelecekte standart katman ücretli olacaktır. Fiyatlandırma değişikliği oluştuğunda duyuru yapılacak ve [Azure İlkesi fiyatlandırmasında](https://azure.microsoft.com/pricing/details/azure-policy) daha fazla ayrıntı sağlanacaktır.
+- **Sku** - Bu komut, standart katman ile bir ilke ataması oluşturur. Standart katman, ölçekli yönetim, uyumluluk değerlendirmesi ve düzeltme elde etmenize olanak sağlar. Fiyatlandırma katmanları hakkında ek bilgi için bkz. [Azure İlkesi fiyatlandırması](https://azure.microsoft.com/pricing/details/azure-policy).
 
 
 Artık ortamınızın uyumluluk durumunu anlamak için uyumlu olmayan kaynakları belirlemeye hazırsınız.

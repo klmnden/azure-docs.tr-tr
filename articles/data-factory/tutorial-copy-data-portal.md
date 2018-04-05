@@ -1,11 +1,11 @@
 ---
-title: "Veri Fabrikası işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs"
-description: "Bu öğreticide işlem hattıyla veri fabrikası oluşturmak için Azure portalını kullanmaya yönelik adım adım yönergeler sağlanır. İşlem hattı, verileri Azure Blob depolama alanından SQL veritabanına kopyalamak için kopyalama etkinliğini kullanır."
+title: Veri Fabrikası işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs
+description: Bu öğreticide işlem hattıyla veri fabrikası oluşturmak için Azure portalını kullanmaya yönelik adım adım yönergeler sağlanır. İşlem hattı, verileri Azure Blob depolama alanından SQL veritabanına kopyalamak için kopyalama etkinliğini kullanır.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 116832175a4b7e4497c9005be7841cb56c1d235b
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 34c78a114c1d106c400a94941aa113153383e206
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Blob depolama alanında SQL veritabanına veri kopyalama
 Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir veri fabrikası oluşturursunuz. Bu veri fabrikasındaki işlem hattı, verileri Azure Blob Depolama alanından SQL veritabanına kopyalar. Bu öğreticideki yapılandırma düzeni, dosya tabanlı bir veri deposundan ilişkisel bir veri deposuna kopyalama için geçerlidir. Kaynak ve havuz olarak desteklenen veri depolarının listesi için [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablosuna bakın.
@@ -25,7 +25,7 @@ Bu öğreticide, Azure Data Factory kullanıcı arabirimini (UI) kullanarak bir 
 > [!NOTE]
 > - İlk kez Data Factory kullanıyorsanız bkz. [Azure Data Factory'ye giriş](introduction.md).
 >
-> - Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory’nin genel kullanıma açık  1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
+> - Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory’nin genel kullanıma açık 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) konusunu inceleyin.
 
 Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
@@ -109,7 +109,7 @@ Bu adımda, bir veri fabrikası oluşturacak ve veri fabrikasında bir işlem ha
 9. **Oluştur**’u seçin. 
 10. Panoda, **Data Factory Dağıtılıyor** durumuna sahip aşağıdaki kutucuğu görürsünüz: 
 
-    ![Veri fabrikasını dağıtma kutucuğu](media/tutorial-copy-data-portal/deploying-data-factory.png)
+    ![Veri fabrikası dağıtılıyor kutucuğu](media/tutorial-copy-data-portal/deploying-data-factory.png)
 11. Oluşturma işlemi bittikten sonra, resimde gösterildiği gibi **Veri Fabrikası** sayfası görüntülenir.
    
     ![Data factory giriş sayfası](./media/tutorial-copy-data-portal/data-factory-home-page.png)
@@ -155,7 +155,7 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
     ![Yeni bağlı hizmet düğmesi](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
 10. **Yeni Bağlı Hizmet** penceresinde aşağıdaki adımları uygulayın: 
 
-    a. **Name** bölümüne **AzureStorageLinkedService** girin. 
+    a. **Ad** bölümüne **AzureStorageLinkedService** adını girin. 
 
     b. **Depolama hesabı adı** bölümünde depolama hesabınızı seçin.
 
@@ -202,9 +202,9 @@ Bu öğreticide işlem hattını oluşturmaya başlayacaksınız. Daha sonra iş
 
     c. **Veritabanı adı** bölümünde SQL veritabanınızı seçin.
 
-    d. **Kullanıcı adı** bölümünde kullanıcının adını girin.
+    d. **Kullanıcı adı** bölümüne kullanıcının adını girin.
 
-    e. **Parola** bölümünde kullanıcının parolasını girin.
+    e. **Parola** bölümüne kullanıcının parolasını girin.
 
     f. Bağlantıyı test etmek için **Bağlantıyı sına**’yı seçin.
 
@@ -303,7 +303,7 @@ Yapıtları (bağlı hizmetler, veri kümeleri ve işlem hattı) Data Factory'de
     ![Bildirimleri göster](./media/tutorial-copy-data-portal/show-notifications.png)
 
 ## <a name="configure-code-repository"></a>Kod deposunu yapılandırma
-Veri fabrikası yapıtlarınızla ilişkilendirilmiş kodu Visual Studio Team Services kod deposuna yayımlayabilirsiniz. Bu adımda kod deposunu oluşturursunuz. 
+Veri fabrikası yapıtlarınızla ilişkilendirilmiş kodu Visual Studio Team Services kod deposuna yayımlayabilirsiniz. Bu adımda kod deposunu oluşturursunuz.  VSTS tümleştirmesiyle görsel yazma hakkında daha fazla bilgi edinmek için bkz. [VSTS Git tümleştirmesiyle yazma](author-visually.md#author-with-vsts-git-integration).
 
 Visual Studio Team Services kod deposuyla çalışmak istemiyorsanız bu adımı atlayabilirsiniz. Önceki adımda yaptığınız gibi Data Factory’ye yayımlamaya devam edebilirsiniz. 
 

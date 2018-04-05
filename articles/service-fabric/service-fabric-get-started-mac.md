@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: saysa
-ms.openlocfilehash: bf0a03ace2f6b6e6b1c845785a452d0b75f35de8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 81265dd61faee38d578a380ca392e7851662329c
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X’te geliştirme ortamınızı ayarlama
 > [!div class="op_single_selector"]
@@ -44,13 +44,7 @@ Service Fabric, OS X üzerinde yerel olarak çalışmaz. Yerel bir Service Fabri
 ## <a name="create-a-local-container-and-set-up-service-fabric"></a>Yerel bir kapsayıcı oluşturma ve Service Fabric’i ayarlama
 Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümesi çalıştırmak için şu adımları uygulayın:
 
-1. Docker Hub deposundan Service Fabric onebox kapsayıcı görüntüsü çekin. Varsayılan olarak bu, görüntüyü Service Fabric’in en son sürümüyle çeker. Belirli düzeltmeler için lütfen [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) sayfasını ziyaret edin.
-
-    ```bash
-    docker pull microsoft/service-fabric-onebox
-    ```
-
-2. Ana bilgisayarınızda Docker daemon yapılandırmasını şu ayarlarla güncelleştirin ve Docker daemon programını yeniden başlatın: 
+1. Ana bilgisayarınızda Docker daemon yapılandırmasını şu ayarlarla güncelleştirin ve Docker daemon programını yeniden başlatın: 
 
     ```json
     {
@@ -66,12 +60,47 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
     >
     >Daemon yapılandırma ayarlarını doğrudan Docker’da değiştirmek önerilen yaklaşımdır. **Docker simgesi**’ni ve ardından **Tercihler** > **Daemon** > **Gelişmiş**’i seçin.
     >
+    >Büyük uygulamaları test ederken Docker’a ayrılan kaynakların artırılmasını öneririz. **Docker Simgesi** seçilip ardından çekirdek sayısını ve belleği ayarlamak için **Gelişmiş** öğesi seçilerek bu yapılabilir.
 
-3. Bir Service Fabric onebox kapsayıcı örneği başlatın ve ilk adımda aşağı çektiğiniz görüntüyü kullanın:
+2. Service Fabric Görüntünüzü derlemek için yeni bir dizinde `.Dockerfile` adlı bir dosya oluşturun:
 
-    ```bash
-    docker run -itd -p 19080:19080 --name sfonebox microsoft/service-fabric-onebox
+    ```dockerfile
+    FROM microsoft/service-fabric-onebox
+    WORKDIR /home/ClusterDeployer
+    RUN ./setup.sh
+    #Generate the local
+    RUN locale-gen en_US.UTF-8
+    #Set environment variables
+    ENV LANG=en_US.UTF-8
+    ENV LANGUAGE=en_US:en
+    ENV LC_ALL=en_US.UTF-8
+    EXPOSE 19080 19000 80 443
+    #Start SSH before running the cluster
+    CMD /etc/init.d/ssh start && ./run.sh
     ```
+
+    >[!NOTE]
+    >Kapsayıcınıza ek programlar veya bağımlılıklar eklemek için bu dosyayı uyarlayabilirsiniz.
+    >Örneğin, `RUN apt-get install nodejs -y` komutu eklendiğinde, konuk yürütülebilir dosyaları olarak `nodejs` uygulamaları için destek sağlanır.
+    
+    >[!TIP]
+    > Varsayılan olarak bu, görüntüyü Service Fabric’in en son sürümüyle çeker. Belirli düzeltmeler için lütfen [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) sayfasını ziyaret edin
+
+3. `.Dockerfile` içinden yeniden kullanılabilir görüntünüzü derlemek için bir terminal açın ve doğrudan `.Dockerfile` öğesini tutarak `cd` uygulayıp sonra şunu çalıştırın:
+
+    ```bash 
+    docker build -t mysfcluster .
+    ```
+    
+    >[!NOTE]
+    >Bu işlem biraz zaman alır, ancak yalnızca bir kez gereklidir.
+
+4. Şimdi aşağıdakini çalıştırarak her ihtiyaç duyduğunuzda hızla yerel bir Service Fabric kopyası başlatabilirsiniz:
+
+    ```bash 
+    docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
+    ```
+
     >[!TIP]
     >Kapsayıcı örneğiniz için bir ad belirterek, örneğinizin daha okunaklı bir biçimde işlenebilmesini sağlayın. 
     >
@@ -80,20 +109,20 @@ Yerel bir Docker kapsayıcısı ayarlamak ve üzerinde bir Service Fabric kümes
     >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox microsoft/service-fabric-onebox`
     >
 
-4. Etkileşimli SSH modunda Docker kapsayıcısı oturumunu açın:
+5. Kümenin başlatılması kısa bir süre sürer, aşağıdaki komutu kullanarak günlükleri görüntüleyebilir veya [http://localhost:19080](http://localhost:19080) küme durumunu görüntülemek için panoya atlayabilirsiniz:
 
-    ```bash
-    docker exec -it sfonebox bash
+    ```bash 
+    docker logs sftestcluster
     ```
 
-5. Gerekli bağımlılıkları getirecek olan ayar betiğini çalıştırın ve kümeyi kapsayıcı üzerinde başlatın:
 
-    ```bash
-    ./setup.sh     # Fetches and installs the dependencies required for Service Fabric to run
-    ./run.sh       # Starts the local cluster
+
+6. İşiniz bittiğinde, durup şu komutla kapsayıcıyı temizleyebilirsiniz:
+
+    ```bash 
+    docker rm -f sftestcluster
     ```
 
-6. 5. adım tamamlandıktan sonra Mac’inizde `http://localhost:19080` konumuna gidin. Service Fabric Explorer’ı görmeniz gerekir.
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac'inizde Service Fabric CLI'sını (sfctl) ayarlama
 

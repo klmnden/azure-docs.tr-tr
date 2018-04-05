@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Engagement Uygulaması oluşturma | Microsoft Belgeleri"
-description: "Azure’da yeni bir Mobile Engagement Uygulama Koleksiyonu oluşturmayı ve Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlamayı açıklar."
+title: Azure Mobile Engagement Uygulaması oluşturma | Microsoft Belgeleri
+description: Azure’da yeni bir Mobile Engagement Uygulama Koleksiyonu oluşturmayı ve Mobile Engagement portalıyla uygulamalarınızı yönetmeye başlamayı açıklar.
 services: mobile-engagement
-documentationcenter: 
+documentationcenter: ''
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b8aa1798-28c6-424c-a5b5-8a264d5a0ff0
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0f47133a466f00de43ebfb2652eaf9058899f140
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>Azure Mobile Engagement Uygulaması oluşturma
+> [!IMPORTANT]
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
+> 
+
 Bu makale yeni bir **Azure Mobile Engagement** Uygulaması oluşturmak için **Hızlı Oluştur** yöntemini kullanmayı gösterir. Makale ayrıca uygulamalarınızı izlemeye ve yönetmeye başlamak için **Mobile Engagement** portalına nasıl gideceğinizi gösterir. 
 
 Uygulamalarınız için veri toplayabilmek ve anında iletme bildirimleri gönderebilmek için minimum “temel tümleştirme” grubu eklemeniz gerektiğini unutmayın. Tam tümleştirme belgeleri [Mobile Engagement tümleştirmesi](mobile-engagement-windows-store-integrate-engagement.md)’nde bulunabilir.

@@ -1,13 +1,13 @@
 ---
-title: "Oluşturma, değiştirme veya bir Azure sanal ağı silme | Microsoft Docs"
-description: "Oluşturma, değiştirme veya silme Azure sanal ağında öğrenin."
+title: Oluşturma, değiştirme veya bir Azure sanal ağı silme | Microsoft Docs
+description: Oluşturma, değiştirme veya silme Azure sanal ağında öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: bb481b1aade29130e01a9d15c6dcf4a3a68e194e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ac0b15f120071093fd81de1d83cf2067ecbac269
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Oluşturma, değiştirme veya bir sanal ağı silme
 
@@ -35,15 +35,15 @@ Bir sanal ağ kendi ağ bulutta gösterimidir. Azure bulutunun Azure aboneliğin
 Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşağıdaki görevleri tamamlayın:
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
-- Portalı kullanarak, https://portal.azure.com açın ve Azure hesabınızla oturum açın.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
-- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Çalıştırma `az --version` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
+- Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.2.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.26 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
 1. Seçin **+ kaynak oluşturma** > **ağ** > **sanal ağ**.
 2. Girin veya aşağıdaki ayarları için değerleri seçin ve ardından seçin **oluşturma**:
-    - **Ad**: ad içinde benzersiz olmalıdır [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) sanal ağ oluşturmak için seçin. Sanal ağ oluşturulduktan sonra adı değiştirilemez. Zaman içinde birden çok sanal ağlar oluşturabilir. Öneriler adlandırma için bkz: [adlandırma kuralları](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions). Bir adlandırma kuralı birden çok sanal ağ yönetmeyi kolaylaştırmak yardımcı olabilir.
+    - **Ad**: ad içinde benzersiz olmalıdır [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) sanal ağ oluşturmak için seçin. Sanal ağ oluşturulduktan sonra adı değiştirilemez. Zaman içinde birden çok sanal ağlar oluşturabilir. Öneriler adlandırma için bkz: [adlandırma kuralları](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). Bir adlandırma kuralı birden çok sanal ağ yönetmeyi kolaylaştırmak yardımcı olabilir.
     - **Adres alanı**: bir sanal ağın adres alanı CIDR gösteriminde belirtilen bir veya daha fazla çakışmayan adres aralıklarını oluşur. Tanımladığınız adres aralığı ortak veya özel (RFC 1918) olabilir. Adres aralığı ortak veya özel olarak tanımlamak, adres aralığı birbirine bağlı sanal ağlar ve sanal ağa bağlı herhangi bir şirket içi ağlar sanal ağ içinde yalnızca erişilebilir olup. Aşağıdaki adres aralıklarını ekleyemezsiniz:
         - 224.0.0.0/4 (çok noktaya yayın)
         - 255.255.255.255/32 (yayın)

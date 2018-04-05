@@ -1,12 +1,12 @@
 ---
-title: "İş yüklerini Azure'a yedeklemek için Azure yedekleme sunucusu kullanın | Microsoft Docs"
-description: "Azure yedekleme sunucusu korumak veya Azure portalına iş yüklerini yedeklemek için kullanın."
+title: İş yüklerini Azure'a yedeklemek için Azure yedekleme sunucusu kullanın | Microsoft Docs
+description: Azure yedekleme sunucusu korumak veya Azure portalına iş yüklerini yedeklemek için kullanın.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: PVRK
 manager: shivamg
-editor: 
-keywords: "Azure backup sunucusu; iş yüklerini korumak; iş yüklerini yedeklemeye"
+editor: ''
+keywords: Azure backup sunucusu; iş yüklerini korumak; iş yüklerini yedeklemeye
 ms.assetid: e7fb1907-9dc1-4ca1-8c61-50423d86540c
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: c33cea62dac1c06dd1cb4031897af8c822e61661
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -67,11 +67,11 @@ Windows Server yinelenenleri kaldırma kullanılarak DPM depolama alanında yine
 
 > [!NOTE]
 > Azure yedekleme sunucusu ayrılmış, tek amaçlı bir sunucuda çalışmak üzere tasarlanmıştır. Azure yedekleme sunucusu üzerinde yüklenemiyor:
-> - Bir etki alanı denetleyicisi olarak çalıştıran bir bilgisayar
+> - Etki alanı denetleyicisi olarak çalıştırılan bir bilgisayar
 > - Uygulama Sunucusu rolünün yüklü olduğu bir bilgisayar
-> - System Center Operations Manager yönetim sunucusu olan bir bilgisayar
-> - Exchange Server çalıştıran bir bilgisayar
-> - Kümenin bir düğümü olan bir bilgisayar
+> - System Center Operations Manager yönetim grubu olan bir bilgisayar
+> - Exchange Server’ın çalıştırıldığı bir bilgisayar
+> - Küme düğümü olan bir bilgisayar
 
 Her zaman Azure yedekleme sunucusu bir etki alanına katılın. Sunucunun farklı bir etki alanına taşımayı planlıyorsanız, sunucunun Azure yedekleme sunucusu yüklemeden önce yeni etki alanına önerilir. Dağıtım tamamlandıktan sonra var olan bir Azure yedekleme sunucusu makine yeni bir etki alanına taşıma *desteklenmiyor*.
 
@@ -101,7 +101,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
    Kasanız oluşturulduktan sonra portalda açılır.
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
-Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu kasaya birincil kasanız coğrafi olarak yedekli depolamaya ayarlanmış depolama seçeneği bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
+Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu kasaya birincil kasanız coğrafi olarak yedekli depolamaya ayarlanmış depolama seçeneği bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy-grs.md) ve [yerel olarak yedekli](../storage/common/storage-redundancy-lrs.md) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
 
 Depolama çoğaltma ayarını düzenlemek için:
 

@@ -1,23 +1,23 @@
 ---
-title: "Azure Dosyalarını Azure'a yedekleme"
-description: "Bu makalede Azure Dosya paylaşımlarınızı yedekleme ve geri yükleme işlemlerinin ayrıntıları verilir ve yönetim görevleri açıklanır."
+title: Azure Dosyalarını Azure'a yedekleme
+description: Bu makalede Azure Dosya paylaşımlarınızı yedekleme ve geri yükleme işlemlerinin ayrıntıları verilir ve yönetim görevleri açıklanır.
 services: backup
-keywords: "SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin."
+keywords: SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin.
 author: markgalioto
 ms.author: markgal
-ms.date: 2/21/2018
+ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: b9bf1582aa1c1b8878b8426f60a18282598eb2b9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: ba457daca030d3219fe32177b0b5f8b5565ff544
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="back-up-azure-file-shares"></a>Azure Dosya paylaşımlarını yedekleme
+# <a name="back-up-azure-file-shares-preview"></a>Azure Dosya paylaşımlarını yedekleme (Önizleme)
 
-Bu makalede [Azure Dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme işlemi ayrıntılarıyla açıklanır.
+Bu makalede, Azure portalını kullanarak Azure’da [Azure Dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
 
 Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz:
 > [!div class="checklist"]
@@ -30,6 +30,16 @@ Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 Azure Dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama Hesabı türlerinden](troubleshoot-azure-files.md#preview-boundaries) birinde yer aldığından emin olmalısınız. Bunu doğruladıktan sonra dosya paylaşımlarınızı koruyabilirsiniz.
+
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure Dosya paylaşımı yedeklemesine yönelik sınırlamalar
+Azure Dosyaları’nı yedekleme Önizleme sürümündedir. Önizleme sırasında aşağıdaki sınırlamaları unutmayın:
+- [Bölgesel olarak yedekli depolama (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) çoğaltması ile Depolama hesaplarında Dosya paylaşımlarını koruyamazsınız.
+- Sanal Ağların etkin olduğu Depolama hesaplarında Dosya paylaşımlarını koruyamazsınız.
+- Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
+- Günlük zamanlanan maksimum yedekleme sayısı birdir.
+- Günlük zamanlanan maksimum istek üzerine yedekleme sayısı dörttür.
+- Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için Depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
+- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir 
 
 ## <a name="configuring-azure-file-shares-backup"></a>Azure Dosya paylaşımlarının yedeklemesini yapılandırma
 

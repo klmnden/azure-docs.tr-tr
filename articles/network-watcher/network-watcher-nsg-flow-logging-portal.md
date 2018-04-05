@@ -1,11 +1,11 @@
 ---
-title: "Ağ güvenlik grubu akış günlükleri Azure Ağ İzleyicisi ile yönetme | Microsoft Docs"
-description: "Bu sayfa, ağ güvenlik grubu akış günlüklerine Azure Ağ İzleyicisi'ni yönetmek açıklanmaktadır"
+title: Ağ güvenlik grubu akış günlükleri Azure Ağ İzleyicisi ile yönetme | Microsoft Docs
+description: Bu sayfa, ağ güvenlik grubu akış günlüklerine Azure Ağ İzleyicisi'ni yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 633543aba99f5c09b14a9e4b11adf59ca04d0fe5
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: cb41781c5ac8fb759cecea01402c08dd716bf7d7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-network-security-group-flow-logs-in-the-azure-portal"></a>Ağ güvenlik grubu akış günlükleri Azure portalında Yönet
 
 > [!div class="op_single_selector"]
-> - [Azure portalı](network-watcher-nsg-flow-logging-portal.md)
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
@@ -38,7 +38,10 @@ Ağ güvenlik grubu akış günlükleri, giriş ve çıkış IP trafiği bir ağ
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bu senaryo zaten izlediğiniz adımlarda varsayar [bir Ağ İzleyicisi örneği oluşturmayı](network-watcher-create.md). Senaryo aynı zamanda bir olduğu geçerli bir sanal makine ile bir kaynak grubu varsayılır.
+Bu makaledeki adımları tamamlamak için aşağıdaki kaynaklara zaten olmalıdır:
+
+- Varolan bir Ağ İzleyicisi. Ağ İzleyicisi oluşturmak için bkz: [bir Ağ İzleyicisi örneği oluşturmayı](network-watcher-create.md).
+- Geçerli bir sanal makine ile varolan bir kaynak grubu. Bir sanal makineye sahip değilseniz, bkz. Create bir [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) veya [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) sanal makine.
 
 ## <a name="register-insights-provider"></a>Öngörüler sağlayıcısını Kaydet
 
@@ -68,7 +71,7 @@ Bir ağ güvenlik grubu listeden seçin.
 
 ### <a name="step-3"></a>3. Adım 
 
-Üzerinde **akışı günlüklerinin ayarları** dikey penceresinde ayarlanmış durumu **üzerinde**ve ardından bir depolama hesabı yapılandırın.  İşiniz bittiğinde seçin **Tamam**. Ardından **kaydetmek**.
+Üzerinde **akışı günlüklerinin ayarları** dikey penceresinde ayarlanmış durumu **üzerinde**ve ardından bir depolama hesabı yapılandırın. Sahip mevcut bir depolama hesabını seçin **tüm ağları** (varsayılan) seçili altında **güvenlik duvarları ve sanal ağlar**altında **ayarları** depolama hesabı için. Bir depolama hesabı seçtikten sonra seçin **Tamam**ve ardından **kaydetmek**.
 
 ![Akış günlükleri genel bakış][3]
 

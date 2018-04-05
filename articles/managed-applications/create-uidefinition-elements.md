@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama kullanıcı Arabirimi tanımı işlevlerin oluşturma | Microsoft Docs"
-description: "Azure yönetilen uygulamaları için kullanıcı Arabirimi tanımları oluşturulurken kullanılacak işlevleri açıklanmaktadır"
+title: Azure UI tanım öğesi oluşturun | Microsoft Docs
+description: Azure portal UI tanımlarında oluşturulurken kullanılacak öğelerini açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,24 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 23e407bf93bc51116ca45339bffcb801d69290f0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: d6f96d4aa66839518023b4d567caf1ff839a29fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition öğeleri
-Bu makalede, şema ve tüm desteklenen bir CreateUiDefinition öğelerinin özelliklerini açıklar. Bu öğeleri kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md). Öğelerin çoğu için şemayı aşağıdaki gibidir:
+Bu makalede, şema ve tüm desteklenen bir CreateUiDefinition öğelerinin özelliklerini açıklar. Öğelerin çoğu için şemayı aşağıdaki gibidir:
 
 ```json
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
   "label": "Some text box",
-  "defaultValue": "foobar",
-  "toolTip": "Keep calm and visit the [Azure Portal](portal.azure.com).",
+  "defaultValue": "my value",
+  "toolTip": "Provide a descriptive name.",
   "constraints": {},
   "options": {},
   "visible": true
@@ -41,9 +41,9 @@ Bu makalede, şema ve tüm desteklenen bir CreateUiDefinition öğelerinin özel
 | type | Evet | Öğe için işlemek için kullanıcı Arabirimi denetim. Desteklenen türlerinin listesi için bkz: [öğeleri](#elements). |
 | Etiket | Evet | Öğenin görüntüleme metni. Değer, birden çok dizeyi içeren bir nesne olabilir şekilde birden çok etiketleri, bazı öğe türleri içerir. |
 | defaultValue | Hayır | Öğesinin varsayılan değeri. Bazı öğe türleri karmaşık varsayılan değerleri desteğini değer bir nesne olabilir. |
-| Araç İpucu | Hayır | Öğenin araç ipucu görüntülenecek metin. Benzer şekilde `label`, bazı öğeler birden çok araç ipucu dizeleri destekler. Markdown söz dizimini kullanarak satır içi bağlantı katıştırılabilir.
+| toolTip | Hayır | Öğenin araç ipucu görüntülenecek metin. Benzer şekilde `label`, bazı öğeler birden çok araç ipucu dizeleri destekler. Markdown söz dizimini kullanarak satır içi bağlantı katıştırılabilir.
 | Kısıtlamaları | Hayır | Öğeyi doğrulama davranışını özelleştirmek için kullanılan bir veya daha fazla özellikleri. Kısıtlamalar için desteklenen özellikler öğesi türüne göre değişir. Bazı öğe türleri doğrulama davranışını özelleştirmesini desteklemiyor ve bu nedenle hiçbir kısıtlamaları özelliğine sahiptir. |
-| Seçenekler | Hayır | Öğe davranışını özelleştiren ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
+| seçenekler | Hayır | Öğe davranışını özelleştiren ek özellikler. Benzer şekilde `constraints`, desteklenen özellikler öğesi türüne göre farklılık gösterir. |
 | Görünür | Hayır | Öğenin görüntülenip görüntülenmeyeceğini belirtir. Varsa `true`, öğesi ve ilgili alt öğeleri görüntülenir. Varsayılan değer `true`. Kullanım [mantıksal işlevleri](create-uidefinition-functions.md#logical-functions) dinamik olarak bu özelliğin değerini denetlemek için.
 
 ## <a name="elements"></a>Öğeleri
@@ -65,5 +65,4 @@ Belge Şeması, bir kullanıcı Arabirimi örnek her öğe içeriyor için öğe
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
-* UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
+UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).

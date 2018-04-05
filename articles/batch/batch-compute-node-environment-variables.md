@@ -1,22 +1,22 @@
 ---
-title: "Azure toplu işlem düğüm ortam değişkenleri | Microsoft Docs"
-description: "Düğüm ortam değişkeni başvurusu Azure toplu analizi için işlem."
+title: Azure toplu işlem düğüm ortam değişkenleri | Microsoft Docs
+description: Düğüm ortam değişkeni başvurusu Azure toplu analizi için işlem.
 services: batch
-author: tamram
-manager: timlt
-ms.assetid: 
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
-ms.author: tamram
-ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: danlep
+ms.openlocfilehash: ca8d6a6484cd1f145e7d807681bf2d012f2399e0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure toplu işlem düğüm ortam değişkenleri
 [Azure Batch hizmeti](https://azure.microsoft.com/services/batch/) işlem düğümlerinde aşağıdaki ortam değişkenlerini ayarlar. Bu ortam değişkenleri görev komut satırları ve programları başvurusu yapabilir ve komut dosyaları tarafından komut satırları çalıştırmak.
@@ -40,11 +40,11 @@ Komut görevler tarafından yürütülen satırları bir kabuk altında düğüm
 | Değişken adı                     | Açıklama                                                              | Kullanılabilirlik | Örnek |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
 | AZ_BATCH_ACCOUNT_NAME           | Görevin ait olduğu toplu işlem hesabının adı.                  | Tüm görevler.   | mybatchaccount |
-| AZ_BATCH_CERTIFICATES_DIR       | Bir dizin içinde [görev çalışma dizini] [ files_dirs] işlem düğümleri hangi sertifikaların Linux için depolanır. Bu ortam değişkenini Windows uygulanmaz Not işlem düğümlerini.                                                  | Tüm görevler.   |  /mnt/batch/Tasks/workitems/batchjob001/Job-1/task001/certs |
+| AZ_BATCH_CERTIFICATES_DIR       | Bir dizin içinde [görev çalışma dizini] [ files_dirs] işlem düğümleri hangi sertifikaların Linux için depolanır. Bu ortam değişkenini Windows uygulanmaz Not işlem düğümlerini.                                                  | Tüm görevler.   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_JOB_ID                 | Görevin ait olduğu işin kimliği. | Başlangıç görevi dışında tüm görevler. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | İş hazırlama tam yolunu [görev dizini] [ files_dirs] düğümde. | Başlangıç görevi ve iş hazırlama görevi dışında tüm görevler. Yalnızca iş iş hazırlama görevi ile yapılandırılmışsa, kullanılabilir. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | İş hazırlama tam yolunu [görev çalışma dizini] [ files_dirs] düğümde. | Başlangıç görevi ve iş hazırlama görevi dışında tüm görevler. Yalnızca iş iş hazırlama görevi ile yapılandırılmışsa, kullanılabilir. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_NODE_ID                | Görev atandığı düğümün kimliği. | Tüm görevler. | Tvm 1219235766_3 20160919t172711z |
+| AZ_BATCH_NODE_ID                | Görev atandığı düğümün kimliği. | Tüm görevler. | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_ROOT_DIR          | Tüm kök tam yolunu [toplu dizinleri] [ files_dirs] düğümde. | Tüm görevler. | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | Tam yolunu [paylaşılan dizine] [ files_dirs] düğümde. Bir düğümde yürütülen tüm görevler bu dizinde okuma/yazma erişimi. Diğer düğümlerinde yürütülen görevleri uzaktan (bunu bir "paylaşılan" ağ dizin değil) bu dizine erişiminiz yok. | Tüm görevler. | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | Tam yolunu [görev dizini Başlat] [ files_dirs] düğümde. | Tüm görevler. | C:\user\tasks\startup |
@@ -52,7 +52,7 @@ Komut görevler tarafından yürütülen satırları bir kabuk altında düğüm
 | AZ_BATCH_TASK_DIR               | Tam yolunu [görev dizini] [ files_dirs] düğümde. Bu dizin içerir `stdout.txt` ve `stderr.txt` görev ve AZ_BATCH_TASK_WORKING_DIR. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | Geçerli görevin kimliği. | Başlangıç görevi dışında tüm görevler. | task001 |
 | AZ_BATCH_TASK_WORKING_DIR       | Tam yolunu [görev çalışma dizini] [ files_dirs] düğümde. Şu anda çalışan görev bu dizinde okuma/yazma erişimi. | Tüm görevler. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
-| CCP_NODES                       | Düğümler için ayrılan düğümü başına çekirdek sayısı ve listesi bir [çok örnekli görev][multi_instance]. Düğümler ve çekirdek biçiminde listelenir`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, burada düğüm sayısını ardından bir veya daha fazla düğüm IP adresleri ve çekirdek sayısı tarafından her biri için. |  Çok örnekli birincil ve alt görevler. |`2 10.0.0.4 1 10.0.0.5 1` |
+| CCP_NODES                       | Düğümler için ayrılan düğümü başına çekirdek sayısı ve listesi bir [çok örnekli görev][multi_instance]. Düğümler ve çekirdek biçiminde listelenir `numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, burada düğüm sayısını ardından bir veya daha fazla düğüm IP adresleri ve çekirdek sayısı tarafından her biri için. |  Çok örnekli birincil ve alt görevler. |`2 10.0.0.4 1 10.0.0.5 1` |
 | AZ_BATCH_NODE_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP;nodeIP`. | Çok örnekli birincil ve alt görevler. | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_HOST_LIST              | İçin ayrılan düğümler listesi bir [çok örnekli görev] [ multi_instance] biçimde `nodeIP,nodeIP`. | Çok örnekli birincil ve alt görevler. | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_MASTER_NODE            | IP adresi ve bağlantı noktası, üzerinde işlem düğümünün birincil görevi bir [çok örnekli görev] [ multi_instance] çalıştırır. | Çok örnekli birincil ve alt görevler. | `10.0.0.4:6000`|

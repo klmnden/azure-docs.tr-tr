@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure SSIS tümleştirmesi çalışma zamanı yeniden | Microsoft Docs"
-description: "Zaten sağlanmış sonra Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı yeniden öğrenin."
+title: Bir Azure SSIS tümleştirmesi çalışma zamanı yeniden | Microsoft Docs
+description: Zaten sağlanmış sonra Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı yeniden öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: 752640552a7af307bb54f3c0e4bc7fa0f3009d48
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9932ee862a9cdc7591c62c016e888d9e5d593cf7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı yönetme
 [Azure SSIS tümleştirmesi çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md) makalede Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) oluşturma gösterilmektedir. Bu makalede, var olan bir Azure SSIS tümleştirmesi çalışma zamanı yeniden yapılandırma hakkında bilgi sağlar.  
@@ -96,7 +96,7 @@ Azure SSIS çalışma zamanı hakkında daha fazla bilgi için aşağıdaki konu
 
 - [Azure SSIS tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede Azure SSIS IR genel dahil tümleştirme çalışma zamanları hakkında kavramsal bilgiler sağlar 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (özel önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makalede öğreticiyi genişletir ve Azure SQL yönetilen örneğini (Önizleme) kullanarak ve bir sanal ağa IR katılması yönergeler sağlar. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına (VNet) ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure portalını kullanarak Azure-SSIS IR’nin sanal ağa katılmasını sağlayacak şekilde sanal ağı yapılandırma adımları sunar. 
 - [Azure-SSIS IR’yi izleme](monitor-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede bir Azure-SSIS IR ile ilgili bilgileri ve döndürülen bilgilerdeki durumların açıklamalarını alma işlemi gösterilmektedir. 
  

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 03/28/2018
 ms.author: robb
-ms.openlocfilehash: 03026ee8bedd5277b2bb6cf28dabafabf207b0ae
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8f7df424b27e6899821a9bdd2f1d8397a0de35a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---powershell"></a>Azure Hizmetleri - PowerShell Azure İzleyicisi'nde Klasik ölçüm uyarılar oluştur
 > [!div class="op_single_selector"]
@@ -31,18 +31,18 @@ ms.lasthandoff: 03/23/2018
 ## <a name="overview"></a>Genel Bakış
 
 > [!NOTE]
-> Bu makalede, eski ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni, daha iyi ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Yeni ölçüm uyarılar için PowerShell desteği yakında geliyor.
+> Bu makalede, eski classic ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni, daha iyi ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Yeni ölçüm uyarılar için PowerShell desteği yakında geliyor.
 >
 >
 
-Bu makalede PowerShell kullanarak Azure ölçüm uyarılarını ayarlama gösterilmiştir.  
+Bu makalede PowerShell kullanarak Azure Klasik ölçüm uyarıları ayarlamak gösterilmiştir.  
 
 İzleme ölçümlerini ya da olayları, Azure hizmetlerinizi göre bir uyarı alabilirsiniz.
 
 * **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
 * **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olay meydana gelir. Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi edinmek için [burayı tıklatın](monitoring-activity-log-alerts.md)
 
-Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabilirsiniz:
+Tetikler, aşağıdakileri yapmak için Klasik bir ölçüm uyarısı yapılandırabilirsiniz:
 
 * Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönder
 * Belirttiğiniz ek e-postalar için e-posta gönderin.
@@ -135,8 +135,8 @@ Ek bilgi için her zaman yazabilirsiniz ```Get-Help``` ve ardından hakkında Ya
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure izleme genel bir bakış elde](monitoring-overview.md) toplamak ve izlemek bilgi türlerini de dahil olmak üzere.
-* Daha fazla bilgi edinmek [Web kancalarını uyarıları yapılandırma](insights-webhooks-alerts.md).
-* Daha fazla bilgi edinmek [etkinlik günlüğü olayları uyarıları yapılandırma](monitoring-activity-log-alerts.md).
+* Öğrenme [Web kancalarını uyarıları yapılandırmanıza](insights-webhooks-alerts.md).
+* Öğrenme [etkinlik günlüğü olayları uyarıları yapılandırmak](monitoring-activity-log-alerts.md).
 * Daha fazla bilgi edinmek [Azure Automation Runbook](../automation/automation-starting-a-runbook.md).
 * Alma bir [tanılama günlüklerinin toplanması genel bakış](monitoring-overview-of-diagnostic-logs.md) hizmetinizde ayrıntılı yüksek sıklıkta ölçümleri toplamak için.
 * Alma bir [ölçümleri toplama genel bakış](insights-how-to-customize-monitoring.md) hizmetinizi kullanılabilir ve yanıt verebilir durumda olduğundan emin olmak için.

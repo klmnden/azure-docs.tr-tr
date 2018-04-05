@@ -1,12 +1,11 @@
 ---
-title: "IoT gerçek zamanlı veri akışları ve Azure Stream Analytics | Microsoft Docs"
-description: "Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT algılayıcı etiketleri ve veri akışları"
-keywords: "iot çözümü, iot ile çalışmaya başlama"
+title: IoT gerçek zamanlı veri akışları ve Azure Stream Analytics | Microsoft Docs
+description: Akış analizi ve gerçek zamanlı veri işleme ile birlikte IoT algılayıcı etiketleri ve veri akışları
+keywords: iot çözümü, iot ile çalışmaya başlama
 services: stream-analytics
-documentationcenter: 
+documentationcenter: ''
 author: SnehaGunda
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sngun
-ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 52b05d4daf75d81402d7c72cd05f3819a3456171
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT cihazlarından veri işlemek için Azure Stream Analytics'i kullanmaya başlama
 Bu öğreticide, Nesnelerin İnterneti (IoT) cihazlarından veri toplamak üzere akış işleme mantığı oluşturmayı öğreneceksiniz. Çözümünüzü hızlı ve ekonomik bir şekilde nasıl oluşturacağınızı göstermek için gerçek hayattaki bir Nesnelerin İnterneti (IoT) kullanım örneğinden yararlanacağız.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 * [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/)
 * Örnek sorgu ve veri dosyaları [GitHub](https://aka.ms/azure-stream-analytics-get-started-iot)'dan indirilebilir
 

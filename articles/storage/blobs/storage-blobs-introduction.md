@@ -1,30 +1,31 @@
 ---
-title: "Azure Blob depolamaya Giriş | Microsoft Docs"
-description: "Azure Blob depolamaya giriş"
+title: Blob depolamaya giriş - Azure’da nesne depolama | Microsoft Docs
+description: Azure Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış nesne verilerini depolamak için tasarlanmıştır. Uygulamalarınız, REST üzerinden veya Azure Storage istemci kitaplıkları aracılığıyla koddan, Azure CLI’dan ya da PowerShell’den Blob depolamadaki nesnelere erişebilir.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: overview
-ms.date: 09/28/2017
+ms.date: 03/27/2018
 ms.author: tamram
-ms.openlocfilehash: aabc10b1c1c501e4fa0eb31835c2818cfb8942c6
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 0fff0032ec2452413bcd1df3175634b14a64208f
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introduction-to-blob-storage"></a>Blob depolamaya giriş
 
-Azure Blob Storage; HTTP veya HTTPS aracılığıyla dünyanın her yerinde erişilebilen metin veya ikili veriler gibi büyük miktarda yapılandırılmamış nesne verilerinin depolanması için bir hizmettir. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz.
+Azure Blob depolama, Microsoft’un veri nesnelerine yönelik bulut depolama çözümüdür. Blob depolama, metin veya ikili veri gibi çok miktarda yapılandırılmamış nesne verilerini depolayabilir. Blob depolamadaki verilere, dünyanın her yerinden HTTP veya HTTPS üzerinden erişilebilir. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz.
 
 Blob Storage’ın yaygın kullanımları şunlardır:
 
 * Görüntülerin veya belgelerin doğrudan bir tarayıcıya sunulması
 * Dağıtılan erişim için dosyaların depolanması
 * Video ve ses akışları
-* Yedekleme ve geri yükleme, olağanüstü durum kurtarma ve arşivleme için verilerin depolanması
+* Yedekleme ve geri yükleme, olağanüstü durum kurtarma ve arşivleme için depolama
 * Şirket içi veya Azure barındırılan hizmetle analiz için verilerin depolanması
+* Azure Sanal Makineleri ile kullanmak için VHD’leri depolama
 
 ## <a name="blob-service-concepts"></a>Blob hizmeti kavramları
 

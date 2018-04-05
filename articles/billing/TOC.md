@@ -1,3 +1,4 @@
+
 # [Azure Faturalama Belgeleri](index.md)
 
 # başlarken
@@ -41,6 +42,7 @@
 ### [Profili düzenleme](billing-how-to-change-azure-account-profile.md)
 ### [Ödeme bilgilerini güncelleştirme](billing-how-to-change-credit-card.md)
 ### [Abonelikler için fatura ile ödeme](billing-how-to-pay-by-invoice.md)
+### [İş ortağı kimliğini bağlama](billing-partner-admin-link-started.md)
 ## [Ayrılmış VM Örneklerini yönetme](billing-manage-reserved-vm-instance.md)
 ## Sorun giderme
 ### [Kaydolma sorunları](https://support.microsoft.com/en-us/help/4042959)

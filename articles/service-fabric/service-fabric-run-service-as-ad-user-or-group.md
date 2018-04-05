@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/21/2018
+ms.date: 03/29/2018
 ms.author: mfussell
-ms.openlocfilehash: 1cf23a8f564553e65ac2c0fd34d44d81fe2327ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 7dc467d9977d536011e1c3fcf663fc335f90a492
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Bir Active Directory kullanıcı veya grup bir hizmet farklı çalıştır
-Azure Service Fabric kullanarak, kümedeki farklı kullanıcı hesabı altında çalışan uygulamaları güvenliğini sağlayabilirsiniz. Bu çalışan uygulamaları bile paylaşılan bir barındırılan ortamda, diğerinden daha güvenli hale getirir. Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Bir Windows Server tek başına küme için bir hizmet olarak çalıştırılabilir bir [Grup yönetilen hizmet hesabı (gMSA)](service-fabric-run-service-as-gmsa.md) veya bir Active Directory kullanıcı veya grup RunAs İlkesi'ni kullanarak. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın.
+Bir Windows Server tek başına kümesinde bir hizmet, bir Active Directory kullanıcı veya grup RunAs ilke kullanılarak çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Çalışan uygulamalar farklı hesaplar bile paylaşılan bir barındırılan ortamda, bunları birbirinden daha güvenli yapar. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın.  Bir hizmet olarak da çalıştırılabilir bir [Grup yönetilen hizmet hesabı (gMSA)](service-fabric-run-service-as-gmsa.md).
 
 Bir etki alanı kullanıcısı veya grubu kullanarak izinleri verilmiş olması (örneğin, dosya paylaşımları) etki alanındaki diğer kaynaklara erişebilir.
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 13/22/2018
 ms.author: mikeray
-ms.openlocfilehash: faa849fc53aa15a47e850a20531c4fa30544f750
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>SQL Server Yük devretme kümesi örneği üzerinde Azure sanal makineleri yapılandırma
 
@@ -375,27 +375,13 @@ Yük Dengeleyici oluşturmak için:
 
 1. Sanal makineler ile Azure kaynak grubu geri dönün ve Yeni Yük Dengeleyici bulun. Kaynak grubu görünümü yenilemeniz gerekebilir. Yük Dengeleyici'ı tıklatın.
 
-1. Yük Dengeleyici dikey penceresinde **arka uç havuzları**.
+1. Tıklatın **arka uç havuzları** tıklatıp **+ Ekle** bir arka uç havuzu eklemek için.
 
-1. Tıklatın **+ Ekle** bir arka uç havuzu eklemek için.
+1. Arka uç havuzu VM'ler içeren kullanılabilirlik kümesi ile ilişkilendirin.
 
-1. Arka uç havuzu için bir ad yazın.
+1. Altında **hedef ağ IP yapılandırmaları**, denetleme **sanal makine** ve küme düğümleri olarak katılacak olan sanal makineleri seçin. FCI barındıracak tüm sanal makineler eklediğinizden emin olun. 
 
-1. Tıklatın **bir sanal makine Ekle**.
-
-1. Üzerinde **sanal makineleri seçin** dikey penceresinde tıklatın **bir kullanılabilirlik kümesi seçin**.
-
-1. SQL Server sanal makinelere yerleştirilen kullanılabilirlik kümesi'ni seçin.
-
-1. Üzerinde **sanal makineleri seçin** dikey penceresinde tıklatın **sanal makineleri seçin**.
-
-   Azure portalı, aşağıdaki resimde gibi görünmelidir:
-
-   ![CreateLoadBalancerBackEnd](./media/virtual-machines-windows-portal-sql-create-failover-cluster/33-load-balancer-back-end.png)
-
-1. Tıklatın **seçin** üzerinde **sanal makineleri seçin** dikey.
-
-1. Tıklatın **Tamam** iki kez.
+1. Tıklatın **Tamam** arka uç havuzu oluşturmak için.
 
 ### <a name="configure-a-load-balancer-health-probe"></a>Bir yük dengeleyici durum araştırması yapılandırın
 

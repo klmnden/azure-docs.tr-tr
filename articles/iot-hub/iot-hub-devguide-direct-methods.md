@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT hub'ı doğrudan yöntemlerini anlama | Microsoft Docs"
-description: "Geliştirici Kılavuzu - kod cihazlarınızda service uygulamasından çağırmak için doğrudan yöntemlerini kullanın."
+title: Azure IOT hub'ı doğrudan yöntemlerini anlama | Microsoft Docs
+description: Geliştirici Kılavuzu - kod cihazlarınızda service uygulamasından çağırmak için doğrudan yöntemlerini kullanın.
 services: iot-hub
 documentationcenter: .net
 author: nberdy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
 ms.service: iot-hub
 ms.devlang: multiple
@@ -15,14 +15,17 @@ ms.workload: na
 ms.date: 01/29/2018
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 003b3f6ef8a6fbc1c6fcdfc58f7d35bf6c42c9ee
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 47bf7437eda09a536aa2d960cf5ec474e23356a6
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
 IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıtı yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır. Örneğin, bir SMS Uyandırma (çevrimdışı SMS yöntem çağrısı daha pahalı olması) ise bir cihaza gönderme.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+
 Her cihaz yöntemi tek bir cihazı hedefler. [İşlerini] [ lnk-devguide-jobs] doğrudan yöntemlerini birden çok aygıta çağırmak için bir yol sağlar ve zamanlama yöntem çağırma bağlantısı kesilmiş aygıtları için.
 
 Herkesle **service bağlanma** IOT Hub üzerindeki izinleri bir aygıtta bir yöntemi çağırma.
@@ -86,7 +89,7 @@ Arka uç uygulama içeren bir yanıt alır:
 ## <a name="handle-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem işleme
 ### <a name="mqtt"></a>MQTT
 #### <a name="method-invocation"></a>Yöntem çağırma
-Cihazlar, MQTT konusunda doğrudan yöntem isteği alır:`$iothub/methods/POST/{method name}/?$rid={request id}`
+Cihazlar, MQTT konusunda doğrudan yöntem isteği alır: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 Cihaz aldıktan gövdesi aşağıdaki biçimdedir:
 
@@ -109,7 +112,7 @@ Gövde aygıt tarafından ayarlanır ve herhangi bir durum olabilir.
 
 ### <a name="amqp"></a>AMQP
 #### <a name="method-invocation"></a>Yöntem çağırma
-Cihaz adresinde alma bağlantı oluşturarak doğrudan yöntem isteği alır`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Cihaz adresinde alma bağlantı oluşturarak doğrudan yöntem isteği alır `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 AMQP ileti yöntemi isteğinin temsil eden alma bağlantıyı ulaşır. Aşağıdakileri içerir:
 * Karşılık gelen yöntemi yanıtı ile iletilmesi gereken bir istek kimliği içeren bağıntı kimliği özelliği
@@ -117,7 +120,7 @@ AMQP ileti yöntemi isteğinin temsil eden alma bağlantıyı ulaşır. Aşağı
 * Yöntem yükü JSON olarak içeren AMQP ileti gövdesi
 
 #### <a name="response"></a>Yanıt
-Aygıt adresi yöntemi yanıtı döndürmek için gönderen bir bağlantı oluşturur`amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+Aygıt adresi yöntemi yanıtı döndürmek için gönderen bir bağlantı oluşturur `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
 
 Yöntemin yanıt gönderen bağlantıyı döndürülür ve aşağıdaki gibi yapılandırılmış:
 * İstek Kimliği içeren bağıntı kimliği özelliği yöntemin istek iletisinde geçirilen

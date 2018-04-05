@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup - DPM iş yüklerini yedeklemeye kullanım PowerShell | Microsoft Docs"
-description: "Dağıtma ve Data Protection Manager (PowerShell kullanarak DPM için) Azure Backup yönetme hakkında bilgi edinin"
+title: Azure Backup - DPM iş yüklerini yedeklemeye kullanım PowerShell | Microsoft Docs
+description: Dağıtma ve Data Protection Manager (PowerShell kullanarak DPM için) Azure Backup yönetme hakkında bilgi edinin
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: 
+editor: ''
 ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 1/23/2017
 ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 9322037427c84f0b8a91cc76f5c0fed52167bc3c
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede, bir DPM sunucusunda Azure yedekleme kurulumu için PowerShell kullanın ve yedekleme ve kurtarma yönetmek için nasıl gösterir.
@@ -77,7 +77,7 @@ Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturmada size yol aça
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. Kullanılacak depolama artıklığı türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Aşağıdaki örnek, testVault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
+4. Kullanılacak depolama artıklığı türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy-grs.md). Aşağıdaki örnek, testVault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
 
    > [!TIP]
    > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bir değişkende yedekleme kurtarma Hizmetleri kasası nesne depolamak uygundur.
@@ -133,14 +133,14 @@ Mevcut seçenekler şunlardır:
 | Seçenek | Ayrıntılar | Varsayılan |
 | --- | --- | --- |
 | /q |Sessiz yükleme |- |
-| p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Aracısı |
-| / s: "Konum" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch |
+| p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent |
+| /s:"location" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
 | /m |Microsoft Update'e kabulü |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
 | /d |Microsoft Azure kurtarma Hizmetleri Aracısı kaldırır |- |
 | /ph |Proxy konağı adresi |- |
-| /PO |Proxy ana bilgisayar bağlantı noktası numarası |- |
-| /PU |Proxy konağı kullanıcı |- |
+| /po |Proxy ana bilgisayar bağlantı noktası numarası |- |
+| /pu |Proxy konağı kullanıcı |- |
 | /pw |Proxy parolası |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Kasa kayıt DPM bir kurtarma Hizmetleri
@@ -309,10 +309,10 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 
 Yukarıdaki örnekte, ```$onlineSch``` GFS düzeni koruma grubunda varolan çevrimiçi koruma zamanlamasını içeren bir dizi dört öğelerle:
 
-1. ```$onlineSch[0]```Günlük Zamanlama içerir
-2. ```$onlineSch[1]```Haftalık Zamanlama içerir
-3. ```$onlineSch[2]```Aylık zamanlama içerir
-4. ```$onlineSch[3]```Yıllık çizelge içerir
+1. ```$onlineSch[0]``` Günlük Zamanlama içerir
+2. ```$onlineSch[1]``` Haftalık Zamanlama içerir
+3. ```$onlineSch[2]``` Aylık zamanlama içerir
+4. ```$onlineSch[3]``` Yıllık çizelge içerir
 
 Haftalık Zamanlama değiştirmeniz gerekiyorsa, başvurmanız gerekir böylece ```$onlineSch[1]```.
 
@@ -334,8 +334,8 @@ PS C:\> Set-DPMProtectionGroup -ProtectionGroup $MPG
 ## <a name="view-the-backup-points"></a>Yedekleme noktaları görüntüleyin
 Kullanabileceğiniz [Get-DPMRecoveryPoint](https://technet.microsoft.com/library/hh881746) bir veri kaynağı için tüm kurtarma noktalarının bir listesini almak için cmdlet. Bu örnekte, şunları yapacağız:
 
-* DPM sunucusundaki tüm PGs getirebilir ve bir dizide saklanan```$PG```
-* karşılık gelen veri kaynakları alma```$PG[0]```
+* DPM sunucusundaki tüm PGs getirebilir ve bir dizide saklanan ```$PG```
+* karşılık gelen veri kaynakları alma ```$PG[0]```
 * veri kaynağı için tüm kurtarma noktalarının alın.
 
 ```

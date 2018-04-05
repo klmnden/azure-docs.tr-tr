@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veri eşitleme OMS günlük analizi ile izleme | Microsoft Docs"
-description: "OMS günlük analizi kullanarak Azure SQL veri eşitleme izleneceği hakkında bilgi edinin"
+title: İzleme OMS günlük analizi ile Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
+description: Azure SQL veri eşitleme (Önizleme) izlemek OMS günlük analizi kullanarak öğrenin
 services: sql-database
 ms.date: 11/07/2017
 ms.topic: article
@@ -9,17 +9,17 @@ author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 423614227b16ad6cfa6dadfab1c5f2b93c5bbe62
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
 
 SQL veri eşitleme Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL veri eşitleme Azure portalında el ile denetleyin veya PowerShell veya REST API'yi kullanın zorunda kalındı. İzleme deneyimine veri eşitleme artıran özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
-SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](sql-database-sync-data.md).
+SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme) ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grubu için izleme Panosu 
 
@@ -190,20 +190,20 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 -   [Veri Eşitleme günlük OMS görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
--   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](sql-database-sync-data.md)
--   [Azure SQL veri eşitleme ayarı](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL veri eşitleme için en iyi yöntemler](sql-database-best-practices-data-sync.md)
--   [Azure SQL veri eşitleme ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)
+-   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md)
+-   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync için en iyi yöntemler](sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
--   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
+-   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
     -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-azure-onprem.md)
+    -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
 
--   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-SQL veritabanı hakkında daha fazla bilgi için bkz:
+SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 
--   [SQL veritabanı genel bakış](sql-database-technical-overview.md)
--   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [SQL Veritabanı'na Genel Bakış](sql-database-technical-overview.md)
+-   [Veritabanı Yaşam Döngüsü Yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

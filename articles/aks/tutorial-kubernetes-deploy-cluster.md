@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: d02229739e3f358e4a6510dfbb0585939e947f9c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a28f2f3e397c33e8bd98fcee68c5a051432cb3db
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="deploy-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini dağıtma
+# <a name="tutorial-deploy-an-azure-container-service-aks-cluster"></a>Öğretici: Azure Container Service (AKS) kümesini dağıtma
 
 Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar. AKS ile üretime hazır bir Kubernetes kümesinin sağlanması basit ve hızlıdır. Sekiz parçalık bu öğreticinin üçüncü kısmında, AKS içinde bir Kubernetes kümesi dağıtılır. Tamamlanan adımlar:
 
@@ -24,7 +24,7 @@ Kubernetes, kapsayıcılı uygulamalar için dağıtılmış bir platform sunar.
 > * Kubernetes CLI (kubectl) yüklemesi
 > * Kubectl yapılandırması
 
-Sonraki öğreticilerde, Azure Vote uygulaması kümeye dağıtılır, ölçeklendirilir, güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
+Sonraki öğreticilerde, Azure Vote uygulaması kümeye dağıtılır, ölçeklendirilir, güncelleştirilir ve Log Analytics, Kubernetes kümesini izlemek için yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -96,7 +96,7 @@ CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --q
 ACR kayıt defteri kaynak kimliğini alın. Kayıt defteri adını, ACR kayıt defterinizin adıyla, kaynak grubu adını da ACR kayıt defterinin bulunduğu konumla güncelleştirin.
 
 ```azurecli
-ACR_ID=$(az acr show --name myACRRegistry --resource-group myResourceGroup --query "id" --output tsv)
+ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
 ```
 
 Uygun erişimi sağlayan rol atamasını oluşturun.

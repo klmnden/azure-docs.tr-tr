@@ -1,47 +1,47 @@
 ---
-title: "Azure PowerShell Betiği örnek - değişiklik RDP bağlantı noktası aralığı | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - dağıtılan küme RDP bağlantı noktası aralığını değiştirir."
+title: Azure PowerShell Betiği Örneği - RDP bağlantı noktası aralığını değiştirme | Microsoft Docs
+description: Azure PowerShell Betiği Örneği - Dağıtılan bir kümenin RDP bağlantı noktası aralığını değiştirir.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 11/28/2017
+ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 9089d071c69830323a94140a5ebb4e9e865499c6
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.openlocfilehash: 83fb6cc03f605a60b06f31fa6ddd82cd4e3e899e
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-the-rdp-port-range-values"></a>RDP bağlantı noktası aralığı değerleri güncelleştirin
+# <a name="update-the-rdp-port-range-values"></a>RDP bağlantı noktası aralığı değerlerini güncelleştirme
 
-Küme dağıtıldıktan sonra bu örnek betik VM'ler küme düğümünde RDP bağlantı noktası aralığı değerlerini değiştirir.  Temel alınan VM'ler değil döngüsü böylece azure PowerShell kullanılır.  Komut dosyasını alır `Microsoft.Network/loadBalancers` küme kaynak grubu ve güncelleştirmeleri kaynak `inboundNatPools.frontendPortRangeStart` ve `inboundNatPools.frontendPortRangeEnd` değerleri. Parametreleri gereken şekilde özelleştirin.
+Bu örnek betik, küme dağıtıldıktan sonra küme düğümü sanal makinelerinde RDP bağlantı noktası aralığı değerlerini değiştirir.  Temel sanal makinelerin döngüye girmemesi için Azure PowerShell kullanılır.  Betik, kümenin kaynak grubundaki `Microsoft.Network/loadBalancers` kaynağını alıp `inboundNatPools.frontendPortRangeStart` ve `inboundNatPools.frontendPortRangeEnd` değerlerini güncelleştirir. Parametreleri gereken şekilde özelleştirin.
 
-Gerekirse, bulunan yönergeleri kullanarak Azure PowerShell'i yükleme [Azure PowerShell Kılavuzu](/powershell/azure/overview). 
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak Azure PowerShell’i yükleyin. 
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 [!code-powershell[main](../../../powershell_scripts/service-fabric/change-rdp-port-range/change-rdp-port-range.ps1 "Update the RDP port range values")]
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Alır `Microsoft.Network/loadBalancers` kaynak. |
-|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|Güncelleştirmeleri `Microsoft.Network/loadBalancers` kaynak.|
+| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | `Microsoft.Network/loadBalancers` kaynağını alır. |
+|[Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource)|`Microsoft.Network/loadBalancers` kaynağını güncelleştirir.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Azure Service Fabric ek Azure Powershell örnekleri bulunabilir [Azure PowerShell örnekleri](../service-fabric-powershell-samples.md).
+Azure Service Fabric için ek Azure PowerShell örneklerini [Azure PowerShell örnekleri](../service-fabric-powershell-samples.md) bölümünde bulabilirsiniz.

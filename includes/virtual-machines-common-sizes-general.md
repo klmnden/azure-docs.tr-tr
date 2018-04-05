@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 32d1330b60de139a1ac16c4d8d70f76873dbd4c2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 4eeff0d89fa8a73b8f7f4b73fb5bfb85cda26184
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 Genel amaçlı VM boyutları dengeli CPU bellek oranı sağlar. Test ve geliştirme, küçük - orta boyutlu veritabanları, düşük - orta yoğunluklu trafiğe sahip web sunucuları için idealdir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -96,7 +96,7 @@ ACU: 210-250
 ACU: 210-250
 
 | Boyut | Sanal işlemci | Bellek: GiB | Geçici depolama (SSD) GiB | Maksimum veri diskleri | Maksimum geçici depolama aktarım hızı: IOPS / Okuma MB/sn / Yazma MB/sn | Maksimum veri diski/aktarım hızı: IOPS | Max NIC'ler / beklenen ağ bant genişliği (Mbps) |
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_D1_v2 |1 |3,5 |4 |50 |3000/46/23 |4/4x500 |2 / 750 |
 | Standard_D2_v2 |2 |7 |8 |100 |6000/93/46 |8/8x500 |2 / 1500 |
 | Standard_D3_v2 |4 |14 |16 |200 |12000/187/93 |16/16x500 |4 / 3000 |

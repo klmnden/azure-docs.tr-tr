@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 0ecce5581e8f14a02ad0ad618a226f4671e92f4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 38de0886de1d6068b2edad9aadc89d8048b48a55
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Sık sorulan soruları Service Fabric
 
@@ -89,6 +89,28 @@ Gelişmiş bir deneyim üzerinde bugün çalışıyoruz ancak yükseltme için s
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Bir küme düğümü türü (sanal makine ölçek kümesi) bağlı veri diskleri şifreleyebilir mi?
 Evet.  Daha fazla bilgi için bkz: [eklenen veri disklerini ile küme oluşturma](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [şifrelemek diskler (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), ve [şifrelemek diskleri (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
 
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster-"></a>Dizinleri ve virüs koruma programı my kümede çalışırken hariç gereken işlemleri nelerdir?
+
+| **Virüsten koruma dışlanan dizinler** |
+| --- |
+| Program Files\Microsoft Service Fabric |
+| FabricDataRoot (küme yapılandırmasından) |
+| FabricLogRoot (küme yapılandırmasından) |
+
+| **Virüsten koruma hariç tutulan işlemler** |
+| --- |
+| Fabric.exe |
+| FabricHost.exe |
+| FabricInstallerService.exe |
+| FabricSetup.exe |
+| FabricDeployer.exe |
+| ImageBuilder.exe |
+| FabricGateway.exe |
+| FabricDCA.exe |
+| FabricFAS.exe |
+| FabricUOS.exe |
+| FabricRM.exe |
+| FileStoreService.exe |
  
 ## <a name="application-design"></a>Uygulama tasarımı
 

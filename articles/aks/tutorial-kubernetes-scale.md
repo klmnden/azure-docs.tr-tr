@@ -1,6 +1,6 @@
 ---
-title: "Azure’da Kubernetes öğreticisi - Uygulamayı Ölçeklendirme"
-description: "AKS öğreticisi - Uygulamayı Ölçeklendirme"
+title: Azure’da Kubernetes öğreticisi - Uygulamayı Ölçeklendirme
+description: AKS öğreticisi - Uygulamayı Ölçeklendirme
 services: container-service
 author: dlepow
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 556f4bfb204504de55c41da9615e61d5a88c75b2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 5e35be84df53386398deaca19d60d4a93f53e541
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="scale-application-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) uygulama ölçeklendirme
+# <a name="tutorial-scale-application-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) uygulama ölçeklendirme
 
 Öğreticileri takip ediyorsanız, AKS’de çalışan bir Kubernetes kümesine sahipsinizdir ve Azure Voting uygulamasını dağıtmışsınızdır.
 
@@ -26,7 +26,7 @@ Sekiz öğreticinin beşinci parçası olan bu öğreticide, uygulamada pod’la
 > * Kubernetes pod’larını el ile ölçeklendirme
 > * Uygulama ön ucunda çalışan Otomatik pod ölçeklendirmeyi yapılandırma
 
-Sonraki öğreticilerde Azure Vote uygulaması güncelleştirilir ve Operations Management Suite, Kubernetes kümesini izlemek için yapılandırılır.
+Sonraki öğreticilerde Azure Vote uygulaması güncelleştirilir ve Log Analytics, Kubernetes kümesini izlemek için yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 

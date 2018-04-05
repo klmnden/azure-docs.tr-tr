@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 2.0 ile VM ad çözümlemesi için iç DNS kullanın | Microsoft Docs"
-description: "Sanal ağ arabirim kartları oluşturma ve Azure CLI 2.0 ile Azure VM ad çözümlemesi için iç DNS kullanma"
+title: Azure CLI 2.0 ile VM ad çözümlemesi için iç DNS kullanın | Microsoft Docs
+description: Sanal ağ arabirim kartları oluşturma ve Azure CLI 2.0 ile Azure VM ad çözümlemesi için iç DNS kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: vlivech
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: bb7234b6b046963a6b3a649cc521655b88cd9875
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: a17a82aa9bc31997d52aa41f387f95d7a8ae4ae2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Sanal ağ arabirim kartları oluşturma ve Azure VM ad çözümlemesi için iç DNS kullanma
 Bu makalede Azure CLI 2.0 ile sanal ağ arabirimi kartları (vNics) ve DNS etiket adları kullanarak Linux VM'ler için statik iç DNS adları Ayarla kullanmayı gösterir. Bu adımları [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz. Statik DNS adları, bu belge için kullanılan bir Jenkins yapı sunucusu veya Git sunucusu gibi kalıcı altyapı hizmetleri için kullanılır.
@@ -90,7 +90,7 @@ az network vnet create \
 ```
 
 ## <a name="create-the-network-security-group"></a>Ağ güvenlik grubu oluşturun
-Azure ağ güvenlik grupları, bir Güvenlik Duvarı'nı ağ katmanında eşdeğerdir. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [Nsg'ler Azure CLI oluşturma](../../virtual-network/virtual-networks-create-nsg-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Azure ağ güvenlik grupları, bir Güvenlik Duvarı'nı ağ katmanında eşdeğerdir. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [Nsg'ler Azure CLI oluşturma](../../virtual-network/tutorial-filter-network-traffic-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 Ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur `myNetworkSecurityGroup`:
 

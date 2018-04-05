@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 03/14/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 95ca66f34548f86e25c1e7af331fa88797847906
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 11c737adb6578437a3708bb97397a24114e39585
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Geliştir ve C# IOT kenar modülünü sanal Cihazınızı dağıtmak - Önizleme
 
@@ -22,8 +22,8 @@ IOT kenar modülleri, iş mantığınızı IOT sınır cihazları için doğruda
 > [!div class="checklist"]
 > * .NET core 2.0 dayalı bir IOT kenar modülü oluşturmak için Visual Studio Code kullanın
 > * Docker görüntü oluşturma ve kayıt defterine yayımlama için Visual Studio Code ve Docker kullanın 
-> * Modül IOT kenar Cihazınızı dağıtma
-> * Oluşturulan görünüm verileri
+> * Modüle IoT Edge cihazınıza dağıtma
+> * Oluşturulan verileri görüntüleme
 
 
 Bu öğreticide oluşturduğunuz IOT kenar modülü cihazınız tarafından oluşturulan sıcaklık verileri filtreler. Sıcaklık belirtilen eşiğin üzerindeyse, yalnızca iletileri upstream gönderir. Bu türde bir kenara çözümlemesini SDK'ya ve bulutta depolanan veri miktarını azaltmak için yararlıdır. 
@@ -33,22 +33,22 @@ Bu öğreticide oluşturduğunuz IOT kenar modülü cihazınız tarafından olu�
 * Hızlı Başlangıç ya da ilk öğreticide oluşturduğunuz Azure IOT sınır cihazı.
 * IoT Edge cihazı için birincil anahtar bağlantı dizesi.  
 * [Visual Studio Code](https://code.visualstudio.com/). 
-* [Visual Studio Code için Azure IOT kenar uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
-* [C# Visual Studio Code (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
+* [Visual Studio Code için Azure IoT Edge uzantısı](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge). 
+* [Visual Studio Code için C# (OmniSharp tarafından desteklenen) uzantısı](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp). 
 * [Docker](https://docs.docker.com/engine/installation/) aynı bilgisayarda Visual Studio Code sahiptir. Community Edition (CE), Bu öğretici için yeterlidir. 
-* [.NET 2.0 SDK çekirdek](https://www.microsoft.com/net/core#windowscmd). 
+* [.NET Core 2.0 SDK](https://www.microsoft.com/net/core#windowscmd). 
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
-Bu öğreticide, bir modülü oluşturmak ve oluşturmak için Azure IOT kenar uzantısı VS Code için kullanmak bir **kapsayıcı görüntü** dosyalarından. Bu görüntü için anında sonra bir **kayıt defteri** depolar ve resimlerinizi yönetir. Son olarak, IOT kenar aygıtınızda çalıştırmak için kayıt defterinden görüntünüzü dağıtın.  
+Bu öğreticide modül hazırlamak ve dosyalardan bir **kapsayıcı görüntüsü** oluşturmak için VS Code için Azure IoT Edge uzantısını kullanırsınız. Ardından bu görüntüyü, görüntülerinizin depolandığı ve yönetildiği **kayıt defterine** gönderirsiniz. Son olarak, görüntünüzü IoT Edge cihazınızda çalıştırmak üzere kayıt defterinizden dağıtırsınız.  
 
-Bu öğretici için Docker uyumlu kayıt kullanabilirsiniz. İki popüler Docker kayıt defteri hizmetlerinin kullanılabilir bulutta [Azure kapsayıcı kayıt defteri](https://docs.microsoft.com/azure/container-registry/) ve [Docker hub'a](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu öğretici, Azure kapsayıcı kayıt defteri kullanır. 
+Bu öğretici için Docker ile uyumlu herhangi bir kayıt defteri kullanabilirsiniz. Bulutta sağlanan iki popüler Docker kayıt defteri hizmeti [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)'dır. Bu öğreticide Azure Container Registry kullanılır. 
 
-1. İçinde [Azure portal](https://portal.azure.com)seçin **kaynak oluşturma** > **kapsayıcıları** > **Azure kapsayıcı kayıt defteri** .
-2. Kayıt bir ad verin, bir abonelik seçin, bir kaynak grubu seçin ve SKU kümesine **temel**. 
+1. [Azure portalında](https://portal.azure.com), **Kaynak oluştur** > **Kapsayıcılar** > **Azure Container Registry**'yi seçin.
+2. Kayıt defterinize bir ad verin, abonelik seçin, kaynak grubu seçin ve SKU'yu **Temel** olarak ayarlayın. 
 3. **Oluştur**’u seçin.
-4. Kapsayıcı kaydınız oluşturulduktan sonra kendisine gidin ve seçin **erişim anahtarları**. 
-5. İki durumlu **yönetici kullanıcı** için **etkinleştirmek**.
-6. Değerleri kopyalamak **oturum açma sunucusu**, **kullanıcıadı**, ve **parola**. Kayıt defterine Docker görüntü yayımladığınızda ve kayıt defteri kimlik bilgileri kenar çalışma eklediğinizde, bu değerleri daha sonra öğreticide kullanırsınız. 
+4. Kapsayıcı kayıt defteriniz oluşturulduktan sonra, bu kayıt defterine gidin ve **Erişim anahtarları**'nı seçin. 
+5. **Yönetici kullanıcı** ayarını **Etkinleştir**'e getirin.
+6. **Oturum açma sunucusu**, **Kullanıcı adı** ve **Parola** değerlerini kopyalayın. Kayıt defterine Docker görüntü yayımladığınızda ve kayıt defteri kimlik bilgileri kenar çalışma eklediğinizde, bu değerleri daha sonra öğreticide kullanırsınız. 
 
 ## <a name="create-an-iot-edge-module-project"></a>Bir IOT kenar modülü projesi oluşturma
 Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Visual Studio Code ve Azure IOT kenar uzantısı çekirdek aşağıdaki adımları gösterir.
@@ -223,6 +223,7 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
+   Bu komutta kullanılacak kullanıcı adını, parolayı ve oturum açma sunucusunu bulmak için [Azure portalına] (https://portal.azure.com)) gidin. **Tüm kaynaklar**'da, Azure kapsayıcı kayıt defterinizin kutucuğuna tıklayarak özelliklerini açın ve **Erişim tuşları**'na tıklayın. **Kullanıcı adı**, **Parola** ve **Oturum açma sunucusu** alanlarındaki değerleri kopyalayın. 
 
 2. VS Code Explorer'da sağ **module.json** dosya ve tıklayın **oluşturma ve gönderme IOT kenar modülü Docker görüntü**. VS Code pencerenin üstündeki açılır açılır kutusunda kapsayıcı platformunuz ya da seçin **amd64** Linux kapsayıcısı için veya **windows amd64** Windows kapsayıcısı için. VS Code'da sonra kodunuzu oluşturur, containerize `FilterModule.dll` ve belirttiğiniz kapsayıcı kayıt defterine gönderme.
 
@@ -230,15 +231,15 @@ Bir IOT kenar modülü oluşturmak için .NET tabanlı nasıl 2.0 kullanarak Vis
 3. Tam kapsayıcı görüntü adresi etiketi ile tümleşik VS Code'da terminal alabilirsiniz. Derleme ve anında iletme tanımı hakkında daha fazla bilgi için başvurabilirsiniz `module.json` dosya.
 
 ## <a name="add-registry-credentials-to-edge-runtime"></a>Kayıt defteri kimlik bilgilerini kenar çalışma zamanına ekleyin
-Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı kayıt için kimlik bilgilerini ekleyin. Bu kimlik bilgileri kapsayıcı çıkarmak için çalışma zamanı erişim verin. 
+Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu kimlik bilgileri kapsayıcı çıkarmak için çalışma zamanı erişim verin. 
 
-- Windows için aşağıdaki komutu çalıştırın:
+- Windows için şu komutu çalıştırın:
     
     ```cmd/sh
     iotedgectl login --address <your container registry address> --username <username> --password <password> 
     ```
 
-- Linux için aşağıdaki komutu çalıştırın:
+- Linux için şu komutu çalıştırın:
     
     ```cmd/sh
     sudo iotedgectl login --address <your container registry address> --username <username> --password <password> 
@@ -246,18 +247,18 @@ Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı ka
 
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
 
-1. İçinde [Azure portal](https://portal.azure.com), IOT hub'ına gidin.
+1. [Azure portalında](https://portal.azure.com) IoT hub'ınıza gidin.
 2. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
-3. Seçin **ayarlamak modülleri**. 
+3. **Modülleri Ayarlama**'yı seçin. 
 4. Denetleyin **tempSensor** modülü otomatik olarak doldurulur. Değilse, bunu eklemek için aşağıdaki adımları kullanın:
-    1. Seçin **IOT kenar Modül Ekle**.
-    2. İçinde **adı** alanına, `tempSensor`.
-    3. İçinde **görüntü URI** alanına, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`.
-    4. Diğer ayarları değiştirmeden bırakın ve tıklayın **kaydetmek**.
+    1. **IoT Edge Modülü Ekle**'yi seçin.
+    2. **Ad** alanına `tempSensor` girin.
+    3. **Görüntü URI'si** alanına `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` girin.
+    4. Diğer ayarları değiştirmeden bırakın ve **Kaydet**'e tıklayın.
 5. Ekleme **filterModule** önceki kısımlarında oluşturduğunuz modül. 
-    1. Seçin **IOT kenar Modül Ekle**.
-    2. İçinde **adı** alanına, `filterModule`.
-    3. İçinde **görüntü URI** alan, görüntü adresinizi girin; örneğin `<your container registry address>/filtermodule:0.0.1-amd64`. Tam görüntüyü adresi önceki bölümden bulunabilir.
+    1. **IoT Edge Modülü Ekle**'yi seçin.
+    2. **Ad** alanına `filterModule` girin.
+    3. **Görüntü URI'si** alanına görüntünüzün adresini girin; örneğin `<your container registry address>/filtermodule:0.0.1-amd64`. Tam görüntü adresi, önceki bölümde bulunabilir.
     4. Denetleme **etkinleştirmek** modülü twin düzenleyebilmek kutusu. 
     5. Metin kutusunda JSON modülü çiftinin aşağıdaki JSON ile değiştirin: 
 
@@ -271,7 +272,7 @@ Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı ka
  
     6. **Kaydet**’e tıklayın.
 6. **İleri**’ye tıklayın.
-7. İçinde **belirtin yollar** adım, JSON altındaki metin kutusuna Kopyala. Modülleri tüm iletileri kenar çalışma zamanına yayımlayın. Çalışma zamanında bildirim temelli kuralları burada iletileri akış tanımlayın. Bu öğreticide, iki yol gerekir. İlk yol sıcaklık algılayıcısı iletilerden filtresi modülü ile yapılandırılmış uç noktası "input1" uç nokta aracılığıyla taşımaları **FilterMessages** işleyicisi. İkinci yol filtresi modülü gelen iletileri IOT Hub'ına taşımaları. Bu rotadaki `upstream` kenar Hub'ın IOT Hub'ına iletileri göndermek için söyler özel bir hedef. 
+7. **Rota Belirtme** adımında, aşağıdaki JSON’u metin kutusuna kopyalayın. Modülleri tüm iletileri kenar çalışma zamanına yayımlayın. Çalışma zamanında bildirim temelli kuralları burada iletileri akış tanımlayın. Bu öğreticide, iki yol gerekir. İlk yol sıcaklık algılayıcısı iletilerden filtresi modülü ile yapılandırılmış uç noktası "input1" uç nokta aracılığıyla taşımaları **FilterMessages** işleyicisi. İkinci rota, iletileri filtre modülünden IoT Hub'a taşır. Bu rotada `upstream`, Edge Hub'a iletileri IoT Hub'a göndermesini bildiren özel bir hedeftir. 
 
     ```json
     {
@@ -283,13 +284,13 @@ Sınır cihazı çalıştırdığınız bilgisayarda kenar çalışma zamanı ka
     ```
 
 8. **İleri**’ye tıklayın.
-9. İçinde **gözden geçirme şablonu** adımını, **gönderme**. 
-10. IOT Edge cihaz ayrıntıları sayfasına dönün ve **yenileme**. Yeni görmelisiniz **filtermodule** ile birlikte çalışan **tempSensor** modülü ve **IOT kenar çalışma zamanı**. 
+9. **Şablonu Gözden Geçirme** adımında **Gönder**’e tıklayın. 
+10. IoT Edge cihaz ayrıntıları sayfasına dönün ve **Yenile**’ye tıklayın. Yeni görmelisiniz **filtermodule** ile birlikte çalışan **tempSensor** modülü ve **IOT kenar çalışma zamanı**. 
 
-## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
+## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Cihaz bulut iletilerini IOT kenar cihazınızın IOT hub'ına gönderilen izlemek için:
-1. IOT hub'ınız için bağlantı dizesi ile Azure IOT Araç Seti uzantısı yapılandırın: 
+IoT Edge cihazınızdan IoT hub'ınıza cihazdan buluta gönderilen iletileri izlemek için:
+1. Azure IoT Toolkit uzantısını IoT hub'ınızın bağlantı dizesiyle yapılandırın: 
     1. VS Code'da explorer'ı seçerek açın **Görünüm** > **Explorer**. 
     2. Explorer'ın tıklatın **IOT HUB CİHAZLARI** ve ardından **...** . Tıklatın **IOT Hub bağlantı dizesine ayarlamak** ve açılır pencerede IOT kenar Cihazınızı bağlandığı IOT hub'ına yönelik bağlantı dizesini girin. 
 

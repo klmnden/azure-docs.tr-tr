@@ -1,24 +1,24 @@
 ---
-title: "Hata ve özel durum Azure Logic Apps için işleme | Microsoft Docs"
-description: "Desenler hata ve özel durum işleme Logic Apps içinde."
+title: Hata ve özel durum Azure Logic Apps için işleme | Microsoft Docs
+description: Desenler hata ve özel durum işleme Logic Apps içinde.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: dereklee
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 2ae4f0ae9782ada23089d364e8a1700144ef5ff7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Hataları ve Logic Apps içinde özel durumları işleme
 
@@ -55,9 +55,9 @@ Yok tanımladığınızda bir yeniden deneme ilkesi **retryPolicy** bölümünde
         "retryPolicy" : {
             "type": "exponential",
             "count": 4,
-            "interval": "PT7.5S",
+            "interval": "PT7S",
             "minimumInterval": "PT5S",
-            "maximumInterval": "PT45S"
+            "maximumInterval": "PT1H"
         }
     },
     "runAfter": {}
@@ -177,7 +177,7 @@ Bir kapsam hatalarını yakalama yararlı olsa da, herhangi bir hata veya dönd�
 
  **@result()** İşlevi tek bir parametre (kapsamın adı) kabul eder ve tüm eylem sonuçlarını, kapsam içinde bir dizi döndürür. Bu eylem nesneleri aynı özniteliklere dahil  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişleri, bağıntı kimlikleri ve çıkışları gibi nesne. Bir kapsamda başarısız herhangi bir eylem için bağlamı göndermek için kolayca eşleştirilebileceği bir  **@result()** ile işlev bir **runAfter** özelliği.
 
-Bir eylemi çalıştırmak için *her* eylem sahip kapsamdaki bir **başarısız** sonuç ve başarısız olan eylemler aşağıya doğru sonuçlar dizisi filtrelemek için eşleştirilebileceği  **@result()** ile bir  **[filtre dizisi](../connectors/connectors-native-query.md)**  eylem ve  **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)**  döngü. Filtrelenmiş Sonuç dizisi alabilir ve her hata kullanmak için bir eylem gerçekleştirmek **ForEach** döngü. 
+Bir eylemi çalıştırmak için *her* eylem sahip kapsamdaki bir **başarısız** sonuç ve başarısız olan eylemler aşağıya doğru sonuçlar dizisi filtrelemek için eşleştirilebileceği  **@result()** ile bir **[filtre dizisi](../connectors/connectors-native-query.md)** eylem ve **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** döngü. Filtrelenmiş Sonuç dizisi alabilir ve her hata kullanmak için bir eylem gerçekleştirmek **ForEach** döngü. 
 
 "My_Scope" kapsamında başarısız herhangi bir eylem yanıt gövdesi ile HTTP POST isteği gönderir ayrıntılı bir açıklama, ve ardından bir örnek aşağıda verilmiştir:
 

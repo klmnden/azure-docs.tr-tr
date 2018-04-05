@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: yushwang
-ms.openlocfilehash: 7f69b5268adc857c6e45f8fa11fbcca42f64b71f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: b3d9d45da0fb62445867d13c9dff7502af77e8a8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Siteden Siteye VPN Gateway bağlantıları için VPN cihazları ve IPsec/IKE parametreleri hakkında
 
@@ -81,9 +81,13 @@ VPN cihazınızı yapılandırma konusunda yardım almak için, uygun cihaz aile
 >
 > (\*\*) ISR 7200 Serisi yönlendiriciler yalnızca PolicyBased VPN’leri destekler.
 
-## <a name="Download VPN device configuration scripts from Azure"></a>Azure VPN cihazı yapılandırma komut dosyaları indirme
+## <a name="configscripts"></a>Azure VPN cihazı yapılandırma komut dosyaları indirme
 
 Belirli cihazlar, doğrudan Azure'dan yapılandırma komut indirebilirsiniz. Daha fazla bilgi ve yükleme yönergeleri için bkz: [karşıdan VPN cihazı yapılandırma komut](vpn-gateway-download-vpndevicescript.md).
+
+### <a name="devices-with-available-configuration-scripts"></a>Kullanılabilen yapılandırma komut dosyaları ile cihazları
+
+[!INCLUDE [scripts](../../includes/vpn-gateway-device-configuration-scripts.md)]
 
 ## <a name="additionaldevices"></a>Doğrulanmayan VPN cihazları
 
@@ -158,10 +162,10 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 |---| ---          |---               |---          |
 | 1 |GCM AES256    |GCM (AES256)      |None         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |Hiçbiri         |
+| 3 |3DES          |SHA1              |None         |
 | 4 |AES256        |SHA256            |None         |
 | 5 |AES128        |SHA1              |None         |
-| 6 |3DES          |SHA256            |None         |
+| 6 |3DES          |SHA256            |Hiçbiri         |
 
 #### <a name="azure-gateway-as-responder"></a>Yanıtlayıcı olarak Azure Gateway
 
@@ -169,11 +173,11 @@ Aşağıdaki tabloda IPsec SA (IKE Hızlı Mod) Teklifleri listelenir. Teklifler
 |---| ---          | ---              |---          |
 | 1 |GCM AES256    |GCM (AES256)      |Hiçbiri         |
 | 2 |AES256        |SHA1              |None         |
-| 3 |3DES          |SHA1              |Hiçbiri         |
+| 3 |3DES          |SHA1              |None         |
 | 4 |AES256        |SHA256            |None         |
 | 5 |AES128        |SHA1              |Hiçbiri         |
-| 6 |3DES          |SHA256            |Hiçbiri         |
-| 7 |DES           |SHA1              |None         |
+| 6 |3DES          |SHA256            |None         |
+| 7 |DES           |SHA1              |Hiçbiri         |
 | 8 |AES256        |SHA1              |1            |
 | 9 |AES256        |SHA1              |2            |
 | 10|AES256        |SHA1              |14           |

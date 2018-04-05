@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-ms.openlocfilehash: cf93c95a37c9c32333727059317e05cfcc252905
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9ea7da35acefc139625e71904c8aa1b01b87e4df
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Klasik ölçüm uyarılar için Azure services - Azure İzleyicisi'nde, platformlar arası CLI oluşturabilir.
 > [!div class="op_single_selector"]
@@ -30,11 +30,11 @@ ms.lasthandoff: 03/23/2018
 
 ## <a name="overview"></a>Genel Bakış
 > [!NOTE]
-> Bu makalede, eski ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni, daha iyi ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Yeni ölçüm uyarılar için CLI desteği yakında geliyor.
+> Bu makalede, eski classic ölçüm uyarıları oluşturmayı açıklar. Azure İzleyici destekler [yeni, daha iyi ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md). Bu uyarılar, birden çok ölçümleri izleyin ve boyutlu ölçümleri uyarmak için izin verebilirsiniz. Yeni ölçüm uyarılar için CLI desteği yakında geliyor.
 >
 >
 
-Bu makalede platformlar arası komut satırı arabirimi (CLI) kullanarak Azure ölçüm uyarılarını ayarlama gösterilmiştir.
+Bu makalede, platformlar arası komut satırı arabirimi (CLI) kullanarak Azure Klasik ölçüm uyarıları ayarlamak nasıl gösterilmektedir.
 
 > [!NOTE]
 > Azure İzleyicisi "Azure Öngörüler" olarak adlandırılmıştı için yeni 25 Eylül 2016'ya kadar adıdır. Bununla birlikte, ad alanları ve bu nedenle aşağıdaki komutları yine "ınsights" içerir.
@@ -46,14 +46,14 @@ Bu makalede platformlar arası komut satırı arabirimi (CLI) kullanarak Azure �
 * **Ölçüm değerleri** -herhangi bir yönde atadığınız bir eşik değeri, belirtilen bir ölçüm kestiği olduğunda uyarı tetikler. Diğer bir deyişle, her ikisi de tetikler koşul ilk ve ardından daha sonra ne zaman, koşul artık karşılanıp zaman.    
 * **Etkinlik günlüğü olaylarını** -bir uyarıyı tetiklemek *her* olay veya yalnızca belirli bir olay meydana gelir. Etkinlik günlüğü Uyarıları hakkında daha fazla bilgi edinmek için [burayı tıklatın](monitoring-activity-log-alerts.md)
 
-Tetikler, aşağıdakileri yapmak için bir ölçüm uyarısı yapılandırabilirsiniz:
+Tetikler, aşağıdakileri yapmak için Klasik bir ölçüm uyarısı yapılandırabilirsiniz:
 
 * Hizmet yöneticisini ve ortak Yöneticiler e-posta bildirimleri gönder
 * Belirttiğiniz ek e-postalar için e-posta gönderin.
 * bir Web kancası çağırın
 * (yalnızca Azure portalından şu anda) Azure bir runbook'un yürütülmesi Başlat
 
-Yapılandırma ve kullanma ölçüm uyarı kuralları hakkında bilgi alın
+Yapılandırma ve klasik ölçüm uyarı kuralları kullanma hakkında bilgi edinin
 
 * [Azure Portal](insights-alerts-portal.md)
 * [PowerShell](insights-alerts-powershell.md)
@@ -112,7 +112,7 @@ Bir komut yazarak komutlar için Yardım her zaman alabilir ve koyma - sonunda y
     azure insights alerts rule metric set myrule eastus myreasourcegroup PT5M GreaterThan 2 /subscriptions/dededede-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/myresourcegroupname/providers/Microsoft.Web/sites/mywebsitename BytesReceived Total
 
     ```
-5. Web kancası oluşturma veya ölçüm bir uyarı oluşturulduğunda e-posta göndermek için önce e-posta ve/veya Web kancası oluşturun. Kural hemen oluşturmak daha sonra. CLI kullanarak kurallar önceden oluşturulmuş Web kancası veya e-posta ilişkilendiremezsiniz.
+5. Web kancası oluşturma veya Klasik bir ölçüm uyarı oluşturulduğunda e-posta göndermek için önce e-posta ve/veya Web kancası oluşturun. Kural hemen oluşturmak daha sonra. CLI kullanarak kurallar önceden oluşturulmuş Web kancası veya e-posta ilişkilendiremezsiniz.
 
     ```console
     azure insights alerts actions email create --customEmails myemail@contoso.com

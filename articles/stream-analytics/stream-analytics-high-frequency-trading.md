@@ -1,12 +1,11 @@
 ---
-title: "Stream Analytics ile yüksek frekanslı alım-satım simülasyonu| Microsoft Docs"
-description: "Aynı Stream Analytics işinde doğrusal regresyon modeli çalıştırma ve puanlamasını yapma"
-keywords: "makine, öğrenme, machine learning, gelişmiş analiz, doğrusal regresyon, simülasyon, benzetim, UDA, kullanıcı tanımlı işlev"
-documentationcenter: 
+title: Stream Analytics ile yüksek frekanslı alım-satım simülasyonu| Microsoft Docs
+description: Aynı Stream Analytics işinde doğrusal regresyon modeli çalıştırma ve puanlamasını yapma
+keywords: makine, öğrenme, machine learning, gelişmiş analiz, doğrusal regresyon, simülasyon, benzetim, UDA, kullanıcı tanımlı işlev
+documentationcenter: ''
 services: stream-analytics
 author: zhongc
-manager: jhubbard
-editor: cgronlun
+manager: ryanw
 ms.assetid: 997ccfc1-abaf-4c12-bef2-632481140f05
 ms.service: stream-analytics
 ms.devlang: na
@@ -15,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 349dc5c5277260b664d7214979ef15d1689b2716
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Stream Analytics ile yüksek frekanslı alım-satım simülasyonu
 Azure Stream Analytics’te SQL dili ve JavaScript kullanıcı tanımlı işlevleri (UDF) ile kullanıcı tanımlı toplamların (UDAs) birleşimi, kullanıcıların gelişmiş analiz gerçekleştirmesine olanak tanır. Gelişmiş analizler, çevrimiçi makine öğrenimi eğitim ve puanlamasının yanı sıra durum bilgisi olan işlem simülasyonunu içerebilir. Bu makalede, yüksek frekanslı bir alım-satım senaryosunda sürekli çalıştıran ve puanlama yapan bir Azure Stream Analytics işinde nasıl doğrusal regresyon gerçekleştirileceği açıklanır.

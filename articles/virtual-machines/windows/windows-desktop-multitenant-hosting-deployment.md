@@ -1,12 +1,12 @@
 ---
-title: "Çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma"
-description: "Azure için şirket içi lisansları getirmek için Windows Yazılım Güvencesi Avantajlarınızı en üst düzeye öğrenin"
+title: Çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma
+description: Azure için şirket içi lisansları getirmek için Windows Yazılım Güvencesi Avantajlarınızı en üst düzeye öğrenin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: xujing
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 1/24/2018
 ms.author: xujing
-ms.openlocfilehash: 6ad3b294e1d53d03f6ceb61048c8f657d8b471c0
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c157fd8fded40f08c997c29ef6761f3c09dbd282
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-deploy-windows-10-on-azure-with-multitenant-hosting-rights"></a>Çok kullanıcılı barındırma hakları ile azure'da Windows 10 dağıtma 
 Müşteriler için Windows 10 Kurumsal E3/E5 ile kullanıcı başına ya da Windows sanal masaüstü erişimi her kullanıcı (kullanıcı Abonelik lisansı veya eklenti kullanıcı Abonelik Lisansı), çok kullanıcılı barındırma hakları Windows 10 için Windows 10 lisanslarınızı buluta getirmelerine olanak tanır ve Windows 10 sanal makineleri Azure üzerinde başka bir lisans için ödeme olmadan çalıştırın. Daha fazla bilgi için lütfen bkz [Windows 10 için çok kullanıcılı barındırma](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
@@ -107,7 +107,7 @@ LicenseType              :
 
 ## <a name="additional-information-about-joining-azure-ad"></a>Azure AD birleştirme hakkında ek bilgi
 >[!NOTE]
->Azure AAD katılmaya kullanılamaz yerleşik yönetici hesabı olan tüm Windows VM'ler sağlar. Örneğin, *ayarlar > hesabı > erişim iş veya Okul > + Bağlan* çalışmaz. Oluşturun ve Azure AD mannually katılmak için ikinci bir yönetici hesabı ile oturum açın. Azure AD sağlama paketini kullanarak da yapılandırabilirsiniz, bağlantısını kullanın *sonraki adımlar* daha fazla bilgi için bölüm.
+>Azure AAD katılmaya kullanılamaz yerleşik yönetici hesabı olan tüm Windows VM'ler sağlar. Örneğin, *ayarlar > hesabı > erişim iş veya Okul > + Bağlan* çalışmaz. Oluşturun ve el ile Azure AD katılım için ikinci bir yönetici hesabı ile oturum açın. Azure AD sağlama paketini kullanarak da yapılandırabilirsiniz, bağlantısını kullanın *sonraki adımlar* daha fazla bilgi için bölüm.
 >
 >
 

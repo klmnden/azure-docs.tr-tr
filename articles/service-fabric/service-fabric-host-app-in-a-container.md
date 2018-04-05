@@ -1,24 +1,24 @@
 ---
-title: "Azure Service Fabric’e kapsayıcıdaki bir .NET uygulamasını dağıtma | Microsoft Docs"
-description: "Visual Studio’daki bir .NET uygulamasını Docker Kapsayıcısı’nda paketlemeyi öğretir. Bu yeni “kapsayıcı” uygulaması, daha sonra bir Service Fabric kümesine dağıtılır."
+title: Azure Service Fabric’e kapsayıcıdaki bir .NET uygulamasını dağıtma | Microsoft Docs
+description: Visual Studio’daki bir .NET uygulamasını Docker Kapsayıcısı’nda paketlemeyi öğretir. Bu yeni “kapsayıcı” uygulaması, daha sonra bir Service Fabric kümesine dağıtılır.
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2017
+ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: cd1c3b063132ae549bfbf1e059667c5056c91046
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 11bb34939e5fa3699973051664e85f9ef2147ff7
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/23/2018
 ---
 # <a name="deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Azure Service Fabric’e Windows kapsayıcısındaki bir .NET uygulamasını dağıtma
 
@@ -49,13 +49,6 @@ Service Fabric uygulamaları, ağ bağlantılı sanal veya fiziksel makinelerin 
 Artık Azure’da çalışan bir Service Fabric kümesine sahip olduğunuza göre, kapsayıcılı hale getirilmiş bir uygulama oluşturup dağıtmaya hazırsınız. Uygulamamızı kapsayıcıda çalıştırmaya başlamak için, Visual Studio’daki projeye **Docker Desteği** eklememiz gerekiyor. Uygulamaya **Docker Desteği** eklediğinizde iki şey olur. İlk olarak, projeye _Dockerfile_ eklenir. Bu yeni dosya, kapsayıcı görüntüsünün nasıl oluşturulduğunu açıklar. Daha sonra, çözüme yeni bir _docker-compose_ projesi eklenir. Yeni proje birkaç docker-compose dosyası içerir. Docker-compose dosyaları, kapsayıcının nasıl çalıştığını açıklamak için kullanılabilir.
 
 [Visual Studio Kapsayıcı Araçları][link-visualstudio-container-tools] ile çalışma hakkında daha fazla bilgi edinin.
-
->[!NOTE]
->Bilgisayarınızda ilk kez Windows kapsayıcı görüntüleri çalıştırıyorsanız, Docker CE, kapsayıcılarınızın temel görüntülerini çekmelidir. Bu öğreticide kullanılan görüntülerin boyutu 14 GB’tır. Temel görüntüleri çekmek için şu terminal komutunu çalıştırın:
->```cmd
->docker pull microsoft/mssql-server-windows-developer
->docker pull microsoft/aspnet:4.6.2
->```
 
 ### <a name="add-docker-support"></a>Docker desteği ekleme
 

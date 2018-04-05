@@ -1,25 +1,25 @@
 ---
-title: "Azure Batch hizmeti çözümleri kimlik doğrulaması için Azure Active Directory kullanmak | Microsoft Docs"
-description: "Batch Batch hizmetinde kimlik doğrulaması için Azure AD destekler."
+title: Azure Batch hizmeti çözümleri kimlik doğrulaması için Azure Active Directory kullanmak | Microsoft Docs
+description: Batch Batch hizmetinde kimlik doğrulaması için Azure AD destekler.
 services: batch
 documentationcenter: .net
 author: dlepow
 manager: jeconnoc
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: 8ad9c3a779ca52140a78ae905e4825f3144976aa
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Toplu hizmet çözümlerine Active Directory ile kimlik doğrulaması
 
@@ -138,7 +138,7 @@ Hizmet sorumlusu ile kimlik doğrulaması yapmak için uygulamanızı bir RBAC r
 
 1. Uygulamanız tarafından kullanılan toplu işlem hesabı için Azure portalında gidin.
 2. İçinde **ayarları** select toplu işlem hesabı için dikey **erişim denetimi (IAM)**.
-3. Tıklatın **Ekle** düğmesi. 
+3. **Ekle** düğmesine tıklayın. 
 4. Gelen **rol** açılan listesinde, ya da seçin _katkıda bulunan_ veya _okuyucu_ rolü uygulamanız için. Bu rolleri hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).  
 5. İçinde **seçin** alanında, uygulamanızın adı girin. Uygulamanızı listeden seçin ve'ı tıklatın **kaydetmek**.
 

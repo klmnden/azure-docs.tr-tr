@@ -1,12 +1,12 @@
 ---
-title: "VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs"
-description: "Bu belge Azure Site Recovery dağıtım planlayıcısı kullanıcı kılavuzudur."
+title: VMware’den Azure’a Azure Site Recovery dağıtım planlayıcısı| Microsoft Docs
+description: Bu belge Azure Site Recovery dağıtım planlayıcısı kullanıcı kılavuzudur.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: nsoneji
 manager: garavd
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/09/2018
 ms.author: nisoneji
-ms.openlocfilehash: 63963804b81aa57e914e18fa474963a3830d04d5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery dağıtım planlayıcısı maliyet tahmini raporu  
 
@@ -110,7 +110,7 @@ Sanal makineleri el ile eklemek için:
 * Her DR tatbikatının süresi (gün) 
 * İşletim Sistemi Türü
 * Veri yedekliği 
-* Azure Hibrit Kullanım Teklifi
+* Azure Hibrit Avantajı
 
 3.  Tablodaki tüm sanal makinelere Yıllık DR Tatbikatları Sayısı, Her DR Tatbikatının süresi (Gün), Veri yedekliği ve Azure Hibrit Kullanım Teklifi olarak aynı değeri uygulamak için 'Tümüne uygula' düğmesine tıklayabilirsiniz.
 
@@ -136,7 +136,7 @@ Sanal makineleri el ile eklemek için:
 
 **Veri yedekliği**: Şunlardan biri olabilir: Yerel olarak yedekli depolama (LRS), Coğrafi olarak yedekli depolama (GRS) veya Okuma erişimli coğrafi olarak yedekli depolama (RA-GRS). Varsayılan değer LRS'dir. Belirli sanal makineler için depolama hesabınız temelinde türü değiştirebilir veya en üst satırdaki türü değiştirip 'Tümüne uygula' düğmesine tıklayarak yeni türün tüm sanal makinelere uygulanmasını sağlayabilirsiniz.  Çoğaltmanın depolama maliyeti, seçtiğiniz veri yedekliğinin fiyatı temel alınarak hesaplanır. 
 
-**Azure Hibrit Kullanım Teklifi**: Uygunsa, Windows sanal makinelerine Azure Hibrit Kullanım Teklifi'ni uygulayabilirsiniz.  Varsayılan değer Evet’tir. Belirli sanal makineler için ayarı değiştirebilir veya 'Tümüne uygula' düğmesine tıklayarak tüm sanal makineleri güncelleştirebilirsiniz.
+**Azure Hibrit Avantajı**: Uygunsa, Windows sanal makinelerine Azure Hibrit Avantajı’nı uygulayabilirsiniz.  Varsayılan değer Evet’tir. Belirli sanal makineler için ayarı değiştirebilir veya 'Tümüne uygula' düğmesine tıklayarak tüm sanal makineleri güncelleştirebilirsiniz.
 
 **Toplam Azure tüketimi**: Bu, DR'niz için işlem, depolama ve Azure Site Recovery lisans maliyetini içerir. Yaptığınız seçime göre, aylık veya yıllık maliyeti gösterir.
 

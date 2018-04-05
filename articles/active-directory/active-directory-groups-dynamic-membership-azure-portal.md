@@ -12,31 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 2b42840bc1053e9574e7c8ab1c68611c3b2bc7df
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
-Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları.
+Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
 
 Herhangi bir kullanıcı veya aygıt özniteliklerini değiştirdiğinizde, sistem değişikliği tetikleyecek herhangi bir grup ekler veya kaldırır olup bir dizindeki tüm dinamik Grup kurallarını değerlendirir. Bir kullanıcı veya cihaza bir grupta kuralı uymazsa, bunlar bu grubun bir üyesi olarak eklenir. Bunlar artık kural karşılamak varsa, bunlar kaldırılır.
 
 > [!NOTE]
-> Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
->
 > Bu özellik en az bir dinamik grubuna eklenen her kullanıcı üyesi için bir Azure AD Premium P1 lisansı gerektirir. Gerçekte dinamik grupların üyesi olacak şekilde kullanıcılara lisans atamak için zorunlu değildir, ancak tüm kullanıcıları kapsayacak şekilde Kiracı içinde en az sayıda lisansa sahip gerekir. Örneğin: kiracınızda tüm dinamik gruplarında 1.000 benzersiz kullanıcıların toplam varsa, lisans gereksinimleri sağlamak için Azure AD Premium P1 için ya da yukarıdaki 1. 000'en az lisanslara sahip gerekir.
 >
 > Aygıtların veya kullanıcıların dinamik bir grup oluşturabilirsiniz, ancak kullanıcı ve aygıt nesneleri içeren bir kuralı oluşturulamıyor.
 > 
 > Şu anda sahibi olan kullanıcının özniteliklerini temel alarak bir cihaz grubu oluşturmak mümkün değil. Cihaz Üyelik kuralları yalnızca dizinde cihaz nesnelerinin hemen özniteliklerini başvuruda bulunabilir.
-> 
-> Microsoft Teams dinamik grup üyeliği henüz desteklemiyor. "Dinamik üyelik grubu geçiremezsiniz ile" ilişkili günlüklerinde hata doğrulayabilirsiniz.
 
 ## <a name="to-create-an-advanced-rule"></a>Gelişmiş bir kural oluşturmak için
 1. Oturum [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) genel bir yönetici veya kullanıcı hesabı yönetici olan bir hesapla.
@@ -74,7 +70,7 @@ Desteklenen parametreler ve ifade kural işleçleri tam listesi için aşağıda
 Gelişmiş kural gövdesi toplam uzunluğu 2048 karakterden uzun olamaz.
 
 > [!NOTE]
-> Dize ve regex işlemlerinin büyük küçük harfe duyarlı değildir. Kullanarak null denetimlerinin gerçekleştirebilirsiniz *null* sabit, örneğin, user.department - eq olarak *$null*.
+> Dize ve regex işlemlerinin büyük küçük harfe duyarlı değildir. Kullanarak Null denetimleri gerçekleştirebilirsiniz *null* sabit, örneğin, user.department - eq olarak *null*.
 > Tırnak işareti içeren bir dizeler "kullanarak kaçışlı ' karakter, örneğin, user.department - eq \`"Satış".
 
 ## <a name="supported-expression-rule-operators"></a>Desteklenen ifade kural işleçleri
@@ -106,11 +102,11 @@ Tüm işleçleri, daha düşük öncelikli büyük başına aşağıda listelenm
 Tüm işleçleri ile veya tire öneki olmadan kullanılabilir. Yalnızca öncelik gereksinimlerinizi karşılamadığında parantez gereklidir.
 Örneğin:
 ```
-   user.department -eq "Marketing" -and user.country -eq "US"
+   user.department –eq "Marketing" –and user.country –eq "US"
 ```
 eşdeğerdir:
 ```
-   (user.department -eq "Marketing") -and (user.country -eq "US")
+   (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
 ## <a name="using-the--in-and--notin-operators"></a>Kullanarak içinde ve - notIn işleçleri
 
@@ -160,32 +156,32 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 
 | Özellikler | İzin verilen değerler | Kullanım |
 | --- | --- | --- |
-| city |Herhangi bir dize değeri veya *$null* |(user.city - eq "value") |
-| Ülke |Herhangi bir dize değeri veya *$null* |(Resource.country - eq "value") |
-| Şirket adı | Herhangi bir dize değeri veya *$null* | (user.companyName - eq "value") |
-| Bölüm |Herhangi bir dize değeri veya *$null* |(user.department - eq "value") |
+| city |Herhangi bir dize değeri veya *null* |(user.city - eq "value") |
+| Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
+| Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
+| Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
 | displayName |Herhangi bir dize değeri |(user.displayName -eq "value") |
-| employeeId |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *$null*) |
-| facsimileTelephoneNumber |Herhangi bir dize değeri veya *$null* |(user.facsimileTelephoneNumber - eq "value") |
-| givenName |Herhangi bir dize değeri veya *$null* |(user.givenName - eq "value") |
-| İş Unvanı |Herhangi bir dize değeri veya *$null* |(user.jobTitle - eq "value") |
-| Posta |Herhangi bir dize değeri veya *$null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
+| employeeId |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
+| facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
+| givenName |Herhangi bir dize değeri veya *null* |(user.givenName - eq "value") |
+| İş Unvanı |Herhangi bir dize değeri veya *null* |(user.jobTitle - eq "value") |
+| Posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
 | mailNickName |Herhangi bir dize değeri (kullanıcı diğer adı posta) |(user.mailNickName - eq "value") |
-| Mobil |Herhangi bir dize değeri veya *$null* |(user.mobile - eq "value") |
+| Mobil |Herhangi bir dize değeri veya *null* |(user.mobile - eq "value") |
 | objectId |Kullanıcı nesnesinin GUID |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Güvenlik tanımlayıcısı (SID) şirket içi buluta eşitlenmiş olan kullanıcılar için şirket içi. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Hiçbiri DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
-| physicalDeliveryOfficeName |Herhangi bir dize değeri veya *$null* |(user.physicalDeliveryOfficeName - eq "value") |
-| posta kodu |Herhangi bir dize değeri veya *$null* |(user.postalCode - eq "value") |
+| physicalDeliveryOfficeName |Herhangi bir dize değeri veya *null* |(user.physicalDeliveryOfficeName - eq "value") |
+| posta kodu |Herhangi bir dize değeri veya *null* |(user.postalCode - eq "value") |
 | preferredLanguage |ISO 639-1 kodu |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Herhangi bir dize değeri veya *$null* |(user.sipProxyAddress -eq "value") |
-| durum |Herhangi bir dize değeri veya *$null* |(user.state - eq "value") |
-| streetAddress |Herhangi bir dize değeri veya *$null* |(user.streetAddress - eq "value") |
-| Soyadı |Herhangi bir dize değeri veya *$null* |(user.surname - eq "value") |
-| telephoneNumber |Herhangi bir dize değeri veya *$null* |(user.telephoneNumber - eq "value") |
+| sipProxyAddress |Herhangi bir dize değeri veya *null* |(user.sipProxyAddress -eq "value") |
+| durum |Herhangi bir dize değeri veya *null* |(user.state - eq "value") |
+| streetAddress |Herhangi bir dize değeri veya *null* |(user.streetAddress - eq "value") |
+| Soyadı |Herhangi bir dize değeri veya *null* |(user.surname - eq "value") |
+| telephoneNumber |Herhangi bir dize değeri veya *null* |(user.telephoneNumber - eq "value") |
 | usageLocation |İki harflerin ülke kodu |(user.usageLocation - eq "ABD") |
 | userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName -eq "alias@domain") |
-| userType |üye Konuk *$null* |(user.userType - eq "Üye") |
+| userType |üye Konuk *null* |(user.userType - eq "Üye") |
 
 ### <a name="properties-of-type-string-collection"></a>Türü dize koleksiyonunun özellikleri
 İzin verilen işleçleri
@@ -226,9 +222,9 @@ Aşağıdaki ifade ("SCO" hizmet adı tarafından tanımlanan) Intune hizmeti il
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-## <a name="use-of-null-values"></a>Null değerler kullanımı
+## <a name="use-of-null-values"></a>Null değerleri kullanımı
 
-Bir kuralda boş bir değer belirtmek için kullanabileceğiniz *null* değeri. Word tırnak kullanmamaya özen gösterin *null* -bunu yaparsanız, onu bir değişmez dize değeri olarak yorumlanır. Null değer başvurmak için doğru bir şekilde aşağıdaki gibidir:
+Bir kuralda boş bir değer belirtmek için kullanabileceğiniz *null* değeri. Word tırnak kullanmamaya özen gösterin *null* -bunu yaparsanız, onu bir değişmez dize değeri olarak yorumlanır. Not işleci kullanılamaz bir karşılaştırma işleci için null. Kullanırsanız, null kullanıp veya $null bir hata alıyorsunuz. Bunun yerine, - eq veya - ne kullanın. Null değer başvurmak için doğru bir şekilde aşağıdaki gibidir:
 ```
    user.mail –ne $null
 ```
@@ -253,14 +249,15 @@ Yöneticinin tüm doğrudan raporları içeren bir grup oluşturabilirsiniz. Yö
 
 > [!NOTE]
 > 1. Kuralın çalışması için emin olun **Manager kimliği** özelliği ayarlanmış doğru kiracınızda kullanıcıları. Bir kullanıcı için geçerli değer denetleyebilirsiniz kendi **Profil sekmesi**.
-> 2. Bu kural yalnızca destekler **doğrudan** raporlar. Şu anda iç içe geçmiş bir hiyerarşide, örneğin doğrudan raporlar ve bunların raporları içeren bir grubu bir grup oluşturmak mümkün değil.
+> 2. Bu kural yalnızca destekler **doğrudan** raporlar. Şu anda iç içe geçmiş bir hiyerarşi için bir grup oluşturmak mümkün değildir; Örneğin, doğrudan raporlar ve bunların raporları içeren grup.
+> 3. Bu kural, diğer gelişmiş kurallar birleştirilemez.
 
 **Grubu yapılandırmak için**
 
 1. 1-5 bölümünden adımlarını [Gelişmiş kuralı oluşturmak için](#to-create-the-advanced-rule)seçip bir **üyelik türü** , **dinamik kullanıcı**.
 2. Üzerinde **dinamik Üyelik kuralları** dikey penceresinde, aşağıdaki söz dizimini kuralla girin:
 
-    *"{ObectID_of_manager}" için doğrudan raporları*
+    *"{ObjectID_of_manager}" için doğrudan raporları*
 
     Geçerli bir kural örneği:
 ```
@@ -295,19 +292,43 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Statik olarak dinamik üyelik değiştirme ve tersi yönde
 Bir gruptaki üyelik nasıl yönetilir değiştirmek mümkündür. Grubuna varolan tüm başvuruların hala geçerli olduğundan için aynı grup adı ve kimliği sistemde tutmak istediğiniz gerektiğinde bu faydalıdır; Yeni grup oluşturma bu başvuruları güncelleştirilmesi gerekir.
 
-Bu işlevleri desteklemek için Azure portal güncelleştirme işlemini gerçekleştiriyoruz. Bu arada, aşağıda gösterildiği gibi PowerShell cmdlet'lerini kullanabilirsiniz.
+Bu işlevsellik şu desteği eklemek için Azure AD Yönetim Merkezi güncelleştirdik. Şimdi, müşterilerin mevcut grupları dinamik üyelik atanan üyeliği ve tam tersini ya da Azure AD Yönetim Merkezi ya da aşağıda gösterildiği gibi PowerShell cmdlet'leri aracılığıyla dönüştürebilir.
 
 > [!WARNING]
 > Varolan bir statik grup için dinamik bir grup değiştirirken, var olan tüm üyeleri gruptan kaldırılacak ve yeni üye eklemek için üyelik kuralını sonra işlenir. Uygulamaları veya kaynaklara erişimi denetlemek için Grup kullandıysanız, üyelik kuralını tam olarak işlenen kadar özgün üyeleri erişimlerini kaybedebilir.
 >
-> Yeni grup üyeliği beklendiği gibi olduğundan emin olmak için yeni Üyelik Kuralı önceden test etmek için önerilen bir yöntemdir.
+> Yeni grup üyeliği beklendiği gibi olduğundan emin olmak için önceden yeni üyelik kuralı sınamanızı öneririz.
 
-**Bir grup üyeliği yönetimini değiştirmek için PowerShell kullanma**
+### <a name="using-azure-ad-admin-center-to-change-membership-management-on-a-group"></a>Bir grup üyeliği yönetimini değiştirmek için Azure AD yönetim merkezini kullanma 
+
+1. Oturum [Azure AD Yönetim Merkezi](https://aad.portal.azure.com) genel yönetici veya kiracınızda bir kullanıcı hesabı yönetici olan bir hesapla.
+2. Seçin **grupları**.
+3. Gelen **tüm grupları** listesinde, değiştirmek istediğiniz grubu açın.
+4. Seçin **özellikleri**.
+5. Üzerinde **özellikleri** select grubu ile ilgili sayfa bir **üyelik türü** atanan (statik), dinamik kullanıcı ya da, istediği üyelik türüne bağlı olarak dinamik cihaz. Dinamik üyelik için basit bir kural için seçenekleri seçin veya gelişmiş bir kuralı kendiniz yazmak için kural Oluşturucusu'nu kullanabilirsiniz. 
+
+Kullanıcı grubu için dinamik üyeliği statik olan bir grubu değiştirme örneği adımlardır. 
+
+1. Üzerinde **özellikleri** seçili grubunuz için seçin sayfasında bir **üyelik türü** , **dinamik kullanıcı**, gruba değişiklikleri açıklayan iletişim kutusundaki Evet'i seçin devam etmek için üyeliği. 
+  
+   ![dinamik kullanıcı üyelik türünü seçin](./media/active-directory-groups-dynamic-membership-azure-portal/select-group-to-convert.png)
+  
+2. Seçin **Ekle dinamik sorgu**ve kuralı sağlayın.
+  
+   ![Kural girin](./media/active-directory-groups-dynamic-membership-azure-portal/enter-rule.png)
+  
+3. Kural oluşturduktan sonra Seç **Ekle sorgu** sayfanın sonundaki.
+4. Seçin **kaydetmek** üzerinde **özellikleri** yaptığınız değişiklikleri kaydetmek grup için sayfa. **Üyelik türü** grubunun grubu listesinde anında güncelleştirilir.
+
+> [!TIP]
+> Girdiğiniz Gelişmiş kural yanlış olduysa Grup dönüştürme başarısız olabilir. Kural sistem tarafından neden kabul edilemez bir açıklama içeren portalının sağ üst köşede bir bildirim görüntülenir. Bu kuralın geçerli yapmak için nasıl ayarlayabilirsiniz dikkatle anlamak için okuyun.
+
+### <a name="using-powershell-to-change-membership-management-on-a-group"></a>Bir grup üyeliği yönetimini değiştirmek için PowerShell kullanma
 
 > [!NOTE]
-> Cmdlet'leri kullanması gerekecektir dinamik Grup özelliklerini değiştirmek için **önizleme sürümünü** [Azure AD PowerShell sürüm 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Önizlemesi'nden yükleyebilirsiniz [burada](https://www.powershellgallery.com/packages/AzureADPreview).
+> Cmdlet'leri kullanması gerekecektir dinamik Grup özelliklerini değiştirmek için **önizleme sürümünü** [Azure AD PowerShell sürüm 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Önizlemesi'nden yükleyebilirsiniz [PowerShell Galerisi](https://www.powershellgallery.com/packages/AzureADPreview).
 
-Var olan bir grup üyeliği yönetimi geçiş işlevleri bir örneği burada verilmiştir. Dikkatli doğru GroupTypes özelliği işlemek ve orada bulunabilir herhangi bir değeri korumak için alınır dinamik üyelik ilgisiz unutmayın.
+Var olan bir grup üyeliği yönetimi geçiş işlevleri bir örneği burada verilmiştir. Bu örnekte, doğru GroupTypes özelliği işlemek ve dinamik üyelik ilişkili olmayan tüm değerleri korumak için bakım alınır.
 
 ```
 #The moniker for dynamic groups as used in the GroupTypes property of a group object

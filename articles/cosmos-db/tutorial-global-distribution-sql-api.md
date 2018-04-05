@@ -1,9 +1,9 @@
 ---
-title: "SQL API için Azure Cosmos DB genel dağıtım Öğreticisi | Microsoft Docs"
-description: "Kurulum SQL API'yi kullanarak Azure Cosmos DB genel dağıtım öğrenin."
+title: SQL API’si için Azure Cosmos DB genel dağıtım öğreticisi | Microsoft Docs
+description: SQL API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin.
 services: cosmos-db
-keywords: "Genel dağıtım"
-documentationcenter: 
+keywords: genel dağıtım
+documentationcenter: ''
 author: rafats
 manager: jhubbard
 ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
@@ -15,53 +15,51 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 0cee55673c8abca29b7e389fa4fd62a48566904b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
-ms.translationtype: MT
+ms.openlocfilehash: 58cfa4f8898febf6d0bbe4c5a7a1dad4fcc6c854
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Kurulum SQL API'yi kullanarak Azure Cosmos DB genel dağıtım yapma
+# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
 
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
+Bu makalede, Azure portalını kullanarak Azure Cosmos DB genel dağıtımını ayarlama ve sonra SQL API’sini kullanarak bağlanma işlemlerinin nasıl yapılacağı gösterilmektedir.
 
-Bu makalede, Azure portalında Azure Cosmos DB genel dağıtım kurulumu ve SQL API'yi kullanarak bağlanmak için nasıl kullanılacağını gösterir.
-
-Bu makalede aşağıdaki görevleri içerir: 
+Bu makale aşağıdaki görevleri kapsar: 
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * Genel dağıtım kullanarak yapılandırma [SQL API'leri](sql-api-introduction.md)
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * [SQL API’lerini](sql-api-introduction.md) kullanarak genel dağıtımı yapılandırma
 
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>SQL API'yi kullanarak bir tercih edilen bölge bağlanma
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>SQL API’sini kullanarak tercih edilen bir bölgeye bağlanma
 
-Anlamıyla yararlanabilmek için [genel dağıtım](distribute-data-globally.md), istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin sıralı tercih listesi belirtebilirsiniz. Bu bağlantı İlkesi ayarlayarak yapılabilir. Azure Cosmos DB hesabı yapılandırması, geçerli bölge kullanılabilirliği ve belirtilen tercih listesi bağlı olarak, en iyi endpoint yazma gerçekleştirmek ve okuma işlemleri için SQL SDK tarafından seçilir.
+[Genel dağıtımdan](distribute-data-globally.md) yararlanmak için istemci uygulamaları, belge işlemlerini gerçekleştirmek için kullanılacak bölgelerin tercihe göre sıralanmış listesini belirtebilir. Bağlantı ilkesi ayarlanarak bu yapılabilir. Azure Cosmos DB hesap yapılandırmasına, geçerli bölgesel kullanılabilirliğe ve belirtilen tercih listesine göre yazma ve okuma işlemlerini gerçekleştirmek için SQL SDK tarafından en iyi uç nokta seçilir.
 
-Bu tercih listesi SQL SDK'ları kullanarak bağlantı başlatırken belirtilir. SDK'ları isteğe bağlı bir parametre "PreferredLocations" kabul Azure bölgeleri diğer bir deyişle sıralı bir listesi.
+SQL SDK’ları kullanılarak bağlantı başlatırken bu tercih listesi belirtilir. SDK’lar, Azure bölgelerinin sıralı listesinde isteğe bağlı "PreferredLocations" parametresini kabul eder.
 
-SDK, bölge geçerli tüm yazma işlemlerini yazma otomatik olarak gönderir.
+SDK, tüm yazma işlemlerini otomatik olarak geçerli yazma bölgesine gönderir.
 
-İlk kullanılabilir bölge PreferredLocations listesindeki tüm okuma gönderilir. İstek başarısız olursa, istemci listeyi sonraki bölgeyi başarısız ve benzeri.
+Tüm yazma işlemleri, PreferredLocations listesindeki ilk kullanılabilir bölgeye gönderilir. İstek başarısız olursa, istemci listedeki sonraki bölgeyi dener ve bu şekilde devam eder.
 
-SDK'ları yalnızca PreferredLocations içinde belirtilen bölgeler okuma dener. Bu nedenle, örneğin, veritabanı hesabı dört bölgelerde kullanılabilir, ancak istemci PreferredLocations için yalnızca iki read(non-write) bölgede belirtir, sonra okuma PreferredLocations içinde belirtilmemiş okuma bölgesi dışında sunulacak. PreferredLocations belirtilen okuma bölgeleri kullanılabilir değilse, okuma, yazma bölgesinin dışına sunulacak.
+SDK’lar yalnızca PreferredLocations listesinde belirtilen bölgelerden okuma işlemi yapmaya çalışır. Bu nedenle, örneğin, Veritabanı Hesabı dört bölgede kullanılabiliyorsa ancak istemci, PreferredLocations için yalnızca iki okuma (yazma olmayan) bölgesi belirtiyorsa, PreferredLocations listesinde belirtilmeyen okuma bölgesinden okuma işlemi yapılmaz. PreferredLocations listesinde belirtilen okuma bölgeleri kullanılamıyorsa, okuma işlemleri yazma bölgesinden yapılır.
 
-Uygulama, geçerli yazma uç noktası doğrulayın ve WriteEndpoint ve ReadEndpoint, SDK sürümü 1.8 ve üzeri kullanılabilir iki özelliklerini denetleyerek SDK tarafından seçilen endpoint okuyun.
+Uygulama, SDK 1.8 ve üzeri sürümlerde kullanılabilir olan iki WriteEndpoint ve ReadEndpoint özelliğini denetleyerek SDK tarafından seçilen geçerli yazma uç noktasını ve okuma uç noktasını doğrulayabilir.
 
-PreferredLocations özellik ayarlanmamışsa, tüm istekleri geçerli yazma bölgesinden sunulacak.
+PreferredLocations özelliği ayarlanmazsa, tüm istekler geçerli yazma bölgesinden işlenir.
 
 ## <a name="net-sdk"></a>.NET SDK
-SDK kod değişiklikleri kullanılabilir. Bu durumda, SDK'yı otomatik olarak her iki okuma yönlendirir ve geçerli yazma bölgesine yazar.
+SDK herhangi bir kod değişikliği olmadan kullanılabilir. Bu durumda SDK hem okuma hem de yazma işlemlerini otomatik olarak geçerli yazma bölgesine yönlendirir.
 
-Sürüm 1,8 ve daha sonra .NET SDK'sına, ConnectionPolicy parametresi DocumentClient oluşturucusu için Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations adlı bir özelliğe sahiptir. Bu özellik koleksiyonu türünde `<string>` ve bölge adları listesi içermelidir. Üzerinde biçimlendirilen dize değerleri bölge adı sütun başına [Azure bölgeleri] [ regions] boşluk önce veya sonra ilk sayfasında ve karakter sırasıyla en son.
+.NET SDK’nın 1.8 ve sonraki sürümlerinde, DocumentClient oluşturucusu için ConnectionPolicy parametresi, Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations adlı bir özelliğe sahiptir. Bu özellik `<string>` Koleksiyonu türünde olup bölge adlarının listesini içermelidir. Dize değerleri, [Azure Bölgeleri][regions] sayfasındaki Bölge Adı sütununa göre biçimlendirilir ve ilk karakterden önce veya son karakterden sonra bir boşluk bulunmaz.
 
-Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.WriteEndpoint ve DocumentClient.ReadEndpoint kullanılabilir.
+Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.WriteEndpoint ve DocumentClient.ReadEndpoint içinde kullanılabilir.
 
 > [!NOTE]
-> Uç noktalar için URL'leri uzun süreli sabitleri düşünülmemelidir. Hizmet, bunlar herhangi bir noktada güncelleştirebilir. SDK, bu değişiklik otomatik olarak yönetir.
+> Uç noktaların URL’leri, uzun ömürlü sabitler olarak değerlendirilmemelidir. Bu noktada hizmet bunları güncelleştirebilir. SDK bu değişikliği otomatik olarak işler.
 >
 >
 
@@ -87,19 +85,19 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript ve Python SDK'ları
-SDK kod değişiklikleri kullanılabilir. Bu durumda, SDK'yı otomatik olarak okuma ve yazma geçerli bölge yazma yönlendirir.
+## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS, JavaScript ve Python SDK’ları
+SDK herhangi bir kod değişikliği olmadan kullanılabilir. Bu durumda SDK hem okuma hem de yazma işlemlerini otomatik olarak geçerli yazma bölgesine yönlendirir.
 
-Sürüm 1,8 ve her SDK'ın daha sonra ConnectionPolicy parametresi DocumentClient oluşturucusu için yeni bir özellik DocumentClient.ConnectionPolicy.PreferredLocations çağrılır. Bu parametre olan bölge adlarının bir listesini alan bir dizeler dizisi. Bölge adı sütununda başına biçimli adları [Azure bölgeleri] [ regions] sayfası. Önceden tanımlanmış sabitleri kolaylık nesnesinde AzureDocuments.Regions kullanabilirsiniz
+Her bir SDK’nın 1.8 ve sonraki sürümlerinde, DocumentClient oluşturucusu için ConnectionPolicy parametresi, DocumentClient.ConnectionPolicy.PreferredLocations adlı yeni bir özelliğe sahiptir. Bu, bölge adlarının listesini alan bir dize dizisidir. Adlar, [Azure Bölgeleri][regions] sayfasındaki Bölge Adı sütununa göre biçimlendirilir. AzureDocuments.Regions kolaylık nesnesindeki önceden tanımlanmış sabitleri de kullanabilirsiniz
 
-Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.getWriteEndpoint ve DocumentClient.getReadEndpoint kullanılabilir.
+Geçerli yazma ve okuma uç noktaları sırasıyla DocumentClient.getWriteEndpoint ve DocumentClient.getReadEndpoint içinde kullanılabilir.
 
 > [!NOTE]
-> Uç noktalar için URL'leri uzun süreli sabitleri düşünülmemelidir. Hizmet, bunlar herhangi bir noktada güncelleştirebilir. SDK bu değişikliği otomatik olarak işler.
+> Uç noktaların URL’leri, uzun ömürlü sabitler olarak değerlendirilmemelidir. Bu noktada hizmet bunları güncelleştirebilir. SDK bu değişikliği otomatik olarak işler.
 >
 >
 
-NodeJS/Javascript için bir kod örneği aşağıdadır. Python ve Java aynı düzeni izler.
+Aşağıda, NodeJS/Javascript için bir kod örneği verilmiştir. Python ve Java aynı düzeni izler.
 
 ```java
 // Creating a ConnectionPolicy object
@@ -116,11 +114,11 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 ```
 
 ## <a name="rest"></a>REST
-Veritabanı hesabı birden çok bölgede kullanılabilir yapıldıktan sonra istemciler aşağıdaki URI üzerinde bir GET isteği gerçekleştirerek, kullanılabilirlik sorgulayabilir.
+Birden çok bölgede bir veritabanı hesabı kullanılabilir duruma getirildiğinde istemciler aşağıdaki URI’de bir GET isteği gerçekleştirerek bu hesabın kullanılabilirliğini sorgulayabilir.
 
     https://{databaseaccount}.documents.azure.com/
 
-Hizmet bölgeler ve bunların karşılık gelen Azure Cosmos DB uç noktası URI için çoğaltmaları listesini döndürür. Geçerli yazma bölgeyi yanıtında gösterilir. İstemci ardından aşağıdaki gibi daha fazla tüm REST API istekleri için uygun uç noktası seçebilirsiniz.
+Hizmet, bölgelerin listesini ve çoğaltmalar için karşılık gelen Azure Cosmos DB uç nokta URI’lerini döndürür. Yanıtta geçerli yazma bölgesi belirtilir. Daha sonra istemci aşağıdaki gibi diğer tüm REST API istekleri için uygun uç noktayı seçebilir.
 
 Örnek yanıt
 
@@ -155,27 +153,27 @@ Hizmet bölgeler ve bunların karşılık gelen Azure Cosmos DB uç noktası URI
     }
 
 
-* Tüm PUT, POST ve DELETE isteklerini belirtilen yazma URI gitmeniz gerekir
-* Tüm alır ve diğer salt okunur istekleri (örneğin sorgular) için istemcinin istediği herhangi bir uç nokta gidebilir
+* Tüm PUT, POST ve DELETE istekleri, belirtilen yazma URI’sine gitmelidir
+* Tüm GET istekleri ve diğer salt okunur istekler (örneğin, sorgular), istemcinin tercih ettiği herhangi bir uç noktaya gidebilir
 
-Yazma isteklerini salt okunur bölgelere 403 ("Yasak") HTTP hata koduyla başarısız olur.
+Salt okunur bölgelere yönelik yazma istekleri, HTTP hata kodu 403 (“Yasak”) ile başarısız olur.
 
-Yazma bölge sonra istemcinin ilk bulma aşama değişirse, önceki yazma bölgeye sonraki yazma 403 ("Yasak") HTTP hata koduyla başarısız olur. İstemci, daha sonra yeniden güncelleştirilmiş yazma bölge almak için bölgelerin listesi ALMANIZ gerekir.
+İstemcinin ilk bulma aşamasından sonra yazma bölgesi değişirse, önceki yazma bölgesine yönelik sonraki yazma işlemleri, HTTP hata kodu 403 (“Yasak”) ile başarısız olur. İstemci daha sonra güncelleştirilmiş yazma bölgesini almak için bölgelerin listesini ALIR (GET).
 
-Bu, bu öğreticinin tamamlanan kadar. Genel olarak çoğaltılmış hesabınızı tutarlılığını okuyarak yönetmek nasıl öğrenebilirsiniz [Azure Cosmos veritabanı tutarlılık düzeylerini](consistency-levels.md). Ve Azure Cosmos DB'de nasıl genel veritabanı çoğaltma hakkında daha fazla bilgi çalıştığı için bkz: [Azure Cosmos DB genel verilerle dağıtmak](distribute-data-globally.md).
+Hepsi bu kadar. Böylece bu öğretici tamamlanmış olur. [Azure Cosmos DB’deki tutarlılık düzeyleri](consistency-levels.md) bölümünü okuyarak genel olarak çoğaltılan hesabınızın tutarlılığının nasıl yönetileceğini öğrenebilirsiniz. Ayrıca genel veritabanı çoğaltmasının Azure Cosmos DB’de nasıl çalıştığı hakkında daha fazla bilgi için bkz. [Azure Cosmos DB ile verileri genel olarak dağıtma](distribute-data-globally.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdakileri yaptığınızdan:
+Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Azure portalını kullanarak genel dağıtım yapılandırma
-> * SQL API'lerini kullanarak genel dağıtım yapılandırma
+> * Azure portalını kullanarak genel dağıtımı yapılandırma
+> * SQL API’lerini kullanarak genel dağıtımı yapılandırma
 
-Artık Azure Cosmos DB yerel öykünücüsü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğretici devam edebilirsiniz.
+Artık Azure Cosmos DB yerel öykünücüsünü kullanarak yerel olarak geliştirme konusunda bilgi almak için sonraki öğreticiye geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Yerel olarak öykünücü ile geliştirme](local-emulator.md)
+> [Öykünücü ile yerel olarak geliştirme](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
 

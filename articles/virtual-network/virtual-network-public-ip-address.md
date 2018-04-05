@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c36a3451dabbb0d08e5e475e0eec14f861bd41ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: efb24f5e55d7ba0077797d3f7d0f2177020f92b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
@@ -58,7 +58,7 @@ Nominal bir ücret ortak IP adresine sahip. Fiyatlandırma görüntülemek için
     |Abonelik|Evet|Aynı bulunmalıdır [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) genel IP adresi ilişkilendirmek istediğiniz kaynak olarak.|
     |Kaynak grubu|Evet|Aynı veya farklı bulunabilir [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) genel IP adresi ilişkilendirmek istediğiniz kaynak olarak.|
     |Konum|Evet|Aynı bulunmalıdır [konumu](https://azure.microsoft.com/regions), genel IP ilişkilendirmek istediğiniz kaynak olarak adresi bölge da denir.|
-    |Kullanılabilirlik bölgesi| Hayır | Desteklenen bir konum seçin, bu ayar yalnızca görünür. Desteklenen konumlar listesi için bkz: [kullanılabilirlik bölgeleri genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Kullanılabilirlik bölgeler şu anda Önizleme sürümünde içindedir. Bir bölgeyle veya bölge olarak yedekli seçeneği belirlemeden önce ilk adımları tamamlamanız gereken [kullanılabilirlik bölgeleri Önizleme için kaydetmek](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#get-started-with-the-availability-zones-preview). Seçtiyseniz **temel** SKU, *hiçbiri* sizin için otomatik olarak seçilir. Belirli bir bölgenin garanti tercih ederseniz, belirli bir bölgenin seçebilirsiniz. Her iki seçenek bölge olarak yedekli değil. Seçtiyseniz **standart** SKU: bölge olarak yedekli sizin için otomatik olarak seçilir ve veri yolu bölge hatalarına karşı dayanıklı hale getirir. Bölge hatalarına karşı dayanıklı değil, belirli bir bölgenin güvence altına almak tercih ederseniz, belirli bir bölgenin seçebilirsiniz.
+    |Kullanılabilirlik bölgesi| Hayır | Desteklenen bir konum seçin, bu ayar yalnızca görünür. Desteklenen konumlar listesi için bkz: [kullanılabilirlik bölgeleri genel bakış](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Seçtiyseniz **temel** SKU, *hiçbiri* sizin için otomatik olarak seçilir. Belirli bir bölgenin garanti tercih ederseniz, belirli bir bölgenin seçebilirsiniz. Her iki seçenek bölge olarak yedekli değil. Seçtiyseniz **standart** SKU: bölge olarak yedekli sizin için otomatik olarak seçilir ve veri yolu bölge hatalarına karşı dayanıklı hale getirir. Bölge hatalarına karşı dayanıklı değil, belirli bir bölgenin güvence altına almak tercih ederseniz, belirli bir bölgenin seçebilirsiniz.
   
 
 **Komutları**

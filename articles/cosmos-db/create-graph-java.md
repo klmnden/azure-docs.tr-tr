@@ -13,13 +13,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: lbosq
-ms.openlocfilehash: e336546526c8ae5ee04dd9737f828685f8c4c009
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a5c3a0cdef488e4c4788a22976d78db72bdd55fc
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -62,7 +62,7 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
     ---|---|---
     Veritabanı Kimliği|sample-database|Yeni veritabanınızın adını *sample-database* olarak belirleyin. Veritabanı adı 1 ile 255 karakter arasında olmalı, `/ \ # ?` içermemeli ve boşlukla bitmemelidir.
     Graf Kimliği|sample-graph|Yeni koleksiyonunuzun adını *sample-graph* olarak belirleyin. Grafik adı karakter gereksinimleri, veritabanı kimliklerine ilişkin karakter gereksinimleri ile aynıdır.
-    Depolama Kapasitesi|Sabit (10 GB)|Değeri **Sabit (10 GB)** olarak değiştirin. Bu değer, veritabanının depolama kapasitesidir.
+    Depolama Kapasitesi|Sabit (10 GB)|Varsayılan **Sabit (10 GB)** değerini değiştirmeyin. Bu değer, veritabanının depolama kapasitesidir.
     Aktarım hızı|400 RU|Aktarım hızını saniyede 400 istek birimi (RU/s) olarak değiştirin. Daha sonra gecikme süresini azaltmak isterseniz aktarım hızının ölçeğini artırabilirsiniz.
 
 3. Formu doldurduktan sonra **Tamam**'a tıklayın.
@@ -91,9 +91,11 @@ Bir grafik veritabanı oluşturmadan önce Azure Cosmos DB ile bir Gremlin (Graf
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted klasöründeki `Program.java` dosyasından alınmıştır. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-information) bölümüne atlayabilirsiniz. 
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-information) bölümüne atlayabilirsiniz.
 
-* Gremlin `Client`, `src/remote.yaml` içinde bulunan yapılandırmadan başlatılır.
+Aşağıdaki kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java dosyasından alınmıştır.
+
+* Gremlin `Client`, C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml dosyasındaki yapılandırmadan başlatılır.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -123,7 +125,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
     URI değerinin ilk parçasını kopyalayın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/create-graph-java/keys.png)
-2. src/remote.yaml dosyasını açın ve değeri `hosts: [$name$.graphs.azure.com]` içindeki `$name$` öğesine yapıştırın.
+2. src/remote.yaml dosyasını açın ve benzersiz kimlik değerini `hosts: [$name$.graphs.azure.com]` içindeki `$name$` öğesine yapıştırın.
 
     remote.yaml dosyasının 1. satırı şuna benzer şekilde görünmelidir: 
 
@@ -148,6 +150,8 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
     - 
 
     `username: /dbs/sample-database/colls/sample-graph`
+
+    Örnek veritabanı veya grafınız için benzersiz bir ad kullandıysanız değerleri uygun şekilde güncelleştirin.
 
 6. remote.yaml dosyasını kaydedin.
 
@@ -194,7 +198,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
    ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png)
 
-4. *Kişi* etiketi girin.
+4. Etiket kutusuna *kişi* yazın.
 
 5. Aşağıdaki özelliklerin her birini eklemek için **Özellik ekle** seçeneğine tıklayın. Graftaki her kişi için benzersiz özellikler oluşturabileceğinizi görürsünüz. Yalnızca kimliği anahtarı gereklidir.
 
@@ -227,7 +231,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
     Daha fazla veri ekledikçe sonuçlarınızı sınırlamak için filtreleri kullanabilirsiniz. Veri Gezgini, varsayılan olarak bir grafikteki tüm köşeleri almak için `g.V()` kullanır. JSON biçimindeki bir grafikteki tüm köşelerin sayımını döndürmek için, bu değeri `g.V().count()` gibi farklı bir [grafik sorgusu](tutorial-query-graph.md) olarak değiştirebilirsiniz. Filtre değiştirdiyseniz, tüm sonuçları yeniden görüntülemek içinn filtreyi `g.V()` durumuna döndürün ve **Filtre Uygula**’ya tıklayın.
 
-12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. **Sonuç listesinde** **ashley**’nin seçili olduğundan emin olun ve ardından sağ alttaki **Hedefler**’in yanında bulunan Düzenle düğmesine tıklayın. **Özellikler** alanını görmek için pencerenizi genişletmeniz gerekebilir.
+12. Artık rakesh ve ashley arasında bağlantı kurabiliriz. **Sonuçlar** listesinde **ashley**’nin seçili olduğundan emin olun ve ardından sağ alt taraftaki **Hedefler**’in yanında bulunan ![Grafikteki bir köşenin hedefini değiştir](./media/create-graph-java/edit-pencil-button.png) seçeneğine tıklayın. Düğmeyi görmek için pencerenizi genişletmeniz gerekebilir.
 
    ![Hedef grafikteki bir köşeyi değiştirme](./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png)
 

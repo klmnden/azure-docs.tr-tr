@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 03/15/2018
 ms.author: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 76e7be62caae7e33caefc3f90a5e57c5f71a31d3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f9cc4f900428e1337fc9b9d428879d6527c60017
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>İsteğe bağlı Taleplerde Azure AD (Önizleme)
 
@@ -65,10 +65,6 @@ Hedeflerinden biri [Azure AD v2.0 uç](active-directory-appmodel-v2-overview.md)
 | `fwd`                      | IP adresi.  İstekte bulunan istemci (içinde olduğunda VNET) özgün IPv4 adresini ekler                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `ctry`                     | Kullanıcının ülke                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
 | `tenant_ctry`              | Kaynak kiracının ülke                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `is_device_known`          | Cihaz çalışma alanına katılmış olup olmadığını gösterir. Koşullu erişim ilkesi ile ilişkili                                                                                                                 | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
-| `is_device_managed`        | Cihaz MDM yüklü olup olmadığını gösterir. Koşullu erişim ilkesi ile ilişkili.                                                                                                                  | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
-| `is_device_compliant`      | MDM cihaz kuruluş cihaz güvenlik ilkeleriyle uyumlu mu belirledi gösterir.                                                                                  | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
-| `kmsi`                     | Kullanıcının bir tutmak bana imzalı içinde seçeneği seçtiği gösterir.                                                                                                                                    | SAML       |           | Jwt'ler için signin_state Yakınsanan                                                                                                                                                                                                                                                   |
 | `upn`                      | UserPrincipalName talep.  Bu talep otomatik olarak dahil olsa da, Konuk kullanıcı durumda davranışını değiştirmek için ek özellikler eklemek için isteğe bağlı bir talep olarak belirtebilirsiniz. | JWT, SAML  |           | Ek özellikleri: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
 ### <a name="v20-optional-claims"></a>V2.0 isteğe bağlı talepleri
 Bu talepler her zaman v1.0 belirteçleri dahil, ancak v2.0 belirteçlerinden istenen sürece kaldırılır.  Bu talep yalnızca (kimliği belirteçleri ve erişim belirteçleri) Jwt'ler için geçerlidir.  

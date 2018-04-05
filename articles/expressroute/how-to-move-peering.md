@@ -1,13 +1,13 @@
 ---
-title: "Microsoft eşlemesi için eşleme, ortak bir Azure ExpressRoute taşıma | Microsoft Docs"
-description: "Bu makalede expressroute bağlantı hattı üzerinde eşliği, ortak eşleme Microsoft'a taşımak için adımlar gösterilmektedir."
+title: Microsoft eşlemesi için eşleme, ortak bir Azure ExpressRoute taşıma | Microsoft Docs
+description: Bu makalede expressroute bağlantı hattı üzerinde eşliği, ortak eşleme Microsoft'a taşımak için adımlar gösterilmektedir.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 02d7c3f587a4cbfb11fc3b6863f75ca30b4d6c51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Bir ortak Microsoft eşlemesi için eşleme taşıma
 
@@ -27,8 +27,6 @@ Microsoft Azure depolama ve Azure SQL veritabanı gibi Azure PaaS hizmetler içi
 
 Bu makalede, kapalı kalma süresi ile eşliği Microsoft ortak eşleme yapılandırmasını taşımanıza yardımcı olur. Yönlendirme etki alanları ve eşlemeleri hakkında daha fazla bilgi için bkz: [ExpressRoute bağlantı hatları ve Yönlendirme etki alanları](expressroute-circuit-peerings.md).
 
-> [!IMPORTANT]
-> Microsoft eşlemesi kullanmak üzere ExpressRoute premium eklentisi olması gerekir. Premium eklentisi hakkında daha fazla bilgi için bkz: [ExpressRoute SSS](expressroute-faqs.md#expressroute-premium).
 
 ## <a name="before"></a>Başlamadan önce
 

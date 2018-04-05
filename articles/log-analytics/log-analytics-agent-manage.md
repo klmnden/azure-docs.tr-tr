@@ -1,24 +1,24 @@
 ---
-title: "Azure günlük analizi Aracısı yönetme | Microsoft Docs"
-description: "Bu makalede, Microsoft İzleme Aracısı (bir makinede dağıtılan MMA) yaşam döngüsü sırasında genellikle gerçekleştirecek farklı yönetim görevleri açıklar."
+title: Azure günlük analizi Aracısı yönetme | Microsoft Docs
+description: Bu makalede, Microsoft İzleme Aracısı (bir makinede dağıtılan MMA) yaşam döngüsü sırasında genellikle gerçekleştirecek farklı yönetim görevleri açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 2e4daebf18d5edeba92bc14d5a4f699fbd2d94ce
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5ff4f79a607143683b37726f1c02a6057dc6b9b0
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Yönetme ve Windows ve Linux için günlük analizi aracı Bakımı
 
@@ -69,6 +69,34 @@ $mma.ReloadConfiguration()
 >[!NOTE]
 >Komut satırı veya komut dosyasını önceden yüklemek veya aracısını yapılandırmak için kullandığınız varsa `EnableAzureOperationalInsights` tarafından değiştirildi `AddCloudWorkspace` ve `RemoveCloudWorkspace`.
 >
+
+### <a name="linux-agent"></a>Linux Aracısı
+Aşağıdaki adımlarda, farklı bir çalışma alanıyla kaydetme veya bir çalışma alanı yapılandırmasını kaldırmak istediğiniz karar verirseniz Linux Aracısı'nı yeniden yapılandırma gösterilmektedir.  
+
+1.  Bir çalışma alanına kayıtlı doğrulamak için aşağıdaki komutu çalıştırın.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Aşağıdaki örneğe benzer bir durum döndürmelidir- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+    Durum ayrıca gösterdiğine dikkat aracıyı çalıştıran, aksi halde aracı yeniden yapılandırmak için aşağıdaki adımları başarıyla tamamlanmayacak önemlidir.  
+
+2. Bir çalışma alanıyla zaten kayıtlı değilse, kayıtlı çalışma alanı aşağıdaki komutu çalıştırarak kaldırın.  Aksi takdirde, kayıtlı değilse, sonraki adıma geçebilirsiniz.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -X`  
+    
+3. Farklı bir çalışma alanıyla kaydetmek için komutu çalıştırın. `/opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <shared key> [-d <top level domain>]` 
+4. Değişikliklerinizi etkileyen sürdü doğrulamak için komutu çalıştırın.
+
+    `/opt/microsoft/omsagent/bin/omsadmin.sh -l` 
+
+    Aşağıdaki örneğe benzer bir durum döndürmelidir- 
+
+    `Primary Workspace: <workspaceId>   Status: Onboarded(OMSAgent Running)`
+
+Aracı hizmeti sırayla değişikliklerin etkili olması yeniden başlatılması gerekmez.
 
 ## <a name="update-proxy-settings"></a>Proxy ayarlarını güncelleştirme 
 Hizmet bir proxy sunucu üzerinden iletişim kurmak için aracıyı yapılandırmak için veya [OMS ağ geçidi](log-analytics-oms-gateway.md) dağıtıldıktan sonra aşağıdaki yöntemlerden birini bu görevi tamamlamak için kullanın.
@@ -148,7 +176,7 @@ Aracı için indirilen dosya ile IExpress oluşturulan müstakil yükleme paketi
 3. İsteminde `%WinDir%\System32\msiexec.exe /x <Path>:\MOMAgent.msi /qb`.  
 
 ### <a name="linux-agent"></a>Linux Aracısı
-Aracıyı kaldırmak için Linux bilgisayarda aşağıdaki komutu çalıştırın.  *--Temizleme* bağımsız değişkeni tamamen kaldırır aracı ve yapılandırması.
+Aracıyı kaldırmak için Linux bilgisayarında aşağıdaki komutu çalıştırın.  *--temizleme* bağımsız değişkeni, aracıyı ve yapılandırmasını tamamen kaldırır.
 
    `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh --purge`
 

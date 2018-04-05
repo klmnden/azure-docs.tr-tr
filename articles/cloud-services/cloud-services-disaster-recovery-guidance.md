@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services etkiler kesintisi hizmet durumunda Azure yapmanız gerekenler | Microsoft Docs"
-description: "Azure Cloud Services etkiler bir Azure hizmet kesintisi durumunda yapmanız gerekenler hakkında bilgi edinin."
+title: Azure Cloud Services etkiler kesintisi hizmet durumunda Azure yapmanız gerekenler | Microsoft Docs
+description: Azure Cloud Services etkiler bir Azure hizmet kesintisi durumunda yapmanız gerekenler hakkında bilgi edinin.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: mmccrory
-ms.openlocfilehash: db6a980b85ea5ef8cbbba4ba5a36f9d033739df1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7028417c95aa6969793c00d0bb270c96e56164fb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services etkiler kesintisi olması durumunda bir Azure hizmet gerekenler
 Microsoft, biz sabit gereksinim duyduğunuzda hizmetlerimizle her zaman için kullanılabilir olduğundan emin olmak için çalışır. Bizim denetim ötesinde zorlar bazen bize planlanmamış hizmet kesintilerine neden şekillerde etkiler.
@@ -30,7 +30,7 @@ Azure, yüksek oranda kullanılabilir uygulamaları destekleyen birçok yerleşi
 Tüm bölge kesinti ana doğal afet ya da yaygın bir hizmet kesintisi nedeniyle yaşadığında bu makalede bir true olağanüstü durum kurtarma senaryosunda kapsar. Nadir oluşum bunlar, ancak tüm bölgesinin bir kesinti olma olasılığını için hazırlamanız gerekir. Tüm bir bölgeyi hizmet kesintisi yaşarsa, verilerinizin yerel olarak yedekli kopyasını geçici olarak kullanılamaz durumda olurdu. Coğrafi çoğaltma etkinleştirildiğinde, tabloları ve Azure Storage bloblarında üç ek kopyalarını farklı bir bölgede depolanır. Azure tam bölgesel bir kesintinin ya da bir olağanüstü durumda birincil bölge kurtarılabilir değil, tüm coğrafi olarak çoğaltılmış bölge için DNS girdilerini remaps.
 
 > [!NOTE]
-> Bu işlemi üzerinde hiçbir denetimi yoktur ve yalnızca veri merkezi çapında hizmet kesilmelerini meydana gelir unutmayın. Bu nedenle, aynı zamanda yüksek düzeyde kullanılabilirlik elde etmek için diğer uygulamaya özgü yedek bir stratejileri kullanmanız gerekir. Daha fazla bilgi için bkz: [Microsoft Azure üzerinde oluşturulan uygulamalar için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Kendi yük devretme etkileyen yapabilmek istiyorsanız kullanımını düşünmek isteyebilirsiniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage), başka bir bölgede verilerinizin salt okunur bir kopyasını oluşturur.
+> Bu işlemi üzerinde hiçbir denetimi yoktur ve yalnızca veri merkezi çapında hizmet kesilmelerini meydana gelir unutmayın. Bu nedenle, aynı zamanda yüksek düzeyde kullanılabilirlik elde etmek için diğer uygulamaya özgü yedek bir stratejileri kullanmanız gerekir. Daha fazla bilgi için bkz: [Microsoft Azure üzerinde oluşturulan uygulamalar için yüksek kullanılabilirlik ve olağanüstü durum kurtarma](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md). Kendi yük devretme etkileyen yapabilmek istiyorsanız kullanımını düşünmek isteyebilirsiniz [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage), başka bir bölgede verilerinizin salt okunur bir kopyasını oluşturur.
 >
 >
 
@@ -49,7 +49,7 @@ Oluşturma ve bir bulut hizmeti uygulaması dağıtma hakkında daha fazla ayrı
 
 Uygulama veri kaynaklarınıza bağlı olarak, uygulama veri kaynağı için kurtarma yordamları denetlemeniz gerekebilir.
 
-* Azure Storage veri kaynakları için bkz: [Azure Storage çoğaltma](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) denetlemek için uygulamanız için seçtiğiniz çoğaltma modeli kullanılabilir olan seçenekler bağlı.
+* Azure Storage veri kaynakları için bkz: [Azure Storage çoğaltma](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) denetlemek için uygulamanız için seçtiğiniz çoğaltma modeli kullanılabilir olan seçenekler bağlı.
 * SQL veritabanı kaynakları için okuma [genel bakış: Bulut iş devamlılığı ve veritabanı olağanüstü durum kurtarma SQL Database](../sql-database/sql-database-business-continuity.md) denetlemek için seçili çoğaltma modeli uygulamanız için kullanılabilir olan seçenekler bağlı.
 
 

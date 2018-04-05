@@ -1,6 +1,6 @@
 ---
-title: "Azure Hızlı Başlangıç - Azure Depolama Gezgini’ni kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs"
-description: "Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturmak için Azure Depolama Gezgini’ni kullanırsınız. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Depolama Gezgini’ni kullanırsınız."
+title: Azure Hızlı Başlangıç - Azure Depolama Gezgini’ni kullanarak Azure Depolama’daki blobları yükleme, indirme ve listeleme | Microsoft Docs
+description: Bu hızlı başlangıçta, depolama hesabı ve kapsayıcı oluşturmak için Azure Depolama Gezgini’ni kullanırsınız. Sonra, Azure Depolama’ya blob yüklemek, blob indirmek ve bir kapsayıcıdaki blobları listelemek için Depolama Gezgini’ni kullanırsınız.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/22/2018
 ms.author: tamram
-ms.openlocfilehash: 72503dd0216d9d987d1222491c6e11d46a4d38a3
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: f44d42b949eae0d017e3bba218234fd1e2ead78e
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Hızlı Başlangıç: Azure Depolama Gezgini’ni kullanarak blobları yükleme, indirme ve listeleme
 
@@ -47,7 +47,7 @@ Bağlantı kurulduğunda Azure Depolama Gezgini yüklenir ve **Gezgin** sekmesi 
 
 Bloblar her zaman bir kapsayıcıya yüklenir. Bu, blob gruplarını bilgisayarınızdaki dosyaları klasörler halinde düzenlediğiniz gibi düzenleyebilmenizi sağlar.
 
-Kapsayıcı oluşturmak için önceki adımda oluşturduğunuz depolama hesabını genişletin. **Blob Kapsayıcıları**'nı ve ardından **Blob Kapsayıcısı Oluştur**'u seçin. Blob kapsayıcınızın adını girin. Blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [kapsayıcı adlandırma kuralları](storage-dotnet-how-to-use-blobs.md#create-a-container) bölümüne bakın. Girişleri tamamladığınızda blob kapsayıcısını oluşturmak için **Enter**'a basın. Blob kapsayıcısı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Blob Kapsayıcıları** klasörü altında gösterilir.
+Kapsayıcı oluşturmak için önceki adımda oluşturduğunuz depolama hesabını genişletin. **Blob Kapsayıcıları**'nı ve ardından **Blob Kapsayıcısı Oluştur**'u seçin. Blob kapsayıcınızın adını girin. Blob kapsayıcılarını adlandırmayla ilgili kural ve kısıtlamaların listesi için [Kapsayıcı oluşturma ve ayarlama izinleri](storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) bölümüne bakın. Girişleri tamamladığınızda blob kapsayıcısını oluşturmak için **Enter**'a basın. Blob kapsayıcısı başarıyla oluşturulduktan sonra, seçili depolama hesabının **Blob Kapsayıcıları** klasörü altında gösterilir.
 
 ## <a name="upload-blobs-to-the-container"></a>Blobları kapsayıcıya yükleme
 

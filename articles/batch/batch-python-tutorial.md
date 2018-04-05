@@ -1,11 +1,11 @@
 ---
-title: "Öğretici - Python için Azure Batch SDK’sını kullanma | Microsoft Belgeleri"
-description: "Temel Azure Batch kavramlarını öğrenin ve Python kullanarak basit bir çözüm derleyin."
+title: Öğretici - Python için Azure Batch SDK’sını kullanma | Microsoft Belgeleri
+description: Temel Azure Batch kavramlarını öğrenin ve Python kullanarak basit bir çözüm derleyin.
 services: batch
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 42cae157-d43d-47f8-88f5-486ccfd334f4
 ms.service: batch
 ms.devlang: python
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: b620ff7d49b3e2712393de6124e31ff417220db2
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Python için Batch SDK'sını kullanmaya başlama
 

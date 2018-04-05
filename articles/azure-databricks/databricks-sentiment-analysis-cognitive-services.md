@@ -1,9 +1,9 @@
 ---
 title: 'Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yaklaşım analizi | Microsoft Docs'
-description: Gerçek zamanlı akış verileri ile ilgili yaklaşım analizini çalıştırmak için Event Hubs ve Bilişsel Hizmetler API’si ile Azure Databricks’i kullanmayı öğrenin.
+description: Gerçek zamanlıya yakın şekilde akış verileri ile ilgili yaklaşım analizi çalıştırmak için Event Hubs ve Bilişsel Hizmetler API’si ile Azure Databricks’i kullanmayı öğrenin.
 services: azure-databricks
 documentationcenter: ''
-author: nitinme
+author: lenadroid
 manager: cgronlun
 editor: ''
 tags: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/15/2018
-ms.author: nitinme
-ms.openlocfilehash: 00456bdc4dc0e8562af9be6c827e8ab32bf03a31
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 03/20/2018
+ms.author: alehall
+ms.openlocfilehash: 8858df394885ae7820a4bc72458f4f1d851965e6
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Öğretici: Azure Databricks kullanarak akış verileri ile ilgili yaklaşım analizi
 
-Bu öğreticide, Azure Databricks kullanarak gerçek zamanlı veri akışı ile ilgili yaklaşım analizinin nasıl çalıştırılacağını öğreneceksiniz. Azure Event Hubs’ı kullanarak gerçek zamanlı veri alımı sistemini ayarlarsınız. Spark Event Hubs bağlayıcısını kullanarak Event Hubs’tan Azure Databricks’e iletileri kullanırsınız. Son olarak, akışa alınan verilerle ilgili yaklaşım analizi çalıştırmak için Microsoft Bilişsel Hizmet API’lerini kullanırsınız. 
+Bu öğreticide, Azure Databricks kullanarak gerçek zamanlıya yakın şekilde veri akışı ile ilgili yaklaşım analizinin nasıl çalıştırılacağını öğreneceksiniz. Azure Event Hubs’ı kullanarak veri alımı sistemini ayarlarsınız. Spark Event Hubs bağlayıcısını kullanarak Event Hubs’tan Azure Databricks’e iletileri kullanırsınız. Son olarak, akışa alınan verilerle ilgili yaklaşım analizi çalıştırmak için Microsoft Bilişsel Hizmet API’lerini kullanırsınız.
 
 Bu öğreticinin sonunda, Twitter’daki "Azure" terimini içeren tweet’leri alır ve bu tweet’ler ile ilgili yaklaşım analizi çalıştırmış olursunuz.
 
@@ -32,12 +32,12 @@ Aşağıdaki şekilde uygulama akışı gösterilmektedir:
 
 ![Event Hubs ve Bilişsel Hizmetler ile Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Event Hubs ve Bilişsel Hizmetler ile Azure Databricks")
 
-Bu öğretici aşağıdaki görevleri kapsar: 
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Azure Databricks çalışma alanı oluşturma
 > * Azure Databricks’te Spark kümesi oluşturma
-> * Gerçek zamanlı verilere erişmek için Twitter uygulaması oluşturma
+> * Akış verilerine erişmek için bir Twitter uygulaması oluşturma
 > * Azure Databricks’te not defterleri oluşturma
 > * Event Hubs ve Twitter API’si için kitaplıklar ekleme
 > * Microsoft Bilişsel Hizmetler hesabı oluşturma ve erişim anahtarını alma
@@ -52,7 +52,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığından emin olun:
 - Azure Event Hubs ad alanı.
 - Ad alanı içinde bir Olay Hub’ı.
-- Event Hubs ad alanına erişmek için bağlantı dizesi. Bağlantı dizesi şuna benzer bir biçimde olmalıdır: `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>”`.
+- Event Hubs ad alanına erişmek için bağlantı dizesi. Bağlantı dizesi şuna benzer bir biçimde olmalıdır: `Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<key name>;SharedAccessKey=<key value>`.
 - Event Hubs için paylaşılan erişim ilkesi adı ve ilke anahtarı.
 
 [Azure Event Hubs ad alanı ve olay hub’ı oluşturma](../event-hubs/event-hubs-create.md) başlıklı makaledeki adımları tamamlayarak bu gereksinimleri karşılayabilirsiniz.
@@ -63,20 +63,18 @@ Bu öğreticiye başlamadan önce aşağıdaki gereksinimlerin karşılandığı
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks çalışma alanı oluşturma
 
-Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz. 
+Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı oluşturursunuz.
 
-1. Azure portalında **Kaynak oluşturun** > **Veri ve Analiz** > **Azure Databricks (Önizleme)** seçeneklerini belirleyin.
+1. Azure portalında **Kaynak oluşturun** > **Veri ve Analiz** > **Azure Databricks** seçeneklerini belirleyin.
 
     ![Azure portalında Databricks](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks on Azure portal")
-
-2. **Azure Databricks (Önizleme)** bölümünde **Oluştur**’u seçin.
 
 3. **Azure Databricks Hizmeti** bölümünde, Databricks çalışma alanı oluşturmak için değerler sağlayın.
 
     ![Azure Databricks çalışma alanı oluşturma](./media/databricks-sentiment-analysis-cognitive-services/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
-    Aşağıdaki değerleri sağlayın: 
-     
+    Aşağıdaki değerleri sağlayın:
+
     |Özellik  |Açıklama  |
     |---------|---------|
     |**Çalışma alanı adı**     | Databricks çalışma alanınız için bir ad sağlayın        |
@@ -106,14 +104,14 @@ Bu bölümde Azure portalını kullanarak bir Azure Databricks çalışma alanı
     Aşağıdakiler dışında diğer tüm varsayılan değerleri kabul edin:
 
     * Küme için bir ad girin.
-    * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun. 
+    * Bu makale için **4.0 (beta)** çalışma zamanıyla bir küme oluşturun.
     * **___ dakika işlem yapılmadığında sonlandır** onay kutusunu seçtiğinizden emin olun. Küme kullanılmazsa kümenin sonlandırılması için biz süre (dakika cinsinden) belirtin.
 
     **Küme oluştur**’u seçin. Küme çalışmaya başladıktan sonra kümeye not defterleri ekleyebilir ve Spark işleri çalıştırabilirsiniz.
 
 ## <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
-Tweet’lerin gerçek zamanlı akışını almak için Twitter’da bir uygulama oluşturmanız gerekir. Adımları izleyerek bir Twitter uygulaması oluşturun ve bu öğreticiyi tamamlamak için ihtiyaç duyduğunuz değerleri kaydedin.
+Tweet’lerin akışını almak için Twitter’da bir uygulama oluşturmanız gerekir. Adımları izleyerek bir Twitter uygulaması oluşturun ve bu öğreticiyi tamamlamak için ihtiyaç duyduğunuz değerleri kaydedin.
 
 1. Bir web tarayıcısından [Twitter Uygulama Yönetimi](http://twitter.com/app)’ne gidip **Yeni Uygulama Oluştur**’u seçin.
 
@@ -139,7 +137,7 @@ Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerin
 
 2. Yeni Kitaplık sayfasında **Kaynak** için **Maven Koordinatı**’nı seçin. **Koordinat** için, eklemek istediğiniz paketin koordinatını girin. Bu öğreticide kullanılan kitaplıklar için Maven koordinatları aşağıdaki gibidir:
 
-    * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.0`
+    * Spark Event Hubs bağlayıcısı - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
     * Twitter API’si - `org.twitter4j:twitter4j-core:4.0.6`
 
     ![Maven koordinatları sağlama](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Maven koordinatları sağlama")
@@ -158,12 +156,12 @@ Bu öğreticide, Event Hubs’a tweet’ler göndermek için Twitter API’lerin
 
 ## <a name="get-a-cognitive-services-access-key"></a>Bilişsel Hizmetler erişim anahtarını alma
 
-Bu öğreticide, gerçek zamanlı tweet akışı ile ilgili yaklaşım analizi çalıştırmak için [Microsoft Bilişsel Hizmetler Metin Analizi API](../cognitive-services/text-analytics/overview.md)’lerini kullanırsınız. API’leri kullanmadan önce, Azure’da bir Microsoft Bilişsel Hizmetler hesabı oluşturmanız ve Metin Analizi API’lerini kullanmak için bir erişim anahtarı almanız gerekir.
+Bu öğreticide, gerçek zamanlıya yakın şekilde tweet akışı ile ilgili yaklaşım analizi çalıştırmak için [Microsoft Bilişsel Hizmetler Metin Analizi API](../cognitive-services/text-analytics/overview.md)’lerini kullanırsınız. API’leri kullanmadan önce, Azure’da bir Microsoft Bilişsel Hizmetler hesabı oluşturmanız ve Metin Analizi API’lerini kullanmak için bir erişim anahtarı almanız gerekir.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 
 2. **+ Kaynak oluştur**’u seçin.
- 
+
 3. Azure Marketi bölümünde **Yapay Zeka ve Bilişsel Hizmetler** > **Metin Analizi API’si** seçeneklerini belirleyin.
 
     ![Bilişsel hizmetler hesabı oluşturma](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Bilişsel hizmetler hesabı oluşturma")
@@ -219,7 +217,7 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
     import scala.collection.JavaConverters._
     import com.microsoft.azure.eventhubs._
     import java.util.concurrent._
-    
+
     val namespaceName = "<EVENT HUBS NAMESPACE>"
     val eventHubName = "<EVENT HUB NAME>"
     val sasKeyName = "<POLICY NAME>"
@@ -229,51 +227,51 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
                 .setEventHubName(eventHubName)
                 .setSasKeyName(sasKeyName)
                 .setSasKey(sasKey)
-    
+
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
       val messageData = EventData.create(message.getBytes("UTF-8"))
-      eventHubClient.get().send(messageData) 
+      eventHubClient.get().send(messageData)
       System.out.println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
-    
+
     // Twitter configuration!
     // Replace values below with yours
-    
+
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
       cb.setDebugEnabled(true)
       .setOAuthConsumerKey(twitterConsumerKey)
       .setOAuthConsumerSecret(twitterConsumerSecret)
       .setOAuthAccessToken(twitterOauthAccessToken)
       .setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
-    
+
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
     var finished = false
     while (!finished) {
-      val result = twitter.search(query) 
+      val result = twitter.search(query)
       val statuses = result.getTweets()
       var lowestStatusId = Long.MaxValue
       for (status <- statuses.asScala) {
-        if(!status.isRetweet()){ 
+        if(!status.isRetweet()){
           sendEvent(status.getText())
         }
         lowestStatusId = Math.min(status.getId(), lowestStatusId)
@@ -281,24 +279,24 @@ Bu bölümde, Databricks çalışma alanında aşağıdaki adlarla iki not defte
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
 
-Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. Çıktıdaki her olay, Event Hubs’a giren gerçek zamanlı bir tweet’tir. 
+Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aşağıdaki kod parçacığında gösterildiği gibi bir çıktı görürsünüz. Çıktıdaki her olay, Event Hubs’a giren bir tweet’tir.
 
     Sent event: @Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence
 
     Sent event: Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure
-    
+
     Sent event: 4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie
-    
+
     Sent event: Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk
-    
+
     Sent event: Top 10 Tricks to #Save Money with #Azure Virtual Machines https://t.co/F2wshBXdoz #Cloud
-    
+
     ...
     ...
 
@@ -308,26 +306,26 @@ Not defterlerini çalıştırmak için **SHIFT + ENTER** tuşlarına basın. Aş
 
     import org.apache.spark.eventhubs._
 
-    // Build connection string with the above information 
+    // Build connection string with the above information
     val connectionString = ConnectionStringBuilder("<EVENT HUBS CONNECTION STRING>")
       .setEventHubName("<EVENT HUB NAME>")
       .build
-    
-    val customEventhubParameters = 
+
+    val customEventhubParameters =
       EventHubsConf(connectionString)
       .setMaxEventsPerTrigger(5)
-    
+
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    
+
     incomingStream.printSchema
-    
+
     // Sending the incoming stream into the console.
     // Data comes in batches!
     incomingStream.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 Aşağıdaki çıkışı alırsınız:
 
-  
+
     root
      |-- body: binary (nullable = true)
      |-- offset: long (nullable = true)
@@ -335,7 +333,7 @@ Aşağıdaki çıkışı alırsınız:
      |-- enqueuedTime: long (nullable = true)
      |-- publisher: string (nullable = true)
      |-- partitionKey: string (nullable = true)
-   
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -343,9 +341,9 @@ Aşağıdaki çıkışı alırsınız:
     |body  |offset|sequenceNumber|enqueuedTime   |publisher|partitionKey|
     +------+------+--------------+---------------+---------+------------+
     |[50 75 62 6C 69 63 20 70 72 65 76 69 65 77 20 6F 66 20 4A 61 76 61 20 6F 6E 20 41 70 70 20 53 65 72 76 69 63 65 2C 20 62 75 69 6C 74 2D 69 6E 20 73 75 70 70 6F 72 74 20 66 6F 72 20 54 6F 6D 63 61 74 20 61 6E 64 20 4F 70 65 6E 4A 44 4B 0A 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 37 76 73 37 63 4B 74 76 61 68 20 0A 23 63 6C 6F 75 64 63 6F 6D 70 75 74 69 6E 67 20 23 41 7A 75 72 65]                              |0     |0             |2018-03-09 05:49:08.86 |null     |null        |
-    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        | 
+    |[4D 69 67 72 61 74 65 20 79 6F 75 72 20 64 61 74 61 62 61 73 65 73 20 74 6F 20 61 20 66 75 6C 6C 79 20 6D 61 6E 61 67 65 64 20 73 65 72 76 69 63 65 20 77 69 74 68 20 41 7A 75 72 65 20 53 51 4C 20 44 61 74 61 62 61 73 65 20 4D 61 6E 61 67 65 64 20 49 6E 73 74 61 6E 63 65 20 7C 20 23 41 7A 75 72 65 20 7C 20 23 43 6C 6F 75 64 20 68 74 74 70 73 3A 2F 2F 74 2E 63 6F 2F 73 4A 48 58 4E 34 74 72 44 6B]            |168   |1             |2018-03-09 05:49:24.752|null     |null        |
     +------+------+--------------+---------------+---------+------------+
-    
+
     -------------------------------------------
     Batch: 1
     -------------------------------------------
@@ -356,19 +354,19 @@ Aşağıdaki çıkışı alırsınız:
 
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so we cast it to string to see the actual content of the message
-    val messages = 
+    val messages =
       incomingStream
       .withColumn("Offset", $"offset".cast(LongType))
       .withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType))
       .withColumn("Timestamp", $"enqueuedTime".cast(LongType))
       .withColumn("Body", $"body".cast(StringType))
       .select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
 Çıkış şimdi aşağıdaki kod parçacığına benzer:
@@ -378,7 +376,7 @@ Aşağıdaki çıkışı alırsınız:
      |-- Time (readable): timestamp (nullable = true)
      |-- Timestamp: long (nullable = true)
      |-- Body: string (nullable = true)
-    
+
     -------------------------------------------
     Batch: 0
     -------------------------------------------
@@ -386,7 +384,7 @@ Aşağıdaki çıkışı alırsınız:
     |Offset|Time (readable)  |Timestamp |Body
     +------+-----------------+----------+-------+
     |0     |2018-03-09 05:49:08.86 |1520574548|Public preview of Java on App Service, built-in support for Tomcat and OpenJDK
-    https://t.co/7vs7cKtvah 
+    https://t.co/7vs7cKtvah
     #cloudcomputing #Azure          |
     |168   |2018-03-09 05:49:24.752|1520574564|Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |
     |0     |2018-03-09 05:49:02.936|1520574542|@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|
@@ -406,12 +404,12 @@ Not defterine yeni bir kod hücresi ekleyerek başlayın ve aşağıda verilen k
 
     import java.io._
     import java.net._
-    import java.util._    
+    import java.util._
 
-    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable 
+    class Document(var id: String, var text: String, var language: String = "", var sentiment: Double = 0.0) extends Serializable
 
     class Documents(var documents: List[Document] = new ArrayList[Document]()) extends Serializable {
-    
+
         def add(id: String, text: String, language: String = "") {
             documents.add (new Document(id, text, language))
         }
@@ -436,9 +434,9 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
     import com.google.gson.JsonObject
     import com.google.gson.JsonParser
     import scala.util.parsing.json._
-    
+
     object SentimentDetector extends Serializable {
-      
+
       // Cognitive Services API connection settings
       val accessKey = "<PROVIDE ACCESS KEY HERE>"
       val host = "<PROVIDE HOST HERE>"
@@ -446,7 +444,7 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
       val sentimentPath = "/text/analytics/v2.0/sentiment"
       val languagesUrl = new URL(host+languagesPath)
       val sentimenUrl = new URL(host+sentimentPath)
-      
+
       def getConnection(path: URL): HttpsURLConnection = {
         val connection = path.openConnection().asInstanceOf[HttpsURLConnection]
         connection.setRequestMethod("POST")
@@ -455,14 +453,14 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
         connection.setDoOutput(true)
         return connection
       }
-      
+
       def prettify (json_text: String): String = {
         val parser = new JsonParser()
         val json = parser.parse(json_text).getAsJsonObject()
         val gson = new GsonBuilder().setPrettyPrinting().create()
         return gson.toJson(json)
       }
-      
+
       // Handles the call to Cognitive Services API.
       // Expects Documents as parameters and the address of the API to call.
       // Returns an instance of Documents in response.
@@ -474,7 +472,7 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
         wr.write(encoded_text, 0, encoded_text.length)
         wr.flush()
         wr.close()
-    
+
         val response = new StringBuilder()
         val in = new BufferedReader(new InputStreamReader(connection.getInputStream()))
         var line = in.readLine()
@@ -485,10 +483,10 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
         in.close()
         return response.toString()
       }
-      
+
       // Calls the language API for specified documents.
       // Returns a documents with language field set.
-      def getLanguage (inputDocs: Documents): Documents = { 
+      def getLanguage (inputDocs: Documents): Documents = {
         try {
           val response = processUsingApi(inputDocs, languagesUrl)
           // In case we need to log the json response somewhere
@@ -511,7 +509,7 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
               case e: Exception => return new Documents()
         }
       }
-      
+
       // Calls the sentiment API for specified documents. Needs a language field to be set for each of them.
       // Returns documents with sentiment field set, taking a value in the range from 0 to 1.
       def getSentiment (inputDocs: Documents): Documents = {
@@ -535,7 +533,7 @@ Yeni bir kod hücresi ekleyin ve aşağıda sağlanan kod parçacığını yapı
         }
       }
     }
-    
+
     // User Defined Function for processing content of messages to return their sentiment.
     val toSentiment = udf((textContent: String) => {
       val inputDocs = new Documents()
@@ -554,7 +552,7 @@ Tweet’in içeriği ve tweet ile ilişkili yaklaşım ile bir veri çerçevesi 
 
     // Prepare a dataframe with Content and Sentiment columns
     val streamingDataFrame = incomingStream.selectExpr("cast (body as string) AS Content").withColumn("Sentiment", toSentiment($"Content"))
-    
+
     // Display the streaming data with the sentiment
     streamingDataFrame.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
 
@@ -571,11 +569,11 @@ Aşağıdaki kod parçacığı gibi bir çıktı görmeniz gerekir:
     |Migrate your databases to a fully managed service with Azure SQL Database Managed Instance | #Azure | #Cloud https://t.co/sJHXN4trDk    |0.8558163642883301|
     |@Microsoft and @Esri launch Geospatial AI on Azure https://t.co/VmLUCiPm6q via @geoworldmedia #geoai #azure #gis #ArtificialIntelligence|0.5               |
     |4 Killer #Azure Features for #Data #Performance https://t.co/kpIb7hFO2j by @RedPixie                                                    |0.5               |
-    +--------------------------------+------------------+ 
+    +--------------------------------+------------------+
 
-**Yaklaşım** sütununda bir değerin **1** değerine yakın olması, Azure deneyiminin mükemmel olduğunu ifade eder. Bir değerin **0** değerine yakın olması, kullanıcının Microsoft Azure ile çalışırken sorunlarla karşılaştığını ifade eder. 
+**Yaklaşım** sütununda bir değerin **1** değerine yakın olması, Azure deneyiminin mükemmel olduğunu ifade eder. Bir değerin **0** değerine yakın olması, kullanıcının Microsoft Azure ile çalışırken sorunlarla karşılaştığını ifade eder.
 
-İşte bu kadar! Azure Databricks’i kullanarak, gerçek zamanlı verileri başarıyla Azure Event Hubs’ta akışa aldınız, Event Hubs bağlayıcısını kullanarak akış verilerini kullandınız ve sonra akış verileriyle ilgili yaklaşım analizi çalıştırdınız.
+İşte bu kadar! Azure Databricks’i kullanarak, verileri başarıyla Azure Event Hubs’ta akışa aldınız, Event Hubs bağlayıcısını kullanarak akış verilerini kullandınız ve sonra gerçek zamanlıya yakın şekilde akış verileriyle ilgili yaklaşım analizi çalıştırdınız.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
@@ -585,12 +583,12 @@ Aşağıdaki kod parçacığı gibi bir çıktı görmeniz gerekir:
 
 Kümeyi oluştururken **__ dakika etkinsizlik süresinden sonra sonlandır** onay kutusunu seçtiyseniz, kümeyi kendiniz sonlandırmazsanız küme otomatik olarak durdurulur. Böyle bir durumda, belirtilen süre boyunca etkin olmaması durumunda küme otomatik olarak durdurulur.
 
-## <a name="next-steps"></a>Sonraki adımlar 
+## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, verileri Azure Event Hubs’ta akışa almak ve sonra gerçek zamanlı olarak Event Hubs’tan akış verilerini okumak için Azure Databricks’i kullanmayı öğrendiniz. Şunları öğrendiniz:
 > [!div class="checklist"]
 > * Azure Databricks çalışma alanı oluşturma
 > * Azure Databricks’te Spark kümesi oluşturma
-> * Gerçek zamanlı verilere erişmek için Twitter uygulaması oluşturma
+> * Akış verilerine erişmek için bir Twitter uygulaması oluşturma
 > * Azure Databricks’te not defterleri oluşturma
 > * Event Hubs ve Twitter API’si için kitaplıklar ekleme
 > * Microsoft Bilişsel Hizmetler hesabı oluşturma ve erişim anahtarını alma

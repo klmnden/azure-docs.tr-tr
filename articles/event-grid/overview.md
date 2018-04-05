@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz genel bakış"
-description: "Azure olay kılavuz ve onun kavramlarını açıklar."
+title: Azure olay kılavuz genel bakış
+description: Azure olay kılavuz ve onun kavramlarını açıklar.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 03/30/2018
 ms.author: babanisa
-ms.openlocfilehash: 5e700e3e9d17e790083facf00c7f4b8decf9037a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 335d6aba3a3d2098fa64aeda8c58c8dd7f4e6776
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure olay kılavuzuna giriş
 
@@ -33,25 +33,26 @@ Belirli olayları farklı uç noktalar, birden çok uç nokta için çok noktaya
 *   Batı ABD
 *   Batı ABD 2
 
-Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md). Aşağıdaki resimde Yayımcılar ve işleyicileri olayı kılavuz nasıl bağlanacağını gösterir, ancak desteklenen seçenekler kapsamlı bir listesini sağlamaz.
+Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başlamak istiyorsanız, bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md). Aşağıdaki resimde kaynakları ve işleyicileri olayı kılavuz nasıl bağlanacağını gösterir, ancak desteklenen seçenekler kapsamlı bir listesini sağlamaz.
 
 ![Olay kılavuz işlevsel modeli](./media/overview/functional-model.png)
 
-## <a name="event-publishers"></a>Olay yayımcıları
+## <a name="event-sources"></a>Olay kaynakları
 
-Şu anda aşağıdaki Azure hizmetlerini olay kılavuz için yerleşik yayımcı desteğine sahiptir:
+Şu anda aşağıdaki Azure hizmetlerini olay kılavuza gönderen olaylar destekler:
 
 * Azure abonelikleri (yönetim işlemlerini)
 * Özel konular
 * Event Hubs
 * IoT Hub’ı
 * Kaynak grupları (yönetim işlemlerini)
+* Service Bus
 * Depolama blobu
 * Depolama genel amaçlı v2 (GPv2)
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 
-Şu anda aşağıdaki Azure hizmetlerini olay kılavuz yerleşik işleyici desteği vardır: 
+Şu anda aşağıdaki Azure hizmetlerini olay kılavuz işleme olaylarından destekler: 
 
 * Azure Otomasyonu
 * Azure İşlevleri
@@ -60,7 +61,7 @@ Bu makalede Azure olay kılavuz genel bir bakış sağlar. Olay kılavuzla başl
 * Microsoft Flow
 * WebHooks
 
-Azure işlevleri işleyici olarak kullanırken, olay kılavuz tetikleyici genel HTTP INSTEAD OF Tetikleyicileri kullanın. Olay kılavuz otomatik olarak olay kılavuz işlevi Tetikleyicileri doğrular. Genel HTTP tetikleyicileri ile uygulamanız gereken [doğrulama yanıt](security-authentication.md#webhook-event-delivery).
+Azure işlevleri işleyici olarak kullanırken, olay kılavuz tetikleyici genel HTTP INSTEAD OF Tetikleyicileri kullanın. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
 
 ## <a name="concepts"></a>Kavramlar
 

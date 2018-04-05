@@ -1,26 +1,26 @@
 ---
-title: "Azure PowerShell modülü ile Windows VM’leri Oluşturma ve Yönetme | Microsoft Docs"
-description: "Öğretici - Azure PowerShell modülü ile Windows VM’leri Oluşturma ve Yönetme"
+title: Azure PowerShell modülü ile Windows VM’leri Oluşturma ve Yönetme | Microsoft Docs
+description: Öğretici - Azure PowerShell modülü ile Windows VM’leri Oluşturma ve Yönetme
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/09/2018
+ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cf406dfbab40631c99da70085e99ba90f563411
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 9bc5154486bf09072bdf3da6bbeb05407a140354
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-and-manage-windows-vms-with-the-azure-powershell-module"></a>Azure PowerShell modülü ile Windows VM’leri Oluşturma ve Yönetme
 
@@ -90,9 +90,11 @@ Sanal makine ile bir uzak masaüstü oturumu oluşturmak için yerel makinenizde
 mstsc /v:<publicIpAddress>
 ```
 
+**Windows Güvenliği** penceresinde **Diğer seçenekler**'i ve ardından **Başka bir hesap kullanın**'ı seçin. Sanal makine için oluşturduğunuz kullanıcı adı ve parolayı yazıp **Tamam**’a tıklayın.
+
 ## <a name="understand-vm-images"></a>VM görüntülerini anlama
 
-Azure marketi, yeni bir sanal makine oluşturmak için kullanılabilen birçok sanal makine görüntüsü içerir. Önceki adımlarda, Windows Server 2016-Datacenter görüntüsünü kullanılarak bir sanal makine oluşturuldu. Bu adımda, PowerShell modülü markette diğer Windows görüntülerini aramak için kullanılır, bu da yeni VM’lerin toplandığı yer olarak ayrıca kullanılabilir. Bu işlem yayımcıyı, teklifi ve görüntü adını (Sku) bulmayı içerir. 
+Azure marketi, yeni bir sanal makine oluşturmak için kullanılabilen birçok sanal makine görüntüsü içerir. Önceki adımlarda, Windows Server 2016-Datacenter görüntüsünü kullanılarak bir sanal makine oluşturuldu. Bu adımda, PowerShell modülü markette diğer Windows görüntülerini aramak için kullanılır, bu da yeni sanal makinelerin toplandığı yer olarak ayrıca kullanılabilir. Bu işlem, görüntüyü [tanımlamak](cli-ps-findimage.md#terminology) için yayımcının, teklifin, SKU’nun ve isteğe bağlı olarak bir sürüm numarasının bulunmasını kapsar. 
 
 Görüntü yayımcılarının bir listesini döndürmek için [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) komutunu kullanın:
 
@@ -139,7 +141,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-Bu bilgiler, belirli bir görüntüye sahip bir VM’yi dağıtmak için kullanılabilir. Bu örnek Kapsayıcılar’ı içeren Windows Server 2016 görüntüsü ile bir sanal makine dağıtır.
+Bu bilgiler, belirli bir görüntüye sahip bir VM’yi dağıtmak için kullanılabilir. Bu örnek, Kapsayıcılar’ı içeren Windows Server 2016 görüntüsünün en son sürümünü kullanarak bir sanal makineyi dağıtır.
 
 ```azurepowershell-interactive
 New-AzureRmVm `

@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT cihaz SDK'sı c - IoTHubClient | Microsoft Docs"
-description: "Azure IOT cihaz SDK'sı c IoTHubClient kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını."
+title: Azure IOT cihaz SDK'sı c - IoTHubClient | Microsoft Docs
+description: Azure IOT cihaz SDK'sı c IoTHubClient kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: yzhong94
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 828cf2bf-999d-4b8a-8a28-c7c901629600
 ms.service: iot-hub
 ms.devlang: cpp
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: yizhon
-ms.openlocfilehash: 6efd2980ce4dde99d934b3fe174d341fb68fac03
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0fa07b2a785bd7d1a26924918e4428fd420e1547
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>C – IoTHubClient hakkında daha fazla bilgi için Azure IOT cihaz SDK'sı
 [İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Bu makale, SDK içinde iki Mimari katman vardır açıklanmıştır. Temeli **IoTHubClient** doğrudan IOT Hub ile iletişim yöneten kitaplığı. Ayrıca **seri hale getirici** serileştirme hizmetleri sağlamak için açık üst o derlemeler kitaplığı. Bu makalede ek ayrıntı sağlarız **IoTHubClient** kitaplığı.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 Önceki makalede açıklanan nasıl kullanılacağını **IoTHubClient** iletileri IOT Hub'ına olayları göndermek ve almak için kitaplık. Bu makalede bu tartışma nasıl daha kesin olarak yönetilir açıklayarak genişletir *zaman* için giriş veri gönderip **düşük düzeyli API'leri**. Olayları Özellikler ekleme (ve gelen iletileri almak) nasıl ayrıca açıklayacağız özelliklerinde işleme özelliğini kullanarak **IoTHubClient** kitaplığı. Son olarak, IOT Hub'ından alınan iletileri işlemek için farklı yollar ek açıklama sağlarız.
 

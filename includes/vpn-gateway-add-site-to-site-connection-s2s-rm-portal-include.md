@@ -1,9 +1,25 @@
-1. Sanal ağ geçidinizin dikey penceresine gidip bu dikey pencereyi açın. Buraya çeşitli yollardan gidebilirsiniz. Örneğimizde "VNet1GW" ağ geçidine gitmek için **TestVNet1 -> Genel bakış -> Bağlı cihazlar -> VNet1GW** yolunu kullandık.
-2. VNet1GW dikey penceresinde **Bağlantılar**'a tıklayın. Bağlantılar dikey penceresinin üstündeki **+Ekle**’ye tıklayarak **Bağlantı ekle** dikey penceresini açın.
+---
+title: include dosyası
+description: include dosyası
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 03/21/2018
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: ea616786d69d41435be2a46e90d4973b21270935
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 03/23/2018
+---
+1. Sanal ağ geçidinizin sayfasına gidip bu sayfayı açın. Buraya çeşitli yollardan gidebilirsiniz. Örneğimizde "VNet1GW" ağ geçidine gitmek için **TestVNet1 -> Genel bakış -> Bağlı cihazlar -> VNet1GW** yolunu kullandık.
+2. VNet1GW sayfasında **Bağlantılar**'a tıklayın. Bağlantılar sayfasının üstündeki **+Ekle**’ye tıklayarak **Bağlantı ekle** sayfasını açın.
 
     ![Siteden Siteye bağlantısı oluşturma](./media/vpn-gateway-add-site-to-site-connection-s2s-rm-portal-include/connection1.png)
 
-3. **Bağlantı ekle** dikey penceresinde bağlantınızı oluşturmak için değerleri girin.
+3. **Bağlantı ekle** sayfasında bağlantınızı oluşturmak için değerleri girin.
 
   - **Ad:** Bağlantınızı adlandırın. Örneğimizde **VNet1toSite2** kullandık.
   - **Bağlantı türü:** **Siteden siteye (IPSec)** seçeneğini belirleyin.
@@ -13,4 +29,4 @@
   - **Abonelik**, **Kaynak Grubu** ve **Konum** için kalan değerler sabittir.
 
 4. Bağlantınızı oluşturmak için **Tamam**’a tıklayın. Ekranda yanıp sönen *Bağlantısı Oluşturuluyor* yazısını göreceksiniz.
-5. Bağlantıyı sanal ağın **Bağlantılar** dikey penceresinde görüntüleyebilirsiniz. *Bilinmiyor* Durumu *Bağlanıyor* olarak ve ardından *Başarılı* olarak değişir.
+5. Bağlantıyı sanal ağ geçidinin **Bağlantılar** sayfasında görüntüleyebilirsiniz. *Bilinmiyor* Durumu *Bağlanıyor* olarak ve ardından *Başarılı* olarak değişir.

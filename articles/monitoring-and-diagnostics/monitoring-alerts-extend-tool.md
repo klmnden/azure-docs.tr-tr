@@ -1,5 +1,5 @@
 ---
-title: Azure'da OMS uyarılar genişletme başlatma | Microsoft Docs
+title: (Kopya) genişletmek uyarıları OMS Portalı'ndan Azure'da | Microsoft Docs
 description: Araçlar ve olarak uyarıları OMS Azure Uyarıları ' genişletme yapılabilir müşteriler tarafından gönüllü API.
 author: msvijayn
 manager: kmadnani1
@@ -13,58 +13,58 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vinagara
-ms.openlocfilehash: 5e8a66214efc27e8e59da354e54d68bb48d274cc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="initiate-extending-alerts-from-oms-into-azure"></a>Azure'da OMS genişletme uyarıları başlatır
+# <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Azure'a OMS (kopya) uyarıları genişletme
 Başlangıç **23 Nisan 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
 
 Azure'a OMS uyarılarını hemen taşımak isteyen müşteriler yapabilirsiniz belirtildiği seçeneklerden birini kullanarak.
 
 ## <a name="option-1---using-oms-portal"></a>1. seçenek - OMS portalı kullanma
-Uyarıları OMS Azure'da genişletme gönüllü başlatmak için aşağıda listelenen adımları izleyin.
+Uyarıları OMS Portalı'ndan Azure'da genişletme gönüllü başlatmak için aşağıda listelenen adımları izleyin.
 
-1. Operations Management Suite (OMS) genel bakış sayfasında, ayarları ve sonra uyarıları bölümüne gidin. "Genişletmek içine Azure", vurgulanmış çizimde etiketli düğmesine tıklayın.
+1. OMS portalı genel bakış sayfasında, ayarları ve sonra uyarıları bölümüne gidin. "Genişletmek içine Azure", vurgulanmış çizimde etiketli düğmesine tıklayın.
 
-    ![Genişletme seçeneği OMS uyarı ayarları sayfası](./media/monitor-alerts-extend/ExtendInto.png)
+    ![OMS portalı uyarı ayarlarını sayfası genişletme seçeneği](./media/monitor-alerts-extend/ExtendInto.png)
 
 2. Düğme tıklatıldığında 3 adım Sihirbazı işleminin ayrıntıları sağlayan ilk adımı ile gösterilir. Devam etmek için İleri düğmesine basın.
 
-    ![Uyarıları OMS Azure'da - 1. adım genişletir.](./media/monitor-alerts-extend/ExtendStep1.png)
+    ![Uyarıları OMS Portalı'ndan Azure'da - 1. adım genişletir.](./media/monitor-alerts-extend/ExtendStep1.png)
 
-3. İkinci adımda sistem listeleme uygun önerilen değişikliği özetini gösterir [Eylem grupları](monitoring-action-groups.md), OMS uyarılarını. Benzer eylemler arasında birden fazla uyarısı - görülüyorsa sistem bunların tümünün ile tek eylem grubu ilişkilendirilecek önerebilir.  Önerilen eylem grubu izleyin adlandırma kuralı: *WorkspaceName_AG_ #Number*. Olması devam etmek için İleri'yi tıklatın.
+3. İkinci adımda sistem listeleme uygun önerilen değişikliği özetini gösterir [Eylem grupları](monitoring-action-groups.md), OMS portalında uyarılar için. Benzer eylemler arasında birden fazla uyarısı - görülüyorsa sistem bunların tümünün ile tek eylem grubu ilişkilendirilecek önerebilir.  Önerilen eylem grubu izleyin adlandırma kuralı: *WorkspaceName_AG_ #Number*. Olması devam etmek için İleri'yi tıklatın.
 Aşağıdaki örnek ekrana.
 
-    ![Uyarıları OMS Azure'da - 2. adım genişletir.](./media/monitor-alerts-extend/ExtendStep2.png)
+    ![Uyarıları OMS Portalı'ndan Azure'da - adım 2 genişletir.](./media/monitor-alerts-extend/ExtendStep2.png)
 
 
-4. Sihirbazın son adımda yeni eylem grupları oluşturarak ve bunları önceki ekran görüntüsünde gösterildiği gibi uyarıları ile ilişkilendirme Azure'da - tüm uyarılarınızı genişletme zamanlamak için OMS sorabilirsiniz. Devam etmek için seçin Son'u tıklatın ve işlemini başlatmak için komut isteminde onaylayın. İsteğe bağlı olarak, müşteriler işleme bitiş üzerinde bir rapor göndermek için OMS istedikleri e-posta adresleri de sağlayabilirsiniz.
+4. Sihirbazın son adımda yeni eylem grupları oluşturarak ve bunları önceki ekran görüntüsünde gösterildiği gibi uyarıları ile ilişkilendirme Azure'da - tüm uyarılarınızı genişletme zamanlamak için OMS portalı sorabilirsiniz. Devam etmek için seçin Son'u tıklatın ve işlemini başlatmak için komut isteminde onaylayın. İsteğe bağlı olarak, müşteriler işleme bitiş üzerinde bir rapor göndermek için OMS portalı istedikleri e-posta adresleri de sağlayabilirsiniz.
 
-    ![Uyarıları OMS Azure'da - 3. adım genişletir.](./media/monitor-alerts-extend/ExtendStep3.png)
+    ![Uyarıları OMS Portalı'ndan Azure'da - 3. adım genişletir.](./media/monitor-alerts-extend/ExtendStep3.png)
 
-5. Sihirbaz tamamlandıktan sonra Denetim uyarı ayarları sayfasına döndürür ve "Azure içine genişletme" seçeneği kaldırılır. Arka planda, Azure'a genişletilmesi OMS uyarılar OMS zamanlar; Bu işlem biraz zaman alabilir ve OMS kısa bir dönem uyarılarını işlemi başladığında, değiştirilmek üzere kullanılabilir olmaz. Geçerli durumu başlık gösterilir ve 4. adımda sonra bunlar olacaktır sağlanan e-posta where adresleri varsa, arka plan işlemi başarıyla tüm uyarıları Azure'da genişletir bilgisi. 
+5. Sihirbaz tamamlandıktan sonra Denetim uyarı ayarları sayfasına döndürür ve "Azure içine genişletme" seçeneği kaldırılır. Arka planda, Azure'a genişletilmesi için günlük analizi uyarılarını OMS portalı zamanlar; Bu işlem biraz zaman alabilir ve OMS portalında kısa bir dönem uyarılar için işlemi başladığında, değiştirilmek üzere kullanılabilir olmaz. Geçerli durumu başlık gösterilir ve 4. adımda sonra bunlar olacaktır sağlanan e-posta where adresleri varsa, arka plan işlemi başarıyla tüm uyarıları Azure'da genişletir bilgisi. 
 
-6. Uyarıları bile bunların başarıyla Azure'da genişletilmiş sonra OMS içinde listelenecek devam eder.
+6. Uyarıları bile bunların başarıyla Azure'da genişletilmiş sonra OMS Portalı'nda listelenmesi devam eder.
 
-    ![Azure için OMS uyarılar genişlettikten sonra](./media/monitor-alerts-extend/PostExtendList.png)
+    ![Azure için OMS portalında uyarılar genişlettikten sonra](./media/monitor-alerts-extend/PostExtendList.png)
 
 
 ## <a name="option-2---using-api"></a>Seçenek 2 - API kullanma
-Programlı olarak denetlemek veya, Azure'da OMS uyarılar genişletme işlemini otomatikleştirmek isteyen müşteriler için; Microsoft, günlük analizi altında yeni AlertsVersion API sağlamıştır.
+Programlı olarak denetlemek veya, Azure'da OMS portalında uyarılar genişletme işlemini otomatikleştirmek isteyen müşteriler için; Microsoft, günlük analizi altında yeni AlertsVersion API sağlamıştır.
 
 Günlük analizi AlertsVersion API RESTful ve Azure Resource Manager REST API'si erişilebilir. Bu belgede, API kullanarak bir PowerShell komut satırı burada erişilen örnekler bulacaksınız [ARMClient](https://github.com/projectkudu/ARMClient), Azure Kaynak Yöneticisi API'si çağırma basitleştiren bir açık kaynak komut satırı aracı. ARMClient ve PowerShell kullanımını API erişmek için birçok seçenek biridir. API sonuçları JSON biçiminde sonuçları kullanımını birçok farklı yolla program aracılığıyla izin vererek çıktı.
 
-GET API'sini kullanarak, bir sonuçlanır önerilen değişikliği özetini uygun listesi olarak elde edebilirsiniz [Eylem grupları](monitoring-action-groups.md) JSON'de OMS uyarılar için biçimlendirin. Benzer eylemler arasında birden fazla uyarı görülen - sistem oluşturmayı önerecektir, bunların tümünün ile tek eylem grubu ilişkilendirin.  Önerilen eylem grubu izleyin adlandırma kuralı: *WorkspaceName_AG_ #Number*.
+GET API'sini kullanarak, bir sonuçlanır önerilen değişikliği özetini uygun listesi olarak elde edebilirsiniz [Eylem grupları](monitoring-action-groups.md) JSON'de OMS portalında uyarılar için biçimlendirin. Benzer eylemler arasında birden fazla uyarı görülen - sistem oluşturmayı önerecektir, bunların tümünün ile tek eylem grubu ilişkilendirin.  Önerilen eylem grubu izleyin adlandırma kuralı: *WorkspaceName_AG_ #Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 
 > [!NOTE]
-> Alma API çağrısı Azure'da genişletilmiş OMS uyarılar değil sonuçlanır. Yalnızca Özet yanıt olarak sağlarız önerilen değişikliklerin. Bir POST uyarıları Azure'da genişletmek için bu değişikliklerin yapılması onaylamak için API için yapılması gereken çağırın.
+> Alma API çağrısı Azure'da genişletilmiş OMS portalında uyarılar neden. Yalnızca Özet yanıt olarak sağlarız önerilen değişikliklerin. Bir POST uyarıları Azure'da genişletmek için bu değişikliklerin yapılması onaylamak için API için yapılması gereken çağırın.
 
 API GET çağrısı ile birlikte 200 Tamam yanıt başarılı olursa, JSON listesini uyarıları önerilen eylem grupları ile birlikte verilir. Aşağıdaki örnek yanıt:
 
@@ -139,7 +139,7 @@ Belirtilen çalışma alanında, tüm uyarıları zaten genişletilmişse Azure 
 }
 ```
 
-Azure için OMS uyarıları genişletme zamanlama başlatmak için API POST başlatın. Bu çağrı/komutu yapılması kullanıcının hedefi yanı sıra Azure'a genişletilmiş OMS uyarılarını var ve yanıt GET çağrısı API belirtildiği gibi değişiklikleri yapabilir için kabul onaylar. İsteğe bağlı olarak, kullanıcı için Azure OMS uyarıları genişletme zamanlanmış arka plan işlemi başarıyla tamamlandığında, bir rapor OMS olduğu posta e-posta adreslerinin listesini sağlayabilirsiniz.
+Azure için OMS portalında uyarılar genişletme zamanlama başlatmak için API POST başlatın. Bu çağrı/komutu yapılması kullanıcının hedefi yanı sıra Azure'a genişletilmiş OMS portalında uyarılarını olması ve yanıt GET çağrısı API belirtildiği gibi değişiklikleri yapabilir kabul onaylar. İsteğe bağlı olarak, kullanıcı için Azure OMS portalında uyarılar genişletme zamanlanmış arka plan işlemi başarıyla tamamlandığında, hangi OMS bir rapor portal posta e-posta adreslerinin listesini sağlayabilirsiniz.
 
 ```
 $emailJSON = “{‘Recipients’: [‘a@b.com’, ‘b@a.com’]}”
@@ -147,7 +147,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 ```
 
 > [!NOTE]
-> Genişletme sonucunu OMS Azure uyarıları sağlanan tarafından GET - sistemde yapılan herhangi bir değişiklik hesabındaki özeti gelen farklılık gösterebilir. Yeni uyarılar oluşturduğunuz sırada zamanlanmış sonra OMS uyarılar düzenleme/değiştirilmek üzere - geçici olarak kullanılamaz. 
+> OMS genişletme sonucunu Azure'da, portal uyarıları sağlanan tarafından GET - sistemde yapılan herhangi bir değişiklik hesabındaki özeti gelen farklılık gösterebilir. Yeni uyarılar oluşturduğunuz sırada zamanlanmış sonra OMS portalında uyarılar düzenleme/değiştirilmek üzere - geçici olarak kullanılamaz. 
 
 POST başarılı olursa, 200 Tamam yanıt ile birlikte Döndür:
 ```json

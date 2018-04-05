@@ -1,11 +1,11 @@
 ---
-title: "Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (düğüm) | Microsoft Docs"
-description: "Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Node.js için Azure IOT SDK'ları kullanın."
+title: Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (düğüm) | Microsoft Docs
+description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Node.js için Azure IOT SDK'ları kullanın.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,16 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e169367592b25ea45c3d1017937316a3b3b538b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Bir cihaz üretici yazılımı güncelleştirmesi (düğümü/düğümü) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 İçinde [aygıt Management'i kullanmaya başlama] [ lnk-dm-getstarted] Öğreticisi, nasıl kullanılacağını gördüğünüz [cihaz çifti] [ lnk-devtwin] ve [doğrudan yöntemleri ] [ lnk-c2dmethod] temelleri uzaktan bir aygıt yeniden başlatma. Bu öğretici aynı IOT hub'ı temelleri kullanır ve rehberlik sağlar ve bir uçtan uca sanal üretici yazılımı güncelleştirme yapmak nasıl gösterir.  Bu deseni bellenim güncelleştirme uygulamasında Intel Edison'u aygıt örnek için kullanılır.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 

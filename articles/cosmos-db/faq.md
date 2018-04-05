@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: mimig
-ms.openlocfilehash: 946d0f6456ce27931c91066d63c028388ecec84c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 7039b87c80aecb837059d80087c97e8691da2988
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -122,7 +122,7 @@ Bir bölge ayarladığınızda, Azure Cosmos DB sovereign ve kamu Bulutlar uyar 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API karşı geliştirme nasıl başlamanız gerekir?
 Önce Azure aboneliği için kaydolmanız gerekir. Azure aboneliği için kaydolduktan sonra SQL API'yi kapsayıcı Azure aboneliğiniz ekleyebilirsiniz. Bir Azure Cosmos DB hesap ekleme ile ilgili yönergeler için bkz: [Azure Cosmos DB veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-account). 
 
-[SDK'ları](sql-api-sdk-dotnet.md) .NET, Python, Node.js, JavaScript ve Java için kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/documentdb/) çeşitli platformlardan ve dillerden Azure Cosmos DB kaynakları ile etkileşim kurmak için.
+[SDK'ları](sql-api-sdk-dotnet.md) .NET, Python, Node.js, JavaScript ve Java için kullanılabilir. Geliştiriciler ayrıca kullanabileceğiniz [RESTful HTTP API'lerini](/rest/api/cosmos-db/) çeşitli platformlardan ve dillerden Azure Cosmos DB kaynakları ile etkileşim kurmak için.
 
 ### <a name="can-i-access-some-ready-made-samples-to-get-a-head-start"></a>Head başlamak için hazır bazı örnekleri erişebilir mi?
 SQL API için örnek [.NET](sql-api-dotnet-samples.md), [Java](https://github.com/Azure/azure-documentdb-java), [Node.js](sql-api-nodejs-samples.md), ve [Python](sql-api-python-samples.md) SDK'ları Github'da bulunmaktadır.
@@ -140,10 +140,10 @@ Bir koleksiyon, belgeler ve bunların ilişkili JavaScript uygulama mantığın�
 Ayrıca fatura varlıklar için Azure Cosmos DB koleksiyonlarıdır. Her koleksiyon saatlik olarak faturalandırılır sağlanan işlemeyi temel alan ve kullanılan depolama alanı. Daha fazla bilgi için bkz: [Azure DB Cosmos fiyatlandırma](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 ### <a name="how-do-i-create-a-database"></a>Veritabanı nasıl oluşturulur?
-Kullanarak veritabanları oluşturabilirsiniz [Azure portal](https://portal.azure.com)açıklandığı gibi [bir koleksiyon Ekle](create-sql-api-dotnet.md#create-collection), bir, [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/documentdb/). 
+Kullanarak veritabanları oluşturabilirsiniz [Azure portal](https://portal.azure.com)açıklandığı gibi [bir koleksiyon Ekle](create-sql-api-dotnet.md#create-collection), bir, [Azure Cosmos DB SDK'ları](sql-api-sdk-dotnet.md), veya [REST API'leri](/rest/api/cosmos-db/). 
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>Kullanıcıları ve izinleri nasıl ayarlarım?
-Aşağıdakilerden birini kullanarak, kullanıcılar ve izinler oluşturabilirsiniz [Cosmos DB API SDK'ları](sql-api-sdk-dotnet.md) veya [REST API'leri](/rest/api/documentdb/).  
+Aşağıdakilerden birini kullanarak, kullanıcılar ve izinler oluşturabilirsiniz [Cosmos DB API SDK'ları](sql-api-sdk-dotnet.md) veya [REST API'leri](/rest/api/cosmos-db/).  
 
 ### <a name="does-the-sql-api-support-sql"></a>SQL API SQL destekliyor mu?
 SQL API hesapları tarafından desteklenen SQL sorgu dili Gelişmiş bir SQL Server tarafından desteklenen sorgu işlevi alt kümesidir. Azure Cosmos DB SQL sorgu dili zengin hiyerarşik ve ilişkisel işleçler ve genişletilebilirlik JavaScript tabanlı, kullanıcı tanımlı işlevler (UDF'ler) aracılığıyla sağlar. JSON dil bilgisi, hem Azure Cosmos DB otomatik dizin oluşturma teknikleri hem de Azure Cosmos DB SQL sorgu diyalekti tarafından kullanılan etiketli düğümleri ağaçlar JSON belgeleri modellenmesini sağlar. SQL dil bilgisinin kullanma hakkında daha fazla bilgi için bkz: [SQL sorgusu] [ query] makalesi.

@@ -1,6 +1,6 @@
 ---
-title: "Tanılama & ileti Çözümleyicisi ile Azure Storage sorunlarını giderme | Microsoft Docs"
-description: "Azure Storage Analytics, AzCopy ve Microsoft Message Analyzer uçtan uca sorun giderme gösteren bir öğretici"
+title: Tanılama & ileti Çözümleyicisi ile Azure Storage sorunlarını giderme | Microsoft Docs
+description: Azure Storage Analytics, AzCopy ve Microsoft Message Analyzer uçtan uca sorun giderme gösteren bir öğretici
 services: storage
 documentationcenter: dotnet
 author: tamram
@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.openlocfilehash: ee0e4671c31e97816576735b7bd2ee2f1629323e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 324370ae18627a1985e6a40aec11ee2fa871e93b
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage ölçümleri ve günlüğe kaydetme, AzCopy ve ileti Çözümleyicisi'ni kullanarak uçtan uca sorun giderme
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -35,9 +35,6 @@ Microsoft Azure depolama kullanan istemci uygulamalar sorun giderme için ne zam
   
   * **Depolama ölçümleri** işlem ölçümlerini ve depolama hesabınız için kapasite ölçümlerini izler. Ölçümleri kullanarak, uygulamanızın farklı ölçüleri çeşitli göre nasıl gerçekleştirmekte belirleyebilirsiniz. Bkz: [Storage Analytics Ölçüm tablosu şeması](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) depolama analizi tarafından izlenen ölçümleri türleri hakkında daha fazla bilgi için.
   * **Depolama günlük** her istek Azure Depolama Hizmetleri sunucu tarafı günlüğüne kaydeder. Günlük ayrıntılı veri yapılan işleme dahil olmak üzere her istek, işlem ve gecikme bilgileri durumunu izler. Bkz: [depolama Analytics günlük biçimi](/rest/api/storageservices/Storage-Analytics-Log-Format) günlüklerine depolama analizi tarafından yazılan istek ve yanıt verileri hakkında daha fazla bilgi için.
-
-> [!NOTE]
-> Bölge olarak yedekli depolama (ZRS) çoğaltma türüne sahip depolama hesapları, ölçümleri ve günlük kaydı destekler. ZRS Klasik hesapları ölçümleri veya günlük desteklemez. ZRS hakkında daha fazla bilgi için bkz: [bölge olarak yedekli depolama](storage-redundancy.md#zone-redundant-storage). 
 
 * **Azure portal**. Depolama hesabınız için ölçümleri ve günlük yapılandırabilirsiniz [Azure portal](https://portal.azure.com). Ayrıca, grafikler ve uygulamanızı zaman içinde nasıl gerçekleştirmekte gösteren grafikleri görüntüleyin ve uygulamanız için belirtilen bir ölçüm beklenenden farklı gerçekleştirirse sizi bilgilendirmek üzere uyarılar yapılandırın.
   
@@ -348,7 +345,7 @@ Bu iki sekme görünümü düzenleri gösterilen verileri kullanarak ne hataya n
 | Araştırmak için... | Filtre ifadesi kullan... | İfade günlüğüne uygular (istemci, sunucu, ağ, tüm) |
 | --- | --- | --- |
 | Bir kuyruk iletisi Teslimde beklenmeyen gecikme |AzureStorageClientDotNetV4.Description   contains "Retrying failed operation." |İstemci |
-| HTTP PercentThrottlingError artış |HTTP. Response.StatusCode 500 &#124; &#124; == HTTP. Response.StatusCode 503 == |Ağ |
+| HTTP PercentThrottlingError artış |HTTP. Response.StatusCode 500 == &#124; &#124; HTTP. Response.StatusCode 503 == |Ağ |
 | İçinde PercentTimeoutError artırın |HTTP. Response.StatusCode 500 == |Ağ |
 | (Tümü) PercentTimeoutError içinde artırın |* StatusCode 500 == |Tümü |
 | İçinde PercentNetworkError artırın |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |İstemci |
@@ -366,7 +363,7 @@ Bu iki sekme görünümü düzenleri gösterilen verileri kullanarak ne hataya n
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure storage'da sorun giderme uçtan uca senaryoları hakkında daha fazla bilgi için şu kaynaklara bakın:
 
-* [İzleme, tanılama ve Microsoft Azure Storage sorunlarını giderme](storage-monitoring-diagnosing-troubleshooting.md)
+* [Microsoft Azure Depolama izleme, tanılama ve sorun giderme](storage-monitoring-diagnosing-troubleshooting.md)
 * [Depolama Analizi](http://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Azure portalında bir depolama hesabını izleme](storage-monitor-storage-account.md)
 * [AzCopy Komut Satırı Yardımcı Programı ile veri aktarımı](storage-use-azcopy.md)

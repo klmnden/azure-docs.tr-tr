@@ -1,11 +1,11 @@
 ---
-title: "Objective C'de iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Belgeleri"
-description: "iOS uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
+title: Objective C'de iOS için Azure Mobile Engagement ile Çalışmaya Başlama | Microsoft Belgeleri
+description: iOS uygulamaları için analizler ve anında iletme bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 117b5742-522b-41de-98c5-f432da2d98f8
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: objective-c
 ms.topic: hero-article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.openlocfilehash: 913a60df4ce7c431b1c260135785972aac00c69d
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 7cf493e3a4878c64b0ea6a74b6e16329ce3d27b5
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-ios-apps-in-objective-c"></a>Objective C’de iOS uygulamaları için Azure Mobile Engagement kullanmaya başlama
+> [!IMPORTANT]
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konuda, uygulama kullanımınızı anlamak ve bir iOS uygulamasının segmentli kullanıcılarına anında iletme bildirimleri göndermek için nasıl Azure Mobile Engagement kullanılacağı gösterilmektedir.

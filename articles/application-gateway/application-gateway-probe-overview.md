@@ -1,25 +1,23 @@
 ---
-title: "Azure uygulama ağ geçidi için genel bakış izleme sistem durumu | Microsoft Docs"
-description: "Azure uygulama ağ geçidi izleme özellikleri hakkında bilgi edinin"
+title: Azure uygulama ağ geçidi için genel bakış izleme sistem durumu
+description: Azure uygulama ağ geçidi izleme özellikleri hakkında bilgi edinin
 services: application-gateway
 documentationcenter: na
-author: davidmu1
-manager: timlt
-editor: 
+author: vhorne
+manager: jpconnock
 tags: azure-resource-manager
-ms.assetid: 7eeba328-bb2d-4d3e-bdac-7552e7900b7f
 ms.service: application-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
-ms.author: davidmu
-ms.openlocfilehash: 83a0b1be1aba48146aa1aaedb36ad9d9d23f17d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 3/30/2018
+ms.author: victorh
+ms.openlocfilehash: 2f62f01c1178f9529eb46051f088affccc5279a7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Uygulama ağ geçidi sistem durumu izlemeye genel bakış
 
@@ -40,19 +38,38 @@ Herhangi bir özel araştırma yapılandırma ayarladığınızda olmayan bir uy
 
 Sunucu A varsayılan araştırma denetimi başarısız olursa, isteğe bağlı olarak uygulama ağ geçidi, arka uç havuzundan kaldırır ve bu sunucuya akışı ağ trafiğini durur. Varsayılan araştırmasını her 30 saniyede bir sunucu için denetlemek hala devam eder. Sunucu, bir isteği başarıyla varsayılan durumu araştırması yanıt verir. Bu geri sağlıklı arka uç havuzuna eklenir ve sunucuya yeniden akan trafik başlatır.
 
+### <a name="probe-matching"></a>Eşleşen araştırma
+
+Varsayılan olarak, bir HTTP (S) yanıt 200 durum koduyla sağlıklı olarak kabul edilir. Özel sistem durumu araştırmalarının Ayrıca iki eşleştirme ölçütü destekler. Ölçütle eşleşen isteğe bağlı olarak hangi consititutes varsayılan yorumu iyi bir yanıt değiştirmek için kullanılabilir.
+
+Aşağıdaki ölçütlerle eşleşen: 
+
+- **HTTP yanıtı durum kodu eşleşme** - araştırma kabul etmek için ölçütle eşleşen kullanıcı belirtilen http yanıt kodu veya yanıt kodu aralıkları. Yanıtı durum kodları tek tek virgülle ayrılmış veya durum kodu aralığı desteklenir.
+- **HTTP yanıt gövdesi eşleşme** - HTTP yanıt gövdesi ve bir kullanıcı ile eşleşen görünen dize belirtilen ölçütle eşleşen araştırma. Kullanıcı tarafından belirtilen varlığını eşleşme yalnızca arar yanıt gövdesi içinde dize ve tam normal ifade eşleştirmesi olmayan unutmayın.
+
+Eşleşme ölçütlerini kullanılarak belirtilebilir `New-AzureRmApplicationGatewayProbeHealthResponseMatch` cmdlet'i.
+
+Örneğin:
+
+```
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
+$match = New-AzureRmApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
+```
+Eşleşme ölçütlerini belirtilen sonra bu yapılandırmayı kullanarak araştırma iliştirilebilir bir `-Match` PowerShell parametresi.
+
 ### <a name="default-health-probe-settings"></a>Varsayılan durumu araştırma ayarları
 
 | Araştırma özelliği | Değer | Açıklama |
 | --- | --- | --- |
-| Araştırma URL'si |http://127.0.0.1:\<bağlantı noktası\>/ |URL yolu |
-| aralığı |30 |Saniye cinsinden yoklama aralığı |
+| Yoklama URL'si |http://127.0.0.1:\<port\>/ |URL yolu |
+| Aralık |30 |Saniye cinsinden yoklama aralığı |
 | Zaman aşımı |30 |Zaman aşımı saniye cinsinden araştırma |
 | Sağlıksız durum eşiği. |3 |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
 
 > [!NOTE]
 > Bağlantı uç HTTP ayarları aynı bağlantı noktasıdır.
 
-Varsayılan araştırma yalnızca http://127.0.0.1 arar:\<bağlantı noktası\> sistem durumunu belirlemek için. Bir özel URL'ye Git veya diğer herhangi bir ayarı değiştirmek için sistem durumu araştırma yapılandırmanız gerekiyorsa, aşağıdaki adımlarda açıklandığı gibi özel araştırmalara kullanmanız gerekir:
+Varsayılan araştırma yalnızca bakan http://127.0.0.1: \<bağlantı noktası\> sistem durumunu belirlemek için. Bir özel URL'ye Git veya diğer herhangi bir ayarı değiştirmek için sistem durumu araştırma yapılandırmanız gerekiyorsa, aşağıdaki adımlarda açıklandığı gibi özel araştırmalara kullanmanız gerekir:
 
 ## <a name="custom-health-probe"></a>Özel durum araştırması
 
@@ -68,7 +85,7 @@ Aşağıdaki tabloda bir özel durum araştırması özelliklerini için tanıml
 | Protokol |Araştırma göndermek için kullanılan protokol. Araştırma arka uç HTTP Ayarları'nda tanımlanan protokolünü kullanır |
 | Host |Araştırma göndermek için ana bilgisayar adı. Geçerli yalnızca çok siteli uygulama ağ geçidi üzerinde yapılandırılmış, aksi takdirde '127.0.0.1' kullanın. Bu değer, VM ana bilgisayar adından farklıdır. |
 | Yol |Araştırma göreli yolu. Geçerli yol başlar '/'. |
-| aralığı |Aralığı saniye cinsinden araştırma. Bu değer arasında iki ardışık araştırmalar zaman aralığıdır. |
+| Aralık |Aralığı saniye cinsinden araştırma. Bu değer arasında iki ardışık araştırmalar zaman aralığıdır. |
 | Zaman aşımı |Zaman aşımı saniye cinsinden araştırma. Bu zaman aşımı süresi içinde geçerli bir yanıt alınmazsa, araştırma başarısız olarak işaretlenir.  |
 | Sağlıksız durum eşiği. |Yeniden deneme sayısı araştırma. Sağlıksız eşik arka arkaya araştırma hatası sayısı ulaştıktan sonra arka uç sunucu işaretlenmiş. |
 

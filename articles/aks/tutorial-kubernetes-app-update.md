@@ -1,6 +1,6 @@
 ---
-title: "Azure’da Kubernetes öğreticisi - Uygulamayı güncelleştirme"
-description: "AKS öğreticisi - Uygulamayı güncelleştirme"
+title: Azure’da Kubernetes öğreticisi - Uygulamayı güncelleştirme
+description: AKS öğreticisi - Uygulamayı güncelleştirme
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 82a6b6580fbe69b11fdb8a47e2ca09c19b341bbc
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 97a7e0b8e33042739ccea9a086642d9019c15e5b
+ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/23/2018
 ---
-# <a name="update-an-application-in-azure-container-service-aks"></a>Azure Container Service’te (AKS) bir uygulamayı güncelleştirme
+# <a name="tutorial-update-an-application-in-azure-container-service-aks"></a>Öğretici: Azure Container Service’te (AKS) bir uygulamayı güncelleştirme
 
 Bir uygulama Kubernetes’te dağıtıldıktan sonra, yeni bir kapsayıcı görüntüsü veya görüntü sürümü belirtilerek güncelleştirilebilir. Bu yapıldığında, güncelleştirme, dağıtımın yalnızca bir kısmı eşzamanlı olarak güncelleştirilecek şekilde hazırlanılır. Hazırlanan bu güncelleştirme, uygulamanın güncelleştirme sırasında çalışmaya devam etmesini sağlar. Ayrıca bir dağıtım hatası oluşursa, bir geri alma mekanizması sağlar. 
 
@@ -27,7 +27,7 @@ Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygula
 > * Kapsayıcı görüntüsünü Azure Container Registry’ye gönderme
 > * Güncelleştirilmiş kapsayıcı görüntüsünü dağıtma
 
-Sonraki öğreticilerde Kubernetes kümesini izlemek için Operations Management Suite yapılandırılır.
+Sonraki öğreticilerde Kubernetes kümesini izlemek için Log Analytics yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -89,7 +89,7 @@ Görüntüyü etiketlemek için [docker tag][docker-tag]’i kullanın. `<acrLog
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Görüntüyü kayıt defterinize yüklemek için [docker push][docker-push]’u kullanın. `<acrLoginServer>` değerini, Azure Container Registry oturum açma sunucu adınız ile değiştirin.
+Görüntüyü kayıt defterinize yüklemek için [docker push][docker-push]’u kullanın. `<acrLoginServer>` değerini, Azure Container Registry oturum açma sunucu adınız ile değiştirin. ACR kayıt defterinize giden sorunlarla karşılaşıyorsanız, [az acr login][az-acr-login] komutunu çalıştırdığınızdan emin olun.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -164,7 +164,7 @@ Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi bi
 > * Kapsayıcı görüntüsü Azure Container Registry’ye gönderildi
 > * Güncelleştirilmiş uygulama dağıtıldı
 
-Operations Management Suite ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Log Analytics ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
 > [Log Analytics ile Kubernetes’i izleme][aks-tutorial-monitor]
@@ -179,3 +179,4 @@ Operations Management Suite ile Kubernetes’in nasıl izlenileceği hakkında b
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

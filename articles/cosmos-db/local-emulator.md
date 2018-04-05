@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: 4a393887d8e82e833b0c956666bf36e5adb19e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -136,7 +136,7 @@ Yerel bir ağda öykünücü çalıştırabilirsiniz. Ağ erişimini etkinleşti
 İlk kez ağ erişimini etkinleştirmek için kullanıcı kapatma öykünücü gerekir ve öykünücüsü'nın veri dizini (C:\Users\user_name\AppData\Local\CosmosDBEmulator) silin.
 
 ## <a name="developing-with-the-emulator"></a>Öykünücü ile geliştirme
-Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/documentdb/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü ayrıca SQL ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
+Masaüstünde çalışan Azure Cosmos DB öykünücüsü olduktan sonra desteklenen herhangi biri kullanabilirsiniz [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) veya [Azure Cosmos DB REST API](/rest/api/cosmos-db/) öykünücü ile etkileşim kurmak için. Azure Cosmos DB öykünücüsü ayrıca SQL ve MongoDB API'ları ve görünüm için koleksiyonları oluşturun ve hiçbir kod yazmadan belgeleri düzenlemesine olanak tanır yerleşik bir Veri Gezgini içerir.   
 
     // Connect to the Azure Cosmos DB Emulator running locally
     DocumentClient client = new DocumentClient(
@@ -342,17 +342,41 @@ PowerShell öykünücüsünden denetleme komutları bir özeti aşağıda verilm
 
 ### `Get-CosmosDbEmulatorStatus`
 
+#### <a name="syntax"></a>Sözdizimi
+
+`Get-CosmosDbEmulatorStatus`
+
+#### <a name="remarks"></a>Açıklamalar
+
 Bu ServiceControllerStatus değerlerden birini döndürür: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running veya ServiceControllerStatus.Stopped.
 
-### `Start-CosmosDbEmulator [-NoWait]`
+### `Start-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Sözdizimi
+
+`Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>]  [<CommonParameters>]`
+
+#### <a name="remarks"></a>Açıklamalar
 
 Öykünücü başlatır. Öykünücü isteklerini kabul etmeye hazır olana kadar varsayılan olarak, komut bekler. Öykünücü başlar başlamaz döndürmek için cmdlet istiyorsanız - NoWait seçeneğini kullanın.
 
-### `Stop-CosmosDbEmulator [-NoWait]`
+### `Stop-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Sözdizimi
+
+ `Stop-CosmosDbEmulator [-NoWait]`
+
+#### <a name="remarks"></a>Açıklamalar
 
 Öykünücü durdurur. Varsayılan olarak, bu komut bekler öykünücü tam olarak kapatıldı. Kapatmak öykünücü başlar başlamaz döndürmek için cmdlet istiyorsanız - NoWait seçeneğini kullanın.
 
-### `Uninstall-CosmosDbEmulator [-RemoveData]`
+### `Uninstall-CosmosDbEmulator`
+
+#### <a name="syntax"></a>Sözdizimi
+
+`Uninstall-CosmosDbEmulator [-RemoveData]`
+
+#### <a name="remarks"></a>Açıklamalar
 
 Öykünücü kaldırır ve isteğe bağlı olarak $env tam içeriğini kaldırır: LOCALAPPDATA\CosmosDbEmulator.
 Cmdlet öykünücü kaldırmadan önce durduruldu sağlar.
@@ -454,6 +478,20 @@ Hata ayıklama izlemeleri toplamak için bir yönetici komut isteminden aşağı
 ## <a name="change-list"></a>Değişiklik listesi
 
 Görev çubuğunda yerel öykünücü simgesine sağ tıklatıp'ı tıklatarak sürüm numarasını denetlemek Menü öğesiyle ilgili.
+
+### <a name="12106-released-on-march-27-2018"></a>1.21.0.6 27 Mart 2018 üzerinde yayımlanan
+
+Eşlik için öykünücüsü Hizmetleri Cosmos DB bulut hizmetleriyle güncelleştirmeye ek olarak, size yeni bir özellik ve iki hata düzeltmeleri bu sürümde dahil ettiğiniz.
+
+#### <a name="features"></a>Özellikler
+
+1. Başlangıç CosmosDbEmulator komutu şimdi başlangıç seçenekleri içerir.
+
+#### <a name="bug-fixes"></a>Hata düzeltmeleri
+
+1. Microsoft.Azure.CosmosDB.Emulator PowerShell modülü şimdi sağlar `ServiceControllerStatus` numaralandırma yüklenir.
+
+2. Microsoft.Azure.CosmosDB.Emulator PowerShell modülü, şimdi bir bildirim içerir; ilk sürümünden bir atlama.
 
 ### <a name="1201084-released-on-february-14-2018"></a>1.20.108.4 14 Şubat 2018 üzerinde yayımlanan
 

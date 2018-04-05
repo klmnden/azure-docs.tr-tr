@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 35dc83dea7dc1310852437cd7eede32cfa890e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 4a4f2c6734de211cd20ee4b9f6815bdefefb25bc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>HDInsight üzerinde Apache Kafka’ya giriş
 
@@ -31,7 +31,7 @@ HDInsight üzerinde Kafka aşağıdaki özellikleri sunar:
 
 * __Kafka çalışma süresiyle ilgili %99,9 Hizmet Düzeyi Sözleşmesi (SLA)__ : Daha fazla bilgi için [HDInsight için SLA bilgileri](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/) belgesine göz atın.
 
-* __Hataya dayanıklılık ve raf tanıma__: Kafka, tek boyutlu bir raf düşünülerek tasarlanmıştır ve bu yaklaşım bazı ortamlar için çok uygundur. Ancak, Azure gibi bazı ortamlarda raf iki boyuta ayrılmıştır: Güncelleştirme Etki Alanları (UD) ve Hata Etki Alanları (FD). Microsoft, UD ve FD’ler genelinde Kafka bölümleri ve çoğaltmalarını yeniden dengelemeyi sağlayan araçlar sunar. 
+* __Hataya dayanıklılık__: Kafka, tek boyutlu bir raf düşünülerek tasarlanmıştır ve bu yaklaşım bazı ortamlar için çok uygundur. Ancak, Azure gibi bazı ortamlarda raf iki boyuta ayrılmıştır: Güncelleştirme Etki Alanları (UD) ve Hata Etki Alanları (FD). Microsoft, UD ve FD’ler genelinde Kafka bölümleri ve çoğaltmalarını yeniden dengelemeyi sağlayan araçlar sunar. 
 
     Daha fazla bilgi için bkz. [HDInsight üzerinde Kafka ile yüksek kullanılabilirlik](apache-kafka-high-availability.md).
 

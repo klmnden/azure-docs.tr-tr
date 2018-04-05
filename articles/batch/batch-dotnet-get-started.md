@@ -1,11 +1,11 @@
 ---
-title: "Öğretici - .NET için Azure Batch istemci kitaplığını kullanma | Microsoft Docs"
-description: "Temel Azure Batch kavramlarını öğrenin ve .NET kullanarak basit bir çözüm derleyin."
+title: Öğretici - .NET için Azure Batch istemci kitaplığını kullanma | Microsoft Docs
+description: Temel Azure Batch kavramlarını öğrenin ve .NET kullanarak basit bir çözüm derleyin.
 services: batch
 documentationcenter: .net
-author: tamram
-manager: timlt
-editor: 
+author: dlepow
+manager: jeconnoc
+editor: ''
 ms.assetid: 76cb9807-cbc1-405a-8136-d1e53e66e82b
 ms.service: batch
 ms.devlang: dotnet
@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 06/28/2017
-ms.author: tamram
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9968d18f9e27d7a138831394658b40a483b66709
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>.NET için Batch istemci kitaplığıyla çözüm derlemeye başlama
 

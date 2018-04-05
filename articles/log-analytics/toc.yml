@@ -61,6 +61,10 @@
           items:
             - name: Windows aracıları
               href: log-analytics-agent-windows.md
+            - name: Windows için VM Uzantısı
+              href: ../virtual-machines/windows/extensions-oms.md
+            - name: Linux için VM Uzantısı
+              href: ../virtual-machines/linux/extensions-oms.md
             - name: Azure kaynakları
               href: log-analytics-azure-storage.md
             - name: Azure PaaS kaynakları

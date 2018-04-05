@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Registry öğreticisi - Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama"
-description: "Bir Azure Container Registry oluşturun, coğrafi çoğaltma yapılandırın, bir Docker görüntüsü hazırlayın ve bunu kayıt defterine dağıtın. Üç bölümden oluşan bir serinin birinci bölümü."
+title: Azure Container Registry öğreticisi - Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
+description: Bir Azure Container Registry oluşturun, coğrafi çoğaltma yapılandırın, bir Docker görüntüsü hazırlayın ve bunu kayıt defterine dağıtın. Üç bölümden oluşan bir serinin birinci bölümü.
 services: container-registry
 author: mmacy
 manager: timlt
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b73222d9b31ff840273bdb91a15f7eaf37ad2508
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3463acc3db3dae9633635aaf7410d876aacf9b38
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="prepare-a-geo-replicated-azure-container-registry"></a>Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
+# <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Öğretici: Coğrafi çoğaltmalı Azure Container Registry’yi hazırlama
 
 Azure Container Registry, ağı dağıtımlarınıza yakın tutabileceğiniz, Azure’da dağıtılan özel bir Docker kayıt defteridir. Bu üç öğretici makalesinde, Linux kapsayıcısında çalıştırılan bir ASP.NET Core web uygulamasını iki [Kapsayıcılar için Web Apps](../app-service/containers/index.yml) örneğine dağıtmak için coğrafi çoğaltmanın nasıl kullanılacağını öğreneceksiniz. Azure’ın görüntüyü otomatik olarak en yakın coğrafi çoğaltmalı depodan her bir Web Uygulaması örneğine nasıl dağıttığını göreceksiniz.
 

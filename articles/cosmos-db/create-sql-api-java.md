@@ -1,29 +1,27 @@
 ---
-title: "Java ile Azure Cosmos DB belge veritabanı oluşturma | Microsoft Docs | Microsoft Docs'"
-description: "Azure Cosmos DB SQL API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar"
+title: Java ile Azure Cosmos DB belge veritabanı oluşturma | Microsoft Docs | Microsoft Docs'
+description: Azure Cosmos DB SQL API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir Java kodu örneği sunar
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: mimig1
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: 
+ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 03/26/2018
 ms.author: mimig
-ms.openlocfilehash: 85f8310235e0f5b038f2b55c94fe044d1a9d9719
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 669a11368ed6ccec041701e691323a2bb2cac56a
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir belge veritabanı oluşturma
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)] 
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Azure Cosmos DB’yi kullanarak hızlıca yönetilen belgeler, tablolar ve grafik veritabanları oluşturabilir ve bunları sorgulayabilirsiniz.
 
@@ -46,7 +44,7 @@ Buna ek olarak:
 
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
-Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL veritabanı hesabı oluşturmanız gerekir.
+Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL API hesabı oluşturmanız gerekir.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -63,7 +61,7 @@ Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL veritaban�
 
    ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin ve **Kaydet**’e tıklayın.
+2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin ve **Kaydet**’e tıklayın. Jason’ı panonuza kopyalamak için kod kutusundaki **Kopyala** düğmesini kullanın.
 
      ```json
      {
@@ -87,7 +85,7 @@ Artık, verilerinizi almak ve filtrelemek için Veri Gezgini'ndeki sorguları ku
 
     ![Veri Gezgini’ndeki varsayılan sorgu: `SELECT * FROM c`](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
 
-2. Sorguyu **Filtreyi düzenle** düğmesine tıklayıp sorgu koşulu kutusuna `ORDER BY c._ts DESC` ekledikten sonra **Filtre Uygula** seçeneğine tıklayarak değiştirebilirsiniz.
+2. **Documents** sekmesinde kalın ve **Filtreyi düzenle** düğmesine tıklayıp sorgu koşulu kutusuna `ORDER BY c._ts DESC` ekledikten sonra **Filtre Uygula** seçeneğine tıklayarak sorguyu değiştirin.
 
     ![ORDER BY c._ts DESC ekleyerek ve Filtre Uygula’ya tıklayarak varsayılan sorguyu değiştirin](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
 
@@ -119,9 +117,11 @@ Bu işlemle Veri Gezgini üzerindeki çalışmalarımız tamamlanmış olur. Kod
 
 ## <a name="review-the-code"></a>Kodu gözden geçirin
 
-Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted klasöründe yüklü `Program.java` dosyasından alınmıştır. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
+Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturulduğunu öğrenmekle ilgileniyorsanız aşağıdaki kod parçacıklarını gözden geçirebilirsiniz. Aksi durumda, [Bağlantı dizenizi güncelleştirme](#update-your-connection-string) bölümüne atlayabilirsiniz. 
 
-* `DocumentClient` başlatma. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client), Azure Cosmos DB veritabanı hizmeti için istemci tarafı mantıksal gösterim sağlar. Bu istemci, istekleri hizmete göre yapılandırmak ve çalıştırmak için kullanılır.
+Aşağıdaki kod parçacıklarının tümü C:\git-samples\azure-cosmos-db-documentdb-java-getting-started\src\GetStarted\Program.java dosyasından alınmıştır.
+
+* `DocumentClient` başlatma. [DocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client), Azure Cosmos DB veritabanı hizmeti için istemci tarafı mantıksal gösterim sağlar. Bu istemci, istekleri hizmete göre yapılandırmak ve çalıştırmak için kullanılır. Bu kodun `FILLME` kısımları, hızlı başlangıcın ilerleyen kısmında güncelleştirilecektir.
 
     ```java
     this.client = new DocumentClient("https://FILLME.documents.azure.com",
@@ -231,13 +231,15 @@ Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp
 
     Terminal penceresinde, FamilyDB veritabanının oluşturulduğunu belirten bir bildirim görüntülenir. 
     
-4. Koleksiyonu oluşturmak için bir tuşa basın. 
+4. Veritabanını oluşturmak için bir tuşa basın ve sonra koleksiyonu oluşturmak için başka bir tuşa basın. 
 
-5. Veri Gezgini’ne geçtiğinizde, FamilyDB veritabanını içerdiği görürsünüz.
-    
-6. Kodun belge oluşturmasını sağlamak veya bir sorgu gerçekleştirmek için, konsol penceresindeki tuşlara basmaya devam edin.
-    
-    Programın sonunda, bu uygulamadaki tüm kaynaklar hesabınızdan silinir ve böylece ücretlendirilmezsiniz. 
+    Programın sonunda tüm kaynaklar silinir; bu nedenle tarayıcınızda Veri Gezgini’ne geri dönerek bir FamilyDB veritabanı ve FamilyCollection koleksiyonu içerdiğini doğrulayın.
+
+5. Konsol penceresine geçin ve birinci belgeyi oluşturmak için bir tuşa ve ikinci belgeyi oluşturmak için başka bir tuşa basın. Daha sonra Veri Gezgini’ne geri dönerek bunları görüntüleyin. 
+
+6. Bir sorgu çalıştırmak ve konsol penceresinde çıktıyı görmek için bir tuşa basın. 
+
+7. Bastığınız sonraki tuş, kaynakları siler. Kaynakları tutmak istiyorsanız, konsol penceresinde CTRL+C tuşlarına basarak programı sonlandırabilirsiniz. Aksi takdirde, ücret oluşmaması için herhangi bir tuşa basarak hesabınızdan kaynakları silin. 
 
     ![Konsol çıktısı](./media/create-sql-api-java/console-output.png)
 

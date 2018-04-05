@@ -1,8 +1,8 @@
 ---
-title: "Data Lake Store’da erişim denetimine genel bakış | Microsoft Belgeleri"
-description: "Azure Data Lake Store’da erişim denetiminin çalışma şekli hakkında bilgi edinin"
+title: Data Lake Store’da erişim denetimine genel bakış | Microsoft Belgeleri
+description: Azure Data Lake Store’da erişim denetiminin çalışma şekli hakkında bilgi edinin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/09/2018
+ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: a2e29fd6f2dbd4bd573b780a14bd09c0cd03395f
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store’da erişim denetimi
 
@@ -124,15 +124,15 @@ Bir Data Lake Store hesabı üzerinde belirli işlemlerin gerçekleştirilmesi i
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Azure portalında görüntüleme izinleri
 
-Data Lake Store hesabının **Veri Gezgini** dikey penceresinde **Erişim**’e tıklayarak bir dosya veya klasörün ACL’lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
+Data Lake Store hesabının **Veri Gezgini** dikey penceresinde **Erişim**’e tıklayarak Veri Gezgini’nde görüntülenmekte olan dosya veya klasörün ACL’lerini görebilirsiniz. **mydatastore** hesabı altındaki **catalog** klasörüne ilişkin ACL’leri görmek için **Erişim**’e tıklayın.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-Bu dikey pencerenin üst tarafında sahip olduğunuz izinlerin özeti gösterilir. (Ekran görüntüsünde Bob kullanıcıdır.) Bunun altında erişim izinleri gösterilir. Bundan sonra **Erişim** dikey penceresinde **Basit Görünüm**’e tıklayarak daha basit bir görünüm görün.
+Bu dikey pencerenin üst kısmında sahiplerin izinleri gösterilir. (Ekran görüntüsünde Bob sahip olan kullanıcıdır.) Bunun ardından atanan Erişim ACL’leri gösterilir. 
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Varsayılan ACL’ler, maske ve süper kullanıcı kavramlarının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.
+Varsayılan ACL’ler, maske ve süper kullanıcıların açıklamasının gösterildiği daha gelişmiş görünümü görmek için **Gelişmiş Görünüm**’e tıklayın.  Bu dikey pencere, geçerli klasörün izinlerine dayalı olarak alt dosyalar ve klasörler için yinelemeli olarak Erişim ve Varsayılan ACL’leri ayarlamanın bir yolunu sunar.
 
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -164,7 +164,7 @@ Süper kullanıcı izinlerine sahip özel bir rol tabanlı erişim denetimi (RBA
 * Sahip olan kullanıcı aynı zamanda hedef grubun bir üyesi oldukça, sahip olunan bir dosyanın sahibi olan grubunu değiştirme.
 
 > [!NOTE]
-> Sahip olan kullanıcı başka bir sahibi olunan dosyanın sahibini *değiştiremez*. Bir dosya veya klasörün sahibi olan kullanıcıyı yalnızca süper kullanıcılar değiştirebilir.
+> Sahip olan kullanıcı bir dosya veya klasörün sahibi olan kullanıcıyı *değiştiremez*. Bir dosya veya klasörün sahibi olan kullanıcıyı yalnızca süper kullanıcılar değiştirebilir.
 >
 >
 
@@ -177,9 +177,14 @@ Yeni bir dosya sistemi öğesi oluşturulduğunda, Data Lake Store sahip olan gr
 * **Olay 1**: Kök klasör "/". Bir Data Lake Store hesabı oluşturulduğunda bu klasör oluşturulur. Bu durumda sahip olan grup, hesabı oluşturan kullanıcıya ayarlanır.
 * **Olay 2** (Diğer her olay): Yeni bir olay oluşturulduğunda sahip olan grup üst klasörden kopyalanır.
 
+Aksi takdirde sahip olan grup, diğer kullanıcılar/gruplar için atanan izinlere benzer şekilde davranır.
+
 Sahip olan grup aşağıdakiler tarafından değiştirilebilir:
 * Herhangi bir süper kullanıcı.
 * Sahip olan kullanıcı aynı zamanda hedef grubun üyesi ise sahip olan kullanıcı.
+
+> [!NOTE]
+> Sahip olan grup, bir dosya veya klasörün ACL’lerini *değiştiremez*.
 
 ## <a name="access-check-algorithm"></a>Erişim denetimi algoritması
 
@@ -209,7 +214,7 @@ Başvuru için bir dosyanın veya klasörün maskesinin Azure portalında nerede
 ![Data Lake Store ACL’leri](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Yeni bir Data Lake Store hesabı için kök klasörün ("/") Erişim ACL’si ve Varsayılan ACL’si için maske varsayılan olarak RWX’tir.
+> Yeni bir Data Lake Store hesabı için kök klasörün ("/") Erişim ACL’si için maske varsayılan olarak RWX’tir.
 >
 >
 
@@ -308,7 +313,7 @@ Kullanıcı artık Azure AD’de mevcut değilse bir GUID gösterilir. Bu genell
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Data Lake Store ACL’lerin devralınmasını destekler mi?
 
-Hayır.
+Hayır, ancak üst klasör altında yeni oluşturulan alt dosyalara ve klasöre yönelik ACL’yi ayarlamak için Varsayılan ACL’ler kullanılabilir.  
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Maske ile umask arasındaki fark nedir?
 
@@ -317,7 +322,7 @@ Hayır.
 | **Maske** özelliği her dosya ve klasörde bulunur. | **Umask** ise Data Lake Store hesabının bir özelliğidir. Bu nedenle, Data Lake Store’de yalnızca tek bir umask vardır.    |
 | Bir dosya veya klasördeki maske özelliği, dosyanın sahibi olan kullanıcı veya grup ya da süper kullanıcı tarafından değiştirilebilir. | Umask özelliği ise süper kullanıcı dahil hiçbir kullanıcı tarafından değiştirilemez. Bu özellik, değiştirilemeyen sabit bir değerdir.|
 | Maske özelliği bir kullanıcının dosya ya da klasör üzerinde işlem gerçekleştirme hakkına sahip olup olmadığını belirlemek üzere çalışma zamanındaki erişim denetimi algoritması sırasında kullanılır. Maskenin rolü, erişim denetimi sırasında "etkili izinleri" oluşturmaktır. | Umask, erişim denetimi sırasında hiç kullanılmaz. Umask bir klasörün yeni alt öğelerinin Erişim ACL’sini belirlemek için kullanılır. |
-| Maske; erişim denetimi sırasında adlandırılmış kullanıcı, adlandırılmış grup ve sahip olan kullanıcı için geçerli olan 3 bitlik bir RWX değeridir.| Umask ise yeni bir alt öğenin sahip olan kullanıcı, sahip olan grup ve **diğer** kullanıcısı için geçerli olan 9 bitlik bir değerdir.|
+| Maske, erişim denetimi sırasında adlandırılmış kullanıcı, sahip olan grup ve adlandırılmış grup için geçerli olan 3 bitlik bir RWX değeridir.| Umask ise yeni bir alt öğenin sahip olan kullanıcı, sahip olan grup ve **diğer** kullanıcısı için geçerli olan 9 bitlik bir değerdir.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX erişim denetimi modeli hakkında daha fazla bilgiyi nereden bulabilirim?
 

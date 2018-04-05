@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: db472345bacda916f1b1664ed7803978ab235a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
@@ -42,11 +42,15 @@ Departmanlara göre gruplandırılmış bir hiyerarşi oluşturarak, atayabilirs
 - Her bir yönetim grubunda birden çok alt bulunabilir. 
 
 ### <a name="preview-subscription-visibility-limitation"></a>Önizleme abonelik görünürlüğü kısıtlama 
-Şu anda bir sınırlama vardır önizleme içinde erişimi devralmış abonelikleri görmeye olduğunuz değil. Erişim için abonelik devralınan ancak Azure Resource Manager devralma erişim henüz dikkate mümkün değildir.  
+Şu anda nerede erişimi devralmış abonelikleri görmeye kullanmadığınız önizleme içinde bir sınırlama yoktur. Erişim için abonelik devralınan ancak Azure Resource Manager devralma erişim henüz dikkate mümkün değil.  
 
-Abonelik hakkında bilgi almak için REST API kullanarak erişebilirsiniz, ancak Azure portalı ve Azure Powershell içinde abonelikleri gösterme devam ayrıntılarını döndürür. 
+Abonelik hakkında bilgi almak için REST API kullanarak erişebilirsiniz, ancak Azure portalı ve Azure Powershell içinde abonelikleri gösterme ayrıntılarını döndürür. 
 
-Bu öğe üzerinde çalışılan ve "Genel kullanılabilirlik" duyurdu Yönetim grupları önce çözülmüş  
+Bu öğe üzerinde çalışılan ve Yönetim grupları "Genel kullanılabilirlik" duyurulur önce çözümlenir  
+
+### <a name="cloud-solution-providercsp-limitation-during-preview"></a>Önizleme sırasında çözüm Provider(CSP) sınırlaması bulut 
+Bulut çözüm Provider(CSP) nerede oluşturmak veya, müşterinin Yönetim grupları, müşterinin dizini içindeki yönetmek mümkün olmayan ortakları için geçerli bir sınırlama yoktur.  
+Bu öğe üzerinde çalışılan ve Yönetim grupları "Genel kullanılabilirlik" duyurulur önce çözümlenir
 
 
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu

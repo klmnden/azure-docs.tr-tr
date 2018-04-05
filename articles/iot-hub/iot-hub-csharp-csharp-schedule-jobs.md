@@ -1,11 +1,11 @@
 ---
-title: "Zamanlama işlerini ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs"
-description: "Birden çok aygıta doğrudan bir yöntemi çağırmak için bir Azure IOT Hub işini zamanlamak nasıl. Sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
+title: Zamanlama işlerini ile Azure IOT hub'ı (.NET/.NET) | Microsoft Docs
+description: Birden çok aygıta doğrudan bir yöntemi çağırmak için bir Azure IOT Hub işini zamanlamak nasıl. Sanal cihaz uygulamaları ve işi çalıştırmak için bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 services: iot-hub
 documentationcenter: .net
 author: msebolt
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2233356e-b005-4765-ae41-3a4872bda943
 ms.service: iot-hub
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 012/16/2018
 ms.author: v-masebo
-ms.openlocfilehash: 0cdc23683489e103b061044856d68a8b014d3535
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 59d78c390e479acd16d47b70e8af5e164d746905
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Zamanlama ve yayın işleri (.NET/.NET)
 
@@ -36,6 +36,8 @@ Bu özelliklerin her biri hakkında daha fazla bilgi için bkz:
 
 * Cihaz çifti ve özellikleri: [cihaz çiftlerini ile çalışmaya başlama] [ lnk-get-started-twin] ve [öğretici: cihaz çifti özellikleri kullanma][lnk-twin-props]
 * Doğrudan yöntemleri: [IOT Hub Geliştirici Kılavuzu - doğrudan yöntemleri] [ lnk-dev-methods] ve [Öğreticisi: doğrudan yöntemleri kullanın][lnk-c2d-methods]
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 

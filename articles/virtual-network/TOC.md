@@ -29,11 +29,11 @@
 ## Dağıtma
 
 ### Ağ güvenlik grupları
-#### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [Azure CLI](virtual-networks-create-nsg-arm-cli.md)
-#### [Şablon](virtual-networks-create-nsg-arm-template.md)
-#### [Uygulama güvenliği grupları](create-network-security-group-preview.md)
+#### [Azure PowerShell](tutorial-filter-network-traffic.md)
+#### [Azure CLI](tutorial-filter-network-traffic-cli.md)
+#### Uygulama güvenliği grupları olmadan
+##### [Azure Portal](virtual-networks-create-nsg-arm-pportal.md)
+##### [Şablon](virtual-networks-create-nsg-arm-template.md)
 #### Klasik
 ##### [Azure PowerShell](virtual-networks-create-nsg-classic-ps.md)
 ##### [Azure CLI 1.0](virtual-networks-create-nsg-classic-cli.md)

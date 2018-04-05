@@ -1,25 +1,25 @@
 ---
-title: "Azure İzleyiciye Genel Bakış | Microsoft Docs"
-description: "Azure İzleyici uyarıları, Web kancalarını, otomatik ölçeklendirme ve Otomasyon kullanımda istatistikleri toplar. Makale ayrıca diğer Microsoft izleme seçenekleri listeleyin."
+title: Azure İzleyiciye Genel Bakış | Microsoft Docs
+description: Azure İzleyici uyarıları, Web kancalarını, otomatik ölçeklendirme ve Otomasyon kullanımda istatistikleri toplar. Makale ayrıca diğer Microsoft izleme seçenekleri listeleyin.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: ed9ace24778f000b42013cc0ce4d7dacf4a1d4fb
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 448711b7b2e102662bc157485561c33bf7f5fba1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="overview-of-azure-monitor"></a>Azure İzleyicisi'ne genel bakış
 Bu makalede, Microsoft Azure Azure İzleyici hizmetinde genel bir bakış sağlar. Hangi Azure İzleyici yapar ve Azure İzleyicisi'ni kullanma hakkında ek bilgi işaretçiler sağlar açıklanır.  Bir tanıtım tercih ederseniz, bu makalenin sonundaki sonraki adımları bağlantılara bakın. 
@@ -35,15 +35,13 @@ Azure İzleyici kullanıcıların yardımcı olan bir giriş sayfası vardır:
 - Azure tarafından sunulan izleme olanakları anlayın.
 - Bulma, yapılandırmak ve yerleşik Azure'nın platform ve de izleme kapasiteleri premium.
 
-Azure Monitor Hizmeti yayımlanan olsa da, giriş genel bakış sayfası önizlemede değil. 
-
 Sayfa Gezinti devreye alma dahil olmak üzere için bir başlangıç noktasıdır. Farklı Hizmetleri'nden seçkin önem düzeyindeki sorunlar gösterir ve onlara bağlamda gidin olanak tanır.
  
 ![İzleme ve tanılama işlem dışı kaynakları modeli](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
 Sayfasını açtığınızda, okuma erişimi olan abonelikleri arasından seçim yapabilirsiniz. Seçilen bir abonelik için görebilirsiniz:
 
-- **Tetiklenen uyarıları ve uyarı kaynakları** - Bu tablo Özet sayılarını, uyarı kaynakları gösterir ve seçilen süre için tetiklenen uyarıları kaç kez. Ölçüm ve etkinlik günlüğü uyarıları geçerlidir. *< Düzenle: da tüm uyarılar için - olayları, ölçümleri ve günlükleri gösterilen birleşik deneyim (Önizleme) uyarılarla >*
+- **Tetiklenen uyarıları ve uyarı kaynakları** - Bu tablo Özet sayılarını, uyarı kaynakları gösterir ve seçilen süre için tetiklenen uyarıları kaç kez. Eski ve yeni uyarılar için geçerlidir. Daha fazla bilgi edinin [yeni Azure uyarıları](monitoring-overview-unified-alerts.md). 
 - **Etkinlik günlüğü hatalarını** -Azure kaynaklarınızı hiçbirini hata düzeyi önem derecesine sahip olayları oturum açarsanız, bir üst düzey sayısı görüntülemek ve aracılığıyla her olay araştırmak için etkinlik günlüğü sayfasında'ı tıklatın.
 - **Azure hizmet durumu** -hizmet sistem durumu hizmeti sorunları, planlı bakım etkinliği ve sistem durumu danışma sayısını görebilirsiniz. Azure hizmet durumu hizmetlerinizi Azure altyapı sorunlarını etkisi kişiselleştirilmiş bilgileri sağlar.  Bkz: [Azure hizmet durumu](../service-health/service-health-overview.md) daha fazla bilgi için.  
 - **Application Insights** -her Appınsights'dan kaynağın geçerli abonelikte KPI'ler bakın. KPI'ları, ASP.NET web uygulamaları, Java, düğüm ve genel uygulama türleri izleme sunucu tarafı uygulama için en iyi duruma getirilir. KPI'ları istek hızı, yanıt süresi, hata oranı ve kullanılabilirlik % ölçümlerini içerir. 
@@ -143,19 +141,19 @@ Birkaç görselleştirme yöntemler şunlardır:
 
 ### <a name="automate"></a>Otomatikleştirme
 > [!NOTE]
-> Uyarıları Microsoft Azure üzerinde devam eden evrimi bir parçası olarak, artık uyarı verme birleşik bir deneyim önizlemesi. Daha fazla ayrıntı [Azure Uyarıları'ni (Önizleme)](monitoring-overview-unified-alerts.md)
+> Uyarıları Microsoft Azure üzerinde devam eden evrimi bir parçası olarak, uyarı verme birleşik bir deneyim kullanıma sunulmuştur. Daha fazla ayrıntı [yeni Azure uyarıları](monitoring-overview-unified-alerts.md)
 
-Standart Azure Uyarıları'nda, tetikleyici uyarıları veya hatta tüm işlemler için izleme verilerini kullanabilirsiniz. Örneklere şunlar dahildir:
+Azure uyarıları izleme verilerini tetikleyici uyarıları veya hatta tüm işlemler için kullanabilirsiniz. Örneklere şunlar dahildir:
 
 * Otomatik ölçeklendirme işlem örnekleri için verileri, uygulama yüküne göre yukarı veya aşağı kullanın.
-* Ölçüm önceden belirlenmiş bir eşik kestiği olduğunda e-postalar gönderin.
+* Ölçüm ya da günlük koşullara göre e-postalar gönderin. 
 * Azure dışında bir sistemde bir eylemi çalıştırmak için bir web URL'si (Web kancası) çağırın
 * Tüm çeşitli görevleri gerçekleştirmek için Azure Otomasyonu'nda bir runbook başlatın
 
 ## <a name="methods-of-accessing-azure-monitor"></a>Azure İzleyicisi'ne erişim yöntemleri
 Genel olarak, veri izleme, Yönlendirme ve aşağıdaki yöntemlerden birini kullanarak alma yönetebilirsiniz. Tüm yöntemler, tüm eylemler veya veri türleri için kullanılabilir.
 
-* [Azure portalı](https://portal.azure.com)
+* [Azure Portal](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
 * [Platformlar arası komut satırı arabirimi (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)

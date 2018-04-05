@@ -1,6 +1,6 @@
 ---
-title: "Azure Container Service öğreticisi - Uygulamayı güncelleştirme"
-description: "Azure Container Service öğreticisi - Uygulamayı güncelleştirme"
+title: Azure Container Service öğreticisi - Uygulamayı güncelleştirme
+description: Azure Container Service öğreticisi - Uygulamayı güncelleştirme
 services: container-service
 author: neilpeterson
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 5f22bb3ac378bc9b1ff94db486d6ea6053c64514
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 87de0f23a00b035b12bac6cf655781961b1fb9e5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-an-application-in-kubernetes"></a>Kubernetes'te uygulama güncelleştirme
 
@@ -29,7 +29,7 @@ Bu yedi parçalı öğreticinin altıncı bölümünde, örnek Azure Vote uygula
 > * Kapsayıcı görüntüsünü Azure Container Registry’ye gönderme
 > * Güncelleştirilmiş kapsayıcı görüntüsünü dağıtma
 
-Sonraki öğreticilerde Kubernetes kümesini izlemek için Operations Management Suite yapılandırılır.
+Sonraki öğreticilerde Kubernetes kümesini izlemek için Log Analytics yapılandırılır.
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
@@ -71,7 +71,7 @@ docker-compose up --build -d
 
 ## <a name="test-application-locally"></a>Uygulamayı yerel olarak test etme
 
-Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 konumuna göz atın.
+Güncelleştirilmiş uygulamayı görüntülemek için http://localhost:8080 adresine göz atın.
 
 ![Azure’da Kubernetes kümesinin görüntüsü](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
@@ -166,7 +166,7 @@ Bu öğreticide, bir uygulamayı güncelleştirdiniz ve bu güncelleştirmeyi bi
 > * Kapsayıcı görüntüsü Azure Container Registry’ye gönderildi
 > * Güncelleştirilmiş uygulama dağıtıldı
 
-Operations Management Suite ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+Log Analytics ile Kubernetes’in nasıl izlenileceği hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
 
 > [!div class="nextstepaction"]
-> [OMS ile Kubernetes’i izleme](./container-service-tutorial-kubernetes-monitor.md)
+> [Log Analytics ile Kubernetes’i izleme](./container-service-tutorial-kubernetes-monitor.md)

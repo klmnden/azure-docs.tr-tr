@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama CredentialsCombo UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Compute.CredentialsCombo kullanıcı Arabirimi öğesi açıklar"
+title: Azure CredentialsCombo UI öğesi | Microsoft Docs
+description: Azure portalı için Microsoft.Compute.CredentialsCombo kullanıcı Arabirimi öğesi açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: d8faa36aca762bc8d787d5750fcf7efdbaf986ea
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: c17677a9e34de4c1afca8f04c8bd22c2155c3439
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftcomputecredentialscombo-ui-element"></a>Microsoft.Compute.CredentialsCombo UI öğesi
-Windows ve Linux parolalar ve SSH ortak anahtarları için yerleşik doğrulama denetimleriyle grubudur. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md).
+Windows ve Linux parolalar ve SSH ortak anahtarları için yerleşik doğrulama denetimleriyle grubudur.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Compute.CredentialsCombo](./media/managed-application-elements/microsoft.compute.credentialscombo.png)
@@ -82,7 +82,7 @@ Varsa `osPlatform` olan **Linux**, aşağıdaki şema kullanılır:
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- `osPlatform`belirtilmeli ve birini kullanabilir **Windows** veya **Linux**.
+- `osPlatform` belirtilmeli ve birini kullanabilir **Windows** veya **Linux**.
 - Varsa `constraints.required` ayarlanır **doğru**, parola veya SSH ortak anahtarı metin kutuları başarıyla doğrulamak için değerleri içermesi gerekir. Varsayılan değer **doğru**.
 - Varsa `options.hideConfirmation` ayarlanır **doğru**, sonra da kullanıcının parolasını onayladığınız için ikinci metin kutusu gizli. Varsayılan değer **false**.
 - Varsa `options.hidePassword` ayarlanır **doğru**, parola kimlik doğrulaması kullanma seçeneğini gizli sonra. Kullanılabilmesi için yalnızca `osPlatform` olan **Linux**. Varsayılan değer **false**.
@@ -107,6 +107,5 @@ Kullanıcı SSH ortak anahtarı sağladıysanız, aşağıdaki çıkış bekleni
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
 * UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

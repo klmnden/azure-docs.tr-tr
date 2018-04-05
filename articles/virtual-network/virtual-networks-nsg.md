@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: bd15b7786552d21c8791eeb307aa8c87066b2bcd
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c38223674061aa8c257e47b6208f890b7aef378d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>Ağ güvenlik grupları ile ağ trafiğini filtreleme
 
@@ -123,10 +123,10 @@ Aşağıdaki araçları kullanarak NSG’leri Resource Manager veya klasik dağ�
 
 | Dağıtım aracı | Klasik | Resource Manager |
 | --- | --- | --- |
-| Azure portalına   | Hayır | [Evet](virtual-networks-create-nsg-arm-pportal.md) |
-| PowerShell     | [Evet](virtual-networks-create-nsg-classic-ps.md) | [Evet](virtual-networks-create-nsg-arm-ps.md) |
-| Azure CLI **V1**   | [Evet](virtual-networks-create-nsg-classic-cli.md) | [Evet](virtual-networks-create-nsg-arm-cli.md) |
-| Azure CLI **V2**   | Hayır | [Evet](virtual-networks-create-nsg-arm-cli.md) |
+| Azure portalına   | Yes | [Evet](virtual-networks-create-nsg-arm-pportal.md) |
+| PowerShell     | [Evet](virtual-networks-create-nsg-classic-ps.md) | [Evet](tutorial-filter-network-traffic.md) |
+| Azure CLI **V1**   | [Evet](virtual-networks-create-nsg-classic-cli.md) | [Evet](tutorial-filter-network-traffic-cli.md) |
+| Azure CLI **V2**   | Hayır | [Evet](tutorial-filter-network-traffic-cli.md) |
 | Azure Resource Manager şablonu   | Hayır  | [Evet](virtual-networks-create-nsg-arm-template.md) |
 
 ## <a name="planning"></a>Planlama

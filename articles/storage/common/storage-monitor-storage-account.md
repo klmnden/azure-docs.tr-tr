@@ -1,8 +1,8 @@
 ---
-title: "Bir Azure depolama hesabı izleme | Microsoft Docs"
-description: "Azure portalı kullanarak bir Azure depolama hesabında izlemek öğrenin."
+title: Bir Azure depolama hesabı izleme | Microsoft Docs
+description: Azure portalı kullanarak bir Azure depolama hesabında izlemek öğrenin.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tamram
-ms.openlocfilehash: 20cb425b64bfba06d64b3c6c41f9ef496395ad8e
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ffc7d46bbfa4db47a47e416c395efdfc451cadc1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Azure portalında bir depolama hesabını izleme
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 01/24/2018
 > Azure portalında izleme verileri inceleniyor ile ilişkili maliyetleri vardır. Daha fazla bilgi için bkz: [depolama çözümlemeleri ve faturalama](/rest/api/storageservices/Storage-Analytics-and-Billing).
 >
 > Azure dosyaları şu anda Storage Analytics ölçümleri destekliyor, ancak henüz günlük kaydını desteklemiyor.
->
-> Bölge olarak yedekli depolama (ZRS) çoğaltma türüne sahip depolama hesapları, ölçümleri ve günlük kaydı destekler. Silinmiş önceki ZRS hesapları ZRS Klasik yeniden adlandırılmış, destek ölçümleri değil veya günlük kaydını yapın. ZRS hakkında daha fazla bilgi için bkz: [bölge olarak yedekli depolama](storage-redundancy.md#zone-redundant-storage). 
 > 
 > Ayrıntılı bir kılavuz tanımlamak, tanılama ve Azure Storage ile ilgili sorunları gidermek için depolama çözümlemeleri ve diğer araçları kullanma hakkında bilgi için bkz: [izleme, tanılama ve Microsoft Azure Storage sorun giderme](../storage-monitoring-diagnosing-troubleshooting.md).
 >
@@ -47,7 +45,7 @@ ms.lasthandoff: 01/24/2018
 
    Her hizmet için etkinleştirebilirsiniz ölçümleri her ikisi de yeni depolama hesapları için varsayılan olarak etkinleştirilen iki tür vardır:
 
-   * **Birleşik**: giriş/çıkış, kullanılabilirlik, gecikme ve başarı yüzdeleri gibi ölçümleri toplar. Bu ölçümler blob, kuyruk, tablo ve Dosya Hizmetleri için toplanır.
+   * **Birleşik**: giriş/çıkış, kullanılabilirlik, gecikme ve başarı yüzdeleri gibi ölçümleri toplar. Bu ölçümler; blob, kuyruk, tablo ve dosya hizmetleri için toplanır.
    * **API başına**: Birleşik ölçümlerin yanı sıra, Azure depolama hizmeti API'si her depolama işlem ölçümlerini aynı kümesini toplar.
 
    Veri Bekletme İlkesi ayarlamak üzere taşıma **bekletme (gün)** kaydırıcı veya 1 ile 365 arasında korumak için veri gün sayısı girin. Yeni depolama hesapları için varsayılan yedi gündür. Bir bekletme ilkesi ayarlamak istemiyorsanız sıfır girin. Bekletme İlkesi yok ise, izleme verilerini silmek için size bağlıdır.

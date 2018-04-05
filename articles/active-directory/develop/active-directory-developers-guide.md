@@ -1,10 +1,10 @@
 ---
-title: "Geliştiriciler için Azure Active Directory | Microsoft Docs"
-description: "Bu makale, Azure Active Directory kullanarak Microsoft iş ve okul hesaplarında oturum açmaya genel bakış sunmaktadır."
+title: Geliştiriciler için Azure Active Directory | Microsoft Docs
+description: Bu makale, Azure Active Directory kullanarak Microsoft iş ve okul hesaplarında oturum açmaya genel bakış sunmaktadır.
 services: active-directory
 author: dstrockis
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.devlang: na
@@ -14,14 +14,17 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e1f9fbf6cb80065ea796e2d53d09f48fe57b207b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d70f36c5e434a26fce4d6b4bd1ddefc22234ab5
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-active-directory-for-developers"></a>Geliştiriciler için Azure Active Directory
-Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hesabına sahip kullanıcılara güvenli bir şekilde oturum açtırmasını sağlayan bir bulut kimlik hizmetidir. Bu belgeler, sektör standardı protokolleri olan OAuth2.0 ve OpenID Connect’i kullanarak Azure AD desteğini uygulamanıza nasıl ekleyeceğinizi göstermektedir.
+Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hesabına sahip kullanıcıların güvenli şekilde oturumunu açan uygulamalar derlemesine olanak sağlayan bir bulut kimlik hizmetidir. Azure AD, tek kiracılı, iş kolu (LOB) uygulamalarını derleyen geliştiricileri ve çok kiracılı uygulamalar geliştirmek isteyen geliştiricileri destekler. Temel oturum açmaya ek olarak Azure AD, uygulamaların hem [Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/overview) gibi Microsoft API’lerini hem de Azure AD platformunda derlenen özel API’leri çağırmasını sağlar.  Bu belgeler, OAuth2.0 ve OpenID Connect gibi sektör standardı protokolleri kullanarak Azure AD desteğini uygulamanıza nasıl ekleyeceğinizi göstermektedir. 
+
+> [!NOTE]
+> Bu sayfadaki içeriğin büyük bir kısmı, yalnızca Microsoft iş veya okul hesaplarını destekleyen Azure AD v1 uç noktası ile ilgilidir. Tüketici veya kişisel Microsoft hesaplarının oturumunu açtırmak istiyorsanız lütfen [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) ile ilgili daha fazla bilgi görüntüleyin. Azure AD v2.0 uç noktası, Azure AD hesaplarına (iş ve okul) ve kişisel Microsoft hesaplarına sahip kullanıcıların oturumunu açmak istediğiniz uygulamalar için birleştirilmiş bir geliştirici deneyimi sunar. 
 
 | | |
 | --- | --- |
@@ -29,7 +32,7 @@ Azure Active Directory (Azure AD), geliştiricilerin Microsoft iş veya okul hes
 |[Uygulama türleri](active-directory-authentication-scenarios.md#application-types-and-scenarios) | Azure AD tarafından desteklenen kimlik doğrulama senaryolarına genel bakış. |                                
                                                                               
 ## <a name="get-started"></a>başlarken
-Bu kılavuzlu ayarlar, Azure AD kullanıcılarının oturumunu açmak için Microsoft kimlik doğrulama kitaplıklarını kullanma işleminde size yol gösterir.
+Aşağıdaki kılavuzlu kurulum adımları, Azure Active Directory Library (ADAL) SDK’sını kullanarak tercih ettiğiniz platformda uygulama derleme işlemi boyunca size yol gösterir. Microsoft Authentication Library (MSAL) kullanma hakkında bilgi edinmek için lütfen [Azure AD v2.0 uç noktası](active-directory-appmodel-v2-overview.md) ile ilgili belgelerimize bakın.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -40,7 +43,7 @@ Bu kılavuzlu ayarlar, Azure AD kullanıcılarının oturumunu açmak için Micr
 | <center>![Hizmetten hizmete](./media/active-directory-developers-guide/Service_App.png)<br />Hizmetten hizmete</center> | [Genel Bakış](active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#server-or-daemon-application-to-web-api)|  |
 
 ## <a name="how-to-guides"></a>Nasıl yapılır kılavuzları
-Bu makaleler Azure AD ile genel görevlerin nasıl gerçekleştirileceği konusunda bilgi verir.
+Aşağıdaki kılavuzlar, Azure AD’deki bazı yaygın görevler boyunca size yol göstermektedir.
 
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
@@ -58,10 +61,6 @@ Bu makaleler, Azure AD’de kullanılan API'ler, protokol iletileri ve terimler 
 | [Kod örnekleri](active-directory-code-samples.md)                                  | Tüm Azure AD kod örneklerinin listesi. |
 | [Sözlük](active-directory-dev-glossary.md)                                      | Bu belgelerde kullanılan terminoloji ve sözcük tanımları. |
 | [Ek başvuru konuları](active-directory-developers-guide-index.md#reference)| Azure AD için kullanılabilir başvuru konuları.   |
-
-
-> [!NOTE]
-> Kişisel Microsoft hesaplarınızda oturum açmanız gerekirse, [Azure AD v2.0 uç noktasını](active-directory-appmodel-v2-overview.md) kullanmayı düşünebilirsiniz. Azure AD v2.0 uç noktası, kişisel Microsoft hesapları ile Microsoft iş hesaplarının (Azure AD’den) tek bir kimlik doğrulama sisteminde birleşmesidir.
 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

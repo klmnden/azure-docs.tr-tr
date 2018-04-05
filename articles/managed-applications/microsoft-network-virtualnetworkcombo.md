@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama VirtualNetworkCombo UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Network.VirtualNetworkCombo kullanıcı Arabirimi öğesi açıklar"
+title: Azure VirtualNetworkCombo UI öğesi | Microsoft Docs
+description: Azure portalı için Microsoft.Network.VirtualNetworkCombo kullanıcı Arabirimi öğesi açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: c17ef740dcc709b5b344c4e60ef997a948b2e5de
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 38202b3b669a162f1cdbe88663d050d8d791c964
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI öğesi
-Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md).
+# <a name="microsoftnetworkvirtualnetworkcombo-ui-element"></a>Microsoft.Network.VirtualNetworkCombo UI element
+Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Network.VirtualNetworkCombo](./media/managed-application-elements/microsoft.network.virtualnetworkcombo.png)
@@ -84,8 +84,8 @@ Yeni veya var olan bir sanal ağ seçme denetimlerini grubudur. Bu öğe kulland
 ## <a name="remarks"></a>Açıklamalar
 - Belirtilmişse, ilk çakışmayan adres öneki boyutunun `defaultValue.addressPrefixSize` kullanıcının abonelik varolan sanal ağlarda temel alınarak otomatik olarak belirlenir.
 - İçin varsayılan değer `defaultValue.name` ve `defaultValue.addressPrefixSize` olan **null**.
-- `constraints.minAddressPrefixSize`belirtilmelidir. Belirtilen değerden daha küçük bir adres alanı ile var olan tüm sanal ağları seçilemez.
-- `subnets`belirtilmesi gerekir ve `constraints.minAddressPrefixSize` her alt ağ için belirtilmelidir.
+- `constraints.minAddressPrefixSize` belirtilmelidir. Belirtilen değerden daha küçük bir adres alanı ile var olan tüm sanal ağları seçilemez.
+- `subnets` belirtilmesi gerekir ve `constraints.minAddressPrefixSize` her alt ağ için belirtilmelidir.
 - Yeni bir sanal ağ oluştururken, her alt ağın adres öneki göre otomatik olarak sanal ağın adres öneki ve ilgili hesaplanır `addressPrefixSize`.
 - Sanal varolan kullanırken, ağ, hiçbir alt ağ ilgili küçük `constraints.minAddressPrefixSize` seçim için kullanılamaz. Ayrıca, belirtilirse, en az içermeyen alt ağlar `minAddressCount` kullanılabilir adresler seçilemez.
 Varsayılan değer **0**. Kullanılabilir adresler bitişik olduğundan emin olmak için belirtmek **true** için `requireContiguousAddresses`. Varsayılan değer **doğru**.
@@ -115,6 +115,5 @@ Varsayılan değer **0**. Kullanılabilir adresler bitişik olduğundan emin olm
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
 * UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

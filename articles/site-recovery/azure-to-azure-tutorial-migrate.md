@@ -1,18 +1,18 @@
 ---
-title: "Azure Site Recovery kullanarak Azure bölgeleri arasında Azure sanal makinelerini geçirme | Microsoft Docs"
-description: "Azure IaaS sanal makinelerini bir Azure bölgesinden diğerine geçirmek için Azure Site Recovery’yi kullanın."
+title: Azure Site Recovery kullanarak Azure bölgeleri arasında Azure sanal makinelerini geçirme | Microsoft Docs
+description: Azure IaaS sanal makinelerini bir Azure bölgesinden diğerine geçirmek için Azure Site Recovery’yi kullanın.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 03/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: abae7cbd21a2c7f49dc1fe85711b80dc43a10517
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye geçirme
 
@@ -35,10 +35,18 @@ Bu öğreticide önceden bir Azure aboneliğiniz olduğu varsayılır. Yoksa, ba
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi tamamlamak için içinden geçiş yapmak istediğiniz bir Azure bölgesinde Azure sanal makineleri olması gerekir. Ayrıca başlamadan önce doğrulamanız gereken birkaç ayar vardır.
+- Geçiş yapmak istediğiniz Azure bölgesinde Azure VM’leriniz olduğundan emin olun.
+- [Senaryo mimarisini ve bileşenlerini ](azure-to-azure-architecture.md) anladığınızdan emin olun.
+- [Destek sınırlamaları ve gereksinimleri](azure-to-azure-support-matrix.md) konusunu inceleyin.
 
 
-### <a name="verify-target-resources"></a>Hedef kaynakları doğrulama
+
+## <a name="before-you-start"></a>Başlamadan önce
+
+Çoğaltma ayarlamadan önce bu adımları tamamlayın.
+
+
+### <a name="verify-target-resources"></a>Hedef kaynaklarını doğrulama
 
 1. Azure aboneliğinizin, olağanüstü durum kurtarma için kullanılan hedef bölgede VM’ler oluşturmanıza izin verdiğinden emin olun. Gerekli kotayı sağlamak için desteğe başvurun.
 
@@ -114,9 +122,7 @@ Site Recovery, abonelik ve kaynak grubu ile ilişkili VM’lerin listesini alır
 
     ![çoğaltmayı etkinleştirme](media/tutorial-migrate-azure-to-azure/settings.png)
 
->[!NOTE]
-  >
-  > Şu anda, yönetilen diskler ile Azure sanal makinelerinin çoğaltılması desteklenmez. 
+ 
 
 ## <a name="run-a-failover"></a>Yük devretme çalıştırma
 

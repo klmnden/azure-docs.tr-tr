@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 8dc955b3556477e04e6ef3e92b1c7dbe82ac7f35
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 27c4a169a906f8e53a5548a38e3f680fd38155b3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 ## <a name="overview"></a>Genel Bakış
@@ -84,7 +84,7 @@ Tüm üç depolama konumları aynı temel bilgileri günlüğe kaydedilen olayla
 > İçinde depolanan bilgileri **tablo depolama** veya **blob depolama** yalnızca bir depolama istemcisi veya doğrudan bu depolama sistemleri ile çalışabilirsiniz uygulamanın kullanılarak erişilebilir. Örneğin, Visual Studio 2013 tablo veya blob depolama keşfetmek için kullanılan bir Depolama Gezgini içerir ve Hdınsight blob storage'da depolanan verilere erişebilir. Ayrıca Azure Storage birini kullanarak erişen bir uygulama yazabilirsiniz [Azure SDK'ları](/downloads/#).
 >
 > [!NOTE]
-> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Tanılama Azure Powershell'den de etkinleştirilebilir kullanarak **kümesi AzureWebsite** cmdlet'i. Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -113,7 +113,7 @@ Günlük Dosyaları indirmek için Azure PowerShell yeni bir örneğini başlat�
 Bu komut tarafından belirtilen web uygulaması için günlüklere kaydeder **-adı** adlı bir dosyaya parametre **logs.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure PowerShell kullanmak için nasıl](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Azure PowerShell yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [yükleyin ve Azure PowerShell yapılandırma](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -125,7 +125,7 @@ Azure komut satırı arabirimini kullanarak günlük dosyalarını indirmek içi
 Bu komut adlı bir dosyaya ' webappname' adlı web uygulaması için günlüklere kaydeder **diagnostics.zip** geçerli dizin.
 
 > [!NOTE]
-> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](../cli-install-nodejs.md).
+> Azure komut satırı arabirimi (Azure CLI) yüklü değil ya da Azure aboneliğinizi kullanacak şekilde yapılandırmadıysanız, bkz: [Azure CLI kullanma nasıl](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 

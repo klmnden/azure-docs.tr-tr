@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 15bbd32d982bdefc5665421b828ce0c8234b7257
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -76,9 +76,6 @@ Arka uç havuzu, tek başına sanal makineler, kullanılabilirlik kümeleri veya
 Arka uç havuzu tasarlamak nasıl değerlendirirken için en az tasarlayabilirsiniz daha fazla yönetim işlemlerini süresini iyileştirmek için tek tek arka uç havuzu kaynaklarına sayısı.  Veri düzlemi performansı veya ölçeği fark yoktur.
 
 ## <a name="az"></a>Kullanılabilirlik bölgeleri
-
->[!NOTE]
-> Kullanılacak [kullanılabilirlik bölgeleri Önizleme](https://aka.ms/availabilityzones) olan standart yük dengeleyici gerektirir [kullanılabilirlik bölgeler için kaydolma](https://aka.ms/availabilityzones).
 
 Standart yük dengeleyici ek yetenekler kullanılabilirlik bölgeleri kullanılabildiği bölgelerde destekler.  Bu özellikleri tüm standart yük dengeleyiciye artımlı sağlar.  Kullanılabilirlik bölgeleri yapılandırmaları için genel ve iç standart yük dengeleyici kullanılabilir.
 

@@ -1,11 +1,11 @@
 ---
-title: "Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama"
-description: "Unity uygulamalarını iOS cihazlarına dağıtmak için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin."
+title: Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
+description: Unity uygulamalarını iOS cihazlarına dağıtmak için Analizler ve Anında İletme Bildirimleri ile Azure Mobile Engagement kullanmayı öğrenin.
 services: mobile-engagement
 documentationcenter: unity
 author: piyushjo
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d5f0ef79-be00-4cec-97a5-a0b2fdaa380e
 ms.service: mobile-engagement
 ms.workload: mobile
@@ -14,13 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: bf0b758159d475b4ed7eadb84227e4824e11ba86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd126fc656fc00667c4c09298409f920ab8160fc
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-android-deployment"></a>Unity Android dağıtımı için Azure Mobile Engagement kullanmaya başlama
+> [!IMPORTANT]
+> Azure Mobile Engagement 31.03.2018 tarihinde kullanımdan kaldırılıyor. Bu sayfa, kısa bir süre sonra silinecek.
+> 
+
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
 
 Bu konu size uygulama kullanımınızı anlamak için Azure Mobile Engagement kullanmayı ve Android cihazına dağıtırken bir Unity uygulamasının kesimli kullanıcılarına anında iletme bildirimleri göndermeyi gösterir.

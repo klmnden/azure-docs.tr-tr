@@ -1,11 +1,11 @@
 ---
-title: "Azure’da Java ve Maven ile ilk işlevinizi oluşturma | Microsoft Docs"
-description: "Java ve Maven ile basit bir HTTP tetiklemeli işlev oluşturup Azure’da yayımlayın."
+title: Azure’da Java ve Maven ile ilk işlevinizi oluşturma | Microsoft Docs
+description: Java ve Maven ile basit bir HTTP tetiklemeli işlev oluşturup Azure’da yayımlayın.
 services: functions
 documentationcenter: na
 author: rloutlaw
 manager: justhe
-keywords: "azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari"
+keywords: azure işlevleri, işlevler, olay işleme, işlem, sunucusuz mimari
 ms.service: functions
 ms.devlang: java
 ms.topic: quickstart
@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ile ilk işlevinizi oluşturma
 
@@ -34,18 +34,25 @@ Bu hızlı başlangıç, Maven ile [sunucusuz](https://azure.microsoft.com/overv
 ## <a name="prerequisites"></a>Ön koşullar
 Java ile işlev uygulamaları geliştirebilmeniz için şunlar yüklü olmalıdır:
 
--  [.NET Core](https://www.microsoft.com/net/core), en son sürüm.
 -  [Java Developer Kit](https://www.azul.com/downloads/zulu/), sürüm 8.
--  [Azure CLI](https://docs.microsoft.com/cli/azure)
 -  [Apache Maven](https://maven.apache.org), sürüm 3.0 veya üzeri.
--  [Node.js](https://nodejs.org/download/), sürüm 8.6 veya üzeri.
+-  [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Bu hızlı başlangıcın tamamlanabilmesi için JAVA_HOME ortam değişkeni JDK’nin yükleme konumu olarak ayarlanmalıdır.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools’u Yükleme
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools), Azure İşlevleri yazmak, çalıştırmak ve bunların hatalarını ayıklamak için yerel bir geliştirme ortamı sağlar. Araçları [Node.js](https://nodejs.org/)’ye dahil edilen [npm](https://www.npmjs.com/) ile yükleyin.
+[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools), Azure İşlevleri yazmak, çalıştırmak ve bunların hatalarını ayıklamak için yerel bir geliştirme ortamı sağlar. 
+
+Yüklemek için, [Yükleme](https://github.com/azure/azure-functions-core-tools#installing) bölümünü ziyaret edin ve tercih ettiğiniz işletim sistemine (Windows, Linux, Mac) yönelik özel yönergeleri bulun.
+
+Aşağıdaki gereksinimleri yükledikten sonra bunu, [Node.js](https://nodejs.org/) ile birlikte sunulan [npm](https://www.npmjs.com/) ile ayrıca kendiniz yükleyebilirsiniz:
+
+-  [.NET Core](https://www.microsoft.com/net/core), en son sürüm.
+-  [Node.js](https://nodejs.org/download/), sürüm 8.6 veya üzeri.
+
+npm tabanlı bir yüklemeyle devam etmek için şunu çalıştırın:
 
 ```
 npm install -g azure-functions-core-tools@core
@@ -185,6 +192,4 @@ Basit bir HTTP tetikleyicisine sahip bir Java işlev uygulaması oluşturdunuz v
 - Java işlevleri geliştirme hakkında daha fazla bilgi edinmek için [Java İşlevleri geliştirici kılavuzunu](functions-reference-java.md) gözden geçirin.
 - `azure-functions:add` Maven hedefini kullanarak projenize farklı tetikleyicilere sahip ek işlevler ekleyin.
 - Visual Studio Code ile işlevlerde yerel olarak hata ayıklayın. [Java uzantı paketi](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) yüklü ve İşlevler projeniz Visual Studio Code’da açık haldeyken, 5005 bağlantı noktasına [hata ayıklayıcıyı bağlayın](https://code.visualstudio.com/Docs/editor/debugging#_launch-configurations). Sonra düzenleyicide bir kesme noktası ayarlayın ve işleviniz yerel olarak çalışırken tetikleyin: ![Visual Studio Code’da işlevlerin hatalarını ayıklama](media/functions-create-java-maven/vscode-debug.png)
-
-
-
+- Visual Studio Code ile işlevlerde uzaktan hata ayıklayın. Yönergeler için [sunucusuz Java uygulamaları yazma](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud) belgelerine göz atın.

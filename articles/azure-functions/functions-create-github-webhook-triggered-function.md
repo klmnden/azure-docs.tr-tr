@@ -1,26 +1,26 @@
 ---
-title: "Azure’da GitHub web kancası tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
-description: "GitHub web kancası ile çağrılan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın."
+title: Azure’da GitHub web kancası tarafından tetiklenen bir işlev oluşturma | Microsoft Docs
+description: GitHub web kancası ile çağrılan sunucusuz işlev oluşturmak için Azure İşlevlerini kullanın.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 03/28/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 98632c3276e7d9cccf29d05b903c2fac62a7d68e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.custom: mvc, cc996988-fb4f-47
+ms.openlocfilehash: 05ad567e407a6506222acdb66ab38c4cfab76e4b
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>GitHub web kancası tarafından tetiklenen bir işlev oluşturma
 
@@ -32,8 +32,6 @@ GitHub’a özel bir yük kullanarak, HTTP web kancası isteğiyle tetiklenmiş 
 
 + En az bir proje içeren bir GitHub hesabı.
 + Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
@@ -69,11 +67,15 @@ Ardından, GitHub deponuzda web kancasını oluşturursunuz.
 
 1. GitHub’da sahip olduğunuz bir depoya gidin. Varsa çatallandırdığınız depoları da kullanabilirsiniz. Bir depoda çatal oluşturmanız gerekiyorsa, <https://github.com/Azure-Samples/functions-quickstart> kullanın.
 
-1. **Ayarlar**’a tıklayın, sonra da **Web Kancaları**’na ve **Web kancası ekle**’ye tıklayın.
+2. **Ayarlar** > **Seçenekler**’i seçin ve **Özellikler** altındaki **Sorunlar** seçeneğinin etkinleştirildiğinden emin olun.
+
+   ![Sorunları Etkinleştir](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook.png)
+
+1. **Ayarlar**’da, **Web kancaları** > **Web kancası ekle**’yi seçin.
 
     ![GitHub web kancası ekleme](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-2.png)
 
-1. Tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
+1. Aşağıdaki tabloda belirtilen ayarları kullanın, ardından **Web kancası ekle**'ye tıklayın.
 
     ![Web kancası URL'sini ve parolasını ayarlama](./media/functions-create-github-webhook-triggered-function/functions-create-new-github-webhook-3.png)
 

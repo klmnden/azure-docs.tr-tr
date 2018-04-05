@@ -9,18 +9,18 @@
 
 ## <a name="introduction"></a>Giriş
 
-İçinde [IOT Hub cihaz çiftlerini ile çalışmaya başlama][lnk-twin-tutorial], cihaz meta verilerini kullanarak, çözüm arka ucu ayarlama öğrendiniz *etiketleri*, rapor cihaz uygulaması cihaz koşulları kullanarak *özellikleri bildirilen*ve SQL benzeri bir dil kullanarak bu bilgileri sorgulayabilirsiniz.
+İçinde [IOT Hub cihaz çiftlerini ile çalışmaya başlama][lnk-twin-tutorial], cihaz meta veriler kullanılarak ayarlanan öğrendiniz *etiketleri*. Kullanarak bir aygıtı uygulama aygıt koşullar alınan *özellikleri bildirilen*ve SQL benzeri bir dil kullanarak bu bilgileri sorgulanamadı.
 
-Bu öğreticide, cihaz çifti 's kullanmayı öğrenin *özelliklerini istenen* ile birlikte *özellikleri bildirilen*, uzaktan cihaz uygulamalarını yapılandırmak için. Daha belirgin olarak Bu öğretici, bir cihaz çifti 's nasıl bildirilen gösterir ve istenen özellikleri cihaz uygulamasının çok adımlı yapılandırmasını etkinleştir ve bu işlemin durumunu çözüm arka ucu için görünürlük cihazlara sağlayın. Cihaz yapılandırmaları rolü ile ilgili daha fazla bilgi bulabilirsiniz [cihaz yönetimine genel bakış IOT Hub ile][lnk-dm-overview].
+Bu öğretici cihaz çifti kişinin kullanımını açıklar *özelliklerini istenen* ve *özellikleri bildirilen* uzaktan cihaz uygulamalarını yapılandırmak için. Bildirilen ve cihaz çifti istenen özelliklerinde bir cihaz uygulaması çok adımlı yapılandırılmasını sağlar ve bu işlemin durumunu görünürlüğünü cihazlara sunar. Cihaz yapılandırmaları rolü ile ilgili daha fazla bilgi bulabilirsiniz [cihaz yönetimine genel bakış IOT Hub ile][lnk-dm-overview].
 
-Yüksek bir düzeyde cihaz çiftlerini kullanarak belirli komutları göndermek yerine yönetilen cihazlar için istenen yapılandırmayı belirtmek çözüm arka ucu sağlar. Bu cihaz (burada belirli cihaz koşullar etkileyen hemen belirli komutları yürütmek olanağı IOT senaryolarda önemli), yapılandırmasını güncelleştirmek için en iyi şekilde ayarlama sorumlu koyar sürekli olarak çözüm arka ucuna raporlama oluştu Güncelleştirme işlemini olası hata koşulları ve geçerli durumu. Bu desen büyük kümeleri, cihazların yönetimi için enstrümental aynıdır çözüm arka ucu yapılandırma işleminin durumunu tam görünürlüğünü cihazlara sahip olmasını sağlar.
+[!INCLUDE [iot-hub-basic](iot-hub-basic-whole.md)]
 
-> [!NOTE]
-> Burada aygıtları denetlenir daha etkileşimli bir şekilde (kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirin) senaryolarında kullanmayı [doğrudan yöntemleri][lnk-methods].
-> 
-> 
+Yüksek bir düzeyde cihaz çiftlerini kullanarak belirli komutları göndermek yerine yönetilen cihazlar için istenen yapılandırmayı belirtmek çözüm arka ucu sağlar. (Burada belirli cihaz koşullar etkileyen hemen belirli komutları yürütmek olanağı IOT senaryolarda önemli), yapılandırmasını güncelleştirmek için en iyi şekilde ayarlama sorumlu cihaz, geçerli durumu ve olası sürekli Raporlama sırasında Güncelleştirme işlemini hata koşulları. Bu desen büyük kümeleri, cihazların yönetimi için enstrümental aynıdır cihazlara yapılandırma işleminin durumunu çözüm arka uç tam görünürlüğünü sağlar.
 
-Bu öğreticide, bir hedef cihaz telemetri yapılandırmasını çözüm arka ucu değiştirir ve sonuç olarak, cihaz uygulaması yapılandırmasını güncelleştirme uygulamak için çok adımlı bir işlemi izler (örneğin, bir yazılım modülü yeniden, bu gerektiren Öğreticisi Basit bir gecikmeyle taklit eder).
+> [!TIP]
+> Burada aygıtları denetlenir (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten) daha etkileşimli bir şekilde senaryolarda kullanmayı [doğrudan yöntemleri][lnk-methods].
+
+Bu öğreticide, cihaz uygulaması bir yapılandırma güncelleştirmesi şekilde çözüm arka ucu bir hedef cihaz telemetri yapılandırmasını değiştirir. Örneğin, bir yapılandırma güncelleştirmesi Bu öğretici basit bir gecikmeyle taklit eden bir yazılım modülü yeniden gerektiren.
 
 Çözüm arka ucu yapılandırmasını cihaz çifti'nın istenen özelliklerinde aşağıdaki şekilde depolar:
 
@@ -39,10 +39,8 @@ Bu öğreticide, bir hedef cihaz telemetri yapılandırmasını çözüm arka uc
             ...
         }
 
-> [!NOTE]
-> Yapılandırmaları karmaşık nesneler olabileceği için benzersiz kimlikler atanan (karmaları veya [GUID'ler][lnk-guid]) kendi karşılaştırmaları basitleştirmek için.
-> 
-> 
+Yapılandırmaları karmaşık nesneler olabileceği için benzersiz kimlikler atanan (karmaları veya [GUID'ler][lnk-guid]).
+
 
 Cihaz uygulaması istenen özelliği yansıtma geçerli yapılandırması raporları **telemetryConfig** bildirilen özellikleri:
 
@@ -62,7 +60,7 @@ Cihaz uygulaması istenen özelliği yansıtma geçerli yapılandırması raporl
 
 Not nasıl bildirilen **telemetryConfig** ek bir özelliğe sahiptir **durum**, yapılandırma güncelleştirme işleminin durumunu bildirmek için kullanılan.
 
-Yeni bir istenen yapılandırma alındığında, cihaz uygulaması bekleyen yapılandırma bilgileri değiştirerek raporları:
+Yeni istenen yapılandırma alındığında, cihaz uygulamasının durumunu değiştirerek bekleyen yapılandırma raporları:
 
         {
             "properties": {
@@ -82,8 +80,7 @@ Yeni bir istenen yapılandırma alındığında, cihaz uygulaması bekleyen yap�
             }
         }
 
-Ardından, sonraki bir zamanda, cihaz uygulaması başarı veya başarısızlık bu işlemin yukarıdaki özellik güncelleştirerek bildirir.
-Nasıl çözüm arka ucu cihazlara yapılandırma işleminin durumunu sorgulamak için istediğiniz zaman, bulabildiği unutmayın.
+Ardından, sonraki bir zamanda, cihaz uygulaması başarı veya başarısızlık bu işlemin özelliği güncelleştirerek bildirir. Çözüm arka ucu, herhangi bir zamanda cihazlara yapılandırma işleminin durumunu sorgulayabilirsiniz.
 
 Bu öğretici şunların nasıl yapıldığını gösterir:
 

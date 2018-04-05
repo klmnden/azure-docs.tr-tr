@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 832010181059e2ec42834e54622f374c367c8d4f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Oluşturun ve IOT hub'ı iletileri okur
 
-Protokoller kullanılarak sorunsuz birlikte çalışabilirlik desteklemek için tüm cihaz dönük protokoller için ortak bir ileti biçimi IOT hub'ı tanımlar. Bu ileti biçimi her ikisi için kullanılan [cihaz bulut] [ lnk-d2c] ve [bulut cihaz] [ lnk-c2d] iletileri. Bir [IOT hub'ı ileti] [ lnk-messaging] oluşur:
+Protokoller kullanılarak sorunsuz birlikte çalışabilirlik desteklemek için tüm cihaz dönük protokoller için ortak bir ileti biçimi IOT hub'ı tanımlar. Bu ileti biçimi her ikisi için kullanılan [cihaz bulut] [ lnk-d2c] ve [bulut cihaz] [ lnk-c2d] iletileri. 
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+Bir [IOT hub'ı ileti] [ lnk-messaging] oluşur:
 
 * Bir dizi *Sistem Özellikleri*. IOT hub'ı yorumlar veya ayarlayan özellikleri. Bu önceden belirlenmiş kümesidir.
 * Bir dizi *uygulama özellikleri*. Uygulama tanımlayabilirsiniz dize özellikleri ve ileti gövdesi seri durumdan gerek olmadan erişim, sözlüğü. IOT hub'ı hiçbir zaman bu özellikleri değiştirir.

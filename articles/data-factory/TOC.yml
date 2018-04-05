@@ -118,6 +118,8 @@
   items:
     - name: Veri fabrikalarını görsel olarak yazma
       href: author-visually.md
+    - name: Sürekli tümleştirme ve dağıtım
+      href: continuous-integration-deployment.md
     - name: Veri kopyalama
       items:
         - name: Kopyalama Etkinliği’ni kullanarak veri kopyalama

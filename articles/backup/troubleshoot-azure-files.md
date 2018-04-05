@@ -1,30 +1,29 @@
 ---
-title: "Azure Dosyaları Yedeklemesinde sorun giderme"
-description: "Bu makalede, Azure dosyalarınızın (dosya paylaşımları) Azure’da korunması sırasında oluşan sorunlarla ilgili sorun giderme bilgileri verilmektedir."
+title: Azure Dosyaları Yedeklemesinde sorun giderme
+description: Bu makalede, Azure dosya paylaşımlarınızın korunması sırasında oluşan sorunlarla ilgili sorun giderme bilgileri verilmektedir.
 services: backup
 ms.service: backup
-keywords: "SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin."
+keywords: SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin.
 author: markgalioto
 ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 ms.workload: storage-backup-recovery
 manager: carmonm
-ms.openlocfilehash: 3bc259245df86406e23418bac598c8b1e062d512
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: c803118ccdafa8db0e8f8ddee608f60311f65e05
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="troubleshoot-problems-backing-up-azure-files"></a>Azure Dosyaları’nı yedekleme sırasında karşılaşılan sorunları giderme
-
 Aşağıdaki tablolarda listelenen bilgilerle Azure Dosyaları yedeklemesi kullanılırken karşılaşılan sorunları ve hataları giderebilirsiniz.
 
 ## <a name="preview-boundaries"></a>Önizleme sınırları
-Azure Dosyaları’nı yedekleme Önizleme sürümündedir. Azure Dosya paylaşımları için aşağıdaki yedekleme senaryoları desteklenmemektedir:
-- [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) veya [okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) çoğaltması ile Depolama Hesaplarında Dosya paylaşımlarını koruma.
-- Sanal Ağların etkin olduğu Depolama Hesaplarında Dosya paylaşımlarını koruma.
-- PowerShell veya CLI kullanarak dosyaları yedekleme.
+Azure Dosyaları’nı yedekleme Önizleme sürümündedir. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
+- [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy.md#zone-redundant-storage) (ZRS) veya [okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) (RA-GRS) çoğaltması ile Depolama Hesaplarında Azure dosya paylaşımlarını koruma.
+- Sanal Ağların etkin olduğu Depolama Hesaplarında Azure dosya paylaşımlarını koruma.
+- PowerShell veya CLI kullanarak Azure dosya paylaşımlarını yedekleme.
 
 ### <a name="limitations"></a>Sınırlamalar
 - Günlük en fazla #Zamanlanan-yedekleme 1’dir.
@@ -37,7 +36,7 @@ Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 
 | Yedeklemeyi yapılandırma | Geçici çözüm veya çözümleme ipuçları |
 | ------------------ | ----------------------------- |
-| Azure Dosya paylaşımına yönelik yedeklemeyi yapılandırmak için Depolama Hesabımı bulamıyorum | <ul><li>Bulma işlemi tamamlanana kadar bekleyin. <li>Depolama hesabından herhangi bir Dosya paylaşımının zaten başka bir Kurtarma Hizmetleri kasası ile korunup korunmadığını denetleyin. **Not**: Bir Depolama Hesabındaki tüm dosya paylaşımları tek bir Kurtarma Hizmetleri kasası kapsamında korunabilir. <li>Desteklenmeyen herhangi bir Depolama Hesabında Dosya paylaşımının mevcut olmadığından emin olun.|
+| Azure dosya paylaşımına yönelik yedeklemeyi yapılandırmak için Depolama Hesabımı bulamıyorum | <ul><li>Bulma işlemi tamamlanana kadar bekleyin. <li>Depolama hesabından herhangi bir Dosya paylaşımının zaten başka bir Kurtarma Hizmetleri kasası ile korunup korunmadığını denetleyin. **Not**: Bir Depolama Hesabındaki tüm dosya paylaşımları tek bir Kurtarma Hizmetleri kasası kapsamında korunabilir. <li>Desteklenmeyen herhangi bir Depolama Hesabında Dosya paylaşımının mevcut olmadığından emin olun.|
 | Portal durumlarında hata oluştu. Depolama hesaplarını bulma işlemi başarısız oldu. | Aboneliğiniz iş ortağı hesabıysa (CSP etkin) hatayı yoksayın. Aboneliğinizde CSP etkin değilse ve depolama hesaplarınız bulunamıyorsa desteğe başvurun.|
 | Seçilen Depolama Hesabı doğrulaması veya kaydı başarısız oldu.| İşlemi yeniden deneyin, sorun devam ederse desteğe başvurun.|
 | Seçilen Depolama Hesabında Dosya paylaşımları listelenemedi veya bulunamadı. | <ul><li> Kaynak Grubunda Depolama Hesabının mevcut olduğundan (ve silinmediğinden veya kasadaki son doğrulamadan/kayıttan sonra taşınmadığından) emin olun.<li>Korumak istediğiniz Dosya paylaşımının silinmemiş olduğundan emin olun. <li>Depolama Hesabının, Dosya paylaşımı yedeklemesi için desteklenen bir depolama hesabı olduğundan emin olun.<li>Dosya paylaşımının, aynı Kurtarma Hizmetleri kasasında zaten korumalı olup olmadığını denetleyin.|
@@ -51,7 +50,7 @@ Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 | -------------- | ----------------------------- |
 | Dosya paylaşımı bulunamadığından işlem başarısız oldu. | Korumak istediğiniz Dosya paylaşımının silinmemiş olduğundan emin olun.|
 | Depolama hesabı bulunamadı veya desteklenmiyor. | <ul><li>Depolama hesabının Kaynak Grubunda mevcut olduğundan ve silinmediğinden veya son doğrulamadan sonra Kaynak Grubundan kaldırılmadığından emin olun. <li> Depolama hesabının, Dosya paylaşımı yedeklemesi için desteklenen bir Depolama hesabı olduğundan emin olun.|
-| Bu dosya paylaşımı için anlık görüntü sayısı üst sınırına ulaştınız, eski görüntülerin süresi dolduktan sonra yenilerini almanız mümkün olacaktır. | <ul><li> Bu hata, bir Dosya için birden fazla isteğe bağlı yedekleme oluşturduğunuzda oluşabilir. <li> Azure Backup tarafından alınanlar da dahil olmak üzere, Dosya paylaşımı başına 200 anlık görüntü sınırı söz konusudur. Zamanlanmış olan daha eski yedeklemeler (veya anlık görüntüler) otomatik olarak temizlenir. Üst sınıra ulaşılırsa isteğe bağlı yedeklemelerin (veya anlık görüntülerin) silinmesi gerekir.<li> Azure Dosyaları portalından isteğe bağlı yedeklemeleri (Azure Dosya paylaşımı anlık görüntülerini) silin. **Not**: Azure Backup tarafından oluşturulan anlık görüntüleri silerseniz kurtarma noktalarını kaybedersiniz. |
+| Bu dosya paylaşımı için anlık görüntü sayısı üst sınırına ulaştınız, eski görüntülerin süresi dolduktan sonra yenilerini almanız mümkün olacaktır. | <ul><li> Bu hata, bir Dosya için birden fazla isteğe bağlı yedekleme oluşturduğunuzda oluşabilir. <li> Azure Backup tarafından alınanlar da dahil olmak üzere, Dosya paylaşımı başına 200 anlık görüntü sınırı söz konusudur. Zamanlanmış olan daha eski yedeklemeler (veya anlık görüntüler) otomatik olarak temizlenir. Üst sınıra ulaşılırsa isteğe bağlı yedeklemelerin (veya anlık görüntülerin) silinmesi gerekir.<li> Azure Dosyaları portalından isteğe bağlı yedeklemeleri (Azure dosya paylaşımı anlık görüntülerini) silin. **Not**: Azure Backup tarafından oluşturulan anlık görüntüleri silerseniz kurtarma noktalarını kaybedersiniz. |
 | Depolama hizmeti azaltması nedeniyle Dosya paylaşımını yedekleme veya geri yükleme başarısız oldu. Bunun sebebi, depolama hizmetinin, söz konusu depolama hesabına yönelik diğer istekleri işlemekle meşgul olmasından kaynaklanıyor olabilir.| Bir süre sonra işlemi yeniden deneyin. |
 | Hedef Dosya Paylaşımı Bulunamadı hatası ile geri yükleme başarısız oldu. | <ul><li>Seçilen Depolama Hesabının mevcut olduğundan ve Hedef Dosya paylaşımının silinmediğinden emin olun. <li> Depolama Hesabının, Dosya paylaşımı yedeklemesi için desteklenen bir depolama hesabı olduğundan emin olun. |
 | Sanal Ağların etkin olduğu Depolama Hesaplarında Azure Dosyaları için Azure Backup şu an için desteklenmemektedir. | Başarılı yedeklemeler ve geri yükleme işlemleri için Depolama Hesabınızda Sanal Ağları devre dışı bırakın. |
@@ -64,6 +63,6 @@ Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:
 | Bir veya daha fazla dosyayı kurtarma başarısız oldu. Daha fazla bilgi için, yukarıda verilen yoldaki başarısız dosya listesini kontrol edin. | <ul> <li> Kurtarma hatasının nedenleri dosyada listelenmektedir (yol, İş ayrıntılarında belirtilir), nedenleri giderin ve yalnızca başarısız dosyalar için geri yükleme işlemini yeniden deneyin. <li> Dosya geri yükleme hatalarının sık karşılaşılan nedenleri şunlardır: <br/> - Başarısız dosyaların o sırada kullanımda olması. <br/> - Üst dizinde başarısız dosyalarla aynı ada sahip bir dizinin mevcut olması. |
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-Azure Dosya paylaşımlarının desteklenmesi hakkında daha fazla bilgi için bkz.:
-- [Azure Dosya paylaşımlarını destekleme](backup-azure-files.md)
-- [Azure Dosya paylaşımlarını yedekleme ile ilgili SSS](backup-azure-files-faq.md)
+Azure dosya paylaşımlarının yedeklenmesi hakkında daha fazla bilgi için bkz.:
+- [Azure dosya paylaşımlarını yedekleme](backup-azure-files.md)
+- [Azure dosya paylaşımlarını yedekleme ile ilgili SSS](backup-azure-files-faq.md)

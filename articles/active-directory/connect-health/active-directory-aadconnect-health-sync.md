@@ -1,8 +1,8 @@
 ---
-title: "Eşitleme için Azure AD Connect Health'i kullanma| Microsoft Belgeleri"
-description: "Bu Azure AD Connect Health sayfasında, Azure AD Connect eşitlemesinin nasıl izleneceği ele alınmıştır."
+title: Eşitleme için Azure AD Connect Health'i kullanma| Microsoft Belgeleri
+description: Bu Azure AD Connect Health sayfasında, Azure AD Connect eşitlemesinin nasıl izleneceği ele alınmıştır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect eşitlemesini Azure AD Connect Health ile izleme
 Aşağıdaki belgeler Azure AD Connect Health ile Azure AD Connect’in (Eşitleme) izlenmesine özgüdür.  Azure Connect Health ile AD FS'yi izleme hakkında bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -83,11 +83,12 @@ Rapor, mevcut eşitleme hatalarını aşağıdaki kategorilere ayırır:
 | Yinelenen Öznitelik |Azure AD Connect, bir Kiracıda benzersiz olması gereken ve Azure AD Connect’te bulunan bir veya daha fazla özniteliğin (proxyAddresses ve UserPrincipalName gibi) yinelenen değerleri ile nesneler oluşturmaya veya güncelleştirmeye çalıştığında oluşan hatalar. |
 | Veri Uyuşmazlığı |Geçici eşleştirme, nesneleri eşleştiremeyerek eşitleme hatalarına neden olduğunda görülen hatalar. |
 | Veri Doğrulama Hatası |UserPrincipalName gibi kritik özniteliklerde desteklenmeyen karakterler bulunması ve Azure AD’ye yazılmadan önce doğrulanamayan biçim hataları gibi geçersiz verilerden kaynaklanan hatalar. |
+| Federasyon Etki Alanı Değiştirme | Hesaplar farklı bir federasyon etki alanı kullandığında oluşan hatalar. |
 | Büyük Öznitelik |Bir veya daha fazla öznitelik izin verilen boyuttan, uzunluktan veya sayıdan daha büyük olduğunda görülen hatalar. |
 | Diğer |Yukarıdaki kategorilere uymayan diğer tüm hatalar. Bu kategori, geri bildirimleriniz temel alınarak alt kategorilere ayrılacaktır. |
 
 ![Eşitleme Hata Raporu Özeti](./media/active-directory-aadconnect-health-sync/errorreport01.png)
-![Eşitleme Hata Raporu Kategorileri](./media/active-directory-aadconnect-health-sync/errorreport02.png)
+![Eşitleme Hata Raporu Kategorileri](./media/active-directory-aadconnect-health-sync/SyncErrorByTypes.PNG)
 
 ### <a name="list-of-objects-with-error-per-category"></a>Kategoriye göre hatalı nesnelerin listesi
 Her kategori ayrıntılı olarak incelendiğinde ilgili kategoride hata içeren nesnelerin bir listesi görülebilir.

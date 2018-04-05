@@ -1,12 +1,12 @@
 ---
-title: "Azure portalına iş yüklerini yedeklemek için DPM kullanın | Microsoft Docs"
-description: "Azure Yedekleme hizmetini kullanarak DPM sunucularını yedekleme için bir giriş"
+title: Azure portalına iş yüklerini yedeklemek için DPM kullanın | Microsoft Docs
+description: Azure Yedekleme hizmetini kullanarak DPM sunucularını yedekleme için bir giriş
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: adigan
 manager: nkolli
-editor: 
-keywords: "System Center Data Protection Manager, veri koruma Yöneticisi, dpm yedekleme"
+editor: ''
+keywords: System Center Data Protection Manager, veri koruma Yöneticisi, dpm yedekleme
 ms.assetid: c8c322cf-f5eb-422c-a34c-04a4801bfec7
 ms.service: backup
 ms.workload: storage-backup-recovery
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 0e547a5991c0ce00344eff6d6b77edb0e34bd62c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 05917705264965afda873fb32a28b70e4da87aa3
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>DPM ile Azure’a iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -94,7 +94,7 @@ Kurtarma hizmetleri kasası oluşturmak için:
    Kasanız oluşturulduktan sonra portalda açılır.
 
 ### <a name="set-storage-replication"></a>Depolama Çoğaltmayı Ayarlama
-Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse seçeneği coğrafi olarak yedekli depolamaya ayarlanmış şekilde bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy.md#geo-redundant-storage) ve [yerel olarak yedekli](../storage/common/storage-redundancy.md#locally-redundant-storage) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
+Depolama çoğaltma seçeneği, coğrafi olarak yedekli depolama ve yerel olarak yedekli depolama arasında seçim yapmanıza olanak sağlar. Varsayılan olarak, kasanız coğrafi olarak yedekli depolamaya sahiptir. Bu, birincil yedeklemenizse seçeneği coğrafi olarak yedekli depolamaya ayarlanmış şekilde bırakın. Daha düşük dayanıklılık düzeyinde olan daha uygun maliyetli bir seçenek istiyorsanız yerel olarak yedekli depolamayı seçin. [Coğrafi olarak yedekli](../storage/common/storage-redundancy-grs.md) ve [yerel olarak yedekli](../storage/common/storage-redundancy-lrs.md) depolama seçenekleri hakkında daha fazla bilgiyi [Azure Storage çoğaltmaya genel bakış](../storage/common/storage-redundancy.md) bölümünde edinebilirsiniz.
 
 Depolama çoğaltma ayarını düzenlemek için:
 

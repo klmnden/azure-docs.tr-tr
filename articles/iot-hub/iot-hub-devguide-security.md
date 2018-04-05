@@ -14,23 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: e7e45a6af0857520eec27263281a0f0a43b30013
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c410db9a7255a039ab9b41ae39f2fe1018719f8f
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub’a erişimi denetleme
 
 Bu makalede, IOT hub'ınızı güvenliğini sağlamak için seçenekleri açıklar. IOT hub'ı kullanan *izinleri* her IOT hub uç erişim vermek için. İzinleri işlevselliğine dayalı bir IOT hub'ına erişimi sınırlayın.
 
-Bu makalede açıklanır:
+Bu makalede sunar:
 
 * IOT hub'ınızı erişmek için bir aygıt veya arka uç uygulaması için erişim izni verebilir farklı izinler.
 * Kimlik doğrulama işlemi ve belirteçleri izinleri doğrulamak için kullanır.
 * Belirli kaynaklara erişimi sınırlamak için kimlik bilgilerini kapsam yapma.
 * X.509 sertifikaları IOT hub'ı destekler.
 * Var olan cihaz kimlik kayıt defterleri veya kimlik doğrulama şemasını kullanan özel cihaz kimlik doğrulama mekanizmaları.
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 IOT Hub uç noktaları hiçbirini erişmek için uygun izinlere sahip olmalıdır. Örneğin, bir cihaz IOT Hub'ına gönderir her ileti yanı sıra güvenlik kimlik bilgileri içeren bir belirteç eklemeniz gerekir.
 

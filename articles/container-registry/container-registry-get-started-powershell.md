@@ -9,13 +9,13 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2bae45955cf3c2b157acce2544b1f35fbddd0170
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-an-azure-container-registry-using-powershell"></a>PowerShell kullanarak Azure Container Registry oluşturma
+# <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Hızlı başlangıç: PowerShell kullanarak Azure Container Registry oluşturma
 
 Azure Container Registry, özel Docker kapsayıcı görüntülerini depolamak için kullanılan bir yönetilen Docker kapsayıcı kayıt defteridir. Bu kılavuzda PowerShell kullanarak bir Azure Container Registry örneği oluşturma, kayıt defterine bir kapsayıcı görüntüsü gönderme ve son olarak kapsayıcıyı kayıt defterinizden Azure Container Instances’a (ACI) dağıtma hakkında ayrıntılı bilgi verilmektedir.
 
@@ -73,7 +73,7 @@ Azure Container kayıt defterine görüntü gönderebilmeniz için önce bir gö
 docker pull microsoft/aci-helloworld
 ```
 
-Görüntünün, ACR oturum açma sunucusu adıyla etiketlenmiş olması gerekir. Bunu yapmak için [docker tag][docker-tag] komutunu kullanın. 
+Görüntünün, ACR oturum açma sunucusu adıyla etiketlenmiş olması gerekir. Bunu yapmak için [docker tag][docker-tag] komutunu kullanın.
 
 ```powershell
 $image = $registry.LoginServer + "/aci-helloworld:v1"

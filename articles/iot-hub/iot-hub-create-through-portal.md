@@ -1,24 +1,24 @@
 ---
-title: "IOT hub'ı oluşturmak için Azure portalını kullanma | Microsoft Docs"
-description: "Nasıl oluşturmak, yönetmek ve Azure Portalı aracılığıyla Azure IOT hub'ları silin. Fiyatlandırma katmanlarına, ölçeklendirme, güvenlik ve yapılandırma Mesajlaşma hakkında bilgi içerir."
+title: IOT hub'ı oluşturmak için Azure portalını kullanma | Microsoft Docs
+description: Nasıl oluşturmak, yönetmek ve Azure Portalı aracılığıyla Azure IOT hub'ları silin. Fiyatlandırma katmanlarına, ölçeklendirme, güvenlik ve yapılandırma Mesajlaşma hakkında bilgi içerir.
 services: iot-hub
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0909cd2b-4c1e-49e0-b68a-75532caf0a6a
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: ac1a52355ffa5354bebe3b98fdb75783bcd57697
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 6ffde076caff6217bf6255c9294eca63d3e39b85
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Azure portalını kullanarak IOT hub oluşturma
 
@@ -53,18 +53,9 @@ IOT hub'ı oluşturmak için IOT hub'ı adı olmalıdır. Bu ad, tüm IOT hub'la
 
 ### <a name="choose-the-pricing-tier"></a>Fiyatlandırma katmanı seçin
 
-Dört katmanları seçebilirsiniz: **serbest**, **standart 1** ve **standart 2**, ve **standart S3**. Ücretsiz katmanı yalnızca 500 cihazların 8.000 iletileri günde en fazla ve IOT hub'ına bağlı izin verir.
+Bağlı olarak kaç özellikleri birkaç katmanları seçebilirsiniz istiyorsanız ve kaç tane iletileri gönder günde çözümünüz aracılığıyla. Ücretsiz katmanı, sınama ve değerlendirme için tasarlanmıştır. Gün başına 8.000 ileti en fazla ve IOT hub'ına bağlı 500 cihazların sağlar. Her Azure aboneliği ücretsiz katmanında bir IOT hub'ı oluşturabilirsiniz. 
 
-**Standart S1**: S1 edition IOT çözümleri için çok sayıda her küçük miktarda veri oluşturur aygıtları kullanın. S1 sürümünün her birimi, tüm cihazlarda günde 400.000’e kadar ileti aktarılmasına olanak tanır.
-
-**Standart S2**: S2 edition IOT çözümleri cihazları büyük miktarlarda verinin oluşturmak için kullanın. S2 edition her ölçü tüm bağlı aygıtlar arasında günde 6 milyon iletilerine izin verir.
-
-**Standart S3**: S3 edition büyük miktarlarda veri üreten IOT çözümleri için kullanır. S3 edition her ölçü tüm bağlı aygıtlar arasında günde en çok 300 milyon iletilerine izin verir.
-
-![][4]
-
-> [!NOTE]
-> IOT Hub, yalnızca bir ücretsiz hub Azure abonelik başına izin verir.
+Diğer katmanı seçenekleri hakkında daha fazla ayrıntı için bkz: [sağ IOT hub'ı katmanı seçme özelliği](iot-hub-scaling.md).
 
 ### <a name="iot-hub-units"></a>IOT hub'ı birimleri
 
@@ -100,7 +91,7 @@ IOT Hub dikey penceresinden oluşturulduktan sonra var olan IOT hub'ı ayarları
 
 **Paylaşılan erişim ilkeleri**: IOT Hub'ına bağlanmak için gerekli izinlere cihazları ve Hizmetleri için bu ilkeleri tanımlar. Bu ilkeler tıklatarak erişebilirsiniz **paylaşılan erişim ilkeleri** altında **genel**. Bu dikey pencerede, varolan ilkeleri değiştirmek veya yeni bir ilke ekleme.
 
-### <a name="create-a-policy"></a>Bir ilke oluşturun
+### <a name="create-a-policy"></a>İlke oluştur
 
 * Tıklatın **Ekle** bir dikey penceresini açın. Burada yeni ilke adını ve aşağıdaki çizimde gösterildiği gibi bu ilke ile ilişkilendirmek istediğiniz izinleri girebilirsiniz:
 
@@ -136,7 +127,7 @@ Tıklatın **uç noktaları** değiştirdiğiniz IOT hub'ı uç noktaları liste
   > [!NOTE]
   > Varsayılan bir tüketici grubu silinmiş veya düzenlenemez.
 
-### <a name="custom-endpoints"></a>Özel uç noktaları
+### <a name="custom-endpoints"></a>Özel uç noktalar
 
 Portalı kullanarak, IOT hub'ına özel uç noktalar ekleyebilirsiniz. Gelen **uç noktaları** dikey penceresinde tıklatın **Ekle** açmak için üst **uç nokta ekleme** dikey. Gerekli bilgileri girin ve ardından **Tamam**. Özel uç noktanızı şimdi ana listelenen **uç noktaları** dikey.
 
@@ -154,17 +145,6 @@ Tıklayarak IOT hub'ınıza yollar ekleyebilirsiniz **Ekle** en üstündeki **yo
 
 ![][15]
 
-## <a name="pricing-and-scale"></a>Fiyatlandırma ve ölçek
-
-Var olan bir IOT hub ' fiyatlandırma üzerinden değiştirilebilir **fiyatlandırma** aşağıdaki istisnalar dışında ayarları:
-
-* Geçerli uygulama, bir IOT hub ile boş bir SKU katmanları Ücretli SKU birine değiştirilemiyor veya tam tersi.
-* Yalnızca olabilir ücretsiz katmanı IOT hub'ın bir Azure aboneliği.
-
-![][12]
-
-Yalnızca o gün gönderilen ileti sayısını alt katmanı için kota aştıklarında, daha yüksek alt katmanına taşıyabilirsiniz. Gün başına ileti sayısını 400.000 aşarsa, örneğin, ardından katman IOT hub'ı için değiştirilebilir. Ancak, S1 katmanı değiştirirseniz, IOT hub'ı o gün için kısıtlanır.
-
 ## <a name="delete-the-iot-hub"></a>IOT hub'ını silmek
 
 IOT hub'ı tıklatarak silmek gözatabilirsiniz **Gözat**ve silmek için uygun hub'ı seçerek. IOT hub'ını silmek için tıklatın **silmek** IOT hub'ı adı altındaki düğme.
@@ -180,7 +160,7 @@ Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları iz
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 * [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
 
 [4]: ./media/iot-hub-create-through-portal/create-iothub.png

@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 894b2234074dcfb262de9033a7728cad3bef2248
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b3205603b91077ca2c3226dcb78589de37d15cf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Java için Application Insights Sorun Giderme, Soru ve Yanıt
 Sorular veya sorunlar [Java'da Azure Application Insights][java]? Burada, bazı ipuçları verilmektedir.
@@ -48,7 +48,7 @@ Sorular veya sorunlar [Java'da Azure Application Insights][java]? Burada, bazı 
 * Doğru AI kaynakta arıyorsunuz? Uygulamanızın nerede telemetri bekleniyor kaynağına ait iKey eşleşir. Bunlar aynı olmalıdır.
 
 #### <a name="i-dont-see-all-the-data-im-expecting"></a>Bekleniyor tüm verileri görmüyorum
-* Kotalar açın ve olup fiyatlandırma dikey ve onay [örnekleme](app-insights-sampling.md) içinde bir işlemdir. (% 100 iletim örnekleme işleminde değil anlamına gelir.) Application Insights hizmeti, uygulamanızdan ulaşan telemetriyi yalnızca bir kısmı kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur. 
+* Kullanım açın ve olup tahmini maliyet sayfa ve onay [örnekleme](app-insights-sampling.md) içinde bir işlemdir. (% 100 iletim örnekleme işleminde değil anlamına gelir.) Application Insights hizmeti, uygulamanızdan ulaşan telemetriyi yalnızca bir kısmı kabul edecek şekilde ayarlayabilirsiniz. Bu telemetrinin aylık kota içinde tutmanıza yardımcı olur. 
 * SDK açık örnekleme var mı? Yanıt Evet ise, veri uygulanabilir tüm türleri için belirtilen hızda örneklenen.
 * Java SDK'sı daha eski bir sürümü kullanıyorsunuz? Sürüm 2.0.1 ile başlayarak, yerel sürücülerde veri kalıcılığını yanı sıra aralıklı ağ ve arka uç hataları işlemek için hataya dayanıklılık mekanizması sunulmuştur.
 * Aşırı telemetri nedeniyle kısıtlanan? Bilgi günlüğü etkinleştirirseniz, bir günlük göreceksiniz "Uygulama kısıtlanan" iletisi. Bizim geçerli sınırı 32 k telemetri öğelerin saniye başına ' dir.

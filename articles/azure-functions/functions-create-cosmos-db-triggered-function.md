@@ -1,26 +1,26 @@
 ---
-title: "Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma | Microsoft Docs"
-description: "Azure İşlevleri kullanarak Azure Cosmos DB’de bir veritabanına veri eklendiğinde çağrılan sunucusuz bir işlev oluşturun."
+title: Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma | Microsoft Docs
+description: Azure İşlevleri kullanarak Azure Cosmos DB’de bir veritabanına veri eklendiğinde çağrılan sunucusuz bir işlev oluşturun.
 services: azure-functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 03/27/2018
 ms.author: glenga
-ms.custom: 
-ms.openlocfilehash: 9ee3eddda53052c47f2cecff80f971f5eadac414
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.custom: cc996988-fb4f-47
+ms.openlocfilehash: 60836bd88335dc5c58423bad94b6a95e9782c474
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Azure Cosmos DB tarafından tetiklenen bir işlev oluşturma
 
@@ -33,8 +33,6 @@ Azure Cosmos DB’de veri eklendiğinde veya değiştirildiğinde tetiklenen bir
 Bu öğreticiyi tamamlamak için:
 
 + Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
-
-[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
 
 ## <a name="create-an-azure-function-app"></a>Azure İşlev uygulaması oluşturma
 
@@ -74,7 +72,7 @@ Ardından, yeni işlev uygulamasında bir işlev oluşturun.
     | Ayar      | Önerilen değer  | Açıklama                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Veritabanının adı | Azure Cosmos DB veritabanı için benzersiz kimlik  |
-    | **API** | SQL (DocumentDB) | Bu konuda belge veritabanı API’si kullanılır.  |
+    | **API** | SQL | Bu konu SQL API'sini kullanır.  |
     | **Abonelik** | Azure Aboneliği | Bu yeni Cosmos DB hesabının oluşturulduğu abonelik.  |
     | **Kaynak Grubu** | myResourceGroup |  İşlevi uygulamanızı içeren mevcut kaynak grubunu kullanın. |
     | **Konum**  | WestEurope | İşlev uygulamanıza veya depolanmış belgeleri kullanan diğer uygulamalara yakın olan bir konum seçin.  |

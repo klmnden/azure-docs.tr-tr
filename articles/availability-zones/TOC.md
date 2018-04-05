@@ -25,9 +25,15 @@
 ### Load Balancer
 #### [Yük Dengeleyici nedir?](../load-balancer/load-balancer-standard-overview.md)
 #### [Load Balancer Standart ve Kullanılabilirlik Bölgeleri](../load-balancer/load-balancer-standard-availability-zones.md)
-#### [Azure portalı ile bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-portal.md)
-#### [PowerShell ile bölgesel olarak yedekli Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
-#### [CLI ile bölgesel olarak yedekli Genel Load Balancer Standard oluşturma](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+
+#### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma](../load-balancer/load-balancer-get-started-internet-az-portal.md)
+##### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (PowerShell)](../load-balancer/load-balancer-get-started-internet-az-powershell.md)
+##### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (CLI)](../load-balancer/load-balancer-get-started-internet-az-cli.md)
+#### [Bölgesel genel Standard Load Balancer oluşturma](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md)
+##### [Bölgesel genel Standard Load Balancer oluşturma (PowerShell)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md)
+##### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (CLI)](../load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md)
+#### [Kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](../load-balancer/load-balancer-standard-public-availability-zones-portal.md)
+##### [Azure CLI’si ile kullanılabilirlik bölgelerindeki VM’lerde yük dengeleme](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 
 ### [Genel IP adresi](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
@@ -35,7 +41,7 @@
 #### [SQL Veritabanı ile kullanılabilirlik alanları](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Depolama
-#### [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy.md#zone-redundant-storage)
+#### [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
 
 # Olağanüstü Durum Kurtarma
 ## [Azure Site Recovery’yi kullanma](https://docs.microsoft.com/azure/site-recovery/)

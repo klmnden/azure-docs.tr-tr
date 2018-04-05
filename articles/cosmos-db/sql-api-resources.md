@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f64d79cd3929a279c7e279e74b0b21d163c0fa45
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB hiyerarşik kaynak modeli ve temel kavramları
 
@@ -158,7 +158,7 @@ Hazırlama ve bir veritabanı hesabı yönetme bir parçası olarak yapılandır
     </tbody>
 </table>
 
-Sağlama ek olarak, yapılandırma ve Azure portalından, veritabanı hesabınızı yönetme program aracılığıyla da oluşturabilir ve Cosmos DB veritabanı hesaplarını kullanarak yönetmek [Azure Cosmos DB REST API'lerini](/rest/api/documentdb/) yanısıra[istemci SDK'ları](sql-api-sdk-dotnet.md).  
+Sağlama ek olarak, yapılandırma ve Azure portalından, veritabanı hesabınızı yönetme program aracılığıyla da oluşturabilir ve Cosmos DB veritabanı hesaplarını kullanarak yönetmek [Azure Cosmos DB REST API'lerini](/rest/api/cosmos-db/) yanısıra[istemci SDK'ları](sql-api-sdk-dotnet.md).  
 
 ## <a name="databases"></a>Veritabanları
 Cosmos DB veritabanı bir mantıksal bir veya daha fazla koleksiyonlarını ve kullanıcılar, aşağıdaki çizimde gösterildiği gibi kapsayıcıdır. Herhangi bir sayıda teklif sınırları tabi Cosmos DB veritabanı hesabı altındaki veritabanları oluşturabilirsiniz.  
@@ -177,7 +177,7 @@ Herhangi bir sayıda teklif tabi bir veritabanı içinde koleksiyonlar oluştura
 
 Bir Azure Cosmos DB veritabanı kullanıcı aynı zamanda bir kapsayıcıdır. Bir kullanıcı, Aç, hassas yetkilendirme ve koleksiyonlar, belgeler ve ekleri erişimi sağlayan izinler kümesi için bir mantıksal ad alanıdır.  
 
-Azure Cosmos DB kaynak modeli diğer kaynaklar ile veritabanları, değiştirilmesi silinmiş oluşturulabilir gibi okuma veya kolayca kullanarak numaralandırılan [REST API'leri](/rest/api/documentdb/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Azure Cosmos DB okuma veya bir veritabanı kaynak meta verileri sorgulamak için güçlü tutarlılığı garanti altına alır. Veritabanını otomatik olarak silme koleksiyonları veya içerdiği kullanıcılar hiçbirine erişemiyor sağlar.   
+Azure Cosmos DB kaynak modeli diğer kaynaklar ile veritabanları, değiştirilmesi silinmiş oluşturulabilir gibi okuma veya kolayca kullanarak numaralandırılan [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Azure Cosmos DB okuma veya bir veritabanı kaynak meta verileri sorgulamak için güçlü tutarlılığı garanti altına alır. Veritabanını otomatik olarak silme koleksiyonları veya içerdiği kullanıcılar hiçbirine erişemiyor sağlar.   
 
 ## <a name="collections"></a>Koleksiyonlar
 Cosmos DB koleksiyon, JSON belgeleri için bir kapsayıcıdır. 
@@ -195,7 +195,7 @@ Dizin oluşturma ilkesini her koleksiyonun performans ve depolama dizin ile ili�
 * Dahil etmek veya belirli yollar veya belgelerinizi düzenleri dizinden hariç tutmak isteyip istemediğinizi seçin. Bu ayar includedPaths ve bir koleksiyon indexingPolicy üzerinde excludedPaths sırasıyla elde edebilirsiniz. Ayrıca, depolama ve performans dengelemeler belirli yolu desenler için aralığı ve karma sorgular için de yapılandırabilirsiniz. 
 * Zaman uyumlu arasında (tutarlı) seçin ve zaman uyumsuz (yavaş) dizin güncelleştirmeleri. Varsayılan olarak, dizin her ekleme, değiştirme veya koleksiyona bir belgeyi silme zaman uyumlu olarak güncelleştirilir. Bu belge okuma aynı tutarlılık düzeydeki vermenizin sorguları sağlar. Azure Cosmos DB yazma en iyi duruma getirilmiş ve zaman uyumlu dizin Bakım ve tutarlı sorguları hizmet veren birlikte belge yazma sürekli birimi destekleyen olsa da, belirli koleksiyonlar kendi dizini gevşek güncelleştirmek için yapılandırabilirsiniz. Yavaş dizin daha fazla yazma performansı artırır ve toplu alım senaryoları öncelikle okuma ağır koleksiyonları için idealdir.
 
-Dizin oluşturma ilkesini koleksiyonda PUT yürüterek değiştirilebilir. Bu, aracılığıyla elde [istemci SDK](sql-api-sdk-dotnet.md), [Azure portal](https://portal.azure.com) veya [REST API'leri](/rest/api/documentdb/).
+Dizin oluşturma ilkesini koleksiyonda PUT yürüterek değiştirilebilir. Bu, aracılığıyla elde [istemci SDK](sql-api-sdk-dotnet.md), [Azure portal](https://portal.azure.com) veya [REST API'leri](/rest/api/cosmos-db/).
 
 ### <a name="querying-a-collection"></a>Bir koleksiyonu sorgulama
 Bir koleksiyon içindeki belgelerde rasgele şemalar sahip olabilir ve herhangi bir şemayı ya da ikincil dizinlerin önceden sağlamadan bir koleksiyon içinde belgeleri sorgulayabilirsiniz. Koleksiyonu kullanarak sorgulama yapabilirsiniz [Azure Cosmos DB SQL söz dizimi başvurusu](https://msdn.microsoft.com/library/azure/dn782250.aspx), zengin hiyerarşik, ilişkisel ve uzamsal işleçler ve genişletilebilirlik UDF'ler JavaScript tabanlı aracılığıyla sağlar. JSON dil bilgisi ağaç düğümleri olarak etiketli ağaçlar JSON belgeleri modellenmesini sağlar. Bu hem SQL API'nin otomatik dizin oluşturma teknikleri ve bunun yanı sıra Azure Cosmos veritabanı SQL diyalekti tarafından yararlanan. SQL sorgu dili üç ana yönlerini oluşur:   
@@ -204,7 +204,7 @@ Bir koleksiyon içindeki belgelerde rasgele şemalar sahip olabilir ve herhangi 
 2. Bir alt kümesini oluşturma, filtre, projeksiyonları, toplamalar ve kendi kendine birleşim dahil olmak üzere ilişkisel işlemler. 
 3. Saf JavaScript çalışmak UDF'ler (1) ve (2) bağlı.  
 
-Azure Cosmos DB sorgu modelini işlevselliği, verimliliği ve Basitlik arasında bir denge dener. Azure Cosmos DB veritabanı altyapısı yerel olarak derler ve SQL sorgu ifadeleri çalıştırır. Bir koleksiyonu kullanarak sorgulama yapabilirsiniz [REST API'leri](/rest/api/documentdb/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). .NET SDK'sı LINQ sağlayıcı ile birlikte gelir.
+Azure Cosmos DB sorgu modelini işlevselliği, verimliliği ve Basitlik arasında bir denge dener. Azure Cosmos DB veritabanı altyapısı yerel olarak derler ve SQL sorgu ifadeleri çalıştırır. Bir koleksiyonu kullanarak sorgulama yapabilirsiniz [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). .NET SDK'sı LINQ sağlayıcı ile birlikte gelir.
 
 > [!TIP]
 > Out SQL API deneyin ve kümemize karşı SQL sorguları çalıştırma [Query Playground](https://www.documentdb.com/sql/demo).
@@ -226,7 +226,7 @@ Bir koleksiyon düzeyinde kayıtlı JavaScript mantığı, ardından belirli kol
 
 Doğrudan arabellek havuzu ile aynı adres alanında veritabanı altyapısının içinde JavaScript yürütme yeteneğini kullanıcı ve bir koleksiyon belgeleri karşı veritabanı işlemleri işlem tabanlı olarak yürütülmesini sağlar. Ayrıca, JSON için derin taahhüdü Cosmos DB veritabanı altyapısı yapar ve JavaScript uygulama türü sistemleri ve veritabanı arasındaki tüm empedanslı uyumsuzluğu ortadan kaldırır.   
 
-Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'lerin koleksiyonunu kullanarak kaydedebilirsiniz [REST API'leri](/rest/api/documentdb/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Kayıttan sonra başvuru ve bunları yürütün. Tamamen JavaScript'te yazılmış aşağıdaki saklı yordamı düşünün, aşağıdaki kodu (rehberi adını ve yazar adı) iki bağımsız değişkeni alır ve yeni bir belge oluşturur, bir belge için sorgular ve tüm örtük ACID işlemi içinde onu – güncelleştirir. JavaScript özel durum, yürütme sırasında herhangi bir noktada, tüm işlem durdurur.
+Bir koleksiyonu oluşturduktan sonra saklı yordamlar, tetikleyiciler ve UDF'lerin koleksiyonunu kullanarak kaydedebilirsiniz [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). Kayıttan sonra başvuru ve bunları yürütün. Tamamen JavaScript'te yazılmış aşağıdaki saklı yordamı düşünün, aşağıdaki kodu (rehberi adını ve yazar adı) iki bağımsız değişkeni alır ve yeni bir belge oluşturur, bir belge için sorgular ve tüm örtük ACID işlemi içinde onu – güncelleştirir. JavaScript özel durum, yürütme sırasında herhangi bir noktada, tüm işlem durdurur.
 
     function businessLogic(name, author) {
         var context = getContext();
@@ -279,10 +279,10 @@ Veritabanı JSON ve JavaScript'i yerel olarak anlar olduğundan, hiçbir tür si
 
 Saklı yordamları ve Tetikleyicileri bir koleksiyon ve belgeler bir koleksiyonda geçerli koleksiyon içeriği sunan bir iyi tanımlanmış nesne modeli aracılığıyla etkileşim.  
 
-SQL API koleksiyonlarda oluşturulabilir, silinen, okuma veya numaralandırılmış kolayca kullanarak [REST API'leri](/rest/api/documentdb/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). SQL API her zaman okuma veya bir koleksiyon meta verileri sorgulamak için güçlü tutarlılık sağlar. Bir koleksiyonun otomatik olarak silineceği belgeleri, ekleri, saklı yordamlar, Tetikleyiciler hiçbirine erişemiyor ve UDF'ler içerdiği sağlar.   
+SQL API koleksiyonlarda oluşturulabilir, silinen, okuma veya numaralandırılmış kolayca kullanarak [REST API'leri](/rest/api/cosmos-db/) ya da herhangi bir [istemci SDK'ları](sql-api-sdk-dotnet.md). SQL API her zaman okuma veya bir koleksiyon meta verileri sorgulamak için güçlü tutarlılık sağlar. Bir koleksiyonun otomatik olarak silineceği belgeleri, ekleri, saklı yordamlar, Tetikleyiciler hiçbirine erişemiyor ve UDF'ler içerdiği sağlar.   
 
 ## <a name="stored-procedures-triggers-and-user-defined-functions-udf"></a>Saklı yordamlar, tetikleyiciler ve kullanıcı tanımlı işlevler (UDF)
-Önceki bölümde açıklandığı gibi doğrudan veritabanı altyapısının içinde bir işlem içinde çalıştırmak için uygulama mantığını yazabilirsiniz. Uygulama mantığını tamamen JavaScript'te yazılmış ve bir saklı yordam, tetikleyici veya bir UDF modellenir. JavaScript kodu saklı yordam veya bir tetikleyici içinde ekleyebilirsiniz, değiştirme, silme, okuma veya sorgu belgeleri bir koleksiyon içinde. Öte yandan, bir UDF içinden JavaScript olamaz eklemek, değiştirmek veya belgeleri silin. UDF'ler, belgeler bir sorgunun sonuç kümesinin listeleme ve başka bir sonuç kümesi üretir. Çoklu kiracı için bir katı ayırma tabanlı kaynak İdaresi Azure Cosmos DB zorlar. Her saklı yordam, tetikleyici veya bir UDF işini yapmak için işletim sistemi kaynaklarının sabit Zamanlayıcının alır. Ayrıca, saklı yordamlar, tetikleyiciler ve UDF'ler karşı dış JavaScript kitaplıklarını bağlayamazsınız ve kendisine ayrılan kaynak bütçe aşarsanız kara listede. Kayıt, saklı yordamlar, tetikleyiciler ve UDF'ler REST API'lerini kullanarak bir koleksiyonla kaydını silin.  Kayıt sırasında bir saklı yordam, tetikleyici veya bir UDF önceden derlenmiş ve daha sonra yürütülen bayt kodu olarak depolanır. Azure Cosmos DB JavaScript SDK'sı kaydetmek için kullanabileceğiniz aşağıdaki ssection illustrateshow yürütün ve saklı yordam, tetikleyici ve bir UDF kaydını silin. Basit bir sarmalayıcı biter JavaScript SDK'sı [REST API'leri](/rest/api/documentdb/). 
+Önceki bölümde açıklandığı gibi doğrudan veritabanı altyapısının içinde bir işlem içinde çalıştırmak için uygulama mantığını yazabilirsiniz. Uygulama mantığını tamamen JavaScript'te yazılmış ve bir saklı yordam, tetikleyici veya bir UDF modellenir. JavaScript kodu saklı yordam veya bir tetikleyici içinde ekleyebilirsiniz, değiştirme, silme, okuma veya sorgu belgeleri bir koleksiyon içinde. Öte yandan, bir UDF içinden JavaScript olamaz eklemek, değiştirmek veya belgeleri silin. UDF'ler, belgeler bir sorgunun sonuç kümesinin listeleme ve başka bir sonuç kümesi üretir. Çoklu kiracı için bir katı ayırma tabanlı kaynak İdaresi Azure Cosmos DB zorlar. Her saklı yordam, tetikleyici veya bir UDF işini yapmak için işletim sistemi kaynaklarının sabit Zamanlayıcının alır. Ayrıca, saklı yordamlar, tetikleyiciler ve UDF'ler karşı dış JavaScript kitaplıklarını bağlayamazsınız ve kendisine ayrılan kaynak bütçe aşarsanız kara listede. Kayıt, saklı yordamlar, tetikleyiciler ve UDF'ler REST API'lerini kullanarak bir koleksiyonla kaydını silin.  Kayıt sırasında bir saklı yordam, tetikleyici veya bir UDF önceden derlenmiş ve daha sonra yürütülen bayt kodu olarak depolanır. Azure Cosmos DB JavaScript SDK'sı kaydetmek için kullanabileceğiniz aşağıdaki ssection illustrateshow yürütün ve saklı yordam, tetikleyici ve bir UDF kaydını silin. Basit bir sarmalayıcı biter JavaScript SDK'sı [REST API'leri](/rest/api/cosmos-db/). 
 
 ### <a name="registering-a-stored-procedure"></a>Saklı yordam kaydetme
 Kayıt bir saklı yordam yeni bir saklı yordam kaynak HTTP POST ile bir koleksiyon oluşturur.  
@@ -410,7 +410,7 @@ Bir UDF kaydını yalnızca bir HTTP DELETE varolan bir UDF kaynağı karşı ve
             console.log("Error");
         });
 
-Yukarıdaki kod parçacıkları aracılığıyla kaydı (POST), kayıt silme (PUT), okuma/listesi (GET) ve yürütme (POST) gösterdi rağmen [JavaScript SDK'sı](https://github.com/Azure/azure-documentdb-js), de kullanabilirsiniz [REST API'leri](/rest/api/documentdb/) veya diğer [istemci SDK'ları](sql-api-sdk-dotnet.md). 
+Yukarıdaki kod parçacıkları aracılığıyla kaydı (POST), kayıt silme (PUT), okuma/listesi (GET) ve yürütme (POST) gösterdi rağmen [JavaScript SDK'sı](https://github.com/Azure/azure-documentdb-js), de kullanabilirsiniz [REST API'leri](/rest/api/cosmos-db/) veya diğer [istemci SDK'ları](sql-api-sdk-dotnet.md). 
 
 ## <a name="documents"></a>Belgeler
 Eklemek, değiştirmek, silmek, okuyabilir, listeleme ve bir koleksiyondaki rastgele JSON belgelerinin sorgu. Azure Cosmos DB herhangi bir şema zorunlu kılabilir değil ve ikincil dizinler koleksiyonu belgelerde üzerinden sorgulama desteklemek için gerekli değildir. Bir belgenin boyutu üst sınırı 2 MB'tır.   

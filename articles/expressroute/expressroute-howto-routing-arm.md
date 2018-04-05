@@ -1,11 +1,11 @@
 ---
-title: "Yönlendirme (bir ExpressRoute için eşliği) hattı yapılandırma: Resource Manager: PowerShell: Azure | Microsoft Docs"
-description: "Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır."
+title: 'Yönlendirme (bir ExpressRoute için eşliği) hattı yapılandırma: Resource Manager: PowerShell: Azure | Microsoft Docs'
+description: Bu makalede, bir ExpressRoute bağlantı hattı için özel, ortak ve Microsoft eşlemesinin nasıl oluşturulduğu ve sağlandığı adım adım anlatılmaktadır. Bu makalede ayrıca bağlantı hattınızın durumunu denetleme, bağlantı hattını güncelleştirme veya silme işlemlerinin nasıl yapıldığı da anlatılmaktadır.
 documentationcenter: na
 services: expressroute
 author: osamazia
 manager: jonor
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
 ms.service: expressroute
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/3/2018
 ms.author: osamaz, jaredr80
-ms.openlocfilehash: 26165748c88629bacdaed6f12a540302ea12513b
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: 8b16bb057da5aed6229d4228c87e7746ac029333
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Oluşturma ve PowerShell kullanarak bir ExpressRoute bağlantı hattı için eşlemesini değiştirme
 
@@ -60,8 +60,6 @@ Bu bölümde, oluşturma, alma, güncelleştirme ve bir expressroute bağlantı 
 > 
 
 ### <a name="to-create-microsoft-peering"></a>Microsoft eşlemesi oluşturmak için
-
-[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
 
 1. ExpressRoute için PowerShell modülünü içeri aktarın.
 

@@ -1,26 +1,27 @@
 ---
-title: "Sanal Ağ eşlemesi ile - sanal ağlara bağlanabilir Azure portalı | Microsoft Docs"
-description: "Sanal Ağ eşlemesi ile sanal ağları bağlamayı öğrenin."
+title: Sanal Ağ eşlemesi ile - sanal ağlara bağlanabilir Azure portalı | Microsoft Docs
+description: Bu makalede, eşliği, Azure Portalı'nı kullanarak sanal ağ ile sanal ağlara bağlanabilir öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: 
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: 0962a917186277a34abbda17b8fea87bcf4ad1e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.custom: ''
+ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Azure Portalı'nı kullanarak sanal ağ eşlemesi ile sanal ağlara bağlanabilir
 
@@ -32,11 +33,13 @@ Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağl
 > * Her sanal ağ içinde bir sanal makine (VM) dağıtma
 > * VM'ler arasında iletişim
 
+Tercih ederseniz, bu makalede kullanarak tamamlayabilirsiniz [Azure CLI](tutorial-connect-virtual-networks-cli.md) veya [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
+
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma 
 
-Oturum açtığınızda Azure portalında https://portal.azure.com.
+https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
@@ -147,7 +150,7 @@ Sanal makineleri oluşturmak için birkaç dakika sürebilir. Her iki VM oluştu
 3. VM'e bağlanmak için indirilen RDP dosyasını açın. İstenirse, seçin **Bağlan**.
 4. Kullanıcı adını ve VM oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için), ardından **Tamam**.
 5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** bağlantı ile devam etmek için.
-6. Bir sonraki adımda ping ile iletişim kurmak için kullanılan *myVm2* VM'den *myVm1* VM. Varsayılan olarak Windows Güvenlik Duvarı üzerinden engellenir Internet Denetim İletisi Protokolü (ICMP) ping komutunu kullanır. Üzerinde *myVm1* VM, bu sanal makineden ping işlemi yapmak için Internet Denetim İletisi Protokolü (ICMP) üzerinden Windows Güvenlik Duvarı etkinleştir *myVm2* PowerShell kullanarak bir sonraki adımda:
+6. Bir sonraki adımda ping ile iletişim kurmak için kullanılan *myVm2* VM'den *myVm1* VM. Varsayılan olarak Windows Güvenlik Duvarı üzerinden engellenir Internet Denetim İletisi Protokolü (ICMP) ping komutunu kullanır. Üzerinde *myVm1* VM, böylece bu VM ping ICMP Windows Güvenlik Duvarı üzerinden etkinleştirme *myVm2* PowerShell kullanarak bir sonraki adımda:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
@@ -177,15 +180,8 @@ Artık gerekli olduğunda, kaynak grubu ve içerdiği tüm kaynaklar Sil:
 2. **Kaynak grubunu sil**'i seçin.
 3. Girin *myResourceGroup* için **türü kaynak grubu adı:** seçip **silmek**.
 
-**<a name="register"></a>Genel sanal ağ eşleme Önizleme için kaydolun**
-
-Aynı bölgedeki sanal ağları eşleme özelliği genel kullanıma açıktır. Sanal ağlar farklı bölgelerde şu anda önizlemede eşleme. Bkz: [sanal ağı güncelleştirmelerini](https://azure.microsoft.com/updates/?product=virtual-network) bölgeleri için kullanılabilir. Sanal ağlar bölgeler arasında eş için önce önizleme için kaydetmeniz gerekir. Portalı kullanarak kaydedilemiyor ancak kullanarak kaydolabilirsiniz [PowerShell](tutorial-connect-virtual-networks-powershell.md#register) veya [Azure CLI](tutorial-connect-virtual-networks-cli.md#register). Sanal ağlar farklı bölgelerde özellik kaydetmeden önce eş çalışırsanız, başarısız eşleme.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, sanal ağ eşlemesi ile aynı Azure konumunda iki ağlara bağlanmak nasıl öğrendiniz. Ayrıca sanal ağlarda eş [farklı bölgelerde](#register), [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal) ve oluşturabileceğiniz [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) eşliği ile. Eşleme önce üretim sanal ağlar, baştan sona ile öğrenmeniz olduğunu önerilir [eşleme genel bakış](virtual-network-peering-overview.md), [eşliği yönetmek](virtual-network-manage-peering.md), ve [sanal ağ sınırları](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+Bu makalede, sanal ağ eşlemesi ile iki ağ aynı Azure bölgesinde bağlanma öğrendiniz. Ayrıca farklı sanal ağlar eş [bölgeler desteklenen](virtual-network-manage-peering.md#cross-region) ve [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal), yanı sıra oluşturma [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) ile eşleme. Sanal Ağ eşlemesi hakkında daha fazla bilgi için bkz: [sanal ağ eşleme genel bakış](virtual-network-peering-overview.md) ve [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md).
 
-Kendi bilgisayarınızı VPN üzerinden sanal bir ağa bağlayın ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim devam edin.
-
-> [!div class="nextstepaction"]
-> [Bilgisayarınızı bir sanal ağa bağlan](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Kendi bilgisayarınızı VPN üzerinden sanal bir ağa bağlayın ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim için bkz: [bilgisayarınızı bir sanal ağa bağlamak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

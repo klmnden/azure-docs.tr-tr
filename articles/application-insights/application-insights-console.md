@@ -1,6 +1,6 @@
 ---
-title: "Konsol uygulamaları için Azure Application Insights | Microsoft Docs"
-description: "Kullanılabilirlik, performans ve kullanım için Web uygulamalarını izleyin."
+title: Konsol uygulamaları için Azure Application Insights | Microsoft Docs
+description: Kullanılabilirlik, performans ve kullanım için Web uygulamalarını izleyin.
 services: application-insights
 documentationcenter: .net
 author: lmolkova
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: lmolkova
-ms.openlocfilehash: 57f5670eec36ff2c4332da592dd2a3eef73fdefc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: lmolkova; mbullwin
+ms.openlocfilehash: f9d734abeb644fc865d5dc86afc8ad0e586bfc0a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET için Application Insights konsol uygulamaları
 [Application Insights](app-insights-overview.md) , web uygulamanızın kullanılabilirlik, performans ve kullanım izlemenize izin verir.
@@ -26,8 +26,8 @@ Bir aboneliğe ihtiyacınız [Microsoft Azure](http://azure.com). Windows, Xbox 
 
 ## <a name="getting-started"></a>Başlarken
 
-* [Azure portalında](https://portal.azure.com) [bir Application Insights kaynağı oluşturun](app-insights-create-new-resource.md). Uygulama türü olarak ASP.NET uygulamasını seçin.
-* İzleme Anahtarının bir kopyasını oluşturun. Anahtar Essentials açılan oluşturduğunuz yeni kaynak bulamaz. 
+* [Azure portalında](https://portal.azure.com) [bir Application Insights kaynağı oluşturun](app-insights-create-new-resource.md). Uygulama türü için seçin **genel**.
+* İzleme Anahtarının bir kopyasını oluşturun. Anahtar Bul **Essentials** oluşturduğunuz yeni kaynağın açılır. 
 * Son yükleme [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) paket.
 * Tüm telemetri izlemeden önce kodunuzda izleme anahtarını ayarlayın (veya set appınsıghts_ınstrumentatıonkey ortam değişkeni). Bundan sonra el ile telemetri izlemek ve Azure Portal'da görme gerekir
 
@@ -39,7 +39,10 @@ telemetryClient.TrackTrace("Hello World!");
 
 * En son sürümünü yüklemek [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) paket - HTTP, SQL veya başka bir dış bağımlılık çağrıları otomatik olarak izler.
 
-Başlatma ve Application Insights koddan yapılandırma veya kullanarak `ApplicationInsights.config` dosya. Başlatma olabildiğince erken olur emin olun.
+Başlatma ve Application Insights koddan yapılandırma veya kullanarak `ApplicationInsights.config` dosya. Başlatma olabildiğince erken olur emin olun. 
+
+> [!NOTE]
+> Yönergeler için başvuran **Applicationınsights.config** .NET standardını hedefleyen ve .NET Core uygulamalar için geçerli olmayan uygulamalar yalnızca uygulanabilir. 
 
 ### <a name="using-config-file"></a>Yapılandırma dosyası kullanma
 

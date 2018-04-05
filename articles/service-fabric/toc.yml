@@ -317,10 +317,6 @@
               href: service-fabric-deploy-multiple-apps.md
         - name: Kapsayıcı hizmeti oluşturma
           items:
-            - name: Kapsayıcıda bir sertifika kullanma
-              href: service-fabric-securing-containers.md
-            - name: Windows kapsayıcıları için gMSA ayarlama
-              href: service-fabric-setup-gmsa-for-windows-containers.md
             - name: Docker Compose (önizleme)
               href: service-fabric-docker-compose.md
             - name: Kapsayıcılar ve hizmetler için kaynak idaresi
@@ -383,22 +379,30 @@
               href: service-fabric-reliable-actors-fabrictransportsettings.md
             - name: ReliableDictionaryActorStateProvider’ı yapılandırma
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
-        - name: Maven’i desteklemek için eski Java Uygulamasını geçirme
-          href: service-fabric-migrate-old-javaapp-to-use-maven.md
-        - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
-          href: service-fabric-reverseproxy-configure-secure-communication.md
         - name: ASP.NET Core hizmeti oluşturma
           href: service-fabric-add-a-web-frontend.md
         - name: Güvenliği yapılandırma
           items:
             - name: Uygulama parolalarını yönetme
               href: service-fabric-application-secret-management.md
+            - name: Güvenli iletişim için ters proxy ayarlarını yapılandırma
+              href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
               href: service-fabric-run-script-at-service-startup.md
             - name: Yerel kullanıcı veya sistem hesabı olarak bir hizmet çalıştırma
               href: service-fabric-application-runas-security.md
             - name: Uç noktalara yönelik güvenlik erişim ilkesi atama
               href: service-fabric-assign-policy-to-endpoint.md
+            - name: AD kullanıcısı veya grubu olarak bir hizmet çalıştırma
+              href: service-fabric-run-service-as-ad-user-or-group.md
+            - name: Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
+              href: service-fabric-run-service-as-gmsa.md
+            - name: Kapsayıcıda bir sertifika kullanma
+              href: service-fabric-securing-containers.md
+            - name: Windows kapsayıcıları için gMSA ayarlama
+              href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Maven’i desteklemek için eski Java Uygulamasını geçirme
+          href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Bir Windows/VS geliştirme ortamında çalışma
       items:
         - name: Visual Studio'da uygulamaları yönetme
@@ -501,8 +505,6 @@
               href: service-fabric-cluster-upgrade.md
             - name: Erişim denetimini ayarlama
               href: service-fabric-cluster-security-roles.md
-            - name: Yapılandırma
-              href: service-fabric-cluster-fabric-settings.md
             - name: Yük dengeleyicide bağlantı noktası açma
               href: create-load-balancer-rule.md
             - name: Küme sertifikalarını yönetme
@@ -525,14 +527,8 @@
                   href: service-fabric-cluster-standalone-package-contents.md
             - name: Ölçek
               href: service-fabric-cluster-windows-server-add-remove-nodes.md
-            - name: Güvenliği yapılandırma
-              items:
-                - name: Erişim denetimini ayarlama
-                  href: service-fabric-cluster-security-roles.md
-                - name: AD kullanıcısı veya grubu olarak bir hizmet çalıştırma
-                  href: service-fabric-run-service-as-ad-user-or-group.md
-                - name: Grup tarafından Yönetilen Hizmet Hesabı olarak hizmet çalıştırma
-                  href: service-fabric-run-service-as-gmsa.md
+            - name: Erişim denetimini ayarlama
+              href: service-fabric-cluster-security-roles.md
             - name: Yapılandırma
               href: service-fabric-cluster-manifest.md
             - name: Yükseltme
@@ -614,6 +610,8 @@
       href: /dotnet/api/overview/azure/service-fabric?view=azure-dotnet
     - name: REST
       href: /rest/api/servicefabric
+    - name: Küme ayarlarını yapılandırma ve yapı yükseltme ilkesi
+      href: service-fabric-cluster-fabric-settings.md
     - name: Hizmet modeli XML şeması
       href: service-fabric-service-model-schema.md
     - name: Ortam değişkenleri

@@ -1,6 +1,6 @@
 ---
-title: "Azure yönetilen uygulama StorageAccountSelector UI öğesi | Microsoft Docs"
-description: "Azure yönetilen uygulamalar için Microsoft.Storage.StorageAccountSelector kullanıcı Arabirimi öğesi açıklar"
+title: Azure StorageAccountSelector UI öğesi | Microsoft Docs
+description: Azure portalı için Microsoft.Storage.StorageAccountSelector kullanıcı Arabirimi öğesi açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 03/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 366a862acc15decf6a8e19f875d5d052695f373c
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: ca66b788af68699b4750e1e2826b6a6b104c72c7
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI öğesi
-Yeni veya var olan depolama hesabını seçmek için bir denetim. Bu öğe kullandığınız zaman [yönetilen bir Azure uygulama oluşturmaya](publish-service-catalog-app.md).
+Yeni veya var olan depolama hesabını seçmek için bir denetim.
 
 ## <a name="ui-sample"></a>Kullanıcı Arabirimi örneği
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
@@ -51,7 +51,7 @@ Yeni veya var olan depolama hesabını seçmek için bir denetim. Bu öğe kulla
 - Belirtilmişse, `defaultValue.name` benzersizlik için otomatik olarak doğrulanır. Depolama hesabı adı benzersiz değilse, kullanıcının farklı bir ad belirtin veya mevcut bir depolama hesabını seçin.
 - İçin varsayılan değer `defaultValue.type` olan **Premium_LRS**.
 - Belirtilen olmayan herhangi bir türü `constraints.allowedTypes` gizlenir ve belirtilen olmayan herhangi bir türü `constraints.excludedTypes` gösterilir.
-`constraints.allowedTypes`ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
+`constraints.allowedTypes` ve `constraints.excludedTypes` hem isteğe bağlıdır, ancak aynı anda kullanılamaz.
 - Varsa `options.hideExisting` olan **doğru**, kullanıcının mevcut bir depolama hesabını seçemezsiniz. Varsayılan değer **false**.
 
 
@@ -66,6 +66,5 @@ Yeni veya var olan depolama hesabını seçmek için bir denetim. Bu öğe kulla
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Yönetilen uygulamaların giriş için bkz: [Azure yönetilen uygulama genel bakış](overview.md).
 * UI tanımları oluşturmak için bir giriş için bkz [CreateUiDefinition ile çalışmaya başlama](create-uidefinition-overview.md).
 * Kullanıcı Arabirimi öğeleri ortak özellikleri açıklaması için bkz: [CreateUiDefinition öğeleri](create-uidefinition-elements.md).

@@ -1,33 +1,33 @@
 ---
-title: "Azure IOT Hub kotaları anlamak ve azaltma | Microsoft Docs"
-description: "Geliştirici Kılavuzu - IOT Hub ve beklenen azaltma davranış uygulamak kotaları açıklaması."
+title: Azure IOT Hub kotaları anlamak ve azaltma | Microsoft Docs
+description: Geliştirici Kılavuzu - IOT Hub ve beklenen azaltma davranış uygulamak kotaları açıklaması.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 425e1b08-8789-4377-85f7-c13131fae4ce
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/29/2018
+ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 7aa963e7f7463dbc06ba98e4876ea5d98f6921c8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: ef86af61284bb208cc8c469e3fe75bd4f4bdc5bf
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Başvuru - IOT hub'ı kotalar ve azaltma
 
 ## <a name="quotas-and-throttling"></a>Kotalar ve azaltma
 Her Azure aboneliğinin en fazla 10 IOT hub'ları ve en fazla 1 ücretsiz hub sahip olabilir.
 
-Her IOT hub'ı belirli bir sayıda belirli bir SKU birimleri ile birlikte sağlanır. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-pricing]. SKU ve birim sayısı maksimum günlük kotası gönderebileceğiniz iletilerin belirler.
+Her IOT hub'ı belirli bir sayıda belirli bir katman birimleri ile birlikte sağlanır. Daha fazla bilgi için bkz: [Azure IOT Hub fiyatlandırma][lnk-pricing]. Katman ve birim sayısı maksimum günlük kotası gönderebileceğiniz iletilerin belirler.
 
-SKU da IOT hub'ı tüm işlemler zorlar azaltma sınırları belirler.
+Katmanı da IOT hub'ı tüm işlemler zorlar azaltma sınırları belirler.
 
 ## <a name="operation-throttles"></a>İşlem kısıtlamaları
 İşlem kısıtlamaları dakika aralıklardaki uygulanır ve kötüye önlemek üzere tasarlanmıştır oranı sınırlamalardır. IOT hub'ı mümkün olduğunca hataları döndürüyor önlemek çalışır, ancak kısıtlama çok uzun süre ihlal edilirse özel durumları döndüren başlatır.
@@ -36,21 +36,21 @@ Belirli bir zamanda, bir IOT hub'ındaki sağlanan birim sayısını artırarak 
 
 Aşağıdaki tabloda zorlanan kısıtlamaları gösterir. Değerleri tek tek bir hub'ına bakın.
 
-| Kısıtlama | Ücretsiz ve S1 hub'ları | S2 hub'ları | S3 hub'ları | 
+| Kısıtlama | Ücretsiz, B1 ve S1 | B2 ve S2 | B3 ve S3 | 
 | -------- | ------- | ------- | ------- |
 | Kimlik kayıt defteri işlemleri (oluşturma, alma, liste, Güncelleştir, Sil) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
 | Cihaz bağlantıları | Saniye başına 100 ya da sn/12/birimi daha yüksek <br/> Örneğin, iki S1 2 birimleridir\*12 = 24/sn, ancak en az 100/sn, birim üzerinde. Saniye başına 108 sahip dokuz S1 birimleriyle (9\*12), birim üzerinde. | 120/sn/birim | 6000/sn/birim |
 | Cihazdan buluta gönderim | Saniye başına 100 ya da sn/12/birimi daha yüksek <br/> Örneğin, iki S1 2 birimleridir\*12 = 24/sn, ancak en az 100/sn, birim üzerinde. Saniye başına 108 sahip dokuz S1 birimleriyle (9\*12), birim üzerinde. | 120/sn/birim | 6000/sn/birim |
-| Buluttan cihaza gönderim | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
-| Buluttan cihaza alım <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (min/1000/birim) | 16.67/sec/Unit (min/1000/birim) | 833.33/sec/Unit (min/50000/birim) |
+| Bulut cihaz gönderir<sup>1</sup> | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
+| Bulut cihaz alır<sup>1</sup> <br/> (yalnızca cihaz HTTPS kullandığında)| 16.67/sec/Unit (min/1000/birim) | 16.67/sec/Unit (min/1000/birim) | 833.33/sec/Unit (min/50000/birim) |
 | Karşıya dosya yükleme | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 1.67 dosya karşıya yükleme bildirimleri/sn/birim (min/100/birim) | 83.33 dosya karşıya yükleme bildirimleri/sn/birim (min/5000/birim) |
-| Doğrudan yöntemler | 160KB/sn/birim<sup>1</sup> | 480KB/sec/unit<sup>1</sup> | 24MB/sn/birim<sup>1</sup> | 
-| Cihaz ikizi okumaları | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
-| Cihaz ikizi güncelleştirmeleri | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
-| İş işlemleri <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
-| İşler işlemleri için cihaz başına aktarım hızı | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| Doğrudan yöntemleri<sup>1</sup> | 160KB/sn/birim<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sn/birim<sup>2</sup> | 
+| Cihaz çifti okur<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| Cihaz çifti güncelleştirmeleri<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
+| İşlerini işlemleri<sup>1</sup> <br/> (oluşturma, güncelleştirme, listeleme, silme) | 1.67/sec/Unit (min/100/birim) | 1.67/sec/Unit (min/100/birim) | 83.33/sec/Unit (min/5000/birim) |
+| İşlerini aygıt başına işlemi işleme<sup>1</sup> | 10/sn | Saniye başına 10 sn/1/birim veya daha yüksek | 50/sn/birim |
 
-<sup>1</sup>8 KB olduğunu ölçer boyutunu azaltma
+<sup>1</sup>bu özellik IOT Hub'ın temel katmanında kullanılabilir değil. Daha fazla bilgi için bkz: [sağ IOT hub'ı seçme](iot-hub-scaling.md). <br/><sup>2</sup>olan 8 KB ölçer boyutunu azaltma.
 
 *Cihaz bağlantılarını* kısıtlama yeni cihaz bağlantılarını kurulabileceği bir IOT hub ile oranı yönetir. *Cihaz bağlantılarını* kısıtlama en fazla eş zamanlı cihaz sayısını belirleyen değil. IOT hub için sağlanan birim sayısını azaltma bağlıdır.
 
@@ -70,13 +70,14 @@ IOT hub'ı diğer işlemsel sınırları uygular:
 | İşlem | Sınır |
 | --------- | ----- |
 | Karşıya dosya yükleme URI'ler | 10000 SAS URI'ler çıkışı için bir depolama hesabı aynı anda olabilir. <br/> Tek seferde 10 SAS URI’si/cihaz çıkarılabilir. |
-| İşler | İş Geçmişi yukarı 30 gün olarak tutulur <br/> En fazla eşzamanlı iş, 1 (ücretsiz) ve S1, S2) (için 5, 10 (için S3). |
+| İşlerini<sup>1</sup> | İş Geçmişi yukarı 30 gün olarak tutulur <br/> En fazla eşzamanlı iş, 1 (ücretsiz) ve S1, S2) (için 5, 10 (için S3). |
 | Ek uç noktaları | SKU Ücretli hub 10 ek uç noktaları olabilir. Ücretsiz SKU hub'ları bir ek uç noktası olabilir. |
 | İleti yönlendirme kuralları | SKU Ücretli hub 100 yönlendirme kuralları olabilir. Ücretsiz SKU hub beş yönlendirme kuralları olabilir. |
 | Cihaz bulut Mesajlaşma | Maksimum ileti boyutu 256 KB |
-| Bulut cihaz Mesajlaşma | Maksimum ileti boyutu 64 KB |
-| Bulut cihaz Mesajlaşma | İletiler teslim için bekleyen maksimum 50'dir |
-| Doğrudan yöntemi | En fazla doğrudan yöntemi yükü boyutu 128 KB'dir |
+| Bulut cihaz Mesajlaşma<sup>1</sup> | Maksimum ileti boyutu 64 KB. İletiler teslim için bekleyen maksimum 50'dir. |
+| Doğrudan yöntemi<sup>1</sup> | En fazla doğrudan yöntemi yükü boyutu 128 KB'tır. |
+
+<sup>1</sup>bu özellik IOT Hub'ın temel katmanında kullanılabilir değil. Daha fazla bilgi için bkz: [sağ IOT hub'ı seçme](iot-hub-scaling.md).
 
 > [!NOTE]
 > Şu anda en fazla tek bir IOT hub'ına bağlanabileceğiniz aygıtlar 500.000 sayısıdır. Bu sınırı artırmak istiyorsanız, ilgili kişi [Microsoft Support](https://azure.microsoft.com/support/options/).

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 03/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1893601f9fe9018cb51e6e31b6f9c397a0da38da
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 557c6a75140f399f74d77543de834af086871032
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-faq"></a>ExpressRoute SSS
 
@@ -70,11 +70,12 @@ ExpressRoute destekler [üç yönlendirme etki alanları](expressroute-circuit-p
 
 * Power BI
 * Dynamics 365 Finans ve işlemleri (önceki adıyla Dynamics AX çevrimiçi bilinir)
-* Aşağıdaki Azure hizmetlerini çoğu birkaç özel durum:
-  * CDN
-  * Visual Studio Team Services yük test etme
-  * Multi-factor Authentication
-  * Traffic Manager
+* Azure Hizmetleri çoğunu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>
+  Aşağıdaki hizmetler desteklenmez:
+    * CDN
+    * Visual Studio Team Services yük test etme
+    * Multi-factor Authentication
+    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Microsoft eşlemesi
 
@@ -87,7 +88,8 @@ ExpressRoute destekler [üç yönlendirme etki alanları](expressroute-circuit-p
 * Kullanarak [yol filtreleri](#route-filters-for-microsoft-peering), Microsoft eşlemesi ile aynı ortak Hizmetleri erişmek:
   * Power BI
   * Dynamics 365 Finans ve işlemleri
-  * Aşağıdaki Azure hizmetlerini çoğu birkaç özel durum:
+  * Azure Hizmetleri çoğunu desteklenir. Lütfen doğrudan destek doğrulamak için kullanmak istediğiniz hizmeti ile denetleyin.<br>
+  Aşağıdaki hizmetler desteklenmez:
     * CDN
     * Visual Studio Team Services yük test etme
     * Multi-factor Authentication

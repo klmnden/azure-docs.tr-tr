@@ -1,11 +1,11 @@
 ---
-title: "CLI 2.0 kullanarak azure'da bir Linux VM bir görüntüsünü yakalama | Microsoft Docs"
-description: "Azure CLI 2.0 kullanarak yığın dağıtımları için kullanmak üzere bir Azure VM görüntüsünü yakalayın."
+title: CLI 2.0 kullanarak azure'da bir Linux VM bir görüntüsünü yakalama | Microsoft Docs
+description: Azure CLI 2.0 kullanarak yığın dağıtımları için kullanmak üzere bir Azure VM görüntüsünü yakalayın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/22/2018
 ms.author: cynthn
-ms.openlocfilehash: 15ad240ea9b635cd7995bfae403a93e0b392850a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: e83319b8b4ace495a4301dd850cea27633115426
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Bir sanal makine ya da VHD görüntüsü oluşturma
 
@@ -89,6 +89,8 @@ VM genelleştirilmiş olarak işaretler ve görüntü yakalamak için Azure CLI 
    
    > [!NOTE]
    > Görüntü, kaynak VM ile aynı kaynak grubunda oluşturulur. Bu görüntü aboneliğinizden içinde herhangi bir kaynak grubunda sanal makineleri oluşturabilirsiniz. Yönetim açısından bakıldığında, belirli bir kaynak grubunun VM kaynakları ve görüntüleri oluşturmak isteyebilirsiniz.
+   >
+   > Görüntünüzü bölge dayanıklı depolamasında istiyorsanız destekleyen bir bölgede oluşturmanıza gerek [kullanılabilirlik bölgeleri](../../availability-zones/az-overview.md) ve dahil `--zone-resilient true` parametresi.
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>3. adım: yakalanan görüntüden bir VM oluşturma
 Oluşturduğunuz ile görüntü kullanarak bir VM oluşturma [az vm oluşturma](/cli/azure/vm#az_vm_create). Aşağıdaki örnek, adlandırılmış bir VM'nin oluşturur *myVMDeployed* adlı görüntüden *myImage*:

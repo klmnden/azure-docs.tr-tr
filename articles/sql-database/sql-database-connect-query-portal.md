@@ -10,15 +10,15 @@ ms.custom: mvc,DBs & servers
 ms.topic: quickstart
 ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: e5c1a5a991284fcbeac53d2ce35be4e2634514fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 97b14de64c4aa6bf134f2c293e4bb8b5725810d3
+ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure portalı: SQL Sorgu düzenleyicisini kullanarak bağlanma ve veri sorgulama
 
-SQL Sorgu düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıçta Sorgu düzenleyicisini kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
+SQL Sorgu düzenleyicisi, Azure portalından ayrılmadan Azure SQL Veritabanı veya Azure SQL Veri Ambarı’nda SQL sorguları yürütmenin verimli ve kolay bir yolunu sunan bir tarayıcı sorgulama aracıdır. Bu hızlı başlangıç öğreticisinde, Sorgu düzenleyicisini kullanarak bir SQL veritabanına bağlanma ve daha sonra Transact-SQL deyimlerini kullanarak veritabanındaki verileri sorgulama, ekleme, güncelleştirme ve silme işlemlerinin nasıl yapılacağı açıklanır.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -142,19 +142,25 @@ Kimlik doğrulaması yaptıktan sonra kategoriye göre ilk 20 ürünü sorgulama
 
 ## <a name="query-editor-considerations"></a>Sorgu Düzenleyicisi konuları
 
-Sorgu Düzenleyicisi önizleme durumundayken onunla çalışma hakkında bilmeniz gereken birkaç şey vardır:
+Sorgu düzenleyicisi ile çalışırken bilmeniz gereken birkaç şey vardır:
 
 1. Azure SQL Server güvenlik duvarı ayarlarınızda "Azure Hizmetlerine erişime izin ver" seçeneğini "Açık" olarak ayarladığınızdan emin olun. Bu seçenek, SQL Sorgu Düzenleyicisi'nin SQL veritabanlarınıza ve veri ambarlarınıza erişmesini sağlar.
 
-2. Azure Active Directory Yöneticisi oturum açma işlemi, 2 faktörlü kimlik doğrulama özelliğinin etkin olduğu hesaplarla çalışmaz.
+2. SQL Server bir Sanal Ağ üzerindeyse, o sunucudaki veritabanlarını sorgulamak için Sorgu düzenleyicisi kullanılamaz.
 
-3. E-posta hesapları (örneğin outlook.com, hotmail.com, live.com, gmail.com, yahoo.com), Active Directory yöneticileri olarak henüz desteklenmemektedir. Azure Active Directory’de yerel olarak oluşturulmuş veya Azure Active Directory ile birleştirilmiş bir kullanıcı seçtiğinizden emin olun
+3. F5 tuşuna basıldığında Sorgu düzenleyicisi sayfası yenilenir ve üzerinde çalışılan sorgu kaybedilir. Sorguları yürütmek için araç çubuğundaki Çalıştır düğmesini kullanın.
 
-4. Uzamsal veri türleri, Sorgu Düzenleyicisi'nde henüz desteklenmemektedir. Uzamsal sütunların sorgulanması bir 'System.IO.FileNotFoundException' hatasına neden olur.
+4. Sorgu düzenleyicisi, ana veritabanına bağlanmayı desteklemez
 
-5. Veritabanı tabloları ve görünümleri için IntelliSense desteği yoktur. Ancak, düzenleyici zaten girilmiş adları otomatik olarak tamamlamayı destekler.
+5. Sorgu yürütme için 5 dakikalık zaman aşımı vardır.
 
-6. F5 tuşuna basıldığında Sorgu düzenleyicisi sayfası yenilenir ve üzerinde çalışılan sorgu kaybedilir. Sorguları yürütmek için araç çubuğundaki Çalıştır düğmesini kullanın.
+6. Azure Active Directory Yöneticisi oturum açma işlemi, 2 faktörlü kimlik doğrulama özelliğinin etkin olduğu hesaplarla çalışmaz.
+
+7. E-posta hesapları (örneğin outlook.com, hotmail.com, live.com, gmail.com, yahoo.com), Active Directory yöneticileri olarak henüz desteklenmemektedir. Azure Active Directory’de yerel olarak oluşturulmuş veya Azure Active Directory ile birleştirilmiş bir kullanıcı seçtiğinizden emin olun
+
+8. Sorgu düzenleyicisi yalnızca coğrafi veri türleri için silindirik izdüşümü destekler.
+
+9. Veritabanı tabloları ve görünümleri için IntelliSense desteği yoktur. Ancak, düzenleyici zaten girilmiş adları otomatik olarak tamamlamayı destekler.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
