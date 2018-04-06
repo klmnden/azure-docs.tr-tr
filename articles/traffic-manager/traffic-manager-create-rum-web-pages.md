@@ -56,7 +56,7 @@ Azure portalını kullanarak RUM anahtarı edinmek için:
 RUM anahtarı aldıktan sonra bu kopyalanan JavaScript son kullanıcılarınızın ziyaret HTML sayfasına katıştırmak için sonraki adım olacaktır. HTML düzenleme birçok yolla yapılabilir ve farklı araçlar ve iş akışlarını kullanma. Bu örnekte, bu komut dosyası eklemek için bir HTML sayfasında güncelleştirme gösterilmiştir. HTML kaynak yönetimi iş akışınıza uyarlamak için bu kılavuzu kullanabilirsiniz.
 
 1.  Bir metin düzenleyicide HTML sayfasını açın
-2.  HTML gövde bölümüne önceki adımda kopyaladığınız JavaScript kodu yapıştırın (kopyalanan kod satırı 8 &9; bkz. Şekil 3).
+2.  HTML gövde bölümüne önceki adımda kopyaladığınız JavaScript kodu yapıştırın (kopyalanan kod satırı 8 & 9; Şekil 3).
  
     ![JavaScript kodu için gerçek kullanıcı ölçümleri web sayfasına ekleme](./media/traffic-manager-create-rum-web-pages/real-user-measurement-embed-script.png)  
 

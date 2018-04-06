@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/03/2018
 ms.author: bonova
-ms.openlocfilehash: 2d07d58114a4d89f40a4ea9e388c58f58494766c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -69,6 +69,23 @@ Aşağıdaki tabloda çeşitli özellikleri, Transact SQL erişilebilir uygulama
 
 ![Çoklu oturum açma](./media/sql-database-managed-instance/sso.png) 
 
+## <a name="vcore-based-purchasing-model"></a>vCore tabanlı satın alma modeli
+
+Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, saydamlık vCore tabanlı satın alma modeli sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore modeli de yüzde 30 tasarrufları ile için uygun yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+
+Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder.
+- 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci.
+- 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı gen (Broadwell) 2.3 GHz işlemci.
+
+Aşağıdaki tabloda, en uygun yapılandırma hesaplama, bellek, depolama ve g/ç kaynakları seçmek nasıl anlamanıza yardımcı olur.
+
+||4. Nesil|5. Nesil|
+|----|------|-----|
+|Donanım|Intel E5-2673 v3 (Haswell) 2.4 GHz işlemci, bağlı SSD vCore = 1 GÖ (fiziksel çekirdek)|Intel E5-2673 v4 (Broadwell) 2.3 GHz işlemci, hızlı eNVM SSD, vCore = 1 LP (iş parçacığı hyper)|
+|Performans seviyeleri|8, 16, 24 vCores|8, 16, 24, 32, 40 vCores|
+|Bellek|VCore başına 7GB|VCore başına 5.5GB|
+||||
+
 ## <a name="managed-instance-service-tier"></a>Örnek hizmet katmanı yönetilen
 
 Yönetilen örneği tipik kullanılabilirlik ve ortak g/ç gecikme gereksinimlerine uygulamalar için tasarlanmış bir tek hizmet katmanına - genel amaçlı - başlangıçta kullanılabilir.
@@ -89,11 +106,11 @@ Genel amaçlı hizmet Katmanı'nın temel özellikleri özetlenmektedir:
 
 |Özellik | Açıklama|
 |---|---|
-| VCores * sayısı | 8, 16, 24|
+| VCores * sayısı | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | SQL Server sürümü / build | SQL Server Son (kullanılabilir) |
 | En küçük depolama boyutu | 32 GB |
 | En fazla depolama boyutu | 8 TB |
-| Veritabanı başına en fazla depolama | 4 TB |
+| Veritabanı başına en fazla depolama | 8 TB |
 | Beklenen depolama IOPS | 500-7500 IOPS her veri dosyası (veri dosyası üzerinde bağlıdır). Bkz: [Premium depolama](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) |
 | Veritabanı başına veri dosyası (satırlar) sayısı | Birden çok | 
 | Veritabanı başına günlük dosyası (günlük) sayısı | 1 | 
@@ -106,7 +123,7 @@ Genel amaçlı hizmet Katmanı'nın temel özellikleri özetlenmektedir:
 | Portal destek | Evet|
 |||
 
-\* Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci ve Gen 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemci.  
+\* Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci ve Gen 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı (Broadwell) 2.3 GHz işlemci. 
 
 ## <a name="advanced-security-and-compliance"></a>Gelişmiş koruma ve uyumluluk 
 
@@ -152,7 +169,7 @@ SQL Veritabanı, [Azure Active Directory tümleştirmesi](sql-database-aad-authe
 SQL veritabanı kimlik doğrulaması nasıl kullanıcıların kimliğini veritabanına bağlanırken kanıtlamak için ifade eder. SQL Veritabanı iki kimlik doğrulaması türünü destekler:  
 
 - SQL kullanıcı adı ve parola kullanan kimlik doğrulaması.
-- Azure Active Directory, Azure Active Directory tarafından yönetilen kimlikleri kullanır ve yönetilen ve tümleşik etki alanları için desteklenen kimlik doğrulaması.  
+- Azure Active Directory, Azure Active Directory tarafından yönetilen kimlikleri kullanır ve yönetilen ve tümleşik etki alanları için desteklenen kimlik doğrulaması. 
 
 ### <a name="authorization"></a>Yetkilendirme
 
@@ -160,11 +177,11 @@ Yetkilendirme hangi kullanıcı bir Azure SQL veritabanı içinde yapabilirsiniz
 
 ## <a name="database-migration"></a>Veritabanı geçişi 
 
-Örnek hedefleri kullanıcı senaryoları yığın veritabanı geçiş ile şirket içi veya Iaas veritabanı uygulamaları yönetilen.  Örnek destekler birkaç veritabanı geçiş seçenekleri yönetilen: 
+Örnek hedefleri kullanıcı senaryoları yığın veritabanı geçiş ile şirket içi veya Iaas veritabanı uygulamaları yönetilen. Örnek destekler birkaç veritabanı geçiş seçenekleri yönetilen: 
 
 ### <a name="data-migration-service"></a>Veri Taşıma hizmeti
 
-Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir.   Bu hizmet, var olan üçüncü taraf ve SQL Server veritabanlarınızı Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında Azure VM'de Azure SQL veritabanını, örneği yönetilen ve SQL Server'ı içerir. Bkz: [DMS kullanarak örneğini yönetilen şirket içi veritabanınızı geçirmek nasıl](https://aka.ms/migratetoMIusingDMS).  
+Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Bu hizmet, var olan üçüncü taraf ve SQL Server veritabanlarınızı Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında Azure VM'de Azure SQL veritabanını, örneği yönetilen ve SQL Server'ı içerir. Bkz: [DMS kullanarak örneğini yönetilen şirket içi veritabanınızı geçirmek nasıl](https://aka.ms/migratetoMIusingDMS). 
 
 ### <a name="backup-and-restore"></a>Yedekleme ve geri yükleme  
 
@@ -174,7 +191,7 @@ Geçiş yaklaşım SQL yedeklemeleri Azure blob depolamaya yararlanır. Azure de
 
 Şirket içi SQL Server hizmetinin genel kullanılabilirlik kadar aşamada gelen ile % 100 yüzey alanını uyumluluk yakın sunmak için örnek amaçlar yönetilen. Bir özellik için ve karşılaştırma listesi, bkz: [SQL ortak özellikleri](sql-database-features.md).
  
-SQL 2008 veritabanları için örneği destekleyen geriye dönük uyumluluk yönetilen.  SQL 2005 veritabanı sunucularından doğrudan geçiş desteklenir, uyumluluk düzeyi geçirilen SQL 2005 veritabanları için SQL 2008 güncelleştirilir. 
+SQL 2008 veritabanları için örneği destekleyen geriye dönük uyumluluk yönetilen. SQL 2005 veritabanı sunucularından doğrudan geçiş desteklenir, uyumluluk düzeyi geçirilen SQL 2005 veritabanları için SQL 2008 güncelleştirilir. 
  
 Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetlenmektedir:  
 
@@ -182,7 +199,7 @@ Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetl
 
 ### <a name="key-differences-between-sql-server-on-premises-and-managed-instance"></a>Şirket içi SQL Server ve örnek yönetilen arasındaki farklar 
 
-Örnek avantajları yönetilen engeller her zaman-yukarı-to-date şirket içi SQL Server'ın bazı özellikleri ya da olabilir anlamına gelir kullanılmayan, bulutta devre dışı bırakılan veya seçeneğiniz vardır.  Araçlar, belirli bir özellik biraz farklı bir şekilde çalıştığını veya hizmet değil tam denetim bir ortamda çalışıp çalışmadığını düzenlemeniz gerekirse, özel durumlar vardır: 
+Örnek avantajları yönetilen engeller her zaman-yukarı-to-date şirket içi SQL Server'ın bazı özellikleri ya da olabilir anlamına gelir kullanılmayan, bulutta devre dışı bırakılan veya seçeneğiniz vardır. Araçlar, belirli bir özellik biraz farklı bir şekilde çalıştığını veya hizmet değil tam denetim bir ortamda çalışıp çalışmadığını düzenlemeniz gerekirse, özel durumlar vardır: 
 
 - Yüksek kullanılabilirlik yerleşik olarak bulunur ve önceden yapılandırılmış. Yüksek kullanılabilirlik özellikleri her zaman açık SQL Iaas uygulamalarında olduğu gibi aynı şekilde sunulmaz 
 - Otomatik yedekleme ve geri yükleme noktası. Müşteri başlatabilir `copy-only` olan otomatik yedekleme zinciri karışmaması yedekler. 
@@ -192,7 +209,7 @@ Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetl
  
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri  
 
-İş için en önemli noktalara odaklanmasına örneği etkinleştir Sistem Yöneticisi yönetilen. Birçok sistem yöneticisi/DBA etkinlik gerekli değildir veya basit. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki, dinamik örnek yeniden boyutlandırma ve yapılandırma, yedeklemeler, veritabanı çoğaltması (sistem veritabanları dahil), yüksek kullanılabilirlik yapılandırması ve sağlık ve performans verilerini izleme yapılandırması Akışlar.  
+İş için en önemli noktalara odaklanmasına örneği etkinleştir Sistem Yöneticisi yönetilen. Birçok sistem yöneticisi/DBA etkinlik gerekli değildir veya basit. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki, dinamik örnek yeniden boyutlandırma ve yapılandırma, yedeklemeler, veritabanı çoğaltması (sistem veritabanları dahil), yüksek kullanılabilirlik yapılandırması ve sağlık ve performans verilerini izleme yapılandırması Akışlar. 
 
 > [!IMPORTANT]
 > Desteklenen, kısmen desteklenen ve desteklenmeyen özelliklerin listesi için bkz: [SQL veritabanı özellikleri](sql-database-features.md). Yönetilen örnekleri SQL Server ile T-SQL farkları listesi için bkz: [SQL Server örneği T-SQL farkları yönetilen](sql-database-managed-instance-transact-sql-information.md)

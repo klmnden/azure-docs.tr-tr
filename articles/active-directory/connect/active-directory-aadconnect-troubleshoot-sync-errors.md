@@ -71,7 +71,7 @@ Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahi
 #### <a name="example-case"></a>Örnek durum:
 1. **Bob Smith** eşitlenen kullanıcının Azure Active Directory'de üzerinde şirket içi Active Directory olduğu *contoso.com*
 2. Bob Smith'in **UserPrincipalName** olarak ayarlanmış olan **bobs@contoso.com**.
-3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using Bob Smith's **objectGUID** from on premises Active Directory, which is the **immutableId** for Bob Smith in Azure Active Directory.
+3. **"abcdefghijklmnopqrstuv =="** olan **SourceAnchor** Bob Smith'in kullanarak Azure AD Connect tarafından hesaplanan **objectGUID** gelen Active Directory, şirket içinde olduğu **İmmutableıd** Azure Active Directory'de Bob Smith için.
 4. Bob de sahip için değerleri aşağıdaki **proxyAddresses** özniteliği:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com

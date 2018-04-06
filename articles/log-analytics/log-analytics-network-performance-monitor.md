@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9b3c4efc712ebe9c0fe209d2ca0478367872d3b7
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9d5e189720a92ca17289d0c9717e9e10bf8691d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Performans İzleyicisi çözümde Azure ağ
 
@@ -250,7 +250,9 @@ Haritada gösterilen topolojisi Katman 3 topolojisi ve Katman 2 aygıtlarını v
 
 Ağ Performansı İzleyicisi Pano üzerinden kullanıma sunulan grafik ve ayrıntıya sayfaları tüm veriler kullanılabilir da yerel olarak [günlük analizi arama](log-analytics-log-search-new.md). Etkileşimli veri deposunda çözümlemesi ve farklı kaynaklardaki verilerin bağıntısını. Ayrıca özel uyarılar ve görünümler oluşturma ve verileri Excel, Power BI veya paylaşılabilir bağlantı verin.  **Genel sorgular** panosunda alana sahip başlangıç noktası olarak kendi sorgular ve raporlar oluşturmak için kullanabileceğiniz bazı yararlı sorgular. 
 
- 
+##<a name="pricing"></a>Fiyatlandırma
+
+Fiyatlandırma hakkında daha fazla bilgi edinilebilir [çevrimiçi](log-analytics-network-performance-monitor-pricing-faq.md).
 
 ## <a name="provide-feedback"></a>Geri bildirimde bulunma 
 
