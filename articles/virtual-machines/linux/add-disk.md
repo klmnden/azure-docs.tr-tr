@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI kullanarak Linux VM için bir disk ekleyin | Microsoft Docs"
-description: "Azure CLI 1.0 ve 2. 0, Linux VM kalıcı bir disk eklemek öğrenin."
+title: Azure CLI kullanarak Linux VM için bir disk ekleyin | Microsoft Docs
+description: Azure CLI 1.0 ve 2. 0, Linux VM kalıcı bir disk eklemek öğrenin.
 keywords: Linux sanal makine, kaynak disk ekleme
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
@@ -17,18 +17,18 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede, verilerinizi - koruyabilmeniz için VM'yi yeniden sağlaması yapılana Bakım veya yeniden boyutlandırma nedeniyle olsa bile kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
 
 
 ## <a name="use-managed-disks"></a>Yönetilen diskleri kullanın
-Azure yönetilen diskleri VM diskleri ile ilişkilendirilmiş depolama hesaplarını yöneterek Azure VM'ler için disk yönetimini basitleştirir. Yalnızca türü (Premium veya standart) belirtmeniz gerekir ve disk boyutunu gereksinim ve Azure oluşturur ve disk tarafından yönetilir. Daha fazla bilgi için bkz: [yönetilen diskleri genel bakış](managed-disks-overview.md).
+Azure Yönetilen Diskler, VM diskleriyle ilişkili depolama hesaplarını yöneterek Azure VM’leri için disk yönetimini basitleştirir. Sizin yalnızca gereksinim duyduğunuz disk türünü (Premium veya Standart) ve boyutunu belirtmeniz yeterlidir; disk Azure tarafından sizin adınıza oluşturulur ve yönetilir. Daha fazla bilgi için bkz: [yönetilen diskleri genel bakış](managed-disks-overview.md).
 
 
 ### <a name="attach-a-new-disk-to-a-vm"></a>Yeni bir disk bir VM'e ekleyin

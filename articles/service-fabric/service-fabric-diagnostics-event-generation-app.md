@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2018
 ms.author: dekapur
-ms.openlocfilehash: f3e7b9c7432538c0f78662213544d4d691652f13
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7af0dd37b5c16e48ce4e504211e68a29cf8bce77
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-and-service-level-logging"></a>Uygulama ve hizmet düzeyinde günlüğe kaydetme
 
@@ -36,10 +36,11 @@ Visual Studio'da bir şablondan bir Service Fabric çözüm oluşturduğunuzda b
 
 Kodunuzu nasıl izleme dikkatle planlamanız önemlidir. Sağ araçları planı büyük olasılıkla kod temeliniz destabilizing ve kod reinstrument gerek önlemenize yardımcı olabilir. Riskini azaltmak için bir araç kitaplığı gibi seçebilirsiniz [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/), Microsoft ASP.NET Core parçası olduğu. ASP.NET Core sahip bir [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) var olan kodu üzerindeki etkisini en aza indirerek tercih ettiğiniz sağlayıcısı ile birlikte kullanabileceğiniz arabirimi. Windows ve Linux üzerinde ASP.NET Core kodu kullanabilirsiniz ve tam .NET Framework, bu nedenle araçları kodunuzu standartlaştırılmıştır.
 
-## <a name="choosing-a-logging-provider"></a>Oturum açma sağlayıcısı seçme
+## <a name="application-insights-sdk"></a>Application Insights SDK'sı
 
-Uygulamanızı yüksek performans üzerinde dayalıysa **EventSource** genellikle iyi bir yaklaşımdır. **EventSource** *genellikle* daha az kaynak kullanır ve ASP.NET Core günlüğü ya da herhangi bir kullanılabilir üçüncü taraf çözümleri daha iyi gerçekleştirir.  Bu hizmet performans kullanarak dayalı olup olmadığını ancak birçok Hizmetleri için bir sorun değildir **EventSource** daha iyi bir seçim olabilir. Ancak, bu yararları almak için günlüğe kaydetme, yapılandırılmış **EventSource** mühendislik ekibi daha büyük bir yatırım gerektirir. Mümkünse, birkaç günlüğe kaydetme seçeneklerini hızlı prototipi yapın ve ardından ihtiyaçlarınıza en uygun olanı seçin.
+Application Insights kutu dışı Service Fabric ile zengin bir tümleştirme vardır. Kullanıcıların AI Service Fabric nuget paketleri ekleyebilir ve veri ve oluşturulan günlükleri alırsınız ve Azure Portalı'nda görüntülenebilir toplanır. Ayrıca, kullanıcılar, uygulamaları ve Hizmetleri ve bunların uygulama bölümleri olan izleme hata ayıklama ve tanılamak için kendi telemetri en kullanılan eklemek için önerilir. [TelemetryClient](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) sınıfı SDK telemetri uygulamalarınızda izlemek için birçok yol sağlar. İzleme ve öğreticimizi için uygulamanızda application ınsights ekleme konusunda bir örnek kullanıma [izleme ve .NET uygulama tanılama](service-fabric-tutorial-monitoring-aspnet.md)
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Uygulamalar ve hizmetler işaretlemesini, oturum açma sağlayıcısı seçtikten sonra herhangi bir çözümleme platform gönderilmeden önce toplanacak günlüklerini ve olayları gerekir. Hakkında bilgi edinin [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) ve [WAD](service-fabric-diagnostics-event-aggregation-wad.md) önerilen seçeneklerden bazıları daha iyi anlamak için.
+Uygulamalar ve hizmetler işaretlemesini, oturum açma sağlayıcısı seçtikten sonra herhangi bir çözümleme platform gönderilmeden önce toplanacak günlüklerini ve olayları gerekir. Hakkında bilgi edinin [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md), ve [WAD](service-fabric-diagnostics-event-aggregation-wad.md) önerilen seçeneklerden bazıları daha iyi anlamak için.

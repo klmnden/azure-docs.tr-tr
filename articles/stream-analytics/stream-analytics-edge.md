@@ -1,24 +1,19 @@
 ---
 title: Azure Stream Analytics olarak IOT kenarında (Önizleme)
 description: Azure Stream Analytics kenar işleri oluşturmak ve bunları Azure IOT kenar aygıtları runnning dağıtabilirsiniz.
-keywords: veri akışı, IOT, sınır
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
 manager: ryanw
-ms.assetid: ''
 ms.service: stream-analytics
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/16/2017
 ms.author: jeanb
-ms.openlocfilehash: 475ca357c8445e8a7c672406f919af1d99a0933b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 6d8dfe253082763858588fb4092be9d5be08cb41
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics olarak IOT kenarında (Önizleme)
 
@@ -207,7 +202,7 @@ Daha fazla bilgi için bkz: [burada Docker için Windows belgelerine](https://do
 * [Azure akış analizi için üçüncü taraf bildirim IOT kenar preview'daki](https://go.microsoft.com/fwlink/?linkid=862828).
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs ölçümlerini Azure İzleyicisi'ni (Önizleme) | Microsoft Docs"
-description: "Olay hub'ları izlemek için Azure Monitoring kullanın"
+title: Azure Event Hubs ölçümlerini Azure İzleyicisi'ni (Önizleme) | Microsoft Docs
+description: Olay hub'ları izlemek için Azure Monitoring kullanın
 services: event-hubs
 documentationcenter: .NET
 author: ShubhaVijayasarathy
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
 ms.author: sethm
-ms.openlocfilehash: c3ee6a87592145801167b35ff281c04062e525da
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 8ca00b234c00bfeb52a5b601e8780d56a0732dd9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs ölçümlerini Azure İzleyicisi'ni (Önizleme)
 
@@ -46,7 +46,7 @@ Boyutları destekleme ölçümler için aşağıdaki örnekte gösterildiği gib
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için OMS ölçümleri veri akış sahipse işlemi Yönetim Paketi (OMS) tarafından ayrıca faturalandırılır.
+Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için günlük analizi için ölçüm verilerini akış sahipse Azure tarafından ayrıca faturalandırılır.
 
 Aşağıdaki ölçümleri, hizmeti genel bir bakış sağlar. 
 
@@ -59,7 +59,7 @@ Tüm ölçüm değerleri dakikada Azure İzleyicisi için gönderilir. Ölçüm 
 
 Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 | Gelen istekleri (Önizleme) | Belirtilen süre içinde Azure Event Hubs hizmetine yapılan isteklerin sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
 | Başarılı istekler (Önizleme)   | Belirtilen süre içinde Azure Event Hubs hizmetine iletilen başarılı istek sayısı. <br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName |
@@ -70,13 +70,13 @@ Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
 ## <a name="throughput-metrics"></a>Verimlilik metriklerini
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Daraltılmış istekleri (Önizleme)|Üretilen iş birimi kullanımına aşıldığından kısıtlanan istek sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 
 ## <a name="message-metrics"></a>İleti ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Gelen iletileri (Önizleme)|Olay veya olay hub'ları için belirtilen süre içinde gönderilen ileti sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Giden iletiler (Önizleme)|Olay veya ileti sayısı, belirtilen bir süredeki olay hub'larından aldı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -85,7 +85,7 @@ Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
 ## <a name="connection-metrics"></a>Bağlantı ölçümleri
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |ActiveConnections (Önizleme)|Bir varlık yanı sıra bir ad alanı etkin bağlantı sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Bağlantılar açık (Önizleme)|Açık bağlantıları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -95,7 +95,7 @@ Verileri ve yönetim işlemleri isteklerinin sayısını sayar.
 
 Olay hub'larınız için yakalama özelliği etkinleştirdiğinizde, olay hub'ları yakalama ölçümleri izleyebilirsiniz. Aşağıdaki ölçümleri etkin yakalama ile izleyebilirsiniz açıklanmaktadır.
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |Biriktirme listesi (Önizleme) yakalama|Seçilen hedef Yakalanacak henüz burada bayt sayısı.<br/><br/> Birim: bayt <br/> Toplama türü: toplam <br/> Boyut: EntityName|
 |Yakalanan iletileri (Önizleme)|İletileri veya seçilen hedef için belirtilen bir süredeki yakalanır olayları sayısı.<br/><br/> Birim: sayısı <br/> Toplama türü: toplam <br/> Boyut: EntityName|
@@ -105,7 +105,7 @@ Olay hub'larınız için yakalama özelliği etkinleştirdiğinizde, olay hub'la
 
 Azure Event Hubs ölçümleri Azure İzleyicisi'nde aşağıdaki boyutlar destekler. Boyutlar, ölçümlerinizi eklemek isteğe bağlıdır. Boyutlar eklemezseniz ölçümleri ad alanı düzeyinde belirtilir. 
 
-| Ölçüm adı | Açıklama |
+| Ölçüm Adı | Açıklama |
 | ------------------- | ----------------- |
 |EntityName| Event Hubs olay hub'ı varlıklar ad alanı altındaki destekler.|
 

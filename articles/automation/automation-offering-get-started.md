@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 961b783b44b95a871c98f96d3783f3429636f295
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2fcbbc2532e5cb9963922b4987ba0c7080fdb170
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-azure-automation"></a>Azure Otomasyonunu kullanmaya başlayın
 
@@ -33,11 +33,11 @@ Bir Otomasyon hesabı oluşturduktan sonra dağıtım ve yönetim yerel veri mer
 
 Birden çok karma Runbook çalışanları dağıtabilirsiniz. Karma Runbook çalışanları runbook işlerini runbook'ları ve Yük Dengelemesi için yüksek kullanılabilirlik sağlamak için kullanın. Bazı durumlarda, belirli iş yükleri veya ortamlar için runbook işleri ayırabilirsiniz. Microsoft Monitoring Agent karma Runbook çalışanı'TCP bağlantı noktası 443 Otomasyon hizmeti ile iletişim başlatır. Karma Runbook çalışanları yok gelen güvenlik duvarı gereksinimleri vardır.  
 
-Ortamınızda diğer makineler veya hizmetler karşı yönetim görevlerini gerçekleştirmek için bir karma Runbook çalışanı üzerinde çalışan bir runbook'u isteyebilirsiniz. Bu senaryoda, diğer bağlantı noktaları erişmek runbook gerekebilir. BT güvenlik ilkeleri, internet'e bağlanmak için ağınızdaki bilgisayarlar izin verme, gözden [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md). Operations Management Suite (OMS) ağ geçidi karma Runbook çalışanı için bir proxy olarak görev yapar. İş durumu toplar ve Otomasyon hesabınızdan yapılandırma bilgilerini alır.
+Ortamınızda diğer makineler veya hizmetler karşı yönetim görevlerini gerçekleştirmek için bir karma Runbook çalışanı üzerinde çalışan bir runbook'u isteyebilirsiniz. Bu senaryoda, diğer bağlantı noktaları erişmek runbook gerekebilir. BT güvenlik ilkeleri, internet'e bağlanmak için ağınızdaki bilgisayarlar izin verme, gözden [OMS ağ geçidi](../log-analytics/log-analytics-oms-gateway.md). OMS ağ geçidi karma Runbook çalışanı için bir proxy olarak görev yapar. İş durumu toplar ve Otomasyon hesabınızdan yapılandırma bilgilerini alır.
 
 Bir karma Runbook çalışanı üzerinde çalışacak Runbook'lar bilgisayarda yerel sistem hesabı bağlamında çalışır. Yerel Windows makinesinde yönetim işlemlerini gerçekleştirirken bir güvenlik bağlamı öneririz. Yerel makine dışında olan kaynaklara karşı görevleri çalıştırmak için runbook istiyorsanız, Automation hesabında güvenli kimlik bilgisi varlıkları tanımlama gerekebilir. Güvenli kimlik bilgisi varlıkları runbook'tan erişebilir ve bunları ile dış kaynak kimliğini doğrulamak için kullanın. Kullanabileceğiniz [kimlik bilgisi](automation-credentials.md), [sertifika](automation-certificates.md), ve [bağlantı](automation-connections.md) runbook'unuzda varlıklar. Varlıklar, bunları kimlik doğrulaması için kimlik bilgilerini belirtmek için kullanabileceğiniz cmdlet'leriyle kullanın.
 
-Azure Otomasyonu'nda sanal makinelere depolanan DSC yapılandırmaları uygulayabilirsiniz. Diğer fiziksel ve sanal makine yapılandırmaları Otomasyonu DSC istek sunucusundan isteyebilir. Sistemlerinizin şirket içi fiziksel veya sanal Windows ve Linux yapılandırmaları yönetmek için Automation DSC çekme sunucusuna desteklemek için herhangi bir altyapı dağıtmanız gerekmez. Yalnızca Automation DSC kullanarak yönetecek her sisteminden giden internet erişimi gerekir. OMS hizmetine TCP bağlantı noktası 443 üzerinden iletişimi oluşur.   
+Azure Otomasyonu'nda sanal makinelere depolanan DSC yapılandırmaları uygulayabilirsiniz. Diğer fiziksel ve sanal makine yapılandırmaları Otomasyonu DSC istek sunucusundan isteyebilir. Sistemlerinizin şirket içi fiziksel veya sanal Windows ve Linux yapılandırmaları yönetmek için Automation DSC çekme sunucusuna desteklemek için herhangi bir altyapı dağıtmanız gerekmez. Yalnızca Automation DSC kullanarak yönetecek her sisteminden giden internet erişimi gerekir. Günlük analizi hizmeti için TCP bağlantı noktası 443 üzerinden iletişimi oluşur.   
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -125,9 +125,9 @@ Aşağıdaki makaleler konusu ortamlara kimlik doğrulamasını yapılandırmak 
 Azure farklı çalıştır ve klasik farklı çalıştır hesapları için [güncelleştirme Automation farklı çalıştır hesabı](automation-create-runas-account.md) Portalı'ndan farklı çalıştır hesaplarıyla var olan Otomasyon hesabınızı güncelleştirmek açıklar. Ayrıca, Otomasyon hesabı ilk olarak bir farklı çalıştır veya Klasik farklı çalıştır hesabıyla yapılandırılmış değildi PowerShell'in nasıl kullanılacağı açıklanmaktadır. Kuruluş sertifika yetkilisi (CA) tarafından verilen bir sertifika kullanarak bir farklı çalıştır hesabı ve klasik farklı çalıştır hesabı oluşturabilirsiniz. Gözden geçirme [güncelleştirme Automation farklı çalıştır hesabı](automation-create-runas-account.md) bu yapılandırmayı kullanarak hesapları oluşturma hakkında bilgi edinmek için.     
  
 ## <a name="network-planning"></a>Ağınızı planlama
-Karma Runbook bağlanıp OMS ile kaydetmek için çalışan, bağlantı noktası numarasını ve bu bölümde açıklanan URL'lere erişimi olmalıdır. Ek olarak budur [bağlantı noktaları ve Microsoft Monitoring Agent için gereken URL'leri](../log-analytics/log-analytics-windows-agent.md) için OMS bağlanmak için. 
+Karma Runbook bağlanmak ve günlük analizi ile kaydetmek çalışan için bağlantı noktası numarasını ve bu bölümde açıklanan URL'lere erişimi olmalıdır. Ek olarak budur [bağlantı noktaları ve Microsoft Monitoring Agent için gereken URL'leri](../log-analytics/log-analytics-windows-agent.md) günlük Analizi'ne bağlanmak için. 
 
-OMS hizmeti ile aracı arasındaki iletişim için bir proxy sunucu kullanıyorsanız, uygun kaynaklara erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için bir güvenlik duvarı kullanıyorsanız, erişimine izin vermek için güvenlik duvarını yapılandırmanız gerekir.
+Günlük analizi hizmeti ile aracı arasındaki iletişim için bir proxy sunucu kullanıyorsanız, uygun kaynaklara erişilebilir olduğundan emin olun. İnternet'e erişimi kısıtlamak için bir güvenlik duvarı kullanıyorsanız, erişimine izin vermek için güvenlik duvarını yapılandırmanız gerekir.
 
 Aşağıdaki bağlantı noktası ve URL'leri otomasyon ile iletişim kurmak karma Runbook çalışanı rolü için gereklidir:
 
@@ -167,36 +167,36 @@ Aşağıdaki tabloda, Azure portalında bir Otomasyon hesabı oluşturmak için 
 
 |Yöntem | Açıklama |
 |-------|-------------|
-| Seçin **otomasyon ve Denetim** Azure markette | Bir Azure Marketi teklifi bağlantılı ve aynı kaynak grubunu ve bölge bir Otomasyon hesabı ve OMS çalışma alanı oluşturur. OMS tümleştirmesi, izlemek ve runbook iş durumu ve iş akışları zamanla çözümlemek için günlük analizi kullanmanın avantajı da içerir. İlerlet ya da sorunları araştırmak için günlük analizi Gelişmiş özellikleri de kullanabilirsiniz. Teklifi dağıtır **değişiklik izleme** ve **güncelleştirme yönetimi** varsayılan olarak etkin olan çözümler. |
-| Seçin **Otomasyon** Market'te | Bu yöntem, bir OMS çalışma alanına bağlı olmayan bir yeni veya var olan kaynak grubunda bir Otomasyon hesabı oluşturur. Kullanılabilir tüm çözümlerinden içermeyen **otomasyon ve Denetim** teklifi. Bu yöntem için Otomasyon tanıtan temel bir yapılandırmadır. Runbook'ları ve DSC yapılandırmaları yazma öğrenin ve hizmet özelliklerini kullanma öğrenmenize yardımcı olabilir. |
-| Seçin **Yönetim** çözümleri | Seçerseniz bir **Yönetim** çözüm de dahil olmak üzere [güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md), [dışı saatlerde sırasında sanal makineleri Başlat/Durdur](automation-solution-vm-management.md), veya [değişiklik izleme](../log-analytics/log-analytics-change-tracking.md), çözümü bir var olan Otomasyon hesabı ve OMS çalışma alanını seçmenizi ister. Çözümü bir Otomasyon hesabı ve aboneliğinizde dağıtılması için çözüm için gereken OMS çalışma alanı oluşturma seçeneği sunar. |
+| Seçin **otomasyon ve Denetim** Azure markette | Bir Azure Marketi teklifi bağlantılı ve aynı kaynak grubunu ve bölge bir Otomasyon hesabı ve günlük analizi çalışma alanı oluşturur. Günlük analizi ile tümleştirme, izlemek ve runbook iş durumu ve iş akışları zamanla çözümlemek için kullanmanın faydası de içerir. İlerlet ya da sorunları araştırmak için günlük analizi Gelişmiş özellikleri de kullanabilirsiniz. Teklifi dağıtır **değişiklik izleme** ve **güncelleştirme yönetimi** varsayılan olarak etkin olan çözümler. |
+| Seçin **Otomasyon** Market'te | Bu yöntem bir Otomasyon hesabı günlük analizi çalışma alanına bağlı olmayan bir yeni veya var olan kaynak grubunda oluşturur. Kullanılabilir tüm çözümlerinden içermeyen **otomasyon ve Denetim** teklifi. Bu yöntem için Otomasyon tanıtan temel bir yapılandırmadır. Runbook'ları ve DSC yapılandırmaları yazma öğrenin ve hizmet özelliklerini kullanma öğrenmenize yardımcı olabilir. |
+| Seçin **Yönetim** çözümleri | Seçerseniz bir **Yönetim** çözüm de dahil olmak üzere [güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md), [dışı saatlerde sırasında sanal makineleri Başlat/Durdur](automation-solution-vm-management.md), veya [değişiklik izleme](../log-analytics/log-analytics-change-tracking.md), çözümü bir var olan Otomasyon hesabı ve günlük analizi çalışma alanını seçmenizi ister. Çözümü bir Otomasyon hesabı ve aboneliğinizde dağıtılması için çözüm için gereken günlük analizi çalışma alanı oluşturma seçeneği sunar. |
 
-### <a name="create-an-automation-account-thats-integrated-with-oms"></a>OMS ile tümleşik bir Automation hesabı oluşturma
-Yerleşik Otomasyon için seçtiğiniz olan öneririz **otomasyon ve Denetim** Market teklifi. Bu yöntemi kullanarak bir Otomasyon hesabı oluşturur ve bir OMS çalışma alanı ile tümleştirme oluşturur. Bu yöntemi kullandığınızda, ayrıca teklifi ile kullanılabilir yönetim çözümleri yükleme seçeneğiniz vardır.  
+### <a name="create-an-automation-account-thats-integrated-with-log-analytics"></a>Günlük analizi ile tümleşik bir Automation hesabı oluşturma
+Yerleşik Otomasyon için seçtiğiniz olan öneririz **otomasyon ve Denetim** Market teklifi. Bu yöntemi kullanarak bir Otomasyon hesabı oluşturur ve bir günlük analizi çalışma alanı ile tümleştirme oluşturur. Bu yöntemi kullandığınızda, ayrıca teklifi ile kullanılabilir yönetim çözümleri yükleme seçeneğiniz vardır.  
 
-[Tek başına bir Otomasyon hesabı oluşturma](automation-create-standalone-account.md) bir Otomasyon hesabı ve OMS çalışma tarafından ekleme oluşturma işleminde size yol göstermektedir **otomasyon ve Denetim** sunar. Tek başına bir test otomasyon hesabı oluşturun veya hizmet Önizleme öğrenebilirsiniz.  
+[Tek başına bir Otomasyon hesabı oluşturma](automation-create-standalone-account.md) onboarding tarafından bir Otomasyon hesabı ve günlük analizi çalışma alanı oluşturma işleminde size yol göstermektedir **otomasyon ve Denetim** sunar. Tek başına bir test otomasyon hesabı oluşturun veya hizmet Önizleme öğrenebilirsiniz.  
 
-Kullanarak bir Otomasyon hesabı ve OMS çalışma alanı oluşturmak için **otomasyon ve Denetim** Market teklifi:
+Kullanarak bir Otomasyon hesabı ve günlük analizi çalışma alanı oluşturmak için **otomasyon ve Denetim** Market teklifi:
 
 1. Azure portalında abonelik Yöneticileri rolünün üyesi ve bir Abonelikteki olan bir hesapla oturum açın.
 2. Seçin **yeni**.<br><br> ![Azure portalında yeni seçin](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. Arama **Otomasyon**. Arama sonuçlarında seçin **otomasyon ve Denetim**.<br><br> ![Arama ve otomasyon ve denetim Azure Marketi'nde seçin](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 4. Teklifi için bir açıklama gözden geçirin ve ardından **oluşturma**.  
-5. Altında **otomasyon ve Denetim**seçin **OMS çalışma**. Altında **OMS çalışma alanları**, Automation hesabı olan Azure aboneliğine bağlı bir OMS çalışma alanını seçin. Bir OMS çalışma alanı yoksa, seçin **yeni çalışma alanı oluştur**. Altında **OMS çalışma**: 
+5. Altında **otomasyon ve Denetim**seçin **OMS çalışma**. Altında **OMS çalışma alanları**, Automation hesabı olan Azure aboneliğine bağlı bir günlük analizi çalışma alanı seçin. Günlük analizi çalışma alanı yoksa, seçin **yeni çalışma alanı oluştur**. Altında **OMS çalışma**: 
   1. İçin **OMS çalışma**, yeni bir çalışma alanı için bir ad girin.
   2. İçin **abonelik**, bağlantı sağlamak için bir abonelik seçin. Varsayılan seçim kullanmak istediğiniz aboneliği değilse, aşağı açılan listeden aboneliği seçin.
   3. İçin **kaynak grubu**, bir kaynak grubu oluşturabilir veya varolan bir kaynak grubu seçin.  
   4. İçin **konumu**, bir bölge seçin. Daha fazla bilgi için bkz: [Azure Otomasyonu sağlanmıştır hangi bölgeleri](https://azure.microsoft.com/regions/services/). Çözümleri iki katmanlarda sunulur: ücretsiz ve her düğüm (OMS) katmanı. Ücretsiz katmanı, günlük, saklama dönemi ve runbook iş çalışma zamanı dakika topladığı veri miktarı bir sınırı vardır. Düğüm başına (OMS) katmanı günlük toplanan veri miktarını bir sınır yoktur.  
-  5. **Otomasyonu Hesabı**’nı seçin.  Yeni bir OMS çalışma alanı oluşturursanız, yeni OMS çalışma alanıyla ilişkili bir Otomasyon hesabı oluşturmanız gerekir. Azure abonelik, kaynak grubu ve bölge içerir. 
+  5. **Otomasyonu Hesabı**’nı seçin.  Yeni bir günlük analizi çalışma alanı oluşturursanız, yeni günlük analizi çalışma alanı ile ilişkili bir Otomasyon hesabı oluşturmanız gerekir. Azure abonelik, kaynak grubu ve bölge içerir. 
     1. Seçin **Automation hesabı oluşturma**.
     2. Altında **Otomasyon hesabı**, **adı** alanında, Otomasyon hesabının adını girin.
-    Diğer tüm seçenekleri seçili OMS çalışma alanını otomatik olarak doldurulur. Bu seçenekler değiştiremezsiniz. 
+    Diğer tüm seçenekleri seçili günlük analizi çalışma alanı otomatik olarak doldurulur. Bu seçenekler değiştiremezsiniz. 
     3. Teklif için varsayılan kimlik doğrulama yöntemi, bir Azure Farklı Çalıştır hesabıdır. Siz seçtikten sonra **Tamam**, yapılandırma seçenekleri doğrulanır ve Automation hesabı oluşturulur. Menüsünde ilerleme durumunu izlemek için **bildirimleri**. 
-    4. Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz. Seçtiğiniz hesap zaten başka bir OMS çalışma alanına bağlanamaz. İse, bir uyarı iletisi görüntülenir. Hesap bir OMS çalışma alanına zaten bağlıysa, farklı bir Automation farklı çalıştır hesabı seçin veya oluşturun.
+    4. Aksi takdirde, mevcut bir Otomasyon Farklı Çalıştır hesabını seçebilirsiniz. Seçtiğiniz hesap zaten başka bir günlük analizi çalışma alanına bağlanamaz. İse, bir uyarı iletisi görüntülenir. Hesabı için günlük analizi çalışma alanı zaten bağlıysa, farklı bir Automation farklı çalıştır hesabı seçin veya oluşturun.
     5. Girin veya gerekli bilgileri seçtikten sonra seçin **oluşturma**. Bilgiler doğrulandı ve Automation hesabı ve farklı çalıştır hesapları oluşturulur. Otomatik olarak döndürülürsünüz **OMS çalışma** bölmesi.  
 6. Girin ya da gerekli bilgileri seçtikten sonra **OMS çalışma** bölmesinde, **oluşturma**.  Bilgiler doğrulandı ve çalışma alanı oluşturulur. Menüsünde ilerleme durumunu izlemek için **bildirimleri**. Döndürülürsünüz **Çözüm Ekle** bölmesi.  
 7. Altında **otomasyon ve Denetim** ayarlarını onaylayın önerilen seçilmiş çözümleri yüklemek istediğiniz. Varsayılan seçeneklerinden herhangi birini değiştirirseniz, çözümleri daha sonra ayrı olarak yükleyebilirsiniz.  
-8. Otomasyonu ekleme ve bir OMS çalışma alanı ile devam etmek için seçin **oluşturma**. Tüm ayarlar doğrulanır ve Azure aboneliğinizi Sunumda dağıtmak dener. Bu işlem birkaç saniye sürebilir. Menüde ilerlemesini izlemek üzere seçmek **bildirimleri**. 
+8. Otomasyonu ekleme ve bir günlük analizi çalışma alanı ile devam etmek için seçin **oluşturma**. Tüm ayarlar doğrulanır ve Azure aboneliğinizi Sunumda dağıtmak dener. Bu işlem birkaç saniye sürebilir. Menüde ilerlemesini izlemek üzere seçmek **bildirimleri**. 
 
 Teklifi edildi olduktan sonra aşağıdaki görevleri yapabilirsiniz:
 * Runbook'ları oluşturmaya başlayın.

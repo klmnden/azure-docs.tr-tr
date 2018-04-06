@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 5f1fa378c8eea68181d4596700238d03f360c5d0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a5cdc67a138e2316c2e87a72371a6df527cc36ac
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Azure Data Lake Store için tanılama günlüklerine erişme
 Data Lake Store hesabınızı ve hesabınız için toplanan günlükleri görüntülemek nasıl günlüğü tanılama etkinleştirmek bilgi edinin.
@@ -47,7 +47,7 @@ Kuruluşlar, verileri ne sıklıkta erişildiğine, verilerine erişen kullanıc
         
         * Seçeneğini **bir olay hub'ına akış** Azure olay Hub'ına günlük veri akışı için. Büyük olasılıkla gerçek zamanda gelen günlüklerini çözümlemek için bir aşağı akış işleme ardışık varsa bu seçeneği kullanır. Bu seçeneği belirlerseniz, kullanmak istediğiniz Azure olay Hub ayrıntılarını sağlamanız gerekir.
 
-        * Seçeneğini **için günlük analizi Gönder** oluşturulan günlük verileri çözümlemek için Azure günlük analizi hizmeti kullanmak için. Bu seçeneği belirlerseniz, gerçekleştirme Günlük çözümlemesi kullanacağınız için Operations Management Suite çalışma ayrıntıları sağlamanız gerekir. Bkz: [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için.
+        * Seçeneğini **için günlük analizi Gönder** oluşturulan günlük verileri çözümlemek için Azure günlük analizi hizmeti kullanmak için. Bu seçeneği belirlerseniz, gerçekleştirme Günlük çözümlemesi kullanırsınız Ayrıntılar için günlük analizi çalışma alanı sağlamanız gerekir. Bkz: [görünüm veya günlük analizi günlük arama ile toplanan verileri çözümlemek](../log-analytics/log-analytics-tutorial-viewdata.md) günlük analizi kullanımıyla ilgili ayrıntılar için.
      
    * Denetim günlükleri veya istek günlüklerini veya her ikisini de almak isteyip istemediğinizi belirtin.
    * Verilerin korunması gereken gün sayısını belirtin. Bekletme, yalnızca günlük verileri arşivlemek için Azure depolama hesabı kullanıyorsanız geçerlidir.

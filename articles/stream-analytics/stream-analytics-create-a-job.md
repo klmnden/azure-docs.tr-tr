@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 03f21c076624ee758d313c4f58e29c616226de57
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e332651af29514ca773b1476eafb0381207df86e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-a-data-analytics-processing-job-for-stream-analytics"></a>Akış analizi için veri analizi işlem işi oluşturma
 Üst düzey Azure akış analizi, akış analizi işi kaynaktır.  Bir veya daha fazla giriş veri kaynağı, veri dönüştürme ifade bir sorgu ve sonuçları yazılan bir veya daha fazla çıkış hedefleri oluşur. Birlikte bu veri analitik veri senaryoları akış için işleme gerçekleştirmek kullanıcının etkinleştirir.
@@ -44,7 +44,7 @@ Akış analizi işinin oluşturulması birkaç dakika sürebilir. Durumu denetle
    ![Azure portal veri analitik iş durumunu işleme](./media/stream-analytics-create-a-job/6-stream-analytics-create-a-job.png)  
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

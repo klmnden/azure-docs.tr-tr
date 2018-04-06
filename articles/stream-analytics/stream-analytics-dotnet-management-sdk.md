@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/06/2017
 ms.author: jeanb
-ms.openlocfilehash: 269491beb2acb854098f6513007c5390f318f945
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8c6b0f8ef457c7d40673f27b67a6d33592908fad
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>.NET SDK'sı Yönetimi: Ayarlama ve .NET için Azure Stream Analytics API'sini kullanarak analytics işleri çalıştırma
 Ayarlamak ve yönetim .NET SDK kullanarak .NET için Stream Analytics API kullanarak analytics işleri çalıştırma hakkında bilgi edinin. Bir projesi ayarlayın, giriş ve çıkış kaynakları, dönüştürme ve başlangıç oluşturun ve işleri durdurur. Analytics işleriniz için Blob depolama biriminden veya event hub'ındaki veri akışını sağlayabilirsiniz.
@@ -277,7 +277,7 @@ Aşağıdaki örnek kod başlatır Stream Analytics işi özel çıkış başlan
    ```
 
 ## <a name="get-support"></a>Destek alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Oluşturmak ve analytics işlerini çalıştırmak için .NET SDK kullanarak temelleri öğrendiniz. Daha fazla bilgi edinmek için şunlara bakın:

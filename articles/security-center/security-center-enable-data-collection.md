@@ -1,44 +1,44 @@
 ---
-title: "Azure Güvenlik Merkezi veri toplama | Microsoft Docs"
+title: Azure Güvenlik Merkezi veri toplama | Microsoft Docs
 description: " Azure Güvenlik Merkezi'nde veri koleksiyonunu etkinleştirme hakkında bilgi edinin. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/12/2018
+ms.date: 04/03/2018
 ms.author: terrylan
-ms.openlocfilehash: d5f2c9960b720fc44f37956f9150e89d6425d154
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: 90a73545afa82276256a021588eaa594b95ee8da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Güvenlik Merkezi veri toplama
-Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve güvenlik açıkları ve tehditleri izlemek üzere Azure olmayan bilgisayarları veri toplar. Microsoft izleme çeşitli güvenlikle ilgili yapılandırmaları ve olay günlüklerini makineden okur ve verileri analiz için çalışma alanınızda kopyalar aracısı kullanarak verileri toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent ayrıca alanınıza kilitlenme bilgi döküm dosyaları kopyalar.
+Güvenlik Merkezi, Azure sanal makineleri (VM'ler) ve güvenlik açıkları ve tehditleri izlemek üzere Azure olmayan bilgisayarları veri toplar. Veriler, makineden güvenlikle ilgili çeşitli yapılandırmaları ve olay günlüklerini okuyup verileri analiz için çalışma alanınıza kopyalayan Microsoft Monitoring Agent kullanılarak toplanır. Bu tür verilerin örnekleri şunlardır: işletim sistemi türü ve sürümü, işletim sistemi günlükleri (Windows olay günlükleri), çalışan işlemler, makine adı, IP adresleri, oturum açmış kullanıcı ve kiracı kimliği. Microsoft Monitoring Agent ayrıca alanınıza kilitlenme bilgi döküm dosyaları kopyalar.
 
 ## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Microsoft Monitoring Agent ' otomatik sağlamayı etkinleştir     
-Otomatik sağlama etkinleştirilmişse, Güvenlik Merkezi sağlarken Microsoft Monitoring Agent tüm Azure Vm'leri ve oluşturulan yeni bir tane desteklenir. Otomatik sağlama önemle tavsiye edilir ve Güvenlik Merkezi'nin standart katmanında abonelikler için gereklidir.
+Otomatik sağlama etkinleştirilmişse, Güvenlik Merkezi sağlarken Microsoft Monitoring Agent tüm Azure Vm'leri ve oluşturulan yeni bir tane desteklenir. Otomatik sağlama önerilir ancak el ile aracı yükleme da kullanılabilir. [Microsoft Monitoring Agent uzantısı yüklemeyi öğrenin](../log-analytics/log-analytics-quick-collect-azurevm.md#enable-the-log-analytics-vm-extension).
 
 > [!NOTE]
-> Otomatik sağlama sınırları güvenlik kaynaklarınız için izleme devre dışı bırakılıyor. Daha fazla bilgi için bkz: [otomatik sağlamayı devre dışı](security-center-enable-data-collection.md#disable-automatic-provisioning) bu makalede. Otomatik sağlamayı devre dışı bırakılmış olsa VM disk anlık görüntüler ve yapı toplama etkinleştirilir.
+> Otomatik sağlamanın devre dışı bırakılması, kaynaklarınızın güvenliğinin izlenmesini kısıtlar. Daha fazla bilgi için bkz: [otomatik sağlamayı devre dışı](security-center-enable-data-collection.md#disable-automatic-provisioning) bu makalede. Otomatik sağlamayı devre dışı bırakılmış olsa VM disk anlık görüntüler ve yapı toplama etkinleştirilir.
 >
 >
 
-Microsoft Monitoring Agent ' otomatik sağlamayı etkinleştirmek için:
-1. Güvenlik Merkezi ana menüsündeki seçin **Güvenlik İlkesi**.
+Microsoft Monitoring Agent için otomatik sağlamayı etkinleştirmek üzere:
+1. Güvenlik Merkezi ana menüsünde **Güvenlik İlkesi**’ni seçin.
 2. Aboneliği seçin.
-3. Altında **Güvenlik İlkesi**seçin **veri toplama**.
+3. **Güvenlik ilkesi** bölümünde **Veri Toplama**’yı seçin.
 4. Altında **Onboarding**seçin **üzerinde** otomatik sağlamayı etkinleştirmek için.
 5. **Kaydet**’i seçin.
 
-![Otomatik sağlamayı etkinleştir][1]
+![Otomatik sağlamayı etkinleştirme][1]
 
 ## <a name="default-workspace-configuration"></a>Varsayılan çalışma alanı yapılandırması
 Güvenlik Merkezi tarafından toplanan verileri günlük analizi çalışma alanları depolanır.  Azure Güvenlik Merkezi tarafından oluşturulan çalışma alanları veya oluşturduğunuz var olan bir çalışma depolanan Vm'lerine toplanan verileri seçebilirler.
@@ -101,7 +101,7 @@ Güvenlik ve App Locker olay kimlikleri her küme için tam bir dökümünü ş�
 | --- | --- |
 | En az | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Ortak (varsayılan) | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Common | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -124,7 +124,7 @@ Filtreleme ilkeniz seçmek için:
 Otomatik kaynaklardan herhangi bir zamanda Güvenlik İlkesi'nde bu ayarı devre dışı bırakarak sağlamayı devre dışı bırakabilirsiniz. Otomatik sağlama güvenlik uyarıları ve sistem güncelleştirmeleri, işletim sistemi güvenlik açıkları ve endpoint protection hakkında öneriler alabilmek için önerilir.
 
 > [!NOTE]
-> Otomatik sağlamayı devre dışı bırakma, Microsoft Monitoring Agent aracı bir yere sağlanan Azure VM'lerin kaldırmaz.
+> Otomatik sağlama devre dışı bırakıldığında Microsoft Monitoring Agent’ın sağlandığı Azure VM’lerinden aracı kaldırılmaz.
 >
 >
 
@@ -132,7 +132,7 @@ Otomatik kaynaklardan herhangi bir zamanda Güvenlik İlkesi'nde bu ayarı devre
 
    ![Otomatik sağlamayı devre dışı bırak][6]
 
-2. Otomatik sağlamayı devre dışı bırakmak istediğiniz aboneliği seçin.
+2. Otomatik sağlamayı hangi abonelik için devre dışı bırakmak istediğinizi belirtin.
 3. Üzerinde **güvenlik ilkesi – veri toplama** dikey altında **Onboarding** seçin **kapalı** otomatik sağlamayı devre dışı bırakmak için.
 4. **Kaydet**’i seçin.  
 

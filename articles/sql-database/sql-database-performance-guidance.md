@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı performans Kılavuzu ayarlama | Microsoft Docs"
-description: "Azure SQL veritabanı sorgu performansını artırmak için öneriler kullanma hakkında bilgi edinin."
+title: Azure SQL veritabanı performans Kılavuzu ayarlama | Microsoft Docs
+description: Azure SQL veritabanı sorgu performansını artırmak için öneriler kullanma hakkında bilgi edinin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 63a8b9f8c81ad3dc122bf25d8a06cdf242a0f35b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -39,8 +39,8 @@ Azure SQL veritabanı sunan dört [hizmet katmanları](sql-database-service-tier
   * **Tek bir kullanıcıyla bir veritabanına sahip**. Tek bir kullanıcı genellikle bir veritabanıyla ilişkilendirin uygulamaları yüksek tutarlılık ve performans gereksinimlerini yok. Bu uygulamalar temel hizmet katmanının bir aday değildir.
 * **Standart**: Standart hizmet katmanı performansı öngörülebilirlik sunar ve çalışma grubu ve web uygulamaları gibi birden çok eş zamanlı istekleri veritabanları için iyi bir performans sağlar. Bir standart hizmet katmanı veritabanı seçtiğinizde, veritabanı uygulamanızı tahmin edilebilir performans üzerinde boyutlandırabilirsiniz dakika üzerinden dakika.
   * **Birden çok eşzamanlı istek veritabanınızı sahip**. Genellikle aynı anda birden fazla kullanıcı hizmet uygulamaları, daha yüksek performans düzeyleri gerekir. Örneğin, düşük birden çok eşzamanlı sorguyu destekler Orta g/ç trafiği için gereksinimlerin çalışma grubu veya web uygulamaları, standart hizmet katmanı için iyi bir aday değildir.
-* **Premium**: Premium Hizmet katmanını tahmin edilebilir performans sunar ikinci olarak, her Premium veritabanı için üzerinden ikinci. Premium Hizmet katmanını seçtiğinizde, bu veritabanı için yoğun yük temel veritabanı uygulamanızı boyutlandırabilirsiniz. Plan durumları hangi performans farkı küçük sorguları gecikme süresine duyarlı işlemleri beklenenden daha uzun sürmesine neden olabilir kaldırır. Bu model, geliştirme ve ürün doğrulama döngüleri güçlü deyimleri en yüksek kaynak gereksinimleri, performans farkı veya sorgu gecikmesi hakkında vermeniz gereken uygulamalar için büyük ölçüde basitleştirebilir. Çoğu Premium Hizmet katmanını kullanım örnekleri, bir veya daha fazla şu özelliklere sahiptir:
-  * **Yüksek yoğun yük**. Önemli ölçüde CPU, bellek veya giriş/çıkış (g/ç) işlemlerini tamamlamak için gerektiren bir uygulama, ayrılmış, yüksek performans düzeyi gerektirir. Örneğin, uzun bir süre çeşitli CPU çekirdekleri kullanmak için bilinen bir veritabanı işlemi Premium hizmet katmanı için bir adaydır.
+* **Premium**: Premium Hizmet katmanını tahmin edilebilir performans sunar her Premium veya iş kritik (Önizleme) için ikinci üzerinden ikinci veritabanı. Premium Hizmet katmanını seçtiğinizde, bu veritabanı için yoğun yük temel veritabanı uygulamanızı boyutlandırabilirsiniz. Plan durumları hangi performans farkı küçük sorguları gecikme süresine duyarlı işlemleri beklenenden daha uzun sürmesine neden olabilir kaldırır. Bu model, geliştirme ve ürün doğrulama döngüleri güçlü deyimleri en yüksek kaynak gereksinimleri, performans farkı veya sorgu gecikmesi hakkında vermeniz gereken uygulamalar için büyük ölçüde basitleştirebilir. Çoğu Premium Hizmet katmanını kullanım örnekleri, bir veya daha fazla şu özelliklere sahiptir:
+  * **Yüksek yoğun yük**. Önemli ölçüde CPU, bellek veya giriş/çıkış (IO) işlemlerini tamamlamak için gerektiren bir uygulama, ayrılmış, yüksek performans düzeyi gerektirir. Örneğin, uzun bir süre çeşitli CPU çekirdekleri kullanmak için bilinen bir veritabanı işlemi Premium hizmet katmanı için bir adaydır.
   * **Çok sayıda eşzamanlı istek**. Bir Web sitesi, hizmet veren bir yüksek trafik hacmi olduğunda bazı veritabanı çok sayıda eşzamanlı istek, örneğin, hizmet uygulamaları. Temel ve standart hizmet katmanları veritabanı başına eşzamanlı istek sayısını sınırlayın. Daha fazla bağlantı gerektiren uygulamalar sayısı gerekli istekleri işlemek için uygun ayırma boyutu seçmek gerekir.
   * **Düşük gecikme süresi**. En az sürede yanıt veritabanından güvence altına almak bazı uygulamaları gerekir. Belirli bir saklı yordam daha geniş bir müşteri işleminin bir parçası çağrılırsa, bu çağrı bir dönüş en fazla 20 milisaniye cinsinden süre yüzde 99'olan bir gereksinimi olabilir. Bu tür bir uygulama için gerekli hesaplama gücü kullanılabilir olduğundan emin olmak için Premium hizmet katmanından, yararlı olur.
 
@@ -134,7 +134,7 @@ Oluşturulduktan sonra aynı SELECT deyimi bir tarama yerine bir arama kullanan 
 
 ![Düzeltilmiş dizinleri içeren bir sorgu planı](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-Anahtar Insight paylaşılan, ticari sistem g/ç kapasitesini daha, adanmış sunucu makinesi sınırlıdır. Azure SQL Database hizmet katmanları her performans düzeyi DTU içinde sistem en büyük avantajlarından yararlanmak için gereksiz g/ç en aza üzerinde bir premium yoktur. Uygun fiziksel veritabanı tasarım seçenekleri tek tek sorgular için gecikme süresini önemli ölçüde iyileştirebilen ölçek birimi işlenen eş zamanlı isteklerin verimini artırmak ve sorgu karşılamak için gerekli maliyetleri en aza indirmek. Eksik dizini Dmv'leri hakkında daha fazla bilgi için bkz: [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
+Anahtar Insight paylaşılan, ticari sistem GÇ kapasitesini daha, adanmış sunucu makinesi sınırlıdır. Azure SQL Database hizmet katmanları her performans düzeyi DTU içinde sistem en büyük avantajlarından yararlanmak için gereksiz GÇ en aza üzerinde bir premium yoktur. Uygun fiziksel veritabanı tasarım seçenekleri tek tek sorgular için gecikme süresini önemli ölçüde iyileştirebilen ölçek birimi işlenen eş zamanlı isteklerin verimini artırmak ve sorgu karşılamak için gerekli maliyetleri en aza indirmek. Eksik dizini Dmv'leri hakkında daha fazla bilgi için bkz: [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx).
 
 ### <a name="query-tuning-and-hinting"></a>Sorgu ayarlama ve ipuçları
 Azure SQL veritabanındaki sorgu iyileştiricisi için geleneksel SQL Server sorgu iyileştiricisi benzer. Sorguları ayarlama ve mantığı anlamak için en iyi uygulamaları çoğu sorgu iyileştiricisi modeli sınırlamalar de Azure SQL veritabanı için geçerlidir. Azure SQL Database sorguları ayarlamak, birleşik kaynak taleplerini azaltma ek bir avantaja alabilirsiniz. Uygulamanızı karıncalı gösteren eşdeğer bir daha düşük bir maliyetle daha düşük bir performans düzeyinde çalışabildiğinden çalıştırmanız mümkün olabilir.
@@ -264,7 +264,7 @@ Azure SQL veritabanı genişleme mimarisinde kullanırsanız, uygulamanın farkl
 ### <a name="batch-queries"></a>Toplu sorguları
 Yüksek hacimli kullanarak veri erişim uygulamalar için sık, geçici sorgulama, yanıt süresini önemli miktarda uygulama katmanı ve Azure SQL veritabanı katmanı arasındaki ağ iletişimi harcanmaktadır. Hem uygulama hem de Azure SQL veritabanını aynı veri merkezinde olsa bile, ikisi arasındaki ağ gecikmesi çok sayıda veri tarafından erişim işlemleri büyütülmüş. Ağ azaltmak için veri erişim işlemleri için döngü, geçici sorguları ya da toplu veya olarak saklı yordamlar derlemeye seçeneğini kullanmayı düşünün. Geçici sorguları toplu varsa, birden çok sorgu tek bir seyahat bir büyük toplu olarak Azure SQL veritabanına gönderebilirsiniz. Saklı yordamdaki geçici sorgular derleme yaparsanız, bunları toplu gibi aynı sonucu elde. Ayrıca bir saklı yordamı kullanarak saklı yordamı yeniden kullanabilmeniz için Azure SQL veritabanındaki sorgu planları önbelleğe alma olasılığını artırmak avantajı sağlar.
 
-Bazı uygulamalar yazma yoğunluklu. Bazen yazma birlikte toplu nasıl dikkate alarak bir veritabanı toplam g/ç yükünü azaltabilir. Genellikle, bu saklı yordamları ve geçici toplu otomatik tamamlama işlemlerini yerine açık işlemleri kullanmanız yeterlidir. Kullanabileceğiniz farklı teknikleri değerlendirme için bkz: [teknikleri Azure SQL veritabanı uygulamaları için toplu işleme](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Toplu işlem için doğru modeli bulmak için kendi iş yükü deneme. Bir model biraz farklı işlem tutarlılığı garanti olabilir anladığınızdan emin olun. Kaynak kullanımını en aza indirir sağ iş yükü bulma tutarlılık ve performans dengelemeler doğru bileşimini bulma gerektirir.
+Bazı uygulamalar yazma yoğunluklu. Bazen yazma birlikte toplu nasıl dikkate alarak bir veritabanında toplam g/ç yükünü azaltabilir. Genellikle, bu saklı yordamları ve geçici toplu otomatik tamamlama işlemlerini yerine açık işlemleri kullanmanız yeterlidir. Kullanabileceğiniz farklı teknikleri değerlendirme için bkz: [teknikleri Azure SQL veritabanı uygulamaları için toplu işleme](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx). Toplu işlem için doğru modeli bulmak için kendi iş yükü deneme. Bir model biraz farklı işlem tutarlılığı garanti olabilir anladığınızdan emin olun. Kaynak kullanımını en aza indirir sağ iş yükü bulma tutarlılık ve performans dengelemeler doğru bileşimini bulma gerektirir.
 
 ### <a name="application-tier-caching"></a>Uygulama katmanı önbelleğe alma
 Bazı veritabanı uygulamaları okuma yoğun iş yükleri vardır. Katmanlar önbelleğe alma veritabanı azaltabilir ve Azure SQL veritabanını kullanarak bir veritabanı desteklemek için gereken performans düzeyi azaltmak. İle [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/), okuma ağır iş yükü varsa, bir kez veri okuma (ya da belki nasıl yapılandırıldığına bağlı olarak bir kez uygulama katmanı makine başına,), SQL veritabanınızın dışındaki verileri depolamak ve. Bu veritabanı Yükü (CPU ve okuma g/ç) azaltmak için bir yoludur ancak önbellekten okunan verileri veritabanındaki verileri ile eşitlenmemiş olabilir çünkü işlemsel tutarlılık üzerinde bir etkisi olan. Birçok uygulamada belirli bir düzeyde tutarsızlık kabul edilebilir olmasına rağmen tüm iş yükleri için geçerli değildir. Bir uygulama katmanı önbelleğe alma stratejisi uygulamadan önce herhangi bir uygulama gereksinimi tam olarak anlamanız gerekir.

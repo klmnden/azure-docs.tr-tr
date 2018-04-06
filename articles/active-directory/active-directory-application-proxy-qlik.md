@@ -8,15 +8,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 04/03/2018
 ms.author: markvi
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 331f8ed2e77a076dd8969dc37add1cdeafc852dc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e10fefdd3bd46aeb90fd2cfc82d4fee3b17d867b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Uygulama proxy'si ve Qlik algılama 
 Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılama dağıtımınız için uzaktan erişim sağlamak için uygulama proxy'si kullanmanız mümkün olduğundan emin olmak için birlikte ortaklık.  
@@ -25,20 +25,7 @@ Azure Active Directory Uygulama proxy'si ve Qlik algılama kolayca Qlik algılam
 Bu senaryo geri kalanı, aşağıdaki bitti varsayılır:
  
 - Yapılandırılmış [Qlik algılama](https://community.qlik.com/docs/DOC-19822). 
-- Bir uygulama Proxy Bağlayıcısı yüklü 
-
-## <a name="install-an-application-proxy-connector"></a>Bir uygulama ara sunucusu Bağlayıcısı'nı yüklemek 
-Zaten uygulama Proxy etkin olması ve yüklü bir bağlayıcı varsa, bu bölüm atlayın ve üzerinde gitme [Azure AD uygulama proxy'si ile uygulamanızı eklemek](application-proxy-ping-access.md). 
-
-Uygulama Ara sunucusu Bağlayıcısı'nı uzaktan çalışanlarınızın trafiği yayımlanan uygulamalarınızı yönlendiren bir Windows Server hizmetidir. Daha ayrıntılı yükleme yönergeleri için bkz: [Azure portalında uygulama ara sunucusunu etkinleştirme](active-directory-application-proxy-enable.md). 
-
-
-1. [Azure portalında](https://portal.azure.com/) genel yönetici olarak oturum açın. 
-2. Azure Active Directory'yi seçin > uygulama proxy'si. 
-3. Uygulama Proxy Bağlayıcısı yüklemeyi başlatmak için indirme Bağlayıcısı'nı seçin. Yükleme yönergelerini izleyin. 
- 
->[!NOTE]
->Bağlayıcı yükleme otomatik olarak etkinleştirmelisiniz uygulama proxy'si değil, seçebilirsiniz, ancak dizininiz için **uygulama ara sunucusunu etkinleştirme**. 
+- [Bir uygulama Proxy Bağlayıcısı yüklü](active-directory-application-proxy-enable.md#install-and-register-a-connector) 
  
 ## <a name="publish-your-applications-in-azure"></a>Uygulamalarınızı Azure yayımlama 
 QlikSense yayımlamak için iki uygulama Azure'da yayımlamak gerekir.  
@@ -47,12 +34,12 @@ QlikSense yayımlamak için iki uygulama Azure'da yayımlamak gerekir.
 Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izlenecek adımların daha ayrıntılı için [Azure AD uygulama proxy'si ile uygulama yayımlama](application-proxy-publish-azure-portal.md). 
 
 
-1. Son bölümde almadıysanız, Azure portalına genel yönetici olarak oturum açın. 
+1. Azure portalına genel yönetici olarak oturum açın. 
 2. Seçin **Azure Active Directory** > **kurumsal uygulamalar**. 
 3. Seçin **Ekle** dikey pencerenin üstündeki. 
 4. Seçin **şirket içi uygulama**. 
 5.       Yeni uygulamanızı hakkındaki bilgilerle gerekli alanları doldurun. Ayarları için aşağıdaki yönergeleri kullanın: 
-    - **İç URL**: Bu uygulamayı QlikSense URL bir iç URL olması gerekir. Örneğin, **https&#58;//demo.qlikemm.com** 
+    - **İç URL**: Bu uygulamayı QlikSense URL bir iç URL olması gerekir. Örneğin, **https&#58;//demo.qlikemm.com:4244** 
     - **Ön kimlik doğrulama yöntemi**: Azure Active Directory (ancak bu zorunlu önerilir) 
 1.       Seçin **Ekle** dikey pencerenin altındaki. Uygulamanızı eklenir ve Hızlı Başlat menüsü açılır. 
 2.       Hızlı Başlangıç menüsünde seçin **test etmek için bir kullanıcı atamak**, ve uygulama için en az bir kullanıcı ekleyebilirsiniz. Bu test hesabının şirket içi uygulama erişimi olduğundan emin olun. 
@@ -62,8 +49,8 @@ Uygulamanızı yayımlamak için aşağıdaki adımları izleyin. 1-8, bkz: izle
 ### <a name="application-2"></a>Uygulama #2: 
 Aşağıdaki istisnalar dışında uygulama # 1'için olduğu gibi aynı adımları izleyin: 
 
-**#5. adım**: İç URL QlikSense URL uygulama tarafından kullanılan kimlik doğrulama bağlantı noktası ile artık olması gerekir. Varsayılan değer **4244** HTTPS ve HTTP için 4248. EX: **https&#58;//demo.qlik.com:4244** 
-**adım #10:** yoksa SSO'yu ayarlamak ve bırakın **çoklu oturum devre dışı açma**
+**#5. adım**: İç URL QlikSense URL uygulama tarafından kullanılan kimlik doğrulama bağlantı noktası ile artık olması gerekir. Varsayılan değer **4244** HTTPS ve HTTP için 4248. EX: **https&#58;//demo.qlik.com:4244**</br></br> 
+**#10. adım:** yoksa SSO'yu ayarlamak ve bırakın **çoklu oturum devre dışı açma**
  
  
 ## <a name="testing"></a>Test Etme 

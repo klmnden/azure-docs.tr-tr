@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: v-deasim
-ms.openlocfilehash: f9711f9cfaab1ef22da220a773689c95b1103970
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9c61fe7c62f0718d390509d3b0ff3327bd193f43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 
@@ -26,7 +26,7 @@ Azure tanılama günlükleri, temel analiz görüntülemek ve bunları dahil olm
 
  - Azure Storage hesabı
  - Azure Event Hubs
- - [OMS günlük analizi deposu](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Günlük analizi çalışma alanı](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Bu özellik, Verizon (standart ve Premium) ve Akamai (standart) CDN profilleri ait tüm CDN uç noktası için kullanılabilir. 
 
@@ -34,7 +34,7 @@ Azure tanılama günlükleri, özelleştirilmiş bir biçimde tüketebileceği t
 
 - Blob depolama, CSV için dışarı aktarma ve Excel'de grafikleri oluşturmak için verileri dışa aktarın.
 - Verileri Event Hubs'a verin ve diğer Azure hizmetleriyle verilerle ilişkilendirmek.
-- Analytics oturum ve kendi OMS çalışma alanınızda verileri görüntülemek için verileri dışarı aktarma
+- Analytics oturum ve kendi günlük analizi çalışma alanı verileri görüntülemek için verileri dışarı aktarma
 
 Aşağıdaki şekilde verilerinin normal CDN çekirdek analytics görünümü gösterilmektedir.
 
@@ -68,9 +68,9 @@ CDN çekirdek analytics ile günlüğü bu adımları etkinleştir izleyin:
 
 *Şekil 2 - Azure Storage ile günlüğe kaydetme*
 
-### <a name="logging-with-oms-log-analytics"></a>OMS günlük analizi ile günlüğe kaydetme
+### <a name="logging-with-log-analytics"></a>Günlük analizi ile günlüğe kaydetme
 
-Günlükleri depolamak için OMS günlük analizi kullanmak için aşağıdaki adımları izleyin:
+Günlük analizi günlükleri depolamak için kullanmak için aşağıdaki adımları izleyin:
 
 1. Gelen **tanılama günlükleri** dikey penceresinde, select **için günlük analizi Gönder**. 
 
@@ -84,7 +84,7 @@ Günlükleri depolamak için OMS günlük analizi kullanmak için aşağıdaki a
 
     ![Portal - tanılama günlükleri](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Yeni bir OMS çalışma alanı adı girin. Bir OMS çalışma alanı adı benzersiz olmalı ve yalnızca harf, rakam ve kısa çizgi içerebilir; boşluk ve alt çizgi izin verilmiyor. 
+4. Yeni bir günlük analizi çalışma alanı adı girin. Günlük analizi çalışma alanı adı benzersiz olmalı ve yalnızca harf, rakam ve kısa çizgi içerebilir; boşluk ve alt çizgi izin verilmiyor. 
 5. Ardından, var olan abonelik, kaynak grubu (yeni veya var olan), konum ve fiyatlandırma katmanı seçin. Ayrıca bu yapılandırma, Pano için sabitleme seçeneğiniz vardır. Tıklatın **Tamam** yapılandırmayı tamamlamak için.
 
     ![Portal - tanılama günlükleri](./media/cdn-diagnostics-log/08_Workspace-resource.png)
@@ -97,11 +97,11 @@ Günlükleri depolamak için OMS günlük analizi kullanmak için aşağıdaki a
 
 6. **Kaydet**’e tıklayın.
 
-7. Yeni bir OMS çalışma alanınızı görüntülemek için Azure portalı panonuza gidin ve günlük analizi çalışma alanınız adına tıklayın. Çalışma alanınızı OMS depoya görüntülemek için OMS portalı kutucuğa tıklayın. 
+7. Yeni günlük analizi çalışma alanınız görüntülemek için Azure portalı panonuza gidin ve günlük analizi çalışma alanınız adına tıklayın. Günlük analizi çalışma alanınız görüntülemek için OMS portalı kutucuğa tıklayın. 
 
     ![Portal - tanılama günlükleri](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
 
-    OMS deponuz verileri günlüğe kaydetmek artık hazırdır. Bu verileri kullanmak için kullanmalısınız bir [OMS çözüm](#consuming-oms-log-analytics-data), bu makalenin sonraki bölümlerinde kapsanan.
+    Günlük analizi çalışma alanınız verileri günlüğe kaydetmek artık hazırdır. Bu verileri kullanmak için kullanmalısınız bir [günlük analiz çözümü](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bu makalenin sonraki bölümlerinde kapsanan.
 
 Günlük verileri gecikmeler hakkında daha fazla bilgi için bkz: [oturum veri gecikmeler](#log-data-delays).
 
@@ -123,7 +123,7 @@ Etkinleştirme bir depolama hesabında tanılama günlükleri için aşağıdaki
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
 ```
-Etkinleştirme tanılama günlükleri için bir OMS çalışma alanında, bu komutu kullanın:
+Etkinleştirme tanılama günlükleri için günlük analizi çalışma alanında, bu komutu kullanın:
 
 ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
@@ -179,16 +179,16 @@ Aracı'nı nasıl kullanabileceğiniz aşağıda verilmiştir:
 4.  Aracı çalıştırın.
 5.  Sonuçta elde edilen CSV dosyasını analiz verileri basit bir düz hiyerarşi içinde gösterir.
 
-## <a name="consuming-diagnostics-logs-from-an-oms-log-analytics-repository"></a>Tanılama günlüklerini bir OMS günlük analizi depodan kullanma
-Günlük analizi içinde Operations Management Suite (bulut izler ve şirket içi kendi kullanılabilirliğini ve performansını korumak için ortamları OMS) bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Günlük analizi çalışma alanından tanılama günlüklerini kullanma
+Log Analytics, Azure’daki bulut ve şirket içi ortamlarını, kullanılabilirlik ve performansı sürdürmek amacıyla izleyen bir hizmettir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar. 
 
-Günlük analizi kullanmak için şunları yapmalısınız [günlük kaydını etkinleştir](#enable-logging-with-azure-storage) Azure OMS günlük analizi depoya hangi ele alınmıştır bu makalenin önceki bölümlerinde.
+Günlük analizi kullanmak için şunları yapmalısınız [günlük kaydını etkinleştir](#enable-logging-with-azure-storage) Azure günlük analizi çalışma alanı için hangi ele alınmıştır bu makalenin önceki bölümlerinde.
 
-### <a name="using-the-oms-repository"></a>OMS deposunu kullanma
+### <a name="using-the-log-analytics-workspace"></a>Günlük analizi çalışma alanını kullanma
 
  Aşağıdaki diyagramda, girdi mimarisi ve depo çıkışları gösterilmektedir:
 
-![OMS günlük analizi deposu](./media/cdn-diagnostics-log/12_Repo-overview.png)
+![Log Analytics çalışma alanı](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
 *Şekil 3 - günlük analizi deposu*
 
@@ -196,7 +196,7 @@ Yönetim çözümleri kullanarak çeşitli yollarla verileri görüntüleyebilir
 
 Tıklayarak yönetim çözümleri Azure Marketi'nden yükleyebilirsiniz **Şimdi Al** her çözümün altındaki bağlantıyı.
 
-### <a name="adding-an-oms-cdn-management-solution"></a>OMS CDN yönetim çözümünü ekleme
+### <a name="adding-a-log-analytics-cdn-management-solution"></a>Günlük analizi CDN yönetim çözümü ekleme
 
 Bir yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
@@ -219,7 +219,7 @@ Bir yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
     ![Tümünü incele](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6.  ' I tıklattıktan sonra **oluşturma**, yeni bir OMS çalışma alanı oluşturun veya var olan bir kullanın istenir. 
+6.  ' I tıklattıktan sonra **oluşturma**, yeni bir günlük analizi çalışma alanı oluşturun veya var olan bir kullanın istenir. 
 
     ![Tümünü incele](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
@@ -241,11 +241,11 @@ Bir yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
     Sunucunuzdan çalışma alanınıza gitmek için oluşturulan günlük analizi çalışma alanı'ı tıklatın. 
 
-11. Tıklatın **OMS portalı** yeni çözümünüz OMS portalında görmek için döşeme.
+11. Tıklatın **OMS portalı** yeni çözümünüz görmek için döşeme.
 
     ![Tümünü incele](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. OMS portalı, aşağıdaki ekran gibi görünmelidir:
+12. Portalınızı, aşağıdaki ekran gibi görünmelidir:
 
     ![Tümünü incele](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
@@ -261,11 +261,11 @@ Bir yönetim çözümü eklemek için aşağıdaki adımları izleyin:
 
 ### <a name="offers-and-pricing-tiers"></a>Teklifler ve fiyatlandırma katmanları
 
-Teklifler ve OMS yönetim çözümleri için fiyatlandırma katmanlarına görebilirsiniz [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+Teklifler ve yönetim çözümleri için fiyatlandırma katmanlarına görebilirsiniz [burada](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Görünümlerini özelleştirme
 
-Kullanarak verilerinizi görünümünü özelleştirebilirsiniz **Görünüm Tasarımcısı**. Tasarlamaya için OMS çalışma alanına gidin ve **Görünüm Tasarımcısı** döşeme.
+Kullanarak verilerinizi görünümünü özelleştirebilirsiniz **Görünüm Tasarımcısı**. Tasarlamaya için günlük analizi çalışma alanına gidin ve **Görünüm Tasarımcısı** döşeme.
 
 ![Görünüm Tasarımcısı](./media/cdn-diagnostics-log/27_Designer.png)
 
@@ -410,7 +410,7 @@ Burada 'saati' istatistikleri bildirilen saat sınır Başlangıç saati göster
 
 * [Azure tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Azure CDN ek Portalı aracılığıyla temel analiz](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Azure OMS Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+* [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 * [Azure günlük analizi REST API'si](https://docs.microsoft.com/rest/api/loganalytics)
 
 

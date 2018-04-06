@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi bağlantısı giriş sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfa Ağ İzleyicisi bağlantı sorunlarını giderme özelliği genel bir bakış sağlar"
+title: Azure Ağ İzleyicisi bağlantısı giriş sorunlarını giderme | Microsoft Docs
+description: Bu sayfa Ağ İzleyicisi bağlantı sorunlarını giderme özelliği genel bir bakış sağlar
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: f8825af71620722065c03a28c93e113876c5aa71
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Giriş bağlantı sorunlarını giderme Azure Ağ İzleyicisi
 
 Bağlantı sorunlarını giderme özelliği olan Ağ İzleyicisi bir doğrudan bir sanal makine (VM), tam etki alanı adı (FQDN) URI, TCP bağlantısı bir sanal makineden denetleme olanağı sunar veya IPv4 adresi. Ağ senaryoları karmaşık, ağ güvenlik grupları, güvenlik duvarları, kullanıcı tanımlı yollar ve Azure tarafından sağlanan kaynaklar kullanılarak uygulanır. Karmaşık Yapılandırmalar bağlantı sorunlarını giderme zor olun. Ağ İzleyicisi'ni bulun ve bağlantısı sorunlarını algılayacak süreyi azaltılmasına yardımcı olur. Döndürülen sonuçların bir bağlantı sorunu bir platform veya kullanıcı yapılandırma sorunu nedeniyle olup içine Öngörüler sağlayabilir. Bağlantı kontrol edileceği ile [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), ve [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Bağlantı sorunlarını giderme bir sanal makine uzantısı gerektiren `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı sorunlarını giderme, sorun giderme VM olmasını gerektirir `AzureNetworkWatcherExtension` VM uzantısı yüklü. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Hedef uç noktada uzantısı gerekli değildir.
 
 ## <a name="response"></a>Yanıt
 

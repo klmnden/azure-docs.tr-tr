@@ -1,12 +1,12 @@
 ---
-title: "Uygulamaları Azure mantıksal uygulamaları için BizTalk Services taşıma | Microsoft Docs"
-description: "Taşıma veya Azure mantıksal uygulamaları için Azure BizTalk Services (MABS) geçirme"
+title: Uygulamaları Azure mantıksal uygulamaları için BizTalk Services taşıma | Microsoft Docs
+description: Taşıma veya Azure mantıksal uygulamaları için Azure BizTalk Services (MABS) geçirme
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: jonfancey
 manager: anneta
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: integration
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: jonfan; LADocs
-ms.openlocfilehash: 6e00e62e60c059a16731a77e529b4b93f50802e9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f5ad003189d70216198f2d5c7719a971c16d5479
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="move-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services Azure mantıksal uygulamaları taşıma
 
@@ -130,7 +130,7 @@ BizTalk Services, bu eylemleri aktarım protokollerinden birbirinden ayrılır. 
 
 ## <a name="manage-and-monitor"></a>Yönetme ve izleme
 
-BizTalk Services ' ayrılmış bir portal izlemek ve sorunlarını gidermek için izleme özellikleri sağlıyordu. Logic Apps daha zengin izleme ve izleme kapasiteleri aracılığıyla sağlar [Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)ile [Operations Management Suite B2B çözümü](../logic-apps/logic-apps-monitor-b2b-message.md), bir göz şeylere tutmak için bir mobil uygulama içerir hareket halinde olduğunuzda.
+BizTalk Services ' ayrılmış bir portal izlemek ve sorunlarını gidermek için izleme özellikleri sağlıyordu. Logic Apps sağlar daha zengin izleme ve izleme kapasiteleri aracılığıyla [Azure portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)ve hareket halinde olduğunuzda bir göz şeylere tutmak için bir mobil uygulama içerir.
 
 ## <a name="high-availability"></a>Yüksek kullanılabilirlik
 

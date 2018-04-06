@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2018
+ms.date: 04/02/2018
 ms.author: kumud
-ms.openlocfilehash: b5443cb1d883bd829a13b6d941d2c87c6205c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 684c226e566d6a5a2db456d24ad2fc5811f08067
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -43,7 +43,7 @@ Yük Dengeleyici kaynaklar içerisinde, nasıl Azure oluşturmak istediğiniz se
 
 ## <a name="why-use-standard-load-balancer"></a>Standart yük dengeleyici neden kullanılır?
 
-Sanal veri merkezleri, büyük ve karmaşık çok bölge mimarileri küçük ölçekli dağıtımlarından tam aralığını standart yük dengeleyici kullanabilirsiniz.
+Standart yük dengeleyici uygulamalarınızı ölçekleme ve büyük ve karmaşık çok bölge mimarileri için küçük ölçekli dağıtımlar için yüksek kullanılabilirlik oluşturmanıza olanak sağlar.
 
 Standart yük dengeleyici ve temel yük dengeleyici arasındaki farklar genel bir bakış için aşağıdaki tabloyu gözden geçirin:
 

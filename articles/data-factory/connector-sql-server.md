@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: b845f3112d96838454653dcd742b950009206bf4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3da4b0286ddea88d8009757ea44797e4269140a2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -404,7 +404,7 @@ Hedef tabloda bir kimlik sütunu olduğuna dikkat edin.
 
 Kaynak ve hedef tablosu farklı şema sahip dikkat edin (hedef kimliğine sahip başka bir sütuna sahip). Bu senaryoda, belirtmeniz gerekir. **yapısı** kimlik sütunu içermeyen hedef veri kümesi tanımında özelliği.
 
-## <a name="invoke-stored-procedure-from-sql-sink"></a>SQL havuz depolanan yordamı çağırma
+## <a name="invoking-stored-procedure-for-sql-sink"></a> SQL havuz depolanan yordamı çağırma
 
 SQL Server veritabanına veri kopyalama işlemi sırasında bir kullanıcı saklı yordam yapılandırılabilir ve ek parametrelerle çağrılan belirtti.
 

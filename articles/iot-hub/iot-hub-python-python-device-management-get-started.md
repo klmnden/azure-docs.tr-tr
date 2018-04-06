@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz Yönetimi (Python) ile çalışmaya başlama | Microsoft Docs"
-description: "IOT Hub cihaz yönetimine uzak aygıt yeniden başlatma işlemi başlatmak için nasıl kullanılacağını. Python için Azure IOT SDK'sı, doğrudan bir yöntem içeren bir sanal cihaz uygulamasının ve doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için kullanın."
+title: Azure IOT Hub cihaz Yönetimi (Python) ile çalışmaya başlama | Microsoft Docs
+description: IOT Hub cihaz yönetimine uzak aygıt yeniden başlatma işlemi başlatmak için nasıl kullanılacağını. Python için Azure IOT SDK'sı, doğrudan bir yöntem içeren bir sanal cihaz uygulamasının ve doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için kullanın.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
-ms.author: v-masebo
-ms.openlocfilehash: b9dfbd775de3bb54e405e4054bca4e2b878305a3
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-python"></a>Aygıt Yönetimi (Python) ile çalışmaya başlama
 
@@ -39,8 +39,8 @@ Bu öğreticinin sonunda, iki Python konsol uygulamaları vardır:
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * [Python 2.x veya 3.x][lnk-python-download]. Kurulumunuzun gereksinimine uygun olarak 32 bit veya 64 bit yüklemeyi kullanmaya dikkat edin. Yükleme sırasında istendiğinde, platforma özgü ortam değişkeninize Python’u eklediğinizden emin olun. Python 2.x kullanıyorsanız, [Python paket yönetim sistemi *pip*’yi yüklemeniz veya yükseltmeniz][lnk-install-pip] gerekebilir.
-    * Yükleme [azure-iothub-aygıt-client](https://pypi.org/project/azure-iothub-device-client/) komutunu kullanarak, paketi`pip install azure-iothub-device-client`
-    * Yükleme [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) komutunu kullanarak, paketi`pip install azure-iothub-service-client`
+    * Yükleme [azure-iothub-aygıt-client](https://pypi.org/project/azure-iothub-device-client/) komutunu kullanarak, paketi   `pip install azure-iothub-device-client`
+    * Yükleme [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) komutunu kullanarak, paketi   `pip install azure-iothub-service-client`
 * Windows işletim sistemi kullanıyorsanız, Python’dan yerel DLL’lerin kullanımına olanak tanımak için [Visual C++ yeniden dağıtılabilir paketi][lnk-visual-c-redist].
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
 

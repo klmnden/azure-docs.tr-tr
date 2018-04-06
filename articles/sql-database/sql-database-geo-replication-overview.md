@@ -1,19 +1,20 @@
 ---
-title: "Yük devretme grupları ve etkin coğrafi çoğaltma - Azure SQL veritabanı | Microsoft Docs"
-description: "Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanmak ve kesinti durumunda autoomatic yük devretme etkinleştirin."
+title: Yük devretme grupları ve etkin coğrafi çoğaltma - Azure SQL veritabanı | Microsoft Docs
+description: Etkin coğrafi çoğaltma otomatik yük devretme grupları kullanmak ve kesinti durumunda autoomatic yük devretme etkinleştirin.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 45ddc4070e2162715eefab21841d75f1fa2a29e5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: d241bfb6245eb5a70f1e4fcedc86c969766019f4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Genel Bakış: Yük devretme grupları ve etkin coğrafi çoğaltma
 Aktif coğrafi çoğaltma, en fazla dört okunabilir ikincil veritabanları aynı veya farklı bir veri merkezi konumlarını (bölge) yapılandırmanıza olanak sağlar. Veri Merkezi kesintisinden veya birincil veritabanına bağlanamama ise ikincil veritabanlarıyla sorgulamak için ve yük devretme için kullanılabilir. Yük devretme kullanıcı uygulama tarafından el ile başlatılması gerekir. Yük devretme işleminden sonra yeni birincil farklı bağlantı uç noktası vardır. 
@@ -69,7 +70,7 @@ Aktif coğrafi çoğaltma özelliği aşağıdaki temel yetenekleri sağlar:
    >
 
 * **Esnek havuz veritabanlarının Destek**: aktif coğrafi çoğaltma, herhangi bir esnek havuzdaki herhangi bir veritabanı için yapılandırılabilir. İkincil veritabanını başka bir esnek havuzda olabilir. Hizmet katmanları aynı olduğu sürece normal veritabanları için ikincil bir esnek havuz tersi olabilir. 
-* **İkincil veritabanını yapılandırılabilir performans düzeyini**: birincil ve ikincil veritabanları aynı hizmet Katmanı (temel, standart, Premium) gerekir. İkincil bir veritabanı, birincil daha düşük performans düzeyine (Dtu'lar) ile oluşturulabilir. Artan çoğaltma gecikmesi, yük devretme sonrasında önemli veri kaybı riski artırır çünkü bu seçenek ile yüksek veritabanı yazma etkinliği uygulamalar için önerilmez. Ayrıca, yeni birincil daha yüksek bir performans düzeyine yükseltilene kadar yük devretme sonrasında uygulamanızın performansı etkilenir. Azure portalında günlük GÇ yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük performans düzeyini tahmin etmek için en iyi yolu sağlar. Örneğin, birincil veritabanı P6 ise (1000 DTU) ve kendi günlük GÇ yüzde 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ verilerini de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı performans düzeyleri hakkında daha fazla bilgi için bkz: [SQL Database seçenekleri ve performansı](sql-database-service-tiers.md). 
+* **İkincil veritabanını yapılandırılabilir performans düzeyini**: birincil ve ikincil veritabanları aynı hizmet katmanı için gereklidir. İkincil bir veritabanı, birincil daha düşük performans düzeyine (Dtu'lar) ile oluşturulabilir. Artan çoğaltma gecikmesi, yük devretme sonrasında önemli veri kaybı riski artırır çünkü bu seçenek ile yüksek veritabanı yazma etkinliği uygulamalar için önerilmez. Ayrıca, yeni birincil daha yüksek bir performans düzeyine yükseltilene kadar yük devretme sonrasında uygulamanızın performansı etkilenir. Azure portalında günlük GÇ yüzdesi grafik ikincil çoğaltma yükü sürdürebilmek için gereken en düşük performans düzeyini tahmin etmek için en iyi yolu sağlar. Örneğin, birincil veritabanı P6 ise (1000 DTU) ve kendi günlük GÇ yüzde 50 ikincil en az olması gerekir % P4 (500 DTU). Kullanarak günlük GÇ verilerini de alabilirsiniz [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) veya [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) veritabanı görünümleri.  SQL veritabanı performans düzeyleri hakkında daha fazla bilgi için bkz: [SQL Database hizmet katmanları nelerdir](sql-database-service-tiers.md). 
 * **Kullanıcı tarafından denetlenen yük devretme ve yeniden çalışma**: ikincil bir veritabanı açıkça birincil role herhangi bir zamanda uygulama veya kullanıcı tarafından değiştirilebilir. Gerçek bir kesinti sırasında "planlanmamış" seçeneği, hangi hemen ikincil yükseltir birincil olarak kullanılmalıdır. Başarısız birincil kurtarır ve yeniden kullanılabilir olduğunda, sistem otomatik olarak kurtarılan birincil ikincil olarak işaretler ve yeni birincil ile güncel duruma getirmek. En son değişiklikleri ikincil çoğaltılmadan önce birincil başarısız olursa çoğaltma zaman uyumsuz yapısı nedeniyle, çok küçük miktarda veri planlanmamış yük devretme işlemleri sırasında kaybolur. Birden fazla ikincil kopya ile birincil devrettiğinde sistem otomatik olarak çoğaltma ilişkileri yeniden yapılandırır ve kullanıcı müdahalesi gerektirmeden yeni yükseltilen birincil kalan ikincil bağlar. Yük devretme neden kesinti azaltıldığından sonra birincil bölge uygulamaya dönmek istenebilir. Bunu yapmak için yük devretme komutunu ve "Planlanan" seçeneğiyle çağrılmalıdır. 
 * **Kimlik bilgileri ve güvenlik duvarı kuralları eşitlenmiş şekilde kalmasının**: kullanmanızı öneririz [veritabanı güvenlik duvarı kuralları](sql-database-firewall-configure.md) tüm ikincil veritabanlarına sahip olmak için veritabanı ile bu kuralları çoğaltılabilir şekilde coğrafi olarak çoğaltılmış veritabanları için birincil olarak aynı güvenlik duvarı kuralları. Bu yaklaşım, hem birincil ve ikincil veritabanlarını barındıran sunucular üzerinde güvenlik duvarı kurallarını el ile yapılandırıp müşteriler gereksinimini ortadan kaldırır. Benzer şekilde, kullanarak [bulunan veritabanı kullanıcıları](sql-database-manage-logins.md) için veri erişim birincil ve ikincil veritabanları her zaman aynı sağlar kullanıcı kimlik bilgileri bir yük devretme sırasında; böylece herhangi kesinti nedeniyle oturum açma bilgileri ve parolaları ile uyuşmuyor. Eklenmesi ile [Azure Active Directory](../active-directory/active-directory-whatis.md), müşteriler, hem birincil hem de ikincil veritabanlarına kullanıcı erişimi yönetebilir ve yönetme ihtiyacını ortadan kimlik bilgileri veritabanlarında tamamen.
 
@@ -186,9 +187,9 @@ Otomatik Yük devretme grupları (Önizleme-) ve etkin daha önce açıklandığ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Örnek komut dosyaları için bkz:
-   - [Yapılandırma ve yük devretme aktif coğrafi çoğaltma kullanarak tek bir veritabanı](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-   - [Yapılandırma ve yük devretme aktif coğrafi çoğaltma kullanarak havuza alınmış bir veritabanı](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-   - [Yapılandırma ve yük devretme yük devretme bir grup için tek bir veritabanına (Önizleme)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
+   - [Etkin coğrafi çoğaltmayı kullanarak tek bir veritabanını yapılandırma ve tek bir veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+   - [Etkin coğrafi çoğaltmayı kullanarak havuza alınmış veritabanını yapılandırma ve havuza alınmış veritabanının yükünü devretme](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
+   - [Tek bir veritabanı için bir yük devretme grubunu yapılandırma ve yük devretme grubunun yükünü devretme (önizleme)](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md)
 * İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md)
 * Veritabanı Yedeklemeleri otomatik Azure SQL hakkında bilgi edinmek için bkz: [SQL veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md).
 * Kurtarma için otomatik yedeklemeler kullanma hakkında bilgi edinmek için bkz: [bir veritabanını hizmeti tarafından başlatılan yedeklerden geri](sql-database-recovery-using-backups.md).

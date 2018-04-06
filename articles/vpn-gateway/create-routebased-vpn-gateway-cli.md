@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: b25efb600fc89b5a6ead6ec27e212d09c9a14435
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d0f4e292c6f5a2725b4a9efe91e78c6e634ea64e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>CLI kullanarak bir rota tabanlı VPN ağ geçidi oluşturma
 
@@ -72,7 +72,7 @@ Bir VPN ağ geçidi dinamik olarak ayrılan bir ortak IP adresi olmalıdır. San
 
 ```azurecli-interactive
 az network public-ip create \
-  -n VNet1GWPIP \
+  -n VNet1GWIP \
   -g TestRG1 \
   --allocation-method Dynamic 
 ```
@@ -87,7 +87,7 @@ Bu komutu kullanarak çalıştırırsanız `--no-wait` parametresi, herhangi bir
 az network vnet-gateway create \
   -n VNet1GW \
   -l eastus \
-  --public-ip-address VNet1GWPIP \
+  --public-ip-address VNet1GWIP \
   -g TestRG1 \
   --vnet VNet1 \
   --gateway-type Vpn \
@@ -125,7 +125,7 @@ Yanıtı şuna benzer:
       "privateIpAllocationMethod": "Dynamic",
       "provisioningState": "Updating",
       "publicIpAddress": {
-        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+        "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG11/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
         "resourceGroup": "TestRG1"
       },
       "resourceGroup": "TestRG1",
@@ -158,7 +158,7 @@ Ağ geçidiniz için atanan ortak IP adresi görüntülemek için aşağıdaki �
 
 ```azurecli-interactive
 az network public-ip show \
-  --name VNet1GWPIP \
+  --name VNet1GWIP \
   --resource-group TestRG11
 ```
 
@@ -170,7 +170,7 @@ az network public-ip show \
 {
   "dnsSettings": null,
   "etag": "W/\"a12d4d03-b27a-46cc-b222-8d9364b8166a\"",
-  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP",
   "idleTimeoutInMinutes": 4,
   "ipAddress": "13.90.195.184",
   "ipConfiguration": {

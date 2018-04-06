@@ -1,11 +1,11 @@
 ---
-title: "B2B hareketlerini izlemek ve günlük - Azure Logic Apps ayarlama | Microsoft Docs"
-description: "İzleyici AS2, X 12 ve EDIFACT iletileri tümleştirme hesabınız için tanılama günlüğünü Başlat"
+title: B2B hareketlerini izlemek ve günlük - Azure Logic Apps ayarlama | Microsoft Docs
+description: İzleyici AS2, X 12 ve EDIFACT iletileri tümleştirme hesabınız için tanılama günlüğünü Başlat
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -15,22 +15,22 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: f717dae9a70a96944b623f22b90cf8c5a943f382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6afab12b9e2d6e8686ecbc95be9743afbe70d98c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>İzleme ve tanılama günlüklerini tümleştirme hesaplarındaki B2B iletişimi için ayarlayın
 
-İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerini veya tümleştirme hesabınızı aracılığıyla uygulamaları çalıştıran bu varlıkların birbirleriyle iletileri değiştirebilir. Bu iletişim beklendiği gibi çalıştığından, AS2, X12, izleme işlevini ayarlama ve tümleştirme hesabınız üzerinden için tanılama günlüğünü birlikte EDIFACT iletileri onaylamak için [Azure günlük analizi](../log-analytics/log-analytics-overview.md) hizmet. Bu hizmet [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) bulut izler ve şirket içi ortamları, bunların kullanılabilirlik ve performans, tutmanıza yardımcı olur ve ayrıca çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar. Ayrıca [diğer hizmetlerle tanılama verilerinizi kullanma](#extend-diagnostic-data)Azure Storage ve Azure Event Hubs gibi.
+İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerini veya tümleştirme hesabınızı aracılığıyla uygulamaları çalıştıran bu varlıkların birbirleriyle iletileri değiştirebilir. Bu iletişim beklendiği gibi çalıştığından, AS2, X12, izleme işlevini ayarlama ve tümleştirme hesabınız üzerinden için tanılama günlüğünü birlikte EDIFACT iletileri onaylamak için [Azure günlük analizi](../log-analytics/log-analytics-overview.md) hizmet. Bu hizmet, bulut izler ve şirket içi ortamları, bunların kullanılabilirlik ve performans, tutmanıza yardımcı olur ve ayrıca çalışma zamanı Ayrıntılar ve daha zengin hata ayıklama olaylarını toplar. Ayrıca [diğer hizmetlerle tanılama verilerinizi kullanma](#extend-diagnostic-data)Azure Storage ve Azure Event Hubs gibi.
 
 ## <a name="requirements"></a>Gereksinimler
 
 * Tanılama Günlüğü ile ayarlanmış bir mantıksal uygulama. Bilgi [bu mantıksal uygulama için günlük kaydını ayarlamak nasıl](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
   > [!NOTE]
-  > Bu gereksinim karşılamanızın sonra bir çalışma alanı olmalıdır [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Tümleştirme hesabınız için günlüğü ayarlarken aynı OMS çalışma kullanmanız gerekir. Bir OMS çalışma alanı yoksa, bilgi [bir OMS çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-get-started.md).
+  > Bu gereksinim karşılamanızın sonra günlük analizi çalışma olması gerekir. Tümleştirme hesabınız için günlüğü ayarladığınızda, aynı günlük analizi çalışma alanı kullanmanız gerekir. Günlük analizi çalışma alanı yoksa, bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
 
 * Mantıksal uygulamanızı bağlantılı bir tümleştirme hesabı. Bilgi [mantıksal uygulamanızı bağlantı tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
@@ -58,17 +58,17 @@ Doğrudan tümleştirme hesabınızdan ya da günlük özelliğini açın veya [
 
    ![Azure tanılamayı açın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Şimdi gösterildiği gibi günlük için kullanılacak veri ve OMS çalışma alanını seçin:
+4. Şimdi gösterildiği gibi günlük için kullanılacak veri ve günlük analizi çalışma alanı seçin:
 
    1. Seçin **için günlük analizi Gönder**. 
    2. Altında **günlük analizi**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlük için kullanılacak OMS çalışma alanını seçin.
+   3. Altında **OMS çalışma alanları**, günlük için kullanılacak günlük analizi çalışma alanını seçin.
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
    5. **Kaydet**'i seçin.
 
    ![Tanılama verilerini günlüğe gönderebilmek için günlük analizi ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Şimdi [OMS B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Şimdi [B2B iletilerinizi günlük analizi için izlemeyi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 <a name="azure-monitor-service"></a>
 
@@ -92,17 +92,17 @@ Doğrudan tümleştirme hesabınızdan ya da günlük özelliğini açın veya [
 
    ![Azure tanılamayı açın](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-4. Şimdi gösterildiği gibi günlüğe kaydetme için OMS çalışma ve olay kategorisi seçin:
+4. Şimdi gösterildiği gibi günlüğü için günlük analizi çalışma alanı ve olay kategorisi seçin:
 
    1. Seçin **için günlük analizi Gönder**. 
    2. Altında **günlük analizi**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlük için kullanılacak OMS çalışma alanını seçin.
+   3. Altında **OMS çalışma alanları**, günlük için kullanılacak günlük analizi çalışma alanını seçin.
    4. Altında **günlük**seçin **IntegrationAccountTrackingEvents** kategorisi.
-   5. İşiniz bittiğinde seçin **kaydetmek**.
+   5. İşiniz bittiğinde **Kaydet**’i seçin.
 
    ![Tanılama verilerini günlüğe gönderebilmek için günlük analizi ayarlayın](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-5. Şimdi [OMS B2B iletilerinizi izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+5. Şimdi [B2B iletilerinizi günlük analizi için izlemeyi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Nasıl ve tanılama verilerini diğer hizmetleri ile kullandığınız genişletme
 
@@ -133,6 +133,6 @@ Azure bunlar tüm özel türü dışında şemaları sabit şema türleri, izlem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [OMS B2B iletilerini izlemek](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS izleme B2B iletileri")
+* [Günlük analizi B2B iletilerini izlemek](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "OMS izleme B2B iletileri")
 * [Enterprise Integration Pack hakkında daha fazla bilgi](../logic-apps/logic-apps-enterprise-integration-overview.md "Enterprise Integration Pack hakkında bilgi edinin")
 

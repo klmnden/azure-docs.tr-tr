@@ -1,23 +1,22 @@
 ---
-title: "Bulutta iş sürekliliği - veritabanı kurtarma - SQL Veritabanı | Microsoft Belgeleri"
-description: "Azure SQL Veritabanı'nın bulutta iş sürekliliği ve veritabanı kurtarmanın yanı sıra görev açısından kritik bulut uygulamalarının kesintisiz çalışması için sunduğu destek özelliklerini öğrenin."
-keywords: "iş sürekliliği, bulutta iş sürekliliği, veritabanı olağanüstü durum kurtarma, veritabanı kurtarma"
+title: Bulutta iş sürekliliği - veritabanı kurtarma - SQL Veritabanı | Microsoft Belgeleri
+description: Azure SQL Veritabanı'nın bulutta iş sürekliliği ve veritabanı kurtarmanın yanı sıra görev açısından kritik bulut uygulamalarının kesintisiz çalışması için sunduğu destek özelliklerini öğrenin.
+keywords: iş sürekliliği, bulutta iş sürekliliği, veritabanı olağanüstü durum kurtarma, veritabanı kurtarma
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: On Demand
-ms.date: 08/25/2017
+ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 160e65130efc78bc1a98a0feceb1c824cf226156
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: carlrab
+ms.openlocfilehash: 1f125596a6cc874f285611290d5c42700009afbe
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -27,20 +26,20 @@ Bu genel bakış, Azure SQL Veritabanı'nın iş sürekliliği ve olağanüstü 
 
 SQL Veritabanı; otomatik yedekleme ve isteğe bağlı veritabanı çoğaltma gibi birçok iş sürekliliği özelliği sunar. Her özellik, tahmini kurtarma süresi (ERT) ve son işlemler için olası veri kaybı açısından farklı özelliklere sahiptir. Bu seçenekleri kavradıktan sonra aralarından birini seçebilir ve çoğu senaryoda farklı durumlar için birden fazlasını birlikte kullanabilirsiniz. İş sürekliliği planınızı geliştirirken, uygulamanın kesintiden sonra tamamen kurtarılmasına kadar kabul edilebilen maksimum süre olan kurtarma süresi hedefini (RTO) belirlemeniz gerekir. Ayrıca en fazla son veri miktarı anlamak ihtiyacınız uygulama güncelleştirmeleri (zaman aralığı) tolerans kesintiye uğratan olayından sonra kurtarırken kaybetme - Bu, kurtarma noktası hedefi (RPO).
 
-Aşağıdaki tabloda en çok kullanılan üç senaryo için ERT ve RPO değerleri karşılaştırılmaktadır.
+Aşağıdaki tabloda, her hizmet katmanı üç yaygın senaryo için Ekle ve RPO karşılaştırır.
 
-| Özellik | Temel katman | Standart katman | Premium katman |
-| --- | --- | --- | --- |
-| Yedekten belirli bir noktaya geri yükleme |7 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |
-| Coğrafi olarak çoğaltılmış yedeklerden coğrafi geri yükleme |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |
-| Azure Backup Vault'tan geri yükleme |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |
-| Aktif coğrafi çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |
+| Özellik | Temel | Standart | Premium  | Genel Amaçlı | İş Açısından Kritik
+| --- | --- | --- | --- |--- |--- |
+| Yedekten belirli bir noktaya geri yükleme |7 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |35 gün içinde herhangi bir geri yükleme noktasına |Yapılandırılan süre (35 gün) içinde herhangi bir geri yükleme noktası|Yapılandırılan süre (35 gün) içinde herhangi bir geri yükleme noktası|
+| Coğrafi olarak çoğaltılmış yedeklerden coğrafi geri yükleme |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa |ERT < 12 sa., RPO < 1 sa|ERT < 12 sa., RPO < 1 sa|
+| Azure Backup Vault'tan geri yükleme |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft. |ERT < 12 sa., RPO < 1 hft.|ERT < 12 sa., RPO < 1 hft.|
+| Aktif coğrafi çoğaltma |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn. |ERT < 30 sn., RPO < 5 sn.|ERT < 30 sn., RPO < 5 sn.|
 
-### <a name="use-database-backups-to-recover-a-database"></a>Bir veritabanını kurtarmak için veritabanı yedeklerini kullanma
+### <a name="use-point-in-time-restore-to-recover-a-database"></a>Bir veritabanını kurtarmak için zaman içinde nokta geri yükleme kullanın
 
-SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri haftalık bir birleşimini gerçekleştirir, artımlı veritabanı yedeklemeleri saatlik ve işlem yedeklemeleri her beş - on dakika işletmenizi veri kaybına karşı koruyun oturum açın. Bu yedeklemeler 35 gün standart ve Premium hizmet katmanları ve temel hizmet katmanındaki veritabanları için 7 gün veritabanları için coğrafi olarak yedekli depolama alanında depolanır. Daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-service-tiers.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla bilgi için bkz: [otomatik veritabanı yedeklemeyi](sql-database-automated-backups.md).
+SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri haftalık bir birleşimini gerçekleştirir, artımlı veritabanı yedeklemeleri saatlik ve işlem yedeklemeleri her beş - on dakika işletmenizi veri kaybına karşı koruyun oturum açın. Bu yedeklemeler veritabanları standart ve Premium hizmet katmanları ve temel hizmet katmanındaki veritabanları için 7 gün için 35 gün için RA-GRS depolama alanında depolanır. Genel amaçlı ve iş kritik hizmet katmanları (Önizleme) yedeklemeler bekletme 35 gün yukarı yapılandırılabilirdir. Daha fazla bilgi için bkz: [hizmet katmanları](sql-database-service-tiers.md). Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-service-tiers.md) saklama süresini uzatabilirsiniz. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla bilgi için bkz: [otomatik veritabanı yedeklemeyi](sql-database-automated-backups.md).
 
-Yerleşik saklama dönemi, uygulamanız için yeterli değilse, bir veritabanı uzun vadeli bekletme ilkesi yapılandırarak genişletebilirsiniz. Daha fazla bilgi için bkz: [uzun vadeli bekletme](sql-database-long-term-retention.md).
+Maksimum desteklenen PITR saklama dönemi, uygulamanız için yeterli değilse, veritabanları için uzun vadeli bir bekletme (LTR) ilkesini yapılandırarak genişletebilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 Bu otomatik veritabanı yedekleme özelliklerini kullanarak hem kendi veri merkezinizdeki hem de başka veri merkezlerindeki veritabanlarını çeşitli kesintilerden kurtarabilirsiniz. Otomatik veritabanı yedekleriyle tahmini kurtarma süresi, aynı anda aynı bölgede kurtarılan veri tabanı sayısı, veritabanı boyutu, işlem günlüğü boyutu ve ağ bant genişliği gibi birden fazla etmene göre değişiklik gösterir. Kurtarma süresi genellikle değerinden 12 saattir. Başka bir veri bölgesine kurtarma gerçekleştirirken, potansiyel veri kaybı saatlik veritabanı değişiklik yedeklerinin coğrafi olarak yedekli olması sayesinde 1 saatle sınırlıdır.
 
@@ -55,7 +54,7 @@ Uygulamanız aşağıdaki koşullara uygunsa iş sürekliliği ve kurtarma hizme
 * Veri değişiklik oranı (bir saat içinde gerçekleştirilen işlem sayısı) düşükse ve bir saatlik değişiklik kaybı kabul edilebilirse.
 * Maliyetler önemliyse.
 
-Daha hızlı kurtarma gerekiyorsa kullanın [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md) (sonraki bölümde açıklanmaktadır). Veri 35 gün sayısından önceki bir dönemden kullanmak kurtarmanız mümkün olması gerektiğinde [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md). 
+Daha hızlı kurtarma gerekiyorsa kullanın [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md) (sonraki bölümde açıklanmaktadır). Veri 35 gün sayısından önceki bir dönemden kullanmak kurtarmanız mümkün olması gerektiğinde [uzun vadeli bekletme](sql-database-long-term-retention.md). 
 
 ### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>Kurtarma zamanı azaltır ve bir kurtarma ile ilişkilendirilen veri kaybı sınırlamak için etkin coğrafi çoğaltma ve otomatik yük devretme gruplar (Önizleme-) kullanın
 
@@ -77,12 +76,12 @@ Uygulamanız bu ölçütler hiçbirini karşılıyorsa etkin coğrafi çoğaltma
 * Veri değişiklik oranı yüksekse ve bir saatlik değişiklik kaybı kabul edilebilir değilse.
 * Etkin coğrafi çoğaltma ek maliyeti, olası mali yükümlülükten veya ilgili iş kaybından daha düşükse.
 
->
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
 
 ## <a name="recover-a-database-after-a-user-or-application-error"></a>Kullanıcı veya uygulama hatasından sonra bir veritabanını kurtarma
-*Hiç kimse mükemmel değildir! Bir kullanıcı yanlışlıkla veri silebilir, istemeden önemli bir tabloyu ve hatta bir veritabanının tamamını bırakabilir. Ya da bir uygulama, hata nedeniyle yanlışlıkla gereksiz verileri gerekli verilerin üzerine yazabilir.
+
+Hiç kimse mükemmeldir! Bir kullanıcı yanlışlıkla veri silebilir, istemeden önemli bir tabloyu ve hatta bir veritabanının tamamını bırakabilir. Ya da bir uygulama, hata nedeniyle yanlışlıkla gereksiz verileri gerekli verilerin üzerine yazabilir.
 
 Bu senaryoda kullanabileceğiniz kurtarma seçenekleri aşağıda verilmiştir.
 
@@ -101,8 +100,9 @@ Azure portal veya PowerShell kullanarak silinen bir veritabanını geri yükleme
 >
 >
 
-### <a name="restore-from-azure-backup-vault"></a>Azure Backup Vault'tan geri yükleme
-Otomatik yedeklemeler için geçerli Bekletme dönemi dışında veri kaybı oluştu ve veritabanınızı uzun vadeli bekletme için yapılandırılmışsa, Azure yedekleme Kasası'nda haftalık bir yedekten yeni bir veritabanına geri yükleyebilirsiniz. Bu noktada özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınızı ana uygulama yükseltmeden önce eski bir sürümünü almak gerekiyorsa, denetçi veya yasal bir sipariş isteğinden Azure yedekleme kasasında kayıtlı tam yedekleme kullanarak bir veritabanı oluşturabilirsiniz karşılamak.  Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
+### <a name="restore-backups-from-long-term-retention"></a>Yedeklemeleri uzun vadeli bekletme geri yükleme
+
+Otomatik yedeklemeler için geçerli Bekletme dönemi dışında veri kaybı oluştu ve veritabanınızı uzun vadeli bekletme için yapılandırılmışsa, LTR depolama tam bir yedekten yeni bir veritabanına geri yükleyebilirsiniz. Bu noktada özgün veritabanını geri yüklenen veritabanıyla değiştirebilir veya geri yüklenen veritabanından gerekli verileri özgün veritabanına kopyalayabilirsiniz. Veritabanınızı ana uygulama yükseltmeden önce eski bir sürümünü almak gerekiyorsa, denetçi veya yasal bir sipariş isteğinden Azure yedekleme kasasında kayıtlı tam yedekleme kullanarak bir veritabanı oluşturabilirsiniz karşılamak.  Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Azure bölgesel veri merkezi kesintisinde bir veritabanını başka bir bölgeye kurtarma
 <!-- Explain this scenario -->

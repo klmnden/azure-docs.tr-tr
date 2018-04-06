@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: abnarain
-ms.openlocfilehash: 56602e269a441f9541314424190da04be2c4add5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 46d4962040a78942adbad443d5cbde64755ddadf
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı ilgili güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -136,7 +136,7 @@ Aşağıdaki görüntüleri ExpressRoute ve IPSec VPN (ile Azure Virtual Network
 
 ![IPSec VPN ağ geçidi ile](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-addresses"></a>Güvenlik duvarı yapılandırmaları ve uygulamaları güvenilir listeye almayı IP adresleri
+### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a> Güvenlik duvarı yapılandırmaları ve uygulamaları güvenilir listeye almayı IP adresleri
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Şirket içi/özel ağ için güvenlik duvarı gereksinimleri  
 Kuruluş, kurumsal bir güvenlik duvarı kuruluşun merkezi yönlendirici üzerinde çalışır. Windows Güvenlik Duvarı kendini barındıran tümleştirmesi çalışma zamanı yüklendiği yerel makine üzerinde bir arka plan programı gibi çalışır. 

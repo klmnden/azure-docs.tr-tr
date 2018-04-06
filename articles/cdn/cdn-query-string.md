@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mazha
-ms.openlocfilehash: 87f00575e0c2c4cd7a8525df96b2f5b13d470643
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed6f0b2c021fc4b31b85986c07df0502dba826f2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - standart katmanı
 > [!div class="op_single_selector"]
@@ -36,8 +36,13 @@ Sorgu dizesini önbelleğe alma ile Azure içerik teslim ağı (CDN) dosyaları 
 Üç sorgu dizesi modu kullanılabilir:
 
 - **Sorgu dizelerini yoksayabilir**: varsayılan mod. Bu modda, CDN bulunma noktası (POP) düğüm sorgu dizeleri istek için kaynak sunucu üzerinde yapılan ilk istek geçirir ve varlık önbelleğe alır. Önbelleğe alınan varlık süresi doluncaya kadar POP sunulan tüm sonraki istekleri varlığı için sorgu dizelerini yoksayabilir.
+
 - **Sorgu dizeleri için önbelleğe almayı atla**: Bu modda, CDN POP düğümde sorgu dizeleri içeren istekleri önbelleğe alınmaz. POP düğüm doğrudan kaynak sunucudan varlığı alır ve her istek ile istek sahibi geçirir.
-- **Her benzersiz URL'yi önbelleğe**: Bu modda, sorgu dizesi dahil olmak üzere benzersiz bir URL'ye sahip her isteği kendi önbelleği ile benzersiz bir varlık olarak kabul edilir. Örneğin, bir istek için kaynak sunucudan yanıt `example.ashx?q=test1` POP düğümde önbelleğe ve sonraki önbellekleri ile aynı sorgu dizesi döndürdü. Bir istek için `example.ashx?q=test2` ayrı bir varlık kendi yaşam süresi ayarı ile önbelleğe alınır.
+
+- **Her benzersiz URL'yi önbelleğe**: Bu modda, sorgu dizesi dahil olmak üzere benzersiz bir URL'ye sahip her isteği kendi önbelleği ile benzersiz bir varlık olarak kabul edilir. Örneğin, example.ashx?q=test1 için bir istek için kaynak sunucudan yanıt POP düğümde önbelleğe ve sonraki önbellekleri ile aynı sorgu dizesi döndürdü. Bir istek example.ashx?q=test2 için kendi yaşam süresi ayarı ile ayrı bir varlık olarak önbelleğe alınır.
+   
+    >[!IMPORTANT] 
+    > Düşük bir önbellek isabet oranı neden sorgu dizesi bir oturum kimliği veya bir kullanıcı adı gibi her istek ile değiştirilecek parametreleri içerdiğinde, bu mod kullanmayın.
 
 ## <a name="changing-query-string-caching-settings-for-standard-cdn-profiles"></a>Sorgu dizesini önbelleğe alma standart CDN profili ayarlarını değiştirme
 1. CDN profili açın ve sonra yönetmek istediğiniz CDN uç noktası seçin.

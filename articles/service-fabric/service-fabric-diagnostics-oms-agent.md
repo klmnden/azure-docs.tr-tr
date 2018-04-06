@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/20/2018
+ms.date: 04/03/2018
 ms.author: dekapur
-ms.openlocfilehash: 4b0845cbb25d160b53b483641e242422c98029ee
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dbafe0da58f5026400381a3cc96cf99ade0795de
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="add-the-oms-agent-to-a-cluster"></a>OMS Aracısı bir kümeye ekleme
 
@@ -77,7 +77,7 @@ Bir Azure günlük analizi çalışma alanı dağıtma ve düğümlerin her biri
 
 Karşıdan yükle ve en iyi sonucu gereksinimlerinize uyan bir küme dağıtmak için bu şablonu değiştirin.
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
 * Toplama ilgili [performans sayaçları](service-fabric-diagnostics-event-generation-perf.md). Belirli bir performans sayaçları toplamak için OMS aracısının yapılandırmak için gözden [veri kaynaklarını yapılandırma](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Ayarlamak için günlük analizi yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için

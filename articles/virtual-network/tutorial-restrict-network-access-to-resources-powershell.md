@@ -1,38 +1,38 @@
 ---
 title: PaaS kaynaklarına - Azure PowerShell ağ erişimi kısıtlama | Microsoft Docs
-description: Sınırlayabilir ve PowerShell kullanarak sanal ağ hizmet uç noktaları ile Azure Storage ve Azure SQL veritabanı gibi Azure kaynakları için ağ erişimini kısıtlayabilir öğrenin.
+description: Bu makalede, sınırlayabilir ve Azure PowerShell kullanarak sanal ağ hizmet uç noktaları ile Azure Storage ve Azure SQL veritabanı gibi Azure kaynakları için ağ erişimini kısıtlayabilir öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 7e402af74babda2ce32d4a1597c61d71aba89b9e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 28c95e1333b4641e50284a869135a9608dd3242f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>PowerShell kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimi kısıtla
 
 Sanal ağ hizmet uç noktaları bazı Azure hizmeti kaynaklar sanal ağ alt ağına ağ erişimini sınırlamak etkinleştirin. Internet kaynaklarına erişim de kaldırabilirsiniz. Hizmet uç noktaları desteklenen Azure Hizmetleri Azure hizmetlerine erişmek için sanal ağınızın özel adres alanı kullanmanıza olanak sağlayan, sanal ağ üzerinden doğrudan bağlantı sağlar. Hizmet uç noktaları üzerinden Azure kaynaklarına her zaman hedefleyen trafiğe, Microsoft Azure omurga ağı üzerinde kalır. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * Bir alt ağ ile bir sanal ağ oluşturma
-> * Bir alt ağ ekleyin ve bir hizmet uç noktası etkinleştirin
-> * Bir Azure kaynağı oluşturun ve ağ erişimi için yalnızca bir alt ağdan izin verin
-> * Her alt ağda bir sanal makine (VM) dağıtma
-> * Bir alt ağdan bir kaynağa erişimi onaylayın
-> * Bir alt ağ ve Internet bağlantısını bir kaynağa erişimi reddedildi onaylayın
+* Bir alt ağ ile bir sanal ağ oluşturma
+* Bir alt ağ ekleyin ve bir hizmet uç noktası etkinleştirin
+* Bir Azure kaynağı oluşturun ve ağ erişimi için yalnızca bir alt ağdan izin verin
+* Her alt ağda bir sanal makine (VM) dağıtma
+* Bir alt ağdan bir kaynağa erişimi onaylayın
+* Bir alt ağ ve Internet bağlantısını bir kaynağa erişimi reddedildi onaylayın
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -93,7 +93,7 @@ $subnetConfigPrivate = Add-AzureRmVirtualNetworkSubnetConfig `
 $virtualNetwork | Set-AzureRmVirtualNetwork
 ```
 
-## <a name="restrict-network-access-to-and-from-a-subnet"></a>Bir alt ağa gelen ve giden ağ erişimi kısıtlama
+## <a name="restrict-network-access-for-a-subnet"></a>Bir alt ağ için ağ erişimi kısıtlama
 
 Ağ güvenlik grubu güvenlik kuralları oluşturma [yeni AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig). Aşağıdaki kural Azure Storage hizmetine atanan genel IP adreslerine giden erişim sağlar: 
 
@@ -114,7 +114,7 @@ Aşağıdaki kural tüm genel IP adresleri erişimini engeller. Önceki kural Az
 
 ```azurepowershell-interactive
 $rule2 = New-AzureRmNetworkSecurityRuleConfig `
-  -Name Deny-internet-All `
+  -Name Deny-Internet-All `
   -Access Deny `
   -DestinationAddressPrefix Internet `
   -DestinationPortRange * `
@@ -372,9 +372,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir sanal ağ alt ağı için bir hizmet uç noktası etkin. Hizmet uç noktaları birden çok Azure services ile dağıtılan kaynaklar için etkinleştirilebilir öğrendiniz. Bir Azure Storage hesabını ve sınırlı ağ erişimi yalnızca bir sanal ağ alt ağ içindeki kaynaklar için depolama hesabı oluşturuldu. Sanal ağlar üretimde hizmet uç noktaları oluşturmadan önce baştan sona ile öğrenmeniz olduğunu önerilir [hizmet uç noktaları](virtual-network-service-endpoints-overview.md).
+Bu makalede, bir sanal ağ alt ağı için bir hizmet uç noktası etkin. Hizmet uç noktaları birden çok Azure services ile dağıtılan kaynaklar için etkinleştirilebilir öğrendiniz. Bir Azure Storage hesabını ve sınırlı ağ erişimi yalnızca bir sanal ağ alt ağ içindeki kaynaklar için depolama hesabı oluşturuldu. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [hizmet uç noktaları genel bakış](virtual-network-service-endpoints-overview.md) ve [alt ağlarını yönetin](virtual-network-manage-subnet.md).
 
-Hesabınızı birden çok sanal ağlarınız varsa, her sanal ağ içindeki kaynaklara birbirleri ile iletişim kurabilmesi iki sanal ağları birbirine bağlamak isteyebilirsiniz. Sanal ağlara bağlanma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Sanal ağlara bağlanabilir](./tutorial-connect-virtual-networks-powershell.md)
+Hesabınızı birden çok sanal ağlarınız varsa, her sanal ağ içindeki kaynaklara birbirleri ile iletişim kurabilmesi iki sanal ağları birbirine bağlamak isteyebilirsiniz. Bilgi edinmek için bkz [sanal ağlara bağlanabilir](tutorial-connect-virtual-networks-powershell.md).

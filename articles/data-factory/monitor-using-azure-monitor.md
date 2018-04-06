@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 8ab2e7cdc8472be9c0800eea5bef9322b0ed87f2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1399455fb727c27e22da8c5525eec87e343d46cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
@@ -31,7 +31,7 @@ Azure İzleyicisi, çoğu Microsoft Azure hizmetlerini taban düzeyi altyapı ö
 
 * Bunları kaydetmek bir **depolama hesabı** denetim veya el ile İnceleme için. Tanılama ayarları kullanarak bekletme süresi (gün) cinsinden belirtebilirsiniz.
 * Bunları akış **olay hub'ları** bir üçüncü taraf hizmeti veya Powerbı gibi özel analiz çözümü tarafından alımı için.
-* Bunları ile analiz **Operations Management Suite (OMS) günlük analizi**
+* Bunları ile analiz **günlük analizi**
 
 Günlükleri yayma kaynak ile aynı abonelikte değil bir depolama hesabı veya olay hub'ı ad alanını kullanabilirsiniz. Ayar yapılandıran kullanıcı her iki aboneliğin uygun rol tabanlı erişim denetimi (RBAC) erişimi olmalıdır.
 
@@ -40,11 +40,11 @@ Günlükleri yayma kaynak ile aynı abonelikte değil bir depolama hesabı veya 
 ### <a name="diagnostic-settings"></a>Tanılama ayarları
 Tanılama günlüklerini işlem dışı kaynaklar için tanılama ayarları kullanılarak yapılandırılır. Kaynak denetimi için tanılama ayarları:
 
-* Burada tanılama günlükleri (depolama hesabı, olay hub'ları ve/veya OMS günlük analizi) gönderilir.
+* Burada tanılama günlükleri (depolama hesabı, olay hub'ları ve/veya günlük analizi) gönderilir.
 * Günlük kategorilerini gönderilir.
 * Her günlük kategori bir depolama hesabında ne kadar süre tutulacağını
 * Sıfır gün bekletme günlükleri sonsuza kadar tutulur anlamına gelir. Aksi takdirde, değer 1 ile 2147483647 arasındaki gün herhangi bir sayıda olabilir.
-* Bekletme ilkeleri ayarlanır, ancak bir depolama hesabına günlükleri depolama devre dışı bırakıldı (örneğin, yalnızca olay hub'ları veya OMS seçenekler seçilidir), bekletme ilkeleri herhangi bir etkisi yoktur.
+* Bekletme ilkeleri ayarlanır ancak günlükleri bir depolama hesabına depolama devre dışı bırakıldı (örneğin, yalnızca olay hub'ları veya günlük analizi seçenekler seçilidir), bekletme ilkeleri herhangi bir etkisi yoktur.
 * Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>REST API'leri aracılığıyla tanılama günlüklerini etkinleştirme
@@ -69,7 +69,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "metrics": [
         ],
         "logs": [
@@ -123,7 +123,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
@@ -132,7 +132,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "properties": {
         "storageAccountId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.Storage/storageAccounts/<storageAccountName>",
         "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.EventHub/namespaces/<eventHubName>/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<OMSName>",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/<resourceGroupName>//providers/Microsoft.OperationalInsights/workspaces/<LogAnalyticsName>",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -187,16 +187,16 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ```json
 {
-    "id": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
+    "id": "/subscriptions/<subID>/resourcegroups/adf/providers/microsoft.datafactory/factories/shloadobetest2/providers/microsoft.insights/diagnosticSettings/service",
     "type": null,
     "name": "service",
     "location": null,
     "kind": null,
     "tags": null,
     "properties": {
-        "storageAccountId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
-        "serviceBusRuleId": "/subscriptions/1e42591f-1f0c-4c5a-b7f2-a268f6105ec5/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
-        "workspaceId": "/subscriptions/0ee78edb-a0ad-456c-a0a2-901bf542c102/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
+        "storageAccountId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.Storage/storageAccounts/azmonlogs",
+        "serviceBusRuleId": "/subscriptions/<subID>/resourceGroups/shloprivate/providers/Microsoft.EventHub/namespaces/shloeventhub/authorizationrules/RootManageSharedAccessKey",
+        "workspaceId": "/subscriptions/<subID>/resourceGroups/ADF/providers/Microsoft.OperationalInsights/workspaces/mihaipie",
         "eventHubAuthorizationRuleId": null,
         "eventHubName": null,
         "metrics": [],
@@ -230,7 +230,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-Daha fazla bilgi aşağıda] ()https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
+[Daha fazla bilgi](https://msdn.microsoft.com/en-us/library/azure/dn931932.aspx)
 
 ## <a name="schema-of-logs--events"></a>Şema günlüklerini ve olayları
 

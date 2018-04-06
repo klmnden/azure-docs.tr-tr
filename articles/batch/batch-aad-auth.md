@@ -15,11 +15,11 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: danlep
-ms.openlocfilehash: e2d97929ada820a1ce969c59fb69b3518fe2eb6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2479701174086ddf680e0ecb1da4a9d13b32b76e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Toplu hizmet çözümlerine Active Directory ile kimlik doğrulaması
 
@@ -312,13 +312,13 @@ public static async Task PerformBatchOperations()
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure AD hakkında daha fazla bilgi için bkz: [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL'nin kullanımı gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
+* Azure AD hakkında daha fazla bilgi için bkz: [Azure Active Directory belgeleri](https://docs.microsoft.com/azure/active-directory/). ADAL'nin kullanımı gösteren ayrıntılı örnekler kullanılabilir [Azure Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=active-directory) kitaplığı.
 
-Hizmet sorumluları hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md). Azure Portalı'nı kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../resource-group-create-service-principal-portal.md). Bir hizmet sorumlusu, PowerShell veya Azure CLI ile de oluşturabilirsiniz.
+* Hizmet sorumluları hakkında daha fazla bilgi için bkz: [uygulama ve hizmet asıl nesneler Azure Active Directory'de](../active-directory/develop/active-directory-application-objects.md). Azure Portalı'nı kullanarak bir hizmet sorumlusu oluşturmak için bkz: [Active Directory kaynaklara erişebilir uygulama ve hizmet sorumlusu oluşturmak için kullanım portal](../resource-group-create-service-principal-portal.md). Bir hizmet sorumlusu, PowerShell veya Azure CLI ile de oluşturabilirsiniz.
 
-Azure AD kullanarak toplu yönetimini uygulama kimliğini doğrulamak için bkz: [Active Directory ile kimlik doğrulaması toplu yönetim çözümleri](batch-aad-auth-management.md).
+* Azure AD kullanarak toplu yönetimini uygulama kimliğini doğrulamak için bkz: [Active Directory ile kimlik doğrulaması toplu yönetim çözümleri](batch-aad-auth-management.md).
 
-Bir Azure AD belirteci kullanarak kimlik doğrulaması toplu istemci nasıl oluşturulacağı Python örneği için bkz [Azure Active Directory kimlik doğrulaması](http://azure-sdk-for-python.readthedocs.io/en/latest/batch.html#azure-active-directory-authentication) Python belgeleri için Azure SDK'sındaki örnek.
+* Bir Azure AD belirteci kullanarak kimlik doğrulaması toplu istemci nasıl oluşturulacağı Python örneği için bkz [Python betiği ile Azure toplu işlem özel görüntüsünü dağıtma](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md) örnek.
 
 [aad_about]: ../active-directory/active-directory-whatis.md "Azure Active Directory nedir?"
 [aad_adal]: ../active-directory/active-directory-authentication-libraries.md

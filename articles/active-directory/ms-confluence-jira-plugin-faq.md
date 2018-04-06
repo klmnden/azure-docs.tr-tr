@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure Active Directory tek oturum açma eklentisi ile ilgili SSS | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Microsoft Azure Active Directory tek oturum açma için JIRA arasında yapılandırmayı öğrenin."
+title: Azure Active Directory SSO'ya eklenti SSS | Microsoft Docs
+description: Çoklu oturum açma Azure Active Directory ile Jira/Confluence arasında yapılandırma hakkında sık sorulan soruların yanıtlarını alın.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,70 +14,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 571fbd5078f66375f6e81cba2a790121366f9d60
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="microsoft-azure-active-directory-single-sign-on-plugin-faq"></a>Microsoft Azure Active Directory tek oturum açma eklentisi ile ilgili SSS 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO'ya eklenti hakkında SSS 
 
-## <a name="1-whats-the-microsoft-sso-add-on"></a>1. Microsoft SSO eklenti nedir?
+## <a name="what-does-the-plug-in-do"></a>Eklenti do nedir?
 
-Bu eklenti Atlassian'ın (JIRA çekirdek, JIRA yazılım, JIRA hizmet Masası dahil) JIRA ve Confluence şirket içi yazılımlar için çoklu oturum açma özelliği sağlar. Eklenti IDP olarak Azure AD ile çalışır.
+Eklenti Atlassian (Jira çekirdek, Jira yazılım, Jira hizmet Masası dahil) Jira ve Confluence şirket içi yazılımlar için çoklu oturum açma (SSO) yeteneği sağlar. Bir kimlik sağlayıcıyı (IDP) olarak Azure Active Directory (Azure AD) ile eklenti çalışır.
 
-## <a name="2-add-on-works-with-which-atlassian-products"></a>2. Eklenti hangi Atlassian ürünleriyle çalışır?
+## <a name="which-atlassian-products-does-the-plug-in-work-with"></a>Hangi Atlassian ürünleri eklenti çalışmak mu?
 
-Şimdi itibariyle, şirket içi JIRA ve sürümleriyle Confluence eklenti çalışır.
+Şirket içi sürümlerini Jira ve Confluence eklenti çalışır.
 
-## <a name="3-does-this-add-on-work-on-cloud-version"></a>3. Bu eklenti bulut sürümünde çalışıyor mu?
+## <a name="does-the-plug-in-work-on-cloud-versions"></a>Bulut sürümlerinde eklenti iş mu?
 
-Hayır. Yalnızca şirket içi JIRA ve Confluence sürümleri desteklenir.
+Hayır. Eklenti destekler yalnızca şirket içi Jira ve Confluence sürümleri.
 
-## <a name="4-which-versions-of-jira-and-confluence-are-supported"></a>4. Hangi sürümlerinin JIRA ve Confluence destekleniyor mu?
+## <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>Hangi sürümlerinin Jira ve Confluence Eklenti desteği mu?
 
-Desteklenen sürümlerin listesi aşağıdadır:
+Eklenti bu sürümlerini destekler:
 
-* JIRA çekirdek ve yazılım: 6.0 için 7.2.2 
-* JIRA Service Desk: 3.0 to 3.2 
+* Jira çekirdek ve yazılım: 6.0 için 7.2.2 
+* Jira hizmet masasına: 3.0 3.2 için 
 * Confluence: 5.0 5.10
 
-## <a name="5-is-this-add-on-free-or-paid"></a>5. Bu eklenti ücretsiz veya Ödendi mi?
+## <a name="is-the-plug-in-free-or-paid"></a>Eklenti ücretsiz ya da Ücretli mi?
 
-Bu ücretsiz bir eklentidir ve Atlassian Pazar yerden yüklenebilir.
+Bu ücretsiz bir eklentidir. Atlassian marketten yükleyebilirsiniz.
 
-## <a name="6-do-i-need-to-restart-jiraconfluence-once-i-deploy-the-add-on"></a>6. Eklenti dağıttığınızda JIRA/Confluence yeniden başlatmanız gerekiyor mu
+## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>Jira veya Confluence ı Eklenti dağıttıktan sonra yeniden başlatmanız gerekiyor mu?
 
-Yeniden başlatma gerekli post eklenti dağıtım değil. Eklenti dağıtımdan hemen sonra kullanmaya başlayabilirsiniz.
+Yeniden başlatma gerekli değildir. Eklenti hemen kullanmaya başlayabilirsiniz.
 
-## <a name="7-how-do-i-get-support-for-the-add-on"></a>7. Eklenti için nasıl destek alma?
+## <a name="how-do-i-get-support-for-the-plug-in"></a>Nasıl destek eklenti için sağlarım?
 
-Üzerinde bize ulaşın: <email> . Biz <> saat içinde yanıt verir. Azure portal kanal üzerinden Microsoft ile bir destek bileti de yükseltebilirsiniz. Ayrıca bize üzerinde çağırabilirsiniz: <Number> <> arasında 'M <> için hafta içi günlerde pm.
+Ulaşmak [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Takım 24-48 iş saatleri içinde yanıt verir. 
 
-## <a name="8-would-this-add-on-work-on-mac-or-ubuntu-installation-of-jira-and-confluence"></a>8. Bu eklenti, Mac veya Ubuntu yüklemesinde JIRA ve Confluence çalışır?
+Azure portal kanal üzerinden Microsoft ile bir destek bileti de yükseltebilirsiniz.
 
-Bu eklenti yalnızca 64 bit Windows server yüklemeleri JIRA ve confluence üzerinde Test ettiğimiz.
+## <a name="would-the-plug-in-work-on-a-mac-or-ubuntu-installation-of-jira-and-confluence"></a>Eklenti iş Jira ve Confluence Mac veya Ubuntu yüklemesinde musunuz?
 
-## <a name="9-does-this-add-on-work-with-other-idps-than-azure-ad"></a>9. Bu eklenti diğer IdPs daha Azure AD ile çalışır mı?
+Eklentiyi yalnızca 64-bit Windows Server yüklemeleri Jira ve Confluence sınanmıştır.
 
-Hayır. Eklenti yalnızca Azure AD ile çalışır.
+## <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>Azure AD dışında IdPs eklenti çalışmak mu?
 
-## <a name="10-what-version-of-saml-does-the-add-on-work-with"></a>10. SAML hangi sürümünün eklenti ile çalışır mı?
+Hayır. Yalnızca Azure AD ile çalışır.
 
-Eklenti SAML 2.0 ile çalışır.
+## <a name="what-version-of-saml-does-the-plug-in-work-with"></a>SAML hangi sürümünün eklenti çalışmak mu?
 
-## <a name="11-does-the-add-on-do-use-provisioning-as-well"></a>11. Eklentinin kullanılması da sağlama mu?
+SAML 2.0 ile çalışır.
 
-Hayır. Şimdi itibariyle eklenti yalnızca SAML 2.0 SSO sağlar. Kullanıcının uygulamada SSO oturum açma önce sağlanması gerekir.
+## <a name="does-the-plug-in-do-user-provisioning"></a>Eklenti kullanıcı sağlamayı işe yarar?
 
-## <a name="12-are-cluster-versions-of-jira-and-confluence-supported-by-add-on"></a>12. Küme sürümleri JIRA ve eklenti tarafından desteklenen confluence mu?
+Hayır. Eklenti yalnızca SAML 2.0 tabanlı SSO sağlar. Kullanıcının SSO oturum açma önce uygulamayı sağlanması gerekir.
 
-Hayır. Eklenti şirket içi sürümleri JIRA ve Confluence ile çalışır.
+## <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>Eklenti desteği küme sürümleri Jira ve Confluence mu?
 
-## <a name="13-would-this-plugin-work-with-http-version-of-jira-and-confluence"></a>13. Bu eklenti HTTP sürümü JIRA ve Confluence ile çalışır?
+Hayır. Şirket içi sürümlerini Jira ve Confluence eklenti çalışır.
 
-Hayır. HTTPS ile eklenti çalışır yalnızca yükleme etkin.
+## <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>Eklenti iş sürümleriyle HTTP Jira ve Confluence mu?
 
-## <a name="14-do-i-need-to-buy-license-of-the-add-on"></a>14. Eklentinin lisansı satın gerekiyor mu?
-
-Bu ücretsiz bir eklentidir.
+Hayır. Yalnızca HTTPS etkin yükleme eklenti çalışır.

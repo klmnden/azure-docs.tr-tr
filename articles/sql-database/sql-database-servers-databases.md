@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL sunucuları ve veritabanlarını yönetme & Oluştur | Microsoft Docs"
-description: "Azure SQL veritabanı sunucusu ve veritabanı kavramları hakkında ve sunucular ve veritabanları oluşturma ve yönetme hakkında bilgi edinin."
+title: Azure SQL sunucuları ve veritabanlarını yönetme & Oluştur | Microsoft Docs
+description: Azure SQL veritabanı sunucusu ve veritabanı kavramları hakkında ve sunucular ve veritabanları oluşturma ve yönetme hakkında bilgi edinin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -9,11 +9,11 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e05be2131ca89a084da5eeffc0b025b38432a8d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 18f904a2bac70bce3e1208945a7b94b59f6225f7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
 
@@ -26,7 +26,7 @@ SQL veritabanı veritabanları üç tür sunar:
 Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
 
 > [!IMPORTANT]
-> SQL veritabanı örneği, yönetilen şu anda genel önizlemede, tek bir genel amaçlı hizmet katmanı sunar. Daha fazla bilgi için bkz: [SQL veritabanı yönetilen örneği](sql-database-managed-instance.md). Bu makalenin sonraki bölümlerinde yönetilen örneği için geçerli değildir.
+> SQL veritabanı örneği, yönetilen şu anda genel önizlemede, tek bir genel amaçlı hizmet katmanı sunar. Daha fazla bilgi için bkz. [SQL Veritabanı Yönetilen Örneği](sql-database-managed-instance.md). Bu makalenin sonraki bölümlerinde yönetilen örneği için geçerli değildir.
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusuna nedir?
 
@@ -53,7 +53,7 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Bir ana veritabanına bağlanarak DMV’ler aracılığıyla içerdiği kaynaklarla ilgili meta verilere erişim sağlar 
 - Kendi veritabanlarına - oturumları uygulanır, güvenlik duvarı, Denetim, tehdit algılama, vb. yönetim ilkeleri için kapsam sağlar. 
 - Üst abonelik içindeki bir kota tarafından kısıtlanmış (varsayılan - abonelik başına altı sunucu [abonelik sınırlar buraya bakın](../azure-subscription-service-limits.md))
-- Veritabanı kotasına ve DTU kota kapsamın (45000 DTU gibi) içerdiği kaynakların sağlar
+- Veritabanı kotasına ve DTU veya vCore kota kapsamın (45000 DTU gibi) içerdiği kaynakların sağlar
 - Kapsanan kaynaklardaki etkinleştirilen özellikleri için sürüm oluşturma kapsamı 
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
 - Şirketinizde sunucu üzerindeki bir veya daha fazla veritabanına erişim verilmiş SQL Server örneklerinde bulunanlara benzer kullanıcı bilgileri içerebilir ve sınırlı yönetici hakları alabilir. Daha fazla bilgi için bkz. [Kullanıcı Bilgileri](sql-database-manage-logins.md).
@@ -135,7 +135,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları ile oluşturmak ve yön
 |[az sql db listesi-sürümleri](/cli/azure/sql/db#az_sql_db_list_editions)|Listeleri kullanılabilir hizmet hedefleri ve depolama sınırları|
 |[az sql db listesi-kullanımları](/cli/azure/sql/db#az_sql_db_list_usages)|Kullanımları döndürür veritabanı|
 |[az sql db Göster](/cli/azure/sql/db#az_sql_db_show)|Bir veritabanı veya veri ambarı alır|
-|[az sql db güncelleştirme](/cli/azure/sql/db#az_sql_db_update)|Bir veritabanını güncelleştirir|
+|[az sql db update](/cli/azure/sql/db#az_sql_db_update)|Bir veritabanını güncelleştirir|
 |[az sql db delete](/cli/azure/sql/db#az_sql_db_delete)|Bir veritabanı kaldırır|
 |[az group create](/cli/azure/group#az_group_create)|Bir kaynak grubu oluşturur|
 |[az sql server create](/cli/azure/sql/server#az_sql_server_create)|Sunucu oluşturur|

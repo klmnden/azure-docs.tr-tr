@@ -1,6 +1,6 @@
 ---
-title: "Azure'a taşıma kuruluşlar için en iyi uygulamaları | Microsoft Docs"
-description: "Kuruluşlar, güvenli ve yönetilebilir bir ortam sağlamak için kullanabileceğiniz iskele açıklar."
+title: Azure'a taşıma kuruluşlar için en iyi uygulamaları | Microsoft Docs
+description: Kuruluşlar, güvenli ve yönetilebilir bir ortam sağlamak için kullanabileceğiniz iskele açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-<<<<<<< HEAD
-ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3b5087faaf3db087b15b77fedac8df0d7e4a899a
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 02553bb59cb37bab21d53adafc42fddcf08795a7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure enterprise iskele - Düzenleyici abonelik yönetimi
 Kuruluşlar Git Gide daha fazla esneklik ve Çeviklik için genel bulut geliştirilmektedir. Bunlar bulutun gücü veya iş için kaynakları en iyi duruma gelir oluşturmak için çalışan. Microsoft Azure, kuruluşların yapı taşları gibi çok çeşitli iş yüklerini ve uygulamaları adres birleştirebilirsiniz birçok sağlar. 
@@ -141,7 +135,7 @@ Bir iş biriminin bulut uygulamaları oluşturmak için "Çevik" ortamı
 > 
 
 ### <a name="audit---what-happened"></a>Denetim - ne oldu?
-Ortamınızı nasıl çalıştığını görmek için kullanıcı etkinliğini denetleyin gerekir. Çoğu kaynak türleri Azure içinde bir günlük araçla veya Azure Operations Management Suite çözümleyebilirsiniz tanılama günlüklerini oluşturun. Etkinlik günlükleri birden çok bir departman sağlamak için abonelikleri veya Kurumsal görünümünde toplayabilirsiniz. Önemli bir tanılama aracı ve tetikleyici olayları Azure ortamında çok önemli bir mekanizma denetim kayıtları için uygulanır.
+Ortamınızı nasıl çalıştığını görmek için kullanıcı etkinliğini denetleyin gerekir. Çoğu kaynak türleri Azure içinde bir günlük araçla veya Azure günlük analizi çözümleyebilirsiniz tanılama günlüklerini oluşturun. Etkinlik günlükleri birden çok bir departman sağlamak için abonelikleri veya Kurumsal görünümünde toplayabilirsiniz. Önemli bir tanılama aracı ve tetikleyici olayları Azure ortamında çok önemli bir mekanizma denetim kayıtları için uygulanır.
 
 Resource Manager dağıtımları etkinlik günlükleri belirlemek etkinleştirme **operations** yerinde ve bunları gerçekleştiren sürdü. Etkinlik günlükleri toplanabilir ve günlük analizi gibi araçları kullanarak bir araya getirilir.
 
@@ -153,7 +147,7 @@ Kaynak etiketleri esnektir ve çoğu kaynaklarına bağlı olması. Ortak kaynak
 * BillTo
 * Departman (veya iş birimi)
 * Ortam (üretim, aşama, geliştirme)
-* Katman (Web katmanı, uygulama katmanı)
+* Tier (Web Tier, Application Tier)
 * Uygulama sahibi
 * ProjectName
 

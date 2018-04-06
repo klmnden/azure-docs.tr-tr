@@ -1,20 +1,20 @@
 ---
-title: "Olağanüstü durum kurtarma çözümleri - Azure SQL veritabanı tasarım | Microsoft Docs"
-description: "Bulut çözümünüz olağanüstü durum kurtarma için doğru yük düzeni seçerek tasarım öğrenin."
+title: Olağanüstü durum kurtarma çözümleri - Azure SQL veritabanı tasarım | Microsoft Docs
+description: Bulut çözümünüz olağanüstü durum kurtarma için doğru yük düzeni seçerek tasarım öğrenin.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6ec202237a0b3fb1b7f0b7158c0aa454b4d65770
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f2f0819f987bf389ff4b2816ad422fdd8a81f82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database esnek havuzları kullanan uygulamalar için olağanüstü durum kurtarma stratejileri
 Yıllar içinde biz bulut Hizmetleri kusursuz değildir ve geri dönülemez olaylar gerçekleşir öğrendiniz. SQL veritabanı bu olaylar meydana geldiğinde, uygulamanızı iş sürekliliği sağlamak için çeşitli özellikleri sağlar. [Esnek havuzlar](sql-database-elastic-pool.md) ve olağanüstü durum kurtarma özellikleri aynı türde tek veritabanlarını destekler. Esnek havuz için bu makalede birkaç DR stratejilerini açıklar. Bu SQL veritabanını iş sürekliliği özelliklerden yararlanın.
@@ -26,7 +26,7 @@ Bu makalede aşağıdaki kurallı SaaS ISV uygulama deseni kullanır:
 Bu makalede olanları sıkı kullanılabilirlik gereksinimleri olan maliyet hassas başlangıç uygulamaları senaryolarından aralığını kapsayan DR stratejiler açıklanmaktadır.
 
 > [!NOTE]
-> Premium veritabanları ve havuzları kullanıyorsanız, bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek yapabileceğiniz. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).
+> Premium kullanıyorsanız veya iş kritik (Önizleme) veritabanları ve esnek havuzlar, yapabilirsiniz bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).
 
 ## <a name="scenario-1-cost-sensitive-startup"></a>Senaryo 1. Hassas başlangıç maliyeti
 <i>Bir başlangıç iş 'M ve son derece hassas maliyet bildirimi.  Dağıtım ve uygulama yönetimini basitleştirmek istiyorum ve tek tek müşteriler için sınırlı bir SLA olabilir. Ancak bir bütün hiçbir zaman çevrimdışı olduğu gibi uygulama emin olmak istersiniz.</i>
@@ -65,7 +65,7 @@ Anahtar **yararlı** bu strateji düşük devam eden veri katmanı artıklığı
 ## <a name="scenario-2-mature-application-with-tiered-service"></a>Senaryo 2. Katmanlı hizmetiyle olgun uygulama
 <i>Katmanlı hizmet teklifleri ve deneme müşteriler ve müşterilerin ödeme için farklı SLA ile olgun bir SaaS uygulaması ben. Deneme müşteriler için mümkün olduğunca maliyetini azaltmak sahibim. Deneme müşteriler kapalı kalma süresi alabilir ancak kendi olasılığını azaltmak istiyorum. Ödeyen müşteriler için kapalı kalma süresi uçuş sorununa neden olur. Bu ödeme emin olmak istiyorum böylece müşteriler her zaman verilerine erişebilir.</i> 
 
-Bu senaryoyu desteklemek için deneme kiracıları, ücretli kiracılardan ayrı esnek havuzları halinde koyarak ayırın. Deneme müşterilerin Kiracı ve alt SLA daha uzun bir kurtarma süresi ile başına alt eDTU sahip. Ödeyen Kiracı ve daha yüksek bir SLA başına daha yüksek eDTU ile bir havuzdaki müşterilerdir. En düşük kurtarma zamanı sağlamak için coğrafi olarak çoğaltılmış ödeyen müşterilerin Kiracı veritabanları. Bu yapılandırma sonraki diyagramda gösterilmiştir. 
+Bu senaryoyu desteklemek için deneme kiracıları, ücretli kiracılardan ayrı esnek havuzları halinde koyarak ayırın. Deneme müşteriler alt eDTU veya Kiracı ve alt SLA daha uzun bir kurtarma süresi ile başına vCores sahip. Daha yüksek eDTU veya Kiracı ve daha yüksek bir SLA başına vCores ile bir havuzdaki ödeyen müşterilerdir bakın. En düşük kurtarma zamanı sağlamak için coğrafi olarak çoğaltılmış ödeyen müşterilerin Kiracı veritabanları. Bu yapılandırma sonraki diyagramda gösterilmiştir. 
 
 ![Şekil 4](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
@@ -80,7 +80,7 @@ Birincil bölgede bir kesinti oluşursa, Kurtarma adımları uygulamanız çevri
 * Yönetim veritabanlarını DR bölgeye (3) üzerinden hemen başarısız.
 * DR bölgesine işaret etmek için uygulamanın bağlantı dizesini değiştirin. Şimdi tüm yeni hesaplarını ve Kiracı veritabanları DR bölgede oluşturulur. Varolan deneme müşteriler geçici olarak devre dışı verilerini bakın.
 * Ücretli kiracının veritabanları hemen kullanılabilirliklerini (4) geri yüklemek için DR bölgede havuzuna yük devri. Yük devretme hızlı meta veri düzeyi değişikliği olduğundan, burada bireysel yük devretmeleri isteğe bağlı son kullanıcı bağlantılar tarafından tetiklenen bir iyileştirme göz önünde bulundurun. 
-* İkincil veritabanları yalnızca ikincil kopyalanırken değişikliği günlükleri işlemek için kapasite gerektirdiğinden, ikincil havuz eDTU boyutu birincil düşük, hemen tüm kiracılar (5) tam iş yüküne uyum sağlamak için havuz kapasitesi şimdi artırın. 
+* İkincil veritabanları yalnızca ikincil kopyalanırken değişikliği günlükleri işlemek için kapasite gerektirdiğinden ikincil havuz eDTU boyutu veya vCore değeri birincil düşük, tam iş yükü karşılamak için havuz kapasitesi şimdi hemen artırın (5) tüm kiracılar. 
 * Aynı ada ve deneme müşterilerin veritabanları (6) için DR bölgede aynı yapılandırmaya sahip yeni bir esnek havuz oluşturun. 
 * Deneme müşterilerin havuzu oluşturulduktan sonra coğrafi geri yükleme yeni havuza (7) tek tek deneme Kiracı veritabanlarını geri yüklemek için kullanın. Son kullanıcı bağlantılar tarafından tek tek geri yüklemeler tetikleme göz önünde bulundurun veya başka bir uygulamaya özgü Öncelik düzenini kullanın.
 
@@ -108,7 +108,7 @@ Anahtar **yararlı** bu strateji, en yüksek SLA ödeyen müşterilerin sağlama
 ## <a name="scenario-3-geographically-distributed-application-with-tiered-service"></a>Senaryo 3. Katmanlı hizmetiyle coğrafi olarak dağıtılmış uygulama
 <i>Katmanlı hizmet teklifleri ile olgun bir SaaS uygulaması var. My Ücretli müşterilere çok agresif bir SLA sunmak ve hatta kısa kesinti müşteri memnuniyetsizliği neden olabileceğinden kesintiler durumunda etkisi riskini en aza istiyorum. Ödeyen müşteri verilerini her zaman erişebilmesini önemlidir. Denemeler ücretsiz ve deneme süresi boyunca bir SLA önerilmez. </i> 
 
-Bu senaryoyu desteklemek için üç ayrı esnek havuzu kullanın. Yüksek Edtu Ücretli müşterilerin Kiracı veritabanları içerecek şekilde iki farklı bölgelerde veritabanı başına iki eşit boyutu havuzlarıyla sağlayın. Deneme kiracıları içeren üçüncü havuzu iki bölgede birinde sağlanması ve veritabanı başına alt Edtu'lar olabilir.
+Bu senaryoyu desteklemek için üç ayrı esnek havuzu kullanın. Yüksek Edtu veya vCores Ücretli müşterilerin Kiracı veritabanları içerecek şekilde iki farklı bölgelerde veritabanı başına iki eşit boyutu havuzlarıyla sağlayın. Deneme kiracıları içeren üçüncü havuzu alt Edtu veya veritabanı başına vCores sahip olabilir ve iki bölgede birinde sağlanması.
 
 En düşük kurtarma süresini kesintiler sırasında güvence altına almak için ücretli müşterilerin Kiracı %50 birincil veritabanlarının her iki bölgede coğrafi olarak çoğaltılmış veritabanlarıdır. Benzer şekilde, her bölge ikincil veritabanlarıyla % 50'si vardır. Bu şekilde, bir bölge çevrimdışıysa, ücretli müşterilerin veritabanları % 50'yalnızca etkilenen ve yük devri gerekir. Diğer veritabanlarındaki değişmeden kalır. Bu yapılandırma aşağıdaki çizimde gösterilmiştir:
 
@@ -125,7 +125,7 @@ Sonraki diyagram A. bölgede bir kesinti oluşursa yapılacak kurtarma adımlar�
 * Hemen yönetim veritabanlarını bölgeye B (3) başarısız.
 * Yönetim veritabanlarını bölgede B. değiştirmek için yeni hesapları emin olmak için yönetim veritabanları işaret edecek şekilde uygulamanın bağlantı dizesini değiştirin ve Kiracı veritabanları B bölgede oluşturulur ve varolan Kiracı veritabanları var. de bulunur. Varolan deneme müşteriler geçici olarak devre dışı verilerini bakın.
 * Ücretli kiracının veritabanları havuzuna 2 bölgesindeki B hemen kullanılabilirliklerini (4) geri yüklemek için yük devri. Yük devretme hızlı meta veri düzeyi değişikliği olduğundan, burada bireysel yük devretmeleri isteğe bağlı son kullanıcı bağlantılar tarafından tetiklenen bir iyileştirme düşünebilirsiniz. 
-* Şimdi bu yana 2 havuzuna yalnızca birincil veritabanları, toplam iş yükü havuzu artar içerir ve hemen eDTU boyutuna (5) artırabilir. 
+* Şimdi bu yana 2 havuzuna yalnızca birincil veritabanları, toplam iş yükü havuzu artar içerir ve hemen kendi eDTU boyutunu (5) veya vCores sayısını artırabilirsiniz. 
 * Aynı ada ve aynı yapılandırmasıyla bölgede B deneme müşterilerin veritabanları (6) için yeni esnek havuzu oluşturun. 
 * Havuzu oluşturulduktan sonra coğrafi geri yükleme (7) havuza tek tek deneme Kiracı veritabanını geri yüklemek için kullanın. Son kullanıcı bağlantılar tarafından tek tek geri yüklemeler tetikleme göz önünde bulundurun veya başka bir uygulamaya özgü Öncelik düzenini kullanın.
 
@@ -142,7 +142,7 @@ Bölge A kurtarıldığında deneme müşteriler veya deneme müşteriler havuzu
 * Deneme DR havuzu tüm bekleyen coğrafi geri yükleme isteklerine iptal edin.   
 * Yönetim veritabanını (8) başarısız. Bölgenin kurtarma işleminden sonra eski birincil otomatik olarak ikincil hale geldi. Şimdi bu birincil yeniden olur.  
 * Veritabanlarını geri havuzu 1 ve başlatma yük devretme kendi ikincil (9) için başarısız, ücretli bir kiracı seçin. Bölgenin kurtarma işleminden sonra 1 havuzdaki tüm veritabanları otomatik olarak ikincil hale geldi. Şimdi bunların % 50 ana yeniden haline gelir. 
-* Özgün eDTU (10) 2 havuzuna boyutunu azaltın.
+* Havuzuna 2 özgün eDTU (10) ya da vCores sayısını azaltın.
 * Tüm kümesi B bölgede deneme veritabanları salt okunur (11'e) geri.
 * Her bir veritabanına kurtarma bu yana değişti deneme DR havuzundaki için yeniden adlandırın veya deneme birincil havuzunda (12) karşılık gelen veritabanını silin. 
 * Güncelleştirilmiş veritabanları DR havuzundan birincil havuzu (13) kopyalayın. 

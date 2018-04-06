@@ -1,38 +1,38 @@
 ---
 title: PaaS kaynaklarına - Azure CLI ağ erişimi kısıtlama | Microsoft Docs
-description: Sınırlayabilir ve Azure Storage ve Azure SQL veritabanı gibi Azure kaynakları için Azure CLI kullanarak sanal ağ hizmet uç noktaları ile ağ erişimini kısıtlayabilir öğrenin.
+description: Bu makalede, sınırlayabilir ve Azure Storage ve Azure SQL veritabanı gibi Azure kaynakları için Azure CLI kullanarak sanal ağ hizmet uç noktaları ile ağ erişimini kısıtlayabilir öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: ''
+ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 5c0c6a802c931b71f5be8b01c610cf0810b0b4d1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f357861a7a44b249e06f091a8693b7f2d8dd5178
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Azure CLI kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimi kısıtla
 
 Sanal ağ hizmet uç noktaları bazı Azure hizmeti kaynaklar sanal ağ alt ağına ağ erişimini sınırlamak etkinleştirin. Internet kaynaklarına erişim de kaldırabilirsiniz. Hizmet uç noktaları desteklenen Azure Hizmetleri Azure hizmetlerine erişmek için sanal ağınızın özel adres alanı kullanmanıza olanak sağlayan, sanal ağ üzerinden doğrudan bağlantı sağlar. Hizmet uç noktaları üzerinden Azure kaynaklarına her zaman hedefleyen trafiğe, Microsoft Azure omurga ağı üzerinde kalır. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * Bir alt ağ ile bir sanal ağ oluşturma
-> * Bir alt ağ ekleyin ve bir hizmet uç noktası etkinleştirin
-> * Bir Azure kaynağı oluşturun ve ağ erişimi için yalnızca bir alt ağdan izin verin
-> * Her alt ağda bir sanal makine (VM) dağıtma
-> * Bir alt ağdan bir kaynağa erişimi onaylayın
-> * Bir alt ağ ve Internet bağlantısını bir kaynağa erişimi reddedildi onaylayın
+* Bir alt ağ ile bir sanal ağ oluşturma
+* Bir alt ağ ekleyin ve bir hizmet uç noktası etkinleştirin
+* Bir Azure kaynağı oluşturun ve ağ erişimi için yalnızca bir alt ağdan izin verin
+* Her alt ağda bir sanal makine (VM) dağıtma
+* Bir alt ağdan bir kaynağa erişimi onaylayın
+* Bir alt ağ ve Internet bağlantısını bir kaynağa erişimi reddedildi onaylayın
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -82,7 +82,7 @@ az network vnet subnet create \
   --service-endpoints Microsoft.Storage
 ```
 
-## <a name="restrict-network-access-to-and-from-subnet"></a>Alt ağa gelen ve giden ağ erişimi kısıtlama
+## <a name="restrict-network-access-for-a-subnet"></a>Bir alt ağ için ağ erişimi kısıtlama
 
 Bir ağ güvenlik grubu oluşturma [az ağ nsg oluşturma](/cli/azure/network/nsg#az_network_nsg_create). Aşağıdaki örnek adlı bir ağ güvenlik grubu oluşturur *myNsgPrivate*.
 
@@ -311,7 +311,7 @@ Bir bağlama noktası için bir dizin oluşturun:
 sudo mkdir /mnt/MyAzureFileShare
 ```
 
-Oluşturduğunuz dizine Azure dosya paylaşımını bağlama girişimi. Bu öğretici, Ubuntu en son sürümünü dağıtılan varsayar. Ubuntu'nın önceki sürümlerini kullanıyorsanız, bkz: [bağlama Linux'ta](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dosya paylaşımları oluşturma hakkında ek yönergeler için. Aşağıdaki komutu çalıştırmadan önce yerine `<storage-account-name>` hesap adıyla ve `<storage-account-key>` , alınan anahtarla [depolama hesabı oluşturma](#create-a-storage-account):
+Oluşturduğunuz dizine Azure dosya paylaşımını bağlama girişimi. Bu makale, en son sürümünü Ubuntu dağıtılan varsayar. Ubuntu'nın önceki sürümlerini kullanıyorsanız, bkz: [bağlama Linux'ta](../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fvirtual-network%2ftoc.json) dosya paylaşımları oluşturma hakkında ek yönergeler için. Aşağıdaki komutu çalıştırmadan önce yerine `<storage-account-name>` hesap adıyla ve `<storage-account-key>` , alınan anahtarla [depolama hesabı oluşturma](#create-a-storage-account):
 
 ```bash
 sudo mount --types cifs //storage-account-name>.file.core.windows.net/my-file-share /mnt/MyAzureFileShare --options vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
@@ -341,9 +341,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir sanal ağ alt ağı için bir hizmet uç noktası etkin. Hizmet uç noktaları birden çok Azure services ile dağıtılan kaynaklar için etkinleştirilebilir öğrendiniz. Bir Azure Storage hesabını ve sınırlı ağ erişimi yalnızca bir sanal ağ alt ağ içindeki kaynaklar için depolama hesabı oluşturuldu. Sanal ağlar üretimde hizmet uç noktaları oluşturmadan önce baştan sona ile öğrenmeniz olduğunu önerilir [hizmet uç noktaları](virtual-network-service-endpoints-overview.md).
+Bu makalede, bir sanal ağ alt ağı için bir hizmet uç noktası etkin. Hizmet uç noktaları birden çok Azure services ile dağıtılan kaynaklar için etkinleştirilebilir öğrendiniz. Bir Azure Storage hesabını ve sınırlı ağ erişimi yalnızca bir sanal ağ alt ağ içindeki kaynaklar için depolama hesabı oluşturuldu. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [hizmet uç noktaları genel bakış](virtual-network-service-endpoints-overview.md) ve [alt ağlarını yönetin](virtual-network-manage-subnet.md).
 
-Hesabınızı birden çok sanal ağlarınız varsa, her sanal ağ içindeki kaynaklara birbirleri ile iletişim kurabilmesi iki sanal ağları birbirine bağlamak isteyebilirsiniz. Sanal ağlara bağlanma hakkında bilgi edinmek için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Sanal ağlara bağlanabilir](./tutorial-connect-virtual-networks-cli.md)
+Hesabınızı birden çok sanal ağlarınız varsa, her sanal ağ içindeki kaynaklara birbirleri ile iletişim kurabilmesi iki sanal ağları birbirine bağlamak isteyebilirsiniz. Bilgi edinmek için bkz [sanal ağlara bağlanabilir](tutorial-connect-virtual-networks-cli.md).

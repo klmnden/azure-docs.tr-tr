@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama | Microsoft Belgeleri"
-description: "Azure portalında Azure AD uygulama proxy'si ile şirket içi uygulamaları bulutta yayımlayın."
+title: Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama | Microsoft Belgeleri
+description: Azure portalında Azure AD uygulama proxy'si ile şirket içi uygulamaları bulutta yayımlayın.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 ms.assetid: d94ac3f4-cd33-4c51-9d19-544a528637d4
@@ -15,11 +15,11 @@ ms.date: 12/06/2017
 ms.author: daveba
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 43cabb03a698dd87f12fef8e9a4dd54ee42c3ec9
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 1bf72b450747e98e254db77514fc7a902bbe70cc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -53,7 +53,7 @@ Uygulama proxy'si ile uygulamalarınızı yayımlamak için aşağıdaki adımla
    - **İç URL**: gelen özel ağınızdan uygulamaya erişmek için kullandığınız URL. Arka uç sunucusundaki belirli bir yolun yayımlanmasını sağlayabilirsiniz. Sunucunun geri kalanı yayımlanmaz. Bu şekilde, farklı uygulamalar ile aynı sunucuda farklı siteleri yayımlamak ve her biri kendi ad ve erişim kuralları verin.
 
      > [!TIP]
-     > Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanız https://yourapp/app üzerindeyse ve https://yourapp/media üzerindeki görüntüleri kullanıyorsa yolu https://yourapp/ olarak yayımlamanız gerekir. Bu iç URL kullanıcılarınızın giriş sayfası olması gerekmez. Daha fazla bilgi için bkz: [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](application-proxy-office365-app-launcher.md).
+     > Bir yol yayımlarsanız uygulamanıza ilişkin tüm gerekli görüntüleri, betikleri ve stil sayfalarını içerdiğinden emin olun. Örneğin, uygulamanızın en ise https://yourapp/app ve konumunda bulunan görüntüleri kullanır https://yourapp/media, yayımlamanız gerekir sonra https://yourapp/ yolu olarak. Bu iç URL kullanıcılarınızın giriş sayfası olması gerekmez. Daha fazla bilgi için bkz: [yayımlanan uygulamalar için özel bir ana sayfa ayarlamak](application-proxy-office365-app-launcher.md).
 
    - **Dış URL**: adresi kullanıcılarınızın ağınızın dışından uygulamasından erişmek için gider. Varsayılan uygulama proxy'si etki alanını kullanmak istemiyorsanız, bilgiyi [Azure AD uygulama proxy'si özel etki alanlarında](active-directory-application-proxy-custom-domains.md).
    - **Ön kimlik doğrulamasını**: nasıl uygulama proxy'si, bunları erişim uygulamanıza vermeden önce kullanıcıların doğrular. 
@@ -61,6 +61,9 @@ Uygulama proxy'si ile uygulamalarınızı yayımlamak için aşağıdaki adımla
      - Azure Active Directory: Uygulama Proxy’si, kullanıcıları Azure AD'de oturum açmaya yönlendirir. Burada, kullanıcıların dizin ve uygulama izinlerine yönelik kimlik doğrulaması gerçekleştirilir. Koşullu erişim ve çok faktörlü kimlik doğrulaması gibi Azure AD güvenlik özelliklerden yararlanabilmeniz bu seçenek varsayılan olarak tutmanızı önerir.
      - Geçiş: Kullanıcıların Azure uygulamaya erişmek için Active Directory'ye karşı kimlik doğrulaması gerekmez. Arka uç kimlik doğrulaması gereksinimleri hala ayarlayabilirsiniz.
    - **Bağlayıcı grup**: bağlayıcılar, uygulamanız için uzaktan erişim işlemek ve bağlayıcı grupları bağlayıcılar ve bölge, ağ veya amacı uygulamaların düzenlemenize yardım. Bağlayıcı gruplarda henüz yoksa, uygulamanız atandığı **varsayılan**.
+
+>[!NOTE]
+>Websocket desteği ve atanmış bir bağlayıcı grubu ile daha yüksek veya Bağlayıcısı sürüm 1.5.612.0 sahip olduğunuzdan emin olun, yalnızca uygulamanız bağlanmak için websockets kullanıyorsa, bu bağlayıcıların kullanır.
 
    ![Uygulamanızı yapılandırma](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Gerekirse, ek ayarları yapılandırın. Çoğu uygulama için bu ayarları varsayılan durumlarına tutmanız gerekir. 

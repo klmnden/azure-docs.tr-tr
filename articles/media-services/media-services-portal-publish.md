@@ -1,11 +1,11 @@
 ---
-title: "Azure portalında içerik yayımlama | Microsoft Docs"
-description: "Bu öğreticide, Azure portalında içeriğinizi yayımlama adımları açıklanmaktadır."
+title: Azure portalında içerik yayımlama | Microsoft Docs
+description: Bu öğreticide, Azure portalında içeriğinizi yayımlama adımları açıklanmaktadır.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 92c364eb-5a5f-4f4e-8816-b162c031bb40
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 5c79f4e0209658e5c95e158c3ef78f91dba8966f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure portalında içerik yayımlama
 > [!div class="op_single_selector"]
@@ -41,15 +41,15 @@ Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullan
 
 HLS akış URL’si oluşturmak için, URL’ye *(format=m3u8-aapl)* ekleyin.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
 Kesintisiz Akış varlıklarını oynatacak akış URL’sini oluşturmak için aşağıdaki URL biçimini kullanın:
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest
 
 MPEG DASH akış URL’si oluşturmak için, URL’ye *(format=mpd-time-csf)* ekleyin.
 
-    {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
+    {streaming endpoint name-media services account name}/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
 Paylaşılan erişim imzası URL'si aşağıdaki biçime sahiptir:
 

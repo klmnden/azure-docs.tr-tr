@@ -1,13 +1,13 @@
 ---
-title: "Azure sanal makineleri yüksek kullanılabilirlik için SAP NetWeaver SUSE Linux Enterprise Server üzerinde SAP uygulamaları için | Microsoft Docs"
-description: "Yüksek kullanılabilirlik için Kılavuzu SAP NetWeaver SUSE Linux Enterprise Server üzerinde SAP uygulamaları için"
+title: Azure sanal makineleri yüksek kullanılabilirlik için SAP NetWeaver SUSE Linux Enterprise Server üzerinde SAP uygulamaları için | Microsoft Docs
+description: Yüksek kullanılabilirlik için Kılavuzu SAP NetWeaver SUSE Linux Enterprise Server üzerinde SAP uygulamaları için
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -16,17 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-<<<<<<< HEAD
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde SAP NetWeaver SAP uygulamalar için yüksek kullanılabilirlik
 
@@ -55,9 +49,10 @@ ms.lasthandoff: 12/08/2017
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
+[nfs-ha]:high-availability-guide-suse-nfs.md
 
 Bu makalede, sanal makineleri dağıtmak, sanal makineleri yapılandırma, küme Framework'ü yüklemek ve yüksek oranda kullanılabilir bir SAP NetWeaver 7.50 sistemi yükleyin açıklar.
-Örnek yapılandırmalarında yükleme komutlarını vs. Sayı 02 ERS ASCS örnek numarasını 00, örneği ve SAP sistem kimliği NWS kullanılır. Örnekte kaynakların (örneğin, sanal makineler, sanal ağlar) adları, kullandığınız varsayılmıştır [şablonu Yakınsanan] [ template-converged] kimliği kaynak oluşturmak için NWS SAP sistemiyle.
+Örnek yapılandırmalarında yükleme komutlarını vs. Sayı 02 ERS ASCS örnek numarasını 00, örneği ve SAP sistem kimliği NW1 kullanılır. Örnekte kaynakların (örneğin, sanal makineler, sanal ağlar) adları, kullandığınız varsayılmıştır [şablonu Yakınsanan] [ template-converged] kimliği kaynak oluşturmak için NW1 SAP sistemiyle.
 
 Aşağıdaki SAP notlar ve raporları ilk okuma
 
@@ -90,468 +85,48 @@ Yüksek kullanılabilirlik elde etmek için bir NFS sunucusunun SAP NetWeaver ge
 
 ![SAP NetWeaver yüksek kullanılabilirlik genel bakış](./media/high-availability-guide-suse/img_001.png)
 
-NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS ve SAP HANA veritabanına sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki listede, yük dengeleyici yapılandırması gösterilmektedir.
+NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS ve SAP HANA veritabanına sanal ana bilgisayar adı ve sanal IP adresleri kullanın. Azure üzerinde bir yük dengeleyici sanal IP adresi kullanmak için gereklidir. Aşağıdaki liste, (A) yapılandırmasını gösterir SCS ve ERS yük dengeleyici.
 
-### <a name="nfs-server"></a>NFS sunucusu
-* Ön uç yapılandırma
-  * IP adresi 10.0.0.4
-* Arka uç yapılandırması
-  * NFS Küme parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı
-* Sonda bağlantı noktası
-  * Bağlantı noktası 61000
-* Loadbalancing kuralları
-  * 2049 TCP 
-  * 2049 UDP
+### <a name="ascs"></a>(A)SCS
 
-### <a name="ascs"></a>(A) SCS
 * Ön uç yapılandırma
-  * IP adresi 10.0.0.10
+  * IP adresi 10.0.0.7
 * Arka uç yapılandırması
   * (A) bir parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı SCS/ERS küme
 * Sonda bağlantı noktası
   * Bağlantı noktası 620**&lt;n&gt;**
 * Loadbalancing kuralları
-  * 32**&lt;n&gt;**  TCP
-  * 36**&lt;n&gt;**  TCP
-  * 39**&lt;n&gt;**  TCP
-  * 81**&lt;n&gt;**  TCP
-  * 5**&lt;n&gt;**13 TCP
-  * 5**&lt;n&gt;**14 TCP
-  * 5**&lt;n&gt;**16 TCP
+  * 32**&lt;nr&gt;** TCP
+  * 36**&lt;nr&gt;** TCP
+  * 39**&lt;nr&gt;** TCP
+  * 81**&lt;nr&gt;** TCP
+  * 5**&lt;nr&gt;**13 TCP
+  * 5**&lt;nr&gt;**14 TCP
+  * 5**&lt;nr&gt;**16 TCP
 
 ### <a name="ers"></a>ERS
+
 * Ön uç yapılandırma
-  * IP adresi 10.0.0.11
+  * IP adresi 10.0.0.8
 * Arka uç yapılandırması
   * (A) bir parçası olması gereken tüm sanal makinelerin birincil ağ arabirimlerine bağlı SCS/ERS küme
 * Sonda bağlantı noktası
   * Bağlantı noktası 621**&lt;n&gt;**
 * Loadbalancing kuralları
-  * 33**&lt;n&gt;**  TCP
-  * 5**&lt;n&gt;**13 TCP
-  * 5**&lt;n&gt;**14 TCP
-  * 5**&lt;n&gt;**16 TCP
-
-### <a name="sap-hana"></a>SAP HANA
-* Ön uç yapılandırma
-  * IP adresi 10.0.0.12
-* Arka uç yapılandırması
-  * Tüm sanal makinelerin HANA kümesinin parçası olması gereken birincil ağ arabirimlerine bağlı
-* Sonda bağlantı noktası
-  * Bağlantı noktası 625**&lt;n&gt;**
-* Loadbalancing kuralları
-  * 3**&lt;n&gt;**15 TCP
-  * 3**&lt;n&gt;**17 TCP
+  * 33**&lt;nr&gt;** TCP
+  * 5**&lt;nr&gt;**13 TCP
+  * 5**&lt;nr&gt;**14 TCP
+  * 5**&lt;nr&gt;**16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Yüksek oranda kullanılabilir bir NFS sunucusu kurma
 
-### <a name="deploying-linux"></a>Linux dağıtma
-
-Azure Market SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz SUSE Linux Enterprise Server için bir görüntü içerir.
-Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablonlarından birini kullanabilirsiniz. Şablonun sanal makineler, yük dengeleyici, kullanılabilirlik vb. kümesi dağıtır. Şablonu dağıtmak için aşağıdaki adımları izleyin:
-
-1. Açık [SAP dosya sunucusu şablonu] [ template-file-server] Azure portalında   
-1. Aşağıdaki parametreleri girin
-   1. Kaynak öneki  
-      Kullanmak istediğiniz ön eki girin. Değer, dağıtılan kaynaklar için önek olarak kullanılır.
-   2. İşletim sistemi türü  
-      Linux dağıtımları birini seçin. Bu örnekte, SLES 12 seçin
-   3. Yönetici kullanıcı adı ve yönetici parolası  
-      Yeni bir kullanıcı oluşturulur makineye oturum açmak için kullanılabilir.
-   4. Alt ağ kimliği  
-      Sanal makineler için bağlanması alt ağ kimliği. Yeni bir sanal ağ oluşturmak veya şirket içi ağınıza sanal makineye bağlanmak için VPN veya hızlı rota sanal ağınızın alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
-
-### <a name="installation"></a>Yükleme
-
-Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli **[1]** - 1 düğümü yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
-
-1. **[A]**  SLES güncelleştir
-
-   <pre><code>
-   sudo zypper update
-   </code></pre>
-
-1. **[1]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-2. **[2]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-
-   # insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key   
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-1. **[1]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
-   </code></pre>
-
-1. **[A]**  Yükleme HA uzantısı
-   
-   <pre><code>
-   sudo zypper install sle-ha-release fence-agents
-   </code></pre>
-
-1. **[A]**  Kurulum ana bilgisayar adı çözümlemesi   
-
-   Bir DNS sunucusu kullanın veya tüm düğümlerde/etc/hosts değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
-   IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin
-
-   <pre><code>
-   sudo vi /etc/hosts
-   </code></pre>
-   
-   / Etc/hosts aşağıdaki satırları ekleyin. Ortamınıza uyum sağlaması için ana bilgisayar adı ve IP adresini değiştirme   
-   
-   <pre><code>
-   # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
-   </code></pre>
-
-1. **[1]**  Küme yükleyin
-   
-   <pre><code>
-   sudo ha-cluster-init
-   
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
-   # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
-   # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
-   </code></pre>
-
-1. **[2]**  Küme düğümüne Ekle
-   
-   <pre><code> 
-   sudo ha-cluster-join
-
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
-   # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
-   # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-   </code></pre>
-
-1. **[A]**  Hacluster parola aynı parolayı Değiştir
-
-   <pre><code> 
-   sudo passwd hacluster
-   </code></pre>
-
-1. **[A]**  Diğer aktarım kullanın ve listesi eklemek için corosync yapılandırın. Aksi takdirde, küme çalışmaz.
-   
-   <pre><code> 
-   sudo vi /etc/corosync/corosync.conf   
-   </code></pre>
-
-   Aşağıdaki kalın içeriği dosyaya ekleyin.
-   
-   <pre><code> 
-   [...]
-     interface { 
-        [...] 
-     }
-     <b>transport:      udpu</b>
-   } 
-   <b>nodelist {
-     node {
-      # IP address of <b>prod-nfs-0</b>
-      ring0_addr:10.0.0.5
-     }
-     node {
-      # IP address of <b>prod-nfs-1</b>
-      ring0_addr:10.0.0.6
-     } 
-   }</b>
-   logging {
-     [...]
-   </code></pre>
-
-   Corosync hizmetini durdurup yeniden başlatın
-
-   <pre><code>
-   sudo service corosync restart
-   </code></pre>
-
-1. **[A]**  Drbd bileşenlerini yükleme
-
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
-   </code></pre>
-
-1. **[A]**  Drbd cihaz için bir bölüm oluşturun
-
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
-   </code></pre>
-
-1. **[A]**  LVM oluşturma yapılandırmaları
-
-   <pre><code>
-   sudo pvcreate /dev/sdc1   
-   sudo vgcreate vg_NFS /dev/sdc1
-   sudo lvcreate -l 100%FREE -n <b>NWS</b> vg_NFS
-   </code></pre>
-
-1. **[A]**  NFS drbd cihaz oluşturma
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_nfs.res
-   </code></pre>
-
-   Çıkış ve yeni drbd Aygıt Yapılandırması Ekle
-
-   <pre><code>
-   resource <b>NWS</b>_nfs {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>prod-nfs-0</b> {
-         address   <b>10.0.0.5</b>:7790;
-         device    /dev/drbd0;
-         disk      /dev/vg_NFS/NWS;
-         meta-disk internal;
-      }
-      on <b>prod-nfs-1</b> {
-         address   <b>10.0.0.6</b>:7790;
-         device    /dev/drbd0;
-         disk      /dev/vg_NFS/NWS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Drbd aygıtı oluşturun ve başlatın
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_nfs
-   sudo drbdadm up <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]**  Atla ilk eşitleme
-
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]**  Birincil düğüm kümesi
-
-   <pre><code>
-   sudo drbdadm primary --force <b>NWS</b>_nfs
-   </code></pre>
-
-1. **[1]**  Yeni drbd aygıtları eşitlenir kadar bekleyin
-
-   <pre><code>
-   sudo cat /proc/drbd
-
-   # version: 8.4.6 (api:1/proto:86-101)
-   # GIT-hash: 833d830e0152d1e457fa7856e71e11248ccf3f70 build by abuild@sheep14, 2016-05-09 23:14:56
-   # 0: cs:Connected ro:Primary/Secondary ds:UpToDate/UpToDate C r-----
-   #    ns:0 nr:0 dw:0 dr:912 al:8 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   </code></pre>
-
-1. **[1]**  Drbd cihazlarda dosya sistemleri oluşturma
-
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
-   </code></pre>
-
-
-### <a name="configure-cluster-framework"></a>Küme çerçeve Yapılandır
-
-1. **[1]**  Varsayılan ayarlarını değiştirme
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# rsc_defaults resource-stickiness="1"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]**  Küme yapılandırmasında NFS drbd aygıt ekleme
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive drbd_<b>NWS</b>_nfs \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_nfs" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
-
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_nfs drbd_<b>NWS</b>_nfs \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true" interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]**  NFS sunucusu oluşturma
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive nfsserver \
-     systemd:nfs-server \
-     op monitor interval="30s"
-
-   crm(live)configure# clone cl-nfsserver nfsserver interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]**  NFS dosya sistemi kaynakları oluşturun
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive fs_<b>NWS</b>_sapmnt \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd0 \
-     directory=/srv/nfs/<b>NWS</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# group g-<b>NWS</b>_nfs fs_<b>NWS</b>_sapmnt
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_nfs inf: \
-     ms-drbd_<b>NWS</b>_nfs:promote g-<b>NWS</b>_nfs:start
-   
-   crm(live)configure# colocation col-<b>NWS</b>_nfs_on_drbd inf: \
-     g-<b>NWS</b>_nfs ms-drbd_<b>NWS</b>_nfs:Master
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]**  NFS aktarır oluştur
-
-   <pre><code>
-   sudo mkdir /srv/nfs/<b>NWS</b>/sidsys
-   sudo mkdir /srv/nfs/<b>NWS</b>/sapmntsid
-   sudo mkdir /srv/nfs/<b>NWS</b>/trans
-
-   sudo crm configure
-
-   crm(live)configure# primitive exportfs_<b>NWS</b> \
-     ocf:heartbeat:exportfs \
-     params directory="/srv/nfs/<b>NWS</b>" \
-     options="rw,no_root_squash" \
-     clientspec="*" fsid=0 \
-     wait_for_leasetime_on_stop=true \
-     op monitor interval="30s"
-
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add exportfs_<b>NWS</b>
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-1. **[1]**  Bir sanal IP kaynak ve sistem durumu araştırması iç yük dengeleyicisi için oluşturma
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
-     op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 610<b>00</b>" \
-     op monitor timeout=20s interval=10 depth=0
-
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add nc_<b>NWS</b>_nfs
-   crm(live)configure# modgroup g-<b>NWS</b>_nfs add vip_<b>NWS</b>_nfs
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-### <a name="create-stonith-device"></a>STONITH cihaz oluşturma
-
-STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
-
-1. Git <https://portal.azure.com>
-1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
-1. Uygulama kayıtlar'ı tıklatın
-1. Ekle'ye tıklayın.
-1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
-1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
-1. Yeni uygulama seçin ve anahtarları Ayarlar sekmesini
-1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun" seçin ve Kaydet
-1. Değeri yazın. Olarak kullanılan **parola** için hizmet sorumlusu
-1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** aşağıdaki adımlarda), hizmet sorumlusu
-
-Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Başlatmak ve durdurmak için hizmet asıl izinleri vermeniz gerekir (serbest bırakma) kümenin tüm sanal makineler.
-
-1. Https://Portal.Azure.com için Git
-1. Tüm kaynaklar dikey penceresini açın
-1. Sanal makineyi seçin
-1. Erişim denetimi (IAM) tıklatın
-1. Ekle'ye tıklayın.
-1. Sahip rolü seçin
-1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'ı tıklatın
-
-#### <a name="1-create-the-stonith-devices"></a>**[1]**  STONITH aygıtları oluşturun
-
-Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları yapılandırabilirsiniz.
-
-<pre><code>
-sudo crm configure
-
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-
-crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-
-crm(live)configure# commit
-crm(live)configure# exit
-</code></pre>
-
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  STONITH aygıt kullanımını etkinleştirme
-
-<pre><code>
-sudo crm configure property stonith-enabled=true 
-</code></pre>
+SAP NetWeaver aktarım ve profil dizini için paylaşılan depolama gerektirir. Okuma [yüksek kullanılabilirlik için NFS SUSE Linux Enterprise Server üzerinde Azure vm'lerinde] [ nfs-ha] SAP NetWeaver için bir NFS sunucusunu ayarlama konusunda.
 
 ## <a name="setting-up-ascs"></a>(A) SCS ayarlama
 
-### <a name="deploying-linux"></a>Linux dağıtma
+Sanal makineler de dahil olmak üzere tüm gerekli Azure kaynaklarını dağıtmak için bir Azure şablonu github'dan kullanabilirsiniz, kullanılabilirlik kümesi ve yük dengeleyici veya kaynakları el ile dağıtabilirsiniz.
+
+### <a name="deploy-linux-via-azure-template"></a>Linux Azure şablonu aracılığıyla dağıtma
 
 Azure Market SAP uygulamaları 12 için yeni sanal makineleri dağıtmak için kullanabileceğiniz SUSE Linux Enterprise Server için bir görüntü içerir. Market görüntüsü SAP NetWeaver kaynak aracı içerir.
 
@@ -578,56 +153,77 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
    10. Alt ağ kimliği  
    Sanal makineler için bağlanması alt ağ kimliği.  Yeni bir sanal ağ oluşturmak veya NFS sunucu dağıtımının bir parçası olarak kullanılan ya da oluşturduğunuz aynı alt seçmek istiyorsanız boş bırakın. Kimliği genellikle /subscriptions/ gibi görünüyor**&lt;abonelik kimliği&gt;**/resourceGroups/**&lt;kaynak grubu adı&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;sanal ağ adı&gt;**/subnets/**&lt;alt ağ adı&gt;**
 
+### <a name="deploy-linux-manually-via-azure-portal"></a>Linux Azure portalı üzerinden el ile dağıtma
+
+Önce bu NFS küme için sanal makineleri oluşturmanız gerekir. Daha sonra bir yük dengeleyicisi oluşturun ve sanal makineleri arka uç havuzlarını kullanın.
+
+1. Kaynak Grubu oluşturma
+1. Sanal Ağ Oluştur
+1. Kullanılabilirlik kümesi oluştur  
+   Set max güncelleştirme etki alanı
+1. Sanal makine 1 oluşturun   
+   En azından SLES4SAP 12 SP1, bu örnek SLES4SAP 12 SP1 resmi https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SAP uygulamaları 12 SP1 ile için SLES kullanılır  
+   Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
+1. Sanal makine 2 oluşturun   
+   En azından SLES4SAP 12 SP1, bu örnek SLES4SAP 12 SP1 resmi https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM  
+   SAP uygulamaları 12 SP1 ile için SLES kullanılır  
+   Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin  
+1. Her iki sanal makine için en az bir veri diski Ekle  
+   Veri diskleri / usr/sap/için kullanılan`<SAPSID`> Dizin
+1. Bir yük dengeleyiciye (dahili) oluşturma  
+   1. Ön uç IP adreslerini oluşturun
+      1. IP adresi 10.0.0.7 ASCS için
+         1. Yük Dengeleyici açın, ön uç IP havuzu seçin ve Ekle'yi tıklatın
+         1. Yeni ön uç IP havuzunun adını girin (örneğin **nw1 ascs frontend**)
+         1. Atama statik olarak ayarlamanız ve IP adresini girin (örneğin **10.0.0.7**)
+         1. Tamam'ı tıklatın
+      1. ASCS ERS için IP adresi 10.0.0.8
+         * Bir IP adresi için ERS oluşturmak için yukarıdaki adımları yineleyin (örneğin **10.0.0.8** ve **nw1 aers arka**)
+   1. Arka uç havuzları oluşturma
+      1. ASCS için bir arka uç havuzu oluşturma
+         1. Yük Dengeleyici açın, arka uç havuzlarını seçin ve Ekle'yi tıklatın
+         1. Yeni arka uç havuzunun adını girin (örneğin **nw1 ascs arka**)
+         1. Bir sanal makine Ekle seçeneğine tıklayın.
+         1. Daha önce oluşturduğunuz kullanılabilirlik kümesi seçin
+         1. (A) sanal makinelerin seçin SCS küme
+         1. Tamam'ı tıklatın
+      1. ASCS ERS için bir arka uç havuzu oluşturma
+         * ERS için bir arka uç havuzu oluşturmak için yukarıdaki adımları yineleyin (örneğin **nw1 aers arka**)
+   1. Sistem durumu araştırmalarının oluşturma
+      1. Bağlantı noktası 620**00** ASCS için
+         1. Yük Dengeleyici açın, sistem durumu araştırmalarının seçin ve Ekle'yi tıklatın
+         1. Yeni durum araştırması adını girin (örneğin **nw1 ascs hp**)
+         1. TCP bağlantı noktası 620 protokolü olarak seçin**00**, aralığı 5 ile sağlıksız durum eşiği 2 tutun
+         1. Tamam'ı tıklatın
+      1. Bağlantı noktası 621**02** ASCS ERS için
+         * Bir sistem durumu araştırması için ERS oluşturmak için yukarıdaki adımları yineleyin (örneğin 621**02** ve **nw1 aers hp**)
+   1. Loadbalancing kuralları
+      1. 32**00** ASCS TCP
+         1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
+         1. Yeni Yük Dengeleyici kuralı adını girin (örneğin **nw1 lb 3200**)
+         1. Ön uç IP adresi, arka uç havuzu ve daha önce oluşturduğunuz durumu araştırması seçin (örneğin **nw1 ascs frontend**)
+         1. Protokol tutmak **TCP**, bağlantı noktası girin **3200**
+         1. -30 dakika boşta kalma zaman aşımı süresini artırın
+         1. **Kayan IP etkinleştirdiğinizden emin olun**
+         1. Tamam'ı tıklatın    
+      1. ASCS için ek bağlantı noktaları
+         * 36 bağlantı noktaları için yukarıdaki adımları yineleyin**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 ve ASCS TCP
+      1. ASCS ERS için ek bağlantı noktaları
+         * 33 bağlantı noktaları için yukarıdaki adımları yineleyin**02**, 5**02**13, 5**02**14, 5**02**16 ve ASCS ERS TCP
+
+### <a name="create-pacemaker-cluster"></a>Pacemaker kümesi oluşturma
+
+Adımları [Pacemaker SUSE Linux Enterprise Server Azure üzerinde ayarlama](high-availability-guide-suse-pacemaker.md) temel oluşturmak için Pacemaker küme bu (A) SCS sunucu.
+
 ### <a name="installation"></a>Yükleme
 
 Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli **[1]** - 1 düğümü yalnızca uygulanabilir veya **[2]** - yalnızca düğüm 2 için geçerlidir.
 
-1. **[A]**  SLES güncelleştir
-
-   <pre><code>
-   sudo zypper update
-   </code></pre>
-
-1. **[1]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-2. **[2]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   sudo ssh-keygen -tdsa
-
-   # insert the public key you copied in the last step into the authorized keys file on the second server
-   sudo vi /root/.ssh/authorized_keys
-   
-   # Enter file in which to save the key (/root/.ssh/id_dsa): -> ENTER
-   # Enter passphrase (empty for no passphrase): -> ENTER
-   # Enter same passphrase again: -> ENTER
-   
-   # copy the public key   
-   sudo cat /root/.ssh/id_dsa.pub
-   </code></pre>
-
-1. **[1]**  Ssh erişimini etkinleştirme
-
-   <pre><code>
-   # insert the public key you copied in the last step into the authorized keys file on the first server
-   sudo vi /root/.ssh/authorized_keys
-   </code></pre>
-
-1. **[A]**  Yükleme HA uzantısı
+1. **[A]**  SUSE bağlayıcısını
    
    <pre><code>
-   sudo zypper install sle-ha-release fence-agents
+   sudo zypper install sap_suse_cluster_connector
    </code></pre>
 
 1. **[A]**  Güncelleştirme SAP kaynak aracıları  
@@ -666,222 +262,13 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.10 nws-ascs</b>
-   # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.11 nws-ers</b>
+   <b>10.0.0.4 nw1-nfs</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
+   <b>10.0.0.11 nw1-ascs</b>
+   # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
-   <b>10.0.0.12 nws-db</b>
-   </code></pre>
-
-1. **[1]**  Küme yükleyin
-   
-   <pre><code>
-   sudo ha-cluster-init
-   
-   # Do you want to continue anyway? [y/N] -> y
-   # Network address to bind to (for example: 192.168.1.0) [10.79.227.0] -> ENTER
-   # Multicast address (for example: 239.x.x.x) [239.174.218.125] -> ENTER
-   # Multicast port [5405] -> ENTER
-   # Do you wish to use SBD? [y/N] -> N
-   # Do you wish to configure an administration IP? [y/N] -> N
-   </code></pre>
-
-1. **[2]**  Küme düğümüne Ekle
-   
-   <pre><code> 
-   sudo ha-cluster-join
-
-   # WARNING: NTP is not configured to start at system boot.
-   # WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
-   # Do you want to continue anyway? [y/N] -> y
-   # IP address or hostname of existing node (for example: 192.168.1.1) [] -> IP address of node 1 for example 10.0.0.10
-   # /root/.ssh/id_dsa already exists - overwrite? [y/N] N
-   </code></pre>
-
-1. **[A]**  Hacluster parola aynı parolayı Değiştir
-
-   <pre><code> 
-   sudo passwd hacluster
-   </code></pre>
-
-1. **[A]**  Diğer aktarım kullanın ve listesi eklemek için corosync yapılandırın. Aksi takdirde, küme çalışmaz.
-   
-   <pre><code> 
-   sudo vi /etc/corosync/corosync.conf   
-   </code></pre>
-
-   Aşağıdaki kalın içeriği dosyaya ekleyin.
-   
-   <pre><code> 
-   [...]
-     interface { 
-        [...] 
-     }
-     <b>transport:      udpu</b>
-   } 
-   <b>nodelist {
-     node {
-      # IP address of <b>nws-cl-0</b>
-      ring0_addr:     10.0.0.14
-     }
-     node {
-      # IP address of <b>nws-cl-1</b>
-      ring0_addr:     10.0.0.13
-     } 
-   }</b>
-   logging {
-     [...]
-   </code></pre>
-
-   Corosync hizmetini durdurup yeniden başlatın
-
-   <pre><code>
-   sudo service corosync restart
-   </code></pre>
-
-1. **[A]**  Drbd bileşenlerini yükleme
-
-   <pre><code>
-   sudo zypper install drbd drbd-kmp-default drbd-utils
-   </code></pre>
-
-1. **[A]**  Drbd cihaz için bir bölüm oluşturun
-
-   <pre><code>
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdc'
-   </code></pre>
-
-1. **[A]**  LVM oluşturma yapılandırmaları
-
-   <pre><code>
-   sudo pvcreate /dev/sdc1   
-   sudo vgcreate vg_<b>NWS</b> /dev/sdc1
-   sudo lvcreate -l 50%FREE -n <b>NWS</b>_ASCS vg_<b>NWS</b>
-   sudo lvcreate -l 50%FREE -n <b>NWS</b>_ERS vg_<b>NWS</b>
-   </code></pre>
-
-1. **[A]**  SCS drbd cihaz oluşturma
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_ascs.res
-   </code></pre>
-
-   Çıkış ve yeni drbd Aygıt Yapılandırması Ekle
-
-   <pre><code>
-   resource <b>NWS</b>_ascs {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>nws-cl-0</b> {
-         address   <b>10.0.0.14</b>:7791;
-         device    /dev/drbd0;
-         disk      /dev/vg_NWS/NWS_ASCS;
-         meta-disk internal;
-      }
-      on <b>nws-cl-1</b> {
-         address   <b>10.0.0.13</b>:7791;
-         device    /dev/drbd0;
-         disk      /dev/vg_NWS/NWS_ASCS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Drbd aygıtı oluşturun ve başlatın
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_ascs
-   sudo drbdadm up <b>NWS</b>_ascs
-   </code></pre>
-
-1. **[A]**  ERS drbd cihaz oluşturma
-
-   <pre><code>
-   sudo vi /etc/drbd.d/<b>NWS</b>_ers.res
-   </code></pre>
-
-   Çıkış ve yeni drbd Aygıt Yapılandırması Ekle
-
-   <pre><code>
-   resource <b>NWS</b>_ers {
-      protocol     C;
-      disk {
-         on-io-error       pass_on;
-      }
-      on <b>nws-cl-0</b> {
-         address   <b>10.0.0.14</b>:7792;
-         device    /dev/drbd1;
-         disk      /dev/vg_NWS/NWS_ERS;
-         meta-disk internal;
-      }
-      on <b>nws-cl-1</b> {
-         address   <b>10.0.0.13</b>:7792;
-         device    /dev/drbd1;
-         disk      /dev/vg_NWS/NWS_ERS;
-         meta-disk internal;
-      }
-   }
-   </code></pre>
-
-   Drbd aygıtı oluşturun ve başlatın
-
-   <pre><code>
-   sudo drbdadm create-md <b>NWS</b>_ers
-   sudo drbdadm up <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]**  Atla ilk eşitleme
-
-   <pre><code>
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ascs
-   sudo drbdadm new-current-uuid --clear-bitmap <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]**  Birincil düğüm kümesi
-
-   <pre><code>
-   sudo drbdadm primary --force <b>NWS</b>_ascs
-   sudo drbdadm primary --force <b>NWS</b>_ers
-   </code></pre>
-
-1. **[1]**  Yeni drbd aygıtları eşitlenir kadar bekleyin
-
-   <pre><code>
-   sudo cat /proc/drbd
-
-   # version: 8.4.6 (api:1/proto:86-101)
-   # GIT-hash: 833d830e0152d1e457fa7856e71e11248ccf3f70 build by abuild@sheep14, 2016-05-09 23:14:56
-   # 0: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:93991268 nr:0 dw:93991268 dr:93944920 al:383 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   # 1: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:6047920 nr:0 dw:6047920 dr:6039112 al:34 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   # 2: cs:<b>Connected</b> ro:Primary/Secondary ds:<b>UpToDate/UpToDate</b> C r-----
-   #     ns:5142732 nr:0 dw:5142732 dr:5133924 al:30 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
-   </code></pre>
-
-1. **[1]**  Drbd cihazlarda dosya sistemleri oluşturma
-
-   <pre><code>
-   sudo mkfs.xfs /dev/drbd0
-   sudo mkfs.xfs /dev/drbd1
-   </code></pre>
-
-
-### <a name="configure-cluster-framework"></a>Küme çerçeve Yapılandır
-
-**[1]**  Varsayılan ayarlarını değiştirme
-
-   <pre><code>
-   sudo crm configure
-
-   crm(live)configure# rsc_defaults resource-stickiness="1"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
+   <b>10.0.0.13 nw1-db</b>
    </code></pre>
 
 ## <a name="prepare-for-sap-netweaver-installation"></a>SAP NetWeaver yükleme için hazırlama
@@ -889,20 +276,24 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 1. **[A]**  Paylaşılan dizinler oluşturma
 
    <pre><code>
-   sudo mkdir -p /sapmnt/<b>NWS</b>
+   sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
-   sudo mkdir -p /usr/sap/<b>NWS</b>/SYS
+   sudo mkdir -p /usr/sap/<b>NW1</b>/SYS
+   sudo mkdir -p /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   sudo mkdir -p /usr/sap/<b>NW1</b>/ERS<b>02</b>
 
-   sudo chattr +i /sapmnt/<b>NWS</b>
+   sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
-   sudo chattr +i /usr/sap/<b>NWS</b>/SYS
+   sudo chattr +i /usr/sap/<b>NW1</b>/SYS
+   sudo chattr +i /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   sudo chattr +i /usr/sap/<b>NW1</b>/ERS<b>02</b>
    </code></pre>
 
 1. **[A]**  Autofs yapılandırın
  
    <pre><code>
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -912,11 +303,13 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
    <pre><code>
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
-   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
-   /usr/sap/<b>NWS</b>/SYS -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sidsys
+   /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
+   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
+   /usr/sap/<b>NW1</b>/SYS -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sidsys
+   /usr/sap/<b>NW1</b>/ASCS<b>00</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCS
+   /usr/sap/<b>NW1</b>/ERS<b>02</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/ASCSERS
    </code></pre>
 
    Yeni paylaşımlar bağlamak için autofs yeniden başlatın
@@ -927,14 +320,14 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    </code></pre>
 
 1. **[A]**  Yapılandırma TAKAS dosyası
- 
+
    <pre><code>
    sudo vi /etc/waagent.conf
-
+   
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
-
+   
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
@@ -947,74 +340,46 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo service waagent restart
    </code></pre>
 
+
 ### <a name="installing-sap-netweaver-ascsers"></a>SAP NetWeaver ASCS/ERS yükleme
 
-1. **[1]**  Bir sanal IP kaynak ve sistem durumu araştırması iç yük dengeleyicisi için oluşturma
+1. **[1]**  Bir sanal IP kaynağı oluşturup ASCS örneği için sistem durumu araştırması
 
    <pre><code>
-   sudo crm node standby <b>nws-cl-1</b>
-   sudo crm configure
-
-   crm(live)configure# primitive drbd_<b>NWS</b>_ASCS \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_ascs" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
-
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_ASCS drbd_<b>NWS</b>_ASCS \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true"
-
-   crm(live)configure# primitive fs_<b>NWS</b>_ASCS \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd0 \
-     directory=/usr/sap/<b>NWS</b>/ASCS<b>00</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
+   sudo crm node standby <b>nw1-cl-1</b>
+   
+   sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
+   
+   sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
      params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
      op monitor timeout=20s interval=10 depth=0
    
-   crm(live)configure# group g-<b>NWS</b>_ASCS nc_<b>NWS</b>_ASCS vip_<b>NWS</b>_ASCS fs_<b>NWS</b>_ASCS \
+   sudo crm configure group g-<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
       meta resource-stickiness=3000
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_ASCS inf: \
-     ms-drbd_<b>NWS</b>_ASCS:promote g-<b>NWS</b>_ASCS:start
-   
-   crm(live)configure# colocation col-<b>NWS</b>_ASCS_on_drbd inf: \
-     ms-drbd_<b>NWS</b>_ASCS:Master g-<b>NWS</b>_ASCS
-   
-   crm(live)configure# commit
-   crm(live)configure# exit
    </code></pre>
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Kaynakları çalıştıran hangi düğümde önemli değildir.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Node nws-cl-1: standby
-   # <b>Online: [ nws-cl-0 ]</b>
+   
+   # Node nw1-cl-1: standby
+   # <b>Online: [ nw1-cl-0 ]</b>
    # 
    # Full list of resources:
    # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      Stopped: [ nws-cl-1 ]
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-0</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-0</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
    </code></pre>
 
 1. **[1]**  SAP NetWeaver ASCS yükleyin  
 
-   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nws ascs</b>, <b>10.0.0.10</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>00</b>.
+   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nw1 ascs</b>, <b>10.0.0.11</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>00</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -1022,83 +387,56 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
    </code></pre>
 
-1. **[1]**  Bir sanal IP kaynak ve sistem durumu araştırması iç yük dengeleyicisi için oluşturma
+   Bir alt klasör/usr/sap/oluşturmak yükleme başarısız olursa**NW1**/ASCS**00**, sahibi ve ASCS grubu ayarlamayı deneyin**00** klasörü ve yeniden deneyin.
 
    <pre><code>
-   sudo crm node standby <b>nws-cl-0</b>
-   sudo crm node online <b>nws-cl-1</b>
-   sudo crm configure
+   chown nw1adm /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ASCS<b>00</b>
+   </code></pre>
 
-   crm(live)configure# primitive drbd_<b>NWS</b>_ERS \
-     ocf:linbit:drbd \
-     params drbd_resource="<b>NWS</b>_ers" \
-     op monitor interval="15" role="Master" \
-     op monitor interval="30" role="Slave"
+1. **[1]**  Bir sanal IP kaynağı oluşturup ERS örneği için sistem durumu araştırması
 
-   crm(live)configure# ms ms-drbd_<b>NWS</b>_ERS drbd_<b>NWS</b>_ERS \
-     meta master-max="1" master-node-max="1" clone-max="2" \
-     clone-node-max="1" notify="true"
-
-   crm(live)configure# primitive fs_<b>NWS</b>_ERS \
-     ocf:heartbeat:Filesystem \
-     params device=/dev/drbd1 \
-     directory=/usr/sap/<b>NWS</b>/ERS<b>02</b>  \
-     fstype=xfs \
-     op monitor interval="10s"
-
-   crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+   <pre><code>
+   sudo crm node online <b>nw1-cl-1</b>
+   sudo crm node standby <b>nw1-cl-0</b>
+   
+   sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
+     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
-
-   crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
+   
+   sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
     params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
     op monitor timeout=20s interval=10 depth=0
-
-   crm(live)configure# group g-<b>NWS</b>_ERS nc_<b>NWS</b>_ERS vip_<b>NWS</b>_ERS fs_<b>NWS</b>_ERS
-
-   crm(live)configure# order o-<b>NWS</b>_drbd_before_ERS inf: \
-     ms-drbd_<b>NWS</b>_ERS:promote g-<b>NWS</b>_ERS:start
    
-   crm(live)configure# colocation col-<b>NWS</b>_ERS_on_drbd inf: \
-     ms-drbd_<b>NWS</b>_ERS:Master g-<b>NWS</b>_ERS
-   
-   crm(live)configure# commit
-   # WARNING: Resources nc_NWS_ASCS,nc_NWS_ERS,nc_NWS_nfs violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
    # Do you still want to commit (y/n)? y
-
-   crm(live)configure# exit
    
+   sudo crm configure group g-<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
    </code></pre>
  
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Kaynakları çalıştıran hangi düğümde önemli değildir.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Node <b>nws-cl-0: standby</b>
-   # <b>Online: [ nws-cl-1 ]</b>
+   
+   # Node <b>nw1-cl-0: standby</b>
+   # <b>Online: [ nw1-cl-1 ]</b>
    # 
    # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      Stopped: [ nws-cl-0 ]
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ERS
+   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
    </code></pre>
 
 1. **[2]**  SAP NetWeaver ERS yükleyin  
 
-   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nws ers</b>, <b>10.0.0.11</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>02</b>.
+   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nw1 aers</b>, <b>10.0.0.12</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>02</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -1108,6 +446,13 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
    > [!NOTE]
    > SWPM SP 20 PL 05 ya da daha yüksek kullanın. Daha düşük sürümler izinleri düzgün ayarlanmamış ve yükleme başarısız olur.
+
+   Bir alt klasör/usr/sap/oluşturmak yükleme başarısız olursa**NW1**/ERS**02**, sahibi ve ERS grubu ayarlamayı deneyin**02** klasörü ve yeniden deneyin.
+
+   <pre><code>
+   chown nw1adm /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   chgrp sapsys /usr/sap/<b>NW1</b>/ERS<b>02</b>
+   </code></pre>
    > 
 
 1. **[1]**  Adapt ASCS/SCS ve ERS örnek profilleri
@@ -1115,16 +460,16 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    * ASCS/SCS profili
 
    <pre><code> 
-   sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_<b>ASCS00</b>_<b>nws-ascs</b>
-
+   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_<b>ASCS00</b>_<b>nw1-ascs</b>
+   
    # Change the restart command to a start command
    #Restart_Program_01 = local $(_EN) pf=$(_PF)
    Start_Program_01 = local $(_EN) pf=$(_PF)
-
+   
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
-
+   
    # Add the keep alive parameter
    enque/encni/set_so_keepalive = true
    </code></pre>
@@ -1132,8 +477,8 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    * ERS profili
 
    <pre><code> 
-   sudo vi /sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>
-
+   sudo vi /sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>
+   
    # Add the following lines
    service/halib = $(DIR_CT_RUN)/saphascriptco.so
    service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
@@ -1155,7 +500,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
  
    <pre><code>
    # Add sidadm to the haclient group
-   sudo usermod -aG haclient <b>nws</b>adm   
+   sudo usermod -aG haclient <b>nw1</b>adm   
    </code></pre>
 
 1. **[1]**  ASCS ve ERS SAP Hizmetleri sapservice dosyasına Ekle
@@ -1163,400 +508,68 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    ASCS ERS hizmet girişi ilk düğüme kopyalayın ve giriş ikinci düğüme hizmeti ekleyin.
 
    <pre><code>
-   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nws-cl-1</b> "cat >>/usr/sap/sapservices"
-   sudo ssh <b>nws-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
+   cat /usr/sap/sapservices | grep ASCS<b>00</b> | sudo ssh <b>nw1-cl-1</b> "cat >>/usr/sap/sapservices"
+   sudo ssh <b>nw1-cl-1</b> "cat /usr/sap/sapservices" | grep ERS<b>02</b> | sudo tee -a /usr/sap/sapservices
    </code></pre>
 
 1. **[1]**  SAP küme kaynakları oluşturun
 
    <pre><code>
-   sudo crm configure property maintenance-mode="true"
-
-   sudo crm configure
-
-   crm(live)configure# primitive rsc_sap_<b>NWS</b>_ASCS<b>00</b> SAPInstance \
-    operations $id=rsc_sap_<b>NWS</b>_ASCS<b>00</b>-operations \
+   sudo crm configure property maintenance-mode="true"   
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
     op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NWS</b>_ASCS<b>00</b>_<b>nws-ascs</b> START_PROFILE="/sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ASCS<b>00</b>_<b>nws-ascs</b>" \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
-
-   crm(live)configure# primitive rsc_sap_<b>NWS</b>_ERS<b>02</b> SAPInstance \
-    operations $id=rsc_sap_<b>NWS</b>_ERS<b>02</b>-operations \
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
     op monitor interval=11 timeout=60 on_fail=restart \
-    params InstanceName=<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b> START_PROFILE="/sapmnt/<b>NWS</b>/profile/<b>NWS</b>_ERS<b>02</b>_<b>nws-ers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
-
-   crm(live)configure# modgroup g-<b>NWS</b>_ASCS add rsc_sap_<b>NWS</b>_ASCS<b>00</b>
-   crm(live)configure# modgroup g-<b>NWS</b>_ERS add rsc_sap_<b>NWS</b>_ERS<b>02</b>
-
-   crm(live)configure# colocation col_sap_<b>NWS</b>_no_both -5000: g-<b>NWS</b>_ERS g-<b>NWS</b>_ASCS
-   crm(live)configure# location loc_sap_<b>NWS</b>_failover_to_ers rsc_sap_<b>NWS</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NWS</b> eq 1
-   crm(live)configure# order ord_sap_<b>NWS</b>_first_start_ascs Optional: rsc_sap_<b>NWS</b>_ASCS<b>00</b>:start rsc_sap_<b>NWS</b>_ERS<b>02</b>:stop symmetrical=false
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure location loc_sap_<b>NW1</b>_failover_to_ers rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule 2000: runs_ers_<b>NW1</b> eq 1
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
    sudo crm configure property maintenance-mode="false"
-   sudo crm node online <b>nws-cl-0</b>
    </code></pre>
 
    Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Kaynakları çalıştıran hangi düğümde önemli değildir.
 
    <pre><code>
    sudo crm_mon -r
-
-   # Online: <b>[ nws-cl-0 nws-cl-1 ]</b>
-   # 
+   
+   # Online: <b>[ nw1-cl-0 nw1-cl-1 ]</b>
+   #
    # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
-   #      rsc_sap_NWS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-0</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      <b>Slaves: [ nws-cl-0 ]</b>
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #      rsc_sap_NWS_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-1</b>
+   #
+   # stonith-sbd     (stonith:external/sbd): <b>Started nw1-cl-1</b>
+   # rsc_st_azure    (stonith:fence_azure_arm):      <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ASCS
+   #      nc_NW1_ASCS        (ocf::heartbeat:anything):      <b>Started nw1-cl-1</b>
+   #      vip_NW1_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-1</b>
+   #      rsc_sap_NW1_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-1</b>
+   #  Resource Group: g-NW1_ERS
+   #      nc_NW1_ERS (ocf::heartbeat:anything):      <b>Started nw1-cl-0</b>
+   #      vip_NW1_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nw1-cl-0</b>
+   #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nw1-cl-0</b>
    </code></pre>
 
-### <a name="create-stonith-device"></a>STONITH cihaz oluşturma
+## <a name="2d6008b0-685d-426c-b59e-6cd281fd45d7"></a>SAP NetWeaver uygulama sunucusu hazırlığı
 
-STONITH aygıt bir hizmet sorumlusu Microsoft Azure karşı yetkilendirmek için kullanır. Bir hizmet sorumlusu oluşturmak için aşağıdaki adımları izleyin.
+Bazı veritabanları veritabanı örneği yüklemesi bir uygulama sunucusunda yürütülür gerektirir. Bu durumlarda kullanmak için uygulama sunucusu sanal makineleri hazırlayın.
 
-1. Git <https://portal.azure.com>
-1. Azure Active Directory dikey penceresini açın  
-   Özellikleri'ne gidin ve dizin kimliği yazma Bu **kimliği Kiracı**.
-1. Uygulama kayıtlar'ı tıklatın
-1. Ekle'ye tıklayın.
-1. Bir ad girin, uygulama türü "Web uygulaması/API" seçin, bir oturum açma URL'si (örneğin http://localhost) girin ve Oluştur'u tıklatın
-1. Oturum açma URL'si kullanılmaz ve geçerli bir URL olabilir
-1. Yeni uygulama seçin ve anahtarları Ayarlar sekmesini
-1. Yeni bir anahtar için bir açıklama girin, "Her zaman geçerli olsun" seçin ve Kaydet
-1. Değeri yazın. Olarak kullanılan **parola** için hizmet sorumlusu
-1. Uygulama Kimliği yazma Kullanıcı adı olarak kullanılır (**oturum açma kimliği** aşağıdaki adımlarda), hizmet sorumlusu
+Adımları aşağıdaki varsayalım ASCS/SCS ve HANA sunuculardan farklı bir sunucu uygulama sunucusu yükleyin. Aksi takdirde (örneğin, ana bilgisayar adı çözümlemesi yapılandırma) aşağıdaki adımları bazıları gerekli değildir.
 
-Hizmet sorumlusu Azure kaynaklarınızı varsayılan olarak erişim izni yok. Başlatmak ve durdurmak için hizmet asıl izinleri vermeniz gerekir (serbest bırakma) kümenin tüm sanal makineler.
+1. Ana bilgisayar adı çözümlemesi Kurulumu
 
-1. Https://Portal.Azure.com için Git
-1. Tüm kaynaklar dikey penceresini açın
-1. Sanal makineyi seçin
-1. Erişim denetimi (IAM) tıklatın
-1. Ekle'ye tıklayın.
-1. Sahip rolü seçin
-1. Yukarıda oluşturduğunuz uygulamanın adını girin
-1. Tamam'ı tıklatın
-
-#### <a name="1-create-the-stonith-devices"></a>**[1]**  STONITH aygıtları oluşturun
-
-Sanal makineler için izinleri düzenlenebilir sonra kümede STONITH cihazları yapılandırabilirsiniz.
-
-<pre><code>
-sudo crm configure
-
-# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
-
-crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
-
-crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-
-crm(live)configure# commit
-crm(live)configure# exit
-</code></pre>
-
-#### <a name="1-enable-the-use-of-a-stonith-device"></a>**[1]**  STONITH aygıt kullanımını etkinleştirme
-
-STONITH aygıt kullanımını etkinleştirme
-
-<pre><code>
-sudo crm configure property stonith-enabled=true 
-</code></pre>
-
-## <a name="install-database"></a>Veritabanını yükleme
-
-Bu örnekte, bir SAP HANA sistem çoğaltma yüklenmiş ve yapılandırılmış. SAP HANA aynı küme ERS ve SAP NetWeaver ASCS/SCS olarak çalıştırır. SAP HANA adanmış bir kümede de yükleyebilirsiniz. Daha fazla bilgi için bkz: [SAP HANA, yüksek kullanılabilirlik'Azure sanal makineler (VM'ler) üzerinde][sap-hana-ha].
-
-### <a name="prepare-for-sap-hana-installation"></a>SAP HANA yükleme için hazırlama
-
-Genellikle, veri ve günlük dosyalarını birimleri için LVM kullanmanızı öneririz. Test amacıyla, ayrıca verileri depolamak ve günlük dosyası doğrudan düz bir diskte tercih edebilirsiniz.
-
-1. **[A]**  LVM  
-   Aşağıdaki örnekte, sanal makineleri iki birim oluşturmak için kullanılması gereken bağlı dört veri diskleri sahip olduğunuzu varsayar.
-   
-   Kullanmak istediğiniz tüm disklerin fiziksel birimler oluşturursunuz.
-   
-   <pre><code>
-   sudo pvcreate /dev/sdd
-   sudo pvcreate /dev/sde
-   sudo pvcreate /dev/sdf
-   sudo pvcreate /dev/sdg
-   </code></pre>
-   
-   Veri dosyaları için bir birim grubu, günlük dosyaları için bir birim grubu ve SAP HANA paylaşılan dizini için bir tane oluşturun
-   
-   <pre><code>
-   sudo vgcreate vg_hana_data /dev/sdd /dev/sde
-   sudo vgcreate vg_hana_log /dev/sdf
-   sudo vgcreate vg_hana_shared /dev/sdg
-   </code></pre>
-   
-   Mantıksal birim oluşturun
-   
-   <pre><code>
-   sudo lvcreate -l 100%FREE -n hana_data vg_hana_data
-   sudo lvcreate -l 100%FREE -n hana_log vg_hana_log
-   sudo lvcreate -l 100%FREE -n hana_shared vg_hana_shared
-   sudo mkfs.xfs /dev/vg_hana_data/hana_data
-   sudo mkfs.xfs /dev/vg_hana_log/hana_log
-   sudo mkfs.xfs /dev/vg_hana_shared/hana_shared
-   </code></pre>
-   
-   Bağlama dizinlerini oluşturun ve tüm mantıksal birimleri UUID'si kopyalayın
-   
-   <pre><code>
-   sudo mkdir -p /hana/data
-   sudo mkdir -p /hana/log
-   sudo mkdir -p /hana/shared
-   sudo chattr +i /hana/data
-   sudo chattr +i /hana/log
-   sudo chattr +i /hana/shared
-   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
-   sudo blkid
-   </code></pre>
-   
-   AutoFS girişleri üç mantıksal birimler için oluşturma
-   
-   <pre><code>
-   sudo vi /etc/auto.direct
-   </code></pre>
-   
-   Sudo VI /etc/auto.direct için bu satırı Ekle
-   
-   <pre><code>
-   /hana/data -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_data/hana_data&gt;</b>
-   /hana/log -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_log/hana_log&gt;</b>
-   /hana/shared -fstype=xfs :UUID=<b>&lt;UUID of /dev/vg_hana_shared/hana_shared&gt;</b>
-   </code></pre>
-   
-   Yeni birimlere bağlama
-   
-   <pre><code>
-   sudo service autofs restart 
-   </code></pre>
-
-1. **[A]**  Düz diskleri  
-
-   Küçük veya gösteri sistemleri HANA veri ve günlük dosyalarınızı bir disk yerleştirin. Aşağıdaki komutları /dev/sdc üzerinde bir bölüm oluşturun ve xfs ile biçimlendirin.
-   ```bash
-   sudo sh -c 'echo -e "n\n\n\n\n\nw\n" | fdisk /dev/sdd'
-   sudo mkfs.xfs /dev/sdd1
-   
-   # write down the id of /dev/sdd1
-   sudo /sbin/blkid
-   sudo vi /etc/auto.direct
-   ```
-   
-   Bu satırla /etc/auto.direct Ekle
-   <pre><code>
-   /hana -fstype=xfs :UUID=<b>&lt;UUID&gt;</b>
-   </code></pre>
-   
-   Hedef dizin oluşturun ve diski bağlayabilir.
-   
-   <pre><code>
-   sudo mkdir /hana
-   sudo chattr +i /hana
-   sudo service autofs restart
-   </code></pre>
-
-### <a name="installing-sap-hana"></a>SAP HANA yükleme
-
-Aşağıdaki adımlar 4 bölüm üzerinde dayanır [SAP HANA SR performansı en iyi duruma getirilmiş senaryo Kılavuzu] [ suse-hana-ha-guide] SAP HANA sistem çoğaltma yüklemek için. Yüklemeye devam etmeden önce bunu okuyun.
-
-1. **[A]**  Hdblcm HANA DVD'SİNDEN çalıştırın
-   
-   <pre><code>
-   sudo hdblcm --sid=<b>HDB</b> --number=<b>03</b> --action=install --batch --password=<b>&lt;password&gt;</b> --system_user_password=<b>&lt;password for system user&gt;</b>
-
-   sudo /hana/shared/<b>HDB</b>/hdblcm/hdblcm --action=configure_internal_network --listen_interface=internal --internal_network=<b>10.0.0/24</b> --password=<b>&lt;password for system user&gt;</b> --batch
-   </code></pre>
-
-1. **[A]**  Yükseltme SAP konak Aracısı
-
-   En son SAP konak Aracısı arşivinden karşıdan [SAP Softwarecenter] [ sap-swcenter] ve aracıyı yükseltmek için aşağıdaki komutu çalıştırın. İndirdiğiniz dosyasına işaret edecek şekilde arşivi yolu değiştirin.
-   <pre><code>
-   sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>&lt;path to SAP Host Agent SAR&gt;</b> 
-   </code></pre>
-
-1. **[1]**  (Kök) olarak oluşturma HANA çoğaltma  
-
-   Aşağıdaki komutu çalıştırın. Kalın dizeleri (HANA sistem kimliği HDB ile örnek numarasını 03) SAP HANA yüklemenizi değerlerle değiştirdiğinizden emin olun.
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-   hdbsql -u system -i <b>03</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
-   hdbsql -u system -i <b>03</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
-   </code></pre>
-
-1. **[A]**  (Kök) olarak bir anahtar girişi oluşturun
-
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>&lt;passwd&gt;</b>
-   </code></pre>
-
-1. **[1]**  Backup database (kök) olarak
-
-   <pre><code>
-   PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>03</b>/exe"
-   hdbsql -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
-   </code></pre>
-
-1. **[1]**  Geçiş HANA sapsid kullanıcıya ve birincil site oluşturun.
-
-   <pre><code>
-   su - <b>hdb</b>adm
-   hdbnsutil -sr_enable –-name=<b>SITE1</b>
-   </code></pre>
-
-1. **[2]**  HANA sapsid kullanıcıya anahtar ve ikincil site oluştur.
-
-   <pre><code>
-   su - <b>hdb</b>adm
-   sapcontrol -nr <b>03</b> -function StopWait 600 10
-   hdbnsutil -sr_register --remoteHost=<b>nws-cl-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
-   </code></pre>
-
-1. **[1]**  Oluşturma SAP HANA küme kaynakları
-
-   İlk olarak topoloji oluşturun.
-   
-   <pre><code>
-   sudo crm configure
-
-   # replace the bold string with your instance number and HANA system ID
-   
-   crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
-     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
-     op monitor interval="10" timeout="600" \
-     op start interval="0" timeout="600" \
-     op stop interval="0" timeout="300" \
-     params SID="<b>HDB</b>" InstanceNumber="<b>03</b>"
-    
-   crm(live)configure# clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \
-     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-   
-   Ardından, HANA kaynakları oluşturun
-   
-   <pre><code>
-   sudo crm configure
-
-   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
-    
-   crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
-     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
-     op start interval="0" timeout="3600" \
-     op stop interval="0" timeout="3600" \
-     op promote interval="0" timeout="3600" \
-     op monitor interval="60" role="Master" timeout="700" \
-     op monitor interval="61" role="Slave" timeout="700" \
-     params SID="<b>HDB</b>" InstanceNumber="<b>03</b>" PREFER_SITE_TAKEOVER="true" \
-     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
-    
-   crm(live)configure# ms msl_SAPHana_<b>HDB</b>_HDB<b>03</b> rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> \
-     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
-     target-role="Started" interleave="true"
-    
-   crm(live)configure# primitive rsc_ip_<b>HDB</b>_HDB<b>03</b> ocf:heartbeat:IPaddr2 \ 
-     meta target-role="Started" is-managed="true" \ 
-     operations $id="rsc_ip_<b>HDB</b>_HDB<b>03</b>-operations" \ 
-     op monitor interval="10s" timeout="20s" \ 
-     params ip="<b>10.0.0.12</b>" 
-
-   crm(live)configure# primitive rsc_nc_<b>HDB</b>_HDB<b>03</b> anything \ 
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>03</b>" \ 
-     op monitor timeout=20s interval=10 depth=0 
-
-   crm(live)configure# group g_ip_<b>HDB</b>_HDB<b>03</b> rsc_ip_<b>HDB</b>_HDB<b>03</b> rsc_nc_<b>HDB</b>_HDB<b>03</b>
-    
-   crm(live)configure# colocation col_saphana_ip_<b>HDB</b>_HDB<b>03</b> 2000: g_ip_<b>HDB</b>_HDB<b>03</b>:Started \ 
-     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>:Master  
-
-   crm(live)configure# order ord_SAPHana_<b>HDB</b>_HDB<b>03</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> \ 
-     msl_SAPHana_<b>HDB</b>_HDB<b>03</b>
-    
-   crm(live)configure# commit
-   crm(live)configure# exit
-   </code></pre>
-
-   Küme durumunun Tamam olduğunu ve tüm kaynakları başlatıldığından emin olun. Kaynakları çalıştıran hangi düğümde önemli değildir.
-
-   <pre><code>
-   sudo crm_mon -r
-
-   # <b>Online: [ nws-cl-0 nws-cl-1 ]</b>
-   # 
-   # Full list of resources:
-   # 
-   #  Master/Slave Set: ms-drbd_NWS_ASCS [drbd_NWS_ASCS]
-   #      <b>Masters: [ nws-cl-1 ]</b>
-   #      <b>Slaves: [ nws-cl-0 ]</b>
-   #  Resource Group: g-NWS_ASCS
-   #      nc_NWS_ASCS        (ocf::heartbeat:anything):      <b>Started nws-cl-1</b>
-   #      vip_NWS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-1</b>
-   #      fs_NWS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started nws-cl-1</b>
-   #      rsc_sap_NWS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-1</b>
-   #  Master/Slave Set: ms-drbd_NWS_ERS [drbd_NWS_ERS]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g-NWS_ERS
-   #      nc_NWS_ERS (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   #      vip_NWS_ERS        (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      fs_NWS_ERS (ocf::heartbeat:Filesystem):    <b>Started nws-cl-0</b>
-   #      rsc_sap_NWS_ERS02  (ocf::heartbeat:SAPInstance):   <b>Started nws-cl-0</b>
-   #  Clone Set: cln_SAPHanaTopology_HDB_HDB03 [rsc_SAPHanaTopology_HDB_HDB03]
-   #      <b>Started: [ nws-cl-0 nws-cl-1 ]</b>
-   #  Master/Slave Set: msl_SAPHana_HDB_HDB03 [rsc_SAPHana_HDB_HDB03]
-   #      <b>Masters: [ nws-cl-0 ]</b>
-   #      <b>Slaves: [ nws-cl-1 ]</b>
-   #  Resource Group: g_ip_HDB_HDB03
-   #      rsc_ip_HDB_HDB03   (ocf::heartbeat:IPaddr2):       <b>Started nws-cl-0</b>
-   #      rsc_nc_HDB_HDB03   (ocf::heartbeat:anything):      <b>Started nws-cl-0</b>
-   # rsc_st_azure_1  (stonith:fence_azure_arm):      <b>Started nws-cl-0</b>
-   # rsc_st_azure_2  (stonith:fence_azure_arm):      <b>Started nws-cl-1</b>
-   </code></pre>
-
-1. **[1]**  SAP NetWeaver veritabanı örneğini yükleyin
-
-   Örneğin IP adresi için yük dengeleyici ön uç yapılandırma veritabanı için eşleşen bir sanal ana bilgisayar adı kullanarak kök olarak SAP NetWeaver veritabanı örneğini yükleyin <b>nws db</b> ve <b>10.0.0.12</b>.
-
-   Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
-
-   <pre><code>
-   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
-   </code></pre>
-
-## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver uygulama sunucusu yükleme
-
-SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımları aşağıdaki varsayalım ASCS/SCS ve HANA sunuculardan farklı bir sunucu uygulama sunucusu yükleyin. Aksi takdirde (örneğin, ana bilgisayar adı çözümlemesi yapılandırma) aşağıdaki adımları bazıları gerekli değildir.
-
-1. Ana bilgisayar adı çözümlemesi Kurulumu    
    Bir DNS sunucusu kullanın veya tüm düğümlerde/etc/hosts değiştirin. Bu örnek/Etc/Hosts dosyasının nasıl kullanılacağını gösterir.
    IP adresi ve aşağıdaki komutlarda ana bilgisayar adını değiştirin
    ```bash
@@ -1566,24 +579,25 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
     
    <pre><code>
    # IP address of the load balancer frontend configuration for NFS
-   <b>10.0.0.4 nws-nfs</b>
+   <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.10 nws-ascs</b>
+   <b>10.0.0.11 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.11 nws-ers</b>
+   <b>10.0.0.12 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
-   <b>10.0.0.12 nws-db</b>
-   # IP address of the application server
-   <b>10.0.0.8 nws-di-0</b>
+   <b>10.0.0.13 nw1-db</b>
+   # IP address of all application servers
+   <b>10.0.0.8 nw1-di-0</b>
+   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Sapmnt dizin oluşturun
 
    <pre><code>
-   sudo mkdir -p /sapmnt/<b>NWS</b>
+   sudo mkdir -p /sapmnt/<b>NW1</b>
    sudo mkdir -p /usr/sap/trans
 
-   sudo chattr +i /sapmnt/<b>NWS</b>
+   sudo chattr +i /sapmnt/<b>NW1</b>
    sudo chattr +i /usr/sap/trans
    </code></pre>
 
@@ -1591,7 +605,7 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
  
    <pre><code>
    sudo vi /etc/auto.master
-
+   
    # Add the following line to the file, save and exit
    +auto.master
    /- /etc/auto.direct
@@ -1601,10 +615,10 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
 
    <pre><code>
    sudo vi /etc/auto.direct
-
+   
    # Add the following lines to the file, save and exit
-   /sapmnt/<b>NWS</b> -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/sapmntsid
-   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nws-nfs</b>:/trans
+   /sapmnt/<b>NW1</b> -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/sapmntsid
+   /usr/sap/trans -nfsvers=4,nosymlink,sync <b>nw1-nfs</b>:/<b>NW1</b>/trans
    </code></pre>
 
    Yeni paylaşımlar bağlamak için autofs yeniden başlatın
@@ -1618,11 +632,11 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
  
    <pre><code>
    sudo vi /etc/waagent.conf
-
+   
    # Set the property ResourceDisk.EnableSwap to y
    # Create and use swapfile on resource disk.
    ResourceDisk.EnableSwap=<b>y</b>
-
+   
    # Set the size of the SWAP file with property ResourceDisk.SwapSizeMB
    # The free space of resource disk varies by virtual machine size. Make sure that you do not set a value that is too big. You can check the SWAP space with command swapon
    # Size of the swapfile.
@@ -1634,6 +648,28 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
    <pre><code>
    sudo service waagent restart
    </code></pre>
+
+## <a name="install-database"></a>Veritabanını yükleme
+
+Bu örnekte, SAP NetWeaver SAP HANA yüklenir. Desteklenen her veritabanı için bu yüklemeyi kullanabilirsiniz. SAP HANA Azure'da yükleme hakkında daha fazla bilgi için bkz: [SAP HANA, yüksek kullanılabilirlik'Azure sanal makineler (VM'ler) üzerinde][sap-hana-ha]. Desteklenen veritabanlarının bir listesi için bkz: [SAP Not 1928533][1928533].
+
+1. SAP veritabanı örneği yüklemesini çalıştırın
+
+   Örneğin IP adresi için yük dengeleyici ön uç yapılandırma veritabanı için eşleşen bir sanal ana bilgisayar adı kullanarak kök olarak SAP NetWeaver veritabanı örneğini yükleyin <b>nw1 db</b> ve <b>10.0.0.13</b>.
+
+   Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
+
+   <pre><code>
+   sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b>
+   </code></pre>
+
+## <a name="sap-netweaver-application-server-installation"></a>SAP NetWeaver uygulama sunucusu yükleme
+
+SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. 
+
+1. Uygulama sunucusu hazırlayın
+
+Bölüm adımları [SAP NetWeaver uygulama sunucusu hazırlığı](high-availability-guide-suse.md#2d6008b0-685d-426c-b59e-6cd281fd45d7) uygulama sunucusu hazırlamak için yukarıdaki.
 
 1. SAP NetWeaver uygulama sunucusu yükleme
 
@@ -1648,9 +684,28 @@ SAP uygulama sunucusu yüklemek için aşağıdaki adımları izleyin. Adımlar�
 1. SAP HANA güvenli depolama güncelleştir
 
    SAP HANA güvenli depolama SAP HANA sistem çoğaltma Kurulum sanal adına işaret edecek şekilde güncelleştirin.
+
+   Girişleri listelemek için aşağıdaki komutu çalıştırın
    <pre><code>
-   su - <b>nws</b>adm
-   hdbuserstore SET DEFAULT <b>nws-db</b>:3<b>03</b>15 <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
+   hdbuserstore List
+   </code></pre>
+
+   Bu tüm girişleri listelenmelidir ve şuna benzemelidir
+   <pre><code>
+   DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
+   KEY FILE        : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.KEY
+   
+   KEY DEFAULT
+     ENV : 10.0.0.14:<b>30313</b>
+     USER: <b>SAPABAP1</b>
+     DATABASE: HN1
+   </code></pre>
+
+   Çıkış varsayılan giriş IP adresi yük dengeleyicinin IP adresi değil de, sanal makineye işaret ettiğinden gösterir. Bu girişi yük dengeleyici sanal konak adına işaret edecek şekilde değiştirilmesi gerekir. Aynı bağlantı noktasını kullandığınızdan emin olun (**30313** yukarıdaki çıktıda)!
+
+   <pre><code>
+   su - <b>nw1</b>adm
+   hdbuserstore SET DEFAULT <b>nw1-db</b>:<b>30313</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
    </code></pre>
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,7 +1,7 @@
 ---
-title: "Azure SQL Veritabanı’nda veritabanı performansını izleme | Microsoft Belgeleri"
-description: "Azure araçlarını ve dinamik yönetim görünümlerini kullanarak veritabanınızı izleme seçenekleri hakkında bilgi edinin."
-keywords: "veritabanı izleme, bulut veritabanı performansı"
+title: Azure SQL Veritabanı’nda veritabanı performansını izleme | Microsoft Belgeleri
+description: Azure araçlarını ve dinamik yönetim görünümlerini kullanarak veritabanınızı izleme seçenekleri hakkında bilgi edinin.
+keywords: veritabanı izleme, bulut veritabanı performansı
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: carlrab
-ms.openlocfilehash: ba2239b1a4cd14f7723e88ee83f7ad93da717e0a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4bc2c8578157bd29894bfee221174501c5003a42
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database'de veritabanı performansını izleme
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme, veritabanınızın gerekenden fazla kapasiteye sahip olup olmadığını veya veritabanınızda kaynak kullanımının üst sınıra ulaşması nedeniyle bir sorun olup olmadığını belirlemenize yardımcı olur. Böylece veritabanınızın performans düzeyinin ve [hizmet katmanının](sql-database-service-tiers.md) ayarlanma zamanının gelip gelmediğine karar verirsiniz. Veritabanınızı [Azure portalında](https://portal.azure.com) bulunan grafik araçlarını veya SQL [dinamik yönetim görünümlerini](https://msdn.microsoft.com/library/ms188754.aspx) kullanarak izleyebilirsiniz.
@@ -66,8 +66,8 @@ Bu görünüm kaynak kullanımını daha ayrıntılı bir bakış sağladığın
     SELECT  
         AVG(avg_cpu_percent) AS 'Average CPU use in percent',
         MAX(avg_cpu_percent) AS 'Maximum CPU use in percent',
-        AVG(avg_data_io_percent) AS 'Average data I/O in percent',
-        MAX(avg_data_io_percent) AS 'Maximum data I/O in percent',
+        AVG(avg_data_io_percent) AS 'Average data IO in percent',
+        MAX(avg_data_io_percent) AS 'Maximum data IO in percent',
         AVG(avg_log_write_percent) AS 'Average log write use in percent',
         MAX(avg_log_write_percent) AS 'Maximum log write use in percent',
         AVG(avg_memory_usage_percent) AS 'Average memory use in percent',
@@ -117,8 +117,8 @@ Sonraki örnek kullanabileceğiniz farklı yolları gösterir **sys.resource_sta
         SELECT
             avg(avg_cpu_percent) AS 'Average CPU use in percent',
             max(avg_cpu_percent) AS 'Maximum CPU use in percent',
-            avg(avg_data_io_percent) AS 'Average physical data I/O use in percent',
-            max(avg_data_io_percent) AS 'Maximum physical data I/O use in percent',
+            avg(avg_data_io_percent) AS 'Average physical data IO use in percent',
+            max(avg_data_io_percent) AS 'Maximum physical data IO use in percent',
             avg(avg_log_write_percent) AS 'Average log write use in percent',
             max(avg_log_write_percent) AS 'Maximum log write use in percent',
             avg(max_session_percent) AS 'Average % of sessions',
@@ -153,7 +153,7 @@ Sonraki örnek kullanabileceğiniz farklı yolları gösterir **sys.resource_sta
         SELECT
         (COUNT(database_name) - SUM(CASE WHEN avg_cpu_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'CPU fit percent'
         ,(COUNT(database_name) - SUM(CASE WHEN avg_log_write_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Log write fit percent'
-        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data I/O fit percent'
+        ,(COUNT(database_name) - SUM(CASE WHEN avg_data_io_percent >= 100 THEN 1 ELSE 0 END) * 1.0) / COUNT(database_name) AS 'Physical data IO fit percent'
         FROM sys.resource_stats
         WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
    

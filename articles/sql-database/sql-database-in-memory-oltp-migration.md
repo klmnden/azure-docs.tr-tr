@@ -1,6 +1,6 @@
 ---
-title: "Bellek içi OLTP artırır SQL işlemlerinin perf | Microsoft Docs"
-description: "Varolan bir SQL veritabanında işlem performansı artırmak için adopt bellek içi OLTP."
+title: Bellek içi OLTP artırır SQL işlemlerinin perf | Microsoft Docs
+description: Varolan bir SQL veritabanında işlem performansı artırmak için adopt bellek içi OLTP.
 services: sql-database
 author: jodebrui
 manager: craigg
@@ -10,14 +10,14 @@ ms.custom: develop databases
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: jodebrui
-ms.openlocfilehash: 77e73ec1004babb5fce1e293acfade9264cd6945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 00823ca44ec7135a9937bb37dd4ed58ec996c89d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>SQL veritabanı, uygulama performansını artırmak için kullanım bellek içi OLTP
-[Bellek içi OLTP](sql-database-in-memory.md) içinde hareket işleme, veri alımı ve geçici veri senaryoları performansını artırmak için kullanılan [Premium](sql-database-service-tiers.md) fiyatlandırma katmanı artırma olmadan Azure SQL veritabanları. 
+[Bellek içi OLTP](sql-database-in-memory.md) içinde hareket işleme, veri alımı ve geçici veri senaryoları performansını artırmak için kullanılan [Premium ve iş kritik katmanı](sql-database-service-tiers.md) fiyatlandırma katmanı artırma olmadan veritabanları. 
 
 > [!NOTE] 
 > Bilgi nasıl [çekirdek % 70'sql Database tarafından DTU düşürürken anahtar veritabanının iş yükü Katlar](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
@@ -25,8 +25,8 @@ ms.lasthandoff: 03/16/2018
 
 Bellek içi OLTP, varolan bir veritabanında benimsemek için aşağıdaki adımları izleyin.
 
-## <a name="step-1-ensure-you-are-using-a-premium-database"></a>1. adım: bir Premium veritabanı kullandığınızdan emin olun
-Bellek içi OLTP yalnızca Premium veritabanlarında desteklenir. Bellek içi döndürülen sonuç 1 ise desteklenir (0):
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1. adım: bir Premium ve iş kritik katmanı veritabanı kullandığınızdan emin olun
+Bellek içi OLTP yalnızca Premium ve iş kritik katmanı veritabanlarında desteklenir. Bellek içi döndürülen sonuç 1 ise desteklenir (0):
 
 ```
 SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');

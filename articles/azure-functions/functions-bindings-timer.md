@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 89469af2b1d02ef00fc347e47719956885e7f142
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 2bc2559dc1cf737e018895ffae61d0da0e56fc85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -168,11 +168,11 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-|**Türü** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
-|**Yönü** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
+|**type** | yok | "TimerTrigger" olarak ayarlanmalıdır. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
+|**direction** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
-|**schedule**|**ScheduleExpression**|A [CRON ifade](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarı zamanlama ifadeyi ve ayar adı sarmalanmış uygulama için bu özelliği ayarlamak **%** Bu örnekte olduğu gibi işaretlerini: "% NameOfAppSettingWithScheduleExpression %". |
-|**runOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde. Zamanlayıcı zamanlama dışında işlevi tetiklemek gerekiyorsa, farklı tetikleyici türüyle ikinci bir işlev oluşturun ve kod iki işlevleri arasında paylaşın. Örneğin, dağıtımı tetiklemek için yapabilir [dağıtımınızı özelleştirme](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) dağıtım tamamlandığında, bir HTTP isteği yaparak ikinci işlevi çağırmak için.|
+|**schedule**|**ScheduleExpression**|A [CRON ifade](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarı zamanlama ifadeyi ve ayar adı sarmalanmış uygulama için bu özelliği ayarlamak **%** Bu örnekte olduğu gibi işaretlerini: "% ScheduleAppSetting %". |
+|**runOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde.|
 |**useMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenen olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi app örnekleri yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak için yardımcı olmak için zamanlama yinelenme devam ettirir. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` yinelenme aralığı 1 dakikadan daha uzun olan tabloları için. Dakika başına birden çok kez tetiklemek zamanlamaları, varsayılan değer `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

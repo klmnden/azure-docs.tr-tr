@@ -1,19 +1,20 @@
 ---
-title: "Bir Azure SQL veritabanını bir yedekten geri | Microsoft Docs"
-description: "Bir Azure SQL veritabanı (35 gün) zamandaki önceki bir noktaya geri olanak tanıyan, zaman içinde nokta geri yükleme hakkında bilgi edinin."
+title: Bir Azure SQL veritabanını bir yedekten geri | Microsoft Docs
+description: Bir Azure SQL veritabanı (35 gün) zamandaki önceki bir noktaya geri olanak tanıyan, zaman içinde nokta geri yükleme hakkında bilgi edinin.
 services: sql-database
-author: CarlRabeler
+author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 02/13/2018
-ms.author: carlrab
-ms.openlocfilehash: d2cc2e44c13750b654e2d6acf39d4f6a80cac98a
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: afe06d6e61d4b2b99a47f3d3348299c61863fec3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md) ve [uzun vadeli bekletme yedeklemeleri](sql-database-long-term-retention.md). Bir veritabanı yedeğinden geri yükleyebilirsiniz:
@@ -30,7 +31,7 @@ Geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliy
 - Veritabanı boyutu üst sınırını 500 GB'den büyükse, P11 – P15 S4 S12 veya P1 – P6 geri yükleme.
 - Veritabanı boyutu 250 GB'den büyükse P1 – P6 S4 S12 için geri yükleme.
 
-Ek maliyetidir geri yüklenen veritabanının en büyük boyut için performans düzeyi dahil depolama miktarını daha büyük olduğundan ve dahil edilen miktar sağlanan ek depolama alanı ekstra ücret kesilir.  Ek depolama alanı ayrıntılarını fiyatlandırma için bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).  Kullanılan gerçek miktarını dahil depolama miktarından daha az ise, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. Veritabanı Depolama boyutları ve veritabanı en büyük boyutunu değiştirme hakkında daha fazla bilgi için bkz: [tek veritabanı kaynak sınırları](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+Ek maliyetidir geri yüklenen veritabanının en büyük boyut için performans düzeyi dahil depolama miktarını daha büyük olduğundan ve dahil edilen miktar sağlanan ek depolama alanı ekstra ücret kesilir.  Ek depolama alanı ayrıntılarını fiyatlandırma için bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).  Kullanılan gerçek miktarını dahil depolama miktarından daha az ise, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. Veritabanı Depolama boyutları ve veritabanı en büyük boyutunu değiştirme hakkında daha fazla bilgi için bkz: [tek veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve [tek veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
 
 > [!NOTE]
 > [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) , oluştururken kullanılan bir [veritabanı kopyalama](sql-database-copy.md). 
@@ -117,7 +118,7 @@ Veritabanı barındırıldığı bölgede bir olay nedeniyle veritabanınızı k
 Zaman içinde nokta geri yükleme coğrafi ikincil şu anda desteklenmiyor. Zaman içinde nokta geri yükleme, yalnızca birincil veritabanı üzerinde gerçekleştirilebilir. Bir kesintisinden kurtarma için coğrafi geri yükleme kullanma hakkında ayrıntılı bilgi için bkz: [bir kesintisinden kurtarma](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> Kurtarma yedeklerden olağanüstü durum kurtarma çözümleri SQL veritabanındaki en uzun kurtarma noktası hedefi (RPO) ve tahmin kurtarma süresi (Ekle) ile kullanılabilir en temel ' dir. Temel veritabanları kullanan çözümler için coğrafi geri yükleme sık bir makul DR 12 saatlik bir Ekle ile çözümüdür. Kısa kurtarma süreleri gerektiren büyük standart veya Premium veritabanlarının kullanan çözümler için kullanmayı düşünmelisiniz [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md). Aktif coğrafi çoğaltma, bir çok daha kısa RPO ve Ekle yalnızca gerektirir gibi sunar sürekli olarak çoğaltılmış ikincil bir yük devretme başlatın. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz: [iş sürekliliği genel bakış](sql-database-business-continuity.md).
+> Kurtarma yedeklerden olağanüstü durum kurtarma çözümleri SQL veritabanındaki en uzun kurtarma noktası hedefi (RPO) ve tahmin kurtarma süresi (Ekle) ile kullanılabilir en temel ' dir. Küçük boyutu veritabanları (örneğin temel hizmet katmanını veya esnek havuzlar veritabanlarında Kiracı küçük boyut) kullanan çözümler için coğrafi geri yükleme sık bir makul DR 12 saatlik bir Ekle ile çözümüdür. Çözümleri kullanarak büyük veritabanları ve kısa kurtarma gerektiren kez kullanmayı düşünmelisiniz [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md). Aktif coğrafi çoğaltma, bir çok daha kısa RPO ve Ekle yalnızca gerektirir gibi sunar sürekli olarak çoğaltılmış ikincil bir yük devretme başlatın. İş sürekliliği seçenekleri hakkında daha fazla bilgi için bkz: [iş sürekliliği genel bakış](sql-database-business-continuity.md).
 > 
 
 ### <a name="azure-portal"></a>Azure portalına
@@ -149,6 +150,5 @@ Otomatik yedekleme, kullanıcı ve uygulama hataları, yanlışlıkla veritaban�
 ## <a name="next-steps"></a>Sonraki adımlar
 * İş sürekliliğine genel bakış ve senaryolar için bkz: [iş sürekliliğine genel bakış](sql-database-business-continuity.md).
 * Veritabanı Yedeklemeleri otomatik Azure SQL hakkında bilgi edinmek için bkz: [SQL veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md).
-* Uzun vadeli yedekleme bekletme hakkında bilgi edinmek için [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md).
-* Otomatik Azure portalını kullanarak bir Azure kurtarma Hizmetleri kasasına yedekleme yapılandırmak, yönetmek ve uzun vadeli bekletme geri yüklemek için bkz: [yapılandırma ve kullanım uzun vadeli yedekleme bekletme](sql-database-long-term-backup-retention-configure.md). 
+* Uzun vadeli bekletme hakkında bilgi edinmek için [uzun vadeli bekletme](sql-database-long-term-retention.md).
 * Daha hızlı kurtarma seçenekleri hakkında bilgi edinmek için [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md).  

@@ -1,8 +1,8 @@
 ---
-title: "Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme | Microsoft Docs"
-description: "Oluşturma ve Azure portalını kullanarak Hdınsight kümelerini yönetme hakkında bilgi edinin."
+title: Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme | Microsoft Docs
+description: Oluşturma ve Azure portalını kullanarak Hdınsight kümelerini yönetme hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: b0a9b808f2c1a65d10c1c12500325a9b5a34bc5a
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -33,7 +33,7 @@ Kullanarak [Azure portal][azure-portal], Azure hdınsight'ta Hadoop kümelerini 
 Bu makaledeki adımları tamamlayabilmeniz için ihtiyacınız bir **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="open-the-azure-portal"></a>Azure portalını açın
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
+1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
 2. Portal açtıktan sonra şunları yapabilirsiniz:
 
    * Tıklatın **kaynak oluşturma** sol menüden yeni bir küme oluşturmak için:
@@ -75,7 +75,7 @@ Bir Hdınsight kümesi oluştururken, bir Azure aboneliği belirtmeniz gerekir. 
 NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası alırsanız, bkz: [ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme](../azure-resource-manager/resource-manager-common-deployment-errors.md).
 
 ## <a name="list-and-show-clusters"></a>Liste ve kümeleri Göster
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
+1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
 2. Tıklatın **Hdınsight kümeleri** var olan kümeleri listelemek için sol menüden. Görmüyorsanız, **Hdınsight kümeleri**, tıklatın **tüm hizmetleri** ilk.
 3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmında filtresini kullanabilirsiniz.
 4. Genel bakış sayfasında görmek için listeden bir kümeden tıklatın:
@@ -103,7 +103,7 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
     * **Dış meta deponuz**: Hive ve Oozie meta deponuz görüntüleyin. Meta depolar, yalnızca küme oluşturma işlemi sırasında yapılandırılabilir. Bkz: [Hive/Oozie meta depo kullanmak](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore).
     * **Betik eylemleri**: çalıştırmak Bash betikleri küme üzerinde. Bkz: [özelleştirme Linux tabanlı Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md).
     * **Uygulamaları**: Ekle/Kaldır Hdınsight uygulamaları.  Bkz: [özel Hdınsight uygulamaları yükleme](hdinsight-apps-install-custom-applications.md).
-    * **İzleme**: Azure Operations Management Suite ve Azure günlük analizi kümede izleyin.
+    * **İzleme**: Azure günlük analizi kümede izleyin.
     * **Özellikleri**: küme özelliklerini görüntüleyin.
     * **Depolama hesapları**: depolama hesaplarını ve anahtarlarını görüntülemek. Depolama hesapları küme oluşturma işlemi sırasında yapılandırılır.
     * **Data Lake Store erişim**: Data Lake depolar erişimi yapılandırın.  Bkz: [Hdınsight kümeleri oluşturma Data Lake Store ile Azure portalını kullanarak](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
@@ -345,7 +345,7 @@ Bkz: [Hdınsight kümelerini yönetme Ambari Web kullanıcı arabirimini kullana
 ## <a name="browse-files"></a>Gözatma dosyaları
 Azure Portalı'nı kullanarak, varsayılan kapsayıcı içeriğini göz atabilirsiniz.
 
-1. Oturum [https://portal.azure.com](https://portal.azure.com).
+1. Oturum [ https://portal.azure.com ](https://portal.azure.com).
 2. Tıklatın **Hdınsight kümeleri** var olan kümeleri listelemek için sol menüden.
 3. Küme adına tıklayın. Küme listesi uzunsa, sayfanın üst kısmında filtresini kullanabilirsiniz.
 4. Tıklatın **depolama hesapları** küme sol menüden.

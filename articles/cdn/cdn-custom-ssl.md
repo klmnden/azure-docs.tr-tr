@@ -4,7 +4,7 @@ description: Etkinleştirme veya HTTPS ile özel bir etki alanı Azure CDN uç n
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
-ms.author: casoper
-ms.openlocfilehash: fea7121fc67944b20b8f39007edb0c0aad86aeaa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: rli; v-deasim
+ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Bir Azure içerik teslim ağı özel etki alanında HTTPS yapılandırma
 
@@ -45,7 +45,7 @@ HTTPS özelliğinin en önemli özelliklerinden bazıları şunlardır:
 
 ### <a name="step-1-enable-the-feature"></a>1. adım: özelliğini etkinleştir 
 
-1. İçinde [Azure portal](https://portal.azure.com), Verizon standart veya premium CDN profilinizi göz atın.
+1. İçinde [Azure portal](https://portal.azure.com), göz atın, **verizon'dan Azure CDN standart** veya **verizon'dan Azure CDN Premium** CDN profili.
 
 2. Uç noktalar listesinde, özel etki alanınızı içeren uç noktasına tıklayın.
 
@@ -149,7 +149,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ### <a name="step-1-disable-the-feature"></a>1. adım: özelliği devre dışı 
 
-1. İçinde [Azure portal](https://portal.azure.com), Verizon standart veya premium CDN profilinizi göz atın.
+1. İçinde [Azure portal](https://portal.azure.com), göz atın, **verizon'dan Azure CDN standart** veya **verizon'dan Azure CDN Premium** CDN profili.
 
 2. Uç noktalar listesinde, özel etki alanınızı içeren uç noktasına tıklayın.
 

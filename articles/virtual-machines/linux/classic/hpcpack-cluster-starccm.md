@@ -1,11 +1,11 @@
 ---
-title: "Yıldız Çalıştır-CCM + Linux VM'ler üzerinde HPC Pack ile | Microsoft Docs"
-description: "Azure üzerinde Microsoft HPC Pack küme dağıtma ve bir yıldız çalıştırma-CCM + işi birden çok Linux işlem düğümlerini bir RDMA ağ üzerinden."
+title: Yıldız Çalıştır-CCM + Linux VM'ler üzerinde HPC Pack ile | Microsoft Docs
+description: Azure üzerinde Microsoft HPC Pack küme dağıtma ve bir yıldız çalıştırma-CCM + işi birden çok Linux işlem düğümlerini bir RDMA ağ üzerinden.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: xpillons
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 75523406-d268-4623-ac3e-811c7b74de4b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8689d7abfd5ab45277df3b5672a1f6e7e874d88e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Yıldız Çalıştır-CCM + Linux RDMA üzerinde Microsoft HPC Pack ile Azure'da küme
 Bu makalede, Azure ve Çalıştır Microsoft HPC Pack kümede dağıtma gösterilmektedir bir [CD adapco yıldız-CCM +](http://www.cd-adapco.com/products/star-ccm%C2%AE) InfiniBand ile bağlandığına birden çok Linux işlem düğümlerinde iş.
@@ -105,7 +105,7 @@ Yükseltilmiş bir komut isteminde aşağıdaki Azure PowerShell komutlarını �
 1. Çalıştırma **Add-AzureAccount** Azure aboneliğinize bağlanmak için.
 2. Birden çok aboneliğiniz varsa çalıştırmak **Get-AzureSubscription** onları listelemek için.
 3. Varsayılan bir abonelik çalıştırarak ayarlayın **Select-AzureSubscription - varlığıyla SubscriptionName xxxx-varsayılan** komutu.
-4. Çalıştırma **.\New-HPCIaaSCluster.ps1 - ConfigFile MyCluster.xml** Linux işlem düğümlerini dağıtmaya başlamak için.
+4. Run **.\New-HPCIaaSCluster.ps1 -ConfigFile MyCluster.xml** to start deploying Linux compute nodes.
    
    ![Baş düğüm dağıtım eylem][hndeploy]
 
@@ -284,7 +284,7 @@ Değiştir **runner.java** , tercih edilen yıldız ile-CCM + Java modeli Başla
     exit ${RTNSTS}
 ```
 
-Testimizde, bir isteğe bağlı güç lisans belirteci kullandık. Bu bir belirteç ayarlamanız gerekir. **$CDLMD_LICENSE_FILE** ortam değişkenine  **1999@flex.cd-adapco.com**  ve anahtar **- podkey** komut satırı seçeneği.
+Testimizde, bir isteğe bağlı güç lisans belirteci kullandık. Bu bir belirteç ayarlamanız gerekir. **$CDLMD_LICENSE_FILE** ortam değişkenine **1999@flex.cd-adapco.com** ve anahtar **- podkey** komut satırı seçeneği.
 
 Bazı başlatma sonra komut dosyasını ayıklar--gelen **$CCP_NODES_CORES** ortam değişkenlerini ayarlama, HPC Pack--MPI Başlatıcısı'nı kullanan bir hostfile oluşturmak için düğüm listesi. Bu hostfile işi, satır başına bir ad için kullanılan işlem düğümü adlarının listesini içerir.
 
@@ -296,19 +296,19 @@ Biçimi **$CCP_NODES_CORES** bu deseni izler:
 
 Konumlar:
 
-* `<Number of nodes>`Bu iş için ayrılan düğümler sayısıdır.
-* `<Name of node_n_...>`Bu iş için ayrılmış her düğümün adıdır.
-* `<Cores of node_n_...>`Bu iş için ayrılmış düğümünde çekirdek sayısıdır.
+* `<Number of nodes>` Bu iş için ayrılan düğümler sayısıdır.
+* `<Name of node_n_...>` Bu iş için ayrılmış her düğümün adıdır.
+* `<Cores of node_n_...>` Bu iş için ayrılmış düğümünde çekirdek sayısıdır.
 
 Çekirdek sayısı (**$NBCORES**) düğüm sayısını temel alınarak hesaplanır (**$NBNODES**) ve düğümü başına çekirdek sayısı (parametre olarak sağlanan **$NBCORESPERNODE**).
 
 MPI seçenekleri için Azure üzerinde Intel MPI ile kullanılan olanlardır:
 
-* `-mpi intel`Intel MPI belirtmek için.
-* `-fabric UDAPL`Azure InfiniBand fiiller kullanmak için.
-* `-cpubind bandwidth,v`YILDIZ ile MPI için bant genişliğini iyileştirmek için-CCM +.
-* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"`Intel ile Azure InfiniBand iş MPI yapmak için ve gerekli düğümü başına çekirdek sayısını ayarlama.
-* `-batch`Yıldız başlatmak için-CCM + toplu iş modunda kullanıcı Arabirimi ile.
+* `-mpi intel` Intel MPI belirtmek için.
+* `-fabric UDAPL` Azure InfiniBand fiiller kullanmak için.
+* `-cpubind bandwidth,v` YILDIZ ile MPI için bant genişliğini iyileştirmek için-CCM +.
+* `-mppflags "-ppn $NBCORESPERNODE -genv I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -genv I_MPI_DAPL_UD=0 -genv I_MPI_DYNAMIC_CONNECTION=0"` Intel ile Azure InfiniBand iş MPI yapmak için ve gerekli düğümü başına çekirdek sayısını ayarlama.
+* `-batch` Yıldız başlatmak için-CCM + toplu iş modunda kullanıcı Arabirimi ile.
 
 Son olarak, bir işlemi başlatmak için düğümlerinizin ve çalışıyor olduğundan ve Küme Yöneticisi'nde çevrimiçi olduğundan emin olun. Ardından bir PowerShell komut isteminde bu çalıştırın:
 

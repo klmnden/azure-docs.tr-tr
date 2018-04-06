@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 6cec039034f0650d017eb14de584939bb3191223
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 0bd9786d0c6a6e6ba571c58e7fdc4ad86cc20024
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-machine-learning-experimentation-service-configuration-files"></a>Azure Machine Learning deneme hizmeti yapılandırma dosyaları
 
@@ -190,7 +190,7 @@ print(os.environ.get("EXAMPLE_ENV_VAR1"))
 
 **TrackedRun**: Bu bayrağı deneme hizmeti Azure ML geçmişi altyapısında çalışma ekranı Çalıştır izlemek gerekip gerekmediğini işaret eder. Varsayılan değer _doğru_. 
 
-**UseSampling**: _UseSampling_ veri kaynakları için etkin örnek veri kümesi çalıştırmak için kullanılıp kullanılmayacağını belirtir. Varsa kümesine _yanlış_, veri kaynaklarını alma ve veri deposundan okuma tam veri kullanın. Varsa kümesine _doğru_, etkin örnekleri kullanılır. Kullanıcılar ** DataSourceSettings "etkin örnek devre dışı bırakmak isterseniz kullanmak için hangi belirli örnek veri kümesi belirtmek için. 
+**UseSampling**: _UseSampling_ veri kaynakları için etkin örnek veri kümesi çalıştırmak için kullanılıp kullanılmayacağını belirtir. Varsa kümesine _yanlış_, veri kaynaklarını alma ve veri deposundan okuma tam veri kullanın. Varsa kümesine _doğru_, etkin örnekleri kullanılır. Kullanıcılar **DataSourceSettings** etkin örnek devre dışı bırakmak isterseniz kullanmak için hangi belirli örnek veri kümesi belirtmek için. 
 
 **DataSourceSettings**: Bu yapılandırma bölümü veri kaynağı ayarlarını belirtir. Bu bölümde, kullanıcı belirli bir veri kaynağı için mevcut hangi veri örneği Çalıştır bir parçası olarak kullanıldığını belirtir. 
 

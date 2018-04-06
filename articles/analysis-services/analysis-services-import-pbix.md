@@ -1,34 +1,33 @@
 ---
-title: "Azure Analysis Services bir Power BI Desktop dosyası alma | Microsoft Docs"
-description: "Azure portalını kullanarak Power BI Desktop dosyasının (pbıx) nasıl içe aktarılacağını açıklar."
+title: Azure Analysis Services bir Power BI Desktop dosyası alma | Microsoft Docs
+description: Azure portalını kullanarak Power BI Desktop dosyasının (pbıx) nasıl içe aktarılacağını açıklar.
 services: analysis-services
-documentationcenter: 
+documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: analysis-services
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/26/2018
+ms.date: 04/03/2018
 ms.author: owend
-ms.openlocfilehash: e0be0c69b501d7e93c65bcf23d4dd1b6bfa89caf
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 2ba9bc0e4b9a55312875fe120ee179800aeefb23
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop dosyasını içeri aktarma
 
 Power BI Desktop dosyası (pbıx) dosyasını içeri aktararak, yeni bir model Azure AS oluşturabilirsiniz. Model meta verileri, önbelleğe alınan veriler ve veri kaynağı bağlantıları alınır. Raporlar ve görselleştirmeleri içeri aktarılmadı.
 
 **Kısıtlamaları**   
-- Pbıx modeli bağlanmalıdır [Analysis Services desteklenen veri kaynakları](analysis-services-datasource.md) yalnızca. 
+- Pbıx modeli Azure SQL Database ve Azure SQL Data Warehouse veri kaynakları için yalnızca bağlanabilir. 
 - Pbıx model Canlı sahip olamaz veya DirectQuery bağlantıları. 
-- Şirket içi veri kaynaklarına pbıx modeli bağlanırsa, bir [şirket içi veri ağ geçidi](analysis-services-gateway.md) Analysis Services sunucunuzun için yapılandırılması gerekir.
 - Pbıx veri modelinizi Analysis Services içinde desteklenmeyen meta veri içeriyorsa alma işlemi başarısız.
 
 ## <a name="to-import-from-pbix"></a>Pbıx içeri aktarmak için

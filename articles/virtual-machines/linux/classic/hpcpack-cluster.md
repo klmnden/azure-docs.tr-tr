@@ -1,11 +1,11 @@
 ---
-title: "Linux sanal makineleri bir HPC paketi küme işlem | Microsoft Docs"
-description: "Oluşturma ve Linux yüksek performanslı bilgi işlem (HPC) iş yükleri için Azure'da bir HPC Pack kümesi kullanma hakkında bilgi edinin"
+title: Linux sanal makineleri bir HPC paketi küme işlem | Microsoft Docs
+description: Oluşturma ve Linux yüksek performanslı bilgi işlem (HPC) iş yükleri için Azure'da bir HPC Pack kümesi kullanma hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 4d080fdd-5ffe-4f54-a78d-4c818f6eb3fb
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57ad5d5d2e7e068f47d51408527f1f7553917279
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure’daki bir HPC Pack kümesinde Linux işlem düğümleri kullanmaya başlama
 Ayarlanmış bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) küme Windows Server ve birkaç çalıştıran bir baş düğüm içeren Azure işlem desteklenen Linux dağıtım çalışan düğümleri. Linux düğümleri ve kümenin Windows baş düğüm arasında verileri taşımak için seçeneklerini araştırın. Kümeye Linux HPC iş gönderme öğrenin.
@@ -40,14 +40,14 @@ Bu makale, Azure Linux HPC Pack kümede dağıtmak için iki seçenek işlem dü
 
 Azure içindeki HPC paketi küme dağıtım seçenekleri hakkında daha fazla bilgi için bkz: [küme oluşturmak ve yüksek performanslı hesaplama (HPC) yönetmek için seçenekleri Microsoft HPC Pack ile azure'da](../hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * **Azure aboneliği** -Azure genel veya Azure Çin hizmetinde bir aboneliği kullanabilirsiniz. Bir hesabınız yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 * **Çekirdek kota** -özellikle çok çekirdekli VM boyutları birkaç küme düğümleri dağıtmak isterseniz, çekirdek, Kotayı artırmak gerekebilir. Bir Kotayı artırmak için ücretsiz bir çevrimiçi müşteri destek isteği açın.
 * **Linux dağıtımları** -şu anda HPC Pack aşağıdaki Linux dağıtımları için işlem düğümlerine destekler. Bu dağıtımları Market sürümleri kullanılabiliyorsa kullanın veya kendi sağlayın.
   
   * **CentOS tabanlı**: 6.5, 6.6, 6.7, 7.0, 7.1, 7.2, 6.5 HPC, 7.1 HPC
-  * **Red Hat Enterprise Linux**: 6.7, 6,8, 7.2
-  * **SUSE Linux Enterprise Server**: SLES 12, SLES 12 (Premium), SLES 12 SP1, SLES 12 SP1 (Premium), SLES 12 HPC, SLES 12 HPC (Premium) için için
+  * **Red Hat Enterprise Linux**: 6.7, 6.8, 7.2
+  * **SUSE Linux Enterprise Server**: SLES 12, SLES 12 (Premium), SLES 12 SP1, SLES 12 SP1 (Premium), SLES 12 for HPC, SLES 12 for HPC (Premium)
   * **Ubuntu Server**: 14.04 LTS, 16.04 LTS
     
     > [!TIP]
@@ -173,7 +173,7 @@ Baş düğümünde HPC paketi küme durumunu denetlemek için HPC Küme Yönetic
 
 Ayrıca Linux düğümleri bkz **ısı Haritası** görünümü.
 
-![Isı Haritası][heatmap]
+![Isı haritası][heatmap]
 
 ## <a name="how-to-move-data-in-a-cluster-with-linux-nodes"></a>Linux düğümleri ile bir kümede veri taşıma
 Linux düğümleri ve kümenin Windows baş düğüm arasında verileri taşımak için birkaç seçeneğiniz vardır. Aşağıdaki bölümlerde daha ayrıntılı açıklanan üç yaygın yöntemleri şunlardır:
@@ -221,7 +221,7 @@ Alternatif olarak, paylaşılan bir klasöre baş düğümü Linux düğümleri 
    
     ![Dosya paylaşım izinleri][fileshareperms]
    
-    ![Dosya Paylaşımı][filesharing]
+    ![Dosya paylaşımı][filesharing]
 2. Bir Windows PowerShell penceresi açın ve aşağıdaki komutları çalıştırın:
    
     ```powershell

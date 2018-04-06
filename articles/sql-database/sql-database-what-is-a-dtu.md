@@ -1,7 +1,7 @@
 ---
-title: "SQL Veritabanı: DTU nedir? | Microsoft Docs"
-description: "Azure SQL Veritabanı işlem biriminin ne olduğunu anlama."
-keywords: "veritabanı seçenekleri,veritabanı performansı"
+title: 'SQL Veritabanı: DTU nedir? | Microsoft Docs'
+description: Azure SQL Veritabanı işlem biriminin ne olduğunu anlama.
+keywords: veritabanı seçenekleri,veritabanı performansı
 services: sql-database
 author: CarlRabeler
 manager: craigg
@@ -10,17 +10,17 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.openlocfilehash: 9d13541444f487ad6afb9f59c6c6ac646091d42c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b5d6ffc9aa13e6aaf948028fabe3087f8dea2a1d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Veritabanı işlem birimleri (Dtu'lar) ve esnek veritabanı işlem birimleri (Edtu'lar)
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
 
 ## <a name="what-are-database-transaction-units-dtus"></a>Veritabanı işlem birimleri (Dtu'lar) nelerdir?
-Belirli bir performans düzeyinde içinde tek bir Azure SQL veritabanı için bir [hizmet katmanı](sql-database-single-database-resources.md), Microsoft, belirli bir düzeyde (herhangi bir Azure bulut veritabanında bağımsız) veritabanının ve öngörülebilir bir performans düzeyini sağlamak için kaynaklar güvence altına alır. Bu miktarda kaynak veritabanı işlem birimleri veya Dtu'lar sayısı olarak hesaplanır ve CPU, bellek, g/ç (veri ve işlem günlüğü g/ç) karışık ölçüsüdür. Bu kaynaklar arasında oranı başlangıçta tarafından belirlenen bir [OLTP Kıyaslama iş yükü](sql-database-benchmark-overview.md) gerçek OLTP iş yükü tipik olarak tasarlanmıştır. İş yükünüzün bu kaynaklardan herhangi birini miktarını aşarsa, üretilen iş daraltılmış - yavaş performans ve zaman aşımları sonuç. İş yükünüzün kullandığı kaynakları diğer SQL veritabanları Azure bulutta kullanılabilir kaynakları etkilemeyen ve diğer iş yükleri tarafından kullanılan kaynak SQL veritabanınız kullanılabilir kaynakları etkileyen değil.
+Belirli bir performans düzeyinde içinde tek bir Azure SQL veritabanı için bir [hizmet katmanı](sql-database-single-database-resources.md), Microsoft, belirli bir düzeyde (herhangi bir Azure bulut veritabanında bağımsız) veritabanının ve öngörülebilir bir performans düzeyini sağlamak için kaynaklar güvence altına alır. Bu miktarda kaynak veritabanı işlem birimleri veya Dtu'lar sayısı olarak hesaplanır ve ile birlikte gelen bir işlem, depolama ve g/ç kaynakları ölçüsüdür. Bu kaynaklar arasında oranı başlangıçta tarafından belirlenen bir [OLTP Kıyaslama iş yükü](sql-database-benchmark-overview.md) gerçek OLTP iş yükü tipik olarak tasarlanmıştır. İş yükünüzün bu kaynaklardan herhangi birini miktarını aşarsa, üretilen iş daraltılmış - yavaş performans ve zaman aşımları sonuç. İş yükünüzün kullandığı kaynakları diğer SQL veritabanları Azure bulutta kullanılabilir kaynakları etkilemeyen ve diğer iş yükleri tarafından kullanılan kaynak SQL veritabanınız kullanılabilir kaynakları etkileyen değil.
 
 ![sınırlama kutusu](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
@@ -52,9 +52,9 @@ Mevcut bir şirket içi veya SQL Server sanal makine iş yükünü Azure SQL Ver
 Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için uygundur. Söz konusu kullanım düzeni, belirli bir veritabanı için ortalama düşük düzeyde kullanım ile nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir. SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Daha fazla bilgi için bkz. [ne zaman elastik bir havuz kullanılması gerekir?](sql-database-elastic-pool.md)
 
 ## <a name="what-happens-when-i-hit-my-maximum-dtus"></a>My maksimum Dtu isabet ne olur?
-Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/performans düzeyiniz için izin verilen en üst sınırlara kadar çalıştırmak üzere gereken kaynakları sağlamak için ayarlanıp yönetilir. İş yükünüz, CPU/Veri GÇ/Günlük GÇ sınırlarından birine ulaşıyorsa kaynakları, izin verilen maksimum düzeyde almaya devam ederseniz, ancak sorgularınızda artan gecikme süreleriyle karşılaşmanız olasıdır. Bu sınırlar herhangi bir hataya yol açmaz, yalnızca iş yükünü yavaşlatır. Yavaşlama sorguların zaman aşımına uğramasına sebep olacak kadar şiddetli hale gelirse hatayla karşılaşırsınız. İzin verilen en yüksek eş zamanlı kullanıcı oturumu/isteği (çalışan iş parçacıkları) sayısı sınırına ulaşırsanız açık hatalar görürsünüz. CPU, bellek, veri G/Ç ve işlem günlüğü G/Ç kaynakları dışındaki kaynaklara yönelik sınırlar hakkında bilgi edinmek için bkz. [Azure SQL Database resource limits]( sql-database-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) (Azure SQL Veritabanı kaynak sınırları).
+Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/performans düzeyiniz için izin verilen en üst sınırlara kadar çalıştırmak üzere gereken kaynakları sağlamak için ayarlanıp yönetilir. İş yükünüz, CPU/Veri GÇ/Günlük GÇ sınırlarından birine ulaşıyorsa kaynakları, izin verilen maksimum düzeyde almaya devam ederseniz, ancak sorgularınızda artan gecikme süreleriyle karşılaşmanız olasıdır. Bu sınırlar herhangi bir hataya yol açmaz, yalnızca iş yükünü yavaşlatır. Yavaşlama sorguların zaman aşımına uğramasına sebep olacak kadar şiddetli hale gelirse hatayla karşılaşırsınız. İzin verilen en yüksek eş zamanlı kullanıcı oturumu/isteği (çalışan iş parçacıkları) sayısı sınırına ulaşırsanız açık hatalar görürsünüz. Bkz: [Azure SQL veritabanı kaynak sınırları]( sql-database-dtu-resource-limits.md#what-happens-when-database-and-elastic-pool-resource-limits-are-reached) sınır CPU dışındaki kaynaklar hakkında daha fazla bilgi için bellek, veri g/ç ve işlem günlük GÇ.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bkz: [hizmet katmanı](sql-database-service-tiers.md) Dtu ve Edtu tek veritabanları ve esnek havuzlar için kullanılabilir bilgi, yanı sıra CPU dışındaki kaynaklarda sınırları, bellek, veri g/ç ve işlem günlük g/ç.
+* Bkz: [hizmet katmanı](sql-database-service-tiers.md) Dtu ve Edtu tek veritabanları ve esnek havuzlar için kullanılabilir bilgi, yanı sıra CPU dışındaki kaynaklarda sınırları, bellek, veri g/ç ve işlem günlük GÇ.
 * DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md).
 * DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).

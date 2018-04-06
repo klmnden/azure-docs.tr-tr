@@ -1,26 +1,26 @@
 ---
-title: "Özel rol tabanlı erişim denetimi rolleri oluşturmak ve azure'da iç ve dış kullanıcılara atamak | Microsoft Docs"
-description: "İç ve dış kullanıcılar için PowerShell ve CLI kullanılarak oluşturulan özel RBAC Rolleri Ata"
+title: Özel rol tabanlı erişim denetimi rolleri oluşturmak ve azure'da iç ve dış kullanıcılara atamak | Microsoft Docs
+description: İç ve dış kullanıcılar için PowerShell ve CLI kullanılarak oluşturulan özel RBAC Rolleri Ata
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 editor: kgremban
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/06/2017
+ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 75a45b492c230b19d2f7237f8ea7fe2c49de29bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b60b30e3a5a4f5adec4fbef8c4e981ad034a7f6c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="intro-on-role-based-access-control"></a>Giriş rol tabanlı erişim denetimi hakkında
 
@@ -53,9 +53,9 @@ RBAC kullanılan (ancak bunlarla sınırlı olmamak kaydıyla olduğunda) iki or
 * Kullanıcılar (bunlar, kullanıcının Azure Active Directory Kiracı parçasıdır) kuruluş ancak farklı ekipleri ve tüm abonelik için ya da belirli kaynak grupları veya ortamında kaynak kapsamı için ayrıntılı erişmesi gereken grupları parçası içinde ile çalışma
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-outside-of-azure-active-directory"></a>Azure Active Directory dışındaki bir kullanıcı için erişim izni ver abonelik düzeyinde
-RBAC rolleri olanağı verilir yalnızca **sahipleri** aboneliği, bu nedenle yönetici kullanıcı, önceden atanmış bu rolü veya Azure aboneliği oluşturduğu bir kullanıcı adıyla oturum açmış olmanız gerekir.
+RBAC rolleri olanağı verilir yalnızca **sahipleri** abonelik. Bu role sahip bir kullanıcı önceden atanmış veya Azure aboneliği oluşturduğu gibi bu nedenle, yönetici oturum açmanız gerekir.
 
-Oturum Yöneticisi olarak açma sonra Azure portalından "Abonelikleri" ve seçtiğiniz istenen bir seçin.
+Yönetici olarak oturum açtıktan sonra Azure portalından "Abonelikleri" ve seçtiğiniz istenen bir seçin.
 ![Azure portalında abonelik dikey penceresinde](./media/role-based-access-control-create-custom-roles-for-internal-external-users/0.png) yönetici kullanıcı Azure aboneliği satın aldıysa varsayılan olarak, kullanıcı olarak görünecek **Hesap Yöneticisi**, bu abonelik rol bırakılıyor. Azure aboneliği rolleri hakkında daha fazla bilgi için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](/billing/billing-add-change-azure-subscription-administrator.md).
 
 Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" Azure aboneliği oluşturan olduğundan (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için varsayılan etki alanı adı olacaktır **"@alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirildiğinden **". onmicrosoft.com"**.
@@ -185,154 +185,154 @@ Büyük kuruluşlar için yönetici kullanıcının ekipleri ve tüm bölümler 
 Sağlanan ve yalnızca Azure Active Directory içinde yönetilen güvenlik grupları bu gruplarıdır.
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-powershell"></a>PowerShell kullanarak destek istekleri açmak için özel bir RBAC rolü oluşturun
-Azure'da kullanılabilen yerleşik RBAC rolleri ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. Ancak, bu rollerin hiçbiri yönetici kullanıcının gereksinimlerinize uygun değilse, daha fazla özel RBAC rolleri oluşturarak erişimi sınırlamak için bir seçenek yoktur.
+Mevcut olan yerleşik roller kullanılabilir kaynakları ortamında göre belirli izin düzeyleri emin olun. Ancak, yerleşik roller gereksinimlerinizi karşılamazsa, özel roller oluşturabilirsiniz.
 
-Özel RBAC rolleri oluşturmak için bir yerleşik rolü, düzenlemek ve ortam geri almak için gerekir. Rolünün karşıya yükleme ve indirme PowerShell veya CLI kullanılarak yönetilir.
+Özel bir rol oluşturmak için sahip yerleşik bir rol Başlat, düzenlemek ve yeni bir rol oluşturmak. Bu örneğin, yerleşik **okuyucu** destek isteği açma seçeneğini izin vermek için rol özelleştirildi.
 
-Abonelik düzeyinde ayrıntılı erişim vermek ve ayrıca davet edilen kullanıcı destek isteği açma esnekliğini tanımak özel bir rol oluşturma önkoşulları anlamak önemlidir.
+PowerShell'de kullanın [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) dışa aktarmak için komutu **okuyucu** JSON biçiminde rol.
 
-Bu örneğin, yerleşik rol **okuyucu**, tüm kaynak kapsamları görüntülemeye erişim kullanıcılar verir, ancak bunları düzenleyin veya yeni bir tane oluşturmak için destek isteği açma seçeneğini izin vermek için özelleştirildi.
-
-Dışarı aktarma ilk eylemi **okuyucu** rol PowerShell'de tamamlanması gerekiyor yönetici olarak yükseltilmiş izinlerle çalıştı.
-
-```
-Login-AzureRMAccount
-
-Get-AzureRMRoleDefinition -Name "Reader"
-
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
-
+```powershell
+Get-AzureRmRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\rbacrole2.json
 ```
 
+Okuyucu rolü için JSON çıktısını gösterir.
 
+```json
+{
+    "Name":  "Reader",
+    "Id":  "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "IsCustom":  false,
+    "Description":  "Lets you view everything, but not make any changes.",
+    "Actions":  [
+                    "*/read"
+                ],
+    "NotActions":  [
 
-
-
-![Okuyucu RBAC rolü için PowerShell ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/15.png)
-
-Ardından rolünün JSON şablonunu ayıklamanız gerekir.
-
-
-
-
-
-![Özel okuyucu RBAC rolü için JSON şablonunu](./media/role-based-access-control-create-custom-roles-for-internal-external-users/16.png)
-
-Tipik bir RBAC rolü üç ana bölüm dışında oluşan **Eylemler**, **NotActions** ve **AssignableScopes**.
-
-İçinde **eylem** bölümü olan bu rol için izin verilen tüm işlemler listelenir. Her eylemin kaynak sağlayıcısından atandığı anlamak önemlidir. Bu durumda, destek biletlerini oluşturmak için **Microsoft.Support** kaynak sağlayıcısı listelenmesi gerekir.
-
-Kullanılabilir ve aboneliğinizde kayıtlı ilgili tüm kaynak sağlayıcıları kullanabilmek için PowerShell'i kullanabilirsiniz.
-```
-Get-AzureRMResourceProvider
-
-```
-Ayrıca, kaynak sağlayıcıları yönetmek tüm kullanılabilir için PowerShell cmdlet'leri kontrol edebilirsiniz.
-    ![Kaynak sağlayıcısı yönetimi için PowerShell ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/17.png)
-
-Belirli bir RBAC rolü için tüm eylemleri kısıtlamak için kaynak sağlayıcıları bölümü altında listelenen **NotActions**.
-Son olarak, RBAC rolü açık abonelik kimlikleri kullanıldığı içeren zorunludur. Abonelik kimlikleri altında listelenen **AssignableScopes**, aksi takdirde, aboneliğinizde rolünü içeri aktarmak için izin verilmez.
-
-Oluşturma ve RBAC rolü özelleştirme sonra aktarılması gereken ortamını yedekleyin.
-
-```
-New-AzureRMRoleDefinition -InputFile "C:\rbacrole2.json"
-
+                   ],
+    "AssignableScopes":  [
+                             "/"
+                         ]
+}
 ```
 
-Bu örnekte, özel bu RBAC rolü için "okuyucu destek biletleri erişim düzeyi kullanıcının her şeyi abonelikte görüntülemek ve destek istekleri açmaya izin verme" adıdır.
+Ardından, çıkış özel rol oluşturmak için JSON düzenleyin.
+
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
+
+                   ],
+    "AssignableScopes":  [
+                             "/subscriptions/11111111-1111-1111-1111-111111111111"
+                         ]
+}
+```
+
+Tipik rol üç ana bölümden oluşan **Eylemler**, **NotActions**, ve **AssignableScopes**.
+
+**Eylem** bölümü rolü için izin verilen tüm işlemleri listeler. Bu durumda, destek oluşturmak için anahtarları **Microsoft.Support/&ast;**  işlemi eklenmelidir. Her işlem kaynak sağlayıcısından sunulacağını anlamak önemlidir. Bir kaynak sağlayıcısı için işlemleri listesini almak için kullanabilirsiniz [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) komutunu veya bkz [Azure Resource Manager kaynak sağlayıcısı işlemleri](role-based-access-control-resource-provider-operations.md).
+
+Belirli bir rol için tüm eylemleri kısıtlamak için kaynak sağlayıcıları altında listelenen **NotActions** bölümü.
+Rolü açık abonelik kimlikleri kullanıldığı içeren zorunludur. Abonelik kimlikleri altında listelenen **AssignableScopes**, aksi takdirde, aboneliğinizi rolünü içeri aktarmak için izin verilmez.
+
+Özel rol oluşturmak için kullandığınız [New-AzureRmRoleDefinition](/powershell/module/azurerm.resources/new-azurermroledefinition) komut ve güncelleştirilmiş JSON rol tanımı dosyası sağlayın.
+
+```powershell
+New-AzureRmRoleDefinition -InputFile "C:\rbacrole2.json"
+```
+
+Bu örnekte, bu özel rolü "okuyucu destek biletlerini erişim düzeyi" adıdır. Kullanıcının her şeyi abonelik açık destek istekleri de görüntüleyebilir ve olanak sağlar.
 
 > [!NOTE]
-> Destek isteği açma eylemi izin verme yalnızca iki yerleşik RBAC rolleri **sahibi** ve **katkıda bulunan**. Destek istekleri açmak bir kullanıcı için tüm destek isteklerini bir Azure aboneliğine yönelik temel alınarak oluşturulur çünkü kendisine yalnızca abonelik kapsamında bir RBAC rolü atanmalıdır.
+> Destek isteklerini açmasına izin yalnızca iki yerleşik roller **sahibi** ve **katkıda bulunan**. Destek istekleri açmak bir kullanıcı için tüm destek isteklerini bir Azure aboneliğine yönelik temel alınarak oluşturulur çünkü kendisine abonelik kapsamında bir rol atanmalıdır.
 
-Bu yeni özel rolü aynı dizinden bir kullanıcıya atandı.
+Yeni özel rol Azure portalında kullanıma sunulmuştur ve kullanıcılara atanabilir.
 
+![Azure portalında içeri özel rol ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
 
+![kullanıcı aynı dizinde özel alınan rol atama işleminin ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
 
+![Özel alınan rol izinlerini ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
 
+Bu özel rolü olan kullanıcılar, artık yeni destek istekleri oluşturabilirsiniz.
 
-![Azure portalında içeri özel RBAC rolü ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/18.png)
+![Özel rol destek istekleri oluşturma ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
 
+Bu özel rolü olan kullanıcılar başka eylemler gerçekleştirebilir, gibi VM'ler oluşturulamıyor veya kaynak grupları oluşturun.
 
+![ekran görüntüsü özel rol VM'ler oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
 
-
-
-![kullanıcı aynı dizinde özel alınan RBAC rol atama işleminin ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/19.png)
-
-
-
-
-
-![Özel alınan RBAC rolü izinlerini ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/20.png)
-
-Bu özel RBAC rolü sınırları gibi vurgulamak için örnek daha ayrıntılı:
-* Yeni destek istekleri oluşturabilirsiniz
-* Yeni kaynak kapsamlar oluşturulamıyor (örneğin: sanal makine)
-* Yeni kaynak grupları oluşturulamıyor
-
-
-
-
-
-![Özel RBAC rolü destek istekleri oluşturma ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/21.png)
-
-
-
-
-
-![ekran görüntüsü özel RBAC rolü VM'ler oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/22.png)
-
-
-
-
-
-![ekran görüntüsü özel RBAC rolü yeni RGs oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
+![ekran görüntüsü özel rol yeni RGs oluşturmak mümkün değil](./media/role-based-access-control-create-custom-roles-for-internal-external-users/23.png)
 
 ## <a name="create-a-custom-rbac-role-to-open-support-requests-using-azure-cli"></a>Azure CLI kullanarak destek istekleri açmak için özel bir RBAC rolü oluşturun
-Mac ve PowerShell erişmesini olmadan çalışan, Azure CLI Git yoludur.
 
-Özel bir rol oluşturmak için aşağıdaki adımları, rol CLI kullanarak bir JSON şablonu indirilemiyor ancak CLI görüntülenebilir tek özel durumu ile aynıdır.
+JSON çıktısını farklı olması dışında PowerShell kullanarak Azure CLI kullanarak özel bir rol oluşturmak için aşağıdaki adımları benzerdir.
 
-Bu örnekte, t yerleşik rolü seçtiniz **yedekleme okuyucu**.
+Bu örnekte, yerleşik ile başlayabilirsiniz **okuyucu** rol. Okuyucu rolüne Eylemler listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az_role_definition_list) komutu.
 
+```azurecli
+az role definition list --name "Reader" --output json
 ```
 
-azure role show "backup reader" --json
-
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Lets you view everything, but not make any changes.",
+    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "permissions": [
+      {
+        "actions": [
+          "*/read"
+        ],
+        "additionalProperties": {},
+        "notActions": []
+      }
+    ],
+    "roleName": "Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
 ```
 
+Aşağıdaki biçimde bir JSON dosyası oluşturun. **Microsoft.Support/&ast;**  işlemi eklendi **Eylemler** bu kullanıcı bir okuyucunun olmasını devam ederken destek istekleri açabileceği bölümler. Burada bu rolü kullanılacak, abonelik kimliği eklemelisiniz **AssignableScopes** bölümü.
 
+```json
+{
+    "Name":  "Reader support tickets access level",
+    "IsCustom":  true,
+    "Description":  "View everything in the subscription and also open support requests.",
+    "Actions":  [
+                    "*/read",
+                    "Microsoft.Support/*"
+                ],
+    "NotActions":  [
 
-
-
-![CLI ekran görüntüsü yedekleme okuyucu rolüne Göster](./media/role-based-access-control-create-custom-roles-for-internal-external-users/24.png)
-
-Bir JSON şablonu proprieties kopyaladıktan sonra Visual Studio rolünde düzenleme **Microsoft.Support** kaynak sağlayıcısı eklendi **Eylemler** böylece bu kullanıcı destek bölümler Okuyucu için yedekleme kasalarını olmasını etmeden istek sayısı. Burada bu rolü kullanılacak, abonelik kimliği eklemek gerekli olan yeniden **AssignableScopes** bölümü.
-
+                   ],
+    "AssignableScopes": [
+                            "/subscriptions/11111111-1111-1111-1111-111111111111"
+                        ]
+}
 ```
 
-azure role create --inputfile <path>
+Özel rol oluşturmak için kullanmak [az rol tanımı oluşturma](/cli/azure/role/definition#az_role_definition_create) komutu.
 
+```azurecli
+az role definition create --role-definition ~/roles/rbacrole1.json
 ```
 
+Yeni özel rol Azure portalında kullanılabilir ve bu rolü kullanmak için önceki PowerShell bölüm aynı işlemidir.
 
-
-
-
-![Özel RBAC rolü alma CLI ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/25.png)
-
-Yeni rol Azure portalında kullanılabilir ve atamasını önceki örneklerde olduğu gibi aynı işlemidir.
-
-
-
-
-
-![CLI 1.0 kullanılarak oluşturulan özel RBAC rolü Azure portal ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
-
-Son yapı 2017'dan sonra Azure bulut Kabuk genel kullanıma açıktır. Azure bulut Kabuk tamamlayan bir IDE ve Azure portal ' dir. Bu hizmeti ile kimlik doğrulaması ve Azure içinde barındırılan ve tarayıcı tabanlı bir kabuk alın ve makinenize yüklü CLI yerine kullanın.
-
-
-
-
-
-![Azure Cloud Shell](./media/role-based-access-control-create-custom-roles-for-internal-external-users/27.png)
+![CLI 1.0 kullanılarak oluşturulan özel rol Azure portal ekran görüntüsü](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: ''
+ms.topic: article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: d88e4a068841f68feffb094b2aa07faaf5a6a8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f9a3eeff7a44c98228f89a7519117b043217eefd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümelerini ve Azure Data Factory öğesinde bağlantılı hizmet 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -125,7 +125,7 @@ Aşağıdaki tabloda yukarıdaki JSON özelliklerinde açıklanmaktadır:
 Özellik | Açıklama | Gerekli |
 -------- | ----------- | -------- |
 ad | Veri kümesi adı. Bkz: [Azure Data Factory - adlandırma kuralları](naming-rules.md). |  Evet |
-type | Veri kümesi türü. Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [Dataset türleri](#dataset-types). | Evet |
+type | Veri kümesi türü. Data Factory ile desteklenen türlerden biri belirtin (örneğin: AzureBlob, AzureSqlTable). <br/><br/>Ayrıntılar için bkz [Dataset türleri](#dataset-type). | Evet |
 yapısı | Veri kümesi şemasını. Ayrıntılar için bkz [veri kümesi yapısı](#dataset-structure). | Hayır |
 typeProperties | Tür özellikleri her türü için farklı (örneğin: Azure Blob, Azure SQL tablosu). Desteklenen türler ve özellikleri hakkında daha fazla bilgi için bkz: [veri kümesi türü](#dataset-type). | Evet |
 

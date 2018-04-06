@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 624a40b1e40db6ceac9c567926b3932449e7bf7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Azure AD B2C özel ilke başlangıç paketinin özel ilkelerini anlama
 
@@ -39,7 +39,7 @@ Başka bir talep şemaları, üç bölüme ayrılmıştır:
 3.  Ve sonunda kullanıcıdan, toplanan herhangi bir ek, isteğe bağlı talep listeleyen üçüncü bir bölüm dizinde saklanan ve oturum açma sırasında belirteçleri gönderilir. Bu bölümde kullanıcıdan toplanan ve/veya belirteçte gönderilen yeni talep türü eklenebilir.
 
 > [!IMPORTANT]
-> Talep şema parolaları ve kullanıcı adları gibi belirli talepler kısıtlamaları içerir. Herhangi bir talep sağlayıcısı olarak Azure AD güven Framework (TF) ilkesi değerlendirir ve tüm kısıtlamaları premium ilkesinde modelled. Daha fazla kısıtlama eklemek ya da başka bir talep sağlayıcı kendi kısıtlamaları olan kimlik bilgisi depolama için kullanmak için bir ilke değiştirilmesi.
+> Talep şema parolaları ve kullanıcı adları gibi belirli talepler kısıtlamaları içerir. Herhangi bir talep sağlayıcısı olarak Azure AD güven Framework (TF) ilkesi değerlendirir ve tüm kısıtlamaları özel ilke modelled. Daha fazla kısıtlama eklemek ya da başka bir talep sağlayıcı kendi kısıtlamaları olan kimlik bilgisi depolama için kullanmak için bir ilke değiştirilmesi.
 
 Kullanılabilir talep türleri aşağıda listelenmiştir.
 
@@ -51,12 +51,12 @@ Aşağıdaki talep kullanıcı Yolculuklar düzgün çalışması gereklidir:
 |-------------|-------------|
 | *UserId* | Kullanıcı adı |
 | *signInName* | Oturum adı |
-| *tenantId* | Azure AD B2C Premium kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
-| *objectId* | Azure AD B2C Premium kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
+| *tenantId* | Azure AD B2C kullanıcı nesnesinin Kiracı tanımlayıcısını (ID) |
+| *objectId* | Azure AD B2C kullanıcı nesnesinin nesne tanımlayıcısını (ID) |
 | *Parola* | Parola |
 | *newPassword* | |
 | *reenterPassword* | |
-| *passwordPolicies* | Parola gücünü, sona erme vb. belirlemek için Azure AD B2C Premium tarafından kullanılan parola ilkeleri. |
+| *passwordPolicies* | Parola gücünü, sona erme vb. belirlemek için Azure AD B2C tarafından kullanılan parola ilkeleri. |
 | *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
@@ -66,9 +66,9 @@ Aşağıdaki talep kullanıcı Yolculuklar düzgün çalışması gereklidir:
 | *E-posta* | Kullanıcıyla iletişim kurmak için kullanılan e-posta adresi |
 | *signInNamesInfo.emailAddress* | Kullanıcı oturum açmak için kullandığınız e-posta adresi |
 | *otherMails* | Kullanıcıyla iletişim kurmak için kullanılan e-posta adresleri |
-| *userPrincipalName* | Azure AD B2C Premium içinde depolanan gibi kullanıcı adı |
+| *userPrincipalName* | Azure AD B2C'de depolanan gibi kullanıcı adı |
 | *upnUserName* | Kullanıcı asıl adı oluşturmak için kullanıcı adı |
-| *mailNickName* | Azure AD B2C Premium içinde depolanan gibi kullanıcının posta takma adı |
+| *mailNickName* | Azure AD B2C'de depolanan gibi kullanıcının posta takma adı |
 | *newUser* | |
 | *executed-SelfAsserted-Input* | Talep, öznitelikler kullanıcıdan toplanan olup olmadığını belirtir |
 | *executed-PhoneFactor-Input* | Talep, yeni bir telefon numarası kullanıcıdan toplanan olup olmadığını belirtir |

@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 442c860a13e2af1d5398fb30a6069a0e3764ee64
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 36a6b32851c4778db3405b6b9b35d9551181abf4
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanı'nda Bellek içi teknolojileri kullanılarak performansı en iyi duruma getirme
 
@@ -22,7 +22,7 @@ Azure SQL veritabanı'nda Bellek içi teknolojilerini kullanarak, performans iyi
 Aşağıda, bellek içi OLTP performansı önemli ölçüde artırmak için nasıl Yardım iki örnek verilmiştir:
 
 - Bellek içi OLTP kullanarak [çekirdek işletme çözümleri % 70 Dtu'lar arttırırken, iş yükü çift mümkün](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU anlamına gelir *veritabanı işleme birimi*, ve kaynak tüketimi mesurement içerir.
+    - DTU anlamına gelir *veritabanı işlem birimi*, ve kaynak tüketimi mesurement içerir.
 - Aşağıdaki videoda bir örnek iş yükü kaynak tüketimi önemli gelişme gösterilmektedir: [Azure SQL veritabanı Video, bellek içi OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
     - Daha fazla bilgi için blog gönderisine bakın: [bellek içi OLTP Azure SQL veritabanı Blog gönderisine içinde](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
@@ -36,7 +36,7 @@ Aşağıdaki video Azure SQL veritabanında bellek içi teknolojileriyle olası 
 
 Azure SQL veritabanı bellek içi teknolojilerin sahiptir:
 
-- *Bellek içi OLTP* verimliliğini artırır ve işlem için gecikme süresini azaltır. Bellek içi OLTP yararlanan senaryolar şunlardır: yüksek verimlilik işlem ticaret ve oyun, veri alımı olayları veya önbelleğe alma, veri yükü ve geçici bir tablo ve tablo değişkeni senaryoları IOT cihazları gibi işleme.
+- *Bellek içi OLTP* işlem artırır ve işlem için gecikme süresini azaltır. Bellek içi OLTP yararlanan senaryolar şunlardır: yüksek verimlilik işlem ticaret ve oyun, veri alımı olayları veya önbelleğe alma, veri yükü ve geçici bir tablo ve tablo değişkeni senaryoları IOT cihazları gibi işleme.
 - *Kümelenmiş columnstore dizinleri* (en fazla 10 kez), depolama ayak izini azaltmak ve raporlama ve analiz sorguları performansını. Bu olgu tabloları ile veri reyonlarını daha fazla veri veritabanınızda sığacak ve performansı artırmak için kullanabilirsiniz. Ayrıca, bu geçmiş verileriyle işlemsel veritabanında arşivlemek ve en fazla 10 kez daha fazla veri sorgulayabilmesi için kullanabilirsiniz.
 - *Kümelenmemiş columnstore dizinleri* HTAP yardımcı olmak için işletimsel veritabanının pahalı bir ayıklama çalıştırmaya gerek doğrudan sorgulama aracılığıyla işletmenizin gerçek zamanlı Öngörüler elde size dönüştürme ve yükleme (ETL) işlemi ve bekleyin veri ambarı'doldurulmalıdır. Kümelenmemiş columnstore dizinleri OLTP veritabanı üzerinde işlem iş yükü üzerindeki etkiyi azaltırken analitik sorguları çok hızlı yürütülmesi izin verin.
 - Ayrıca, bir columnstore dizini olan bellek için iyileştirilmiş tablo birleşimi olabilir. Bu birleşim çok hızlı işlemler gerçekleştirmenizi sağlar ve *eşzamanlı olarak* analitik sorguları aynı verileri çok hızlı bir şekilde çalıştırın.
@@ -71,7 +71,7 @@ Teknolojileri hakkında ayrıntılı videolar:
 
 Bellek içi OLTP kullanıcı verilerini depolamak için kullanılan bellek için iyileştirilmiş tablolar içerir. Bu tablolar belleğe sığması için gereklidir. SQL veritabanı hizmetinin bellekte doğrudan yönetmek için biz kullanıcı verileri için bir kota kavramı vardır. Bu fikir olarak adlandırılır *bellek içi OLTP depolama*.
 
-Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Yazma zaman, her 125 veritabanı işlem birimleri (Dtu'lar) veya esnek veritabanı işlem birimleri (Edtu'lar) için depolama gigabayt alırsınız. Daha fazla bilgi için bkz: [kaynak sınırları](sql-database-resource-limits.md).
+Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Bkz: [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md).
 
 Aşağıdaki öğeler, bellek içi OLTP depolama cap doğru sayısı:
 
@@ -87,8 +87,8 @@ Bellek içi OLTP depolama alanı kullanımı izleme ve neredeyse ucun isabet old
 
 Esnek havuzları ile bellek içi OLTP depolama havuzundaki tüm veritabanları arasında paylaşılır. Bu nedenle, bir veritabanında kullanım büyük olasılıkla diğer veritabanlarına etkileyebilir. Bu iki Azaltıcı Etkenler şunlardır:
 
-- Bir en çok-bir bütün olarak havuz eDTU sayısı daha düşük olan eDTU veritabanları için yapılandırın. Bu maksimum bellek içi OLTP depolama alanı kullanımı herhangi bir veritabanı için eDTU sayısı karşılık gelen bir boyut havuzunda caps.
-- 0'dan büyük bir Min-eDTU yapılandırın. Bu en az havuzdaki her veritabanı için yapılandırılmış en az eDTU karşılık gelen kullanılabilir bellek içi OLTP depolama alanı miktarı olduğunu güvence altına alır.
+- Yapılandırma bir `Max-eDTU` veya `MaxvCore` havuzu bir bütün olarak için eDTU veya vCore sayısı küçük veritabanları için. Bu maksimum bellek içi OLTP depolama alanı kullanımı herhangi bir veritabanı için eDTU sayısı karşılık gelen bir boyut havuzunda caps.
+- Yapılandırma bir `Min-eDTU` veya `MinvCore` 0'dan büyük. Bu en az havuzdaki her veritabanı için yapılandırılmış karşılık gelen kullanılabilir bellek içi OLTP depolama alanı miktarı olduğunu güvence altına alır `Min-eDTU` veya `vCore`.
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>Veri boyutu ve columnstore dizinleri için depolama
 
@@ -152,7 +152,7 @@ Daha fazla simplistic, ancak daha görsel olarak çekici performans gösteri iç
 
 #### <a name="installation-steps"></a>Yükleme adımları
 
-1. İçinde [Azure portal](https://portal.azure.com/), bir sunucu üzerinde bir Premium veritabanı oluşturun. Ayarlama **kaynak** AdventureWorksLT örnek veritabanı. Ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı oluşturma](sql-database-get-started-portal.md).
+1. İçinde [Azure portal](https://portal.azure.com/), bir Premium veya iş kritik (Önizleme) oluşturma sunucudaki veritabanı. Ayarlama **kaynak** AdventureWorksLT örnek veritabanı. Ayrıntılı yönergeler için bkz: [ilk Azure SQL veritabanınızı oluşturma](sql-database-get-started-portal.md).
 
 2. SQL Server Management Studio ile veritabanına bağlanmak [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 

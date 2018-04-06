@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/18/2017
 ms.author: sngun
-ms.openlocfilehash: a641c7e5e792b020be54a2ebc4bac63b545ce71e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ae8c4daf6b4beff3b1baf7ef5a5f3b84d706401a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Stream Analytics çıkışları: depolama, çözümleme için seçenekleri
 Akış analizi işi yazarken sonuç verileri nasıl göz önünde bulundurun. Stream Analytics işi sonuçlarını nasıl görüntüleyebileceğiniz ve burada depolayabilir miyim?
@@ -342,7 +342,7 @@ Ayrıca, bir durumda bir zaman penceresi için giriş olay olduğunda, çıktı 
 
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Nesnelerin İnterneti'nden gelen verilerdeki akış analizlerine yönelik bir yönetilen hizmet olan Stream Analytics'e giriş yaptınız. Bu hizmet hakkında daha fazla bilgi edinmek için bkz:

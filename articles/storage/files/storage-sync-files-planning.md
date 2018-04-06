@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 3f3ed53e3c6606ca540cc2e760f2f6280ccf5cc2
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 9af1a82530d6e2d694f56322b7107796df73a2d5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -173,6 +173,7 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 |--------|---------------------|
 | Avustralya Doğu | New South Wales |
 | Orta Kanada | Toronto |
+| Doğu Kanada | Quebec City |
 | Orta ABD | Iowa |
 | Doğu Asya | Hong Kong |
 | Doğu ABD | Virginia |
@@ -180,7 +181,6 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 | Kuzey Avrupa | İrlanda |
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
-| ABD Batı Cental |
 | Batı Avrupa | Hollanda |
 | Batı ABD | Kaliforniya |
 
@@ -191,6 +191,6 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenlik Duvarı ve proxy ayarlarını göz önünde bulundurun](storage-sync-files-firewall-and-proxy.md)
-* [Bir Azure dosyaları dağıtımını planlama](storage-files-planning.md)
+* [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
 * [Azure dosyaları dağıtma](storage-files-deployment-guide.md)
 * [Azure dosya eşitleme dağıtma](storage-sync-files-deployment-guide.md)

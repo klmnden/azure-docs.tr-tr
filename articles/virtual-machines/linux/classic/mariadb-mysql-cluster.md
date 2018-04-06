@@ -1,11 +1,11 @@
 ---
-title: "Azure üzerinde bir MariaDB (MySQL) küme çalıştırın | Microsoft Docs"
-description: "Bir MariaDB Oluştur + Galera MySQL Azure sanal makineleri küme"
+title: Azure üzerinde bir MariaDB (MySQL) küme çalıştırın | Microsoft Docs
+description: Bir MariaDB Oluştur + Galera MySQL Azure sanal makineleri küme
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: sabbour
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: d0d21937-7aac-4222-8255-2fdc4f2ea65b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5438bfb75abaac2bed55a76b38f69790f7fc87fa
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) küme: Azure Öğreticisi
 > [!IMPORTANT]
@@ -163,10 +163,10 @@ Bu makale, aşağıdaki adımları tamamlayın açıklamaktadır:
             service mysql stop
 7. Bir yapılandırma yer tutucu oluşturun.
 
-   a. Küme ayarları için bir yer tutucu oluşturmak için MySQL yapılandırmasını düzenleyin. Değiştirmez  **`<Variables>`**  veya artık açıklamadan çıkarın. Bu şablonu kullanarak bir VM oluşturduktan sonra gerçekleşir.
+   a. Küme ayarları için bir yer tutucu oluşturmak için MySQL yapılandırmasını düzenleyin. Değiştirmez **`<Variables>`** veya artık açıklamadan çıkarın. Bu şablonu kullanarak bir VM oluşturduktan sonra gerçekleşir.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Düzen  **[galera]**  bölümünde ve temizleyin.
+   b. Düzen **[galera]** bölümünde ve temizleyin.
 
    c. Düzen **[mariadb]** bölümü.
 
@@ -184,11 +184,11 @@ Bu makale, aşağıdaki adımları tamamlayın açıklamaktadır:
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
 8. Gerekli bağlantı noktalarını Güvenlik Duvarı'nda, CentOS 7 FirewallD kullanarak açın.
 
-   * MySQL:`firewall-cmd --zone=public --add-port=3306/tcp --permanent`
-   * GALERA:`firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-   * GALERA IST:`firewall-cmd --zone=public --add-port=4568/tcp --permanent`
-   * RSYNC:`firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-   * Güvenlik Duvarı'nı yeniden yükleyin:`firewall-cmd --reload`
+   * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
+   * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
+   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
+   * Güvenlik Duvarı'nı yeniden yükleyin: `firewall-cmd --reload`
 
 9. Sistem performansı en iyi duruma getirme. Daha fazla bilgi için bkz: [performans stratejisi ayarlama](optimize-mysql.md).
 
@@ -281,8 +281,8 @@ Bu makale, aşağıdaki adımları tamamlayın açıklamaktadır:
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Açıklamadan çıkarın  **`wsrep_cluster_name`**  ve  **`wsrep_cluster_address`**  kaldırarak  **#**  satırın başındaki.
-    Ayrıca, yerine  **`<ServerIP>`**  içinde  **`wsrep_node_address`**  ve  **`<NodeName>`**  içinde  **`wsrep_node_name`**  VM'in IP adresiyle ad, sırasıyla ve de bu satırlardaki yorumları kaldırın.
+    Açıklamadan çıkarın **`wsrep_cluster_name`** ve **`wsrep_cluster_address`** kaldırarak **#** satırın başındaki.
+    Ayrıca, yerine **`<ServerIP>`** içinde **`wsrep_node_address`** ve **`<NodeName>`** içinde **`wsrep_node_name`** VM'in IP adresiyle ad, sırasıyla ve de bu satırlardaki yorumları kaldırın.
 5. Küme üzerinde MariaDB1 başlatmak ve başlangıçta çalışmasına izin verin.
 
         sudo service mysql bootstrap
@@ -299,7 +299,7 @@ Artık üç düğümler arasında istekleri dengelemek için Azure yük dengeley
 
 Azure CLI kullanarak makinenizde aşağıdaki komutları çalıştırın.
 
-Komut parametreleri yapıdır:`azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+Komut parametreleri yapıdır: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
@@ -307,7 +307,7 @@ Komut parametreleri yapıdır:`azure vm endpoint create-multiple <MachineName> <
 
 CLI biraz uzun olabilir 15 saniye olarak, yük dengeleyici yoklama aralığı ayarlar. Portalında altında değiştirme **uç noktaları** herhangi biri sanal makineleri için.
 
-![Uç noktayı Düzenle](./media/mariadb-mysql-cluster/Endpoint.PNG)
+![Uç noktayı düzenle](./media/mariadb-mysql-cluster/Endpoint.PNG)
 
 Seçin **yük dengeli kümesi yeniden**.
 

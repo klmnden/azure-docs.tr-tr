@@ -1,8 +1,7 @@
 ---
-title: 'Azure Active Directory B2C: Başvuru: kullanıcı gezisine UI özel ilkeleriyle özelleştirme | Microsoft Docs'
-description: Bir konu Azure Active Directory B2C özel ilkeler hakkında
+title: Bir kullanıcı gezisine özel ilkeler ile UI Özelleştirme | Microsoft Docs
+description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
 editor: ''
@@ -11,25 +10,25 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: b0f68f76bfb746b91cb82b2b7e9e750f15f14253
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı gezisine UI özel ilkeleriyle özelleştirme
+# <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı gezisine özel ilkeler ile UI Özelleştirme
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 > [!NOTE]
-> Bu makalede, bir Gelişmiş açıklama UI özelleştirme nasıl çalıştığını ve kimlik deneyimi Framework kullanarak B2C özel ilkeleriyle etkinleştirme yer alır.
+> Bu makalede kullanıcı arabirimini özelleştirme nasıl çalıştığını ve kimlik deneyimi Framework kullanarak Azure AD B2C özel ilkeler ile etkinleştirme Gelişmiş bir tanımıdır.
 
 
 Kesintisiz kullanıcı deneyimi iş tüketici çözüme yönelik bir anahtardır. Kesintisiz kullanıcı deneyimi aygıt veya tarayıcı, bir kullanıcının gezisine hizmeti aracılığıyla kullandıkları Müşteri Hizmetleri ayırt olduğu bir deneyim açıktır.
 
 ## <a name="understand-the-cors-way-for-ui-customization"></a>UI özelleştirme için CORS biçimini anlama
 
-Azure AD B2C Görünüm-ve-yapısını kullanıcı deneyimini (UX) sunulan ve özel ilkelerinizi Azure AD B2C tarafından görüntülenen çeşitli sayfalar özelleştirmenizi sağlar.
+Azure AD B2C Görünüm-ve-yapısını kullanıcı deneyimini (UX), hizmet ve Azure AD B2C tarafından görüntülenen çeşitli sayfalar özelleştirmenize olanak tanır, özel ilkelerini kullanma.
 
 Bunun için Azure AD B2C, tüketicinin tarayıcıda kodu çalıştırır ve modern ve standart bir yaklaşım kullanır [çıkış noktaları arası kaynak paylaşımı (CORS)](http://www.w3.org/TR/cors/) HTML5/CSS şablonlarınızı işaret etmek için özel bir ilke belirttiğiniz belirli bir URL'den özel içerik yüklemek için. CORS kaynak kaynaklandığı etki alanı dışındaki başka bir etki alanından istenmesi için bir web sayfasında yazı tipleri gibi sınırlı kaynakları sağlayan bir mekanizmadır.
 
@@ -57,7 +56,7 @@ Her HTML5/CSS şablonlarınızı sağladığınız bir *bağlantı* gerekli kar�
 </html>
 ```
 
-Sayfaya geri kalanı, size denetimine olsa da azure AD B2C ile ilgili içerik sayfası için bu div eklenen. Azure AD B2C'in JavaScript kodu, içeriği çeker ve HTML bu belirli div öğesinin yerleştirir. Azure AD B2C aşağıdaki denetimleri uygun olarak yerleştirir: hesabı Seçici denetimini, denetimleri, çok faktörlü (şu anda telefon tabanlı) denetimleri ve öznitelik koleksiyonu denetimleri oturum. Azure AD B2C, tüm denetimler HTML5 uyumlu ve erişilebilir olduğundan, tüm denetimler tam olarak biçimlendirilebilir ve, denetimi sürüm değil ilerletmek sağlar.
+Sayfaya geri kalanı, size denetimine olsa da azure AD B2C ile ilgili içerik sayfası için bu div eklenen. Azure AD B2C JavaScript kodu, içeriği çeker ve HTML bu belirli div öğesinin yerleştirir. Azure AD B2C aşağıdaki denetimleri uygun olarak yerleştirir: hesabı Seçici denetimini, denetimleri, çok faktörlü (şu anda telefon tabanlı) denetimleri ve öznitelik koleksiyonu denetimleri oturum. Azure AD B2C, tüm denetimler HTML5 uyumlu ve erişilebilir olduğundan, tüm denetimler tam olarak biçimlendirilebilir ve, denetimi sürüm değil ilerletmek sağlar.
 
 Birleştirilen içeriğin sonunda, tüketici dinamik belgeye olarak görüntülenir.
 
@@ -66,7 +65,7 @@ Her şeyin beklendiği gibi çalıştığından emin olmak için yapmanız gerek
 - İçeriğinizi HTML5 uyumlu ve erişilebilir olduğundan emin olun
 - İçeriğinize CORS için etkinleştirildiğinden emin olun.
 - HTTPS üzerinden içerik sunmak.
-- Mutlak URL'ler https://yourdomain/content gibi tüm bağlantılar ve CSS içerik için kullanın.
+- Mutlak URL'ler gibi kullandığınız https://yourdomain/content tüm bağlantılar ve CSS içeriği.
 
 > [!TIP]
 > Barındırma içeriğinizi üzerinde site CORS'yi sahip olduğunu doğrulayın ve CORS isteklerini test etmek için siteyi kullanabilirsiniz http://test-cors.org/. Bu site sayesinde, (CORS destekleniyorsa sınamak için) bir uzak sunucuya CORS isteği gönder veya (CORS belirli özelliklerini keşfetmek için) bir test sunucusuna CORS isteği gönder.
@@ -115,7 +114,7 @@ Yukarıdaki adımları izlediyseniz, HTML5 ve CSS dosyaları *UI Özelleştirme 
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>CORS'yi depolama hesabına sahip olduğundan emin olun
 
-CORS (çıkış noktaları arası kaynak paylaşımı) uç noktanızı içeriğinizi Azure AD B2C Premium sayfasından görevi gören etki alanı farklı bir etki barındırılan içeriğinizi yüklemek Azure AD B2C Premium için etkinleştirilmiş olmalıdır.
+CORS (çıkış noktaları arası kaynak paylaşımı), uç noktası, içeriği yüklemek Azure AD B2C için etkinleştirilmiş olmalıdır. İçeriğinizi Azure AD B2C sayfasından hizmet veren etki alanı farklı bir etki barındırılan olmasıdır.
 
 Üzerinde içeriği barındıran depolama CORS'yi sahip olduğunu doğrulamak için aşağıdaki adımlarla devam edin:
 
@@ -161,11 +160,11 @@ Aşağıdaki tabloda Azure AD B2C kimliği tarafından tanınan tanımı kimlikl
 | *api.idpselections.signup* | **Kimlik sağlayıcısı seçimi için kaydolma**. Bu sayfa kullanıcı kayıt sırasında seçebileceği kimlik sağlayıcıları listesini içerir. Bu, Kurumsal kimlik sağlayıcıları, Facebook ve Google + gibi sosyal kimlik sağlayıcıları ya da yerel hesaplar (e-posta adresi veya kullanıcı adına göre) sağlayıcılarıdır. |
 | *api.localaccountpasswordreset* | **Parolanızı mı unuttunuz sayfasını**. Bu sayfa, parola sıfırlama başlatmak için doldurmak için kullanıcının sahip olduğu bir form içerir.  |
 | *api.localaccountsignin* | **Yerel hesap oturum açma sayfası**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap ile oturum açarken doldurmak için kullanıcının sahip bir oturum açma formu içerir. Form, metin giriş kutusu ve parola giriş kutusu içerebilir. |
-| *api.localaccountsignup* | **Yerel hesap kayıt sayfasına**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap için kaydolmak doldurmak için kullanıcının sahip form kaydolma içerir. Form, metin giriş kutusuna, parola giriş kutusu, radyo düğmesi, tek seçimlik açılan kutuları ve çoklu seçim onay kutuları gibi farklı giriş denetimlerini içerebilir. |
-| *api.phonefactor* | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların oturum açma sırasında telefon numaralarına (metin veya sesli kullanarak) doğrulayabilirsiniz yukarı ya da oturum açın. |
-| *api.selfasserted* | **Sosyal hesap kayıt sayfası**. Bu sayfa bir sosyal kimlik sağlayıcısından Facebook veya Google + gibi var olan bir hesabı kullanarak kaydolmak doldurmak için kullanıcının sahip form kaydolma içerir. Bu sayfa, önceki sosyal hesabı kayıt sayfasını parola giriş alanları dışında benzerdir. |
-| *api.selfasserted.profileupdate* | **Profil güncelleştirme sayfası**. Bu sayfa kullanıcının kendi profilini güncelleştirmek için kullanabileceği bir form içerir. Bu sayfa, önceki sosyal hesabı kayıt sayfasını parola giriş alanları dışında benzerdir. |
-| *api.signuporsignin* | **Birleşik kayıt veya oturum açma sayfası**.  Bu sayfa yukarı hem oturum işler ve Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanan kullanıcılar, oturum açma.
+| *api.localaccountsignup* | **Yerel hesap kayıt sayfasına**. Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre yerel bir hesap için kaydolmak doldurmak için kullanıcının sahip bir kayıt formu içerir. Form, metin giriş kutusuna, parola giriş kutusu, radyo düğmesi, tek seçimlik açılan kutuları ve çoklu seçim onay kutuları gibi farklı giriş denetimlerini içerebilir. |
+| *api.phonefactor* | **Çok faktörlü kimlik doğrulaması sayfası**. Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak) kaydolma veya oturum açma sırasında doğrulayabilirsiniz. |
+| *api.selfasserted* | **Sosyal hesap kayıt sayfası**. Bu sayfa bir sosyal kimlik sağlayıcısından Facebook veya Google + gibi varolan bir hesabı kullanarak oturum açarken doldurmak için kullanıcının sahip bir kayıt formu içerir. Bu sayfa, önceki sosyal hesabı kayıt sayfasına parola giriş alanları dışında benzerdir. |
+| *api.selfasserted.profileupdate* | **Profil güncelleştirme sayfası**. Bu sayfa kullanıcının kendi profilini güncelleştirmek için kullanabileceği bir form içerir. Bu sayfa, önceki sosyal hesabı kayıt sayfasına parola giriş alanları dışında benzerdir. |
+| *api.signuporsignin* | **Birleşik kayıt veya oturum açma sayfası**.  Bu sayfayı kaydolma hem de işler ve Kurumsal kimlik sağlayıcıları, Facebook veya Google + veya yerel hesaplar gibi sosyal kimlik sağlayıcıları kullanan kullanıcılar, oturum açma.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Başvuru: nasıl özel ilkeler anlamak B2C kimlik deneyimi Framework ile çalışma](active-directory-b2c-reference-custom-policies-understanding-contents.md)

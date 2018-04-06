@@ -1,11 +1,11 @@
 ---
-title: "Durumunu denetlemek için günlüğe kaydetmeyi ayarlayın ve Uyarıları - Azure mantıksal uygulamaları alma | Microsoft Docs"
-description: "Durum ve logic apps için performans izleme, tanılama verilerini günlüğe ve uyarılarını ayarlama"
+title: Durumunu denetlemek için günlüğe kaydetmeyi ayarlayın ve Uyarıları - Azure mantıksal uygulamaları alma | Microsoft Docs
+description: Durum ve logic apps için performans izleme, tanılama verilerini günlüğe ve uyarılarını ayarlama
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 0dc8bc81ca6125d40d1784ce39fd0facaf9e736a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
@@ -76,9 +76,9 @@ Hataları veya diğer olası sorunları hakkında bildirim almak için ayarladı
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Tanılama mantığı uygulamanız için oturum açma
 
-Daha zengin çalışma zamanı ayrıntılarını ve olayları ile hata ayıklama, tanılama ile oturum ayarlayabilirsiniz [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Günlük analizi olan bir hizmet olarak [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) bulut izler ve şirket içi ortamları, performans ve kullanılabilirlik tutmanıza yardımcı olmak için. 
+Daha zengin çalışma zamanı ayrıntılarını ve olayları ile hata ayıklama, tanılama ile oturum ayarlayabilirsiniz [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Günlük analizi, bulut izler ve şirket içi ortamları, performans ve kullanılabilirlik tutmanıza yardımcı olmak için azure'da bir hizmettir. 
 
-Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-get-started.md).
+Başlamadan önce bir günlük analizi çalışma alanınızın olması gerekir. Bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. İçinde [Azure portal](https://portal.azure.com), bulma ve mantıksal uygulamanızı seçin. 
 
@@ -90,16 +90,16 @@ Başlamadan önce OMS çalışma alanınızın olması gerekir. Bilgi [bir OMS �
 
    ![Tanılama günlüklerini Aç](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
-4. Şimdi gösterildiği gibi günlüğe kaydetme için OMS çalışma ve olay kategorisi seçin:
+4. Şimdi gösterildiği gibi günlüğü için günlük analizi çalışma alanı ve olay kategorisi seçin:
 
    1. Seçin **için günlük analizi Gönder**. 
    2. Altında **günlük analizi**, seçin **yapılandırma**. 
-   3. Altında **OMS çalışma alanları**, günlük için kullanılacak OMS çalışma alanını seçin.
+   3. Altında **OMS çalışma alanları**, günlük için kullanılacak günlük analizi çalışma alanını seçin.
    4. Altında **günlük**seçin **WorkflowRuntime** kategorisi.
    5. Ölçüm aralığını seçin.
    6. İşiniz bittiğinde **Kaydet**’i seçin.
 
-   ![OMS çalışma ve günlük verilerini seçin](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
+   ![Günlük analizi çalışma alanı ve günlük verilerini seçin](media/logic-apps-monitor-your-logic-apps/send-diagnostics-data-log-analytics-workspace.png)
 
 Şimdi, olaylar ve eylem olaylar çalıştırmak tetikleyici olaylar için olayları ve diğer verileri bulabilirsiniz.
 
@@ -113,23 +113,23 @@ Bulma ve mantıksal uygulamanızı olaylarını görüntüleme gibi için olayla
 
    !["Günlük analizi" seçin](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 
-2. Altında **günlük analizi**, bulma ve OMS çalışma alanınızı seçin. 
+2. Altında **günlük analizi**, bulma ve günlük analizi çalışma alanınızı seçin. 
 
-   ![OMS çalışma alanınızı seçin](media/logic-apps-monitor-your-logic-apps/selectla.png)
+   ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
 3. Altında **Yönetim**, seçin **OMS portalı**.
 
    !["OMS portalı" seçin](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
 
-4. OMS giriş sayfanızda seçin **günlük arama**.
+4. Giriş sayfanızda seçin **günlük arama**.
 
-   ![OMS giriş sayfanızda "Günlük arama" seçin](media/logic-apps-monitor-your-logic-apps/logsearch.png)
+   ![Giriş sayfanızda "Günlük arama" seçin](media/logic-apps-monitor-your-logic-apps/logsearch.png)
 
    -veya-
 
-   ![OMS menüsünde "Günlük arama" yi seçin](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
+   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
 
-5. Arama kutusuna, bulmak ve basın istediğiniz bir alanı belirtmek **Enter**. Yazmaya başladığınızda, OMS olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. 
+5. Arama kutusuna, bulmak ve basın istediğiniz bir alanı belirtmek **Enter**. Yazmaya başladığınızda, olası eşleşmeler ve kullanabileceğiniz işlemleri bakın. 
 
    Örneğin, ilk 10 olayları bulmak için girin ve bu arama sorgusuna seçin: **kategori arama "WorkflowRuntime" == | 10 sınırla**
 

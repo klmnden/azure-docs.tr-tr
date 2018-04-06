@@ -1,31 +1,29 @@
 ---
-title: "Özel web uç noktasına - Powershell Azure Blob Depolama olayları rota | Microsoft Docs"
-description: "Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın."
+title: Özel web uç noktasına - Powershell Azure Blob Depolama olayları rota | Microsoft Docs
+description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın.
 services: storage,event-grid
-keywords: 
+keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 374a24448eb1bf366e26bb55fdf09e470b030c89
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e5524732185d7b80ebf16a9bce6de9ca0183c27e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>PowerShell ile bir özel web uç noktası için rota Blob Depolama olayları
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Blob Depolama olayları, tetikleyici bir olay abone olmak için Azure PowerShell kullanın ve sonucu görüntüleyin. 
 
-Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede gösterilen örneği basitleştirmek için olayları yalnızca iletileri toplayan bir URL'ye gönderilir. Bu URL’yi [RequestBin](https://requestb.in/) veya [Hookbin](https://hookbin.com/)’deki üçüncü taraf araçlarını kullanarak oluşturursunuz.
+Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede gösterilen örneği basitleştirmek için olayları yalnızca iletileri toplayan bir URL'ye gönderilir. [Hookbin](https://hookbin.com/)’den bir üçüncü taraf araç kullanarak bu URL’yi oluşturursunuz.
 
 > [!NOTE]
-> **RequestBin** ve **Hookbin** yüksek aktarım hızında kullanıma yönelik tasarlanmamıştır. Bu araçların kullanımını tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
+> **Hookbin** yüksek verimlilik kullanım için tasarlanmamıştır. Bu aracın kullanımı tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
 
 Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
-
-![Olay verileri](./media/storage-blob-event-quickstart/request-result.png)
 
 ## <a name="setup"></a>Kurulum
 
@@ -84,7 +82,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. RequestBin ve Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf araçlardır. [RequestBin](https://requestb.in/)’e gidip **RequestBin Oluştur**’a tıklayın veya [Hookbin](https://hookbin.com/)’e gidip **Yeni Uç Nokta Oluştur**’a tıklayın. Depo URL'yi kopyalayın ve değiştirme `<bin URL>` aşağıdaki komut dosyasında.
+Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf bir araçtır. [Hookbin](https://hookbin.com/)’e gidin ve **Yeni Uç Nokta Oluştur**’a tıklayın. Depo URL'yi kopyalayın ve değiştirme `<bin URL>` aşağıdaki komut dosyasında.
 
 ```powershell
 $binEndPoint = "<bin URL>"
@@ -92,7 +90,7 @@ $binEndPoint = "<bin URL>"
 
 ## <a name="subscribe-to-your-storage-account"></a>Depolama hesabınıza abone olma
 
-Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, depolama hesabı oluşturulur ve URL uç nokta için olay bildirimi olarak RequestBin veya Hookbin geçirir abone olur. 
+Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, depolama hesabı oluşturulur ve olay bildirimi için uç noktaya olarak Hookbin URL geçirir abone olur. 
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id

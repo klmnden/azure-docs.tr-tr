@@ -1,11 +1,11 @@
 ---
-title: "Planlar ve faturalama içinde Azure Zamanlayıcı"
-description: "Planlar ve faturalama içinde Azure Zamanlayıcı"
+title: Planlar ve faturalama içinde Azure Zamanlayıcı
+description: Planlar ve faturalama içinde Azure Zamanlayıcı
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 13a2be8c-dc14-46cc-ab7d-5075bfd4d724
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -14,33 +14,27 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: f0662230c5d1663e37ee2be58f234934ec3d55dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Planlar ve faturalama içinde Azure Zamanlayıcı
 ## <a name="job-collection-plans"></a>İş koleksiyonu planları
-İş, Azure Scheduler Faturalanabilir varlıkta koleksiyonlarıdır. İş koleksiyonları ve aşağıda açıklanan üç planlarda – ücretsiz, standart ve Premium – gelen işleri sayısını içerir.
+İş, Azure Scheduler Faturalanabilir varlıkta koleksiyonlarıdır. İş koleksiyonları ve aşağıda açıklanan üç planlarda – Standard, P10 Premium ve P20 Premium – gelen işleri sayısını içerir.
 
 | **İş koleksiyonu planı** | **İşler iş koleksiyonu başına maksimum sayısı** | **En fazla yineleme** | **Abonelik başına en fazla iş koleksiyonları** | **Limitler** |
 |:--- |:--- |:--- |:--- |:--- |
-| **Boş** |İş koleksiyonu her 5 işleri |Saatte bir kez. İşlerini saatte bir kez daha sık yürütülemiyor |Bir abonelik en fazla 1 ücretsiz iş koleksiyonu izin verilir |Kullanamazsınız [HTTP giden yetkilendirme nesnesi](scheduler-outbound-authentication.md) |
 | **Standart** |İş koleksiyonu başına 50 işleri |Dakikada bir kez. İşlerini bir dakika daha sık yürütülemiyor |Bir abonelik en fazla 100 standart iş koleksiyonları izin verilir |Zamanlayıcı tam özellik kümesini erişimi |
 | **P10 Premium** |İş koleksiyonu başına 50 işleri |Dakikada bir kez. İşlerini bir dakika daha sık yürütülemiyor |Bir abonelik 10.000 P10 Premium iş koleksiyonları izin verilir. <a href="mailto:wapteams@microsoft.com">Bize Ulaşın</a> daha fazla bilgi için. |Zamanlayıcı tam özellik kümesini erişimi |
 | **P20 Premium** |İş koleksiyonu başına 1000 işleri |Dakikada bir kez. İşlerini bir dakika daha sık yürütülemiyor |Bir abonelik 10.000 P20 Premium iş koleksiyonları izin verilir. <a href="mailto:wapteams@microsoft.com">Bize Ulaşın</a> daha fazla bilgi için. |Zamanlayıcı tam özellik kümesini erişimi |
 
 ## <a name="upgrades-and-downgrades-of-job-collection-plans"></a>Yükseltmeleri ve Downgrades iş koleksiyonu planı
-Yükseltme veya bir iş koleksiyonu planı dilediğiniz zaman ücretsiz, standart ve Premium planları arasında düşürmek. Ancak, bir ücretsiz iş koleksiyonu eski sürüme düşürmeyi, indirgeme aşağıdaki nedenlerden birinden dolayı başarısız olabilir:
-
-* Abonelikte bir ücretsiz iş koleksiyonu zaten var
-* İş koleksiyonu işinde ücretsiz iş koleksiyonlarındaki işleri için izin verilenden daha yüksek bir yinelenme içeriyor. Saatte bir kez bir ücretsiz iş koleksiyonu izin verilen en büyük yinelenme:
-* İş koleksiyonu içinde 5'ten fazla işleri vardır
-* İş koleksiyonundaki bir işin kullanan bir HTTP veya HTTPS eylemi var. bir [HTTP giden yetkilendirme nesnesi](scheduler-outbound-authentication.md)
+Yükseltme veya standart, P10 Premium ve P20 Premium planları arasında dilediğiniz zaman bir iş koleksiyonu planı düşürmek.
 
 ## <a name="billing-and-azure-plans"></a>Faturalama ve Azure planları
-Abonelikleri ücretsiz iş koleksiyonları ücretlendirilen değil. Ardından 100'den fazla standart iş koleksiyonları (standart 10 fatura birimleri) varsa, tüm iş koleksiyonları premium plana sağlamak için daha iyi bir bölümünü olur.
+Ardından 100'den fazla standart iş koleksiyonları (standart 10 fatura birimleri) varsa, tüm iş koleksiyonları premium plana sağlamak için daha iyi bir bölümünü olur.
 
 Bir standart iş koleksiyonu ve bir premium iş koleksiyonu varsa, faturalanan bir standart fatura birimi olan *ve* bir premium faturalandırma birimidir. İçin standart veya premium ayarlamak etkin iş koleksiyonları sayısına dayalı Zamanlayıcı hizmeti faturaları; Bu açıklanmıştır sonraki iki bölümde ilgili daha fazla.
 
