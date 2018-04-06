@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Bir [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) hesabı  
 
 Bir mantıksal uygulama FTP hesabınızın kullanmadan önce FTP hesabınıza bağlanmak için mantığı uygulamasını yetkilendirmeniz gerekir. Neyse ki, Azure Portal'da mantıksal uygulama içinde bu kolayca yapabilirsiniz.  

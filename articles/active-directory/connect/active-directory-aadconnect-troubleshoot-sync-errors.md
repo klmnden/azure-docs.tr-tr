@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect: Eşitleme sırasında sorun giderme | Microsoft Docs"
-description: "Azure AD Connect ile eşitleme sırasında karşılaşılan hataların nasıl giderileceği açıklanmaktadır."
+title: 'Azure AD Connect: Eşitleme sırasında sorun giderme | Microsoft Docs'
+description: Azure AD Connect ile eşitleme sırasında karşılaşılan hataların nasıl giderileceği açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: aaa374d5a11ef5b5860f83a87386ff981319189f
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Eşitleme sırasında sorun giderme
 Kimlik verilerini Windows Server Active Directory'den (AD DS) Azure Active Directory (Azure AD) eşitlenen hataları oluşabilir. Bu makalede, farklı türdeki eşitleme hatalar, bu hataları ve hataları düzeltmek için olası yollar neden olası senaryolardan bazıları genel bakış sağlar. Bu makalede genel hata türlerini içerir ve tüm olası hatalar kapak değil.
@@ -42,7 +42,7 @@ Azure ad dışarı aktarma sırasında hatalar belirtmek işlemi \(Ekle, Güncel
 #### <a name="description"></a>Açıklama
 * Ne zaman Azure AD Connect \(eşitleme altyapısı\) eklemek veya nesneleri güncelleştirmek için Azure Active Directory bildirir, Azure AD ile eşleşen gelen nesnesini kullanarak **sourceAnchor** özniteliğini **İmmutableıd** Azure AD'de nesnelerin öznitelik. Bu eşleşme olarak adlandırılan bir **sabit eşleşen**.
 * Zaman Azure AD **bulamadı** eşleşen herhangi bir nesne **İmmutableıd** ile öznitelik **sourceAnchor** özniteliği gelen nesnesinin yeni bir nesne sağlamadan önce onu geri ProxyAddresses ve UserPrincipalName öznitelikleri bir eşleşme bulmak için kullanmak üzere döner. Bu eşleşme olarak adlandırılan bir **yumuşak eşleşen**. Yazılım eşleşen nesneler (yani Azure AD'de elde edilir) Azure AD içinde zaten mevcut şirket içi aynı varlık (kullanıcılar, gruplar) temsil eden yeni nesneler eşitleme sırasında eklenen/güncellenen olan ile eşleşmesi için tasarlanmıştır.
-* **InvalidSoftMatch** hata oluşuyor sabit eşleşme eşleşen hiçbir nesne bulmaz **ve** yumuşak eşleşme eşleşen bir nesne bulur, ancak bu nesne farklı değerine sahip *İmmutableıd* gelen nesnenin daha *SourceAnchor*, şirket içi Active Directory eşleşen nesne üzerinde başka bir nesneden eşitlendiği önerme.
+* **InvalidSoftMatch** hata oluşuyor sabit eşleşme eşleşen hiçbir nesne bulamazsa **ve** yumuşak eşleşme eşleşen bir nesne bulur, ancak bu nesne farklı değerine sahip *İmmutableıd* daha gelen nesnenin *SourceAnchor*, şirket içi Active Directory eşleşen nesne üzerinde başka bir nesneden eşitlendiği önerme.
 
 Diğer bir deyişle, çalışmaya yumuşak eşleşme sırayla yazılımla eşleşen sahip olacak şekilde nesne için herhangi bir değer olmamalıdır *İmmutableıd*. Herhangi bir nesnesi ile varsa *İmmutableıd* eşleştirme sabit bir değer kümesiyle başarısız olan ancak soft-match ölçütlerine işlemi InvalidSoftMatch eşitleme hataya neden olur.
 
@@ -70,14 +70,14 @@ Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahi
 
 #### <a name="example-case"></a>Örnek durum:
 1. **Bob Smith** eşitlenen kullanıcının Azure Active Directory'de üzerinde şirket içi Active Directory olduğu *contoso.com*
-2. Bob Smith'in **UserPrincipalName** olarak ayarlanmış olan  **bobs@contoso.com** .
+2. Bob Smith'in **UserPrincipalName** olarak ayarlanmış olan **bobs@contoso.com**.
 3. **"abcdefghijklmnopqrstuv=="** is the **SourceAnchor** calculated by Azure AD Connect using Bob Smith's **objectGUID** from on premises Active Directory, which is the **immutableId** for Bob Smith in Azure Active Directory.
 4. Bob de sahip için değerleri aşağıdaki **proxyAddresses** özniteliği:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 5. Yeni bir kullanıcı **Bob Taylor**, şirket içi Active Directory eklenir.
-6. Bob Taylor'ın **UserPrincipalName** olarak ayarlanmış olan  **bobt@contoso.com** .
+6. Bob Taylor'ın **UserPrincipalName** olarak ayarlanmış olan **bobt@contoso.com**.
 7. **"abcdefghijkl0123456789 ==" "** olan **sourceAnchor** Bob Taylor'ın kullanarak Azure AD Connect tarafından hesaplanan **objectGUID** gelen üzerinde Active Directory şirket içi. Bob Taylor'ın nesne Azure Active Directory'ye henüz eşitlenmedi.
 8. Bob Taylor proxyAddresses özniteliği için aşağıdaki değerleri sahip
    * smtp:bobt@contoso.com
@@ -85,7 +85,7 @@ Azure Active Directory Şeması, aşağıdaki özniteliklerin aynı değere sahi
    * **smtp:bob@contoso.com**
 9. Eşitleme sırasında Azure AD Connect şirket içi Active Directory içinde Bob Taylor eklenmesi tanıyan ve aynı değişikliği yapmak için Azure AD isteyin.
 10. Azure AD ilk sabit eşleşme gerçekleştirir. Eşit İmmutableıd ile herhangi bir nesne ise başka bir deyişle, arayacaktır "abcdefghijkl0123456789 ==". Azure AD'de başka bir nesneyi o İmmutableıd olacağından sabit eşleşme başarısız olur.
-11. Azure AD sonra Bob Taylor soft-match dener. Dahil olmak üzere üç değerlere eşit proxyAddresses ile herhangi bir nesne ise başka bir deyişle, ararsmtp:bob@contoso.com
+11. Azure AD sonra Bob Taylor soft-match dener. Dahil olmak üzere üç değerlere eşit proxyAddresses ile herhangi bir nesne ise başka bir deyişle, arar smtp:bob@contoso.com
 12. Azure AD Bob Smith'in soft-match ölçütle eşleşen nesnesine bulur. Ancak bu nesne İmmutableıd değerini = "abcdefghijklmnopqrstuv ==". Bu nesne belirten nesnesinden başka bir şirket içi Active Directory eşitlenen. Bu nedenle, Azure AD yumuşak bu nesneler ve sonuçları eşleştirme olamaz bir **InvalidSoftMatch** eşitleme hatası.
 
 #### <a name="how-to-fix-invalidsoftmatch-error"></a>InvalidSoftMatch hatayı düzeltmek nasıl
@@ -114,8 +114,8 @@ Azure AD yumuşak iki nesne eşleşen girişiminde bulunduğunda, farklı iki ne
 * Office 365'te posta etkin güvenlik grubu oluşturulur. Yönetici, şirket içi (yani henüz Azure AD ile eşitlenmiş değil) AD ProxyAddresses özniteliği için aynı değeri ile Office 365 grubundan olarak yeni bir kullanıcı veya ilgili kişi olarak ekler.
 
 #### <a name="example-case"></a>Örnek durumu
-1. Yönetim için vergi bölüm Office 365'te yeni bir posta etkin güvenlik grubu oluşturur ve bir e-posta adresi olarak sağlar tax@contoso.com. Bu değeri bu gruba ProxyAddresses özniteliğini atar**smtp:tax@contoso.com**
-2. Yeni bir kullanıcı Contoso.com ve şirket içi proxyAddress ile kullanıcı için bir hesap oluşturulur**smtp:tax@contoso.com**
+1. Yönetim için vergi bölüm Office 365'te yeni bir posta etkin güvenlik grubu oluşturur ve bir e-posta adresi olarak sağlar tax@contoso.com. Bu değeri bu gruba ProxyAddresses özniteliğini atar **smtp:tax@contoso.com**
+2. Yeni bir kullanıcı Contoso.com ve şirket içi proxyAddress ile kullanıcı için bir hesap oluşturulur **smtp:tax@contoso.com**
 3. Yeni kullanıcı hesabı Azure AD Connect eşitleme yapar, "ObjectTypeMismatch" hatası alırsınız.
 
 #### <a name="how-to-fix-objecttypemismatch-error"></a>ObjectTypeMismatch hatayı düzeltmek nasıl
@@ -141,13 +141,13 @@ Yeni bir nesne eklemek veya var olan bir nesne zaten başka bir nesne Azure Acti
 
 #### <a name="example-case"></a>Örnek durum:
 1. **Bob Smith** eşitlenen kullanıcının Azure Active Directory'de üzerinde şirket içi Active Directory contoso.com olan
-2. Bob Smith'in **UserPrincipalName** şirket içinde olarak ayarlanmış olan  **bobs@contoso.com** .
+2. Bob Smith'in **UserPrincipalName** şirket içinde olarak ayarlanmış olan **bobs@contoso.com**.
 3. Bob de sahip için değerleri aşağıdaki **proxyAddresses** özniteliği:
    * smtp:bobs@contoso.com
    * smtp:bob.smith@contoso.com
    * **smtp:bob@contoso.com**
 4. Yeni bir kullanıcı **Bob Taylor**, şirket içi Active Directory eklenir.
-5. Bob Taylor'ın **UserPrincipalName** olarak ayarlanmış olan  **bobt@contoso.com** .
+5. Bob Taylor'ın **UserPrincipalName** olarak ayarlanmış olan **bobt@contoso.com**.
 6. **Bob Taylor** için aşağıdaki değerleri sahip **ProxyAddresses** özniteliği i. smtp:bobt@contoso.com ii. smtp:bob.taylor@contoso.com
 7. Bob Taylor'ın nesnesi başarıyla Azure AD ile eşitlenir.
 8. Yönetici karar Bob Taylor'ın güncelleştirmek **ProxyAddresses** aşağıdaki değerli özniteliği: ediyorum. **smtp:bob@contoso.com**
@@ -187,15 +187,15 @@ Bu sonuçlanan, belirli bir durumdur bir **"FederatedDomainChangeError"** kullan
 Eşitlenen bir kullanıcı için başka bir Federasyon etki alanına şirket içi bir Federasyon etki alanından diğerine UserPrincipalName soneki değiştirildi. Örneğin, *UserPrincipalName = bob@contoso.com*  şekilde değiştirilmiştir *UserPrincipalName = bob@fabrikam.com* .
 
 #### <a name="example"></a>Örnek
-1. Bob Smith, Contoso.com için bir hesap ile UserPrincipalName Active Directory'de yeni bir kullanıcı olarak eklenmişbob@contoso.com
-2. Bob için contoso.com Fabrikam.com olarak adlandırılan farklı bölme taşır ve kendi UserPrincipalName değiştirilirbob@fabrikam.com
+1. Bob Smith, Contoso.com için bir hesap ile UserPrincipalName Active Directory'de yeni bir kullanıcı olarak eklenmiş bob@contoso.com
+2. Bob için contoso.com Fabrikam.com olarak adlandırılan farklı bölme taşır ve kendi UserPrincipalName değiştirilir bob@fabrikam.com
 3. Azure Active Directory ile Federasyon etki alanı contoso.com ve fabrikam.com etki alanlarıdır.
 4. Bob'un userPrincipalName güncelleştirilmemiş ve bir "FederatedDomainChangeError" eşitleme hatayla sonuçlanır.
 
 #### <a name="how-to-fix"></a>Düzeltme yapma
 Bir kullanıcının UserPrincipalName soneki @ bob gelen güncelleştirildi,**contoso.com** Kemal için**fabrikam.com**, burada her ikisi de **contoso.com** ve **fabrikam.com** olan **Federasyon etki alanları**, eşitleme hatayı düzeltmek için aşağıdaki adımları izleyin
 
-1. Kullanıcının UserPrincipalName Azure AD'den güncelleştirmek bob@contoso.com için bob@contoso.onmicrosoft.com. Azure AD PowerShell modülü ile aşağıdaki PowerShell komutunu kullanabilirsiniz:`Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
+1. Kullanıcının UserPrincipalName Azure AD'den güncelleştirmek bob@contoso.com için bob@contoso.onmicrosoft.com. Azure AD PowerShell modülü ile aşağıdaki PowerShell komutunu kullanabilirsiniz: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
 2. Eşitleme girişiminde sonraki eşitleme döngüsü izin verir. Bu zaman eşitleme başarılı olur ve, UserPrincipalName Bob güncelleştirecektir bob@fabrikam.com beklendiği gibi.
 
 #### <a name="related-articles"></a>İlgili Makaleler

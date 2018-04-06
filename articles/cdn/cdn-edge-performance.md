@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN kenar düğümü performansını çözümleme | Microsoft Docs"
-description: "Microsoft Azure cdn'de kenar düğümü performansını analiz edin. Edge performans analizi için CDN ayrıntılı bilgi trafiği ve bant genişliği kullanımı sağlar."
+title: Azure CDN kenar düğümü performansını çözümleme | Microsoft Docs
+description: Microsoft Azure cdn'de kenar düğümü performansını analiz edin. Edge performans analizi için CDN ayrıntılı bilgi trafiği ve bant genişliği kullanımı sağlar.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Microsoft Azure CDN’de kenar düğümü performansını çözümleme
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -154,7 +154,7 @@ Bu modüldeki her bir raporu ölçümleri farklı türleri için bant genişliğ
 | HTTP yöntemleri |Hangi HTTP yöntemlerini verilerinizi istemek için kullanılan hızlı bir fikir edinmenizi sağlar. Genellikle, en yaygın HTTP isteği GET, HEAD ve POST yöntemleridir. Bir halka grafik HTTP istek yöntemi her tür için oluştu isabet yüzdesini gösterir. |
 | URL'leri |Üst 10 istenen URL görüntüleyen bir grafik içerir. Her URL için bir çubuk görüntülenir. Raporun belirli URL zaman aralığı içinde üretti kaç tane isabet kapsadığı çubuğu yüksekliğini belirtir. İlk 100 istatistiklerini URL'leri doğrudan bu grafiğin altında gösterilen istedi. |
 | CNAMEs |10 CNAME'ler varlıklar zamanla istemek için kullanılan bir rapor span üst görüntüleyen bir grafik içerir. İlk 100 istatistiklerini CNAME'ler doğrudan bu grafiğin altında gösterilen istedi. |
-| Çıkış |Üst 10 CDN görüntüleyen bir grafik veya varlıklar belirtilen bir süre boyunca istendi müşteri kaynak sunucuları içerir. İlk 100 istatistiklerini CDN veya müşteri kaynak sunucuları doğrudan bu grafiğin altında gösterilen istedi. Müşteri kaynak sunucuları, dizin adı seçeneğinde tanımlanan bir ad tarafından tanımlanır. |
+| Kaynaklar |Üst 10 CDN görüntüleyen bir grafik veya varlıklar belirtilen bir süre boyunca istendi müşteri kaynak sunucuları içerir. İlk 100 istatistiklerini CDN veya müşteri kaynak sunucuları doğrudan bu grafiğin altında gösterilen istedi. Müşteri kaynak sunucuları, dizin adı seçeneğinde tanımlanan bir ad tarafından tanımlanır. |
 | Coğrafi POP |Trafiğinizi ne kadarının bir belirli noktası bulunma (POP) yönlendirilen gösterir. Üç harfli bir POP bizim CDN ağındaki temsil eder. |
 | İstemciler |Belirtilen bir süre boyunca varlıklar istenen üst 10 istemcileri görüntüleyen bir grafik içerir. Bu rapor amaçları doğrultusunda, aynı IP adresinden kaynaklanan tüm istekleri aynı istemciden olduğu kabul edilir. Üst 100 istemci için istatistikleri doğrudan bu grafiğin altında görüntülenir. Bu rapor, üst istemciler için yükleme etkinlik desenlerini belirlemek için kullanışlıdır. |
 | Önbellek durumları |Genel son kullanıcı deneyimini geliştirmek için yaklaşımlar gösterebilir önbellek davranışını ayrıntılı bir dökümünü sağlar. Hızlı performans Önbelleği İsabetli Okuma gelen olduğundan, veri teslim hızlarını en aza İsabetsiz Önbellek okuma sayısı ve süresi dolan önbelleği isabetli okuma en iyi duruma getirebilirsiniz. |
@@ -165,7 +165,7 @@ Bu modüldeki her bir raporu ölçümleri farklı türleri için bant genişliğ
 | TCP_MISS ayrıntıları |TCP_MISS önbellek durumuna sahip varlıklar için üst 10 URL'leri görüntüleyen bir grafik içerir. Bu tür varlıklar için üst 100 URL'leri istatistiklerini doğrudan bu grafiğin altında görüntülenir. |
 | TCP_EXPIRED_HIT ayrıntıları |POP doğrudan sunulduğunu eski varlıklar için üst 10 URL'leri görüntüleyen bir grafik içerir. Bu tür varlıklar için üst 100 URL'leri istatistiklerini doğrudan bu grafiğin altında görüntülenir. |
 | TCP_EXPIRED_MISS ayrıntıları |Yeni bir sürümü kaynak sunucudan alınan gerekiyordu eski varlıklar için üst 10 URL'leri görüntüleyen bir grafik içerir. Bu tür varlıklar için üst 100 URL'leri istatistiklerini doğrudan bu grafiğin altında görüntülenir. |
-| TCP_CLIENT_REFRESH_MISS ayrıntıları |İlk 10 URL'leri varlıklar istemciden no-cache isteği nedeniyle bir kaynak sunucudan alındı için görüntüleyen bir çubuk grafik içerir. Bu tür istekleri için üst 100 URL'leri istatistiklerini doğrudan bu grafiğin altına görüntülenir. |
+| TCP_CLIENT_REFRESH_MISS Details |İlk 10 URL'leri varlıklar istemciden no-cache isteği nedeniyle bir kaynak sunucudan alındı için görüntüleyen bir çubuk grafik içerir. Bu tür istekleri için üst 100 URL'leri istatistiklerini doğrudan bu grafiğin altına görüntülenir. |
 | İstemci istek türleri |HTTP istemcilerini (örn., tarayıcıları) tarafından yapılan istekleri türünü belirtir. Bu rapor, istekleri nasıl ele aldığını bir fikir sağlar bir halka grafik içerir. Bant genişliği ve trafik bilgileri her istek türü için grafiğin altında görüntülenir. |
 | Kullanıcı Aracısı |İçeriğinizi bizim CDN aracılığıyla istemek için üst 10 kullanıcı aracıları görüntüleyen bir çubuk grafik içerir. Genellikle, bir kullanıcı web tarayıcısı, media player veya bir cep telefonu tarayıcı aracısıdır. Üst 100 kullanıcı aracıları için istatistikleri doğrudan bu grafiğin altında görüntülenir. |
 | Başvuran |Bizim CDN erişilen içerik için üst 10 başvuran görüntüleyen bir çubuk grafik içerir. Genellikle, bir başvuran web sayfasının veya içeriğinize bağlantılar kaynak URL'dir. Ayrıntılı bilgi için en iyi 100 başvuran grafiğin altında sağlanır. |

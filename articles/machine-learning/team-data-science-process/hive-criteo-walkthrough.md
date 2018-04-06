@@ -1,8 +1,8 @@
 ---
-title: "Azure Hdınsight Hadoop kümesi 1 TB veri kümesinde kullanarak eylem - takım veri bilimi işleminde | Microsoft Docs"
-description: "Bir Hdınsight Hadoop kümesi oluşturmak ve bir büyük (1 TB) genel kullanıma açık veri kümesini kullanarak bir model dağıtmak için kullanabileceğiniz bir uçtan uca senaryo için takım veri bilimi işlemi kullanma"
+title: Azure Hdınsight Hadoop kümesi 1 TB veri kümesinde kullanarak eylem - takım veri bilimi işleminde | Microsoft Docs
+description: Bir Hdınsight Hadoop kümesi oluşturmak ve bir büyük (1 TB) genel kullanıma açık veri kümesini kullanarak bir model dağıtmak için kullanabileceğiniz bir uçtan uca senaryo için takım veri bilimi işlemi kullanma
 services: machine-learning,hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: bradsev
 ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Azure Hdınsight Hadoop kümesi 1 TB veri kümesinde kullanarak eylem - takım veri bilimi işleminde
 
@@ -98,7 +98,7 @@ Sol taraftaki "Hadoop komut bizim workhorse veri keşfi için olan", satırıdı
 
 Şimdi ayarlanır ve ilk bölümünü gözden geçirme başlamak için hazır: Hive kullanarak ve Azure Machine Learning için verileri hazırlığı veri keşfi.
 
-## <a name="hive-db-tables"></a>Hive veritabanı ve tablo oluşturma
+## <a name="hive-db-tables"></a> Hive veritabanı ve tablo oluşturma
 Hive tablolarını bizim Criteo veri kümesi oluşturmak için açık ***Hadoop komut satırı*** baş düğümü masaüstündeki ve komutunu girerek Hive dizini girin
 
     cd %hive_home%\bin
@@ -124,7 +124,7 @@ Aşağıdaki kod, bir veritabanı "criteo" oluşturur ve 4 tablolar oluşturur:
 
 Gün biri tatil olduğundan test veri iki farklı tablolara bölme. Amaç, model bir tatil ve tatil olmayan arasındaki farklar tıklatın aracılığıyla kurundan algılayabilir belirlemektir.
 
-Komut dosyası [örnek &#95; hive &#95;oluşturun; &#95; criteo &#95; veritabanı &#95; ve &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) kolaylık sağlamak için burada görüntülenir:
+Komut dosyası [örnek&#95;hive&#95;oluşturma&#95;criteo&#95;veritabanı&#95;ve&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) kolaylık sağlamak için burada görüntülenir:
 
     CREATE DATABASE IF NOT EXISTS criteo;
     DROP TABLE IF EXISTS criteo.criteo_count;
@@ -165,7 +165,7 @@ Bu tablolar dış olduğundan yalnızca Azure Blob Storage (wasb) konumlarına i
         hive
    
      Şimdi komut satırı REPL kesme ve yapıştırma sorgu yürütülür.
-2. **Sorguları bir dosyaya kaydedilmesi ve komutu yürütülürken**: sorguları .hql dosyasına kaydetmek için saniyedir ([örnek &#95; hive &#95;oluşturun; &#95; criteo &#95; veritabanı &#95; ve &#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) ve ardından sorguyu çalıştırmak için aşağıdaki komutu yürütün:
+2. **Sorguları bir dosyaya kaydedilmesi ve komutu yürütülürken**: sorguları .hql dosyasına kaydetmek için saniyedir ([örnek&#95;hive&#95;oluşturma&#95;criteo&#95;veritabanı&#95;ve&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) ve ardından sorguyu çalıştırmak için aşağıdaki komutu yürütün:
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -194,11 +194,11 @@ Ardından aşağıdaki çıktı görmeniz gerekir:
         criteo_train
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
-## <a name="exploration"></a>Veri keşfi kovanında
+## <a name="exploration"></a> Veri keşfi kovanında
 Şimdi bazı temel veri keşfi kovanında yapmak hazırsınız. Tren örneklerde sayısı sayım tarafından başlamak ve test veri tabloları.
 
 ### <a name="number-of-train-examples"></a>Tren örnek sayısı
-İçeriğini [örnek &#95; hive &#95; sayısı &#95; eğitimi &#95; Tablo &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) burada gösterilir:
+İçeriğini [örnek&#95;hive&#95;sayısı&#95;eğitmek&#95;tablo&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) burada gösterilir:
 
         SELECT COUNT(*) FROM criteo.criteo_train;
 
@@ -212,7 +212,7 @@ Alternatif olarak, biri de Hive Kutusu'ndan aşağıdaki komutu verebileceği / 
         hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
 ### <a name="number-of-test-examples-in-the-two-test-datasets"></a>Test örnekleri iki test kümelerindeki sayısı
-Şimdi iki sınama veri kümesi örneklerde sayısı. İçeriğini [örnek &#95; hive &#95; sayısı &#95; criteo &#95; &#95;test; &#95;gün; 22 &#95; Tablo &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) şunlardır:
+Şimdi iki sınama veri kümesi örneklerde sayısı. İçeriğini [örnek&#95;hive&#95;sayısı&#95;criteo&#95;test&#95;gün&#95;22&#95;tablo&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) şunlardır:
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -227,7 +227,7 @@ Her zamanki gibi aynı zamanda betik Hive Kutusu'ndan çağırabilir / directory
 
 Son olarak, test örnekleri Gün bazında test veri kümesinde sayısını incelemek\_23.
 
-Bunu yapmak için komutu yalnızca gösterilen benzer (başvurmak [örnek &#95; hive &#95; sayısı &#95; criteo &#95; &#95;test; &#95;gün; 23 &#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+Bunu yapmak için komutu yalnızca gösterilen benzer (başvurmak [örnek&#95;hive&#95;sayısı&#95;criteo&#95;test&#95;gün&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -237,7 +237,7 @@ Bu sunar:
         Time taken: 253.089 seconds, Fetched: 1 row(s)
 
 ### <a name="label-distribution-in-the-train-dataset"></a>Tren kümesindeki etiket dağıtım
-Tren kümesindeki etiket dağıtım ilginizi çekecektir. Bu görmek için içeriğini göster [örnek &#95; hive &#95; criteo &#95; &#95;etiket; &#95;dağıtım; eğitimi &#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+Tren kümesindeki etiket dağıtım ilginizi çekecektir. Bu görmek için içeriğini göster [örnek&#95;hive&#95;criteo&#95;etiket&#95;dağıtım&#95;eğitmek&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
         SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -250,7 +250,7 @@ Bu etiket dağıtım verir:
 Pozitif etiketleri yüzdesi yaklaşık % 3.3 (özgün veri kümesiyle tutarlı) olduğunu unutmayın.
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Tren kümesindeki sayısal bazı değişkenler Histogram dağıtımları
-Hive'nın yerel kullanabilirsiniz "histogram\_sayısal" sayısal değişkenleri dağıtımını nasıl göründüğünü bulmak için işlevi. İçeriğini işte [örnek &#95; hive &#95; criteo &#95; histogram &#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Hive'nın yerel kullanabilirsiniz "histogram\_sayısal" sayısal değişkenleri dağıtımını nasıl göründüğünü bulmak için işlevi. İçeriğini işte [örnek&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -287,7 +287,7 @@ Aşağıdaki verir:
 Görünüm - YANAL normal listesi yerine SQL benzeri bir çıktı oluşturmak için Hive görevi görür birlikte Aç. Unutmayın bu tablo, ilk sütun karşılık gelen depo merkezi ve ikinci depo sıklığı.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Tren kümesindeki sayısal bazı değişkenlerin yaklaşık yüzdebirlik değeri
-Ayrıca sayısal değişkenleriyle yaklaşık yüzdebirlik değeri hesaplama ilgilendirir. Hive yerel "yüzdelik\_yaklaşık" bunu bize yapar. İçeriğini [örnek &#95; hive &#95; criteo &#95; yaklaşık &#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) şunlardır:
+Ayrıca sayısal değişkenleriyle yaklaşık yüzdebirlik değeri hesaplama ilgilendirir. Hive yerel "yüzdelik\_yaklaşık" bunu bize yapar. İçeriğini [örnek&#95;hive&#95;criteo&#95;yaklaşık&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) şunlardır:
 
         SELECT MIN(Col2) AS Col2_min, PERCENTILE_APPROX(Col2, 0.1) AS Col2_01, PERCENTILE_APPROX(Col2, 0.3) AS Col2_03, PERCENTILE_APPROX(Col2, 0.5) AS Col2_median, PERCENTILE_APPROX(Col2, 0.8) AS Col2_08, MAX(Col2) AS Col2_max FROM criteo.criteo_train;
 
@@ -299,7 +299,7 @@ Bu verir:
 Yüzdebirlik değeri dağıtımını yakından genellikle herhangi bir sayısal değişken histogram dağıtımını ilişkilidir.         
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Tren kümesindeki kategorik bazı sütunları için benzersiz değerlerin sayısını bulur
-Veri keşfi etmeden, bazı kategorik sütunlar için aldıkları benzersiz değerlerin sayısını bulur. Bunu yapmak için içeriğini göster [örnek &#95; hive &#95; criteo &#95; benzersiz &#95; değerleri &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+Veri keşfi etmeden, bazı kategorik sütunlar için aldıkları benzersiz değerlerin sayısını bulur. Bunu yapmak için içeriğini göster [örnek&#95;hive&#95;criteo&#95;benzersiz&#95;değerleri&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -310,7 +310,7 @@ Bu verir:
 
 Col15 19 M benzersiz değerler olduğunu unutmayın! "Bir hot kodlama" gibi naïve teknikleri kullanarak bu yüksek boyutlu kategorik değişkenleri kodlamak için uygun değildir. Özellikle, güçlü, sağlam bir teknik olarak adlandırılan [ile öğrenme sayar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) bu sorunu verimli bir şekilde tackling açıklandığı gösterilen ve.
 
-Son olarak bazı diğer kategorik sütunlar için de benzersiz değerlerin sayısını bakın. İçeriğini [örnek &#95; hive &#95; criteo &#95; benzersiz &#95; &#95;değerleri; birden çok &#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) şunlardır:
+Son olarak bazı diğer kategorik sütunlar için de benzersiz değerlerin sayısını bakın. İçeriğini [örnek&#95;hive&#95;criteo&#95;benzersiz&#95;değerleri&#95;birden çok&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) şunlardır:
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -325,7 +325,7 @@ Yeniden Col20 dışındaki tüm sütunları birçok benzersiz değerlere sahip u
 
 ### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Tren kümesindeki kategorik değişkenlerin çiftleri ortak oluşumu sayar
 
-Ayrıca ilgi kategorik değişkenleri çiftlerini ortak oluşum sayısı olur. Bu kod içinde kullanma belirlenebilir [örnek &#95; hive &#95; criteo &#95; eşleştirilmiş &#95; kategorik &#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+Ayrıca ilgi kategorik değişkenleri çiftlerini ortak oluşum sayısı olur. Bu kod içinde kullanma belirlenebilir [örnek&#95;hive&#95;criteo&#95;eşleştirilmiş&#95;kategorik&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -348,10 +348,10 @@ Ters tarafından kendi oluşum sayısı sipariş ve 15 üstünde bu durumda bak�
         265366bf        6f5c7c41        782142
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
-## <a name="downsample"></a>Azure Machine Learning için aşağı örnek veri kümeleri
+## <a name="downsample"></a> Azure Machine Learning için aşağı örnek veri kümeleri
 Veri kümeleri incelediniz ve böylece Azure Machine Learning modellerini yerleşik araştırması (birleşimleri dahil), herhangi bir değişkeni için bu tür örnek veri kümelerini nasıl yapılacağı gösterilmektedir. Odak noktası sorun, geri çağırma: örnek öznitelikleri (Col2 - Col40 özellik değerleri) kümesi düşünüldüğünde Col1 0 (hiçbir tıklayın) veya 1 (tıklatın) olup olmadığını tahmin etmek.
 
-Örnek eğitin ve test veri kümeleri için %1 özgün boyutunun aşağı için Hive'nın yerel RAND() işlevini kullanın. Sonraki komut [örnek &#95; hive &#95; criteo &#95; alt örnekleyin &#95; eğitimi &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) tren veri kümesi için bunu yapar:
+Örnek eğitin ve test veri kümeleri için %1 özgün boyutunun aşağı için Hive'nın yerel RAND() işlevini kullanın. Sonraki komut [örnek&#95;hive&#95;criteo&#95;alt örnekleyin&#95;eğitmek&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) tren veri kümesi için bunu yapar:
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -368,7 +368,7 @@ Bu verir:
         Time taken: 12.22 seconds
         Time taken: 298.98 seconds
 
-Komut dosyası [örnek &#95; hive &#95; criteo &#95; alt örnekleyin &#95; &#95;test; &#95;gün; 22 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) test verileri için mevcut gün\_22:
+Komut dosyası [örnek&#95;hive&#95;criteo&#95;alt örnekleyin&#95;test&#95;gün&#95;22&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_22_dataset.hql) test verileri için mevcut gün\_22:
 
         --- Now for test data (day_22)
 
@@ -386,7 +386,7 @@ Bu verir:
         Time taken: 317.66 seconds
 
 
-Son olarak, komut dosyası [örnek &#95; hive &#95; criteo &#95; alt örnekleyin &#95; &#95;test; &#95;gün; 23 &#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) test verileri için mevcut gün\_23:
+Son olarak, komut dosyası [örnek&#95;hive&#95;criteo&#95;alt örnekleyin&#95;test&#95;gün&#95;23&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_test_day_23_dataset.hql) test verileri için mevcut gün\_23:
 
         --- Finally test data day_23
         CREATE TABLE criteo.criteo_test_day_23_downsample_1perc (
@@ -406,7 +406,7 @@ Bu, size bizim aşağı örneklenen tren kullanın ve Azure Machine Learning mod
 
 Azure Machine hangi sayısı tablo ilgiliyse Learning için geçmeden önce son önemli bileşeni yoktur. Sonraki alt bölümde, count tablo biraz ayrıntılı olarak ele alınmıştır.
 
-## <a name="count"></a>Kısa bir tartışma sayısı tablosundaki
+## <a name="count"></a> Kısa bir tartışma sayısı tablosundaki
 Gördüğünüz gibi çeşitli kategorik değişkenler çok yüksek bir boyut sahiptir. Bu kılavuzda, güçlü bir teknik olarak adlandırılan [ile öğrenme sayar](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) Bu değişkenler bir verimli kodlamak için sağlam bir şekilde sunulur. Bu teknik hakkında daha fazla bilgi, sağlanan bağlantısıdır.
 
 [!NOTE]
@@ -415,7 +415,7 @@ Gördüğünüz gibi çeşitli kategorik değişkenler çok yüksek bir boyut sa
 
 Sayısı tablolar üzerinde sayısı verileri oluşturmak için klasör ham/sayıma verileri kullanın. Modelleme bölümünde baştan kategorik özellikleri için bu sayısı tablolar oluşturma kullanıcılara gösterilir veya alternatif olarak, explorations için önceden derlenmiş sayısı tablosunu kullanmak için. Hangi aşağıdaki içinde olduğunda "count tabloları önceden oluşturulmuş" denir için sağlanmış olan sayısı tabloları kullanarak anlama. Sonraki bölümde bu tablolar erişmek ayrıntılı yönergeler sağlanır.
 
-## <a name="aml"></a>Azure Machine Learning ile bir model oluşturma
+## <a name="aml"></a> Azure Machine Learning ile bir model oluşturma
 Oluşturma işlemi Azure Machine learning'de modelimizi şu adımları izler:
 
 1. [Azure Machine Learning Hive tablolarından veri alma](#step1)
@@ -426,7 +426,7 @@ Oluşturma işlemi Azure Machine learning'de modelimizi şu adımları izler:
 
 Artık Azure Machine Learning Studio'da modelleri oluşturmaya hazırsınız. Aşağı örneklenen verilerimizi kümesindeki Hive tablolarını olarak kaydedilir. Azure Machine Learning kullanma **veri içeri aktarma** bu verileri okumak için modülü. Bu küme depolama hesabına erişmek için kimlik bilgilerini izleyen içinde sağlanır.
 
-### <a name="step1"></a>1. adım: Azure Machine Learning veri içeri aktarma modülü kullanılarak Hive tablolarından veri almak ve bir makine öğrenimi denemesinin için seçin
+### <a name="step1"></a> 1. adım: Azure Machine Learning veri içeri aktarma modülü kullanılarak Hive tablolarından veri almak ve bir makine öğrenimi denemesinin için seçin
 Başlangıç seçerek bir **+ yeni** -> **deneme** -> **boş deneme**. Öğesinden sonra **arama** kutusunu sol, üstteki "Veri Al" arayın. Sürükleme ve bırakma **veri içeri aktarma** modülünde deneme açın tuvale (ekranın Orta bölümünü) modülü veri erişimi için kullanılacak.
 
 Bu nedir **veri içeri aktarma** gibi görünüyor Hive tablosundan veri alınırken hata oluştu:
@@ -460,7 +460,7 @@ Veri kümeleri kullanarak kaydedilmiş veri kümesi kullanmak için bir makine �
 > 
 > 
 
-### <a name="step2"></a>2. adım: Azure Machine Learning ile tıklama tahmin etmek için basit bir deneme oluşturma / hiçbir tıklama
+### <a name="step2"></a> 2. adım: Azure Machine Learning ile tıklama tahmin etmek için basit bir deneme oluşturma / hiçbir tıklama
 Bizim Azure ML deneme şöyle görünür:
 
 ![Machine Learning deneme](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -537,7 +537,7 @@ Bu alıntı sayılan sütunlar için sayılarını elde ve büyük olasılıkla 
 
 Şimdi bu dönüştürülmüş veri kümelerini kullanarak bir Azure Machine Learning modeli oluşturmaya hazırsınız. Sonraki bölüm bu nasıl yapılabilir gösterir.
 
-### <a name="step3"></a>3. adım: Oluşturmak, eğitmek ve modeli Puanlama
+### <a name="step3"></a> 3. adım: Oluşturmak, eğitmek ve modeli Puanlama
 
 #### <a name="choice-of-learner"></a>Öğrenen seçimi
 İlk olarak, bir öğrenen seçmeniz gerekir. İki sınıflı artırılmış karar ağacı bizim öğrenen kullanın. Bu öğrenen varsayılan seçenekleri şunlardır:
@@ -556,7 +556,7 @@ Bir modeli eğittikten sonra test veri kümesinde Puanlama ve kendi performansı
 
 ![Score Model (Model Puanlama) modülü](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step4"></a>4. adım: modeli değerlendirin
+### <a name="step4"></a> 4. adım: modeli değerlendirin
 Son olarak, model performans çözümlemeniz gerekir. Genellikle, iki sınıfı (ikili) sınıflandırma sorunu için iyi AUC ölçüsüdür. Bu görselleştirmek için takma **Score Model** modülüne bir **Evaluate Model** için bu modülü. Tıklatarak **Görselleştir** üzerinde **Evaluate Model** modülü aşağıdakine benzer bir grafik verir:
 
 ![Modül BDT modelini değerlendir](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -565,7 +565,7 @@ Son olarak, model performans çözümlemeniz gerekir. Genellikle, iki sınıfı 
 
 ![Evaluate Model modülü Görselleştirme](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step5"></a>5. adım: bir Web hizmeti olarak modeli yayımlama
+### <a name="step5"></a> 5. adım: bir Web hizmeti olarak modeli yayımlama
 Web hizmetleri fuss en az olarak bir Azure Machine Learning modeli yayımlama özelliğine, yaygın olarak kullanılabilir hale getirme için değerli bir özelliktir. Bu yapıldığında, herkesin tahminleri için ihtiyaç duydukları ve web hizmeti, bu Öngörüler döndürülecek modelini kullanır. giriş verilerle web hizmeti çağrıları yapabilirsiniz.
 
 Bunu yapmak için önce bizim eğitilen model eğitilen Model nesnesi olarak kaydedin. Bu sağ tıklayarak yapılır **Train Model** modülü ve kullanarak **eğitilen modelini Farklı Kaydet** seçeneği.

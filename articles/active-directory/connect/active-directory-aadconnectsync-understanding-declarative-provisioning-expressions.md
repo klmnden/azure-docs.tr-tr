@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Bildirim temelli hazırlama ifadelerini | Microsoft Docs"
-description: "Bildirim temelli hazırlama ifadelerini açıklanmaktadır."
+title: 'Azure AD Connect: Bildirim temelli hazırlama ifadelerini | Microsoft Docs'
+description: Bildirim temelli hazırlama ifadelerini açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: 797c0949aceea415652a72df5ee23ef9888ab975
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect eşitleme: bildirim temelli hazırlama ifadeleri anlama
 Azure AD Connect eşitleme ilk Forefront Identity Manager 2010'da sunulan bildirim temelli hazırlama üzerinde oluşturur. Derlenmiş kod yazmak zorunda kalmadan, tam kimlik tümleştirme iş mantığı uygulamanız imkan tanır.
@@ -50,7 +50,7 @@ Bir parametre bir bağlayıcı veya PowerShell kullanan bir yönetici tarafında
 
 Active Directory Bağlayıcısı gelen eşitleme kuralları için aşağıdaki parametreleri sağlanan:
 
-| Parametre Adı | Yorum |
+| Parametre Adı | Açıklama |
 | --- | --- |
 | Domain.Netbios |Şu anda alınmakta, örneğin FABRIKAMSALES etki alanının NetBIOS biçimi |
 | Domain.FQDN |Şu anda içeri aktarılmakta olan, etki alanı örneğin sales.fabrikam.com FQDN biçimi |
@@ -80,9 +80,9 @@ Aşağıdaki işleçleri kullanılabilir:
 İşlevler, hem tek değerli ve birden çok değerli öznitelikleri üzerinde çalışabilir. Birden çok değerli öznitelikler, işlevi her değer çalışır ve her değere aynı işlevi uygular.
 
 Örneğin:  
-`Trim([proxyAddresses])`Kırpma proxyAddress özniteliğinde her değerin yapın.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Her değere sahip bir @-sign, etki alanı ile Değiştir @contoso.com.  
-`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])`SIP-adresini bakın ve değerleri kaldırın.
+`Trim([proxyAddresses])` Kırpma proxyAddress özniteliğinde her değerin yapın.  
+`Word([proxyAddresses],1,"@") & "@contoso.com"` Her değere sahip bir @-sign, etki alanı ile Değiştir @contoso.com.  
+`IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` SIP-adresini bakın ve değerleri kaldırın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Yapılandırma modeli hakkında daha fazla bilgiyi [anlama bildirim temelli hazırlama](active-directory-aadconnectsync-understanding-declarative-provisioning.md).

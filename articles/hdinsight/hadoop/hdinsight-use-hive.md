@@ -1,9 +1,9 @@
 ---
-title: "Apache Hive ve HiveQL - Azure Hdınsight nedir | Microsoft Docs"
-description: "Apache Hive bir veri ambarı için Hadoop sistemidir. HiveQL, kullanarak kovanında depolanan verileri sorgulayabilir, Transact-SQL benzer. Bu belgede, Azure Hdınsight ile Hive ve HiveQL kullanmayı öğrenin."
-keywords: "hive, hadoop hiveql nedir hiveql nasıl hive kullanma, hive, hive nedir öğrenme"
+title: Apache Hive ve HiveQL - Azure Hdınsight nedir | Microsoft Docs
+description: Apache Hive bir veri ambarı için Hadoop sistemidir. HiveQL, kullanarak kovanında depolanan verileri sorgulayabilir, Transact-SQL benzer. Bu belgede, Azure Hdınsight ile Hive ve HiveQL kullanmayı öğrenin.
+keywords: hive, hadoop hiveql nedir hiveql nasıl hive kullanma, hive, hive nedir öğrenme
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 01/26/2018
 ms.author: larryfr
 ms.openlocfilehash: afd2bc95beb2458ec149824723ec62381b31b2da
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Apache Hive ve HiveQL Azure hdınsight'ta nedir?
 
@@ -78,7 +78,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive ayrıca özel destekler **seri hale getirici/deserializers (SerDe)** karmaşık veya düzensiz yapılandırılmış veriler için. Daha fazla bilgi için bkz: [Hdınsight ile özel bir JSON SerDe kullanmayı](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) belge.
 
-Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [dil el ile (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Hive tarafından desteklenen dosya biçimleri hakkında daha fazla bilgi için bkz: [dil el ile ()https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>İç tablolar vs dış tablolara yığını
 

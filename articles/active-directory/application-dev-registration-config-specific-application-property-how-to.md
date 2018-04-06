@@ -1,11 +1,11 @@
 ---
-title: "Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl | Microsoft Docs"
-description: "Azure AD ile özel bir geliştirilmiş uygulama kaydederken belirli alanları doldurmak nasıl hakkında yönergeler"
+title: Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl | Microsoft Docs
+description: Azure AD ile özel bir geliştirilmiş uygulama kaydederken belirli alanları doldurmak nasıl hakkında yönergeler
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: cb85971d6d3d4dade69b9dc04e070c67341533a5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Özel geliştirilmiş bir uygulama için belirli alanları doldurmak nasıl
 
@@ -58,4 +58,4 @@ Yukarıdaki alanları doldurduktan sonra uygulamayı Azure Portalı'nda kayıtl�
 | Anahtarlar            | Program aracılığıyla erişim Web API'leri herhangi bir kullanıcı etkileşimi olmadan Azure AD tarafından güvenli hale getirilmiş anahtarları oluşturabilir. Gelen \* \*anahtarları\* \* sayfasında, anahtar açıklaması ve sona erme tarihini girin ve anahtarı oluşturmak için kaydedin. Daha sonra erişim açamayacaksınız gibi güvenli bir yere kaydettiğinizden emin olun.             |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure Active Directory ile uygulamaları yönetme](active-directory-enable-sso-scenario.md)
+[Uygulamaları Azure Active Directory ile yönetme](active-directory-enable-sso-scenario.md)

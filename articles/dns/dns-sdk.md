@@ -1,6 +1,6 @@
 ---
-title: "DNS bölgeleri oluşturma ve kayıt kümeleri .NET SDK kullanarak Azure DNS'de | Microsoft Docs"
-description: "DNS bölgeleri ve kaydı nasıl oluşturulacağını, .NET SDK kullanarak Azure DNS'de ayarlar."
+title: DNS bölgeleri oluşturma ve kayıt kümeleri .NET SDK kullanarak Azure DNS'de | Microsoft Docs
+description: DNS bölgeleri ve kaydı nasıl oluşturulacağını, .NET SDK kullanarak Azure DNS'de ayarlar.
 services: dns
 documentationcenter: na
 author: jtuliani
@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: jonatul
 ms.openlocfilehash: c0fb0be8da1c0ca48a4d43ea027d30a0bc17fe30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>DNS bölgeleri ve .NET SDK kullanarak kayıt kümeleri oluşturma
 
@@ -41,7 +41,7 @@ Genellikle, kendi kullanıcı kimlik bilgilerini yerine adanmış bir hesap Azur
 Azure DNS .NET SDK'yı kullanmak için yüklemeniz gerekir **Azure DNS Yönetimi Kitaplığı** NuGet paketi ve diğer gerekli Azure paketler.
 
 1. İçinde **Visual Studio**, bir proje veya yeni bir proje açın.
-2. Git **Araçları**  **>**  **NuGet Paket Yöneticisi**  **>**  **çözüm için NuGet paketlerini Yönet...** .
+2. Git **Araçları** **>** **NuGet Paket Yöneticisi** **>** **çözüm için NuGet paketlerini Yönet...** .
 3. Tıklatın **Gözat**, etkinleştirme **INCLUDE yayın öncesi** onay kutusunu ve türü **Microsoft.Azure.Management.Dns** arama kutusuna.
 4. Paketi seçin ve **yükleme** Visual Studio projenize eklemek için.
 5. Ayrıca aşağıdaki paketleri yüklemek için yukarıdaki işlemi tekrarlayın: **Microsoft.Rest.ClientRuntime.Azure.Authentication** ve **Microsoft.Azure.Management.ResourceManager**.

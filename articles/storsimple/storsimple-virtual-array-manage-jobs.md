@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizinin işleri görüntüle ve Yönet | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi hizmeti işleri sayfasında ve, StorSimple sanal dizi için yeni ve geçerli işleri izlemek için nasıl kullanılacağını açıklar."
+title: StorSimple sanal dizinin işleri görüntüle ve Yönet | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti işleri sayfasında ve, StorSimple sanal dizi için yeni ve geçerli işleri izlemek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 31879821-b599-4609-a7f4-d4b0f658a933
 ms.service: storsimple
 ms.devlang: NA
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/11/2016
 ms.author: alkohli
 ms.openlocfilehash: 3fd1c262a8ce94d8e98f2b066a8028d974b15b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için işleri görüntülemek için StorSimple cihaz Yöneticisi hizmetini kullanma
 ## <a name="overview"></a>Genel Bakış
@@ -31,8 +31,8 @@ Hızlı bir şekilde, içinde alanları gibi filtreleyerek ilginizi çekiyor mu 
 * **Zaman aralığı** – işleri filtre tarih ve saat aralıklarına göre.
 * **Aygıtları** – işleri başlatılan hizmetinize bağlı olarak belirli bir aygıtta. Filtrelenen işler, ardından aşağıdaki özniteliklerini temel alarak tabloda verilmiştir:
   
-  * **Ad** – iş adı olabilir **tüm**, **yedekleme**, **kopya**, **yük devri**, **güncelleştirmelerini yükleme**, veya **güncelleştirmelerini yükleme**.
-  * **Durum** – işleri olabilir **tüm**, **devam eden**, **başarılı**, veya **başarısız**, veya **iptal edildi**.
+  * **Ad** – iş adı olabilir **tüm**, **yedekleme**, **kopya**, **yük devri**, **indirmegüncelleştirir**, veya **güncelleştirmelerini yükleme**.
+  * **Durum** – işleri olabilir **tüm**, **devam eden**, **başarılı**, veya **başarısız**, veya **iptaledildi**.
   * **Varlık** – işleri bir birim, paylaşım veya cihaz ile ilişkili olabilir.
   * **Aygıt** – işi başlatıldı aygıt adı.
   * **Tarihinde başlayan** – zaman zaman işi başlatıldı.

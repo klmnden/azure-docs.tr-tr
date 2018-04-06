@@ -16,7 +16,7 @@
 | Parametreler |256 |256 |
 | Değişkenler |256 |256 |
 | Kaynakları (kopya sayısı dahil) |800 |800 |
-| Çıkışları |64 |64 |
+| Çıkışlar |64 |64 |
 | Şablon ifadesi |24.576 karakter |24.576 karakter |
 | Dışarı aktarılan şablonları kaynakları |200 |200 | 
 | Şablon boyutu |1 MB |1 MB |
