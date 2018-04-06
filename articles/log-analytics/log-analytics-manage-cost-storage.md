@@ -1,6 +1,6 @@
 ---
 title: Azure günlük analizi veri maliyetini yönetme | Microsoft Docs
-description: Fiyatlandırma planı değiştirmek ve veri birimi ve bekletme ilkesini Azure portalında günlük analizi çalışma alanınız için yönetme hakkında bilgi edinin.
+description: Fiyatlandırma planı değiştirmek ve Azure günlük analizi çalışma alanınız için veri birimi ve bekletme ilkelerini yönetme hakkında bilgi edinin.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 629031310eba21bc3308754706bd7ba227009ac6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8fb20fc9e6249a2d19d62df1ce331ce873d5fd3d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="manage-cost-by-controlling-data-volume-and-retention-with-your-log-analytics-workspace"></a>Veri birimi ve günlük analizi çalışma alanınız ile bekletme denetleyerek maliyet yönetme
+# <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri birimi ve günlük analizi bekletmeyi denetleyerek maliyet yönetme
 Günlük analizi ölçek ve Destek toplama, dizin oluşturma ve herhangi bir kaynaktan veri günde oldukça büyük miktardaki kuruluşunuzda depolamak üzere tasarlanmış veya Azure'da dağıtılabilir.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak maliyet verimliliği sonuçta temel sürücüsüdür. Kendi önemli bir günlük Analytisc çalışma maliyetini toplanan, veri biriminde yalnızca dayanmayan anlamak bu amaçla da seçilen plan bağlı olduğu ve ne kadar süreyle bağlı kaynaklarınızdan oluşturulan veri depolamak seçtiğiniz.  
 
 Bu makalede nasıl proaktif olarak veri birimi ve Depolama Büyümesi izleyebilir ve bu ilişkili maliyetler denetlemek için sınırları tanımlamak inceleyin. 

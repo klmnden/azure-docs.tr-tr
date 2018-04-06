@@ -1,108 +1,103 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme Azure mobil uygulamalar | Microsoft Docs"
-description: "Kavramsal başvurusu ve kimlik doğrulamasına genel bakış / yetkilendirme özelliğini Azure Mobile Apps için"
-services: app-service\mobile
-documentationcenter: 
+title: Kimlik doğrulama ve yetkilendirme mobil uygulamaları için Azure App Service | Microsoft Docs
+description: Kavramsal başvurusu ve kimlik doğrulamasına genel bakış / yetkilendirme özelliğini Azure App Service için özellikle mobil uygulamalar için
+services: app-service
+documentationcenter: ''
 author: mattchenderson
-manager: cfowler
-editor: 
-ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
-ms.service: app-service-mobile
+manager: erikre
+editor: ''
+ms.service: app-service
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 57deec4acffc1387fcb5c42c17085bb363dfdbc1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 237310c607eb8488e53631b6e69d01703d1ebf99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure Mobile Apps’te Kimlik Doğrulama ve Yetkilendirme
-## <a name="what-is-app-service-authentication--authorization"></a>App Service kimlik doğrulaması nedir / yetkilendirme?
-> [!NOTE]
-> Bu makalede geçirilecek bir birleştirilmiş için [App Service kimlik doğrulama / yetkilendirme](../app-service/app-service-authentication-overview.md) Web, mobil ve API Apps kapsayan makalesi.
-> 
-> 
+# <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Kimlik doğrulama ve yetkilendirme mobil uygulamaları için Azure uygulama hizmeti
 
-App Service kimlik doğrulama / yetkilendirme, uygulamanızın uygulama arka uçta gerekli kod değişikliğine kullanıcılar oturum sağlayan bir özelliktir. Uygulamanızı korumak ve kullanıcı başına verilerle çalışmak için kolay bir yol sağlar.
+Bu makalede nasıl kimlik doğrulaması ve yetkilendirme çalıştığı bir uygulama hizmeti arka uç ile yerel mobil uygulamaları geliştirirken açıklanmaktadır. Mobil uygulamalarınız kullanıcılar App Service'te herhangi kodunu değiştirmeden oturum açabilmeniz için tümleşik kimlik doğrulaması ve yetkilendirme, uygulama hizmeti sağlar. Uygulamanızı korumak ve kullanıcı başına verilerle çalışmak için kolay bir yol sağlar. 
 
-Uygulama hizmeti, federe kimlik kullanan bir 3. taraf **kimlik sağlayıcısı** ("IDP") hesaplarını depolayan ve kullanıcıların kimliğini doğrular. Uygulama bu kimliği kendi yerine kullanır. Uygulama hizmeti kutunun dışında beş kimlik sağlayıcılarını destekler: *Azure Active Directory*, *Facebook*, *Google*, *Microsoft Account*, ve *Twitter*. Bu destek, uygulamalarınız için başka bir kimlik sağlayıcısı veya kendi özel kimlik çözümü ile tümleştirerek genişletebilirsiniz.
+Bu makalede, mobil uygulama geliştirme hakkında odaklanır. Uygulama hizmeti kimlik doğrulama ve yetkilendirme mobil uygulamanız için hızlı bir şekilde başlamak için şu eğitimlerden birine bakın [iOS uygulamanıza kimlik doğrulaması ekleme] [ iOS] (veya [Android], [Windows], [Xamarin.iOS], [Xamarin.Android], [Xamarin.Forms], veya [Cordova ]). 
 
-Son kullanıcılarınızın nasıl oturum seçeneklerini sağlayabilmesi için uygulamanız bu kimlik sağlayıcıları herhangi bir sayıda kullanabilirsiniz.
+Kimlik doğrulama ve yetkilendirme App Service içinde nasıl çalıştığı hakkında daha fazla bilgi için bkz: [kimlik doğrulama ve yetkilendirme Azure App Service'te](../app-service/app-service-authentication-overview.md).
 
-Hemen kullanmaya başlamak istiyorsanız, şu eğitimlerden birine bakın:
+## <a name="authentication-with-provider-sdk"></a>Kimlik doğrulama sağlayıcısı SDK ile
 
-* [İOS uygulamanıza kimlik doğrulaması ekleme]
-* [Xamarin.iOS uygulamanıza kimlik doğrulaması ekleme]
-* [Xamarin.Android uygulamanıza kimlik doğrulaması ekleme]
-* [Windows kimlik doğrulaması ekleme]
+Her şeyi App Service'te yapılandırıldıktan sonra uygulama hizmeti ile imzalamak için mobil istemcilerin değiştirebilirsiniz. Burada iki yaklaşım vardır:
 
-## <a name="how-authentication-works"></a>Kimlik doğrulaması nasıl çalışır
-Kimlik sağlayıcılar birini kullanarak kimlik doğrulamak için önce uygulamanız hakkında bilmeniz kimlik sağlayıcısı yapılandırmanız gerekir. Ardından kimlik sağlayıcısı kimlikleri ve uygulama geri sağladığınız gizli ile sağlayacaktır. Bu güven ilişkisi tamamlandıktan ve sağlanan kimliklerini doğrulamak uygulama hizmeti sağlar.
-
-Bu adımlar aşağıdaki konularda ayrıntılı olarak açıklanmaktadır:
-
-* [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma]
-
-Her şeyi arka uçta yapılandırıldıktan sonra oturum açmak için istemci değiştirebilirsiniz. Burada iki yaklaşım vardır:
-
-* Tek satırlık bir kod kullanarak, Mobile Apps istemci SDK kullanıcılar oturum sağlar.
-* Belirtilen kimlik sağlayıcısı tarafından yayımlanan SDK kimliğini oluşturmak ve uygulama hizmeti erişim kazanmak için kullanın.
+* Belirtilen kimlik sağlayıcısı kimliğini oluşturmak ve uygulama hizmeti erişim kazanmak için yayımlayan bir SDK'yı kullanın.
+* Tek satırlık bir kod kullanabilir, böylece Mobile Apps istemci SDK'sı kullanıcılar oturum açabilir.
 
 > [!TIP]
-> Çoğu uygulama yerel-duyguyu'açığa fazla oturum açma deneyimi almak ve yenileme desteği ve diğer sağlayıcıya özgü avantajlarından yararlanmak için bir sağlayıcı SDK kullanmanız gerekir.
+> Çoğu uygulama belirteci yenileme desteği kullanmak üzere ve sağlayıcıyı belirtir diğer avantajlarından yararlanabilmek için kullanıcıların oturum açtığınızda daha tutarlı bir deneyim almak için bir sağlayıcı SDK kullanmanız gerekir.
 > 
 > 
 
-### <a name="how-authentication-without-a-provider-sdk-works"></a>SDK sağlayıcı olmadan kimlik doğrulaması nasıl çalışır
-Sağlayıcısını kurma SDK istemiyorsanız, sizin için oturum açma gerçekleştirmek Mobile Apps izin verebilirsiniz. Mobile Apps istemci SDK Sağlayıcısı'nda oturum açma işlemini tamamlayabilmek seçtiğiniz bir web görünümü açılır. Bazen, "sunucu akış" veya "sunucu yönlendirilmiş akış" olarak adlandırılan bu iş akışı görebilirsiniz sunucunun oturum açma yönetme ve istemci SDK sağlayıcısı belirtecin hiçbir zaman alır.
+SDK sağlayıcı kullandığınızda, kullanıcılar uygulamayı çalıştıran işletim sistemine sahip daha sıkı bir şekilde tümleşen bir deneyim için oturum açabilir. Bu yöntem aynı zamanda, sağlayıcı belirteci ve grafik API'leri kullanabilir ve kullanıcı deneyimini özelleştirmek çok daha kolay hale getirir istemcide bazı kullanıcı bilgileri sunar. Kullanıcıların istemci açtığında kodu ve istemci kodu sağlayıcısı belirteç erişimi olduğundan bazen bloglar ve forumlar, onu için "istemci akışı" veya "istemci yönlendirilmiş akış" adlandırılır.
 
-Bu akış başlatmak için gereken kodu her platform için kimlik doğrulama öğreticideki ele alınmıştır. Akış sonunda SDK istemcisi bir uygulama hizmeti belirtecine sahip ve belirteç arka uç için tüm istekleri için otomatik olarak eklenir.
+Sağlayıcı belirteci alındıktan sonra uygulama hizmeti için doğrulama gönderilmesi gerekiyor. Uygulama hizmeti belirteci doğruladıktan sonra uygulama hizmeti istemciye döndürülen yeni bir uygulama hizmeti belirteci oluşturur. Mobile Apps istemci SDK'sı, bu exchange yönetmek ve otomatik olarak uygulama arka ucunun yapılan tüm isteklere belirteci eklemek için yardımcı yöntemler vardır. Geliştiriciler ayrıca sağlayıcı belirteci başvuru kullanmaya devam edebilir.
 
-### <a name="how-authentication-with-a-provider-sdk-works"></a>Kimlik doğrulama sağlayıcısı SDK ile nasıl çalışır
-Sağlayıcı ile çalışma SDK'sı daha sıkı bir şekilde uygulamayı çalıştıran işletim sistemi platformu ile etkileşim kurmak oturum açma deneyimi sağlar. SDK sağlayıcısı ayrıca sağlayıcı belirteci ve grafik API'leri kullanabilir ve kullanıcı deneyimini özelleştirmek çok daha kolay istemcisinde, bazı kullanıcı bilgileri sağlar. Bazen, için "istemci akışı" olarak adlandırılan bu iş akışı görebilirsiniz ya da "istemci yönlendirilmiş akış" kod itibaren istemcide oturum açma işleme ve istemci kodu sağlayıcı belirteci erişimi.
+Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz: [App Service kimlik doğrulama akışı](../app-service/app-service-authentication-overview.md#authentication-flow). 
 
-Bir sağlayıcı belirteç alındığında, doğrulama için App Service'e gönderilmesi gerekir. Akış sonunda SDK istemcisi bir uygulama hizmeti belirtecine sahip ve belirteç arka uç için tüm istekleri için otomatik olarak eklenir. Bu nedenle seçerseniz Geliştirici da sağlayıcı belirteci başvuru tutabilirsiniz.
+## <a name="authentication-without-provider-sdk"></a>Sağlayıcı SDK olmadan kimlik doğrulaması
 
-## <a name="how-authorization-works"></a>Yetkilendirme nasıl çalışır?
-App Service kimlik doğrulama / yetkilendirme için birkaç seçenek sunar **isteğin kimliği doğrulanmamış olduğunda gerçekleştirilecek eylem**. Belirtilen bir isteğin kodunuzu almadan önce isteğin kimliği olmadığını görmek için uygulama hizmeti onay ve değil, reddetmek ve yeniden denemeden önce oturum kullanıcı girişimi olabilir.
+Sağlayıcısını kurma SDK istemiyorsanız, oturum açmak için Azure App Service Mobile Apps özelliğini izin verebilirsiniz. Mobile Apps istemci SDK seçtiğiniz sağlayıcı web görünümüne açın ve kullanıcı oturum açabilir. Bazen bloglar ve forumlar, bunu "sunucu akış" veya "sunucu yönlendirilmiş akış" sunucusu kullanıcılar oturum açtığında sürecini yönetir ve istemci SDK sağlayıcısı belirtecin hiçbir zaman alır çünkü çağrılır.
 
-Kimlik sağlayıcılardan biri istekleri yeniden yönlendirme, kimliği doğrulanmamış bir seçenektir. Bir web tarayıcısında bu yeniden yönlendirme gerçekte kullanıcı yeni bir sayfaya alır. Ancak, mobil istemciniz bu şekilde yönlendirilemez ve kimliği doğrulanmamış yanıtları, bir HTTP alacağı *401 Yetkisiz* yanıt. Bu verildiğinde, istemci yapar ilk istek her zaman için oturum açma uç noktası olmalıdır ve daha sonra başka bir API çağrıları hale getirebilirsiniz. Oturum açmayı önce başka bir API çağrısı çalışırsanız, istemci bir hata alırsınız.
+Bu akış başlatmak için kod her platform için kimlik doğrulama öğreticideki dahil edilir. Akış sonunda SDK istemcisi bir uygulama hizmeti belirtecine sahip ve belirteç uygulama arka ucu için tüm istekleri için otomatik olarak eklenir.
 
-Daha ayrıntılı isterseniz, hangi uç noktaları kimlik doğrulaması gerektiren denetlemek, aynı zamanda çekme "hiçbir eylem (isteğine izin ver)" kimliği doğrulanmamış istekler için. Bu durumda, tüm kimlik doğrulama kararları uygulama kodunuz ertelenmiş olan. Bu ayrıca, özel yetkilendirme kurallarına göre belirli kullanıcıların erişmesine izin vermek sağlar.
+Kimlik doğrulaması akışı hakkında daha fazla bilgi için bkz: [App Service kimlik doğrulama akışı](../app-service/app-service-authentication-overview.md#authentication-flow). 
+## <a name="more-resources"></a>Diğer kaynaklar
 
-## <a name="documentation"></a>Belgeler
-Aşağıdaki öğreticiler App hizmetini kullanarak mobil istemcilerinizin kimlik doğrulaması ekleme gösterir:
+Nasıl kimlik doğrulaması kullanarak mobil istemcilerinize eklemek aşağıdaki öğreticileri Göster [sunucu yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow):
 
-* [İOS uygulamanıza kimlik doğrulaması ekleme]
-* [Xamarin.iOS uygulamanıza kimlik doğrulaması ekleme]
-* [Xamarin.Android uygulamanıza kimlik doğrulaması ekleme]
-* [Windows kimlik doğrulaması ekleme]
+* [İOS uygulamanıza kimlik doğrulaması ekleme][iOS]
+* [Android uygulamanıza kimlik doğrulaması ekleme][Android]
+* [Windows kimlik doğrulaması ekleme][Windows]
+* [Xamarin.iOS uygulamanıza kimlik doğrulaması ekleme][Xamarin.iOS]
+* [Xamarin.Android uygulamanıza kimlik doğrulaması ekleme][Xamarin.Android]
+* [Xamarin.Forms uygulamanıza kimlik doğrulaması ekleme][Xamarin.Forms]
+* [Cordova uygulamanıza kimlik doğrulaması ekleme][Cordova ]
 
-Aşağıdaki öğreticiler App farklı kimlik doğrulama sağlayıcılarını kullanacak şekilde hizmetinin nasıl yapılandırılacağı gösterilmektedir:
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Azure Active Directory için:
 
-* [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma]
-* [Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma]
+* [İOS için Active Directory kimlik doğrulama kitaplığı kullanma][ADAL-iOS]
+* [Android için Active Directory kimlik doğrulama kitaplığı kullanma][ADAL-Android]
+* [Windows ve Xamarin için Active Directory Authentication Library kullanın][ADAL-dotnet]
 
-Burada da kullanabilirsiniz sağlanan kimlik sistemi dışındaki kullanmak istiyorsanız, [Önizleme .NET sunucusu SDK özel kimlik doğrulama desteği](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth).
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Facebook için:
 
-[İOS uygulamanıza kimlik doğrulaması ekleme]: app-service-mobile-ios-get-started-users.md
-[Xamarin.iOS uygulamanıza kimlik doğrulaması ekleme]: app-service-mobile-xamarin-ios-get-started-users.md
-[Xamarin.Android uygulamanıza kimlik doğrulaması ekleme]: app-service-mobile-xamarin-android-get-started-users.md
-[Windows kimlik doğrulaması ekleme]: app-service-mobile-windows-store-dotnet-get-started-users.md
+* [İOS için Facebook SDK'yı kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-[Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[Uygulamanızı Microsoft Hesabı oturum açma bilgilerini kullanacak şekilde yapılandırma]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Uygulamanızı Twitter oturum açma bilgilerini kullanacak şekilde yapılandırma]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Twitter için:
+
+* [İOS için twitter doku kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
+
+Kullanmak istiyorsanız, aşağıdaki kaynakları kullanın [istemci yönlendirilmiş akış](../app-service/app-service-authentication-overview.md#authentication-flow) Google için:
+
+* [İOS için oturum açma Google SDK'yı kullanma](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
+
+[iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
+[Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
+[Xamarin.iOS]: ../app-service-mobile/app-service-mobile-xamarin-ios-get-started-users.md
+[Xamarin.Android]: ../app-service-mobile/app-service-mobile-xamarin-android-get-started-users.md
+[Xamarin.Forms]: ../app-service-mobile/app-service-mobile-xamarin-forms-get-started-users.md
+[Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
+[Cordova ]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
+
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
+
+[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+
+[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
+[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
+[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal

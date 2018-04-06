@@ -1,13 +1,13 @@
 ---
-title: "Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma | Microsoft Docs"
-description: "Bulut Foundry azure'da bir uygulamayı dağıtma"
+title: Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma | Microsoft Docs
+description: Bulut Foundry azure'da bir uygulamayı dağıtma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: seanmck
-manager: timlt
-editor: 
-tags: 
-keywords: 
+manager: jeconnoc
+editor: ''
+tags: ''
+keywords: ''
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: b617127fc0a3f8dcae293e356ea669edcfa5deff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft azure'da bulut Foundry ilk uygulamanızı dağıtma
 
@@ -35,7 +35,7 @@ Azure üzerinde bir bulut Foundry ortamı oluşturmak için birkaç seçenek var
 - [Açık kaynak bulut Foundry paketlerini doğrudan dağıtma] [ oss-cf-bosh] ayarıyla bir [BOSH](http://bosh.io) director, bulut Foundry ortamı dağıtımını koordine eden bir VM.
 
 > [!IMPORTANT] 
-> Azure Marketi'nden PCF dağıtıyorsanız, SYSTEMDOMAINURL ve her ikisi de Market Dağıtım Kılavuzu'nda açıklanan Bileşendirler uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL form https://system ' dir. *IP adresi*. cf.pcfazure.com.
+> Azure Marketi'nden PCF dağıtıyorsanız, SYSTEMDOMAINURL ve her ikisi de Market Dağıtım Kılavuzu'nda açıklanan Bileşendirler uygulamaları Yöneticisi'ne erişmek için gereken yönetici kimlik bilgilerini not edin. Bu öğreticiyi tamamlamak için gereklidir. Market dağıtımları için SYSTEMDOMAINURL biçimindedir https://system. *IP adresi*. cf.pcfazure.com.
 
 ## <a name="connect-to-the-cloud-controller"></a>Bulut denetleyicisine bağlanma
 

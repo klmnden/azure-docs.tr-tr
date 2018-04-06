@@ -1,10 +1,10 @@
 ---
 title: Azure'da bir Linux VM bir disk ekleme | Microsoft Docs
-description: "Klasik dağıtım modeli kullanarak bir Linux VM için bir veri diski Ekle öğrenin ve kullanıma hazır olacak şekilde diski başlatın"
+description: Klasik dağıtım modeli kullanarak bir Linux VM için bir veri diski Ekle öğrenin ve kullanıma hazır olacak şekilde diski başlatın
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b47451bb8e53154760b893e452649f15ffdff7f9
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: e7f587f6126f60f18bb4c6f184ec58cf7efc1a81
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>Nasıl bir Linux sanal makineye bir veri diski Ekle
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ Boş disk ve Azure Vm'leriniz için veri içeren diskleri ekleyebilirsiniz. Her 
     sudo fdisk /dev/sdc
     ```
 
-4. İstendiğinde yazın  **n**  bir bölüm oluşturmak için.
+4. İstendiğinde yazın **n** bir bölüm oluşturmak için.
 
     ![Cihaz oluşturma](./media/attach-disk/fdisknewpartition.png)
 

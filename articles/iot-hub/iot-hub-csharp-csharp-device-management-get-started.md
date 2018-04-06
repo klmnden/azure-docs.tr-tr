@@ -1,24 +1,24 @@
 ---
-title: "Azure IOT Hub cihaz Yönetimi (.NET/.NET) ile çalışmaya başlama | Microsoft Docs"
-description: "Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın."
+title: Azure IOT Hub cihaz Yönetimi (.NET/.NET) ile çalışmaya başlama | Microsoft Docs
+description: Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 3af7fbfb9740e00d9ff9c2b077cb444a8057b8c3
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 44160eeb90f0f65c974b7188dd7c70cce382bf21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="get-started-with-device-management-netnet"></a>Aygıt Yönetimi (.NET/.NET) ile çalışmaya başlama
 
@@ -68,7 +68,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
         static ServiceClient client;
         static string targetDevice = "myDeviceId";
         
-6. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod yeniden başlatılan cihaz için cihaz çifti alır ve bildirilen özellikleri çıkarır.
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin.  Bu kod yeniden başlatılan cihaz için cihaz çifti alır ve bildirilen özellikleri çıkarır.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -76,7 +76,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod, doğrudan bir yöntem kullanarak cihazı önyüklemede başlatır.
+7. **Program** sınıfına aşağıdaki yöntemi ekleyin.  Bu kod, doğrudan bir yöntem kullanarak cihazı önyüklemede başlatır.
 
         public static async Task StartReboot()
         {
@@ -97,7 +97,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. Çözümü oluşturun.
+8. Çözümü derleyin.
 
 > [!NOTE]
 > Bu öğretici için bildirilen özellikler yalnızca tek bir sorgu gerçekleştirir. Üretim kodunda bildirilen özelliklerinde değişikliklerini algılamak için yoklama öneririz.
@@ -181,7 +181,7 @@ Bu bölümde şunları yapacaksınız:
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından **SimulateManagedDevice** açılır menüsünde projesinde. Çözümü oluşturun.       
+8. Visual Studio Çözüm Gezgini'nde Çözümünüze sağ tıklayın ve ardından **başlangıç projelerini Ayarla...** . Seçin **tek başlangıç projesi**ve ardından **SimulateManagedDevice** açılır menüsünde projesinde. Çözümü derleyin.       
 
 > [!NOTE]
 > Sade ve basit bir anlatım gözetildiği için bu öğretici herhangi bir yeniden deneme ilkesi uygulamaz. [Geçici Hata İşleme][lnk-transient-faults] adlı MSDN makalesinde önerildiği üzere, üretim kodunda yeniden deneme ilkelerini (üstel geri alma gibi) uygulamanız gerekir.

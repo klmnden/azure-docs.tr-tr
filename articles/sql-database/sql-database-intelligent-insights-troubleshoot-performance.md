@@ -1,6 +1,6 @@
 ---
-title: "Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme | Microsoft Docs"
-description: "Akıllı Öngörüler Azure SQL veritabanı performans sorunlarını gidermenize yardımcı olur."
+title: Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme | Microsoft Docs
+description: Akıllı Öngörüler Azure SQL veritabanı performans sorunlarını gidermenize yardımcı olur.
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 0f23a76506a6692dd907a0b9fc7cfadfe7cd8f40
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7830a8a4bfc43e158069cc7cdc186e289e166751
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme
 
@@ -30,7 +30,7 @@ Akıllı Öngörüler otomatik olarak algılar performans sorunlarını SQL sorg
 
 | Algılanabilir performans desenleri | Yüzdelik ayrıntıları |
 | :------------------- | ------------------- |
-| [Kaynak sınırları ulaşmasını](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Kullanılabilir kaynakları (Dtu'lar), veritabanı çalışan iş parçacığı veya veritabanı oturum açma oturumları izlenen abonelikte kullanılabilir tüketimini sınırları, SQL veritabanı performans sorunlarıyla neden olan sınırına ulaştı. |
+| [Ulaşması kaynak sınırları](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Kullanılabilir kaynakları (Dtu'lar), veritabanı çalışan iş parçacığı veya veritabanı oturum açma oturumları izlenen abonelikte kullanılabilir tüketimini sınırları, SQL veritabanı performans sorunlarıyla neden olan sınırına ulaştı. |
 | [İş yükü artış](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | SQL veritabanı performans sorunlarıyla neden olan iş yükü artış ya da iş yükü veritabanında sürekli toplamı algılandı. |
 | [Bellek baskısı](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | Bellek verir istenen çalışanları için bellek ayırma istatistiksel olarak önemli miktarda zaman için beklemeniz gerekir. Veya SQL veritabanı performansını etkiler bellek verir istenen çalışanları artan toplamı yok. |
 | [Kilitleme](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | Aşırı veritabanı kilitleme, SQL veritabanı performansını etkiler algılandı. |
@@ -52,7 +52,7 @@ Akıllı Öngörüler otomatik olarak algılar performans sorunlarını SQL sorg
 
 Aşağıdaki bölümde daha ayrıntılı daha önce listelenen algılanabilir performans desenleri açıklar.
 
-## <a name="reaching-resource-limits"></a>Kaynak sınırları ulaşmasını
+## <a name="reaching-resource-limits"></a>Ulaşması kaynak sınırları
 
 ### <a name="what-is-happening"></a>Ne oluyor
 
@@ -154,7 +154,7 @@ Mandal etkinleştirmek için SQL veritabanı tarafından kullanılan basit eşit
 
 SQL database türlerde tutma yok. Kolaylık olması amacıyla, arabellek tutma arabellek havuzu bellek içi sayfalarında korumak için kullanılır. G/ç tutma henüz arabellek havuzu yüklenen sayfaları korumak için kullanılır. Her veri yazılan veya arabellek havuzu içinde bir sayfa okuma bir çalışan iş parçacığı bir arabellek Mandal sayfası için öncelikle edinmeniz gerekir. Bir çalışan iş parçacığı zaten bellek içi arabellek havuzunda kullanılabilir olmayan bir sayfaya erişmeye çalıştığında, bir g/ç isteği depolama biriminden gerekli bilgileri yüklemek için yapılır. Bu olaylar dizisi performansında daha ciddi biçimi gösterir.
 
-Birden çok iş parçacığı aynı anda artan bekleme süresi sorgu yürütme tanıtır aynı bellek içi yapısına kilitler elde etmeye sayfasında tutma üzerinde Çekişme oluşur. Veri depolama biriminden erişilmesi gerektiğinde pagelatch g/ç çakışma olması durumunda bu bekleme süresi daha büyüktür. İş yükü performansını önemli ölçüde etkileyebilir. Pagelatch Çekişme birbirine bekleyen ve birden çok CPU sistem kaynakları için rekabete iş parçacıklarının en yaygın senaryodur.
+Birden çok iş parçacığı aynı anda artan bekleme süresi sorgu yürütme tanıtır aynı bellek içi yapısına kilitler elde etmeye sayfasında tutma üzerinde Çekişme oluşur. Veri depolama biriminden erişilmesi gerektiğinde pagelatch GÇ çakışma olması durumunda bu bekleme süresi daha büyüktür. İş yükü performansını önemli ölçüde etkileyebilir. Pagelatch Çekişme birbirine bekleyen ve birden çok CPU sistem kaynakları için rekabete iş parçacıklarının en yaygın senaryodur.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 
@@ -162,7 +162,7 @@ Tanılama günlük pagelatch Çekişme ayrıntıları çıkarır. Sorun giderme 
 
 Bir iç denetim mekanizmasını SQL veritabanının bir pagelatch olduğu için bunu otomatik olarak bunların ne zaman kullanılacağı belirler. Şema tasarımına dahil olmak üzere uygulama kararları tutma belirleyici davranışını nedeniyle pagelatch davranışı etkileyebilir.
 
-Mandal Çekişme işlemek için bir yöntem ekler bir dizin aralığı eşit olarak dağıtmanızı sıralı olmayan bir anahtara sahip bir sıralı dizin anahtarı değiştirmektir. Genellikle, dizin önde gelen bir sütunda iş yükü orantılı olarak dağıtır. Tablo bölümleme dikkate alınması gereken başka bir yöntem. Bölümlenmiş bir tablodaki bir hesaplanan sütun düzeniyle bölümleme karma oluşturma aşırı Mandal Çekişme Azaltıcı için ortak bir yaklaşımdır. Pagelatch g/ç çakışma olması durumunda, dizinleri sunarak bu performans sorunu azaltılmasına yardımcı olur. 
+Mandal Çekişme işlemek için bir yöntem ekler bir dizin aralığı eşit olarak dağıtmanızı sıralı olmayan bir anahtara sahip bir sıralı dizin anahtarı değiştirmektir. Genellikle, dizin önde gelen bir sütunda iş yükü orantılı olarak dağıtır. Tablo bölümleme dikkate alınması gereken başka bir yöntem. Bölümlenmiş bir tablodaki bir hesaplanan sütun düzeniyle bölümleme karma oluşturma aşırı Mandal Çekişme Azaltıcı için ortak bir yaklaşımdır. Pagelatch GÇ çakışma olması durumunda, dizinleri sunarak bu performans sorunu azaltılmasına yardımcı olur. 
 
 Daha fazla bilgi için bkz: [Tanıla ve çözümleme Mandal Çekişme SQL Server'da](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (PDF indirme).
 
@@ -220,7 +220,7 @@ Sorgu performansı en iyi duruma getirme hakkında daha fazla bilgi için bkz: [
 
 ### <a name="what-is-happening"></a>Ne oluyor
 
-Bu algılanabilir performans deseni tempDB kaynaklara erişmeye çalışan iş parçacığı bir performans sorunu bulunduğu bir veritabanı performans koşulu belirtir. (Bu durum g/ç ile ilgili değildir.) Bu performans sorunu için tipik senaryo tüm oluşturma, kullanma ve küçük tempDB tablolarını bırak eş zamanlı sorguları yüzlerce ' dir. Sistem, aynı tempDB tablolar kullanarak eş zamanlı sorguları sayısı son yedi gün performans taban çizgisine göre veritabanı performansını etkileyebilir yeterli istatistiksel anlamlı ile artan algıladı.
+Bu algılanabilir performans deseni tempDB kaynaklara erişmeye çalışan iş parçacığı bir performans sorunu bulunduğu bir veritabanı performans koşulu belirtir. (Bu durum GÇ ilgili değildir.) Bu performans sorunu için tipik senaryo tüm oluşturma, kullanma ve küçük tempDB tablolarını bırak eş zamanlı sorguları yüzlerce ' dir. Sistem, aynı tempDB tablolar kullanarak eş zamanlı sorguları sayısı son yedi gün performans taban çizgisine göre veritabanı performansını etkileyebilir yeterli istatistiksel anlamlı ile artan algıladı.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 

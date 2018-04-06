@@ -1,12 +1,12 @@
 ---
-title: "Süre sonu için Office 365 grupları Azure Active Directory'de | Microsoft Docs"
-description: "Süre sonu için Office 365 grupları Azure Active Directory'de kurma"
+title: Süre sonu için Office 365 grupları Azure Active Directory'de | Microsoft Docs
+description: Süre sonu için Office 365 grupları Azure Active Directory'de kurma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 95593eaacd73316ab527ffda8f977fbf0eb15558
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: aa8551db8c3982fa61b3d4731a8aac3e2832f1b1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 grupları için süre sonu ilkesi yapılandırma
 
@@ -36,7 +36,7 @@ Süresi dolmak üzere bir grup ayarladıktan sonra:
 
 Azure AD PowerShell cmdlet'leri yükleyip konusunda daha fazla bilgi için bkz: [Azure Active Directory PowerShell grafik 2.0.0.137 için](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## <a name="roles-and-permissions"></a>Rolleri ve izinleri
+## <a name="roles-and-permissions"></a>Roller ve izinler
 Aşağıdaki yapılandırabilir ve sona erme Azure AD'de Office 365 gruplarında kullanmak rolleridir.
 
 Rol | İzinler
@@ -66,7 +66,7 @@ Bunun gibi e-posta bildirimleri 30 gün, 15 gün ve 1 gün grubunun süre sonund
 
 ![Sona erme e-posta bildirimi](./media/active-directory-groups-lifecycle-azure-portal/expiration-notification.png)
 
-Gelen **yenileme grup** bildirim e-posta, Grup sahipleri için erişim panelinde erişim t hegroup Ayrıntıları sayfasında doğrudan. Burada, kullanıcıların zaman sona ereceği zaman, son, yenilendi, açıklamasını ve gruba yenileme özelliği gibi Grup hakkında daha fazla bilgi alabilirsiniz. Grup sahibi rahat içerik ve etkinlik kendi grubunda görüntüleyebilmesi için Grup Ayrıntılar sayfası artık aynı zamanda Office 365 Grup kaynaklarına bağlantılar içerir.
+Gelen **yenileme grup** bildirim e-posta, doğrudan grubu sahipleri can erişim erişim panelinde grup Ayrıntılar sayfası. Burada, kullanıcıların zaman sona ereceği zaman, son, yenilendi, açıklamasını ve gruba yenileme özelliği gibi Grup hakkında daha fazla bilgi alabilirsiniz. Grup sahibi rahat içerik ve etkinlik kendi grubunda görüntüleyebilmesi için Grup Ayrıntılar sayfası artık aynı zamanda Office 365 Grup kaynaklarına bağlantılar içerir.
 
 Bir grup süresi dolduğunda, Grup bir gün sonra sona erme tarihini silinir. Bunun gibi bir e-posta bildirimi geçerlilik süresi ve bunların Office 365 grubunun sonraki silinmesi hakkında bildiren Office 365 grup sahiplerine gönderilir.
 

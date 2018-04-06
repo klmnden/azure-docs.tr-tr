@@ -1,11 +1,11 @@
 ---
-title: "İş akışları şablonlardan - Azure Logic Apps oluşturmak | Microsoft Docs"
-description: "Mantıksal uygulama şablonları kullanarak daha hızlı iş akışı yapılandırması"
+title: İş akışları şablonlardan - Azure Logic Apps oluşturmak | Microsoft Docs
+description: Mantıksal uygulama şablonları kullanarak daha hızlı iş akışı yapılandırması
 author: kevinlam1
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/15/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9145b9cb85cda9179f7ce46de017a0ab3a38924
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a2e939143d7181722df17ea7837658d96272e3a3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Önceden oluşturulmuş şablonlardan uygulama iş mantığı oluşturun
 
@@ -42,7 +42,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için k
 
 1. Henüz yapmadıysanız, oturum [Azure portal](https://portal.azure.com "Azure portal").
 
-2. Ana Azure, menüsünden **kaynak oluşturma** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
+2. Azure ana menüsünden **Kaynak oluştur** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
    ![Azure portalı, Yeni, Kurumsal Tümleştirme, Mantıksal Uygulama](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -56,7 +56,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir Azure hesabı için k
    | **Abonelik** | *Azure-aboneliğinizin-adı* | Kullanmak istediğiniz Azure aboneliğini seçin. | 
    | **Kaynak grubu** | *Azure-kaynak-grubunuzun-adı* | Oluşturma veya seçme bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) bu mantıksal uygulama ve bu uygulamayla ilişkili tüm kaynakları düzenlemek için. | 
    | **Konum** | *Azure-veri-merkezi-bölgeniz* | Batı ABD gibi mantıksal uygulamanızın dağıtılacağı veri merkezi bölgesini seçin. | 
-   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Aç [tanılama günlük](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızı için [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Zaten sahip olmasını gerektiren bir [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) çalışma. | 
+   | **Log Analytics** | **Kapalı** (varsayılan) veya **üzerinde** | Aç [tanılama günlük](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) mantıksal uygulamanızı için [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Günlük analizi çalışma alanı zaten sahip olmasını gerektirir. | 
    |||| 
 
 4. Hazır olduğunuzda **Panoya sabitle**'yi seçin. Bu şekilde mantıksal uygulamanız otomatik olarak Azure panonuzda görüntülenir ve dağıtımdan sonra açılır. **Oluştur**’u seçin.

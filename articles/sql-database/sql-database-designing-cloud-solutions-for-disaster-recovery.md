@@ -1,28 +1,28 @@
 ---
-title: "Tasarım Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmet | Microsoft Docs"
-description: "Uygulama tasarımı için Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler hakkında bilgi edinin."
-keywords: "Bulut olağanüstü durum kurtarma, olağanüstü durum kurtarma çözümleri, uygulama veri yedekleme, coğrafi çoğaltma, iş sürekliliği planlama"
+title: Tasarım Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmet | Microsoft Docs
+description: Uygulama tasarımı için Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler hakkında bilgi edinin.
+keywords: Bulut olağanüstü durum kurtarma, olağanüstü durum kurtarma çözümleri, uygulama veri yedekleme, coğrafi çoğaltma, iş sürekliliği planlama
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c596006e33c2c4f0228c14a65f58e82bcf300727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler tasarlama
 
 Derleme ve Azure SQL veritabanı yüksek oranda kullanılabilir hizmetleri dağıtma, kullandığınız [yük devretme grupları ve etkin coğrafi çoğaltma](sql-database-geo-replication-overview.md) bölgesel kesintiler ve geri dönülemez hataları için esneklik sağlamak için. Ayrıca, ikincil veritabanlarıyla Hızlı Kurtarma sağlar. Bu makale üzerinde ortak uygulama düzenleri odaklanır ve avantajları ve dengelemeler her seçenekle ele almaktadır. Esnek havuzlar etkin coğrafi çoğaltma hakkında daha fazla bilgi için bkz: [esnek havuz olağanüstü durum kurtarma stratejilerini](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 > [!NOTE]
-> Premium veritabanları ve havuzları kullanıyorsanız, bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek yapabileceğiniz. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).  
+> Premium kullanıyorsanız veya iş kritik (Önizleme) veritabanları ve esnek havuzlar, yapabilirsiniz bunları dayanıklı bölgesel kesintileri (şu anda önizlemede) bölge olarak yedekli dağıtım yapılandırması için dönüştürerek. Bkz: [bölge olarak yedekli veritabanları](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Senaryo 1: en az kapalı kalma süresi ile iş sürekliliği için iki Azure bölgeleri kullanma
 Bu senaryoda, uygulamaları aşağıdaki özelliklere sahiptir: 

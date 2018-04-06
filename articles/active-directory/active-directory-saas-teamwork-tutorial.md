@@ -1,10 +1,10 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Teamwork.com | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile Teamwork.com arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Teamwork.com | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile Teamwork.com arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 07b4be1256b77ac35efab9c6b2d593b4763cdf86
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Öğretici: Azure Active Directory Tümleştirme ile [Teamwork.com](https://www.teamwork.com/projects)
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Öğretici: Azure Active Directory Tümleştirme Teamwork.com ile
 
 Bu öğreticide, Azure Active Directory (Azure AD) ile Teamwork.com tümleştirmek öğrenin.
 
@@ -32,12 +32,12 @@ TeamWork.com Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme Teamwork.com ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- A [Teamwork.com](https://www.teamwork.com/projects) abonelik Pro planı veya üzeri
+- Bir Teamwork.com çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -108,10 +108,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![TeamWork.com etki alanı ve URL'leri tek oturum açma bilgileri](./media/active-directory-saas-teamwork-tutorial/tutorial_teamwork_url.png)
 
-    İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<company name>.teamwork.com`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<company name>.teamwork.com`
+
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın:
+
+    |||
+    |-|-|
+    | `https://teamwork.com/saml`|
+    | `https://eu.teamwork.com/saml`|
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Teamwork.com destek ekibi](mailto:support@teamwork.com) bu değeri alınamıyor. 
+    > Bu oturum açma URL'si değer gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [Teamwork.com destek ekibi](mailto:support@teamwork.com) bu değeri alınamıyor. 
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -122,10 +129,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-teamwork-tutorial/tutorial_general_400.png)
 
 6. Çoklu oturum açma yapılandırmak için **Teamwork.com** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Teamwork.com destek ekibi](mailto:support@teamwork.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -157,7 +160,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="create-a-teamworkcom-test-user"></a>Teamwork.com test kullanıcısı oluşturma
 
@@ -204,8 +207,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

@@ -1,11 +1,11 @@
 ---
-title: "Bir şablon olarak kullanmak üzere bir Azure Linux VM yakalama | Microsoft Docs"
-description: "Yakalama ve görüntüyü bir Linux tabanlı Azure sanal makinesinin Azure Resource Manager dağıtım modeli kullanılarak oluşturulmuş (VM) generalize öğrenin."
+title: Bir şablon olarak kullanmak üzere bir Azure Linux VM yakalama | Microsoft Docs
+description: Yakalama ve görüntüyü bir Linux tabanlı Azure sanal makinesinin Azure Resource Manager dağıtım modeli kullanılarak oluşturulmuş (VM) generalize öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e608116f-f478-41be-b787-c2ad91b5a802
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 71c60c8d29e4db8aab1932a1bece03396a12e4da
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Azure üzerinde çalışan Linux sanal makine yakalama
 Generalize ve Resource Manager dağıtım modelinde, Azure Linux sanal makine (VM) yakalamak için bu makaledeki adımları izleyin. VM generalize, kişisel hesap bilgilerini kaldırın ve bir görüntü olarak kullanılacak VM hazırlayın. Ardından VHD'ler, bağlı veri diskleri için işletim sistemi için genelleştirilmiş bir sanal sabit disk (VHD) görüntü yakalama ve [Resource Manager şablonu](../../azure-resource-manager/resource-group-overview.md) yeni VM dağıtımı için. Bu makalede yönetilmeyen diskleri kullanan bir VM için Azure CLI 1.0 ile bir VM görüntüsü yakalama ayrıntılarını verir. Ayrıca [Azure CLI 2.0 ile Azure yönetilen diskleri kullanarak bir VM yakalama](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Yönetilen diskleri Azure platformu tarafından işlenir ve hazırlık veya konum depolamaya gerektirmez. Daha fazla bilgi için bkz. [Azure Yönetilen Disklere Genel Bakış](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -86,12 +86,12 @@ Generalize ve VM yakalama için Azure CLI kullanın. Aşağıdaki örneklerde, �
    > [!IMPORTANT]
    > Görüntü VHD dosyaları, varsayılan olarak özgün VM kullanılan aynı depolama hesabındaki oluşturulmasına. Kullanım *aynı depolama hesabındaki* görüntüden oluşturduğunuz yeni vm'leri VHD'lerin depolanmasını. 
 
-6. Yakalanan görüntüye konumunu bulmak için JSON şablonunu bir metin düzenleyicisinde açın. İçinde **storageProfile**, bulma **URI** , **görüntü** bulunan **sistem** kapsayıcı. Örneğin, işletim sistemi disk görüntüsü URI'sini benzer.`https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+6. Yakalanan görüntüye konumunu bulmak için JSON şablonunu bir metin düzenleyicisinde açın. İçinde **storageProfile**, bulma **URI** , **görüntü** bulunan **sistem** kapsayıcı. Örneğin, işletim sistemi disk görüntüsü URI'sini benzer. `https://xxxxxxxxxxxxxx.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>3. adım: yakalanan görüntüden bir VM oluşturma
 Şimdi görüntünün bir Linux VM oluşturmak için sahip bir şablon kullanın. Bu adımlar, Azure CLI ve yeni bir sanal ağ oluşturmak için yakalanan JSON dosyası şablonu nasıl kullanılacağını gösterir.
 
-### <a name="create-network-resources"></a>Ağ kaynakları oluşturun
+### <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 Şablonu kullanmak için önce yeni VM için bir sanal ağ ve NIC ayarlamanız gerekir. VM görüntüsü depolandığı konumda bu kaynakları için bir kaynak grubu oluşturma öneririz. Çalıştırma komutları aşağıdaki değiştirerek adları, kaynaklarınızı ve uygun bir Azure konumuna (Bu komutlarda "centralus") için benzer:
 
 ```azurecli
@@ -113,7 +113,7 @@ Görüntüden VM yakalama sırasında kaydedilen JSON kullanarak dağıtmak içi
 azure network nic show myResourceGroup1 myNIC
 ```
 
-**Kimliği** çıktıda benzer`/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
+**Kimliği** çıktıda benzer `/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup1/providers/Microsoft.Network/networkInterfaces/myNic`
 
 ### <a name="create-a-vm"></a>VM oluşturma
 Şimdi, yakalanan VM görüntüsünü oluşturmak için aşağıdaki komutu çalıştırın. Kullanım **-f** parametresi kaydettiğiniz şablon JSON dosyasının yolunu belirtin.
@@ -177,7 +177,7 @@ Genel IP adresi komut çıktısında listelenir. Varsayılan olarak Linux VM'ye 
 Yakalanan görüntü ve şablonu kullanmak için (önceki bölümde ayrıntılı) aşağıdaki adımları izleyin:
 
 * VM görüntüsü VM VHD barındıran aynı depolama hesabı olduğundan emin olun.
-* Şablon JSON dosyasını kopyalayın ve işletim sistemi diski yeni VM'nin VHD (veya VHD) için benzersiz bir ad belirtin. Örneğin, **storageProfile**altında **vhd**, **URI**, için benzersiz bir ad belirtin **osDisk** VHD, benzer`https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
+* Şablon JSON dosyasını kopyalayın ve işletim sistemi diski yeni VM'nin VHD (veya VHD) için benzersiz bir ad belirtin. Örneğin, **storageProfile**altında **vhd**, **URI**, için benzersiz bir ad belirtin **osDisk** VHD, benzer `https://xxxxxxxxxxxxxx.blob.core.windows.net/vhds/MyNewVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`
 * Bir NIC aynı veya farklı bir sanal ağ oluşturun.
 * Değiştirilen şablon JSON dosyasını kullanarak, sanal ağı kümesi kaynak grubundaki bir dağıtım oluşturun.
 

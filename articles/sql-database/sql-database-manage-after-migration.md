@@ -1,6 +1,6 @@
 ---
-title: "Geçişten sonra - Azure SQL veritabanını yönetme | Microsoft Docs"
-description: "Azure SQL veritabanı geçiş sonrasında veritabanınızı yönetmeyi öğrenin."
+title: Geçişten sonra - Azure SQL veritabanını yönetme | Microsoft Docs
+description: Azure SQL veritabanı geçiş sonrasında veritabanınızı yönetmeyi öğrenin.
 services: sql-database
 author: joesackmsft
 manager: craigg
@@ -12,15 +12,15 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 4e50a1be3437ab1b027c1ca0f160402239e13e92
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
-Geleneksel kendi kendine yönetilen bir PaaS ortamı için kendi kendine kontrollü ortam göründüğü biraz zorlamayı taşıma ilk. Uygulama geliştiricisi veya DBA olarak platformun uygulamanızı kullanılabilir, tutmanıza yardımcı olacak kullanıcı, güvenli ve esnek - çekirdek özellikler her zaman bilmek isteyebilirsiniz. Tam olarak bunu yapmak için bu makalede amaçlar. Makaleyi temellerini kaynakları düzenler ve en iyi SQL veritabanı'nın temel işlevleri yönetmek ve uygulamanızın verimli bir şekilde çalışmaya devam etmesi ve bulutta en iyi sonuçlar elde etmek için nasıl kullanılacağı hakkında bazı yönergeler verir. Bu makale için tipik İzleyici olanlar olacaktır kimin:-
+Geleneksel kendi kendine yönetilen bir PaaS ortamı için kendi kendine kontrollü ortam göründüğü biraz zorlamayı taşıma ilk. Uygulama geliştiricisi veya DBA olarak platformun uygulamanızı kullanılabilir, tutmanıza yardımcı olacak kullanıcı, güvenli ve esnek - çekirdek özellikler her zaman bilmek isteyebilirsiniz. Tam olarak bunu yapmak için bu makalede amaçlar. Makaleyi temellerini kaynakları düzenler ve en iyi SQL veritabanı'nın temel işlevleri yönetmek ve uygulamanızın verimli bir şekilde çalışmaya devam etmesi ve bulutta en iyi sonuçlar elde etmek için nasıl kullanılacağı hakkında bazı yönergeler verir. Bu makale için tipik İzleyici olanlar olacaktır kimin: 
 - Kullanıcıların uygulamaları için Azure SQL DB'ye, uygulamaları Modernizing – geçişini değerlendiriliyor.
 - Kullanıcıların uygulamaları – devam eden geçiş senaryosu geçiş sürecinde olduğundan.
 - En son Azure SQL DB – bulutta yeni DBA geçiş tamamladınız.

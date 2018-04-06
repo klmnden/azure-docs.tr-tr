@@ -1,13 +1,13 @@
 ---
-title: "Ağ Performansı İzleyicisi Azure ExpressRoute bağlantı hatları için yapılandırma | Microsoft Docs"
-description: "Azure ExpressRoute bağlantı hatları için bulut tabanlı ağ izlemeyi yapılandırın."
+title: Ağ Performansı İzleyicisi Azure ExpressRoute bağlantı hatları için yapılandırma | Microsoft Docs
+description: Azure ExpressRoute bağlantı hatları için bulut tabanlı ağ izlemeyi yapılandırın.
 documentationcenter: na
 services: expressroute
 author: ajaycode
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: agummadi
-ms.openlocfilehash: 586d78e29177dd4a627c94cd754c21cc2b6f37d4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7d6f064be21f717c825843780fac28bc874f46ce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Ağ Performansı İzleyicisi ExpressRoute için yapılandırma
 
-Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirket içi konumlara (şube ofisleri, vb.) arasında bağlantı izler çözümü bir bulut tabanlı bir ağdır. NPM Microsoft Operations Management Suite (OMS) bir parçasıdır. NPM, özel eşleme kullanmak üzere yapılandırılmış ExpressRoute bağlantı hatları ağ performansını izlemenize izin verir ExpressRoute için artık bir uzantı sunar. ExpressRoute için NPM yapılandırma ağ sorunları belirlemek ve gidermek için algılayabilir.
+Ağ Performans İzleyicisi'ni (NPM) izleme Azure bulut dağıtımları ve şirket içi konumlara (şube ofisleri, vb.) arasında bağlantı izler çözümü bir bulut tabanlı bir ağdır. NPM günlük analizi bir parçasıdır. NPM, özel eşleme kullanmak üzere yapılandırılmış ExpressRoute bağlantı hatları ağ performansını izlemenize izin verir ExpressRoute için artık bir uzantı sunar. ExpressRoute için NPM yapılandırma ağ sorunları belirlemek ve gidermek için algılayabilir.
 
 Şunları yapabilirsiniz:
 
@@ -72,11 +72,11 @@ ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalış
 
 1. İçinde [Azure portal](https://portal.azure.com), sanal ağlar sahip aboneliği seçin, expressroute bağlantı hattı eşlenen. Hizmet listesini arama **Market** 'Ağ Performans İzleyicisi'. Return açmak için tıklatın **Ağ Performansı İzleyicisi** sayfası.
 
->[!NOTE]
->Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın.  Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin olun gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
->
+   >[!NOTE]
+   >Yeni bir çalışma alanı oluşturun veya varolan bir çalışma alanını kullanın.  Varolan bir çalışma alanı kullanmak isterseniz, yeni sorgu dili çalışma geçirildiğinden emin olun gerekir. [Daha fazla bilgi...](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-log-search-upgrade)
+   >
 
-  ![portal](.\media\how-to-npm\3.png)<br><br>
+   ![portal](.\media\how-to-npm\3.png)<br><br>
 2. Ana sonundaki **Ağ Performansı İzleyicisi** sayfasında, **oluşturma** açmak için **Ağ Performansı İzleyicisi - oluştur yeni çözüm** sayfası. Tıklatın **OMS çalışma alanı - çalışma alanı seçin** çalışma sayfasını açın. Tıklatın **+ oluştur yeni çalışma** çalışma sayfasını açın.
 3. Üzerinde **OMS çalışma** sayfasında, **Yeni Oluştur** ve aşağıdaki ayarları yapılandırın:
 
@@ -86,15 +86,15 @@ ExpressRoute circuit(s) sanal ağlara bağlantı sahip Abonelikteki bir çalış
   * Konumu - seçmelisiniz bir [bölge desteklenen](#regions).
   * Fiyatlandırma katmanı - seçin 'ücretsiz'
   
-  >[!NOTE]
-  >Expressroute bağlantı hattı dünyada herhangi bir yerde olabilir ve çalışma alanı ile aynı bölgede olması gerekmez.
-  >
+    >[!NOTE]
+    >Expressroute bağlantı hattı dünyada herhangi bir yerde olabilir ve çalışma alanı ile aynı bölgede olması gerekmez.
+    >
   
-  ![Çalışma alanı](.\media\how-to-npm\4.png)<br><br>
+    ![Çalışma alanı](.\media\how-to-npm\4.png)<br><br>
 4. Tıklatın **Tamam** kaydetmek ve ayarları şablonu dağıtmak için. Şablon doğrular sonra tıklayın **oluşturma** çalışma dağıtmak için.
 5. Çalışma alanı dağıtıldıktan sonra gidin **NetworkMonitoring(name)** oluşturduğunuz kaynak. Ayarları doğrulayın ve ardından **çözüm ek yapılandırma gerektirir**.
 
-  ![ek yapılandırma](.\media\how-to-npm\5.png)
+   ![ek yapılandırma](.\media\how-to-npm\5.png)
 
 ## <a name="agents"></a>2. adım: Yükleme ve aracıları yapılandırma
 
@@ -126,9 +126,9 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın.
 3. Üzerinde **Lisans Koşulları'nı** sayfasında, lisans okuyun ve ardından **ediyorum**.
 4. Üzerinde **hedef klasörü** sayfasında, değiştirmek veya varsayılan yükleme klasörünü ve ardından **sonraki**.
-5. Üzerinde **aracı Kur Seçenekleri** sayfasında, Azure günlük analizi (OMS) veya Operations Manager Aracısı bağlanmak seçebilirsiniz. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Selection(s) yaptıktan sonra tıklatın **sonraki**.
+5. Üzerinde **aracı Kur Seçenekleri** sayfasında, Azure günlük analizi veya Operations Manager Aracısı bağlanmak seçebilirsiniz. Veya aracıyı daha sonra yapılandırmak istiyorsanız seçimleri boş bırakabilirsiniz. Selection(s) yaptıktan sonra tıklatın **sonraki**.
 
-  * Bağlanmak seçerseniz **Azure günlük analizi (OMS)**, yapıştırma **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
+  * Bağlanmak seçerseniz **Azure günlük analizi**, yapıştırma **çalışma alanı kimliği** ve **çalışma alanı anahtarı** (birincil anahtar, önceki bölümde Defteri'ne kopyaladığınız). Ardından **İleri**'ye tıklayın.
 
     ![Kimliği ve anahtarı](.\media\how-to-npm\8.png)
   * Bağlanmak seçerseniz **Operations Manager**, **yönetim grubu Yapılandırması** sayfasında, **yönetim grubu adı**, **yönetim sunucusu** ve **yönetim sunucusu bağlantı noktası**. Ardından **İleri**'ye tıklayın.
@@ -139,7 +139,7 @@ Artıklık için ExpressRoute bağlantısı (yani, şirket içi, Azure sanal ağ
     ![Hesap](.\media\how-to-npm\10.png)
 6. Üzerinde **yüklemeye hazır** sayfasında, seçimlerinizi gözden geçirin ve ardından **yükleme**.
 7. **Yapılandırma başarıyla tamamlandı** sayfasında **Son**'a tıklayın.
-8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Vardır, yapılandırmanızı gözden geçirin ve aracı Operational Insights (OMS için) bağlı olduğunu doğrulayın. Bildiren bir ileti aracısı için OMS bağlıyken görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
+8. Tamamlandığında, Microsoft Monitoring Agent Denetim Masası'nda görünür. Vardır, yapılandırmanızı gözden geçirin ve aracıyı Azure günlük analizi (OMS) bağlı olduğunu doğrulayın. Bağlandığınızda, aracı belirten bir ileti görüntüler: **Microsoft Monitoring Agent Microsoft Operations Management Suite hizmetine başarıyla bağlandı**.
 
 9. Lütfen bu izlenmesi gereken her sanal ağ için yineleyin.
 
@@ -162,8 +162,8 @@ Kolayca aracılarınızı iletişim kuran olup olmadığını doğrulayın.
 
 1. İzleme Aracısı ile bir sunucu üzerinde açın **Denetim Masası**.
 2. Açık **Microsoft Monitoring Agent**.
-3. Tıklatın **Azure günlük analizi (OMS)** sekmesi.
-4. İçinde **durum** sütun, aracı Operations Management Suite hizmetine başarıyla bağlandı görmelisiniz.
+3. Tıklatın **Azure günlük analizi** sekmesi.
+4. İçinde **durum** sütun, aracı için günlük analizi başarıyla bağlandı görmelisiniz.
 
   ![durum](.\media\how-to-npm\12.png)
 

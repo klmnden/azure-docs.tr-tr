@@ -4,7 +4,7 @@ description: Hızlı rota tabanlı VPN PowerShell kullanarak ağ geçidi oluştu
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 17e27ce81ea73b687f65dcd0a05573d28f109676
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 57da0d1f6878ce31f0e47680a4750a90115c93f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-powershell"></a>PowerShell kullanarak bir rota tabanlı VPN ağ geçidi oluşturma
 
@@ -94,7 +94,7 @@ $virtualNetwork | Set-AzureRmVirtualNetwork
 Bir VPN ağ geçidi dinamik olarak ayrılan bir ortak IP adresi olmalıdır. Bir VPN ağ geçidi bağlantı oluşturduğunuzda, bu, belirttiğiniz IP adresidir. Bir ortak IP adresi istemek için aşağıdaki örneği kullanın:
 
 ```azurepowershell-interactive
-$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
+$gwpip= New-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1 -Location 'East US' -AllocationMethod Dynamic
 ```
 
 ## <a name="GatewayIPConfig"></a>Ağ geçidi IP adresi yapılandırması oluştur
@@ -145,7 +145,7 @@ IpConfigurations       : [
                              },
                              "PublicIpAddress": {
                                "Id": "/subscriptions/<subscription ID>/resourceGroups/Te
-                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWPIP"
+                         stRG1/providers/Microsoft.Network/publicIPAddresses/VNet1GWIP"
                              },
                              "Name": "default",
                              "Etag": "W/\"0952d-9da8-4d7d-a8ed-28c8ca0413\"",
@@ -174,17 +174,17 @@ BgpSettings            : {
 VPN ağ geçidiniz için genel IP adresi görüntülemek için kullanın [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Get-AzureRmPublicIpAddress) cmdlet'i.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIpAddress -Name VNet1GWPIP -ResourceGroupName TestRG1
+Get-AzureRmPublicIpAddress -Name VNet1GWIP -ResourceGroupName TestRG1
 ```
 
 Örnek yanıt olarak, genel IP adresi IPADDRESS değerdir.
 
 ```
-Name                     : VNet1GWPIP
+Name                     : VNet1GWIP
 ResourceGroupName        : TestRG1
 Location                 : eastus
 Id                       : /subscriptions/<subscription ID>/resourceGroups/TestRG1/provi
-                           ders/Microsoft.Network/publicIPAddresses/VNet1GWPIP
+                           ders/Microsoft.Network/publicIPAddresses/VNet1GWIP
 Etag                     : W/"5001666a-bc2a-484b-bcf5-ad488dabd8ca"
 ResourceGuid             : 3c7c481e-9828-4dae-abdc-f95b383
 ProvisioningState        : Succeeded

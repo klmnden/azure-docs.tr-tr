@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d8adf097d6bee404cff8e7b15782c6c59531a897
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bca2629ea4a0c859e92d829b49072fbdf3f9ffe2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
@@ -45,7 +45,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | [Değişiklik verilerini yakalama](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Hayır | Evet |
 | [Değişiklik izleme](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Evet |Evet |
 | [Harmanlama deyimleri](https://docs.microsoft.com/sql/t-sql/statements/collations) | Evet | Evet |
-| [Columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Evet - [Premium katmanı ve standart katmanı - S3 ve üstü](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Evet |
+| [Columnstore dizinleri](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Evet - [Premium katman, standart katman - S3 ve üstü, genel amaçlı katmanı ve iş kritik katmanları](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Evet |
 | [Ortak dil çalışma zamanı (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Hayır | Evet - bkz [CLR farklar](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Kapsanan veritabanları](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Evet | Evet |
 | [Kapsanan kullanıcılar](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Evet | Evet |
@@ -82,7 +82,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | [Geo-restore](sql-database-recovery-using-backups.md#geo-restore) | Evet | COPY_ONLY Hayır – geri düzenli aralıklarla - ele tam yedeklemeler bkz [yedekleme farklar](sql-database-managed-instance-transact-sql-information.md#backup) ve [geri farklar](sql-database-managed-instance-transact-sql-information.md#restore-statement). |
 | [Coğrafi çoğaltma](sql-database-geo-replication-overview.md) | Evet | Hayır |
 | [Grafik işleme](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Evet | Evet |
-| [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium edition](sql-database-in-memory.md) | Hayır |
+| [Bellek içi iyileştirme](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Evet - [yalnızca Premium ve iş Critial katmanları](sql-database-in-memory.md) | Hayır |
 | [JSON veri desteği](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | Evet | Evet |
 | [Dil öğeleri](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | Çoğu - ayrı ayrı öğeler bakın |  Evet - bkz [T-SQL farkları](sql-database-managed-instance-transact-sql-information.md) |
 | [Bağlantılı sunucular](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Hayır - bkz [esnek sorgu](sql-database-elastic-query-horizontal-partitioning.md) | Yalnızca SQL Server |

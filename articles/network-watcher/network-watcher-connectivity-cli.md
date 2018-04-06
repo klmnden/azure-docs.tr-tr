@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi - Azure CLI 2.0 bağlantılarıyla ilgili sorunları giderme | Microsoft Docs"
-description: "Bağlantı kullanmayı öğrenin Özelliği Azure CLI 2.0 kullanan Azure Ağ İzleyicisi, sorun giderme."
+title: Azure Ağ İzleyicisi - Azure CLI 2.0 bağlantılarıyla ilgili sorunları giderme | Microsoft Docs
+description: Bağlantı kullanmayı öğrenin Özelliği Azure CLI 2.0 kullanan Azure Ağ İzleyicisi, sorun giderme.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: dfe77b0a9620ccb8ac91fa8843d01d1cb7bdc44f
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 9554c7f564836d9e7ac94367ade6719a1ee5b5c7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli-20"></a>Azure CLI 2.0 kullanan Azure Ağ İzleyicisi ile bağlantı sorunlarını giderme
 
@@ -36,7 +36,7 @@ Bu makalede, aşağıdaki kaynaklara sahip olduğunuz varsayılmaktadır:
 * Bağlantıları ile ilgili sorunları giderme için sanal makineler.
 
 > [!IMPORTANT]
-> Bağlantı sorunlarını giderme bir sanal makine uzantısı gerektiren `AzureNetworkWatcherExtension`. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md).
+> Bağlantı sorunlarını giderme, sorun giderme VM olmasını gerektirir `AzureNetworkWatcherExtension` VM uzantısı yüklü. Bir Windows VM uzantısı yüklemek için ziyaret [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve Linux VM ziyaret edin: [Linux için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Hedef uç noktada uzantısı gerekli değildir.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Bir sanal makineye bağlantısını kontrol edin.
 

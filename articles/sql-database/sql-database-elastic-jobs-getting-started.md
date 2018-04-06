@@ -1,6 +1,6 @@
 ---
-title: "Esnek veritabanı işlerine Başlarken | Microsoft Docs"
-description: "Birden çok veritabanı span T-SQL betikleri çalıştırmak için esnek veritabanı işlerini kullanın."
+title: Esnek veritabanı işlerine Başlarken | Microsoft Docs
+description: Birden çok veritabanı span T-SQL betikleri çalıştırmak için esnek veritabanı işlerini kullanın.
 services: sql-database
 manager: craigg
 author: stevestein
@@ -9,11 +9,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: sstein
-ms.openlocfilehash: 5d55ae225ca1b550bbf70314e2f48fc0161ad107
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Esnek veritabanı işlerine Başlarken
 Esnek veritabanı iş (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde birden fazla veritabanı otomatik olarak yeniden deneniyor ve nihai tamamlama garanti sağlama sırasında span T-SQL betikleri çalıştırmak sağlar. Esnek veritabanı iş özelliği hakkında daha fazla bilgi için bkz: [esnek iş](sql-database-elastic-jobs-overview.md).
@@ -460,7 +460,7 @@ Tüm satırların **müşteriler** tablo, farklı parça içinde depolanan doldu
 Artık, Excel'in veri işlevleri de kullanabilirsiniz. Bağlantı dizesi, BI ve veri tümleştirme araçları esnek sorgu veritabanına bağlanmak için sunucu adı, veritabanı adının ve kimlik bilgilerini kullanın. SQL Server, aracı için bir veri kaynağı olarak desteklendiğinden emin olun. Herhangi bir SQL Server veritabanı gibi dış tablolar ve aracı ile bağlanacağı SQL Server tablolarını ve esnek sorgu veritabanı bakın.
 
 ### <a name="cost"></a>Maliyet
-Esnek veritabanı sorgu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik bir uç noktası olarak yalnızca premium veritabanlarında kullanılabilir, ancak parça herhangi bir hizmet katmanı olabilir.
+Esnek veritabanı sorgu özelliğini kullanmak için ek ücret yoktur. Ancak, şu anda bu özellik yalnızca Premium ve iş kritik (Önizleme) üzerinde kullanılabilir veritabanları ve esnek havuzlar bir uç noktası, ancak parça olarak herhangi bir hizmet katmanı olabilir.
 
 Fiyatlandırma bilgileri için bkz: [SQL veritabanı fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/sql-database/).
 

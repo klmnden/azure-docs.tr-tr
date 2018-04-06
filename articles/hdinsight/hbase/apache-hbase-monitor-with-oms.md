@@ -1,13 +1,13 @@
 ---
-title: "Operations Management Suite (OMS) - Azure Hdınsight ile HBase izleme | Microsoft Docs"
-description: "OMS Azure günlük analizi ile Hdınsight HBase kümeleri izlemek için kullanın."
+title: İzleme ile Azure günlük analizi - Azure Hdınsight HBase | Microsoft Docs
+description: Hdınsight HBase kümelerini izlemek üzere Azure günlük analizi kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.workload: big-data
@@ -16,23 +16,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: f78d570cfa8b040cd7673a5e14e6a992511f60bb
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 3746713cdadff0a4c6f4fe25d278e8d78555f9d6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="monitor-hbase-with-operations-management-suite-oms"></a>Operations Management Suite (OMS) ile HBase İzleyicisi
+# <a name="monitor-hbase-with-log-analytics"></a>Günlük analizi ile İzleyici HBase
 
 Hdınsight HBase izleme Azure günlük analizi, Hdınsight küme düğümlerinden Hdınsight HBase performans ölçümlerini derleme için kullanır. İzleyici HBase özgü görselleştirmeleri ve panolar, ölçümleri ve özel izleme kurallarını ve Uyarıları oluşturma olanağı aramak için araçlar sağlar. Birden çok Hdınsight HBase kümeleri için ölçümler arasında birden çok Azure aboneliği izleyebilirsiniz.
 
-Günlük analizi olan bir hizmet olarak [Operations Management Suite (OMS)](../../operations-management-suite/operations-management-suite-overview.md) bulut izler ve şirket içi ortamları kendi kullanılabilirliğini ve performansını korumak için. Günlük analizi kaynaklarını Bulut ve şirket içi ortamlarında ve analiz arasında birden çok kaynak sağlamak için diğer izleme araçları tarafından oluşturulan verileri toplar.
+Günlük analizi olan bir hizmet olarak [Azure](../../operations-management-suite/operations-management-suite-overview.md) bulut izler ve şirket içi ortamları kendi kullanılabilirliğini ve performansını korumak için. Günlük analizi kaynaklarını Bulut ve şirket içi ortamlarında ve analiz arasında birden çok kaynak sağlamak için diğer izleme araçları tarafından oluşturulan verileri toplar.
 
-[Günlük analizi yönetim çözümleri](../../log-analytics/log-analytics-add-solutions.md) ek veri ve çözümleme araçları sağlayan OMS için işlevselliği ekleyin. Günlük analizi yönetim çözümleri için belirli bir alandaki ölçümleri sağlayan mantığı, Görselleştirme ve veri alım kuralları koleksiyonudur. Bir çözüm toplanacak yeni kayıt türleri de tanımlayabilir ve bu kayıtları günlük aramaları veya yeni kullanıcı arabirimi özellikleri ile çözümlenebilir.
+[Günlük analizi yönetim çözümleri](../../log-analytics/log-analytics-add-solutions.md) ek veri ve çözümleme araçları sağlayan günlük analizi için işlevselliği ekleyin. Günlük analizi yönetim çözümleri için belirli bir alandaki ölçümleri sağlayan mantığı, Görselleştirme ve veri alım kuralları koleksiyonudur. Bir çözüm toplanacak yeni kayıt türleri de tanımlayabilir ve bu kayıtları günlük aramaları veya yeni kullanıcı arabirimi özellikleri ile çözümlenebilir.
 
 [Insight & Analytics](https://azure.microsoft.com/pricing/details/insight-analytics/) günlük analizi platformda inşa edilmiştir. Kullanmayı tercih günlük analizi yetenekleri ve hizmete alınan GB başına ödeme veya çalışma alanınızı Insight & Analytics katmana geçmek ve hizmet tarafından yönetilen düğüm başına ücret ödersiniz. Insight & Analytics, bir üst günlük analizi tarafından sunulan yetenekleri sunar. HBase izleme çözüm ya da günlük analizi veya Insight & Analizi ile kullanılabilir.
 
-Bir Hdınsight HBase izleme çözümü sağlamak için bir OMS çalışma alanı oluşturun. Her çalışma alanı, kendi veri deposu, veri kaynakları ve çözümlerle benzersiz bir günlük analizi ortamı olarak. Aboneliğinizde test ve üretim gibi birden çok ortamı desteklemek için birden çok çalışma alanı oluşturabilirsiniz.
+Bir Hdınsight HBase izleme çözümü sağlamak için günlük analizi çalışma alanı oluşturun. Her çalışma alanı, kendi veri deposu, veri kaynakları ve çözümlerle benzersiz bir günlük analizi ortamı olarak. Aboneliğinizde test ve üretim gibi birden çok ortamı desteklemek için birden çok çalışma alanı oluşturabilirsiniz.
 
 ## <a name="provision-hdinsight-hbase-monitoring"></a>Hazırlama Hdınsight HBase izleme
 
@@ -50,7 +50,7 @@ Bir Hdınsight HBase izleme çözümü sağlamak için bir OMS çalışma alanı
 
     ![Yönetim çözümleri bölmesi](./media/apache-hbase-monitor-with-oms/hbase-solution.png)  
 6. Yönetim çözümü bölmesinde, yönetim çözümü hakkındaki bilgileri gözden geçirin ve ardından **oluşturma**. 
-7. İçinde *yönetim çözümü adı* bölmesinde yönetim çözümle ilişkilendirin veya yeni bir OMS çalışma alanı oluşturmak için varolan bir çalışma alanını seçin ve ardından seçin.
+7. İçinde *yönetim çözümü adı* bölmesinde yönetim çözümle ilişkilendirin veya yeni bir günlük analizi çalışma alanı oluşturmak için varolan bir çalışma alanını seçin ve ardından seçin.
 8. Azure abonelik, kaynak grubunu ve konumu uygun şekilde çalışma ayarlarını değiştirin. 
     ![çözüm çalışma alanı](./media/apache-hbase-monitor-with-oms/solution-workspace.png)  
 9. **Oluştur**’u seçin.  
@@ -68,9 +68,9 @@ Bir Hdınsight HBase izleme çözümü sağlamak için bir OMS çalışma alanı
 
 Hdınsight HBase izleme tarafından sağlanan araçları kullanmak için böylece kendi bölge sunucu, baş düğümler ve ZooKeeper düğümleri ölçümleri günlük analizi için iletir kümenizi yapılandırmanız gerekir. Bu yapılandırma, Hdınsight HBase kümesi karşı bir betik eylemi çalıştırılarak yapılır.
 
-### <a name="get-oms-workspace-id-and-workspace-key"></a>OMS çalışma alanı kimliği ve çalışma alanı anahtarı edinin
+### <a name="get-log-analytics-workspace-id-and-workspace-key"></a>Günlük analizi çalışma alanı kimliği ve çalışma alanı anahtarı edinin
 
-OMS çalışma alanı kimliği ve çalışma alanı anahtarı kümenizdeki düğümlerin etkinleştirmek için günlük analizi ile kimlik doğrulaması gerekir. Bu değerleri almak için:
+Günlük analizi çalışma alanı kimliği ve çalışma alanı anahtarı kümenizdeki düğümlerin etkinleştirmek için günlük analizi ile kimlik doğrulaması gerekir. Bu değerleri almak için:
 
 1. Genel bakış, HBase izleme bölmesinde Azure portalında seçin.
 
@@ -146,5 +146,5 @@ Betik eylemi tamamlandıktan sonra birkaç dakika içinde veri izleme çözümü
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [OMS günlük analizi uyarıları oluşturma](../../log-analytics/log-analytics-alerts-creating.md)
+* [Günlük analizi uyarıları oluşturma](../../log-analytics/log-analytics-alerts-creating.md)
 * [Azure günlük analizi günlük aramaları verilerle Bul](../../log-analytics/log-analytics-log-searches.md).

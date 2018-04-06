@@ -1,11 +1,11 @@
 ---
-title: "Azure'da bir şablondan bir Windows VM oluşturma | Microsoft Docs"
-description: "Resource Manager şablonu ve PowerShell kolayca yeni bir Windows VM oluşturmak için kullanın."
+title: Azure'da bir şablondan bir Windows VM oluşturma | Microsoft Docs
+description: Resource Manager şablonu ve PowerShell kolayca yeni bir Windows VM oluşturmak için kullanın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0b80c7016671c2d5c33fc5501bf50feaa4c5d7c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Bir Windows sanal makine bir Resource Manager şablonu oluşturma
 
@@ -66,7 +66,7 @@ Bu adımda, kaynakları dağıtan bir şablon dosyası ve şablon parametre değ
       },
       "variables": {
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks','myVNet')]", 
-        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]", 
+        "subnetRef": "[concat(variables('vnetID'),'/subnets/mySubnet')]" 
       },
       "resources": [
         {

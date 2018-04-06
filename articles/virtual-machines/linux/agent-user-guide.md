@@ -1,11 +1,11 @@
 ---
-title: "Azure Linux VM Aracısı genel bakış | Microsoft Docs"
-description: "Azure yapı denetleyicisi ile sanal makinenizin etkileşimi yönetmek için Linux Aracısı (waagent) yükleyip öğrenin."
+title: Azure Linux VM Aracısı genel bakış | Microsoft Docs
+description: Azure yapı denetleyicisi ile sanal makinenizin etkileşimi yönetmek için Linux Aracısı (waagent) yükleyip öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: be3955c670382af1a2b558e8e7d656ca5a1f353d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Anlama ve Azure Linux Aracısı'nı kullanma
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -48,7 +48,7 @@ Microsoft Azure Linux Aracısı'nı (waagent), Linux ve FreeBSD sağlama ve Azur
   
   * Platform DHCP sunucularıyla uyumluluğu artırmak için yollar yönetir
   * Ağ arabirimi adı kararlılığını sağlar
-* **Çekirdek**
+* **Kernel**
   
   * Sanal NUMA yapılandırır (çekirdek için devre dışı < 2.6.37)
   * Hyper-V entropi /dev/random için kullanır
@@ -80,21 +80,21 @@ Aşağıdaki sistemleri test edilmiş ve Azure Linux Aracısı ile çalışmak i
 
 * CoreOS
 * CentOS 6.3 +
-* Red Hat Enterprise Linux 6.7 +
+* Red Hat Enterprise Linux 6.7+
 * Debian 7.0 +
-* Ubuntu 12.04 +
+* Ubuntu 12.04+
 * openSUSE 12.3 +
 * SLES 11 SP3 +
-* Oracle Linux 6.4 +
+* Oracle Linux 6.4+
 
 Desteklenen diğer sistemleri:
 
-* FreeBSD 10 + (Azure Linux Aracısı v2.0.10 +)
+* FreeBSD 10+ (Azure Linux Agent v2.0.10+)
 
 Linux Aracısı düzgün çalışması için bazı sistem paketleri bağlıdır:
 
 * Python 2.6 +
-* OpenSSL 1.0 +
+* OpenSSL 1.0+
 * OpenSSH 5.3 +
 * Dosya sistemi yardımcı programları: sfdisk, fdisk, mkfs, parted
 * Parola araçları: chpasswd, sudo
@@ -273,19 +273,19 @@ Varsayılan: n
 
 Kümesi, günlük ayrıntı boosted durumunda. Waagent /var/log/waagent.log için günlüğe kaydeder ve günlükleri döndürmek için sistem logrotate işlevselliğini yararlanır.
 
-**İŞLETİM SİSTEMİ. EnableRDMA**  
+**OS.EnableRDMA**  
 Tür: Boolean  
 Varsayılan: n
 
 Ayarlanırsa, aracı yüklemek ve temel alınan donanım bellenimini sürümüyle eşleşen bir RDMA çekirdek sürücüsü yüklemek çalışacak varsa.
 
-**İŞLETİM SİSTEMİ. RootDeviceScsiTimeout:**  
+**OS.RootDeviceScsiTimeout:**  
 Türü: tamsayı  
 Varsayılan: 300
 
 Bu işletim sistemi diski ve veri sürücülerinde saniye cinsinden SCSI zaman aşımı yapılandırır. Aksi durumda ayarlanırsa, sistem varsayılan değerler kullanılır.
 
-**İŞLETİM SİSTEMİ. OpensslPath:**  
+**OS.OpensslPath:**  
 Türü: Dize  
 Varsayılan: yok
 

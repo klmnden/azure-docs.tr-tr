@@ -1,11 +1,11 @@
 ---
-title: "Azure içerik teslim ağı'nda web içeriğinin kullanım süresini yönetme | Microsoft Docs"
-description: "Azure CDN Azure Web Apps/bulut Hizmetleri, ASP.NET ve IIS içeriğinin kullanım süresini yönetme öğrenin."
+title: Azure içerik teslim ağı'nda web içeriğinin kullanım süresini yönetme | Microsoft Docs
+description: Azure CDN Azure Web Apps/bulut Hizmetleri, ASP.NET ve IIS içeriğinin kullanım süresini yönetme öğrenin.
 services: cdn
 documentationcenter: .NET
 author: dksimpson
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: bef53fcc-bb13-4002-9324-9edee9da8288
 ms.service: cdn
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: db7b5053cb926d2ec86c7feea4ac411acbeb1ae2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d1a12e0d5bd5852cf8de3d5fec93f2bfdd3ab257
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Azure içerik teslim ağı'nda web içeriğinin kullanım süresini yönetme
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Kendi yaşam süresi (TTL) geçen kadar genel olarak erişilebilir özgün web s
 Web sunucunuzun ayar için tercih edilen yöntem `Cache-Control` başlığıdır Azure portalında önbelleğe alma kurallarını kullanmak için. CDN kuralları önbelleğe alma hakkında daha fazla bilgi için bkz: [denetim Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı](cdn-caching-rules.md).
 
 > [!NOTE] 
-> Önbelleğe alma kuralları yalnızca kullanılabilir **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri. İçin **Azure CDN Verizon Premium'a** profilleri kullanmalıdır [Azure CDN kurallar altyapısı](cdn-rules-engine.md) içinde **Yönet** benzer işlevselliği için portal.
+> Önbelleğe alma kuralları yalnızca kullanılabilir **verizon'dan Azure CDN standart** ve **akamai'den Azure CDN standart** profilleri. İçin **verizon'dan Azure CDN Premium** profilleri kullanmalıdır [Azure CDN kurallar altyapısı](cdn-rules-engine.md) içinde **Yönet** benzer işlevselliği için portal.
 
 **CDN önbelleğe alma Kurallar sayfasına gitmek için**:
 

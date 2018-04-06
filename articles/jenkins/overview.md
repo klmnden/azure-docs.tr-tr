@@ -1,6 +1,6 @@
 ---
-title: "Jenkins ve Azure genel bakış | Microsoft Docs"
-description: "Jenkins yapı konağı ve Azure Otomasyon sunucusu dağıtmak ve dağıtım ve sürekli tümleştirme (CI/CD) ardışık düzen genişletmek için Azure işlem ve depolama kaynaklarını kullanır."
+title: Jenkins ve Azure genel bakış | Microsoft Docs
+description: Jenkins yapı konağı ve Azure Otomasyon sunucusu dağıtmak ve dağıtım ve sürekli tümleştirme (CI/CD) ardışık düzen genişletmek için Azure işlem ve depolama kaynaklarını kullanır.
 services: jenkins
 author: rloutlaw
 manager: justhe
@@ -11,11 +11,11 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
-ms.openlocfilehash: 08906939ecc80999de94ad7e7141081f959fb6f2
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-and-jenkins"></a>Azure ve Jenkins
 
@@ -31,7 +31,7 @@ Ana bilgisayar Jenkins yapı automation'ınızı merkezileştirmek ve yazılım 
 - [Azure sanal makineleri](/azure/virtual-machines/linux/overview). Bkz: bizim [öğretici](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) Jenkins örneği üzerinde bir VM oluşturmak için.
 - Üzerinde bir Kubernetes kümesinin [Azure kapsayıcı hizmeti](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), bkz: bizim [nasıl yapılır](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-İzleme ve Azure Jenkins kullanarak dağıtımı yönetme [günlük analizi](/azure/log-analytics/log-analytics-overview), [Operations Management Suite](/azure/operations-management-suite/operations-management-suite-overview)ve [Azure CLI](/cli/azure).
+İzleme ve Azure Jenkins kullanarak dağıtımı yönetme [günlük analizi](/azure/log-analytics/log-analytics-overview) ve [Azure CLI](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Yapı automation'ınızı ölçeğini isteğe bağlı olarak
 

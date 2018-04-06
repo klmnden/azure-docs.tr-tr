@@ -1,11 +1,11 @@
 ---
-title: "OpenFOAM HPC paketi ile Linux VM'ler üzerinde çalıştırın. | Microsoft Docs"
-description: "Azure Microsoft HPC Pack kümede dağıtın ve bir RDMA ağ üzerinden birden çok Linux işlem düğümlerinde OpenFOAM işi çalıştırın."
+title: OpenFOAM HPC paketi ile Linux VM'ler üzerinde çalıştırın. | Microsoft Docs
+description: Azure Microsoft HPC Pack kümede dağıtın ve bir RDMA ağ üzerinden birden çok Linux işlem düğümlerinde OpenFOAM işi çalıştırın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: c0bb1637-bb19-48f1-adaa-491808d3441f
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f43790d3495e1c09730e90b5077ec840731a7d83
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>Azure’daki bir Linux RDMA kümesinde Microsoft HPC Pack ile OpenFoam çalıştırma
 Bu makalede, Azure sanal makinelerinde OpenFoam çalıştırmak için bir yol gösterir. Bir Microsoft HPC Pack kümesinde Linux işlem düğümleri ile Azure ve Çalıştır burada dağıttığınız bir [OpenFoam](http://openfoam.com/) Intel MPI işlemiyle. Böylece işlem düğümlerini Azure RDMA ağ üzerinden iletişim RDMA özellikli Azure Vm'lerde işlem düğümleri için kullanabilirsiniz. Azure'da OpenFoam çalıştırmak için diğer seçenekleri UberCloud'ın gibi Market kullanılabilir tam olarak yapılandırılmış ticari görüntüleri dahil [OpenFoam 2.3 CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/)ve çalıştırarak [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -35,7 +35,7 @@ Microsoft HPC Pack büyük ölçekli HPC ve Microsoft Azure sanal makinelerin k�
 > 
 > 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **HPC Pack küme RDMA özellikli Linux işlem düğümlerini** - HPC paketi küme boyutu A8, A9, H16r, dağıtmak veya H16rm Linux işlem düğümlerini kullanarak bir [Azure Resource Manager şablonu](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) veya bir [Azure PowerShell Betiği](hpcpack-cluster-powershell-script.md). Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md) Önkoşullar ve adımlar her iki seçenek için. PowerShell komut dosyası dağıtım seçeneği seçerseniz, bu makalenin sonunda örnek dosyalarını örnek yapılandırma dosyasına bakın. Bu yapılandırma, bir boyut A8 Windows Server 2012 R2 baş düğüm ve 2 boyutu A8 SUSE Linux Enterprise Server 12 işlem düğümleri oluşan bir HPC Pack Azure tabanlı küme dağıtmak için kullanın. Aboneliği ve hizmet adları için uygun değerleri değiştirin. 
   
   **Ek bilmeniz gerekenler**
@@ -267,9 +267,9 @@ Bu adımda, bir ana bilgisayar dosyası (işlem düğümleri listesi) oluşturma
    
    1. İçin ortam değişkenleri ayarlar **mpirun**ve RDMA ağ üzerinden MPI işi çalıştırmak için bazı ek komut parametreleri. Bu durumda, aşağıdaki değişkenleri ayarlar:
       
-      * I_MPI_FABRICS shm:dapl =
-      * I_MPI_DAPL_PROVIDER bir v2 ib0 =
-      * I_MPI_DYNAMIC_CONNECTION = 0
+      * I_MPI_FABRICS=shm:dapl
+      * I_MPI_DAPL_PROVIDER=ofa-v2-ib0
+      * I_MPI_DYNAMIC_CONNECTION=0
    2. Ortam göre bir ana bilgisayar dosyası oluşturur değişken $ iş etkinleştirildiğinde, HPC baş düğümü tarafından ayarlanan CCP_NODES_CORES.
       
       $CCP_NODES_CORES biçimlerinin bu deseni izler:
@@ -280,9 +280,9 @@ Bu adımda, bir ana bilgisayar dosyası (işlem düğümleri listesi) oluşturma
       
       Burada
       
-      * `<Number of nodes>`-Bu iş için ayrılmış düğüm sayısı.  
-      * `<Name of node_n_...>`-Bu iş için ayrılmış her düğümün adı.
-      * `<Cores of node_n_...>`-Bu iş için ayrılmış düğümünde çekirdek sayısı.
+      * `<Number of nodes>` -Bu iş için ayrılmış düğüm sayısı.  
+      * `<Name of node_n_...>` -Bu iş için ayrılmış her düğümün adı.
+      * `<Cores of node_n_...>` -Bu iş için ayrılmış düğümünde çekirdek sayısı.
       
       Örneğin, işi çalıştırmak için iki düğüm gerekirse, $CCP_NODES_CORES benzer.
       
@@ -291,8 +291,8 @@ Bu adımda, bir ana bilgisayar dosyası (işlem düğümleri listesi) oluşturma
       ```
    3. Çağrıları **mpirun** komut ve iki parametre için komut satırını ekler.
       
-      * `--hostfile <hostfilepath>: <hostfilepath>`-komut dosyası oluşturur ana bilgisayar dosyasının yolu
-      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}`-Bu iş için ayrılan toplam çekirdek sayısı depolar HPC paketi üstbilgi düğümü tarafından ayarlanan bir ortam değişkeni. Bu durumda, işlemler için sayısını belirtir **mpirun**.
+      * `--hostfile <hostfilepath>: <hostfilepath>` -komut dosyası oluşturur ana bilgisayar dosyasının yolu
+      * `-np ${CCP_NUMCPUS}: ${CCP_NUMCPUS}` -Bu iş için ayrılan toplam çekirdek sayısı depolar HPC paketi üstbilgi düğümü tarafından ayarlanan bir ortam değişkeni. Bu durumda, işlemler için sayısını belirtir **mpirun**.
 
 ## <a name="submit-an-openfoam-job"></a>Bir OpenFOAM işi gönderin
 Şimdi bir işi HPC Küme Yöneticisi'nde gönderebilirsiniz. Komut satırlarında bazı iş görevleri için komut dosyası hpcimpirun.sh geçmesi gerekir.
@@ -353,7 +353,7 @@ Bu adımda, bir ana bilgisayar dosyası (işlem düğümleri listesi) oluşturma
    ```
 9. İş dakika onlarca örnek için ayarladığınız parametrelere göre birkaç saat sürer. Isı Haritası Linux düğümleri üzerinde iş bakın. 
    
-   ![Isı Haritası][heat_map]
+   ![Isı haritası][heat_map]
    
    Her düğümde sekiz işlemleri başlatıldı.
    
@@ -364,7 +364,7 @@ Bu adımda, bir ana bilgisayar dosyası (işlem düğümleri listesi) oluşturma
 İsteğe bağlı olarak kullanmak [EnSight](https://www.ceisoftware.com/) görselleştirmek ve OpenFOAM iş sonuçlarını analiz etmek için. Bu Görselleştirme ve EnSight animasyonda hakkında daha fazla bilgi için bkz [video Kılavuzu](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
 
 1. Baş düğümünde EnSight yükledikten sonra başlatın.
-2. C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case açın.
+2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.
    
    Tank Görüntüleyicisi'ndeki bakın.
    

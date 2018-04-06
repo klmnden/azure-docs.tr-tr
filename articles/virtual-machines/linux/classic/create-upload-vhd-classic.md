@@ -1,10 +1,10 @@
 ---
-title: "Oluşturma ve Azure'a Linux VHD yükleme | Microsoft Docs"
-description: "Oluşturma ve bir Azure sanal sabit Klasik dağıtım modeli kullanarak Linux işletim sistemini içeren disk (VHD) yükleme"
+title: Oluşturma ve Azure'a Linux VHD yükleme | Microsoft Docs
+description: Oluşturma ve bir Azure sanal sabit Klasik dağıtım modeli kullanarak Linux işletim sistemini içeren disk (VHD) yükleme
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-ms.openlocfilehash: 49cf4f1718e4dce1e86aa3c8921eaa8af5f16192
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: 1ba568eeaf3bbc3d786cc48e54404aa65a00fecc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>Linux İşletim Sistemini İçeren Bir Sanal Sabit Disk Oluşturma ve Karşıya Yükleme
 > [!IMPORTANT] 
@@ -32,7 +32,7 @@ Bu makalede oluşturmak ve Azure'da sanal makineler oluşturmak için kendi gör
 ## <a name="prerequisites"></a>Önkoşullar
 Bu makalede, aşağıdaki öğelerin bulunduğunu varsayar:
 
-* **Bir .vhd dosyası yüklü Linux işletim sistemi** -yüklü olduğu bir [Linux Azure destekli dağıtım](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (veya bkz [desteklenmeyen dağıtımlarla bilgi](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) VHD biçiminde bir sanal disk için. Bir VM ve VHD oluşturmak için birden çok araç mevcuttur:
+* **Bir .vhd dosyası yüklü Linux işletim sistemi** -yüklü olduğu bir [Linux Azure destekli dağıtım](../endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (veya bkz [desteklenmeyen dağıtımlarla bilgi](../create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) bir sanal disk için VHD biçimi. Bir VM ve VHD oluşturmak için birden çok araç mevcuttur:
   * Yükleme ve yapılandırma [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) veya [KVM](http://www.linux-kvm.org/page/RunningKVM), alma, resim biçimi olarak VHD kullanmaya dikkat edin. Gerekirse, [bir görüntüyü dönüştürme](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) kullanarak `qemu-img convert`.
   * Hyper-V de kullanabilirsiniz [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) veya [Windows Server 2012/2012 R2 üzerinde](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -59,7 +59,7 @@ Azure çeşitli Linux dağıtımları destekler (bkz [destekli dağıtımlar](..
 > 
 > 
 
-Ayrıca bkz.  **[Linux yükleme notları](../create-upload-generic.md#general-linux-installation-notes)**  için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
+Ayrıca bkz. **[Linux yükleme notları](../create-upload-generic.md#general-linux-installation-notes)** için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
 
 <a id="connect"> </a>
 

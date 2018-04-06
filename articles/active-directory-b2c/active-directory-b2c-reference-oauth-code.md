@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d49a1c97a578726c26f8533476042646b0b302d3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d8ed5747f29f969535bbafc1624d9d02e54c8418
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 yetkilendirme kodu akışı
 Web API'leri gibi korunan kaynakları erişim kazanmak için OAuth 2.0 yetkilendirme kodu verme bir aygıtta yüklü uygulamalar kullanabilirsiniz. Azure Active Directory B2C kullanarak (Azure AD B2C) uygulama OAuth 2.0 ekleyebilirsiniz kaydolma, oturum açma ve diğer kimlik yönetimi görevleri, mobil ve Masaüstü uygulamalarınızı. Bu makalede dilden bağımsızdır. Makalede, tüm açık kaynak kitaplıkları kullanmadan HTTP iletileri almasına ve göndermesine değiştireceğinizi açıklar.
@@ -195,7 +195,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | Parametre | Gerekli mi? | Açıklama |
 | --- | --- | --- |
 | p |Gerekli |Özgün yenileme belirtecini almak için kullanılan bir ilke. Bu isteği başka bir ilke kullanamazsınız. Bu parametreyi eklemek Not *sorgu dizesi*, POST gövdesinde yok. |
-| client_id |Önerilen |Uygulamanıza atanan uygulama kimliği [Azure portal](https://portal.azure.com). |
+| client_id |Gerekli |Uygulamanıza atanan uygulama kimliği [Azure portal](https://portal.azure.com). |
+| client_secret |Gerekli |Client_id ilişkili client_secret [Azure portal](https://portal.azure.com). |
 | grant_type |Gerekli |Grant türü. Bu yetkilendirme kodu akışını Bacak için sağlama türü olmalıdır `refresh_token`. |
 | Kapsam |Önerilen |Kapsamları boşlukla ayrılmış listesi. Azure AD'ye istenecek izinlerin hem tek bir kapsam değeri gösterir. Uygulamanızın kendi hizmeti veya web API karşı kullanılabilir bir erişim belirteci gerektiğini kapsamı anlaşılacağı gibi istemci kimliği kullanılarak, aynı istemci kimliğine göre temsil  `offline_access` Kapsamını belirtir, uygulamanızın uzun süreli kaynaklarına erişim için bir yenileme belirteci gerekir.  Aynı zamanda `openid` Azure AD B2C ' bir kimliği belirteç istemek için kapsam. |
 | redirect_uri |İsteğe bağlı |Yeniden yönlendirme URI'si yetkilendirme kodu aldığınız uygulama. |

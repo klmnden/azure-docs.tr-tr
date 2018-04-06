@@ -1,11 +1,11 @@
 ---
-title: "Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir? | Microsoft Docs"
-description: "Tüm iş için gereken SaaS ve web uygulamaları için çoklu oturum açmayı etkinleştirmek için Azure Active Directory kullanın."
+title: Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir? | Microsoft Docs
+description: Tüm iş için gereken SaaS ve web uygulamaları için çoklu oturum açmayı etkinleştirmek için Azure Active Directory kullanın.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 42a24654eb059894a855474c922a4dd2da185149
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: f19d33c905d6153dffa1e7d5cdaea92ed1b94ff7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazın) ikinci kez.
@@ -68,7 +68,7 @@ Parola tabanlı çoklu oturum açma yapılandırma üçüncü taraf SaaS uygulam
 Azure AD parola tabanlı çoklu oturum açma, bir HTML tabanlı oturum açma sayfası olduğu tüm bulut tabanlı uygulamaları için destekler. Özel tarayıcı eklentisi kullanarak, AAD oturum açma işlemini güvenli bir şekilde uygulama kimlik bilgileri kullanıcı adı ve parola gibi dizinden alma yoluyla kullanıcının otomatikleştirir ve adına uygulama oturum açma sayfasında bu kimlik bilgilerini girer Kullanıcı. İki kullanım örnekleri şunlardır:
 
 1. **Yönetici kimlik bilgilerini yöneten** – Yöneticiler oluşturmak ve uygulama kimlik bilgilerini yönetebilir ve kullanıcılara veya uygulamaya erişmek isteyen grupları bu kimlik bilgilerini atayın. Bu durumda, son kullanıcı kimlik bilgilerini bilmeniz gerekmez, ancak hala yalnızca kullanıcıların erişim panelinde veya sağlanan bağlantı üzerinden tıklayarak tek oturum açma uygulamaya erişim kazanır. Bu, hem de son yapabildiği unutmayın veya uygulamaya özgü parolaları yönetmek için ihtiyaç duydukları olmayan kullanıcılar için kullanışlı yanı sıra yönetici tarafından kimlik yaşam döngüsü yönetimi sağlar. Kimlik bilgileri son kullanıcıdan otomatik oturum açma işlemi sırasında gizlenmiş olan; ancak web hata ayıklama araçları'nı kullanarak kullanıcı tarafından teknik olarak bulunabilir ve kimlik bilgilerini doğrudan kullanıcı tarafından sunulan gibi kullanıcıların ve yöneticilerin aynı güvenlik ilkeleri izlemelisiniz. Yönetici tarafından sağlanan kimlik bilgileri, sosyal medya veya belge paylaşımı uygulamalar gibi çok sayıda kullanıcı arasında paylaşılan hesap erişim sağlarken faydalıdır.
-2. **Kullanıcı kimlik bilgilerini yöneten** – yöneticiler uygulamaları son kullanıcılara veya gruplara atamak ve kullanıcıların erişim panelinde ilk kez uygulamaya erişmeyi doğrudan bağlı kendi kimlik bilgilerini girmek son kullanıcıların izin. Bu son yapabildiği bunlar sürekli uygulamaya özgü parolaları uygulamaya erişim her zaman girmenize gerek olmayan kullanıcılar için bir kolaylık oluşturur. Bu kullanım örneği, atlama taşı yapabildiği yönetici uygulama için yeni kimlik bilgileri gelecekteki bir tarihte son kullanıcının uygulama erişim deneyimi değiştirmeden ayarlayabilir kimlik bilgilerinin yönetimsel yönetim olarak da kullanılabilir.
+2. **Kullanıcı kimlik bilgilerini yöneten** – yöneticiler uygulamaları son kullanıcılara veya gruplara atamak ve kullanıcıların erişim panelinde ilk kez uygulamaya erişmeyi doğrudan bağlı kendi kimlik bilgilerini girmek son kullanıcıların izin. Bu son yapabildiği bunlar sürekli uygulamaya özgü parolaları uygulamaya erişim her zaman girmenize gerek olmayan kullanıcılar için bir kolaylık oluşturur. Kullanıcıların parolalarını güncelleştirme ya da gerektiği şekilde silerek yönetmek devam edebilirsiniz. Bu kullanım örneği, atlama taşı yapabildiği yönetici uygulama için yeni kimlik bilgileri gelecekteki bir tarihte son kullanıcının uygulama erişim deneyimi değiştirmeden ayarlayabilir kimlik bilgilerinin yönetimsel yönetim olarak da kullanılabilir.
 
 Kimlik bilgileri, her iki durumda da şifrelenmiş bir duruma dizininde depolanır ve HTTPS üzerinden otomatik oturum açma işlemi sırasında yalnızca geçirilir. Parola tabanlı çoklu oturum açma kullanarak, Azure AD Federasyon protokolleri destekleme kapasitesine sahip olmayan uygulamalar için uygun kimlik erişim yönetimi çözümü sunar.
 
@@ -114,8 +114,8 @@ Uygulamanızı Azure AD uygulama galerisinde bulunmazsa, bu seçenekler vardır:
 * **Geliştirme kendi uygulama Ekle** - kendiniz uygulaması geliştirdiyseniz, Federasyon çoklu oturum açmayı uygulamak için Azure AD Geliştirici belgelerindeki yönergeleri izleyin veya Azure AD kullanarak sağlama graph API. Daha fazla bilgi için şu kaynaklara bakın:
   
   * [Azure AD için Kimlik Doğrulama Senaryoları](active-directory-authentication-scenarios.md)
-  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
+  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
 * **Bir uygulama tümleştirmesi isteği** -istek gereksinim kullanarak uygulama desteği [Azure AD geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/).
 
@@ -151,7 +151,7 @@ Azure AD kuruluşunuzdaki son kullanıcılar uygulamaları dağıtmak için öze
 Kuruluşunuzda dağıtmayı tercih hangi yöntemleri kümeleri ' dir.
 
 ### <a name="azure-ad-access-panel"></a>Azure AD erişim paneli
-Https://myapps.microsoft.com adresinden erişim Paneli'nde görüntülemek için Azure Active Directory ve başlatma bulut tabanlı uygulamalar için bunlar erişim Azure AD yönetici tarafından verilmiş bir kurumsal hesap son kullanıcı sağlayan bir web tabanlı portal olduğu . Son kullanıcı varsa [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), erişim paneli üzerinden Self Servis Grup Yönetimi özellikleri de kullanabilir.
+Adresinden erişim Paneli'nde https://myapps.microsoft.com Azure görüntülemek için Active Directory'de son kullanıcı bir kurumsal hesap ile imkan tanıyan web tabanlı bir portalı ve Azure AD yöneticinizin erişim verilen başlatma bulut tabanlı uygulamalar için bunlar olmuştur. Son kullanıcı varsa [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/), erişim paneli üzerinden Self Servis Grup Yönetimi özellikleri de kullanabilir.
 
 ![Azure AD erişim paneli](media/active-directory-appssoaccess-whatis/azure-ad-access-panel.png)
 
@@ -160,7 +160,7 @@ Erişim paneli Azure Portalı'ndan ayrıdır ve kullanıcıların bir Azure abon
 Azure AD erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ### <a name="office-365-application-launcher"></a>Office 365 uygulama Başlatıcı
-Office 365 dağıtmış olan kuruluşlar için Azure AD aracılığıyla kullanıcılara atanan uygulamalar da https://portal.office.com/myapps Office 365 portalında görünür. Bu ikinci bir portal kullanmak zorunda kalmadan kendi uygulamalarını başlatmak için bir kuruluşta kolay ve kullanıcılar için uygun yapar ve Office 365 kullanan kurumlar için önerilen uygulama başlatılırken çözümüdür.
+Office 365 dağıtmış olan kuruluşlar için Azure AD aracılığıyla kullanıcılara atanan uygulamalar aynı zamanda Office 365 portalında görünür https://portal.office.com/myapps. Bu ikinci bir portal kullanmak zorunda kalmadan kendi uygulamalarını başlatmak için bir kuruluşta kolay ve kullanıcılar için uygun yapar ve Office 365 kullanan kurumlar için önerilen uygulama başlatılırken çözümüdür.
 
 ![][4]
 

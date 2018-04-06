@@ -1,13 +1,13 @@
 ---
-title: "SAP dağıtımları için Azure yazma Hızlandırıcı | Microsoft Docs"
-description: "Azure sanal makinelerinde dağıtılan SAP HANA sistemleri için işlemler Kılavuzu."
+title: SAP dağıtımları için Azure yazma Hızlandırıcı | Microsoft Docs
+description: Azure sanal makinelerinde dağıtılan SAP HANA sistemleri için işlemler Kılavuzu.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d1ca15028590824cef95e3e9c2d957f9883a0e3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>SAP dağıtımları için Azure yazma Hızlandırıcı
 Azure yazma Hızlandırıcı M-serisi VM'ler için özel olarak alınır bir işlevdir. Yazma Azure Hızlandırıcı herhangi diğer VM-serisi M-serisi dışında Azure ile kullanılamaz. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. 
@@ -28,10 +28,11 @@ Azure yazma Hızlandırıcı M-serisi VM'ler için özel olarak alınır bir iş
 >[!NOTE]
 > Bu noktada, yazma Azure Hızlandırıcı genel önizlemede ve Azure abonelik Kimliğinizi beyaz listesi gerektirir
 
-Genel önizlemede olarak Azure yazma Hızlandırıcı işlevsellik mevcuttur:
+M-serisi dağıtım genel önizlemede olarak Azure yazma Hızlandırıcı işlevler kullanılabilir:
 
 - Batı US2
 - Batı Avrupa
+- Güneydoğu Asya
 
 ## <a name="planning-for-using-azure-write-accelerator"></a>Azure yazma Hızlandırıcı kullanmayı planlama
 Azure yazma Hızlandırıcı, işlem günlüğü içermiyor ya da bir DBMS günlüklerini Yinele birimlerini için kullanılmalıdır. DBMS veri birimleri için Azure yazma Hızlandırıcı kullanmak için önerilmez. Bu kısıtlamanın neden Azure yazma Hızlandırıcı Azure Premium Storage ek okuma önbelleğe alma olmadan takılması Premium Storage için kullanılabilir olan VHD gerektirmesidir. Bu tür önbelleğe alma ile büyük avantajları geleneksel veritabanları ile gösterilebilir. Hızlandırıcı yazma yazma etkinlikleri yalnızca etkileyen ve okuma hızlandırmak değil olduğundan, işlem günlüğü karşı yazma Hızlandırıcı kullanın veya günlük sürücüler desteklenen SAP veritabanlarının yinelemek için SAP için desteklenen tasarım kalır. 

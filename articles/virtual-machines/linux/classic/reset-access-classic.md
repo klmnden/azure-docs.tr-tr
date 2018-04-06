@@ -1,11 +1,11 @@
 ---
-title: "Linux VM parolası ve clı'dan SSH anahtarı sıfırlama | Microsoft Docs"
-description: "Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve disk tutarlılık denetimi için VMAccess uzantısını gelen Azure komut satırı arabirimi (CLI) kullanma"
+title: Linux VM parolası ve clı'dan SSH anahtarı sıfırlama | Microsoft Docs
+description: Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve disk tutarlılık denetimi için VMAccess uzantısını gelen Azure komut satırı arabirimi (CLI) kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX
 ms.assetid: d975eb70-5ff1-40d1-a634-8dd2646dcd17
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-ms.openlocfilehash: 4577b6b9656b6a1cf83e6f9a227526701ba297b4
-ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
+ms.openlocfilehash: c36498d2f4fef506dc7047fe91666aceec73c13d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve VMAccess uzantısını kullanarak disk tutarlılık denetimi hakkında
 Unutulmuş parola nedeniyle, yanlış bir güvenli Kabuk (SSH) anahtarını Azure Linux sanal makineye bağlanılamıyor veya SSH yapılandırması ile ilgili bir sorun VMAccessForLinux uzantısını Azure CLI ile parola veya SSH anahtarını sıfırlamak için kullanıyorsanız, SSH Düzelt Yapılandırma ve onay disk tutarlılık. 
@@ -53,7 +53,7 @@ Aşağıdakileri yapmanız gerekir:
 * Bunlardan birini sıfırlamak istiyorsanız bir yeni bir parola veya SSH anahtarları kümesi vardır. SSH yapılandırmasını sıfırlamak istiyorsanız, bu gerekmez.
 
 ## <a name="pwresetcli"></a>Parola sıfırlama
-1. Bu satırlar ile PrivateConf.json adlı yerel bilgisayarınızdaki bir dosya oluşturun. Değiştir **KullanıcıAdım** ve  **myP@ssW0rd**  kendi kullanıcı adı ve parola ile ve kendi sona erme tarihini ayarlayın.
+1. Bu satırlar ile PrivateConf.json adlı yerel bilgisayarınızdaki bir dosya oluşturun. Değiştir **KullanıcıAdım** ve **myP@ssW0rd** kendi kullanıcı adı ve parola ile ve kendi sona erme tarihini ayarlayın.
 
     ```   
         {
@@ -83,7 +83,7 @@ Aşağıdakileri yapmanız gerekir:
         azure vm extension set myVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 
 ## <a name="resetbothcli"></a>Parola ve SSH anahtarı sıfırlama
-1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Değiştir **KullanıcıAdım**, **mySSHKey** ve  **myP@ssW0rd**  kendi bilgilerinizi değerlerle.
+1. Bu içerikle PrivateConf.json adlı bir dosya oluşturun. Değiştir **KullanıcıAdım**, **mySSHKey** ve **myP@ssW0rd** kendi bilgilerinizi değerlerle.
 
     ``` 
         {

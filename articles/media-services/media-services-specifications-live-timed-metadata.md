@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2018
 ms.author: johndeu;
-ms.openlocfilehash: ae726b141f5f44b1eb0887cbd988881e41e163c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cf4541aebe0c735d66f42532c74e97bf9bbc4a5f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Meta veri canlı akış zaman aşımına sinyali
 
@@ -134,7 +134,7 @@ Film kutusu ('moov') Canlı sunucusu bildirim kutusu seyrek izlemek için akış
 
 Seyrek parça parça film parça kutusu ('moof') ve bir ortam veri kutusu ('mdat') oluşur.
 
-MovieFragmentBox ('moof') kutusunu içermesi gereken bir **TrackFragmentExtendedHeaderBox ('UUID')** kutusuna [FMP4] içinde aşağıdaki alanlarla tanımlanan:
+MovieFragmentBox ('moof') kutusunu içermesi gereken bir **TrackFragmentExtendedHeaderBox ('UUID')** kutusuna [MS-SSTR] aşağıdaki alanlarla tanımlanan:
 
 | **Alan adı**         | **Alan türü**          | **Gerekli?** | **Açıklama**                                                                               |
 |------------------------|-------------------------|---------------|-----------------------------------------------------------------------------------------------|
@@ -177,7 +177,7 @@ Olay akışı Media Services'e donuk verilerdir. Media Services üç parça bilg
 
 ## <a name="31-smooth-streaming-delivery"></a>3.1 kesintisiz akış teslimi
 
-[FMP4] belirtimleri ayrıntılarındaki işleme seyrek izleme bakın ve [MS-SSTR].
+[MS-SSTR] Ayrıntılar işleme seyrek izleme bakın.
 
 #### <a name="smooth-client-manifest-example"></a>Kesintisiz istemci bildirim örneği
 ~~~ xml
@@ -407,13 +407,11 @@ Kesintisiz akış alma medya verileri kutusu ('mdat') içermelidir gerektirir **
 
 **[AMF0]**  ["Eylemi ileti biçimi AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 
-**[FMP4]**  [IIS kesintisiz akış dosyası/kablo biçim belirtimi](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7bAC5A31A4-E455-4000-96E1-AB17BD083144%7d&file=IIS%20Smooth%20Streaming%20File%20Format%20Specification%20-%20v%202%203%2001%20latest%20draft.docx&action=default)
-
-**[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://microsoft.sharepoint.com/teams/mediaservices/_layouts/15/WopiFrame.aspx?sourcedoc=%7b5CEE1122-AA28-4368-BC8E-9C0048BF1529%7d&file=AMS%20F-MP4%20Live%20Ingest%20Specification.docx&action=default)
+**[LIVE-FMP4]** [Azure Media Services Fragmented MP4 Live Ingest Specification](https://docs.microsoft.com/en-us/azure/media-services/media-services-fmp4-live-ingest-overview)
 
 **[ISO-14496-12]** ISO/IEC 14496-12: Part 12 ISO base media file format, Fourth Edition 2012-07-15.
 
-**[RTMP]**  ["Adobe gerçek zamanlı ileti Protokolü" 21 Kasım 2012](http://wwwimages.adobe.com/www.adobe.com/content/dam/Adobe/en/devnet/rtmp/pdf/rtmp_specification_1.0.pdf) 
+**[RTMP]**  ["Adobe gerçek zamanlı ileti Protokolü" 21 Kasım 2012](https://www.adobe.com/devnet/rtmp.html) 
 
 ------------------------------------------
 

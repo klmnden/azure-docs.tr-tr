@@ -1,11 +1,11 @@
 ---
-title: "Linux sanal makineleri üzerinde Microsoft HPC paketi ile NAMD | Microsoft Docs"
-description: "Azure Microsoft HPC Pack kümede dağıtmak ve NAMD benzetimi charmrun ile birden çok Linux işlem düğümlerinde çalışacak."
+title: Linux sanal makineleri üzerinde Microsoft HPC paketi ile NAMD | Microsoft Docs
+description: Azure Microsoft HPC Pack kümede dağıtmak ve NAMD benzetimi charmrun ile birden çok Linux işlem düğümlerinde çalışacak.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager,hpc-pack
 ms.assetid: 76072c6b-ac35-4729-ba67-0d16f9443bd7
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61dd49d4bd3183b6b9a78036d6d7d01798e4dc89
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Azure’daki Linux işlem düğümlerinde Microsoft HPC Pack ile NAMD çalıştırma
 Bu makalede, Linux yüksek performanslı bilgi işlem (HPC) iş yükü Azure sanal makineler üzerinde çalıştırılacak bir yolu gösterir. Burada, ayarladığınız bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) Azure üzerinde Linux işlem düğümü ile küme ve Çalıştır bir [NAMD](http://www.ks.uiuc.edu/Research/namd/) hesaplamak ve büyük biomolecular sistem yapısını görselleştirmek için benzetimi.  
@@ -29,8 +29,8 @@ Bu makalede, Linux yüksek performanslı bilgi işlem (HPC) iş yükü Azure san
 * **NAMD** (Nanoscale Molecular Dynamics için) programıdır kadar Atom milyonlarca içeren büyük biomolecular sistemleri yüksek performanslı benzetimi için tasarlanmış bir paralel molecular dynamics paketi. Bu sistemlere örnek olarak, virüsler, hücre yapıları ve büyük proteins içerir. NAMD tipik benzetimleri çekirdeği yüzlerce ve en büyük benzetimleri için 500. 000'den fazla çekirdek ölçeklendirir.
 * **Microsoft HPC Pack** büyük ölçekli HPC ve paralel uygulamalar şirket içi bilgisayarları veya Azure sanal makineleri kümelerde çalıştırmak için özellikleri sağlar. İlk olarak Windows HPC iş yükleri, HPC paketi için bir çözüm olarak geliştirilen şimdi Linux HPC uygulamaları Linux üzerinde çalışan destekleyen bir HPC Pack kümede dağıtılan düğümü VM'ler işlem. Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md) giriş.
 
-## <a name="prerequisites"></a>Ön koşullar
-* **HPC Pack küme Linux işlem düğümlerini** -ya da kullanarak Azure Linux işlem düğümlerini içeren bir HPC Pack kümeyi dağıtma bir [Azure Resource Manager şablonu](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) veya bir [Azure PowerShell Betiği](hpcpack-cluster-powershell-script.md) . Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md) Önkoşullar ve adımlar her iki seçenek için. PowerShell komut dosyası dağıtım seçeneği seçerseniz, bu makalenin sonunda örnek dosyalarını örnek yapılandırma dosyasına bakın. Bu dosya bir Windows Server 2012 R2 baş düğüm ve dört boyutu büyük CentOS 6.6 işlem düğümleri oluşan bir HPC Pack Azure tabanlı küme yapılandırır. Bu dosya, ortamınız için gerektiği gibi özelleştirin.
+## <a name="prerequisites"></a>Önkoşullar
+* **HPC Pack küme Linux işlem düğümlerini** -ya da kullanarak Azure Linux işlem düğümlerini içeren bir HPC Pack kümeyi dağıtma bir [Azure Resource Manager şablonu](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) veya bir [Azure PowerShell Betiği](hpcpack-cluster-powershell-script.md). Bkz: [Linux işlem düğümlerini Azure bir HPC Pack kümesindeki kullanmaya başlama](hpcpack-cluster.md) Önkoşullar ve adımlar her iki seçenek için. PowerShell komut dosyası dağıtım seçeneği seçerseniz, bu makalenin sonunda örnek dosyalarını örnek yapılandırma dosyasına bakın. Bu dosya bir Windows Server 2012 R2 baş düğüm ve dört boyutu büyük CentOS 6.6 işlem düğümleri oluşan bir HPC Pack Azure tabanlı küme yapılandırır. Bu dosya, ortamınız için gerektiği gibi özelleştirin.
 * **NAMD yazılım ve öğretici dosyaları** -Linux indirme NAMD yazılımı [NAMD](http://www.ks.uiuc.edu/Research/namd/) site (kayıt gerekli). Bu makalede sürüm 2.10 NAMD üzerinde temel alır ve kullanır [Linux-x86_64 (64-bit Intel/AMD Ethernet ile)](http://www.ks.uiuc.edu/Development/Download/download.cgi?UserID=&AccessCode=&ArchiveID=1310) arşiv. Ayrıca karşıdan [NAMD öğreticileri](http://www.ks.uiuc.edu/Training/Tutorials/#namd). Karşıdan yüklemeler .tar dosyaları ve küme baş düğümüne dosyalarını ayıklamak için bir Windows Aracı gerekir. Dosyaları ayıklamak için daha sonra bu makaledeki yönergeleri izleyin. 
 * **VMD** (isteğe bağlı) - NAMD işinizin sonuçları görmek karşıdan yükleyip molecular görselleştirme program [VMD](http://www.ks.uiuc.edu/Research/vmd/) tercih ettiğiniz bir bilgisayarda. 1.9.2 geçerli sürümdür. Başlamak için site karşıdan VMD bakın.  
 
@@ -225,14 +225,14 @@ host CENTOS66LN-03 ++cpus 2
 3. İçinde **iş yönetimi**, tıklatın **yeni iş**.
 4. İş için bir ad girin *hpccharmrun*.
    
-   ![Yeni HPC iş][namd_job]
+   ![New HPC job][namd_job]
 5. Üzerinde **iş ayrıntılarını** sayfasında **iş kaynakları**, kaynak olarak türünü seçin **düğümü** ve ayarlayın **Minimum** 3. , şu üç Linux düğümlerinde işini çalıştırın ve her düğümün dört çekirdeğe sahip.
    
    ![İş kaynakları][job_resources]
 6. Tıklatın **Düzenle görevleri** sol gezinti ve ardından **Ekle** iş için bir görev eklemek için.    
 7. Üzerinde **görev ayrıntılarını ve g/ç yönlendirmesi** sayfasında, aşağıdaki değerleri ayarlayın:
    
-   * **Komut satırı**-
+   * **Komut satırı** -
      `/namd2/hpccharmrun.sh ++remote-shell ssh /namd2/namd2 /namd2/namdsample/1-2-sphere/ubq_ws_eq.conf > /namd2/namd2_hpccharmrun.log`
      
      > [!TIP]
@@ -242,7 +242,7 @@ host CENTOS66LN-03 ++cpus 2
    * **Çalışma dizini** -/namd2
    * **Minimum** - 3
      
-     ![Görev Ayrıntıları][task_details]
+     ![Görev ayrıntıları][task_details]
      
      > [!NOTE]
      > İçin çalışma dizini Burada ayarlanan **charmrun** her düğümde aynı çalışma dizinine gidin dener. Çalışma dizini ayarlanmamışsa HPC Pack komut Linux düğümlerinden biri üzerinde oluşturduğunuz rastgele adlandırılmış bir klasördeki başlatır. Bu, diğer düğümlerde aşağıdaki hata neden olur: `/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` bu sorunu önlemek için tüm düğümler tarafından çalışma dizini olarak erişilebilen bir klasör yolu belirtin.

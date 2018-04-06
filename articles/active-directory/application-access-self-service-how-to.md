@@ -1,23 +1,23 @@
 ---
-title: "Self Servis uygulama atama yapılandırma | Microsoft Docs"
-description: "Kullanıcıların kendi uygulamalarını bulmak izin vermek Self Servis uygulama erişimini etkinleştir"
+title: Self Servis uygulama atama yapılandırma | Microsoft Docs
+description: Kullanıcıların kendi uygulamalarını bulmak izin vermek Self Servis uygulama erişimini etkinleştir
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 04/02/2018
 ms.author: asteen
-ms.openlocfilehash: 8aeda498847759debab18ddf4b44a75cd739a56c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self Servis uygulama atama yapılandırma
 
@@ -64,7 +64,10 @@ Bir uygulama Self Servis uygulama erişimi etkinleştirmek için aşağıdaki ad
 8.  Bu uygulama için Self Servis uygulama erişimini etkinleştirmek için Aç **bu uygulamaya erişmek kullanıcıların?** geç **Evet.**
 
 9.  Ardından, isteyen hangi kullanıcıların bu uygulamaya erişim eklenecek grubu seçmek için etiketi yanındaki seçiciyi **hangi grubuna atanan kullanıcıların eklenmesi?** ve bir grubu seçin.
-
+  
+  > [!NOTE]
+  > Bu uygulamaya erişmek isteyen kullanıcıların eklenmesi grup için kullanılacak içi AD'den eşitlenen gruplara desteklenmez.
+  
 10. **İsteğe bağlı:** önce iş onayı iste isterseniz, kullanıcılara erişim verilir, Ayarla **bu uygulamaya erişim vermeden önce onay gerektirir?** geç **Evet**.
 
 11. **İsteğe bağlı: yalnızca parola çoklu oturum üzerinde kullanan uygulamalar için** onaylanan kullanıcılar için bu uygulamaya gönderilen parolalar belirtmek bu iş onaylayanlar izin vermek istiyorsanız, Ayarla **kullanıcının ayarlamak onaylayanlar izin ver Bu uygulama için parolaları?**  geç **Evet**.

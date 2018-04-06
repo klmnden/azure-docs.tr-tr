@@ -1,20 +1,20 @@
 ---
-title: "SQL veritabanı olağanüstü durum kurtarma | Microsoft Docs"
-description: "Bölgesel veri merkezi kesintisinden veya Azure SQL veritabanı etkin coğrafi çoğaltma ve coğrafi geri yükleme özelliklerini hatası bir veritabanını kurtarmak öğrenin."
+title: SQL veritabanı olağanüstü durum kurtarma | Microsoft Docs
+description: Bölgesel veri merkezi kesintisinden veya Azure SQL veritabanı etkin coğrafi çoğaltma ve coğrafi geri yükleme özelliklerini hatası bir veritabanını kurtarmak öğrenin.
 services: sql-database
 author: anosov1960
 manager: jhubbard
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e9ec0a0a602965561b77619123588db57c59993c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc97c0703150df9773427b13fc07371c3593ce9f
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Bir Azure SQL Database veya yük devretme için ikincil bir geri yükleme
 Azure SQL veritabanı bir kesintisi kurtarmak için aşağıdaki özellikleri sunar:
@@ -26,7 +26,7 @@ Azure SQL veritabanı bir kesintisi kurtarmak için aşağıdaki özellikleri su
 İş sürekliliği senaryoları ve bu senaryolar destekleyen özellikler hakkında bilgi edinmek için bkz: [iş sürekliliği](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Bölge olarak yedekli Premium veritabanları veya havuzları kullanıyorsanız, kurtarma işlemini otomatik hale getirilmiştir ve bu yazıda kalan geçerli değildir. 
+> Bölge olarak yedekli Premium ya da iş kritik veritabanları veya havuzları (Önizleme) kullanıyorsanız, kurtarma işlemini otomatik hale getirilmiştir ve bu yazıda kalan geçerli değildir. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Bir kesinti olayı için hazırlama
 Yük devretme grupları veya coğrafi olarak yedekli yedeklemeler kullanarak başka bir veri bölgesi için Kurtarma ile başarı için bir sunucu hazırlamak gereken başka bir veri merkezinde yeni birincil sunucu olarak kesinti artırılması gereken yanı sıra belgelenen iyi tanımlanmış adımlara sahip ortaya ve bir düzgün kurtarma emin olmak için test. Hazırlık adımları içerir:

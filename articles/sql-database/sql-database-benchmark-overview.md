@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı Kıyaslama genel bakış"
-description: "Bu konuda, Azure SQL veritabanını Azure SQL veritabanı performansını ölçmek kullanılan Kıyaslama açıklanmaktadır."
+title: Azure SQL veritabanı DTU Kıyaslama genel bakış
+description: Bu konuda, Azure SQL veritabanını Azure SQL veritabanı performansını ölçmek kullanılan Kıyaslama açıklanmaktadır.
 services: sql-database
 author: jan-eng
 manager: jhubbard
@@ -9,15 +9,18 @@ ms.custom: DBs & servers
 ms.topic: article
 ms.date: 06/21/2016
 ms.author: janeng
-ms.openlocfilehash: 25685f663d976674ad877bcfa1409ef016dd02ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 684ae62400adbde6f0624b802b79a926c06961c8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="azure-sql-database-benchmark-overview"></a>Azure SQL veritabanı Kıyaslama genel bakış
+# <a name="azure-sql-database-dtu-benchmark-overview"></a>Azure SQL veritabanı DTU Kıyaslama genel bakış
 ## <a name="overview"></a>Genel Bakış
-Microsoft Azure SQL veritabanı sunar üç [hizmet katmanları](sql-database-service-tiers.md) birden çok performans düzeyine sahip. Her performans düzeyi kaynakları ya da 'power' giderek daha yüksek verimlilik sağlamak üzere tasarlanmış, artan bir dizi sağlar.
+DTU tabanlı satın alma modeli, Microsoft Azure SQL veritabanı üç sunar [hizmet katmanları](sql-database-service-tiers.md) birden çok performans düzeyine sahip. Her performans düzeyi kaynakları ya da 'power' giderek daha yüksek verimlilik sağlamak üzere tasarlanmış, artan bir dizi sağlar.
+
+> [!IMPORTANT]
+> Azure SQL veritabanı artık bir vCore tabanlı satın alma modeli (Önizleme) destekler. Bilgi için bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 Her performans düzeyi artan gücünü artan veritabanı performansını nasıl çevirir ölçme olması önemlidir. Bu Microsoft yapmak için Azure SQL veritabanı Kıyaslama (ASDB) geliştirmiştir. Kıyaslama temel işlemleri tüm OLTP iş yüklerini bulunan bir karışımını uygular. Biz her performans düzeyi çalışan veritabanları için elde edilen işleme ölçün.
 

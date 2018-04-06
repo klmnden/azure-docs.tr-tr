@@ -1,5 +1,5 @@
 ---
-title: ILB uygulama hizmeti ortamınızı bir uygulama ağ geçidi ile tümleştirme
+title: ILB uygulama hizmeti ortamınızı Azure uygulama ağ geçidi ile tümleştirme
 description: İzlenecek yol ILB uygulama hizmeti ortamınızı bir uygulamada bir uygulama ağ geçidi ile tümleştirme hakkında
 services: app-service
 documentationcenter: na
@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: c64b686d7a9016b3834096ebc88179db8972098f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="integrate-your-ilb-app-service-environment-with-an-application-gateway"></a>ILB uygulama hizmeti ortamınızı bir uygulama ağ geçidi ile tümleştirme #
+# <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB uygulama hizmeti ortamınızı Azure uygulama ağ geçidi ile tümleştirme #
 
 [Uygulama hizmeti ortamı](./intro.md) bir Azure uygulama hizmeti bir müşterinin Azure sanal ağ alt dağıtımıdır. Uygulama erişimi için bir genel veya özel uç noktası ile dağıtılabilir. Özel uç noktası (diğer bir deyişle, bir iç yük dengeleyici) ile uygulama hizmeti ortamı dağıtımı ILB uygulama hizmeti ortamı adı verilir.  
 
-Azure uygulama ağ geçidi katman 7 Yük Dengeleme ve SSL boşaltma web uygulaması Güvenlik Duvarı (WAF) koruması sağlar ve bir sanal gereç olur. Bir ortak IP adresi ve rota trafiğin uygulama uç noktası üzerinde dinleme. 
+Web uygulaması Yardım güvenli SQL eklemelerini, siteler arası komut dosyası, kötü amaçlı yazılım yüklemeleri engellemek için gelen web trafiği incelemek tarafından web uygulamalarınızın & uygulama DDoS ve diğer saldırılara güvenlik duvarları. Ayrıca arka uç web sunucularından yanıtları veri kaybını önleme (DLP) inceler. Azure Marketi'nden WAF aygıt elde edebilirsiniz veya kullanabilirsiniz [Azure uygulama ağ geçidi][appgw].
 
-Aşağıdaki bilgiler, ILB uygulama hizmeti ortamı'nda bir uygulama WAF yapılandırılmış bir uygulama ağ geçidi tümleştirileceğini açıklar.  
+Azure uygulama ağ geçidi katman 7 Yük Dengeleme ve SSL boşaltma web uygulaması Güvenlik Duvarı (WAF) koruması sağlar ve bir sanal gereç ' dir. Bir ortak IP adresi ve rota trafiğin uygulama uç noktası üzerinde dinleme. Aşağıdaki bilgiler, ILB uygulama hizmeti ortamı'nda bir uygulama WAF yapılandırılmış bir uygulama ağ geçidi tümleştirileceğini açıklar.  
 
 Uygulama ağ geçidi ILB uygulama hizmeti ortamı ile tümleştirilmesi, bir uygulama düzeyinde bulunur. ILB uygulama hizmeti ortamınızı ile uygulama ağ geçidi yapılandırdığınızda, ILB uygulama hizmeti ortamı'nda belirli uygulamalar için yaptığınız. Bu yöntem, tek bir ILB uygulama hizmeti ortamı güvenli çok kiracılı uygulamalarda barındırma sağlar.  
 
@@ -33,7 +33,7 @@ Uygulama ağ geçidi ILB uygulama hizmeti ortamı ile tümleştirilmesi, bir uyg
 
 Bu bölümde şunları yapacaksınız:
 
-* Bir uygulama ağ geçidi oluşturun.
+* Azure uygulama ağ geçidi oluşturun.
 * Uygulama ağ geçidini bir ILB uygulama hizmeti ortamınızı uygulamada işaret edecek şekilde yapılandırın.
 * Özel etki alanı adı vermenizin uygulamanızı yapılandırın.
 * Uygulama ağ geçidiniz için işaret Genel DNS ana bilgisayar adını düzenleyin.
@@ -93,7 +93,7 @@ Ayrıca, ILB uygulama hizmeti ortamınızı kullanır alt ağdaki ağ geçidi ko
 
    ![Yeni uygulama ağ geçidi oluşturma ayarları][3]
     
-4. İçinde **Özet** bölümünde, ayarları gözden geçirin ve seçin **Tamam**. Uygulama ağ geçidi Kurulumu tamamlamak için 30 dakikadan biraz uzun sürebilir.  
+4. İçinde **Özet** bölümünde, ayarları gözden geçirin ve seçin **Tamam**. Uygulama ağ geçidi Kurulumu tamamlamak için biraz birden fazla 30 dakika sürebilir.  
 
 5. Uygulama ağ geçidi Kurulum tamamlandıktan sonra uygulama ağ geçidi portalınıza gidin. Seçin **arka uç havuzu**. ILB adres ILB uygulama hizmeti ortamınız için ekleyin.
 

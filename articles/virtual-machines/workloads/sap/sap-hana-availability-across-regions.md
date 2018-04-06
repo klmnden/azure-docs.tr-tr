@@ -1,13 +1,13 @@
 ---
-title: "SAP HANA kullanılabilirlik Azure bölgeler arasında | Microsoft Docs"
-description: "SPA HANA Azure Vm'lerinde çalıştırırken kullanılabilirlik dikkate alınacak noktaları genel bakış açıklanmaktadır"
+title: SAP HANA kullanılabilirlik Azure bölgeler arasında | Microsoft Docs
+description: SAP HANA birden çok Azure bölgelerindeki Azure vm'lerinde çalıştırırken kullanılabilirlik konuları genel bakış.
 services: virtual-machines-linux,virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: msjuergent
 manager: patfilot
-editor: 
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -16,57 +16,63 @@ ms.workload: infrastructure
 ms.date: 02/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 052394884f85d527caa88ff6c9464af669f47bb5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: edbd1885dd529e4ccd38f2012d56865a2147f64d
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>SAP HANA kullanılabilirlik Azure bölgeler arasında
-Bu makalede SAP HANA kullanılabilirlik farklı Azure bölgeler arasında çevresinde senaryoları açıklanmıştır ve ele alınan. Ayrı Azure bölgeleri aralarındaki büyük uzaklığı sahip olgu göz önüne alındığında, bu makalede listelenen özel noktalar vardır.
 
-## <a name="motivation-to-deploy-across-multiple-azure-regions"></a>Motivasyon birçok Azure bölgesinde dağıtmak için
-Farklı Azure bölgeleri daha büyük bir uzaklık tarafından ayrılır. Coğrafi bölge bağımlı, bu mil yüzlerce ya da hatta birkaç bin mil, gibi Amerika Birleşik Devletleri'nde olabilir. Farklı Azure bölgeler arasındaki uzaklığı nedeniyle iki farklı Azure bölgeleri deneyimleri önemli ölçüde ağ gidiş dönüş gecikme dağıtılan varlıklar arasındaki trafiği ağ. Yeterince önemli tipik SAP iş yükü altında iki SAP HANA örnekleri arasında zaman uyumlu veri değişimi dışlanacak. Diğer tarafta, genellikle daha geniş bir alan basarsa doğal afet durumunda kullanılabilirlik sağlamak için tanımlanmış gereksinimi birincil veri merkeziniz ile ikincil veri merkezine arasındaki uzaklığı temel olduğunu olgu ile karşı karşıya kalmaktadır. Eylül ve Ekim 2017 vuruş Karayipler ve İzmir'alanı kasırgalar gibi. Veya en az bir en az uzaklığı gereksinimi. Çoğu müşteri örneklerinin bu en az uzaklığı tanımı içinde kullanılabilirliği için tasarım gerektirir [Azure bölgeleri](https://azure.microsoft.com/regions/). Uzaklığı arasında çok büyük olduğundan HANA zaman uyumlu çoğaltma modu, RTO ve RPO gereksinimlere kullanmak için iki Azure bölgeleri kullanılabilirlik yapılandırmaları bir bölge içinde dağıtmanıza ve ikinci bir ek dağıtımlarında ek niteliğindedir zorlayabilir bölge.
+Bu makalede, SAP HANA kullanılabilirlik farklı Azure bölgeler arasında ilgili senaryolar açıklanmaktadır. Azure bölgeleri arasındaki uzaklığı nedeniyle birden çok Azure bölgelerinde SAP HANA kullanılabilirliğini ayarı özel konular içerir.
 
-Bu yapılandırmalar olarak kabul edilmesi için bir diğer unsuru yük devretme ve istemci yeniden yönlendirme ' dir. İki farklı Azure bölgelerinde her zaman SAP HANA örnekleri arasında bir yük devretme el ile bir yük devretme olduğu varsayılır. SAP HANA sistem çoğaltma çoğaltma modu zaman uyumsuz ayarlanmış olduğundan, birincil HANA örneğinde kaydedilen veri, henüz ikincil HANA örneğine yaptığını olmayan olasılığına yoktur. Bu nedenle otomatik yük devretme çoğaltması zaman uyumsuz olduğu yapılandırmaları için kabul edilemez. Bir yük devretme alıştırma olduğu gibi el ile Denetlenen yük devretme ile bile birincil tarafındaki kaydedilmiş tüm verileri ikincil örneğine etmeden el ile başka bir Azure bölgesine yapılan olduğundan emin olmak için önlemleri gerekir.
+## <a name="why-deploy-across-multiple-azure-regions"></a>Neden birçok Azure bölgesinde dağıtma
+
+Azure bölgeleri genellikle büyük uzaklıklar tarafından ayrılır. Coğrafi bölge bağlı olarak Azure bölgeleri arasındaki uzaklığı mil yüzlerce ya da hatta birkaç bin mil, gibi Amerika Birleşik Devletleri'nde olabilir. İki farklı Azure bölgelerinde dağıtılan varlıklar arasındaki ağ trafiğini uzaklığı nedeniyle önemli ölçüde ağ gidiş dönüş gecikme süresi yaşar. Gecikme tipik SAP iş yükleri altında iki SAP HANA örnekleri arasında zaman uyumlu veri değişimi hariç tutmak çok önemlidir. 
+
+Diğer taraftan, kuruluşlar çoğunlukla uzaklığı birincil veri merkezindeki konumu ile ikincil veri merkezine arasında gereksinim. Bir uzaklık gereksinim doğal afet daha geniş bir coğrafi konumda oluşursa kullanılabilirliğini sağlamaya yardımcı olur. Örnek Karayipler ve İzmir'Eylül ve Ekim 2017 isabet kasırgalar verilebilir. Kuruluşunuz, en az bir en az uzaklığı gereksinim olabilir. Çoğu Azure müşteriler için en az uzaklığı tanımı içinde kullanılabilirliği için tasarım gerektirir [Azure bölgeleri](https://azure.microsoft.com/regions/). İki Azure bölgeleri arasındaki uzaklığı HANA zaman uyumlu çoğaltma modu kullanmak için çok büyük olduğundan RTO ve RPO gereksinimleri, bir bölgede kullanılabilirlik yapılandırmaları dağıtmak ve ikinci bir ek dağıtımlarında'nı tamamlamak için zorlayabilir bölge.
+
+Bu senaryoda, dikkate alınması gereken bir diğer unsuru yük devretme olduğundan ve istemci yönlendirin. İki farklı Azure bölgelerinde her zaman SAP HANA örnekleri arasında bir yük devretme el ile bir yük devretme olduğu varsayılır. SAP HANA sistem çoğaltma çoğaltma modu zaman uyumsuz ayarlandığından, birincil HANA örneğinde kaydedilen verileri henüz bu ikincil HANA örneğine yaptığını kurmadı olası yoktur. Bu nedenle, otomatik yük devretme, çoğaltma zaman uyumsuz olduğu yapılandırmaları için bir seçenek değildir. Bir yük devretme alıştırma olduğu gibi el ile Denetlenen yük devretme ile bile başka bir Azure bölgesine el ile taşımanız önce birincil tarafındaki kaydedilmiş tüm veriler bu ikincil örneğine yaptığını sağlamak için ölçümleri gerçekleştirmeniz gerekir.
  
-Bu yana ikinci Azure bölgesi, SAP HANA istemcileri ya da yapılandırmalarında değiştirilmesi gereken veya adımları ad çözümlemesi değiştirmek için yerleştirdiniz gereken şekilde daha iyi dağıtılan Azure vnet'lerdeki farklı bir IP adres aralığı ile çalışır. Bu nedenle, istemciler yeni yönlendirildiğini sunucusu IP adresi ikincil. SAP makaleyi [devralma sonra istemci bağlantısı kurtarma](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html) daha fazla ayrıntı gider.   
+Azure sanal ağı, farklı bir IP adresi aralığı kullanır. IP adreslerini ikinci Azure bölgesinde dağıtılır. Bu nedenle, ya da SAP HANA istemci yapılandırmasını değiştirmek ihtiyacınız veya tercihen, ad çözümlemesi değiştirme adımları oluşturmanız gerekir. Bu şekilde, istemciler yeni ikincil sitenin sunucu IP adresine yönlendirilir. Daha fazla bilgi için SAP makalesine bakın [devralma sonra istemci bağlantısı kurtarma](https://help.sap.com/doc/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c93a723ceedc45da9a66ff47672513d3.html).   
 
 ## <a name="simple-availability-between-two-azure-regions"></a>İki Azure bölgeler arasında basit kullanılabilirliği
-Bu senaryoda, herhangi bir kullanılabilirlik yapılandırma tek bir bölge içinde yararlanılmasını değil karar vermiştir. Ancak, bir olağanüstü durumda sunulan iş yükü için isteğe bağlı olacaktır. Tipik örnekleridir sistemler için üretim dışı sistemleridir ister. Yarım gün veya hatta bir gün için aşağı sistem olacak şekilde karşılayabilir olsa, 48 saat veya daha fazla kullanılabilir olmaması sisteme izin veremez. Daha az kurulumunu yapmak için maliyetli, hatta daha az önemli nleri başka bir sistemi hedef olarak işlevleri VM çalıştırdığınız veya ikincil bölge küçük VM'nin boyutunu ve verileri önceden yüklememeye seçin. Yük devretme el ile olacağını ve yük devretme de tam uygulama yığınını pek çok daha fazla adımları kapsar karşıladığından VM getirmek, yeniden boyutlandırabilir ve VM yeniden başlatmak için ek süre kabul edilebilir.
+
+Değil tek bir bölge içinde herhangi bir kullanılabilirlik yapılandırma yararlanılmasını, ancak hala bir olağanüstü durum gerçekleşirse sunulan iş yükü için isteğe bağlı olması da tercih edebilirsiniz. Bu gibi sistemler için tipik örnekleridir üretim dışı sistemleridir. Yarım gün veya hatta bir gün için aşağı sistem sahip sürdürülebilir olsa da, sistem 48 saat veya daha fazla bilgi için kullanılamaz hale gelmesine izin veremez. Kurulum daha az maliyetli hale getirmek için VM'yi bile daha az önemli olan başka bir sisteme çalıştırın. Başka bir sistemi hedef olarak çalışır. Daha küçük olacak şekilde ikincil bölge ' VM boyutu ve verileri önceden değil seçin. Yük devretme el ile gerçekleştirilir ve yük devretme tam uygulama yığını çok daha fazla adımları kapsar olduğundan VM kapatma, yeniden boyutlandırabilir ve VM'yi yeniden başlatmak için ek süre kabul edilebilir.
 
 > [!NOTE]
-> Bile veri ön yük HANA sistem çoğaltma hedefi, en az 64 GB bellek gerekir ve hedef örneği bellekte rowstore verileri tutmak için yeterli belleğin dışında.
+> Veri önyükleme HANA sistem çoğaltma hedefi kullanmasanız bile, en az 64 GB bellek gerekir. Yeterli bellek hedef örneği bellekte rowstore verileri tutmak için 64 GB yanı sıra da gerekir.
 
-![İki bölgede üzerinden iki VM](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
+![İki bölgede üzerinden iki VM diyagramı](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
 > [!NOTE]
-> Bu yapılandırmada, bir RPO sağlayamaz HANA sistem çoğaltma modu zaman uyumsuz olduğundan = 0. Bir RPO sağlamak ihtiyacınız varsa = 0, bu yapılandırma seçeneği yapılandırması değil.
+> Bu yapılandırmada, bir RPO sağlayamaz HANA sistem çoğaltma modu zaman uyumsuz olduğundan = 0. Bir RPO sağlamak ihtiyacınız varsa = 0, bu yapılandırma seçeneği yapılandırmasını değil.
 
-Küçük değişiklik yapılandırmasında veri ön yükleme yapılandırmak için olabilir. Ancak el ile niteliği yük devretme ve uygulama katmanları taşımak için de bu ikinci bölgeye değil kolaylaştırır algılama verilerini önceden yüklemek için gereken olgu verilir. 
+Yapılandırmada yapabilen küçük değişiklikler, verileri önceden yükleme olarak yapılandırmak için olabilir. Ancak, yük devretme ve uygulama katmanları de ikinci bölgesine taşımanıza gerek olgu el ile yapısına göz önüne alındığında, bu verileri önceden yüklemek için anlamlı olmayabilir. 
 
 ## <a name="combine-availability-within-one-region-and-across-regions"></a>Bir bölge içinde ve bölgeler arasında kullanılabilirlik birleştirin 
-Kullanılabilirlik içinde ve bölgeler arasında birleşimi tarafından yönlendirilen:
 
-- RPO gereksinimini = 0 içinde bir Azure bölgesi.
-- İstekli ya da etkilenmesini şirket genel işlemlerini olması için önemli bir doğal catastrophe tarafından daha büyük bir bölge etkiler. Son birkaç yıl içinde Karayipler isabet bazı kasırgalar tarafından durumda olduğu gibi.
-- İsteğe bağlı açıkça hangi Azure kullanılabilirlik bölgeleri olan birincil ve ikincil site arasında uzaklıklar düzenlemelere sağlayabilir.
+Kullanılabilirlik içinde ve bölgeler arasında birleşimi, bu unsurlar güdümlü:
 
- 
-Böyle durumlarda, hangi SAP çağrıları yapılandırmanız gerekir. bir [SAP HANA Multitier sistem çoğaltma yapılandırması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) HANA sistem çoğaltma ile. Mimarisi gibi görünür:
+- RPO gereksinimi = 0 içinde bir Azure bölgesi.
+- Kuruluş istekli veya daha büyük bir bölge etkileyen önemli bir doğal catastrophe tarafından etkilenen genel işlemler mümkün değildir. Bu son birkaç yıl içinde Karayipler isabet bazı kasırgalar durum oluştu.
+- İsteğe bağlı açıkça hangi Azure kullanılabilirlik bölgeleri sağlayabilirsiniz birincil ve ikincil siteler arasında uzaklıklar düzenlemelere.
 
-![iki bölgede üzerinden üç VM'ler](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+Bu durumlarda, hangi SAP aramaları ayarlayabileceğiniz bir [SAP HANA çok katmanlı sistem çoğaltma yapılandırması](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) HANA sistem çoğaltma kullanarak. Mimari şöyle olabilir:
 
-Bu yapılandırma, bir RPO sağlar = 0 küçük RTO süreler birincil bölge içinde ve ayrıca sağlar RPO Düzen ikinci bölgesine taşıma durumunda üzerinden. İkinci bölgede RTO kez olup veri ön yükleme veya yapılandırdığınız bağımlı olur. Çoğu müşteri durumda ikincil bölge VM'yi test sistemini çalıştırmak için kullanılır. Bu kullanım sonucunda verileri önceden yüklenemiyor.
+![İki bölgede üzerinden üç VM'ler diyagramı](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+Bu yapılandırma, bir RPO sağlar = 0, birincil bölge içinde düşük RTO ile. İkinci bölge için bir taşıma alıyorsa yapılandırma makul RPO de sağlar. İkinci bölgede RTO kez veri önceden yüklenmişse bağımlı olur. Birçok müşteri VM ikincil bölge'de bir test sistemini çalıştırmak için kullanın. Kullanım, veri önceden.
 
 > [!NOTE]
-> Logreplay çalışma modu HANA sistem Katman 2 (zaman uyumlu çoğaltma birincil bölgede) Katman 1'den giden çoğaltma için kullandığınız olduğundan, Katman 2 ve Katman 3 (ikincil siteye çoğaltma) arasında çoğaltma delta_datashipping işleminde olamaz modu. İşlem modları ve bazı kısıtlamalar ayrıntılarını SAP içinde tarafından belgelenmiştir [SAP HANA sistem çoğaltma işlemi modlarını](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> Kullanmakta olduğunuz çünkü **logreplay** 1 (zaman uyumlu çoğaltma birincil bölge içinde), Katman 2 katmandan Katman 2 ve Katman 3 (ikincil siteye çoğaltma) arasında çoğaltma giderek HANA sistem çoğaltma için işlem modu olamaz **delta_datashipping** işlem modu. SAP makaleyi işlem modları ve bazı sınırlamalar hakkında daha fazla bilgi için bkz [SAP HANA sistem çoğaltma işlemi modlarını](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu tür bir yapılandırma Azure ayarlama konusunda adım adım yönergeler gerekiyorsa, makaleleri okuyun:
 
-- [SAP HANA sistem Azure VM'ler çoğaltmasında Kurulumu](sap-hana-high-availability.md)
-- [SAP HANA sistemi çoğaltması kullanmak için Azure – bölümü 4 – yüksek kullanılabilirliğine, SAP](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
+Bu yapılandırmalar Azure ayarlama hakkında adım adım yönergeler için bkz:
+
+- [SAP HANA sistem çoğaltma Azure VM'de ayarlama](sap-hana-high-availability.md)
+- [Sistem çoğaltma kullanarak SAP HANA için yüksek kullanılabilirlik](https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/)
 
  
 

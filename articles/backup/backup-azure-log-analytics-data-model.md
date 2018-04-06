@@ -1,11 +1,11 @@
 ---
-title: "Azure Backup için Log Analytics veri modeli"
-description: "Bu makalede, Azure yedekleme verileri için günlük analizi veri modeli ayrıntılarına hakkında alınmaktadır."
+title: Azure Backup için Log Analytics veri modeli
+description: Bu makalede, Azure yedekleme verileri için günlük analizi veri modeli ayrıntılarına hakkında alınmaktadır.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: 
+editor: ''
 ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
 ms.devlang: na
@@ -15,14 +15,14 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure yedekleme verileri için günlük analizi veri modeli
-Bu makale için günlük analizi raporlama verilerini gönderilmesi için kullanılan veri modelini açıklar. Bu veri modelini kullanarak özel sorgular, panolar, oluşturma ve OMS içinde kullanma. 
+Bu makale için günlük analizi raporlama verilerini gönderilmesi için kullanılan veri modelini açıklar. Bu veri modelini kullanarak özel sorgular, panolar, oluşturma ve günlük analizi kullanma. 
 
 ## <a name="using-azure-backup-data-model"></a>Azure Backup veri modelini kullanma
 Veri modelinin bir parçası olarak sağlanan aşağıdaki alanları görselleri, özel sorgular ve Pano gereksinimlerinize uygun şekilde oluşturmak için kullanabilirsiniz.
@@ -30,12 +30,12 @@ Veri modelinin bir parçası olarak sağlanan aşağıdaki alanları görselleri
 ### <a name="alert"></a>Uyarı
 Bu tablo uyarı ilgili alanları hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | AlertUniqueId_s |Metin |Oluşturulan uyarının benzersiz kimliği |
 | AlertType_s |Metin |Oluşturulan uyarı türü, örneğin, yedekleme |
 | AlertStatus_s |Metin |Uyarı, örneğin, etkin durumu |
-| AlertOccurenceDateTime_s |Tarih/saat |Tarih ve uyarının oluşturulduğu saat |
+| AlertOccurenceDateTime_s |Tarih/Saat |Tarih ve uyarının oluşturulduğu saat |
 | AlertSeverity_s |Metin |Uyarının önem derecesini, örneğin, kritik |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | BackupItemUniqueId_s |Metin |Bu uyarı ait yedekleme öğesinin benzersiz kimliği |
@@ -57,7 +57,7 @@ Bu tablo uyarı ilgili alanları hakkında ayrıntılar sağlar.
 ### <a name="backupitem"></a>BackupItem
 Bu tablo yedekleme öğesi ilişkili alanlar hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |  
 | BackupItemUniqueId_s |Metin |Yedekleme öğesinin benzersiz kimliği |
@@ -83,7 +83,7 @@ Bu tablo yedekleme öğesi ilişkili alanlar hakkında ayrıntılar sağlar.
 ### <a name="backupitemassociation"></a>BackupItemAssociation
 Bu tabloda, çeşitli varlıkları yedekleme öğesi ilişkilerini hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |  
 | BackupItemUniqueId_s |Metin |Yedekleme öğesinin benzersiz kimliği |
@@ -106,7 +106,7 @@ Bu tabloda, çeşitli varlıkları yedekleme öğesi ilişkilerini hakkında ayr
 ### <a name="job"></a>İş
 Bu tabloyu işle ilgili alanları hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | BackupItemUniqueId_s |Metin |Bu iş ait yedekleme öğesinin benzersiz kimliği |
@@ -121,7 +121,7 @@ Bu tabloyu işle ilgili alanları hakkında ayrıntılar sağlar.
 | JobOperation_s |Metin |İçin proje Örneğin, yedekleme, geri yükleme, yapılandırma yedekleme çalıştığı işlemi |
 | JobStatus_s |Metin |İşin durumu tamamlandı, örneğin, tamamlandı, başarısız oldu |
 | JobFailureCode_s |Metin |Hata kodu dize hangi nedeniyle iş başarısız oldu |
-| JobStartDateTime_s |Tarih/saat |Tarih ve saat başlatılan çalışan iş yapılırken |
+| JobStartDateTime_s |Tarih/Saat |Tarih ve saat başlatılan çalışan iş yapılırken |
 | BackupStorageDestination_s |Metin |Yedekleme depolama, örneğin, bulut, Disk hedefi  |
 | JobDurationInSecs_s | Sayı |Saniye cinsinden toplam iş yürütme süresi |
 | DataTransferredInMB_s | Sayı |Bu proje için MB cinsinden aktarılan veriler|
@@ -136,7 +136,7 @@ Bu tabloyu işle ilgili alanları hakkında ayrıntılar sağlar.
 ### <a name="policy"></a>İlke
 Bu tablo ilkesiyle ilgili alanları hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V1** |
@@ -176,7 +176,7 @@ Bu tablo ilkesiyle ilgili alanları hakkında ayrıntılar sağlar.
 ### <a name="policyassociation"></a>PolicyAssociation
 Bu tablo ilke ilişkilendirmelerini çeşitli varlıkları ile ilgili ayrıntıları sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V1** |
@@ -197,7 +197,7 @@ Bu tablo ilke ilişkilendirmelerini çeşitli varlıkları ile ilgili ayrıntıl
 ### <a name="protectedserver"></a>ProtectedServer
 Bu tablo korumalı sunucu ilgili alanlar hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | ProtectedServerName_s |Metin |Korumalı sunucunun adı |
@@ -222,7 +222,7 @@ Bu tablo korumalı sunucu ilgili alanlar hakkında ayrıntılar sağlar.
 ### <a name="protectedserverassociation"></a>ProtectedServerAssociation
 Bu tablo korumalı sunucu ilişkilendirmeleri diğer varlıklarla ilgili ayrıntıları sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V1** |
@@ -243,7 +243,7 @@ Bu tablo korumalı sunucu ilişkilendirmeleri diğer varlıklarla ilgili ayrınt
 ### <a name="storage"></a>Depolama
 Bu tablo depolama ilişkili alanlar hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Ondalık sayı |Bulut yedekleme depolama hesaplanan yedekleri tarafından kullanılan son değere göre |
 | ProtectedInstances_s |Ondalık sayı |Ön uç depolama faturalama, hesaplanan dayalı olarak en son değeri hesaplamak için kullanılan korumalı örneği sayısı |
@@ -266,7 +266,7 @@ Bu tablo depolama ilişkili alanlar hakkında ayrıntılar sağlar.
 ### <a name="vault"></a>Kasa
 Bu tablo, kasa ile ilgili alanları hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | EventName_s |Metin |Bu alan bu olay adını temsil eder, her zaman AzureBackupCentralReport. |
 | SchemaVersion_s |Metin |Bu alan geçerli şema sürümünü gösterir, **V1** |
@@ -286,4 +286,4 @@ Bu tablo, kasa ile ilgili alanları hakkında ayrıntılar sağlar.
 | ResourceType |Metin |Bu alan için veri toplanırken - kaynak kasalarını türünü temsil eder |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Backup raporları oluşturmak için veri modeli gözden sonra başlatabilirsiniz [Pano oluşturma](../log-analytics/log-analytics-dashboards.md) günlük analizi ve OMS.
+Azure Backup raporları oluşturmak için veri modeli gözden sonra başlatabilirsiniz [Pano oluşturma](../log-analytics/log-analytics-dashboards.md) günlük analizi içinde.

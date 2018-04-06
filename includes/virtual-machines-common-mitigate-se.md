@@ -5,16 +5,16 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/02/2018
+ms.date: 04/03/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 6ad9c365894feed61fa4f55d442194d1cf996889
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 81357bce92bb8bd2f77f7aaabc8e3b1d49047a1b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-**Son Güncelleştirme'ı belge**: 2 Nisan, 10:00 AM PST.
+**Son Güncelleştirme'ı belge**: 3 Nisan, 15:00 PST.
 
 Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik aramayı müşterilerden soruları sonuçlandı.  
 
@@ -25,7 +25,7 @@ Azure kullanımını Ayrıca, genişletme [bakım koruma bellek](https://docs.mi
 > [!NOTE] 
 > Geç Şubat 2018 içinde Intel Corporation güncelleştirilmiş yayımlanan [mikro kodları gözden geçirme Kılavuzu](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) kararlılığını geliştirmek ve tarafındanbildirilensongüvenlikaçıklarınakarşıazaltmakkendimikrokodlarısürümlerindurumuileilgili[Google proje sıfır](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Azure tarafından yerinde Azaltıcı yerleştirin [3 Ocak 2018](https://azure.microsoft.com/en-us/blog/securing-azure-customers-from-cpu-vulnerability/) Intel mikro kod güncelleştirmesini tarafından etkilenmez. Microsoft, güçlü Azaltıcı Etkenler zaten Azure diğer sanal makinelerden Azure müşterilerin korunmasına yerinde yerleştirin.  
 >
-> Intel mikro kodları değişken 2 giderir Spectre ([CVE 2017 5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715)) yalnızca paylaşılan veya güvenilmeyen iş yükleri içinde sanal makineleri Azure üzerinde çalıştırdığınız geçerli olacak saldırılarına karşı korumak için. Bizim mühendisleri Azure müşterilerine yapmadan önce mikro kodları, performans etkileri en aza indirmek için kararlılık test ediyorsunuz.  Çok az müşteriler Vm'leri güvenilmeyen iş yükleri çalıştırırken, müşterilerin çoğu kez yayımlanan bu özelliği etkinleştirmek gerekmez. 
+> Intel mikro kodları değişken 2 giderir Spectre ([CVE 2017 5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) veya şube hedef ekleme), yalnızca paylaşılan veya güvenilmeyen iş yükleri içinde sanal makineleri Azure üzerinde çalıştırdığınız geçerli olacak saldırılarına karşı korumak için. Bizim mühendisleri Azure müşterilerine yapmadan önce mikro kodları, performans etkileri en aza indirmek için kararlılık test ediyorsunuz.  Çok az müşteriler Vm'leri güvenilmeyen iş yükleri çalıştırırken, müşterilerin çoğu kez yayımlanan bu özelliği etkinleştirmek gerekmez. 
 >
 > Daha fazla bilgi kullanılabilir olduğu gibi bu sayfa güncelleştirilir.  
 
@@ -64,7 +64,7 @@ Güvenilmeyen kod çalıştırmadığınız sürece ek müşteri Eylem gerekmiyo
 
 
 ### <a name="windows"></a>Windows 
-Windows kullanıyorsanız ve güvenilmeyen kod barındırma yan kanal güvenlik açıkları (özellikle değişken kurgusal yürütme karşı ek koruma sağlayan çekirdek sanal adres (KVA) gölgeleme adlı Windows özelliği de etkinleştirmeniz gerekir 3 meltdown [CVE 2017 5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754)). Bu özellik varsayılan olarak kapalıdır ve etkinleştirilirse performansı etkileyebilir. İzleyin [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) sunucu üzerindeki etkinleştirme korumaları için yönergeler. Azure Cloud Services çalıştırıyorsanız, WA çalıştırdığınızı doğrulayın-KONUK-OS-5.15_201801-01 veya WA-GUEST-OS-4.50_201801-01 (kullanılabilir 10 Ocak 2018 başlayarak) ve etkin kayıt defteri anahtarı bir başlangıç görevi.
+Windows kullanıyorsanız ve güvenilmeyen kod barındırma (özellikle için kurgusal yürütme yan kanal güvenlik açıklarına karşı ek koruma sağlayan çekirdek sanal adres (KVA) gölgeleme adlı Windows özelliği de etkinleştirmeniz gerekir değişken 3 Meltdown, [CVE 2017 5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), ya da yanlış veri önbelleği yüklemesi). Bu özellik varsayılan olarak kapalıdır ve etkinleştirilirse performansı etkileyebilir. İzleyin [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) sunucu üzerindeki etkinleştirme korumaları için yönergeler. Azure Cloud Services çalıştırıyorsanız, WA çalıştırdığınızı doğrulayın-KONUK-OS-5.15_201801-01 veya WA-GUEST-OS-4.50_201801-01 (kullanılabilir 10 Ocak 2018 başlayarak) ve etkin kayıt defteri anahtarı bir başlangıç görevi.
 
 
 ### <a name="linux"></a>Linux

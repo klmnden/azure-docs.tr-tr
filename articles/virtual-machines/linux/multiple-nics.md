@@ -1,11 +1,11 @@
 ---
-title: "Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs"
-description: "Azure CLI 2.0 veya Resource Manager şablonları ile bağlı birden çok NIC içeren bir Linux VM oluşturmayı öğrenin."
+title: Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs
+description: Azure CLI 2.0 veya Resource Manager şablonları ile bağlı birden çok NIC içeren bir Linux VM oluşturmayı öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 635d1373a51f2f2e4d4f7ab5053e520f5b9363a6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 79c5d70d201b54e7ca1c8d421a5f0dc5e6b53bcd
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Linux sanal makine Azure'da ile birden fazla ağ arabirimi kartları oluşturma
 Bir sanal makine (VM) bağlı birden çok sanal ağ arabirimlerine (NIC'ler) sahip Azure oluşturabilirsiniz. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, bağlı birden çok NIC içeren bir VM oluşturma ve ekleme veya NIC var olan bir sanal makineden kaldırın ayrıntıları. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
@@ -190,7 +190,7 @@ echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-Ağ yığını etkinleştirme sırasında kalıcı ve uygulanan değişiklik yapmak için düzenleme */etc/sysconfig/network-scipts/ifcfg-eth0* ve */etc/sysconfig/network-scipts/ifcfg-eth1*. Satır alter *"NM_CONTROLLED = yes"* için *"NM_CONTROLLED no ="*. Bu adım ek/yönlendirme kuralları otomatik olarak uygulanmaz.
+Ağ yığını etkinleştirme sırasında kalıcı ve uygulanan değişiklik yapmak için düzenleme */etc/sysconfig/network-scripts/ifcfg-eth0* ve */etc/sysconfig/network-scripts/ifcfg-eth1*. Satır alter *"NM_CONTROLLED = yes"* için *"NM_CONTROLLED no ="*. Bu adım ek/yönlendirme kuralları otomatik olarak uygulanmaz.
  
 Ardından, yönlendirme tabloları genişletin. Aşağıdaki Kurulum yerinde sahibiz varsayalım:
 

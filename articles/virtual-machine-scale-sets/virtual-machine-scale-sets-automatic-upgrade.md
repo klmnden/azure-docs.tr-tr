@@ -1,13 +1,13 @@
 ---
-title: "Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümeleri | Microsoft Docs"
-description: "İşletim sisteminde bir ölçek kümesi VM örnekleri otomatik olarak Yükselt öğrenin"
+title: Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümeleri | Microsoft Docs
+description: İşletim sisteminde bir ölçek kümesi VM örnekleri otomatik olarak Yükselt öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: negat
-ms.openlocfilehash: 59dad832977c4afc39db3773edf9789cd1a704e7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 28a9b3d68037aac0c1198da4232c045487b01174
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Otomatik işletim sistemi yükseltme Azure sanal makine ölçek kümesi
 
@@ -93,9 +93,9 @@ Aşağıdaki SKU'ları şu anda desteklenen (daha fazla eklenir):
 > [!NOTE]
 > Bu bölüm, yalnızca Service Fabric olmadan ölçek kümeleri için geçerlidir. Service Fabric uygulama sağlığını kendi kavramı vardır. Otomatik işletim sistemi yükseltme Service Fabric ile kullanırken, yeni işletim sistemi görüntüsü güncelleştirme etki alanı güncelleştirme Service Fabric çalışan hizmetler, yüksek kullanılabilirliği sürdürmek için etki alanı tarafından kullanıma alındı. Service Fabric kümeleri dayanıklılık özellikleri hakkında daha fazla bilgi için lütfen bkz [bu belgeleri](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
-Bir işletim sistemi yükseltme sırasında bir ölçek kümesindeki VM örnekleri yükseltilir aynı anda tek bir toplu. Yükseltme işlemi, yalnızca müşteri uygulaması yükseltilmiş VM örneklerinde sağlıklı olup olmadığını devam etmelidir. Uygulama durumu sinyalleri ölçek kümesi işletim sistemi yükseltme altyapısı sağlar öneririz. Varsayılan olarak, işletim sistemi yükseltmeleri sırasında platform VM güç durumunu ve bir yükseltmeden sonra bir VM örneği sağlıklı olup olmadığını belirlemek için durum sağlama uzantısı göz önünde bulundurur. Bir VM örneğinin işletim sistemi yükseltme sırasında VM örneği üzerinde işletim sistemi diski son görüntü sürümlerine göre yeni bir disk ile değiştirilir. İşletim sistemi yükseltme tamamlandıktan sonra yapılandırılmış uzantılarını bu Vm'lere çalıştırılır. Yalnızca bir VM üzerindeki tüm uzantılar başarıyla sağlandığında, uygulama sağlıklı olarak kabul edilir. 
+Bir işletim sistemi yükseltme sırasında bir ölçek kümesindeki VM örnekleri yükseltilir aynı anda tek bir toplu. Yükseltme işlemi, yalnızca müşteri uygulaması yükseltilmiş VM örneklerinde sağlıklı olup olmadığını devam etmelidir. Bu nedenle, uygulama durumu sinyalleri ölçek kümesi işletim sistemi yükseltme altyapısı sağlar gerektirir. İşletim sistemi yükseltmeleri sırasında platform VM güç durumunu ve bir yükseltmeden sonra bir VM örneği sağlıklı olup olmadığını belirlemek için durum sağlama uzantısı göz önünde bulundurur. Bir VM örneğinin işletim sistemi yükseltme sırasında VM örneği üzerinde işletim sistemi diski son görüntü sürümlerine göre yeni bir disk ile değiştirilir. İşletim sistemi yükseltme tamamlandıktan sonra yapılandırılmış uzantılarını bu Vm'lere çalıştırılır. Yalnızca bir VM üzerindeki tüm uzantılar başarıyla sağlandığında, uygulama sağlıklı olarak kabul edilir. 
 
-Ölçek kümesi, isteğe bağlı olarak, uygulama platformu uygulama devam eden durumunu doğru bilgi sağlamak için sistem durumu Araştırmalarının ile de yapılandırılabilir. Uygulama sistem durumu Araştırmalarının yük özel dengeleyici sistem durumu sinyal kullanılan yoklamaları var. Bir ölçek kümesi VM örneği üzerinde çalışan uygulama sağlıklı olup olmadığını belirten dış HTTP veya TCP isteklerine yanıt verebilir. Özel yük dengeleyici araştırmaları nasıl çalıştığı hakkında daha fazla bilgi için bkz: [anlayın yük dengeleyici araştırmalar](../load-balancer/load-balancer-custom-probe-overview.md). Bir uygulama durumu araştırma otomatik işletim sistemi yükseltmeleri için gerekli değildir, ancak önerilir.
+Ayrıca, Ölçek kümesini *gerekir* uygulama platformu uygulama devam eden durumunu doğru bilgi sağlamak için sistem durumu Araştırmalarının ile yapılandırılabilir. Uygulama sistem durumu Araştırmalarının yük özel dengeleyici sistem durumu sinyal kullanılan yoklamaları var. Bir ölçek kümesi VM örneği üzerinde çalışan uygulama sağlıklı olup olmadığını belirten dış HTTP veya TCP isteklerine yanıt verebilir. Özel yük dengeleyici araştırmaları nasıl çalıştığı hakkında daha fazla bilgi için bkz: [anlayın yük dengeleyici araştırmalar](../load-balancer/load-balancer-custom-probe-overview.md).
 
 Ölçek kümesini birden çok yerleştirme grupları kullanacak şekilde yapılandırılmışsa, kullanarak yoklamaları bir [standart yük dengeleyici](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) kullanılması gerekir.
 
@@ -110,7 +110,7 @@ Sanal makineleri kurtarma ve kaynak kimlik doğrulama hatası varsa otomatik iş
 * Başarısız olanlar da dahil olmak üzere tüm VM örnekleri güncelleştirecektir güncelleştirilmiş ölçek kümesini dağıtın. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Bir özel yük dengeleyici araştırması uygulama sistem durumu araştırma bir ölçekte yapılandırma ayarlayın
-Sistem durumu ölçek kümesi için en iyi uygulama, yük dengeleyici araştırmasını açıkça oluşturun. Aynı uç nokta var olan HTTP araştırmasını veya TCP araştırması için kullanılabilir ancak bir sistem durumu araştırması geleneksel yük dengeleyici araştırması farklı davranışından gerektirebilir. Örneğin, geleneksel yük dengeleyici araştırmasını, örnek durumu otomatik işletim sistemi yükseltme sırasında belirlemek için uygun olmayabilir ancak örneği üzerindeki yükü çok yüksekse, sağlıksız döndürebilir. İki dakikadan kısa bir yüksek yoklama hızı için araştırma yapılandırın.
+*Gerekir* sağlık ölçeği ayarlamak için yük dengeleyici araştırmasını açıkça oluşturun. Aynı uç nokta var olan HTTP araştırmasını veya TCP araştırması için kullanılabilir ancak bir sistem durumu araştırması geleneksel yük dengeleyici araştırması farklı davranışından gerektirebilir. Örneğin, geleneksel yük dengeleyici araştırmasını, örnek durumu otomatik işletim sistemi yükseltme sırasında belirlemek için uygun olmayabilir ancak örneği üzerindeki yükü çok yüksekse, sağlıksız döndürebilir. İki dakikadan kısa bir yüksek yoklama hızı için araştırma yapılandırın.
 
 Yük Dengeleyici araştırmasını olarak başvurulabilir *networkProfile* ölçek ayarlama ve şu şekilde ya da bir dahili veya genel kullanıma yönelik Yük Dengeleyici ile ilişkili olabilir:
 
@@ -227,7 +227,7 @@ Uygulama sistem durumu araştırmalarının kullanımını genişlemeye ölçek 
 2. Sonraki toplu işi, en fazla % 20'sini toplam örnek sayısı olan bir toplu işin yükseltmek için VM örnekleri tanımlayın.
 3. VM örnekleri sonraki toplu işletim sistemini yükseltin.
 4. Yükseltilen örnekleri % 20'den fazla sağlıksız varsa, yükseltme Durdur; Aksi takdirde devam edin.
-5. Müşteri uygulama sistem durumu Araştırmalarının yapılandırdıysa, yükseltme sağlıklı duruma araştırmalar 5 dakika kadar bekler ve ardından hemen sonraki toplu devam eder; Aksi halde, sonraki toplu geçmeden önce 30 dakika bekler.
+5. Service Fabric kümesinin parçası olmayan ölçek kümeleri için yükseltme sağlıklı duruma araştırmalar 5 dakika kadar bekler sonra hemen sonraki toplu devam eder. Service Fabric kümesinin parçası olan ölçek kümeleri için ölçek sonraki toplu geçmeden önce 30 dakika bekler ayarlayın.
 6. Yükseltme için örnekler kaldığı varsa goto adım 1) için bir sonraki toplu; Aksi takdirde yükseltme işlemi tamamlanmış olur.
 
 Ölçek her toplu yükseltmeden önce işletim sistemi yükseltme altyapısı denetleyeceğini VM örneği durumunu ayarlayın. Bir toplu yükseltirken olabilir diğer eş zamanlı planlanmış veya planlanmamış bakım Vm'leriniz kullanılabilirliğini etkileyebilecek Azure merkezlerinde olmuyor. Bu nedenle, geçici olarak birden fazla %20 örnekleri kapalı olabilir mümkündür. Böyle durumlarda, geçerli toplu işlem sonunda ölçeği yükseltme durakları ayarlayın.
@@ -237,7 +237,8 @@ Uygulama sistem durumu araştırmalarının kullanımını genişlemeye ölçek 
 
 Aşağıdaki şablonu otomatik yükseltme kullanan bir ölçek kümesini dağıtmak için kullanabileceğiniz <a href='https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json'>otomatik çalışırken yükseltme - Ubuntu 16.04-LTS</a>
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"> <img src="http://azuredeploy.net/deploybutton.png"/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 

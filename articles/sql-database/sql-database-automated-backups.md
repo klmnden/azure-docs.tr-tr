@@ -1,20 +1,21 @@
 ---
-title: "Otomatik, coğrafi olarak yedekli Azure SQL veritabanı yedeklemeleri | Microsoft Docs"
-description: "SQL veritabanı otomatik olarak birkaç dakikada bir yerel veritabanı yedeği oluşturur ve coğrafi yedeklilik için Azure okuma erişimli coğrafi olarak yedekli depolama kullanır."
+title: Otomatik, coğrafi olarak yedekli Azure SQL veritabanı yedeklemeleri | Microsoft Docs
+description: SQL veritabanı otomatik olarak birkaç dakikada bir yerel veritabanı yedeği oluşturur ve coğrafi yedeklilik için Azure okuma erişimli coğrafi olarak yedekli depolama kullanır.
 services: sql-database
-author: CarlRabeler
-manager: jhubbard
+author: anosov1960
+manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: article
 ms.workload: Active
-ms.date: 07/05/2017
-ms.author: carlrab
-ms.openlocfilehash: 053dd680af020aa05bc071c49f0f47ebe6a8f0da
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/04/2018
+ms.author: sashan
+ms.reviewer: carlrab
+ms.openlocfilehash: ab1793621950fd57d3f0be545772d85b32f5d7b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Otomatik SQL veritabanını yedekleme hakkında bilgi edinin
 
@@ -22,7 +23,7 @@ SQL veritabanı otomatik olarak veritabanı yedeklerini oluşturur ve coğrafi y
 
 ## <a name="what-is-a-sql-database-backup"></a>Bir SQL veritabanı yedeği nedir?
 
-SQL veritabanı oluşturmak için SQL Server teknolojisini kullanan [tam](https://msdn.microsoft.com/library/ms186289.aspx), [fark](https://msdn.microsoft.com/library/ms175526.aspx), ve [işlem günlüğü](https://msdn.microsoft.com/library/ms191429.aspx) yedekler. İşlem günlüğü yedeklemeleri her 5-10 dakika performans düzeyi ve veritabanı etkinliği miktarı göre sıklık genellikle gerçekleşir. İşlem günlüğü yedeklemeleri, tam ve değişim yedeklemeleri ile bir veritabanı bir belirli noktası zaman içinde veritabanını barındıran aynı sunucuya geri yüklemek izin verin. Bir veritabanını geri yüklediğinizde, hizmetin hangi tam, fark ve işlem günlüğü yedeklemeleri geri yüklenmesi gerekiyor rakamlar.
+SQL veritabanı oluşturmak için SQL Server teknolojisini kullanan [tam](https://msdn.microsoft.com/library/ms186289.aspx), [fark](https://msdn.microsoft.com/library/ms175526.aspx), ve [işlem günlüğü](https://msdn.microsoft.com/library/ms191429.aspx) zaman içinde nokta amacıyla yedeklerini geri (PITR). İşlem günlüğü yedeklemeleri her 5-10 dakika performans düzeyi ve veritabanı etkinliği miktarı göre sıklık genellikle gerçekleşir. İşlem günlüğü yedeklemeleri, tam ve değişim yedeklemeleri ile bir veritabanı bir belirli noktası zaman içinde veritabanını barındıran aynı sunucuya geri yüklemek izin verin. Bir veritabanını geri yüklediğinizde, hizmetin hangi tam, fark ve işlem günlüğü yedeklemeleri geri yüklenmesi gerekiyor rakamlar.
 
 
 Bu yedeklemeler için kullanabilirsiniz:
@@ -30,7 +31,7 @@ Bu yedeklemeler için kullanabilirsiniz:
 * Bir veritabanını bir nokta zaman için saklama dönemi içinde geri yükleyin. Bu işlem, özgün veritabanı ile aynı sunucuda yeni bir veritabanı oluşturur.
 * Silinen bir veritabanını silindi veya tüm süresini saklama dönemi içinde geri yükleyin. Silinen bir veritabanını yalnızca özgün veritabanının oluşturulduğu aynı sunucudan geri yüklenebilir.
 * Bir veritabanını geri yüklemek için başka bir coğrafi bölge. Bu, sunucu ve veritabanı erişemediğinde coğrafi olağanüstü durumdan kurtarmanıza olanak tanır. Dünyanın varolan tüm Server'da yeni bir veritabanı oluşturur. 
-* Bir veritabanı, Azure kurtarma Hizmetleri kasasında depolanan belirli bir yedekten geri yükleyin. Bu veritabanının uyumluluk isteği karşılamak için veya uygulama eski bir sürümünü çalıştırdığı için eski bir sürümüne geri yüklemenize olanak sağlar. Bkz: [uzun vadeli bekletme](sql-database-long-term-retention.md).
+* Bir veritabanı, veritabanı ile uzun vadeli bir bekletme ilkesi yapılandırdıysanız belirli uzun vadeli yedekten geri yükleyin. Bu veritabanının uyumluluk isteği karşılamak için veya uygulama eski bir sürümünü çalıştırdığı için eski bir sürümüne geri yüklemenize olanak sağlar. Bkz: [uzun vadeli bekletme](sql-database-long-term-retention.md).
 * Bir geri yükleme gerçekleştirmek için bkz: [veritabanını yedeklerden geri](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -49,10 +50,14 @@ Her SQL veritabanını yedekleme temel alan bir bekletme dönemi içeren [hizmet
 * Temel hizmet katmanı 7 gündür.
 * Standart hizmet katmanında 35 gün olur.
 * Premium Hizmet katmanını 35 gün olur.
+* Genel amaçlı katmanı maksimum 35 gün ile yapılandırılabilir (varsayılan olarak 7 gün) *
+* İş kritik Katmanı (Önizleme) maksimum 35 gün ile yapılandırılabilir (varsayılan olarak 7 gün) *
 
-Standart veya Premium hizmet katmanları veritabanınızdan temel düşürmek, yedeklemeleri yedi gün için kaydedilir. Yedi günden eski tüm var olan yedekleri artık kullanılamaz. 
+\* Önizleme sırasında yedeklemelerin saklama dönemi yapılandırılabilir değildir ve 7 gün için sabit.
 
-Veritabanınızı temel hizmet katmanından standart veya Premium yükseltirseniz, SQL veritabanı var olan yedekleri 35 gün kadar tutar. 35 gün boyunca oluşurken yeni yedeklemeler tutar.
+Daha kısa bekletme olan bir veritabanına uzun yedeklemeleri bekletme veritabanıyla dönüştürürseniz, hedef katmanı saklama süresinden daha eski tüm var olan yedekleri artık kullanılamaz.
+
+Daha uzun bir süre olan bir veritabanına daha kısa bir bekletme dönemi veritabanıyla yükseltirseniz, SQL veritabanı var olan yedekleri daha uzun bekletme süresine ulaşılana kadar tutar. 
 
 Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir veritabanı misiniz aynı şekilde korur. Örneğin, bir yedi günlük tutma süresine sahip bir temel veritabanı silme varsayalım. Dört gün önce yapılmışsa bir yedekleme için üç gün daha kaydedilir.
 
@@ -61,17 +66,17 @@ Bir veritabanı silerseniz, SQL veritabanı yedeklemeleri için çevrimiçi bir 
 > 
 
 ## <a name="how-to-extend-the-backup-retention-period"></a>Yedekleme bekletme süresini uzatmayı nasıl?
-Uygulamanızın yedekleri daha uzun süre kullanılabilir gerektiriyorsa, yerleşik saklama dönemi uzun süreli yapılandırarak yedekleme bekletme ilkesi tekil veritabanları (LTR İlkesi) genişletebilirsiniz. Bu yerleşik BT saklama süresi en fazla 10 yıl 35 gün genişletmenizi sağlar. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
-Azure portalı veya API kullanarak bir veritabanına LTR İlkesi ekledikten sonra kendi Azure yedekleme hizmeti Kasası'na haftalık tam veritabanı yedeklemeleri otomatik olarak kopyalanır. Veritabanınız ile TDE şifrelenmişse yedeklemeleri bekleyen otomatik olarak şifrelenir.  Hizmetleri kasası, zaman damgası ve LTR İlkesi göre süresi dolan Yedeklerinizin otomatik olarak silecektir.  Yedekleme zamanlaması yönetmek ya da eski dosyaları temizleme hakkında endişelenmeniz gerekmez. Geri yükleme API SQL veritabanınız ile aynı abonelikte kasa olduğu sürece kasasında depolanan yedeklemeleri destekler. Bu yedeklemeler erişmek için Azure portal veya PowerShell kullanın.
+Uygulamanızın yedekleri maksimum PITR yedekleme saklama süresinden daha uzun süre boyunca kullanılabilir olduğunu gerektiriyorsa, uzun vadeli yedekleme bekletme ilkesi tekil veritabanları (LTR İlkesi) yapılandırabilirsiniz. Bu yerleşik BT saklama süresi en fazla 10 yıl maksimum 35 gün genişletmenizi sağlar. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
-> [!TIP]
-> Nasıl yapılır kılavuzu için bkz: [yapılandırma ve Azure SQL veritabanı uzun vadeli yedekleme bekletme geri yükleme](sql-database-long-term-backup-retention-configure.md)
->
+Azure portalı veya API kullanarak bir veritabanına LTR İlkesi ekledikten sonra haftalık tam veritabanı yedeklemeleri uzun vadeli bekletme (LTR depolama) ayrı bir RA-GRS depolama kapsayıcısını otomatik olarak kopyalanır. Veritabanınız ile TDE şifrelenmişse yedeklemeleri bekleyen otomatik olarak şifrelenir. SQL veritabanı otomatik olarak kendi zaman damgası ve LTR İlkesi göre süresi dolan Yedeklerinizin silinmesine neden olur. İlke ayarladıktan sonra yedekleme zamanlaması yönetmek ya da eski dosyaları temizleme hakkında endişelenmeniz gerekmez. Görüntüleme, geri yüklemek veya bu yedeklemeler silmek için Azure portal veya PowerShell kullanabilirsiniz.
 
 ## <a name="are-backups-encrypted"></a>Yedeklemeleri şifrelenir?
 
 TDE bir Azure SQL veritabanı için etkinleştirildiğinde, yedeklemeler de şifrelenir. Tüm yeni Azure SQL veritabanları, varsayılan olarak etkin TDE ile yapılandırılır. TDE hakkında daha fazla bilgi için bkz: [saydam veri şifrelemesi ile Azure SQL veritabanı](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+
+## <a name="are-the-automatic-backups-compliant-with-gdpr"></a>Otomatik yedekleme GDPR ile uyumlu olan?
+Yedekleme genel veri koruma düzenleme (GDPR) tabi olan kişisel veriler içeriyorsa, verileri yetkisiz erişimden korumak için Gelişmiş güvenlik önlemleri uygulamak için gereklidir. İle GDPR uymak için yedeklemelere erişmek zorunda kalmadan verileri sahiplerinin verileri isteklerini yönetmek için bir yöntem gerekir.  Kısa vadeli yedeklemeleri için yedekleme kısaltmak için bir çözüm olabilir zaman olan penceresi altında 30 gün için izin verilen veri erişim isteklerini tamamlamak için.  Uzun vadeli yedeklemeleri gerekli olduğunda, yedeklemelerin yalnızca "pseudonymized" verileri depolamak için önerilir. Bir kişi hakkındaki verileri silindi veya güncelleştirilmesi gerekiyorsa, örneğin, bu silme veya var olan yedekleri güncelleştirme gerektirmez. GDPR en iyi uygulamalar hakkında daha fazla bilgi bulabilirsiniz [GDPR uyumluluk için veri yönetimi](https://info.microsoft.com/DataGovernanceforGDPRCompliancePrinciplesProcessesandPractices-Registration.html).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

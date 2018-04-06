@@ -1,11 +1,11 @@
 ---
-title: "Azure IOT Hub cihaz çifti özellikleri (Python) kullanın | Microsoft Docs"
-description: "Azure IOT Hub cihaz çiftlerini cihazları yapılandırmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve cihaz çifti kullanarak bir aygıt yapılandırmasını değiştirir bir hizmet uygulaması uygulamak için Python için Azure IOT SDK'ları kullanın."
+title: Azure IOT Hub cihaz çifti özellikleri (Python) kullanın | Microsoft Docs
+description: Azure IOT Hub cihaz çiftlerini cihazları yapılandırmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve cihaz çifti kullanarak bir aygıt yapılandırmasını değiştirir bir hizmet uygulaması uygulamak için Python için Azure IOT SDK'ları kullanın.
 services: iot-hub
 documentationcenter: .net
-author: msebolt
+author: kgremban
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: d0bcec50-26e6-40f0-8096-733b2f3071ec
 ms.service: iot-hub
 ms.devlang: python
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/12/2018
-ms.author: v-masebo
-ms.openlocfilehash: d0d5a30a76068eb3212124fd14e7ea1616b75708
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: v-masebo;kgremban
+ms.openlocfilehash: e6f4aa61e37769dc4851f8284d07a7991ee38c91
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-desired-properties-to-configure-devices-python"></a>İstenen özelliklerde cihazları (Python) yapılandırmak için kullanın
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]

@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL veritabanı için otomatik olarak ayarlamayı etkinleştirmek | Microsoft Docs"
-description: "Otomatik Azure SQL veritabanınızda kolayca ayarlama etkinleştirebilirsiniz."
+title: Azure SQL veritabanı için otomatik olarak ayarlamayı etkinleştirmek | Microsoft Docs
+description: Otomatik Azure SQL veritabanınızda kolayca ayarlama etkinleştirebilirsiniz.
 services: sql-database
 author: veljko-msft
 manager: drasumic
@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: vvasic
-ms.openlocfilehash: cfee95f5978073277a5351b976156cafefb87c16
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ea5c0e640ac7e635692dafac1f30f377aa79625
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="enable-automatic-tuning"></a>Otomatik ayarlamayı etkinleştirme
 
@@ -22,7 +22,7 @@ Azure SQL veritabanı sürekli sorgularınızı izler ve İş yükünüzün perf
 ## <a name="enable-automatic-tuning-on-server"></a>Otomatik sunucu üzerinde ayarlama etkinleştir
 Sunucu düzeyinde otomatik ayarlama yapılandırmadan "Azure varsayılan olarak" devralmak veya yapılandırma devralmayan seçebilirsiniz. Etkin FORCE_LAST_GOOD_PLAN Azure varsayılan değerler, CREATE_INDEX etkin ve DROP_INDEX devre dışı.
 
-## <a name="configure-automiatic-tuning-e-mail-notifications"></a>E-posta bildirimlerini ayarlama automiatic yapılandırın
+## <a name="configure-automatic-tuning-e-mail-notifications"></a>Otomatik ayarlama e-posta bildirimlerini yapılandırma
 
 Bkz: [otomatik e-posta bildirimlerini ayarlama](sql-database-automatic-tuning-email-notifications.md)
 

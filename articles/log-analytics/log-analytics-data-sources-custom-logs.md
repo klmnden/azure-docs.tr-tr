@@ -1,8 +1,8 @@
 ---
-title: "Azure günlük analizi özel günlüklere toplamak | Microsoft Docs"
-description: "Günlük analizi, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl tanımlanacağını açıklar."
+title: Azure günlük analizi özel günlüklere toplamak | Microsoft Docs
+description: Günlük analizi, hem Windows hem de Linux bilgisayarlarda metin dosyalarından olayları toplayabilir.  Bu makalede yeni bir özel günlük ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl tanımlanacağını açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2017
+ms.date: 04/04/2018
 ms.author: bwren
-ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: bf9acd5d7130a5e35182271f07593adab19d448b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -31,7 +31,7 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 
     YYYY-AA-GG SS: DD:<br>D.M.YYYY HH: MM: SS AM/PM <br>MON DD, YYYY SS: dd:
 
-- Günlük dosyası dosyanın yeni girişlerle burada üzerine döngüsel güncelleştirmeleri izin vermemelidir.
+- Günlük dosyası döngüsel günlüğü veya günlük döndürme, dosyanın yeni girişlerle burada üzerine izin vermemelidir.
 - Günlük dosyası, ASCII veya UTF-8 kodlamasını kullanmanız gerekir.  UTF-16 gibi diğer biçimlere desteklenmez.
 
 >[!NOTE]
@@ -78,7 +78,7 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 | Tüm dosyaları */var/log/audit* günlük ve Linux aracısı üzerinde .txt uzantısı ile başlayan bir ada sahip |/var/log/audit/log\*.txt |
 
 1. Select Windows veya Linux hangi yol biçimi belirtmek için ekliyorsunuz.
-2. ' I tıklatın ve yolunu yazın  **+**  düğmesi.
+2. ' I tıklatın ve yolunu yazın **+** düğmesi.
 3. Tüm ek yollar için bu işlemi yineleyin.
 
 ### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın

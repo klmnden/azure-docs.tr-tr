@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 04/02/2018
 ms.author: magoedte
-ms.openlocfilehash: 8ac3d2d90909d740d28eb05396b915280f58c8ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: e05d620a457edf427c946366a9caca471ac8531e
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure portalında günlük analizi çalışma alanı oluşturma
 Azure günlük analizi çalışma alanı ayarlayabilirsiniz Portalı'nda, bir benzersiz günlük analizi kendi veri deposu, veri kaynakları ve çözümlerle ortamıdır.  Aşağıdaki kaynaklardan veri toplama üzerinde düşünüyorsanız, bu makalede açıklanan adımları gereklidir:
@@ -47,7 +47,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
   * Varsayılan seçili abonelik uygun değilse açılan listeden bağlanacak bir **Abonelik** seçin.
   * İçin **kaynak grubu**, mevcut bir kaynağı kullanmak için seçtiğiniz zaten Kurulum grubu ya da yeni bir tane oluşturun.  
   * Bir seçin **konumu**.  Ek bilgi için bkz. [Log Analytics’in sunulduğu bölgeler](https://azure.microsoft.com/regions/services/).
-  * 2 Nisan 2018 sonra oluşturulan yeni bir abonelik içindeki bir çalışma alanı oluşturuyorsanız, otomatik olarak kullanacak *GB başına* fiyatlandırma planı ve bir fiyatlandırma katmanı seçme seçeneği kullanılamaz.  Nisan 2 önce veya varolan bir EA kayıt bağlı aboneliği için oluşturulmuş var olan bir abonelik için bir çalışma alanı oluşturuyorsanız, üç fiyatlandırma katmanları arasında seçim yapma olanağı vardır.  Ücretsiz katmanı seçmek için bu hızlı başlangıç adımıdır.  Katmanlar hakkında daha fazla bilgi için bkz. [Log Analytics Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/log-analytics/).
+  * 2 Nisan 2018 sonra oluşturulan yeni bir abonelik içindeki bir çalışma alanı oluşturuyorsanız, otomatik olarak kullanacak *GB başına* fiyatlandırma planı ve bir fiyatlandırma katmanı seçme seçeneği kullanılamaz.  Nisan 2 önce veya varolan bir EA kayıt bağlı aboneliği için oluşturulmuş var olan bir abonelik için bir çalışma alanı oluşturuyorsanız, tercih edilen fiyatlandırma katmanınızı seçin.  Katmanlar hakkında daha fazla bilgi için bkz. [Log Analytics Fiyatlandırma Ayrıntıları](https://azure.microsoft.com/pricing/details/log-analytics/).
 
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
 

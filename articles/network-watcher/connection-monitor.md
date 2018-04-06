@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2018
 ms.author: jdial
-ms.openlocfilehash: 0d550d3bda119cfcb9ecc6f852006d5e325fdfa3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0eb10d373f47191933eb1c3c22b779e9e8d6685
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure portalını kullanarak Azure Ağ İzleyicisi ile ağ bağlantılarını izleme
 
@@ -29,7 +29,7 @@ Bu makaledeki adımları gerçekleştirmeden önce aşağıdaki gereksinimleri k
 
 * Ağ İzleyicisi bir bağlantı için izlemek istediğiniz bölgede bir örneği. Zaten yoksa, bir içindeki adımları tamamlayarak oluşturabilirsiniz [Azure Ağ İzleyicisi örnek oluşturmak](network-watcher-create.md).
 * Gelen izlemek için bir VM. Bir VM oluşturma konusunda bilgi almak için bkz bir [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
-* Sahip `AzureNetworkWatcherExtension` öğesinden bir bağlantı izlemek istediğiniz VM yüklenir. Bir Windows VM uzantısı yüklemek için bkz: [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve bir Linux VM bakın uzantıyı yüklemek için [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+* Sahip `AzureNetworkWatcherExtension` öğesinden bir bağlantı izlemek istediğiniz VM yüklenir. Bir Windows VM uzantısı yüklemek için bkz: [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve bir Linux VM bakın uzantıyı yüklemek için [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). İzlemek istediğiniz hedef uç nokta uzantısı gerekli değildir.
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
 

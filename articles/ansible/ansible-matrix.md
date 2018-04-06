@@ -1,18 +1,18 @@
 ---
-title: "Azure için Ansible modülü ve sürüm Matrisi"
-description: "Azure için Ansible modülü ve sürüm Matrisi"
+title: Azure için Ansible modülü ve sürüm Matrisi
+description: Azure için Ansible modülü ve sürüm Matrisi
 ms.service: ansible
-keywords: "ansible, roller, matris, sürüm, azure, devops"
+keywords: ansible, roller, matris, sürüm, azure, devops
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 03/25/2018
 ms.topic: article
-ms.openlocfilehash: f62cc2df9e4ce815c4427b80e271ddc672748e4f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 011cb173ffdecc7a22c2e470209719ccaf6bda58
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible modülü ve sürüm Matrisi
 
@@ -20,7 +20,7 @@ ms.lasthandoff: 02/01/2018
 Ansible doğrudan uzak ana bilgisayarların veya playbooks aracılığıyla yürütülen modül sayısı ile birlikte gelir.
 Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizmetlerini sağlamak Azure Ansible modüllerini listeler. Bu modüller Ansible resmi sürümünü veya Microsoft tarafından yayımlanan aşağıdaki playbook rolleri alabilirsiniz.
 
-| Azure için Ansible Modülü                   |  Ansible 2.4 |  Playbook Role [azure_module](#introduction-to-azuremodule) |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
+| Azure için Ansible Modülü                   |  Ansible 2.4 |  Ansible 2,5 |  Playbook Role [azure_preview_module](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|-----------------------------|-------------------------------------| 
 | **İşlem**                    |           |                          |                                  | 
 | azure_rm_availabilityset                    | Evet          | Evet                         | Evet                                 | 
@@ -54,7 +54,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_appgwroute_facts                   | -            | -                           | Evet                                 |
 | azure_rm_appgwroutetable                    | -            | -                           | Evet                                 |
 | azure_rm_securitygroup                      | Evet          | Evet                         | Evet                                 | 
-| azure_rm_appgwroutetable_facts              | Evet          | Evet                         | Evet                                 | 
+| azure_rm_appgwroutetable_facts              | -            | -                           | Evet                                 | 
 | **Depolama**                    |           |                          |                                  | 
 | azure_rm_storageaccount                     | Evet          | Evet                         | Evet                                 | 
 | azure_rm_storageaccount_facts               | Evet          | Evet                         | Evet                                 | 
@@ -76,7 +76,7 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_functionapp_facts                  | Evet          | Evet                         | Evet                                 | 
 | **Veritabanları**                    |           |                          |                                  | 
 | azure_rm_sqlserver                          | -            | Evet                         | Evet                                 | 
-| azure_rm_sqlserver_facts                    | -            | -                           | Evet                                 | 
+| azure_rm_sqlserver_facts                    | -            | Evet                         | Evet                                 | 
 | azure_rm_sqldatabase                        | -            | Evet                         | Evet                                 | 
 | azure_rm_sqldatabase_facts                  | -            | -                           | Evet                                 | 
 | azure_rm_sqlelasticpool                     | -            | -                           | Evet                                 | 
@@ -100,17 +100,13 @@ Bu makalede, Azure bulut kaynakları gibi sanal makine, ağ ve kapsayıcı hizme
 | azure_rm_postgresqlconfiguration            | -            | -                           | Evet                                 | 
 | azure_rm_postgresqlconfiguration_facts      | -            | -                           | Evet                                 | 
 | **Anahtar Kasası**                    |           |                          |                                  | 
-| azure_rm_keyvault                           | -            | -                           | Evet                                 |
+| azure_rm_keyvault                           | -            | Evet                         | Evet                                 |
 | azure_rm_keyvault_facts                     | -            | -                           | Evet                                 |
-| azure_rm_keyvaultkey                        | -            | -                           | Evet                                 |
-| azure_rm_keyvaultsecret                     | -            | -                           | Evet                                 |
+| azure_rm_keyvaultkey                        | -            | Evet                         | Evet                                 |
+| azure_rm_keyvaultsecret                     | -            | Evet                         | Evet                                 |
 
-## <a name="introduction-to-azuremodule"></a>Introduction to azure_module
-[Azure_module playbook rol](https://galaxy.ansible.com/Azure/azure_modules/) en son değişiklikler ve Azure modüllerden hata düzeltmeleri içerir [devel Ansible deponun dalı](https://github.com/ansible/ansible/tree/devel). Ansible'nın bir sonraki sürümü bekleyemiyorsanız azure_module rolünü yüklemek iyi bir seçimdir.
 
-Azure_module playbook rol üç haftada yayımlanır.
-
-## <a name="introduction-to-azurepreviewmodule"></a>Introduction to azure_preview_module
+## <a name="introduction-to-playbook-role-for-azure"></a>Azure playbook rolü için giriş
 [Azure_preview_module playbook rol](https://galaxy.ansible.com/Azure/azure_preview_modules/) en eksiksiz rolü ve tüm son Azure modüller içerir. Güncelleştirmeleri ve hata düzeltmeleri resmi Ansible yayın'den daha güncel bir şekilde yapılır. Azure kaynak amacıyla sağlama Ansible kullanırsanız, azure_preview_module rolü yüklemek için önerilir.
 
 Azure_preview_module playbook rol üç haftada yayımlanır.

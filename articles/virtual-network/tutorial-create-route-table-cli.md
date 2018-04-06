@@ -1,12 +1,13 @@
 ---
 title: Ağ trafiği - Azure CLI | Microsoft Docs
-description: Azure CLI kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
+description: Bu makalede, Azure CLI kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 871b562fa12b93d1b65e23ca58615d35ef6bb34b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI kullanarak bir yol tablosu ile ağ trafiği yönlendirme
 
 Azure otomatik olarak yollar varsayılan olarak bir sanal ağ içindeki tüm alt ağlar arasında trafiği. Azure'nın geçersiz kılmak için kendi Rota oluşturabilmeniz için varsayılan yönlendirme. Örneğin, bir ağ sanal gereç (NVA) aracılığıyla alt ağlar arasında trafiği yönlendirmek istiyorsanız, özel yollar oluşturma olanağı yararlıdır. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * Rota tablosu oluşturma
-> * Bir yol oluşturma
-> * Birden çok alt ağı ile bir sanal ağ oluşturma
-> * Bir alt ağ için bir yol tablosu ilişkilendirme
-> * Trafiğini yönlendiren bir NVA oluşturma
-> * Sanal makineler (VM) farklı alt dağıtma
-> * Bir NVA aracılığıyla başka bir yolu trafiğini bir alt ağdan
+* Rota tablosu oluşturma
+* Bir yol oluşturma
+* Birden çok alt ağı ile bir sanal ağ oluşturma
+* Bir alt ağ için bir yol tablosu ilişkilendirme
+* Trafiğini yönlendiren bir NVA oluşturma
+* Sanal makineler (VM) farklı alt dağıtma
+* Bir NVA aracılığıyla başka bir yolu trafiğini bir alt ağdan
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -120,7 +120,7 @@ az network vnet subnet update \
 
 Bir NVA yönlendirme, saldırısından veya WAN iyileştirmesi gibi bir ağ işlevi gerçekleştiren bir VM'dir.
 
-Bir NVA oluşturma *DMZ* alt ağ ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Bir VM oluşturduğunuzda, Azure oluşturur ve varsayılan olarak VM, bir ortak IP adresi atar. `--public-ip-address ""` Parametresi oluşturun ve VM için Internet'ten bağlı olması gerektiğinden değil VM, bir ortak IP adresi atamak için Azure'a bildirir. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
+Bir NVA oluşturma *DMZ* alt ağ ile [az vm oluşturma](/cli/azure/vm#az_vm_create). Bir VM oluşturduğunuzda, Azure oluşturur ve varsayılan olarak VM, bir ortak IP adresi atar. `--public-ip-address ""` Parametresi oluşturun ve VM için internet'ten bağlı olması gerektiğinden değil VM, bir ortak IP adresi atamak için Azure'a bildirir. SSH anahtarları varsayılan anahtar konumunda zaten mevcut değilse komutu bunları oluşturur. Belirli bir anahtar kümesini kullanmak için `--ssh-key-value` seçeneğini kullanın.
 
 ```azure-cli-interactive
 az vm create \
@@ -275,9 +275,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş basit bir NVA oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış NVAs çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme tabloları üretim kullanımı için dağıtmadan önce baştan sona ile öğrenmeniz olduğunu önerilir [Azure'da yönlendirme](virtual-networks-udr-overview.md), [Yönet yol tablolarını](manage-route-table.md), ve [Azuresınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş basit bir NVA oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış NVAs çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [bir yol tablosu yönetmek](manage-route-table.md).
 
-Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Ağ erişimi Azure PaaS kaynaklarına erişimi kısıtlayabilir öğrenmek için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](tutorial-restrict-network-access-to-resources-cli.md)
+Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Bilgi edinmek için bkz [PaaS kaynaklarına ağ erişimini kısıtlayabilir](tutorial-restrict-network-access-to-resources-cli.md).

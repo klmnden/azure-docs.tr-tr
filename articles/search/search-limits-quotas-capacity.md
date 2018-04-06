@@ -13,20 +13,24 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 03/26/2018
+ms.date: 04/04/2018
 ms.author: heidist
-ms.openlocfilehash: fb2234e79e8deb98a94068f31a40c8f0b415d7ba
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 77ea75bf66f4b6ae6ec7d6ede4364db6b7fa82a0
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
-Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki bir **serbest**, **temel**, veya **Standart** fiyatlandırma katmanı.
+Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki **serbest**, **temel**, veya **Standart** fiyatlandırma katmanları.
 
-* **Ücretsiz** Azure aboneliğinizle birlikte gelen bir çok kiracılı paylaşılan bir hizmettir. 
-* **Temel** daha küçük ölçekli üretim iş yükleri için özel bilgi işlem kaynakları sağlar.
-* **Standart** daha fazla depolama ve işleme kapasiteye sahip ayrılmış makinelerde her düzeyde çalışır. Standart gelen dört düzeyler: S1, S2, S3 ve S3 yüksek yoğunluklu (S3 HD).
++ **Ücretsiz** Azure aboneliğinizle birlikte gelen bir çok kiracılı paylaşılan bir hizmettir.
+
++ **Temel** daha küçük ölçekli üretim iş yükleri için özel bilgi işlem kaynakları sağlar.
+
++ **Standart** daha fazla depolama ve işleme kapasiteye sahip ayrılmış makinelerde her düzeyde çalışır. Standart gelen dört düzeyler: S1, S2, S3 ve S3 HD.
+
+  S3 yüksek yoğunluklu (S3 HD) belirli iş yükleri için tasarlanan: [çoklu kiracı](search-modeling-multitenant-saas-applications.md) ve büyük miktarlarda küçük dizinleri (dizin başına bir milyon belge, hizmeti başına üç bin dizinler). Bu katman sağlamaz [dizin oluşturucu özelliği](search-indexer-overview.md). S3 HD üzerinde veri alımı dizin kaynağından veri göndermek için API çağrılarını kullanarak anında iletme yaklaşım yararlanın gerekir. 
 
 > [!NOTE]
 > Bir hizmeti belirli bir katman sağlanır. Kapasite sağlamak için katmanları atlama (hiçbir yerinde yükseltme yoktur) yeni bir hizmet sağlama içerir. Daha fazla bilgi için bkz: [bir SKU katmanı seçin veya](search-sku-tier.md). Zaten sağlanan hizmet kapasitesiyle ayarlama hakkında daha fazla bilgi için bkz: [ölçeklendirme sorgu ve dizin oluşturma iş yükleri için kaynak düzeylerini](search-capacity-planning.md).
@@ -35,41 +39,76 @@ Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve ba
 ## <a name="subscription-limits"></a>Abonelik sınırları
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
 
-## <a name="service-limits"></a>Hizmet sınırlamaları
+## <a name="storage-limits"></a>Depolama sınırları
 [!INCLUDE [azure-search-limits-per-service](../../includes/azure-search-limits-per-service.md)]
+
+<a name="index-limits"></a>
 
 ## <a name="index-limits"></a>Dizin sınırları
 
-| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Dizin başına en fazla alan |1000 |100 <sup>1</sup> |1000 |1000 |1000 |1000 |
+| Kaynak | Ücretsiz | Temel&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
+| -------- | ---- | ------------------- | --- | --- | --- | --- |
+| En fazla dizin |3 |5 veya 15 |50 |200 |200 |Bölüm başına 1000 veya hizmet başına 3000 |
+| Dizin başına en fazla alan |1000 |100 |1000 |1000 |1000 |1000 |
 | Dizin başına en fazla Puanlama profilleri |100 |100 |100 |100 |100 |100 |
 | Profil başına en fazla işlevleri |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> temel katman yalnızca SKU dizin başına 100 alanlarının alt sınırına sahip olduğunu.
+<sup>1</sup> geç 2017 15 dizinleri, veri kaynakları ve dizin oluşturucular artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir. Temel katman yalnızca SKU dizin başına 100 alanlarının alt sınırına sahip olur.
+
+## <a name="document-limits"></a>Belge sınırları 
+
+Çoğu bölgede Azure fiyatlandırma katmanlarına (temel, S1, S2, S3, S3 HD) arama tüm hizmetler için sınırsız belge sayısını oluşturmuş Kasım/aralık 2017 sonra. Bu bölüm, burada sınırları uygulamak bölgeler ve hizmet etkilenir olup olmadığını belirleme tanımlar. 
+
+Hizmetinizi belge limitleri olup olmadığını belirlemek için hizmetinizin genel bakış sayfasında kullanımı kutucuğu denetleyin. Belge sayıları olan sınırsız ya da konu katmanını temel alan bir sınırı.
+
+  ![Kullanımı kutucuğu](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+### <a name="regions-and-services-having-document-limits"></a>Bölgeler ve belge limitleri sahip Hizmetleri
+
+Sınırları sahip Hizmetleri geç 2017 önce ya da oluşturulan veya Azure arama hizmetleri barındırmak için kapasite alt kümeleri kullanarak veri merkezlerindeki çalışmıyor. Etkilenen veri merkezleri aşağıdaki bölgelerde şunlardır:
+
++ Avustralya Doğu
++ Doğu Asya
++ Orta Hindistan
++ Japonya Batı
++ Batı Orta ABD
+
+Hizmetlerde belge limitleri tabi aşağıdaki maksimum sınırları Uygula:
+
+|  Ücretsiz | Temel | S1 | S2 | S3 | S3&nbsp;HD |
+|-------|-------|----|----|----|-------|
+|  10,000 |1 milyon |Bölüm başına 15 milyon veya hizmet başına 180 milyon |Bölüm başına 60 milyon veya hizmet başına 720 milyon |Bölüm başına 120 milyon veya hizmet başına 1.4 milyar |Dizin başına 1 milyon veya bölüm başına 200 milyon |
+
+> [!Note] 
+> Geç 2017 sonra oluşturulan S3 yüksek yoğunluklu Hizmetleri için 200 milyon belgenin bölüm başına 1 milyondan fazla belge başına dizin sınırı kalır ancak kaldırılmıştır.
+
+
+### <a name="document-size-limits-per-api-call"></a>API çağrısı başına belge boyutu sınırları
+
+Bir dizin API çağrılırken en fazla belge yaklaşık 16 MB boyutudur.
+
+Belge, aslında bir dizin API istek gövdesi boyutu sınırı boyutudur. Dizin API için aynı anda birden çok belge toplu geçirebilirsiniz olduğundan, boyut sınırını gerçekçi kaç belgeleri toplu işlemde bağlıdır. Bir toplu işin için tek bir belgenin, JSON 16 MB maksimum belge boyutudur.
+
+Belge boyutu tutun, sorgulanabilir olmayan verileri istekten dışlamak unutmayın. Görüntüleri ve diğer ikili veriler doğrudan sorgulanabilir değildir ve dizinde saklanan döndürmemelidir. Arama sonuçlarında sorgulanabilir olmayan verilerini tümleştirmek için bir URL referansını kaynağa depolar yapılamayan bir alan tanımlayın.
 
 ## <a name="indexer-limits"></a>Dizin Oluşturucu sınırları
 
-| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |YOK <sup>1</sup> |
-| En fazla çalışma süresini | 1-3 dakika <sup>2</sup> |24 saat |24 saat |24 saat |24 saat |YOK <sup>1</sup> |
-| BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |YOK <sup>1</sup> |
-| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 milyon |4 milyon |4 milyon |YOK <sup>1</sup> |
+Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları ve dizin oluşturucular daha yüksek bir sınıra sahiptir.
 
-<sup>1</sup> S3 HD dizin oluşturucular şu anda desteklemiyor. Bu özellik için Acil bir gereksiniminiz varsa Azure desteğine başvurun.
+| Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
+| En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |
+| En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |
+| Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Yok |
+| En fazla çalışma süresini | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
+| BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |
+| Blob indexer: maximum characters of content extracted from a blob |32,000 |64,000 |4 milyon |4 milyon |4 milyon |Yok |
 
-<sup>2</sup> ücretsiz katmanı için maksimum yürütme süresini dizin oluşturucu olan 3 dakika blob kaynaklarının ve diğer tüm veri kaynakları 1 dakikadır.
+<sup>1</sup> ücretsiz hizmetlere sahip dizin oluşturucu maksimum yürütme süresi 3 dakika blob kaynaklarının ve diğer tüm veri kaynakları için 1 dakika.
 
+<sup>2</sup> geç 2017 15 dizinleri, veri kaynakları ve dizin oluşturucular artan bir sınırı oluşturduktan sonra oluşturulan temel Hizmetleri. Daha önce oluşturduğunuz Hizmetleri 5 sahiptir.
 
-## <a name="document-size-limits"></a>Belge boyutu sınırları
-| Kaynak | Ücretsiz | Temel | S1 | S2 | S3 | S3 HD |
-| --- | --- | --- | --- | --- | --- | --- |
-| Dizin API başına belgenin boyutu |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |<16 MB |
-
-Bir dizin API çağrılırken en fazla belge boyutuna başvuruyor. Belge, aslında bir dizin API istek gövdesi boyutu sınırı boyutudur. Dizin API için aynı anda birden çok belge toplu geçirebilirsiniz olduğundan, boyut sınırını gerçekte kaç belgeleri toplu işlemde bağlıdır. Bir toplu işin için tek bir belgenin, JSON 16 MB maksimum belge boyutudur.
-
-Belge boyutu tutun, sorgulanabilir olmayan verileri istekten dışlamak unutmayın. Görüntüleri ve diğer ikili veriler doğrudan sorgulanabilir değildir ve dizinde saklanan döndürmemelidir. Arama sonuçlarında sorgulanabilir olmayan verilerini tümleştirmek için bir URL referansını kaynağa depolar yapılamayan bir alan tanımlayın.
+<sup>3</sup> S3 HD Hizmetleri dizin oluşturucu desteği dahil değildir.
 
 ## <a name="queries-per-second-qps"></a>Sorgular / saniye (QPS)
 

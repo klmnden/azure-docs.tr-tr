@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c41c8c9f8fd9302c610ce356b0485e33ea3c967d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: c4c68df9650fa300ea20ea0621c732cb96d167ef
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>Tanılama değerlendirme ve toplu çözümlerini izleme olayları günlüğe kaydedin
 
@@ -97,7 +97,7 @@ Tanılama günlük olaylarının bir Azure depolama hesabına depolama yanı sı
   Yüksek düzeyde ölçeklenebilir bir veri alım, olay hub'ları için tanılama olayları toplu iş akışı. Olay hub'ları sonra dönüştürmek ve tüm gerçek zamanlı analiz sağlayıcısı kullanarak depolamak saniye başına milyonlarca olayı işleyebilen.
 * [Günlük analizi kullanarak Azure tanılama günlüklerini çözümleme](../log-analytics/log-analytics-azure-storage.md)
   
-  Tanılama günlüklerinize günlük buradan Operations Management Suite (OMS) Portalı'nda çözümlemek, veya Power BI veya Excel'den analiz için bunları dışarı aktarmak analizi gönderin.
+  Tanılama günlüklerinize günlük buradan bunları Azure portalında analiz, veya Power BI veya Excel'den analiz için bunları dışarı aktarmak analizi gönderin.
 
 [pool_create]: https://msdn.microsoft.com/library/azure/mt743615.aspx
 [pool_delete_start]: https://msdn.microsoft.com/library/azure/mt743610.aspx

@@ -4,7 +4,7 @@ description: Önbelleğe alma verileri daha hızlı bir şekilde erişilebilir i
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: akucer
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
-ms.author: v-deasim
-ms.openlocfilehash: 26a0478f8713cb3584045f59c181c0a38331ea97
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: rli; v-deasim
+ms.openlocfilehash: 88c1b98a9dcaa1d22cdc1be3853b1fa7116c8a48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-caching-works"></a>Önbelleğe alma nasıl işler?
 
@@ -64,7 +64,7 @@ Bir kaynak eski olarak değerlendirilir, kaynak sunucunun istedi, yani doğrulam
 ## <a name="cache-directive-headers"></a>Önbellek yönergesi üstbilgileri
 
 > [!IMPORTANT]
-> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. İçin **Azure CDN Verizon standardı** ve **Azure CDN Akamai standardı** profilleri, nasıl Azure CDN uç kullanarak bu üstbilgileri değerlendirir ayarlayabilirsiniz [CDN önbelleği kurallarını](cdn-caching-rules.md)önbelleğe almayı etkinleştirmek için. İçin **Azure CDN Verizon Premium'a** yalnızca profilleri, kullandığınız [kurallar altyapısı](cdn-rules-engine.md) önbelleğe almayı etkinleştirmek için.
+> Varsayılan olarak, DSA için en iyi hale getirilmiş bir Azure CDN uç noktası önbellek yönergesi üstbilgileri yoksayar ve önbelleğe alma atlar. İçin **verizon'dan Azure CDN standart** ve **akamai'den Azure CDN standart** profilleri, nasıl Azure CDN uç kullanarak bu üstbilgileri değerlendirir ayarlayabilirsiniz [CDN önbelleği kurallarını](cdn-caching-rules.md)önbelleğe almayı etkinleştirmek için. İçin **verizon'dan Azure CDN Premium** yalnızca profilleri, kullandığınız [kurallar altyapısı](cdn-rules-engine.md) önbelleğe almayı etkinleştirmek için.
 
 Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki HTTP önbellek yönergesi üstbilgileri destekler.
 
@@ -95,14 +95,14 @@ Azure CDN önbellek süresi ve önbellek paylaşımı tanımlayın aşağıdaki 
 Önbellek eski olduğunda, HTTP önbellek doğrulayıcıları önbelleğe alınan bir dosya sürümü kaynak sunucu sürüm ile karşılaştırmak için kullanılır. **Verizon'dan Azure CDN** destekler `ETag` ve `Last-Modified` varsayılan olarak, doğrulayıcıları sırada **akamai'den Azure CDN** yalnızca destekler `Last-Modified` varsayılan olarak.
 
 **ETag:**
-- **Verizon'dan Azure CDN** kullanan `ETag` sırasında varsayılan olarak **akamai'den Azure CDN** desteklemez.
+- **Verizon'dan Azure CDN** kullanan `ETag` varsayılan olarak, sırada **akamai'den Azure CDN** desteklemez.
 - `ETag` her dosya ve bir dosya sürümü için benzersiz bir dizeye tanımlar. Örneğin, `ETag: "17f0ddd99ed5bbe4edffdd6496d7131f"`.
 - HTTP 1.1 içinde sunulmuştur ve daha güncel `Last-Modified`. Son değiştirilme tarihini belirlemek zor olduğu durumlarda faydalıdır.
 - Güçlü doğrulama ve zayıf doğrulama destekler; Ancak, Azure CDN yalnızca güçlü doğrulama destekler. Güçlü doğrulama için iki kaynak Beyanları bayt için bayt olmalıdır aynı. 
 - Bir önbellek kullanan bir dosyayı doğrular `ETag` göndererek bir `If-None-Match` üstbilgi bir veya daha fazla `ETag` istekte doğrulayıcıları. Örneğin, `If-None-Match: "17f0ddd99ed5bbe4edffdd6496d7131f"`. Sunucunun sürüm eşleşiyorsa bir `ETag` Doğrulayıcı listesinde, gönderdiği durum kodu 304 (değişiklik) yanıt olarak. Sürüm farklıysa, sunucu durum kodu 200 (Tamam) ve güncelleştirilmiş kaynak yanıt verir.
 
 **Son değiştirilen:**
-- İçin **yalnızca verizon'dan Azure CDN**, `Last-Modified` kullanılır `ETag` HTTP yanıtı parçası değil. 
+- İçin **verizon'dan Azure CDN** yalnızca `Last-Modified` kullanılır `ETag` HTTP yanıtı parçası değil. 
 - Kaynak son değiştirilen kaynak sunucunun belirledi saat ve tarihi belirtir. Örneğin, `Last-Modified: Thu, 19 Oct 2017 09:28:00 GMT`.
 - Bir önbellek dosyası kullanarak doğrular `Last-Modified` göndererek bir `If-Modified-Since` sahip bir tarih ve saat istekteki üstbilgi. Kaynak sunucu, tarihle karşılaştırır `Last-Modified` son kaynak üstbilgisi. Kaynağın belirtilen zamanından bu yana değiştirilmemiş, sunucu durum kodu 304 (değişiklik) yanıt olarak döndürür. Kaynak değiştirilirse sunucu durumu döndürür kod 200 (Tamam) ve güncelleştirilmiş kaynak.
 
@@ -123,7 +123,7 @@ Aşağıdaki tabloda, önbelleğe alma davranışı Azure CDN ürünü ve bunlar
 |                    | Verizon: Genel web teslim | Verizon: DSA | Akamai: Genel web teslim | Akamai: DSA | Akamai: büyük dosya indirme | Akamai: genel veya medya VOD akışı |
 |--------------------|--------|------|-----|----|-----|-----|
 | **Uy kaynağı**   | Evet    | Hayır   | Evet | Hayır | Evet | Evet |
-| **CDN önbellek süresi** | 7 gün | None | 7 gün | None | 1 gün | 1 yıl |
+| **CDN önbellek süresi** | 7 gün | Hiçbiri | 7 gün | None | 1 gün | 1 yıl |
 
 **Kaynak dikkate**: vermenizin belirtir [önbellek yönergesi üstbilgileri desteklenen](#http-cache-directive-headers) kaynak sunucudan HTTP yanıt varsa.
 

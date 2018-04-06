@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: masaran;trinadhk;pullabhk;markgal;adigan
-ms.openlocfilehash: 95c11de3a1aed680d37dd86c1783ac8bee7ffec3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3b37afc9d768313f6cc202eeecca22528cc57b07
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup Sunucusu kullanarak iş yüklerini yedeklemeye hazırlama
 > [!div class="op_single_selector"]
@@ -183,7 +183,7 @@ Ayıklama işlemi tamamlandı, istemcinin ayıklanan başlatmak için kutusunu i
 2. Hoş Geldiniz ekranında tıklatın **sonraki** düğmesi. Bu, olanak sürer *önkoşul denetler* bölümü. Bu ekranda tıklatın **denetleyin** Azure yedekleme sunucusu için donanım ve yazılım önkoşullarının karşılanıp karşılanmadığını varsa belirlemek için. Tüm Önkoşullar başarıyla karşılanıyorsa makine gereksinimlerini karşıladığını belirten bir ileti görürsünüz. Tıklayın **sonraki** düğmesi.
 
     ![Azure yedekleme sunucusu - Hoş Geldiniz ve önkoşulları denetleyin](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Microsoft Azure yedekleme sunucusu SQL Server Standard gerektirir ve uygun SQL Server ikili gereken Azure yedekleme sunucusu yükleme paketi ile birlikte gelen sunar. Yeni bir Azure yedekleme sunucusu yüklemesine başlatırken seçeneğini seçmeniz gerekir **yeni SQL Server örneği bu kurulum ile yükleme** tıklatıp **denetle ve Yükle** düğmesi. Önkoşullar başarıyla yüklendikten sonra tıklayın **sonraki**.
+3. Microsoft Azure yedekleme sunucusu SQL Server Standard gerektirir. Ayrıca, kendi SQL kullanmak istemiyorsanız gerekli uygun SQL Server ikili dosyaları ile Azure yedekleme sunucusu yükleme paketi ile birlikte gelen gelir. Yeni bir Azure yedekleme sunucusu yüklemesine başlatırken seçeneğini seçmeniz gerekir **yeni SQL Server örneği bu kurulum ile yükleme** tıklatıp **denetle ve Yükle** düğmesi. Önkoşullar başarıyla yüklendikten sonra tıklayın **sonraki**.
 
     ![Azure yedekleme sunucusu - SQL denetimi](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 

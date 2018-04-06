@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı tek veritabanı | Microsoft Docs"
-description: "Hizmet katmanı, performans düzeyi ve tek bir Azure SQL veritabanı için storagea miktarı yönetin."
+title: Azure SQL veritabanı tek veritabanı | Microsoft Docs
+description: Hizmet katmanı, performans düzeyi ve tek bir Azure SQL veritabanı için storagea miktarı yönetin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 04/04/2018
 ms.author: carlrab
-ms.openlocfilehash: 167a72ae55052b8ac1dfe8f032f136a9bf8bcedf
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 87cd4c565a7429ffb7096034823a1f5ff49df195
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Azure SQL Database tek bir veritabanı için kaynakları yönetme
 
@@ -34,7 +34,7 @@ Tıklatın **genel bakış** izlemek ve/veya devam eden işlemi iptal edin.
 ![İşlemi iptal edin](./media/sql-database-single-database-resources/cancel-operation.png)
 
 > [!IMPORTANT]
-> Gözden geçirme [P11 ve P15 veritabanları ile en fazla 4 TB boyut, geçerli sınırlamalar](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) P11 veya P15 bir hizmet katmanı seçerken.
+> Gözden geçirme [P11 ve P15 veritabanları ile en fazla 4 TB boyut, geçerli sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) P11 veya P15 bir hizmet katmanı seçerken.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>PowerShell kullanarak tek veritabanı kaynaklarını yönetme

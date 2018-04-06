@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI örnekleri | Microsoft Docs"
-description: "Azure CLI örnekleri"
+title: Azure CLI örnekleri | Microsoft Docs
+description: Azure CLI örnekleri
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ec76e211062890b4325b5c2cb1cf186ac7b89c55
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 938e61a7ab831b6f0632d0426afe4d0f947af223
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Linux sanal makineleri için Azure CLI örnekleri
 
@@ -37,7 +37,7 @@ Aşağıdaki tablo, Azure CLI’si kullanılarak oluşturulan bash komut dosyala
 | [WordPress yüklü bir VM oluşturma](./../scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fcli%2fazure%2ftoc.json) | Bir sanal makine oluşturur ve WordPress yüklemek için Azure özel betik uzantısı kullanır. |
 | [Yönetilen bir işletim sistemi disk, bir VM oluşturma](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json) | Varolan bir yönetilen Disk işletim sistemi diski olarak ekleyerek bir sanal makine oluşturur. |
 | [Bir anlık görüntüden bir VM oluşturma](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | Bir sanal makine bir anlık görüntüden ilk yönetilen disk anlık görüntüden oluşturarak ve ardından yeni yönetilen işletim sistemi diski olarak diskindeki oluşturur. |
-|**Depolama yönetin**||
+|**Depolamayı yönetme**||
 | [Bir VHD'den yönetilen disk oluştur](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fcli%2fmodule%2ftoc.json) | Yönetilen bir disk, işletim sistemi diski olarak özel bir VHD veya VHD veri diski olarak veri oluşturur.  |
 | [Bir anlık görüntüden yönetilen bir disk oluşturma](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | Yönetilen bir disk anlık görüntüden oluşturur. |
 | [Aynı veya farklı bir abonelik yönetilen diske kopyalama](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Kopya disk aynı veya farklı bir abonelik için yönetilen ancak üst ile aynı bölgede disk yönetilen. 

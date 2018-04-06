@@ -1,13 +1,13 @@
 ---
-title: "Bir Linux VM Azure CLI 1.0 ile yeniden boyutlandırmak nasıl | Microsoft Docs"
-description: "Yukarı veya Linux sanal makine, VM boyutunu değiştirerek ölçeklendirmek nasıl."
+title: Bir Linux VM Azure CLI 1.0 ile yeniden boyutlandırmak nasıl | Microsoft Docs
+description: Yukarı veya Linux sanal makine, VM boyutunu değiştirerek ölçeklendirmek nasıl.
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/16/2016
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72f5a3cd6463befd5108040ed166984281bfc5f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7bb5ad082336c92a397f2590d9b06e94552c8744
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="resize-a-linux-vm-with-azure-cli-10"></a>Bir Linux VM Azure CLI 1.0 ile yeniden boyutlandırın
 

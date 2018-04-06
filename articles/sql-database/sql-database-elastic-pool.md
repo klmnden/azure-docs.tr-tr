@@ -1,46 +1,46 @@
 ---
-title: "Esnek havuzları Azure ile birden çok SQL veritabanlarını yönetme | Microsoft Docs"
-description: "Yönetmek ve birden çok SQL veritabanı - ölçeklendirme yüzlerce ve binlik - esnek havuzlarını kullanarak. Bir fiyat kaynakların gerektiğinde dağıtabilirsiniz."
-keywords: "birden çok veritabanı, veritabanı kaynakları, veritabanı performansı"
+title: Esnek havuzları Azure ile birden çok SQL veritabanlarını yönetme | Microsoft Docs
+description: Yönetmek ve birden çok SQL veritabanı - ölçeklendirme yüzlerce ve binlik - esnek havuzlarını kullanarak. Bir fiyat kaynakların gerektiğinde dağıtabilirsiniz.
+keywords: birden çok veritabanı, veritabanı kaynakları, veritabanı performansı
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 03/02/2018
-ms.author: carlrab
+ms.date: 04/04/2018
+ms.author: ninarn
 ms.topic: article
-ms.openlocfilehash: 7e819e50db4c57b47f9aa7a2cff7a2d62be37f08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6c2e4e7f99aeec3028e8df520dc6896234b5c969
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım
 
-SQL Database esnek havuzlar, yönetme ve değişen ve tahmin edilemeyen kullanım taleplerini sahip birden çok veritabanı ölçekleme için basit ve düşük maliyetli bir çözümdür. Esnek havuzdaki veritabanları tek bir Azure SQL veritabanı sunucusuna olan ve kaynak kümesi sayısı paylaşan ([esnek veritabanı işlem birimleri](sql-database-what-is-a-dtu.md) (Edtu'lar)) bir küme fiyatla. Azure SQL Veritabanındaki elastik havuzlar, SaaS geliştiricilerinin bir veritabanı grubuna ait fiyat performansını belirtilen bütçe dahilinde iyileştirmesini ve aynı zamanda her veritabanı için performans Elastikliği sunmasını sağlar. 
+SQL Database esnek havuzlar, yönetme ve değişen ve tahmin edilemeyen kullanım taleplerini sahip birden çok veritabanı ölçekleme için basit ve düşük maliyetli bir çözümdür. Esnek havuzdaki veritabanları tek bir Azure SQL veritabanı sunucusuna olan ve kaynak kümesi fiyata kümesi sayısı paylaşın. Azure SQL Veritabanındaki elastik havuzlar, SaaS geliştiricilerinin bir veritabanı grubuna ait fiyat performansını belirtilen bütçe dahilinde iyileştirmesini ve aynı zamanda her veritabanı için performans Elastikliği sunmasını sağlar.
 
-## <a name="what-are-sql-elastic-pools"></a>SQL esnek havuzu nelerdir? 
+## <a name="what-are-sql-elastic-pools"></a>SQL esnek havuzu nelerdir?
 
-SaaS geliştiricileri, birden fazla veritabanından oluşan büyük ölçekli veri katmanlarının üzerinde uygulamalar oluşturur. Her müşteri için tek veritabanı sağlanması yaygın bir uygulama modelidir. Ancak, farklı müşteriler genellikle değişen ve tahmin edilemeyen kullanım modellerine sahiptir ve her veritabanı kullanıcısının kaynak gereksinimlerini tahmin etmek zordur. Geleneksel olarak, iki seçenek vardı: 
+SaaS geliştiricileri, birden fazla veritabanından oluşan büyük ölçekli veri katmanlarının üzerinde uygulamalar oluşturur. Her müşteri için tek veritabanı sağlanması yaygın bir uygulama modelidir. Ancak, farklı müşteriler genellikle değişen ve tahmin edilemeyen kullanım modellerine sahiptir ve her veritabanı kullanıcısının kaynak gereksinimlerini tahmin etmek zordur. Geleneksel olarak, iki seçenek vardı:
 
 - En yüksek kullanımı ve ödeme, üzerinden dayalı kaynakları aşırı sağlamak veya
-- Maliyeti, performansı ve müşteri memnuniyetini yükselmeleri sırasında ödün verme pahasına kaydetmek için eksik sağlama. 
+- Maliyeti, performansı ve müşteri memnuniyetini yükselmeleri sırasında ödün verme pahasına kaydetmek için eksik sağlama.
 
 Esnek havuzlar veritabanları ihtiyaç duydukları gereksinim performans kaynakları alma sağlayarak bu sorunu çözün. Bunlar, tahmin edilebilir bir bütçe içinde basit bir kaynak ayırma mekanizması sağlar. Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Elastic-databases-helps-SaaS-developers-tame-explosive-growth/player]
 >
 
-Esnek havuzlar etkinleştirmek satın almak Geliştirici [esnek veritabanı işlem birimleri](sql-database-what-is-a-dtu.md) (Edtu'lar) tahmin edilemeyen kullanım dönemlerini uyum sağlamak için birden çok veritabanı tarafından ayrı veritabanlarını tarafından paylaşılan bir havuz için. Bir havuza yönelik eDTU gereksinimi, veritabanlarının toplam kullanımına göre belirlenir. Havuz için kullanılabilen eDTU sayısı, geliştirici bütçesine göre denetlenir. Geliştirici, veritabanlarını havuza ekler, veritabanları için en düşük ve en yüksek eDTU’ları ayarlar ve ardından bütçeyi temel alarak havuzun eDTU değerini ayarlar. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
+Esnek havuzlar kaynakları tahmin edilemeyen kullanım dönemlerini uyum sağlamak için birden çok veritabanı tarafından ayrı veritabanlarını tarafından paylaşılan bir havuz için satın almak Geliştirici etkinleştirin. Havuz ya da temel için kaynaklarını yapılandırabilirsiniz [DTU tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#dtu-based-purchasing-model) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview). Bir havuz için kaynak gereksinimi veritabanlarını toplama kullanımı tarafından belirlenir. Kaynak havuzunun kullanımına miktarını Geliştirici bütçe tarafından denetlenir. Geliştirici yalnızca veritabanları havuzuna ekler, veritabanları için minimum ve maksimum kaynakları ayarlar (minumumn ve maksimum Dtu veya minimum veya maksimum vCores seçiminizi resourceing modeline bağlı olarak) ve kaynaklarına göre havuzunun ayarlar kendi bütçe. Geliştirici, hizmetini zayıf bir başlangıçtan sürekli artan ölçekte olgun bir işletmeye sorunsuzca büyütmek için havuzları kullanabilir.
 
-Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Veritabanı, yoğun bir yük altındayken talebi karşılamak üzere daha fazla eDTU kullanabilir. Yükü az olan veritabanları daha az eDTU kullanır ve yükü bulunmayan veritabanları eDTU kullanmaz. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir. Var olan havuza veritabanı kesintisi yaşanmadan ek eDTU’lar eklenebilir ancak veritabanlarının yeni eDTU ayrımı için ek işlem kaynaklarını sunmak üzere taşınması gerekebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir. Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
+Havuz içerisinde tek tek veritabanlarına belirli parametreler içinde otomatik olarak ölçeklendirme esnekliği tanınır. Ağır yük altında bir veritabanı talebi karşılamak üzere daha fazla kaynak kullanabilir. Hafif yükleri altındaki veritabanları daha az tüketmesine ve veritabanları hiçbir yük altında hiçbir kaynaklarını tüketebilir. Tek tek veritabanları yerine tüm havuz için kaynak sağlamak, yönetim görevlerinizi basitleştirir. Ayrıca, havuza yönelik bütçeniz tahmin edilebilir bir hale gelir. Veritabanları için yeni eDTU ayırma ek işlem kaynaklarını sağlamaya taşınması gerekebilir dışında hiçbir veritabanı kapalı kalma süresi ile var olan bir havuzu için ek kaynaklar eklenebilir. Ek Kaynaklar artık gerekirse benzer şekilde, bunlar herhangi bir noktada mevcut bir havuzdan zamanında kaldırılabilir. Ayrıca havuza veritabanları ekleyebilir veya havuzdan veritabanları kaldırabilirsiniz. Bir veritabanı kaynakları tahmin edilebilir bir şekilde normalden az kullanıyorsa bu veritabanını havuzdan çıkarın.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Ne zaman bir SQL Database esnek havuzunu dikkat etmeliyim?
 
 Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için çok uygundur. Söz konusu kullanım düzeni, belirli bir veritabanı için ortalama düşük düzeyde kullanım ile nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir.
 
-Bir havuza ekleyebileceğiniz veritabanı sayısı arttıkça, tasarruflarınız artar. Uygulama kullanım modelinize bağlı olarak, yalnızca iki S3 veritabanı ile tasarruf edildiğini görmek mümkündür. 
+Bir havuza ekleyebileceğiniz veritabanı sayısı arttıkça, tasarruflarınız artar. Uygulama kullanım modelinize bağlı olarak, yalnızca iki S3 veritabanı ile tasarruf edildiğini görmek mümkündür.
 
 Aşağıdaki bölümler veritabanı koleksiyonunuzun bir havuzda olmasının yararlarını nasıl değerlendireceğini anlamanıza yardımcı olabilir. Örneklerde Standart havuzlar kullanılmaktadır, ancak aynı ilkeler Temel ve Premium havuzlar için de geçerlidir.
 
@@ -54,7 +54,7 @@ Gösterilen beş dakikalık süre boyunca Veritabanı1, 90 DTU’ya kadar yükse
 
 Havuz bu kullanılmayan DTU’ların birden fazla veritabanında paylaşılmasına olanak tanır ve böylece gereken DTU ile genel maliyeti azaltır.
 
-Önceki örnekten devam ederek, Veritabanı1 ile benzer kullanım modellerine sahip ek veritabanları olduğunu varsayalım. Aşağıdaki ilk iki şekilde, kullanımın zaman içinde örtüşmeyen niteliğini göstermek üzere dört veritabanı ile 20 veritabanının kullanımı aynı grafiğe yerleştirilmiştir:
+Önceki örnekten devam ederek, Veritabanı1 ile benzer kullanım modellerine sahip ek veritabanları olduğunu varsayalım. Sonraki iki resimde içinde dört veritabanları ve 20 veritabanları kullanımını katmanlı kullanımlarını DTU tabanlı satın alma modeli kullanarak zamanla çakışmayan doğasına göstermek için aynı grafik üzerine:
 
    ![bir havuz için uygun kullanım modeli ile dört veritabanı](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -64,56 +64,60 @@ Havuz bu kullanılmayan DTU’ların birden fazla veritabanında paylaşılması
 
 Bu örnek aşağıdaki nedenlerle idealdir:
 
-* Bir veritabanındaki en yüksek kullanım ile ortalama kullanım arasında büyük farklar mevcuttur. 
+* Bir veritabanındaki en yüksek kullanım ile ortalama kullanım arasında büyük farklar mevcuttur.
 * Bir veritabanının en yüksek kullanımı zamanın farklı noktalarında gerçekleşir.
 * eDTU'lar birden fazla veritabanı arasında paylaşılır.
 
-Bir havuzun fiyatı, havuz eDTU'larının bir işlevidir. Bir havuzun eDTU birim fiyatı, tek veritabanının DTU birim fiyatından 1,5 kat fazladır. Bununla birlikte **havuz eDTU'ları çok sayıda veritabanı tarafından paylaşılabilir ve toplam eDTU sayısı gereklidir**. Fiyatlandırma ve eDTU paylaşımındaki bu farklılıklar, havuzların sağlayabileceği tasarruf potansiyelinin temelini oluşturur. 
+Bir havuzun fiyatı, havuz eDTU'larının bir işlevidir. Bir havuzun eDTU birim fiyatı, tek veritabanının DTU birim fiyatından 1,5 kat fazladır. Bununla birlikte **havuz eDTU'ları çok sayıda veritabanı tarafından paylaşılabilir ve toplam eDTU sayısı gereklidir**. Fiyatlandırma ve eDTU paylaşımındaki bu farklılıklar, havuzların sağlayabileceği tasarruf potansiyelinin temelini oluşturur.
 
 Veritabanı sayısı ve veritabanı kullanımıyla ilgili aşağıdaki temel kurallar, bir havuzun tek veritabanları için kullanılan performans düzeylerine kıyasla daha az maliyet doğurmasını sağlar.
 
 ### <a name="minimum-number-of-databases"></a>En az veritabanı sayısı
 
-Tek veritabanı performans düzeyi DTU’larının toplamı, havuz için gerekli eDTU’lardan 1,5 kat fazla ise esne havuz daha uygun maliyetlidir. Kullanılabilir boyutlar için bkz. [Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Tek veritabanları için kaynakları miktarını birden fazla 1.5 havuzu için gereken kaynakları x ise, bir esnek havuz daha uygun maliyetli olması.
 
-***Örnek***<br>
+***DTU tabanlı satın alma model örneği***<br>
 100 eDTU havuzun tek veritabanı performans düzeylerini kullanmaya kıyasla daha uygun maliyetli olması için en az iki S3 veritabanı veya en az 15 adet S0 veritabanı gereklidir.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Eşzamanlı olarak en üst seviyeye çıkan en fazla veritabanı sayısı
 
-Bir havuzdaki tüm veritabanları, eDTU’ları paylaşarak, tek veritabanı performans düzeylerini kullanırken mevcut olan sınıra kadar eDTU’ları eşzamanlı olarak kullanamaz. Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı azaldıkça, havuz eDTU’sunun ayarlanabileceği düzey azalır ve havuz daha uygun maliyetli hale gelir. Genel olarak, havuzdaki veritabanlarının en fazla 2/3’ü (veya %67’si) eDTU sınırına eşzamanlı olarak ulaşmalıdır.
+Kaynakları paylaşarak, bir havuzdaki tüm veritabanları aynı anda kullanılabilir sınırına kadar kaynakları tek veritabanları için kullanabilirsiniz. Daha az veritabanları, aynı anda yoğun saatler, düşük havuz kaynakları ayarlanabilir ve daha düşük maliyetli havuzu olur. Genel, veritabanlarının havuzdaki geçmeyen 2/3 (veya % 67) aynı anda kaynakları sınırlarını tepe.
 
-***Örnek***<br>
+***DTU tabanlı satın alma model örneği***<br>
 200 eDTU içeren bir havuzdaki üç S3 veritabanının maliyetlerini azaltmak için, bu veritabanlarının en fazla iki tanesi kullanım sırasında en üst seviyeye çıkabilir. Aksi takdirde, bu dört S3 veritabanının ikiden fazlası eşzamanlı olarak en üst seviyeye çıkarsa, havuzun boyutu 200 eDTU’dan fazla olmak zorundadır. Havuz 200 eDTU’dan fazlasına yeniden boyutlandırılırsa, maliyetin tek veritabanı performans düzeylerinden düşük tutulması için havuza daha fazla S3 veritabanı eklenmesi gerekir.
 
 Bu örnek, havuzdaki diğer veritabanlarının kullanımını dikkate almaz. Herhangi bir zamanda tüm veritabanlarının kullanımı aynı olursa, veritabanlarının 2/3’ünden (veya %67) daha azı eşzamanlı olarak en üst seviyeye çıkabilir.
 
-### <a name="dtu-utilization-per-database"></a>Veritabanı başına DTU kullanımı
+### <a name="resource-utilization-per-database"></a>Veritabanı başına kaynak kullanımı
 Bir veritabanının en yüksek ile ortalama kullanımı arasında büyük bir fark olması, uzun süreli düşük kullanımı ve kısa süreli yüksek kullanımı ifade eder. Bu kullanım modeli, veritabanları arasında kaynakların paylaşılması için idealdir. Bir veritabanının en yüksek kullanımı ortalama kullanımından 1,5 kat fazla olduğunda, veritabanı havuz için düşünülmelidir.
 
-***Örnek***<br>
+***DTU tabanlı satın alma model örneği***<br>
 En yüksek kullanımı 100 DTU’ya varan ve ortalama olarak en fazla 67 DTU kullanan bir S3 veritabanı, bir havuzda eDTU paylaşmak için iyi bir adaydır. Alternatif olarak, en yüksek kullanımı 20 DTU’ya varan ve ortalama olarak en fazla 13 DTU kullanan bir S1 veritabanı da havuz için iyi bir adaydır.
 
 ## <a name="how-do-i-choose-the-correct-pool-size"></a>Doğru havuz boyutunun nasıl seçer?
 
-Bir havuz için en iyi boyut, havuzdaki tüm veritabanları için gereken toplam eDTU ve depolama kaynağı sayısına bağlıdır. Buna aşağıdakilerin belirlenmesi dahildir:
+Bir havuz için en iyi boyutu havuzdaki tüm veritabanları için gereken birleşik kaynakları bağlıdır. Bu, aşağıdaki belirleme içerir:
 
-* Havuzdaki tüm veritabanları tarafından kullanılan en fazla DTU sayısı.
+* (Maksimum Dtu veya tercih ettiğiniz resourceing modelinin bağlı olarak en fazla vCores) havuzdaki tüm veritabanları tarafından kullanılan en fazla kaynak.
 * Havuzdaki tüm veritabanları tarafından kullanılan en fazla depolama baytı sayısı.
 
-Kullanılabilir boyutlar için bkz. [Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Her kaynak modeli için kullanılabilir hizmet katmanları için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers.md#dtu-based-purchasing-model) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers.md#vcore-based-purchasing-model-preview).
 
 SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Önerilere ek olarak, yerleşik deneyim sunucu üzerindeki özel bir veritabanı grubu için eDTU kullanımını tahmin eder. Bu deneyim, havuza veritabanlarını etkileşimli bir şekilde ekleyerek ve değişiklikleri uygulamadan önce kaynak kullanım analizi ile boyutlandırma önerisini almak üzere veritabanlarını kaldırarak "durum" çözümlemesi yapmanıza olanak tanır. Nasıl yapılır konuları için bkz. [Elastik havuzlarını izleme, yönetme ve boyutlandırma](sql-database-elastic-pool-manage-portal.md).
 
 Araçları kullanamadığınız durumlarda aşağıdaki adım adım yönergeler bir havuzun tek veritabanlarından daha uygun maliyetli olup olmadığını tahmin etmenize yardımcı olabilir:
 
-1. Havuz için gereken eDTU sayısını aşağıdaki gibi tahmin edebilirsiniz:
+1. Edtu veya havuza gibi gerekli vCores tahmin edersiniz:
 
-   MAKS(<*Toplam veritabanı sayısı* X *Veritabanı başına ortalama DTU kullanımı*>,<br>
+   DTU tabanlı satın alma modeli için: en fazla (<*DBs toplam sayısı* X *ortalama DTU kullanımı DB başına*>,<br>
    <*Eşzamanlı olarak en üst seviyeye çıkan veritabanı sayısı* X *Veritabanı başına en yüksek DTU kullanımı*)
-2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin. eDTU havuz boyutunu temel alan havuz depolama limitleri için bkz. [Elastik havuzlar ve elastik veritabanları için eDTU ve depolama limitleri](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-3. 1 ve 2  Adımlardaki eDTU tahminlerinin büyük olanlarını alın.
-4. [SQL Veritabanı fiyatlandırma sayfasına](https://azure.microsoft.com/pricing/details/sql-database/) bakın ve 3. Adımdaki tahminden büyük olan en küçük eDTU havuz boyutunu bulun.
+
+   VCore tabanlı satın alma modeli için: en fazla (<*DBs toplam sayısı* X *ortalama DB başına vCore kullanımını*>,<br>
+   <*Aynı anda peaking sayısı DBs* X *DB başına en yüksek vCore kullanımını*)
+
+2. Havuzdaki tüm veritabanları için gereken bayt sayısını ekleyerek havuz için gereken depolama alanını tahmin edin. Ardından, bu depolama miktarını sağlayan eDTU havuz boyutunu belirleyin.
+3. DTU tabanlı satın alma modeli için eDTU tahminleri daha büyük adım 1 ve 2. adım alın. VCore tabanlı satın alma modeli için adım 1'den vCore tahmin alın.
+4. Bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/) ve en küçük havuz boyutu Bul adım 3 tahmin büyüktür.
 5. 5 Adımdaki havuz fiyatını, tek veritabanları için uygun performans düzeylerini kullanma fiyatıyla karşılaştırın.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Esnek havuzları ile diğer SQL veritabanı özelliklerini kullanma
@@ -137,154 +141,68 @@ Havuza alınan veritabanları genellikle tek veritabanları için kullanılabile
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yeni bir SQL Database esnek havuzunu oluşturma
 
-Azure portalında bir esnek havuz oluşturmanın iki yolu vardır. İstediğiniz havuz kurulumunu biliyorsanız sıfırdan oluşturabilir veya hizmet tarafından sağlanan bir öneriyle başlayabilirsiniz. SQL veritabanı maliyet açısından daha verimli veritabanlarınız için son kullanım telemetri temel alarak için ise, bir esnek havuz Kurulumu önerdiği yerleşik zekaya sahiptir. 
-
-Portalı'nda bir sunucu sayfasından bir esnek havuz oluşturma, var olan veritabanını bir esnek havuza taşımak için kolay bir yoludur. Arayarak bir esnek havuz oluşturabilirsiniz **SQL esnek havuzu** içinde **Market** veya tıklatarak **+ Ekle** SQL esnek havuzu sayfasında. İş akışı sağlama bu havuzu aracılığıyla yeni veya var olan bir sunucuyu belirtmek kullanabilirsiniz.
+Azure portalında bir esnek havuz oluşturmanın iki yolu vardır.
+1. Arayarak bir esnek havuz oluşturabilirsiniz **SQL esnek havuzu** içinde **Market** veya tıklatarak **+ Ekle** SQL esnek havuzlarını dikey göz atın. İş akışı sağlama bu havuzu aracılığıyla yeni veya var olan bir sunucuyu belirtmek kullanabilirsiniz.
+2. Veya mevcut bir SQL sunucusu gezinme ve tıklayarak bir esnek havuz oluşturabilirsiniz **havuzu oluşturma** doğrudan o sunucuya bir havuzu oluşturmak için. Burada tek fark, sunucu havuzu iş akışı sağlama sırasında belirttiğiniz adımı atlayın olmasıdır.
 
 > [!NOTE]
 > Bir sunucuda birden çok havuz oluşturabilirsiniz, ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz.
-> 
 
-Havuzun fiyatlandırma katmanı elastics havuzu ve Edtu (Maks eDTU) ve depolama (GB) her veritabanı için kullanılabilen en yüksek sayısı için kullanılabilen özelliklerin belirler. Ayrıntılar için bkz [kaynak esnek havuzlar için sınırlar](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Havuzun hizmet katmanı havuzu ve en büyük miktarda kaynak her veritabanı için kullanılabilen elastics için kullanılabilen özelliklerin belirler. Ayrıntılar için bkz: kaynak sınırlarını esnek havuzlar için [DTU modeli](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) ve [vCore modeli](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
-Havuz için fiyatlandırma katmanını değiştirmek üzere **Fiyatlandırma katmanı** seçeneğine tıklayın ve ardından istediğiniz fiyatlandırma katmanına tıklayıp **Seç**'e tıklayın.
+Kaynaklarını yapılandırmak ve havuzu, fiyatlandırma tıklatın **havuzu yapılandırma**. Bir hizmet katmanı seçin, havuza veritabanı ekleme ve havuzu ve onun veritabanları için kaynak sınırlarını yapılandırın.
 
-> [!IMPORTANT]
-> Son adımda fiyatlandırma katmanınızı seçip **Tamam**'a tıklayarak değişiklikleri uyguladıktan sonra havuzun fiyatlandırma katmanını değiştiremezsiniz. Var olan bir esnek havuz için fiyatlandırma katmanını değiştirmek için istenen fiyatlandırma katmanında bir esnek havuz oluşturun ve veritabanlarını bu yeni havuza geçirin.
->
+Havuz yapılandırma tamamladıktan sonra 'Uygula', adı havuzu tıklatın ve 'havuzu oluşturmak için Tamam' ı tıklatın.
 
-Kullandığınız veritabanları, geçmişe yönelik yeterli kullanım telemetrisine sahipse **Tahmini eDTU ve GB kullanımı** grafiği ve **Gerçek eDTU kullanımı** çubuk grafiği, yapılandırma kararları vermenize yardımcı olmak üzere güncelleştirilir. Ayrıca hizmet, havuzu düzgün bir şekilde boyutlandırmanıza yardımcı olmak üzere size bir öneri iletisi sunabilir.
-
-SQL Database hizmeti, kullanım geçmişini değerlendirir ve maliyet açısından tek veritabanlarını kullanmaktan daha verimliyse bir veya daha fazla havuzun kullanılmasını önerir. Her bir öneri, havuza en iyi şekilde uyan sunucu veritabanlarının benzersiz bir alt kümesiyle yapılandırılır.
-
-![önerilen havuz](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
-
-Havuz önerisi şunları kapsar:
-
-- Havuz için bir fiyatlandırma katmanı (Temel, Standart veya Premium)
-- Uygun **HAVUZ eDTU'ları** (havuz başına maksimum eDTU olarak da adlandırılır)
-- Veritabanı başına **Maksimum eDTU** ve **Minimum eDTU**
-- Havuz için önerilen veritabanlarının listesi
-
-> [!IMPORTANT]
-> Hizmet, havuz önerisinde bulunurken telemetrinin son 30 gününü dikkate alır. Esnek havuz için aday olarak kabul edilmesi için bir veritabanı için en az 7 gündür bulunmalıdır. Zaten bir elastik havuzda bulunan veritabanları, elastik havuz önerileri için aday olarak kabul edilmez.
->
-
-Her bir hizmet katmanındaki tek veritabanının aynı katman havuzlarına taşınmasının maliyet açısından verimliliği ve kaynak ihtiyaçları hizmet tarafından değerlendirilir. Örneğin, bir sunucudaki tüm Standart veritabanları Standart Esnek Havuz'a uygunluk açısından değerlendirilir. Bu, hizmetin bir Standart veritabanının bir Premium havuza taşınması gibi çapraz katmanlı önerilerde bulunmadığı anlamına gelir.
-
-Havuza veritabanı eklendikten sonra öneriler dinamik olarak seçtiğiniz veritabanlarının geçmiş kullanımı dikkate alarak oluşturulur. Bu öneriler eDTU ve GB kullanım grafiğinde ve üst kısmındaki bir öneri başlığının gösterilen **havuzu yapılandırma** sayfası. Bu öneriler, belirli veritabanlarınız için iyileştirilmiş bir esnek havuz oluşturma konusunda size yardımcı olmak üzere tasarlanmıştır.
-
-![dinamik öneriler](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
-
-### <a name="manage-and-monitor-an-elastic-pool"></a>Yönetme ve bir esnek Havuz izleme
+### <a name="monitor-an-elastic-pool-and-its-databases"></a>Bir esnek havuz ve veritabanlarını izleme
 
 Azure portalında bir esnek havuz ve bu havuz içindeki veritabanlarının kullanımını izleyebilirsiniz. Ayrıca, esnek havuz için bir değişiklik kümesini yapın ve aynı anda tüm değişiklikleri gönderir. Bu değişiklikler ekleyerek veya veritabanları kaldırma, esnek havuz ayarlarınızı değiştirme veya veritabanı ayarlarını değiştirerek içerir.
 
-Aşağıdaki grafikte bir örnek esnek havuz gösterir. Görünüm içerir:
+Esnek havuz izlemeye başlamak için bulun ve Portalı'nda bir esnek havuz açın. Önce esnek havuz durumunu genel bir fikir veren bir ekran görürsünüz. Buna aşağıdakiler dahildir:
 
-* Esnek havuz ve havuzunda bulunan veritabanları kaynak kullanımını izleme grafikleri.
-* **Yapılandırma** esnek havuz için değişiklik yapmak için havuz düğmesi.
-* **Veritabanı oluşturma** bir veritabanı oluşturur ve geçerli esnek havuza ekler düğmesi.
-* Yardımcı esnek işler, listedeki tüm veritabanlarında Transact SQL komut dosyaları çalıştırarak veritabanları çok sayıda yönetin.
+* Esnek havuz kaynakların kullanımını gösteren grafikleri izleme
+* Son uyarıları ve öneriler, esnek havuz için kullanılabilir olması durumunda
+
+Aşağıdaki grafikte bir örnek esnek havuz gösterir:
 
 ![Havuz görünümü](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-Kaynak kullanımını görmek için belirli bir havuzu gidebilirsiniz. Varsayılan olarak, depolama ve eDTU kullanımı son saat için göstermek için havuzu yapılandırılır. Grafik, çeşitli zaman pencereleri farklı ölçümleri göstermek için yapılandırılabilir. Tıklatın **kaynak kullanımı** altında grafik **esnek Havuz izleme** belirtilen zaman penceresi üzerinde belirtilen ölçümleri ayrıntılı görünümünü göstermek için.
+Havuz hakkında daha fazla bilgi istiyorsanız, bu genel bakışta kullanılabilir bilgi hiçbirinde tıklatabilirsiniz. Tıklayarak **kaynak kullanımı** grafik yönlendirilirsiniz Azure Monitoring görünümüne grafikte gösterilen ölçümleri ve zaman penceresini burada özelleştirebilirsiniz. Kullanılabilir bildirimlere tıklatarak o uyarı ya da öneri tam ayrıntılarını gösteren bir dikey penceresine yönlendirir.
 
-![Esnek havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
-
-![Ölçüm sayfası](./media/sql-database-elastic-pool-manage-portal/metric.png)
-
-### <a name="to-customize-the-chart-display"></a>Grafik görüntüsünü özelleştirmek için
-
-Grafik ve diğer ölçümleri CPU yüzdesi, veri g/ç yüzdesi ve kullanılan günlük GÇ yüzdesi gibi görüntülenecek ölçüm sayfa düzenleyebilirsiniz.
-
-![Düzenle'yi tıklatın](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
-
-Üzerinde **grafiği Düzenle** formu, bir zaman aralığı (saat, bugün, geçmiş veya geçen hafta) seçin veya tıklatın **özel** son iki hafta içinde herhangi bir tarih aralığı seçin. Çubuk veya çizgi grafiği arasında seçim yapın ve ardından izlemek için kaynakları seçin.
-
-> [!Note]
-> Yalnızca aynı ölçü Ölçümleriyle grafikte aynı anda görüntülenebilir. "EDTU yüzdesi" seçeneğini belirlerseniz Örneğin, ardından yalnızca diğer ölçümleri yüzdesiyle ölçü birimi seçebilirsiniz.
->
-
-![Düzenle'yi tıklatın](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
-
-### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>Yönetme ve esnek havuzdaki veritabanları izleme
-
-Tek tek veritabanları için olası sorun de izlenebilir. Altında **esnek veritabanı izleme**, beş veritabanları için ölçümleri görüntüleyen bir grafik yoktur. Varsayılan olarak, grafik ilk 5 veritabanlarının havuzdaki ortalama eDTU kullanımı son bir saat içindeki görüntüler. 
-
-![Esnek havuz izleme](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
-
-Tıklatın **son bir saat için veritabanları için eDTU kullanımı** altında **esnek veritabanı izleme**. Bu açılır **veritabanı kaynak kullanımı** ve havuzdaki veritabanı kullanımının ayrıntılı bir görünüm sağlar. Sayfanın alt kısmındaki kılavuzu kullanarak, kendi kullanımı (en fazla 5 veritabanları) grafikte görüntülenecek havuzdaki tüm veritabanları seçebilirsiniz. Tıklayarak grafikte görüntülenen ölçümleri ve zaman penceresini özelleştirebilirsiniz **grafiği Düzenle**.
+Havuzunuzu içinde veritabanları izlemek istiyorsanız tıklatabilirsiniz **veritabanı kaynak kullanımını** içinde **izleme** soldaki kaynak menünün bölümünde.
 
 ![Veritabanı kaynak kullanımı sayfası](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-### <a name="to-customize-the-view"></a>Görünümü özelleştirmek için
+#### <a name="to-customize-the-chart-display"></a>Grafik görüntüsünü özelleştirmek için
 
-Bir zaman aralığı (saat sonraya veya son 24 saat) seçin veya tıklatın için grafiği Düzenle **özel** son 2 görüntülemek için hafta içinde farklı bir gün seçin.
+Grafik ve diğer ölçümleri CPU yüzdesi, veri g/ç yüzdesi ve kullanılan günlük GÇ yüzdesi gibi görüntülenecek ölçüm sayfa düzenleyebilirsiniz.
 
-![Grafiği Düzenle'yi tıklatın](./media/sql-database-elastic-pool-manage-portal/db-utilization-blade.png)
+Üzerinde **grafiği Düzenle** form, sabit bir zaman seçebilirsiniz aralığı veya tıklatın **özel** son iki hafta içinde herhangi bir 24 saatlik penceresi seçin ve ardından izlemek için kaynakları seçin.
 
-![Özel'i tıklatın](./media/sql-database-elastic-pool-manage-portal/editchart-date-time.png)
+#### <a name="to-select-databases-to-monitor"></a>İzlemek üzere seçmek için veritabanları
 
-Tıklatarak **karşılaştırmak veritabanı tarafından** veritabanları karşılaştırılırken kullanmak için farklı bir ölçümü seçmek için açılır.
+Varsayılan olarak, grafikte **veritabanı kaynak kullanımını** dikey DTU veya CPU ilk 5 veritabanları (bağlı olarak, hizmet katmanı) gösterir. Bu grafikteki veritabanlarını seçerek ve onay kutularını soldaki aracılığıyla grafiği aşağıdaki listeden veritabanları unselecting geçebilirsiniz.
 
-![Grafiği Düzenle](./media/sql-database-elastic-pool-manage-portal/edit-comparison-metric.png)
-
-### <a name="to-select-databases-to-monitor"></a>İzlemek üzere seçmek için veritabanları
-
-Veritabanı listesinde **veritabanı kaynak kullanımını** sayfasında bulabilirsiniz belirli veritabanları listesi sayfalarına bakarak veya veritabanı adını yazarak. Veritabanı seçmek için onay kutusunu kullanın.
-
-![İzlemek veritabanları için arama](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
-
-
-### <a name="add-an-alert-to-an-elastic-pool-resource"></a>Bir uyarı için bir esnek havuz kaynak ekleyin
-
-Esnek havuz sizin ayarladığınız bir kullanım eşiği geldiğinde, kişiler veya uyarı dizeleri URL uç noktaları için e-posta gönderen bir esnek havuz için kurallar ekleyebilirsiniz.
-
-**Bir uyarı için herhangi bir kaynak eklemek için:**
-
-1. Tıklatın **kaynak kullanımı** açmak için grafik **ölçüm** sayfasında, **uyarı Ekle**ve ardından bilgileri doldurun **biruyarıkuralıEkle** sayfa (**kaynak** olması ile çalışırken havuzu kadar otomatik olarak ayarlanmış olduğundan).
-2. Tür a **adı** ve **açıklama** ve alıcılar için uyarı tanımlar.
-3. Seçin bir **ölçüm** listeden uyarı istediğiniz.
-
-   Grafik dinamik olarak bir eşik seçmenize yardımcı olmak Bu ölçüm için kaynak kullanımını gösterir.
-
-4. Seçin bir **koşulu** (büyüktür, küçüktür, vs.) ve bir **eşik**.
-5. Seçin bir **süresi** ölçüm kuralı uyarı Tetikleyicileri önce karşılanması gereken süre.
-6. **Tamam**’a tıklayın.
+Daha fazla ölçümleri yan yana veritabanları performansınızı daha eksiksiz bir görünümünü almak için bu veritabanı tablosunda görünümüne de seçebilirsiniz.
 
 Daha fazla bilgi için bkz: [Azure Portalı'nda SQL veritabanı uyarıları oluşturma](sql-database-insights-alerts-portal.md).
 
-### <a name="move-a-database-into-an-elastic-pool"></a>Bir veritabanını bir esnek havuza taşıma
+### <a name="manage-an-elastic-pool-and-its-databases"></a>Bir esnek havuz ve veritabanlarını yönetme
 
-Ekleyebilir veya var olan bir havuzdan veritabanları kaldırabilirsiniz. Veritabanlarını diğer havuzlarında olabilir. Ancak, aynı mantıksal sunucu üzerinde olan veritabanları yalnızca ekleyebilirsiniz.
+Tüm havuzu ayarları tek bir yerde bulunabilir: **havuzu yapılandırma** dikey. Burada almak için bir esnek havuz portal ve tıklatın Bul **havuzu yapılandırma** dikey pencerenin üst veya sol kaynak menüsünden.
 
- ![Havuzu Yapılandır'ı tıklatın](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
+Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıdaki değişiklikleri yapabilirsiniz:
+1. Havuz Hizmet katmanını değiştirme
+2. Performans (DTU veya vCores) ve depolama yukarı veya aşağı ölçeklendirme
+3. Eklemek veya kaldırmak için/havuzundan veritabanları
+4. (Garanti) min ayarlamak ve performans sınırı havuzları veritabanları için en fazla
+5. Faturanızı yeni seçimlerinizi sonucunda herhangi bir değişiklik görüntülemeyi maliyet özeti gözden geçirin
 
-![İçin havuz Ekle'ye tıklayın](./media/sql-database-elastic-pool-manage-portal/add-to-pool.png)
-
-![Eklenecek veritabanlarını seçin](./media/sql-database-elastic-pool-manage-portal/add-databases-pool.png)
-
-![Bekleyen havuzu ekleme](./media/sql-database-elastic-pool-manage-portal/pending-additions.png)
-
-![Kaydet’e tıklayın.](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
-### <a name="move-a-database-out-of-an-elastic-pool"></a>Bir veritabanını bir esnek havuz dışına taşıma
-
-![veritabanları listeleme](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
-
-### <a name="change-performance-settings-of-an-elastic-pool"></a>Bir esnek havuz performans ayarlarını değiştir
-
-Bir esnek havuz kaynak kullanımını izleme gibi bazı ayarlamalar gerekli olduğunu fark edebilirsiniz. Belki de havuz performansı veya depolama sınırları değişikliği gerekir. Büyük olasılıkla havuzunda veritabanı ayarlarını değiştirmek istediğiniz. En iyi dengeyi performans ve maliyet almak için herhangi bir zamanda Kurulum havuzunun değiştirebilirsiniz. Bkz: [ne zaman bir esnek havuz kullanılmalıdır?](sql-database-elastic-pool.md) daha fazla bilgi için.
-
-Havuz başına Edtu veya depolama sınırları ve veritabanı başına Edtu değiştirmek için:
-
-![Esnek havuz kaynak kullanımı](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
+![Esnek havuzu yapılandırma dikey penceresi](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
 ## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Esnek havuzlar ve PowerShell kullanarak veritabanlarını yönetme
 
-Oluşturun ve SQL Database esnek havuzlar Azure PowerShell ile yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltme, bakın [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). Veritabanları, sunucuları ve güvenlik duvarı kuralları oluşturmak ve yönetmek için bkz: [oluşturma ve Azure SQL veritabanı sunucularının ve PowerShell kullanarak veritabanlarını](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell). 
+Oluşturun ve SQL Database esnek havuzlar Azure PowerShell ile yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltme, bakın [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). Veritabanları, sunucuları ve güvenlik duvarı kuralları oluşturmak ve yönetmek için bkz: [oluşturma ve Azure SQL veritabanı sunucularının ve PowerShell kullanarak veritabanlarını](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
 
 > [!TIP]
 > PowerShell örnek komut dosyaları için bkz: [esnek havuzlar oluşturmak ve PowerShell kullanarak havuz dışında havuzları arasında veritabanlarını taşımak](scripts/sql-database-move-database-between-pools-powershell.md) ve [kullanımı izlemek ve Azure SQL veritabanıSQLesnekhavuzdaölçeklendirmeiçinPowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -309,7 +227,7 @@ Oluşturun ve SQL Database esnek havuzlar Azure PowerShell ile yönetmek için a
 
 ## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Esnek havuzlar ve Azure CLI kullanarak veritabanlarını yönetme
 
-Oluşturun ve SQL Database esnek havuzları ile yönetmek için [Azure CLI](/cli/azure), aşağıdaki [Azure CLI SQL veritabanı](/cli/azure/sql/db) komutları. CLI’yi tarayıcınızda çalıştırmak için [Cloud Shell](/azure/cloud-shell/overview) kullanın veya macOS, Linux ya da Windows’da [yükleyin](/cli/azure/install-azure-cli). 
+Oluşturun ve SQL Database esnek havuzları ile yönetmek için [Azure CLI](/cli/azure), aşağıdaki [Azure CLI SQL veritabanı](/cli/azure/sql/db) komutları. CLI’yi tarayıcınızda çalıştırmak için [Cloud Shell](/azure/cloud-shell/overview) kullanın veya macOS, Linux ya da Windows’da [yükleyin](/cli/azure/install-azure-cli).
 
 > [!TIP]
 > Azure CLI örnek komut dosyaları için bkz: [kullanım SQL esnek havuzu içinde bir Azure SQL veritabanını taşımak için CLI](scripts/sql-database-move-database-between-pools-cli.md) ve [Azure SQL veritabanındaki bir SQL esnek havuzu ölçeklendirmek için kullanım Azure CLI](scripts/sql-database-scale-pool-cli.md).

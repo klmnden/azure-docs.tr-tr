@@ -1,11 +1,11 @@
 ---
-title: "Kaynak Yöneticisi modunda Azure CLI komutları | Microsoft Docs"
-description: "Resource Manager dağıtım modeli alanındaki kaynakları yönetmek için azure komut satırı arabirimi (CLI) komutları"
+title: Kaynak Yöneticisi modunda Azure CLI komutları | Microsoft Docs
+description: Resource Manager dağıtım modeli alanındaki kaynakları yönetmek için azure komut satırı arabirimi (CLI) komutları
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: be37da5b-72fe-41a1-9fa0-8937b69464ec
 ms.service: multiple
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Kaynak Yöneticisi modunda Azure CLI komutları
 Bu makalede, sözdizimi ve yaygın olarak oluşturun ve Azure Resource Manager dağıtım modelinde Azure kaynaklarınızı yönetmek için kullanacağınız Azure komut satırı arabirimi (CLI) komutları için seçenekler sağlar. Bu komutlar, Resource Manager (arm) modunda CLI çalıştırarak erişin. Bu tam bir başvuru değildir ve CLI Sürüm biraz farklı komutları ya da parametreleri gösterebilir. Azure kaynakları ve kaynak gruplarını genel bir bakış için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  
@@ -131,7 +131,7 @@ Azure abonelik bilgilerinizi hesabınıza bağlamak için aracı tarafından kul
 
     config set <name> <value>
 
-**Azure CLI çalışma modu ya da ayarlar `arm` veya`asm`**
+**Azure CLI çalışma modu ya da ayarlar `arm` veya `asm`**
 
     config mode [options] <modename>
 
@@ -968,7 +968,7 @@ Parametre seçenekleri:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    Ağ lb adres havuzu silme [Seçenekler] < resource-group >< lb-adı ><name>
+    Ağ lb adres havuzu silme [Seçenekler] < resource-group >< lb-adı > <name>
 
 Arka uç IP havuzu aralığı kaynağı yük dengeleyiciden kaldırır.
 
@@ -1353,7 +1353,7 @@ Parametre seçenekleri:
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    Ağ ve genel IP < resource-group > [Seçenekler] Göster<name>
+    Ağ ve genel IP < resource-group > [Seçenekler] Göster <name>
 
 Bir kaynak grubu içindeki ortak IP kaynak için genel IP özelliklerini görüntüler.
 

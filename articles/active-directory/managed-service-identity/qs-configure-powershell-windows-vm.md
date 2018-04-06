@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak bir Azure VM'deki MSI yapılandırma"
-description: "Azure PowerShell kullanarak bir VM, bir yönetilen hizmet Kimliği'ni (MSI) yapılandırma için adım yönergeler tarafından adım."
+title: PowerShell kullanarak bir Azure VM'deki MSI yapılandırma
+description: Azure PowerShell kullanarak bir VM, bir yönetilen hizmet Kimliği'ni (MSI) yapılandırma için adım yönergeler tarafından adım.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 42c361ac69122d00df290f4c3c2eb2cfeeb9eb47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 76ea24a658c728aebd15be55cc0c8dfca27f01ec
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Bir VM yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -40,9 +40,9 @@ MSI etkin bir VM oluşturmak için:
 1. Aşağıdaki Azure VM yalnızca gerekli bölümlerini Tamamlanıyor hızlı Başlangıçların birine bakın ("Oturum Azure'a", "kaynak grubu oluşturma", "Ağ Grup oluşturma", "VM oluşturma"). 
 
    > [!IMPORTANT] 
-   > "VM oluşturma" bölümüne aldığınızda, küçük bir değişiklik yapmak [yeni AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet sözdizimi. Eklediğinizden emin olun bir `-IdentityType "SystemAssigned"` bir MSI VM'ye örneğin sağlamak için parametre:
+   > "VM oluşturma" bölümüne aldığınızda, küçük bir değişiklik yapmak [yeni AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvm) cmdlet sözdizimi. Eklediğinizden emin olun bir `-AssignIdentity "SystemAssigned"` bir MSI VM'ye örneğin sağlamak için parametre:
    >  
-   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -IdentityType "SystemAssigned" ...`
+   > `$vmConfig = New-AzureRmVMConfig -VMName myVM -AssignIdentity "SystemAssigned" ...`
 
    - [PowerShell kullanarak bir Windows sanal makine oluşturun](../../virtual-machines/windows/quick-create-powershell.md)
    - [PowerShell kullanarak bir Linux sanal makine oluşturun](../../virtual-machines/linux/quick-create-powershell.md)
@@ -66,11 +66,11 @@ Var olan bir sanal makine üzerinde MSI etkinleştirmeniz gerekirse:
    Login-AzureRmAccount
    ```
 
-2. İlk kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i. MSI etkinleştirmek için kullanın `-IdentityType` anahtarının [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
+2. İlk kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i. MSI etkinleştirmek için kullanın `-AssignIdentity` anahtarının [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet:
 
    ```powershell
    $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
-   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -IdentityType "SystemAssigned"
+   Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity "SystemAssigned"
    ```
 
 3. MSI VM uzantısı kullanılarak eklemek `-Type` parametresini [kümesi AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet'i. "ManagedIdentityExtensionForWindows" veya "ManagedIdentityExtensionForLinux" VM türüne bağlı olarak geçirmek ve kullanarak ad `-Name` parametresi. `-Settings` Parametresi için belirteç edinme OAuth belirteç uç noktası tarafından kullanılan bağlantı noktasını belirtir. Doğru belirttiğinizden emin olun `-Location` parametresi, var olan VM konumunu eşleşen:

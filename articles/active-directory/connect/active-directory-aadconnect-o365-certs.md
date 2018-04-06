@@ -1,8 +1,8 @@
 ---
-title: "Sertifika yenileme Office 365 ve Azure AD kullanıcıları için | Microsoft Docs"
-description: "Bu makalede, Office 365 kullanıcıları için bir sertifika yenileme hakkında bildirim e-postalar ile ilgili sorunları gidermek nasıl açıklanmaktadır."
+title: Sertifika yenileme Office 365 ve Azure AD kullanıcıları için | Microsoft Docs
+description: Bu makalede, Office 365 kullanıcıları için bir sertifika yenileme hakkında bildirim e-postalar ile ilgili sorunları gidermek nasıl açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: a0e3b65c108f8d839b8107e98a5cd59df78e1ab0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
@@ -55,7 +55,7 @@ Federasyon meta verilerini izlemek ve bu meta verileri tarafından belirtildiği
 >
 >
 
-## Sertifikaları güncelleştirilmesi gerekip gerekmediğini denetleyin<a name="managecerts"></a>
+## Sertifikaları güncelleştirilmesi gerekip gerekmediğini denetleyin <a name="managecerts"></a>
 ### <a name="step-1-check-the-autocertificaterollover-state"></a>1. adım: AutoCertificateRollover durumunu denetle
 AD FS sunucunuzda, PowerShell'i açın. AutoCertificateRollover değeri True olarak ayarlanmış olduğundan emin olun.
 
@@ -95,7 +95,7 @@ Get-MsolFederationProperty veya Get-AdfsCertificate çıktısında "Değil sonra
 
 \[-] Önemli değildir
 
-## Belirteç imzalama sertifikasının otomatik yenileme (önerilir)<a name="autorenew"></a>
+## Belirteç imzalama sertifikasının otomatik yenileme (önerilir) <a name="autorenew"></a>
 Aşağıdakilerin her ikisi de doğruysa herhangi manuel adımları uygulamanız gerekmez:
 
 * Erişim için Federasyon meta verilerinin extranet etkinleştirebilirsiniz Web uygulaması proxy'si dağıtmış.
@@ -107,13 +107,12 @@ Sertifika otomatik olarak güncelleştirilebilir onaylamak için şunları denet
 
 **2. AD FS federasyon meta verileri genel olarak erişilebilir.** (Dışına şirket ağına) genel internet üzerindeki bir bilgisayardan aşağıdaki URL'sine giderek Federasyon meta verileri genel olarak erişilebilir olduğundan emin olun:
 
-https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 Burada `(your_FS_name) `kuruluşunuzun kullandığı, fs.contoso.com gibi Federasyon Hizmeti ana bilgisayar adı ile değiştirilir.  Her ikisi de doğrulayamazsınız varsa bu ayarları başarıyla, başka bir şey yapmanız gerekmez.  
 
 Örnek: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
-
-## Belirteç imzalama sertifikasının el ile yenileme<a name="manualrenew"></a>
+## Belirteç imzalama sertifikasının el ile yenileme <a name="manualrenew"></a>
 Belirteç imzalama sertifikalarının el ile yenilemek tercih edebilirsiniz. Örneğin, aşağıdaki senaryolar için el ile yenileme daha iyi çalışabilir:
 
 * Belirteç imzalama sertifikalarının otomatik olarak imzalanan sertifikalar. Bunun en yaygın nedeni, kuruluşunuzun AD FS sertifikalarının bir kuruluş sertifika yetkilisinden kayıtlı yönetir ' dir.
@@ -150,17 +149,17 @@ Varsayılan olmayan yapılandırma AD FS kullanıyorsanız, (burada **AutoCertif
 Office 365 imzalama sertifikalarının gibi güven için kullanılacak olan yeni belirteci ile güncelleştirin.
 
 1. Microsoft Azure Active Directory modülü için Windows PowerShell'i açın.
-2. $Cred Çalıştır Get-Credential =. Bu cmdlet, kimlik bilgilerini ister, bulut hizmet yönetici hesabı kimlik bilgilerini yazın.
+2. Run $cred=Get-Credential. Bu cmdlet, kimlik bilgilerini ister, bulut hizmet yönetici hesabı kimlik bilgilerini yazın.
 3. Connect MsolService Çalıştır – kimlik bilgisi $cred. Bu cmdlet bulut hizmetine bağlanır. Bulut hizmetine bağlanan bir içeriği oluşturma aracı tarafından yüklü ek cmdlet'lerinden herhangi birini çalıştırmadan önce gereklidir.
-4. Bu komutlar, AD FS birincil Federasyon sunucusu olmayan bir bilgisayar üzerinde çalıştırıyorsanız, Set-MSOLAdfscontext Çalıştır-bilgisayar <AD FS primary server>, burada <AD FS primary server> iç FQDN birincil AD FS sunucusunun adıdır. Bu cmdlet için AD FS bağlanan bir içeriği oluşturur.
-5. Güncelleştirme MSOLFederatedDomain – DomainName çalıştırmak <domain>. Bu cmdlet, AD FS ayarları bulut hizmete güncelleştirir ve ikisi arasında güven ilişkisi yapılandırır.
+4. Bu komutlar, AD FS birincil Federasyon sunucusu olmayan bir bilgisayar üzerinde çalıştırıyorsanız, Set-MSOLAdfscontext Çalıştır-bilgisayar &lt;AD FS birincil sunucu&gt;, burada &lt;AD FS birincil sunucu&gt; iç FQDN'si Birincil AD FS sunucusunun adı. Bu cmdlet için AD FS bağlanan bir içeriği oluşturur.
+5. Güncelleştirme MSOLFederatedDomain – DomainName çalıştırmak &lt;etki alanı&gt;. Bu cmdlet, AD FS ayarları bulut hizmete güncelleştirir ve ikisi arasında güven ilişkisi yapılandırır.
 
 > [!NOTE]
 > Contoso.com ve fabrikam.com, gibi birden çok üst düzey etki alanlarının desteklemeniz gerekiyorsa, kullanmalısınız **SupportMultipleDomain** geçiş herhangi cmdlet'lerle. Daha fazla bilgi için bkz: [birden çok üst düzey etki alanı için destek](active-directory-aadconnect-multiple-domains.md).
 >
 
 
-## Azure AD Connect kullanarak Azure AD güvenini Onar<a name="connectrenew"></a>
+## Azure AD Connect kullanarak Azure AD güvenini Onar <a name="connectrenew"></a>
 Azure AD Connect kullanarak AD FS grubu ve Azure AD güveni yapılandırdıysanız, belirteç imzalama sertifikaları için herhangi bir eylemde bulunmanız gerektiğinde algılamak için Azure AD Connect kullanabilirsiniz. Sertifikaları yenilemek gerekiyorsa, bunu yapmak için Azure AD Connect kullanabilirsiniz.
 
 Daha fazla bilgi için bkz: [güven onarma](active-directory-aadconnect-federation-management.md).

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: e9343b4a0049b2eea30f903159fdeff0ae7ff851
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -121,7 +121,8 @@ Her mağaza birden fazla yayımlama seçeneklerini ve teklif türlerini destekle
 Deneme düzeyi veya işlem düzeyindeki katılım uygun olmadığı durumlarda kişi benim kullanın. Bu yaklaşımın avantajı, hemen iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi müşteri adayları almaya başlamak bir pazar çözümü olan yayımcı etkinleştirir ' dir. Ancak, dezavantajı müşteri katılım, diğer teklif türleri ile karşılaştırıldığında sınırlıdır.
 
 >[!IMPORTANT]
->Kişi benim liste türü öneririz yok. Yalnızca durumlarda kullanması gereken bir deneme sürümü deneyimi oluşturmak için bir yol olduğu. Müşteri katılım deneme ve işlem teklifleri ile en iyisidir. Deneme sürümü deneyimi herhangi bir türde varsa, bizim ekleme işlemi için senaryonuza bağlı olarak bu seçeneklerden birini yol gösterecektir.
+<<<<<<< HEAD müşteri katılım deneme sürümü ile en iyi ve Transact sunar. Kişi benim aldığınız sağlama değeri, bu nedenle bu liste türü seçerseniz, sağlama Hedefinizi yapılandırıldığından ve sağlama en üst düzeye çıkarmak hazırsınız emin olun. === Kişi benim liste türü öneririz yok. Yalnızca durumlarda kullanması gereken bir deneme sürümü deneyimi oluşturmak için bir yol olduğu. Müşteri katılım deneme ve işlem teklifleri ile en iyisidir. Deneme sürümü deneyimi herhangi bir türde varsa, bizim ekleme işlemi için senaryonuza bağlı olarak bu seçeneklerden birini yol gösterecektir.
+>>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
 
 Teklif kullanım öncelikle Profesyonel Hizmetler (örneğin, değerlendirmeleri, uygulamaları, Atölyeleri) oluşuyorsa danışmanlık hizmetleri türü sunar. Teklif kapsam, süre ve fiyat düzeltilmesi gereken, tek bir müşteri için olmalıdır ve sitesinde gerçekleştirilmesi gerekir.
 

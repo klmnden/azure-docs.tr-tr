@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ödül ağ geçidi ile | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve ödül ağ geçidi arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ödül ağ geçidi ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve ödül ağ geçidi arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e46668804da237e789cea73d25982953a31edef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 76e34b2d170ad1a47dca180fe7caf8c015d17634
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>Öğretici: Azure Active Directory Tümleştirme ödül ağ geçidi ile
 
@@ -31,7 +31,7 @@ Bu öğreticide, Azure Active Directory (Azure AD) ile ödül ağ geçidi tümle
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme ödül ağ geçidi ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://<companyname>.rewardgateway.com.au/Authentication/EndLogin?idp=<Unique Id>` |
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [ödül ağ geçidi destek ekibi](mailto:clientsupport@rewardgateway.com) bu değerleri almak için.
+    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Bu değerleri almak için ödül Yöneticisi portalında bir tümleştirme ayarlama başlatın. Ayrıntılar bulunabilir http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -137,7 +137,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **ödül ağ geçidi** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [ödül ağ geçidi destek ekibi](mailto:clientsupport@rewardgateway.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6. Çoklu oturum açma yapılandırmak için **ödül ağ geçidi** tarafı, ödül Yöneticisi portalında bir tümleştirme ayarlama Başlat. İmzalama sertifikası edinmeniz ve yapılandırma sırasında karşıya yüklenen meta verileri kullanın. Ayrıntılar bulunabilir http://success.rewardgateway.com/it-implementation/293968-how-to-configure-a-sso-integration
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-reward-gateway-test-user"></a>Ödül ağ geçidi test kullanıcısı oluşturma
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: d4229a3ecbcf8aa044eb448290c243e9920bd5cb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
@@ -27,9 +27,11 @@ Bir API içeri aktarırken, bazı kısıtlamalar gelen veya başarıyla içeri a
 ## <a name="open-api"> </a>Açık API/Swagger
 Açık API belgenizi alma hata alıyorsanız, doğrulandı, - ya da Tasarımcısı'nı kullanarak Azure portalında (Tasarım - ön uç - API Belirtimi Düzenleyiciyi Aç), emin olun veya bir üçüncü taraf aracı gibi <a href="http://www.swagger.io">Swagger Editor</a>.
 
-* **Ana bilgisayar adı** APIM bir ana bilgisayar adı özniteliği gerektirir.
-* **Temel yolu** APIM temel yol özniteliği gerektirir.
-* **Düzenleri** APIM bir şema dizisi gerektirir.
+* Yalnızca JSON biçimine OpenAPI için desteklenir.
+* Kullanarak başvurulan şemaları **$ref** özellikleri diğer içeremez **$ref** özellikleri.
+* **$ref** işaretçileri dış dosyalar başvuruda bulunamaz.
+* **x-ms-yolları** ve **x sunucuları** yalnızca desteklenen uzantıları.
+* Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve kaydedilmez veya dışarı aktarma için korunur.
 
 > [!IMPORTANT]
 > Bu bkz [belge](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) önemli bilgiler ve OpenAPI alınacak ilgili ipuçları için.

@@ -1,8 +1,8 @@
 ---
 title: En iyi uygulamalar Azure Data Lake Store kullanma | Microsoft Docs
-description: "En iyi yöntemleri veri alımı, tarih güvenlik ve Azure Data Lake Store kullanımıyla ilgili performans hakkında bilgi edinin"
+description: En iyi yöntemleri veri alımı, tarih güvenlik ve Azure Data Lake Store kullanımıyla ilgili performans hakkında bilgi edinin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: c394142ba40fc580bdcec11430dcae2816fa9760
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store kullanmak için en iyi uygulamalar
 Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları hakkında bilgi edinin. Bu makale, güvenlik, performans, dayanıklılık ve Data Lake Store için izleme bilgileri sağlar. Data Lake Store önce Azure Hdınsight gibi hizmetler gerçekten büyük verilerle çalışmak karmaşıktı. Böylece Petabayt depolama ve bu ölçekte en iyi performansı elde edilebilir birden çok Blob Depolama hesapları arasında parça veri içeriyor. Data Lake Store ile boyutu ve performans için sabit sınırları çoğunu kaldırılır. Ancak, yine bu makalede yer almaktadır ve böylece Data Lake Store ile en iyi performansı elde edebilirsiniz bazı noktalar vardır. 
@@ -129,7 +129,7 @@ Data Lake Store, ayrıntılı tanılama günlüklerini ve denetim sağlar. Data 
 
 ### <a name="export-data-lake-store-diagnostics"></a>Dışarı aktarma Data Lake Store tanılama 
 
-Data Lake Deposu'ndan veri aranabilir günlüklerine erişmek için en hızlı yolu, biri günlük dağıtımını etkinleştirmek için **Operations Management Suite (OMS)** altında **tanılama** Data Lake Store hesabı dikey penceresinde. Bu, saat ve seçenekleri (e-posta/Web kancası) 15 dakikalık aralıklarla içinde tetiklenen uyarı birlikte içerik filtreleri ile gelen günlükleri anında erişim sağlar. Yönergeler için bkz: [Azure Data Lake Store için tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md). 
+Data Lake Deposu'ndan veri aranabilir günlüklerine erişmek için en hızlı yolu, biri günlük dağıtımını etkinleştirmek için **günlük analizi** altında **tanılama** Data Lake Store hesabı dikey penceresinde. Bu, saat ve seçenekleri (e-posta/Web kancası) 15 dakikalık aralıklarla içinde tetiklenen uyarı birlikte içerik filtreleri ile gelen günlükleri anında erişim sağlar. Yönergeler için bkz: [Azure Data Lake Store için tanılama günlüklerine erişme](data-lake-store-diagnostic-logs.md). 
 
 Daha fazla gerçek zamanlı uyarı verme ve günlükleri güden nerede hakkında daha fazla denetim için günlükleri Azure burada içeriği tek tek veya bir zaman penceresi üzerinden gerçek zamanlı bildirimler bir sıraya göndermek için çözümlenebilir EventHub verme göz önünde bulundurun. Ayrı bir uygulama gibi bir [mantıksal uygulama](../connectors/connectors-create-api-azure-event-hubs.md) sonra kullanmasına ve Uyarıları uygun kanala iletişim yanı izleme araçları NewRelic, Datadog veya AppDynamics gibi ölçümleri gönderin. Alternatif olarak, ElasticSearch gibi bir üçüncü taraf aracı kullanıyorsanız, Blob depolama alanına günlükleri verebilir ve kullanmak [Azure Logstash eklentisi](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob) Elasticsearch, Kibana ve Logstash (ELK) yığına verileri kullanmak üzere.
 
@@ -139,7 +139,7 @@ Data Lake Store, günlük aktarma açık değilse Azure Hdınsight da açmak iç
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG 
 
-Özellik ayarlanmışsa ve düğümlerin yeniden sonra Data Lake Store tanılama düğümlerde YARN günlüklerini yazılır (/tmp/<user>/yarn.log), veya önemli ayrıntılar gibi hatalar'yi ve azaltma (HTTP 429 hata kodu) ile izlenebilir. Bu bilgiyle OMS veya yerde günlükleri içeri aktarılır de izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake Store hesabı dikey. En az istemci-tarafı günlük kaydı açıksa veya günlük işletimsel görünürlük ve daha kolay hata ayıklama için Data Lake Store seçeneğiyle dağıtımını kullanmak için önerilir.
+Özellik ayarlanmışsa ve düğümlerin yeniden sonra Data Lake Store tanılama düğümlerde YARN günlüklerini yazılır (/tmp/<user>/yarn.log), veya önemli ayrıntılar gibi hatalar'yi ve azaltma (HTTP 429 hata kodu) ile izlenebilir. Aynı bilgilerin günlük analizi veya yerde günlükleri içeri aktarılır de izlenebilir [tanılama](data-lake-store-diagnostic-logs.md) Data Lake Store hesabı dikey. En az istemci-tarafı günlük kaydı açıksa veya günlük işletimsel görünürlük ve daha kolay hata ayıklama için Data Lake Store seçeneğiyle dağıtımını kullanmak için önerilir.
 
 ### <a name="run-synthetic-transactions"></a>Yapay işlem 
 

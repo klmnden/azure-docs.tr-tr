@@ -6,14 +6,14 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d26fe28d301cf563dc6bdb3d9e17903dea3e73fc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69d004ae4c2408e5749d0a7d21b996cec8dba722
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -29,7 +29,7 @@ Bu tür olayları tek tek sık bulut ölçeğinde olsa da, her gün yoksa her ha
 Müşteriler kendi veritabanlarını dayanıklılık içinde en ilgilendiğiniz ve dayanıklılık SQL veritabanı hizmetinin bir bütün olarak daha az ilgilendiğiniz. bir hizmet için % 99,99 açık kalma süresi "veritabanı" %0,01 kapalı olan veritabanlarının parçası ise anlamsız hale gelir. Her veritabanı hataya dayanıklı olması ve hataya azaltma hiçbir zaman kaydedilmiş işlemi kaybına neden. 
 
 Veriler için SQL veritabanını doğrudan bağlı diskler/VHD'lerde bağlı yerel depolama (LS) ve Azure Premium Storage sayfa blobları üzerinde temel uzaktaki depolama birimi (RS) kullanır. 
-- Yerel depolama Premium veritabanları ve iş açısından önemli OLTP uygulamaları yüksek IOPS gereksinimleriyle için tasarlanmış havuzları kullanılır. 
+- İş kritik (Önizleme) veritabanları ve esnek havuzlar için tasarlanmış yüksek IOPS gereksinimleri olan kritik OLTP uygulamalar görev veya yerel depolama Premium'da kullanılır. 
 - Uzaktaki Depolama birimi depolama gerektiren ve bağımsız olarak ölçeklendirebilirsiniz güç işlem bütçe yönelik kurumsal iş yükleri için tasarlanmış, temel ve standart hizmet katmanları için kullanılır. Tek sayfa blobu veritabanı ve günlük dosyaları ve yerleşik depolama çoğaltma ve yük devretme mekanizmalarını kullanırlar.
 
 Her iki durumda da çoğaltma, hata algılama ve yük devretme mekanizmaları SQL veritabanı için tam otomatik ve insan etkileşimi olmadan çalışır. Bu mimari, kaydedilmiş veri hiç kayıp olduğundan ve veri dayanıklılığı tüm öncelikli olacağını emin olmak için tasarlanmıştır.
@@ -52,7 +52,7 @@ SQL veritabanı yüksek kullanılabilirlik çözümde dayanır [Always ON kullan
 
 Bu yapılandırmada, her veritabanı çevrimiçi denetim halkası içinde Yönetim Hizmeti (MS) tarafından duruma getirilir. Bir birincil çoğaltma ve en az iki ikincil çoğaltmaları (çekirdek kümesi) üç bağımsız fiziksel alt sistemleri aynı veri merkezinde bulunan yayılan Kiracı halka içinde yer alır. Birincil çoğaltma ağ geçidi (GW) tarafından gönderilen tüm okuma ve yazma işlemleri ve yazma ikincil çoğaltmalar için zaman uyumsuz olarak çoğaltılır. SQL veritabanı, birincil ve işlem yürütme önce en az bir ikincil çoğaltma için veri yazıldığı çekirdek tabanlı yürütme düzenini kullanır.
 
-[Service Fabric](../service-fabric/service-fabric-overview.md) yük devretme sistem otomatik olarak düğüm başarısız olarak çoğaltmaları yeniden oluşturur ve çekirdek kümesi üyelik düğümleri alınır ve sistem katılma olarak korur. Planlı bakım çekirdek kümesi minimum yineleme sayısı (genellikle 2) giderek önlemek için dikkatle koordine edilen. Bu model Premium veritabanları için iyi çalışır, ancak işlem ve depolama bileşenleri artıklığı gerektirir ve daha yüksek bir maliyet sonuçlanır.
+[Service Fabric](../service-fabric/service-fabric-overview.md) yük devretme sistem otomatik olarak düğüm başarısız olarak çoğaltmaları yeniden oluşturur ve çekirdek kümesi üyelik düğümleri alınır ve sistem katılma olarak korur. Planlı bakım çekirdek kümesi minimum yineleme sayısı (genellikle 2) giderek önlemek için dikkatle koordine edilen. Bu model (Önizleme) veritabanları Premium ve iş kritik için iyi çalışır, ancak işlem ve depolama bileşenleri artıklığı gerektirir ve daha yüksek bir maliyet sonuçlanır.
 
 ## <a name="remote-storage-configuration"></a>Uzak Depolama yapılandırması
 
@@ -73,16 +73,25 @@ Uzak Depolama yapılandırmaları için SQL veritabanı yükseltme sırasında h
 
 ## <a name="zone-redundant-configuration-preview"></a>Bölge olarak yedekli yapılandırması (Önizleme)
 
-Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi çoğaltmalar aynı veri merkezinde oluşturulur. Girişiyle [Azure kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), farklı bir kullanılabilirlik bölgeleri aynı bölgede çekirdek kümeleri farklı çoğaltmaları koyun seçeneğine sahipsiniz. Tek bir hata noktası ortadan kaldırmak için Denetim halkası ayrıca birden çok dilimlerinde üç ağ geçidi çalma (GW) çoğaltılır. Belirli ağ geçidi halka için yönlendirme tarafından denetlenen [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Bölge olarak yedekli yapılandırması ek veritabanı artıklığı oluşturmadığından Premium Hizmet katmanını kullanılabilirlik bölgeleri kullanımda hiçbir ek kullanılabilir maliyeti. Bölge olarak yedekli veritabanını seçerek, Premium veritabanlarınızı dayanıklı uygulama mantığının herhangi bir değişiklik yapılmadan geri dönülemez veri merkezi kesintilerini dahil hataları, çok daha büyük bir dizi yapabilirsiniz. Bölge olarak yedekli yapılandırması herhangi bir varolan Premium veritabanı veya havuzu da dönüştürebilirsiniz.
+Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi çoğaltmalar aynı veri merkezinde oluşturulur. Girişiyle [Azure kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), farklı bir kullanılabilirlik bölgeleri aynı bölgede çekirdek kümeleri farklı çoğaltmaları koyun seçeneğine sahipsiniz. Tek bir hata noktası ortadan kaldırmak için Denetim halkası ayrıca birden çok dilimlerinde üç ağ geçidi çalma (GW) çoğaltılır. Belirli ağ geçidi halka için yönlendirme tarafından denetlenen [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Bölge olarak yedekli yapılandırması ek veritabanı artıklığı, Premium kullanılabilirlik bölgelerinde kullanımını oluşturmaz veya iş kritik (Önizleme) hizmet katmanları hiçbir ek kullanılabilir olduğundan maliyeti. Bölge olarak yedekli veritabanını seçerek, Premium yapabilir veya iş kritik (Önizleme) uygulama mantığının herhangi bir değişiklik yapılmadan geri dönülemez veri merkezi kesintilerini dahil hataları, çok daha büyük bir dizi esnek veritabanları. Bölge olarak yedekli yapılandırması da mevcut Premium ya da iş kritik veritabanları veya havuzları (Önizleme) dönüştürebilirsiniz.
 
 Bölge olarak yedekli çekirdek kümesi aralarında bazı uzaklıklı farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikmesi yürütme süresini artırabilir ve bu nedenle bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi artıklık ayarını devre dışı bırakarak tek bölge yapılandırmaya geri dönebilirsiniz. Bu işlem veri işlemi bir boyuta sahiptir ve normal hizmet düzeyi hedefi (SLO) güncelleştirme benzer. İşlemin sonunda, veritabanı veya havuzu bir bölge olarak yedekli halka dışında tek bir bölge halka (veya tersi) geçirilir.
 
 > [!IMPORTANT]
-> Bölge olarak yedekli veritabanları ve esnek havuzlar yalnızca Premium hizmet katmanında desteklenir. Genel Önizleme, yedeklemeler ve Denetim sırasında kayıtları RA-GRS depolama alanında depolanır ve bu nedenle bir bölge genelinde kesinti durumunda otomatik olarak kullanılamayabilir. 
+> Bölge olarak yedekli veritabanları ve esnek havuzlar yalnızca desteklenen Premium ve iş kritik (Önizleme) hizmet katmanları. Genel Önizleme, yedeklemeler ve Denetim sırasında kayıtları RA-GRS depolama alanında depolanır ve bu nedenle bir bölge genelinde kesinti durumunda otomatik olarak kullanılamayabilir. 
 
 Yüksek kullanılabilirlik mimarisi bölge olarak yedekli sürümü tarafından Aşağıdaki diyagramda gösterilmiştir:
  
 ![yüksek kullanılabilirlik mimarisi bölge olarak yedekli](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
+
+## <a name="read-scale-out"></a>Genişleme okuma
+Açıklandığı gibi Premium ve iş kritik (Önizleme) katmanları Dengeleme çekirdek-ayarlar ve AlwaysON teknoloji hem de tek bir bölge ve bölge olarak yedekli yapılandırmalarını yüksek kullanılabilirlik için hizmet. AlwasyON yararları çoğaltmaların her zaman işlemsel olarak tutarlı durumda olduğundan biridir. Çoğaltmaları birincil olarak aynı performans düzeyine sahip olduğundan, uygulama, salt okunur iş yüklerini hiçbir ek de bakım bu ek kapasite yararlanabilir maliyeti (okuma genişleme). Bu şekilde salt okunur sorguları ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Ölçeklendirme özelliği kullanılmaya okuma mantıksal olarak içeren uygulamalar için salt okunur iş yükleri çözümlemeleri gibi ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanan. 
+
+Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ AzureRmSqlDatabase yeni](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi.
+
+Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanına bağlanan uygulamaları okuma-yazma çoğaltmaya veya salt okunur çoğaltmaya göre veritabanının yönlendirilirsiniz `ApplicationIntent` uygulamanın içinde yapılandırılmış özelliği bağlantı dizesi. Hakkında bilgi için `ApplicationIntent` özelliği, bkz: [uygulama amacı belirtme](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent) 
+
+Okuma genişleme özelliği oturum düzeyinde tutarlılık destekler. Bağlantı hatası neden sonra çoğaltma kullanılabilir olmamasından salt okunur oturum bağlanırsa, farklı bir kopyasına yönlendirilebilir. Olası olsa da, eski veri kümesinin işleme'de neden olabilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen salt okunur oturumu kullanarak okur, benzer şekilde, yeni veriler hemen görünür değil mümkündür.
 
 ## <a name="conclusion"></a>Sonuç
 Azure SQL veritabanı ile Azure platformu son derece tümleşiktir ve Service Fabric yüksek oranda hata algılama ve veri koruma için Azure Storage Bloblarında ve daha yüksek hata toleransı için kullanılabilirlik bölgeleri kurtarma bağlıdır. Aynı anda Azure SQL veritabanı SQL Server kutusunu ürün çoğaltma ve yük devretme için her zaman açık teknolojisini tam olarak yararlanır. Bu teknolojiler birleşimi tam olarak bir karma depolama modelinin faydaları hayata geçirmek ve zorlu SLA desteklemek uygulamaların sağlar. 

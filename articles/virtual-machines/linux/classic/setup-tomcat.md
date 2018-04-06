@@ -1,11 +1,11 @@
 ---
-title: "Linux sanal makine üzerinde Apache Tomcat ayarlama | Microsoft Docs"
-description: "Linux çalıştıran Azure sanal makineler kullanarak Apache tomcat7'yi ayarlayın öğrenin."
+title: Linux sanal makine üzerinde Apache Tomcat ayarlama | Microsoft Docs
+description: Linux çalıştıran Azure sanal makineler kullanarak Apache tomcat7'yi ayarlayın öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: NingKuang
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: 45ecc89c-1cb0-4e80-8944-bd0d0bbedfdc
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: f3bd3167c9a879a876774e5d91fbb10fd340c6a8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure ile Linux sanal makine tomcat7'yi ayarlayın
 Apache Tomcat (veya yalnızca Cakarta Tomcat adıysa ayrıca Tomcat) bir açık kaynak web sunucusu ve Apache yazılım Foundation (ASF) tarafından geliştirilmiş servlet kapsayıcı değil. Tomcat Java Servlet'i ve Sun Microsystems JavaServer sayfaları (JSP) belirtimlerinden uygular. Tomcat Java kodu çalıştırmak için saf Java HTTP web sunucusu ortamı sağlar. En basit yapılandırmada, Tomcat tek işletim sistemi işleminde çalışır. Bu işlem, Java sanal makinesi (JVM) çalışır. Her HTTP isteğine bir tarayıcıdan Tomcat Tomcat işleminde ayrı bir iş parçacığı olarak işlenir.  
@@ -54,7 +54,7 @@ Bu yöntemin başka bir avantajı, farklı sunuculara oturum açmak için farkl�
 
 SSH kimlik doğrulama anahtarı oluşturmak için aşağıdaki adımları izleyin.
 
-1. İndirip PuTTYgen şu konumdan yükleyin: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
+1. Karşıdan yükle ve PuTTYgen şu konumdan yükleyin: [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 2. Puttygen.exe çalıştırın.
 3. Tıklatın **Generate** anahtarları oluşturmak için. İşlem sırasında penceresinde boş alanı üzerinden fareyi hareket ettirerek rastgele artırabilir.  
    ![Generate yeni anahtar düğmesini gösteren puTTY anahtar Oluşturucu ekran görüntüsü][1]
@@ -92,7 +92,7 @@ TCP bağlantı noktası 8080 dinlemek için Tomcat kullanan varsayılan bağlant
 
       80 ayarlarsanız bağlantı noktası numarasını Tomcat erişmek için kullanılan URL'yi içerecek şekilde gerekmez. Örneğin, http://tomcatdemo.cloudapp.net.    
 
-      81 gibi başka bir değere ayarlarsanız URL'ye Tomcat erişmek için bağlantı noktası numarası eklemeniz gerekir. Örneğin, http://tomcatdemo.cloudapp.net:81 /.
+      81 gibi başka bir değere ayarlarsanız URL'ye Tomcat erişmek için bağlantı noktası numarası eklemeniz gerekir. Örneğin, http://tomcatdemo.cloudapp.net:81/.
    2. İçinde 8080 girin **özel bağlantı noktası**. Varsayılan olarak, TCP bağlantı noktası 8080 Tomcat dinler. Varsayılan değiştirdiyseniz dinleme bağlantı noktası, Tomcat, güncelleştirmeniz gerekir **özel bağlantı noktası** Tomcat aynı dinleme bağlantı noktası olmalıdır.  
       ![Ekran görüntüsü, Ekle komutu, genel bağlantı noktası ve özel bağlantı noktası gösteren kullanıcı Arabirimi][7]
 4. Tıklatın **Tamam** , sanal makine uç noktası eklemek için.
@@ -184,7 +184,7 @@ Tomcat7'yi yüklemek için aşağıdaki komutu kullanın.
 Tomcat7'yi kullanmıyorsanız, bu komutun uygun varyasyonunu kullanın.  
 
 #### <a name="confirm-that-tomcat7-installation-is-successful"></a>Tomcat7'yi yükleme işleminin başarılı olduğunu doğrulayın
-Tomcat7'yi başarılı olup olmadığını denetleyin, Tomcat sunucunuzun DNS adına göz atın. Bu makalede, http://tomcatexample.cloudapp.net/ örnek URL'dir. Aşağıdaki gibi bir ileti görürseniz, tomcat7'yi yüklendiğinden emin olun.
+Tomcat7'yi başarılı olup olmadığını denetleyin, Tomcat sunucunuzun DNS adına göz atın. Bu makaledeki örnek URL'dir http://tomcatexample.cloudapp.net/. Aşağıdaki gibi bir ileti görürseniz, tomcat7'yi yüklendiğinden emin olun.
 ![Başarılı tomcat7'yi yükleme iletisi][16]
 
 ### <a name="install-other-tomcat7-components"></a>Diğer tomcat7'yi bileşenlerini yükle
@@ -231,7 +231,7 @@ Bu dosyasını düzenledikten sonra değişikliklerin etkili olmasını sağlama
 
     sudo /etc/init.d/tomcat7 restart  
 
-Tarayıcınızı açın ve girin **http://<your tomcat server DNS name>/Yöneticisi/html** URL. Bu makaledeki örnek için, http://tomcatexample.cloudapp.net/manager/html URL'dir.  
+Tarayıcınızı açın ve girin **http://<your tomcat server DNS name>/Yöneticisi/html** URL. Bu makaledeki örnek için URL'nin olduğundan http://tomcatexample.cloudapp.net/manager/html.  
 
 Bağlandıktan sonra aşağıdakine benzer bir şey görmeniz gerekir:  
 ![Tomcat Web Uygulama Yöneticisi'nin ekran görüntüsü][18]

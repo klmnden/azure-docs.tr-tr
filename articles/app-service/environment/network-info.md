@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama hizmeti ortamı ile ağ konuları"
-description: "Ana ağ trafiği ve Nsg'ler ve Udr'ler, ana ile nasıl ayarlanacağı açıklanır"
+title: Azure uygulama hizmeti ortamı ile ağ konuları
+description: Ana ağ trafiği ve Nsg'ler ve Udr'ler, ana ile nasıl ayarlanacağı açıklanır
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 03/20/2018
 ms.author: ccompy
-ms.openlocfilehash: c4779ada60fab2db5249a107abfc7ca6f80cb16f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 54257ae3e02a00c5097aa7880fa356da3bc0ecce
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Bir uygulama hizmeti ortamı için ağ konuları #
 
@@ -163,7 +163,7 @@ Bu örnekte liste üstündeki ana işlevi ilk iki gelen gereksinimlerini göster
 
 ![Gelen güvenlik kuralları][4]
 
-Varsayılan kural ana alt ağına anlaşmak için sanal ağ içindeki IP sağlar. Başka bir varsayılan kural ana ile iletişim kurmak için ortak VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanına **Ekle** simgesi. NSG gösterilen kuralları sonra şey kural reddetme put ise, VIP ve ana arasındaki trafiği engeller. VNet içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Bir kaynak için AzureLoadBalancer eşit hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığı  **\*** . NSG kuralının ana alt ağına uygulandığından hedef belirli olması gerekmez.
+Varsayılan kural ana alt ağına anlaşmak için sanal ağ içindeki IP sağlar. Başka bir varsayılan kural ana ile iletişim kurmak için ortak VIP olarak da bilinen yük dengeleyici sağlar. Varsayılan kuralları görmek için seçin **varsayılan kuralları** yanına **Ekle** simgesi. NSG gösterilen kuralları sonra şey kural reddetme put ise, VIP ve ana arasındaki trafiği engeller. VNet içinde gelen trafiği engellemek için izin veren kendi gelen kuralı ekleyin. Bir kaynak için AzureLoadBalancer eşit hedefi ile kullanmak **herhangi** ve bir bağlantı noktası aralığı **\***. NSG kuralının ana alt ağına uygulandığından hedef belirli olması gerekmez.
 
 Uygulamanız için bir IP adresi atanmışsa, bağlantı noktalarını açık tutmak emin olun. Bağlantı noktaları görmek için seçin **uygulama hizmeti ortamı** > **IP adreslerini**.  
 
@@ -175,31 +175,10 @@ Nsg'lerinizi tanımlandıktan sonra ana açıktır alt ağa atayın. Ana sanal a
 
 ## <a name="routes"></a>Yollar ##
 
-Yollar, zorlamalı tünelin ne olduğu ve nasıl ele alınması gerektiğiyle ilgili önemli bir unsurdur. Bir Azure sanal ağında yönlendirme, en uzun ön ek eşleşmesi (LPM) temel alınarak yapılır. Aynı LPM eşleşmesine sahip birden fazla yol bulunuyorsa yol aşağıdaki sırayla ve kaynağına göre seçilir:
+Giden trafiği doğrudan internet ancak bir ExpressRoute ağ geçidi veya bir sanal gereç gibi başka bir yere gidin olmayan şekilde, yollar, sanal ağınızda zorlamalı tünel olur.  Bu tür bir şekilde, ana yapılandırın ardından belgeyi okumaya devam gerekiyorsa [zorlamalı tüneli ile uygulama hizmeti ortamınızı yapılandırma][forcedtunnel].  ExpressRoute ve zorlamalı tünel çalışmak için kullanılabilir seçenekleri bu belge size bildirir.
 
-- Kullanıcı tanımlı yol (UDR)
-- BGP yolu (ExpressRoute kullanıldığında)
-- Sistem yolu
-
-Sanal ağ içinde yönlendirme hakkında daha fazla bilgi için [Kullanıcı tanımlı yollar ve IP iletme][UDRs] makalesini okuyun.
-
-Sistem yönetmek için ana kullanan Azure SQL veritabanı güvenlik duvarı vardır. Ana genel VIP kaynaklanacak şekilde iletişim gerektirir. ExpressRoute bağlantısı aşağı ve başka bir IP adresi çıkış gönderilirse ana gelen SQL veritabanına bağlantıları reddedilir.
-
-Gelen yönetim isteklerini yanıtlar ExpressRoute gönderirse yanıt adresini özgün hedef farklıdır. Bu uyuşmazlık TCP iletişimi keser.
-
-Ana ağınızı bir ExpressRoute ile yapılandırılırken çalışmaya yapmak için kolay şeydir:
-
--   Tanıtmak için ExpressRoute yapılandırma _0.0.0.0/0_. Varsayılan olarak, giden tüm şirket içi trafiğe zorlamalı tünel uygular.
--   UDR oluşturun. Bir adres öneki ile ana içeren alt ağ geçerli _0.0.0.0/0_ ve bir sonraki atlama türü _Internet_.
-
-Bu iki değişiklik yaparsanız, ana alt ağdan kaynaklanan Internet hedefleyen trafiğe works ExpressRoute ve ana aşağı zorlanmaz. 
-
-> [!IMPORTANT]
-> Bir UDR’de tanımlanan yollar, ExpressRoute yapılandırması tarafından tanıtılan herhangi bir yoldan öncelikli olacak kadar spesifik olmalıdır. Önceki örnekte geniş 0.0.0.0/0 adres aralığı kullanılır. Bu aralık, daha spesifik adres aralıkları kullanan yol tanıtımları tarafından yanlışlıkla geçersiz kılınabilir.
->
-> ASEs ortak eşleme yolu yolları özel eşleme yoluna arası tanıtma ExpressRoute yapılandırmalarla desteklenmez. Genel eşlemesi yapılandırılmış ExpressRoute yapılandırmaları, Microsoft’tan yol tanıtımları almaz. Reklamlar çok sayıda Microsoft Azure IP adresi aralığı içerir. Özel eşliği yolda arası tanıtılan adres aralıklarını, tüm giden ağ paketlerinin ana'nın alt ağdan bir müşterinin şirket içi ağ altyapısına tünelli zorla demektir. Bu ağ akışı ASEs ile şu anda desteklenmiyor. Bu sorunun bir çözümü, genel eşleme yolundan özel eşleme yoluna yolların çapraz tanıtımını durdurmaktır.
-
-Bir UDR oluşturmak için aşağıdaki adımları izleyin:
+Bir ana portalında oluşturduğunuzda da yönlendirme tabloları kümesi ile ana oluşturulan alt ağdaki oluşturuyoruz.  Bu yollar yalnızca doğrudan internet'e giden trafiği göndermesine izin söyleyin.  
+Aynı yollar el ile oluşturmak için aşağıdaki adımları izleyin:
 
 1. Azure portalına gidin. Seçin **ağ** > **yol tablosu**.
 
@@ -217,17 +196,15 @@ Bir UDR oluşturmak için aşağıdaki adımları izleyin:
 
     ![Nsg'ler ve yolları][7]
 
-### <a name="deploy-into-existing-azure-virtual-networks-that-are-integrated-with-expressroute"></a>ExpressRoute ile tümleşik olan Azure sanal ağlarda dağıtma ###
+## <a name="service-endpoints"></a>Hizmet Uç Noktaları ##
 
-ExpressRoute ile tümleşik bir VNet içine, ana dağıtmak için dağıtılan ana istediğiniz alt ağ önceden yapılandırın. Ardından bunu dağıtmak için bir Resource Manager şablonunu kullanın. Bir ana sanal ağ içinde zaten oluşturmak için yapılandırılmış ExpressRoute sahiptir:
+Hizmet Uç Noktaları, çok kiracılı hizmetlere erişimi bir dizi Azure sanal ağı ve alt ağı ile kısıtlamanızı sağlar. [Sanal Ağ Hizmet Uç Noktaları][serviceendpoints] belgelerinde Hizmet Uç Noktaları hakkında daha fazla bilgi edinebilirsiniz. 
 
-- Ana barındırmak için bir alt ağ oluşturun.
+Bir kaynakta Hizmet Uç Noktalarını etkinleştirdiğinizde, diğer tüm yönlendiricilerden daha yüksek öncelikle oluşturulmuş rotalar vardır. ASE’ye zorlamalı tünel uygulanmış şekilde Hizmet Uç Noktalarını kullanırsanız, Azure SQL ve Azure Depolama yönetimi trafiğine zorlamalı tünel uygulanmaz. 
 
-    > [!NOTE]
-    > Hiçbir şey alt ancak ana olabilir. Gelecekteki büyümeyi de izin veren bir adres alanı seçtiğinizden emin olun. Bu ayarı daha sonra değiştiremezsiniz. Dosya boyutu öneririz `/25` 128 adreslerine sahip.
+Azure SQL örneği içeren bir alt ağda Hizmet Uç Noktaları etkinleştirilirse, o alt ağa veya alt ağdan bağlanan tüm Azure SQL örnekleri için Hizmet Uç Noktaları etkinleştirilmiş olmalıdır. Aynı alt ağdan birden fazla Azure SQL örneğine erişmek istiyorsanız, tek bir Azure SQL örneğinde Hizmet Uç Noktalarını etkinleştirebilir, başka bir örnekte etkinleştiremezsiniz. Azure Depolama, Azure SQL ile aynı şekilde hareket etmez. Azure Depolama ile Hizmet Uç Noktalarını etkinleştirdiğinizde, alt ağınızdan o kaynağa erişimi kilitlersiniz, ancak Hizmet Uç Noktaları etkinleştirilmiş olmasa da diğer Azure Depolama hesaplarından erişmeye devam edebilirsiniz.  
 
-- Daha önce açıklandığı gibi Udr'ler (örneğin, yol tablolarını) oluşturun ve bu alt ağda ayarlayın.
-- Ana açıklandığı gibi bir Resource Manager şablonunu kullanarak oluşturduğunuz [Resource Manager şablonu kullanarak bir ana oluşturma][MakeASEfromTemplate].
+![Hizmet Uç Noktaları][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -237,6 +214,7 @@ ExpressRoute ile tümleşik bir VNet içine, ana dağıtmak için dağıtılan a
 [5]: ./media/network_considerations_with_an_app_service_environment/networkase-outboundnsg.png
 [6]: ./media/network_considerations_with_an_app_service_environment/networkase-udr.png
 [7]: ./media/network_considerations_with_an_app_service_environment/networkase-subnet.png
+[8]: ./media/network_considerations_with_an_app_service_environment/serviceendpoint.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -258,3 +236,6 @@ ExpressRoute ile tümleşik bir VNet içine, ana dağıtmak için dağıtılan a
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[forcedtunnel]: ./forced-tunnel-support.md
+[serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md

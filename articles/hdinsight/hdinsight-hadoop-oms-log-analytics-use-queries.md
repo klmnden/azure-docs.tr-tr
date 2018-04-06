@@ -1,8 +1,8 @@
 ---
-title: "Sorgu Azure Hdınsight kümeleri izlemek için Azure günlük analizi | Microsoft Docs"
-description: "Bir Hdınsight kümesinde çalışan işleri izlemek için Azure günlük analizi sorguları çalıştırmayı öğrenin."
+title: Sorgu Azure Hdınsight kümeleri izlemek için Azure günlük analizi | Microsoft Docs
+description: Bir Hdınsight kümesinde çalışan işleri izlemek için Azure günlük analizi sorguları çalıştırmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: f9e023ae8d6c50049b588cf056629cd8d46ee603
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 1b2f5fc9bd4f8fc8cd70437e38831595d0a8a819
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Hdınsight kümeleri izlemek için sorgu Azure günlük analizi
 
@@ -33,7 +33,7 @@ Bazı temel senaryoları Azure günlük analizi Azure Hdınsight kümeleri izlem
 
 * Hdınsight kümesi Azure günlük analizi kullanmak üzere yapılandırmış olmanız gerekir. Yönergeler için bkz: [kullanım Azure günlük analizi Hdınsight kümeleri ile](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
-* Hdınsight kümesi-özel yönetim çözümleri eklenmesi gerekir [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) açıklandığı gibi çalışma [eklemek Hdınsight küme yönetim çözümleri için günlük analizi](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
+* Hdınsight kümesi-özel yönetim çözümleri eklenmesi gerekir [günlük analizi](../operations-management-suite/operations-management-suite-overview.md) açıklandığı gibi çalışma [ekleme Hdınsight küme yönetim çözümleri için günlük analizi](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Hdınsight küme ölçümleri analiz edin
 
@@ -86,7 +86,7 @@ Belirli bir zaman penceresi sırasında hata iletileri ara öğrenin. Burada nas
 
     ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
 
-2. OMS panodan giriş ekranı tıklatın **günlük arama**.
+2. OMS portalında, başlangıç ekranından tıklatın **günlük arama**.
 
     ![Açık günlük arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "açık günlük arama")
 
@@ -126,7 +126,7 @@ Bir uyarı oluşturmak istediğiniz herhangi bir sorgu kullanabilirsiniz.
 
     ![Açık OMS Pano](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-open-oms-dashboard.png "açık OMS Panosu")
 
-2. OMS panodan giriş ekranı tıklatın **günlük arama**.
+2. OMS portalında, başlangıç ekranından tıklatın **günlük arama**.
 
     ![Açık günlük arama](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-click-log-search.png "açık günlük arama")
 
@@ -152,5 +152,5 @@ Bir uyarı oluşturmak istediğiniz herhangi bir sorgu kullanabilirsiniz.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Operations Management Suite günlük analizi ile çalışma](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Günlük analizi ile çalışma](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Günlük analizi uyarı kuralları oluşturma](../log-analytics/log-analytics-alerts-creating.md)

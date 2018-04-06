@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Facebook ile çalışma alanına yapılandırma | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Facebook ile çalışma alanına arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory ile otomatik kullanıcı sağlamayı Facebook ile çalışma alanına yapılandırma | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Facebook ile çalışma alanına arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 15cbaafcd86c576f4789a61ed80c526b6fe705ab
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: d42a6b63833bffc3cce1830a728ec21083b25dc9
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Öğretici: Otomatik kullanıcı sağlamayı için Facebook ile çalışma alanına yapılandırın
 
@@ -57,7 +57,7 @@ Yapılandırma ve sağlama hizmeti etkinleştirmeden önce hangi kullanıcılara
 Bu bölümde API sağlama Facebook'ın kullanıcı hesabı tarafından Azure AD çalışma alanına konusunda size rehberlik eder ve oluşturmak için sağlama hizmeti yapılandırma güncelleştirin ve çalışma Azure AD'de kullanıcı ve grup atama göre Facebook tarafından atanan kullanıcı hesapları devre dışı bırak.
 
 >[!Tip]
->Da tercih edebilirsiniz etkin SAML tabanlı çoklu oturum açma Facebook tarafından çalışma alanı için yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
+>Ayrıca aktarmızı çalışma alanına Facebook ile SAML tabanlı çoklu oturum açmayı etkinleştirmek, yönergeleri izleyerek sağlanan [Azure portal](https://portal.azure.com). Bu iki özellik birbirine tamamlayıcı rağmen otomatik sağlamayı bağımsız olarak, çoklu oturum açma yapılandırılabilir.
 
 ### <a name="to-configure-user-account-provisioning-to-workplace-by-facebook-in-azure-ad"></a>Kullanıcı hesap için çalışma alanına Facebook tarafından Azure AD'de sağlama yapılandırmak için:
 
@@ -75,7 +75,7 @@ Azure AD çalışma alanına Facebook tarafından atanan kullanıcı hesabı ayr
 
     ![sağlama](./media/active-directory-saas-workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
-5. Altında **yönetici kimlik bilgileri** bölümünde, gizli belirteci işyeriniz Facebook yönetici tarafından girin ve Kiracı URL değeri ayarlamak `https://www.facebook.com/scim/v1/` .
+5. Altında **yönetici kimlik bilgileri** bölümünde işyeriniz Facebook yönetici tarafından erişim belirteci girin ve Kiracı URL'si değerine `https://www.facebook.com/scim/v1/` . Bunlar bkz [yönergeleri](https://developers.facebook.com/docs/workplace/integrations/custom-integrations/apps) çalışma alanı için bir erişim belirteci oluşturma. 
 
 6. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD çalışma alanına Facebook uygulaması tarafından bağlanabilirler. Bağlantı başarısız olursa işyeriniz Facebook hesabına göre takım yönetici izinleri olduğundan emin olun.
 

@@ -1,12 +1,13 @@
 ---
-title: Ağ trafiği - Azure PowerShell | Microsoft Docs
-description: PowerShell kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
+title: Ağ trafiği Azure PowerShell | Microsoft Docs
+description: Bu makalede, PowerShell kullanarak bir yol tablosu ile ağ trafiğini yönlendirmek öğrenin.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: ''
@@ -16,24 +17,23 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: f7be6aa58c6779150d3e79893e6e179d08611567
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6f3bd2a9683daf5f523cc5cfe43e568fb508694
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell kullanarak bir yol tablosu ile ağ trafiği yönlendirme
 
 Azure otomatik olarak yollar varsayılan olarak bir sanal ağ içindeki tüm alt ağlar arasında trafiği. Azure'nın geçersiz kılmak için kendi Rota oluşturabilmeniz için varsayılan yönlendirme. Örneğin, bir ağ sanal gereç (NVA) aracılığıyla alt ağlar arasında trafiği yönlendirmek istiyorsanız, özel yollar oluşturma olanağı yararlıdır. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * Rota tablosu oluşturma
-> * Bir yol oluşturma
-> * Birden çok alt ağı ile bir sanal ağ oluşturma
-> * Bir alt ağ için bir yol tablosu ilişkilendirme
-> * Trafiğini yönlendiren bir NVA oluşturma
-> * Sanal makineler (VM) farklı alt dağıtma
-> * Bir NVA aracılığıyla başka bir yolu trafiğini bir alt ağdan
+* Rota tablosu oluşturma
+* Bir yol oluşturma
+* Birden çok alt ağı ile bir sanal ağ oluşturma
+* Bir alt ağ için bir yol tablosu ilişkilendirme
+* Trafiğini yönlendiren bir NVA oluşturma
+* Sanal makineler (VM) farklı alt dağıtma
+* Bir NVA aracılığıyla başka bir yolu trafiğini bir alt ağdan
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -239,43 +239,43 @@ mstsc /v:<publicIpAddress>
 
 Kullanıcı adını ve VM oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için), ardından **Tamam**. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** bağlantı ile devam etmek için. 
 
-Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı aracılığıyla etkinleştirin:
+Bir sonraki adımda tracert.exe komut yönlendirme test etmek için kullanılır. Tracert Windows Güvenlik Duvarı üzerinden reddedildi Internet Denetim İletisi Protokolü (ICMP) kullanır. ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı üzerinden etkinleştirme *myVmPrivate* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
 ```
 
-Bu makalede yönlendirme test etmek için tracert kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
+İzleme yolu, bu makaledeki yönlendirme test etmek için kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
 
-İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva* yer alan aşağıdaki adımları tamamlayarak *myVmPrivate* VM:
+VM'nin ağ arabirimi için IP iletimini Azure içindeki etkin [etkinleştirmek IP fowarding](#enable-ip-forwarding). VM dahilinde işletim sistemi ya da VM içinde çalışan bir uygulama aynı zamanda ağ trafiğini iletebilir olması gerekir. İşletim sistemi içinde IP iletimini etkinleştirmeniz *myVmNva*.
 
-Uzak Masaüstü ' *myVmNva* VM aşağıdaki PowerShell komutu ile:
+Bir komut isteminden *myVmPrivate* VM, Uzak Masaüstü ' *myVmNva*:
 
 ``` 
 mstsc /v:myvmnva
 ```
     
-İşletim sistemi içinde iletme IP etkinleştirmek için PowerShell içinde aşağıdaki komutu girin:
+İşletim sistemi içinde IP iletimini etkinleştirmek için Powershell'den aşağıdaki komutu girin. *myVmNva* VM:
 
 ```powershell
 Set-ItemProperty -Path HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters -Name IpEnableRouter -Value 1
 ```
     
-Ayrıca Uzak Masaüstü oturumu bağlantısını keser VM'yi yeniden başlatın.
+Yeniden *myVmNva* de Uzak Masaüstü oturumu bağlantısını keser VM.
 
-Halen bağlı sırasında *myVmPrivate* VM, sonra *myVmNva* VM yeniden başlatma, Uzak Masaüstü oturumu oluşturmak *myVmPublic* VM şu komutla:
+Halen bağlı sırasında *myVmPrivate* VM, bir Uzak Masaüstü oturumu oluşturmak *myVmPublic* VM, sonra *myVmNva* VM'yi yeniden başlatır:
 
 ``` 
 mstsc /v:myVmPublic
 ```
     
-ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı aracılığıyla etkinleştirin:
+ICMP Powershell'den aşağıdaki komutu girerek Windows Güvenlik Duvarı üzerinden etkinleştirme *myVmPublic* VM:
 
 ```powershell
-New-NetFirewallRule ???DisplayName ???Allow ICMPv4-In??? ???Protocol ICMPv4
+New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
 ```
 
-Ağ trafiği yönlendirmesini test etmek için *myVmPrivate* VM'den *myVmPublic* VM Powershell'den aşağıdaki komutu girin:
+Ağ trafiği yönlendirmesini test etmek için *myVmPrivate* VM'den *myVmPublic* VM Powershell'den aşağıdaki komutu girin *myVmPublic* VM:
 
 ```
 tracert myVmPrivate
@@ -293,10 +293,11 @@ over a maximum of 30 hops:
 Trace complete.
 ```
       
-İlk atlama ağ sanal gereç ait özel IP adresi 10.0.2.4 olduğunu görebilirsiniz. İkinci atlama 10.0.1.4, özel IP adresi olan *myVmPrivate* VM. Eklenen rota *myRouteTablePublic* rota tablosu ve ilişkili *ortak* alt neden NVA aracılığıyla yerine doğrudan trafiği yönlendirmek Azure *özel* alt ağ.
+İlk atlama NVA'ın özel IP adresi 10.0.2.4 olduğunu görebilirsiniz. İkinci atlama 10.0.1.4, özel IP adresi olan *myVmPrivate* VM. Eklenen rota *myRouteTablePublic* rota tablosu ve ilişkili *ortak* alt neden NVA aracılığıyla yerine doğrudan trafiği yönlendirmek Azure *özel* alt ağ.
 
 Uzak Masaüstü oturumu kapatmak *myVmPublic* , hala bağlı bırakır VM *myVmPrivate* VM.
-Ağ trafiği yönlendirmesini test etmek için *myVmPublic* VM'den *myVmPrivate* VM, bir komut isteminden aşağıdaki komutu girin:
+
+Ağ trafiği yönlendirmesini test etmek için *myVmPublic* VM'den *myVmPrivate* VM, bir komut isteminden aşağıdaki komutu girin *myVmPrivate* VM:
 
 ```
 tracert myVmPublic
@@ -309,7 +310,7 @@ Tracing route to myVmPublic.vpgub4nqnocezhjgurw44dnxrc.bx.internal.cloudapp.net 
 over a maximum of 30 hops:
     
 1     1 ms     1 ms     1 ms  10.0.0.4
-    
+   
 Trace complete.
 ```
 
@@ -327,9 +328,6 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş bir basit ağ sanal gereç oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış ağ sanal Gereçleri çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme tabloları üretim kullanımı için dağıtmadan önce baştan sona ile öğrenmeniz olduğunu önerilir [Azure'da yönlendirme](virtual-networks-udr-overview.md), [Yönet yol tablolarını](manage-route-table.md), ve [Azuresınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Bu makalede, bir yol tablosu oluşturulur ve bir alt ağa ilişkilendirilmiş. Ortak bir alt ağ trafiği için özel bir alt ağa yönlendirilmiş bir basit ağ sanal gereç oluşturuldu. Güvenlik Duvarı ve WAN iyileştirme dışında gibi ağ işlevleri gerçekleştirmek önceden yapılandırılmış ağ sanal Gereçleri çeşitli dağıtmak [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking). Yönlendirme hakkında daha fazla bilgi için bkz: [yönlendirmeye genel bakış](virtual-networks-udr-overview.md) ve [bir yol tablosu yönetmek](manage-route-table.md).
 
-Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Ağ erişimi Azure PaaS kaynaklarına erişimi kısıtlayabilir öğrenmek için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Ağ erişimi PaaS kaynaklarına erişimi kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md)
+Bir sanal ağ içinde birçok Azure kaynakları dağıtabilirsiniz, ancak bazı Azure PaaS hizmetler için kaynaklar sanal bir ağa dağıtılamıyor. Hala erişimi bazı Azure PaaS Hizmetleri'nden trafik için yalnızca bir sanal ağ alt kaynaklara yine de kısıtlayabilirsiniz. Bilgi edinmek için bkz [PaaS kaynaklarına ağ erişimini kısıtlayabilir](tutorial-restrict-network-access-to-resources-powershell.md).

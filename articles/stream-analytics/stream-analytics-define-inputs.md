@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/11/2017
 ms.author: sngun
-ms.openlocfilehash: 0ddc3187e9fc0664838dd07f781f4d7e2e4a7fe0
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Veri bağlantısı: hakkındaki verileri Stream Analytics akış girişleri olaylardan öğrenin
 Veri akış analizi işi, işin adlandırılan bir veri kaynağından alınan olayların bir akış bağlantısıdır *giriş*. Akış analizi dahil olmak üzere Azure veri kaynakları ile veri akışı, birinci sınıf tümleştirme sahip [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/), ve [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Bu giriş kaynaklarıyla analytics işiniz aynı Azure aboneliğinden veya farklı bir abonelik olabilir.
@@ -176,7 +176,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure veri bağlantı seçenekleri hakkında Stream Analytics işleri öğrendiniz. Stream Analytics hakkında daha fazla bilgi için bkz:

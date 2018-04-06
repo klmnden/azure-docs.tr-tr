@@ -1,12 +1,12 @@
 ---
-title: "Azure sunucusuz genel bakış | Microsoft Docs"
-description: "Güçlü çözümler, altyapı hakkında düşünmek zorunda kalmadan bulutta oluşturun."
-keywords: 
+title: Azure sunucusuz genel bakış | Microsoft Docs
+description: Güçlü çözümler, altyapı hakkında düşünmek zorunda kalmadan bulutta oluşturun.
+keywords: ''
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5cc6837ed0b0f4467e48c736f5d596a51a799fae
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 30c7dd36efca5ffcae770fe310a43a107d9136af
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="overview-of-azure-serverless-with-functions-and-logic-apps"></a>Azure işlevleri ve Logic Apps ile sunucusuz genel bakış
 
@@ -45,7 +45,7 @@ Logic Apps ile çalışmaya başlamak için başlayın [ilk mantıksal uygulaman
 
 ## <a name="how-can-i-build-and-deploy-serverless-applications-in-azure"></a>Nasıl derleme ve Azure sunucusuz uygulamalar dağıtmak?
 
-Azure, geliştirme, dağıtımı ve sunucusuz uygulamaların Yönetimi zengin birtakım araçlar sağlar.  Uygulamaları Azure Portalı'ndaki doğrudan ya da ile oluşturulabilen [Visual Studio'dan tooling](logic-apps-serverless-get-started-vs.md).  Bir uygulama geliştirilen bir kez olabilir [anında dağıtılan](logic-apps-create-deploy-template.md).  Azure sunucusuz uygulamaları için izleme de sağlar.  Bu izleme Azure portalından, API veya SDK aracılığıyla veya tümleşik araçları ile OMS ve Application Insights için erişilebilir.
+Azure, geliştirme, dağıtımı ve sunucusuz uygulamaların Yönetimi zengin birtakım araçlar sağlar.  Uygulamaları Azure Portalı'ndaki doğrudan ya da ile oluşturulabilen [Visual Studio'dan tooling](logic-apps-serverless-get-started-vs.md).  Bir uygulama geliştirilen bir kez olabilir [anında dağıtılan](logic-apps-create-deploy-template.md).  Azure sunucusuz uygulamaları için izleme de sağlar.  Bu izleme Azure portalından, API veya SDK aracılığıyla veya tümleşik bir araç olan günlük analizi ve Application Insights için erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

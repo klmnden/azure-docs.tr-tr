@@ -3,7 +3,7 @@ title: Cihaz üretici yazılımı güncelleştirmesi ile Azure IOT hub'ı (.NET/
 description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve Azure IOT hizmeti SDK'sını bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak .NET için uygulamak için Azure IOT cihaz SDK'sı .NET için kullanın.
 services: iot-hub
 documentationcenter: .net
-author: JimacoMS2
+author: dominicbetts
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2017
-ms.author: v-jamebr
-ms.openlocfilehash: 984fd7516b5c05973c45891f4eda31c41a5a2be5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: v-jamebr;dobett
+ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>Bir cihaz üretici yazılımı güncelleştirmesi (.NET/.NET) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
