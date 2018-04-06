@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/24/2018
 ms.author: sedusch
-ms.openlocfilehash: b84b523f919e6b253462139b6888e5eb16248084
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: e3fb06309dabd7f66d5873e4c5faa48b468854f6
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>SAP HANA Azure sanal makinelerde (VM), yüksek kullanılabilirlik
 
@@ -34,6 +34,7 @@ ms.lasthandoff: 03/28/2018
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2388694]:https://launchpad.support.sap.com/#/notes/2388694
 
 [hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
 [hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
@@ -155,15 +156,36 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
         1. Yeni durum araştırması (örneğin hana-hp) adını girin
         1. TCP bağlantı noktası 625 protokolü olarak seçin**03**, aralığı 5 ile sağlıksız durum eşiği 2 tutun
         1. Tamam'ı tıklatın
-    1. Yük dengeleme kuralları oluşturma
+    1. SAP HANA 1.0: Yük Dengeleme kuralları oluşturma
         1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
         1. Yeni Yük Dengeleyici kuralı adını girin (örneğin hana-lb-3**03**15)
+        1. Ön uç IP adresi, arka uç havuzu ve oluşturduğunuz durumu araştırması için daha önce (örnek hana-ön uç) seçin
+        1. Protokol TCP tutmak için bağlantı noktası 3 girin**03**15
+        1. -30 dakika boşta kalma zaman aşımı süresini artırın
+        1. **Kayan IP etkinleştirdiğinizden emin olun**
+        1. Tamam'ı tıklatın
+        1. Bağlantı noktası 3 için yukarıdaki adımları yineleyin**03**17
+    1. SAP HANA 2.0: Yük Dengeleme kuralları sistem veritabanı için oluşturma
+        1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
+        1. Yeni Yük Dengeleyici kuralı adını girin (örneğin hana-lb-3**03**13)
         1. Ön uç IP adresi, arka uç havuzu ve oluşturduğunuz durumu araştırması için daha önce (örnek hana-ön uç) seçin
         1. Protokol TCP tutmak için bağlantı noktası 3 girin**03**13
         1. -30 dakika boşta kalma zaman aşımı süresini artırın
         1. **Kayan IP etkinleştirdiğinizden emin olun**
         1. Tamam'ı tıklatın
-        1. Bağlantı noktası 3 için yukarıdaki adımları yineleyin**03**15 ve 3**03**17
+        1. Bağlantı noktası 3 için yukarıdaki adımları yineleyin**03**14
+    1. SAP HANA 2.0: Yük Dengeleme kuralları için ilk Kiracı veritabanı oluşturun.
+        1. Yük Dengeleyici açın, Yük Dengeleme kuralları seçin ve Ekle'yi tıklatın
+        1. Yeni Yük Dengeleyici kuralı adını girin (örneğin hana-lb-3**03**40)
+        1. Ön uç IP adresi, arka uç havuzu ve oluşturduğunuz durumu araştırması için daha önce (örnek hana-ön uç) seçin
+        1. Protokol TCP tutmak için bağlantı noktası 3 girin**03**40
+        1. -30 dakika boşta kalma zaman aşımı süresini artırın
+        1. **Kayan IP etkinleştirdiğinizden emin olun**
+        1. Tamam'ı tıklatın
+        1. Bağlantı noktası 3 için yukarıdaki adımları yineleyin**03**41 ve 3**03**42
+
+SAP HANA için gerekli bağlantı noktaları hakkında daha fazla bilgi için bölüm okuma [Kiracı veritabanı bağlantılarını](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) , [SAP HANA Kiracı veritabanları](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) kılavuzu veya [SAP Not 2388694] [2388694].
+
 
 ## <a name="create-pacemaker-cluster"></a>Pacemaker kümesi oluşturma
 
@@ -290,7 +312,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
     
     ```
 
-SAP HANA sistem çoğaltma yüklemek için Bölüm 4 izleyin [SAP HANA SR performansı en iyi duruma getirilmiş senaryo Kılavuzu][suse-hana-ha-guide].
+SAP HANA sistem çoğaltma yüklemek için Bölüm 4 SAP HANA SR performansı en iyi duruma getirilmiş senaryo Kılavuzu'nun en izleyin https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 
 1. **[A]**  Hdblcm HANA DVD'SİNDEN çalıştırın
     * Yüklemeyi seçin 1 ->
