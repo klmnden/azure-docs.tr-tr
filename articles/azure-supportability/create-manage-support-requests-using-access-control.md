@@ -1,6 +1,6 @@
 ---
-title: "Azure rol tabanlı erişim denetimi (oluşturmak ve Destek isteklerini yönetmek için RBAC) için erişim haklarını denetleme | Microsoft Docs"
-description: "Azure rol tabanlı erişim denetimi (oluşturmak ve Destek isteklerini yönetmek için RBAC) için erişim haklarını denetleme"
+title: Azure rol tabanlı erişim denetimi (oluşturmak ve Destek isteklerini yönetmek için RBAC) için erişim haklarını denetleme | Microsoft Docs
+description: Azure rol tabanlı erişim denetimi (oluşturmak ve Destek isteklerini yönetmek için RBAC) için erişim haklarını denetleme
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Azure rol tabanlı erişim denetimi (oluşturmak ve Destek isteklerini yönetmek için RBAC) için erişim haklarını denetleme
 
@@ -78,7 +78,7 @@ Erişim, eş, Can, oluşturun ve bu abonelik altında kaynaklar için destek bil
 
 4. Devam etmek için "Tamam" düğmesini tıklatın
 
-    ![Erişim Ekle](./media/create-manage-support-requests-using-access-control/add-access.png)
+    ![Erişim ekle](./media/create-manage-support-requests-using-access-control/add-access.png)
 
 5. Şimdi yeni eklenen özel rol "Destek isteği katkıda bulunan" sahibi olduğunuz abonelik altında kullanıcıyla bakın
 

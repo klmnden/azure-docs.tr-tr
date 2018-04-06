@@ -1,11 +1,11 @@
 ---
-title: "Operations Manager için günlük analizi bağlanma | Microsoft Docs"
-description: "System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özelliklerini kullanmak için Operations Manager OMS çalışma alanınızla tümleştirebilirsiniz."
+title: Operations Manager için günlük analizi bağlanma | Microsoft Docs
+description: System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özelliklerini kullanmak için Operations Manager OMS çalışma alanınızla tümleştirebilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 245ef71e-15a2-4be8-81a1-60101ee2f6e6
 ms.service: log-analytics
 ms.workload: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/10/2017
 ms.author: magoedte
 ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager günlük Analizi'ne bağlayın
 System Center Operations Manager'da varolan yatırımınızı korumak ve günlük analizi ile genişletilmiş özelliklerini kullanmak için Operations Manager OMS çalışma alanınızla tümleştirebilirsiniz.  Bu, Operations Manager için kullanmaya devam ederken OMS fırsatlarını yararlanan sağlar:
@@ -33,7 +33,7 @@ Operations Manager yönetim grubuna raporlama aracıları sunucularınızdan gü
 
 Aşağıdaki diyagram, System Center Operations Manager yönetim grubu ve bağlantı noktaları ve yön dahil olmak üzere eklemek için aracıları ve yönetim sunucuları arasındaki bağlantıyı gösterir.   
 
-![OMS-işlemleri-manager-tümleştirme-diyagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
+![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
 BT güvenlik ilkelerinizi bilgisayarları Internet'e bağlanmak için ağınızdaki izin vermiyorsa, yönetim sunucuları yapılandırma bilgilerini almak ve etkinleştirdiğiniz çözümüne bağlı olarak toplanan verileri göndermek için OMS ağ geçidine bağlanmak için yapılandırılabilir.  Daha fazla bilgi ve OMS hizmetine bir OMS ağ geçidi üzerinden iletişim kurmak için Operations Manager yönetim grubunuzu yapılandırma adımları için bkz: [OMS ağ geçidini kullanarak OMS bilgisayarları bağlamak](log-analytics-oms-gateway.md).  
 
@@ -101,7 +101,7 @@ Bir iç proxy sunucu OMS web hizmetine ve yönetim grubu arasında ise aşağıd
 1. Operations Manager konsolunu açın ve **Yönetim** çalışma alanını seçin.
 2. Operations Management Suite genişletin ve ardından **bağlantıları**.
 3. OMS Bağlantısı görünümünde, **Ara Sunucuyu Yapılandır**'a tıklayın.
-4. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında, **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, örneğin, http://corpproxy:80 bağlantı noktası numarasıyla URL'sini yazın ve ardından **son**.
+4. Üzerinde **Operations Management Suite Sihirbazı: Proxy sunucusu** sayfasında, **Operations Management Suite erişimi için bir proxy sunucusunu kullanmak**, ve bağlantı noktası numarası URL'SİYLE örneğin yazın http://corpproxy:80 ve ardından **son**.
 
 Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kimlik bilgileri ve yönetim grubu için OMS raporları yönetilen bilgisayarlara yaymak için gereken ayarları yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
@@ -124,7 +124,7 @@ Bağlantı oluşturulur ve hangi Aracıların toplamak ve veriler için OMS rapo
 Yapılandırma tamamlandıktan sonra Operations Manager yönetim grubu OMS hizmetiyle bir bağlantı kurar.  Yönetim sunucusu web hizmetiyle eşitler ve formunda yönetim paketlerinin Operations Manager ile tümleştirerek etkinleştirdiğiniz çözümler için güncelleştirilmiş yapılandırma bilgilerini alır.   Operations Manager, güncelleştirmeleri bu yönetim paketlerinin ve otomatik olarak denetler indirin ve kullanılabilir olduğunda bunları alır.  İki kurallar vardır özellikle, bu davranışı denetlemek:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** -temel OMS yönetim paketleri güncelleştirir. Varsayılan olarak her 12 saatte çalışır.
-* **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** -çalışma alanınızda etkin çözüm yönetim paketleri güncelleştirir. Varsayılan olarak beş (5) dakikada bir çalışır.
+* **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Varsayılan olarak beş (5) dakikada bir çalışır.
 
 Devre dışı bırakarak otomatik indirme engellemek veya yönetim sunucusu ile yeni bir Yönetim Paketi kullanılabilir ve indirilmesi belirlemek için OMS ne sıklıkla eşitleneceğini sıklığını değiştirmek için bu iki kuralın geçersiz kılabilirsiniz.  Adımları [bir kural veya izleyici geçersiz kılmak nasıl](https://technet.microsoft.com/library/hh212869.aspx) değiştirmek için **sıklığı** eşitleme zamanlamasını değiştirmek veya değiştirmek için saniye cinsinden bir değer parametresiyle **etkin** kuralları devre dışı bırakmak için parametre.  Operations Manager yönetim grubu sınıfın tüm nesneleri için geçersiz kılmalar hedefleyin.
 
@@ -150,7 +150,7 @@ Operations Manager tümleştirmesi için OMS başarılı olduğunu doğrulamak b
 2. Seçin **bağlı kaynakları**.
 3. System Center Operations Manager bölümünün altında tabloda veri son alındığında listelenen aracıları ve durum sayısı ile yönetim grubunun adını görmeniz gerekir.
    
-   ![OMS ayarları connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
+   ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 4. Not **çalışma alanı kimliği** sol taraftaki ayarları sayfasının altında değeri.  Bu Operations Manager yönetim grubunuzu karşı aşağıdaki doğrulayın.  
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Operations konsolundan tümleştirme onaylamak için
@@ -159,7 +159,7 @@ Operations Manager tümleştirmesi için OMS başarılı olduğunu doğrulamak b
 3. Etkinleştirdiğiniz çözümleri bağlı olarak, arama sonuçları listesinde karşılık gelen bir Yönetim Paketi bakın.  Örneğin, uyarı yönetimi çözümü etkinleştirilirse, Yönetim Paketi Microsoft System Center Advisor uyarı yönetim listede ' dir.
 4. Gelen **izleme** görüntülemek için gitmek **Operations Management Suite\Health durumu** görünümü.  Bir yönetim sunucusu altında seçin **yönetim sunucusu durumu** bölmesinde ve **ayrıntılı Görünüm** bölmesinde Onayla özelliğinin değeri **kimlik doğrulama hizmeti URI'si** OMS çalışma alanı kimliği ile eşleşir
    
-   ![OMS-OpsMgr-MG-authsvcuri-Property-MS](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
+   ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-oms"></a>OMS ile tümleştirme Kaldır
 Operations Manager yönetim grubu ve OMS çalışma arasında tümleştirme artık ihtiyaç duymadığınızda, gerektiği gibi yönetim grubunda bağlantısını ve yapılandırmasını kaldırmak için gereken birkaç adım vardır. Aşağıdaki yordam, yönetim grubunuzun başvuru silerek, OMS çalışma güncelleştirmek, OMS bağlayıcılarını silip ve OMS destekleyen yönetim paketlerini silin sahiptir.   
@@ -172,8 +172,8 @@ Operations Manager yönetim grubu ve OMS çalışma arasında tümleştirme art�
     > Tüm özel yönetim paketlerinde word Danışmanı veya IntelligencePack ile devam etmeden önce adı yok ve aksi halde yönetim grubundan silin aşağıdaki adımları doğrulayın.
     > 
 
-2. Komut kabuğu isteminde yazın`Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Sonraki türü`Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+2. Komut kabuğu isteminde yazın `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+3. Sonraki türü `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 4. Diğer System Center Advisor yönetim paketlerine bağımlı olan kalan herhangi bir yönetim paketi kaldırmak için komut dosyası kullanma *RecursiveRemove.ps1* TechNet Komut Merkezi'nden daha önce indirdiğiniz.  
  
     > [!NOTE]
@@ -183,7 +183,7 @@ Operations Manager yönetim grubu ve OMS çalışma arasında tümleştirme art�
 5. Operations Manager Yöneticiler rolünün bir üyesi olan bir hesapla Operations Manager işletim konsolunu açın.
 6. Altında **Yönetim**seçin **yönetim paketleri** düğümü ve **arayın:** kutusuna **Danışmanı** ve aşağıdaki yönetim paketleri yönetim grubunuza içeri doğrulamak:
    
-   * Microsoft System Center Danışmanı
+   * Microsoft System Center Advisor
    * Microsoft System Center Advisor iç
 7. OMS portalında **Ayarlar** kutucuğuna tıklayın.
 8. Seçin **bağlı kaynakları**.

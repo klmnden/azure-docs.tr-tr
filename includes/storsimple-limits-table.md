@@ -25,5 +25,5 @@
 | (HDD Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |120/250 MB/s | |
 | (Bulut Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |11/41 MB/s |Okuma üretilen işi oluşturmak ve yeterli g/ç sıra derinliğini koruyarak istemcilerde bağlıdır. |
 
-&#42; G/ç türü başına en fazla üretilen iş yüzde 100 okuma ve yüzde 100 yazma senaryoları ile ölçülen. Gerçek verimlilik daha düşük olabilir ve g/ç üzerinde bağlı karışımı ve ağ koşulları.
+&#42;G/ç türü başına en fazla üretilen iş yüzde 100 okuma ve yüzde 100 yazma senaryoları ile ölçülen. Gerçek verimlilik daha düşük olabilir ve g/ç üzerinde bağlı karışımı ve ağ koşulları.
 

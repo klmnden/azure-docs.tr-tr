@@ -1,11 +1,11 @@
 ---
 title: CORS'yi Azure CDN kullanarak | Microsoft Docs
-description: "Azure içerik teslim ağı (CDN) için çıkış noktaları arası kaynak paylaşımı (CORS) ile kullanmayı öğrenin."
+description: Azure içerik teslim ağı (CDN) için çıkış noktaları arası kaynak paylaşımı (CORS) ile kullanmayı öğrenin.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: cdn
 ms.workload: tbd
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 7070397f6e69b21add75bad8220f0b8ebe36d266
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="using-azure-cdn-with-cors"></a>CORS'yi Azure CDN kullanma
 ## <a name="what-is-cors"></a>CORS nedir?
@@ -29,7 +29,7 @@ CORS isteklerini, iki tür vardır *basit istekleri* ve *karmaşık istekleri.*
 
 ### <a name="for-simple-requests"></a>Basit istekleri için:
 
-1. CORS istekle ek bir tarayıcı gönderir **kaynak** HTTP isteği üstbilgisi. Bu üst bileşimi tanımlanır ana sayfa hizmet başlangıç değeri *protokolü,* *etki alanı,* ve *bağlantı noktası.*  Https://www.contoso.com sayfasından fabrikam.com kaynak kullanıcının verileri erişmeye çalıştığında, aşağıdaki istek üstbilgisi fabrikam.com olarak gönderilir:
+1. CORS istekle ek bir tarayıcı gönderir **kaynak** HTTP isteği üstbilgisi. Bu üst bileşimi tanımlanır ana sayfa hizmet başlangıç değeri *protokolü,* *etki alanı,* ve *bağlantı noktası.*  Sayfadan zaman https://www.contoso.com fabrikam.com kaynağı, aşağıdaki istek üstbilgisi kullanıcının verileri erişmeye çalışır fabrikam.com olarak gönderilen:
 
    `Origin: https://www.contoso.com`
 

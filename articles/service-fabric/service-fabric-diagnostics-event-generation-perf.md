@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric performans izleme | Microsoft Docs
-description: "İzleme ve tanılama Azure Service Fabric kümeleri için performans sayaçları hakkında bilgi edinin."
+description: İzleme ve tanılama Azure Service Fabric kümeleri için performans sayaçları hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
 ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
 
@@ -35,7 +35,7 @@ Kümenizdeki makineler için daha iyi her makinede yük anlamak ve uygun küme k
 | PhysicalDisk (her Disk için) | Ort. Disk sn/Okuma |
 | PhysicalDisk (her Disk için) | Ort. Disk sn/yazma |
 | PhysicalDisk (her Disk için) | Disk Okuma/sn |
-| PhysicalDisk (her Disk için) | Disk okuma bayt/sn |
+| PhysicalDisk (her Disk için) | Disk Okuma Bayt/sn |
 | PhysicalDisk (her Disk için) | Disk Yazma/sn |
 | PhysicalDisk (her Disk için) | Disk Yazma Bayt/sn |
 | Bellek | Kullanılabilir MBayt |
@@ -43,8 +43,8 @@ Kümenizdeki makineler için daha iyi her makinede yük anlamak ve uygun küme k
 | Processor(Total) | % İşlemci zamanı |
 | İşlem (her hizmeti) | % İşlemci zamanı |
 | İşlem (her hizmeti) | İşlem kimliği |
-| İşlem (her hizmeti) | Özel bayt sayısı |
-| İşlem (her hizmeti) | İş parçacığı sayısı |
+| İşlem (her hizmeti) | Özel Baytlar |
+| İşlem (her hizmeti) | İş Parçacığı Sayısı |
 | İşlem (her hizmeti) | Sanal bayt sayısı |
 | İşlem (her hizmeti) | Çalışma kümesi |
 | İşlem (her hizmeti) | Çalışma kümesi - özel |
@@ -60,7 +60,7 @@ Kümenizdeki makineler için daha iyi her makinede yük anlamak ve uygun küme k
 
 | Sayacı kategorisi | Sayaç adı |
 | --- | --- |
-| .NET CLR bellek (her hizmeti) | İşlem kimliği |
+| .NET CLR bellek (her hizmeti) | İşlem Kimliği |
 | .NET CLR bellek (her hizmeti) | # Toplam kaydedilmiş bayt |
 | .NET CLR bellek (her hizmeti) | # Toplam bayt ayrılmış |
 | .NET CLR bellek (her hizmeti) | # Tüm yığınlardaki bayt |

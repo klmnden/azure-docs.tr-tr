@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi'ni ve açık kaynaklı araçları ile ağ izinsiz giriş algılama gerçekleştirme | Microsoft Docs"
-description: "Bu makalede Azure Ağ İzleyicisi'ni kullanın ve ağ izinsiz giriş algılama gerçekleştirmek için kaynak araçlarını açmak açıklar"
+title: Azure Ağ İzleyicisi'ni ve açık kaynaklı araçları ile ağ izinsiz giriş algılama gerçekleştirme | Microsoft Docs
+description: Bu makalede Azure Ağ İzleyicisi'ni kullanın ve ağ izinsiz giriş algılama gerçekleştirmek için kaynak araçlarını açmak açıklar
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: aff1b5f9e8860d3b8dc09b37684bb8a4ac2bf134
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Ağ İzleyicisi'ni ve açık kaynaklı araçları ile ağ izinsiz giriş algılama gerçekleştirme
 
 Paket yakalama ağ izinsiz giriş algılama sistemleri (Kimlikler) uygulama ve ağ güvenlik izleme (NSM) gerçekleştirmek için önemli bir bileşeni var. Paket yakalama işleyen ve olası ağ yetkisiz erişim ve kötü amaçlı etkinliği imzaları Ara birkaç açık kaynak Kimlikleri araç vardır. Ağ İzleyicisi tarafından ağınız zararlı yetkisiz veya güvenlik açıkları için çözümleyebilirsiniz. sağlanan paket kullanarak yakalar.
 
-Bu tür bir açık kaynak aracı Suricata, ağ trafiğini izlemek için rulesets kullanır ve şüpheli olaylar gerçekleştiğinde uyarıları tetikler Kimlikleri altyapının değil. Suricata yüksek hızda ve verimlilik ağ trafiğini analiz gerçekleştirebilir anlamına çok iş parçacıklı bir altyapı sunar. Suricata ve özelliklerini hakkında daha fazla ayrıntı için https://suricata-ids.org/ adresindeki kendi Web sitesini ziyaret edin.
+Bu tür bir açık kaynak aracı Suricata, ağ trafiğini izlemek için rulesets kullanır ve şüpheli olaylar gerçekleştiğinde uyarıları tetikler Kimlikleri altyapının değil. Suricata yüksek hızda ve verimlilik ağ trafiğini analiz gerçekleştirebilir anlamına çok iş parçacıklı bir altyapı sunar. Suricata ve özelliklerini hakkında daha fazla ayrıntı için kendi Web sitesini ziyaret https://suricata-ids.org/.
 
 ## <a name="scenario"></a>Senaryo
 
@@ -38,7 +38,7 @@ Her iki açık kaynaklı araçları bir Azure VM kendi Azure ağ ortamında bu a
 
 ### <a name="install-suricata"></a>Suricata yükleyin
 
-Tüm diğer yöntemleri yüklemesinin için http://suricata.readthedocs.io/en/latest/install.html ziyaret edin
+Tüm diğer yöntemleri yüklemesinin için ziyaret edin http://suricata.readthedocs.io/en/latest/install.html
 
 1. Vm'nizin komut satırı terminale aşağıdaki komutları çalıştırın:
 
@@ -78,7 +78,7 @@ tail -f /var/log/suricata/fast.log
 
 Bizim ağda olup bitenler hakkında değerli bilgiler Suricata üreten günlükleri bulunmasına karşın, bu günlük dosyaları en kolay okuduğunuzdan ve anladığınızdan değil. Esnek yığın ile Suricata bağlanarak arama, grafik, analiz etmek ve bizim günlüklerinden Öngörüler türetilen kurmamızı sağlayan bir Kibana Pano oluşturabilir.
 
-#### <a name="install-elasticsearch"></a>Elasticsearch yükleyin
+#### <a name="install-elasticsearch"></a>Install Elasticsearch
 
 1. Sürüm 5.0 ve yukarıdaki esnek yığın, Java 8 gerektirir. Komutu çalıştırın `java -version` sürümünüzü denetlemek için. Yükleme, üzerinde belgelerine başvurun java yoksa [Oracle'nın Web sitesi](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
 1. Sisteminiz için doğru ikili paketini indirin:
@@ -232,7 +232,7 @@ Logstash yükleme hakkında daha ayrıntılı yönergeler için bkz [resmi belge
     ./bin/kibana
     ```
 
-1. Kibana web arabirimi görüntülemek için gidin`http://localhost:5601`
+1. Kibana web arabirimi görüntülemek için gidin `http://localhost:5601`
 1. Bu senaryo için Suricata günlükleri için kullanılan dizin düzeni olan "logstash-*"
 
 1. Kibana Pano uzaktan görüntülemek istiyorsanız, erişim izni veren bir gelen NSG kuralı oluşturma **bağlantı noktası 5601**.
@@ -255,7 +255,7 @@ Ayrıca, kendi Görselleştirme ve kendi ilgi ölçümleri doğru özel panolar 
 
 1. Uyarıları GeoIP – coğrafi konum (IP tarafından belirlenir) göre kaynak kendi ülkeye göre uyarıları dağıtımını gösteren bir harita göre
 
-    ![coğrafi IP][3]
+    ![geo ip][3]
 
 1. 10 uyarılar – 10 en sık tetiklenen uyarıları ve bunların açıklaması özetini top. Pano belirli Bu uyarıyla ilgili bilgi için aşağıya bir bireysel uyarı tıklatarak filtreler.
 

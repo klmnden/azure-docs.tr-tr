@@ -1,8 +1,8 @@
 ---
-title: "Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma | Microsoft Docs"
-description: "Oluşturma, dizin ve Azure Cosmos DB ve SQL API'yi uzamsal nesneleriyle sorgu anlayın."
+title: Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma | Microsoft Docs
+description: Oluşturma, dizin ve Azure Cosmos DB ve SQL API'yi uzamsal nesneleriyle sorgu anlayın.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
 manager: jhubbard
 editor: monicar
@@ -16,10 +16,10 @@ ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e778f4a9b7ec4935d53eb335462f3c414ff99cd
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Jeo-uzamsal ve Azure Cosmos veritabanı GeoJSON konum verileri ile çalışma
 Bu makalede Jeo-uzamsal işlevine bir giriş olduğunu [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Bu okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
@@ -192,7 +192,7 @@ Uzamsal işlevleri uzamsal veriler yakınlaştırmalı sorguları gerçekleştir
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily"
@@ -213,7 +213,7 @@ Yalnızca tek bir halka ST_WITHIN Çokgen değişkenlerinde içerebilir, diğer 
         'coordinates': [[[31.8, -5], [32, -5], [32, -4.7], [31.8, -4.7], [31.8, -5]]]
     })
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "WakefieldFamily",
@@ -233,7 +233,7 @@ Ters sorgular gerçekleştirme Azure Cosmos DB de destekler, diğer bir deyişle
     WHERE ST_WITHIN({'type': 'Point', 'coordinates':[31.9, -4.8]}, a.location)
 
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "id": "MyDesignatedLocation",
@@ -249,7 +249,7 @@ ST_ISVALID ve ST_ISVALIDDETAILED uzamsal nesne geçerli olup olmadığını dene
 
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
       "$1": false
@@ -263,7 +263,7 @@ Bu işlevler çokgenler doğrulamak için de kullanılabilir. Örneğin, burada 
         [ 31.8, -5 ], [ 31.8, -4.7 ], [ 32, -4.7 ], [ 32, -5 ] 
         ]]})
 
-**Sonuçları**
+**Sonuçlar**
 
     [{
        "$1": { 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager - genel bakış Klasik kaynakları geçirme | Microsoft Docs"
-description: "Bu makalede kaynakları platform desteklenen geçiş Klasikten Azure Resource Manager anlatılmaktadır."
+title: Azure Resource Manager - genel bakış Klasik kaynakları geçirme | Microsoft Docs
+description: Bu makalede kaynakları platform desteklenen geçiş Klasikten Azure Resource Manager anlatılmaktadır.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: kasing
 ms.openlocfilehash: 78e8f478dcf7a6547cb24ad3e9cb991a1a663023
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/05/2018
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-overview.md)]
 

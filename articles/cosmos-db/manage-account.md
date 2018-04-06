@@ -1,9 +1,9 @@
 ---
-title: "Azure Portalı aracılığıyla Azure Cosmos DB hesap yönetme | Microsoft Docs"
-description: "Azure Portalı aracılığıyla Azure Cosmos DB hesabınızı yönetmeyi öğrenin. Görüntüleme, kopyalama, silme ve hesaplarına erişim için Azure Portal'ı kullanma hakkında bir kılavuz bulabilirsiniz."
+title: Azure Portalı aracılığıyla Azure Cosmos DB hesap yönetme | Microsoft Docs
+description: Azure Portalı aracılığıyla Azure Cosmos DB hesabınızı yönetmeyi öğrenin. Görüntüleme, kopyalama, silme ve hesaplarına erişim için Azure Portal'ı kullanma hakkında bir kılavuz bulabilirsiniz.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: kirillg
 manager: jhubbard
 editor: cgronlun
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
 ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Bir Azure Cosmos DB hesabı yönetme
 Genel tutarlılık ayarlamak, anahtarları ile çalışır ve Azure portalda bir Azure Cosmos DB hesabı silme hakkında bilgi edinin.
@@ -50,7 +50,7 @@ Salt okunur anahtarları, bu sayfada de kullanılabilir. Okuma ve salt okunur i�
 ### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Azure portalında bir erişim anahtarı veya parola kopyalama
 Üzerinde **anahtarları** sayfasında (veya **bağlantı dizesi** sayfa MongoDB API hesapları için), tıklatın **kopyalama** anahtarı veya parolayı kopyalamak istediğiniz sağındaki düğmeyi.
 
-![Görüntüleme ve Azure portal, anahtarları sayfasında erişim tuşu kopyalama](./media/manage-account/copykeys.png)
+![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar sayfası](./media/manage-account/copykeys.png)
 
 ### <a name="regenerate-access-keys-and-passwords"></a>Erişim anahtarları ve parolaları yeniden oluştur
 Erişim tuşları (ve MongoDB API hesaplar için parolaları) Azure Cosmos DB hesabınıza düzenli aralıklarla bağlantılarınızı daha güvenli tutmaya yardımcı olmak için değiştirmeniz gerekir. İki erişim anahtarları/parolalarını bir erişim anahtarı kullanırken, bir erişim anahtarı yeniden Azure Cosmos DB hesabına bağlantılar sağlamanıza olanak tanıyan atanmış.
@@ -86,7 +86,7 @@ Bağlantı dizesini almak için aşağıdakileri yapın:
 
 Bağlantı dizesinde kullanıyorsanız [Azure Cosmos DB veritabanı geçiş aracı](import-data.md), veritabanı adının bağlantı dizesine sonuna. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.
 
-## <a id="delete"></a>Bir Azure Cosmos DB hesabını silme
+## <a id="delete"></a> Bir Azure Cosmos DB hesabını silme
 Artık kullanmadığınız Azure portaldan Azure Cosmos DB hesabı kaldırmak için hesap adına sağ tıklayın ve'ı tıklatın **hesabı Sil**.
 
 ![Azure portalda bir Azure Cosmos DB hesabı silme](./media/manage-account/deleteaccount.png)

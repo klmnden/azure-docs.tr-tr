@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 serisi sistem sınırlarını | Microsoft Docs"
-description: "Sistem sınırlarını ve StorSimple 8000 serisi bileşenleri ve bağlantıları için önerilen boyutlar açıklar."
+title: StorSimple 8000 serisi sistem sınırlarını | Microsoft Docs
+description: Sistem sınırlarını ve StorSimple 8000 serisi bileşenleri ve bağlantıları için önerilen boyutlar açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7392678-0924-46c6-9c59-1665cb9b6586
 ms.service: storsimple
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 serisi sistem sınırları nelerdir?
 
@@ -53,9 +53,9 @@ StorSimple merkeziniz için ölçeklenebilir ve esnek depolama sağlar. Ancak, p
 | (HDD Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * |120/250 MB/s | |
 | (Bulut Katmanı'ndan sunulduğunda) en fazla istemci okuma/yazma verimlilik * güncelleştirme 3 ve sonraki sürümlerinde ** |40/60 MB/s için katmanlı birimler<br><br>60/80 MB/s için katmanlı birimlerin birim oluşturma sırasında seçilen arşivleme seçeneğiyle |Okuma üretilen işi oluşturmak ve yeterli g/ç sıra derinliğini koruyarak istemcilerde bağlıdır. <br><br>Elde edilen hızı kullanılan temel alınan depolama hesabı hızına bağlıdır. |
 
-&#42; G/ç türü başına en fazla üretilen iş yüzde 100 okuma ve yüzde 100 yazma senaryoları ile ölçülen. Gerçek verimlilik daha düşük olabilir ve g/ç üzerinde bağlı karışımı ve ağ koşulları.
+&#42;G/ç türü başına en fazla üretilen iş yüzde 100 okuma ve yüzde 100 yazma senaryoları ile ölçülen. Gerçek verimlilik daha düşük olabilir ve g/ç üzerinde bağlı karışımı ve ağ koşulları.
 
-&#42; &#42; Güncelleştirme 3'ü önce performans numaraları daha düşük olabilir.
+&#42;&#42;Güncelleştirme 3'ü önce performans numaraları daha düşük olabilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Gözden geçirme [StorSimple sistem gereksinimleri](storsimple-8000-system-requirements.md).

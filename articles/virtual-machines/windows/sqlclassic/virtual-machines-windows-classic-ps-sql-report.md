@@ -1,6 +1,6 @@
 ---
-title: "İle yerel moddaki bir rapor sunucusunda bir VM oluşturmak için PowerShell kullanın | Microsoft Docs"
-description: "Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun bir Azure sanal makine yapılandırma ve dağıtım size yol göstermektedir. "
+title: İle yerel moddaki bir rapor sunucusunda bir VM oluşturmak için PowerShell kullanın | Microsoft Docs
+description: 'Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun bir Azure sanal makine yapılandırma ve dağıtım size yol göstermektedir. '
 services: virtual-machines-windows
 documentationcenter: na
 author: guyinacube
@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 0b9f12127276f5aa689c4a1d3a5bf9fe645a0fc7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Yerel Mod Rapor Sunucusu ile Azure VM Oluşturmak için PowerShell Kullanma
 > [!IMPORTANT] 
@@ -66,7 +66,7 @@ Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun
    * **Boyutu: A3** SQL Server iş yükleri için önerilen VM boyutu. Bir VM yalnızca bir rapor sunucusu olarak kullanılıyorsa, rapor sunucusu büyük bir iş yükü karşılaştığında sürece, A2 VM boyutunu yeterli olur. VM fiyatlandırma bilgileri için bkz: [sanal makineler fiyatlandırma](https://azure.microsoft.com/pricing/details/virtual-machines/).
    * **Yeni bir kullanıcı adı**: sağladığınız ad VM üzerinde bir yönetici olarak oluşturulur.
    * **Yeni parola** ve **onaylayın**. Bu parola yeni yönetici hesabı için kullanılır ve güçlü bir parola kullanmanız önerilir.
-   * **İleri**’ye tıklayın. ![sonraki](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * **İleri**’ye tıklayın. ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. Sonraki sayfada aşağıdaki alanları düzenleyin:
    
    * **Bulut hizmeti**: seçin **yeni bir bulut hizmeti oluşturma**.
@@ -80,7 +80,7 @@ Bu konuda açıklar ve SQL Server Reporting Services yerel mod rapor sunucusunun
      * **HTTPS**: varsayılan genel ve özel bağlantı noktaları **443**. En iyi güvenlik uygulaması, güvenlik duvarını ve özel bağlantı noktası kullanmak üzere rapor sunucusuna özel bağlantı noktasını değiştirin ve yapılandırmaktır. Uç noktalar hakkında daha fazla bilgi için bkz: [ayarlamak yukarı iletişimi bir sanal makineyle nasıl](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Bir bağlantı noktası 443 dışındaki kullanıyorsanız, parametre değiştirme Not **$HTTPsport = 443** HTTPS komut.
    * İleri'yi tıklatın. ![ileri](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 8. Sihirbazın son sayfasında varsayılan bırakın **VM Aracısı yükleme** seçili. Bu konudaki adımları VM Aracısı'nı kullanan değil ancak bu VM tutmak planlıyorsanız, VM aracısı ve uzantılar geliştirmek kendisinin CM olanak sağlar.  VM Aracısı hakkında daha fazla bilgi için bkz: [VM aracısı ve uzantılar – Kısım 1](https://azure.microsoft.com/blog/2014/04/11/vm-agent-and-extensions-part-1/). Çalıştıran varsayılan yüklü uzantıları ad birini görüntüleyen VM Masaüstü, iç IP ve boş disk alanı gibi sistem bilgisi "BGINFO" uzantısıdır.
-9. Tamamlandı'yi tıklatın. ![Tamam](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
+9. Tamamlandı'yi tıklatın. ![tamam](./media/virtual-machines-windows-classic-ps-sql-report/IC660122.gif)
 10. **Durum** VM görüntüler olarak **başlangıç (hazırlama)** olarak sonra görüntülenir ve sağlama işlemi sırasında **çalıştıran** VM sağlanan ve hazır olduğunda.
 
 ## <a name="step-2-create-a-server-certificate"></a>2. adım: bir sunucu sertifikası oluşturma
@@ -124,7 +124,7 @@ VM hazırlandığında kendinden imzalı bir sertifika VM oluşturuldu. Sertifik
        Örneğin, aşağıdaki görüntüde, VM adıdır **ssrsnativecloud** ve kullanıcı adı **testuser**.
       
        ![oturum açma bilgileri vm adını içerir](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
-   2. MMC.exe çalıştırın. Daha fazla bilgi için bkz: [nasıl yapılır: MMC ek bileşeni ile sertifikaları görüntüleme](https://msdn.microsoft.com/library/ms788967.aspx).
+   2. Run mmc.exe. Daha fazla bilgi için bkz: [nasıl yapılır: MMC ek bileşeni ile sertifikaları görüntüleme](https://msdn.microsoft.com/library/ms788967.aspx).
    3. Konsol uygulamasındaki **dosya** menüsünde eklemek **sertifikaları** ek bileşeninde, select **bilgisayar hesabı** istenir ve ardından **sonraki**.
    4. Seçin **yerel bilgisayar** yönetmek ve ardından **son**.
    5. Tıklatın **Tamam** genişletin ve ardından **sertifikalar - kişisel** düğümleri ve ardından **Sertifikalar**. Sertifika VM DNS adından sonra adlandırılır ve ile biten **cloudapp.net**. Sertifika adını sağ tıklatıp **kopya**.
@@ -546,7 +546,7 @@ Bağlantı noktasının açık olduğunu doğrulamak için bir Windows PowerShel
 
     get-netfirewallrule | where {$_.displayname -like "*report*"} | select displayname,enabled,action
 
-## <a name="verify-the-configuration"></a>yapılandırıldığını doğrulayın
+## <a name="verify-the-configuration"></a>Yapılandırmayı doğrulama
 Temel rapor sunucusu işlevselliği artık çalıştığını doğrulamak için tarayıcınızı yönetici ayrıcalıklarıyla açın ve aşağıdaki rapor sunucusu ad Rapor Yöneticisi için URL'leri göz atın:
 
 * VM, rapor sunucusu URL'sine gidin:

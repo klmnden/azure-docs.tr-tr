@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Azure Depolama'da Eşzamanlılığı Yönetme"
-description: "Blob, kuyruk, tablo ve Dosya Hizmetleri için eşzamanlılık yönetme"
+title: Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
+description: Blob, kuyruk, tablo ve Dosya Hizmetleri için eşzamanlılık yönetme
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: jasontang501
 manager: tadb
 editor: tysonn
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Depolama'da Eşzamanlılığı Yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -106,14 +106,14 @@ Aşağıdaki tabloda koşullu üstbilgileri gibi kabul blobu işlemleri özetlen
 
 | İşlem | ETag değeri döndürür | Koşullu üstbilgileri kabul eder |
 |:--- |:--- |:--- |
-| BLOB yerleştirme |Evet |Evet |
+| Put Blob |Evet |Evet |
 | BLOB alma |Evet |Evet |
 | BLOB özelliklerini alma |Evet |Evet |
 | Blob özelliklerini ayarlama |Evet |Evet |
-| BLOB meta verileri alma |Evet |Evet |
-| BLOB meta verileri ayarlama |Evet |Evet |
+| Get Blob Metadata |Evet |Evet |
+| Set Blob Metadata |Evet |Evet |
 | Kira blob'u (*) |Evet |Evet |
-| Anlık görüntü Blob |Evet |Evet |
+| Snapshot Blob |Evet |Evet |
 | BLOB kopyalama |Evet |Evet (kaynak ve hedef blob için) |
 | Kopya Blob Durdur |Hayır |Hayır |
 | BLOB Sil |Hayır |Evet |
@@ -163,12 +163,12 @@ Bir yazma işlemi kiralık blob kira kimliği geçmeden çalışırsanız, istek
 
 Aşağıdaki blobu işlemleri kiraları eşzamanlılık yönetmek için kullanabilirsiniz:  
 
-* BLOB yerleştirme
+* Put Blob
 * BLOB alma
 * BLOB özelliklerini alma
 * Blob özelliklerini ayarlama
-* BLOB meta verileri alma
-* BLOB meta verileri ayarlama
+* Get Blob Metadata
+* Set Blob Metadata
 * BLOB Sil
 * Blok yerleştirme
 * Engelleme listesi yerleştirme
@@ -197,7 +197,7 @@ Daha fazla bilgi için bkz.
 
 * [Blob hizmeti işlemleri için koşullu üstbilgileri belirtme](http://msdn.microsoft.com/library/azure/dd179371.aspx)
 * [Kira kapsayıcısı](http://msdn.microsoft.com/library/azure/jj159103.aspx)
-* [Kira blob'u](http://msdn.microsoft.com/library/azure/ee691972.aspx)
+* [Kira blob'u ](http://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>Tablo hizmetinde eşzamanlılık yönetme
 Tablo hizmeti iyimser eşzamanlılık burada açıkça iyimser eşzamanlılık denetimleri gerçekleştirmek için seçtiğiniz gerekir blob hizmeti aksine varlıklarla çalışırken varsayılan davranış olarak denetler kullanır. Diğer tablo ve blob hizmetleri arasında blob hizmetiyle kapsayıcılar ve bloblar eşzamanlılığı yönetebilir ancak varlıklar eşzamanlılık davranışını yalnızca yönetebilir farktır.  
@@ -286,7 +286,7 @@ Bu Web Günlüğü'ndeki başvurulan tam örnek uygulama için:
 Azure Storage bakın hakkında daha fazla bilgi için:  
 
 * [Microsoft Azure depolama giriş sayfası](https://azure.microsoft.com/services/storage/)
-* [Azure Storage'a giriş](storage-introduction.md)
+* [Azure Depolama’ya giriş](storage-introduction.md)
 * Başlarken depolama [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [tablo](../../cosmos-db/table-storage-how-to-use-dotnet.md), [sıraları](../storage-dotnet-how-to-use-queues.md), ve [dosyaları](../storage-dotnet-how-to-use-files.md)
 * Depolama mimarisi – [Azure Storage: güçlü tutarlılık sahip yüksek oranda kullanılabilir bulut depolama hizmeti](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

@@ -1,11 +1,11 @@
 ---
-title: "SQL veri ambarı işlemlerinde | Microsoft Docs"
-description: "Çözümleri geliştirme için Azure SQL Data Warehouse'da işlemleri uygulamak için ipuçları."
+title: SQL veri ambarı işlemlerinde | Microsoft Docs
+description: Çözümleri geliştirme için Azure SQL Data Warehouse'da işlemleri uygulamak için ipuçları.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>SQL veri ambarı işlemleri
 Beklediğiniz gibi SQL veri ambarı veri ambarı iş yükü bir parçası olarak işlemleri destekler. Ancak, SQL veri ambarı performansını ölçekte korunduğundan emin olmak için bazı özellikler SQL Server'a karşılaştırıldığında sınırlıdır. Bu makalede farklar vurgular ve diğerleri listeler. 
@@ -38,7 +38,7 @@ Aşağıdaki varsayımlar aşağıdaki tabloda yapılmıştır:
 | [DWU][DWU] | Dağıtım (GiB) cap | Dağıtımların sayısı | En fazla işlem boyutu (GiB) | # Dağıtım başına satır | İşlem başına en fazla satır |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
-| DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW200 |1,5 |60 |90 |6,000,000 |360,000,000 |
 | DW300 |2.25 |60 |135 |9,000,000 |540,000,000 |
 | DW400 |3 |60 |180 |12,000,000 |720,000,000 |
 | DW500 |3.75 |60 |225 |15,000,000 |900,000,000 |

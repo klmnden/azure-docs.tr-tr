@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Azure AD Connect ile bağlantı sorunlarının nasıl giderileceği açıklanmaktadır."
+title: 'Azure AD Connect: bağlantı sorunlarını giderme | Microsoft Docs'
+description: Azure AD Connect ile bağlantı sorunlarının nasıl giderileceği açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
 ms.workload: identity
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 1c8bbbde653ed8e927ab1550c32ae86a4dc2ffac
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect ile ilgili bağlantı sorunlarını giderme
 Bu makalede, Azure AD Connect ve Azure AD arasında bağlantı nasıl çalıştığını ve bağlantı sorunlarının nasıl giderileceği açıklanmaktadır. Bu sorunları bir proxy sunucusu olan bir ortamda görüntülenmesine olasılığı daha yüksektir.
@@ -40,7 +40,7 @@ Proxy sunucusu ayrıca açılan gerekli URL'leri sahip olmalıdır. Resmi listes
 
 Bu URL'leri, aşağıdaki tabloda Azure AD ile hiç bağlanabilmesi için mutlak tam gereksinimdir. Bu liste, parola geri yazma veya Azure AD Connect Health gibi tüm isteğe bağlı özellikleri içermez. Burada, ilk yapılandırmasını gidermenize yardımcı olması için belgelenmiştir.
 
-| URL | Bağlantı noktası | Açıklama |
+| URL'si | Bağlantı noktası | Açıklama |
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
 | \*.verisign.com |HTTP/80 |CRL listelerini indirmek için kullanılır. |
@@ -75,10 +75,10 @@ Bu hata görünür uç nokta **https://secure.aadcdn.microsoftonline-p.com** ula
 Yükleme Sihirbazı'nı Azure AD'ye bağlanma başarılı olur, ancak bu hatayı görmek parola doğrulanamıyor ise:  
 ![badpassword](./media/active-directory-aadconnect-troubleshoot-connectivity/badpassword.png)
 
-* Geçici bir parola paroladır ve değiştirilmesi gerekiyor? Gerçekte doğru parolayı mi? Deneyin https://login.microsoftonline.com (bilgisayarda başka bir Azure AD Connect sunucusu) oturum açın ve hesabı kullanılabilir olduğunu doğrulayın.
+* Geçici bir parola paroladır ve değiştirilmesi gerekiyor? Gerçekte doğru parolayı mi? Oturum açmayı deneyen https://login.microsoftonline.com (bilgisayarda başka bir Azure AD Connect sunucusu) ve hesap kullanılabilir olduğunu doğrulayın.
 
 ### <a name="verify-proxy-connectivity"></a>Proxy bağlanabildiğini doğrulayın
-Azure AD Connect sunucusu proxy'si ve Internet ile gerçek bağlantı olup olmadığını doğrulamak için bazı PowerShell veya proxy web isteklerine izin olmadığını görmek için kullanın. Bir PowerShell komut isteminde çalıştırmak `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Teknik olarak ilk çağrı için https://login.microsoftonline.com bağlıdır ve bu URI de çalışır, ancak diğer daha hızlı yanıt URI'dir.)
+Azure AD Connect sunucusu proxy'si ve Internet ile gerçek bağlantı olup olmadığını doğrulamak için bazı PowerShell veya proxy web isteklerine izin olmadığını görmek için kullanın. Bir PowerShell komut isteminde çalıştırmak `Invoke-WebRequest -Uri https://adminwebservice.microsoftonline.com/ProvisioningService.svc`. (Teknik olarak ilk çağrı https://login.microsoftonline.com ve bu URI de çalışır, ancak diğer URI daha hızlı yanıt vermesi.)
 
 PowerShell proxy kişiye machine.config içinde yapılandırmasını kullanır. Winhttp/netsh ayarlarında bu cmdlet'leri etkisi değil.
 
@@ -90,7 +90,7 @@ Alırsanız **uzak sunucuya bağlanılamıyor**, proxy kullanmadan doğrudan ara
 Proxy doğru yapılandırılmamışsa, bir hata alıyorsunuz: ![proxy200](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest403.png)
 ![proxy407](./media/active-directory-aadconnect-troubleshoot-connectivity/invokewebrequest407.png)
 
-| Hata | Hata metni | Yorum |
+| Hata | Hata metni | Açıklama |
 | --- | --- | --- |
 | 403 |Yasak |İstenen URL için proxy açılmadı. Proxy yapılandırmasını tekrar ziyaret edip emin olun [URL'leri](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) açılmış. |
 | 407 |Proxy kimlik doğrulaması gerekli |Proxy sunucu bir oturum açma gerekli ve sağlanmadı. Proxy sunucusu kimlik doğrulaması gerektiriyorsa, bu ayar machine.config içinde yapılandırılmış emin olun. Ayrıca Sihirbazı çalıştıran kullanıcı ve hizmet hesabı için etki alanı hesapları kullandığınızdan emin olun. |
@@ -101,7 +101,7 @@ Azure AD Connect için Azure AD dışarı aktarma isteği gönderdiğinde, Azure
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect ve Azure AD arasındaki iletişim düzeni
 Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlüklerine arayan bu noktada başlayabilir. Bu bölümde, normal ve başarılı bağlantısı düzeni belgeleme. Ayrıca ağ günlükleri okunurken, göz ardı edilebilir ortak kırmızı herrings listeleme.
 
-* Https://dc.services.visualstudio.com çağrıları vardır. Bu URL Aç başarılı olması için yükleme için proxy sağlamak için gerekli değildir ve bu çağrıları göz ardı edilebilir.
+* Çağrıları vardır https://dc.services.visualstudio.com. Bu URL Aç başarılı olması için yükleme için proxy sağlamak için gerekli değildir ve bu çağrıları göz ardı edilebilir.
 * Dns çözümlemesi DNS ad alanı nsatc.net ve diğer ad microsoftonline.com altında olduğu gerçek barındıran listeler bakın. Ancak, gerçek sunucu adları tüm web hizmeti isteklerinin değildir ve bu URL'leri proxy sunucusuna eklemek zorunda değilsiniz.
 * Uç noktaları adminwebservice ve provisioningapi bulma uç noktaları ve kullanmak için gerçek uç noktası bulmak için kullanılır. Bu uç noktalar bölgenizdeki bağlı olarak farklılık gösterir.
 
@@ -110,7 +110,7 @@ Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlükl
 
 **Azure AD'ye Bağlanma**
 
-| Zaman | URL |
+| Zaman | URL'si |
 | --- | --- |
 | 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
@@ -121,7 +121,7 @@ Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlükl
 
 **Yapılandırma**
 
-| Zaman | URL |
+| Zaman | URL'si |
 | --- | --- |
 | 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
@@ -137,7 +137,7 @@ Bu önceki adımları izlediğinizde ve yine bağlanamıyorsanız, ağ günlükl
 
 **İlk eşitleme**
 
-| Zaman | URL |
+| Zaman | URL'si |
 | --- | --- |
 | 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
