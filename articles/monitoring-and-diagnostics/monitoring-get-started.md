@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2018
 ms.author: johnkem
-ms.openlocfilehash: e09fe4fd48d1806e2194ed3065e7c2edbe2d1aa5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 05e9430dd8b7a14bc94869071cd145696f34567f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-azure-monitor"></a>Azure İzleyici’yi kullanmaya başlama
 Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan platform hizmetidir. Azure izleme ile görselleştirme, sorgulama yapabilir, yol, arşiv ve aksi halde ölçümleri ve Azure kaynaklarında'ten gelen günlükleri eylemi gerçekleştirin. Bu verileri Azure portal kullanarak ile çalışabilirsiniz [İzleyici PowerShell cmdlet'leri](insights-powershell-samples.md), [platformlar arası CLI](insights-cli-samples.md), veya [Azure İzleyici REST API'lerini](https://msdn.microsoft.com/library/dn931943.aspx). Bu makalede portal gösterim amacıyla kullanılarak Azure İzleyici’nin temel bileşenlerinden birkaç tanesi gösterilecektir.
@@ -37,9 +37,9 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
     [**Etkinlik günlüğü**](monitoring-overview-activity-logs.md), aboneliğinizdeki kaynaklar üzerinde gerçekleştirilen tüm işlemleri açıklar. Etkinlik Günlüğü’nü kullanarak aboneliğinizdeki kaynaklarla ilgili herhangi bir oluşturma, güncelleştirme veya silme işlemine ilişkin ‘ne, kim ve ne zaman’ sorularına yanıt bulabilirsiniz. Örneğin, Etkinlik Günlüğü bir web uygulamasının ne zaman ve kim tarafından durdurulduğunu söyler. Etkinlik Günlüğü olayları platforma depolanır ve 90 gün boyunca sorgulanabilir.
 
     ![Etkinlik Günlüğü](./media/monitoring-get-started/monitor-act-log-blade.png)
-    
+
     Ortak filtrelere yönelik sorgular oluşturup kaydedebilir ve sonra ölçütlerinizi karşılayan olayların gerçekleşip gerçekleşmediğinden her zaman haberdar olmak için en önemli sorguları bir portal panosuna sabitleyebilirsiniz.
-4. Görünümü son bir haftadaki belirli bir kaynak grubu ile filtreleyin, ardından **Kaydet** düğmesine tıklayın. Sorgunuz bir ad verin. 
+4. Görünümü son bir haftadaki belirli bir kaynak grubu ile filtreleyin, ardından **Kaydet** düğmesine tıklayın. Sorgunuz bir ad verin.
 
     ![Etkinlik günlüğü sorgusunu kaydedin](./media/monitoring-get-started/monitor-act-log-save.png)
 5. Şimdi **Sabitle** düğmesine tıklayın.
@@ -63,6 +63,7 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
    > Bazı ölçümlerini etkinleştirerek kullanılabilirdir [Application Insights](../application-insights/app-insights-overview.md) ve/veya kaynağınız Windows veya Linux Azure tanılama uzantısını.
    >
    >
+
 9. Grafiğiniz hazır olduğunda **Sabitle** düğmesini kullanarak grafiği panoya sabitleyebilirsiniz.
 10. Geri dönüp **İzleyici** tıklatıp **tanılama günlükleri**.
 
@@ -71,6 +72,13 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
     [**Tanılama günlükleri**](monitoring-overview-of-diagnostic-logs.md), kendi çalışması hakkında veriler sağlayan belirli bir kaynak *tarafından* gösterilen günlüklerdir. Örneğin, Ağ Güvenliği Grup Kuralı Sayaçları ve Mantıksal Uygulama İş Akışı Günlükleri, tanılama günlüğü türleridir. Bu günlükler bir depolama hesabına depolanabilir, Event Hub’da yayınlanabilir ve/veya [Log Analytics](../log-analytics/log-analytics-overview.md)’e gönderilebilir. Log Analytics, Microsoft'un gelişmiş arama ve uyarı vermeye yönelik işletimsel bilgi ürünüdür.
 
     Portalda, aboneliğinizdeki tüm kaynakların listesini görüntüleyebilir ve tanılama günlüklerinin etkin olup olmadığını belirlemek üzere bu listeyi filtreleyebilirsiniz.
+    > [!NOTE]
+    > Çok boyutlu ölçümleri tanılama ayarları aracılığıyla gönderme şu anda desteklenmiyor. Ölçümleri boyutlarla boyut değerleri toplanan düzleştirilmiş tek boyutlu ölçümleri olarak dışarı aktarılır.
+    >
+    > *Örneğin*: bir olay hub'ındaki 'Gelen iletileri' Ölçüm incelediniz ve üzerinde grafiğinin bir sıra gerçekleştiriliyordu. Ancak, ölçüm gelen tüm iletilerin tüm temsil edilir tanılama ayarları aracılığıyla dışarı aktardığınızda olay hub'ı sıralar.
+    >
+    >
+
 11. Tanılama günlükleri sayfasında bir kaynağa tıklayın. Tanılama günlükleriniz bir depolama hesabına kaydediliyorsa doğrudan indirebileceğiniz saatlik günlüklerin bir listesini görürsünüz.
 
     ![Bir kaynağın tanılama günlükleri](./media/monitoring-get-started/monitor-diaglogs-detail.png)
@@ -84,8 +92,8 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
 
     ![genel kullanıma yönelik uyarılar dikey penceresi](./media/monitoring-get-started/monitor-alerts-nopp.png)
 
-    Tüm yönetmek burada [ **Klasik uyarıları** ](monitoring-overview-alerts.md) Azure kaynaklarınızı üzerinde. Bu ölçümleri, etkinlik günlüğü olaylarını, Application Insights web testleri (konumlara) ve Application Insights öngörülü tanılama uyarılarını içerir. Uyarıları eylem gruplara bağlanın. [Eylem grupları](monitoring-action-groups.md) kişilere bildirmek veya bir uyarı oluşturulduğunda belirli eylemleri gerçekleştirmek için bir yol sağlar. 
-    
+    Tüm yönetmek burada [ **Klasik uyarıları** ](monitoring-overview-alerts.md) Azure kaynaklarınızı üzerinde. Bu ölçümleri, etkinlik günlüğü olaylarını, Application Insights web testleri (konumlara) ve Application Insights öngörülü tanılama uyarılarını içerir. Uyarıları eylem gruplara bağlanın. [Eylem grupları](monitoring-action-groups.md) kişilere bildirmek veya bir uyarı oluşturulduğunda belirli eylemleri gerçekleştirmek için bir yol sağlar.
+
 13. Uyarı oluşturmak için **Ölçüm uyarısı ekle**’ye tıklayın.
 
     ![ölçüm uyarısı ekleme](./media/monitoring-get-started/monitor-alerts-add.png)
@@ -93,7 +101,7 @@ Azure İzleyici, Azure kaynaklarını izlemeye yönelik tek bir kaynak sağlayan
     Bundan sonra uyarının durumunu dilediğiniz zaman kolayca görmek için uyarıyı panonuza sabitleyebilirsiniz.
 
     Ayrıca Azure İzleyici artık sahiptir [ **yeni uyarılar** ](https://aka.ms/azuremonitor/near-real-time-alerts) sıklığı her dakika kadar düşük yapılamıyor.
-    
+
 14. İzleyici bölümünde [Application Insights](../application-insights/app-insights-overview.md) uygulamaları ve [Log Analytics](../log-analytics/log-analytics-overview.md) yönetim çözümleriyle ilgili bağlantılar da bulunur. Bu diğer Microsoft ürünleri, Azure İzleyici ile kapsamlı tümleştirmeye sahiptir.
 15. Application Insights veya Log Analytics kullanmıyorsanız Azure İzleyici mevcut izleme, günlüğe kaydetme ve uyarı verme ürünleriyle bir ortaklığa sahip olabilir. Tam liste ve tümleştirme yönergeleri için [ortaklar sayfamıza](monitoring-partners.md) bakın.
 
@@ -102,6 +110,4 @@ Aşağıdaki adımları izleyerek ve tüm ilgili kutucukları panoya sabitleyere
 ![Azure İzleyici panosu](./media/monitoring-get-started/monitor-final-dash.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Okuma [izleme araçları tüm Azure genel bakış](monitoring-overview.md) Azure İzleyici bunlarla nasıl çalıştığını anlamak için. 
-
-
+* Okuma [izleme araçları tüm Azure genel bakış](monitoring-overview.md) Azure İzleyici bunlarla nasıl çalıştığını anlamak için.

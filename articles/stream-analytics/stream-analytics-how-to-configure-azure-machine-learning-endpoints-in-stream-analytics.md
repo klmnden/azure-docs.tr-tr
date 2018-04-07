@@ -1,24 +1,19 @@
 ---
-title: Stream Analytics Azure Machine Learning uç noktaları kullanma | Microsoft Docs
-description: Stream Analytics makine dili kullanıcı tanımlı işlevler
-keywords: ''
-documentationcenter: ''
+title: Azure akış analizi Machine Learning uç noktaları kullanma
+description: Bu makalede, Azure akış analizi makine dili kullanıcı tanımlı işlevler kullanmayı açıklar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 406b258f-b8c2-4e55-953c-b7f84e8e5354
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: a7d76d6015f8e9f08d3493b1c1e237858c341592
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: bdc6041258e4a5ecf602d19c0d912918f86af313
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Stream Analytics öğrenme tümleştirmesine makine
 Akış analizi, Azure Machine Learning Uç noktalara duyurmak kullanıcı tanımlı işlevler destekler. Bu özellik için REST API desteği ayrıntılı olarak [Stream Analytics REST API Kitaplığı](https://msdn.microsoft.com/library/azure/dn835031.aspx). Bu makalede bu özelliği Stream Analytics de başarılı uygulama için gerekli ek bilgiler sağlar. Öğreticinin Ayrıca gönderilen ve kullanılabilir [burada](stream-analytics-machine-learning-integration-tutorial.md).

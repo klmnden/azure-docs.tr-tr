@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5e5d487c4c793a49ce1d4ac17f6fcd672e09bb90
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Güvenlik çerçevesi: Şifreleme | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -73,7 +73,7 @@ ms.lasthandoff: 04/05/2018
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Ürünler onaylanan rastgele sayı oluşturucuları kullanmanız gerekir. C çalışma zamanı işlevi rand, .NET Framework sınıf System.Random veya GetTickCount gibi sistem işlevleri gibi geçici rastgele işlevleri bu nedenle, hiçbir zaman böyle kodda kullanılmalıdır. Çift Eliptik Eğri rastgele sayı oluşturucu (DUAL_EC_DRBG) algoritması engellendi</p><ul><li>**CNG -** BCryptGenRandom (arayan [PASSIVE_LEVEL] 0'dan büyük herhangi IRQL konumunda çalışabilir sürece önerilen BCRYPT_USE_SYSTEM_PREFERRED_RNG bayrağı kullanın)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** (yeni uygulamalar kullanması gereken BCryptGenRandom veya CryptGenRandom) RtlGenRandom * rand_s * SystemPrng (için çekirdek modu)</li><li>**. NET -** RNGCryptoServiceProvider veya RNGCng</li><li>**Windows mağazası uygulamaları -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom veya. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef rasgele size_t sayısı, uint8_t *bayt)</li><li>** Apple OS X (< 10.7)-** / dev/rastgele rastgele sayılar almak için kullanın</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom sınıfı. (Jelly Çekirdeklere) Android 4.3 için geliştiricilere gerekir geçici çözüm önerilen Android izleyin ve açıkça PRNG entropi /dev/urandom veya /dev/random ile başlatmak için kendi uygulamalarını güncelleştirmelerini unutmayın</li></ul>|
+| **Adımları** | <p>Ürünler onaylanan rastgele sayı oluşturucuları kullanmanız gerekir. C çalışma zamanı işlevi rand, .NET Framework sınıf System.Random veya GetTickCount gibi sistem işlevleri gibi geçici rastgele işlevleri bu nedenle, hiçbir zaman böyle kodda kullanılmalıdır. Çift Eliptik Eğri rastgele sayı oluşturucu (DUAL_EC_DRBG) algoritması engellendi</p><ul><li>**CNG -** BCryptGenRandom (arayan [PASSIVE_LEVEL] 0'dan büyük herhangi IRQL konumunda çalışabilir sürece önerilen BCRYPT_USE_SYSTEM_PREFERRED_RNG bayrağı kullanın)</li><li>**CAPI -** cryptGenRandom</li><li>**Win32/64-** (yeni uygulamalar kullanması gereken BCryptGenRandom veya CryptGenRandom) RtlGenRandom * rand_s * SystemPrng (için çekirdek modu)</li><li>**. NET -** RNGCryptoServiceProvider veya RNGCng</li><li>**Windows mağazası uygulamaları -** Windows.Security.Cryptography.CryptographicBuffer.GenerateRandom veya. GenerateRandomNumber</li><li>**Apple OS X (10.7+)/iOS(2.0+) -** int SecRandomCopyBytes (SecRandomRef rasgele size_t sayısı, uint8_t \*bayt)</li><li>**Apple OS X (< 10.7)-**  /dev/rastgele rastgele sayılar almak için kullanın</li><li>**Java(including Google Android Java Code) -** java.security.SecureRandom sınıfı. (Jelly Çekirdeklere) Android 4.3 için geliştiricilere gerekir geçici çözüm önerilen Android izleyin ve açıkça PRNG entropi /dev/urandom veya /dev/random ile başlatmak için kendi uygulamalarını güncelleştirmelerini unutmayın</li></ul>|
 
 ## <a id="stream-ciphers"></a>Simetrik akış şifrelemeleri kullanmayın
 

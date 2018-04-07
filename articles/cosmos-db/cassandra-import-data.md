@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos Veritabanına Cassandra veri alma | Microsoft Docs"
-description: "Azure Cosmos Veritabanına Cassandra verileri kopyalamak için CQL Copy komutu kullanmayı öğrenin."
+title: Azure Cosmos Veritabanına Cassandra veri alma | Microsoft Docs
+description: Azure Cosmos Veritabanına Cassandra verileri kopyalamak için CQL Copy komutu kullanmayı öğrenin.
 services: cosmos-db
 author: govindk
-manager: jhubbard
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 21168d0862cfdaaaced60fa80a2dc04859f49550
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Alma Cassandra veri
 
 Bu öğretici yönergeleri Cassandra verileri Azure Cosmos Veritabanına alma Cassandra sorgu dili (CQL) kopyalama komutunu kullanarak sağlar. 
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Bağlantı dizesi alınıyor
 > * Cqlsh kopyalama komutunu kullanarak veri içeri aktarma
 > * Spark Bağlayıcısı'nı kullanarak içeri aktarma 
 
-# <a name="prerequisites"></a>Ön koşullar
+# <a name="prerequisites"></a>Önkoşullar
 
 * Yükleme [Apache Cassandra](http://cassandra.apache.org/download/) ve özellikle olun *cqlsh* mevcuttur.
 * Verimliliğini artırmak: veri geçişinizi süresini tablolarınız için sağlanan işleme miktarına bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Performansı artırma hakkında daha fazla bilgi için [Azure portal](https://portal.azure.com), bkz: [Azure Cosmos DB kapsayıcıları için kümesi işleme](set-throughput.md).

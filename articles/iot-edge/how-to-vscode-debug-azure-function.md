@@ -9,23 +9,20 @@ ms.author: xshi
 ms.date: 3/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8da16ffe72ad265f0201c2fe7e00e585dfa255e8
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8c266a01375bf74fd4df9290255e84bc28e6089c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-debug-azure-functions-with-azure-iot-edge"></a>Azure IOT kenarıyla Azure işlevleri hata ayıklamak için Visual Studio Code kullanma
 
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) IOT sınır, Azure işlevlerini hata ayıklamak için ana geliştirme aracı olarak.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. IOT sınır cihazı başka bir fiziksel aygıt olabilir veya geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz.
+Bu makalede, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. IOT sınır cihazı başka bir fiziksel aygıt olabilir veya geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz.
 
-Bu kılavuza başlamadan önce aşağıdaki öğreticiler tamamlanmış olduğundan emin olun.
-- [Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştirin](tutorial-multiple-modules-in-vscode.md)
-
-Sonra önceki öğreticiyi tamamlamak, aşağıdaki öğeleri hazır olması gerekir,
+Bu makaledeki yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [IOT kenar çözümünü birden fazla modülü Visual Studio Code ile geliştirme](tutorial-multiple-modules-in-vscode.md). Bundan sonra aşağıdaki öğeleri hazır olmalıdır:
 - Geliştirme makinenizde çalıştıran yerel Docker kayıt defteri. Prototip ve test amacıyla için yerel bir Docker kayıt kullanmak için önerilir. Kapsayıcı kayıt defterinde güncelleştirebilirsiniz `module.json` her modül klasöründe dosyasında.
 - Bir IOT kenar çözüm proje çalışma alanı içindeki bir Azure işlevi modülü alt ile.
 - `run.csx` İşlevi kodunuzu dosyasıyla.
@@ -59,8 +56,6 @@ Sonra önceki öğreticiyi tamamlamak, aşağıdaki öğeleri hazır olması ger
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir Azure işlevi oluşturulan ve hata ayıklama amaçla IOT kenara dağıtılan ve VS kodda hata ayıklama başlatıldı. VS code'da Azure IOT kenar geliştirirken diğer senaryolar hakkında bilgi edinmek için aşağıdaki öğreticileri herhangi birini açın devam edebilirsiniz. 
 
-> [!div class="nextstepaction"]
-> [Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştirin](tutorial-multiple-modules-in-vscode.md)
+[Bir C# modül Azure IOT Edge ile hata ayıklamak için Visual Studio Code kullanma](how-to-vscode-debug-csharp-module.md)
 

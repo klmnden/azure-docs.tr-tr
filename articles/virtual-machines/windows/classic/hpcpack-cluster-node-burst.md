@@ -1,11 +1,11 @@
 ---
-title: "Veri bloğu düğümleri bir HPC Pack kümeye ekleme | Microsoft Docs"
-description: "İsteğe bağlı Azure HPC Pack kümede çalışan rolü örnekleri bir bulut hizmetinde çalışan eklenerek öğrenin"
+title: Veri bloğu düğümleri bir HPC Pack kümeye ekleme | Microsoft Docs
+description: İsteğe bağlı Azure HPC Pack kümede çalışan rolü örnekleri bir bulut hizmetinde çalışan eklenerek öğrenin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 24b79a8a-24ad-4002-ae76-75abc9b28c83
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>İsteğe bağlı "aşırı" düğümleri Azure HPC Pack kümede ekleyin
 Ayarladığınız varsa bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) küme Azure üzerinde bir şekilde kolayca küme kapasite yukarı veya aşağı, önceden yapılandırılmış işlem düğümü VM'ler kümesi korumadan ölçek isteyebilirsiniz. Bu makalede, isteğe bağlı "aşırı" düğümleri (çalışan rolü örnekleri bir bulut hizmetinde çalışan) eklemek baş düğümüne Azure işlem kaynakları olarak gösterilmiştir. 
@@ -32,7 +32,7 @@ Ayarladığınız varsa bir [Microsoft HPC Pack](https://technet.microsoft.com/l
 
 Bu makaledeki adımları Azure düğümleri bir bulut tabanlı HPC paketi üstbilgi düğüm VM'ine test veya kavram kanıtı dağıtımı için hızlı bir şekilde eklemek yardımcı olur. Üst düzey adımları "İçin Azure veri bloğu için" adımları aynıdır bulut işlem kapasitesini bir şirket içi HPC Pack kümeye eklemek için. Bir öğretici için bkz: [Microsoft HPC paketi ile karma işlem kümesi ayarlama](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Ayrıntılı yönergeler ve üretim dağıtımlarında değerlendirmeleri için bkz: [Microsoft HPC Pack ile azure'a veri bloğu](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Bir Azure VM dağıtılan HPC paketi üstbilgi düğümü** -tek başına bir baş düğüm VM veya daha büyük bir kümenin parçası olan bir kullanabilirsiniz. Tek başına bir baş düğüm oluşturmak için bkz: [bir HPC Pack baş düğümünde Azure VM'deki dağıtmak](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Otomatik HPC paketi küme dağıtım seçenekleri için bkz: [küme oluşturmak ve bir Windows HPC yönetmek için seçenekleri Microsoft HPC Pack ile azure'da](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]

@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme | Microsoft Docs"
-description: "Azure CDN varlıklara erişimi güvenli hale getirmek için belirteci kimlik doğrulaması kullanmayı öğrenin."
+title: Azure CDN varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme | Microsoft Docs
+description: Azure CDN varlıklara erişimi güvenli hale getirmek için belirteci kimlik doğrulaması kullanmayı öğrenin.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
 ms.service: cdn
 ms.devlang: multiple
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: f6d008a92677d28d0184e64637dcb2e093299519
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: aaec713a7680aeda8317f5af41b9b99bcbdca4b7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Azure içerik teslim ağı varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
+# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Azure CDN varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Genel Bakış
 
-Belirteç kimlik doğrulama varlıklar yetkisiz istemcilerine hizmet veren Azure içerik teslim ağı (CDN) önlemek izin veren bir mekanizmadır. Belirteç kimlik doğrulama, genellikle bir ileti panosu gibi farklı bir Web sitesi varlıklarınızı izniniz olmadan kullanan içeriğinin "hotlinking" önlemek için yapılır. Hotlinking içerik teslim maliyetleriniz üzerinde bir etkisi olabilir. CDN içerik sunan önce CDN belirteci kimlik doğrulamasını etkinleştirerek, CDN uç sunucusu tarafından istekler doğrulanır. 
+Belirteç kimlik doğrulama varlıklar yetkisiz istemcilerine hizmet veren Azure içerik teslim ağı (CDN) önlemek izin veren bir mekanizmadır. Belirteç kimlik doğrulama önlemek için genellikle yapıldığı *hotlinking* içerik, ileti panosu gibi farklı bir Web sitesi varlıklarınızı izni olmaksızın kullanır. Hotlinking içerik teslim maliyetleriniz üzerinde bir etkisi olabilir. CDN içerik sunan önce CDN belirteci kimlik doğrulamasını etkinleştirerek, CDN uç sunucusu tarafından istekler doğrulanır. 
 
 ## <a name="how-it-works"></a>Nasıl çalışır?
 
@@ -41,6 +41,9 @@ Belirteç kimlik doğrulama isteklerini ayrı tutma istek sahibi hakkında bilgi
 - Süre sonu: bağlantı yalnızca sınırlı bir süre boyunca geçerli olmaya devam ettiğinden emin olmak için bir tarih ve saat dönemi atayabilir.
 
 Daha fazla bilgi için her parametre için ayrıntılı yapılandırma örneklerini görmek [belirteç kimlik doğrulamayı ayarlama](#setting-up-token-authentication).
+
+>[!IMPORTANT] 
+> Bu hesaptaki herhangi bir yol için belirteci yetkilendirme etkinleştirilirse, standart Önbellek modu sorgu dizesini önbelleğe alma işlemi için kullanılan tek modudur. Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma davranışını kontrol etme](cdn-query-string-premium.md).
 
 ## <a name="reference-architecture"></a>Başvuru mimarisi
 
@@ -60,7 +63,7 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
 
     ![CDN profili Yönet düğmesi](./media/cdn-token-auth/cdn-manage-btn.png)
 
-2. Üzerine gelerek **HTTP büyük**, ardından **belirteci Auth** çıkma içinde. Ardından şifreleme anahtarı ve şifreleme parametreleri aşağıdaki gibi ayarlayabilirsiniz:
+2. Üzerine gelerek **HTTP büyük**seçeneğini belirleyip **belirteci Auth** çıkma içinde. Ardından şifreleme anahtarı ve şifreleme parametreleri aşağıdaki gibi ayarlayabilirsiniz:
 
     1. Bir veya daha fazla şifreleme anahtarları oluşturun. Bir şifreleme anahtarı duyarlıdır ve herhangi bir bileşimini alfasayısal karakterler içerebilir. Karakterler, boşluklar dahil, başka türlerde izin verilmiyor. Uzunluk en fazla 250 karakterdir. Şifreleme anahtarlarınızı rastgele, kullanarak bunları oluşturmanız önerilir emin olmak için [OpenSSL aracı](https://www.openssl.org/). 
 
@@ -156,7 +159,7 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
     
     6. Bir şifreleme sürümden seçin **şifreleme sürümünü** listesi: **V2** sürüm 2 için veya **V3** için sürüm 3 (önerilen). 
 
-    7. Tıklatın **şifrele** belirteci üretmek için.
+    7. Seçin **şifrele** belirteci üretmek için.
 
     Belirteç oluşturulduktan sonra görüntülenir **oluşturulan belirteç** kutusu. Belirteç kullanmak için URL yolu dosyasında sonuna bir sorgu dizesi olarak ekleyin. Örneğin, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
@@ -164,19 +167,21 @@ Aşağıdaki akış çizelgesi, nasıl Azure CDN belirteci kimlik doğrulaması 
 
     Belirteç şifresi sonra parametrelerini görüntülenen **özgün parametreleri** kutusu.
 
-    9. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Seçin **etkin**, yanıt kodu ile seçip **yanıt kodu** listesi. **Üstbilgi adı** ayarlandığında otomatik olarak **konumu**. Tıklatın **kaydetmek** yeni yanıt kodu uygulamak için. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girmelisiniz **üstbilgi değeri** kutusu. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. 
+    9. İsteğe bağlı olarak, bir istek reddedildiğinde, döndürülen yanıt kodu türünü özelleştirin. Seçin **etkin**, yanıt kodu ile seçip **yanıt kodu** listesi. **Üstbilgi adı** ayarlandığında otomatik olarak **konumu**. Seçin **kaydetmek** yeni yanıt kodu uygulamak için. Belirli yanıt kodları, ayrıca, hata sayfasının URL'sini girmelisiniz **üstbilgi değeri** kutusu. **403** yanıt kodu (Yasak), varsayılan olarak seçilidir. 
 
-3. Altında **HTTP büyük**, tıklatın **kurallar altyapısı**. Kurallar altyapısı özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve ek belirteç kimlik doğrulamayla ilgili özellikler etkinleştirmek için yollarını tanımlamak için kullanın. Daha fazla bilgi için bkz: [kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
+3. Altında **HTTP büyük**seçin **kurallar altyapısı**. Kurallar altyapısı özelliği geçerli, belirteç kimlik doğrulama özelliğini etkinleştirmek ve ek belirteç kimlik doğrulamayla ilgili özellikler etkinleştirmek için yollarını tanımlamak için kullanın. Daha fazla bilgi için bkz: [kurallar altyapısı başvuru](cdn-rules-engine-reference.md).
 
     1. Mevcut bir kuralı seçin veya belirteci kimlik doğrulaması uygulamak istediğiniz varlık veya yolunu tanımlamak için yeni bir kural oluşturun. 
-    2. Bir kural belirteci kimlik doğrulamasını etkinleştirmek için seçin  **[belirteci Auth](cdn-rules-engine-reference-features.md#token-auth)**  gelen **özellikleri** listeleyin ve ardından **etkin**. Tıklatın **güncelleştirme** bir kural güncelleştiriyorsanız veya **Ekle** bir kural oluşturuluyorsa.
+    2. Bir kural belirteci kimlik doğrulamasını etkinleştirmek için seçin **[belirteci Auth](cdn-rules-engine-reference-features.md#token-auth)** gelen **özellikleri** listeleyin ve ardından **etkin**. Seçin **güncelleştirme** bir kural güncelleştiriyorsanız veya **Ekle** bir kural oluşturuluyorsa.
         
     ![CDN kurallar altyapısı belirteci kimlik doğrulamasını etkinleştir örnek](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
 4. Kuralları altyapısında ek belirteç kimlik doğrulamayla ilgili özellikler de etkinleştirebilirsiniz. Aşağıdaki özelliklerden herhangi birini etkinleştirmek için dosyayı seçin **özellikleri** listeleyin ve ardından **etkin**.
     
     - **[Belirteç kimlik doğrulama reddi kod](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: bir istek reddedildiğinde kullanıcıya dönen yanıtının türünü belirler. Burada ayarlanan kurallarını geçersiz kılmasına kümesinde yanıt kodu **reddi özel işleme** belirteç tabanlı kimlik doğrulama sayfasındaki bölümü.
+
     - **[Belirteç kimlik doğrulama yoksay URL durumda](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: belirteci doğrulamak için kullanılan URL büyük küçük harfe duyarlı olup olmadığını belirler.
+
     - **[Auth parametre belirteci](cdn-rules-engine-reference-features.md#token-auth-parameter)**: İstenen URL'de görünür belirteci auth sorgu dizesi parametresi olarak yeniden adlandırır. 
         
     ![Belirteç kimlik doğrulama ayarları örnek CDN kurallar altyapısı](./media/cdn-token-auth/cdn-rules-engine2.png)
@@ -193,4 +198,4 @@ Kullanılabilir diller şunlardır:
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN özellikler ve fiyatlandırma sağlayıcısı
 
-Özellikleri hakkında daha fazla bilgi için bkz: [CDN'ye genel bakış](cdn-overview.md). Fiyatlandırma hakkında daha fazla bilgi için bkz: [içerik teslim ağı fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/).
+Özellikleri hakkında daha fazla bilgi için bkz: [Azure CDN ürün özellikleri](cdn-features.md). Fiyatlandırma hakkında daha fazla bilgi için bkz: [içerik teslim ağı fiyatlandırma](https://azure.microsoft.com/pricing/details/cdn/).

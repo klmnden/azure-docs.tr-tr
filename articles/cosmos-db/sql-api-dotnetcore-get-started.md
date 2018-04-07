@@ -4,7 +4,7 @@ description: Çevrimiçi bir veritabanı ve Azure Cosmos DB SQL API .NET Core SD
 services: cosmos-db
 documentationcenter: .net
 author: arramac
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: arramac
 ms.custom: devcenter
-ms.openlocfilehash: 3fb14a2ae6e820c289e7000a4876efe4b4a3b89c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ad6b8889b1d98993eadeb531b7e63771a848719b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: .NET Core ve SQL API'yi ile çalışmaya başlama
 > [!div class="op_single_selector"]
@@ -120,7 +120,7 @@ Azure portalında Azure Cosmos DB hesabınıza gidin ve ardından **anahtarları
 
 Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URI>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your key>` içine yapıştırın. Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız uç nokta olarak `https://localhost:8081` değerini ve [Azure Cosmos DB Öykünücüsü’nü kullanarak geliştirme](local-emulator.md) bölümünden elde edilen iyi tanımlanmış yetkilendirme anahtarını kullanın. < ve > işaretini kaldırdığınızdan, ancak uç noktası ve anahtarın başı ile sonundaki çift tırnağı bıraktığınızdan emin olun.
 
-![C# konsol uygulaması oluşturmak için NoSQL Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. Vurgulanan etkin hub'ı, Azure Cosmos DB hesabını sayfasında ANAHTARLAR düğmesi ve anahtarları sayfasında vurgulanmış URI, birincil anahtar ve ikincil anahtar değerleri ile bir Azure Cosmos DB hesabını gösterir][keys]
+![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure portalının ekran görüntüsü. Vurgulanan etkin hub'ı, Azure Cosmos DB hesabını sayfasında ANAHTARLAR düğmesi ve anahtarları sayfasında vurgulanmış URI, birincil anahtar ve ikincil anahtar değerleri ile bir Azure Cosmos DB hesabını gösterir][keys]
 
 **DocumentClient**'ın yeni bir örneğini oluşturarak başlarken uygulamasına başlayacağız.
 

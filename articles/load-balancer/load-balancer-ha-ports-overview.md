@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: kumud
-ms.openlocfilehash: 09c51441d393de5d801e7a4c259b711a527349d8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f6e9dd09558a3485629d5b70dd8b68b292427b18
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-availability-ports-overview"></a>Yüksek kullanılabilirlik bağlantı noktalarına genel bakış
 
@@ -72,20 +72,20 @@ Bu yapılandırma, tüm diğer Yük Dengeleme kuralı yapılandırmasına geçer
 
 Ancak, bu HA bağlantı noktası kuralı yanı sıra arka uç örnekleri için ortak bir standart yük dengeleyici yapılandırabilirsiniz.
 
-## <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Tek tek kayan IP (doğrudan sunucu dönüşü) HA bağlantı yapılandırmasına iç standart yük dengeleyici
+### <a name="one-single-floating-ip-direct-server-return-ha-ports-configuration-on-the-internal-standard-load-balancer"></a>Tek tek kayan IP (doğrudan sunucu dönüşü) HA bağlantı yapılandırmasına iç standart yük dengeleyici
 
 Benzer şekilde bir Yük Dengeleme kuralı ile kullanmak için yük dengeleyici yapılandırabilirsiniz **HA bağlantı noktası** tek bir ön uç ile ve **kayan IP** kümesine **etkin**. 
 
 Bu yapılandırma, kurallar ve / veya ortak bir yük dengeleyici daha kayan IP dengelemesini eklemenizi sağlar. Ancak, bu yapılandırma üzerinde olmayan - kayan IP HA bağlantı noktası boad karşı yapılandırma kullanamazsınız.
 
-## <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>İç standart yük dengeleyici üzerinde birden çok HA bağlantı noktası yapılandırmaları
+### <a name="multiple-ha-ports-configurations-on-the-internal-standard-load-balancer"></a>İç standart yük dengeleyici üzerinde birden çok HA bağlantı noktası yapılandırmaları
 
 Birden fazla HA bağlantı noktası ön uçlar için aynı arka uç havuzunu yapılandırma senaryonuz gerektiriyorsa, bu tarafından elde edebilirsiniz: 
 - tek bir iç standart yük dengeleyici kaynak için özel IP adreslerini birden çok ön uç yapılandırma.
 - birden çok Yük Dengeleme kuralları, her kural, tek bir bulunduğu yapılandırma benzersiz ön uç IP adresi seçilidir.
 - Seçin **HA bağlantı noktaları** seçeneği ve ayarlayın **kayan IP** için **etkin** tüm Yük Dengeleme kuralları.
 
-## <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>İç yük dengeleyici HA çıkışı ve aynı arka uç örneklerinde ortak yük dengeleyici ile
+### <a name="internal-load-balancer-with-ha-ports--public-load-balancer-on-the-same-backend-instances"></a>İç yük dengeleyici HA çıkışı ve aynı arka uç örneklerinde ortak yük dengeleyici ile
 
 Yapılandırabileceğiniz **bir** bir tek iç standart yük dengeleyici HA bağlantı noktaları ile birlikte arka uç kaynaklarına genel standart yük dengeleyici kaynağıdır.
 

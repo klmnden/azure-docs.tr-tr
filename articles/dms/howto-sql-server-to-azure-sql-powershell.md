@@ -1,21 +1,21 @@
 ---
-title: "SQL Server geçirmek için Microsoft Azure PowerShell'de kullanım Azure veritabanı geçiş hizmeti modülü şirket içi Azure SQL DB'ye | Microsoft Docs"
-description: "Şirket içi SQL Server'dan Azure SQL Azure PowerShell kullanarak geçirmek öğrenin."
+title: SQL Server geçirmek için Microsoft Azure PowerShell'de kullanım Azure veritabanı geçiş hizmeti modülü şirket içi Azure SQL DB'ye | Microsoft Docs
+description: Şirket içi SQL Server'dan Azure SQL Azure PowerShell kullanarak geçirmek öğrenin.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
+manager: ''
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/24/2018
-ms.openlocfilehash: 8569bf65d04f677a45935284dc61d68879014c10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.date: 04/05/2018
+ms.openlocfilehash: d70d39f027df1fba7934c4b752b1dd2100f2e8b9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Azure PowerShell kullanarak Azure SQL DB için şirket içi SQL Server geçirme
 Bu makalede, geçiş **Adventureworks2012** bir şirket içi örneği SQL Server 2016 veya üstünü, Microsoft Azure PowerShell kullanarak bir Azure SQL veritabanına geri yüklenen veritabanı. Kullanarak Azure SQL veritabanı için bir şirket içi SQL Server örneğinden veritabanları geçirebilirsiniz `AzureRM.DataMigration` Microsoft Azure PowerShell modülü.
@@ -127,7 +127,7 @@ $project = New-AzureRmDataMigrationProject -ResourceGroupName myResourceGroup `
   -TargetType SQLDB `
   -SourceConnection $sourceConnInfo `
   -TargetConnection $targetConnInfo `
-  -DatabaseInfos $dbList
+  -DatabaseInfo $dbList
 ```
 
 ## <a name="create-and-start-a-migration-task"></a>Oluşturma ve bir geçiş görev başlatma

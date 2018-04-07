@@ -1,12 +1,12 @@
 ---
-title: "Bir Azure VM için SSH bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Linux çalıştıran bir Azure VM için 'SSH bağlantısı başarısız oldu' veya 'SSH bağlantı reddedildi' gibi sorunları gidermek nasıl."
-keywords: "SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu"
+title: Bir Azure VM için SSH bağlantı sorunlarını giderme | Microsoft Docs
+description: Linux çalıştıran bir Azure VM için 'SSH bağlantısı başarısız oldu' veya 'SSH bağlantı reddedildi' gibi sorunları gidermek nasıl.
+keywords: SSH bağlantı reddedildi, ssh hatası, azure ssh, SSH bağlantısı başarısız oldu
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: dcb82e19-29b2-47bb-99f2-900d4cfb5bbb
 ms.service: virtual-machines-linux
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 176477105e1f660b0bd22d95142b744ef17044ee
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 533a80edbb115dfd324db9e4488e5c66dc36667e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -68,6 +68,14 @@ Azure portalında, VM'yi seçin. Ekranı aşağı kaydırarak **destek + sorun g
 Mevcut bir kullanıcının kimlik bilgilerini sıfırlamak için ya da seçin `Reset SSH public key` veya `Reset password` gelen **modu** önceki ekran olduğu gibi açılır menü. Kullanıcı adı ve bir SSH anahtarı veya yeni bir parola belirtin ve ardından **sıfırlama** düğmesi.
 
 Bu menüden VM sudo ayrıcalıklarına sahip bir kullanıcı da oluşturabilirsiniz. Yeni kullanıcı adı ve ilişkili parolayı veya SSH anahtarını girin ve ardından **sıfırlama** düğmesi.
+
+### <a name="check-security-rules"></a>Güvenlik kuralları denetleyin
+
+Kullanım [IP akış doğrulayın](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) bir ağ güvenlik grubu kural trafiği için veya bir sanal makineden durumunda engelliyor onaylamak için. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve SSH bağlantı noktası (varsayılan 22) öncelik. Daha fazla bilgi için bkz: [VM gidermek için etkili güvenlik kuralları kullanarak trafiğinin akmasını](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+
+### <a name="check-routing"></a>Yönlendirmeyi denetleyin
+
+Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanın
 Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login).

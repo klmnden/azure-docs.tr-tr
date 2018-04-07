@@ -1,11 +1,11 @@
 ---
-title: "Altyapı ve SAP HANA azure'da (büyük örnekler) bağlanma | Microsoft Docs"
-description: "SAP HANA (büyük örnekler) Azure üzerinde kullanmak için gerekli bağlantı altyapıyı yapılandırın."
+title: Altyapı ve SAP HANA azure'da (büyük örnekler) bağlanma | Microsoft Docs
+description: SAP HANA (büyük örnekler) Azure üzerinde kullanmak için gerekli bağlantı altyapıyı yapılandırın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
 manager: timlt
-editor: 
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d94e491d12ac43a4d85a638c79bcd3b24a4bc0ef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 43debeb710e5ab5112f9f0a85a76761cde3051a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı 
 
@@ -49,9 +49,9 @@ SAP HANA azure'da (büyük örnekler) satın, arasında Microsoft Kurumsal hesap
 - Verileri her HANA büyük örneklerinin sistem için:
   - İstenen ana bilgisayar - tam etki alanı adı ile idealdir.
   - Sunucu IP havuzu adres aralığı dışında-HANA büyük örneği biriminin istediğiniz IP adresini kullanmaya devam aklınızda sunucu IP havuzu adres aralığı ilk 30 IP adreslerinin HANA büyük örnekleri içinde iç kullanım için ayrılmıştır
-  - SAP HANA SID adı (gerekli SAP HANA ilgili disk birimleri oluşturmak için gerekli) SAP HANA örneği için. HANA SID izinlerini oluşturmak için gerekli olan <sidadm> NFS birimlerde hangi iliştirilir HANA büyük örneği birimine. Ayrıca takılı disk birimi adı bileşenlerden biri olarak kullanılır. Biriminde birden fazla HANA örneği çalıştırmak istiyorsanız, birden çok HANA SID listesi gerekir. Her biri, atanan birimleri ayrı bir kümesini alır.
-  - Linux işletim sisteminde hana sidadm kullanıcının sahip GroupID gerekli SAP HANA ilgili disk birimleri oluşturmak için gereklidir. SAP HANA yükleme genellikle 1001 Grup kimliğine sahip sapsys grubu oluşturur. Hana sidadm kullanıcı bu grubun parçası olan
-  - Linux işletim sisteminde hana sidadm kullanıcının sahip UserID gerekli SAP HANA ilgili disk birimleri oluşturmak için gereklidir. Tüm liste gerek HANA birden çok birim üzerinde çalıştırıyorsanız, <sid>adm kullanıcılar 
+  - SAP HANA SID adı (gerekli SAP HANA ilgili disk birimleri oluşturmak için gerekli) SAP HANA örneği için. HANA SID HANA büyük örneği birimine bağlı NFS birimlerde sidadm izinlerini oluşturmak için gereklidir. Ayrıca takılı disk birimi adı bileşenlerden biri olarak kullanılır. Biriminde birden fazla HANA örneği çalıştırmak istiyorsanız, birden çok HANA SID listesi gerekir. Her biri, atanan birimleri ayrı bir kümesini alır.
+  - Linux işletim sisteminde sidadm kullanıcının sahip GroupID gerekli SAP HANA ilgili disk birimleri oluşturmak için gereklidir. SAP HANA yükleme genellikle 1001 Grup kimliğine sahip sapsys grubu oluşturur. Sidadm kullanıcı bu grubun parçası olan
+  - Linux işletim sisteminde sidadm kullanıcının sahip UserID gerekli SAP HANA ilgili disk birimleri oluşturmak için gereklidir. Tüm liste gerek HANA birden çok birim üzerinde çalıştırıyorsanız, <sid>adm kullanıcılar 
 - Hangi SAP HANA Azure HANA üzerinde büyük örnekleri doğrudan bağlı olacak Azure aboneliği için Azure abonelik kimliği. Bu abonelik kimliği ile HANA büyük örneği birimlerinin uygulanacak giderek Azure aboneliği başvurur.
 
 Bilgileri verdikten sonra Microsoft azure'da (büyük örnekler) SAP HANA sağlar ve Azure Vnet'ler HANA büyük örneklerine bağlamak için ve HANA büyük örneği birimleri erişmek için gerekli bilgileri döndürür.
@@ -182,7 +182,7 @@ Bir ağ geçidi zaten varsa, onu bir ExpressRoute ağ geçidi olup olmadığın�
 
 - Kullanın ya da (yeni) [Azure portal](https://portal.azure.com/), veya bir ExpressRoute VPN ağ geçidi oluşturmak için PowerShell Vnet'iniz bağlı.
   - Azure portalını kullanıyorsanız, yeni bir ekleyin **sanal ağ geçidi** ve ardından **ExpressRoute** ağ geçidi türü.
-  - Bunun yerine PowerShell seçerseniz, ilk indirin ve en son kullanma [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) bir en iyi deneyimi sağlamak için. Aşağıdaki komutlar bir ExpressRoute ağ geçidi oluşturun. Metinleri öncesinde tarafından bir  _$_  belirli bilgilerinizi ile güncelleştirilmesi gereken kullanıcı tanımlı değişkenlerdir.
+  - Bunun yerine PowerShell seçerseniz, ilk indirin ve en son kullanma [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) bir en iyi deneyimi sağlamak için. Aşağıdaki komutlar bir ExpressRoute ağ geçidi oluşturun. Metinleri öncesinde tarafından bir _$_ belirli bilgilerinizi ile güncelleştirilmesi gereken kullanıcı tanımlı değişkenlerdir.
 
 ```PowerShell
 # These Values should already exist, update to match your environment

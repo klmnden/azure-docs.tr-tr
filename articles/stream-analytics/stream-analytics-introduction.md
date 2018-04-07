@@ -1,24 +1,19 @@
 ---
-title: Akış Analizi'ne Giriş | Microsoft Belgeleri
+title: Azure Stream Analytics genel bakış
 description: Nesnelerin İnterneti'nden (IoT) sağlanan akış verilerini gerçek zamanlı olarak analiz etmenize yardım eden bir yönetilen hizmet olan Stream Analytics hakkında bilgi edinin.
-keywords: hizmet olarak analytics, yönetilen hizmetler, akış işleme, streaming analytics, stream analytics nedir
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 10/17/2017
 ms.author: jeanb
-ms.openlocfilehash: 70a4b0b358b79ec892483a9fa5573e4bf2d57534
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: HT
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 10/17/2017
+ms.openlocfilehash: 1912972b2a5ef40bcc61140225f1fdbcbb1535c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics nedir?
 
@@ -86,5 +81,5 @@ Yönetilen bir hizmet olan Stream Analytics, veri kaybının önlenmesine yardı
 
 * [IoT cihazlarından gelen girdiler ve sorgularla çalışmayı deneyerek](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md) başlangıç yapın.
 * Dolandırıcılık amaçlı çağrıları bulmak için telefon meta verilerini inceleyen [uçtan uca Stream Analytics çözümü](stream-analytics-real-time-fraud-detection.md) oluşturun.
-* Stream Analytics sorularınıza yanıt almak için [Azure Stream Analytics forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) ziyaret edin.
+* Stream Analytics sorularınıza yanıt almak için [Azure Stream Analytics forumunu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) ziyaret edin.
 

@@ -4,7 +4,7 @@ description: Azurethe Resource Manager dağıtım modelinde dağıtma Windows sa
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: adbe54dec363b454d64340bf3a862cdead2e5435
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 84363a92445991d08a2593bb3ade863db06b8670
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure'da dağıtma Windows sanal makine sorunlarını giderme
 
@@ -72,7 +72,7 @@ Kurumsal Anlaşma için:
 
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
- - [Azure karma kullanımı avantajı genel bakış](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Azure karma kullanımı avantajı genel bakış ](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [İndirilebilir SSS](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 

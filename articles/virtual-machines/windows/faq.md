@@ -4,7 +4,7 @@ description: Bazı Windows sanal makineleri Resource Manager modeli kullanılara
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-management
 ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
-ms.openlocfilehash: e440385ca0f22dce8668fe73b91efe14e0c8a9b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f427035f413dde304c2270006c6665120cb3e1e1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Windows sanal makineler hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Windows sanal makineler hakkında bazı sık sorulan soruları giderir. Bu konuda Linux sürümü için bkz: [Linux sanal makineleri hakkında sık sorulan bir soru](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -99,7 +99,7 @@ Aşağıdaki kullanıcı adları izin verilmiyor:
         <td style="text-align:center">actuser  </td><td style="text-align:center"> adm </td><td style="text-align:center"> admin2 </td><td style="text-align:center"> ASPNET</td>
     </tr>
     <tr>
-        <td style="text-align:center">yedekleme </td><td style="text-align:center"> Konsol </td><td style="text-align:center"> david </td><td style="text-align:center"> Konuk</td>
+        <td style="text-align:center">yedekleme </td><td style="text-align:center"> console </td><td style="text-align:center"> david </td><td style="text-align:center"> Konuk</td>
     </tr>
     <tr>
         <td style="text-align:center">John </td><td style="text-align:center"> sahip </td><td style="text-align:center"> kök </td><td style="text-align:center"> sunucu</td>

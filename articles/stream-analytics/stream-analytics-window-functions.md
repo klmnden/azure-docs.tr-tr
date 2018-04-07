@@ -1,24 +1,19 @@
 ---
-title: Stream Analytics penceresi işlevleri giriş | Microsoft Docs
-description: Akış (dönen atlamalı, kayan) analizi üç pencere işlevleri hakkında bilgi edinin.
-keywords: dönen pencere, kayan pencere atlamalı pencere
-documentationcenter: ''
+title: Azure Stream Analytics Pencereleme işlevleri giriş
+description: Bu makalede Azure Stream Analytics işlerine kullanılan (dönen atlamalı, kayan) üç Pencereleme işlevleri açıklanmaktadır.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 0d8d8717-5d23-43f0-b475-af078ab4627d
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 3757834ff816fffc4571aeef8c164c2230c0f7c2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: c6f5dbe49cb60e3c7b2bc6562acf2d7fd79096ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Stream Analytics penceresi işlevleri giriş
 Pek çok gerçek senaryolar akışı sırasında yalnızca zamana bağlı Windows'da bulunan veriler üzerinde işlem gerçekleştirmek gereklidir. Pencereleme işlevler için yerel destek karmaşık akış işleme işleri yazma, geliştirici üretkenliğine iğnenin taşır Azure akış analizi, anahtar bir özelliğidir. Akış analizi sağlar geliştiriciler [ **dönen**](https://msdn.microsoft.com/library/dn835055.aspx), [ **Hopping** ](https://msdn.microsoft.com/library/dn835041.aspx) ve [ **hareketli** ](https://msdn.microsoft.com/library/dn835051.aspx) veri akışı üzerinde zamana bağlı işlemleri gerçekleştirmek için windows. Değer belirtmeye olan tüm [penceresi](https://msdn.microsoft.com/library/dn835019.aspx) operations çıktı sonuçlarına **son** penceresinin. Çıktı penceresi tek olay kullanılan üzerinde toplama işlevi tabanlı olacaktır. Olay penceresinin bitiş zaman damgası sahip olur ve tüm pencere işlevleri sabit uzunluk ile tanımlanır. Son olarak, tüm pencere işlevleri de kullanılması gerektiğini dikkate almak önemlidir bir [ **GROUP BY** ](https://msdn.microsoft.com/library/dn835023.aspx) yan tümcesi.
@@ -41,7 +36,7 @@ Dönen veya atlamalı windows, farklı olarak, kayan pencere işlevleri bir çı
 ![Stream Analytics penceresi kayan giriş işlevleri](media/stream-analytics-window-functions/stream-analytics-window-functions-sliding-intro.png)
 
 ## <a name="getting-help-with-window-functions"></a>Pencere işlevleri ile ilgili Yardım alma
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

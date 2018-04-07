@@ -1,19 +1,19 @@
 ---
-title: "Toplu işleme Azure SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını"
-description: "Konu, toplu veritabanı işlemleri kanıt sağlar büyük ölçüde imroves hızını ve Azure SQL veritabanı uygulamalarınızın ölçeklenebilirlik. Bu toplu teknikler herhangi bir SQL Server veritabanı için çalışır makaleyi odağını Azure üzerinde olsa da."
+title: Toplu işleme Azure SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını
+description: Konu, toplu veritabanı işlemleri kanıt sağlar büyük ölçüde imroves hızını ve Azure SQL veritabanı uygulamalarınızın ölçeklenebilirlik. Bu toplu teknikler herhangi bir SQL Server veritabanı için çalışır makaleyi odağını Azure üzerinde olsa da.
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 5c7846fdd8d6a7584cab2b4f3811151332171ba4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3367ecc48ee8da7aaf657b5278acb19df5a96e75
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Toplu işleme SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını
 Azure SQL veritabanı işlemleri önemli ölçüde toplu işleme, uygulamalarınızın ölçeklenebilirliğini ve performansı artırır. Avantajları anlamak için bir SQL veritabanına sıralı ve toplu istekleri karşılaştırmak bazı örnek test sonuçlarını ilk bölümü, bu makalenin ele alınmaktadır. Makalenin kalanında teknikleri, senaryoları ve başarıyla Azure uygulamalarınızda toplu işleme kullanmanıza yardımcı olması için dikkat edilecek noktalar gösterir.
@@ -154,7 +154,7 @@ Kod içinde oluşturduğunuz bir **DataTable** tam aynı adlara ve tablo türü 
         cmd.ExecuteNonQuery();
     }
 
-Önceki örnekte, **SqlCommand** nesnesi bir tablo değerli parametresinden satırları ekler  **@TestTvp** . Önceden oluşturulmuş **DataTable** nesne bu parametreyle atanması **SqlCommand.Parameters.Add** yöntemi. Bir çağrısında eklemeleri önemli ölçüde toplu işleme sıralı eklemeleri performansı artırır.
+Önceki örnekte, **SqlCommand** nesnesi bir tablo değerli parametresinden satırları ekler **@TestTvp**. Önceden oluşturulmuş **DataTable** nesne bu parametreyle atanması **SqlCommand.Parameters.Add** yöntemi. Bir çağrısında eklemeleri önemli ölçüde toplu işleme sıralı eklemeleri performansı artırır.
 
 Daha önceki örnekteki artırmak için metin tabanlı komutu yerine bir saklı yordamı kullanın. Aşağıdaki Transact-SQL komutunu isteyen bir saklı yordamı oluşturur **SimpleTestTableType** tablo değerli parametre.
 

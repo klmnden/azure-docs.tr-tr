@@ -1,13 +1,13 @@
 ---
-title: "Azure DDoS koruması standart genel bakış | Microsoft Docs"
-description: "Azure DDoS koruması hizmeti hakkında bilgi edinin."
+title: Azure DDoS koruması standart genel bakış | Microsoft Docs
+description: Azure DDoS koruması hizmeti hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: jdial
-ms.openlocfilehash: 6b15be022ba3b8373cfb852be8fc6915824801dc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb19baae1bc03633b7646fd2255ca910532595c5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>DDoS koruması standart Azure genel bakış
 
@@ -65,7 +65,7 @@ DDoS koruması standart özellikleri içerir:
 - **Katman 7 koruması için Katman 3:** tam yığını DDoS koruması, bir uygulama ağ geçidi ile kullanıldığında sağlar.
 - **Kapsamlı azaltma ölçeği:** üzerinden 60 farklı saldırı türleri azaltıldığından, en büyük bilinen DDoS saldırılarına karşı korumak için genel kapasiteye sahip. 
 - **Saldırı ölçümleri:** Summarized ölçümleri her saldırılara karşı Azure İzleyicisi aracılığıyla erişilebilir.
-- **Saldırı Uyarı:** başlatma ve durdurma bir saldırının uyarıları yapılandırılabilir ve yerleşik saldırı ölçümleri saldırı 's süresinde kullanma. Microsoft Operations Management Suite, Splunk, Azure Storage, e-posta ve Azure portalı gibi işletimsel, yazılımına uyarıları tümleştirin.
+- **Saldırı Uyarı:** başlatma ve durdurma bir saldırının uyarıları yapılandırılabilir ve yerleşik saldırı ölçümleri saldırı 's süresinde kullanma. Microsoft Azure günlük analizi, Splunk, Azure Storage, e-posta ve Azure portalı gibi işletimsel, yazılımına uyarıları tümleştirin.
 - **Maliyet garantisi:** veri aktarım ve uygulama genişleme hizmet iadeleri belgelenen DDoS saldırıları için.
 
 ## <a name="ddos-protection-standard-mitigation"></a>DDoS koruması standart azaltma

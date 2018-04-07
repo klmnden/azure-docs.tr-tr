@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal makine dağıtımı Chef ile | Microsoft Docs"
-description: "Otomatik sanal makine dağıtımı ve yapılandırması Microsoft Azure üzerinde yapmak için Chef kullanmayı öğrenin"
+title: Azure sanal makine dağıtımı Chef ile | Microsoft Docs
+description: Otomatik sanal makine dağıtımı ve yapılandırması Microsoft Azure üzerinde yapmak için Chef kullanmayı öğrenin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: diegoviso
-manager: timlt
+manager: jeconnoc
 tags: azure-service-management,azure-resource-manager
-editor: 
+editor: ''
 ms.assetid: 0b82ca70-89ed-496d-bb49-c04ae59b4523
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -15,17 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-<<<<<<< HEAD
-ms.openlocfilehash: b6db0fbb4e0de896994954974ddcc39daad9c125
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 9dabf666c633b59c7d1f9478b0e9cfe9d313e129
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 36293c41219a1b42d75850fa66d3c631637bb855
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef ile Azure sanal makine dağıtımını otomatikleştirme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

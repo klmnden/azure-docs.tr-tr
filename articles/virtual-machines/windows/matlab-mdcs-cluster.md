@@ -1,11 +1,11 @@
 ---
-title: "MATLAB kümeleri sanal makinelerde | Microsoft Docs"
-description: "Microsoft Azure sanal makineleri, işlem yoğunluklu paralel MATLAB iş yüklerini çalıştırmak için MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın"
+title: MATLAB kümeleri sanal makinelerde | Microsoft Docs
+description: Microsoft Azure sanal makineleri, işlem yoğunluklu paralel MATLAB iş yüklerini çalıştırmak için MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mscurrell
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.openlocfilehash: 177f8a61487130e718e3e6cfb779b17a3ed8ed69
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 695833fb12c0c7a130e98fe9b3bdfa502672ab29
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure Vm'lerinde MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturma
 Microsoft Azure sanal makineleri, işlem yoğunluklu paralel MATLAB iş yüklerini çalıştırmak için bir veya daha fazla MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturmak için kullanın. Temel görüntü ve bir Azure Hızlı Başlangıç şablonu veya Azure PowerShell Betiği kullanmak için bir VM MATLAB dağıtılmış bilgi işlem sunucusu yazılım yükleme (kullanılabilir [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) dağıtmak ve kümeyi yönetmek için. Dağıtımdan sonra iş yüklerini çalıştırmak için kümeye bağlanın.
@@ -28,7 +28,7 @@ Microsoft Azure sanal makineleri, işlem yoğunluklu paralel MATLAB iş yükleri
 
 Azure sanal makineleri kullanarak, aynı mekanizmaları etkileşimli işleri, toplu işleri, bağımsız görevleri ve iletişim kuran görevler gibi şirket içi kümeleri olarak paralel iş göndermek kullanılabilir olan MATLAB dağıtılmış bilgi işlem sunucusu kümeleri oluşturabilirsiniz. Azure MATLAB platform ile birlikte kullanarak sağlama için karşılaştırıldığında birçok avantaj vardır ve geleneksel kullanarak şirket içi donanım: sanal makine bir dizi boyutları, kümeleri, yalnızca işlem kaynaklarını, kullanımı ve modelleri ölçekte test olanağı ödeme için isteğe bağlı oluşturulmasını.  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **İstemci bilgisayar** -dağıtımdan sonra Azure ve MATLAB dağıtılmış bilgi işlem sunucusu küme ile iletişim kurmak için bir Windows tabanlı bir istemci bilgisayar gerekir.
 * **Azure PowerShell** -bkz [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) , istemci bilgisayara yüklemek için.
 * **Azure aboneliği** -bir aboneliğiniz yoksa oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) yalnızca birkaç dakika içinde. Daha büyük kümeleri için Kullandıkça Öde aboneliğine veya diğer satın alma seçenekleri göz önünde bulundurun.

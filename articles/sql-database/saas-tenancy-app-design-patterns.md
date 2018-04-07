@@ -1,20 +1,20 @@
 ---
-title: "Çok kiracılı SaaS desenler - Azure SQL veritabanı | Microsoft Docs"
-description: "Gereksinimler ve ortak verileri ve Azure bulut ortamında çalışan bir hizmet (SaaS) veritabanı uygulamaları olarak çok kiracılı yazılım mimarisi desenlerini öğrenin."
-keywords: "sql veritabanı öğreticisi"
+title: Çok kiracılı SaaS desenler - Azure SQL veritabanı | Microsoft Docs
+description: Gereksinimler ve ortak verileri ve Azure bulut ortamında çalışan bir hizmet (SaaS) veritabanı uygulamaları olarak çok kiracılı yazılım mimarisi desenlerini öğrenin.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: ac4eceb2265850b18682b38141f24b18ca0f9b4b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3220c538e08753ed3515f42a5b8110df71745a63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiralama desenleri
 

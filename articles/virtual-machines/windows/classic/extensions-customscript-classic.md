@@ -1,11 +1,11 @@
 ---
-title: "Bir Windows VM özel betik uzantısı | Microsoft Docs"
-description: "Uzak bir Windows VM PowerShell betikleri çalıştırmak için özel betik uzantısı kullanarak Azure VM yapılandırma görevleri otomatikleştirme"
+title: Bir Windows VM özel betik uzantısı | Microsoft Docs
+description: Uzak bir Windows VM PowerShell betikleri çalıştırmak için özel betik uzantısı kullanarak Azure VM yapılandırma görevleri otomatikleştirme
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: ebb7340a-8f61-4d3c-a290-d7bf8de2d0bd
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: danis
-ms.openlocfilehash: 5de2949561ed5f64582898006de7818e81f79f5b
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: 0ed73a53e6ec40af888f12cbf8f002a62098cda5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Özel betik uzantısı Klasik dağıtım modeli kullanılarak Windows için
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 01/09/2018
 > Azure oluşturmak ve kaynaklarla çalışmak için iki farklı dağıtım modeli vardır: [Resource Manager ve klasik](../../../resource-manager-deployment-model.md). Bu makalede, Klasik dağıtım modeli kullanarak yer almaktadır. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir. [Bu adımları Resource Manager modeli kullanarak gerçekleştirmeyi](../extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) öğrenin.
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
-Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Komut dosyaları Azure depolama veya GitHub indirilen veya çalışma zamanı uzantısı Azure portalında sağlanmaktadır. Özel betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalında veya Azure sanal makine REST API'sini kullanarak da çalıştırılabilir.
+Özel betik uzantısının indirir ve Azure sanal makinelerde komut dosyaları çalıştırılır. Bu uzantı dağıtım sonrası yapılandırma, yazılım yükleme veya diğer yapılandırma/yönetim görevleri için kullanışlıdır. Betikler Azure depolama veya GitHub konumlarından indirilebilir ya da Azure portalına uzantı çalışma zamanında iletilebilir. Özel Betik uzantısı, Azure Resource Manager şablonları ile tümleşir ve Azure CLI, PowerShell, Azure portalı veya Azure Sanal Makine REST API'si kullanılarak da çalıştırılabilir.
 
 Bu belge Azure PowerShell modülü, Azure Resource Manager şablonları ve sorun giderme adımları Windows sistemlerinde ayrıntıları kullanarak özel betik uzantısı kullanma ayrıntılarını verir.
 
@@ -76,10 +76,10 @@ Aşağıdaki JSON şeması özel betik uzantısı gösterir. Uzantısı için bi
 | Ad | Değer / örnek |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| Yayımcı | Microsoft.Compute |
+| publisher | Microsoft.Compute |
 | Uzantısı | CustomScriptExtension |
 | typeHandlerVersion | 1.8 |
-| fileUris (örneğin) | https://RAW.githubusercontent.com/Microsoft/dotnet-Core-Sample-Templates/master/dotnet-Core-Music-Windows/scripts/Configure-Music-App.ps1 |
+| fileUris (örneğin) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (örneğin) | PowerShell - ExecutionPolicy Unrestricted - dosya yapılandırma-müzik-app.ps1 |
 
 ## <a name="template-deployment"></a>Şablon dağıtımı

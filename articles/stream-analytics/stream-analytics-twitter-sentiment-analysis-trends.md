@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics ile gerçek zamanlı Twitter düşünceleri çözümleme | Microsoft Docs
-description: Akış analizi için gerçek zamanlı Twitter düşünceleri analizi kullanmayı öğrenin. Olay oluşturma hakkında adım adım kılavuzdan verileri canlı bir Pano üzerinde.
-keywords: gerçek zamanlı twitter eğilim analizi, düşünceleri analiz, sosyal medya analizi, eğilim analizi örneği
+title: Azure Stream Analytics ile gerçek zamanlı Twitter düşünceleri çözümleme
+description: Bu makalede, gerçek zamanlı Twitter düşünceleri analize Stream Analytics kullanmayı açıklar. Olay oluşturma hakkında adım adım kılavuzdan verileri canlı bir Pano üzerinde.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 42068691-074b-4c3b-a527-acafa484fda2
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/29/2017
 ms.author: jeanb
-ms.openlocfilehash: 87a9ecc5984075d700ddc64a1377342d5fe7e494
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.reviewer: jasonh
+manager: kfile
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/29/2017
+ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics gerçek zamanlı Twitter düşünceleri analizi
 
@@ -374,7 +369,7 @@ Bu öğreticinin amaçları doğrultusunda, 20 katından fazla son 5 saniye içi
 
 
 ## <a name="get-support"></a>Destek alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

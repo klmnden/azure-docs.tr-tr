@@ -1,34 +1,29 @@
 ---
-title: Visual Studio için yükleme yönergeleri için Azure Stream Analytics araçları | Microsoft Docs
-description: Visual Studio için yükleme yönergeleri için Azure Stream Analytics araçları
-keywords: visual studio
-documentationcenter: ''
+title: Azure Stream Analytics araçları Visual Studio için Kurulum
+description: Bu makalede, yükleme gereksinimlerini ve Azure akış analizi araçları Visual Studio için Kurulum nasıl açıklanmaktadır.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/19/2017
 ms.author: sujie
-ms.openlocfilehash: fe1f2158439b2c04e8232eb6fe3c9faf79641ffe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 09/19/2017
+ms.openlocfilehash: 511658fc0e2b480987455007dac5f55cd7850feb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="installation-instructions-for-stream-analytics-tools-for-visual-studio"></a>Visual Studio için yükleme yönergeleri için Stream Analytics araçları
-Azure Stream Analytics araçları, Visual Studio 2017, 2015 ve 2013 artık destekler. Bu belgede, yükleme ve Araçları'nı kaldırın tanıtır.
+# <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçlarını yükleme
+Azure Stream Analytics araçları, Visual Studio 2017, 2015 ve 2013 artık destekler. Bu belge, yükleme ve kaldırma araçları açıklar.
 
-Nasıl kullanacağınızı öğrenin [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Araçları kullanarak daha fazla bilgi için bkz: [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="install"></a>Yükleme
 ### <a name="visual-studio-2017"></a>Visual Studio 2017
 * Karşıdan [Visual Studio 2017 (15.3 veya üstü)](https://www.visualstudio.com/). Enterprise (Ultimate/Premium), Professional ve topluluk sürümleri desteklenir. Express sürümü desteklenmiyor. 
-* Stream Analytics araçları parçası olan **Azure geliştirme** ve **veri depolama ve işleme** Visual Studio 2017 iş yükleri. Bu iki iş yükleri birini Visual Studio yüklemenizin bir parçası olarak etkinleştirin.
+* Stream Analytics araçları parçası olan **Azure geliştirme** ve **veri depolama ve işleme** Visual Studio 2017 iş yükleri. Visual Studio yüklemenizin parçası olarak bu iki iş yükünden birini etkinleştirin.
 
 Etkinleştirme **veri depolama ve işleme** gösterildiği gibi iş yükü:
 

@@ -1,9 +1,9 @@
 ---
-title: "Azure İzleyici PowerShell hızlı başlangıç örnekleri. | Microsoft Docs"
-description: "Otomatik ölçeklendirme, uyarılar, Web kancalarını ve etkinlik günlükleri arama gibi Azure İzleyicisi özelliklerine erişmek için PowerShell kullanın."
+title: Azure İzleyici PowerShell hızlı başlangıç örnekleri. | Microsoft Docs
+description: Otomatik ölçeklendirme, uyarılar, Web kancalarını ve etkinlik günlükleri arama gibi Azure İzleyicisi özelliklerine erişmek için PowerShell kullanın.
 author: rboucher
 manager: carmonm
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: c0761814-7148-4ab5-8c27-a2c9fa4cfef5
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/14/2018
 ms.author: robb
-ms.openlocfilehash: 5a08fd7d20dc78512315ab5d154ba95bd8e8494b
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7b6da166ddd53162ca1177e925f00291ae78de2a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure İzleyici PowerShell hızlı başlangıç örnekleri
 Bu makale Azure İzleyicisi özelliklerine erişmenize yardımcı olması için PowerShell komutlarını örnek gösterir.
@@ -338,7 +338,7 @@ Add-AzureRmLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s
 Çoğu Azure hizmeti ek günlükleri ve aşağıdakilerden birini veya birkaçını yapabilirsiniz telemetri sağlar: 
  - Azure depolama hesabınızdaki verileri kaydetmek için yapılandırılması
  - Event Hubs'a gönderilen
- - bir OMS günlük analizi çalışma alanına gönderilir. 
+ - Günlük analizi çalışma alanına gönderilir. 
 
 İşlemi yalnızca bir kaynak düzeyinde gerçekleştirilebilir. Depolama hesabı veya olay hub'ı tanılama ayarını yapılandırıldığı aynı bölgede hedef kaynak olarak mevcut olmalıdır.
 
@@ -377,7 +377,7 @@ Olay hub'ları için tanılama ayarını etkinleştirin
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Tanılama ayarını için günlük analizi (OMS) etkinleştir
+Günlük analizi için tanılama ayarını etkinleştirin
 
 ```PowerShell
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true

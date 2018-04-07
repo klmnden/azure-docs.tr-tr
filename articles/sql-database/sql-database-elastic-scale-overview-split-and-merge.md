@@ -1,19 +1,19 @@
 ---
-title: "Ölçeklendirilen bulut veritabanları arasında veri taşıma | Microsoft Docs"
-description: "Parça işlemek ve esnek veritabanı API'leri kullanarak bir kendi kendini barındıran hizmet veri taşımak açıklanmaktadır."
+title: Ölçeklendirilen bulut veritabanları arasında veri taşıma | Microsoft Docs
+description: Parça işlemek ve esnek veritabanı API'leri kullanarak bir kendi kendini barındıran hizmet veri taşımak açıklanmaktadır.
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 9e2b231ad2e9fc5ab07532daef44da9870cef4ae
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
 Bir hizmet geliştiricisi olarak yazılımlardır ve aniden uygulamanızı inanılmaz isteğe bağlı olduğunda, büyüme uyum sağlaması gerekmektedir. Bu nedenle daha fazla veritabanı (bölümler) ekleyin. Nasıl veri bütünlüğü kesintiye uğratmadan yeni veritabanları için veri dağıtabilir? Kullanım **bölünmüş Birleştirme aracı** verileri kısıtlanmış veritabanlarından yeni veritabanlarını taşımak için.  

@@ -1,25 +1,25 @@
 ---
-title: "Bir C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma | Microsoft Docs"
-description: "Geliştir ve bağlam geçmeden bir C# modül Azure IOT kenar Visual Studio Code ile dağıtın."
+title: Bir C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma | Microsoft Docs
+description: Geliştir ve bağlam geçmeden bir C# modül Azure IOT kenar Visual Studio Code ile dağıtın.
 services: iot-edge
-keywords: 
+keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
 ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4cf07d5c4a21fa989e7de6e996cc62424099e3e5
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 48c6cacebdeb7505c8dc2bcaed099c33862589ac
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="use-visual-studio-code-to-develop-a-c-module-with-azure-iot-edge"></a>Bir C# modül Azure IOT Edge geliştirmek için Visual Studio Code kullanma
 Bu makalede kullanmaya yönelik ayrıntılı yönergeler sağlanmaktadır [Visual Studio Code](https://code.visualstudio.com/) geliştirmek ve Azure IOT kenar modüllerinizi dağıtmak için ana geliştirme aracı olarak. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-Bu öğretici, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. Geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz veya başka bir fiziksel cihaz IOT sınır cihazı olabilir.
+Bu makalede, bir bilgisayar veya geliştirme makine olarak Windows veya Linux çalıştıran sanal makine kullandığınızı varsayar. Geliştirme makinenizde IOT kenar Cihazınızı benzetimini yapabilirsiniz veya başka bir fiziksel cihaz IOT sınır cihazı olabilir.
 
 Bu kılavuza başlamadan önce aşağıdaki öğreticiler tamamlayın:
 - Sanal bir cihaz üzerinde Azure IOT kenar dağıtmak [Windows](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-windows) veya [Linux](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux)
@@ -86,7 +86,7 @@ Yükleyin ve Azure IOT kenar çalışma zamanı aygıtınızda başlatın. Azure
 Öğreticide [bir C# modül geliştirmek](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module), güncelleştirme, yapı ve VS Code'da modülü görüntünüzü yayımlama. Ardından, C# modülünü dağıtmak için Azure portalına gidin. Bu bölüm, dağıtmak ve C# modül izlemek için VS Code kullanma tanıtır.
 
 ### <a name="start-a-local-docker-registry"></a>Yerel bir Docker kayıt Başlat
-Bu öğretici için Docker uyumlu kayıt kullanabilirsiniz. İki popüler Docker kayıt defteri hizmetlerinin kullanılabilir bulutta [Azure kapsayıcı kayıt defteri](https://docs.microsoft.com/azure/container-registry/) ve [Docker hub'a](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). Bu bölümde kullanan bir [yerel Docker kayıt](https://docs.docker.com/registry/deploying/), erken geliştirme sırasında test etmek için daha kolay olduğu.
+Bu makale için Docker uyumlu kayıt kullanabilirsiniz. Bulutta sağlanan iki popüler Docker kayıt defteri hizmeti [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ve [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)'dır. Bu bölümde kullanan bir [yerel Docker kayıt](https://docs.docker.com/registry/deploying/), erken geliştirme sırasında test etmek için daha kolay olduğu.
 VS code'da **tümleşik terminal** (Ctrl + '), yerel bir kayıt defteri başlatmak için aşağıdaki komutu çalıştırın:  
 
 ```cmd/sh
@@ -253,14 +253,14 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT kenar uzantısını kullan
 
 ### <a name="create-a-docker-image-and-publish-it-to-your-registry"></a>Docker görüntü oluşturma ve kayıt defterine yayımlama
 
-1. VS Code Explorer'da genişletin **Docker** klasör. Kapsayıcı platformunuz için klasör ya da genişletin **linux x64** veya **windows nano**.
+1. VS Code Explorer'da genişletin **Docker** klasör. Ardından kapsayıcı platformunuzun klasörünü (**linux-x64** veya **windows-nano**) genişletin.
 2. Sağ **Dockerfile** dosyasını bulun ve seçin **yapı IOT kenar modülü Docker görüntü**. 
 
     ![VS Code Gezgini'nin ekran görüntüsü](./media/how-to-vscode-develop-csharp-module/build-docker-image.png)
 
 3. İçinde **Klasör Seç** penceresinde göz atın veya girin `./bin/Debug/netcoreapp2.0/publish`. Seçin **EXE_DIR Klasör Seç**.
-4. VS Code pencerenin üstündeki açılır metin kutusuna görüntü adı girin. Örneğin: `<your container registry address>/filtermodule:latest`. Yerel kayıt defterine dağıtıyorsanız, olmalıdır `localhost:5000/filtermodule:latest`.
-5. Görüntü Docker deponuza iletin. Kullanım **kenar: anında IOT kenar modülü Docker görüntü** komut ve VS Code pencerenin üstündeki açılır metin kutusuna resim URL'si girin. Önceki adımda kullanılan aynı resim URL'si kullanın. Görüntüyü başarıyla gönderilen emin olmak için konsol günlüğünü denetleyin.
+4. VS Code penceresinin en üstündeki açılan metin kutusuna görüntü adını girin. Örneğin: `<your container registry address>/filtermodule:latest`. Yerel kayıt defterine dağıtıyorsanız, olmalıdır `localhost:5000/filtermodule:latest`.
+5. Görüntüyü Docker deponuza koyun. Kullanım **kenar: anında IOT kenar modülü Docker görüntü** komut ve VS Code pencerenin üstündeki açılır metin kutusuna resim URL'si girin. Önceki adımda kullanılan aynı resim URL'si kullanın. Görüntüyü başarıyla gönderilen emin olmak için konsol günlüğünü denetleyin.
 
     ![Docker görüntü Ftp'den işleminin ekran görüntüsü](./media/how-to-vscode-develop-csharp-module/push-image.png) ![konsol oturum ekran görüntüsü](./media/how-to-vscode-develop-csharp-module/pushed-image.png)
 
@@ -296,7 +296,7 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT kenar uzantısını kullan
     "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
     ```
    > [!NOTE]
-   > Burada bu iletileri akış çalışma zamanında bildirim temelli kuralları tanımlar. Bu öğreticide, iki yol gerekir. İlk yol sıcaklık algılayıcısı iletilerden "input1" uç noktası aracılığıyla filtresi modülü için taşımaları. Bu FilterMessages işleyici ile yapılandırılmış uç noktadır. İkinci yol filtresi modülü gelen iletileri IOT Hub'ına taşımaları. Bu yol, IOT Hub'ına iletileri göndermek için IOT kenar Hub söyler özel bir hedef Yukarı Akış.
+   > Burada bu iletileri akış çalışma zamanında bildirim temelli kuralları tanımlar. Bu makalede, iki yol gerekir. İlk rota, iletileri "input1" uç noktası yoluyla sıcaklık algılayıcısından filtre modülüne taşır. Bu FilterMessages işleyici ile yapılandırılmış uç noktadır. İkinci rota, iletileri filtre modülünden IoT Hub'a taşır. Bu yol, IOT Hub'ına iletileri göndermek için IOT kenar Hub söyler özel bir hedef Yukarı Akış.
 
 3. Bu dosyayı kaydedin.
 4. Komut palette seçin **kenar: sınır cihazı için dağıtımı oluşturma**. Ardından IOT kenar cihaz Kimliğinizi bir dağıtım oluşturmak için seçin. Veya, cihaz kimliği aygıt listesinde sağ tıklatın ve seçin **sınır cihazı için dağıtımı oluşturma**.
@@ -317,7 +317,4 @@ Aşağıdaki adımlar Visual Studio Code ve Azure IOT kenar uzantısını kullan
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir IOT kenar modülü oluşturulan ve VS code'da IOT sınır cihazı için dağıtılabilir. VS code'da Azure IOT kenar geliştirirken diğer senaryolar hakkında bilgi edinmek için aşağıdaki öğretici bakın:
-
-> [!div class="nextstepaction"]
-> [C# VS Code modülünde hata ayıklama](how-to-vscode-debug-csharp-module.md)
+[C# VS Code modülünde hata ayıklama](how-to-vscode-debug-csharp-module.md)

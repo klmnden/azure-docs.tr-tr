@@ -1,24 +1,19 @@
 ---
-title: Power BI Panosu üzerinde Azure akış analizi | Microsoft Docs
-description: İş Zekası toplamak ve yüksek hacimli bir akış analizi işi verileri çözümlemek için gerçek zamanlı akış Power BI panosuna kullanın.
-keywords: Analytics Pano, gerçek zamanlı Panosu
+title: Azure Stream Analytics ile Power BI Panosu tümleştirme
+description: Bu makalede, bir Azure akış analizi işi dışında görselleştirmek için gerçek zamanlı bir Power BI panosuna kullanmayı açıklar.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: fe8db732-4397-4e58-9313-fec9537aa2ad
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: e1f1d960c312362e0e0cd6d2f83599c28c8c3f05
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 15b8548e8b5b6ff8d2f5722d2a4031f8e52d044b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analizler ve Power BI akış: veri akışı için gerçek zamanlı analiz Panosu
 Azure Stream Analytics, başında iş zekası araçları birini yararlanmak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, bilgi nasıl iş zekası araçları, Azure akış analizi işi için çıkış olarak Power BI kullanarak oluşturun. Ayrıca oluşturmak ve gerçek zamanlı bir Panoda kullanmak hakkında bilgi edinin.
@@ -249,7 +244,7 @@ Benzer şekilde, belirtecin süresi dolduktan sonra bir iş başlatılır, bir h
 Power BI ile yetkilendirme yenilendikten sonra sorunu Çözümlendi yansıtacak şekilde yetkilendirme alanında yeşil bir uyarı görüntülenir.
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

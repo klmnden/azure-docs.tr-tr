@@ -9,20 +9,19 @@ ms.author: xshi
 ms.date: 03/18/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 0ea2dc723c674e7119b6ef38771a73ff4c11e98d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6c94701507f86f6ecab2875f952215cc3e4cc719
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code---preview"></a>Visual Studio Code birden çok modülleri IOT kenar çözümüyle geliştir - Önizleme
-IOT kenar çözümünüzün birden çok modülleri geliştirmek için Visual Studio Code kullanabilirsiniz. Bu öğreticide, oluşturma, güncelleştirme ve yalnızca Visual Studio Code benzetimli IOT kenar aygıtta algılayıcı verilerini kanal IOT kenar çözümünü dağıtma açıklanmaktadır. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+IOT kenar çözümünüzün birden çok modülleri geliştirmek için Visual Studio Code kullanabilirsiniz. Bu makalede oluşturma, güncelleştirme ve Visual Studio Code sanal IOT kenar cihazda bu kanallar algılayıcı verileri IOT kenar çözümünü dağıtma anlatılmaktadır. Bu makalede, bilgi nasıl yapılır:
 
-> [!div class="checklist"]
-> * Bir IOT kenar çözümü oluşturmak için Visual Studio Code kullanın
-> * Yeni bir modül, çalışan eklemek için VS Code kullanın IOT uç çözümünün. 
-> * IOT kenar Cihazınızı IOT uç çözümünün (birden çok modüller) dağıtma
-> * Oluşturulan görünüm verileri
+* Bir IOT kenar çözümü oluşturmak için Visual Studio Code kullanın
+* Yeni bir modül, çalışan eklemek için VS Code kullanın IOT uç çözümünün. 
+* IOT kenar Cihazınızı IOT uç çözümünün (birden çok modüller) dağıtma
+* Oluşturulan verileri görüntüleme
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Öğreticiler tamamlayın
@@ -60,15 +59,14 @@ IOT kenar çözümünüzün birden çok modülleri geliştirmek için Visual Stu
 
 3. Kullanıyorsanız [bir IOT sınır cihazının benzetimini yapma](tutorial-simulate-device-linux.md) geliştirme makinenizde. Tüm modül görüntü kapsayıcıları birkaç dakika içinde başlatılacak görürsünüz.
 
-## <a name="view-generated-data"></a>Oluşturulan görünüm verileri
+## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-1. IOT hub'ına ulaşan verilerin izlemek için seçin **Görünüm** > **komutu palet...**  arayın ve **IOT: izleme D2C iletisi Başlat**. 
-2. Veri izlemeyi durdurmak için kullanmak **IOT: D2C ileti izlemeyi durdurmak** komutu paletindeki komutu. 
+1. IoT hub'da gelen verileri izlemek için, **Görünüm** > **Komut Paleti...** öğesini seçin ve **IoT: D2C iletisini izlemeye başlama** için arama yapın. 
+2. Verileri izlemeyi durdurmak için, Komut Paleti'nde **IoT: D2C iletisini izlemeyi durdur** komutunu kullanın. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, bir işlev modülü eklenen, çözüm için rotaları güncelleştirildi, yerleşik ve benzetimli IOT kenar cihaza dağıtılan bir C# modülü, daha sonra bir IOT uç çözümünün oluşturuldu. VS code'da Azure IOT kenar geliştirirken diğer senaryolar hakkında bilgi edinmek için aşağıdaki öğreticileri herhangi birini açın devam edebilirsiniz.
+Visual Studio Code Azure IOT Edge'de geliştirirken diğer senaryolar hakkında bilgi edinmek için aşağıdaki makalelere herhangi birini açın devam edebilirsiniz:
 
-> [!div class="nextstepaction"]
-> [Bir C# modül VS kodda hata ayıklama](how-to-vscode-debug-csharp-module.md)
-> [bir C# işlevi VS kodda hata ayıklama](how-to-vscode-debug-azure-function.md)
+* [Bir C# modül VS kodda hata ayıklama](how-to-vscode-debug-csharp-module.md)
+* [Bir C# işlevi VS kodda hata ayıklama](how-to-vscode-debug-azure-function.md)

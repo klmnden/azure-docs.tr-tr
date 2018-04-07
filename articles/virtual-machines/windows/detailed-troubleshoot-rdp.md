@@ -1,13 +1,13 @@
 ---
-title: "Azure'da sorun giderme ayrıntılı Uzak Masaüstü | Microsoft Docs"
-description: "Azure'da Windows sanal makineler için ayrıntılı sorun giderme adımları için burada yapamazsınız Uzak Masaüstü hataları gözden geçirin"
+title: Azure'da sorun giderme ayrıntılı Uzak Masaüstü | Microsoft Docs
+description: Azure'da Windows sanal makineler için ayrıntılı sorun giderme adımları için burada yapamazsınız Uzak Masaüstü hataları gözden geçirin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
-keywords: "bağlanamıyor için Uzak Masaüstü, Uzak Masaüstü sorun giderme, Uzak Masaüstü bağlantı kuramıyor, Uzak Masaüstü hataları, Uzak Masaüstü sorunlarını giderme, Uzak Masaüstü sorunları"
+keywords: bağlanamıyor için Uzak Masaüstü, Uzak Masaüstü sorun giderme, Uzak Masaüstü bağlantı kuramıyor, Uzak Masaüstü hataları, Uzak Masaüstü sorunlarını giderme, Uzak Masaüstü sorunları
 ms.assetid: 9da36f3d-30dd-44af-824b-8ce5ef07e5e0
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2017
 ms.author: genli
-ms.openlocfilehash: afbaa3afc78efd220d74def2e9f106e9fbd1ee2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1485bc5ac7ae47df9a1a36c8b88d6515b5624360
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Windows Azure vm'lerinin ayrıntılı sorun giderme adımları için Uzak Masaüstü bağlantısı sorunları
 Bu makalede tanılamak ve Windows tabanlı Azure sanal makineleri için karmaşık Uzak Masaüstü hataları düzeltmek için ayrıntılı sorun giderme adımları sağlar.
@@ -198,5 +198,5 @@ Uzak Masaüstü uç nokta Azure VM için de TCP bağlantı noktası 3398 kendi i
 
 [Linux tabanlı bir Azure sanal makine için güvenli Kabuk (SSH) bağlantı sorunlarını giderme](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Bir Azure sanal makine üzerinde çalışan bir uygulamaya erişim sorunlarını giderme](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[Azure sanal makinesinde çalışan bir uygulamaya erişim sorunlarını giderme](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

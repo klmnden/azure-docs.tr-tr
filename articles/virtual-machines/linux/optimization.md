@@ -1,11 +1,11 @@
 ---
 title: Linux VM Azure ile ilgili en iyi duruma getirme | Microsoft Docs
-description: "Azure ile ilgili en iyi performans için Linux VM oluşturdunuz emin olmak için bazı en iyi duruma getirme ipuçlarını öğrenin"
+description: Azure ile ilgili en iyi performans için Linux VM oluşturdunuz emin olmak için bazı en iyi duruma getirme ipuçlarını öğrenin
 keywords: Linux sanal makine, sanal makine linux ubuntu sanal makine
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: d3ee98253a69580e5ecafb4e117ef93f7c981416
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5b0d7eb0767bb18cd74c545dc386aa16be487dae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Azure’da Linux VM’nizi iyileştirme
 Linux sanal makine (VM) oluşturma komut satırından veya portalından yapmak kolaydır. Bu öğreticide, Microsoft Azure platformu üzerinde performansı iyileştirmek için ayarladığınız emin olmak nasıl gösterir. Bu konuda bir Ubuntu Server VM kullanır, ancak, Linux kullanarak sanal makine oluşturabilirsiniz [kendi görüntü şablonları olarak](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -124,7 +124,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Yazılım RAID elde etmek için daha yüksek g kullanarak / Ops
-İş yüklerinizi tek bir disk sunabileceğinden daha fazla IOPS gerektiriyorsa, birden çok disk, yazılım RAID yapılandırmasını kullanmak gerekir. Azure disk dayanıklılık yerel doku katmanında gerçekleştirdiğinden, yüksek düzeyde bir RAID-0 şeritleme yapılandırmadan performans elde edersiniz.  Sağlamak ve Azure ortamında diskleri oluşturun ve bunları bölümlendirme, biçimlendirme ve sürücüleri takma önce Linux VM'ye ekleyin.  Yazılım RAID kurulumu, Linux VM'de Azure yapılandırma hakkında daha fazla ayrıntı bulunabilir  **[yapılandırma yazılım RAID Linux'ta](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**  belge.
+İş yüklerinizi tek bir disk sunabileceğinden daha fazla IOPS gerektiriyorsa, birden çok disk, yazılım RAID yapılandırmasını kullanmak gerekir. Azure disk dayanıklılık yerel doku katmanında gerçekleştirdiğinden, yüksek düzeyde bir RAID-0 şeritleme yapılandırmadan performans elde edersiniz.  Sağlamak ve Azure ortamında diskleri oluşturun ve bunları bölümlendirme, biçimlendirme ve sürücüleri takma önce Linux VM'ye ekleyin.  Yazılım RAID kurulumu, Linux VM'de Azure yapılandırma hakkında daha fazla ayrıntı bulunabilir **[yapılandırma yazılım RAID Linux'ta](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** belge.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Önce ve değişiklik olan etkisini ölçmek için her bir değişiklikten sonra testleri gerçekleştirmek gereken tüm en iyi duruma getirme tartışmalarını unutmayın.  En iyi duruma getirme, ortamınızdaki farklı makinelerde farklı sonuçlar olan bir adım adım işlemidir.  Bir yapılandırma ile ilgili ne çalışacağı başkaları için çalışmayabilir.

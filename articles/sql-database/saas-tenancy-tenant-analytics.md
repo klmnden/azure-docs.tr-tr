@@ -1,21 +1,21 @@
 ---
-title: "Ayıklanan verileri kullanarak çapraz Kiracı analizler çalıştırır | Microsoft Docs"
-description: "Birden çok Azure SQL veritabanı veritabanlarından ayıklanan verilerin kullanarak çapraz Kiracı analytics sorgular."
-keywords: "sql veritabanı öğreticisi"
+title: Ayıklanan verileri kullanarak çapraz Kiracı analizler çalıştırır | Microsoft Docs
+description: Birden çok Azure SQL veritabanı veritabanlarından ayıklanan verilerin kullanarak çapraz Kiracı analytics sorgular.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: anjangsh; billgib; genemi
-ms.openlocfilehash: ff57bd054f3ff28662d3fd2eb46dca02e74af69b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ec54e68ee1d0b09b5fb34a2a11c331cb0d478326
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Ayıklanan verileri kullanarak çapraz Kiracı analizi
 
@@ -91,7 +91,7 @@ Aşağıdaki adımlarda dağıttığınız adlandırılır analytics deposu **te
     - Sütun deposu ile SQL veritabanını kullanacak şekilde ayarlama **$DemoScenario** = **3**  
 3. Tuşuna **F5** kullanarak gösteri komut dosyasını çalıştırın (çağırır *dağıtma TenantAnalytics<XX>.ps1* komut dosyası) Kiracı analytics deposu oluşturur. 
 
-Dağıtılan uygulama ve ilginç Kiracı verilerle doldurulur göre kullanmak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **katalog-dpt -&lt;kullanıcı&gt;**  oturum açma kullanan sunucuları = *Geliştirici*, parola =  *P@ssword1* . Bkz: [giriş öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla yardım için.
+Dağıtılan uygulama ve ilginç Kiracı verilerle doldurulur göre kullanmak [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) bağlanmak için **tenants1-dpt -&lt;kullanıcı&gt;**  ve **katalog-dpt -&lt;kullanıcı&gt;**  oturum açma kullanan sunucuları = *Geliştirici*, parola = *P@ssword1*. Bkz: [giriş öğretici](saas-dbpertenant-wingtip-app-overview.md) daha fazla yardım için.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -173,7 +173,7 @@ Power BI bağlanmak ve daha önce oluşturduğunuz görünümler içeri aktarmak
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Seçin **veritabanı** sol bölmede, kullanıcı adı enter = *Geliştirici*ve parolayı girin =  *P@ssword1* . **Bağlan**'a tıklayın.  
+5. Seçin **veritabanı** sol bölmede, kullanıcı adı enter = *Geliştirici*ve parolayı girin = *P@ssword1*. **Bağlan**'a tıklayın.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

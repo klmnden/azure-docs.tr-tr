@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: ea2367a6e1facfbe6a36cb145e258491a1c99517
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 059f577c138847af04e92ce9ab12a8de88251c73
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -53,7 +53,7 @@ Toplayıcı Gereci bulunan makineler bilgileri göndermek için Internet'e bağl
 1. Toplayıcı doğrudan Internet bağlantısına sahip yapılandırabilirsiniz.
 2. Toplayıcı bir proxy sunucu bağlanmak için yapılandırabilirsiniz.
     * Proxy sunucusu kimlik doğrulaması gerektiriyorsa, kullanıcı adı ve parola bağlantı ayarlarını belirtebilirsiniz.
-    * Proxy sunucusunun IP adresi/FQDN form http://IPaddress veya http://FQDN olması. Yalnızca http proxy desteklenir.
+    * Proxy sunucusunun IP adresi/FQDN biçiminde olmalıdır http://IPaddress veya http://FQDN. Yalnızca http proxy desteklenir.
 
 > [!NOTE]
 > HTTPS tabanlı proxy sunucuları toplayıcısı tarafından desteklenmez.
@@ -126,7 +126,7 @@ VCenter bağlandıktan sonra bulmak için bir kapsamı seçebilirsiniz. Bir kaps
 
 1. Kapsam, bir veri merkezi, bir klasör veya ESXi ana bilgisayar olabilir. 
 2. Aynı anda yalnızca bir kapsamı seçebilirsiniz. Daha fazla sanal makine seçmek için bir bulma tamamlamak ve yeni bir kapsam ile keşif işlemi yeniden başlatın.
-3. Yalnızca sahip bir kapsamı seçebilirsiniz *1000'den az sanal makineleri*. 1000'den fazla sanal makine içeren bir kapsam seçerseniz, klasörler oluşturarak daha küçük birimlere bölünmüş kapsam gerekir. Ardından, daha küçük klasörlerinin bağımsız bulmaları çalıştırmanız gerekir.
+3. Yalnızca sahip bir kapsamı seçebilirsiniz *değerinden 1500 sanal makineleri*.
 
 ## <a name="specify-migration-project"></a>Geçiş proje belirtin
 
@@ -197,6 +197,16 @@ Toplayıcı OVA yeniden yüklemeden en son sürüme yükseltebilirsiniz.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
 
 ### <a name="list-of-updates"></a>Güncelleştirmeleri listesi
+
+#### <a name="upgrade-to-version-1097"></a>1.0.9.7 sürüme yükseltin
+
+Yükseltme sürümü 1.0.9.7 indirme için [paketi](https://aka.ms/migrate/col/upgrade_9_7)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 01ccd6bc0281f63f2a672952a2a25363
+SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
+SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
 
 #### <a name="upgrade-to-version-1095"></a>1.0.9.5 sürüme yükseltin
 

@@ -1,12 +1,12 @@
 ---
 title: Azure'dan izleme verileri kullanmak | Microsoft Docs
-description: "Tüm izleme verilerini Azure üzerinde kullanılabilen kaynakları bugün öğrenin."
+description: Tüm izleme verilerini Azure üzerinde kullanılabilen kaynakları bugün öğrenin.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
+ms.assetid: ''
 ms.service: monitoring-and-diagnostics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: c7075c2e1a2500eca1d0aa9b3a797e8a0e903ede
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="consume-monitoring-data-from-azure"></a>İzleme verilerini Azure kullanma
 
@@ -45,7 +45,7 @@ Azure platformu üzerinde biz birlikte Azure İzleyicisi ile tek bir yerde izlem
 | Ölçüm uyarıları Azure izleme | Bildirimler | [Burada listesine bakın](monitoring-supported-metrics.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](insights-webhooks-alerts.md)</li></ul> |
 | Azure Etkinlik günlüğünü izleme uyarıları | Bildirimler | Tüm Azure Hizmetleri | <ul><li>**Web kancası:** Azure etkinlik günlüğü uyarıları</li></ul> |
 | Otomatik ölçeklendirme bildirimleri | Bildirimler | [Burada listesine bakın](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Web kancası:** [otomatik ölçeklendirme bildirim Web kancası yükü şeması](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| OMS günlük arama sorgusu uyarıları | Bildirimler | OMS günlük analizi | <ul><li>**Web kancası:** [günlük analizi uyarıları](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Arama sorgusu uyarıları oturum | Bildirimler | Log Analytics | <ul><li>**Web kancası:** [günlük analizi uyarıları](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
 | Uygulama Öngörüler ölçüm uyarıları | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../application-insights/app-insights-alerts.md)</li></ul> |
 | Uygulama Öngörüler web testleri | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../application-insights/app-insights-alerts.md)</li></ul> |
 

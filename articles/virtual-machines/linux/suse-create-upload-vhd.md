@@ -1,10 +1,10 @@
 ---
-title: "Oluşturma ve Azure SUSE Linux VHD'yi yükleme"
-description: "Oluşturma ve bir Azure sanal sabit SUSE Linux işletim sistemi içeren disk (VHD) yükleme hakkında bilgi edinme."
+title: Oluşturma ve Azure SUSE Linux VHD'yi yükleme
+description: Oluşturma ve bir Azure sanal sabit SUSE Linux işletim sistemi içeren disk (VHD) yükleme hakkında bilgi edinme.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 066d01a6-2a54-4718-bcd0-90fe7a5303a1
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: b61586ad957be8f6a5a942ec3b3eb7464fa97087
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure için SLES veya openSUSE sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -90,7 +90,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     
     Azure Linux Aracısı'nı otomatik olarak takas alanı Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak diski kullanarak yapılandırabilirsiniz. Yerel kaynak disk Not bir *geçici* disk ve VM sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), /etc/waagent.conf aşağıdaki parametrelerinde uygun şekilde değiştirin:
     
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=&#2048;# Not: Bu ayar ne olursa olsun, olması gerekir.
+     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Not: Bu ayar ne olursa olsun, olması gerekir.
 15. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
@@ -147,7 +147,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     
     Azure Linux Aracısı'nı otomatik olarak takas alanı Azure üzerinde sağladıktan sonra VM'ye bağlı yerel kaynak diski kullanarak yapılandırabilirsiniz. Yerel kaynak disk Not bir *geçici* disk ve VM sağlaması kaldırılıyor. sağlaması zaman boşaltılabilir. Azure Linux Aracısı'nı yükledikten sonra (önceki adıma bakın), /etc/waagent.conf aşağıdaki parametrelerinde uygun şekilde değiştirin:
     
-     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=&#2048;# Not: Bu ayar ne olursa olsun, olması gerekir.
+     ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Not: Bu ayar ne olursa olsun, olması gerekir.
 11. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
     
     # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision

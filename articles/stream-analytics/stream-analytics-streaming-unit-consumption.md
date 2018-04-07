@@ -1,24 +1,19 @@
 ---
-title: 'Azure Stream Analytics: Anlamak ve akış birimleri ayarlama | Microsoft Docs'
-description: Hangi faktörlerin Azure akış analizi performans etkisi anlayın.
-keywords: Birim, sorgu performansı akış
+title: Anlamak ve Azure Stream Analytics akış birimlerinde ayarlayın
+description: Bu makalede, akış birimi ayarı ve Azure akış analizi performansını etkileyen diğer faktörler açıklanmaktadır.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 4312b5f5a64048ad697ae398697da1c59a75e75c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: ede0c0aa7b0e795760123246366f947889224b2d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Anlama ve akış birimi Ayarla
 
@@ -121,7 +116,7 @@ UDF işlev eklediğinizde, Azure akış analizi belleğe JavaScript çalışma z
 
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics paralelleştirilebilir sorgular oluşturma](stream-analytics-parallelization.md)

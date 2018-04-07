@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: davidmu
-ms.openlocfilehash: 76ed4dac40872bf6db07b26c5805a4db62dc9dfc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 80889ac29b6d92f17fb9c9c693fa733085ce7f1c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: sosyal kimlikleri kullanıcılarla geçirme
 Kimlik sağlayıcınızı Azure AD B2C'ye geçirmek planlama yaparken, sosyal kimlikleri kullanıcılarla geçirmek gerekebilir. Bu makalede, var olan sosyal kimlikleri hesapları gibi geçirmek açıklanmaktadır: Azure AD B2C Facebook, LinkedIn, Microsoft ve Google hesaplar. Bu geçiş daha az yaygın olan ancak bu makale Federasyon kimlikleri için de geçerlidir.
@@ -43,7 +43,7 @@ Bu makalede, bir kullanıcı geçiş makaleyi devamıdır ve sosyal kimliği ge�
     ]
     ```
 
-* Kimlik sağlayıcısı bağlı olarak **sosyal kullanıcı kimliği** belirli bir kullanıcı için benzersiz bir değerdir `per application` veya geliştirme hesabı. Sosyal sağlayıcısı tarafından daha önce atanmış aynı uygulama kimliği ile Azure AD B2C ilkesini yapılandırın. Veya başka bir uygulama `within the same development account`.
+* Kimlik sağlayıcısı bağlı olarak **sosyal kullanıcı kimliği** uygulama ya da geliştirme hesap başına belirli bir kullanıcı için benzersiz bir değerdir. Sosyal sağlayıcısı tarafından daha önce atanmış aynı uygulama kimliği ile Azure AD B2C ilkesini yapılandırın. Veya aynı geliştirme hesaptaki başka bir uygulama.
 
 ## <a name="use-graph-api-to-migrate-users"></a>Kullanıcıları geçirmek için grafik API'sini kullanın
 Aracılığıyla Azure AD B2C kullanıcı hesabı oluşturma [grafik API'si](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). Grafik API'si ile iletişim kurmak için bir hizmet hesabı yönetici ayrıcalıklarına sahip olmalıdır. Azure AD içinde bir uygulama ve Azure ad kimlik doğrulama kaydedin. Uygulama kimlik bilgileridir. uygulama kimliği ve uygulama gizli anahtarı. Uygulama, grafik API'sini çağırmak için bir kullanıcı değil, olarak kendisini görür. Adım 1'ndaki yönergeleri izleyin [kullanıcı geçişi](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-user-migration#step-1-use-graph-api-to-migrate-users) makalesi.

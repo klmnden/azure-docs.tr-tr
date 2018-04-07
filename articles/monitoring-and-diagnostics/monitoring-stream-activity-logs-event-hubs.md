@@ -1,9 +1,9 @@
 ---
-title: "Olay hub'ları için Azure etkinlik günlüğü akış | Microsoft Docs"
-description: "Olay hub'ları için Azure etkinlik günlüğü akış öğrenin."
+title: Olay hub'ları için Azure etkinlik günlüğü akış | Microsoft Docs
+description: Olay hub'ları için Azure etkinlik günlüğü akış öğrenin.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: ec4c2d2c-8907-484f-a910-712403a06829
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2018
 ms.author: johnkem
-ms.openlocfilehash: 4b2d9866839f943f65beb271d44bc691441b0fb3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 8a599558fc35ca2bf48ce2a5f11ec4978bf10277
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Akış Event hubs'a Azure etkinlik günlüğü
 Akış [Azure etkinlik günlüğü](monitoring-overview-activity-logs.md) yakın gerçek zamanlı olarak ya da herhangi bir uygulama için:
@@ -56,38 +56,48 @@ Değişikliği yapan kullanıcının akış dahil etmek için etkinlik günlüğ
 
    > [!WARNING]  
    > Herhangi bir şey dışında seçerseniz **tüm bölgelere**, almayı beklediğiniz anahtar olayları kaçırılması. Etkinlik günlüğü genel (Bölgesel olmayan) günlük olduğundan, çoğu olayları ilişkili bir bölgesi yoktur. 
-   > 
+   >
 
 4. Seçin **kaydetmek** bu ayarları kaydetmek için. Ayarları, aboneliğinizi hemen uygulanır.
 5. Birden fazla aboneliğiniz varsa, bu eylemi yineleyin ve aynı olay hub'ına tüm verileri gönder.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet'leri
-Bir günlük profili zaten varsa, önce bu profili kaldırmanız gerekir.
+Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve yeni bir günlük profili oluşturmak gerekir.
 
-1. Kullanım `Get-AzureRmLogProfile` günlük profili olup olmadığını belirlemek için.
-2. Aksi takdirde kullanmak `Remove-AzureRmLogProfile` kaldırmak için.
-3. Kullanım `Set-AzureRmLogProfile` bir profil oluşturmak için:
+1. Kullanım `Get-AzureRmLogProfile` günlük profili olup olmadığını belirlemek için.  Bir günlük profili mevcut değilse bulun *adı* özelliği.
+2. Kullanım `Remove-AzureRmLogProfile` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
+
+    ```powershell
+    # For example, if the log profile name is 'default'
+    Remove-AzureRmLogProfile -Name "default"
+    ```
+3. Kullanım `Add-AzureRmLogProfile` yeni bir günlük profili oluşturmak için:
 
    ```powershell
+   # Settings needed for the new log profile
+   $logProfileName = "default"
+   $locations = (Get-AzureRmLocation).Location
+   $locations += "global"
+   $subscriptionId = "<your Azure subscription Id>"
+   $resourceGroupName = "<resource group name your event hub belongs to>"
+   $eventHubNamespace = "<event hub namespace>"
 
-   Add-AzureRmLogProfile -Name my_log_profile -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus -RetentionInDays 90 -Categories Write,Delete,Action
+   # Build the service bus rule Id from the settings above
+   $serviceBusRuleId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.EventHub/namespaces/$eventHubNamespaceName/authorizationrules/RootManageSharedAccessKey"
 
+   Add-AzureRmLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
-
-Hizmet veri yolu kural kimliği bu biçiminde bir dizedir: `{service bus resource ID}/authorizationrules/{key name}`. 
 
 ### <a name="via-azure-cli"></a>Via Azure CLI
-Bir günlük profili zaten varsa, önce bu profili kaldırmanız gerekir.
+Bir günlük profili zaten varsa, önce varolan günlük profilini kaldırın ve yeni bir günlük profili oluşturmak gerekir.
 
-1. Kullanım `azure insights logprofile list` günlük profili olup olmadığını belirlemek için.
-2. Aksi takdirde kullanmak `azure insights logprofile delete` kaldırmak için.
-3. Kullanım `azure insights logprofile add` bir profil oluşturmak için:
+1. Kullanım `az monitor log-profiles list` günlük profili olup olmadığını belirlemek için.
+2. Kullanım `az monitor log-profiles delete --name "<log profile name>` değerini kullanarak günlük profilini kaldırmak için *adı* özelliği.
+3. Kullanım `az monitor log-profiles create` yeni bir günlük profili oluşturmak için:
 
    ```azurecli-interactive
-   azure insights logprofile add --name my_log_profile --storageId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Storage/storageAccounts/my_storage --serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey --locations global,westus,eastus,northeurope --retentionInDays 90 –categories Write,Delete,Action
+   az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
-
-Hizmet veri yolu kural kimliği bu biçiminde bir dizedir: `{service bus resource ID}/authorizationrules/{key name}`.
 
 ## <a name="consume-the-log-data-from-event-hubs"></a>Olay hub'ları günlük verilerini kullanma
 Etkinlik günlüğü için şemayı kullanılabilir [Azure etkinlik günlüğü ile abonelik etkinliğini İzle](monitoring-overview-activity-logs.md). Her bir olaydır adlı JSON BLOB'ları bir dizi *kayıtları*.

@@ -1,11 +1,11 @@
 ---
-title: "Azure üzerinde bir Windows VM kaynak taşıma | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubu için bir Windows VM taşıyın."
+title: Azure üzerinde bir Windows VM kaynak taşıma | Microsoft Docs
+description: Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubu için bir Windows VM taşıyın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4e383427-4aff-4bf3-a0f4-dbff5c6f0c81
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: cynthn
-ms.openlocfilehash: f4b739fd34cc0c85d47b97b7b42a70eb7f5f5ac7
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: b98b8c947fb34b60c7bd27b006672e0e9d923d3b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Bir Windows VM başka bir Azure abonelik veya kaynak grubuna taşıma
 Bu makalede Windows VM kaynak grupları veya abonelikler arasında taşıma konusunda size yol göstermektedir. Abonelikler arasında taşıma kişisel bir abonelikte ilk olarak bir VM oluşturduysanız, kullanışlı ve çalışmaya devam etmek için şirketinizin aboneliği taşımak şimdi istiyorsunuz.

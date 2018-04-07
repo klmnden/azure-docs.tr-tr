@@ -1,13 +1,13 @@
 ---
-title: "Linux VHD Azure'dan karşıdan | Microsoft Docs"
-description: "Azure CLI ve Azure portalını kullanarak bir Linux VHD indirin."
+title: Linux VHD Azure'dan karşıdan | Microsoft Docs
+description: Azure CLI ve Azure portalını kullanarak bir Linux VHD indirin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 20af28dd4caa6ee5487b9a2ed83715b9b16fad48
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: d177e8de7ace571c57a0b8b39c8834fb5b115365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure'dan Linux VHD indirin
 
@@ -35,10 +35,10 @@ Zaten yapmadıysanız, yükleme [Azure CLI 2.0](https://docs.microsoft.com/cli/a
 
 VHD diğer sanal makineleri oluşturmak için bir resim olarak kullanmak için aşağıdaki adımları tamamlayın:
 
-1. SSH, hesap adını ve VM genel IP adresi bağlanmak ve bu yetkisini kaldırma için kullanın. + Kullanıcı parametresi son sağlanan kullanıcı hesabının da kaldırır. Hesap kimlik bilgilerini VM Fırında pişirme bu bırakın + kullanıcı parametresi. Aşağıdaki örnek, son sağlanan kullanıcı hesabını kaldırır:
+1. SSH, hesap adını ve VM genel IP adresi bağlanmak ve bu yetkisini kaldırma için kullanın. Ortak IP adresiyle bulabilirsiniz [az ağ ortak IP Göster](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#az-network-public-ip-show). + Kullanıcı parametresi son sağlanan kullanıcı hesabının da kaldırır. Hesap kimlik bilgilerini VM Fırında pişirme bu bırakın + kullanıcı parametresi. Aşağıdaki örnek, son sağlanan kullanıcı hesabını kaldırır:
 
     ```bash
-    ssh azureuser@40.118.249.235
+    ssh azureuser@<publicIpAddress>
     sudo waagent -deprovision+user -force
     exit 
     ```

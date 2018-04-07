@@ -1,19 +1,19 @@
 ---
-title: "Rapor (yatay bölümleme) ölçeklendirilmiş bulut veritabanları arasında | Microsoft Docs"
-description: "Veritabanları arası veritabanı sorguları rapor için birden fazla veritabanı kullanın."
+title: Rapor (yatay bölümleme) ölçeklendirilmiş bulut veritabanları arasında | Microsoft Docs
+description: Veritabanları arası veritabanı sorguları rapor için birden fazla veritabanı kullanın.
 services: sql-database
 manager: jhubbard
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/23/2016
+ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 29f1291f5c5d6023ca7bcd47fc2c0d9b69fd39fa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: caf7fc8d69486e185fabd44d753471f40fda42a1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Ölçeklendirilen bulut veritabanları arasında (Önizleme) raporu
 Tek bir bağlantı noktası kullanarak birden çok Azure SQL veritabanından raporlar oluşturmak bir [esnek sorgu](sql-database-elastic-query-overview.md). Veritabanlarını yatay (aynı zamanda "parçalı" olarak da bilinir) bölümlenmiş olması gerekir.

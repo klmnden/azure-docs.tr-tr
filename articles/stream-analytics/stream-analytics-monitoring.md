@@ -1,24 +1,19 @@
 ---
-title: İzleme anlama akış analizi işi | Microsoft Docs
-description: Akış analizi işi izleme anlama
-keywords: Sorgu izlemesi
+title: Azure Stream Analytics işi izleme anlama
+description: Bu makalede Azure akış analizi işleri izleme
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5f5cc00f-4a7b-491e-89e1-dbafea46d399
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: cbfbc653deccbd215a404479100ee5cae860cb3f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 4b048705c80b7776ab0ab6823e27659a01eedeb5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Akış analizi işi izleme ve sorguları izleme anlama
 
@@ -58,7 +53,7 @@ Grafik, gösterilen ölçümleri türünü ayarlayın ve grafiği Düzenle ayarl
 Bu uygulamanın süresi (Olay verileri zaman damgasını kullanarak zaman)'dır işinin en son çıktı.
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

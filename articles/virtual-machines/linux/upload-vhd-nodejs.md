@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 1.0 ile özel bir Linux görüntüyü karşıya yüklemeden | Microsoft Docs"
-description: "Oluşturun ve bir sanal sabit disk (VHD) için Azure Resource Manager dağıtım modeli ve Azure CLI 1.0 kullanarak özel bir Linux görüntü ile yükleyin."
+title: Azure CLI 1.0 ile özel bir Linux görüntüyü karşıya yüklemeden | Microsoft Docs
+description: Oluşturun ve bir sanal sabit disk (VHD) için Azure Resource Manager dağıtım modeli ve Azure CLI 1.0 kullanarak özel bir Linux görüntü ile yükleyin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6eb0cae2b70e0cbb9a4fb5fcab3a58d566d0f4d9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>Karşıya yükleme ve Azure CLI 1.0 kullanarak özel bir disk görüntüsünü bir Linux VM oluşturma
 Bu makalede Resource Manager dağıtım modelini kullanarak Azure'a bir sanal sabit disk (VHD) yükleyin ve Linux VM'ler bu özel görüntüsünü oluşturmak nasıl gösterir. Bu işlevsellik, yükleme ve Linux distro gereksinimlerinize yapılandırmak ve hızlı bir şekilde Azure sanal makineleri (VM'ler) oluşturmak için bu VHD kullanmak olanak sağlar.
@@ -88,7 +88,7 @@ Hedef depolama hesabının sanal diskinizin karşıya burada ile aynı olması g
 ## <a name="requirements"></a>Gereksinimler
 Aşağıdaki adımları tamamlamak için gerekir:
 
-* **Bir .vhd dosyası yüklü Linux işletim sistemi** -yüklemek bir [Linux Azure destekli dağıtım](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (veya bkz [desteklenmeyen dağıtımlarla bilgi](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) VHD biçiminde bir sanal disk için. Bir VM ve VHD oluşturmak için birden çok araç mevcuttur:
+* **Bir .vhd dosyası yüklü Linux işletim sistemi** -yüklemek bir [Linux Azure destekli dağıtım](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (veya bkz [desteklenmeyen dağıtımlarla bilgi](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)) VHD biçiminde bir sanal disk için . Bir VM ve VHD oluşturmak için birden çok araç mevcuttur:
   * Yükleme ve yapılandırma [QEMU](https://en.wikibooks.org/wiki/QEMU/Installing_QEMU) veya [KVM](http://www.linux-kvm.org/page/RunningKVM), alma, resim biçimi olarak VHD kullanmaya dikkat edin. Gerekirse, [bir görüntüyü dönüştürme](https://en.wikibooks.org/wiki/QEMU/Images#Converting_image_formats) kullanarak `qemu-img convert`.
   * Hyper-V de kullanabilirsiniz [Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install) veya [Windows Server 2012/2012 R2 üzerinde](https://technet.microsoft.com/library/hh846766.aspx).
 
@@ -122,7 +122,7 @@ Azure çeşitli Linux dağıtımları destekler (bkz [destekli dağıtımlar](en
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Diğer - desteklenmeyen dağıtımlarla](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Ayrıca bkz.  **[Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes)**  için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
+Ayrıca bkz. **[Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes)** için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
 
 > [!NOTE]
 > [Azure platformu SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) içinde yalnızca doğrulanan dağıtımları birini 'Sürümleri desteklenir' altında belirtildiği gibi yapılandırma ayrıntıları ile kullanıldığında, Linux çalıştıran Vm'leri uygulandığı [Azure-Endorsed dağıtımları Linux'ta](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

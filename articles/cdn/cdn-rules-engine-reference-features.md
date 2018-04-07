@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: 9f1a9343a657e076e94f6aa59fd03128ef488ac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -28,7 +28,6 @@ Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim 
 ## <a name="access-features"></a>Erişim özellikleri
 
 Bu özellikler, içeriğe erişimi denetlemek için tasarlanmıştır.
-
 
 Ad | Amaç
 -----|--------
@@ -312,7 +311,7 @@ Kaldır| Bu seçenek sağlar bir `Cache-Control` başlık üstbilgisi Yanıtla d
 
 Anahtar bilgileri:
 
-- Bir veya daha fazla sorgu dizesi parametresi adları belirtin. Her parametre adı tek bir boşlukla Deliminate.
+- Bir veya daha fazla sorgu dizesi parametresi adları belirtin ve her parametre adı tek bir boşlukla ayırın.
 - Bu özellik, sorgu dizesi parametreleri dahil veya önbellek anahtarından hariç olup olmadığını belirler. Aşağıdaki tabloda her seçenek için ek bilgiler sağlanmaktadır.
 
 Tür|Açıklama
@@ -325,6 +324,9 @@ Tür|Açıklama
 Kurallar altyapısı içinde sorgu dizesini önbelleğe alma uygulanan şekilde özelleştirmenizi sağlar. Örneğin, sorgu dizesi önbelleğe alma'nün yalnızca belirli konumlara veya dosya türleri üzerinde gerçekleştirilir belirtebilirsiniz.
 
 "No-cache" sorgu dizesini önbelleğe alma davranışı sorgu dizesini önbelleğe alma sayfasında çoğaltmak için bir URL sorgu joker karakter eşleştirme koşul ve bir atlama önbellek özelliği içeren bir kural oluşturun. URL sorgu joker karakter eşleştirme koşulu için bir yıldız işareti (*) belirtin.
+
+>[!IMPORTANT] 
+> Bu hesaptaki herhangi bir yol için belirteci yetkilendirme etkinleştirilirse, standart Önbellek modu sorgu dizesini önbelleğe alma işlemi için kullanılan tek modudur. Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma davranışını kontrol etme](cdn-query-string-premium.md).
 
 #### <a name="sample-scenarios"></a>Örnek senaryolar
 
@@ -1054,10 +1056,12 @@ Devre dışı| Varsayılan davranışını geri yükler. Bir isteğin güvenli o
 ### <a name="token-auth-denial-code"></a>Belirteç kimlik doğrulama reddi kodu
 **Amaç:** belirteç tabanlı kimlik doğrulaması nedeniyle bir istek reddedildiğinde kullanıcıya döndürülecek yanıt türünü belirler.
 
-Kullanılabilir yanıt kodları aşağıda listelenmiştir.
+Belirteç kimlik doğrulama reddi kodu her zaman eşleştirme koşulla birlikte kullanılamaz. Bunun yerine, kullanın **reddi özel işleme** bölümüne **belirteci Auth** sayfasında **Yönet** portal. Daha fazla bilgi için bkz: [belirteci kimlik doğrulaması ile güvenli hale getirme Azure CDN varlıklar](cdn-token-auth.md).
+
+Kullanılabilir yanıt kodları aşağıdaki tabloda listelenmiştir.
 
 Yanıt Kodu|Yanıt adı|Açıklama
-----------------|-----------|--------
+-------------|-------------|--------
 301|Kalıcı olarak taşındı|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir.
 302|Bulundu|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir. Bu durum kodu, bir yeniden yönlendirme gerçekleştiren endüstri standart yöntemidir.
 307|Geçici yeniden yönlendirme|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir.

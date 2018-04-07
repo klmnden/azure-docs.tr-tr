@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Advanced Threat Analytics Azure Güvenlik Merkezi'ne bağlanma | Microsoft Docs"
-description: "Azure Güvenlik Merkezi Microsoft Advanced Threat Analytics ile nasıl tümleşik çalıştığını öğrenin."
+title: Microsoft Advanced Threat Analytics Azure Güvenlik Merkezi'ne bağlanma | Microsoft Docs
+description: Azure Güvenlik Merkezi Microsoft Advanced Threat Analytics ile nasıl tümleşik çalıştığını öğrenin.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2018
 ms.author: yurid
-ms.openlocfilehash: 02e14315018f6586644eb560894785e6b6eb022e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fb32fc55288229fb1d09dce98b6092d38c10abf2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>Bağlanan Microsoft Azure Güvenlik Merkezi'ne Advanced Threat Analytics
 Bu belgede, Microsoft Advanced Threat Analytics ile Azure Güvenlik Merkezi arasında tümleştirme yapılandırmanıza yardımcı olur.
@@ -58,7 +58,7 @@ Zaten varsayılarak ATA yüklenmiş ve düzgün çalışmasını şirket içi, b
 
     ![Doğrudan Aracısı](./media/security-center-ata-integration/security-center-ata-integration-fig6.png)
 
-12. Bu aracı, ATA Center'da yükleyin. Yükleme sırasında seçeneğini belirlediğinizden emin olun **aracıyı Azure günlük analizi (OMS) bağlayın**ve sağlamak *çalışma alanı kimliği*, ve *birincil anahtar* istendiğinde .
+12. Bu aracı, ATA Center'da yükleyin. Yükleme sırasında seçeneğini belirlediğinizden emin olun **aracıyı Azure günlük Analizi'ne bağlayın**ve sağlamak *çalışma alanı kimliği*, ve *birincil anahtar* istendiğinde.
 
 
 Yüklemenin tamamlanması sonra tümleştirme tamamlandı ve Güvenlik Merkezi'den ATA gönderilen yeni uyarıları görmek kuramaz **arama** sonucu. Çözüm görünür **güvenlik çözümleri** sayfasında **bağlı çözümleri**. 

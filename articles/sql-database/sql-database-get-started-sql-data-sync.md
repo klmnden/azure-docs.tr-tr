@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: f9318b5baa46ab991b5e72e12a89a25e4f635db3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 72e0ed535139c088c4235b43a12ea96da080dc8a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-sql-data-sync-preview"></a>SQL veri eşitleme ayarı (Önizleme)
 Bu öğreticide, Azure SQL Database ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL veri eşitlemeyi ayarlamak nasıl öğrenin. Yeni eşitleme grubunu tam olarak yapılandırılmamış ve belirlediğiniz bir zamanlamaya göre eşitler.
@@ -275,7 +275,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
 -   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md)
 -   [Azure SQL Data Sync için en iyi yöntemler](sql-database-best-practices-data-sync.md)
--   [Azure SQL Data Sync’i OMS Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+-   [Günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
 -   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:

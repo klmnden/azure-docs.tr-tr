@@ -1,11 +1,11 @@
 ---
-title: "Oluşturma ve yönetme Windows Vm'lerini azure'da birden çok NIC kullanın | Microsoft Docs"
-description: "Oluşturmak ve yönetmek için Azure PowerShell veya Resource Manager şablonları kullanarak bağlı birden çok NIC sahip bir Windows VM öğrenin."
+title: Oluşturma ve yönetme Windows Vm'lerini azure'da birden çok NIC kullanın | Microsoft Docs
+description: Oluşturmak ve yönetmek için Azure PowerShell veya Resource Manager şablonları kullanarak bağlı birden çok NIC sahip bir Windows VM öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: fab9f4ab1f0e974da68e1e9f36bc10687ea0b631
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0f19ed89e49b34ff4b8abf5d22e7d59b89fd6d72
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Oluşturma ve birden çok NIC sahip olan bir Windows sanal makine yönetme
 Azure sanal makineleri (VM'ler) kendisine bağlı birden çok sanal ağ arabirim kartı (NIC) olabilir. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, birden çok NIC bağlı olan bir VM oluşturmak nasıl ayrıntıları verilmektedir. Aynı zamanda NIC var olan bir sanal makineden ekleyip öğrenin. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bilgisayarınızda yüklü olduğundan emin olun [yüklenmiş ve yapılandırılmış en son Azure PowerShell sürüm](/powershell/azure/overview).
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında *myResourceGroup*, *myVnet*, ve *myVM*.
@@ -116,11 +116,13 @@ VM yapılandırması oluşturmak şimdi başlayın. Her VM boyutu, bir VM'ye ekl
     $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $myNic2.Id
     ```
 
-5. Son olarak, VM oluşturma [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm):
+5. İle VM oluşturma [AzureRmVM yeni](/powershell/module/azurerm.compute/new-azurermvm):
 
     ```powershell
     New-AzureRmVM -VM $vmConfig -ResourceGroupName "myResourceGroup" -Location "EastUs"
     ```
+
+6. İçin ikincil NIC'ler için işletim sistemi içindeki adımları tamamlayarak yollar [işletim sistemini yapılandırmak için birden çok NIC](#configure-guest-os-for-multiple-nics).
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Mevcut bir VM'yi bir NIC eklemeniz
 Mevcut bir VM'yi sanal bir NIC'ye eklemek için VM serbest bırakma ekleyin sanal NIC sonra VM'yi başlatın. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu. Gerekirse, [bir VM'yi yeniden boyutlandırın](resize-vm.md).
@@ -175,6 +177,8 @@ Mevcut bir VM'yi sanal bir NIC'ye eklemek için VM serbest bırakma ekleyin sana
     ```powershell
     Start-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
+
+5. İçin ikincil NIC'ler için işletim sistemi içindeki adımları tamamlayarak yollar [işletim sistemini yapılandırmak için birden çok NIC](#configure-guest-os-for-multiple-nics).
 
 ## <a name="remove-a-nic-from-an-existing-vm"></a>Bir NIC var olan bir sanal makineden kaldırın
 Varolan bir sanal makineden sanal bir NIC'ye kaldırmak için VM serbest bırakma, sanal NIC kaldırın ve sonra VM'yi başlatın.
@@ -232,6 +236,8 @@ Aynı zamanda `copyIndex()` bir kaynak adı için bir sayı eklenecek. Daha sonr
 ```
 
 Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+İçin ikincil NIC'ler için işletim sistemi içindeki adımları tamamlayarak yollar [işletim sistemini yapılandırmak için birden çok NIC](#configure-guest-os-for-multiple-nics).
 
 ## <a name="configure-guest-os-for-multiple-nics"></a>Konuk işletim sistemi için birden çok NIC yapılandırın
 

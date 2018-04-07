@@ -1,6 +1,6 @@
 ---
-title: "Akıllı Öngörüler - Azure SQL veritabanı ile veritabanı kullanımını izleme | Microsoft Docs"
-description: "Azure SQL veritabanı akıllı Öngörüler yerleşik zekaya sürekli yapay zeka aracılığıyla veritabanı kullanımını izlemek ve yetersiz performansa neden kesintiye uğratan olayları algılamak için kullanır."
+title: Akıllı Öngörüler - Azure SQL veritabanı ile veritabanı kullanımını izleme | Microsoft Docs
+description: Azure SQL veritabanı akıllı Öngörüler yerleşik zekaya sürekli yapay zeka aracılığıyla veritabanı kullanımını izlemek ve yetersiz performansa neden kesintiye uğratan olayları algılamak için kullanır.
 services: sql-database
 author: danimir
 manager: craigg
@@ -8,13 +8,13 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/01/2018
 ms.author: v-daljep
-ms.openlocfilehash: 8654c35bb9c6e46a47f52dee6ab7969f996b42f4
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: f3ace9d178fdfa90130e4436722e1e36cedc7e50
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD ile Konuk erişimi yönetme erişimi değerlendirmeleri | Microsoft Docs"
-description: "Konuk kullanıcılar bir gruba üye olarak yönetmek veya Azure Active Directory erişimi incelemeler uygulamayla atanan"
+title: Azure AD ile Konuk erişimi yönetme erişimi değerlendirmeleri | Microsoft Docs
+description: Konuk kullanıcılar bir gruba üye olarak yönetmek veya Azure Active Directory erişimi incelemeler uygulamayla atanan
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 8d5cc8035d085ac9c8fc46077376836726afbb1a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 564f4f4a3f7532a7419e15b91fdbae9ee12088fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD ile Konuk erişimi yönetme erişim gözden geçirme
 
@@ -31,7 +31,7 @@ Ayrıca, konuk kullanıcıların uygun erişime sahip olmasını kolayca sağlay
 >
 >
 
-## <a name="prerequisites"></a>Ön koşullar 
+## <a name="prerequisites"></a>Önkoşullar 
 
 Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
 
@@ -90,7 +90,7 @@ Belirli bir uygulama için davet kullanıcılar erişmeniz devam etmesini sağla
 
 ### <a name="ask-a-sponsor-to-review-a-guests-access-to-an-application"></a>Bir uygulamaya bir konuğun erişim gözden geçirmek için bir sponsoru isteyin
 
-Uygulama sürekli erişim bir konuğun gereksinimini gözden geçirmek için bir uygulama sahibi gibi bir sponsoru sorabilirsiniz.
+Uygulama sürekli erişim konuğun gereksinimini gözden geçirmek için bir uygulama sahibi gibi bir sponsoru sorabilirsiniz.
 
 1. Uygulama için bir erişim gözden geçirme başlatmak için yalnızca konuklar içerecek şekilde gözden seçin. Ardından bir veya daha fazla kullanıcı gözden geçirenler belirtin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](active-directory-azure-ad-controls-create-access-review.md) konusunu inceleyin.
 
@@ -105,15 +105,15 @@ Bazı kuruluşlarda, konuklar grup üyeliklerini uyumlu olmayabilir.
 > [!NOTE]
 > Azure portal'ın önceki sürümlerinde, UserType Konuk kullanıcılar tarafından yönetim erişimine alamadık. Bazı durumlarda, yönetici dizininizde bir konuğun UserType değeri üyesine PowerShell kullanarak değişmiş olabilir. Bu değişiklik önceden dizininizde oluştuysa, önceki sorgu geçmişte yönetici erişim haklarına sahip olan tüm Konuk kullanıcılar içermeyebilir. Bu durumda, konuğun UserType değiştirin veya konuk grup üyeliği içinde el ile eklemek gerekir.
 
-1. Uygun bir grup zaten mevcut değilse Konuk üyeleri olarak ile Azure AD'de bir güvenlik grubu oluşturun. Örneğin, el ile tutulan konuklar üyelikle bir grup oluşturabilirsiniz. Veya, Konuk UserType özniteliği değeri sahip kullanıcılar Contoso kiracısındaki "Contoso konuklar" gibi bir adla dinamik bir grup oluşturabilirsiniz.
+1. Uygun bir grup zaten mevcut değilse Konuk üyeleri olarak ile Azure AD'de bir güvenlik grubu oluşturun. Örneğin, el ile tutulan konuklar üyelikle bir grup oluşturabilirsiniz. Veya, Konuk UserType özniteliği değeri sahip kullanıcılar Contoso kiracısındaki "Contoso konuklar" gibi bir adla dinamik bir grup oluşturabilirsiniz.  Verimlilik için Grup çoğunlukla konuklar - gözden geçirilmesi gerekmez kullanıcıları olan bir grubu seçmeyin emin olun.
 
 2. Bu grup için bir erişim gözden geçirme başlatmak için gözden geçirenler üyesi olacak şekilde seçin. Daha fazla bilgi için [Erişim gözden geçirmesi oluşturma](active-directory-azure-ad-controls-create-access-review.md) konusunu inceleyin.
 
-3. Kendi üyelik gözden geçirmek için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk, bir bağlantı ile Azure AD'den kuruluşunuzun erişim panelinde erişim gözden geçirme için bir e-posta alır. Azure AD nasıl konuklar için yönergeler açmıştır [erişimleri gözden](active-directory-azure-ad-controls-perform-access-review.md).
+3. Kendi üyelik gözden geçirmek için her Konuk isteyin. Varsayılan olarak, daveti kabul her konuk, bir bağlantı ile Azure AD'den kuruluşunuzun erişim panelinde erişim gözden geçirme için bir e-posta alır. Azure AD nasıl konuklar için yönergeler açmıştır [erişimleri gözden](active-directory-azure-ad-controls-perform-access-review.md).  Kendi daveti kabul etmediğiniz bu konuklar İnceleme sonuçları "Bilgilendirilmez" görünür.
 
 4. Gözden geçirenler giriş verdikten sonra erişim gözden geçirme durdurun. Daha fazla bilgi için [Erişim gözden geçirmesini tamamlama](active-directory-azure-ad-controls-complete-access-review.md) konusunu inceleyin.
 
-5. Konuk erişimi engellendi, gözden geçirme tamamlanmadı ya da daha önce kendi daveti kabul kaydetmedi konuklar için kaldırın. Konuklar bazıları davetiye önceden kabul etmediğiniz çünkü incelemeye katılmak üzere seçilmiş olan kişiler varsa, Azure portal veya PowerShell kullanarak, hesaplarını devre dışı bırakabilirsiniz. Konuk artık erişmesi ve bir kişi yoksa, Azure portal veya PowerShell kullanarak kendi kullanıcı nesnesi dizininizden kaldırabilirsiniz.
+5. Konuk erişimi engellendi, gözden geçirme tamamlanmadı ya da daha önce kendi daveti kabul kaydetmedi konuklar için kaldırın. Konuklar bazıları incelemeye katılmak üzere seçilmiş olan kişiler veya bir davet önceden kabul etmediğiniz kullanıyorsanız, Azure portal veya PowerShell kullanarak, hesaplarını devre dışı bırakabilirsiniz. Konuk artık erişmesi ve bir kişi yoksa, Konuk kullanıcı nesnesini silmek için Azure portal veya PowerShell kullanarak kendi kullanıcı nesnesi dizininizden kaldırabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

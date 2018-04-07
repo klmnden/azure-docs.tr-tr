@@ -1,19 +1,19 @@
 ---
-title: "Sorgu farklı şemasıyla bulut veritabanları arasında | Microsoft Docs"
-description: "veritabanları arası sorgulamalarını dikey bölümleri ayarlama"
+title: Sorgu farklı şemasıyla bulut veritabanları arasında | Microsoft Docs
+description: veritabanları arası sorgulamalarını dikey bölümleri ayarlama
 services: sql-database
 manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 2ded9ee4938e02715b1149ce5375e855519cea9f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 243110e47ab7c98c9fec9b2747fde73ccb775fbc
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Bulut veritabanları farklı şemaları (Önizleme) ile sorgulama
 ![Farklı veritabanı tablolarında sorgulama][1]

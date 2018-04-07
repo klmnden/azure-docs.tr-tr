@@ -1,11 +1,11 @@
 ---
-title: "Java ile Azure Service Bus konu başlıklarını kullanma | Microsoft Docs"
-description: "Azure'da Service Bus konuları ve abonelikleri kullanın."
+title: Java ile Azure Service Bus konu başlıklarını kullanma | Microsoft Docs
+description: Azure'da Service Bus konuları ve abonelikleri kullanın.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: sethm
-ms.openlocfilehash: 632af7294a7e6766d791d1d9ab08f98308fb2c02
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9c2501840b3c00a63b0344d48e3225fd2c9d1620
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Service Bus konuları ve abonelikleri Java ile kullanma
 
@@ -151,7 +151,7 @@ BrokeredMessage message = new BrokeredMessage("MyMessage");
 service.sendTopicMessage("TestTopic", message);
 ```
 
-Service Bus konu başlıklarına gönderilen iletiler örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage][BrokeredMessage]* nesneler sahip bir dizi standart yöntem (gibi **setLabel** ve **TimeToLive**), bir uygulamaya özgü özel özellikleri tutmak için kullanılan bir sözlük ve rastgele uygulama verileri gövdesi içerir. Bir uygulama herhangi bir seri hale getirilebilir nesne oluşturucusuna geçirerek ileti gövdesini ayarlayabilir [BrokeredMessage][BrokeredMessage]ve uygun **DataContractSerializer** sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, bir **java.io.InputStream** sağlanabilir.
+Service Bus konu başlıklarına gönderilen iletiler örnekleridir [BrokeredMessage] [ BrokeredMessage] sınıfı. [BrokeredMessage][BrokeredMessage]* nesneler sahip bir dizi standart yöntem (gibi **setLabel** ve **TimeToLive**), özel tutmak için kullanılan bir sözlük uygulamaya özgü özellikler ve rastgele uygulama verileri gövdesi. Bir uygulama herhangi bir seri hale getirilebilir nesne oluşturucusuna geçirerek ileti gövdesini ayarlayabilir [BrokeredMessage][BrokeredMessage]ve uygun **DataContractSerializer** sonra nesneyi serileştirmek için kullanılır. Alternatif olarak, bir **java.io.InputStream** sağlanabilir.
 
 Aşağıdaki örnekte nasıl beş test iletisi göndereceğinizi gösterir `TestTopic` **MessageSender** biz önceki kod parçacığında elde.
 Not nasıl **MessageNumber** özellik değeri her iletinin tekrarına döngü üzerinde (Bu değer alacak abonelikleri belirler):
@@ -257,8 +257,8 @@ Service Bus kuyruklarına öğrendiğinize göre bkz: [Service Bus kuyrukları, 
 [Azure SDK for Java]: http://azure.microsoft.com/develop/java/
 [Azure Toolkit for Eclipse]: ../azure-toolkit-for-eclipse.md
 [Service Bus queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter
-[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.filters.sqlfilter.sqlexpression
+[SqlFilter]: /dotnet/api/microsoft.azure.servicebus.sqlfilter
+[SqlFilter.SqlExpression]: /dotnet/api/microsoft.azure.servicebus.sqlfilter.sqlexpression
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 
 [0]: ./media/service-bus-java-how-to-use-topics-subscriptions/sb-queues-13.png

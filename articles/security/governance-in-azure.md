@@ -1,12 +1,12 @@
 ---
 title: Azure'da idare | Microsoft Docs
-description: "Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin."
+description: Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 875b78f6af330aea3333b045ee72e9632e9aa8a6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="governance-in-azure"></a>Azure Yönetimi
+# <a name="governance-in-azure"></a>Azure’da idare
 
 Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekleri yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
 
@@ -199,7 +199,7 @@ Bir çözümü dağıtmak için Azure portalı üzerinden ayrı ayrı her bir ka
 
 Resource Manager, kaynakları yönetim, faturalama veya doğal benzeşimi anlamlı gruplar halinde yerleştirilmesine olanak sağlar. Daha önce belirtildiği gibi Azure iki dağıtım modeline sahiptir. Önceki içinde [Klasik modeli](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model), temel yönetim birimidir aboneliği karşılaşıldı. Çok sayıda abonelikleri oluşturulmasına neden bir abonelik içindeki kaynaklara ayırmanız zordu. Resource Manager modeli ile kaynak gruplarının giriş gördük.
 
-Bir kaynak grubu Azure çözümünü ilgili kaynaklara tutan bir kapsayıcıdır. [Kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) çözüm için tüm kaynakları veya yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz.
+Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. [Kaynak grubu](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) çözüm için tüm kaynakları veya yalnızca bir grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz.
 
 Şablonlar hakkında öneriler için bkz. [Azure Resource Manager şablonları oluşturmaya yönelik en iyi uygulamalar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices).
 
@@ -410,33 +410,33 @@ Azure Güvenlik Merkezi aşağıdaki Azure kaynakları izler:
 
 - İş ortağı çözümleri gibi bir web uygulaması güvenlik duvarı sanal makineleri ve üzerinde Azure aboneliğinizle tümleşik [uygulama hizmeti ortamı](https://docs.microsoft.com/azure/app-service/app-service-app-service-environments-readme).
 
-### <a name="operations-management-suite"></a>Operations Management Suite
+### <a name="log-analytics"></a>Log Analytics
 
-OMS yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını ve kendi iş gereksinimlerini destekleyen [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Nasıl OMS güvenlik gereksinimlerini belirlemek, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
+Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını ve kendi iş gereksinimlerini destekleyen [Microsoft Azure güven Merkezi](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Nasıl günlük analizi güvenlik gereksinimlerini belirlemek, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
 
-Her OMS geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Dahili olarak, sürüm denetimi sistemi yazılım geliştirme için kullanırız. Her yazılım projesi sürüm denetimi sistemi tarafından korunur.
+Her günlük analizi geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Dahili olarak, sürüm denetimi sistemi yazılım geliştirme için kullanırız. Her yazılım projesi sürüm denetimi sistemi tarafından korunur.
 
-Microsoft, denetlediği ve tüm Microsoft hizmetlerinde değerlendirir güvenlik ve uyumluluk bir ekip sahiptir. Bilgi güvenliği görevlileri ekip olun ve OMS geliştirmek mühendislik Departmanlar ile ilişkili değildir. Güvenlik görevlileri kendi yönetim zinciri varsa ve güvenlik ve uyumluluk sağlamak üzere ürünleri ve Hizmetleri, bağımsız değerlendirmeleri yürütün.
+Microsoft, denetlediği ve tüm Microsoft hizmetlerinde değerlendirir güvenlik ve uyumluluk bir ekip sahiptir. Bilgi güvenliği görevlileri ekip olun ve günlük analizi geliştirmek mühendislik Departmanlar ile ilişkili değildir. Güvenlik görevlileri kendi yönetim zinciri varsa ve güvenlik ve uyumluluk sağlamak üzere ürünleri ve Hizmetleri, bağımsız değerlendirmeleri yürütün.
 
-Operations Management Suite (OMS olarak da bilinir), en başından itibaren bulutta tasarlanan bir yönetim hizmetleri koleksiyonudur. Dağıtma ve şirket içi kaynakları yönetmek yerine, OMS bileşenleri tamamen Azure'da barındırılır. Çok az yapılandırma gerektirir ve yalnızca birkaç dakikada kullanmaya başlayabilirsiniz.
+Azure bir koleksiyon başından bulutta tasarlanmış Yönetim Hizmetleri sağlar. Dağıtma ve şirket içi kaynakları yönetmek yerine, bu bileşenleri tamamen Azure'da barındırılır. Çok az yapılandırma gerektirir ve yalnızca birkaç dakikada kullanmaya başlayabilirsiniz.
 
 ![Operations Manager paketi](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
-OMS hizmetlerinin bulutta çalışıyor olması, şirket içi ortamınızı etkili bir şekilde yönetemeyecekleri anlamına gelmez.
+Yalnızca günlük analizi hizmetlerini çalıştırmak için bulut bunlar etkili bir şekilde şirket içi ortamınız yönetemez anlamına gelmez.
 
 Bir aracı üzerinde herhangi bir Windows put veya Linux bilgisayarda veri merkezinizi ve burada Bulut veya şirket içi Hizmetleri toplanan tüm verileri birlikte analiz edilmeden günlük analizi veri gönderir. Azure Backup ve Azure Site Recovery bulut için yedekleme ve yüksek kullanılabilirlik içindeki kaynaklar yararlanmak için kullanın.
 
 Buluttaki runbook'lar genellikle şirket içi kaynaklarınıza erişemez ancak veri merkezinizde runbook'ları barındıracak bir veya daha fazla bilgisayara bir aracı yükleyebilirsiniz. Bir runbook’u başlattığınızda yalnızca bulutta mı yoksa yerel bir çalışan olarak mı çalışacağını belirtirsiniz.
 
-OMS’nin temel işlevleri Azure’da çalışan bir dizi hizmet tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
+Günlük analizi çekirdek işlevselliğini Azure üzerinde çalışan hizmetleri kümesi tarafından sağlanır. Her hizmet belirli bir yönetim işlevi sağlar ve farklı hizmetleri birleştirerek farklı yönetim senaryoları elde edebilirsiniz.
 
 ![Operations Manager paketi](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
-Azure işlem yöneticisi, kendi işlevler yönetim çözümleri sağlayarak genişletir. [Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) bir veya daha fazla OMS Hizmetleri yararlanarak Yönetimi senaryosu uygulayan paketlenmiş mantığı kümeleridir.
+Azure işlem yöneticisi, kendi işlevler yönetim çözümleri sağlayarak genişletir. [Yönetim çözümleri](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions) bir veya daha fazla Yönetim Hizmetleri yararlanarak Yönetimi senaryosu uygulayan paketlenmiş mantığı kümeleridir.
 
 ![Azure işlemi yönetme](./media/governance-in-azure/security-governance-in-azure-fig10.png)
 
-Microsoft ve iş ortakları tarafından sağlanan ve OMS yatırımınızın değerini artırmak için Azure aboneliğinize kolayca ekleyebileceğiniz farklı çözümler vardır.
+Farklı çözümler, Microsoft'un ve iş ortakları, kolayca günlük analizi, yatırımınızı değerini artırmak için Azure aboneliğiniz ekleyebilirsiniz kullanılabilir.
 
 Bir iş ortağı olarak, uygulama ve hizmetlerinize desteklemek ve bunları Azure Marketi veya hızlı başlangıç şablonlarından aracılığıyla kullanıcılara sağlamak üzere kendi çözümleri oluşturabilirsiniz.
 
@@ -455,7 +455,7 @@ Uyarılar dahil olmak üzere farklı Hizmetleri kullanılabilir:
 >[!Note]
 > Bkz: [Application Insights'ta uyarıları ayarlama](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) ve [izlemek kullanılabilirlik ve yanıt herhangi bir Web sitesinin](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability).
 
-- Günlük analizi (Operations Management Suite): etkinlik ve günlük analizi için tanılama günlükleri yönlendirilmesini sağlar. Operations Management Suite, ölçüm, günlük ve diğer uyarı türleri sağlar.
+- Günlük analizi: etkinlik ve günlük analizi için tanılama günlükleri yönlendirmesini etkinleştirir ve ölçüm, günlük ve diğer uyarı türleri sağlar.
 
 >[!Note]
 > Daha fazla bilgi için bkz [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts).

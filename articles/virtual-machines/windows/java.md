@@ -1,13 +1,13 @@
 ---
-title: "Oluşturma ve Java kullanarak Azure sanal makinesi yönetme | Microsoft Docs"
-description: "Bir sanal makine ve tüm destekleyici kaynakları dağıtmak için Java ve Azure Resource Manager'ı kullanın."
+title: Oluşturma ve Java kullanarak Azure sanal makinesi yönetme | Microsoft Docs
+description: Bir sanal makine ve tüm destekleyici kaynakları dağıtmak için Java ve Azure Resource Manager'ı kullanın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: b970b7a5e1db6d8580ede9699d4776a79e03c98f
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: da8f8b0e84a51683bd4f631832e1f319f3a9bbb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Oluşturma ve Java kullanarak azure'da Windows sanal makineleri yönetme
 
@@ -31,7 +31,7 @@ Bir [Azure sanal makine](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2
 > * Kimlik bilgileri oluşturun
 > * Kaynak oluşturma
 > * Yönetim görevlerini gerçekleştirme
-> * Kaynakları silin
+> * Kaynakları silme
 > * Uygulamayı çalıştırma
 
 Bu adımların tamamlanması yaklaşık 20 dakika sürer.
@@ -133,7 +133,7 @@ Bu adım başlamadan önce erişimi olduğundan emin olun bir [Active Directory 
     graphURL=https://graph.windows.net/
     ```
 
-    Değiştir  **&lt;abonelik kimliği&gt;**  , abonelik tanımlayıcısı ile  **&lt;uygulama kimliği&gt;**  Active Directory Uygulama tanımlayıcısı ile  **&lt;kimlik doğrulama anahtarı&gt;**  uygulama anahtarla ve  **&lt;Kiracı kimliği&gt;**  , Kiracı tanımlayıcısı.
+    Değiştir **&lt;abonelik kimliği&gt;** , abonelik tanımlayıcısı ile **&lt;uygulama kimliği&gt;** Active Directory Uygulama tanımlayıcısı ile **&lt;kimlik doğrulama anahtarı&gt;** uygulama anahtarla ve **&lt;Kiracı kimliği&gt;** , Kiracı tanımlayıcısı.
 
 2. Dosyayı kaydedin.
 3. Kimlik doğrulama dosyasının tam yolu ile Kabuk AZURE_AUTH_LOCATION adlı bir ortam değişkeni ayarlayın.
@@ -320,7 +320,7 @@ azure.virtualMachines.define("myVM")
 
 ## <a name="perform-management-tasks"></a>Yönetim görevlerini gerçekleştirme
 
-Bir sanal makine yaşam döngüsü sırasında başlatma, durdurma veya bir sanal makine silme gibi yönetim görevleri çalıştırmak isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için kod oluşturmak isteyebilirsiniz.
+Bir sanal makinenin yaşam döngüsü boyunca, sanal makineyi başlatmak, durdurmak veya silmek gibi yönetim görevleri gerçekleştirmek isteyebilirsiniz. Ayrıca, yinelenen veya karmaşık görevleri otomatikleştirmek için kod oluşturmak isteyebilirsiniz.
 
 VM ile herhangi bir şey yapmanız gerektiğinde bir örneğini almanız gerekir. Bu kod main yöntemini deneyin bloğunu ekleyin:
 
@@ -444,7 +444,7 @@ System.out.println("Press enter to delete resources...");
 input.nextLine();
 ```
 
-## <a name="delete-resources"></a>Kaynakları silin
+## <a name="delete-resources"></a>Kaynakları silme
 
 Azure'da kullanılan kaynaklar için ücretlendirildiğinizden, her zaman artık gerekli olmayan kaynakları silmek için iyi bir uygulamadır. Sanal makineler ve destekleyici tüm kaynakları silmek istiyorsanız, tüm yapmanız gereken olan kaynak grubunu silebilirsiniz.
 

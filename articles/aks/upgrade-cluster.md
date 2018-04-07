@@ -1,19 +1,19 @@
 ---
-title: "Azure Container Service (AKS) kümesini karşıya yükleme"
-description: "Azure Container Service (AKS) kümesini karşıya yükleme"
+title: Azure Container Service (AKS) kümesini karşıya yükleme
+description: Azure Container Service (AKS) kümesini karşıya yükleme
 services: container-service
 author: gabrtv
 manager: timlt
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 04/05/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9b94f858aa896eaa93430a12cd74e12d9bf02008
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 338a153ac4e00c329bf6854306a466657de1d70f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Azure Container Service (AKS) kümesini karşıya yükleme
 
@@ -31,14 +31,17 @@ az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --outpu
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
--------  ---------------  ---------------  -----------------  ----------------------------------
-default  myResourceGroup  1.7.9            1.7.9              1.7.12, 1.8.1, 1.8.2, 1.8.6, 1.8.7
+-------  ---------------  ---------------  -----------------  -------------------
+default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-Yükseltme için üç sürüm bulunur: 1.7.9, 1.8.1 ve 1.8.2. Kullanılabilir en son sürüme yükseltmek için `az aks upgrade` komutunu kullanabiliriz.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.  Bir küme yükseltmesi başlatmadan önce, küme düğümleri eklenip kaldırılırken iş yükünüzü kaldırabilecek yeterli ek işlem kapasitesinin olduğundan emin olun.
+Yükseltme için kullanılabilir üç sürümlerini sunuyoruz: 1.9.1, 1.9.2 ve 1.9.6. Kullanılabilir en son sürüme yükseltmek için `az aks upgrade` komutunu kullanabiliriz.  Yükseltme işlemi sırasında düğüm dikkatle olduğundan [cordoned ve boşaltmış] [ kubernetes-drain] çalışan uygulamalar engellemeyi en aza indirmek için.  Bir küme yükseltmesi başlatmadan önce, küme düğümleri eklenip kaldırılırken iş yükünüzü kaldırabilecek yeterli ek işlem kapasitesinin olduğundan emin olun.
+
+> [!NOTE]
+> AKS Küme yükseltme yaparken, Kubernetes ikincil sürümleri atlanamaz. Örneğin, 1.7.x arasında yükseltme > 1.8.x veya 1.8.x > 1.9.x izin verilir, ancak 1,7 > 1.9 değil.
 
 ```azurecli-interactive
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.8.2
+az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
 ```
 
 Çıktı:
@@ -73,7 +76,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
     ],
     "dnsPrefix": "myK8sClust-myResourceGroup-4f48ee",
     "fqdn": "myk8sclust-myresourcegroup-4f48ee-406cc140.hcp.eastus.azmk8s.io",
-    "kubernetesVersion": "1.8.2",
+    "kubernetesVersion": "1.9.6",
     "linuxProfile": {
       "adminUsername": "azureuser",
       "ssh": {
@@ -108,7 +111,7 @@ az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ----------------------------------------------------------------
-myAKSCluster  eastus     myResourceGroup  1.8.2                Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
+myAKSCluster  eastus     myResourceGroup  1.9.6                 Succeeded            myk8sclust-myresourcegroup-3762d8-2f6ca801.hcp.eastus.azmk8s.io
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

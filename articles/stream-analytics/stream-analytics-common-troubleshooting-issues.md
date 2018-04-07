@@ -1,24 +1,19 @@
 ---
-title: "Hatalı oluşturulmuş giriş olaylarında Azure akış analizi için sorun giderme | Microsoft Docs"
-description: "My girişinde hangi olay nasıl anlarım veri Stream Analytics işinde sorunu neden"
-keywords: 
-documentationcenter: 
+title: Hatalı oluşturulmuş giriş olaylarında Azure akış analizi için sorun giderme
+description: My girişinde hangi olay nasıl anlarım veri Stream Analytics işinde sorunu neden
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
 manager: Kfile
-ms.assetid: 
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: sngun
-ms.openlocfilehash: 6b6c154568fe97b7495ae70dc162dc475169afea
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fcbb03b4d9aed797cf99c374661c743d39f81276
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>Akış analizi ve adımları gidermek için genel sorunlar
 
@@ -39,7 +34,7 @@ Uyarı ayrıntılarını görüntülemek tanılama günlükleri etkinleştirebil
 
 3. Hatalı biçimde JSON verilerini almak için CheckMalformedEvents.cs kodu çalıştırmak, BT dan alabileceğiniz [GitHub örnekleri depo](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH). Bu kod bölüm kimliği, uzaklığı ve bu uzaklığı bulunan verileri yazdırır okur. 
 
-4. Verileri okuma sonra çözümlemek ve seri hale getirme biçimi düzeltin. 
+4. Verileri okuduktan sonra, serileştirme biçimini analiz edebilir ve düzeltebilirsiniz. 
 
 ## <a name="handling-duplicate-records-when-using-azure-sql-database-as-output-for-a-stream-analytics-job"></a>Azure SQL veritabanı için bir Stream Analytics işi çıkış olarak kullanırken yinelenen kayıtları işleme
 

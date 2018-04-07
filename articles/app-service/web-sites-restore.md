@@ -1,8 +1,8 @@
 ---
-title: "Uygulamanızı Azure’a geri yükleme"
-description: "Uygulamanızı bir yedek kopyadan geri öğrenin."
+title: Uygulamanızı Azure’a geri yükleme
+description: Uygulamanızı bir yedek kopyadan geri öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 60b55acaf687dae76e054b428b8d6584d8eb09f8
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 502e3cefca5e2e60efe6a9875de0b63413bc4578
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
 Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure yedekleme](web-sites-backup.md)). Uygulamanızı kendi bağlantılı veritabanı isteğe bağlı bir önceki durumuna geri yüklemek veya özgün uygulamanızın yedekleri birini temel alan yeni bir uygulama oluşturun. Azure uygulama hizmeti, yedekleme ve geri yükleme için aşağıdaki veritabanlarını destekler:
-- [SQL Veritabanı](https://azure.microsoft.com/en-us/services/sql-database/)
-- [Azure veritabanı için MySQL (Önizleme)](https://azure.microsoft.com/en-us/services/mysql)
-- [Azure veritabanı için PostgreSQL (Önizleme)](https://azure.microsoft.com/en-us/services/postgres)
+- [SQL Database](https://azure.microsoft.com/en-us/services/sql-database/)
+- [Azure veritabanı MySQL için)](https://azure.microsoft.com/en-us/services/mysql)
+- [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/en-us/services/postgres)
 - [Uygulama MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
 Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standart** ve **Premium** katmanı. Uygulamanızı ölçeklendirme hakkında daha fazla bilgi için bkz: [Azure bir uygulamada ölçeklendirin](web-sites-scale.md). **Premium** katmanı sağlayan daha gerçekleştirilecek günlük yedeklemeler daha fazla sayıda **standart** katmanı.
@@ -53,7 +53,7 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
    
     Seçebileceğiniz **var olan bir uygulamayı** aynı kaynak kaydının gruptaki başka bir uygulama için uygulama yedeklemeyi geri yükleme. Bu seçeneği kullanmadan önce zaten başka bir uygulama bir uygulama yedekleme tanımlanan veritabanı yapılandırması yansıtma ile kaynak grubu oluşturmuş olmalıdır. Ayrıca bir **yeni** içeriğinize geri yüklemek için uygulama.
 
-4. **Tamam** düğmesine tıklayın.
+4. **Tamam**’a tıklayın.
 
 <a name="StorageAccount"></a>
 
@@ -78,7 +78,7 @@ Başarı veya başarısızlık uygulama geri yükleme işleminin ayrıntıların
 
 Ayrıntılar sayfası geri yükleme işlemiyle ilgili mevcut bilgileri görüntüler.
 
-## <a name="automate-with-scripts"></a>Komut dosyalarıyla otomatikleştirme
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
 Yedekleme yönetimi komut dosyaları ile kullanarak otomatikleştirebilirsiniz [Azure CLI](/cli/azure/install-azure-cli) veya [Azure PowerShell](/powershell/azure/overview).
 

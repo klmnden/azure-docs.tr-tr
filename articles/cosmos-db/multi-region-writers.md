@@ -1,11 +1,10 @@
 ---
-title: "Azure Cosmos DB ile birden çok ana veritabanı mimarileri | Microsoft Docs"
-description: "Azure Cosmos DB ile birden çok coğrafi bölgeler arasında yerel okuma ve yazma işlemleri ile uygulama Mimari Tasarım hakkında bilgi edinin."
+title: Azure Cosmos DB ile birden çok ana veritabanı mimarileri | Microsoft Docs
+description: Azure Cosmos DB ile birden çok coğrafi bölgeler arasında yerel okuma ve yazma işlemleri ile uygulama Mimari Tasarım hakkında bilgi edinin.
 services: cosmos-db
-documentationcenter: 
+documentationcenter: ''
 author: arramac
-manager: jhubbard
-editor: 
+manager: kfile
 ms.assetid: 706ced74-ea67-45dd-a7de-666c3c893687
 ms.service: cosmos-db
 ms.devlang: multiple
@@ -15,11 +14,11 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e02b286db42d8a9de8f1df8263f40c3732484038
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 941af42561afbdf91cb3529fd51971ee88fafdbc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-master-globally-replicated-database-architectures-with-azure-cosmos-db"></a>Birden çok ana veritabanı mimarileri Azure Cosmos DB ile genel çoğaltılan
 Azure Cosmos DB destekleyen anahtar teslimi [genel çoğaltma](distribute-data-globally.md), iş yükünü başka bir yerindeki düşük gecikme süresi erişimi olan birden çok bölgeye verilerini dağıtmak sağlar. Bu model yayımcı/tüketici iş yükleri için yaygın olarak kullanılan bir yazıcı tek bir coğrafi bölge içinde ve genel olarak dağıtılmış okuyucuları (okuma) diğer bölgelerdeki olduğu. 
@@ -166,7 +165,7 @@ Makaleler gibi incelemeler çoğunlukla yazılmış ve makale bağlamında okuyu
 ## <a id="Architecture"></a>Azure Cosmos DB hesabı yapılandırması
 Yerel okuma ve yazma, bölüm gerekir güvence altına almak için veri bölüme anahtar, ancak ayrıca temel alınarak coğrafi erişim desenini bölgeleri tam değil. Model bir coğrafi olarak çoğaltılmış Azure Cosmos DB veritabanı hesabı her bölge için sahip kullanır. Örneğin, iki bölgede ile İşte bir kurulum bölgeli yazmalar için:
 
-| Hesap Adı | Bölge yazma | Okuma bölge |
+| Hesap Adı | Yazma Bölgesi | Okuma Bölgesi |
 | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |
@@ -197,7 +196,7 @@ Nasıl çalışır durumda bir DAL istemcilere başlatılacağını gösteren bi
 
 Önceki kurulum ile veri erişim katmanı dağıtıldığı üzerinde dayalı yerel hesap tüm yazma işlemlerini iletebilirsiniz. Okuma okunurken verilerin genel görünümünü almak için her iki hesap tarafından gerçekleştirilir. Bu yaklaşım, gerektiği kadar bölgeler için genişletilebilir. Örneğin, üç coğrafi bölgeler Kurulum'a şöyledir:
 
-| Hesap Adı | Bölge yazma | Bölge 1 okuma | Bölge 2 okuma |
+| Hesap Adı | Yazma Bölgesi | Bölge 1 okuma | Bölge 2 okuma |
 | --- | --- | --- | --- |
 | `contentpubdatabase-usa.documents.azure.com` | `West US` |`North Europe` |`Southeast Asia` |
 | `contentpubdatabase-europe.documents.azure.com` | `North Europe` |`West US` |`Southeast Asia` |

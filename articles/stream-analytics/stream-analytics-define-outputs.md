@@ -1,26 +1,21 @@
 ---
-title: 'Stream Analytics çıkışları: depolama, çözümleme için Seçenekler | Microsoft Docs'
+title: Azure akış analizi işi çıkışlarından türleri
 description: Stream Analytics veri çıkış seçenekleri analiz sonuçları için Power BI dahil olmak üzere hedefleme hakkında bilgi edinin.
-keywords: veri dönüştürme, analiz sonuçları, veri depolama seçenekleri
-services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
-documentationcenter: ''
-author: SnehaGunda
+services: stream-analytics
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 02/18/2017
-ms.author: sngun
-ms.openlocfilehash: ae8c4daf6b4beff3b1baf7ef5a5f3b84d706401a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: afaadc12d056f42a75795073d480fe26757649d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Stream Analytics çıkışları: depolama, çözümleme için seçenekleri
+# <a name="stream-analytics-outputs-options-for-storage-and-analysis"></a>Stream Analytics çıkışları: depolama ve analiz için Seçenekler
 Akış analizi işi yazarken sonuç verileri nasıl göz önünde bulundurun. Stream Analytics işi sonuçlarını nasıl görüntüleyebileceğiniz ve burada depolayabilir miyim?
 
 Uygulama düzenleri çeşitli etkinleştirmek için Azure akış analizi çıkış depolamak ve çözümleme sonuçlarını görüntülemek için farklı seçenekler vardır. Bu, iş çıkışı görüntülemek kolaylaştırır ve veri ambarı ve diğer amaçlar için kullanım ve iş çıktısı depolanmasını esneklik sağlar. İşte yapılandırılmış herhangi bir çıktı iş başlatıldı ve akan olayları başlatmak için önce mevcut olması gerekir. Örneğin, çıkış olarak Blob Depolama Birimi kullanıyorsanız, işin bir depolama hesabı otomatik olarak oluşturmaz. Akış analizi işi başlatılmadan önce bir depolama hesabı oluşturun.

@@ -1,10 +1,10 @@
 ---
-title: "Yazılım RAID Linux çalıştıran bir sanal makinede yapılandırmak | Microsoft Docs"
-description: "Mdadm Azure'da RAID Linux'ta yapılandırmak için nasıl kullanılacağını öğrenin."
+title: Yazılım RAID Linux çalıştıran bir sanal makinede yapılandırmak | Microsoft Docs
+description: Mdadm Azure'da RAID Linux'ta yapılandırmak için nasıl kullanılacağını öğrenin.
 services: virtual-machines-linux
 documentationcenter: na
 author: rickstercdn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: f3cb2786-bda6-4d2c-9aaf-2db80f490feb
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux’ta Yazılım RAID yapılandırma
 Yazılım RAID Linux sanal makinelerde tek bir RAID aygıt olarak birden çok eklenen veri disklerini sunmak için Azure içinde kullanmak için ortak bir senaryodur. Genellikle bu performansı artırmak ve yalnızca tek bir disk kullanmaya kıyasla geliştirilmiş işleme için izin vermek için kullanılabilir.
@@ -61,7 +61,7 @@ Bu örnekte, /dev/sdc üzerinde tek disk bölümü oluşturuyoruz. Yeni disk bö
                     sectors (command 'u').
     ```
 
-2. Tuşuna 'n' oluşturmak için komut istemine bir  **n** eni bölüm:
+2. Tuşuna 'n' oluşturmak için komut istemine bir **n**eni bölüm:
 
     ```bash
     Command (m for help): n

@@ -5,8 +5,7 @@ keywords: nosql öğreticisi, çevrimiçi veritabanı, c# konsol uygulaması
 services: cosmos-db
 documentationcenter: .net
 author: AndrewHoh
-manager: jhubbard
-editor: monicar
+manager: kfile
 ms.assetid: bf08e031-718a-4a2a-89d6-91e12ff8797d
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: anhoh
-ms.openlocfilehash: 870bdce0b909a882b99de92bbe5ad1e51db11a39
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9de183ccd60dca0b8c67bc3e17136212b7132439
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-sql-api-getting-started-tutorial"></a>Azure Cosmos DB: SQL API başlangıç Öğreticisi
 > [!div class="op_single_selector"]
@@ -74,7 +73,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 5. İçinde **NuGet** sekmesini tıklatın, **Gözat**ve türü **azure documentdb** arama kutusuna.
 6. Sonuçlarda **Microsoft.Azure.DocumentDB**'yi bulun ve **Yükle**'ye tıklayın.
    Azure Cosmos DB SQL API'si istemci kitaplığı için paket kimliği [Microsoft Azure Cosmos DB istemci Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
-   ![Azure Cosmos DB istemci SDK'sını bulmak için NuGet menüsünün ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
+   ![Azure Cosmos DB İstemci SDK'sını bulmak için NuGet Menüsünün ekran görüntüsü](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     Çözümdeki değişiklikleri gözden geçirme hakkında iletiler alırsanız **Tamam**'a tıklayın. Lisans kabulü hakkında bir ileti alırsanız **Kabul ediyorum**'a tıklayın.
 
@@ -113,7 +112,7 @@ Azure portalında Azure Cosmos DB hesabınıza gidin ve ardından **anahtarları
 
 Portaldaki URI’yi kopyalayın ve program.cs dosyasındaki `<your endpoint URL>` içine yapıştırın. Ardından portaldan BİRİNCİL ANAHTARI kopyalayın ve `<your primary key>` içine yapıştırın.
 
-![C# konsol uygulaması oluşturmak için NoSQL Öğreticisi tarafından kullanılan Azure portal ekran görüntüsü. Vurgulanan etkin hub'ı, Azure Cosmos DB hesabını sayfasında ANAHTARLAR düğmesi ve anahtarları sayfasında vurgulanmış URI, birincil anahtar ve ikincil anahtar değerleri ile bir Azure Cosmos DB hesabını gösterir][keys]
+![Bir C# konsol uygulaması oluşturmak için NoSQL öğreticisi tarafından kullanılan Azure portalının ekran görüntüsü. Vurgulanan etkin hub'ı, Azure Cosmos DB hesabını sayfasında ANAHTARLAR düğmesi ve anahtarları sayfasında vurgulanmış URI, birincil anahtar ve ikincil anahtar değerleri ile bir Azure Cosmos DB hesabını gösterir][keys]
 
 Ardından **DocumentClient**'ın yeni bir örneğini oluşturarak uygulamayı başlatacağız.
 

@@ -1,24 +1,19 @@
 ---
-title: 'Veri bağlantısı: veri akışı olay akışının girişlerinde | Microsoft Docs'
-description: Stream Analytics 'Girişleri' adlı bir veri bağlantısı kurma bilgi edinin. Giriş olayları veri akışından içerir ve ayrıca veri başvuru.
-keywords: veri akışı, veri bağlantısı, olay akışı
+title: Azure Stream Analytics olay akışında girişlerinde veri akışı
+description: Azure Stream Analytics Veri bağlantısında ayarlama bilgi edinin. Giriş olayları veri akışından içerir ve ayrıca veri başvuru.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: sngun
-ms.openlocfilehash: 405fcf190ab03b84ec463da8a1942adb8e326498
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0a90e97779416db7b7244cce9d6bdad740161051
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Veri bağlantısı: hakkındaki verileri Stream Analytics akış girişleri olaylardan öğrenin
 Veri akış analizi işi, işin adlandırılan bir veri kaynağından alınan olayların bir akış bağlantısıdır *giriş*. Akış analizi dahil olmak üzere Azure veri kaynakları ile veri akışı, birinci sınıf tümleştirme sahip [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure IOT Hub](https://azure.microsoft.com/services/iot-hub/), ve [Azure Blob Depolama](https://azure.microsoft.com/services/storage/blobs/). Bu giriş kaynaklarıyla analytics işiniz aynı Azure aboneliğinden veya farklı bir abonelik olabilir.

@@ -3,9 +3,8 @@ title: Azure Cosmos DB bağlayıcı için Power BI Öğreticisi | Microsoft Docs
 description: JSON almak için ayrıntılı raporlar oluşturun ve Azure Cosmos DB ve Power BI Bağlayıcısı'nı kullanarak verileri Görselleştir için bu Power BI öğreticiyi kullanın.
 keywords: power BI öğretici, verileri, power BI Bağlayıcısı görselleştirin
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: mimig
+author: SnehaGunda
+manager: kfile
 documentationcenter: ''
 ms.assetid: cd1b7f70-ef99-40b7-ab1c-f5f3e97641f7
 ms.service: cosmos-db
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 74be3e5b25401a7811c1af23a0a7e2887f9055c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: sngun
+ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB için Power BI Öğreticisi: Power BI Bağlayıcısı'nı kullanarak verileri Görselleştir
 [Powerbı.com adresinde](https://powerbi.microsoft.com/) nerede oluşturmak ve paylaşmak için kullanabileceğiniz panolar ve raporlar ve kuruluşunuz için önemli olan verileri ile çevrimiçi bir hizmettir.  Power BI Desktop yazma çeşitli veri kaynaklarından veri almak, birleştirme ve verileri dönüştürmek, güçlü raporları ve görselleştirmeleri oluşturmak ve Power BI raporları yayınlamak olanak tanıyan aracı adanmış bir rapordur.  Power BI Desktop en son sürümü ile artık Azure Cosmos DB bağlayıcısı aracılığıyla Azure Cosmos DB hesabınız için Power BI bağlanabilirsiniz.   

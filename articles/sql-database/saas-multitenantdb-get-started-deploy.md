@@ -9,13 +9,13 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 3806b165e0124e979f59b51d5583cdbb1f949366
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -57,7 +57,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 Bu bölüm, aşağıdaki adımlarda, sağladığınız bir *kullanıcı* kaynak adları genel benzersiz olduğundan emin olmak için kullanılan değeri ve için bir ad *kaynak grubu* bir dağıtım tarafından oluşturulan tüm kaynaklar içeriyor uygulama. Adlı bir kişi için *Ann Finley*, öneririz:
 - *Kullanıcı:* **af1***(kendi baş harflerini artı bir sayı. İkinci kez uygulama dağıttığınızda farklı bir değer (örneğin af2) kullanın.)*
-- *Kaynak grubu:* **wingtip dpt af1** *(wingtip dpt gösterir Kiracı başına veritabanı uygulama budur. Kullanıcı adı af1 ekleme içerdiği kaynakların adları ile kaynak grubu adı hatalarla ilintilidir.)*
+- *Kaynak grubu:* **wingtip mt af1** *(wingtip mt gösterir parçalı çok kiracılı uygulama budur. Kullanıcı adı af1 ekleme içerdiği kaynakların adları ile kaynak grubu adı hatalarla ilintilidir.)*
 
 Adlarınızı şimdi seçin ve not edin. 
 
@@ -123,7 +123,7 @@ Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş
 Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
+    - http://events.wingtip-mt. &lt;kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 

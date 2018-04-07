@@ -5,7 +5,7 @@ keywords: Uzak Masaüstü hata, Uzak Masaüstü Bağlantısı hatası, VM için 
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.assetid: 0d740f8e-98b8-4e55-bb02-520f604f5b18
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: e2b792743f1b4ba458cff111ab6dd888b0c26d93
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Bir Azure sanal makinesi için Uzak Masaüstü bağlantı sorunlarını giderme
 Uzak Masaüstü Protokolü (RDP) bağlantısı, Windows tabanlı Azure sanal makine (VM), VM erişilemiyor bırakarak çeşitli nedenlerle başarısız olabilir. VM, ağ bağlantısı veya ana bilgisayarınızda Uzak Masaüstü İstemcisi Uzak Masaüstü hizmetiyle sorunu olabilir. Bu makalede, bazı RDP bağlantı sorunlarını gidermek için en yaygın yöntemleri size yol gösterir. 
@@ -94,6 +94,10 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
     ![Azure portalında VM yeniden dağıtın](./media/troubleshoot-rdp-connection/redeploy-vm.png)
    
     Bu işlem tamamlandıktan sonra kısa ömürlü disk veriler kaybolur ve VM ile ilişkili olan dinamik IP adreslerini güncelleştirilir.
+
+9. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+10. Tüm şirket içi güvenlik duvarı veya güvenlik duvarı, bilgisayarınızdaki Azure giden TCP 3389 trafiği verdiğinden emin olun.
 
 Hala RDP sorunlarla karşılaşıyorsanız, şunları yapabilirsiniz [bir destek isteği açın](https://azure.microsoft.com/support/options/) veya okuma [kavramlar ve adımlar sorun giderme RDP ayrıntılı](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -180,6 +184,10 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
+6. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+
+7. Tüm şirket içi güvenlik duvarı veya güvenlik duvarı, bilgisayarınızdaki Azure giden TCP 3389 trafiği verdiğinden emin olun.
+
 Hala RDP sorunlarla karşılaşıyorsanız, şunları yapabilirsiniz [bir destek isteği açın](https://azure.microsoft.com/support/options/) veya okuma [kavramlar ve adımlar sorun giderme RDP ayrıntılı](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## <a name="troubleshoot-vms-created-using-the-classic-deployment-model"></a>Klasik dağıtım modeli kullanılarak oluşturulan sanal makineleri sorun giderme
@@ -217,6 +225,8 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin.
     Azure portalında, VM seçin ve tıklatın **genel bakış** sekmesi. Tıklatın **yeniden** düğmesi:
    
     ![Azure portalında VM yeniden başlatma](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
+
+7. Tüm şirket içi güvenlik duvarı veya güvenlik duvarı, bilgisayarınızdaki Azure giden TCP 3389 trafiği verdiğinden emin olun.
 
 Hala RDP sorunlarla karşılaşıyorsanız, şunları yapabilirsiniz [bir destek isteği açın](https://azure.microsoft.com/support/options/) veya okuma [kavramlar ve adımlar sorun giderme RDP ayrıntılı](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

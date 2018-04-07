@@ -1,21 +1,21 @@
 ---
-title: "İzleme ve performans ayarlama - Azure SQL veritabanı | Microsoft Docs"
-description: "Azure SQL veritabanı'nda ayarlama değerlendirme ve geliştirme performans ipuçları."
+title: İzleme ve performans ayarlama - Azure SQL veritabanı | Microsoft Docs
+description: Azure SQL veritabanı'nda ayarlama değerlendirme ve geliştirme performans ipuçları.
 services: sql-database
 author: v-shysun
 manager: craigg
-editor: 
-keywords: "sql performans ayarlama, veritabanı performans ayarlama, sql performans ipuçları, ayarlama sql veritabanı performans ayarlama"
+editor: ''
+keywords: sql performans ayarlama, veritabanı performans ayarlama, sql performans ipuçları, ayarlama sql veritabanı performans ayarlama
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 04/01/2018
 ms.author: v-shysun
-ms.openlocfilehash: 273a80134975fb9aa4d40b132c1403cc27246371
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 440f3bf41cd2dcedf964e7476323d7b3a1527624
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitoring-and-performance-tuning"></a>İzleme ve performans ayarlama
 

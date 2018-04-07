@@ -1,11 +1,11 @@
 ---
-title: "Sanal makineleri bir Azure Resource Manager şablonunda | Microsoft Azure"
-description: "Sanal makine kaynak bir Azure Resource Manager şablonu nasıl tanımlanır hakkında daha fazla bilgi edinin."
+title: Sanal makineleri bir Azure Resource Manager şablonunda | Microsoft Azure
+description: Sanal makine kaynak bir Azure Resource Manager şablonu nasıl tanımlanır hakkında daha fazla bilgi edinin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: davidmu1
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f63ab5cc-45b8-43aa-a4e7-69dc42adbb99
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.openlocfilehash: 9c0039987ec28601c9338d2b94633c38c31e01f8
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 43cd6322bb03b5c781a890c3280247cbb2d118f6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu içindeki sanal makineler
 
@@ -278,7 +278,7 @@ Bu özelliği ayarlamak için ağ arabiriminin mevcut olması gerekir. Bu nedenl
 
 Birkaç profil öğeler, bir sanal makine kaynağı tanımlarken kullanılır. Bazı gereklidir ve bazı isteğe bağlıdır. Örneğin, hardwareProfile, osProfile, storageProfile ve networkProfile öğeleri gerekiyor, ancak diagnosticsProfile isteğe bağlıdır. Bu profiller ayarları gibi tanımlayın:
    
-- [boyutu](sizes.md)
+- [Boyutu](sizes.md)
 - [ad](/architecture/best-practices/naming-conventions) ve kimlik bilgileri
 - disk ve [işletim sistemi ayarları](cli-ps-findimage.md)
 - [Ağ arabirimi](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 

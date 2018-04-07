@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 177bc05eea3aa05231c71a42950fa622b68afc53
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>SAP dağıtımları için Azure yazma Hızlandırıcı
 Azure yazma Hızlandırıcı M-serisi VM'ler için özel olarak alınır bir işlevdir. Yazma Azure Hızlandırıcı herhangi diğer VM-serisi M-serisi dışında Azure ile kullanılamaz. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. 
@@ -55,15 +55,16 @@ Azure Premium Storage VHD'ler Azure yazma Hızlandırıcı tarafından desteklen
 > Toplu derleme Windows disk veya birim yöneticileri, Windows depolama alanları, Windows genişleme dosya sunucusu (SOFS), Linux LVM veya MDADM, sahip birden çok disk dışında parçası olmayan mevcut bir Azure diski için Azure yazma Hızlandırıcı etkinleştirmek için iş yükü erişme Azure disk kapatılması gerekiyor. Azure diski kullanarak veritabanı uygulamaları kapatılmalıdır.
 
 > [!IMPORTANT]
-> VM'nin Azure işletim sistemi diski yazma Hızlandırıcı etkinleştirme VM yeniden başlatılır. 
+> VM'in Azure VM işletim sistemi diski için yazma Hızlandırıcı etkinleştirme VM yeniden başlatılır. 
 
 Diskleri işletim için SAP gerekli olmamalıdır için Azure yazma Hızlandırıcı etkinleştirme VM yapılandırmaları ilgili
 
 ### <a name="restrictions-when-using-azure-write-accelerator"></a>Azure yazma Hızlandırıcı kullanırken kısıtlamaları
 Azure yazma Hızlandırıcı Azure bir disk/VHD için kullanırken bu kısıtlamalar geçerlidir:
 
-- Premium disk önbelleği 'None' ayarlanması gerekir. Diğer tüm önbelleğe alma modu desteklenmiyor.
+- Premium disk önbelleği 'None' ayarlanması gerekir ya da 'Salt okunur'. Diğer tüm önbelleğe alma modu desteklenmiyor.
 - Yazma etkinleştirilmiş Hızlandırıcı disk üzerinde anlık görüntü henüz desteklenmiyor. Bu kısıtlama, Azure Backup hizmeti bir uygulamayla tutarlı anlık görüntü sanal makinenin tüm disklerinin gerçekleştirme yeteneğini engeller.
+- Küçük g/ç boyutları hızlandırılmış yolu sürüyor. İş yükü verileri toplu mdan olduğu durumlarda yüklü olan veya depolama birimine kalıcı önce için büyük ölçüde doldurulmuş farklı DBMS işlem günlüğü arabelleklerini burada olasılığını yazılan g/ç disk hızlandırılmış yolu sürüyor değil.
 
 
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Belirli bir disk üzerinde yazma Hızlandırıcı etkinleştirme
@@ -290,7 +291,7 @@ armclient GET /subscriptions/<<subscription-ID<</resourceGroups/<<ResourceGroup>
 
 ```
 
-Sonraki adım JSON dosyasını güncelleştirin ve 'log1' adlı disk üzerinde yazma Hızlandırıcı etkinleştirmek üzere olacaktır. Bu, bu öznitelik JSON dosyasına ekleyerek disk önbellek girişi sonra yapılabilir. 
+Sonraki adım JSON dosyasını güncelleştirin ve 'log1' adlı disk üzerinde yazma Hızlandırıcı etkinleştirmek üzere olacaktır. Bu adım, bu öznitelik JSON dosyasına ekleyerek disk önbellek girişi sonra gerçekleştirilebilir. 
 
 ```
         {

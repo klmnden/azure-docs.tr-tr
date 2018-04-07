@@ -1,11 +1,11 @@
 ---
-title: "İş akışı tanımlama dili şema - Azure Logic Apps | Microsoft Docs"
-description: "Azure mantıksal uygulamaları için iş akışı tanımı şemasını temel iş akışları tanımlar"
+title: İş akışı tanımlama dili şema - Azure Logic Apps | Microsoft Docs
+description: Azure mantıksal uygulamaları için iş akışı tanımı şemasını temel iş akışları tanımlar
 services: logic-apps
 author: jeffhollan
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 994b8946078ed9b4c8aa965a3bc0e117ba3185c0
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 42932e6d1727a1444c62f565ae3c48dc178aeb2b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için iş akışı tanımlama dili şeması
 
@@ -70,10 +70,10 @@ Aşağıdaki örnek, bir parametrenin tanımını yapısını gösterir:
 
 |Öğe adı|Gerekli|Açıklama|  
 |------------------|--------------|-----------------|  
-|type|Evet|**Tür**: dize <p> **Bildirim**: `"parameters": {"parameter1": {"type": "string"}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tür**: securestring <p> **Bildirim**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tür**: int <p> **Bildirim**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tür**: bool <p> **Bildirim**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": true }}` <p> **Tür**: dizi <p> **Bildirim**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tür**: nesnesi <p> **Bildirim**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tür**: secureobject <p> **Bildirim**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Not:** `securestring` ve `secureobject` türleri alınmadı içinde `GET` işlemleri. Tüm parolalar, anahtarlar ve gizli anahtarları bu türünü kullanmanız gerekir.|  
+|type|Evet|**Tür**: dize <p> **Bildirim**: `"parameters": {"parameter1": {"type": "string"}}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tür**: securestring <p> **Bildirim**: `"parameters": {"parameter1": {"type": "securestring"}}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value": "myparamvalue1"}}` <p> **Tür**: int <p> **Bildirim**: `"parameters": {"parameter1": {"type": "int"}}` <p> **Belirtimi**: `"parameters": {"parameter1": {"value" : 5}}` <p> **Tür**: bool <p> **Bildirim**: `"parameters": {"parameter1": {"type": "bool"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": true }}` <p> **Tür**: dizi <p> **Bildirim**: `"parameters": {"parameter1": {"type": "array"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": [ array-of-values ]}}` <p> **Tür**: nesnesi <p> **Bildirim**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Tür**: secureobject <p> **Bildirim**: `"parameters": {"parameter1": {"type": "object"}}` <p> **Belirtimi**: `"parameters": {"parameter1": { "value": { JSON-object } }}` <p> **Not:** `securestring` ve `secureobject` türleri alınmadı içinde `GET` işlemleri. Tüm parolalar, anahtarlar ve gizli anahtarları bu türünü kullanmanız gerekir.|  
 |defaultValue|Hayır|Hiçbir değer Kaynak oluşturulduğunda belirtildiğinde parametresinin varsayılan değeri belirtir.|  
 |allowedValues|Hayır|Parametre için izin verilen değerler dizisini belirtir.|  
-|Meta veriler|Hayır|Okunabilir açıklama veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı verileri gibi parametre hakkında ayrıntılı bilgileri belirtir.|  
+|meta veriler|Hayır|Okunabilir açıklama veya Visual Studio veya diğer araçları tarafından kullanılan tasarım zamanı verileri gibi parametre hakkında ayrıntılı bilgileri belirtir.|  
   
 Bu örnek, bir eylem gövde bölümünü bir parametre nasıl kullanabileceğinizi gösterir:  
   
@@ -229,7 +229,7 @@ Bu işlevler içinde koşullar yararlıdır ve herhangi bir türde mantığı de
   
 |İşlev adı|Açıklama|  
 |-------------------|-----------------|  
-|eşittir|İki değer eşitse true değerini döndürür. Örneğin, parametre1 someValue ise, bu işlev, döndürür `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
+|şuna eşittir:|İki değer eşitse true değerini döndürür. Örneğin, parametre1 someValue ise, bu işlev, döndürür `true`: <p>`equals(parameters('parameter1'), 'someValue')` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Karşılaştırma yapılacak nesne **nesne 1**.|  
 |daha az|İlk bağımsız değişken daha az ise true değeri döndürür ikinciden. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `true`: <p>`less(10,100)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 1**.|  
 |lessOrEquals|İlk bağımsız değişken ikinci eşit veya daha az ise true, aksi durumda değeri döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `true`: <p>`lessOrEquals(10,10)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Bu daha az olup olmadığını denetleyin veya eşit nesnesine **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Büyük veya eşit olup olmadığını denetlemek için nesne **nesne 1**.|  
 |büyük|İlk bağımsız değişken saniyeden büyükse, true döndürür. Not, değerler yalnızca türü tamsayı, kayan noktalı sayı veya dize olabilir. Örneğin, bu işlevi döndürür `false`:  <p>`greater(10,10)` <p> **Numaralı parametre**: 1 <p> **Ad**: 1 nesne <p> **Açıklama**: gerekli. Büyük olup olmadığını denetlemek için nesne **nesne 2**. <p> **Numaralı parametre**: 2 <p> **Ad**: 2 nesnesi <p> **Açıklama**: gerekli. Olup olmadığını denetlemek için nesne değerinden **nesne 1**.|  

@@ -1,18 +1,18 @@
 ---
-title: "En iyi uygulamalar için Azure SQL veri eşitleme (Önizleme) | Microsoft Docs"
-description: "Yapılandırma ve Azure SQL veri eşitleme (Önizleme) çalıştırmak için en iyi uygulamalar hakkında bilgi edinin."
+title: En iyi uygulamalar için Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
+description: Yapılandırma ve Azure SQL veri eşitleme (Önizleme) çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 1c8ad4b318d52b5cb6af284b3304cfa7ad35522b
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) için en iyi yöntemler 
 
@@ -20,7 +20,7 @@ Bu makale, Azure SQL veri eşitleme (Önizleme) için en iyi uygulamaları açı
 
 SQL veri eşitleme (Önizleme) genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](sql-database-sync-data.md).
 
-## <a name="security-and-reliability"></a>Güvenlik ve güvenilirlik
+## <a name="security-and-reliability"></a> Güvenlik ve güvenilirlik
 
 ### <a name="client-agent"></a>İstemci Aracısı
 
@@ -45,7 +45,7 @@ Azure SQL veritabanı kimlik bilgileri, yalnızca tek bir kümesini destekler. B
 
 ## <a name="setup"></a>Kurulum
 
-### <a name="database-considerations-and-constraints"></a>Veritabanı konuları ve kısıtlamaları
+### <a name="database-considerations-and-constraints"></a> Veritabanı konuları ve kısıtlamaları
 
 #### <a name="sql-database-instance-size"></a>SQL Database örnek boyutu
 
@@ -54,7 +54,7 @@ Yeni bir SQL veritabanı örneği oluşturduğunuzda, en büyük boyutu her zama
 > [!IMPORTANT]
 > SQL veri eşitleme (Önizleme) ile her veritabanı ek meta verileri depolar. Gerekli alan hesaplarken bu meta veriler için hesap emin olun. Miktarını eklenen ek yükü tabloları genişliğini ilgili (örneğin, daha fazla ek yükü dar tablolarda gereklidir) ve trafik miktarı.
 
-### <a name="table-considerations-and-constraints"></a>Tablo konuları ve kısıtlamaları
+### <a name="table-considerations-and-constraints"></a> Tablo konuları ve kısıtlamaları
 
 #### <a name="selecting-tables"></a>Tabloları seçme
 
@@ -66,7 +66,7 @@ Her bir eşitleme grubu tablosunda birincil anahtar olması gerekir. SQL veri e�
 
 SQL veri eşitleme (Önizleme) üretimde kullanmadan önce ilk ve devam eden eşitleme performansını test edin.
 
-### <a name="provisioning-destination-databases"></a>Hedef veritabanı sağlama
+### <a name="provisioning-destination-databases"></a> Hedef veritabanı sağlama
 
 SQL veri eşitleme (Önizleme) önizleme temel veritabanı autoprovisioning sağlar.
 
@@ -90,7 +90,7 @@ SQL veri eşitleme (Önizleme) autoprovisioning üzerinde aşağıdaki sınırla
 -   Yalnızca hizmetin ölçeğini çalışırken SQL veri eşitleme (Önizleme) autoprovisioning yetenek kullanın.  
 -   Üretim için veritabanı şeması sağlayın.
 
-### <a name="locate-hub"></a>Hub veritabanı yerleştireceğinizi
+### <a name="locate-hub"></a> Hub veritabanı yerleştireceğinizi
 
 #### <a name="enterprise-to-cloud-scenario"></a>Kurumsal bulut senaryosu
 
@@ -107,7 +107,7 @@ Kurumsal Bulut ve Bulut Bulut senaryoları bir karışımını olanlar gibi karm
 
 ## <a name="sync"></a>Sync
 
-### <a name="avoid-a-slow-and-costly-initial-synchronization"></a>Yavaş veya pahalı ilk eşitleme kaçının
+### <a name="avoid-a-slow-and-costly-initial-synchronization"></a> Yavaş veya pahalı ilk eşitleme kaçının
 
 Bu bölümde, bir eşitleme grubundaki ilk eşitleme tartışın. Uzun ve gerekenden daha pahalı bir başlangıç eşitlemesi önlemeye yardımcı olmak öğrenin.
 
@@ -121,13 +121,13 @@ Veritabanları farklı veri merkezlerinde varsa, her satır arasında farklı ve
 
 Mümkünse, veri eşitleme grubun veritabanları yalnızca birinde başlayın.
 
-### <a name="design-to-avoid-synchronization-loops"></a>Eşitleme döngüleri önlemek için Tasarım
+### <a name="design-to-avoid-synchronization-loops"></a> Eşitleme döngüleri önlemek için Tasarım
 
 Bir eşitleme döngüsü döngüsel başvuru bir eşitleme grubu içinde olduğunda oluşur. Bu senaryoda, her değişiklik bir veritabanında sonsuz ve döngüsel eşitleme grubunu veritabanları arasında çoğaltılır.   
 
 Çünkü, performans azalmasına yol ve maliyetleri önemli ölçüde artabilir eşitleme döngüleri kaçının emin olun.
 
-### <a name="handling-changes-that-fail-to-propagate"></a>Yayılmasına başarısız değişiklikler
+### <a name="handling-changes-that-fail-to-propagate"></a> Yayılmasına başarısız değişiklikler
 
 #### <a name="reasons-that-changes-fail-to-propagate"></a>Değişiklikleri yaymak için başarısız nedenler
 
@@ -153,7 +153,7 @@ Portal ve günlük arabirimi üzerinden düzenli aralıklarla eşitleme grubu ve
 
 ## <a name="maintenance"></a>Bakım
 
-### <a name="avoid-out-of-date-databases-and-sync-groups"></a>Güncel olmayan veritabanlarını önlemek ve grupları Eşitle
+### <a name="avoid-out-of-date-databases-and-sync-groups"></a> Güncel olmayan veritabanlarını önlemek ve grupları Eşitle
 
 Bir eşitleme grubu veya bir eşitleme grubu veritabanında, eski haline gelebilir. Bir eşitleme grubun durum olduğunda **güncel**, çalışmayı durdurur. Bir veritabanının durumu olduğunda **güncel**, verileri kaybolabilir. Bu durumdan kurtulmanın denemek yerine bu senaryonun olmaması en iyisidir.
 
@@ -178,7 +178,7 @@ Güncel olmayan eşitleme grubu önlemek için:
 -   Bulunan değerleri başarısız satırları dahil etmek için yabancı anahtar değerlerini güncelleştirin.
 -   Şema veya hedef veritabanındaki yabancı anahtarlar ile uyumlu olacak şekilde başarısız satırda veri değerlerini güncelleştirin.
 
-### <a name="avoid-deprovisioning-issues"></a>Sorunları sağlamayı kaçının
+### <a name="avoid-deprovisioning-issues"></a> Sorunları sağlamayı kaçının
 
 Bazı durumlarda, bir istemci Aracısı ile bir veritabanı kaydını eşitleme başarısız olmasına neden olabilir.
 
@@ -199,7 +199,7 @@ Bu senaryodan kurtarmak için:
 2. Veritabanı buradan kaldırdığınız her eşitleme grubuna geri ekleyin.  
 3. (Bu işlem veritabanı sağlar) her etkilenen eşitleme grubu Dağıt.  
 
-### <a name="modifying-your-sync-group"></a>Eşitleme grubunu değiştirme
+### <a name="modifying-your-sync-group"></a> Eşitleme grubunu değiştirme
 
 Bir veritabanını bir eşitleme grubundan kaldırmanız ve eşitleme grubu değişiklikleri dağıtma birincisini olmadan Düzenle girişiminde yok.
 
@@ -212,11 +212,11 @@ SQL veri eşitleme (Önizleme) hakkında daha fazla bilgi için bkz:
 
 -   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme)](sql-database-sync-data.md)
 -   [Azure SQL veri eşitleme (Önizleme) ayarı](sql-database-get-started-sql-data-sync.md)
--   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme)](sql-database-sync-monitor-oms.md)
+-   [Günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme)](sql-database-sync-monitor-oms.md)
 -   [Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)  
 -   SQL veri eşitleme (Önizleme) yapılandırma Göster PowerShell örnekleri tamamlayın:  
     -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-azure-onprem.md)  
+    -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [SQL veri eşitleme (Önizleme) REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 SQL veritabanı hakkında daha fazla bilgi için bkz:

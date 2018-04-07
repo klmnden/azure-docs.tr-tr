@@ -1,35 +1,30 @@
 ---
-title: Sürekli tümleştirme ve dağıtım işlemini ayarlamak için Stream Analytics Visual Studio araçları kullanın | Microsoft Docs
-description: Sürekli tümleştirme ve dağıtım işlemi kurmak için Stream Analytics Visual Studio araçlarını kullanma Öğreticisi
-keywords: visual studio, NuGet, DevOps, CI/CD
-documentationcenter: ''
+title: Sürekli tümleştirme ve akış analizi araçları ile geliştirme
+description: Bu makalede, bir sürekli tümleştirme ve dağıtım işlemini ayarlamak için Azure akış analizi için Visual Studio Araçları kullanmayı açıklar.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: a473ea0a-3eaa-4e5b-aaa1-fec7e9069f20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 9/27/2017
 ms.author: sujie
-ms.openlocfilehash: 14bb15f19b517b55281959f0de970e3f5e0d360b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 9/27/2017
+ms.openlocfilehash: e4e831c602255df66f4c86ffa17336f51d2b52f7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="use-stream-analytics-visual-studio-tools-to-set-up-a-continuous-integration-and-deployment-process"></a>Sürekli tümleştirme ve dağıtım işlemi kurmak için Stream Analytics Visual Studio araçlarını kullanın
-Bu öğreticide, bir sürekli tümleştirme ve dağıtım işlemini ayarlamak için Azure Stream Analytics Visual Studio araçlarını kullanmayı öğrenin.
+# <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Sürekli tümleştirme ve akış analizi araçları ile geliştirme
+Bu makalede sürekli tümleştirme ve dağıtım işlemi kurmak için Visual Studio için Azure Stream Analytics araçları kullanmak için nasıl kullanılacağını açıklar.
 
-En son sürümünü (2.3.0000.0 veya üstü), [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) MSBuild için destek ekler.
+Kullanım sürüm 2.3.0000.0 veya üstü, [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) MSBuild için destek alma.
 
-Ayrıca yeni yayımlanmış bir NuGet paketi olan [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). MSBuild, yerel çalıştırma ve akış analizi Visual Studio projeleri sürekli tümleştirme ve dağıtım işlemini desteklemek dağıtım araçları sağlar. 
+Bir NuGet paketi kullanılabilir: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). MSBuild, yerel çalıştırma ve akış analizi Visual Studio projeleri sürekli tümleştirme ve dağıtım işlemini desteklemek dağıtım araçları sağlar. 
 > [!NOTE] 
 NuGet paket yalnızca 2.3.0000.0 veya üzeri sürümü akış analiz araçları, Visual Studio için kullanılabilir. Visual Studio Araçları'nın önceki sürümlerinde oluşturulan projeleri varsa, bunları 2.3.0000.0 veya üstü sürüme açmanız yeterlidir ve kaydedin. Ardından yeni özellikleri etkinleştirilir. 
 
-Nasıl kullanacağınızı öğrenin [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Daha fazla bilgi için bkz: [Visual Studio için Stream Analytics Araçları](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
 
 ## <a name="msbuild"></a>MSBuild
 Standart Visual Studio MSBuild deneyimi gibi bir projeyi derlemek için iki seçeneğiniz vardır. Projeye sağ tıklayın ve ardından **yapı**. Aynı zamanda **MSBuild** komut satırından NuGet paketi.

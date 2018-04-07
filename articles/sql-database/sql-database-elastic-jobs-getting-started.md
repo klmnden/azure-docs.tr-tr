@@ -7,13 +7,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85fd04966822f8dd6a0c3086002e4388411d1051
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Esnek veritabanı işlerine Başlarken
 Esnek veritabanı iş (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde birden fazla veritabanı otomatik olarak yeniden deneniyor ve nihai tamamlama garanti sağlama sırasında span T-SQL betikleri çalıştırmak sağlar. Esnek veritabanı iş özelliği hakkında daha fazla bilgi için bkz: [esnek iş](sql-database-elastic-jobs-overview.md).

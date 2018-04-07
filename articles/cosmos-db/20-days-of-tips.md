@@ -1,29 +1,23 @@
 ---
-title: "Azure Cosmos DB 20 gün ipuçları | Microsoft Docs"
-description: "Tüm Azure Cosmos DB ipuçları dizisinin Simona Cotin'ın 20 gün ipuçlarından tek bir yerde bulur."
+title: Azure Cosmos DB 20 gün ipuçları | Microsoft Docs
+description: Tüm Azure Cosmos DB ipuçları dizisinin Simona Cotin'ın 20 gün ipuçlarından tek bir yerde bulur.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: cda
-<<<<<<< HEAD
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 79ef4a8c22143ed77535e1190b5f7e8eb5d17bb0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB ipuçları 20 gün
 
@@ -35,7 +29,7 @@ Her gün yeni bir ipucu gelen Eylül 5 - Eylül 29 için bu sayfayı ziyaret edi
 
 ## <a name="tip-1-what-is-cosmos"></a>İpucu 1: Cosmos nedir?
 
-#Cosmosdb nedir? Kullanmadığınız en iyi bir NoSQL veritabanı! [https://aka.MS/ubw007](https://aka.ms/ubw007)
+#Cosmosdb nedir? Kullanmadığınız en iyi bir NoSQL veritabanı! [https://aka.ms/ubw007](https://aka.ms/ubw007)
 
 > [!VIDEO https://www.youtube.com/embed/cGxO995iakM] 
 
@@ -43,7 +37,7 @@ Her gün yeni bir ipucu gelen Eylül 5 - Eylül 29 için bu sayfayı ziyaret edi
 
 ## <a name="tip-2-seeing-is-believing"></a>İpucu 2: Görmesini amaçlayan
 
-Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cosmosDB visual arabirimi kullanma [https://aka.ms/jprf75](https://aka.ms/jprf75)
+Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cosmosDB visual arabirimi kullanma  [https://aka.ms/jprf75](https://aka.ms/jprf75)
 
 > [!VIDEO https://www.youtube.com/embed/4aWL5p_SJDE]
 
@@ -51,7 +45,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 ## <a name="tip-3-replicate-data-globally"></a>İpucu 3: genel veri çoğaltma
 
-İpucu 3: uygulamanızı dünyada üstün hızlı herhangi bir yerde olması gerekiyor? #CosmosDB verilerinizle çoğaltma kullanılmayan kolaydır! [https://aka.MS/nimw2g](https://aka.ms/nimw2g)  
+İpucu 3: uygulamanızı dünyada üstün hızlı herhangi bir yerde olması gerekiyor? #CosmosDB verilerinizle çoğaltma kullanılmayan kolaydır! [https://aka.ms/nimw2g](https://aka.ms/nimw2g)  
 
 > [!VIDEO https://www.youtube.com/embed/i22R7I_Rgdg]
 
@@ -59,7 +53,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 ## <a name="tip-4-gremlin-graph-support"></a>İpucu 4: Gremlin grafik desteği
 
-İpucu 4: gremlins, sıkışması misiniz? #cosmosdb Gremlin çok Sever! Görüntülemek, sorgu ve grafik, Azure portalını kullanarak DB düzenlemek [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
+İpucu 4: gremlins, sıkışması misiniz? #cosmosdb Gremlin çok Sever! Görüntüleme, sorgu ve, Azure portalını kullanarak DB grafiği Düzenle [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
 
 > [!VIDEO https://www.youtube.com/embed/oPUTZbiXffk]
 
@@ -67,7 +61,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 ## <a name="tip-5-try-azure-cosmos-db-free"></a>İpucu 5: Azure Cosmos DB ücretsiz deneyin
 
-İpucu 5: Azure #CosmosDB ücretsiz denemek ister? Hiçbir kaydolma veya kredi kartı gerekli, yalnızca Git [https://aka.ms/d81vxr](https://aka.ms/d81vxr) ve kod yazmaya başlayın!  
+İpucu 5: Azure #CosmosDB ücretsiz denemek ister? Hiçbir kaydolma veya kredi kartı gerekli, yalnızca Git [ https://aka.ms/d81vxr ](https://aka.ms/d81vxr) ve kod yazmaya başlayın!  
 
 > [!VIDEO https://www.youtube.com/embed/Vf8iZCmoG2E]
 
@@ -75,7 +69,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 ## <a name="tip-6-migrate-your-mean-app"></a>İpucu 6: ortalama uygulamanızı geçirme
 
-İpucu 6:, ANLAMDA olduğu? Uygulamanızı Azure #cosmosDB kolayca geçirme öğrenin! https://aka.MS/gfh6i5 tam video: https://aka.ms/aoojih  
+İpucu 6:, ANLAMDA olduğu? Uygulamanızı Azure #cosmosDB kolayca geçirme öğrenin! https://aka.ms/gfh6i5 Tam video:  https://aka.ms/aoojih  
 
 > [!VIDEO https://www.youtube.com/embed/vlAUxc3d2ak]
 
@@ -99,7 +93,7 @@ Görme amaçlayan. İnceleyebilir ve, DB sorgulamak için Azure portalında #cos
 
 ## <a name="tip-10-copy-mongodb-data-using-studio-3t"></a>İpucu 10: Studio 3T kullanarak kopyalama MongoDB verileri
 
-İpucu 10: MongoDB verilerinizi Azure Cosmos Studio 3T kullanarak Veritabanına kopyalama öğrenin (MongoChef). Belgeleri adresindeki [https://aka.ms/apzhww](https://aka.ms/apzhww)
+İpucu 10: MongoDB verilerinizi Azure Cosmos Studio 3T kullanarak Veritabanına kopyalama öğrenin (MongoChef). Konumundaki belgeleri [https://aka.ms/apzhww](https://aka.ms/apzhww)
 
 > [!VIDEO https://www.youtube.com/embed/Qa4YpShYEcI]
 
@@ -115,7 +109,7 @@ Makale: [tepki ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](https:
 
 ## <a name="tip-12-go-serverless"></a>İpucu 12: sunucusuz gidin
 
-İpucu 12: Azure #CosmosDB ile sunucusuz gidin ve @AzureFunctions! Tam adresindeki belgeleri [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
+İpucu 12: Azure #CosmosDB ile sunucusuz gidin ve @AzureFunctions! Konumundaki tam belgeleri [https://aka.ms/Pmic1j](https://aka.ms/Pmic1j)
 
 > [!VIDEO https://www.youtube.com/embed/U--3mfisNCs]
 
@@ -131,7 +125,7 @@ Makale: [Açısal ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma](htt
 
 ## <a name="tip-14-use-cases"></a>İpucu 14: kullanım örnekleri
 
-İpucu 14: Ortak Azure #CosmosDB kullanım durumları merak ediyor? Bakın [https://aka.ms/Ihpf00](https://aka.ms/Ihpf00) IOT hakkında bilgi edinmek için oyun ve sosyal uygulamalar
+İpucu 14: Ortak Azure #CosmosDB kullanım durumları merak ediyor? Bakın [ https://aka.ms/Ihpf00 ](https://aka.ms/Ihpf00) IOT hakkında bilgi edinmek için oyun ve sosyal uygulamalar
 
 Makale: [ortak Azure Cosmos DB kullanım örnekleri](https://aka.ms/Ihpf00)
 
@@ -148,7 +142,7 @@ Makale: [ortak Azure Cosmos DB kullanım örnekleri](https://aka.ms/Ihpf00)
 
 ## <a name="tip-16-functions-and-twilio-demo"></a>İpucu 16: İşlevler ve Twilio gösteri
 
-İpucu 16: Harika demo! Azure #cosmosDB, işlevleri tümleştirmek ve @twilio herhangi bir DB değişiklik SMS gönderilecek. Belgeleri adresindeki bkz [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+İpucu 16: Harika demo! Azure #cosmosDB, işlevleri tümleştirmek ve @twilio herhangi bir DB değişiklik SMS gönderilecek. Belgeleri, bkz: [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
 
 > [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
 
@@ -157,7 +151,7 @@ Makale: [ortak Azure Cosmos DB kullanım örnekleri](https://aka.ms/Ihpf00)
 
 ## <a name="tip-17-using-mongoose-discriminators"></a>17 İpucu: Mongoose kullanarak discriminators
 
-İpucu 17: Maliyet tek #CosmosDB koleksiyonunda birden çok varlık depolamak için Mongoose discriminators kullanarak en iyi duruma [https://aka.ms/M488jm](https://aka.ms/M488jm)
+17 İpucu: Maliyet tek #CosmosDB koleksiyonunda birden çok varlık depolamak için Mongoose discriminators kullanarak en iyi duruma getirme [https://aka.ms/M488jm](https://aka.ms/M488jm)
 
 Blog: [Mongoose Discriminators Anthony Chu tarafından tek Cosmos DB koleksiyonunda birden çok varlık depolamak için kullanma](https://aka.ms/M488jm)
 
@@ -165,7 +159,7 @@ Blog: [Mongoose Discriminators Anthony Chu tarafından tek Cosmos DB koleksiyonu
 
 ## <a name="tip-18-request-units"></a>İpucu 18: İstek birimleri
 
-İpucu 18: İstek birimleri (RU) nelerdir ve Azure #CosmosDB yapılandırma konusunda bilgi edinin. Belgeleri üzerinde daha fazla [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+İpucu 18: İstek birimleri (RU) nelerdir ve Azure #CosmosDB yapılandırma konusunda bilgi edinin. Daha fazla üzerinde belgeleri adresindeki [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
 
 Makale: [isteği Azure Cosmos DB birimleri](https://aka.ms/Kt2nbn)
 
@@ -173,7 +167,7 @@ Makale: [isteği Azure Cosmos DB birimleri](https://aka.ms/Kt2nbn)
 
 ## <a name="tip-19-partition-partition-partition"></a>19 İpucu: bölüm! Bölüm! Bölüm! 
 
-19 İpucu: bölüm! Bölüm! Bölüm! Neden ve nasıl Azure #CosmosDB. Belgeleri adresindeki [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+19 İpucu: bölüm! Bölüm! Bölüm! Neden ve nasıl Azure #CosmosDB. Konumundaki belgeleri [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
 
 > [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
 

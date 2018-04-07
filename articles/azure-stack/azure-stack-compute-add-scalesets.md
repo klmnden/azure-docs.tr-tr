@@ -1,22 +1,22 @@
 ---
-title: "Yapma sanal makine ölçek Azure yığınında kullanılabilen ayarlar | Microsoft Docs"
-description: "Bir bulut işleci Azure yığın Marketinde sanal makine ölçek nasıl ekleyebileceğinizi öğrenin"
+title: Yapma sanal makine ölçek Azure yığınında kullanılabilen ayarlar | Microsoft Docs
+description: Bir bulut işleci Azure yığın Marketinde sanal makine ölçek nasıl ekleyebileceğinizi öğrenin
 services: azure-stack
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: anajod
-keywords: 
-ms.openlocfilehash: a4c854bdd659a05f032f5ee232074bc38ff677ef
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+keywords: ''
+ms.openlocfilehash: cdabd2a9d336cdd8ac83d27460fe129c45b7e1c6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Sanal makine ölçek kümeleri Azure yığın kullanılabilmesini
 
@@ -47,6 +47,7 @@ Azure yığında otomatik ölçek sanal makine ölçek kümeleri desteklemez. Az
 
    Linux desteği için Ubuntu Server 16.04 karşıdan yükleyip kullanarak eklemek ```Add-AzsVMImage``` aşağıdaki parametrelerle: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
 
+
 ## <a name="add-the-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi Ekle
 
 Ortamınız için aşağıdaki PowerShell komut dosyasını düzenleyin ve ardından çalıştırın, Azure yığın Market ayarlamak bir sanal makine ölçek eklemek için. 
@@ -72,6 +73,38 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 
 Add-AzsVMSSGalleryItem -Location $Location
 ```
+
+## <a name="update-images-in-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi görüntülerinde güncelleştir 
+Bir sanal makine ölçek kümesini oluşturduktan sonra kullanıcıların yeniden oluşturulması gerek kalmadan ayarlamak ölçek kümesi ölçek görüntülerinde güncelleştirebilirsiniz. İşlemi görüntüyü güncelleştirmek için aşağıdaki senaryoları bağlıdır:
+
+1. Sanal makine ölçek kümesi dağıtım şablonu **son belirtir** için *sürüm*:  
+
+   Zaman *sürüm* olarak ayarlanmış olan **son** içinde *Imagereference* şablon için bir ölçek bölümünü ayarlamak, Ölçek kümesi kullanım işlemleri en yeni kullanılabilir sürümü ölçeklendirin Ölçek için görüntünün örnekleri ayarlayın. Bir ölçek büyütme tamamlandıktan sonra eski sanal makine ölçek kümeleri örnekleri silebilirsiniz.  (Değerlerini *yayımcı*, *teklif*, ve *sku* değişmeden kalır). 
+
+   Aşağıdaki belirten bir örnektir *son*:  
+
+          "imageReference": {
+             "publisher": "[parameters('osImagePublisher')]",
+             "offer": "[parameters('osImageOffer')]",
+             "sku": "[parameters('osImageSku')]",
+             "version": "latest"
+             }
+
+   Ölçek büyütme yeni bir görüntü kullanmadan önce yeni görüntü karşıdan yüklemeniz gerekir:  
+
+   - Market görüntüde ölçek kümesini görüntüde daha yeni bir sürüme olduğunda: eski resim yerini alan yeni görüntüyü indirin. Görüntünün yerini sonra bir kullanıcı ölçeği geçebilirsiniz. 
+
+   - Market görüntü sürümü olduğunda görüntünün ölçek kümesindeki aynı: ölçek kümesindeki kullanılıyor görüntüyü silin ve yeni görüntüyü indirin. Özgün görüntüsüne kaldırılmasını ve yeni görüntüyü indirme arasındaki süre boyunca, ölçeği olamaz. 
+      
+     Bu işlem gereklidir resyndicate için 1803 sürümü ile sunulan seyrek dosya biçimi olun görüntüleri kullanın. 
+ 
+
+2. Sanal makine ölçek kümesi dağıtım şablonu **son belirtmiyor** için *sürüm* ve bunun yerine bir sürüm numarasını belirtir:  
+
+     Bir görüntü (kullanılabilir sürüm Değişeni) daha yeni bir sürümüyle yüklerseniz, Ölçek kümesini ölçeği olamaz. Bu, Ölçek kümesi şablonda belirtilen görüntüyü sürüm kullanılabilir olması gerektiği tasarım gereğidir.  
+
+Daha fazla bilgi için bkz: [işletim sistemi diskleri ve görüntüleri](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi Kaldır
 

@@ -1,20 +1,20 @@
 ---
-title: "Wingtips uygulaması - Azure SQL veritabanı'na Hoş Geldiniz | Microsoft Docs"
-description: "Veritabanı kiralama modelleri hakkında ve Azure SQL veritabanı'nda bulut ortamı için örnek Wingtips SaaS uygulaması hakkında bilgi edinin."
-keywords: "sql veritabanı öğreticisi"
+title: Wingtips uygulaması - Azure SQL veritabanı'na Hoş Geldiniz | Microsoft Docs
+description: Veritabanı kiralama modelleri hakkında ve Azure SQL veritabanı'nda bulut ortamı için örnek Wingtips SaaS uygulaması hakkında bilgi edinin.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: bb69a03333ed9dcdba1456d053c0080be5ba4d10
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b4f91ab1e6debb39980eeedc58249b50b5ac85e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biletleri SaaS uygulaması
 

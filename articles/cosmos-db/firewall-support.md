@@ -3,9 +3,8 @@ title: Azure Cosmos DB güvenlik duvarı & IP erişim denetimi | Microsoft Docs
 description: Azure Cosmos DB veritabanı hesaplarında güvenlik duvarı desteği için IP erişim denetimi ilkeleri kullanmayı öğrenin.
 keywords: IP erişim denetimi, güvenlik duvarı desteği
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 documentationcenter: ''
 ms.assetid: c1b9ede0-ed93-411a-ac9a-62c113a8e887
@@ -15,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: mimig
-ms.openlocfilehash: 5b70f77d49651e2873428fc7798fff3770b7a095
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: sngun
+ms.openlocfilehash: 4d5743703f3a1d98b720bd92a30c91549bbf89c0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB güvenlik duvarı desteği
 Bir Azure Cosmos DB veritabanı hesapta depolanan verilerin güvenliğini sağlamak için Azure Cosmos DB desteği dayalı bir gizlilik için sağladığınız [yetkilendirme modelini](https://msdn.microsoft.com/library/azure/dn783368.aspx) güçlü karma tabanlı ileti kimlik doğrulama kodu (HMAC) kullanır. Şimdi, gizli tabanlı yetkilendirme modeli yanı sıra Azure Cosmos DB gelen güvenlik duvarı desteği için IP tabanlı erişim denetimlerini güdümlü İlkesi destekler. Bu model, geleneksel veritabanı sistem güvenlik duvarı kurallarına benzer ve ek bir Azure Cosmos DB veritabanı hesabı için güvenlik düzeyi sağlar. Bu modelde, artık yalnızca onaylanan bir makineler kümesinden erişilebilir olması ve/veya Bulut Hizmetleri için bir Azure Cosmos DB veritabanı hesabı yapılandırabilirsiniz. Bu onaylanmış kümelerinden makineleri ve Hizmetleri Azure Cosmos DB kaynaklarına erişimi hala geçerli bir yetkilendirme belirteci sunmak arayan gerektirir.

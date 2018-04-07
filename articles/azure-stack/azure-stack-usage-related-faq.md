@@ -1,9 +1,25 @@
- ---
-Başlık: kullanım API'si ile ilgili sık sorulan sorular | Microsoft Docs Açıklama: Azure yığın listesi ölçümler, Azure kullanım API, kullanım süresi ve hata kodları bildirilen saati karşılaştırma.
-services: azure-stack documentationcenter: '' author: mattbriggs manager: femila editor: ''
-
-ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071 ms.service: azure-stack ms.workload: na ms.tgt_pltfrm: na ms.devlang: na ms.topic: article ms.date: 03/09/2018 ms.author: mabrigg ms.reviewer: alfredop
-
+---
+title: Kullanım API'si ile ilgili sık sorulan sorular | Microsoft Docs
+description: Azure yığın ölçümler, Azure kullanım API, kullanım süresi ve hata kodları bildirilen saati karşılaştırma listesi.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.assetid: 847f18b2-49a9-4931-9c09-9374e932a071
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 03/09/2018
+ms.author: mabrigg
+ms.reviewer: alfredop
+ms.openlocfilehash: 3d6f2bf569ecfebe3bf4f535a7a8ab3bf22849f1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Sık sorulan sorular Azure yığın kullanımı API
 Bu makalede Azure yığın kullanım API'si hakkında sık sorulan bazı sorular yanıtlanmaktadır.
@@ -35,7 +51,7 @@ Kullanım aşağıdaki kaynak sağlayıcıları için bildirdi:
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM boyutu saatleri |VM saatleri |Hem temel hem de Windows VM yakalar. Çekirdeği ayarlanmaz. |
 | **Anahtar Kasası** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Anahtar kasası işlemleri | 10, 000's isteği sayısı| Anahtar kasası veri düzlemi tarafından alınan REST API isteklerinin sayısı. |
 | |2C354225-B2FE-42E5-AD89-14F0EA302C87 |Gelişmiş anahtarları işlemleri | 10K işlemleri|     RSA 3K / 4K, ECC anahtar işlemleri. (Önizleme). |
-| **Uygulama hizmeti** | 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA | Uygulama Hizmeti | Sanal çekirdek saatleri | Uygulama hizmeti çalıştırmak için kullanılan sanal çekirdeklerinin sayısı. Not: Microsoft Azure yığın uygulama hizmeti kaydedilecek Bu ölçer kullanır. Bulut hizmeti sağlayıcıları kiracıları için kullanım hesaplamak için ölçümler (aşağıda) bir uygulama hizmeti kullanabilirsiniz. |
+| **Uygulama hizmeti** | 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA | App Service | Sanal çekirdek saatleri | Uygulama hizmeti çalıştırmak için kullanılan sanal çekirdeklerinin sayısı. Not: Microsoft Azure yığın uygulama hizmeti kaydedilecek Bu ölçer kullanır. Bulut hizmeti sağlayıcıları kiracıları için kullanım hesaplamak için ölçümler (aşağıda) bir uygulama hizmeti kullanabilirsiniz. |
 |  | 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE | İşlevler istekleri | 10 istekleri | İstenen yürütmeleri (her 10 yürütmeleri) toplam sayısı. Yürütmeleri işlevi bir olaya yanıt olarak çalışan veya bir bağlama tarafından tetiklenen her zaman sayılır. |
 |  | D1D04836-075C-4F27-BF65-0A1130EC60ED | İşlevler - işlem | GB-s | Kaynak tüketimini gigabayt (GB/s) saniye cinsinden ölçülür. **Kaynak tüketimini gözlenen** ortalama bellek boyutu GB alan işlevi çalıştırmak için milisaniye olarak süre çarparak hesaplanır. Bir işlev tarafından kullanılan bellek, yürütme süresi yuvarlama tarafından hesaplanan 1.536 MB maksimum bellek boyutu kadar yakın 128 MB kadar yuvarlama tarafından ölçülür yakın 1 kadar ms. En düşük yürütme süresi ve bellek tek işlevi yürütme için olan 100 ms ve 128 mb sırasıyla. |
 |  | 957E9F36-2C14-45A1-B6A1-1723EF71A01D | Paylaşılan uygulama hizmeti saatleri | 1 saat | Parça App Service planı kullanımı saat. Planları, uygulama başına temelinde ölçülen. |

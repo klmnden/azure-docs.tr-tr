@@ -1,11 +1,11 @@
 ---
-title: "HPC Pack işlerini küme Azure'da gönderme | Microsoft Docs"
-description: "Azure'da bir HPC Pack kümeye iş göndermek için bir şirket içi bilgisayarı ayarlama öğrenin"
+title: HPC Pack işlerini küme Azure'da gönderme | Microsoft Docs
+description: Azure'da bir HPC Pack kümeye iş göndermek için bir şirket içi bilgisayarı ayarlama öğrenin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management,hpc-pack
 ms.assetid: 78f6833c-4aa6-4b3e-be71-97201abb4721
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: d5953f1e1dd2deb4d871bd67352a6a5b2ae13dbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 263946c1a1bd792b2f23a55388b73a82ddad0000
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Şirket içindeki bir bilgisayardan Azure’da dağıtılmış bir HPC Pack kümesine HPC işleri gönderme
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -28,8 +28,8 @@ ms.lasthandoff: 10/11/2017
 
 ![Azure'da bir küme için bir iş gönderme][jobsubmit]
 
-## <a name="prerequisites"></a>Ön koşullar
-* **Bir Azure VM dağıtılan HPC paketi üstbilgi düğümü** -otomatik araçları gibi kullanmanızı öneririz bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/documentation/templates/) veya bir [Azure PowerShell Betiği](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) baş düğümü dağıtma ve Küme. Baş düğüm DNS adını ve bu makaledeki adımları tamamlamak için bir Küme Yöneticisi kimlik bilgileri gerekir.
+## <a name="prerequisites"></a>Önkoşullar
+* **Bir Azure VM dağıtılan HPC paketi üstbilgi düğümü** -otomatik araçları gibi kullanmanızı öneririz bir [Azure Hızlı Başlangıç şablonu](https://azure.microsoft.com/documentation/templates/) veya bir [Azure PowerShell Betiği](classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) baş düğüm ve küme dağıtmak için . Baş düğüm DNS adını ve bu makaledeki adımları tamamlamak için bir Küme Yöneticisi kimlik bilgileri gerekir.
 * **İstemci bilgisayar** -HPC Pack istemci yardımcı programları çalıştırmak bir Windows veya Windows Server istemci bilgisayar gerekir (bkz [sistem gereksinimleri](https://technet.microsoft.com/library/dn535781.aspx)). Yalnızca iş göndermek için HPC Pack web portalı veya REST API'yi kullanmak istiyorsanız, tercih ettiğiniz herhangi bir istemci bilgisayarı kullanabilirsiniz.
 * **HPC Pack yükleme medyasını** - HPC Pack (HPC Pack 2012 R2) en son sürümünü kullanılabilir HPC Pack istemci yardımcı programları, ücretsiz yükleme paketini yüklemek için [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=328024). VM baş düğümünde yüklü HPC Pack aynı sürümünü yüklediğinizden emin olun.
 

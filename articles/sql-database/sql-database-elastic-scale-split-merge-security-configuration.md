@@ -1,6 +1,6 @@
 ---
-title: "Bölünmüş birleştirme güvenlik yapılandırması | Microsoft Docs"
-description: "X409 ayarlamak esnek ölçek bölme/merge hizmetiyle şifreleme için sertifikalar."
+title: Bölünmüş birleştirme güvenlik yapılandırması | Microsoft Docs
+description: X409 ayarlamak esnek ölçek bölme/merge hizmetiyle şifreleme için sertifikalar.
 metakeywords: Elastic Database certificates security
 services: sql-database
 manager: craigg
@@ -8,13 +8,13 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 05/27/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c07ba1e74daace546bae4f4209842312136914a3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="split-merge-security-configuration"></a>Bölünmüş birleştirme güvenlik yapılandırması
 Bölünmüş/Merge hizmetini kullanmak için güvenlik doğru şekilde yapılandırmanız gerekir. Hizmet Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için bkz: [esnek ölçek bölme ve birleştirme hizmet öğretici](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -111,7 +111,7 @@ Varsayılan yapılandırma, tüm HTTP uç noktası erişimi reddeder. Bu uç nok
 Varsayılan yapılandırma tüm HTTPS uç noktasını erişmesini sağlar. Bu ayar daha fazla kısıtlanabilir.
 
 ### <a name="changing-the-configuration"></a>Yapılandırmayı değiştirme
-Grubun geçerli erişim denetim kurallarını ve uç nokta yapılandırılmış  **<EndpointAcls>**  bölümüne **hizmet yapılandırma dosyası**.
+Grubun geçerli erişim denetim kurallarını ve uç nokta yapılandırılmış **<EndpointAcls>** bölümüne **hizmet yapılandırma dosyası**.
 
     <EndpointAcls>
       <EndpointAcl role="SplitMergeWeb" endPoint="HttpIn" accessControl="DenyAll" />
@@ -429,7 +429,7 @@ Sertifika Alma Sihirbazı'nda:
 9. Tıklatın **Tamam** tüm iletişim Windows.
 
 ## <a name="upload-certificate"></a>Sertifikayı karşıya yükleme
-İçinde [Azure portalı](https://portal.azure.com/)
+[Azure portalında](https://portal.azure.com/)
 
 1. Seçin **bulut hizmetlerini**.
 2. Bulut hizmeti seçin.

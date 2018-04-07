@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: cff6d780826164de6ef0122849e40d453192f81c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 11f57f866981cd4d376705dd24e2f0c54126e337
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -44,7 +44,9 @@ Azure yığın 1803 güncelleştirme yapı numarası **20180329.1**.
 
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-*Güncelleştirme sonrası adımı 1803 güncelleştirmesi yoktur.*
+1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
+
+- [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/en-us/help/4103348)
 
 
 ### <a name="new-features"></a>Yeni Özellikler 
@@ -90,7 +92,7 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar    
-1803 güncelleştirme yüklemesi sırasında blob hizmeti ve blob hizmeti kullanan iç Hizmetleri kapalı kalma süresi olabilir. Bu, bazı sanal makine işlemlerini içerir.  Bu kesinti Kiracı hatalarının işlemleri veya uyarıları verilere erişemezsiniz Hizmetleri'nden neden olabilir. Güncelleştirme yüklemesi tamamlandığında kendisini bu sorunu çözer. 
+<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
 
 
 ### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
@@ -129,10 +131,6 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 #### <a name="compute"></a>İşlem
 - Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
-
-- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
-
-  Bu sorunu çözmek için düzeltme istemek için desteğe başvurun **1.0.180302.4** Azure yığınının. 
 
 - Kullanılabilirlik giderek portalda kümesi oluşturduğunuzda **yeni** > **işlem** > **kullanılabilirlik kümesi**, oluşturabilmeniz için bir kullanılabilirlik, bir hata etki alanı ve güncelleştirme etki alanı 1 ile ayarlayın. Yeni bir sanal makine oluştururken, bir geçici çözüm olarak, kullanılabilirlik PowerShell'i, CLI, kullanarak veya içinden kümesini oluşturmak portal.
 

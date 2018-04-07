@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure Ağ İzleyicisi örneği oluşturma | Microsoft Docs"
-description: "Bu sayfa portal ve Azure REST API'sini kullanarak Ağ İzleyicisi örneği oluşturmak için aşağıdaki adımları sağlar."
+title: Bir Azure Ağ İzleyicisi örneği oluşturma | Microsoft Docs
+description: Ağ İzleyicisi bir Azure bölgesindeki etkinleştirmeyi öğrenin.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -14,30 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fb1e3f9a93d18e949cb42ac0a4e09129cfe414f6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Bir Azure Ağ İzleyicisi örneği oluşturma
 
 Ağ İzleyicisi İzleme ve koşullar bir ağ düzeyinde senaryo içinde gelen ve giden Azure tanılama sağlayan bölgesel bir hizmettir. Senaryo düzeyi izleme, bir uçtan uca ağ düzey görünümü adresindeki sorunlara tanı koymak sağlar. Ağ Tanılama ve görselleştirme Ağ İzleyicisi ile kullanılabilen araçlar anlamak, tanılama ve Azure ağınızdaki serisidir yardımcı olur.
 
-> [!NOTE]
-> Ağ İzleyicisi'ni şu anda yalnızca CLI 1.0 destekler gibi CLI 1.0 için yeni bir Ağ İzleyicisi örneği oluşturmak için yönergeler sağlanır.
-
 ## <a name="create-a-network-watcher-in-the-portal"></a>Portalda bir Ağ İzleyicisi oluşturma
 
 Gidin **tüm hizmetleri** > **ağ** > **Ağ İzleyicisi**. Ağ İzleyicisi için etkinleştirmek istediğiniz tüm abonelikleri seçebilirsiniz. Bu eylem, kullanılabilir olan her bölgede bir Ağ İzleyicisi oluşturur.
 
-![Ağ İzleyicisi oluşturma][1]
+![Ağ İzleyicisi oluşturma](./media/network-watcher-create/figure1.png)
 
-Ağ İzleyicisi'ni Portalı'nı kullanarak etkinleştirdiğinizde, Ağ İzleyicisi örneğinin adını burada region_name örneği etkinleştirdiğiniz Azure bölgesine karşılık gelen NetworkWatcher_region_name otomatik olarak ayarlanır.  Örneğin, Batı Orta ABD bölgesinde etkin bir Ağ İzleyicisi NetworkWatcher_westcentralus adlandırılır
+Ağ İzleyicisi'ni Portalı'nı kullanarak etkinleştirdiğinizde, Ağ İzleyicisi örneğinin adını otomatik olarak ayarlanır *NetworkWatcher_region_name* nerede *region_name* bir Azure bölgesine karşılık gelen örneği burada etkin. Örneğin, Batı Orta ABD bölgesinde etkin bir Ağ İzleyicisi adlı *NetworkWatcher_westcentralus*.
 
-Ayrıca, Ağ İzleyicisi örneği NetworkWatcherRG adlı bir kaynak grubuna otomatik olarak eklenir.  Bu kaynak grubu, zaten yoksa, oluşturulur.
+Ağ İzleyicisi örneği otomatik olarak adlı bir kaynak grubunda oluşturulan *NetworkWatcherRG*. Kaynak grubu, zaten yoksa, oluşturulur.
 
-Bir Ağ İzleyicisi örneği ve kaynak grubu adını özelleştirmek istiyorsanız içine yerleştirildiğinde, aşağıda açıklanan Powershell, REST API veya ARMClient yöntemlerini kullanabilirsiniz.  Ağ İzleyicisi'ni içine yerleştirmeden önce her seçenekte, kaynak grubu mevcut olmalıdır.  
+Bir Ağ İzleyicisi örneği ve kaynak grubu adını özelleştirmek istiyorsanız içine yerleştirildiğinde, Powershell, Azure CLI, REST API veya izleyen bölümlerde açıklanan ARMClient yöntemlerini kullanabilirsiniz. Ağ İzleyicisi içinde oluşturmadan önce her seçenekte, kaynak grubu mevcut olmalıdır.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>PowerShell ile bir Ağ İzleyicisi oluşturma
 
@@ -47,9 +44,17 @@ Ağ İzleyicisi örneği oluşturmak için aşağıdaki örnekte çalıştırın
 New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
+## <a name="create-a-network-watcher-with-the-azure-cli"></a>Azure CLI ile bir Ağ İzleyicisi oluşturma
+
+Ağ İzleyicisi örneği oluşturmak için aşağıdaki örnekte çalıştırın:
+
+```azurecli
+az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled
+```
+
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>Ağ İzleyicisi ile REST API'si oluşturma
 
-ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient bulundu üzerinde adresindeki chocolatey [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
+ARMclient PowerShell kullanarak REST API'sini çağırmak için kullanılır. ARMClient chocolatey konumunda bulunan [ARMClient Chocolatey üzerinde](https://chocolatey.org/packages/ARMClient)
 
 ### <a name="log-in-with-armclient"></a>Oturum ARMClient oturum
 
@@ -85,17 +90,4 @@ Ağ İzleyicisi örneği sahip olduğunuza göre kullanılabilir özellikleri ha
 * [NSG akış günlüğe kaydetme](network-watcher-nsg-flow-logging-overview.md)
 * [Sanal ağ geçidi sorunlarını giderme](network-watcher-troubleshoot-overview.md)
 
-Ağ İzleyicisi örneği oluşturulduktan sonra paket yakalama makaleyi izleyerek yapılandırılabilir: [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)
-
-[1]: ./media/network-watcher-create/figure1.png
-
-
-
-
-
-
-
-
-
-
-
+Ağ İzleyicisi örneği eklendiğinde, sanal makineler içinde paket yakalama etkinleştirebilirsiniz. Bilgi edinmek için bkz [bir uyarı tetiklenen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md)

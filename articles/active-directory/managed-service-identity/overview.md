@@ -1,24 +1,24 @@
 ---
-title: "Azure Active Directory için hizmet kimliği (MSI) yönetilen"
-description: "Yönetilen hizmet kimliği genel bakış Azure kaynakları için."
+title: Azure Active Directory için hizmet kimliği (MSI) yönetilen
+description: Yönetilen hizmet kimliği genel bakış Azure kaynakları için.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 0232041d-b8f5-4bd2-8d11-27999ad69370
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/19/2017
 ms.author: skwan
-ms.openlocfilehash: 2d711d4fa48a1d10d4c37b9591a66e5b746f1ca7
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e4f9d9e4e0f84610ad072d889abf68b62c0dd41f
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Yönetilen hizmet kimliği (MSI) için Azure kaynakları
 
@@ -38,7 +38,7 @@ Yönetilen hizmet kimliği Azure sanal makineler ile nasıl çalıştığını �
 2. Azure Resource Manager VM kimliğini temsil etmek için Azure AD içinde bir hizmet sorumlusu oluşturur. Hizmet sorumlusu Bu abonelik tarafından güvenilen Azure AD kiracısı oluşturulur.
 3. Azure Resource Manager hizmet sorumlusu ayrıntıları MSI VM uzantısı'nda VM yapılandırır.  Bu adım, istemci kimliği ve Azure AD erişim belirteçleri almak için uzantı tarafından kullanılan sertifika yapılandırmayı içerir.
 4. VM hizmet sorumlusu kimliğini bilinen, Azure kaynaklarına erişimi verilebilir.  Kodunuzu Azure Resource Manager çağırmak gerekirse, örneğin, daha sonra VM'ın hizmet sorumlusu Azure AD'de rol tabanlı erişim denetimi (RBAC) kullanarak uygun rol atamanız gerekir.  Daha sonra kodunuzu anahtar kasası çağırmak gerekirse, belirli gizli veya anahtar kasası anahtarında, kodu erişim verin.
-5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/belirteci.  Kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız https://management.azure.com/ =.
+5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/token.  Kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız =https://management.azure.com/.
 6. MSI VM uzantısı, Azure AD'den bir erişim belirteci istemek için yapılandırılmış istemci kimliği ve sertifika kullanır.  Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuzu Azure AD kimlik doğrulamasını destekleyen bir hizmetine yapılan bir çağrı erişim belirteci gönderir.
 
@@ -62,7 +62,7 @@ Farklı Azure kaynaklarına erişmek için uçtan uca senaryoları öğrenmek i�
 |                    | [Erişim Azure depolama bir Linux VM ile SAS aracılığıyla yönetilen hizmet kimliği](tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Bir Linux VM yönetilen hizmet kimliği ve Azure anahtar kasası ile Azure olmayan AD kaynağa erişim](tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [Azure uygulama hizmeti veya Azure işlevleri ile yönetilen hizmet kimliğini kullan](/azure/app-service/app-service-managed-service-identity) |
-| Azure işlevi     | [Azure uygulama hizmeti veya Azure işlevleri ile yönetilen hizmet kimliğini kullan](/azure/app-service/app-service-managed-service-identity) |
+| Azure İşlevleri    | [Azure uygulama hizmeti veya Azure işlevleri ile yönetilen hizmet kimliğini kullan](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Yönetilen hizmet kimliği Azure Service Bus ile kullanmak](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Yönetilen hizmet kimliği Azure Event Hubs ile kullanma](../../event-hubs/event-hubs-managed-service-identity.md) |
 
@@ -76,10 +76,12 @@ Aşağıdaki Azure hizmetlerini yönetilen hizmet kimliği destekler.
 
 | Hizmet | Durum | Tarih | Yapılandırma | Belirteç alın |
 | ------- | ------ | ---- | --------- | ----------- |
-| Azure Sanal Makineler | Önizleme | Eylül 2017 | [Azure portalı](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager şablonları](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Git](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
-| Azure App Service | Önizleme | Eylül 2017 | [Azure portalı](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure İşlevleri | Önizleme | Eylül 2017 | [Azure portalı](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
-| Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure portalı](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+| Azure Sanal Makineler | Önizleme | Eylül 2017 | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager şablonları](qs-configure-template-windows-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
+| Azure App Service | Önizleme | Eylül 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure işlevleri<sup>1</sup> | Önizleme | Eylül 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
+
+<sup>1</sup> azure işlevleri desteği, bir kimlik kullanmak üzere kullanıcı kodu sağlar, ancak Tetikleyicileri ve bağlamaları hala gerektirebilir bağlantı dizeleri.
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>Bu destek Azure AD kimlik doğrulaması Azure Hizmetleri
 
@@ -87,7 +89,7 @@ Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen h
 
 | Hizmet | Kaynak kimliği | Durum | Tarih | Erişimi atayın |
 | ------- | ----------- | ------ | ---- | ------------- |
-| Azure Resource Manager | https://management.azure.com | Kullanılabilir | Eylül 2017 | [Azure portalı](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
+| Azure Resource Manager | https://management.azure.com | Kullanılabilir | Eylül 2017 | [Azure Portal](howto-assign-access-portal.md) <br>[PowerShell](howto-assign-access-powershell.md) <br>[Azure CLI](howto-assign-access-CLI.md) |
 | Azure Key Vault | https://vault.azure.net | Kullanılabilir | Eylül 2017 | |
 | Azure Data Lake | https://datalake.azure.net | Kullanılabilir | Eylül 2017 | |
 | Azure SQL | https://database.windows.net | Kullanılabilir | Ekim 2017 | |

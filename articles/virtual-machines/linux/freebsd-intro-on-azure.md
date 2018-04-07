@@ -1,11 +1,11 @@
 ---
-title: "Azure üzerinde FreeBSD giriş | Microsoft Docs"
-description: "Azure üzerinde FreeBSD sanal makineleri kullanma hakkında bilgi edinin"
+title: Azure üzerinde FreeBSD giriş | Microsoft Docs
+description: Azure üzerinde FreeBSD sanal makineleri kullanma hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: thomas1206
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 32b87a5f-d024-4da0-8bf0-77e233d1422b
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: e47a00a8375659f9112da57f9e7a4747f10f8f16
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 9c7cf223eab3e989436e12c39b122f2aee7619a0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure üzerinde FreeBSD giriş
 Bu konuda FreeBSD sanal makine Azure'da çalışan bir genel bakış sağlar.
@@ -130,7 +130,7 @@ $ sudo <COMMAND>
 Bir kök Kabuğu'nu kullanarak isteğe bağlı olarak elde edebilirsiniz `sudo -s`.
 
 ## <a name="known-issues"></a>Bilinen sorunlar
-[Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) 2.2.2 sahip [bilinen bir sorun] sürüm (https://github.com/Azure/WALinuxAgent/pull/517) neden sağlama hatası Azure FreeBSD sanal makine için. Düzeltme tarafından yakalanan [Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) sürüm 2.2.3 ve sonraki sürümlerinde. 
+[Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) 2.2.2 sahip [bilinen bir sorun] sürüm (https://github.com/Azure/WALinuxAgent/pull/517) , sağlama hatası Azure FreeBSD sanal makine için neden olur. Düzeltme tarafından yakalanan [Azure VM Konuk aracısının](https://github.com/Azure/WALinuxAgent/) sürüm 2.2.3 ve sonraki sürümlerinde. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Git [Azure Marketi](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) FreeBSD VM oluşturmak için.

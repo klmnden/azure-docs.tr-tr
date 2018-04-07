@@ -1,19 +1,19 @@
 ---
-title: "Ölçeklenebilir bulut veritabanları oluşturma | Microsoft Docs"
-description: "Esnek veritabanı istemci kitaplığı ile ölçeklenebilir .NET veritabanı uygulamalar oluşturma"
+title: Ölçeklenebilir bulut veritabanları oluşturma | Microsoft Docs
+description: Esnek veritabanı istemci kitaplığı ile ölçeklenebilir .NET veritabanı uygulamalar oluşturma
 services: sql-database
 manager: jhubbard
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: e15254fd529d98f2b92acea8dd1ed908a82841ea
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6000b06950ddd442b76838e5632196808f893ef9
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="building-scalable-cloud-databases"></a>Ölçeklenebilir bulut veritabanları oluşturma
 Veritabanları ölçeklendirme Azure SQL veritabanı için ölçeklenebilir araçları ve özelliklerinin kullanılarak kolayca gerçekleştirilebilir. Özellikle, kullanabileceğiniz **esnek veritabanı istemci Kitaplığı** oluşturmak ve ölçeklendirilmiş veritabanları yönetmek için. Bu özellik kolayca yüzlerce kullanarak parçalı uygulamalar geliştirmenize olanak sağlar; veya hatta binlerce — Azure SQL veritabanlarının. [Esnek iş](sql-database-elastic-jobs-powershell.md) daha sonra bu veritabanlarının kolaylığı yönetim yardımcı olmak için kullanılabilir.

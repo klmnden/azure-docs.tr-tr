@@ -1,6 +1,6 @@
 ---
-title: "SQL Veritabanı Uygulaması Geliştirmeye Genel Bakış | Microsoft Belgeleri"
-description: "SQL Veritabanına bağlanan uygulamalar için kullanılabilen bağlantı kitaplıkları ve en iyi uygulamalar hakkında bilgi edinin."
+title: SQL Veritabanı Uygulaması Geliştirmeye Genel Bakış | Microsoft Belgeleri
+description: SQL Veritabanına bağlanan uygulamalar için kullanılabilen bağlantı kitaplıkları ve en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
 author: stevestein
 manager: craigg
@@ -8,13 +8,13 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: ec3569d37d399590b0c306a85f199221e7812253
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dc78a43fb99428eac921dd0cfffe5547f523a133
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzere kod yazarken dikkat etmesi gereken noktalara yer verilmiştir.

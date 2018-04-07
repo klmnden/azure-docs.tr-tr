@@ -4,7 +4,7 @@ description: Azure Linux çalıştıran VM'ler için CoreMark işlem Kıyaslama 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 93e812c1-79dd-40c5-b97b-aa79f5cd7d76
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cynthn;davberg
-ms.openlocfilehash: 5066ca582beb0c226e3b5e4014a696d44af50df6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25e471b826a1df0bd71f141286a59159b674f365
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM'ler için Kıyaslama puanları işlem
 Aşağıdaki CoreMark Kıyaslama puanlar Ubuntu çalışan Azure'nın yüksek performans VM serisi için işlem performansı gösterir. İşlem Kıyaslama puanları için kullanılabilir de [Windows VM'ler](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -27,7 +27,7 @@ Aşağıdaki CoreMark Kıyaslama puanlar Ubuntu çalışan Azure'nın yüksek pe
 ## <a name="av2---general-compute"></a>Av2 - genel işlem
 (3/23/2018 7:32:49 PM pbı 2050259)
 
-| VM Boyutu | CPU | Vcpu'lar | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
+| VM Boyutu | CPU | vCPU sayısı | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_A1_v2 | Intel(r) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 1.9 | 6,514 | 56 | 0.86% | 119 |
 | Standard_A1_v2 | Intel(r) Xeon(R) CPU E5-2673 v3 2,40 GHz @ | 1 | 1 | 1.9 | 6,162 | 195 | 3.17% | 70 |
@@ -54,7 +54,7 @@ Aşağıdaki CoreMark Kıyaslama puanlar Ubuntu çalışan Azure'nın yüksek pe
 ## <a name="a0-7-standard-general-compute"></a>A0-7 standart genel işlem
 (3/23/2018 9:06:07 PM pbı 2050259)
 
-| VM Boyutu | CPU | Vcpu'lar | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
+| VM Boyutu | CPU | vCPU sayısı | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_A0 | AMD Opteron(tm) işlemci 4171. | 1 | 1 | 0.6 | 3,556 | 14 | 0.39% | 21 |
 | Standard_A0 | Intel(r) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 1 | 1 | 0.6 | 3,137 | 16 | 0.51% | 70 |
@@ -83,7 +83,7 @@ Aşağıdaki CoreMark Kıyaslama puanlar Ubuntu çalışan Azure'nın yüksek pe
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - genel işlem + Premium depolama
 (3/23/2018 7:28:44 PM pbi 2050259)
 
-| VM Boyutu | CPU | Vcpu'lar | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
+| VM Boyutu | CPU | vCPU sayısı | NUMA Nodes | Memory(GiB) | Ortalama puanı | StdDev | StdDev % | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_D2s_v3 | Intel(r) Xeon(R) CPU E5-2673 v3 2,40 GHz @ | 2 | 1 | 8.0 | 20,259 | 729 | 3.60% | 140 |
 | Standard_D2s_v3 | Intel(r) Xeon(R) CPU E5-2673 v4 2.30GHz @ | 2 | 1 | 8.0 | 20,364 | 1,007 | 4.94% | 70 |

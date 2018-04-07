@@ -1,12 +1,12 @@
 ---
-title: "Belge koruması kişisel veri raporlama araçları Azure ile | Microsoft Docs"
-description: "Genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde girişimleri kişisel verileri gizliliğini korumak için Azure Raporlama Hizmetleri kullanın."
+title: Belge koruması kişisel veri raporlama araçları Azure ile | Microsoft Docs
+description: Genel veri koruma düzenleme (GDPR) ile uyumlu olacak şekilde girişimleri kişisel verileri gizliliğini korumak için Azure Raporlama Hizmetleri kullanın.
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 2c677a1dea001c6a414304fbaa683c3787b355b1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: fc859f3aa34531133b7a21e36591b011c63d511c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Kişisel veri raporlama araçları Azure ile belge koruması
 
@@ -95,13 +95,13 @@ Tüm ortamınız merkezi analizini sağlayan tüm toplanan verileri karşı gün
 
 #### <a name="how-do-i-use-log-analytics"></a>Günlük analizi nasıl kullanabilirim?
 
-Günlük analizi OMS portalında veya Azure portalından herhangi bir web tarayıcısı üzerinden erişebilirsiniz. Log Analytics, depodaki verileri hızlı bir şekilde almak ve birleştirmek için bir sorgu dili içerir. Oluşturun ve günlük doğrudan portal içinde verileri çözümlemek için aramaları kaydedin.
+Günlük analizi OMS portalında veya Azure portalından herhangi bir web tarayıcısı üzerinden erişebilirsiniz. Günlük analizi hızlı bir şekilde almak ve günlük analizi çalışma alanındaki verileri birleştirmek için bir sorgu dili içerir. Oluşturun ve günlük doğrudan portal içinde verileri çözümlemek için aramaları kaydedin.
 
 Azure portalında günlük analizi çalışma alanı oluşturmak için aşağıdakileri yapın:
 
 1. Seçin **günlük analizi** Market Hizmetleri'nde listesinden.
 
-2. Seçin **oluşturun,** sonra OMS çalışma adını belirtin, abonelik, kaynak grubu, konum seçin ve fiyatlandırma katmanı.
+2. Seçin **oluşturun,** sonra günlük analizi çalışma alanınız için ad belirtin, abonelik, kaynak grubu, konum seçin ve fiyatlandırma katmanı.
 
 3. Tıklatın **Tamam** alanlarınızı listesini görüntülemek için.
 

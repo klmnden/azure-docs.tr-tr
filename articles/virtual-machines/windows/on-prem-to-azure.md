@@ -1,13 +1,13 @@
 ---
-title: "Azure yönetilen disklere AWS ve diğer platformlar geçirme | Microsoft Docs"
-description: "AWS veya diğer sanallaştırma platformları gibi diğer bulut gelen karşıya VHD'lerin azure'da VM'ler oluşturun ve Azure yönetilen diskleri yararlanabilir."
+title: Azure yönetilen disklere AWS ve diğer platformlar geçirme | Microsoft Docs
+description: AWS veya diğer sanallaştırma platformları gibi diğer bulut gelen karşıya VHD'lerin azure'da VM'ler oluşturun ve Azure yönetilen diskleri yararlanabilir.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/07/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 02dce319c055f7988355cfadbc1d63df5e268e53
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: b7fe27ed8615b9684e14276d6d0f5bf84ee5ee81
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-from-amazon-web-services-aws-and-other-platforms-to-managed-disks-in-azure"></a>Azure yönetilen disklere Amazon Web Hizmetleri (AWS) ve diğer platformlar geçirme
 
@@ -55,6 +55,7 @@ Azure yönetilen diskleri depolama hesaplarını yönetmek için gereksinimini o
 
 Bu bölümde, VM ve disk türlerinde en iyi kararı yardımcı olur.
 
+Yönetilmeyen disklerden yönetilen disklere geçişi planlıyorsanız bilmeniz gereken bu kullanıcılarla [sanal makine Katılımcısı](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacak. Yönetilen disklerle VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin kullanıcının gerektiren olmasıdır.
 
 ### <a name="location"></a>Konum
 

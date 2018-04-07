@@ -1,10 +1,10 @@
 ---
-title: "Linux destekli dağıtımlar | Microsoft Docs"
-description: "Linux hakkında Ubuntu ve CentOS, Oracle ve SUSE için yönergeler de dahil olmak üzere, Azure destekli dağıtımlar hakkında bilgi edinin."
+title: Linux destekli dağıtımlar | Microsoft Docs
+description: Linux hakkında Ubuntu ve CentOS, Oracle ve SUSE için yönergeler de dahil olmak üzere, Azure destekli dağıtımlar hakkında bilgi edinin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: 2b73ccbafc5ef16dff0bc666f601773c378ea2b0
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 7c41550d1fe9cf5981406d25599e51aa119eb697
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="linux-on-distributions-endorsed-by-azure"></a>Linux üzerinde tarafından Azure destekli dağıtımlar
 İş ortakları Azure Marketi Linux görüntüleri sağlar. Daha fazla özellikleri destekli dağıtım listesine eklemek için çeşitli Linux toplulukları ile çalışıyoruz. Bu arada, Market görüntüsünden kullanılabilir değil dağıtımları için her zaman kendi Linux yönergeleri izleyerek getirebilir [oluşturma ve karşıya yükleme Linux işletim sistemini içeren bir sanal sabit disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/create-upload-generic).
@@ -66,7 +66,7 @@ Credativ bağımsız danışmanlık ve ücretsiz yazılımlar kullanarak gelişt
 Oracle'nın genel ve özel bulut çözümleri geniş bir yelpazesini sunmaya stratejidir. Stratejisi müşteriler seçim ve bunlar Oracle bulutlarındaki Oracle yazılım ve diğer Bulutları nasıl dağıtıldığına esneklik sağlar. Oracle ile Microsoft arasındaki iş ortaklığı sayesinde müşteriler, Oracle tarafından sağlanan sertifika ve desteğin verdiği güvenle Microsoft’un genel ve özel bulutlarında Oracle yazılımlarını dağıtabilir.  Oracle'nın taahhüt ve Oracle ortak ve özel bulut çözümleri yatırım değişmez.
 
 ### <a name="red-hat"></a>Red Hat
-[http://www.RedHat.com/en/partners/Strategic-Alliance/Microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
+[http://www.redhat.com/en/partners/strategic-alliance/microsoft](http://www.redhat.com/en/partners/strategic-alliance/microsoft)
 
 Açık kaynak çözümlerinin dünyanın en önde gelen sağlayıcısı, birden fazla % 90'ını iş sorunlarını çözmesine, kendi BT Hizala Fortune 500 şirketleri Red Hat yardımcı olur ve iş stratejilerini ve teknoloji gelecek için hazırlayın. Red Hat bunu bir açık iş modeli ve uygun maliyetli, tahmin edilebilir abonelik modeli aracılığıyla güvenli çözümler sağlayarak gerçekleştirir.
 

@@ -1,20 +1,20 @@
 ---
-title: "Çok faktörlü kimlik doğrulama - Azure SQL | Microsoft Docs"
-description: "Azure SQL Database ve Azure SQL Data Warehouse Active Directory Evrensel kimlik doğrulaması kullanarak SQL Server Management Studio (SSMS) gelen bağlantıları destekler."
+title: Çok faktörlü kimlik doğrulama - Azure SQL | Microsoft Docs
+description: Azure SQL Database ve Azure SQL Data Warehouse Active Directory Evrensel kimlik doğrulaması kullanarak SQL Server Management Studio (SSMS) gelen bağlantıları destekler.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 3a950ac837b543cbcbfd4ae43cf4b9ebeb537cd5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 2ea8c3119366d86c3aabf1faa0d71f1ba3610f41
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database ve SQL Data Warehouse (MFA desteği SSMS) ile Evrensel kimlik doğrulaması
 Azure SQL Database ve Azure SQL Data Warehouse desteği SQL Server Management Studio (SSMS) kullanarak bağlantıları *Active Directory Evrensel kimlik doğrulaması*. 

@@ -1,11 +1,11 @@
 ---
-title: "Sanal makine uzantıları ve özellikleri Windows Azure için | Microsoft Docs"
-description: "Hangi uzantıları ne bunlar sağlayın veya geliştirmek tarafından gruplandırılmış Azure sanal makineler için kullanılabilir olduğunu öğrenin."
+title: Sanal makine uzantıları ve özellikleri Windows Azure için | Microsoft Docs
+description: Hangi uzantıları ne bunlar sağlayın veya geliştirmek tarafından gruplandırılmış Azure sanal makineler için kullanılabilir olduğunu öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0065468e4172f62dc1759c1905a8df48e91e01a6
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: efb7f7cf911ad5dc753afffd077c473cc0faaf74
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -40,7 +40,7 @@ Birçok farklı Azure VM uzantıları vardır, her biri belirli bir kullanım ö
 İşleme özgü uzantılar ek olarak, bir özel betik uzantısı, Windows ve Linux sanal makineleri için kullanılabilir. Windows için özel betik uzantısı, bir sanal makine üzerinde çalıştırılacak PowerShell komut dosyaları sağlar. Yerel hangi Azure araçlar sağlayabilir ötesinde yapılandırma gerektiren Azure dağıtımları tasarlarken kullanışlıdır. Daha fazla bilgi için bkz: [Windows VM özel betik uzantısı](extensions-customscript.md).
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Her sanal makine uzantısı önkoşulları kendi kümesine sahip. Örneğin, Docker VM uzantısı desteklenen Linux dağıtım önkoşul vardır. Tek tek uzantıların gereksinimlerini uzantıya özgü belgelerinde açıklanmıştır.
 

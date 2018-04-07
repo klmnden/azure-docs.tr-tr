@@ -1,13 +1,13 @@
 ---
-title: "Team Services ile azure'da CI/CD işlem hattı oluşturma | Microsoft Docs"
-description: "Sürekli tümleştirme ve IIS üzerinde bir Windows VM için bir web uygulamasına dağıtır teslimat için bir Visual Studio Team Services potansiyel oluşturmayı öğrenin"
+title: Team Services ile azure'da CI/CD işlem hattı oluşturma | Microsoft Docs
+description: Sürekli tümleştirme ve IIS üzerinde bir Windows VM için bir web uygulamasına dağıtır teslimat için bir Visual Studio Team Services potansiyel oluşturmayı öğrenin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 006cac5606c411c9d86b36d0069021094fcdb1db
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cf6e3013d4dfc7e18d96a717a76b591cde939139
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-continuous-integration-pipeline-with-visual-studio-team-services-and-iis"></a>Visual Studio Team Services ve IIS ile sürekli tümleştirme işlem hattı oluşturma
 Derleme, test ve dağıtım aşamaları uygulama geliştirme otomatikleştirmek için sürekli tümleştirme ve dağıtım (CI/CD) ardışık düzen kullanabilirsiniz. Bu öğreticide, Visual Studio Team Services ve Windows sanal makine (VM), IIS çalıştıran Azure kullanarak bir CI/CD işlem hattı oluşturun. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
@@ -230,7 +230,7 @@ Bu öğreticide, bir ASP.NET web uygulamasını Team Services içinde oluşturul
 > * Bir yayın oluşturmak tanımı yeni web yayımlama IIS paketlerini dağıtma
 > * CI/CD ardışık düzen test
 
-Bir SQL &#92; IIS &#92;yükleme konusunda bilgi almak için sonraki öğretici ilerleyin:;. Windows sanal makineleri bir çift ağ yığınındaki.
+Bir SQL yükleme konusunda bilgi almak için sonraki öğretici için öncelikli&#92;IIS&#92;.NET yığında Windows VM'ler çifti.
 
 > [!div class="nextstepaction"]
-> [SQL &#92; IIS &#92;. Ağ yığını](tutorial-iis-sql.md)
+> [SQL&#92;IIS&#92;.NET yığını](tutorial-iis-sql.md)

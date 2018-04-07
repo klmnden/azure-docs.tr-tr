@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: e0882a6c87454498d0d1370ee244bfffc137aafb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ba02e877fe7152d759085e3d25090459cd2459fc
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="door-monitor"></a>Kapı İzleyicisi          
 
@@ -44,7 +44,7 @@ Son [Getting Started Guide]({{"/docs/get-started/" | absolute_url }}) için:
 
 Etkin bir Azure aboneliği. Bir yoksa, aşağıdaki yöntemlerden birini kaydedebilirsiniz:
 
-* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesap](https://azureinfo.microsoft.com/us-freetrial.html).
+* Etkinleştirme bir [Ücretsiz 30 günlük deneme Microsoft Azure hesap](https://azure.microsoft.com/en-us/free/).
 * Talep, [Azure kredi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) bir MSDN veya Visual Studio abone olması durumunda.
 
 ## <a name="deploy-sendgrid-service-in-azure"></a>Azure'da SendGrid hizmet dağıtma

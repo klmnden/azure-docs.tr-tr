@@ -1,12 +1,12 @@
 ---
-title: "Azure İzleyicisi'ni (Önizleme) Azure geçiş ölçümlerini | Microsoft Docs"
-description: "Azure Monitoring Azure geçişi izlemek için kullanın"
+title: Azure İzleyicisi'ni (Önizleme) Azure geçiş ölçümlerini | Microsoft Docs
+description: Azure Monitoring Azure geçişi izlemek için kullanın
 services: service-bus-relay
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: dd5bc0dd0088856954e06d880f2c03f0a74ed9d7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b919f1fb0799ec497742115b2611f34872af2027
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure geçiş ölçümlerini Azure İzleyicisi'ni (Önizleme)
 
@@ -44,7 +44,7 @@ Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir.
 
 ## <a name="billing"></a>Faturalandırma
 
-Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için OMS ölçümleri veri akış sahipse işlemi Yönetim Paketi (OMS) tarafından ayrıca faturalandırılır.
+Azure İzleyicisi'nde ölçümleri kullanarak Önizleme'de şu anda çalışırken ücretsizdir. Ölçüm verilerini alma ek çözümler kullanırsanız, ancak, bu çözümleri tarafından fatura. Örneğin, bir Azure depolama hesabı ölçüm verilerini arşivlerseniz Azure Storage göre faturalandırılır. Gelişmiş analiz için günlük analizi için ölçüm verilerini akış sahipse günlük analizi tarafından ayrıca faturalandırılır.
 
 Aşağıdaki ölçümleri, hizmeti genel bir bakış sağlar. 
 

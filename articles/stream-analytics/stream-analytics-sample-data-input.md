@@ -1,26 +1,21 @@
 ---
-title: Azure Stream Analytics sınama sorgu | Microsoft Docs
-description: Akış analizi işleri giderirken sorunları belirlemenize.
-keywords: Giriş, giriş örnekleme sorun giderme
-documentationcenter: ''
+title: Azure Stream Analytics örnek verileri kullanarak bir sorguyu sınama
+description: Bu makalede, Azure akış analizi bazı örnek giriş verileri kullanarak bir sorguyu sınamak açıklar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 99c9f7f2dc84f53d09b7aee1916c5532427de692
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: 305b767ee86de6c8b04fed17514a9092afc2d735
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Azure Stream Analytics sorgu testi ve Giriş akışı örnekleme
+# <a name="test-a-query-and-sample-input-in-azure-stream-analytics"></a>Bir sorgu ve Azure akış analizi giriş örneği sınama 
 
 Azure akış analizi kullanarak, bir dosyadan dönün ve sorguları başlatmak veya bir işi durdurmak zorunda kalmadan Portalı'nda test giriş olayları örnek oluşturabilirsiniz.
 
@@ -52,11 +47,11 @@ Daha sonra kullanmak üzere çıktı testini kaydetmek istiyorsanız, sorgunuzun
 
 Sorguda birden çok çıkış kullandığınızda, ayrı ayrı her çıktı için sonuçları görmek ve kolayca aralarında geçiş.
 
-Sonuçlardan memnun kaldığınızda, sorgunuzu kaydedebilir, işinizi başlatmak, arkanıza yaslanın ve akış analizi Sihirli izleyin.
+Sonuçlardan memnun kaldığınızda, sorgunuzu kaydetmek, işinizi başlatmak, arkanıza yaslanın ve akış analizi Sihirli izleyin.
 
 ## <a name="get-help"></a>Yardım alın
 
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

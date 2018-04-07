@@ -1,8 +1,8 @@
 ---
-title: "Kaynakları izlemek için Azure etkinlik günlükleri görüntüleme | Microsoft Docs"
-description: "Etkinlik günlükleri gözden geçirme kullanıcı eylemleri ve hatalar için kullanın. Azure Portal PowerShell, Azure CLI ve REST gösterir."
+title: Kaynakları izlemek için Azure etkinlik günlükleri görüntüleme | Microsoft Docs
+description: Etkinlik günlükleri gözden geçirme kullanıcı eylemleri ve hatalar için kullanın. Azure Portal PowerShell, Azure CLI ve REST gösterir.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -12,15 +12,16 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: fb6fb3f7172673be70b1a6dcfd77e42cd982e248
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynakları eylemlerini denetlemek için etkinlik günlüklerini görüntüle
+
 Etkinlik günlükleri, belirleyebilirsiniz:
 
 * hangi işlemlerin aboneliğinizde kaynaklar üzerinde gerçekleştirilen
@@ -38,6 +39,7 @@ Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi geçmiş 90
 PowerShell, Azure CLI, Öngörüler REST API'si, portal üzerinden etkinlik günlüklerindeki bilgi almak veya [Öngörüler .NET kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portal
+
 1. Portal üzerinden etkinlik günlükleri görüntülemek için seçin **İzleyici**.
    
     ![etkinlik günlükleri seçin](./media/resource-group-audit/select-monitor.png)
@@ -68,6 +70,7 @@ PowerShell, Azure CLI, Öngörüler REST API'si, portal üzerinden etkinlik gün
     ![Görünüm işlemi](./media/resource-group-audit/view-operation.png)  
 
 ## <a name="powershell"></a>PowerShell
+
 1. Günlük girişlerini almak üzere çalışmaya **Get-AzureRmLog** komutu. Girişlerin listesini filtrelemek için ek parametreleri sağlayın. Bir başlangıç ve bitiş zamanı belirtmezseniz, son bir saat girişleri döndürülür. Örneğin, almak için bir kaynak grubu için işlemleri son bir saat sırasında çalıştırın:
 
   ```powershell
@@ -136,17 +139,20 @@ PowerShell, Azure CLI, Öngörüler REST API'si, portal üzerinden etkinlik gün
 
 
 ## <a name="azure-cli"></a>Azure CLI
-* Günlük girişlerini almak için çalıştırdığınız **azure Grup günlük Göster** komutu.
+
+Günlük girişlerini almak üzere çalışmaya [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutu.
 
   ```azurecli
-  azure group log show ExampleGroup --json
+  az monitor activity-log list --resource-group <group name>
   ```
 
 
 ## <a name="rest-api"></a>REST API
+
 Etkinlik günlüğü ile çalışmaya yönelik REST işlemlerini parçası olan [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx). Etkinlik günlüğü olaylarını almak için bkz: [bir abonelik yönetimi olayları listesinde](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * Power BI ile Azure etkinlik günlükleri aboneliğinizde eylemler hakkında daha fazla öngörü elde etmek için kullanılır. Bkz: [Görünüm ve Power BI ve daha fazla Azure etkinlik günlüklerini analiz edin](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Güvenlik ilkelerini ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
 * Dağıtım işlemlerini görüntülemek için komutları hakkında bilgi edinmek için [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).

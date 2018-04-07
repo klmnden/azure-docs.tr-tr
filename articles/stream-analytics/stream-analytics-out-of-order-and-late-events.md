@@ -1,24 +1,19 @@
 ---
-title: İşleme olayı sırası ve Azure akış Analizi ile lateness | Microsoft Docs
-description: Stream Analytics veri akışında düzen dışı ya da geç olaylarla işleyişi hakkında bilgi edinin.
-keywords: bozuk, geç, olayları
-documentationcenter: ''
+title: Olayı sırası ve Azure akış analizi lateness işleme
+description: Bu makalede, Stream Analytics veri akışlarını düzen dışı ya da geç olayları nasıl işlediğini açıklar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 04/20/2017
 ms.author: jeanb
-ms.openlocfilehash: 3c1924ad87715f7a44c3666991e792adc3a20af9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 04/20/2017
+ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics olay sipariş konuları
 
@@ -132,7 +127,7 @@ Azure Stream Analytics kullanarak bu işlevselliği uygulayan [TIMESTAMP BY OVER
 * Birden çok zaman çizelgelerini birleştirirken veri kaynakları veya bölümleri birinde olmaması çıktı ek bir geç gerçekleşme tolerans penceresi tarafından geciktirebilir.
 
 ## <a name="get-help"></a>Yardım alın
-Ek Yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Ek Yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Stream Analytics'e giriş](stream-analytics-introduction.md)

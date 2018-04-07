@@ -1,11 +1,11 @@
 ---
-title: "Bir VM üzerinde eğilimi mikro derin güvenlik güncelleştirmesini | Microsoft Docs"
-description: "Bu makalede, yükleme ve Azure Klasik dağıtım modelinde oluşturulmuş bir VM'de eğilimi mikro güvenlik yapılandırma açıklar."
+title: Bir VM üzerinde eğilimi mikro derin güvenlik güncelleştirmesini | Microsoft Docs
+description: Bu makalede, yükleme ve Azure Klasik dağıtım modelinde oluşturulmuş bir VM'de eğilimi mikro güvenlik yapılandırma açıklar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management
 ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 41b7ecf0d0c71b5c225454cc77ce87d5736c2165
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 155f4d8c7aa3e0e8f64944435e14112a7970420d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Bir Windows VM’de Hizmet Olarak Trend Micro Deep Security yükleme ve yapılandırma
 > [!IMPORTANT]

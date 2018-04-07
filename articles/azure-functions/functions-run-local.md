@@ -1,11 +1,11 @@
 ---
-title: "Geliştirme ve Azure işlevleri yerel olarak çalıştırma | Microsoft Docs"
-description: "Kod ve Azure işlevlerini çalıştırmadan önce yerel bilgisayarınızda Azure işlevlerini test öğrenin."
+title: Geliştirme ve Azure işlevleri yerel olarak çalıştırma | Microsoft Docs
+description: Kod ve Azure işlevlerini çalıştırmadan önce yerel bilgisayarınızda Azure işlevlerini test öğrenin.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
 ms.workload: na
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 59a15697641dd8e4bdfdb974436d46a34b47ffb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 1fe07790bd534cbe18c25cb5fb1e0634f54ac9e2
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -110,7 +110,7 @@ Yerel bir Git deposu olmadan projesi oluşturmak için kullanın `--no-source-co
 
 Sürümünde 2.x Azure işlevleri çalışma zamanı açıkça kaydetmeniz gerekir [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) işlevi uygulamanızda kullanan. 
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
 Daha fazla bilgi için bkz: [Azure işlevleri Tetikleyicileri ve bağlamaları kavramları](functions-triggers-bindings.md#register-binding-extensions).
 
@@ -215,7 +215,7 @@ func host start
 | **`--nodeDebugPort -n`** | Kullanmak düğüm hata ayıklayıcı için bağlantı noktası. Varsayılan: Launch.json'u veya 5858 arasında bir değer. |
 | **`--debugLevel -d`** | Konsol izleme düzeyini (kapalı, ayrıntılı, bilgi, uyarı veya hata). Varsayılan: bilgisi.|
 | **`--timeout -t`** | Saniye cinsinden başlatmaya işlevleri ana bilgisayar için zaman aşımı. Varsayılan: 20 saniye.|
-| **`--useHttps`** | Için bağlayın https://localhost:{port} yerine http://localhost:{port}. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
+| **`--useHttps`** | Bağlamak https://localhost:{port} yerine çok http://localhost:{port}. Varsayılan olarak, bu seçenek bilgisayarınızda güvenilen bir sertifika oluşturur.|
 | **`--pause-on-error`** | İşlem çıkmadan önce ek giriş duraklatılıyor. Azure işlevleri çekirdek araçları bir tümleşik geliştirme ortamı (IDE) başlatılırken yararlıdır.|
 
 İşlevler ana bilgisayar başladığında, URL, HTTP tetiklemeli işlevleri çıkarır:

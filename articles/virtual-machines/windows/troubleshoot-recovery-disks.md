@@ -1,11 +1,11 @@
 ---
-title: "Bir Windows Azure PowerShell ile VM sorun giderme kullanın | Microsoft Docs"
-description: "Kurtarma Azure PowerShell kullanarak bir VM için işletim sistemi diski bağlanarak Azure Windows VM sorunlarını giderme hakkında bilgi edinin"
+title: Bir Windows Azure PowerShell ile VM sorun giderme kullanın | Microsoft Docs
+description: Kurtarma Azure PowerShell kullanarak bir VM için işletim sistemi diski bağlanarak Azure Windows VM sorunlarını giderme hakkında bilgi edinin
 services: virtual-machines-windows
-documentationCenter: 
+documentationCenter: ''
 authors: genlin
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 8bac3457e70e86c0f2fb0e70b166097da4a89c23
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: cbb9a47b878471e6efd5f4e280f44c6c8fe78df4
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Bir Windows VM kurtarma Azure PowerShell kullanarak bir VM için işletim sistemi diski ekleyerek sorun giderme
 Azure, Windows sanal makine (VM) önyükleme veya disk bir hatayla karşılaştığında, sanal sabit diskin kendisinde sorun giderme adımları gerçekleştirmeniz gerekebilir. Yaygın bir örnek VM başarıyla önyükleme engeller başarısız uygulama güncelleştirmesi olacaktır. Bu makale Azure PowerShell, sanal sabit diski başka bir Windows hataları düzeltin, sonra özgün VM'yi yeniden oluşturmak için VM'e bağlanmak için nasıl kullanılacağını ayrıntılarını verir.
@@ -179,7 +179,7 @@ Hatalarınızı çözüldükten sonra çıkarın ve varolan bir sanal sabit disk
 ## <a name="create-vm-from-original-hard-disk"></a>Özgün sabit diskten VM oluşturma
 Özgün sanal sabit diskten bir VM oluşturmak için kullanmak [bu Azure Resource Manager şablonu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). Gerçek JSON şablon aşağıdaki bağlantıda şöyledir:
 
-- https://RAW.githubusercontent.com/Azure/Azure-QuickStart-Templates/master/201-VM-Specialized-VHD-Existing-vnet/azuredeploy.JSON
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 
 Önceki komutu VHD URL'yi kullanarak mevcut sanal ağda, bir VM şablonu dağıtır. Aşağıdaki örnek adlı kaynak grubunu şablon dağıtır `myResourceGroup`:
 

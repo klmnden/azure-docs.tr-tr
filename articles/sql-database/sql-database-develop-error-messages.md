@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a4fa0d542d755e783f422a62e9135d06133385f8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5a20f8cb2946db0ff5fafc4c307f56629b635825
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -119,7 +119,7 @@ Aşağıdaki hatalar oluşturma ve esnek havuzlarını kullanarak ilgili:
 | 40868 |EX_USER |Veritabanı başına maksimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına maksimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına DTU max yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40870 |EX_USER |Veritabanı başına minimum DTU (%d) hizmet katmanı için aşamaz ' %. * ls'. |Veritabanı başına minimum DTU; Esnek havuz hizmet katmanı. |Desteklenen sınırı aşan veritabanı başına minimum DTU yapılmaya çalışılıyor. | İstenen ayarını destekler esnek havuz hizmet katmanı kullanmayı düşünün. |
 | 40873 |EX_USER |Veritabanı (%d) ve (%d) veritabanı başına DTU minimum sayısı, (%d) esnek havuz Dtu aşamaz. |Esnek havuzdaki veritabanları sayı; Veritabanı başına minimum DTU; Esnek havuz Dtu. |Esnek havuz Dtu aşıyor esnek havuzdaki veritabanları için minimum DTU belirtin çalışılıyor. | Esnek havuz için Dtu'lar artırmayı veya veritabanı başına minimum DTU azaltın veya veritabanları esnek havuzda sayısını azaltın. |
-| 40877 |EX_USER |Tüm veritabanları içermediği sürece bir esnek havuz silinemez. |Hiçbiri |Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemez. |Veritabanları esnek havuzdan silmek için kaldırın. |
+| 40877 |EX_USER |Tüm veritabanları içermediği sürece bir esnek havuz silinemez. |None |Esnek havuz, bir veya daha fazla veritabanı içerir ve bu nedenle silinemez. |Veritabanları esnek havuzdan silmek için kaldırın. |
 | 40881 |EX_USER |Esnek havuz ' %. * ls, veritabanı sayısı sınırına ulaşıldı.  Esnek havuz için veritabanı sayısı sınırına (%d) Dtu'ya sahip bir esnek havuz için (%d) aşamaz. |Esnek havuz adı; Esnek havuz veritabanı sayısı sınırını; Kaynak havuzu için Edtu. |Oluşturma veya esnek havuz veritabanı sayısı sınırına ulaşıldığında esnek havuza veritabanı ekleme girişimi. | Kendi veritabanı sınırını artırmak için mümkünse esnek havuz Dtu artırmayı deneyin veya veritabanlarını esnek havuzdan kaldırın. |
 | 40889 |EX_USER |Dtu'lar ve esnek havuz depolama sınırı ' %. * ls olamaz azaltılabilir, yeterli depolama alanına veritabanları için sağlamayacağından. |Esnek havuz adı. |Depolama kullanım aşağıda esnek havuz depolama sınırını azaltın çalışılıyor. | Tek veritabanlarını esnek havuzdaki depolama kullanımı azaltmayı deneyin veya kendi Dtu'lar ve depolama sınırı azaltmak için veritabanlarını havuzdan kaldırın. |
 | 40891 |EX_USER |(%D) veritabanı başına minimum DTU (%d) veritabanı başına DTU max aşamaz. |Veritabanı başına minimum DTU; Veritabanı başına maksimum DTU. |Veritabanı başına DTU maksimum değerinden yüksek veritabanı başına minimum DTU yapılmaya çalışılıyor. |Veritabanı başına minimum DTU veritabanı başına DTU max aşmadığından emin olun. |

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
@@ -74,7 +74,7 @@ Aşağıdaki tabloda Azure içinde kullanılabilir günlük en önemli türünü
 |[Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|    REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
-|Veri işleme / Güvenlik Uyarısı| Azure Güvenlik Merkezi uyarı, OMS Uyarısı| Güvenlik bilgileri ve Uyarıları.|   REST API'leri, JSON|
+|Veri işleme / Güvenlik Uyarısı| Azure Güvenlik Merkezi uyarı, günlük analizi Uyarısı|   Güvenlik bilgileri ve Uyarıları.|   REST API'leri, JSON|
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
 [Azure etkinlik günlüğü](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar. Rapor beri etkinlik günlüğü daha önce "Denetim günlüklerini" veya "İşlem günlükleri," olarak biliniyordu [denetim düzlemi olayları](https://driftboatdave.com/2016/10/13/azure-auditing-options-for-your-custom-reporting-needs/) aboneliklerinizi için. Etkinlik günlüğü kullanarak, belirleyebilirsiniz "ne, kimin, ne zaman ve" herhangi bir yazma işlemleri (PUT, POST, DELETE) aboneliğinizi kaynaklarında alınan için. İşleminin durumunu ve ilgili diğer özellikleri de anlayabilirsiniz. Etkinlik günlüğü okuma (GET) işlemleri içermez.
@@ -114,7 +114,7 @@ Azure tanılama günlükleri, birden çok olan yapılandırma seçenekleri, Powe
 
 -   [Event Hubs'a akış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs) bir üçüncü taraf hizmeti veya gibi özel analiz çözümü tarafından alımı için [Powerbı.](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
--   Bunları ile analiz [OMS günlük analizi.](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
+-   Bunları ile analiz [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
 
 **Tanılama günlüklerini ve kaynak türü başına desteklenen bir günlük kategorileri için şema Hizmetleri, desteklenen**
 
@@ -333,11 +333,11 @@ Güvenlik Merkezi, imza tabanlı yaklaşımların ötesine geçen gelişmiş gü
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Günlük analizi olan bir hizmet olarak [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olur ve şirket içi ortamları. Tümleşik arama ve özel panolar kullanarak taşımalarına tüm iş yükleri ve fiziksel konumlarından sunucular arasında milyonlarca kayıt çözümlemek için gerçek zamanlı Öngörüler sunar.
+Günlük analizi toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan Azure hizmetinde ve şirket içi ortamları. Tümleşik arama ve özel panolar kullanarak taşımalarına tüm iş yükleri ve fiziksel konumlarından sunucular arasında milyonlarca kayıt çözümlemek için gerçek zamanlı Öngörüler sunar.
 
 ![Log Analytics](./media/azure-log-audit/azure-log-audit-fig8.png)
 
-Center, günlük analizi adresindeki Azure bulutta barındırılan OMS depodur. Veriler, veri kaynakları yapılandırılarak ve aboneliğinize çözümler eklenerek bağlı kaynaklardan depoya toplanır. Veri kaynakları ve çözümler, kendi özellikleri olan, ancak depoya yapılan sorgularda yine de birlikte analiz edilebilen farklı kayıt türleri oluşturacaktır. Böylece farklı kaynaklar tarafından toplanan farklı veri türleriyle çalışmak için aynı araçları ve yöntemleri kullanabilirsiniz.
+Center, günlük analizi adresindeki Azure bulutta barındırılan günlük analizi çalışma alanıdır. Verileri çalışma alanına aboneliğinize yapılandırma veri kaynakları ve ekleme çözümleri tarafından bağlı kaynaklardan toplanır. Veri kaynakları ve çözümleri her kendi özellikleri vardır, ancak hala analiz farklı kayıt türleri birlikte çalışma alanına sorgularda oluşturur. Böylece farklı kaynaklar tarafından toplanan farklı veri türleriyle çalışmak için aynı araçları ve yöntemleri kullanabilirsiniz.
 
 Bağlı kaynaklar, Log Analytics tarafından toplanan verileri oluşturan bilgisayarlar ve diğer kaynaklardır. Bu, yüklü aracıları içerebilir [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents) ve [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) doğrudan bağlanan bilgisayarlar veya aracıları [bağlı bir System Center Operations Manager yönetim grubu.](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents) Günlük analizi de verileri toplamak [Azure depolama.](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage)
 

@@ -1,24 +1,19 @@
 ---
-title: İzleme ve akış analizi işleri PowerShell ile yönetme | Microsoft Docs
-description: Akış analizi işleri yönetmek ve izlemek için Azure PowerShell ve cmdlet'lerini kullanmayı öğrenin.
-keywords: Azure powershell, azure powershell cmdlet'leri, powershell komutu, powershell komut dosyası
+title: İzleme ve PowerShell kullanarak Azure akış analizi işleri yönetme
+description: Bu makalede, Azure akış analizi işleri yönetmek ve izlemek için Azure PowerShell ve cmdlet'leri kullanmayı açıklar.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 514f454e-d18c-4081-8304-ab48577e15e8
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 1dcb6f8fe9f2f26ea0bd6970134b0bec67a50aa5
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: ed47141c46259007227ed391c1e114932153de38
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>İzleme ve akış analizi işleri Azure PowerShell cmdlet'leri ile yönetme
 İzleme ve Azure PowerShell cmdlet'leri ve powershell komut dosyası ile temel akış analizi görevleri yürütün akış analizi kaynaklarını yönetme hakkında bilgi edinin.
@@ -449,7 +444,7 @@ Azure PowerShell 1.0:
 Bu PowerShell komut testleri StreamingJob çıkış bağlantı durumunu çıktı.  
 
 ## <a name="get-support"></a>Destek alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics). 
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)
