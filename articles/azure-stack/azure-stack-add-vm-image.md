@@ -1,24 +1,24 @@
 ---
-title: "Bir VM görüntüsü Azure yığına ekleme | Microsoft Docs"
-description: "Kuruluşunuzun özel Windows veya Linux VM görüntü kullanılmak üzere kiracılar için ekleyin."
+title: Bir VM görüntüsü Azure yığına ekleme | Microsoft Docs
+description: Kuruluşunuzun özel Windows veya Linux VM görüntü kullanılmak üzere kiracılar için ekleyin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/17/2018
+ms.date: 04/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0ba0bc4e8350a65a95dc41788c93d5c89fc48334
-ms.sourcegitcommit: 817c3db817348ad088711494e97fc84c9b32f19d
+ms.openlocfilehash: eb2035f6e667a9b3ab642d42cb9bb5ecf5c86fb1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/20/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Bir özel sanal makine görüntüsü Azure yığın kullanılabilmesini
 
@@ -126,6 +126,7 @@ Azure yığın Market görüntüsü eklemek için aşağıdaki adımları tamaml
     -osDiskLocalPath 'C:\Users\AzureStackAdmin\Desktop\UbuntuServer.vhd' `
   ```
 
+
 Komutu şunları yapar:
 
 * Azure yığın ortama kimliğini doğrular.
@@ -133,9 +134,9 @@ Komutu şunları yapar:
 * VM görüntüsü VM görüntü deposu ekler.
 * Market öğesi oluşturur.
 
-Komut Portalı'nda başarıyla çalıştırdığını doğrulamak için Market gidin. VM görüntüsü kullanılabilir olduğundan emin olun **sanal makineleri** kategorisi.
+Komut Portalı'nda başarıyla çalıştırdığını doğrulamak için Market gidin. VM görüntüsü kullanılabilir olduğundan emin olun **işlem** kategorisi.
 
-![VM görüntüsü başarıyla eklendi](./media/azure-stack-add-vm-image/image5.PNG)
+![VM görüntüsü başarıyla eklendi](./media/azure-stack-add-vm-image/verify-vm.png)
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>PowerShell kullanarak bir VM görüntüsü kaldırma
 
@@ -185,7 +186,7 @@ Görüntüleri bir Blob Depolama URI'si tarafından başvurulan kurabilmesi gere
 
    * Karşıya yüklediğiniz zaman [Windows VM görüntüsü](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), değiştirdiğinizden emin olun **Azure'da oturum aç** ile adım [Azure yığın işlecin PowerShell ortamını yapılandırma](azure-stack-powershell-configure-admin.md) adım.  
 
-   * Blob Depolama burada görüntüyü karşıya yükleme URI'si not edin. Blob Depolama URI'si aşağıdaki biçime sahiptir:  *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd.
+   * Blob Depolama burada görüntüyü karşıya yükleme URI'si not edin. Blob Depolama URI'si aşağıdaki biçime sahiptir: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd.
 
    * Blob anonim olarak erişilebilir olması için burada VM görüntüsü VHD yüklenen depolama hesabı blob kapsayıcısına gidin. Seçin **Blob**ve ardından **erişim ilkesi**. İsteğe bağlı olarak, bunun yerine kapsayıcı için bir paylaşılan erişim imzası oluşturmak de blob URI'si parçası olarak dahil edebilirsiniz.
 
