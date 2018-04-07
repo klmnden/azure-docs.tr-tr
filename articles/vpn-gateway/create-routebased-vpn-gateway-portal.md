@@ -4,7 +4,7 @@ description: Hızlı rota tabanlı VPN Azure Portalı'nı kullanarak ağ geçidi
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2d6133e974e24c8c4f769995d8245b30a29a3983
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 550f655f6eac5a114636978255578eb3753e0d4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir rota tabanlı VPN ağ geçidi oluşturma
 
@@ -42,7 +42,7 @@ Bu makaledeki adımları bir sanal ağ, bir alt ağ, bir ağ geçidi alt ağı v
   - **Alt ağ**: ön uç
   - **Adres aralığı**: 10.1.0.0/24
 
-  ![Sanal ağ oluşturma sayfası](./media/create-routebased-vpn-gateway-portal/vnet1.png "Sanal ağ oluşturma sayfası")
+  ![Sanal ağ oluşturma sayfası](./media/create-routebased-vpn-gateway-portal/create-virtual-network.png "Sanal ağ oluşturma sayfası")
 5. Değerleri girdikten sonra seçin **panoya Sabitle** Vnet'inizi Panoda bulun ve ardından kolaylaştırmak için **oluşturma**. ' I tıklattıktan sonra **oluşturma**, Panonuzda Vnet'inizin ilerleme durumunu yansıtır bir kutucuk görürsünüz. Sanal ağ oluşturulurken kutucuk değişir.
 
 ## <a name="gwsubnet"></a>Bir ağ geçidi alt ağı Ekle
@@ -53,17 +53,17 @@ Ağ geçidi alt ağı sanal ağ geçidi hizmetlerini kullanmak ayrılmış IP ad
 2. Sanal ağ sayfanızda tıklatın **alt ağlar** genişletmek için **VNet1 - alt ağlar** sayfası.
 3. Tıklatın **+ ağ geçidi alt ağı** açmak için üst **alt ağ Ekle** sayfası.
 
-  ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/gateway_subnet.png "Ağ geçidi alt ağını ekleme")
+  ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/add-gateway-subnet.png "Ağ geçidi alt ağını ekleme")
 4. **Adı** için alt ağınızı gerekli değeri 'GatewaySubnet' otomatik olarak doldurulur. Otomatik doldurulmuş ayarlamak **adres aralığı** aşağıdaki değerlerin eşleşmesi için değerler:
 
   **Adres aralığı (CIDR bloğu)**: 10.1.255.0/27
 
-  ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/add_gw_subnet.png "Ağ geçidi alt ağını ekleme")
+  ![Ağ geçidi alt ağını ekleme](./media/create-routebased-vpn-gateway-portal/gateway-subnet.png "Ağ geçidi alt ağını ekleme")
 5. Ağ geçidi alt ağı oluşturmak için tıklatın **Tamam** sayfanın sonundaki.
 
 ## <a name="gwvalues"></a>Ağ Geçidi ayarlarını yapılandırma
 
-1. Portal sayfasının sol tarafındadır tıklatın **+ kaynak oluşturma** ve 'Sanal ağ geçidi' arama kutusuna yazın. **Sonuçlar** alanında **Sanal Ağ Geçidi**’ni bulup tıklayın.
+1. Portal sayfasının sol tarafındadır tıklatın **+ kaynak oluşturma** ve basın türü 'Sanal ağ geçidi' arama kutusuna **Enter**. **Sonuçlar** alanında **Sanal Ağ Geçidi**’ni bulup tıklayın.
 2. 'Sanal ağ geçidi' sayfasının en altında tıklatın **oluşturma** açmak için **sanal ağ geçidi Oluştur** sayfası.
 3. **Sanal ağ geçidi oluştur** sayfasında sanal ağ geçidinize ait değerleri belirtin.
 
@@ -74,7 +74,7 @@ Ağ geçidi alt ağı sanal ağ geçidi hizmetlerini kullanmak ayrılmış IP ad
   - **Konum**: Doğu ABD
   - **Sanal ağ**: tıklatın **sanal ağ/Seç bir sanal ağ** açmak için **sanal ağ seçin** sayfası. Seçin **VNet1**.
 
-  ![Ağ Geçidi ayarlarını yapılandırma](./media/create-routebased-vpn-gateway-portal/configure_gw.png "ağ geçidi ayarlarını yapılandırma")
+  ![Ağ Geçidi ayarlarını yapılandırma](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "ağ geçidi ayarlarını yapılandırma")
 
 ## <a name="pip"></a>Bir ortak IP adresi oluşturun
 
@@ -82,21 +82,21 @@ Bir VPN ağ geçidi dinamik olarak ayrılan bir ortak IP adresi olmalıdır. Bir
 
 1. Seçin **ilk IP yapılandırması oluşturma ağ geçidi IP yapılandırması** genel bir IP adresi istemek için.
 
-  ![İlk IP yapılandırması](./media/create-routebased-vpn-gateway-portal/ip.png "ilk IP yapılandırması")
+  ![İlk IP yapılandırması](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "ilk IP yapılandırması")
 2. Üzerinde **Seç ortak IP sayfasına**, tıklatın **+ Yeni Oluştur** açmak için **ortak IP adresi oluştur** sayfası.
 3. Ayarları ile aşağıdaki değerleri yapılandırın:
 
-  - **Name**: **VNet1GWPIP**
+  - **Name**: **VNet1GWIP**
   - **SKU**: **temel**
 
-  ![Genel IP oluşturma](./media/create-routebased-vpn-gateway-portal/gw_ip.png "PIP oluşturma")
+  ![Genel IP oluşturma](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "PIP oluşturma")
 4. Tıklatın **Tamam** yaptığınız değişiklikleri kaydetmek için bu sayfanın sonundaki.
 
 ## <a name="creategw"></a>VPN ağ geçidi oluşturma
 
 1. Ayarları doğrulayın **sanal ağ geçidi Oluştur** sayfası. Gerekirse değerlerini ayarlayın.
 
-  ![VPN ağ geçidini Oluştur](./media/create-routebased-vpn-gateway-portal/create_gw.png "oluşturma VPN ağ geçidi")
+  ![VPN ağ geçidini Oluştur](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "oluşturma VPN ağ geçidi")
 2. Tıklatın **oluşturma** sayfanın sonundaki.
 
 Tıklattıktan sonra **oluşturma**, ayarları doğrulanır ve **dağıtma sanal ağ geçidi** döşeme panosunda görüntülenir. Bir VPN ağ geçidi 45 dakika kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.
@@ -105,17 +105,17 @@ Tıklattıktan sonra **oluşturma**, ayarları doğrulanır ve **dağıtma sanal
 
 1. Ağ geçidi oluşturulduktan sonra portalda VNet1'gidin. VPN ağ geçidi genel bakış sayfasında bağlı bir aygıt görüntülenir.
 
-  ![Bağlı cihazları](./media/create-routebased-vpn-gateway-portal/connected_devices.png "bağlı cihazları")
+  ![Bağlı cihazları](./media/create-routebased-vpn-gateway-portal/view-connected-devices.png "bağlı cihazları")
 
 2. Aygıt listesinde tıklatın **VNet1GW** daha fazla bilgi görüntülemek için.
 
-  ![Görünüm VPN ağ geçidi](./media/create-routebased-vpn-gateway-portal/view_gw2.png "görünüm VPN ağ geçidi")
+  ![Görünüm VPN ağ geçidi](./media/create-routebased-vpn-gateway-portal/view-gateway.png "görünüm VPN ağ geçidi")
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Ağ geçidi oluşturmayı tamamlandıktan sonra sanal ağınız ve başka bir VNet arasında bir bağlantı oluşturabilirsiniz. Veya, sanal ağ ve bir şirket içi konum arasında bir bağlantı oluşturun.
 
 > [!div class="nextstepaction"]
-> [Bir siteden siteye bağlantı oluşturmak](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-> [bir noktadan siteye bağlantı oluşturmak](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> [başka bir VNet bağlantı oluşturun.](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> [Siteden siteye bağlantı oluşturma](vpn-gateway-howto-site-to-site-resource-manager-portal.md)<br><br>
+> [Bir noktadan siteye bağlantı oluşturma](vpn-gateway-howto-point-to-site-resource-manager-portal.md)<br><br>
+> [Başka bir VNet bağlantı oluşturun.](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)

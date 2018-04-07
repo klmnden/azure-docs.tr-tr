@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: cbd5b57d0cde3743c7ef70437f702536c27ac999
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b1fdc364b903ed552f657fcabdadcf209d7c969e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesini değiştirme
 Uygulamalarınızı yaşam döngüsü boyunca değiştirmeniz veya sanal makine ölçek kümesi güncelleştirmeniz gerekebilir. Bu güncelleştirmeler ölçek kümesi yapılandırmasını güncelleştirmek veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makalede, varolan bir ölçeği REST API'leri, Azure PowerShell veya Azure CLI 2.0 ayarla değiştirmek açıklar.
@@ -367,7 +367,7 @@ Bazı değişiklikleri Özellikleri Genel ölçeği ayarlamak yerine belirli VM'
 ## <a name="scenarios"></a>Senaryolar
 
 ### <a name="application-updates"></a>Uygulama güncelleştirmeleri
-Bir uygulama ölçeği uzantıları Ayarla dağıtılırsa, uzantı yapılandırması için bir güncelleştirme yükseltme ilkesiyle uygun şekilde güncelleştirmek uygulamanın neden olur. Örneğin, bir özel betik uzantısı'nda çalıştırılacak bir komut dosyası yeni bir sürümü varsa, güncelleştirme *fileUris* yeni komut dosyasına işaret edecek şekilde özelliği. Bazı durumlarda, uzantı yapılandırması değişmeden olsa bile bir güncelleştirmeyi uygulamak isteyebilir (örneğin, betik URI'si için bir değişiklik olmadan betik güncelleştirilir). Bu durumlarda, değiştirebileceğiniz *forceUpdateTag* bir güncelleştirmeyi uygulamak için. Azure platformu, bu özellik yorumlar değil. Değeri değiştirirseniz, uzantının nasıl çalışacağını üzerinde hiçbir etkisi yoktur. Bir değişiklik, yalnızca yeniden çalıştırmak için uzantı zorlar. Daha fazla bilgi için *forceUpdateTag*, bkz: [uzantıları için REST API belgeleri](/rest/api/compute/virtualmachineextensions/createorupdate).
+Bir uygulama ölçeği uzantıları Ayarla dağıtılırsa, uzantı yapılandırması için bir güncelleştirme yükseltme ilkesiyle uygun şekilde güncelleştirmek uygulamanın neden olur. Örneğin, bir özel betik uzantısı'nda çalıştırılacak bir komut dosyası yeni bir sürümü varsa, güncelleştirme *fileUris* yeni komut dosyasına işaret edecek şekilde özelliği. Bazı durumlarda, uzantı yapılandırması değişmeden olsa bile bir güncelleştirmeyi uygulamak isteyebilir (örneğin, betik URI'si için bir değişiklik olmadan betik güncelleştirilir). Bu durumlarda, değiştirebileceğiniz *forceUpdateTag* bir güncelleştirmeyi uygulamak için. Azure platformu, bu özellik yorumlar değil. Değeri değiştirirseniz, uzantının nasıl çalışacağını üzerinde hiçbir etkisi yoktur. Bir değişiklik, yalnızca yeniden çalıştırmak için uzantı zorlar. Daha fazla bilgi için *forceUpdateTag*, bkz: [uzantıları için REST API belgeleri](/rest/api/compute/virtualmachineextensions/createorupdate). Unutmayın *forceUpdateTag* tüm uzantılar, yalnızca özel betik uzantısı ile kullanılabilir.
 
 Ayrıca özel bir görüntü dağıtılacak uygulamalar yaygındır. Bu senaryo aşağıdaki bölümde ele alınmıştır.
 

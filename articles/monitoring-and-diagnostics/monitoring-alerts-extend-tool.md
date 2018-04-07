@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 04/06/2018
 ms.author: vinagara
-ms.openlocfilehash: c2e11d89f35915ef0a0c1e1f544b0be8df0473de
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e5dc48aa5e3c614192ae140dc80b5d9845acc474
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-extend-copy-alerts-from-oms-into-azure"></a>Azure'a OMS (kopya) uyarıları genişletme
-Başlangıç **23 Nisan 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
+Başlangıç **14 Mayıs 2018**, yapılandırılan uyarıları aracılığıyla tüm müşterilere [Microsoft Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), Azure'da uzatılır. Azure için genişletilmiş uyarıları OMS aynı şekilde davranır. İzleme yeteneklerini değişmeden kalır. Azure için OMS oluşturulan uyarıların genişletme birçok avantaj sağlar. Avantajları ve Uyarılar için Azure OMS genişletme işlemi hakkında daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure'a](monitoring-alerts-extend.md).
 
 Azure'a OMS uyarılarını hemen taşımak isteyen müşteriler yapabilirsiniz belirtildiği seçeneklerden birini kullanarak.
 
@@ -157,8 +157,87 @@ POST başarılı olursa, 200 Tamam yanıt ile birlikte Döndür:
 ```
 Uyarılar, Azure'da genişletilmiştir sürüm 2 tarafından belirtildiği şekilde gösteren. Uyarıları Azure'da genişletilmiş ve şifrelemeyle kullanımı ile varsa yalnızca denetlemek için bu sürümüdür [günlük analizi arama API](../log-analytics/log-analytics-api-alerts.md). Uyarıları başarıyla Azure'da genişletilmiş sonra tüm sırasında sağlanan e-posta adreslerini GET yapılan değişiklikleri ayrıntılarını içeren bir rapor gönderilir.
 
+Ve son olarak, belirtilen çalışma alanında, tüm uyarıları zaten planlanmış durumunda Azure - genişletilmesi POST yanıtı 403 Yasak olacaktır. Herhangi bir hata iletisi görüntülemek veya olmadığının anlaşılması için genişletme işlemi takıldı, kullanıcı, bir GET çağrısı ve hata iletisi yapabilir, herhangi bir Özet birlikte döndürülecek durumunda.
 
-Ve son olarak, belirtilen çalışma alanında, tüm uyarıları zaten zamanlandı, Azure'da - genişletilmesi POST yanıtı 403 Yasak olacaktır.
+```json
+{
+    "version": 1,
+    "message": "OMS was unable to extend your alerts into Azure, Error: The subscription is not registered to use the namespace 'microsoft.insights'. OMS will schedule extending your alerts, once remediation steps illustrated in the troubleshooting guide are done.",
+    "recipients": [
+       "john.doe@email.com",
+       "jane.doe@email.com"
+     ],
+    "migrationSummary": {
+        "alertsCount": 2,
+        "actionGroupsCount": 2,
+        "alerts": [
+            {
+                "alertName": "DemoAlert_1",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_1"
+            },
+            {
+                "alertName": "DemoAlert_2",
+                "alertId": " /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/savedSearches/<savedSearchId>/schedules/<scheduleId>/actions/<actionId>",
+                "actionGroupName": "<workspaceName>_AG_2"
+            }
+        ],
+        "actionGroups": [
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                "actions": {
+                    "emailIds": [
+                        "JohnDoe@mail.com"
+                    ],
+                    "webhookActions": [
+                        {
+                            "name": "Webhook_1",
+                            "serviceUri": "http://test.com"
+                        }
+                    ],
+                    "itsmAction": {}
+                }
+            },
+            {
+                "actionGroupName": "<workspaceName>_AG_1",
+                "actionGroupResourceId": "/subscriptions/<subscriptionid>/resourceGroups/<resourceGroupName>/providers/microsoft.insights/actionGroups/<workspaceName>_AG_1",
+                 "actions": {
+                    "emailIds": [
+                        "test1@mail.com",
+                          "test2@mail.com"
+                    ],
+                    "webhookActions": [],
+                    "itsmAction": {
+                        "connectionId": "<Guid>",
+                        "templateInfo":"{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{\\\"contact_type\\\":\\\"email\\\",\\\"impact\\\":\\\"3\\\",\\\"urgency\\\":\\\"2\\\",\\\"category\\\":\\\"request\\\",\\\"subcategory\\\":\\\"password\\\"}\",\"CreateOneWIPerCI\":false}"
+                    }
+                }
+            }
+        ]
+    }
+}              
+
+```
+
+## <a name="troubleshooting"></a>Sorun giderme 
+Azure'da OMS uyarılar genişletme işlemi sırasında olabilir sistem gerekli oluşturmasını engeller zaman sorunları [Eylem grupları](monitoring-action-groups.md). Böyle durumlarda, başlık uyarı bölümünde ve API için yapılan GET çağrısı aracılığıyla OMS portalında bir hata iletisi gösterilir.
+
+Aşağıda listelenen her bir hata düzeltme adımları şunlardır:
+1. **Hata: Abonelik 'Microsoft.ınsights' ad alanını kullanmak için kayıtlı değil**: ![kayıt hata iletisi OMS portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/ErrorMissingRegistration.png)
+
+    a. OMS çalışma alanınızla - ilişkili abonelik kaydettirilemedi Azure İzleyicisi'ni (Microsoft.ınsights) işlevini kullanmayı; hangi OMS nedeniyle uyarılar Azure İzleyici & uyarılar genişletmek oluşturulamıyor.
+    
+    b. Çözmek için Powershell, Azure CLI veya Azure portal kullanarak aboneliğinizde Microsoft.ınsights (Azure İzleyici & uyarılar) kullanım kaydedin. Daha fazla bilgi için makaleyi görüntülemek [kaynak Sağlayıcısı kaydı hatalarını giderme](../azure-resource-manager/resource-manager-register-provider-errors.md)
+    
+    c. Makalede gösterilen adımları göredir çözülmüş sonra OMS Azure'da uyarılarınızı sonraki günün zamanlanmış çalıştırmada içinde Uzat; herhangi bir eylem veya başlatma gerek olmadan.
+2. **Hata: Kapsam kilit abonelik/kaynak grubu düzeyinde yazma işlemleri için varsa**: ![ScopeLock hata iletisiyle OMS portalı uyarı ayarları sayfası](./media/monitor-alerts-extend/ErrorScopeLock.png)
+
+    a. Kapsam zaman kilitleme, abonelik veya kaynak grubu için günlük analizi (OMS) çalışma içeren yeni herhangi bir değişikliği kısıtlama etkinleştirilir; Azure'da (kopya) uyarıları genişletmek ve gerekli Eylem grupları oluşturmak sistem alamıyor.
+    
+    b. Çözmek için silme *ReadOnly* Azure portalını, PowerShell'i, Azure CLI veya API kullanarak; çalışma içeren abonelik veya kaynak grubunuz kilit. Daha fazla bilgi için makaleyi görüntülemek [kaynak kilit kullanımı](../azure-resource-manager/resource-group-lock-resources.md). 
+    
+    c. Makalede gösterilen adımları göredir çözülmüş sonra OMS Azure'da uyarılarınızı sonraki günün zamanlanmış çalıştırmada içinde Uzat; herhangi bir eylem veya başlatma gerek olmadan.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f3c6d50ac128cd766a1d22689b737da975922466
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 509570dfe0e3d4be2e589ac1958dd377dc4e8e03
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Gizli anahtarları Azure yığınında Döndür
 
@@ -69,7 +69,7 @@ Aşağıdaki yönergeleri kullanarak gizli döndürme çalıştıran Bu uyarıla
 2.  Yeni bir değişiklik kümesi dış sertifikalar hazırlayın. Yeni küme özetlenen sertifika belirtimleri eşleşen [Azure yığın PKI sertifikası gereksinimleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 3.  Bir geri dönüş güvenli yedekleme konumu için kullanılan sertifikaları kadar saklar. Döndürme çalıştırır ve ardından başarısız olursa, dosya paylaşımı sertifikaları döndürme yeniden çalıştırmadan önce yedek kopyaları değiştirin. Unutmayın, yedek kopyaları güvenli yedekleme konumda saklayın.
 3.  ERCS Vm'lerden erişmek için bir dosya paylaşımı oluşturun. Dosya Paylaşımı okunabilir ve yazılabilir için olmalıdır **CloudAdmin** kimliği.
-4.  Bir PowerShell ISE konsolunda ERCS kullanarak VM açmak **CloudAdmin** hesabı.  Dosya Paylaşımı gidin. 
+4.  Dosya paylaşımı erişimi sahip olduğu bir bilgisayardan bir PowerShell ISE konsolunu açın. Dosya Paylaşımı gidin. 
 5.  Çalıştırma **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** dış sertifikalar için gerekli dizinler oluşturulamadı.
 
 ## <a name="rotating-external-and-internal-secrets"></a>İç ve dış gizli anahtarları döndürme

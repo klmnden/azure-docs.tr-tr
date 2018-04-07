@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: b5d6ffc9aa13e6aaf948028fabe3087f8dea2a1d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 178eba46e0d128c8d93f2ba664a4a0916889fbbd
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>Veritabanı işlem birimleri (Dtu'lar) ve esnek veritabanı işlem birimleri (Edtu'lar)
 Bu makalede, Veritabanı İşlem Birimleri (DTU'lar) ve esnek Veritabanı İşlem Birimlerinin (eDTU'lar) yanı sıra maksimum DTU veya eDTU sayısına ulaşıldığında ne olacağı açıklanmaktadır.  
@@ -46,7 +46,7 @@ Havuza belirli bir fiyat karşılığında, belirli bir sayıda eDTU verilir. El
 Mevcut bir havuza, veritabanı kapalı kalma süresi ve havuzdaki veritabanları üzerinde herhangi bir etkisi olmadan ek eDTU’lar eklenebilir. Benzer şekilde, ek eDTU’lara artık ihtiyaç yoksa bunlar mevcut bir havuzdan ne zaman isterseniz kaldırılabilir. Havuza veritabanı ekleyebilir veya var olanları kaldırabilir ya da eDTU’ları diğer veritabanları için ayırmak üzere ağır yük altındaki bir veritabanının kullanabileceği eDTU miktarını sınırlayabilirsiniz. Bir veritabanı kaynakları çok az kullanıyorsa onu havuzdan çıkarabilir ve gereken tahmini kaynaklarla tek veritabanı olarak yapılandırabilirsiniz.
 
 ## <a name="how-can-i-determine-the-number-of-dtus-needed-by-my-workload"></a>İş yükümün ihtiyacı olan DTU sayısını nasıl belirleyebilirim?
-Mevcut bir şirket içi veya SQL Server sanal makine iş yükünü Azure SQL Veritabanı’na geçirmek istiyorsanız, gereken yaklaşık DTU sayısını belirlemek için [DTU Hesaplayıcı](http://dtucalculator.azurewebsites.net/)’yı kullanabilirsiniz. Mevcut bir Azure SQL Veritabanı iş yükünüzü iyileştirecek öngörüleri kazanmak amacıyla veritabanı kaynak tüketiminizi (DTU'lar) daha iyi anlamak için [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md)’ni kullanabilirsiniz. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV’sini kullanarak son bir saate ait kaynak tüketimi bilgilerini de alabilirsiniz. Alternatif olarak, [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) katalog görünümü sorgulanarak aynı veriler son 14 gün için de alınabilir. Ancak bu veriler, beş dakikalık ortalamalar şeklinde daha düşük bir aslına uygunluk düzeyindedir.
+Mevcut bir şirket içi veya SQL Server sanal makine iş yükünü Azure SQL Veritabanı’na geçirmek istiyorsanız, gereken yaklaşık DTU sayısını belirlemek için [DTU Hesaplayıcı](http://dtucalculator.azurewebsites.net/)’yı kullanabilirsiniz. Mevcut bir Azure SQL Veritabanı iş yükünüzü iyileştirecek İçgörüleri kazanmak amacıyla veritabanı kaynak tüketiminizi (DTU'lar) daha iyi anlamak için [SQL Veritabanı Sorgu Performansı İçgörüleri](sql-database-query-performance.md)’ni kullanabilirsiniz. [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV’sini kullanarak son bir saate ait kaynak tüketimi bilgilerini de alabilirsiniz. Alternatif olarak, [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) katalog görünümü sorgulanarak aynı veriler son 14 gün için de alınabilir. Ancak bu veriler, beş dakikalık ortalamalar şeklinde daha düşük bir aslına uygunluk düzeyindedir.
 
 ## <a name="how-do-i-know-if-i-could-benefit-from-an-elastic-pool-of-resources"></a>Esnek bir kaynak havuzundan fayda sağlayıp sağlayamayacağımı nasıl öğrenebilirim?
 Havuzlar, belirli kullanım düzenlerine sahip çok sayıda veritabanı bulunan durumlar için uygundur. Söz konusu kullanım düzeni, belirli bir veritabanı için ortalama düşük düzeyde kullanım ile nispeten nadir zamanlarda kullanımın ani olarak artması şeklindedir. SQL Veritabanı, mevcut bir SQL Veritabanı sunucusundaki veritabanlarının geçmiş kaynak kullanımını otomatik olarak değerlendirir ve Azure portalda uygun havuz yapılandırmasını önerir. Daha fazla bilgi için bkz. [ne zaman elastik bir havuz kullanılması gerekir?](sql-database-elastic-pool.md)
@@ -56,5 +56,5 @@ Performans düzeyleri, veritabanı iş yükünüzü seçilen hizmet katmanı/per
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bkz: [hizmet katmanı](sql-database-service-tiers.md) Dtu ve Edtu tek veritabanları ve esnek havuzlar için kullanılabilir bilgi, yanı sıra CPU dışındaki kaynaklarda sınırları, bellek, veri g/ç ve işlem günlük GÇ.
-* DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı Öngörüleri](sql-database-query-performance.md).
+* DTU tüketiminizi anlamak için bkz. [SQL Veritabanı Sorgu Performansı İçgörüleri](sql-database-query-performance.md).
 * DTU karışımını belirlemek için kullanılan OLTP kıyaslama iş yükünün arkasındaki metodolojiyi anlamak için bkz. [SQL Database benchmark overview](sql-database-benchmark-overview.md) (SQL Veritabanı kıyaslamaya genel bakış).

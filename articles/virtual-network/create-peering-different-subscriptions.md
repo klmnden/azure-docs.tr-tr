@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 92cbcad42508f2ae6113d13449aba7eed5acd251
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eccfdf519d16595f2bda77675d62bff4bf14b4f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Bir sanal ağ eşlemesi - oluşturma, farklı Aboneliklerde Kaynak Yöneticisi'ni 
 
 Bu öğreticide, Resource Manager aracılığıyla oluşturulan sanal ağlar arasında eşleme sanal ağ oluşturmayı öğrenin. Sanal ağlar farklı Aboneliklerde mevcut. Kaynaklar aynı sanal ağda gibi davranarak birbirleri ile aynı bant genişliği ve gecikme süresi ile iletişim kurmak için farklı sanal ağlar iki sanal ağlar etkinleştirir kaynaklarında eşleme. Daha fazla bilgi edinmek [sanal ağ eşlemesi](virtual-network-peering-overview.md). 
 
-Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak farklı bir sanal ağ eşlemesi oluşturmak için aşağıdaki adımları [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlar üzerinden oluşturulur. Aşağıdaki tabloda senaryodan tıklayarak diğer senaryolarda eşliği bir sanal ağ oluşturmayı öğrenin:
+Sanal ağlar aynı ya da farklı olup, abonelikleri ve hangi bağlı olarak farklı bir sanal ağ eşlemesi oluşturmak için aşağıdaki adımları [Azure dağıtım modeli](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) sanal ağlar üzerinden oluşturulur. Aşağıdaki tablodan senaryo seçerek diğer senaryolarda eşleme sanal ağ oluşturmayı öğrenin:
 
 |Azure dağıtım modeli  | Azure aboneliği  |
 |--------- |---------|
@@ -37,15 +37,15 @@ Klasik dağıtım modeli aracılığıyla dağıtılan iki sanal ağ arasında b
 
 Bu öğretici, sanal ağlar aynı bölgede eşlere. Ayrıca farklı sanal ağlar eş [bölgeler desteklenen](virtual-network-manage-peering.md#cross-region). 
 
-Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#cli) (CLI) Azure [PowerShell](#powershell), veya bir [Azure Resource Manager şablonu](#template)bir sanal ağ eşlemesi oluşturmak için. Doğrudan seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan herhangi birine tıklayın.
+Kullanabileceğiniz [Azure portal](#portal), Azure [komut satırı arabirimi](#cli) (CLI) Azure [PowerShell](#powershell), veya bir [Azure Resource Manager şablonu](#template)bir sanal ağ eşlemesi oluşturmak için. Doğrudan seçeceğiniz araç kullanarak bir sanal ağ eşlemesi oluşturma adımlarını gitmek için önceki aracı bağlantılardan birini seçin.
 
 ## <a name="portal"></a>Eşlemesi - oluşturmak Azure portalı
 
 Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, portal dışında günlüğü için adımları atlayın ve sanal ağlar için başka bir kullanıcı izinlerini atamak için adımları atlayın.
 
-1. Oturum [Azure portal](https://portal.azure.com) UserA olarak. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
-2. Tıklatın **+ yeni**, tıklatın **ağ**, ardından **sanal ağ**.
-3. İçinde **sanal ağ oluştur** dikey penceresinde girin veya aşağıdaki ayarları için değerleri seçin ve ardından **oluşturma**:
+1. Oturum [Azure portal](https://portal.azure.com) olarak *Kullanıcıa*. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
+2. Seçin **+ kaynak oluşturma**seçin **ağ**ve ardından **sanal ağ**.
+3. Seçin veya aşağıdaki ayarları için aşağıdaki örneği değerleri girin ve ardından **oluşturma**:
     - **Ad**: *myVnetA*
     - **Adres alanı**: *10.0.0.0/16*
     - **Alt ağ adı**: *varsayılan*
@@ -53,13 +53,13 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     - **Abonelik**: A. abonelik seçin
     - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroupA*
     - **Konum**: *Doğu ABD*
-4. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Tıklatın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetA** sanal ağ.
-5. İçinde **myVnetA** görünür, dikey tıklayın **erişim denetimi (IAM)** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
-6. İçinde **myVnetA - erişim denetimi (IAM)** görünür, dikey tıklayın **+ Ekle**.
-7. İçinde **izinleri eklemek** görünen seçin dikey **ağ Katılımcısı** içinde **rol** kutusu.
-8. İçinde **seçin** kutusuna bir UserB seçin veya aramak için Kullanıcıb'in e-posta adresini yazın. Gösterilen kullanıcılar için eşlemeyi ayarlama ayarladığınız sanal ağ aynı Azure Active Directory kiracısındaki listesidir.
-9. **Kaydet**’e tıklayın.
-10. İçinde **myVnetA - erişim denetimi (IAM)** dikey penceresinde tıklatın **özellikleri** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
+4. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde. 
+5. Seçin **erişim denetimi (IAM)** seçenekleri sol taraftaki dikey listesinden.
+6. Altında **myVnetA - erişim denetimi (IAM)**seçin **+ Ekle**.
+7. Seçin **ağ Katılımcısı** içinde **rol** kutusu.
+8. İçinde **seçin** kutusunda, seçin *UserB*, veya aramak için Kullanıcıb'in e-posta adresini yazın. Gösterilen kullanıcılar için eşlemeyi ayarlama ayarladığınız sanal ağ aynı Azure Active Directory kiracısındaki listesidir. Kullanıcıb görmüyorsanız, UserB Kullanıcıa'den farklı bir Active Directory kiracısı içinde olduğundan olası değildir. Farklı Active Directory kiracılar sanal ağlara bağlanmak isterseniz bağlanabilir bir [Azure VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), bir sanal ağ eşlemesi yerine.
+9. **Kaydet**’i seçin.
+10. Altında **myVnetA - erişim denetimi (IAM)**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA.
 11. UserA olarak portal dışında oturum sonra UserB oturum açın.
 12. 2-3 girmek veya 3. adımda aşağıdaki değerleri seçerek, adımları tamamlayın:
 
@@ -71,25 +71,25 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     - **Kaynak grubu**: seçin **Yeni Oluştur** ve girin *myResourceGroupB*
     - **Konum**: *Doğu ABD*
 
-13. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetB*. Tıklatın **myVnetB** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnetB** sanal ağ.
-14. İçinde **myVnetB** görünür, dikey tıklayın **özellikleri** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
-15. Tıklatın **erişim denetimi (IAM)** içinde **myVnetB** dikey ve ardından tam adımlar 5-10 girme myVnetB için **Kullanıcıa** 8. adımda.
+13. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetB*. Seçin **myVnetB** arama sonuçlarında görüntülendiğinde.
+14. Altında **myVnetB**seçin **özellikleri** seçenekleri sol taraftaki dikey listesinden. Kopya **kaynak kimliği**, bir sonraki adımda kullanılır. Kaynak Kimliği aşağıdaki örneğe benzer: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+15. Seçin **erişim denetimi (IAM)** altında **myVnetB**ve ardından myVnetB, girmek için 5-10 adımları tamamlayın **Kullanıcıa** 8. adımda.
 16. Portal UserB olarak dışında oturum ve UserA oturum açın.
-17. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Tıklatın **myVnetA** arama sonuçlarında görüntülendiğinde. Bir dikey pencere görünür **myVnet** sanal ağ.
-18. Tıklatın **myVnetA**.
-19. İçinde **myVnetA** görünür, dikey tıklayın **eşlemeler** dikey pencerenin sol tarafındaki seçenekleri dikey listesinden.
-20. İçinde **myVnetA - eşlemeler** görünen dikey tıklayın **+ Ekle**
-21. İçinde **Ekle eşliği** görünür, dikey girin veya aşağıdaki seçenekleri belirleyin ve ardından **Tamam**:
+17. İçinde **arama kaynakları** kutusunu türü portalı üstündeki *myVnetA*. Seçin **myVnetA** arama sonuçlarında görüntülendiğinde.
+18. Seçin **myVnetA**.
+19. Altında **ayarları**seçin **eşlemeler**.
+20. Altında **myVnetA - eşlemeler**seçin **+ Ekle**
+21. Altında **Ekle eşliği**, girin veya, aşağıdaki seçenekleri belirleyin ve ardından seçin **Tamam**:
      - **Name**: *myVnetAToMyVnetB*
      - **Sanal ağ dağıtım modeli**: seçin **Resource Manager**.
      - **Kaynak Kimliğimi biliyorum**: Bu onay kutusunu işaretleyin.
      - **Kaynak Kimliği**: 14. adımdan kaynak kimliği girin.
      - **Sanal ağ erişimine izin ver:** emin **etkin** seçilir.
     Diğer bir ayarları, bu öğreticide kullanılır. Tüm eşleme ayarları hakkında bilgi için okuma [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md#create-a-peering).
-22. ' I tıklattıktan sonra **Tamam** önceki adımda **Ekle eşliği** dikey penceresi kapanır ve gördüğünüz **myVnetA - eşlemeler** dikey penceresini yeniden. Birkaç saniye sonra oluşturduğunuz eşliği dikey penceresinde görüntülenir. **Başlatılan** içinde listelenen **EŞLİĞİ durumu** sütunu için **myVnetAToMyVnetB** sizin eşlemeyi oluşturuldu. MyVnetB myVnetA eşlenen, ancak şimdi myVnetA myVnetB eş gerekir. Eşlemeyi birbirleri ile iletişim kurmak üzere sanal ağ kaynaklarında etkinleştirmek için her iki yönde oluşturulmalıdır.
+22. Oluşturduğunuz eşliği seçtikten sonra kısa bir bekleme görünür **Tamam** önceki adımda. **Başlatılan** içinde listelenen **EŞLİĞİ durumu** sütunu için **myVnetAToMyVnetB** sizin eşlemeyi oluşturuldu. MyVnetB myVnetA eşlenen, ancak şimdi myVnetA myVnetB eş gerekir. Eşlemeyi birbirleri ile iletişim kurmak üzere sanal ağ kaynaklarında etkinleştirmek için her iki yönde oluşturulmalıdır.
 23. UserA olarak portal dışında oturum ve UserB oturum açın.
 24. Yeniden myVnetB için 17 21 adımları tamamlayın. Eşlemeyi 21. adımda ad *myVnetBToMyVnetA*seçin *myVnetA* için **sanal ağ**ve 10 adımda kimliği girin **kaynak kimliği** kutusu.
-25. ' I tıklattıktan sonra birkaç saniye **Tamam** myVnetB için eşlemesi oluşturmak için **myVnetBToMyVnetA** , yeni oluşturduğunuz eşliği ile listelendiğini **bağlı** içinde **EŞLİĞİ durum** sütun.
+25. Seçtikten sonra birkaç saniye **Tamam** myVnetB için eşlemesi oluşturmak için **myVnetBToMyVnetA** , yeni oluşturduğunuz eşliği ile listelendiğini **bağlı** içinde**EŞLİĞİ durum** sütun.
 26. Portal UserB olarak dışında oturum ve UserA oturum açın.
 27. Adımları 17-19 yeniden tamamlayın. **EŞLİĞİ durumu** için **myVnetAToVNetB** eşliği olan şimdi de **bağlı**. Gördükten sonra Eşleme başarıyla kurulduktan **bağlı** içinde **EŞLİĞİ durum** sütun eşlemesi içindeki iki sanal ağlar için. Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini birbirleri ile iletişim kuramıyor. Varsayılan Azure ad çözümlemesi için sanal ağlar kullanıyorsanız, sanal ağlarda bulunan kaynaklar sanal ağlar arasında adlarını çözmek mümkün değildir. Bir eşlemesindeki sanal ağlar arasında adları çözümlemek dilerseniz kendi DNS sunucusu oluşturmanız gerekir. Nasıl ayarlanacağını öğrenin [kendi DNS sunucu kullanılarak ad çözümleme](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 28. **İsteğe bağlı**: sanal makineler oluştururken bu öğreticide kapsanmayan olsa, her sanal ağ içinde bir sanal makine oluşturun ve bir sanal makineden diğerine, bağlanabilirliği doğrulamak için bağlanın.
@@ -97,14 +97,14 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
 
 ## <a name="cli"></a>Eşlemesi - oluşturmak Azure CLI
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. Eş istediğiniz sanal ağlar her ikisi de aynı Azure Active Directory Kiracı ilişkili abonelik olması gerekir.  Farklı Active Directory kiracılar sanal ağlara bağlanmak isterseniz bağlanabilir bir [Azure VPN ağ geçidi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), bir sanal ağ eşlemesi yerine.
 
-Aşağıdaki komut dosyası:
+Aşağıdaki komut dosyaları:
 
 - Azure CLI Sürüm 2.0.4 gerektirir veya sonraki bir sürümü. Sürümü bulmak için `az --version` komutunu çalıştırın. Yükseltme gerekiyorsa, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Bir Bash kabuğunda çalışır. Windows istemcisi üzerinde Azure CLI betikleri çalıştırma seçenekleri için bkz. [Windows’da Azure CLI çalıştırma](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
-CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatın **deneyin** Azure hesabınızla oturum bir bulut Kabuk çağıran aşağıdaki komut düğmesi. 
+CLI ve bağımlılıklarını yüklemek yerine, Azure bulut Kabuğu'nu kullanabilirsiniz. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Seçin **deneyin** Azure hesabınızla oturum bir bulut Kabuk çağıran aşağıdaki komut düğmesi. 
 
 1. CLI oturumu açın ve Azure'a Kullanıcıa kullanarak olarak oturum açma `azure login` komutu. İle oturum için kullandığınız hesabın, bir sanal ağ eşlemesi oluşturmak için gerekli izinleri olmalıdır. İzinlerin bir listesi için bkz: [sanal ağ eşleme izinleri](virtual-network-manage-peering.md#permissions).
 2. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın, yerine `<SubscriptionA-Id>` kimliği, SubscriptionA ile sonra değiştirilmiş betiği kopyalayın, CLI oturum ve tuşuna yapıştırın `Enter`. Aboneliğinizi kimliği bilmiyorsanız, 'az hesabı Göster' komutunu girin. Değeri **kimliği** çıktıda, abonelik kimliği olan
@@ -175,7 +175,7 @@ Ya da sanal ağ içinde oluşturduğunuz Azure kaynaklarını IP adreslerini bir
  
 ## <a name="powershell"></a>Eşlemesi - oluşturmak PowerShell
 
-Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler.
+Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikler için izinlere sahip bir hesap kullanıyorsanız, tüm adımlar için aynı hesabı kullanmak, günlük Azure dışında için adımları atlayın ve rol atamalarını kullanıcı oluşturma komut satırlarını kaldırın. Değiştir UserA@azure.com ve UserB@azure.com tüm UserA ve userb adlı için kullanmakta olduğunuz kullanıcı adları ile aşağıdaki betikler. Eş istediğiniz sanal ağlar her ikisi de aynı Azure Active Directory Kiracı ilişkili abonelik olması gerekir.  Farklı Active Directory kiracılar sanal ağlara bağlanmak isterseniz bağlanabilir bir [Azure VPN ağ geçidi](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md), bir sanal ağ eşlemesi yerine.
 
 1. PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) modülünün en son sürümünü yükleyin. Azure PowerShell'i kullanmaya yeni başladıysanız [Azure PowerShell'e genel bakış](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) sayfasını inceleyin.
 2. Bir PowerShell oturumu başlatın.
@@ -286,8 +286,8 @@ Bu öğreticiyi tamamladığınızda, kullanım ücret ödememeniz öğreticide 
 ### <a name="delete-portal"></a>Azure portalı
 
 1. Azure portalında UserA oturum açın.
-2. Portal arama kutusuna **myResourceGroupA**. Arama sonuçlarında tıklatın **myResourceGroupA**.
-3. Üzerinde **myResourceGroupA** dikey penceresinde tıklatın **silmek** simgesi.
+2. Portal arama kutusuna **myResourceGroupA**. Arama sonuçlarında seçin **myResourceGroupA**.
+3. **Sil**’i seçin.
 4. İçinde silmeyi onaylamak için **türü kaynak grubu adı** kutusuna **myResourceGroupA**ve ardından **silmek**.
 5. UserA olarak portal dışında oturum ve UserB oturum açın.
 6. MyResourceGroupB için 2-4 arası adımları tamamlayın.

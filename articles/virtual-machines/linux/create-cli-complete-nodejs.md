@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma | Microsoft Docs"
-description: "Depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengeleyici, bir NIC, ortak bir IP ve tüm sıfırdan Azure CLI 1.0 kullanarak bir ağ güvenlik grubu oluşturun."
+title: Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma | Microsoft Docs
+description: Depolama, bir Linux VM, bir sanal ağ ve alt ağ, bir yük dengeleyici, bir NIC, ortak bir IP ve tüm sıfırdan Azure CLI 1.0 kullanarak bir ağ güvenlik grubu oluşturun.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 4ba4060b-ce95-4747-a735-1d7c68597a1a
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: 201ccd523e49d638ace50fbc0ffdceb705b35473
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a43e138d3497e01fe9e0e5c55a4a66adac767c6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve geliştirme ve basit bilgi işlem için yararlı olan VM'ler çifti ile basit bir ağ oluşturun. İki çalışma, güvenli Linux, gelen herhangi bir yere Internet'te bağlanabileceği VM'ler kadar biz komut komut işleminde size kılavuzluk. Ardından, daha karmaşık ağlar ve ortamlar geçebilirsiniz.
@@ -53,7 +53,7 @@ azure config mode arm
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adlarında `myResourceGroup`, `mystorageaccount`, ve `myVM`.
 
-Kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
+Kaynak grubunu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur `myResourceGroup` içinde `westeurope` konumu:
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -382,7 +382,7 @@ data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
 info:    storage container list command OK
 ```
 
-## <a name="create-a-virtual-network-and-subnet"></a>Bir sanal ağ ve alt ağ oluşturun
+## <a name="create-a-virtual-network-and-subnet"></a>Sanal ağ ve alt ağ oluşturma
 Sonraki Azure ve Vm'lerinizi oluşturabileceğiniz bir alt ağ içinde çalışan bir sanal ağ oluşturmak ihtiyacınız olacak. Aşağıdaki örnek adlı bir sanal ağ oluşturur `myVnet` ile `192.168.0.0/16` adres öneki:
 
 ```azurecli
@@ -795,7 +795,7 @@ data:    Backend address pool id         : /subscriptions/guid/resourceGroups/my
 info:    network lb rule create command OK
 ```
 
-## <a name="create-a-load-balancer-health-probe"></a>Bir yük dengeleyici durum araştırması oluştur
+## <a name="create-a-load-balancer-health-probe"></a>Yük dengeleyici durum araştırması oluşturma
 Bir sistem durumu araştırması düzenli aralıklarla işletim ve tanımlanan isteklerine yanıt emin olmak için yük dengeleyicinin ardındaysa VM'ler denetler. Aksi durumda, kullanıcıların kendilerine yönlendirilmeye olmayan emin olmak için işlem kaldırılmış. Aralıklarla ve zaman aşımı değerlerinin yanı sıra durumu araştırması için özel denetimleri tanımlayabilirsiniz. Sistem durumu araştırmalarının hakkında daha fazla bilgi için bkz: [yük dengeleyici yoklamaları](../../load-balancer/load-balancer-custom-probe-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Aşağıdaki örnek, bir TCP oluşturur sistem durumu araştırılan adlandırılmış `myHealthProbe`:
 
 ```azurecli

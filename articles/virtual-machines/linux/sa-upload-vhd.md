@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 2.0 ile özel bir Linux disk yüklemek | Microsoft Docs"
-description: "Oluşturma ve bir sanal sabit disk (VHD) için Azure Resource Manager dağıtım modeli ve Azure CLI 2.0 kullanarak yükleme"
+title: Azure CLI 2.0 ile özel bir Linux disk yüklemek | Microsoft Docs
+description: Oluşturma ve bir sanal sabit disk (VHD) için Azure Resource Manager dağıtım modeli ve Azure CLI 2.0 kullanarak yükleme
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: a8c7818f-eb65-409e-aa91-ce5ae975c564
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 258c2a5bbce1f15c78690cb01dc9b66fef4bb8f5
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Karşıya yükleme ve Azure CLI 2.0 ile özel diskten bir Linux VM oluşturma
 Bu makalede Azure CLI 2.0 ile Azure depolama hesabı için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux VM'ler oluşturmak gösterilmektedir. Bu adımları [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz. Bu işlevsellik, yükleme ve Linux distro gereksinimlerinize yapılandırmak ve hızlı bir şekilde Azure sanal makineleri (VM'ler) oluşturmak için bu VHD kullanmak olanak sağlar.
@@ -112,7 +112,7 @@ Azure çeşitli Linux dağıtımları destekler (bkz [destekli dağıtımlar](en
 * **[Ubuntu](create-upload-ubuntu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 * **[Diğer - desteklenmeyen dağıtımlarla](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)**
 
-Ayrıca bkz.  **[Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes)**  için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
+Ayrıca bkz. **[Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes)** için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
 
 > [!NOTE]
 > [Azure platformu SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) içinde yalnızca doğrulanan dağıtımları birini 'Sürümleri desteklenir' altında belirtildiği gibi yapılandırma ayrıntıları ile kullanıldığında, Linux çalıştıran Vm'leri uygulandığı [Azure-Endorsed dağıtımları Linux'ta](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

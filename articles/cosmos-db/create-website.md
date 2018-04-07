@@ -1,11 +1,10 @@
 ---
-title: "Bir şablon - Azure Cosmos DB ile bir web uygulaması dağıtma | Microsoft Docs"
-description: "Bir Azure Cosmos DB hesabı, Azure App Service Web Apps ve Azure Resource Manager şablonu kullanarak örnek bir web uygulamasına dağıtmayı öğrenin."
+title: Bir şablon - Azure Cosmos DB ile bir web uygulaması dağıtma | Microsoft Docs
+description: Bir Azure Cosmos DB hesabı, Azure App Service Web Apps ve Azure Resource Manager şablonu kullanarak örnek bir web uygulamasına dağıtmayı öğrenin.
 services: cosmos-db, app-service\web
-author: mimig1
-manager: jhubbard
-editor: monicar
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: 087d8786-1155-42c7-924b-0eaba5a8b3e0
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 89513d6c1b9aa9f4709359d6d7681bff9c291618
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 468edd78e0ef8e13b2783485004a9db21906f1fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Cosmos DB ve Azure App Service Web Apps bir Azure Resource Manager şablonu kullanarak dağıtın
 Bu öğretici bir Azure Resource Manager şablonu dağıtma ve tümleştirmek için nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), bir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web uygulaması ve bir örnek web uygulaması.
@@ -77,7 +76,7 @@ Artık ilk şablonunuz şimdi dağıtın.
    ![Şablon dağıtımı kullanıcı Arabirimi ekran görüntüsü](./media/create-website/TemplateDeployment6.png)
 7. Dağıtım tamamlandığında kaynak grubu bölmesi açılır.
    ![Kaynak grubu bölmesinin ekran görüntüsü](./media/create-website/TemplateDeployment7.png)  
-8. Uygulamayı kullanmak için web uygulaması URL'ye gidin (yukarıdaki örnekte, URL http://mydemodocdbwebapp.azurewebsites.net olur).  Şu web uygulaması görürsünüz:
+8. Uygulamayı kullanmak için web uygulaması URL'ye gidin (yukarıdaki örnekte, URL şu şekilde olacaktır http://mydemodocdbwebapp.azurewebsites.net).  Şu web uygulaması görürsünüz:
    
    ![Örnek Todo uygulaması](./media/create-website/image2.png)
 9. Devam edin ve görevler çeşitli web uygulaması oluşturma ve Azure Portal'daki kaynak grubu bölmesine dönmek. Kaynaklar listesinde Azure Cosmos DB hesap kaynak'ı tıklatın ve ardından **Veri Gezgini**.

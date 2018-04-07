@@ -1,12 +1,12 @@
 ---
-title: "Azure Docker VM uzantısı ile Azure CLI 1.0 kullanın | Microsoft Docs"
-description: "Docker VM uzantısı hızlı ve güvenli bir şekilde Azure Resource Manager şablonları kullanarak Docker bir ortamda dağıtmak için nasıl kullanılacağını öğrenin."
+title: Azure Docker VM uzantısı ile Azure CLI 1.0 kullanın | Microsoft Docs
+description: Docker VM uzantısı hızlı ve güvenli bir şekilde Azure Resource Manager şablonları kullanarak Docker bir ortamda dağıtmak için nasıl kullanılacağını öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f981a50887138660d26a9d011870a05f1270c94
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>Docker VM uzantısı ile Azure CLI 1.0 kullanarak azure'da bir Docker ortam oluşturma
 Docker popüler kapsayıcı yönetimi ve Linux (ve de Windows) ile kapsayıcıları hızlı bir şekilde çalışmanıza olanak sağlayan görüntüleme platform ' dir. Azure'da, sizin ihtiyaçlarınıza göre Docker dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Docker VM uzantısı ve Azure Resource Manager şablonları kullanarak odaklanır. 

@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure VM için WinRM erişimini Ayarla | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde oluşturulmuş bir Azure sanal makinesi ile kullanım için WinRM erişim ayarlayın."
+title: Bir Azure VM için WinRM erişimini Ayarla | Microsoft Docs
+description: Resource Manager dağıtım modelinde oluşturulmuş bir Azure sanal makinesi ile kullanım için WinRM erişim ayarlayın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 9718e85b-d360-4621-90b8-0b0b84a21208
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fa82dd4a85ff2e62848df0fdc6006922005a84b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Sanal makineler Azure Kaynak Yöneticisi'nde için WinRM erişimi ayarlama
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>Azure Resource Manager Azure Hizmet Yönetimi vs'de WinRM
@@ -88,7 +88,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 Microsoft.Compute kaynak sağlayıcısındaki VM sağlarken gizli anahtar kasası içinde bir URL gerekir. Bu, gizli anahtarı indirin ve eşdeğer sertifika VM oluşturmak Microsoft.Compute kaynak sağlayıcısındaki sağlar.
 
 > [!NOTE]
-> Gizli URL'sini sürümü de içermesi gerekir. Bir örnek URL'si https://contosovault.vault.azure.net:443/gizli/contososecret/01h9db0df2cd4300a20ence585a6s7ve gibi görünüyor
+> Gizli URL'sini sürümü de içermesi gerekir. Aşağıdaki gibi bir örnek URL'si görünüyor https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 > 
 > 
 
@@ -157,7 +157,7 @@ Emin olmak için gerekir VM bağlanmadan önce makinenizde WinRM uzaktan yöneti
     Enable-PSRemoting -Force
 
 > [!NOTE]
-> Yukarıdaki işe yaramazsa WinRM hizmetinin çalıştığından emin olmak gerekebilir. Bu kullanarak yapabilirsiniz`Get-Service WinRM`
+> Yukarıdaki işe yaramazsa WinRM hizmetinin çalıştığından emin olmak gerekebilir. Bu kullanarak yapabilirsiniz `Get-Service WinRM`
 > 
 > 
 

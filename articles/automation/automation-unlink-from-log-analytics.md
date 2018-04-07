@@ -1,18 +1,18 @@
 ---
-title: Azure Otomasyon hesabı günlük analizi bağlantısını | Microsoft Docs
+title: Azure Otomasyonu hesabı ile Log Analytics arasındaki bağlantıyı kaldırma
 description: Bu makalede, Azure Automation hesabınız bir günlük analizi çalışma alanından bağlantısının nasıl genel bakış sağlar.
 services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/19/2018
+ms.date: 04/04/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: b8b00f8a82dd63df13ccd0bc7e10429323c15ab3
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 4928f1b92e84fc2b960c1f41e7531de9e346dfa2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Günlük analizi çalışma alanı penceresinden Otomasyon hesabınızı bağlantısının nasıl
 
@@ -21,16 +21,27 @@ Azure Otomasyonu kalmaz, runbook işleri tüm Automation hesapları arasında iz
 * [Güncelleştirme yönetimi](../operations-management-suite/oms-solution-update-management.md)
 * [Değişiklik İzleme](../log-analytics/log-analytics-change-tracking.md)
 * [Yoğun olmayan saatlerde sırasında Başlat/Durdur VM'ler](automation-solution-vm-management.md)
- 
-Otomasyon hesabı günlük analizi ile tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı bağlantısını kaldırabilirsiniz.  Devam etmeden önce ilk daha önce bahsedilen çözümleri kaldırmanız gerekir, aksi takdirde bu işlem devam etmesini engellenir.  Kaldırmak için gerekli olan adımları anlamak için içeri aktardığınız belirli çözüm konusunu gözden geçirin.  
+
+Otomasyon hesabı günlük analizi ile tümleştirmek istediğiniz karar verirseniz, doğrudan Azure portalından hesabınızı bağlantısını kaldırabilirsiniz.  Devam etmeden önce ilk daha önce bahsedilen çözümleri kaldırmanız gerekir, aksi takdirde bu işlem devam etmesini engellenir. Kaldırmak için gerekli olan adımları anlamak için içeri aktardığınız belirli çözüm konusunu gözden geçirin.
 
 Bu çözümlerin kaldırdıktan sonra Automation hesabınız bağlantısını kaldırmak için aşağıdaki adımları gerçekleştirebilirsiniz.
 
+> [!NOTE]
+> Azure SQL izleme çözümü önceki sürümleri dahil olmak üzere bazı çözümleri Otomasyon varlıkları oluşturmuş olabileceğiniz ve ayrıca çalışma kaynağınızın önce kaldırılması gerekebilir.
+
 ## <a name="unlink-workspace"></a>Çalışma alanı bağlantısını Kaldır
 
-1. Azure portalından Automation hesabınızı açın ve sayfa seç üzerinde Otomasyon hesabı **çalışma bağlantısını** bölümünün altında **ilgili kaynaklar** soldaki.<br><br> ![Çalışma alanı seçeneği bağlantısını Kaldır](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)<br><br>  
-2. Bağlantıyı kaldır çalışma sayfasında, tıklatın **çalışma bağlantısını**.<br><br> ![Çalışma alanı sayfası bağlantısını](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).<br><br>  Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.<br><br>
-3. Azure Otomasyon hesabı günlük analizi çalışma alanınız bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
+1. Azure portalından Automation hesabınızı açın ve sayfa seç üzerinde Otomasyon hesabı **çalışma bağlantısını** bölümünün altında **ilgili kaynaklar** soldaki.
+
+   ![Çalışma alanı seçeneği bağlantısını Kaldır](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+
+1. Bağlantıyı kaldır çalışma sayfasında, tıklatın **çalışma bağlantısını**.
+
+   ![Çalışma alanı sayfası bağlantısını Kaldır](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
+
+   Devam etmek istediğinizi doğrulayan bir ileti alacaksınız.
+
+1. Azure Otomasyon hesabı günlük analizi çalışma alanınız bağlantısını dener, ancak altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde.
 
 İsteğe bağlı güncelleştirme yönetimi çözümü kullandıysanız, çözüm kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
 
@@ -40,10 +51,10 @@ Bu çözümlerin kaldırdıktan sonra Automation hesabınız bağlantısını ka
 
 İsteğe bağlı olarak Başlat/Durdur VM'ler yoğun olmayan saatlerde çözüm sırasında kullandıysanız, çözüm kaldırdıktan sonra artık gerekli olmayan aşağıdaki öğeleri kaldırmak isteyebilirsiniz.
 
-* Başlatma ve durdurma VM runbook zamanlama 
+* Başlatma ve durdurma VM runbook zamanlama
 * Başlatma ve VM runbook'ları durdurun
-* Değişkenler   
+* Değişkenler
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Otomasyon hesabınızı günlük analizi ile tümleştirmek üzere yapılandırmak için bkz: [Otomasyon iş durumu ve iş akışları için günlük analizi iletmek](automation-manage-send-joblogs-log-analytics.md). 
+Otomasyon hesabınızı günlük analizi ile tümleştirmek üzere yapılandırmak için bkz: [Otomasyon iş durumu ve iş akışları için günlük analizi iletmek](automation-manage-send-joblogs-log-analytics.md).

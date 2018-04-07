@@ -1,18 +1,18 @@
 ---
-title: "Özel Azure olay kılavuz konusu olaya sonrası"
-description: "Azure olay ızgara için özel bir konu için bir olay sonrası açıklar"
+title: Özel Azure olay kılavuz konusu olaya sonrası
+description: Azure olay ızgara için özel bir konu için bir olay sonrası açıklar
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 43dcdf9ab0fee5f7e61ecdc42aaf40430e272d92
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Özel konu için Azure olay kılavuz sonrası
 
@@ -91,8 +91,34 @@ Bu özellikleri açıklaması için bkz: [Azure olay kılavuz olay şema](event-
 }]
 ```
 
+## <a name="response"></a>Yanıt
+
+Konu uç nakil sonra bir yanıtı alırsınız. Yanıta standart HTTP yanıt kodunu ' dir. Bazı ortak yanıtları şunlardır:
+
+|Sonuç  |Yanıt  |
+|---------|---------|
+|Başarılı  | 200 TAMAM  |
+|Yanlış uç noktası | 404 Bulunamadı |
+|Geçersiz erişim anahtarı | 401 Yetkisiz |
+|Olay verileri hatalı biçim içeriyor | 400 Hatalı istek |
+
+Hatalar için ileti gövdesinin biçimi aşağıdaki gibidir:
+
+```json
+{
+    "error": {
+        "code": "<HTTP status code>",
+        "message": "<description>",
+        "details": [{
+            "code": "<HTTP status code>",
+            "message": "<description>"
+    }]
+  }
+}
+```
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Yönlendirme özel olaylar giriş için bkz: [oluşturma ve rota özel olaylarla Azure CLI ve olay kılavuz](custom-event-quickstart.md) veya [oluşturma ve rota özel olaylar, Azure PowerShell ve olay kılavuz](custom-event-quickstart-powershell.md).
+* Olay teslimler izleme hakkında daha fazla bilgi için bkz: [İzleyicisi olay kılavuz ileti teslimi](monitor-event-delivery.md).
 * Kimlik doğrulama anahtarı hakkında daha fazla bilgi için bkz: [olay kılavuz güvenlik ve kimlik doğrulama](security-authentication.md).
 * Bir Azure olay kılavuz abonelik oluşturma hakkında daha fazla bilgi için bkz: [olay kılavuz abonelik şema](subscription-creation-schema.md).

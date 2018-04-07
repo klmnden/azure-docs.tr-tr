@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL esnek ölçeklendirme ile ilgili SSS | Microsoft Docs"
-description: "Azure SQL Database esnek ölçeği hakkında sık sorulan sorular."
+title: Azure SQL esnek ölçeklendirme ile ilgili SSS | Microsoft Docs
+description: Azure SQL Database esnek ölçeği hakkında sık sorulan sorular.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 575167293d9b4685ecc38303414b69074c366ab2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 57a5ef07aa8ca6d35085f9b2425cbc1c08c23b36
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="elastic-database-tools-faq"></a>Esnek veritabanı araçlarını SSS
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>Tek Kiracı başına parça ve hiçbir parçalama anahtarı varsa, nasıl şema bilgilerini parçalama anahtar doldurmak?
@@ -30,7 +30,7 @@ Esnek veritabanı istemci kitaplığı kullanılarak maliyetlerin tabi değildir
 Kimlik bilgileri biçiminde kullanmayın "kullanıcı kimliği =username@servername", bunun yerine yalnızca kullanın "kullanıcı kimliği kullanıcı adı =".  Ayrıca, "kullanıcıadı" oturum açma üzerinde parça izinlere sahip olduğundan emin olun.
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Parça eşleme Yöneticisi oluşturmak ve uygulamalarım Başlat her zaman parça doldurmak gerekiyor mu?
-Hayır — parça eşleme Yöneticisi oluşturma (örneğin,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) tek seferlik bir işlemdir.  Uygulamanız çağrı kullanacak  **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)**  uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
+Hayır — parça eşleme Yöneticisi oluşturma (örneğin,  **[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) tek seferlik bir işlemdir.  Uygulamanız çağrı kullanacak **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** uygulama başlatma zaman.  Uygulama etki alanı başına yalnızca bir tür çağrısı var olmalıdır.
 
 #### <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>I esnek veritabanı araçlarını kullanma hakkında sorularınız varsa, bunları yanıtlanan nasıl sağlarım?
 Lütfen bize üzerinde ulaşmak [Azure SQL veritabanı Forumu](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).

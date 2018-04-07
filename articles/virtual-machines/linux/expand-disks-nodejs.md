@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 1.0 ile Linux VM üzerindeki işletim sistemi diski genişletin | Microsoft Docs"
-description: "Azure CLI 1.0 ve Resource Manager dağıtım modeli kullanarak bir Linux VM üzerindeki işletim sistemi (OS) sanal diski Genişlet öğrenin"
+title: Azure CLI 1.0 ile Linux VM üzerindeki işletim sistemi diski genişletin | Microsoft Docs
+description: Azure CLI 1.0 ve Resource Manager dağıtım modeli kullanarak bir Linux VM üzerindeki işletim sistemi (OS) sanal diski Genişlet öğrenin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f81054727bb1f0e8ffa752783e866a72d573589d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Azure CLI 1.0 ile Azure CLI kullanarak bir Linux VM üzerindeki işletim sistemi diski genişletin
 Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz işletim sistemi diski genişletin. Bu makalede Azure CLI 1.0 ile yönetilmeyen diskleri kullanarak bir Linux VM için işletim sistemi diski genişletmek nasıl ayrıntılarını verir.
@@ -29,7 +29,7 @@ Görevi aşağıdaki CLI sürümlerinden birini kullanarak tamamlayabilirsiniz:
 - [Azure CLI 1.0](#prerequisites) – bizim CLI Klasik ve kaynak yönetimi dağıtım modeline (Bu makalede)
 - [Azure CLI 2.0](expand-disks.md): Kaynak yönetimi dağıtım modeline yönelik yeni nesil CLI'mız
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Gereksinim duyduğunuz [en son Azure CLI 1.0](../../cli-install-nodejs.md) yüklü ve oturum açılan bir [Azure hesabı](https://azure.microsoft.com/pricing/free-trial/) Resource Manager modunu aşağıdaki gibi kullanarak:
 
 ```azurecli
@@ -47,7 +47,7 @@ Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiş
     ```
 
     > [!NOTE]
-    > `azure vm stop`işlem kaynaklarını serbest değil. İşlem kaynakları serbest bırakmak için kullanmak `azure vm deallocate`. Sanal sabit diski genişletmek için VM serbest gerekir.
+    > `azure vm stop` işlem kaynaklarını serbest değil. İşlem kaynakları serbest bırakmak için kullanmak `azure vm deallocate`. Sanal sabit diski genişletmek için VM serbest gerekir.
 
 2. Yönetilmeyen işletim sistemi diski kullanarak boyutunu güncelleştirme `azure vm set` komutu. Aşağıdaki örnek adlı VM güncelleştirmeleri *myVM* kaynak grubunda adlı *myResourceGroup* olmasını *50* GB:
 

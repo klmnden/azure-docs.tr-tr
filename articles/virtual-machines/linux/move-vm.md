@@ -1,11 +1,11 @@
 ---
-title: "Azure'da bir Linux VM Taşı | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubu için bir Linux VM taşıyın."
+title: Azure'da bir Linux VM Taşı | Microsoft Docs
+description: Resource Manager dağıtım modelinde başka bir Azure abonelik veya kaynak grubu için bir Linux VM taşıyın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: d635f0a5-4458-4b95-a5f8-eed4f41eb4d4
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 459e0d591e2279b63864a273f713e4c1df8c0858
-ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
+ms.openlocfilehash: a4a7dd5541fe298675232ffa803f749e71f6a03f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Bir Linux VM başka bir abonelik veya kaynak grubuna taşıma
 Bu makalede, bir Linux VM kaynak grupları veya abonelikler arasında taşıma hakkında adım adım anlatılmaktadır. Bir VM abonelikler arasında taşıma kişisel bir abonelikte VM oluşturduysanız kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.

@@ -1,18 +1,17 @@
 ---
-title: "Azure konum tabanlı Hizmetleri (Önizleme) arama hizmetini kullanarak bir adres için arama yapma | Microsoft Docs"
-description: "Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanmak için bir adres arama öğrenin"
+title: Azure konum tabanlı Hizmetleri (Önizleme) arama hizmetini kullanarak bir adres için arama yapma | Microsoft Docs
+description: Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanmak için bir adres arama öğrenin
 services: location-based-services
-keywords: "SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin."
 author: kgremban
 ms.author: kgremban
 ms.date: 11/29/2017
 ms.topic: article
 ms.service: location-based-services
-ms.openlocfilehash: dd8026c55d71f6e421b976d8e7ae12f1cfd679a1
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f8b886607fe0915396a659593cd5910a271fca93
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Azure konum tabanlı Hizmetleri (Önizleme) arama hizmeti kullanarak adresi bulma
 Arama hizmeti adresleri, yerler, ilgi, iş listelerini ve diğer coğrafi bilgi noktaları için aranacak geliştiricileri için tasarlanmış API'leri RESTful kümesidir. Arama hizmeti, belirli bir adresi, çapraz Sokak, coğrafi özelliği veya ilgi çekici (s) için enlem/boylam atar. Enlem ve boylam değerleri arama hizmeti API tarafından döndürülen Azure konum tabanlı Hizmetleri rota ve trafik akışını API'leri gibi diğer parametre olarak kullanılabilir.
@@ -44,7 +43,7 @@ Varsayılan olarak çoğu arama sorguları ' maxFuzzyLevel performans elde etmek
     | İstek URL'si | https://atlas.microsoft.com/search/fuzzy/json? |
     | Yetkilendirme | Hiçbir kimlik doğrulama |
 
-    **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz almak** [konum tabanlı Hizmetleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
+    **Json** URL yolunu özniteliğinde yanıt biçimi belirler. Bu makale boyunca json kullanım kolaylığı ve Okunabilirlik için kullanıyorsunuz. Kullanılabilir yanıt biçimlerde bulabilirsiniz **arama belirsiz alma** [konum tabanlı Hizmetleri işlevsel API başvuru] tanımını (https://docs.microsoft.com/rest/api/location-based-services/search/getsearchfuzzy).
 
 3. Tıklatın **Params**ve aşağıdaki anahtarı girin / değer çiftleri sorgu veya yol parametreleri istek URL'sindeki olarak kullanın:
 
@@ -154,7 +153,7 @@ Tam veya kısmi bir adres arama adresi API'sine geçirin ve enlem ve boylam konu
 
     | Anahtar | Değer |
     |-----|------------|
-    | numarası | true |
+    | number | true |
 
     Varsa [numarası](https://docs.microsoft.com/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) sorgu parametresi istekle birlikte gönderilen, yanıt Sokak (sol/sağ) ve ayrıca bu sayıyı için uzaklık konumu tarafında içerebilir.
     

@@ -10,11 +10,11 @@ ms.component: design
 ms.date: 03/28/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c27ad843c9ee9beed871dcc03254cb1266f6ebe2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ayıklama, yükleme ve dönüştürme (ELT) Azure SQL veri ambarı için tasarlama
 
@@ -47,8 +47,9 @@ PolyBase T-SQL dili ile veritabanı dışında verilere erişen bir teknolojidir
 PolyBase ile veri yüklemek için aşağıdaki yükleme seçeneklerinden herhangi birini kullanabilirsiniz.
 
 - [T-SQL ile PolyBase](load-data-from-azure-blob-storage-using-polybase.md) verileriniz Azure Blob storage veya Azure Data Lake Store olduğunda iyi çalışır. Yükleme işlemi üzerinde çoğu denetim sunar, ancak Ayrıca, dış veri nesneleri tanımlamanızı gerektirir. Kaynak tablolar için hedef tablo eşlemesi olarak diğer yöntemleri arka planda bu nesneleri tanımlar.  T-SQL yükleri düzenlemek için Azure Data Factory, SSIS ya da Azure işlevlerini kullanabilirsiniz. 
-- [SSIS Polybase'i](sql-data-warehouse-load-from-sql-server-with-integration-services.md) veri kaynağınızı SQL Server'daki ya da SQL Server şirket içi veya bulutta olduğunda iyi çalışır. SSIS kaynak hedef tablo eşlemelere tanımlar ve ayrıca yük yönetir. SSIS paketleri zaten varsa, yeni veri ambarı hedef çalışmak için paketlerini değiştirebilirsiniz. 
-- [PolyBase Azure veri fabrikası (ADF) ile](sql-data-warehouse-load-with-data-factory.md) başka bir düzenleme aracıdır.  Bir işlem hattı tanımlar ve işleri zamanlar. 
+- [SSIS Polybase'i](/sql/integration-services/load-data-to-sql-data-warehouse) veri kaynağınızı SQL Server'daki ya da SQL Server şirket içi veya bulutta olduğunda iyi çalışır. SSIS kaynak hedef tablo eşlemelere tanımlar ve ayrıca yük yönetir. SSIS paketleri zaten varsa, yeni veri ambarı hedef çalışmak için paketlerini değiştirebilirsiniz. 
+- [PolyBase Azure veri fabrikası (ADF) ile](sql-data-warehouse-load-with-data-factory.md) başka bir düzenleme aracıdır.  Bir işlem hattı tanımlar ve işleri zamanlar. ADF JSON verilerini ayrıştırma ve SQL Data Warehouse'a veri yüklemek için kullanabilirsiniz.
+- [Azure DataBricks Polybase'i](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) aktarır veri Azure Data Lake Deposu'ndan veri SQL veri ambarı. Azure DataBricks JSON verilerini ayrıştırma ve SQL Data warehouse'a veri yüklemek için kullanabilirsiniz. 
 
 ### <a name="polybase-external-file-formats"></a>PolyBase dış dosya biçimleri
 

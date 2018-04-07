@@ -1,29 +1,29 @@
 ---
-title: "Modüller için Azure CLI 2.0 IOT uzantısını kullanarak IOT kenar cihazlara dağıtma | Microsoft Docs"
-description: "Azure CLI 2.0 için IOT uzantısını kullanarak bir IOT sınır cihazı modülleri dağıtma"
+title: Modüller için Azure CLI 2.0 IOT uzantısını kullanarak IOT kenar cihazlara dağıtma | Microsoft Docs
+description: Azure CLI 2.0 için IOT uzantısını kullanarak bir IOT sınır cihazı modülleri dağıtma
 services: iot-edge
-keywords: 
+keywords: ''
 author: chrissie926
 manager: timlt
 ms.author: menchi
 ms.date: 03/02/2018
 ms.topic: article
 ms.service: iot-edge
-ms.custom: mvc
+ms.custom: ''
 ms.reviewer: kgremban
-ms.openlocfilehash: 25f1becff11138e59595c211802acbf791094e53
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1f71fdfb7090dce24ba73f1fa01e287c52b065f8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 için IOT uzantısını kullanarak bir IOT sınır cihazı modülleri dağıtma
 
-[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest) çapraz platform komut satırı aracı IOT kenar gibi Azure kaynakları yönetmek için bir açık kaynak değil. Azure CLI 2.0, Windows, Linux ve MacOS kullanılabilir.
+[Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure CLI 2.0 Windows, Linux ve Mac OS ile kullanılabilir.
 
-Azure CLI 2.0 Azure IOT Hub kaynakları, cihaz sağlama hizmet örneği ve kutunun dışında bağlantılı-hub yönetmenizi sağlar. Yeni IOT uzantısı aygıt yönetimi ve tam IOT kenar özelliği gibi özellikler ile Azure CLI 2.0 aşağıdakilere zenginleştirir.
+Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz. Yeni IOT uzantısı aygıt yönetimi ve tam IOT kenar özelliği gibi özellikler ile Azure CLI 2.0 aşağıdakilere zenginleştirir.
 
-Bu öğreticide, ilk Azure CLI 2.0 ve IOT uzantısı ayarlamak için adımları tamamlayın. Ardından, modüller CLI komutları kullanarak bir IOT sınır cihazı dağıtmayı öğrenin.
+Bu makalede, Azure CLI 2.0 ve IOT uzantısı ayarlayın. Ardından, modüller CLI komutları kullanarak bir IOT sınır cihazı dağıtmayı öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -31,7 +31,7 @@ Bu öğreticide, ilk Azure CLI 2.0 ve IOT uzantısı ayarlamak için adımları 
 
 * [Python 2.7 x veya Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. En azından, Azure CLI 2.0 sürümünüzün 2.0.24 olması gerekir veya üstü. Kullanım `az –-version` doğrulamak için. Bu sürüm az uzantısını komutları destekler ve Knack komut çerçevesi sunar. Windows yüklemek için bir basit yoludur indirmek ve yüklemek için [MSI](https://aka.ms/InstallAzureCliWindows).
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
 
 * [Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension):
    1. `az extension add --name azure-cli-iot-ext` öğesini çalıştırın. 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d562e58b86a6d5c18b10683dc4c14cf9c28c809b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 Sanal Ağdan Sanal Ağa SSS bölümü VPN Gateway bağlantıları için geçerlidir. Sanal Ağ Eşleme konusunu arıyorsanız bkz. [Sanal Ağ Eşleme](../articles/virtual-network/virtual-network-peering-overview.md)
 
@@ -23,6 +23,10 @@ VPN ağ geçidi bağlantısı kullanılırken, aynı bölge içindeki Sanal Ağd
 ### <a name="does-vnet-to-vnet-traffic-travel-across-the-internet"></a>Sanal Ağdan Sanal Ağa trafik İnternet üzerinden yolculuk ediyor mu?
 
 Hayır. Sanal Ağdan Sanal Ağa trafiği akışı, İnternet üzerinden değil Microsoft Azure omurgası üzerinden sağlanır.
+
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>AAD kiracılar arasında VNet-VNet bağlantı kurmak?
+
+Evet, Azure VPN ağ geçitleri kullanarak VNet-VNet bağlantıları AAD kiracılar arasında çalışır.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Sanal Ağdan Sanal Ağa trafiği güvenli mi?
 

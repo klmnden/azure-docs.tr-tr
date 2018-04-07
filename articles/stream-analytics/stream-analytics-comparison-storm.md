@@ -1,24 +1,19 @@
 ---
-title: 'Analytics platformları: akış analizi için Apache Storm karşılaştırma | Microsoft Docs'
-description: Akış analizi için Apache Storm karşılaştırma kullanarak bulut analizi platformu seçme kılavuzu edinin. Özellikler ve farklar anlayın.
-keywords: Analiz platformu analytics platformları, bulut analizi platformu, storm karşılaştırma
+title: 'Analytics platformları: Azure akış analizi için Apache Storm karşılaştırma'
+description: Akış analizi için Apache Storm karşılaştırma kullanarak bulut analizi platformu seçmek için yönergeler. Özellikler ve farklar anlayın.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/27/2017
 ms.author: jeanb
-ms.openlocfilehash: 48599c362c5db50ebec3acd0aaa4359439edb00b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/27/2017
+ms.openlocfilehash: 94ac3c0075014a3e014ede8104a6aa259527a0ae
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Akış analizi platformu seçme: Apache Storm ve Azure akış analizi karşılaştırma
 Azure veri akışı çözümleme için birden çok çözümü sağlar: [Azure akış analizi](https://docs.microsoft.com/azure/stream-analytics/) ve [Azure hdınsight'ta Apache Storm](https://azure.microsoft.com/services/hdinsight/apache-storm/). Her iki analytics platformları bir PaaS çözümü yararları sağlar. Ancak platformları nasıl yapılandırmak ve bunları yönetmek gibi yeteneklerini de önemli farklılıklar vardır. 

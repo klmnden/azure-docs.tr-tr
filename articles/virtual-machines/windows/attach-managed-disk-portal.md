@@ -1,13 +1,13 @@
 ---
-title: "Bir Windows VM - Azure bir yönetilen veri diski Ekle | Microsoft Docs"
-description: "Bir Windows VM Resource Manager dağıtım modelini kullanarak Azure portalında yeni yönetilen veri diski ekleme yapma."
+title: Bir Windows VM - Azure bir yönetilen veri diski Ekle | Microsoft Docs
+description: Bir Windows VM Resource Manager dağıtım modelini kullanarak Azure portalında yeni yönetilen veri diski ekleme yapma.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: 603d1c423ff2039915bdd3d5ed4a79b78d491edc
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Nasıl bir Windows VM Azure portalında bir yönetilen veri diski kullanıma açın
 
@@ -38,7 +38,7 @@ Ayrıca [Powershell kullanarak bir veri diskini](attach-disk-ps.md).
 3. Sanal makine sayfasında, tıklatın **diskleri**.
 4. Üzerinde **diskleri** sayfasında, **+ Ekle veri diski**.
 5. Açılan yeni disk için seçin **oluşturma disk**.
-6. İçinde **oluşturma yönetilen disk** sayfasında, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde tıklatın **oluşturma**.
+6. İçinde **oluşturma yönetilen disk** sayfasında, disk için bir ad yazın ve diğer ayarları gerektiği gibi ayarlayın. İşiniz bittiğinde **Oluştur**’a tıklayın.
 7. İçinde **diskleri** sayfasında, **kaydetmek** VM için yeni disk yapılandırmasını kaydetmek için.
 6. Azure disk oluşturur ve sanal makineye iliştirir sonra yeni disk sanal makinenin disk ayarları altında listelenen **veri diskleri**.
 

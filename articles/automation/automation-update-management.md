@@ -5,14 +5,14 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a7891e5bedb6e2ad3cba4780d38fc479d7b0bf4e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -30,7 +30,7 @@ Değerlendirme ve güncelleştirme dağıtımları gerçekleştirmek için aşa�
 * Otomasyon Karma Runbook Çalışanı
 * Windows bilgisayarları için Microsoft Update veya Windows Server Update Hizmetleri
 
-Aşağıdaki diyagramda davranışının kavramsal bir görünüm gösterir ve Windows Server ve Linux bilgisayarları bir çalışma alanında veri akışı nasıl çözüm değerlendirir ve tüm güvenlik güncelleştirmeleri uygular bağlı.    
+Aşağıdaki diyagramda davranışının kavramsal bir görünüm gösterir ve Windows Server ve Linux bilgisayarları bir çalışma alanında veri akışı nasıl çözüm değerlendirir ve tüm güvenlik güncelleştirmeleri uygular bağlı.
 
 ![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
 
@@ -70,21 +70,24 @@ Aşağıdaki tabloda, desteklenmeyen işletim sistemleri listelenmektedir:
 
 #### <a name="windows"></a>Windows
 
-Windows aracılarının bir Windows Server Update Services (WSUS) sunucusu ile iletişim kurmak veya Microsoft Update erişimi için yapılandırılmış olması gerekir. Ayrıca Windows Aracısı eşzamanlı olarak System Center Configuration Manager tarafından yönetilemez. [Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) gereklidir. Onboarding bir Azure VM varsa bu aracıyı otomatik olarak yüklenir.
+Windows aracılarının bir Windows Server Update Services (WSUS) sunucusu ile iletişim kurmak veya Microsoft Update erişimi için yapılandırılmış olması gerekir. System Center Configuration Manager ile güncelleştirme yönetimi kullanılabilir, öğrenmek için tümleştirme senaryoları hakkında daha fazla ziyaret [güncelleştirme yönetimi ile System Center Configuration Manager tümleştirme](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) gereklidir. Onboarding bir Azure VM varsa bu aracıyı otomatik olarak yüklenir.
 
 #### <a name="linux"></a>Linux
 
 Linux için makine özel veya genel olabilir bir güncelleştirme deposu için erişimi olmalıdır. Rapor birden fazla günlük analizi çalışma alanları için yapılandırılmış Linux için bir OMS Aracısı bu çözüm ile desteklenmiyor.
 
-Linux için OMS aracısı yükleyin ve en son sürümü karşıdan yükleme hakkında daha fazla bilgi için bkz: [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agent.md) konusunu gözden geçirin.  
+Linux için OMS aracısı yükleyin ve en son sürümü karşıdan yükleme hakkında daha fazla bilgi için bkz: [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için OMS Aracısı’nı yükleme hakkında bilgi için, [Windows için Operations Management Suite Aracısı](../log-analytics/log-analytics-windows-agent.md) konusunu gözden geçirin.
 
 ## <a name="permissions"></a>İzinler
-Oluşturma ve güncelleştirme dağıtımları yönetmek için belirli izinler gerekir. Bu izinler hakkında daha fazla ziyaret öğrenmek için [rol tabanlı erişim - güncelleştirme yönetimi](automation-role-based-access-control.md#update-management) 
+
+Oluşturma ve güncelleştirme dağıtımları yönetmek için belirli izinler gerekir. Bu izinler hakkında daha fazla ziyaret öğrenmek için [rol tabanlı erişim - güncelleştirme yönetimi](automation-role-based-access-control.md#update-management)
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
+
 Bu çözüm, Otomasyon hesabınıza eklenen aşağıdaki kaynaklardan ve doğrudan bağlanılan aracılardan veya Operations Manager bağlantılı yönetim grubundan oluşur.
 
 ### <a name="hybrid-worker-groups"></a>Karma Çalışanı grupları
+
 Bu çözüm etkinleştirdikten sonra bu çözümde bulunan runbook'ları desteklemek için bir karma Runbook çalışanı olarak doğrudan günlük analizi çalışma alanına bağlı herhangi bir Windows bilgisayarı otomatik olarak yapılandırılır. Çözümü tarafından yönetilen her Windows bilgisayar için karma çalışan grupları sayfanın altında adlandırma kuralı aşağıdaki Automation hesabınız için bir sistem karma çalışanı grubu olarak listelenen *ana bilgisayar adı FQDN_GUID*. Başarısız hesabınızda, aksi takdirde bu grupları runbook'larla hedefleyemez. Bu gruplar yalnızca yönetim çözümünü desteklemeye yöneliktir.
 
 Bununla birlikte, Çözüm ve Karma Runbook Çalışanı grup üyeliği için aynı hesabı kullandığınız sürece Otomasyon gruplarını desteklemek için Windows bilgisayarlarını Otomasyon hesabınızdaki bir Karma Runbook Çalışanı grubuna ekleyebilirsiniz. Bu işlev Karma Runbook Çalışanının 7.2.12024.0 sürümüne eklenmiştir.
@@ -119,14 +122,13 @@ Heartbeat
 
 Bir Windows bilgisayarda günlük analizi ile Aracısı bağlanabilirliği doğrulamak için aşağıdakileri gözden geçirebilirsiniz:
 
-1.  Açık Microsoft Monitoring Agent Denetim Masası'ndaki ve üzerinde **Azure günlük analizi** sekmesinde, aracıyı görüntüler belirten iletiyi: **Microsoft Monitoring Agent için günlük analizi başarıyla bağlandı** .   
-2.  Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın. Bu olaylar, bilgisayar günlük analizi çalışma alanı ile kayıtlı ve yapılandırmayı almayı gösterir.  
+1. Açık Microsoft Monitoring Agent Denetim Masası'ndaki ve üzerinde **Azure günlük analizi** sekmesinde, aracıyı görüntüler belirten iletiyi: **Microsoft Monitoring Agent için günlük analizi başarıyla bağlandı** .   
+2. Windows Olay Günlüğü’nü açın, **Uygulama ve Hizmet Günlükleri\Operations Manager** bölümüne gidin ve kaynak Hizmet Bağlayıcısı’nda Olay Kimliği 3000 ve 5002’yi arayın. Bu olaylar, bilgisayar günlük analizi çalışma alanı ile kayıtlı ve yapılandırmayı almayı gösterir.
 
 Aracı günlük analizi ile iletişim kurabildiğinden değil ve bir güvenlik duvarı veya proxy sunucu üzerinden internet ile iletişim kuracak şekilde yapılandırıldı, güvenlik duvarı veya proxy sunucusu düzgün yapılandırılmış gözden geçirerek onaylayın [için ağ yapılandırması Windows Aracısı](../log-analytics/log-analytics-agent-windows.md) veya [Linux aracısı için ağ yapılandırması](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
-> Linux sistemlerinizi bir proxy veya OMS ağ geçidi ile iletişim kurmak için yapılandırılır ve ekleme eminseniz bu çözüm, güncelleştirme *proxy.conf* omiuser grup izinleri okuma izni dosyasında aşağıdaki gerçekleştirerek komutlar:  
-> `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`  
+> Linux sistemlerinizi bir proxy veya OMS ağ geçidi ile iletişim kurmak için yapılandırılır ve ekleme eminseniz bu çözüm, güncelleştirme *proxy.conf* omiuser grup izinleri okuma izni dosyasında aşağıdaki gerçekleştirerek komutlar: `sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf`
 > `sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf`
 
 Yeni eklenen Linux aracılarında, değerlendirme yapıldıktan sonra **Güncelleştirildi** durumu gösterilir. Bu işlem 6 saat kadar sürebilir.
@@ -136,6 +138,7 @@ Bir Operations Manager yönetim grubu günlük analizi ile iletişim onaylamak i
 ## <a name="data-collection"></a>Veri toplama
 
 ### <a name="supported-agents"></a>Desteklenen aracılar
+
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açıklanmaktadır.
 
 | Bağlı Kaynak | Desteklenen | Açıklama |
@@ -145,11 +148,13 @@ Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynaklar açı
 | Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br>Operations Manager aracısının doğrudan Log Analytics’e bağlanması gerekmez. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
+
 Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır. Yönetilen her Linux bilgisayarı için 3 saatte bir tarama gerçekleştirilir.
 
-Yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin panoda görüntülenmesi 30 dakika ile 6 saat arasında bir zaman alabilir.   
+Yönetilen bilgisayarlardan gelen güncelleştirilmiş verilerin panoda görüntülenmesi 30 dakika ile 6 saat arasında bir zaman alabilir.
 
 ## <a name="viewing-update-assessments"></a>Güncelleştirme değerlendirmelerini görüntüleme
+
 Tıklayın **güncelleştirme yönetimi** Otomasyon hesabınızda makinelerinizi durumunu görüntüleyin.
 
 Bu görünüm güncelleştirmeleri, güncelleştirme dağıtımları ve zamanlanan güncelleştirme dağıtımları eksik makinelerinizi hakkında bilgi sağlar.
@@ -165,7 +170,7 @@ Güncelleştirmeler çalışma alanınızdaki tüm Linux ve Windows bilgisayarla
 
 Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Bahsedilen yapılandırma işlemiyle ilgili bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) erişimi için kaydedilir. Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.  
+Azure Market’ten edinilebilen isteğe bağlı Red Hat Enterprise Linux (RHEL) görüntülerinden oluşturulan sanal makineler için Azure’da dağıtılmış [Red Hat Update Infrastructure (RHUI)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) erişimi için kaydedilir. Diğer tüm Linux dağıtımları, ilgili dağıtımın desteklediği yöntemler izlenerek çevrimiçi dosya deposundan güncelleştirilmelidir.
 
 ## <a name="viewing-missing-updates"></a>Eksik güncelleştirmeleri görüntüleme
 
@@ -204,8 +209,8 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 |Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
 | Olay<br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false <br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler | 
-| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" | 
+| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
+| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
 | Güncelleştirme<br>&#124; where OSType == "Linux"<br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124; summarize AggregatedValue = count() by Computer |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
 | UpdateRunProgress<br>&#124;Burada UpdateRunName "DeploymentName" ==<br>&#124; summarize AggregatedValue = count() by Computer|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
 
@@ -239,15 +244,15 @@ Güncelleştirme sınıflandırması güncelleştirmelerini dağıtma openSUSE L
 
 Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.
 
-Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin. Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.  
+Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin. Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.
 
-| İleti | Neden | Çözüm |   
-|----------|----------|----------|  
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.InvalidOperationException: {"Message":"Makine zaten<br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|  
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br>System.Net.WebException: Temel alınan bağlantı<br>kapatıldı: Alma işlemi sırasında<br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br>İstemci ve sunucu iletişim kuramıyor,<br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|  
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)| 
-| <wsid>.oms.opinsights.azure.com hizmeti tarafından sunulan sertifika<br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br>tarafından verilmemiş. İletişim<br>ağ yöneticinize başvurarak<br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|  
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|  
+| İleti | Neden | Çözüm |
+|----------|----------|----------|
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.InvalidOperationException: {"Message":"Makine zaten<br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br>System.Net.WebException: Temel alınan bağlantı<br>kapatıldı: Alma işlemi sırasında<br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br>İstemci ve sunucu iletişim kuramıyor,<br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| <wsid>.oms.opinsights.azure.com hizmeti tarafından sunulan sertifika<br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br>tarafından verilmemiş. İletişim<br>ağ yöneticinize başvurarak<br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

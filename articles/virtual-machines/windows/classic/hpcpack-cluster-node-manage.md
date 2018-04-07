@@ -1,11 +1,11 @@
 ---
-title: "HPC Pack küme bilgi işlem düğümleri yönetme | Microsoft Docs"
-description: "Ekle, Kaldır, başlatmak ve HPC Pack 2012 R2 küme işlem düğümlerine Azure durdurmak için PowerShell komut dosyası araçları hakkında bilgi edinin"
+title: HPC Pack küme bilgi işlem düğümleri yönetme | Microsoft Docs
+description: Ekle, Kaldır, başlatmak ve HPC Pack 2012 R2 küme işlem düğümlerine Azure durdurmak için PowerShell komut dosyası araçları hakkında bilgi edinin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 4193f03b-94e9-4704-a7ad-379abde063a9
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 453f53be15b24b96f183b4935cc45fc97ad058bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure’da bir HPC Pack kümesindeki işlem düğümlerinin sayısını ve kullanılabilirliğini yönetme
 Azure Vm'lerinde bir HPC Pack 2012 R2 kümesi oluşturduysanız, kolayca eklemek, kaldırmak, (sağlayamaz) Başlat veya Durdur (deprovision) yolları isteyebilirsiniz bazı kümedeki düğüm Vm'lerle işlem. Bu görevleri gerçekleştirmek için VM baş düğümünde yüklü olan Azure PowerShell betikleri çalıştırın. Bu komut dosyaları sayısı ve HPC paketi küme kaynaklarınızın kullanılabilirliğini maliyetleri denetimi denetlemenize yardımcı.
@@ -28,7 +28,7 @@ Azure Vm'lerinde bir HPC Pack 2012 R2 kümesi oluşturduysanız, kolayca eklemek
 > Bu makale, yalnızca Azure Klasik dağıtım modeli kullanılarak oluşturulan kümelerde HPC Pack 2012 R2 için geçerlidir. Microsoft, yeni dağıtımların çoğunun Resource Manager modelini kullanmasını önerir.
 > Ayrıca, bu makalede açıklanan PowerShell betikleri HPC Pack 2016'da kullanılabilir değildir.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Azure VM'de HPC Pack 2012 R2 küme**: Klasik dağıtım modelinde bir HPC Pack 2012 R2 kümesi oluşturun. Örneğin, Azure Marketi ve bir Azure PowerShell Betiği HPC Pack 2012 R2 VM görüntüsünü kullanarak dağıtım otomatikleştirebilirsiniz. Bilgi ve Önkoşullar için bkz: [HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](hpcpack-cluster-powershell-script.md).
   
     Dağıtımdan sonra düğümü yönetim komut dosyaları % CCP bulun\_giriş % bin klasörü baş düğüm. Her komut dosyalarının, yönetici olarak çalıştırın.

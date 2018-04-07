@@ -1,20 +1,20 @@
 ---
-title: "SQL veritabanı çok kiracılı uygulama örneğin - Wingtip SaaS Kılavuzu | Microsoft Docs"
-description: "Yükleme ve Azure SQL Database, Wingtip biletleri SaaS örnek kullanan örnek çok kiracılı uygulama çalıştıran için adımları ve yönergeler sağlar."
-keywords: "sql veritabanı öğreticisi"
+title: SQL veritabanı çok kiracılı uygulama örneğin - Wingtip SaaS Kılavuzu | Microsoft Docs
+description: Yükleme ve Azure SQL Database, Wingtip biletleri SaaS örnek kullanan örnek çok kiracılı uygulama çalıştıran için adımları ve yönergeler sağlar.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 0bdb91fc9eb2fa23f8cf1e3f69206a89a93ceaee
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e3ecd27ce7ec2e2763a7249428875e51872bf63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip biletleri ile çalışmak için genel rehberlik örnek SaaS uygulamaları
 

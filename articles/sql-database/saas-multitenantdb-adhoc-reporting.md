@@ -1,7 +1,7 @@
 ---
-title: "Birden çok Azure SQL veritabanları arasında ad hoc raporlama sorguları çalıştırmak | Microsoft Docs"
-description: "Çok kiracılı uygulama örneği birden çok SQL veritabanları arasında ad hoc raporlama sorgular çalıştırın."
-keywords: "sql veritabanı öğreticisi"
+title: Birden çok Azure SQL veritabanları arasında ad hoc raporlama sorguları çalıştırmak | Microsoft Docs
+description: Çok kiracılı uygulama örneği birden çok SQL veritabanları arasında ad hoc raporlama sorgular çalıştırın.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
 manager: craigg
@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: na
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: AyoOlubeko
-ms.openlocfilehash: d33b95cf4dc05f4eb9f79509cda56e8ab51b7701
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88831534ffb8efe32ad3fe53a7aebb9fa67d8904
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Birden çok Azure SQL veritabanları arasında geçici analitik sorguları çalıştırma
 

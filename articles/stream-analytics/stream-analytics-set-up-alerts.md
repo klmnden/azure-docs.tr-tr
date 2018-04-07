@@ -1,24 +1,19 @@
 ---
-title: Stream Analytics sorguları için uyarıları ayarlama | Microsoft Docs
-description: Uyarı anlama akış analizi
-keywords: Uyarıları ayarlayın
+title: Azure Stream Analytics işleri için uyarıları izleme işlevini ayarlama
+description: Bu makalede, izleme ve Azure akış analizi işleri için uyarıları ayarlamak için Azure Portalı'nı kullanmayı açıklar.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 9952e2cf-b335-4a5c-8f45-8d3e1eda2e20
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/26/2017
 ms.author: jeanb
-ms.openlocfilehash: b88d7e82ffcd2fab1845faf92f6d7a53b72cb54d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/26/2017
+ms.openlocfilehash: 2498c0960ef8fd50064e40428f87d106abf10ecd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics işleri için uyarıları ayarlama
 ## <a name="introduction-monitor-page"></a>Giriş: İzleme sayfası
@@ -49,7 +44,7 @@ Azure portalında uyarılar yapılandırma hakkında daha ayrıntılı bilgi iç
 
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) deneyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

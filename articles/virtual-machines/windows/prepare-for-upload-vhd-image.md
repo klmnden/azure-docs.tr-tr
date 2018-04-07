@@ -1,11 +1,11 @@
 ---
-title: "Windows Azure'a yüklemeniz VHD hazırlama | Microsoft Docs"
-description: "Azure için karşıya yüklemeden önce Windows VHD veya VHDX hazırlama"
+title: Windows Azure'a yüklemeniz VHD hazırlama | Microsoft Docs
+description: Azure için karşıya yüklemeden önce Windows VHD veya VHDX hazırlama
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: glimoli
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 67832fd20b758af6fd7a31c0099ce8019bb2442d
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 74c47907698e3365d093f0e17dba87b690406443
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama
 Bir Windows sanal makineler (VM) şirket içi Microsoft Azure karşıya yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure, sabit boyutlu disk VHD dosyası biçiminde olan ve 1. nesil VM destekler. VHD için izin verilen maksimum boyutu 1,023 GB'dir. 1 sanal makineden VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten nesil dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturma değiştiremezsiniz. Daha fazla bilgi için bkz: [kuşak 1 veya 2 oluşturmanız gerekir Hyper-V'de VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -303,13 +303,13 @@ Aşağıdaki ayarlar için Uzak Masaüstü Bağlantısı doğru şekilde yapıla
 
 6. Yerleşik yönetici hesabı ve parolası, bilinir emin olun. Geçerli yerel yönetici parolasını sıfırlama ve RDP bağlantısı üzerinden Windows'da oturum açmak için bu hesabı kullanabilirsiniz emin olmak isteyebilirsiniz. Bu erişim izni "oturum Uzak Masaüstü Hizmetleri üzerinden izin ver" Grup İlkesi nesnesi tarafından denetlenir. Bu nesne yerel Grup İlkesi Düzenleyicisi'nde altında görüntüleyebilirsiniz:
 
-    Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Ataması
+    Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment
 
 7. RDP aracılığıyla veya ağ üzerinden RDP erişiminizi engellemesi değil emin olmak için aşağıdaki AD ilkeleri denetleyin:
 
-    - Bu bilgisayara ağdan Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Assignment\Deny erişimi
+    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny access to this computer from the network
 
-    - Uzak Masaüstü Hizmetleri üzerinden Bilgisayar Yapılandırması\Windows Ayarları\Güvenlik Ayarları\Yerel İlkeler\Kullanıcı Hakları Assignment\Deny oturum açma
+    - Computer Configuration\Windows Settings\Security Settings\Local Policies\User Rights Assignment\Deny log on through Remote Desktop Services
 
 
 8. Yeniden başlatma Windows hala sağlıklı olduğundan emin olmak için VM RDP bağlantı kullanılarak erişilebilir. Bu noktada, yerel Hyper-VM tamamen başlangıç emin olun ve sonra RDP erişilebilir olup olmadığını test etmek için V'de VM oluşturmak isteyebilirsiniz.
@@ -323,41 +323,41 @@ Aşağıdaki ayarlar için Uzak Masaüstü Bağlantısı doğru şekilde yapıla
 
 |                       |                   |           |                                       En düşük dosya sürümü x64       |                                      |                                      |                            |
 |-------------------------|-------------------|------------------------------------|---------------------------------------------|--------------------------------------|--------------------------------------|----------------------------|
-| Bileşen               | İkili            | Windows 7 ve Windows Server 2008 R2 | Windows 8 ve Windows Server 2012             | Windows 8.1 ve Windows Server 2012 R2 | Windows 10 ve Windows Server 2016 RS1 | Windows 10 RS2             |
+| Bileşen               | İkili            | Windows 7 ve Windows Server 2008 R2 | Windows 8 ve Windows Server 2012             | Windows 8.1 & Windows Server 2012 R2 | Windows 10 ve Windows Server 2016 RS1 | Windows 10 RS2             |
 | Depolama                 | disk.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061           | -                                    | -                          |
 |                         | Storport.sys      | 6.1.7601.23403 - KB3125574         | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.332             |
-|                         | NTFS.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726           | 10.0.14393.1198 - KB4022715          | 10.0.15063.447             |
+|                         | ntfs.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17623 / 6.2.9200.21743 - KB3121255 | 6.3.9600.18654 - KB4022726           | 10.0.14393.1198 - KB4022715          | 10.0.15063.447             |
 |                         | Iologmsg.dll      | 6.1.7601.23403 - KB3125574         | 6.2.9200.16384 - KB2995387                  | -                                    | -                                    | -                          |
 |                         | Classpnp.sys      | 6.1.7601.23403 - KB3125574         | 6.2.9200.17061 / 6.2.9200.21180 - KB2995387 | 6.3.9600.18334 - KB3172614           | 10.0.14393.953 - KB4022715           | -                          |
 |                         | Volsnap.sys       | 6.1.7601.23403 - KB3125574         | 6.2.9200.17047 / 6.2.9200.21165 - KB2975331 | 6.3.9600.18265 - KB3145384           | -                                    | 10.0.15063.0               |
-|                         | Partmgr.sys       | 6.1.7601.23403 - KB3125574         | 6.2.9200.16681 - KB2877114                  | 6.3.9600.17401 - KB3000850           | 10.0.14393.953 - KB4022715           | 10.0.15063.0               |
+|                         | partmgr.sys       | 6.1.7601.23403 - KB3125574         | 6.2.9200.16681 - KB2877114                  | 6.3.9600.17401 - KB3000850           | 10.0.14393.953 - KB4022715           | 10.0.15063.0               |
 |                         | volmgr.sys        |                                    |                                             |                                      |                                      | 10.0.15063.0               |
 |                         | Volmgrx.sys       | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | 10.0.15063.0               |
 |                         | Msiscsi.sys       | 6.1.7601.23403 - KB3125574         | 6.2.9200.21006 - KB2955163                  | 6.3.9600.18624 - KB4022726           | 10.0.14393.1066 - KB4022715          | 10.0.15063.447             |
-|                         | MSDSM.sys         | 6.1.7601.23403 - KB3125574         | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726           | -                                    | -                          |
+|                         | Msdsm.sys         | 6.1.7601.23403 - KB3125574         | 6.2.9200.21474 - KB3046101                  | 6.3.9600.18592 - KB4022726           | -                                    | -                          |
 |                         | Mpio.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.21190 - KB3046101                  | 6.3.9600.18616 - KB4022726           | 10.0.14393.1198 - KB4022715          | -                          |
 |                         | Fveapi.dll        | 6.1.7601.23311 - KB3125574         | 6.2.9200.20930 - KB2930244                  | 6.3.9600.18294 - KB3172614           | 10.0.14393.576 - KB4022715           | -                          |
 |                         | Fveapibase.dll    | 6.1.7601.23403 - KB3125574         | 6.2.9200.20930 - KB2930244                  | 6.3.9600.17415 - KB3172614           | 10.0.14393.206 - KB4022715           | -                          |
 | Ağ                 | netvsc.sys        | -                                  | -                                           | -                                    | 10.0.14393.1198 - KB4022715          | 10.0.15063.250 - KB4020001 |
 |                         | mrxsmb10.sys      | 6.1.7601.23816 - KB4022722         | 6.2.9200.22108 - KB4022724                  | 6.3.9600.18603 - KB4022726           | 10.0.14393.479 - KB4022715           | 10.0.15063.483             |
 |                         | mrxsmb20.sys      | 6.1.7601.23816 - KB4022722         | 6.2.9200.21548 - KB4022724                  | 6.3.9600.18586 - KB4022726           | 10.0.14393.953 - KB4022715           | 10.0.15063.483             |
-|                         | Mrxsmb.sys        | 6.1.7601.23816 - KB4022722         | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726           | 10.0.14393.953 - KB4022715           | 10.0.15063.0               |
-|                         | Tcpip.sys         | 6.1.7601.23761 - KB4022722         | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.447             |
-|                         | HTTP.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726           | 10.0.14393.251 - KB4022715           | 10.0.15063.483             |
+|                         | mrxsmb.sys        | 6.1.7601.23816 - KB4022722         | 6.2.9200.22074 - KB4022724                  | 6.3.9600.18586 - KB4022726           | 10.0.14393.953 - KB4022715           | 10.0.15063.0               |
+|                         | tcpip.sys         | 6.1.7601.23761 - KB4022722         | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.447             |
+|                         | http.sys          | 6.1.7601.23403 - KB3125574         | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726           | 10.0.14393.251 - KB4022715           | 10.0.15063.483             |
 |                         | vmswitch.sys      | 6.1.7601.23727 - KB4022719         | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.138             |
-| Çekirdek                    | Ntoskrnl.exe      | 6.1.7601.23807 - KB4022719         | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.483             |
+| Çekirdek                    | ntoskrnl.exe      | 6.1.7601.23807 - KB4022719         | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726           | 10.0.14393.1358 - KB4022715          | 10.0.15063.483             |
 | Uzak Masaüstü Hizmetleri | rdpcorets.dll     | 6.2.9200.21506 - KB4022719         | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726           | 10.0.14393.1198 - KB4022715          | 10.0.15063.0               |
-|                         | Termsrv.dll       | 6.1.7601.23403 - KB3125574         | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850           | 10.0.14393.0 - KB4022715             | 10.0.15063.0               |
+|                         | termsrv.dll       | 6.1.7601.23403 - KB3125574         | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850           | 10.0.14393.0 - KB4022715             | 10.0.15063.0               |
 |                         | termdd.sys        | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
-|                         | Win32k.sys        | 6.1.7601.23807 - KB4022719         | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726           | 10.0.14393.594 - KB4022715           | -                          |
-|                         | Rdpdd.dll         | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
+|                         | win32k.sys        | 6.1.7601.23807 - KB4022719         | 6.2.9200.22168 - KB4022718                  | 6.3.9600.18698 - KB4022726           | 10.0.14393.594 - KB4022715           | -                          |
+|                         | rdpdd.dll         | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
 |                         | Rdpwd.sys         | 6.1.7601.23403 - KB3125574         | -                                           | -                                    | -                                    | -                          |
 | Güvenlik                | WannaCrypt nedeniyle | KB4012212                          | KB4012213                                   | KB4012213                            | KB4012606                            | KB4012606                  |
 |                         |                   |                                    | KB4012216                                   |                                      | KB4013198                            | KB4013198                  |
 |                         |                   | KB4012215                          | KB4012214                                   | KB4012216                            | KB4013429                            | KB4013429                  |
 |                         |                   |                                    | KB4012217                                   |                                      | KB4013429                            | KB4013429                  |
        
-### Sysprep kullanma zamanı<a id="step23"></a>    
+### Sysprep kullanma zamanı <a id="step23"></a>    
 
 Sysprep, sistem yüklemesini sıfırlar ve bir "kutu dışı deneyimi" tüm kişisel verilerini kaldırma ve çeşitli bileşenleri sıfırlama sağlayacak bir windows yüklemesinden içine çalışabilecek bir işlemdir. Belirli bir yapılandırmaya sahip birden fazla diğer sanal makineleri dağıtmak bir şablon oluşturmak istiyorsanız, genellikle bunu. Bu adlı bir **görüntü genelleştirilmiş**.
 
@@ -384,7 +384,7 @@ Her rol ya da Windows tabanlı bir bilgisayarda yüklü uygulamayı bu Genelleş
 
     ![Sistem Hazırlama Aracı](media/prepare-for-upload-vhd-image/syspre.png)
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
-5. **Tamam** düğmesine tıklayın.
+5. **Tamam**’a tıklayın.
 6. Sysprep tamamlandığında VM kapatma. Kullanmayın **yeniden** VM kapatma için.
 7. Artık VHD yüklenebilmesi hazırdır. Genelleştirilmiş bir diskten VM oluşturma hakkında daha fazla bilgi için bkz: [genelleştirilmiş bir VHD yüklemek ve yeni sanal makineleri oluşturmak için kullanın](sa-upload-generalized.md).
 

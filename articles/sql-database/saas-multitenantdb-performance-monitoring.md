@@ -1,20 +1,20 @@
 ---
-title: "Bir çok kiracılı SaaS uygulamasında parçalı bir çok kiracılı Azure SQL veritabanı performansını izleme | Microsoft Docs"
-description: "İzleme ve bir çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanı performansını yönetme"
-keywords: "sql veritabanı öğreticisi"
+title: Bir çok kiracılı SaaS uygulamasında parçalı bir çok kiracılı Azure SQL veritabanı performansını izleme | Microsoft Docs
+description: İzleme ve bir çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanı performansını yönetme
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 53d8c099d68fd7eb3f00fb4d1be7ec54404521ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>İzleme ve bir çok kiracılı SaaS uygulamasında parçalı çok kiracılı Azure SQL veritabanı performansını yönetme
 
@@ -49,7 +49,7 @@ Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi 
 
 [Azure portalı](https://portal.azure.com), çoğu kaynak üzerinde yerleşik izleme ve uyarı özelliği sağlar. SQL veritabanı için izleme ve uyarma veritabanlarında kullanılabilir. Bu yerleşik izleme ve uyarma olduğundan kaynak özgü kaynakları küçük sayılar için uygundur ancak birçok kaynaklarla çalışırken kullanışlı değildir.
 
-Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için [günlük analizi (OMS)](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Verilmiş tanılama günlüklerini ve günlük analizi çalışma alanındaki toplanan telemetri üzerinden analytics sağlayan ayrı bir Azure hizmet budur. Günlük analizi telemetri birçok Hizmetleri'nden toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılır.
+Burada çalıştığınız birçok kaynaklarla, yüksek hacimli senaryolar için [günlük analizi](https://azure.microsoft.com/services/log-analytics/) kullanılabilir. Verilmiş tanılama günlüklerini ve günlük analizi çalışma alanındaki toplanan telemetri üzerinden analytics sağlayan ayrı bir Azure hizmet budur. Günlük analizi telemetri birçok Hizmetleri'nden toplayabilir ve sorgu ve uyarıları ayarlamak için kullanılır.
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip biletleri SaaS çok Kiracı veritabanı uygulama kaynak koduna ve komut dosyaları alma
 

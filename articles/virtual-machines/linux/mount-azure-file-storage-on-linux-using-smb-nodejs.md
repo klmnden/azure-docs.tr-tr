@@ -1,12 +1,12 @@
 ---
-title: "Linux sanal makineleri üzerinde bağlama Azure File storage ile Azure CLI 1.0 SMB kullanarak | Microsoft Docs"
-description: "Azure File storage Linux sanal makinelerin SMB kullanılarak nasıl"
+title: Linux sanal makineleri üzerinde bağlama Azure File storage ile Azure CLI 1.0 SMB kullanarak | Microsoft Docs
+description: Azure File storage Linux sanal makinelerin SMB kullanılarak nasıl
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/07/2016
 ms.author: v-livech
-ms.openlocfilehash: 4951860630f0aad107d0846d52ebe4423ee0b91c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 442c08a03ff3eb8e4c86f8190e16b74744aa9dd3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-by-using-smb-with-azure-cli-10"></a>Linux sanal makineleri üzerinde bağlama Azure File storage ile Azure CLI 1.0 SMB kullanarak
 
@@ -37,7 +37,7 @@ Görevi tamamlamak için aşağıdaki komut satırı arabirimi (CLI) sürümleri
 ## <a name="quick-commands"></a>Hızlı komutlar
 Görevi hızlı bir şekilde gerçekleştirmek için bu bölümdeki adımları izleyin. Daha ayrıntılı bilgi ve içerik için başlamasını ["Ayrıntılı kılavuz"](mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough) bölümü.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Bir kaynak grubu
 * Bir Azure sanal ağı
 * Ağ güvenlik grubuyla bir SSH gelen
@@ -45,7 +45,7 @@ Görevi hızlı bir şekilde gerçekleştirmek için bu bölümdeki adımları i
 * Bir Azure depolama hesabı
 * Azure depolama hesabı anahtarları
 * Azure File storage paylaşımı
-* Bir Linux VM
+* A Linux VM
 
 Tüm örnekleri kendi ayarlarınızla değiştirin.
 

@@ -1,6 +1,6 @@
 ---
-title: "Çok kiracılı uygulamalarla RLS ve esnek veritabanı araçlarını | Microsoft Docs"
-description: "Yüksek oranda ölçeklenebilir veri katmanı ile bir uygulama oluşturmak için satır düzeyi güvenlik ile esnek veritabanı araçlarını kullanın."
+title: Çok kiracılı uygulamalarla RLS ve esnek veritabanı araçlarını | Microsoft Docs
+description: Yüksek oranda ölçeklenebilir veri katmanı ile bir uygulama oluşturmak için satır düzeyi güvenlik ile esnek veritabanı araçlarını kullanın.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
 services: sql-database
 manager: craigg
@@ -8,13 +8,13 @@ author: tmullaney
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 04/01/2018
 ms.author: thmullan
-ms.openlocfilehash: 62213eeeee0b1d93cabc32101ad6fe51bf394080
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 151a21a60b6205ca9a454faaaeff65330d9b57ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Çok kiracılı uygulamalarla esnek veritabanı araçlarını ve satır düzeyi güvenlik
 

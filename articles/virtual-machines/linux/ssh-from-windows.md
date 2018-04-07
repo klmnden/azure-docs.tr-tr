@@ -1,11 +1,11 @@
 ---
-title: "Linux VM'ler için SSH anahtarları kullanma | Microsoft Docs"
-description: "Oluştur ve Azure Linux sanal makineye bağlanmak için bir Windows bilgisayarda SSH anahtarları kullanma hakkında bilgi edinin."
+title: Linux VM'ler için SSH anahtarları kullanma | Microsoft Docs
+description: Oluştur ve Azure Linux sanal makineye bağlanmak için bir Windows bilgisayarda SSH anahtarları kullanma hakkında bilgi edinin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 2cacda3b-7949-4036-bd5d-837e8b09a9c8
 ms.service: virtual-machines-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: fcc2365c3b41fb69492aa68bf7c48c2d3b8ee5f3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Windows Azure üzerinde ile SSH kullanma anahtarları nasıl
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Dağıtım senaryoları ve her kullandığınız dosya türleri şunlardır:
 ## <a name="install-git-for-windows"></a>Windows için Git yükleme
 Önceki bölümde listelenen dahil çeşitli paketler `openssl` Windows için aracı. Bu araç, ortak ve özel anahtarlar oluşturmak için gereklidir. Aşağıdaki örnekler yüklemek ve kullanmak nasıl ayrıntı **Windows için Git**tercih ettiğiniz hangi paket seçebilirsiniz ancak. **Windows için Git** , bazı ek açık kaynaklı yazılım erişmenizi ([OSS](https://en.wikipedia.org/wiki/Open-source_software)) araçları ve yardımcı programları Linux VM'ler ile çalışırken, yararlı olabilir.
 
-1. İndirme ve yükleme **Windows için Git** aşağıdaki konumdan: [https://git-for-windows.github.io/](https://git-for-windows.github.io/).
+1. İndirme ve yükleme **Windows için Git** aşağıdaki konumdan: [ https://git-for-windows.github.io/ ](https://git-for-windows.github.io/).
 2. Özellikle bunları değiştirmek gerekli olmadıkça varsayılan seçenekleri yükleme işlemi sırasında kabul edin.
 3. Çalıştırma **Git Bash** gelen **Başlat menüsü** > **Git** > **Git Bash**. Konsolunda, aşağıdaki örneğe benzer:
 

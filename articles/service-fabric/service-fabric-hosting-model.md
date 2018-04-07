@@ -1,6 +1,6 @@
 ---
-title: "Barındırma modeli azure Service Fabric | Microsoft Docs"
-description: "Dağıtılan bildirimleri yapı hizmeti ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi açıklar."
+title: Azure Service Fabric barındırma modeli | Microsoft Docs
+description: Dağıtılan bir Service Fabric hizmeti ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi açıklar.
 services: service-fabric
 documentationcenter: .net
 author: harahma
@@ -12,53 +12,53 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: 0206a9a486e3511834a23b3cc3f20f236a1cc261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b2ba019f21256ee98276ef30847c43709b9b3462
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="service-fabric-hosting-model"></a>Service Fabric barındırma modeli
-Bu makale, Service Fabric tarafından sağlanan modelleri barındıran uygulama genel bir bakış sağlar ve arasındaki farklar açıklanmaktadır **paylaşılan işlem** ve **özel işlem** modeller. Dağıtılan bir uygulama, bir Service Fabric düğümü ve hizmet ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi nasıl göründüğünü açıklayan.
+# <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric barındırma modeli
+Bu makale Azure Service Fabric tarafından sağlanan modelleri barındıran uygulama genel bir bakış sağlar ve arasındaki farklar açıklanmaktadır **paylaşılan işlem** ve **özel işlem** modeller. Dağıtılan bir uygulama bir Service Fabric düğümü ve hizmet ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi nasıl göründüğünü açıklayan.
 
-Devam etmeden önce aşina olduğundan emin olun [Service Fabric uygulama modeli] [ a1] ve çeşitli kavramlar ve aralarındaki ilişkisi anladığınızdan emin olun. 
+Devam etmeden önce çeşitli kavramları anlamanız ilişkileri içinde açıklanan emin olun ve [Service Fabric uygulamada Model][a1]. 
 
 > [!NOTE]
-> Basitlik için bu makalede, açıkça belirtilmediği sürece:
+> Bu makalede, farklı bir şey anlamına olarak açıkça belirtilmediği sürece:
 >
-> - Word'ün tüm kullanır *çoğaltma* hem çoğaltmasını durum bilgisi olan hizmet ya da durum bilgisi olmayan bir hizmet örneği için başvuruyor.
-> - *CodePackage* kabul eşdeğeridir *ServiceHost* kaydeder işlem bir *ServiceType* ve hizmetlerin, konaklar çoğaltmaları *ServiceType*.
+> - *Çoğaltma* hem bir çoğaltmaya durum bilgisi olan hizmeti ve durum bilgisiz Hizmeti'nin bir örneğini gösterir.
+> - *CodePackage* kabul edilir için eşdeğer bir *ServiceHost* kaydeder işlem bir *ServiceType*ve konaklar çoğaltmalar, hizmetlerin *ServiceType*.
 >
 
-Barındırma modeli anlamak için bize bir örnek yol. Bizim bize söyleyin bir *ApplicationType* sahip'MyAppType ' bir *ServiceType* 'MyServiceType'.  'MyServiceType' tarafından sağlanan *ServicePackage* sahip'MyServicePackage ' bir *CodePackage* 'MyCodePackage'. 'MyCodePackage' kaydeder *ServiceType* 'çalıştırıldığında MyServiceType'.
+Barındırma modeli anlamak için şirketinizdeki örneği yol. Bizim düşünelim bir *ApplicationType* sahip'MyAppType ' bir *ServiceType* 'MyServiceType'. 'MyServiceType' tarafından sağlanan *ServicePackage* sahip'MyServicePackage ' bir *CodePackage* 'MyCodePackage'. 'MyCodePackage' kaydeder *ServiceType* 'çalıştırıldığında MyServiceType'.
 
-Diyelim ki üç düğümlü bir kümeniz olduğuna ve oluşturuyoruz bir *uygulama* **fabric: / App1** 'MyAppType' türünde. Bu içinde *uygulama* **fabric: / App1** hizmet oluşturuyoruz **doku: / App1/ServiceA** 'iki bölüm olan MyServiceType' türünde (söyleyin **P1**   &  **P2**) ve bölüm başına üç çoğaltmaları. Aşağıdaki diyagramda, bu uygulama görünümünü sona eriyor dağıtılan bir düğümde gösterir.
+Diyelim ki üç düğümlü bir küme sahibiz ve oluşturuyoruz bir *uygulama* **fabric: / App1** 'MyAppType' türünde. Bu uygulama içinde **fabric: / App1**, bir hizmet oluşturuyoruz **doku: / App1/ServiceA** 'MyServiceType' türünde. Bu hizmet iki bölümü vardır (örneğin, **P1** ve **P2**) ve bölüm başına üç çoğaltmaları. Aşağıdaki diyagramda, bu uygulama görünümünü sona eriyor dağıtılan bir düğümde gösterir.
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-one]
-</center>
 
-Service Fabric '', her iki bölüm çoğaltmalardan barındırma MyCodePackage' başlatılan MyServicePackage' etkinleştirildi.  Örneğin, **P1** & **P2**. Kümedeki düğüm sayısına eşit olacak şekilde bölüm başına çoğaltmaların sayısı Seçtiğimiz kümedeki tüm düğümler aynı görünüm sahip olur. Başka bir hizmet oluşturalım **fabric: / App1/ServiceB** uygulamada **doku: / App1**, sahip olduğu bir bölüm (söyleyin **P3**) ve bölüm başına üç çoğaltmaları. Aşağıdaki diyagramda düğüm üzerindeki yeni görünüm gösterir:
+![Dağıtılmış uygulama düğümü görünümü diyagramı][node-view-one]
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-two]
-</center>
 
-Service Fabric bölümü için yeni çoğaltma yerleştirilen görebiliriz gibi **P3** hizmetinin **fabric: / App1/ServiceB** 'MyServicePackage' ın mevcut etkinleştirme. Şimdi sağlar başka oluşturmak *uygulama* **fabric: / App2** 'MyAppType' türünde. İçinde **fabric: / App2**, bir hizmet oluşturmak **fabric: / App2/ServiceA** iki bölümü vardır (söyleyin **P4** & **P5**) ve üç çoğaltmaları bölüm başına. Aşağıdaki diyagramlarda yeni düğümü görünüm gösterir:
+Service Fabric her iki bölüm çoğaltmalardan barındırma'MyCodePackage ' Başlangıç'MyServicePackage ' etkinleştirildi. Kümedeki düğüm sayısına eşit olacak şekilde bölüm başına çoğaltmaların sayısı seçtik çünkü kümedeki tüm düğümler aynı görünüm vardır. Başka bir hizmet oluşturalım **fabric: / App1/ServiceB**, uygulamada **fabric: / App1**. Bu hizmet bir bölümü vardır (örneğin, **P3**) ve bölüm başına üç çoğaltmaları. Aşağıdaki diyagramda düğüm üzerindeki yeni görünüm gösterir:
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-three]
-</center>
 
-Service Fabric 'MyCodePackage' ın yeni bir kopyasını başlatır'MyServicePackage ' ın yeni bir kopyasını etkinleştirir. Her iki hizmet bölümlerini çoğaltmalardan **fabric: / App2/ServiceA** (örneğin, **P4** & **P5**) bu yeni kopya 'MyCodePackage' yerleştirilir.
+![Dağıtılmış uygulama düğümü görünümü diyagramı][node-view-two]
+
+
+Service Fabric bölümü için yeni çoğaltma yerleştirilen **P3** hizmetinin **fabric: / App1/ServiceB** 'MyServicePackage' ın mevcut etkinleştirme. Şimdi. başka bir uygulama oluşturalım **fabric: / App2** 'MyAppType' türünde. İçinde **fabric: / App2**, bir hizmet oluşturma **fabric: / App2/ServiceA**. Bu hizmet iki bölümü vardır (**P4** ve **P5**) ve bölüm başına üç çoğaltmaları. Aşağıdaki diyagramda, yeni düğümü görünüm gösterir:
+
+
+![Dağıtılmış uygulama düğümü görünümü diyagramı][node-view-three]
+
+
+Service Fabric 'MyCodePackage' ın yeni bir kopyasını başlatır'MyServicePackage ' ın yeni bir kopyasını etkinleştirir. Her iki hizmet bölümlerini çoğaltmalardan **fabric: / App2/ServiceA** (**P4** ve **P5**) bu yeni kopya 'MyCodePackage' yerleştirilir.
 
 ## <a name="shared-process-model"></a>Paylaşılan işlem modeli
-Yukarıdaki gördüğümüz ve barındırma modeli Service Fabric tarafından sağlanan varsayılan olarak adlandırılır **paylaşılan işlem** modeli. Bu modelde için bir verilen *uygulama*, yalnızca bir kopya bir verilen *ServicePackage* üzerinde etkinleştirilmiş bir *düğümü* (tüm başladığı *CodePackages* içerdiği) ve tüm hizmetlerin tüm çoğaltmaları bir verilen *ServiceType* yerleştirilir *CodePackage* , kaydeder *ServiceType*. Diğer bir deyişle, tüm çoğaltmaların düğümünde tüm hizmetlerin bir verilen *ServiceType* aynı işlem paylaşın.
+Önceki bölümde barındırma modeli paylaşılan işlem modeli başvurulan Service Fabric tarafından sağlanan varsayılan açıklar. Bu modelde, belirli bir uygulamada yalnızca bir kopyası bir verilen *ServicePackage* bir düğümde etkinleştirilir (tüm başladığı *CodePackages* içerdiği). Tüm hizmetlerin tüm çoğaltmalar bir verilen *ServiceType* yerleştirilir *CodePackage* , kaydeder *ServiceType*. Diğer bir deyişle, tüm çoğaltmaların düğümünde tüm hizmetlerin bir verilen *ServiceType* aynı işlem paylaşın.
 
 ## <a name="exclusive-process-model"></a>Özel işlem modeli
-Service Fabric tarafından sağlanan diğer barındırma modeli **özel işlem** modeli. Bu modelde, üzerinde bir verilen *düğümü*, her çoğaltma yerleştirmek için Service Fabric yeni bir kopyasını etkinleştirir *ServicePackage* (tüm başladığı *CodePackages* içerdiği) ve çoğaltma yerleştirilir *CodePackage* kayıtlı *ServiceType* hizmetinin hangi çoğaltmaya ait. Diğer bir deyişle, her çoğaltma adanmış kendi işleminde yaşar. 
+Service Fabric tarafından sağlanan diğer barındırma modeli özel işlem modelidir. Bu modelde, belirtilen bir düğüm üzerindeki her çoğaltma adanmış kendi işleminde yaşar. Service Fabric etkinleştiren yeni bir kopyasını *ServicePackage* (tüm başladığı *CodePackages* içerdiği). Çoğaltmaları yerleştirilir *CodePackage* kayıtlı *ServiceType* ait olduğu çoğaltma hizmeti. 
 
-Bu model, sürüm Service Fabric 5.6 itibaren desteklenmektedir. **Özel işlem** modeli hizmet oluşturma sırasında seçilen (kullanarak [PowerShell][p1], [REST][r1], veya [FabricClient][c1]) belirterek **ServicePackageActivationMode** 'ExclusiveProcess' olarak.
+Service Fabric sürüm 5.6 kullanıyorsanız veya özel işlem modeli aynı anda daha sonra seçebileceğiniz bir hizmet oluşturma (kullanarak [PowerShell][p1], [REST] [ r1], veya [FabricClient][c1]). Belirtin **ServicePackageActivationMode** 'ExclusiveProcess' olarak.
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -79,7 +79,7 @@ var fabricClient = new FabricClient(clusterEndpoints);
 await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ```
 
-Varsayılan hizmet uygulama bildiriminizi varsa, seçebileceğiniz **özel işlem** belirterek model **ServicePackageActivationMode** özniteliği aşağıda gösterildiği gibi:
+Varsayılan hizmet uygulama bildiriminizi varsa, özel işlem modeli belirterek seçebileceğiniz **ServicePackageActivationMode** özniteliği:
 
 ```xml
 <DefaultServices>
@@ -90,95 +90,95 @@ Varsayılan hizmet uygulama bildiriminizi varsa, seçebileceğiniz **özel işle
   </Service>
 </DefaultServices>
 ```
-Önceki örnekle devam edersek, başka bir hizmet oluşturma sağlar **fabric: / App1/ServiceC** uygulamada **doku: / App1** iki bölümü vardır (söyleyin **P6**  &  **7**) ve bölüm başına üç çoğaltmaları **ServicePackageActivationMode** 'ExclusiveProcess' ayarlayın. Aşağıdaki diyagramda düğüm üzerindeki yeni bir görünüm gösterir:
+Artık başka bir hizmet oluşturalım **fabric: / App1/ServiceC**, uygulamada **fabric: / App1**. Bu hizmet iki bölümü vardır (örneğin, **P6** ve **7**) ve bölüm başına üç çoğaltmaları. Ayarladığınız **ServicePackageActivationMode** 'ExclusiveProcess' için. Aşağıdaki diyagramda düğüm üzerindeki yeni bir görünüm gösterir:
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-four]
-</center>
 
-Gördüğünüz gibi iki yeni kopyasını 'MyServicePackage' Service Fabric etkinleştirilmiş (bölümünden her çoğaltma için bir tane **P6** & **7**) ve ayrılmış kopyasınıherçoğaltmayerleştirilmiş*CodePackage*. İşte, not etmek için başka bir şey olduğunda **özel işlem** modeli kullanılır, için bir verilen *uygulama*, birden çok kopya bir verilen *ServicePackage* üzerindeetkinolabilir *Düğüm*. İçinde Yukarıdaki örnek, biz 'MyServicePackage' üç kopyasını için etkin olup olmadığını **fabric: / App1**. Her 'MyServicePackage' etkin bu kopyasını sahip bir **ServicePackageActivationId** ilişkilendirilmiş, bu kopyayı içinde tanımladığı ile *uygulama* **fabric: / App1**.
+![Dağıtılmış uygulama düğümü görünümü diyagramı][node-view-four]
 
-Sadece **paylaşılan işlem** modeli için kullanılan bir *uygulama*gibi **doku: / App2** , yukarıdaki örnek, yoktur, yalnızca bir etkin kopyanın *ServicePackage*  üzerinde bir *düğümü* ve **ServicePackageActivationId** bu etkinleştirmesi için *ServicePackage* ' boş bir dize '.
 
-> [!NOTE]
->- **İşlem paylaşılan** barındırma modeli karşılık gelen **ServicePackageActivationMode** eşit **SharedProcess**. Bu barındırma modeli varsayılandır ve **ServicePackageActivationMode** hizmet oluşturma sırasında belirtilmesi gerekmez.
->
->- **Özel işlem** barındırma modeli karşılık gelen **ServicePackageActivationMode** kümesine **ExclusiveProcess** ve hizmet oluşturma sırasında açıkça belirtilmesi gerekiyor. 
->
->- Bir hizmet barındırma modeli bilinir sorgulayarak [hizmet açıklaması] [ p2] ve değeri **ServicePackageActivationMode**.
->
->
+Gördüğünüz gibi iki yeni kopyasını 'MyServicePackage' Service Fabric etkinleştirilmiş (bölümünden her çoğaltma için bir tane **P6** ve **7**). Service Fabric yerleştirilen her çoğaltma kendi adanmış kopyasında *CodePackage*. Belirli bir uygulama için özel işlem modeli kullandığınızda, birden çok kopya bir verilen *ServicePackage* bir düğümde etkin olabilir. Önceki örnekte, üç kopyasını 'MyServicePackage' için etkin olan **fabric: / App1**. Her 'MyServicePackage' etkin bu kopyasını sahip bir **ServicePackageActivationId** kendisiyle ilişkilendirilmiş. Bu kodu, uygulama içinde bu kopyayı tanımlar **fabric: / App1**.
 
-## <a name="working-with-deployed-service-package"></a>Dağıtılan hizmet paketi ile birlikte çalışma
-Etkin bir kopyasını bir *ServicePackage* bir düğüm olarak adlandırılır [hizmet paketi dağıtılan][p3]. Daha önce ne zaman belirtildiği gibi **özel işlem** modeli için hizmetleri oluşturmak için kullanılan bir verilen *uygulama*, birden çok dağıtılmış hizmet paketleri için aynı olması  *ServicePackage*. Dağıtılan hizmet paketi için belirli işlemleri gerçekleştirirken (örneğin, [dağıtılmış hizmet paketi durumunu raporlama] [ p4] veya [dağıtılmış bir hizmet kod paketi yeniden başlatılıyor Paket][p5]), **ServicePackageActivationId** belirli bir tanımlamak için dağıtılan hizmet paketi sağlanması gerekiyor.
-
-**ServicePackageActivationId** dağıtılan bir hizmet paketi listesini sorgulayarak elde edilebilir [hizmet paketleri dağıtılan] [ p3] bir düğüm üzerinde. Sorgulanırken [hizmet türleri dağıtılan][p6], [çoğaltmaları dağıtılan][p7], ve [kodu paketleridağıtılan] [ p8] bir düğümde sorgu sonucu da içeren **ServicePackageActivationId** üst dağıtılmış hizmet paketi.
+Yalnızca paylaşılan işlem modeli için bir uygulama kullandığınızda, yalnızca bir etkin kopyası yok *ServicePackage* bir düğüm üzerinde. **ServicePackageActivationId** bu etkinleştirmesi için *ServicePackage* boş bir dize. Örneğin, ile böyledir **fabric: / App2**.
 
 > [!NOTE]
->- Altında **paylaşılan işlem** üzerinde barındırma modeli, bir verilen *düğümü*, için bir verilen *uygulama*, yalnızca bir kopya bir *ServicePackage* etkinleştirilir . Bunun **ServicePackageActivationId** eşit *boş dize* ve dağıtılan hizmet paketi ile ilgili işlemleri gerçekleştirirken belirtilmesi gerekmez. 
+>- Paylaşılan barındırma modeli karşılık gelen işlemi **ServicePackageActivationMode** eşittir **SharedProcess**. Bu model, barındırma varsayılandır ve **ServicePackageActivationMode** hizmet oluşturma sırasında belirtilmesi gerekmez.
 >
-> - Altında **özel işlem** üzerinde barındırma modeli, bir verilen *düğümü*, için bir verilen *uygulama*, bir veya daha fazla kopyasını içeren bir *ServicePackage* can etkin olması. Her etkinleştirme sahip bir *boş* **ServicePackageActivationId**, belirtilen dağıtılan hizmet paketi ile ilgili işlemleri gerçekleştirirken. 
+>- Barındırma modeli karşılık gelen özel işlem **ServicePackageActivationMode** eşittir **ExclusiveProcess**. Bu ayarı kullanmak için açıkça hizmet oluşturma sırasında belirtmeniz gerekir. 
 >
-> - Varsa **ServicePackageActivationId** olduğundan 'boş dize' varsayılanlara atlanmış. Dağıtılan bir hizmet paketini, altında etkinleştirildi **paylaşılan işlem** modeli varsa, sonra işlemi yapılmalıdır, aksi takdirde işlem başarısız olur.
+>- Bir hizmet barındırma modeli görüntülemek için sorgu [hizmet açıklaması][p2]ve değeri, Ara **ServicePackageActivationMode**.
 >
-> - Bir kez ve önbellek sorgulamaz **ServicePackageActivationId**, çünkü dinamik olarak oluşturulur ve çeşitli nedenlerle değiştirebilirsiniz. Gereken bir işlem gerçekleştirmeden önce **ServicePackageActivationId**, önce listesini sorgu [hizmet paketleri dağıtılan] [ p3] düğümünü ve ardından kullanıma  **ServicePackageActivationId** özgün işlemi gerçekleştirmek için sorgu sonuç.
+>
+
+## <a name="work-with-a-deployed-service-package"></a>Dağıtılan hizmet paketi ile çalışma
+Etkin bir kopyasını bir *ServicePackage* bir düğüm olarak adlandırılır bir [hizmet paketi dağıtılan][p3]. Belirli bir uygulamada hizmetleri oluşturmak için özel işlem modeli kullandığınızda aynı için birden fazla dağıtılmış hizmet paketleri olabilir *ServicePackage*. Dağıtılan hizmet paketi için belirli işlemleri gerçekleştiriyorsanız sağlamalıdır **ServicePackageActivationId** belirli dağıtılan hizmet paketi belirlemek için. Kullanıyorsanız, örneğin, kimliği sağlayın [dağıtılmış hizmet paketi durumunu raporlama] [ p4] veya [dağıtılan hizmet paketi kod paketi yeniden] [p5].
+
+Bulma **ServicePackageActivationId** listesini sorgulama tarafından dağıtılan hizmet paketi [hizmet paketleri dağıtılan] [ p3] bir düğüm üzerinde. Ne zaman, sorgulamaya [hizmet türleri dağıtılan][p6], [çoğaltmaları dağıtılan][p7], ve [kodu paketleri dağıtılan ] [ p8] bir düğümde sorgu sonucu da içeren **ServicePackageActivationId** üst dağıtılmış hizmet paketi.
+
+> [!NOTE]
+>- Belirli bir uygulama için belirtilen bir düğüm üzerindeki işlem paylaşılan barındırma modeli altında yalnızca bir kopyası bir *ServicePackage* etkinleştirilir. Bunun bir **ServicePackageActivationId** eşit *boş dize*ve dağıtılan hizmet paketi ile ilgili işlemleri gerçekleştirirken belirtilmesi gerekmez. 
+>
+> - Barındırma özel işlemi altında belirli bir uygulama için belirtilen bir düğüm üzerindeki bir veya daha fazla kopyasını model bir *ServicePackage* etkin olabilir. Her etkinleştirme sahip bir *boş* **ServicePackageActivationId**, belirtilen dağıtılan hizmet paketi ilgili işlemleri gerçekleştirirken. 
+>
+> - Varsa **ServicePackageActivationId** olan atlanırsa, varsayılan olarak *boş dize*. Paylaşılan işlem modeli altında etkinleştirildiği bir dağıtılan hizmet paketi varsa, işlemi üzerinde gerçekleştirilir. Aksi takdirde işlem başarısız olur.
+>
+> - Bir kez ve önbellek sorgulamaz **ServicePackageActivationId**. Kimliği dinamik olarak oluşturulur ve çeşitli nedenlerle değiştirebilirsiniz. Gerektiren bir işlem gerçekleştirmeden önce **ServicePackageActivationId**, önce listesini sorgu [hizmet paketleri dağıtılan] [ p3] bir düğüm üzerinde. Ardından **ServicePackageActivationId** özgün işlemi gerçekleştirmek için sorgu sonuç.
 >
 >
 
 ## <a name="guest-executable-and-container-applications"></a>Konuk çalıştırılabilir ve kapsayıcı uygulamaları
-Service Fabric değerlendirir [Konuk yürütülebilir] [ a2] ve [kapsayıcı] [ a3] uygulamaları kendi içindeki durum bilgisi olmayan hizmetler olarak: hiçbir Service Fabric çalışma zamanı yok *ServiceHost* (bir işlem veya kapsayıcı). Bu hizmetler kendi içinde bulunan olduğundan çoğaltmaların sayısı *ServiceHost* bu hizmetler için geçerli değildir. Tek bölümlü hizmetlerle kullanılan en yaygın yapılandırma ile [Instancecount] [ c2] -1 (örn. bir kopyası her bir küme düğümünde servis kodu) değerine eşit. 
+Service Fabric değerlendirir [Konuk yürütülebilir] [ a2] ve [kapsayıcı] [ a3] uygulamaları kendi içindeki durum bilgisi olmayan hizmetler olarak. Hiçbir Service Fabric çalışma zamanı yok *ServiceHost* (bir işlem veya kapsayıcı). Bu hizmetler kendi içinde bulunan olduğundan çoğaltmaların sayısı *ServiceHost* bu hizmetler için geçerli değildir. Bu Hizmetleri ile kullanılan en yaygın yapılandırma ile tek bölümlü [Instancecount] [ c2] -1 (her bir küme düğümünde servis kodu bir kopyasını) değerine eşit. 
 
-Varsayılan **ServicePackageActivationMode** için bu hizmetleri **SharedProcess**, Service Fabric yalnızca bir kopyasını etkinleştirir; bu durumda *ServicePackage* bir üzerinde *Düğüm* için bir verilen *uygulama*.  Bu hizmeti kodunu yalnızca bir kopyasını çalışacağı anlamına gelir. bir *düğümü*. Hizmet kodunuzu çalıştırmak için birden çok kopyasını isteyip istemediğinizi bir *düğümü* birden fazla hizmet oluşturduğunuzda (*Service1* için *ServiceN*), *ServiceType* (belirtilen *ServiceManifest*) ya da hizmetiniz çoklu bölümlenmiş olduğunda belirtmelisiniz **ServicePackageActivationMode** olarak **ExclusiveProcess**hizmet oluşturma zamanında.
+Varsayılan **ServicePackageActivationMode** için bu hizmetleri **SharedProcess**, Service Fabric yalnızca bir kopyasını etkinleştirir; bu durumda *ServicePackage* bir düğümde belirli bir uygulama için.  Bu hizmet kod yalnızca bir kopyasını bir düğüm çalışacak anlamına gelir. Bir düğümü üzerinde çalışacak şekilde hizmet kodunuzun birden çok kopyasını isterseniz, belirtmeniz **ServicePackageActivationMode** olarak **ExclusiveProcess** hizmet oluşturma zamanında. Birden çok hizmet oluşturduğunuzda, örneğin, bunu yapabilirsiniz (*Service1* için *ServiceN*), *ServiceType* (belirtilen *ServiceManifest*), ya da hizmetiniz olduğunda çoklu bölümlenmiş. 
 
-## <a name="changing-hosting-model-of-an-existing-service"></a>Var olan bir hizmet barındırma modelini değiştirme
-Varolan bir hizmetinden barındırma modelini değiştirme **paylaşılan işlem** için **özel işlem** tersi yükseltme veya güncelleştirme mekanizması (veya varsayılan uygulama belirtiminde hizmet aracılığıyla bildirim) şu anda desteklenmiyor. Bu özellik için destek gelecek sürümlerde gelecektir.
+## <a name="change-the-hosting-model-of-an-existing-service"></a>Var olan bir hizmet barındırma modeli
+Şu anda mevcut bir hizmet barındırma modeli paylaşılan işleminden özel işlem (veya tersi) değiştiremezsiniz.
 
-## <a name="choosing-between-shared-process-and-exclusive-process-model"></a>Paylaşılan işlem ve özel işlem modeli arasında seçim yapma
-Bu iki barındırma modelleri, kendi olumlu ve olumsuz ve hangisinin gereksinimlerine en iyi şekilde uyduğunu değerlendirmek üzere kullanıcı gereksinimlerini vardır. **İşlem paylaşılan** modeli sağlayan daha iyi kullanımı, işletim sistemi kaynaklarının daha az işlemleri kökenli olduğundan, aynı işlemde birden çok çoğaltma paylaşabilirsiniz bağlantı noktaları, vs. Ancak, çoğaltmaları birini nerede hizmet ana bilgisayarı getirmek için gereken bir hata değerse, diğer tüm çoğaltmaları aynı işlemde etkiler.
+## <a name="choose-between-the-hosting-models"></a>Barındırma modelleri arasında seçin
+Gereksinimlerinizi en iyi hangi barındırma modeli uygun değerlendirmelisiniz. Paylaşılan işlem modeli işletim sistemi kaynaklarını daha iyi ve daha az işlemleri kökenli ve aynı işlemde birden çok çoğaltma bağlantı noktalarını paylaşabilirsiniz çünkü kullanır. Ancak, çoğaltmaları birini nerede hizmet ana bilgisayarı getirmek gereken bir hata varsa, diğer tüm çoğaltmaları aynı işlemde etkiler.
 
- **Özel işlem** modeli de kendi işleminde her çoğaltma ile daha iyi yalıtımı sağlar ve hatalı davranan çoğaltma diğer çoğaltmaları etkilemez. Bunu burada bağlantı noktası paylaşımı iletişim protokolü tarafından desteklenmeyen durumlarda kullanışlı devreye girer. Kaynak İdaresi çoğaltma düzeyinde uygulama yeteneğini kolaylaştırır. Ancak, **özel işlem** düğüm üzerindeki her çoğaltma için bir işlem olarak çoğaltılır daha fazla işletim sistemi kaynağı tüketir.
+ Özel işlem modeli de kendi işleminde her çoğaltma ile daha iyi yalıtım sağlar. Bir çoğaltma bir hata varsa, diğer çoğaltmaları etkilemez. Bu model, burada bağlantı noktası paylaşımı iletişim protokolü tarafından desteklenmeyen durumlar için yararlıdır. Kaynak İdaresi çoğaltma düzeyinde uygulama yeteneğini kolaylaştırır. Ancak, düğüm üzerindeki her çoğaltma için bir işlem olarak çoğaltılır gibi özel işlem daha fazla işletim sistemi kaynağı tüketir.
 
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>Özel işlem modelini ve uygulama konuları modeli
-Service Fabric uygulamanızı modellemek için önerilen yöntem bir korumaktır *ServiceType* başına *ServicePackage* ve bu model iyi uygulamaların çoğu için çalışır. 
+Çoğu uygulama için Service Fabric uygulamanızı bir tutarak model oluşturabilirsiniz *ServiceType* başına *ServicePackage*. 
 
-Belirli kullanım için hedeflenen, Service Fabric ayrıca birden fazla sağlar *ServiceType* başına *ServicePackage* (ve bir *CodePackage* birden fazla kaydedebilirsiniz *ServiceType*). Burada, bu yapılandırmalar yararlı olabilir senaryolardan bazıları şunlardır:
+Bazı durumlarda, Service Fabric ayrıca birden fazla sağlar *ServiceType* başına *ServicePackage* (ve bir *CodePackage* birden fazla kaydedebilirsiniz  *ServiceType*). Burada, bu yapılandırmalar yararlı olabilir senaryolardan bazıları şunlardır:
 
-- Daha az işlemleri örnekten oluşturmak ve işlem başına daha yüksek yineleme yoğunluğu olan işletim sistemi kaynak kullanımını iyileştirmek istediğinizde.
-- Farklı ServiceTypes çoğaltmalardan yüksek başlatma veya maliyet bellek varsa bazı ortak verileri paylaşmanız gerekir.
-- Ücretsiz hizmet sunumu sahip ve aynı işlemde hizmetinin tüm çoğaltmaları koyarak kaynak kullanımını bir sınır koymak istediğiniz.
+- Daha az işlemleri örnekten oluşturmak ve işlem başına daha yüksek yineleme yoğunluğu olan kaynak kullanımını iyileştirmek istediğinizde.
+- Farklı çoğaltmalardan *ServiceTypes* maliyeti yüksek başlatma veya bellek varsa bazı ortak veri paylaşmak için.
+- Boş bir hizmet teklifi sahip ve aynı işlemde hizmetinin tüm çoğaltmaları koyarak kaynak kullanımını bir sınır koymak istediğiniz.
 
-**Özel işlem** barındırma modeli değil tutarlı sahip birden çok uygulama modeliyle *ServiceTypes* başına *ServicePackage*. Bunun nedeni birden çok, *ServiceTypes* başına *ServicePackage* daha yüksek kaynak işlemi başına çoğaltmaları ve etkinleştirir daha yüksek yineleme yoğunluğu arasında paylaşımı elde etmek üzere tasarlanmıştır. Bu nedir aykırı **özel işlem** model elde etmek üzere tasarlanmıştır.
+Barındırma modeli özel işlem birden çok sahip bir uygulama modeli ile tutarlı değil *ServiceTypes* başına *ServicePackage*. Bunun nedeni birden çok, *ServiceTypes* başına *ServicePackage* daha yüksek kaynak çoğaltmalar arasında paylaşımı elde etmek için tasarlanmıştır ve işlem başına daha yüksek yineleme yoğunluğu sağlar. Özel işlem modeli farklı sonuçlar elde etmek için tasarlanmıştır.
 
-Birden çok durumunu göz önünde bulundurun *ServiceTypes* başına *ServicePackage* farklı ile *CodePackage* her kaydetme *ServiceType* . Bizim düşünelim bir *ServicePackage* iki sahip'MultiTypeServicePackge ' *CodePackages*:
+Birden çok durumunu göz önünde bulundurun *ServiceTypes* başına *ServicePackage*, farklı bir sahip *CodePackage* her kaydetme *ServiceType*. Bizim düşünelim bir *ServicePackage* iki sahip'MultiTypeServicePackge ' *CodePackages*:
 
 - Kayıtları'MyCodePackageA ' *ServiceType* 'MyServiceTypeA'.
 - Kayıtları'MyCodePackageB ' *ServiceType* 'MyServiceTypeB'.
 
-Şimdi sağlar söyleyin oluşturuyoruz bir *uygulama* **fabric: / SpecialApp** ve iç **doku: / SpecialApp** iki Hizmetleri ile aşağıdaki oluşturmak **özel İşlem** modeli:
+Şimdi, bir uygulama oluşturuyoruz düşünelim **fabric: / SpecialApp**. İçinde **fabric: / SpecialApp**, aşağıdaki iki özel işlem modeli hizmetleriyle oluşturun:
 
-- Hizmet **fabric: / SpecialApp/ServiceA** iki bölüm 'MyServiceTypeA' türünde (söyleyin **P1** ve **P2**) ve bölüm başına üç çoğaltmaları.
-- Hizmet **fabric: / SpecialApp/ServiceB** iki bölüm 'MyServiceTypeB' türünde (söyleyin **P3** ve **P4**) ve bölüm başına üç çoğaltmaları.
+- Hizmet **fabric: / SpecialApp/ServiceA** iki bölüm 'MyServiceTypeA' türünde (örneğin, **P1** ve **P2**) ve bölüm başına üç çoğaltmaları.
+- Hizmet **fabric: / SpecialApp/ServiceB** iki bölüm 'MyServiceTypeB' türünde (**P3** ve **P4**) ve bölüm başına üç çoğaltmaları.
 
-Belirli bir düğümde her iki hizmet iki çoğaltma sahip olur. Kullandık beri **özel işlem** hizmetleri oluşturmak için model Service Fabric 'MyServicePackge' ın yeni bir kopyasını her çoğaltma için etkinleşir. Her etkinleştirme 'MultiTypeServicePackge', 'MyCodePackageA' ve 'MyCodePackageB' bir kopyasını başlar. Ancak, 'MyCodePackageA' veya 'MyCodePackageB' yalnızca biri 'MultiTypeServicePackge' etkinleştirildiği çoğaltmasını barındıracak. Aşağıdaki diyagramda düğüm görünümü gösterir:
+Belirli bir düğümde hem hizmetleri her iki çoğaltma sahiptir. Service Fabric hizmetleri oluşturmak için özel işlem modeli kullandık olduğundan, 'MyServicePackage' ın yeni bir kopyasını her çoğaltma için etkinleştirir. Her etkinleştirme 'MultiTypeServicePackge', 'MyCodePackageA' ve 'MyCodePackageB' bir kopyasını başlatır. Ancak, 'MyCodePackageA' veya 'MyCodePackageB' yalnızca biri 'MultiTypeServicePackge' etkinleştirildiği çoğaltma barındırır. Aşağıdaki diyagramda düğümü görünüm gösterir:
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-five]
-</center>
 
-'MultiTypeServicePackge' etkinleştirme bölümünün yinelemenin **P1** hizmetinin **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' çoğaltma barındırma ve 'MyCodePackageB' olduğundan ve çalışıyor . Benzer şekilde, 'MultiTypeServicePackge' etkinleştirme bölümünün yinelemenin içinde **P3** hizmetinin **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' çoğaltma barındırma ve 'MyCodePackageA' ise yalnızca hazır ve çalışır ve benzeri. Bu nedenle, daha sayısı *CodePackages* (farklı kaydetme *ServiceTypes*) başına *ServicePackage*, yedekli kaynak kullanımı daha yüksek olur. 
+![Dağıtılmış uygulama düğümü görünümünü diyagramı][node-view-five]
+
+
+'MultiTypeServicePackge' etkinleştirme bölümünün yinelemenin **P1** hizmetinin **fabric: / SpecialApp/ServiceA**, 'MyCodePackageA' çoğaltma barındırma. 'MyCodePackageB' çalışıyor. Benzer şekilde, 'MultiTypeServicePackge' etkinleştirme bölümünün yinelemenin içinde **P3** hizmetinin **fabric: / SpecialApp/ServiceB**, 'MyCodePackageB' çoğaltma barındırma. 'MyCodePackageA' çalışıyor. Bu nedenle, daha fazla sayıda *CodePackages* (farklı kaydetme *ServiceTypes*) başına *ServicePackage*, o kadar yüksektir yedekli kaynak kullanımı. 
  
- Ancak, biz Hizmetleri oluşturursanız **fabric: / SpecialApp/ServiceA** ve **doku: / SpecialApp/ServiceB** ile **paylaşılan işlem** model, Service Fabric tek etkinleşir için 'MultiTypeServicePackge' kopyasını *uygulama* **fabric: / SpecialApp** (daha önce gördüğümüz gibi). 'MyCodePackageA' ana bilgisayar hizmeti için tüm çoğaltmaları **fabric: / SpecialApp/ServiceA** (veya, herhangi bir hizmet türü 'daha kesin olarak MyServiceTypeA'). 'MyCodePackageB' ana bilgisayar hizmeti için tüm çoğaltmaları **fabric: / SpecialApp/ServiceB** (veya, herhangi bir hizmet türü 'daha kesin olarak MyServiceTypeB'). Aşağıdaki diyagramda bu ayarda düğümünü görüntüler: 
+ Ancak, biz Hizmetleri oluşturursanız **fabric: / SpecialApp/ServiceA** ve **fabric: / SpecialApp/ServiceB** paylaşılan işlem modeliyle Service Fabric yalnızca bir kopyasını etkinleştirir. ' MultiTypeServicePackge' uygulaması için **fabric: / SpecialApp**. 'MyCodePackageA' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceA**. 'MyCodePackageB' hizmeti için tüm çoğaltmaları barındıran **fabric: / SpecialApp/ServiceB**. Aşağıdaki diyagramda bu ayarda düğümünü görüntüler: 
 
-<center>
-![Dağıtılmış uygulama düğümü görünümü][node-view-six]
-</center>
 
-Önceki örnekte 'MyCodePackageA', 'MyServiceTypeA' ve 'MyServiceTypeB' kaydeder ve hiçbir 'MyCodePackageB' yoktur durumunda Hayır yedekli da olacaktır düşünebilirsiniz *CodePackage* çalışıyor. Daha önce belirtildiği ancak, doğru budur. Bu uygulama modeli ile yeteri kadar uyuşmasa **özel işlem** barındırma modeli. Her çoğaltma kendi özel işleme yerleştirmek için hedef ise, her ikisi de kaydetme *ServiceTypes* aynı gelen *CodePackage* gerekli değildir. Her koyma *ServiceType* kendi içinde *ServicePacakge* daha doğal bir seçimdir.
+![Dağıtılmış uygulama düğümü görünümünü diyagramı][node-view-six]
+
+
+Önceki örnekte, 'MyCodePackageA', 'MyServiceTypeA' ve 'MyServiceTypeB' kaydeder ve hiçbir 'MyCodePackageB' yoktur ve yeniden yoktur Hayır yedekli düşündüğünüzden *CodePackage* çalışıyor. Bu doğru olmasına karşın, bu uygulama modeli ile özel barındırma modeli işlem yeteri kadar uyuşmasa. Her çoğaltma kendi özel işleme yerleştirmek için hedef ise, her ikisi de kaydetmeniz gerekmez *ServiceTypes* aynı gelen *CodePackage*. Bunun yerine, her basitçe *ServiceType* kendi içinde *ServicePackage*.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Bir uygulama paketi] [ a4] ve dağıtmak hazırlanın.
 
-[Dağıtma ve uygulamaları kaldırma] [ a5] uygulama örnekleri yönetmek için PowerShell kullanmayı açıklar.
+[Dağıtma ve uygulamaları kaldırma][a5]. Bu makalede, uygulama örnekleri yönetmek için PowerShell kullanmayı açıklar.
 
 <!--Image references-->
 [node-view-one]: ./media/service-fabric-hosting-model/node-view-one.png

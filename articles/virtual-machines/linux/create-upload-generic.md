@@ -1,10 +1,10 @@
 ---
-title: "Oluşturma ve azure'da bir Linux VHD yükleme"
-description: "Oluşturma ve bir Azure sanal sabit Linux işletim sistemi içeren disk (VHD) yükleme hakkında bilgi edinme."
+title: Oluşturma ve azure'da bir Linux VHD yükleme
+description: Oluşturma ve bir Azure sanal sabit Linux işletim sistemi içeren disk (VHD) yükleme hakkında bilgi edinme.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
 ms.assetid: d351396c-95a0-4092-b7bf-c6aae0bbd112
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: b06144e6ad3df1626022edd856e14d6c47494336
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 5d08c752af23845a31428b16ee3de594044b4129
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Desteklenmeyen Dağıtımlarla ilgili bilgiler
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]

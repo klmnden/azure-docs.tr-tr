@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı denetimi ile çalışmaya başlama | Microsoft Docs"
-description: "Azure SQL veritabanı denetimi veritabanı olaylarını bir denetim günlüğüne izlemek için kullanın."
+title: Azure SQL veritabanı denetimi ile çalışmaya başlama | Microsoft Docs
+description: Azure SQL veritabanı denetimi veritabanı olaylarını bir denetim günlüğüne izlemek için kullanın.
 services: sql-database
 author: giladm
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 04/01/2018
 ms.author: giladm
-ms.openlocfilehash: 0339dc2ecc93fb9ec260ede9d3f2e9b7b1419b08
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 54cd9864f6ff4bd8234e8ec55e158f4213f9f11b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -66,12 +66,12 @@ Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı a
     <a id="auditing-screenshot"></a>![Gezinti Bölmesi][1]
 3. Bir sunucu denetim ilkesini ayarlamak tercih ederseniz, seçebileceğiniz **sunucu ayarlarını görüntüleyin** veritabanı denetim dikey penceresinde bağlantı. Daha sonra görüntülemek veya sunucunun denetim ayarları değiştirin. Sunucu denetim ilkeleri, bu sunucudaki tüm mevcut ve yeni oluşturulan veritabanları için geçerlidir.
 
-    ![Gezinti Bölmesi][2]
+    ![Gezinti bölmesi][2]
 4. İçin veritabanı düzeyi, blob denetimi etkinleştirmeyi tercih ediyorsanız **denetim**seçin **ON**ve **türü denetimi**seçin **Blob**.
 
     Sunucu blob denetimi etkinse, veritabanı yapılandırılmış denetim yan yana sunucu blob denetim yer alır.
 
-    ![Gezinti Bölmesi][3]
+    ![Gezinti bölmesi][3]
 5. Açmak için **denetim günlüklerini depolama** dikey penceresinde, select **depolama ayrıntıları**. Burada günlükleri kaydedilecek ve Bekletme dönemi seçin Azure depolama hesabı seçin. Eski günlükleri silinir. Daha sonra, **Tamam**'a tıklayın.
    >[!TIP]
    >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın.
@@ -96,14 +96,14 @@ Blob denetim günlüklerini görüntülemek için kullanabileceğiniz birkaç y�
 
 * Kullanım [Azure portal](https://portal.azure.com).  İlgili veritabanını açın. Veritabanının üstündeki **denetim ve tehdit algılama** dikey penceresinde tıklatın **denetim günlüklerini görüntüle**.
 
-    ![Gezinti Bölmesi][7]
+    ![Gezinti bölmesi][7]
 
     Bir **denetim kayıtları** dikey penceresi açılır ve kendisinden, günlükleri görüntüleyebilirsiniz.
 
     - Belirli tarihleri tıklatarak görüntüleyebileceğiniz **filtre** en üstündeki **denetim kayıtları** dikey.
     - Bir sunucu İlkesi veya veritabanı ilke denetimi tarafından oluşturulan denetim kayıtları arasında geçiş yapabilirsiniz.
 
-       ![Gezinti Bölmesi][8]
+       ![Gezinti bölmesi][8]
 
 * Bir sistem işlevi kullanın **sys.fn_get_audit_file** (Denetim günlüğü verilerini tablo biçiminde döndürmek için T-SQL). Bu işlev kullanma hakkında daha fazla bilgi için bkz: [sys.fn_get_audit_file belgelerine](https://docs.microsoft.com/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
@@ -111,14 +111,14 @@ Blob denetim günlüklerini görüntülemek için kullanabileceğiniz birkaç y�
 * Kullanım **denetim dosyaları birleştirme** SQL Server Management Studio'da (SSMS 17 ile başlayarak):
     1. SSMS menüsünden seçin **dosya** > **açık** > **denetim dosyaları birleştirme**.
 
-        ![Gezinti Bölmesi][9]
+        ![Gezinti bölmesi][9]
     2. **Denetim dosyaları Ekle** iletişim kutusu açılır. Aşağıdakilerden birini seçin **Ekle** Seçenekleri denetim dosyalarını yerel bir sürücüden birleştirmeniz veya Azure depolama biriminden almak isteyip istemediğinizi seçin. Azure Storage ayrıntıları ve hesap anahtarı sağlamak için gereklidir.
 
     3. Birleştirme için tüm dosyaları ekledikten sonra tıklatın **Tamam** birleştirme işlemini tamamlamak için.
 
     4. Burada, görüntülemek ve analiz edin, yanı sıra bir XEL'e ya da CSV dosyası veya tablo dışa SSMS birleştirilmiş dosya açılır.
 
-* Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure üzerinde çalışır ve Operations Management Suite (OMS) SQL denetim günlüklerini OMS göndermek için günlük analizi genel API'leri kullanır. Eşitleme uygulamanın OMS günlük analizi Pano tüketimi için OMS günlük analizi SQL denetim günlüklerini iter.
+* Kullanım [eşitleme uygulama](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) , oluşturduk. Azure üzerinde çalışır ve SQL denetim günlüklerini günlük analizi göndermek için günlük analizi genel API'leri kullanır. Eşitleme uygulama günlük analizi Pano tüketimi için günlük analizi SQL denetim günlüklerini iter.
 
 * Power BI kullanın. Görüntülemek ve denetim günlüğü verilerini Power bı'da analiz edin. Daha fazla bilgi edinmek [Power BI ve erişim indirilebilir bir şablon](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
@@ -158,10 +158,10 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
 
 1. Açık **depolama ayrıntıları** dikey. İçinde **depolama erişim tuşu** kutusunda **ikincil**, tıklatıp **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
 
-    ![Gezinti Bölmesi][5]
+    ![Gezinti bölmesi][5]
 2. Depolama yapılandırma dikey penceresine gidin ve birincil erişim anahtarını yeniden oluşturma.
 
-    ![Gezinti Bölmesi][6]
+    ![Gezinti bölmesi][6]
 3. Birincil ikincil depolama erişim anahtarı yeniden denetim yapılandırma dikey penceresine, anahtar ve ardından Git **Tamam**. Ardından **kaydetmek** denetim yapılandırma dikey pencerenin üstündeki.
 4. Depolama yapılandırma dikey penceresine geri dönün ve (için Hazırlanmakta sonraki anahtarın yenileme döngüsü) ikincil erişim anahtarını yeniden oluşturma.
 

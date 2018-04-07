@@ -1,13 +1,13 @@
 ---
-title: "Azure Linux VM boyutları - işlem en iyi duruma getirilmiş | Microsoft Docs"
-description: "Azure'daki Linux sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı işlem boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler."
+title: Azure Linux VM boyutları - işlem en iyi duruma getirilmiş | Microsoft Docs
+description: Azure'daki Linux sanal makineler için kullanılabilir en iyi duruma getirilmiş farklı işlem boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,17 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2017
 ms.author: jonbeck
-<<<<<<< HEAD
-ms.openlocfilehash: 18b2e380bf51262f7dd78f164a925603ff6ab94f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 006f79f2017a12cfc131013acfe66f2befa93a80
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: da914aff4ff0f14e90a45e7783df23d58789984f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>En iyi duruma getirilmiş işlem sanal makine boyutları
 

@@ -1,10 +1,10 @@
 ---
-title: "Linux çalıştıran bir sanal makinede LVM yapılandırma | Microsoft Docs"
-description: "Linux Azure üzerinde LVM yapılandırmayı öğrenin."
+title: Linux çalıştıran bir sanal makinede LVM yapılandırma | Microsoft Docs
+description: Linux Azure üzerinde LVM yapılandırmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 ms.assetid: 7f533725-1484-479d-9472-6b3098d0aecc
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure'da bir Linux VM LVM yapılandırın
 Bu belge, Azure sanal makinenizde mantıksal Birimi Yöneticisi (LVM) yapılandırmak nasıl ele alınacaktır. Sanal makineye bağlı bir diskte LVM yapılandırmak için uygun olsa da, varsayılan olarak işletim sistemi disk üzerinde yapılandırılmış LVM çoğu bulut görüntüleri sahip olmaz. Bu işletim sistemi diski şimdiye kadar aynı dağıtım ve türü, başka bir VM yani sırasında kurtarma senaryosunda bağlıysa, yinelenen birim grupları ile sorunları önlemek için yapılır. Bu nedenle yalnızca veri disklerde LVM kullanmak için önerilir.
@@ -40,7 +40,7 @@ Bir genellikle iki veya daha fazla boş veri disklerle LVM kullanırken başlama
     sudo apt-get install lvm2
     ```
 
-* **RHEL, CentOS ve Oracle Linux**
+* **RHEL, CentOS & Oracle Linux**
 
     ```bash   
     sudo yum install lvm2
@@ -141,7 +141,7 @@ Bu kılavuzda olarak adlandırılan üç veri diskleri ekli varsayacağız `/dev
     /dev/mapper/data--vg01-data--lv01 on /data type ext4 (rw)
     ```
 
-5. (İsteğe bağlı) Hatasız önyükleme parametrelerinde`/etc/fstab`
+5. (İsteğe bağlı) Hatasız önyükleme parametrelerinde `/etc/fstab`
    
     Çoğu dağıtımda ya da dahil `nobootwait` veya `nofail` bağlama eklenebilir parametreleri `/etc/fstab` dosya. Bu parametreler belirli dosya sistemi bağlanması gerektiğinde hataları için izin ve Linux sistemin düzgün RAID dosya sistemi bağlama alamıyor olsa bile önyüklemeye devam etmesini izin ver. Lütfen bu parametreleri hakkında daha fazla bilgi için dağıtım 's belgelerine bakın.
    

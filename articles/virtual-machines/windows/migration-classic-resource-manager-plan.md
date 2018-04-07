@@ -1,11 +1,11 @@
 ---
-title: "Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama | Microsoft Docs"
-description: "Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama"
+title: Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama | Microsoft Docs
+description: Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 32e595b6ae01e77289a81734f61b9036835dd2fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 Azure Resource Manager birçok harika özellikler sunar, ancak sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır.
@@ -69,7 +69,7 @@ Başarılı müşteriler burada önceki soruları ele alınan, belgelenen kapsam
 - Olası uygulama kesinti son kullanıcılar için planlama değil.  Son kullanıcılar olası kullanılamaz uygulama süre yeterli uyarmak için yeterli arabellek planlayın.
 
 
-## <a name="lab-test"></a>Laboratuvar Test
+## <a name="lab-test"></a>Lab Test
 
 **Ortamınızı çoğaltabilir ve bir test geçişi yapın**
   > [!NOTE]
@@ -122,7 +122,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
     >
 
     - Ağ Arabirimleri
-    - Yük Dengeleyici
+    - Yük Dengeleyiciler
     - Ortak IP'ler
     - Statik genel IP'ler
     - Çekirdek

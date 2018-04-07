@@ -1,28 +1,23 @@
 ---
-title: "Azure işlevleri ile Azure akış analizi işleri çalıştırma | Microsoft Docs"
-description: "Akış analizi işleri için çıkış havuzu olarak Azure işlevleri yapılandırma konusunda bilgi edinin."
-keywords: "Çıkış, veri akış verileri Azure işlevi"
-documentationcenter: 
+title: Azure işlevlerini Azure akış analizi işleri çalıştırma
+description: Bu makalede, Azure işlevleri, olay sürücü iş yükleri için Stream Analytics işlerini çıkış havuzu olarak yapılandırmak açıklar.
 services: stream-analytics
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 manager: kfile
-ms.assetid: 
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 12/19/2017
-ms.author: sngun
-ms.openlocfilehash: f2f4a8d8cda752dc6ed197b8402119f7cbcaf58f
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: a8eebfa0c40caa455eb20431e5cf4acb8eeb248c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="run-azure-functions-with-azure-stream-analytics-jobs"></a>Azure işlevleri ile Azure akış analizi işleri çalıştırma 
+# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure işlevlerini Azure akış analizi işleri çalıştırma 
 
-Akış analizi işine çıkış havuzlarını biri olarak işlevleri yapılandırarak Azure akış Analizi ile Azure işlevleri çalıştırabilirsiniz. İşlevler Azure veya üçüncü taraf hizmetleri gerçekleşen olaylar tarafından tetiklenen kodları uygulama olanak sağlayan bir olay denetimli, isteğe bağlı işlem deneyimi olur. Tetikleyiciler için yanıt özelliği işlevlerin Stream Analytics işleri için doğal bir çıktı kolaylaştırır.
+Akış analizi işine çıkış havuzlarını biri olarak işlevleri yapılandırarak Azure Stream Analytics'ten Azure işlevleri çalıştırabilirsiniz. Azure veya üçüncü taraf hizmetleri gerçekleşen olaylar tarafından tetiklenen kodları uygulama olanak sağlayan bir olay denetimli, isteğe bağlı işlem deneyimi işlevlerdir. Tetikleyiciler için yanıt özelliği işlevlerin Stream Analytics işleri için doğal bir çıktı kolaylaştırır.
 
 Akış analizi işlevleri HTTP Tetikleyicileri çağırır. Stream Analytics sorgularına dayalı olayları tetiklenebilir şekilde işlevleri çıkış bağdaştırıcısı akış analizi için işlevleri bağlanmasına olanak sağlar. 
 

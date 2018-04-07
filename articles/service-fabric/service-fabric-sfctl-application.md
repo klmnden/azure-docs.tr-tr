@@ -1,12 +1,12 @@
 ---
 title: Azure Service Fabric CLI sfctl uygulama | Microsoft Docs
-description: "Service Fabric CLI sfctl uygulama komutlarını açıklar."
+description: Service Fabric CLI sfctl uygulama komutlarını açıklar.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 02/23/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3a10437d0a2d680e586ada6a87750a69453c1f0c
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: fe0ef5c81b1ef6bef298e65cde3649c9464089d8
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sfctl-application"></a>sfctl application
 Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
@@ -46,7 +46,7 @@ Oluşturma, silme ve uygulama ve uygulama türlerini yönetme.
 | upgrade-resume  | Service Fabric kümesi uygulamada yükseltme devam eder.|
 | upgrade-rollback| Uygulama şu anda devam eden yükseltmesini Service Fabric kümesi geri başlatır.|
 | Yükseltme durumu  | Bu uygulamaya yapılan en son yükseltme için ayrıntıları alır.|
-| Karşıya yükleme       | Service Fabric uygulama paketi görüntü deposuna kopyalama.|
+| karşıya yükle       | Service Fabric uygulama paketi görüntü deposuna kopyalama.|
 
 ## <a name="sfctl-application-create"></a>sfctl uygulaması oluşturma
 Belirtilen açıklaması kullanarak bir Service Fabric uygulaması oluşturur.
@@ -71,7 +71,7 @@ Belirtilen açıklaması kullanarak bir Service Fabric uygulaması oluşturur.
 | --debug              | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h            | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı          | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu              | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu              | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose            | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-delete"></a>sfctl uygulama silme
@@ -94,7 +94,7 @@ Var olan bir Service Fabric uygulamasını siler. Uygulamanın silinebilmesi iç
 | --debug                 | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h               | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı             | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                 | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                 | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose               | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-deployed"></a>dağıtılan sfctl uygulaması
@@ -117,7 +117,7 @@ Service Fabric düğümde dağıtılan bir uygulamayla ilgili bilgileri alır.  
 | --debug                 | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h               | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı             | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                 | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                 | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose               | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-health"></a>sfctl uygulama durumu
@@ -143,7 +143,7 @@ Service fabric uygulaması sistem durumu durumunu döndürür. Yanıt Tamam, hat
 | --debug                                 | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                               | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                             | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                                 | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu                                 | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose                               | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-info"></a>sfctl uygulama bilgisi
@@ -166,7 +166,7 @@ Service Fabric kümesi ve parametre olarak belirtilen bir adı eşleşen oluştu
 | --debug                      | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                    | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                  | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.             Varsayılan: json.|
-| --Sorgu                      | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu                      | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose                    | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-list"></a>sfctl uygulama listesi
@@ -192,7 +192,7 @@ Oluşturulan veya Service Fabric oluşturulan sürecinde küme ve parametre olar
 | --debug                      | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                    | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                  | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.             Varsayılan: json.|
-| --Sorgu                      | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                      | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose                    | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-load"></a>sfctl uygulama yükleme
@@ -212,7 +212,7 @@ Yükleme hakkında bilgi oluşturulmuş uygulama veya Service Fabric kümesi ve 
 |--debug                    | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
     --help -h                  | Bu yardım iletisini ve çıkış gösterir.|
     ---o çıktı                | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-    --Sorgu                    | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+    --Sorgu                    | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
     --verbose                  | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl uygulama bildirimi
@@ -235,15 +235,13 @@ Bir uygulama türünü tanımlayan bildirimi alır. Yanıt bir dize XML uygulama
 | --debug                           | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                         | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                       | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.                  Varsayılan: json.|
-| --Sorgu                           | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu                           | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose                         | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-provision"></a>sfctl uygulama sağlama
 Hükümler veya yazmaçlar Service Fabric uygulaması yazın SFPKG paket dış mağazada veya uygulama paketi görüntü deposuna kullanarak küme ile.
 
-Bir küme Service Fabric uygulaması türüyle sağlar. Herhangi bir yeni uygulama örneğinin önce bu gereklidir. Sağlama işlemi ya da relativePathInImageStore veya dış SFPKG URI'sini kullanarak belirtilen uygulama paketinin üzerinde gerçekleştirilebilir. Bu komut dış sağlama ayarlanmadığı sürece--Image store bekliyor
-
-sağlama.
+Bir küme Service Fabric uygulaması türüyle sağlar. Herhangi bir yeni uygulama örneğinin önce bu gereklidir. Sağlama işlemi ya da relativePathInImageStore veya dış SFPKG URI'sini kullanarak belirtilen uygulama paketinin üzerinde gerçekleştirilebilir. Bu komut, dış sağlama ayarlanmadığı sürece--görüntü deposundan uygulama paketi sağlamasını yapar.
         
 
 
@@ -266,7 +264,7 @@ sağlama.
 | --debug                              | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                            | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                          | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                              | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu                              | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose                            | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-type"></a>sfctl uygulama türü
@@ -293,7 +291,7 @@ Service Fabric kümesi sağlanacak sürecinde veya sağlanan uygulama türleri h
 | --debug                        | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                      | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                    | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.               Varsayılan: json.|
-| --Sorgu                        | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                        | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose                      | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-unprovision"></a>sfctl uygulama sağlamayı kaldırma
@@ -317,7 +315,7 @@ Kaldırır veya kümeden bir Service Fabric uygulama türü kaydını siler. Bu 
 | --debug                           | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                         | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                       | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.                  Varsayılan: json.|
-| --Sorgu                           | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu                           | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose                         | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-upgrade"></a>sfctl uygulama yükseltme
@@ -354,7 +352,7 @@ Sağlanan uygulama yükseltme parametreleri doğrular ve parametreleri geçerliy
 | --debug                     | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h                   | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                 | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.            Varsayılan: json.|
-| --Sorgu                     | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
+| --Sorgu                     | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
 | --verbose                   | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-application-upload"></a>sfctl uygulama karşıya yükleme
@@ -377,7 +375,7 @@ Service Fabric uygulama paketi görüntü deposuna kopyalama.
 | --debug       | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
 | --help -h     | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı   | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu       | JMESPath sorgu dizesi. Daha fazla bilgi için http://jmespath.org/ bakın.|
+| --Sorgu       | JMESPath sorgu dizesi. Daha fazla bilgi için bkz: http://jmespath.org/.|
 | --verbose     | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar

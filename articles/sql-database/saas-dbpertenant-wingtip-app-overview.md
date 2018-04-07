@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/12/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 563d82076721a669069ba3e36df84a050188813c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama giriş
 
@@ -43,7 +43,7 @@ Uygulamayı dağıttıktan sonra ilk dağıtımı yapı aşağıdaki öğreticil
 |[Dağıtma ve Wingtip SaaS uygulamasına keşfedin](saas-dbpertenant-get-started-deploy.md)|  Dağıtma ve Azure aboneliğinizle Wingtip SaaS uygulamasına keşfedin. |
 |[Sağlama ve Katalog kiracılar](saas-dbpertenant-provision-and-catalog.md)| Uygulama Kataloğu veritabanını kullanarak kiracılara nasıl bağlandığını ve Katalog kiracılar verilerini nasıl eşlendiğini öğrenin. |
 |[İzleme ve performansı yönetme](saas-dbpertenant-performance-monitoring.md)| SQL veritabanı'nın İzleme özelliklerini kullanın ve performans eşikler aşıldığında uyarıları ayarlama hakkında bilgi edinin. |
-|[Azure günlük analizi (Operations Management Suite) ile izleme](saas-dbpertenant-log-analytics.md) | Nasıl kullanacağınızı öğrenin [günlük analizi](../log-analytics/log-analytics-overview.md) kaynakları büyük miktarlarda birden çok havuzlardaki izlemek için. |
+|[Azure günlük analizi ile izleme](saas-dbpertenant-log-analytics.md) | Nasıl kullanacağınızı öğrenin [günlük analizi](../log-analytics/log-analytics-overview.md) kaynakları büyük miktarlarda birden çok havuzlardaki izlemek için. |
 |[Tek bir kiracı geri yükleme](saas-dbpertenant-restore-single-tenant.md)| Bir kiracı veritabanı zaman içinde önceki bir noktaya geri öğrenin. Ayrıca varolan Kiracı veritabanı çevrimiçi ayrıldığında bir paralel veritabanına geri öğrenin. |
 |[Kiracı veritabanı şeması yönetme](saas-tenancy-schema-management.md)| Şema ve tüm Kiracı veritabanları arasında başvuru verileri güncelleştirme öğrenin. |
 |[Çapraz Kiracı dağıtılmış sorgular çalıştırın](saas-tenancy-cross-tenant-reporting.md) | Bir geçici analytics veritabanı oluşturun ve tüm kiracılar arasında gerçek zamanlı dağıtılmış sorgular çalıştırın.  |

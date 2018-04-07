@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b908e8877162a6a1d9292616a1704c1c528e1725
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 9f8f8cb7fd267e25c83ecceb98b5faa8848fb126
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>İzleme ve Azure PowerShell ile Windows sanal makine güncelleştirmesi
 
@@ -238,7 +238,7 @@ Grafik, zaman içinde gerçekleştirilen değişiklikleri gösterir. Etkinlik G�
 
 ## <a name="advanced-monitoring"></a>Gelişmiş izleme
 
-Güncelleştirme yönetimi ve değişiklik ve Azure Automation tarafından sağlanan envanter gibi çözümlerinden kullanarak VM'yi izleme daha gelişmiş yapabilirsiniz. [Operations Management Suite](../../automation/automation-intro.md).
+Güncelleştirme yönetimi ve değişiklik ve envanter tarafından sağlanan gibi çözümlerinden kullanarak VM'yi izleme daha gelişmiş yapabileceğiniz [Azure Otomasyonu](../../automation/automation-intro.md).
 
 Günlük analizi çalışma alanına erişim sahip olduğunuzda, çalışma alanı anahtarı ve çalışma tanımlayıcısı seçerek bulabilirsiniz **Gelişmiş ayarları** altında **ayarları**. Kullanım [kümesi AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) VM'ye Microsoft Monitoring agent uzantısı eklemek için komutu. Değişken değerleri güncelleştirmek günlük analizi çalışma alanı anahtarı ve çalışma alanı kimliği yansıtmak için örnek aşağıda
 

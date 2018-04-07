@@ -1,24 +1,19 @@
 ---
-title: Azure Stream Analytics içinde sorgu paralelleştirme yararlanın | Microsoft Docs
-description: Giriş bölümlerini yapılandırma sorgu tanımı ayarlama ve iş akış birimleri ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
-keywords: veri akış, veri işleme, akış analizi ayarlama
+title: Azure Stream Analytics sorgu paralelleştirme ve ölçek kullanın
+description: Bu makalede, giriş bölümlerini yapılandırma sorgu tanımı ayarlama ve iş akış birimleri ayarlama Stream Analytics işlerini ölçeklendirme açıklar.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: eb19a9b4e92e7007f64ae7b593663be6a47a7a4b
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 949806379891dbf5a7c145a14cae532104f51497
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Azure Stream Analytics içinde sorgu paralelleştirme yararlanın
 Bu makalede Azure akış analizi paralelleştirme yararlanmak nasıl gösterir. Giriş bölümlerini yapılandırma ve analizi sorgu tanımı ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
@@ -50,7 +45,7 @@ Akış Analizi ile çalışırken, çıktılarında bölümleme yararlanabilirsi
 -   IOT hub'ı (bölüm anahtarı açıkça ayarlamak için gereklidir)
 -   Service Bus
 
-Powerbı, SQL ve SQL veri ambarı çıkışları bölümleme desteklemez. Ancak, yine giriş bölümünde açıklandığı gibi bölüm [Bu bölümde](#multi-step-query-with-a-grouping-key) 
+Powerbı, SQL ve SQL veri ambarı çıkışları bölümleme desteklemez. Ancak, yine giriş bölümünde açıklandığı gibi bölüm [Bu bölümde](#multi-step-query-with-different-partition-by-values) 
 
 Bölümleri hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
@@ -65,7 +60,7 @@ Bir *utandırıcı derecede paralel* iş Azure akış analizi sahibiz en ölçek
 
 2. Veriler giriş tarafında düzenlendiğini sonra sorgunuzu bölümlenen emin olmanız gerekir. Bu kullanmanızı gerektirir **bölüm tarafından** tüm adımda. Birden çok adımı izin verilir, ancak bunların tümü aynı anahtar ile bölümlenmiş olması gerekir. Bölümleme anahtarı şu anda ayarlanmalıdır **PartitionID** tam olarak paralel olarak iş için sırayla.  
 
-3. Bizim çıkış çoğunu bölümleme yararlanabilirsiniz, ancak, bir çıktı türü kullanırsanız, bölümleme desteklemiyor işinizi tam olarak paralel olmayacaktır. Başvurmak [çıkış bölüm](#Outputs) daha fazla ayrıntı için.
+3. Bizim çıkış çoğunu bölümleme yararlanabilirsiniz, ancak, bir çıktı türü kullanırsanız, bölümleme desteklemiyor işinizi tam olarak paralel olmayacaktır. Başvurmak [çıkış bölüm](#outputs) daha fazla ayrıntı için.
 
 4. Giriş bölüm sayısı çıktı bölüm sayısı eşit olmalıdır. BLOB Depolama çıkış bölümleri şu anda desteklemiyor. Ancak Yukarı Akış sorgunun bölümleme düzeni devralır Tamam, olmasıdır. Örnek bir tam olarak paralel iş izin bölüm değerler şunlardır:  
 
@@ -221,7 +216,7 @@ Bu sorgu için 24 SUs genişletilebilir.
 
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

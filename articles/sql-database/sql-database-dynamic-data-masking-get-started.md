@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanını dinamik veri maskeleme | Microsoft docs"
-description: "SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar."
+title: Azure SQL veritabanını dinamik veri maskeleme | Microsoft docs
+description: SQL veritabanı dinamik veri maskeleme ayrıcalıklı olmayan kullanıcılara maskeleyerek gizli verilerin açığa sınırlar.
 services: sql-database
 author: ronitr
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 03/09/2017
+ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 543b4bc15177cc198aaa3c312b563a4bd6e844fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4d948786d70ffc1350825b04dbddc128cf89466e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL veritabanı dinamik veri maskeleme
 

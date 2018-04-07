@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı için sorgu performansı öngörüleri | Microsoft Docs"
-description: "Sorgu performansı izleme CPU tüketimi sorguların çoğu bir Azure SQL veritabanı için tanımlar."
+title: Azure SQL veritabanı için sorgu performansı öngörüleri | Microsoft Docs
+description: Sorgu performansı izleme CPU tüketimi sorguların çoğu bir Azure SQL veritabanı için tanımlar.
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 18d03ffcd586a809b37cbc1ca9a7843c25c7758d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı öngörüleri
 Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzmanlık ve zaman yatırımı gerektiren bir görevdir. Sorgu performansı öngörüleri, aşağıdakileri sağlayarak veritabanı performans sorunlarını giderme daha az süre beklemesini sağlar:
@@ -56,7 +56,7 @@ Sorgu performansı öngörüleri kullanımı kolay:
 
 1. Bir SQL veritabanına bulun ve tıklatın **tüm ayarları** > **destek + sorun giderme** > **sorgu performansı öngörüleri**. 
    
-    ![Sorgu Performansı Öngörüleri][1]
+    ![Sorgu Performansı İçgörüleri][1]
    
     En sık kullanılan sorguların görünümünü açar ve üst CPU tüketim sorguları listelenir.
 2. Ayrıntılar için grafik etrafında'ı tıklatın.<br>Çubukları seçilen zaman aralığı boyunca seçili sorgular tarafından tüketilen CPU % gösterirken üst çizgi veritabanı için genel DTU % gösterir (örneğin, **geçen hafta** seçili her çubuk bir gününü temsil eder).

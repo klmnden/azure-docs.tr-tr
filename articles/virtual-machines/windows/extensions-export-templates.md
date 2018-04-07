@@ -1,11 +1,11 @@
 ---
-title: "VM uzantıları içeren Azure kaynak gruplarını dışa aktarma | Microsoft Docs"
-description: "Sanal makine uzantıları dahil Resource Manager şablonları dışarı aktarın."
+title: VM uzantıları içeren Azure kaynak gruplarını dışa aktarma | Microsoft Docs
+description: Sanal makine uzantıları dahil Resource Manager şablonları dışarı aktarın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7f4e2ca6-f1c7-4f59-a2cc-8f63132de279
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: danis
-ms.openlocfilehash: 739ae7995fca41fe8abb7cd54ccb72ff3bc43854
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 2dc05fd21df3d408ed57badeec2b5c06e25bf50c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM uzantıları içeren kaynak grupları dışarı aktarma
 
@@ -38,10 +38,10 @@ Aşağıdaki uzantılar Otomasyon betik özelliğiyle aktarılabilir.
 | Acronis yedekleme | Datadog Windows Aracısı | Linux için düzeltme eki uygulama işletim sistemi | VM anlık görüntü Linux
 | Acronis yedekleme Linux | Docker uzantısı | Puppet aracı |
 | BG bilgisi | DSC Uzantısı | Site 7 x 24 Apm Insight |
-| BMC CTM Aracısı Linux | Dynatrace Linux | Site 7 x 24 Linux sunucusu |
-| BMC CTM Aracısı Windows | Dynatrace Windows | Site 7 x 24 Windows sunucusu |
-| Chef istemci | HPE güvenlik uygulama Defender | Eğilim mikro DSA |
-| Özel bir komut dosyası | Iaas kötü amaçlı yazılımdan koruma | Eğilim mikro DSA Linux |
+| BMC CTM Agent Linux | Dynatrace Linux | Site 7 x 24 Linux sunucusu |
+| BMC CTM Agent Windows | Dynatrace Windows | Site 7 x 24 Windows sunucusu |
+| Chef istemci | HPE güvenlik uygulama Defender | Trend Micro DSA |
+| Özel bir komut dosyası | Iaas kötü amaçlı yazılımdan koruma | Trend Micro DSA Linux |
 | Özel Betik Uzantısı | Iaas tanılama | Linux VM erişim |
 | Linux için özel bir komut dosyası | Linux Chef istemci | Linux VM erişim |
 | Datadog Linux Aracısı | Linux tanılama | VM anlık görüntü |

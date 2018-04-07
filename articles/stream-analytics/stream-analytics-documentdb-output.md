@@ -1,26 +1,21 @@
 ---
-title: Akış analizi için JSON çıktısını | Microsoft Docs
-description: Stream Analytics Veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri için JSON çıktı için Azure Cosmos DB nasıl hedefleyebilirsiniz öğrenin.
-keywords: JSON çıktısını
-documentationcenter: ''
-services: stream-analytics,documentdb
+title: Cosmos DB Azure Stream Analytics çıkışı
+description: Bu makalede Azure akış analizi veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri için JSON çıktı için çıktı Azure Cosmos DB'sine kaydetmek için nasıl kullanılacağını açıklar.
+services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 5d2a61a6-0dbf-4f1b-80af-60a80eb25dd1
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: 8bda2abda6f2b7207a5a7195c24b07da9089fb06
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: f7115f7d19cd44ae7d0812d3aa6c48d8dd58c20d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>Hedef Azure Stream Analytics JSON çıktısını Cosmos DB
+# <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Stream Analytics çıktı Azure Cosmos DB'de  
 Akış analizi hedef [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) veri arşivleme ve düşük gecikme süreli sorguları yapılandırılmamış JSON verileri JSON çıktısını için etkinleştirme. Bu belgede, bu yapılandırmayı uygulamak için bazı en iyi yöntemler kapsar.
 
 Kişiler için Cosmos DB ile iyi tanımıyorsanız, bir göz atalım [Azure Cosmos veritabanı öğrenme yolu](https://azure.microsoft.com/documentation/learning-paths/documentdb/) başlamak için. 
@@ -35,7 +30,7 @@ Stream Analytics Azure Cosmos DB çıktısında sonuçları, Cosmos DB collectio
 Cosmos DB toplama seçeneklerini bazıları aşağıda açıklanmıştır.
 
 ## <a name="tune-consistency-availability-and-latency"></a>Tutarlılık, kullanılabilirlik ve gecikme süresini ayarlama
-Uygulama gereksinimlerinizi eşleşecek şekilde Cosmos DB ince koleksiyonları ve veritabanı ayarlamak ve dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmak sağlar. Hangi düzeyde okuma tutarlılığı bağlı olarak senaryo gereksinimlerinize göre okuma ve veritabanı hesabınızdaki tutarlılık düzeyi seçebilirsiniz gecikme, yazma. Ayrıca varsayılan olarak, zaman uyumlu her CRUD işlemi koleksiyonunuz için dizin Cosmos DB sağlar. Cosmos DB yazma/okuma performans denetlemek için yararlı başka bir seçenek budur. Bu konu hakkında daha fazla bilgi için gözden [, veritabanı ve sorgu tutarlılık düzeylerini değiştirme](../cosmos-db/consistency-levels.md) makalesi.
+Uygulama gereksinimlerinizi eşleşecek şekilde Cosmos DB ince koleksiyonları ve veritabanı ayarlamak ve dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmak sağlar. Hangi düzeyde okuma tutarlılığı bağlı olarak senaryo gereksinimlerinize göre okuma ve veritabanı hesabınızdaki tutarlılık düzeyi seçebilirsiniz gecikme, yazma. Ayrıca varsayılan olarak, zaman uyumlu her CRUD işlemi koleksiyonunuz için dizin Cosmos DB sağlar. Cosmos DB yazma/okuma performans denetlemek için yararlı başka bir seçenek budur. Daha fazla bilgi için gözden [, veritabanı ve sorgu tutarlılık düzeylerini değiştirme](../cosmos-db/consistency-levels.md) makalesi.
 
 ## <a name="upserts-from-stream-analytics"></a>Stream analytics'ten Upserts
 Stream Analytics tümleştirme Cosmos DB ile eklemek veya belirli bir belge kimliği sütununa dayalı Cosmos DB koleksiyonunuzdaki kayıtlarını güncelleştirmek sağlar. Bu ayrıca olarak adlandırılır bir *Upsert*.

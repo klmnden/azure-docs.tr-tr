@@ -1,12 +1,12 @@
 ---
-title: "Azure service fabric güvenliğine genel bakış | Microsoft Docs"
-description: "Bu makalede Azure Service Fabric güvenliğine genel bakış sağlar."
+title: Azure service fabric güvenliğine genel bakış | Microsoft Docs
+description: Bu makalede Azure Service Fabric güvenliğine genel bakış sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: 64717da922701aabd27e15a67e8da1b0acb30b77
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9b6c2463c2a782f463e64d6e350a565fa7898b63
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric güvenliğine genel bakış
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) paketini, dağıtmak ve ölçeklenebilir ve güvenilir mikro daha kolay hale getirir dağıtılmış sistemler platformudur. Service Fabric geliştirme ve bulut uygulamalarını yönetme önemli sorunları giderir. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar.
@@ -104,7 +104,7 @@ Genel iş akışını izleme ve tanılama ve üç adımdan oluşur:
 
 -   **Olay toplama:** oluşturulan olaylar gereken toplanacağı ve bunların görüntülenebilmesi bir araya getirilir. Genellikle kullanmanızı öneririz [Azure tanılama](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad) (tabanlı aracı günlük toplama benzer) veya [EventFlow](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-aggregation-eventflow) (işlemdeki günlük toplama).
 
--   **Analiz:** olayları görselleştirilmiş ve analiz ve görüntü için izin vermek için bazı biçiminde erişilebilir olması gerekir. İzleme ve tanılama veri Görselleştirme ve analiz için birkaç Platform vardır. Öneririz iki olan [Operations Management Suite](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) ve [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) nedeniyle Service Fabric ile bunların iyi tümleştirme.
+-   **Analiz:** olayları görselleştirilmiş ve analiz ve görüntü için izin vermek için bazı biçiminde erişilebilir olması gerekir. İzleme ve tanılama veri Görselleştirme ve analiz için birkaç Platform vardır. Öneririz iki olan [günlük analizi](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms) ve [Azure Application Insights](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) nedeniyle Service Fabric ile bunların iyi tümleştirme.
 
 Aynı zamanda [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview) Service Fabric kümesi yerleşik Azure kaynaklarını çoğunu izlemek için.
 

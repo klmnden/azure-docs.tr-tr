@@ -1,34 +1,29 @@
 ---
-title: Azure Stream Analytics kaynak sistem durumu dikey kullanın | Microsoft Docs
-description: Akış analizi işleri sorunlarını giderirken sorunları belirlemenize yapma.
-keywords: sorun giderme akış çizelgesi, kaynak dikey
-documentationcenter: ''
+title: Azure Stream Analytics kaynak sistem durumu sayfasında kullanın
+description: Bu makalede, Azure portalında kaynak durumu kullanarak Azure akış analizi işi'de sorunlarını giderme açıklar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/01/2017
 ms.author: jeanb
-ms.openlocfilehash: 598f858c22494bc511ef0e2f04f3c3a6baad1ae8
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/01/2017
+ms.openlocfilehash: 27d9bd7ffd7088cbd67879e83176b66cdbbf471d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="stream-analytics-resource-health-blade"></a>Stream Analytics kaynak sistem durumu dikey
+# <a name="stream-analytics-resource-health-page-in-the-azure-portal"></a>Stream Analytics kaynak sistem durumu sayfasında Azure portalında
 
-**Kaynak durumu** dikey Azure portalında Azure akış analizi işi durumunu gösterir. Ayrıca, sorunları gidermenize yardımcı olabilecek tıklatılabilir Kılavuzu gösterir. 
+**Kaynak durumu** sayfası Azure portalında Azure akış analizi işi durumunu gösterir. Ayrıca, sorunları gidermenize yardımcı olabilecek tıklatılabilir Kılavuzu gösterir. 
 
-**Kaynak durumu** dikey daha hızlı bir şekilde uygulamada bir sorun kök olup olmadığını ya da Azure olayda tarafından neden belirlemenize yardımcı olmak için tasarlanmıştır. Yardım almak için bir destek servis talebi açmaya ne zaman bilmek yardımcı olabilir.
+**Kaynak durumu** sayfa, uygulamada bir sorun kök olup olmadığını ya da Azure olayda tarafından nedeniyle daha hızlı bir şekilde belirlemenize yardımcı olmak için tasarlanmıştır. Yardım almak için bir destek servis talebi açmaya ne zaman bilmek yardımcı olabilir.
 
 ## <a name="troubleshooting-workflow"></a>İş akışı sorunlarını giderme
 
-Kaynak durumu Stream Analytics işleriniz için görmek için seçin **kaynak durumu** dikey. 
+Kaynak durumu Stream Analytics işleriniz için görmek için seçin **kaynak durumu** sayfası. 
 
 ![Stream Analytics akış - erişim sorunlarını giderme](media/stream-analytics-resource-health/stream-analytics-access-troubleshooting.png)
 
@@ -37,7 +32,7 @@ Aşağıdaki akış çizelgesi, dikkat edilmesi gerekenler ve bir destek servis 
 ![Stream Analytics sorun giderme akış - eşleme](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## <a name="get-help"></a>Yardım alın
-Ek Yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Ek Yardım için deneyin [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Stream Analytics'e giriş](stream-analytics-introduction.md)

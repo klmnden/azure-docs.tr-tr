@@ -1,18 +1,18 @@
 ---
-title: "Azure olay kılavuz kavramları"
-description: "Azure olay kılavuz ve onun kavramlarını açıklar. Olay kılavuzunun birkaç anahtar bileşenleri tanımlar."
+title: Azure olay kılavuz kavramları
+description: Azure olay kılavuz ve onun kavramlarını açıklar. Olay kılavuzunun birkaç anahtar bileşenleri tanımlar.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 01/30/2018
+ms.date: 04/04/2018
 ms.author: babanisa
-ms.openlocfilehash: 4fd44387ac1c3dad9f0194f1b2c97d6350f9b15d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e55127e60470f8f95235893a14113b80e8d6565b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event kılavuzunda kavramları
 
@@ -32,9 +32,11 @@ Yayımcıları olayları konulara kategorilere ayırma. Konu, burada yayımcı o
 
 Sistem konular, Azure Hizmetleri tarafından sağlanan yerleşik konulardır. Uygulama ve üçüncü taraf konuları bunun özel konulardır.
 
+Uygulamanızı tasarlarken, ilgili olayların her kategori için özel bir konu oluşturun. Örneğin, sipariş işleme ve kullanıcı hesaplarını değiştirme ile ilgili olayları gönderen bir uygulama göz önünde bulundurun. Her iki kategorileri olayların herhangi bir olay işleyicisini istediği düşüktür. İki özel konular oluşturmak ve bunları ilgilendiğiniz bir abone olay işleyicileri izin verin. Özel konuya abone olurken, olay işleyicisi olay türüne göre filtreleyebilirsiniz.
+
 ## <a name="event-subscriptions"></a>Olay abonelikleri
 
-Bir abonelik olay hangi olayların bir konuda üzerinde bir abone olarak alma ilgilenmektedir kılavuz bildirir.  Bir abonelik de olayları aboneye nasıl teslim hakkında bilgi içerir.
+Bir abonelik olay hangi olayların bir konuda üzerinde bir abone olarak alma ilgilenmektedir kılavuz bildirir. Bir abonelik de olayları aboneye nasıl teslim hakkında bilgi içerir.
 
 ## <a name="event-handlers"></a>Olay işleyicileri
 

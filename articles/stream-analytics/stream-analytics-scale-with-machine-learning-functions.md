@@ -1,27 +1,22 @@
 ---
-title: Azure Stream Analytics & AzureML işlevleriyle ölçeklendirme iş | Microsoft Docs
-description: Akış analizi işleri (bölümlendirme, SU miktar ve daha fazla) düzgün ölçeklenir öğrenin Azure Machine Learning işlevleri kullanırken.
-keywords: ''
-documentationcenter: ''
+title: Azure akış analizi Machine Learning işlevlerini ölçeklendirme
+description: Bu makalede, bölümlendirme ve akış birimleri yapılandırarak Machine Learning işlevlerini kullanmak Stream Analytics işlerini ölçeklendirme açıklar.
 services: stream-analytics
 author: jseb225
-manager: ryanw
-ms.assetid: 47ce7c5e-1de1-41ca-9a26-b5ecce814743
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/28/2017
 ms.author: jeanb
-ms.openlocfilehash: dd6effab3ba0b411131414bd757ffe8cc54e49d2
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/28/2017
+ms.openlocfilehash: 015312ab95d6dd5615a5f5bc62d270d46b795ffa
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Stream Analytics işiniz Azure Machine Learning işlevlerini ölçeklendirme
-Genellikle, bir akış analizi işi ayarlamak ve bazı örnek veriler üzerinden çalıştırmak kolaydır. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde biz neler? Stream Analytics işi, ölçeklenebilir şekilde yapılandırmak nasıl anlamak için bize gerektirir. Bu belgede, şu özel akış analizi işleri Machine Learning işlevlerle ölçeklendirme yönlerini odaklanılmaktadır. Genel Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz: [işlerini ölçeklendirme](stream-analytics-scale-jobs.md).
+Bir akış analizi işi ayarlamak ve bazı örnek veriler üzerinden çalıştırmak için doğrudan ileriye doğru değil. Daha yüksek veri birimi ile aynı işi çalıştırmak gerektiğinde biz neler? Stream Analytics işi, ölçeklenebilir şekilde yapılandırmak nasıl anlamak için bize gerektirir. Bu belgede, şu özel akış analizi işleri Machine Learning işlevlerle ölçeklendirme yönlerini odaklanılmaktadır. Genel Stream Analytics işlerini ölçeklendirme hakkında bilgi için bkz: [işlerini ölçeklendirme](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Bir Azure Machine Learning işlevinde Stream Analytics nedir?
 Stream Analytics Machine Learning işlevinde, Stream Analytics sorgu dili normal işlev çağrısında gibi kullanılabilir. Ancak, Sahne işlev çağrıları gerçekten Azure Machine Learning Web hizmeti isteklerinin aynıdır. Machine Learning web Hizmetleri "birden çok satır, genel üretilen işi artırmak için aynı web hizmeti API çağrısı içinde Mini toplu olarak adlandırılan yığınlama" destekler. Daha fazla ayrıntı için aşağıdaki makalelere bakın; [Stream Analytics azure Machine Learning işlevlerde](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) ve [Azure Machine Learning Web Hizmetleri](../machine-learning/studio/consume-web-services.md).
@@ -111,7 +106,7 @@ Stream Analytics işi Machine Learning işlevlerle ölçeklendirmek için ana no
 2. Çalışan bir akış analizi işi (ve dolayısıyla Machine Learning web hizmeti isteklerinin toplu iş boyutu) için toleranslı gecikme süresi
 3. Sağlanan akış analizi SUs ve Machine Learning web hizmeti isteklerinin (ek işlevi ilişkili maliyetler) sayısı
 
-Tam olarak bölümlenmiş bir akış analizi sorgu örnek olarak kullanılmıştır. Daha karmaşık bir sorgu gerekirse [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) Stream Analytics ekibinden Ek Yardım almak için mükemmel bir kaynaktır.
+Tam olarak bölümlenmiş bir akış analizi sorgu örnek olarak kullanılmıştır. Daha karmaşık bir sorgu gerekirse [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) Stream Analytics ekibinden Ek Yardım almak için mükemmel bir kaynaktır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Stream Analytics hakkında daha fazla bilgi için bkz:

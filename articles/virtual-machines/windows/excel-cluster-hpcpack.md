@@ -1,11 +1,11 @@
 ---
-title: "HPC Pack küme Excel ve SOA | Microsoft Docs"
-description: "Büyük ölçekli Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama"
+title: HPC Pack küme Excel ve SOA | Microsoft Docs
+description: Büyük ölçekli Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,hpc-pack
 ms.assetid: cb6a9abe-caf3-44da-b911-849a50f6cfb3
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama
 Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım komut dosyası kullanarak bir Azure sanal makineler Microsoft HPC Pack 2012 R2 kümesinde dağıtma gösterilmektedir. Küme, Microsoft Excel ya da hizmet odaklı mimari (SOA) iş yükleri HPC paketi ile çalışacak biçimde tasarlanan Azure Market VM görüntüleri kullanır. Küme, bir şirket içi istemci bilgisayarından Excel HPC ve SOA hizmetlerini çalıştırmak için kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevler veya UDF'ler Excel HPC hizmetleri içerir.
@@ -34,7 +34,7 @@ Yüksek düzeyde, aşağıdaki diyagramda, oluşturduğunuz HPC paketi küme gö
 
 ![Excel iş yükleri çalıştıran düğümlerle HPC Kümesi][scenario]
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **İstemci bilgisayar** -kümeye örnek Excel ve SOA işleri göndermek için bir Windows tabanlı bir istemci bilgisayar gerekir. (Bu dağıtım yöntemi seçerseniz) Azure PowerShell küme dağıtım betiğini çalıştırmak için bir Windows bilgisayar da gerekir.
 * **Azure aboneliği** -bir Azure aboneliğiniz yoksa, oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/pricing/free-trial/) yalnızca birkaç dakika içinde.
 * **Çekirdek kota** -özellikle çok çekirdekli VM boyutları birkaç küme düğümleri dağıtırsanız, çekirdek, Kotayı artırmak gerekebilir. Çekirdek kota Kaynağı Yöneticisi'nde bir Azure Hızlı Başlangıç şablonu kullanıyorsanız, Azure bölgesidir. Bu durumda, belirli bir bölgedeki Kotayı artırmak gerekebilir. Bkz: [Azure aboneliği sınırları, kotaları ve kısıtlamaları](../../azure-subscription-service-limits.md). Bir Kotayı artırmak için [bir çevrimiçi müşteri destek isteği açma](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) herhangi bir ücret alınmaz.
@@ -43,7 +43,7 @@ Yüksek düzeyde, aşağıdaki diyagramda, oluşturduğunuz HPC paketi küme gö
 ## <a name="step-1-set-up-an-hpc-pack-cluster-in-azure"></a>1. Adım Azure HPC Pack kümede ayarlama
 HPC Pack 2012 R2 kümesini ayarlamak için iki seçenek gösteriyoruz: öncelikle, bir Azure Hızlı Başlangıç şablonu ile Azure Portalı '; ve ikincisi, bir Azure PowerShell dağıtım komut dosyası kullanarak.
 
-### <a name="option-1-use-a-quickstart-template"></a>Seçenek 1. Hızlı Başlatma şablonunu kullanma
+### <a name="option-1-use-a-quickstart-template"></a>1. Seçenek Hızlı Başlatma şablonunu kullanma
 HPC Pack küme Azure portalında hızlı bir şekilde dağıtmak için bir Azure Hızlı Başlangıç şablonu kullanın. Portalda şablonu açtığınızda ayarları, kümeniz için girdiğiniz basit bir kullanıcı Arabirimi alma. Adımlar şunlardır. 
 
 > [!TIP]
@@ -85,7 +85,7 @@ HPC Pack küme Azure portalında hızlı bir şekilde dağıtmak için bir Azure
    
    ![Sertifika verme][cert]
 
-### <a name="option-2-use-the-hpc-pack-iaas-deployment-script"></a>Seçenek 2. HPC Pack Iaas dağıtım komut dosyası kullan
+### <a name="option-2-use-the-hpc-pack-iaas-deployment-script"></a>2. Seçenek HPC Pack Iaas dağıtım komut dosyası kullan
 HPC Pack Iaas dağıtım betiği bir HPC Pack kümeyi dağıtma için çok yönlü başka bir yol sağlar. Şablon Azure Resource Manager dağıtım modelini kullanır ancak klasik dağıtım modelinde bir küme oluşturur. Ayrıca, komut dosyası Azure genel veya Azure Çin hizmetindeki bir abonelik ile uyumludur.
 
 **Ek önkoşulları**
@@ -337,7 +337,7 @@ NetTcp bağlama kullanmak için yapılandırmayı bir şirket içi kümeye bağl
 2. TCP bağlantı noktaları 9090, 9087, ekleme 9091, oturum için 9094 Aracısı, alt ve Veri Hizmetleri, sırasıyla Aracısı
    
     ![Uç noktaları yapılandırma][endpoint-new-portal]
-3. VM Başlat.
+3. VM’yi başlatın.
 
 SOA istemci uygulaması Iaas küme tam adı baş adına değiştirme dışında herhangi bir değişiklik gerektirmez.
 

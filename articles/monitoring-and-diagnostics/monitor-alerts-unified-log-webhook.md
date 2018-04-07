@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/2/2018
 ms.author: vinagara
-ms.openlocfilehash: 9d2bc934424ff7a31b65ad6c03624ff02ee2a6f3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Zaman bir [uyarı Azure içinde oluşturulan ](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntılar ve kullanılabilir farklı Web kancası eylemleri açıklanmaktadır.
@@ -54,7 +54,7 @@ Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yük
 | Arama aralığı başlangıç saati |#searchintervalstarttimeutc |Sorgu saati UTC biçiminde başlatın. 
 | SearchQuery |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
 | SearchResults |"IncludeSearchResults": true|Bir JSON tablosu olarak ilk 1.000 kayıtları sınırlı sorgu tarafından döndürülen kayıt; varsa "IncludeSearchResults": true, özel JSON Web kancası tanımında en üst düzey bir özellik olarak eklenir. |
-| WorkspaceID |#workspaceid |Günlük analizi (OMS) çalışma alanı kimliği. |
+| WorkspaceID |#workspaceid |Günlük analizi çalışma alanı kimliği. |
 | Uygulama Kimliği |#applicationid |Uygulama Insight Kimliğini uygulama. |
 | Abonelik Kimliği |#subscriptionid |Application Insights ile kullanılan Azure aboneliğinizi kimliği. 
 
@@ -77,7 +77,7 @@ Bu örnek yükü için Web kancası gönderildiğinde aşağıdaki gibi bir şey
 Bu bölümde, günlük için uyarıları, yükü standart olduğunda ve ne zaman gibi Web kancası için örnek yükü gösterir kendi özel.
 
 > [!NOTE]
-> Geriye dönük uyumluluk sağlamak üzere Azure günlük analizi kullanarak uyarıları için standart Web kancası yükü aynı [OMS uyarı Yönetim](../log-analytics/log-analytics-alerts-creating.md). Ancak kullanarak günlük uyarılar için [Application Insights](../application-insights/app-insights-analytics.md), standart Web kancası yükü eylem Grup şemasını temel alan.
+> Geriye dönük uyumluluk sağlamak üzere Azure günlük analizi kullanarak uyarıları için standart Web kancası yükü aynı [günlük analizi uyarı Yönetim](../log-analytics/log-analytics-alerts-creating.md). Ancak kullanarak günlük uyarılar için [Application Insights](../application-insights/app-insights-analytics.md), standart Web kancası yükü eylem Grup şemasını temel alan.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Standart Web kancası günlük uyarılar için 
 Bu örneklerin her ikisi de yalnızca iki sütun ve iki satır bir kukla yükü açıklamıştır.

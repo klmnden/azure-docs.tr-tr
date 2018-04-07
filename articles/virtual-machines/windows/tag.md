@@ -1,10 +1,10 @@
 ---
-title: "Azure üzerinde bir Windows VM kaynak etiketlemek nasıl | Microsoft Docs"
-description: "Azure Resource Manager dağıtım modeli kullanılarak oluşturulmuş bir Windows sanal makinenin etiketleme hakkında bilgi edinin"
+title: Azure üzerinde bir Windows VM kaynak etiketlemek nasıl | Microsoft Docs
+description: Azure Resource Manager dağıtım modeli kullanılarak oluşturulmuş bir Windows sanal makinenin etiketleme hakkında bilgi edinin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: 5f00c4265cea3db02dbb09a7f81be636a3fdd3d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5044bda855b6ac88eb5784f257686bf8a1838222
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure'da Windows sanal makine etiketlemek nasıl
 Bu makalede Resource Manager dağıtım modeli aracılığıyla Azure'da Windows sanal makine etiketlemek için farklı yollar açıklanmaktadır. Etiketler doğrudan bir kaynağa veya bir kaynak grubu yerleştirilen kullanıcı tanımlı anahtar/değer çiftleridir. Azure şu anda kaynak ve kaynak grubu başına en fazla 15 etiketlerini destekler. Etiketler oluşturma sırasında bir kaynağa yerleştirilmiş veya mevcut bir kaynağı eklendi. Etiketler Resource Manager dağıtım modeli yalnızca oluşturulan kaynaklar için desteklendiğini unutmayın. Linux sanal makine etiketi istiyorsanız, bkz: [Azure'da bir Linux sanal makine etiketlemek nasıl](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -63,7 +63,7 @@ Bu ilk cmdlet'i tüm getirilen etiketleri ayarlar *MyTestVM* için *$tags* deği
         Value        Production
         Name        Environment
 
-Üçüncü komut ek bir etikete ekler *$tags* değişkeni. Kullanımına dikkat edin  **+=**  yeni anahtar/değer çifti eklemek için *$tags* listesi.
+Üçüncü komut ek bir etikete ekler *$tags* değişkeni. Kullanımına dikkat edin **+=** yeni anahtar/değer çifti eklemek için *$tags* listesi.
 
         PS C:\> $tags += @{Name="Location";Value="MyLocation"}
 

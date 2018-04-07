@@ -1,12 +1,11 @@
 ---
-title: "Azure Cosmos DB API'si ile mongoimport ve mongorestore MongoDB için kullanma | Microsoft Docs"
-description: "Mongoimport ve mongorestore bir API MongoDB hesabı için veri almak için nasıl kullanılacağını öğrenin"
+title: Azure Cosmos DB API'si ile mongoimport ve mongorestore MongoDB için kullanma | Microsoft Docs
+description: Mongoimport ve mongorestore bir API MongoDB hesabı için veri almak için nasıl kullanılacağını öğrenin
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: AndrewHoh
-manager: jhubbard
-editor: 
-documentationcenter: 
+manager: kfile
+documentationcenter: ''
 ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
 ms.workload: data-services
@@ -16,29 +15,29 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 1555f13c3ea88b61be0ea240b51218b83f6f9724
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c87483e384a09591aca496292638d7b68476beb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: Alma MongoDB veri 
 
-Verileri geçirmek için MongoDB adresinden API ile kullanmak için bir Azure Cosmos DB hesaba için yapmanız gerekir:
+MongoDB’deki verileri, MongoDB’ye yönelik bir API ile kullanılacak bir Azure Cosmos DB hesabına geçirmek için şunları yapmalısınız:
 
 * Ya da indirme *mongoimport.exe* veya *mongorestore.exe* gelen [MongoDB Yükleme Merkezi'nden](https://www.mongodb.com/download-center).
-* Al, [API MongoDB bağlantı dizesi için](connect-mongodb-account.md).
+* [MongoDB için API bağlantı dizenizi](connect-mongodb-account.md) alın.
 
 Veri adresinden aldığınız ve Azure Cosmos DB ile kullanmayı planlıyorsanız, kullanmanız gereken [veri geçiş aracı](import-data.md) veri almak için.
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Bağlantı dizesi alınıyor
 > * Mongoimport kullanarak MongoDB veri alma
 > * Mongorestore kullanarak MongoDB veri alma
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Verimliliğini artırmak: veri geçişinizi süresini ayarladığınız Koleksiyonlarınız için işleme miktarına bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Performansı artırma hakkında daha fazla bilgi için [Azure portal](https://portal.azure.com), bkz: [performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına](performance-levels.md).
 
@@ -110,7 +109,7 @@ Apı'nize MongoDB hesabı için verileri geri yüklemek için alma işlemi yür�
     
 3. Makinenizden gecikme Azure Cosmos DB bulut hizmetine belirleyin:
     
-    a. Bu komutu kullanarak MongoDB Kabuğu'ndan ayrıntılı günlük kaydını etkinleştir:```setVerboseShell(true)```
+    a. Bu komutu kullanarak MongoDB Kabuğu'ndan ayrıntılı günlük kaydını etkinleştir: ```setVerboseShell(true)```
     
     b. Basit bir sorgu veritabanına karşı çalışırlar: ```db.coll.find().limit(1)```. Bunun gibi bir yanıtı alırsınız:
 
@@ -118,7 +117,7 @@ Apı'nize MongoDB hesabı için verileri geri yüklemek için alma işlemi yür�
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Yinelenen belge yok olduğundan emin olmak için geçiş işleminden önce eklenen belge kaldırın. Bu komutu kullanarak belgeler kaldırabilirsiniz:```db.coll.remove({})```
+4. Yinelenen belge yok olduğundan emin olmak için geçiş işleminden önce eklenen belge kaldırın. Bu komutu kullanarak belgeler kaldırabilirsiniz: ```db.coll.remove({})```
 
 5. Yaklaşık hesaplamak *batchSize* ve *numInsertionWorkers* değerler:
 

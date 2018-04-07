@@ -10,18 +10,18 @@ ms.component: manage
 ms.date: 04/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 42b716274e655bf91f72c1b3ab207b8a5f1ccee0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6ea45398b0bf7fca43c75797313b7e683972b1ab
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="upgrade-to-latest-generation-of-azure-sql-data-warehouse-in-the-azure-portal"></a>Azure SQL Data Warehouse yeni nesil Azure portalında yükseltme
+# <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>SQL veri ambarı yükselterek performansı en iyi duruma getirme
 
-Azure donanım ve depolama mimarisi yeni nesil kullanmak için Azure SQL veri ambarını yükseltmek için Azure portalını kullanın. Yükselterek, daha hızlı performans, daha yüksek ölçeklenebilirlik ve columnstore dizinleri için sınırsız depolama yararlanabilirsiniz.  
+Şimdi sorunsuz bir şekilde Azure portalında işlem performans katmanı için iyileştirilmiş yükseltebilirsiniz. Esneklik veri ambarı için bir iyileştirilmiş varsa, Azure donanım ve geliştirilmiş depolama mimarisi için en yeni nesil yükseltmeniz önerilir. Daha hızlı performans, daha yüksek ölçeklenebilirlik ve sınırsız sütunlu depolama yararlanmak kuramaz. 
 
 ## <a name="applies-to"></a>Uygulandığı öğe:
-Bu yükseltme esneklik performans katmanı için iyileştirilmiş veri ambarlarında uygular.  Yönergeler için işlem performans katmanı için iyileştirilmiş esneklik performans katmanı için iyileştirilmiş bir veri ambarı yükseltme. 
+Bu yükseltme esneklik performans katmanı için iyileştirilmiş veri ambarlarında uygular.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
@@ -29,25 +29,98 @@ Bu yükseltme esneklik performans katmanı için iyileştirilmiş veri ambarlar�
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
+> [!NOTE]
+> 3/30'dan sonra bilmeniz gereken [sunucu düzeyi denetim](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing#subheading-8) yükseltme işlemine başlamadan önce devre dışı.
+> 
+>
+
+> [!NOTE]
+> Var olan veri ambarı değil esneklik için en iyi hale getirilmiş bir bölgede için en iyi duruma getirilmiş burada işlem kullanılabilir, yapabilecekleriniz [coğrafi geri yükleme işlem için iyileştirilmiş için](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region) desteklenen bir bölge için PowerShell aracılığıyla.
+> 
+>
+
 1. Yükseltilecek esneklik veri ambarı için iyileştirilmiş duraklatıldığında [veri ambarı sürdürmek](pause-and-resume-compute-portal.md).
 2. Kapalı kalma süresi birkaç dakika için hazır olun. 
-3. Yükseltme işlemi, tüm oturumları sonlandırır ve tüm bağlantıları bırakır. Yükseltmeden önce sorgularınızı tamamladığınızdan emin olun. Yükseltme devam eden işlemleri ile başlatırsanız, geri alma süresi kapsamlı olabilir. 
+
+
 
 ## <a name="start-the-upgrade"></a>Yükseltme işlemini başlatmak
 
-1. Azure portalında, veri ambarı açın ve tıklayın **'e yükseltmek için iyileştirilmiş işlem**.
-2. İşlem performans katmanı seçenekleri için iyileştirilmiş dikkat edin. Varsayılan seçim, yükseltmeden önce geçerli düzeye karşılaştırılabilir.
-3. Bir performans katmanı seçin. İşlem performans katmanı için iyileştirilmiş bedelinin Önizleme dönemi boyunca şu anda yarı-kapalıdır.
-4. Tıklatın **yükseltme**.
-5. Azure portalında durumunu kontrol edin.
-6. Veri ambarı çevrimiçi değiştirmek bekleyin.
+1. Veri ambarı Azure portalında ve tıklayın esneklik için iyileştirilmiş gidin **'e yükseltmek için iyileştirilmiş işlem**: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
 
-## <a name="rebuild-columnstore-indexes"></a>Columnstore dizinleri yeniden oluştur
+2. Varsayılan olarak, **önerilen performans düzeyi seçin** veri ambarı için temel alarak, geçerli esneklik için iyileştirilmiş performans düzeyini eşleme kullanarak:
+    
+| Elastiklik için İyileştirilmiş | İşlem için İyileştirilmiş |
+| :----------------------: | :-------------------: |
+|      DW100 – DW1000      |        DW1000c        |
+|          DW1200          |        DW1500c        |
+|          DW1500          |        DW1500c        |
+|          DW2000          |        DW2000c        |
+|          DW3000          |        DW3000c        |
+|          DW6000          |        DW6000c        |
 
-Veri ambarı çevrimiçi olduktan sonra verileri yüklemek ve sorgular çalıştırın. Bununla birlikte, performans olabilir çünkü bir arka plan işlemi verileri yeni donanıma geçirme ilk başta yavaş. 
 
-Olabildiğince çabuk geçirmek için veri zorlamak için columnstore dizinleri yeniden oluşturma öneririz. Bunu yapmak için yönergeler için bkz: [segment kalitesini artırmak için columnstore dizinleri yeniden oluşturma](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality). 
+3. İş yükünüzün çalıştığından ve sessiz modda yükseltmeden önce tamamlandı emin olun. Veri ambarınız işlem veri ambarı için bir iyileştirilmiş olarak yeniden çevrimiçi olduktan birkaç dakika için kapalı kalma yaşayacaktır. **Yükselt'i tıklatın**. İşlem performans katmanı için iyileştirilmiş bedelinin Önizleme dönemi boyunca şu anda yarı-kapalıdır:
+    
+    ![Upgrade_2](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_2.png)
+
+4. **Yükseltme izlemek** Azure portalında durumunu denetleyerek:
+
+   ![Upgrade3](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_3.png)
+   
+   Yükseltme işleminin ilk adımı, burada tüm oturumları sonlandırılacak ve bağlantıları bırakılacak ölçeklendirme işlemi ("Yükseltme - çevrimdışı") gider. 
+   
+   İkinci adım yükseltme işlemini veri geçiş ("Yükseltme - çevrimiçi") olur. Veri geçişi yavaş sütunlu verileri Gen2 yerel SSD önbellek yararlanmak için yeni Gen2 depolama mimarisi için eski Gen1 depolama mimarisinden taşır bir çevrimiçi akışla arka plan işlemidir. Bu süre boyunca, veri Ambarınızı sorgulama ve yükleme için çevrimiçi olacaktır. Tüm verilerinizi olup olmadığını geçirildikten bağımsız olarak sorgulamak kullanılabilir. Veri boyutu, performans düzeyi ve, columnstore Segment sayısına bağlı olarak değişen bir hızda veri geçişi yapılır. 
+
+5. **İsteğe bağlı öneri:** veri geçiş arka plan işlemi hızlandırmak için hemen çalıştırarak veri taşıma zorlamak için önerilir [Alter Index yeniden](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-index) daha büyük bir SLO ve kaynak tüm columnstore tabloları sınıf. Bu akışla arka plan işleme karşılaştırıldığında çevrimdışı bir işlemdir; Ancak, veri geçişi Burada, ardından tam Gen2 depolama mimarisi ile yüksek kaliteli rowgroups kez tam yararlanabilir çok daha hızlı olacaktır. 
+
+Bu aşağıdaki sorguyu veri geçiş işlemi hızlandırmak için gerekli olan Alter Index REBUILD komutları oluşturur:
+
+```sql
+SELECT 'ALTER INDEX [' + idx.NAME + '] ON [' 
+       + Schema_name(tbl.schema_id) + '].[' 
+       + Object_name(idx.object_id) + '] REBUILD ' + ( CASE 
+                                                         WHEN ( 
+                                                     (SELECT Count(*) 
+                                                      FROM   sys.partitions 
+                                                             part2 
+                                                      WHERE  part2.index_id 
+                                                             = idx.index_id 
+                                                             AND 
+                                                     idx.object_id = 
+                                                     part2.object_id) 
+                                                     > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              ELSE '' 
+                                                       END ) + '; SELECT ''[' + 
+              idx.NAME + '] ON [' + Schema_name(tbl.schema_id) + '].[' + 
+              Object_name(idx.object_id) + '] ' + ( 
+              CASE 
+                WHEN ( (SELECT Count(*) 
+                        FROM   sys.partitions 
+                               part2 
+                        WHERE 
+                     part2.index_id = 
+                     idx.index_id 
+                     AND idx.object_id 
+                         = part2.object_id) > 1 ) THEN 
+              ' PARTITION = ' 
+              + Cast(part.partition_number AS NVARCHAR(256)) 
+              + ' completed'';' 
+              ELSE ' completed'';' 
+                                                    END ) 
+FROM   sys.indexes idx 
+       INNER JOIN sys.tables tbl 
+               ON idx.object_id = tbl.object_id 
+       LEFT OUTER JOIN sys.partitions part 
+                    ON idx.index_id = part.index_id 
+                       AND idx.object_id = part.object_id 
+WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE'; 
+```
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Veri ambarınız çevrimiçidir. Yeni performans özellikleri kullanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
+Yükseltilen veri ambarınız çevrimiçidir. Gelişmiş mimari yararlanmak için bkz: [iş yükü yönetimi için kaynak sınıfları](resource-classes-for-workload-management.md).
  

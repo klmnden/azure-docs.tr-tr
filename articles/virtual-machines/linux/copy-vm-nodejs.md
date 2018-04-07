@@ -1,10 +1,10 @@
 ---
-title: "Azure CLI 1.0 ile bir kopyasını bir Linux VM oluşturma | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde Azure CLI 1.0 ile Azure Linux sanal makinenin bir kopyasını oluşturma hakkında bilgi edinin"
+title: Azure CLI 1.0 ile bir kopyasını bir Linux VM oluşturma | Microsoft Docs
+description: Resource Manager dağıtım modelinde Azure CLI 1.0 ile Azure Linux sanal makinenin bir kopyasını oluşturma hakkında bilgi edinin
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 tags: azure-resource-manager
 ms.assetid: 770569d2-23c1-4a5b-801e-cddcd1375164
 ms.service: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
-ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb350f8d14ad451ad3ff7cd617ca3f90967aaa4b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>Azure CLI 1.0 ile Azure üzerinde çalışan bir Linux sanal makine bir kopyasını oluşturun
 Bu makalede Resource Manager dağıtım modelini kullanarak Linux çalıştıran, Azure sanal makine (VM) bir kopyasını oluşturulacağını gösterir. Önce işletim sistemi ve veri diskleri üzerinde yeni bir kapsayıcı kopyalayın sonra ağ kaynakları ayarlamak ve yeni bir sanal makine oluşturun.
@@ -46,7 +46,7 @@ Adımları başlamadan önce aşağıdaki önkoşulları karşıladığından em
 | Kapsayıcı adı |`azure storage container list -a <sourcestorageaccountname>` |
 | Kaynak VM VHD dosya adı |`azure storage blob list --container <containerName>` |
 
-* Yeni VM hakkında bazı seçim yapmanız gerekir:   <br> -Kapsayıcı adı   <br> -VM adı   <br> -VM boyutu   <br> -vNet adı   <br> -Alt ağ adı   <br> -IP adı   <br> -NIC adı
+* Yeni VM hakkında bazı seçim yapmanız gerekir:    <br> -Kapsayıcı adı    <br> -VM adı    <br> -VM boyutu    <br> -vNet adı    <br> -Alt ağ adı    <br> -IP adı    <br> -NIC adı
 
 ## <a name="login-and-set-your-subscription"></a>Oturum açma ve aboneliğinizi ayarlayın
 1. CLI oturum açın.

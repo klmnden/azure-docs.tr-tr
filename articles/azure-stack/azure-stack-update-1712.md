@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2018
+ms.date: 04/06/2018
 ms.author: brenduns
-ms.openlocfilehash: c3cb8ab8a838a3f831ece617fcf3e218a9510ea5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1712-update"></a>Azure yığın 1712 güncelleştirme
 
@@ -43,11 +43,14 @@ Azure yığın 1712 güncelleştirme yapı numarası **180106.1**. Bir müşteri
 Azure yığın yüklemelisiniz [1711 güncelleştirme](https://docs.microsoft.com/azure/azure-stack/azure-stack-update-1711) bu güncelleştirmeyi uygulamadan önce.
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
+- 1712 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
+  - [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/help/4103348)
 
-Bu güncelleştirme, ayrıca 1712 Azure yığın güncelleştirme yüklemesini tamamladıktan sonra OEM ortağından Bellenim güncelleştirmeleri yükleme gerektirir.
 
-> [!NOTE]
-> Güncelleştirmeleri yüklemek için OEM iş ortağı Web sitesine bakın.
+- Güncelleştirme 1712 ayrıca 1712 Azure yığın güncelleştirme yüklemesini tamamladıktan sonra OEM ortağından Bellenim güncelleştirmeleri yükleme gerektirir.
+
+  > [!NOTE]
+  > Güncelleştirmeleri yüklemek için OEM iş ortağı Web sitesine bakın.
 
 ### <a name="new-features-and-fixes"></a>Yeni özellikler ve düzeltmeler
 

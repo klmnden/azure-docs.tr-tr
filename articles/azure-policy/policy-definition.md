@@ -9,11 +9,11 @@ ms.date: 01/17/2018
 ms.topic: article
 ms.service: azure-policy
 ms.custom: ''
-ms.openlocfilehash: 50965010d821d4edf94e2f5727546cb56f61f5db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fdfa2eb629351c38fb72c20a62cd7d78acf229
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -70,7 +70,7 @@ Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-
 * `all`: kaynak grupları ve tüm kaynak türleri değerlendir 
 * `indexed`: yalnızca etiketlerini ve konumunu destekleyen kaynak türleri değerlendir
 
-Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametresi el ile.
+Ayarlamanızı öneririz **modu** için `all` çoğu durumda. Portal kullanımı oluşturulan tüm ilke tanımları `all` modu. PowerShell veya Azure CLI kullanıyorsanız, belirtmek zorunda **modu** parametresi el ile. İlke tanımı içermiyorsa bir **modu** varsayılan değer `indexed` için geriye dönük uyumluluk.
 
 `indexed` ilkeleri oluşturma etiketler veya konumları zorunlu kılacak olduğunda kullanılmalıdır. Bu gerekli değildir ancak etiketleri ve konumları olarak uyumluluk sonuçlarını uyumlu olmayan göstermesini desteklemeyen kaynakları engeller. Bunun tek istisnası **kaynak grupları**. Konum veya bir kaynak grubu üzerinde etiketleri zorlamak için çalışıyorsunuz ilkeleri ayarlamalıdır **modu** için `all` ve özellikle hedef `Microsoft.Resources/subscriptions/resourceGroup` türü. Bir örnek için bkz: [kaynak grubu etiketleri zorunlu](scripts/enforce-tag-rg.md).
 
@@ -102,6 +102,8 @@ Meta veri özelliği içinde kullandığınız **strongType** Azure portalı iç
 * `"resourceTypes"`
 * `"storageSkus"`
 * `"vmSKUs"`
+* `"existingResourceGroups"`
+* `"omsWorkspace"`
 
 İlke kuralı aşağıdaki söz dizimini parametrelerle başvurusu:
 

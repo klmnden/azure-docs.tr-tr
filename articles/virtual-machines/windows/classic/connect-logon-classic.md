@@ -1,10 +1,10 @@
 ---
 title: Klasik Azure VM oturumunu | Microsoft Docs
-description: "Klasik dağıtım modeli kullanılarak oluşturulmuş bir Windows sanal makine oturum açmak için Azure portalını kullanın."
+description: Klasik dağıtım modeli kullanılarak oluşturulmuş bir Windows sanal makine oturum açmak için Azure portalını kullanın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ROBOTS: NOINDEX
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.openlocfilehash: c35bfeaa81f89dc5a636d67ed9a2a930d689c54a
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: bcbebc216dbd63acfb33cf72ba774d088149a3a7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="log-on-to-a-windows-virtual-machine-using-the-azure-portal"></a>Azure Portal kullanarak bir Windows sanal makinesinde oturum açma
 Azure portalında kullandığınız **Bağlan** bir Uzak Masaüstü oturumu ve bir Windows VM oturumunu Başlat düğmesi.
@@ -60,7 +60,7 @@ Learn how to [perform these steps using new Azure portal](../connect-logon.md?to
 ## <a name="next-steps"></a>Sonraki adımlar
 * Varsa **Bağlan** düğmesi etkin değil veya Uzak Masaüstü Bağlantısı ile ilgili başka sorununuz, yapılandırmayı sıfırlamayı deneyin. tıklatın **sıfırlama uzaktan erişim** sanal makine panosundan.
 
-    ![Sıfırlama uzaktan erişim](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
+    ![Reset-remote-access](./media/connect-logon/virtualmachine_dashboard_reset_remote_access.png)
 
 * Parolanızı sorunlar için onu sıfırlamayı deneyin. Tıklatın **parola sıfırlama** sol kenarına sanal makine panoyu altında **destek + sorun giderme**.
 

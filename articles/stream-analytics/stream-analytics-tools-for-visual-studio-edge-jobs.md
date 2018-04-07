@@ -1,26 +1,21 @@
 ---
-title: Sürekli tümleştirme ve dağıtım işlemini ayarlamak için Stream Analytics Visual Studio araçları kullanın | Microsoft Docs
-description: Stream Analytics geliştirme Öğreticisi yazmak, hata ayıklama ve akış analizi kenar işleri oluşturmak Visual Studio Araçları.
-keywords: Visual studio, NuGet, DevOps, kenar işler, akış analizi
-documentationcenter: ''
+title: Visual Studio için Azure Stream Analytics araçları Kenar işler
+description: Bu makalede, yazar, hata ayıklama ve Visual Studio için Stream Analytics araçları kullanarak, Stream Analytics kenar işleri oluşturmak açıklar.
 services: stream-analytics
 author: su-jie
-manager: ''
-ms.assetid: ''
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 03/13/2018
 ms.author: sujie
-ms.openlocfilehash: c6e1d0693035ef343e20cee4b09f0669e089afee
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 03/13/2018
+ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="develop-stream-analytics-edge-jobs-by-using-visual-studio-tools"></a>Visual Studio araçları kullanarak Stream Analytics kenar işleri geliştirin
+# <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio Araçları'nı kullanarak Stream Analytics kenar işleri geliştirin
 
 Bu öğreticide, yazar, hata ayıklama ve akış analizi kenar işleriniz oluşturmak için Visual Studio için Stream Analytics araçlarını kullanmayı öğrenin. Oluşturma ve test işi sonra cihazlara dağıtmak için Azure portalına gidebilirsiniz. 
 

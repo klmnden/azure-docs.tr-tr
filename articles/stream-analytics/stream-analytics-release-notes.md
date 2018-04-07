@@ -1,28 +1,24 @@
 ---
-title: Stream Analytics sürüm notları | Microsoft Docs
-description: Stream Analytics sürüm notları
+title: Azure akış analizi - sürüm notları
+description: Bu makalede Azure akış analizi ve karşılık gelen Visual Studio Araçları sürüm geçmişini açıklanmaktadır.
 services: stream-analytics
-documentationcenter: ''
 author: jseb225
-manager: ryanw
-ms.assetid: 5e59f893-cd2c-43fb-9eca-c146ce637203
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 05/03/2017
 ms.author: jeanb
-ms.openlocfilehash: 645c9e7014beba0312de3784bbc04734927929a9
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 05/03/2017
+ms.openlocfilehash: b5f6f4f42929127521320e56bcc9b36c324cde89
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="stream-analytics-release-notes"></a>Stream Analytics sürüm notları
 
 ## <a name="notes-for-06142017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics araçları 06/14/2017 güncelleştirme Visual Studio için Notlar
-Bu güncelleştirme, Visual Studio Tools for paketidir. Bu sürüm aşağıdaki yeni özellikleri içerir:
+Bu güncelleştirme için Visual Studio Araçları ' dir. Bu sürüm aşağıdaki yeni özellikleri içerir:
 
 | Başlık | Açıklama |
 | --- | --- |
@@ -31,19 +27,19 @@ Bu güncelleştirme, Visual Studio Tools for paketidir. Bu sürüm aşağıdaki 
 | Yerel test giriş CSV ve Avro desteği | JSON yanı sıra, artık yerel test girdi için CSV ve Avro dosya biçimi kullanabilir.|
 
 ## <a name="notes-for-05032017-update-of-stream-analytics"></a>Stream Analytics 03/05/2017 güncelleştirilmesi için Notlar
-Bu güncelleştirme bizim için sorun giderme belgelerine sürümüdür.
+Bu güncelleştirme için sorun giderme belgelerine sürümüdür.
 
-[Sorun giderme kılavuzu](stream-analytics-troubleshooting-guide.md) ve diğer belgeleri serbest bırakıldı. Lütfen gözden geçirin, geri bildirim Hoş Geldiniz.
+[Sorun giderme kılavuzu](stream-analytics-troubleshooting-guide.md) ve diğer belgeleri serbest bırakıldı. Bu kılavuzu gözden geçirin ve geri bildirim Hoş Geldiniz.
 
 ## <a name="notes-for-04242017-update-of-stream-analytics-tools-for-visual-studio"></a>Stream Analytics araçları 24/04/2017 güncelleştirme Visual Studio için Notlar
-Bu güncelleştirme, Visual Studio Tools for paketidir. Bu sürüm aşağıdaki yeni özellikleri içerir:
+Bu güncelleştirme için Visual Studio Araçları ' dir. Bu sürüm aşağıdaki yeni özellikleri içerir:
 
 | Başlık | Açıklama |
 | --- | --- |
 | Visual Studio'da yerel test sonucu görüntüleyin | Yerel test çıktı sonucu görüntülemek için çıkış konsol penceresinde ENTER tuşuna basın veya kapatın. Sonuç, Visual Studio penceresinde, tablo biçiminde gösterilir. |
 | Çıkış JSON biçiminde yerel sonucu | Yerel bir test çalıştırdığınızda, hem JSON hem de CSV dosya biçimleri gibi elde edilen sonucu üretilir. |
 | BLOB/tablo depolama girdi/çıktı verilerini Önizleme | Bir blob veya tablo depolama iş görünümünde giriş/çıkış çift tıklayarak, Visual Studio içindeki verileri kolayca önizleyebilirsiniz. |
-| Giriş/Çıkış hata iletisini görüntüleme | İşin girişleri veya çıkışları ilgili bazı çalışma zamanı hataları varsa, ayrıntılı hata iletisini görmek için Vurgu burada iş diyagramında gösterilir.|
+| Giriş/Çıkış hata iletisini görüntüleme | İşin girişleri veya çıkışları ilgili herhangi bir çalışma zamanı hata varsa, ayrıntılı hata iletisini görmek için Vurgu burada iş diyagramında gösterilir.|
 
 
 ## <a name="notes-for-02012017-release-of-stream-analytics"></a>Stream Analytics 02/01/2017 sürümünün notları
@@ -76,7 +72,7 @@ Bu sürüm aşağıdaki güncelleştirmeyi içerir:
 | Başlık | Açıklama |
 | --- | --- |
 | REST API sürümü güncelleştirme |REST API sürümü 2015-10-01 güncelleştirildi. Ayrıntılar, MSDN üzerinde bulunabilir [Stream Analytics Yönetimi REST API Başvurusu](https://msdn.microsoft.com/library/azure/dn835031.aspx) ve [akış analizi, Machine Learning tümleştirme](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md). |
-| Azure Machine Learning tümleştirme |Azure Machine Learning kullanıcı tanımlı işlevler için destek bu sürüm ile birlikte gelir. Bkz: [öğretici](stream-analytics-machine-learning-integration-tutorial.md) daha fazla bilgi için yanı sıra [genel blog duyuru](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
+| Azure Machine Learning tümleştirme |Azure Machine Learning kullanıcı tanımlı işlevler için destek bu sürüm ile birlikte gelir. Daha fazla bilgi için bkz: [öğretici](stream-analytics-machine-learning-integration-tutorial.md) ve [genel blog duyuru](http://blogs.technet.com/b/machinelearning/archive/2015/12/10/apply-azure-ml-as-a-function-in-azure-stream-analytics.aspx). |
 
 ## <a name="notes-for-11122015-release-of-stream-analytics"></a>Akış analizi, 11/12/2015 sürüm notları
 Bu sürüm aşağıdaki güncelleştirmeyi içerir:
@@ -93,7 +89,7 @@ Bu sürüm aşağıdaki güncelleştirmeleri içerir:
 | Ek sorgu dil özellikleri |Akış analizi genişletilmiş sorgu dili aşağıdaki özellikler dahil ederek: [ABS](https://msdn.microsoft.com/library/azure/mt574054.aspx), [TAVAN](https://msdn.microsoft.com/library/azure/mt605286.aspx), [EXP](https://msdn.microsoft.com/library/azure/mt605289.aspx), [kat](https://msdn.microsoft.com/library/azure/mt605240.aspx), [ Güç](https://msdn.microsoft.com/library/azure/mt605287.aspx), [oturum](https://msdn.microsoft.com/library/azure/mt605290.aspx), [KARE](https://msdn.microsoft.com/library/azure/mt605288.aspx), ve [SQRT](https://msdn.microsoft.com/library/azure/mt605238.aspx). |
 | Birleşik kısıtlamaları kaldırıldı |Bu sürüm 15 toplamalar sınırlandırılmasıdır sorguda kaldırır. Şimdi sorgu başına toplamalar sayısına bir sınır yoktur. |
 | Eklenen grubu tarafından System.Timestamp özelliği |[GROUP BY](https://msdn.microsoft.com/library/azure/dn835023.aspx) işlevi artık ya da window_type için izin verir veya [System.Timestamp](https://msdn.microsoft.com/library/azure/mt598501.aspx). |
-| Dönen ve windows atlaması için eklenen UZAKLIĞI |Varsayılan olarak, [dönen](https://msdn.microsoft.com/library/azure/dn835055.aspx) ve [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows karşı süresini sıfır hizalı (1/1/0001 12:00:00 AM UTC). Özel bir uzaklık (veya hizalama) yeni (isteğe bağlı) parametre 'offsetsize' olarak belirtebilirsiniz. |
+| Dönen ve windows atlaması için eklenen UZAKLIĞI |Varsayılan olarak, [dönen](https://msdn.microsoft.com/library/azure/dn835055.aspx) ve [Hopping](https://msdn.microsoft.com/library/azure/dn835041.aspx) windows karşı süresini sıfır hizalı (1/1/0001 12:00:00 AM UTC). Yeni (isteğe bağlı) parametre `offsetsize` özel bir uzaklık (veya hizalama) belirtebilirsiniz. |
 
 ## <a name="notes-for-09292015-release-of-stream-analytics"></a>Akış analizi, 29/09/2015 sürüm notları
 Bu sürüm aşağıdaki güncelleştirmeleri içerir:
@@ -151,16 +147,16 @@ Bu sürüm aşağıdaki güncelleştirmeleri içerir:
 | --- | --- |
 | Azure depolama hesabı yapılandırmasında gecikme |Akış analizi işi ilk kez bir bölgede oluştururken, yeni bir depolama hesabı oluşturun veya bu bölgede Stream Analytics işlerini izleme için var olan bir hesap belirtin istenir. İzleme, izleme depolama hesabı açılan kısa süre önce yapılandırılmış bir gösteren yerine ikinci bir depolama hesabı belirtmek için istemi 30 dakika içinde aynı bölgede başka bir Stream Analytics işi oluşturma yapılandırmada gecikme nedeniyle. Gereksiz bir depolama hesabı oluşturmamak için bu bölgede başka işler sağlamadan önce ilk kez bir bölgede bir işi oluşturduktan sonra 30 dakika bekleyin. |
 | Proje yükseltme |Şu anda Stream Analytics Canlı düzenlemeler tanımı veya çalışan bir işi yapılandırmasını desteklemez. Giriş, çıkış, sorgu, Ölçek veya çalışan bir işi yapılandırmasını değiştirmek için önce iş durdurmanız gerekir. |
-| Giriş kaynağından çıkarımı yapılan veri türleri |CREATE TABLE deyimi kullanılmazsa, giriş biçiminden türetilmiş giriş türü, örneğin CSV tüm alanları dize. Alanları açıkça türü uyuşmazlığı hatalarını önlemek için CAST işlevi kullanarak sağ türüne dönüştürülmesi gerekir. |
+| Giriş kaynağından çıkarımı yapılan veri türleri |CREATE TABLE deyimi kullanılmazsa, giriş biçiminden türetilmiş giriş türü, örneğin CSV tüm alanları dize. Açıkça alanları türü uyuşmazlığı hatalarını önlemek için CAST işlevi kullanarak sağ türüne dönüştürün. |
 | Eksik alanların null değerler olarak yüzdelik |Giriş kaynakta mevcut değil bir alan başvuran çıktı olayını null değerleri sonuçlanır. |
 | SELECT deyimi ifadelerle gelmelidir |Sorgunuzda, alt sorgular deyimleri ile tanımlanan SELECT deyimi izlemeniz gerekir. |
 | Bellek sorunu |Düzen dışı olayları ve/veya yetersiz bellek, bir işin kaynaklanan çalıştırmak iş durumu, büyük bir miktarını neden olabilir koruma karmaşık sorgular için büyük bir tolerans ile akış analizi işi yeniden başlatın. Başlatma ve durdurma işlemleri iş işlemi günlüklerde görülebilir. Bu davranışı önlemek için birden çok bölüm arasında sorguyu dışarıya ölçeklendirin. Gelecekteki bir sürümde bu sınırlama, bunları yeniden başlatmak yerine etkilenen işlerini performansı önemli tarafından değinilmiştir. |
 | Büyük blob girişleri yükü zaman damgası olmadan bellek yetersiz soruna neden olabilir |Zaman damgası alanı zaman damgası tarafından belirtilmezse, Blob depolama biriminden büyük dosyaları kullanma akış analizi işleri çökmesine neden olabilir. Bu sorunu önlemek için her bir blob altında 10 MB boyutunda tutun. |
-| SQL veritabanı olay birim sınırlaması |SQL veritabanı bir çıktı hedefi olarak kullanırken, çıktı verilerini çok yüksek miktarda Stream Analytics işi zaman aşımına neden olabilir. Bu sorunu çözmek için toplamalar veya filtre işleçleri kullanarak çıktı miktarının azaltılmasını veya Azure Blob Depolama veya olay hub'ları bir çıktı hedefi olarak bunun yerine seçin. |
+| SQL veritabanı olay birim sınırlaması |SQL veritabanı bir çıktı hedefi olarak kullanırken, çıktı verilerini yüksek miktarda Stream Analytics işi zaman aşımına neden olabilir. Bu sorunu çözmek için toplamalar veya filtre işleçleri kullanarak çıktı miktarının azaltılmasını veya Azure Blob Depolama veya olay hub'ları bir çıktı hedefi olarak bunun yerine seçin. |
 | Power BI veri kümeleri yalnızca bir tablo içerebilir |Powerbı sağlanan bir veri kümesinde birden fazla tablo desteklemiyor. |
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) deneyin.
+Daha fazla yardım için denemenin [Azure akış analizi Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

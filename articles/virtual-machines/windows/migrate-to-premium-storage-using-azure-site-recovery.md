@@ -1,12 +1,12 @@
 ---
-title: "Azure Site Recovery ile Azure Premium Depolama'ya Windows sanal makineleri geçirme | Microsoft Docs"
-description: "Varolan sanal makinelerinizi Site RECOVERY'yi kullanarak Azure Premium depolama alanına geçirin. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar."
+title: Azure Site Recovery ile Azure Premium Depolama'ya Windows sanal makineleri geçirme | Microsoft Docs
+description: Varolan sanal makinelerinizi Site RECOVERY'yi kullanarak Azure Premium depolama alanına geçirin. Premium Storage, Azure sanal makinelerde çalışan g/Ç kullanımı yoğun iş yükleri için yüksek performanslı, düşük gecikmeli disk desteği sağlar.
 services: virtual-machines-windows
 cloud: Azure
 documentationcenter: na
 author: luywang
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 15c9a6608421b3eeebe6fbe91a10a849bf36ed85
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 171b0f938e44218d11cfb001e3f58ebd0feb35fd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Premium depolama için Azure Site Recovery kullanarak geçirme
 
@@ -80,7 +80,7 @@ Azure Iaas Vm'leri aynı bölgedeki veya bölgeler arasında geçirmek için Sit
 ### <a name="step-1-create-a-recovery-services-vault"></a>1. adım: bir kurtarma Hizmetleri kasası oluşturma
 
 1. [Azure portalı](https://portal.azure.com) açın.
-2. Seçin **kaynak oluşturma** > **Yönetim** > **yedekleme** ve **Site Kurtarma (OMS)**. Alternatif olarak, seçebileceğiniz **Gözat** > **kurtarma Hizmetleri kasası** > **Ekle**. 
+2. Seçin **kaynak oluşturma** > **Yönetim** > **yedekleme ve Site Kurtarma (OMS)**. Alternatif olarak, seçebileceğiniz **Gözat** > **kurtarma Hizmetleri kasası** > **Ekle**. 
 3. VM'ler için yinelenen bir bölge belirtin. Aynı bölgede geçiş amacıyla, kaynak VM'ler ve kaynak depolama hesaplarının bulunduğu bölgeyi seçin. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>2. adım: koruma hedeflerinizi seçme 

@@ -1,13 +1,13 @@
 ---
-title: "Azure’da Linux VM’ler için SSH anahtar çifti oluşturmaya ilişkin ayrıntılı adımlar | Microsoft Belgeleri"
-description: "Azure’da farklı kullanım örnekleri için belirli sertifikalarla birlikte Linux VM’ler için bir SSH ortak ve özel anahtar çifti oluşturmaya yönelik ek adımlar hakkında bilgi alın."
+title: Azure’da Linux VM’ler için SSH anahtar çifti oluşturmaya ilişkin ayrıntılı adımlar | Microsoft Belgeleri
+description: Azure’da farklı kullanım örnekleri için belirli sertifikalarla birlikte Linux VM’ler için bir SSH ortak ve özel anahtar çifti oluşturmaya yönelik ek adımlar hakkında bilgi alın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
-manager: timlt
-editor: 
-tags: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/28/2017
 ms.author: danlep
-ms.openlocfilehash: 1308812287fa4484e244c47497a7aef7aa994b14
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: 20d36f5e377f2d5af588319cee2be1808571f905
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="detailed-walk-through-to-create-an-ssh-key-pair-and-additional-certificates-for-a-linux-vm-in-azure"></a>Azure’da Linux VM için SSH anahtar çifti ve ek sertifikalar oluşturmaya yönelik ayrıntılı izlenecek yol
 SSH anahtar çiftiyle Azure'da Sanal Makineler oluşturabilirsiniz. Bu sayede kimlik doğrulaması için SSH anahtarlarının kullanımını varsayılan hale getirerek oturum açmak için parolalara duyulan gereksinimi ortadan kaldırırsınız. Parolalar tahmin edilebilir ve sanal makinelerinizi, parolanızı tahmin etmeye yönelik sayısız girişime maruz bırakır. Azure CLI veya Resource Manager şablonları ile oluşturulan sanal makineler, dağıtımın bir parçası olarak SSH ortak anahtarınızı içerebilir; böylece dağıtım sonrası SSH için parolayla girişleri devre dışı bırakma yapılandırma gereksinimini ortadan kaldırır. Bu makalede ayrıntılı adımlar ve ek örnekler oluşturma sertifikaların gibi Linux sanal makineleri ile kullanılmak üzere sağlar. Bir SSH anahtar çiftini hızlıca oluşturup kullanmak istiyorsanız bkz. [Azure’da Linux VM’ler için SSH ortak ve özel anahtar çifti oluşturma](mac-create-ssh-keys.md).
@@ -55,7 +55,7 @@ ssh-keygen \
 
 `ssh-keygen` = anahtarları oluşturmak için kullanılan program
 
-`-t rsa`Oluşturulacak anahtar türü = [RSA biçimi](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
+`-t rsa` Oluşturulacak anahtar türü = [RSA biçimi](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) 
  `-b 2048` = anahtar bitleri
 
 `-C "azureuser@myserver"` = kolayca tanımlamak için ortak anahtar dosyasının sonuna eklenen bir açıklama.  Normalde açıklama olarak bir e-posta kullanılır ancak altyapınız için en uygun seçenek hangisiyse onu kullanabilirsiniz.

@@ -1,19 +1,19 @@
 ---
-title: "Çok faktörlü kimlik doğrulama - Azure SQL yapılandırma | Microsoft Docs"
-description: "SQL Database ve SQL Data Warehouse için SSMS ile Multi-Factored kimlik doğrulaması kullanmayı öğrenin."
+title: Çok faktörlü kimlik doğrulama - Azure SQL yapılandırma | Microsoft Docs
+description: SQL Database ve SQL Data Warehouse için SSMS ile Multi-Factored kimlik doğrulaması kullanmayı öğrenin.
 services: sql-database
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 7b74cd6b62686fd03d9f42316701f44daf99eed8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: bf09e4b7866a2320b1a26c7164565d5c2f9c4d0a
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>SQL Server Management Studio ve Azure AD için çok faktörlü kimlik doğrulamasını yapılandırma
 

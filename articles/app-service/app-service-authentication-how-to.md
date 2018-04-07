@@ -13,18 +13,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: b7c641cebad5a3157808938040ea9309d2868896
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 10decbd5291e2054e373bfef266b64eae36ea1cf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme
 
-Bu makalede, kimlik doğrulama ve yetkilendirme App Service'te özelleştirmek ve kimlik uygulamanızdan yönetmek için nasıl gösterir. 
+Bu makalede nasıl özelleştirileceğini gösteren [kimlik doğrulama ve yetkilendirme App Service'te](app-service-authentication-overview.md)ve kimlik uygulamanızdan yönetmek için. 
 
 Hızlıca başlamak için şu eğitimlerden birine bakın:
 
+* [Öğretici: Kimlik doğrulaması ve kullanıcıların uçtan uca Azure App Service'te yetkilendirme](app-service-web-tutorial-auth-aad.md)
 * [Uygulamanızı Azure Active Directory oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Uygulamanızı Google oturum açma bilgilerini kullanacak şekilde yapılandırma](app-service-mobile-how-to-configure-google-authentication.md)
@@ -144,3 +145,7 @@ Tıklatın **Düzenle**, aşağıdaki özelliğini değiştirin ve ardından **P
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]
 ```
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [Öğretici: Kimlik doğrulaması ve kullanıcıların uçtan uca yetkilendirme](app-service-web-tutorial-auth-aad.md)

@@ -1,24 +1,19 @@
 ---
-title: 'Akış analizi: Gerçek zamanlı sahtekarlık algılama | Microsoft Docs'
+title: Azure akış analizi kullanarak gerçek zamanlı sahtekarlık algılama
 description: Akış Analizi ile gerçek zamanlı sahtekarlık algılama çözüm oluşturmayı öğrenin. Gerçek zamanlı Olay işleme için bir olay hub'ı kullanın.
-keywords: anomali algılama, sahtekarlık algılama, gerçek zamanlı anomali algılama
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: jasonh
 manager: kfile
-ms.assetid: c10dd53f-d17a-4268-a561-cb500a8c04eb
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.author: sngun
-ms.openlocfilehash: a622b7851f52f65efe4450191c2cf65e73e816bc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -405,7 +400,7 @@ Böylece, gereksiz Azure ücretlendirme yok ancak, işiniz bittiğinde ve bunu o
 
 ## <a name="get-support"></a>Destek alın
 
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

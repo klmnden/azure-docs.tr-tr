@@ -1,31 +1,25 @@
 ---
-title: Ölçeklendirme verimliliğini artırmak için akış analizi işleri | Microsoft Docs
-description: Giriş bölümlerini yapılandırma sorgu tanımı ayarlama ve iş akış birimleri ayarlama Stream Analytics işlerini ölçeklendirme öğrenin.
-keywords: veri akış, veri işleme, akış analizi ayarlama
+title: Azure Stream Analytics işlerine yukarı ve aşağı doğru ölçeklendirme
+description: Bu makalede, akış analizi işi giriş veri bölümlendirme, sorgu ayarlama ve iş akış birimleri ayarlama ölçeklendirme açıklar.
 services: stream-analytics
-documentationcenter: ''
 author: JSeb225
-manager: ryanw
-ms.assetid: 7e857ddb-71dd-4537-b7ab-4524335d7b35
-ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
-ms.date: 06/22/2017
 ms.author: jeanb
-ms.openlocfilehash: 2e0487a9e4cd6346312c6817ef2768556cba72ba
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+manager: kfile
+ms.reviewer: jasonh
+ms.service: stream-analytics
+ms.topic: conceptual
+ms.date: 06/22/2017
+ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="scale-azure-stream-analytics-jobs-to-increase--throughput"></a>Verimliliğini artırmak için Azure Stream Analytics işlerini ölçeklendirme
+# <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Bir Azure akış analizi işi verimliliğini artırmak için ölçeklendirme
 Bu makalede akış analizi işleri verimliliğini artırmak için bir akış analizi sorgu ince ayar gösterilmektedir. İşinizi daha yüksek yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarını, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanın.
 Önkoşul olarak, aşağıdaki makaleler okuma gerekebilir:
 -   [Akış Birimlerini anlama ve ayarlama](stream-analytics-streaming-unit-consumption.md)
 -   [Paralelleştirilebilir işleri oluşturma](stream-analytics-parallelization.md)
-
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>1 – sorgunuzu giriş bölümler kendiliğinden tam paralelleştirilebilir durumdur
 Sorgunuz giriş bölümler kendiliğinden tam paralelleştirilebilir ise, aşağıdaki adımları izleyin:
@@ -40,7 +34,6 @@ Sorgunuz giriş bölümler kendiliğinden tam paralelleştirilebilir ise, aşağ
 >[!Note]
 > Akış birimleri sağ sayısını seçin: her 6 SU eklenen için Stream Analytics işleme düğümü oluşturduğundan, bölümleri düğümler arasında eşit olarak dağıtılabilir giriş bölüm sayısı bölenini düğüm sayısı olmak en iyisidir.
 > Örneğin, 6 ölçülen SU işini 4 MB elde edebileceğiniz/s işleme hızı ve giriş bölümü sayınız 4. İşinizi yaklaşık 8 MB/sn işleme hızını elde etmek için 12 SU veya 16 MB/sn elde etmek için 24 SU ile çalıştırmayı seçebilirsiniz. Ardından zaman hangi değere iş işlevi, giriş oranının olarak SU sayıyı artırmaya karar verebilirsiniz.
-
 
 
 ## <a name="case-2---if-your-query-is-not-embarrassingly-parallel"></a>Durum sorgunuzu utandırıcı derecede paralel değilse 2 -.
@@ -150,7 +143,7 @@ Ve aşağıdaki grafikte bir görsel olarak SUs ve üretilen iş arasındaki ili
 ![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>Yardım alın
-Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+Daha fazla yardım için deneyin bizim [Azure Stream Analytics forumumuzu](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Stream Analytics'e giriş](stream-analytics-introduction.md)

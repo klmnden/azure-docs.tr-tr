@@ -1,21 +1,21 @@
 ---
-title: İzleme OMS günlük analizi ile Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
-description: Azure SQL veri eşitleme (Önizleme) izlemek OMS günlük analizi kullanarak öğrenin
+title: İzleme günlük analizi ile Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
+description: Azure SQL veri eşitleme (Önizleme) izlemek günlük analizi kullanarak öğrenin
 services: sql-database
-ms.date: 11/07/2017
+ms.date: 04/01/2018
 ms.topic: article
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: c106d5bbea118c9b78cbccee187b8eb5c347f232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="monitor-sql-data-sync-preview-with-oms-log-analytics"></a>OMS günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
+# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
 
 SQL veri eşitleme Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL veri eşitleme Azure portalında el ile denetleyin veya PowerShell veya REST API'yi kullanın zorunda kalındı. İzleme deneyimine veri eşitleme artıran özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
@@ -23,27 +23,27 @@ SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grubu için izleme Panosu 
 
-Artık tek tek sorunlar için aramak için her eşitleme grubu günlükleri göz gerekmez. Özel bir OMS (Operations Management Suite) görünüm kullanarak herhangi bir yerde aboneliklerinizi tüm eşitleme grubu izleyebilirsiniz. Bu görünüm SQL veri eşitleme müşterilere önemli bilgileri de ortaya çıkarır.
+Artık tek tek sorunlar için aramak için her eşitleme grubu günlükleri göz gerekmez. Özel günlük analizi görünümü kullanarak herhangi bir yerde aboneliklerinizi tüm eşitleme grubu izleyebilirsiniz. Bu görünüm SQL veri eşitleme müşterilere önemli bilgileri de ortaya çıkarır.
 
 ![Veri Eşitleme izleme Panosu](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## <a name="automated-email-notifications"></a>Otomatik e-posta bildirimleri
 
-Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlük denetlemeniz gerekir. İle [OMS günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda bunları görmek için gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
+Artık Azure portalında el ile veya PowerShell veya REST API aracılığıyla günlük denetlemeniz gerekir. İle [günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), hata oluştuğunda bunları görmek için gereken kişilerin e-posta adreslerini doğrudan Git uyarılar oluşturabilirsiniz.
 
 ![Veri Eşitleme e-posta bildirimleri](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## <a name="how-do-you-set-up-these-monitoring-features"></a>Bu izleme özellikleri nasıl ayarladığınız? 
 
-SQL veri eşitleme için kısa bir saat içinde şunları yaparak izleme çözümü özel bir OMS uygulayın:
+SQL veri eşitleme için kısa bir saat içinde şunları yaparak izleme çözümü özel bir günlük analizi uygulayın:
 
 Üç bileşeni yapılandırmanız gerekir:
 
--   İçin OMS SQL veri eşitleme günlük veri akışı için bir PowerShell runbook.
+-   Günlük analizi SQL veri eşitleme günlük veri akışı için bir PowerShell runbook.
 
--   E-posta bildirimleri için OMS günlük analizi uyarı.
+-   E-posta bildirimleri için günlük analizi uyarı.
 
--   İzleme için bir OMS görüntüleyin.
+-   Bir günlük analizi izleme görünümü.
 
 ### <a name="samples-to-download"></a>Karşıdan yüklemek için örnekleri
 
@@ -51,7 +51,7 @@ Aşağıdaki iki örnekleri indirin:
 
 -   [Veri Eşitleme günlük PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme günlük OMS görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme günlük analizi görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Önkoşullar
 
@@ -59,11 +59,11 @@ Aşağıdaki işlemleri ayarladığınızdan emin olun:
 
 -   Bir Azure Otomasyonu hesabı
 
--   OMS çalışma alanıyla bağlantılı günlük analizi
+-   Log Analytics Çalışma Alanı
 
 ## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>SQL veri eşitleme günlüğü almak için PowerShell Runbook 
 
-SQL veri eşitleme günlük veri çekmek ve OMS'de göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook kullanın. Bir örnek betik dahil edilir. Önkoşul olarak, bir Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak üzere zamanlamak gerekir. 
+SQL veri eşitleme günlük veri çekmek ve günlük Analizi'ne göndermek için Azure Otomasyonu'nda barındırılan bir PowerShell runbook kullanın. Bir örnek betik dahil edilir. Önkoşul olarak, bir Azure Otomasyonu hesabı olması gerekir. Ardından, bir runbook oluşturmak ve çalıştırmak üzere zamanlamak gerekir. 
 
 ### <a name="create-a-runbook"></a>Runbook oluşturma
 
@@ -121,9 +121,9 @@ Runbook'u zamanlamak için:
 
 Automation'ınızı altında beklendiği gibi çalışıp çalışmadığını izlemek için **genel bakış** automation hesabınız için **Proje istatistikleri** altında görüntülemek **izleme**. Bu görünüm kolay görüntüleme için panonuza sabitleyin. Runbook Göster "Tamamlandı" olarak başarılı çalıştığında ve başarısız çalışır "Başarısız" Göster
 
-## <a name="create-an-oms-log-reader-alert-for-email-notifications"></a>E-posta bildirimleri için OMS günlük okuyucu uyarı oluşturma
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>E-posta bildirimleri için bir günlük analizi okuyucu uyarısı oluştur
 
-OMS günlük analizi kullanan bir uyarı oluşturmak için şunları yapın. Bir önkoşul olarak günlük analizi bir OMS çalışma alanı ile bağlantılı olması gerekir.
+Günlük analizi kullanan bir uyarı oluşturmak için şunları yapın. Bir önkoşul olarak günlük analizi günlük analizi çalışma alanı ile bağlantılı olması gerekir.
 
 1.  OMS portalında seçin **günlük arama**.
 
@@ -179,7 +179,7 @@ OMS görünüm yapılandırmak için şunları yapın:
 
 **Azure Otomasyonu:** kullanımınıza bağlı olarak Azure Otomasyonu hesabı ile sonucunda oluşan bir maliyeti olabilir. İş yürütme süresi ayda ilk 500 dakikası ücretsizdir. Çoğu durumda, bu çözüm, 500 dakikadan daha kısa bir süre aylık kullanmak için bekleniyor. Ücretlerden kaçınmak için iki saat veya daha fazla bir aralıkla çalışması için runbook'u zamanlayın. Daha fazla bilgi için bkz: [Otomasyon fiyatlandırma](https://azure.microsoft.com/pricing/details/automation/).
 
-**OMS günlük analizi:** kullanımınıza bağlı olarak OMS ile ilişkili bir maliyeti olabilir. Ücretsiz katmanı 500 MB günde alınan veri içerir. Çoğu durumda, bu çözüm günde 500 MB'tan az alma beklenir. Kullanımını azaltmak için yalnızca hata dahil filtreleme kullanın. 500 MB günde birden fazla kullanıyorsanız, sınırlaması ulaşıldığında durdurma analytics riskini önlemek için ücretli katmanına yükseltin. Daha fazla bilgi için bkz: [günlük analizi fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Günlük analizi:** kullanımınıza bağlı olarak günlük analizi ile ilişkili bir maliyeti olabilir. Ücretsiz katmanı 500 MB günde alınan veri içerir. Çoğu durumda, bu çözüm günde 500 MB'tan az alma beklenir. Kullanımını azaltmak için yalnızca hata dahil filtreleme kullanın. 500 MB günde birden fazla kullanıyorsanız, sınırlaması ulaşıldığında durdurma analytics riskini önlemek için ücretli katmanına yükseltin. Daha fazla bilgi için bkz: [günlük analizi fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Kod örnekleri
 
@@ -187,7 +187,7 @@ Bu makalede aşağıdaki konumlardan açıklanan kod örnekleri indirin:
 
 -   [Veri Eşitleme günlük PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Veri Eşitleme günlük OMS görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Veri Eşitleme günlük analizi görünümü](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Data Sync hakkında daha fazla bilgi için bkz.:

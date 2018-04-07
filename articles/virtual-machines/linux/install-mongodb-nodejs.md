@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI 1.0 kullanarak bir Linux VM üzerinde MongoDB yükleme | Microsoft Docs"
-description: "Yükleme ve Resource Manager dağıtım modelini kullanarak azure'da bir Linux sanal makinede MongoDB yapılandırma öğrenin."
+title: Azure CLI 1.0 kullanarak bir Linux VM üzerinde MongoDB yükleme | Microsoft Docs
+description: Yükleme ve Resource Manager dağıtım modelini kullanarak azure'da bir Linux sanal makinede MongoDB yapılandırma öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 3f55b546-86df-4442-9ef4-8a25fae7b96e
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: ff9e23de41245ea21ba6e9c3efe13ca13b0b0ae1
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a334a0b7b3b638229c61eef086b1919b4c303338
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Yükleme ve Azure CLI 1.0 kullanarak bir Linux VM üzerinde MongoDB yapılandırın
 [MongoDB](http://www.mongodb.org) bir popüler açık kaynak, yüksek performanslı NoSQL veritabanıdır. Bu makalede Resource Manager dağıtım modelini kullanarak yükleyin ve azure'da bir Linux VM üzerinde MongoDB yapılandırma gösterilmektedir. Örnekleri gösterilir, ayrıntı nasıl için:
@@ -113,7 +113,7 @@ sudo chkconfig mongod on
 ## <a name="create-basic-mongodb-instance-on-centos-using-a-template"></a>Bir şablon kullanarak CentOS üzerinde temel MongoDB örneği oluşturma
 Github'dan aşağıdaki Azure Hızlı Başlangıç şablonu kullanarak tek bir CentOS VM üzerinde temel bir MongoDB örneği oluşturabilirsiniz. Bu şablon eklemek için Linux özel betik uzantısı kullanan bir `yum` MongoDB yükleyin ve yeni oluşturulan CentOS VM deposuna.
 
-* [CentOS temel MongoDB örneğinde](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
+* [CentOS temel MongoDB örneğinde](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
 Aşağıdaki örnek, bir kaynak grubu adıyla oluşturur `myResourceGroup` içinde `eastus` bölge. Aşağıdaki gibi kendi değerlerinizi girin:
 
@@ -160,7 +160,7 @@ test
 ## <a name="create-a-complex-mongodb-sharded-cluster-on-centos-using-a-template"></a>Bir şablon kullanarak CentOS üzerinde karmaşık MongoDB parçalı küme oluşturma
 Github'dan aşağıdaki Azure Hızlı Başlangıç şablonu kullanarak karmaşık MongoDB parçalı kümesi oluşturabilirsiniz. Bu şablon izleyen [MongoDB parçalı küme en iyi yöntemler](https://docs.mongodb.com/manual/core/sharded-cluster-components/) artıklık ve yüksek kullanılabilirlik sağlamak için. Şablon iki parça, her çoğaltma kümesinde üç düğümü oluşturur. Bir yapılandırma sunucusu çoğaltma ile üç düğüm kümesi de oluşturulur, iki **mongos** parça uygulamalardan tutarlılık sağlamak için yönlendirici sunucuları.
 
-* [MongoDB parçalama CentOS kümede](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) -https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
+* [MongoDB parçalama CentOS kümede](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-sharding-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-sharding-centos/azuredeploy.json
 
 > [!WARNING]
 > Bu karmaşık MongoDB parçalı kümesi dağıtma, 20'den fazla Vcpu, genellikle bir abonelik için bölge başına varsayılan vCPU sayısı olduğu gerektirir. VCPU sayınız artırmak için bir Azure destek isteği açın.

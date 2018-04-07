@@ -1,6 +1,6 @@
 ---
 title: Günlük analizi bir SQL veritabanı çok müşterili uygulama ile kullanma | Microsoft Docs
-description: Ayarlama ve günlük analizi (Operations Management Suite) çok müşterili bir Azure SQL veritabanı SaaS uygulaması ile kullanma
+description: Ayarlama ve günlük analizi çok müşterili bir Azure SQL veritabanı SaaS uygulaması ile kullanma
 keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
@@ -8,23 +8,23 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38a849ca5f4a767a4b9d9b9b86549e89a8217a2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 285b8d0acc8a6cbe1a6441a4aabf372de204309e
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="set-up-and-use-log-analytics-operations-management-suite-with-a-multitenant-sql-database-saas-app"></a>Ayarlama ve günlük analizi (Operations Management Suite) çok müşterili bir SQL veritabanı SaaS uygulaması ile kullanma
+# <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>Ayarlama ve günlük analizi çok müşterili bir SQL veritabanı SaaS uygulaması ile kullanma
 
-Bu öğreticide ayarlama ve Azure günlük analizi kullanma ([Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite)) esnek havuzlar ve veritabanları izlemek için. Bu öğretici derlemeler [performans izleme ve yönetim Öğreticisi](saas-dbpertenant-performance-monitoring.md). Azure Portalı'nda sağlanan uyarı ve günlük analizi izleme büyütmek için nasıl kullanılacağını gösterir. Günlük analizi esnek havuzlarını izleme binlerce ve yüz binlerce veritabanlarını destekler. Günlük analizi farklı uygulamalar ve Azure Hizmetleri birden çok Azure aboneliği izleme tümleştirebilirsiniz tek bir izleme çözümü sağlar.
+Bu öğreticide ayarlama ve Azure kullanma [günlük analizi](/azure/log-analytics/log-analytics-overview) esnek havuzlar ve veritabanları izlemek için. Bu öğretici derlemeler [performans izleme ve yönetim Öğreticisi](saas-dbpertenant-performance-monitoring.md). Azure Portalı'nda sağlanan uyarı ve günlük analizi izleme büyütmek için nasıl kullanılacağını gösterir. Günlük analizi esnek havuzlarını izleme binlerce ve yüz binlerce veritabanlarını destekler. Günlük analizi farklı uygulamalar ve Azure Hizmetleri birden çok Azure aboneliği izleme tümleştirebilirsiniz tek bir izleme çözümü sağlar.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Yükleyin ve günlük analizi (Operations Management Suite) yapılandırın.
+> * Yükleyin ve günlük analizi yapılandırın.
 > * Günlük analizi havuzları ve veritabanları izlemek için kullanın.
 
 Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığından emin olun:
@@ -34,11 +34,11 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 Bkz: [performans izleme ve yönetim öğretici](saas-dbpertenant-performance-monitoring.md) SaaS senaryolar ve desenleri ve bir izleme çözümü gereksinimleri nasıl etkilediklerini Tartışması için.
 
-## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics-or-operations-management-suite"></a>İzleme ve günlük analizi ya da Operations Management Suite ile veritabanı ve esnek havuzu performansı yönetme
+## <a name="monitor-and-manage-database-and-elastic-pool-performance-with-log-analytics"></a>İzleme ve günlük analizi ile veritabanı ve esnek havuzu performansı yönetme
 
 İzleme ve uyarma Azure SQL veritabanı için veritabanlarını ve Azure portalında havuzlarında kullanılabilir. Bu yerleşik izleme ve uyarı uygun olmakla birlikte, ayrıca kaynak özgü. İyi büyük yüklemeleri izlemek ya da kaynakları ve abonelikler arasında birleştirilmiş bir görünümünü sağlamak için uygundur anlamına gelir.
 
-Yüksek hacimli senaryolar için izleme ve uyarı için günlük analizi kullanabilirsiniz. Günlük analizi tanılama günlüklerini ve bir çalışma alanında potansiyel olarak birçok Hizmetleri'nden toplanan telemetri üzerinden analizi sağlar ayrı bir Azure hizmetidir. Günlük analizi yerleşik bir sorgu işletimsel veri analizi izin dil ve veri görselleştirme araçlar sağlar. Birçok önceden tanımlanmış esnek havuz veritabanı izleme ve uyarma görünümleri ve sorguları SQL analiz çözümü sağlar. Operations Management Suite Özel Görünüm Tasarımcısı da sağlar.
+Yüksek hacimli senaryolar için izleme ve uyarı için günlük analizi kullanabilirsiniz. Günlük analizi tanılama günlüklerini ve bir çalışma alanında potansiyel olarak birçok Hizmetleri'nden toplanan telemetri üzerinden analizi sağlar ayrı bir Azure hizmetidir. Günlük analizi yerleşik bir sorgu işletimsel veri analizi izin dil ve veri görselleştirme araçlar sağlar. Birçok önceden tanımlanmış esnek havuz veritabanı izleme ve uyarma görünümleri ve sorguları SQL analiz çözümü sağlar. Günlük analizi Özel Görünüm Tasarımcısı da sağlar.
 
 Günlük analizi çalışma alanları ve analiz çözümleri, Azure portalında ve Operations Management Suite açın. Azure portalı, yeni erişim noktası olmakla birlikte bazı alanlar Operations Management Suite portalında arkasında olabilir.
 
@@ -129,9 +129,9 @@ Bu alıştırmada, veritabanları ve havuzları için toplanan telemetri bakmak 
 
 Operations Management Suite Portalı'nda günlük ve ölçüm verilerini daha fazla çalışma alanında gözden geçirebilirsiniz. 
 
-İzleme ve günlük analizi ve Operations Management Suite uyarı sorgulamaları Azure Portalı'ndaki her bir kaynağın tanımlanan uyarı aksine çalışma alanında, veriler üzerinde temel alır. Sorgulamaları uyarıları alma tarafından tanımlama tek başına veritabanı yerine, tüm veritabanları üzerinden arar tek bir uyarı tanımlayabilirsiniz. Sorgular yalnızca çalışma alanında veri tarafından sınırlıdır.
+İzleme ve günlük analizi uyarı sorgulamaları Azure Portalı'ndaki her bir kaynağın tanımlanan uyarı aksine çalışma alanında, veriler üzerinde temel alır. Sorgulamaları uyarıları alma tarafından tanımlama tek başına veritabanı yerine, tüm veritabanları üzerinden arar tek bir uyarı tanımlayabilirsiniz. Sorgular yalnızca çalışma alanında veri tarafından sınırlıdır.
 
-Operations Management Suite sorgulamak ve uyarıları ayarlamak için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi ile çalışırsınız](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
+Günlük analizi sorgulamak ve uyarıları ayarlamak için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [uyarı kurallarında günlük analizi ile çalışırsınız](https://docs.microsoft.com/azure/log-analytics/log-analytics-alerts-creating).
 
 Günlük analizi çalışma alanındaki veri hacmi göre SQL veritabanı giderler. Bu öğreticide, 500 MB günde sınırlı olduğu bir ücretsiz çalışma alanı oluşturuldu. Bu sınıra ulaşıldıktan sonra verileri artık çalışma alanı'na eklenir.
 
@@ -141,7 +141,7 @@ Günlük analizi çalışma alanındaki veri hacmi göre SQL veritabanı giderle
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Yükleyin ve günlük analizi (Operations Management Suite) yapılandırın.
+> * Yükleyin ve günlük analizi yapılandırın.
 > * Günlük analizi havuzları ve veritabanları izlemek için kullanın.
 
 Deneyin [Kiracı analytics Öğreticisi](saas-dbpertenant-log-analytics.md).
@@ -150,4 +150,3 @@ Deneyin [Kiracı analytics Öğreticisi](saas-dbpertenant-log-analytics.md).
 
 * [İlk Wingtip biletleri SaaS Kiracı başına veritabanı uygulama dağıtımı yapı ek öğreticileri](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
-* [Operations Management Suite](https://blogs.technet.microsoft.com/msoms/2017/02/21/azure-sql-analytics-solution-public-preview/)

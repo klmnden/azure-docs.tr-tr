@@ -1,11 +1,11 @@
 ---
-title: "Windows sanal makineleri Azure üzerinde ilkeleri ile güvenlik zorlama | Microsoft Docs"
-description: "Bir Azure Kaynak Yöneticisi'ni Windows sanal makine için bir ilke uygulama"
+title: Windows sanal makineleri Azure üzerinde ilkeleri ile güvenlik zorlama | Microsoft Docs
+description: Bir Azure Kaynak Yöneticisi'ni Windows sanal makine için bir ilke uygulama
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: singhkays
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0b71ba54-01db-43ad-9bca-8ab358ae141b
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: kasing
-ms.openlocfilehash: 4bb9a5087ead309ab24128594c53ae313cd4b63c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 7ec348bbd75bfce268d1e3d7a46b79397ee39f98
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Windows sanal makineleri için geçerlidir
 İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur. Bu makalede, kuruluşunuzun sanal makineler için istenen davranışı tanımlamak için Azure Resource Manager ilkelerini nasıl kullanabileceğinizi açıklar.
@@ -225,7 +225,7 @@ Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz. Örn
 ```
 
 
-## <a name="azure-hybrid-use-benefit"></a>Azure karma kullanımı avantajı
+## <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi
 
 Bir şirket içi lisansı olduğunda, sanal makinelere lisans ücret kaydedebilirsiniz. Lisansına sahip olmadığınız durumlarda seçeneği yasaklamaz. Aşağıdaki ilke kullanım Azure karma kullanımı Avantajı (AHUB) engelliyor:
 

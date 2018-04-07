@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 84a3834416c7d93ecb4f51fea9c7baed8af85db0
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5b2335ee2584af07ed23ce87be92a869f3a07ba1
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure ağı Performans İzleyicisi için fiyatlandırma değişiklikleri
 
-Size kulak ve yakın zamanda sunulan bir [yeni deneyimi fiyatlandırma](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), Azure üzerinde çeşitli için izleme hizmetleri.
+Geri bildiriminiz için dinleme ve yakın zamanda sunulan bir [yeni deneyimi fiyatlandırma](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), Azure üzerinde çeşitli için izleme hizmetleri.
 
 Bu belge için Azure ilgili fiyatlandırma değişiklikleri yakalar [Ağ Performansı İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) herhangi bir soru ve yanıt biçimi okunması kolaydır.
 
@@ -32,11 +32,11 @@ Ağ Performansı İzleyicisi üç bileşenden oluşur:
 * [Hizmet uç noktası İzleyicisi](https://docs.microsoft.com/azure/networking/network-monitoring-overview#service-endpoint-monitor) ve
 * [ExpressRoute Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview#expressroute-monitor)
 
-Aşağıdaki bölümde, Performans İzleyicisi, ExpressRoute İzleyici ve hizmet uç noktası İzleyicisi için fiyatlandırma değişiklikleri açıklar.
+Aşağıdaki bölümde yukarıdaki bileşenleri için fiyatlandırma değişiklikleri açıklanmaktadır.
 
 ## <a name="performance-monitor-pm"></a>Performans İzleyicisi'ni (PM)
 
-**Performans İzleyicisi'ni eski düzeninde faturalandırılır kullanımını nasıl oldu mu?**
+**Performans İzleyicisi'ni eski modelinde faturalandırılır kullanımını nasıl oldu mu?**
 
 NPM için fatura kullanım/tüketimi iki bileşenden dayanır:
 * Düğüm: Tüm yapay işlemler kaynaklanan ve düğümler sonlandırılacak. Düğümler aynı zamanda aracıları veya MMA (Microsoft Yönetim Aracısı) adlandırılır.
@@ -121,3 +121,8 @@ Bir bağlantı ulaşılabilirlik sınamasını bir uç nokta (URL veya ağ hizme
 
 - Başvurmak [bağlantı izleme](https://azure.microsoft.com/pricing/details/network-watcher/) tüm ay için bir uç nokta izleme maliyeti için bölüm.
 - Veri için ücret kullanılabilir [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/log-analytics/) günlük analizi için.  (Bölüm: veri alımı).
+
+## <a name="references"></a>Başvurular
+
+- [Günlük analizi fiyatlandırma SSS](https://azure.microsoft.com/pricing/details/log-analytics/) -SSS bölümüne sahip düğüm fiyatlandırma, vb. başına ücretsiz katmanı hakkında bilgi.
+

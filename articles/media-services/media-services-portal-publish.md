@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.openlocfilehash: 5c79f4e0209658e5c95e158c3ef78f91dba8966f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6fec9b21e8612376dced6af9da7304f4c2b1a93f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Azure portalında içerik yayımlama
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/05/2018
 
 Kullanıcınıza içeriğinizin akışını sağlamak veya indirmek için kullanılabilecek bir URL sağlamak üzere, önce bulucu oluşturarak varlığınızı “yayımlamanız” gerekir. Bulucular varlık dosyaları erişim sağlar. Azure Media Services iki tür bulucuyu destekler: 
 
-* **Akış (OnDemandOrigin) bulucuları**. Akış bulucuları, uyarlamalı akış için kullanılır. Uyarlamalı akış örnekleri (DASH, MPEG-DASH olarak da bilinir) HTTP üzerinden Apple HTTP canlı akışı (HLS), Microsoft kesintisiz akış ve dinamik Uyarlamalı akış içerir. Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. 
+* **Akış (OnDemandOrigin) bulucuları**. Akış bulucuları, uyarlamalı akış için kullanılır. Uyarlamalı akış örnekleri (DASH, MPEG-DASH olarak da bilinir) HTTP üzerinden Apple HTTP canlı akışı (HLS), Microsoft kesintisiz akış ve dinamik Uyarlamalı akış içerir. Akış bulucusu oluşturmak için varlığınız bir .ism dosyası içermelidir. Örneğin, http://amstest.streaming.mediaservices.windows.net/61b3da1d-96c7-489e-bd21-c5f8a7494b03/scott.ism/manifest.
 * **Aşamalı (paylaşılan erişim imzası) bulucuları**. Aşamalı bulucular, videoları aşamalı indirme aracılığıyla sunmak için kullanılır.
 
 HLS akış URL’si oluşturmak için, URL’ye *(format=m3u8-aapl)* ekleyin.

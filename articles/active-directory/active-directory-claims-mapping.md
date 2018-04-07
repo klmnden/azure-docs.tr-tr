@@ -1,6 +1,6 @@
 ---
-title: "Talep eşleme Azure Active Directory'de (genel Önizleme) | Microsoft Docs"
-description: "Bu sayfa, Azure Active Directory talep eşleme açıklar."
+title: Talep eşleme Azure Active Directory'de (genel Önizleme) | Microsoft Docs
+description: Bu sayfa, Azure Active Directory talep eşleme açıklar.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: b0dae074734b13046fb0d90e178e05f81399b5c6
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) eşleme talepleri
 
@@ -234,7 +234,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |http://schemas.microsoft.com/identity/claims/scope|
 
 ## <a name="claims-mapping-policy-properties"></a>Talep eşleme ilkesi özellikleri
-Gelen verileri nerede kaynaklıdır ve hangi taleplerin yayılan Denetim İlkesi eşleme talep özelliklerini kullanın. Hiçbir ilke ayarlanırsa, sistem çekirdek talep kümesi, temel talep kümesi ve uygulama almak için seçtiği isteğe bağlı talepleri içeren belirteçleri.
+Gelen verileri nerede kaynaklıdır ve hangi taleplerin yayılan Denetim İlkesi eşleme talep özelliklerini kullanın. İlke yok ayarlarsanız, çekirdek içeren sistem sorunları belirteçleri kümesi, temel talep kümesi ve herhangi bir talep [isteğe bağlı talep](develop/active-directory-optional-claims.md) uygulama almak seçtiği.
 
 ### <a name="include-basic-claim-set"></a>Temel talep kümesi içerir
 

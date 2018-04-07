@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure sanal Datacenter: Bir ağ perspektif | Microsoft Docs"
-description: "Sanal veri merkezinizde Azure oluşturmayı öğrenin"
+title: 'Microsoft Azure sanal Datacenter: Bir ağ perspektif | Microsoft Docs'
+description: Sanal veri merkezinizde Azure oluşturmayı öğrenin
 services: networking
 author: tracsman
 manager: rossort
@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
-ms.openlocfilehash: c4693d91fe81ce55c6faa6610ea19219ac5cfcb5
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure sanal Datacenter: Ağ perspektifi
 **Microsoft Azure**: hızlı hareket, tasarruf, şirket içi uygulamaları ve verileri tümleştirme
@@ -259,9 +259,9 @@ Bir vDC, Nsg'ler günlükleri, özellikle bu bilgileri izlemek son derece öneml
 
 Tüm günlükler, Denetim, statik çözümleme veya yedekleme amacıyla Azure depolama hesaplarında depolanabilir. Günlükler, bir Azure depolama hesabında depolanır, müşteriler çerçeveler farklı türlerini kullanan almak için hazırla, çözümlemek ve durumunu ve bulut kaynaklarına durumunu bildirmek için bu verileri görselleştirin.
 
-Büyük ölçekli işletmeler, şirket içi sistemleri izleme için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu framework genişletebilirsiniz. Tüm günlük bulutta saklamak istediğiniz kuruluşlar için [Microsoft Operations Management Suite (OMS)] [ OMS] harika bir seçenektir. OMS, bulut tabanlı bir hizmet olarak uygulandığından altyapı hizmetlerine en az yatırımla onu kısa süre içinde çalışır duruma getirebilirsiniz. OMS Ayrıca varolan yönetim yatırımlarınızı buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile tümleştirebilirsiniz.
+Büyük ölçekli işletmeler, şirket içi sistemleri izleme için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu framework genişletebilirsiniz. Tüm günlük bulutta saklamak istediğiniz kuruluşlar için [günlük analizi] [ LogAnalytics] harika bir seçenektir. Günlük analizi bulut tabanlı bir hizmet olarak uygulandığından, hazır ve çalışır hızlı bir şekilde minimal yatırım altyapı hizmetleri ile sağlayabilirsiniz. Günlük analizi, ayrıca, varolan yönetim yatırımlarınızı buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile tümleştirebilirsiniz.
 
-OMS günlük analizi toplamak, bağıntılı, arama ve işletim sistemleri, uygulamaları, altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verilerini hareket yardımcı olması için OMS framework'ün bir bileşenidir. Müşterilerin vDC içinde iş yükleri arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panolar kullanarak gerçek zamanlı operasyonel Öngörüler verir.
+Günlük analizi yardımcı toplamak, bağıntılı, arama ve işletim sistemleri, uygulamalar ve altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verilerini hareket azure'da bir hizmettir. Müşterilerin vDC içinde iş yükleri arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panolar kullanarak gerçek zamanlı operasyonel Öngörüler verir.
 
 #### <a name="component-type-workloads"></a>Bileşen türü: iş yükleri
 İş yükü, gerçek uygulama ve hizmetlerinize bulunduğu bileşenleridir. Burada, uygulama geliştirme çoğu zaman, ekipler de olabilir.
@@ -332,7 +332,7 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 |Ağ Özellikleri|Yük Dengeleme|Bağlantı|
 |[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure Traffic Manager][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
 |Kimlik</br>|İzleme</br>|En İyi Uygulamalar</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br> |[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
+|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
 |Diğer Azure Hizmetleri|
 |[Azure Web Apps][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
@@ -379,7 +379,7 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

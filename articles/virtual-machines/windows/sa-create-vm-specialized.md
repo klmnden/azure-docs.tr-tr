@@ -1,11 +1,11 @@
 ---
-title: "Azure özel bir diskten VM oluşturma | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde bir özelleştirilmiş yönetilmeyen disk ekleyerek yeni bir VM oluşturun."
+title: Azure özel bir diskten VM oluşturma | Microsoft Docs
+description: Resource Manager dağıtım modelinde bir özelleştirilmiş yönetilmeyen disk ekleyerek yeni bir VM oluşturun.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
 ms.service: virtual-machines-windows
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 811cc6cea80acbe6cbbf4533c1f9a8c9c7f53702
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ffa36967eb987f5e1b66f007ae60a63e640a609a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Bir depolama hesabında özelleştirilmiş bir VHD'den bir VM oluşturma
 
@@ -138,7 +138,7 @@ Kaynak ve hedef depolama hesapları URL'lerini gerekir. URL'leri görünüm iste
 
 URL almak için Azure portalında veya Azure Powershell kullanarak yapabilirsiniz:
 
-* **Portal**: tıklatın  **>**  için **tüm hizmetleri** > **depolama hesapları** > *depolama Hesap* > **BLOB'lar** ve kaynak VHD dosyası büyük olasılıkla kullanımda **VHD'ler** kapsayıcı. Tıklatın **özellikleri** kapsayıcı ve kopyalama etiketli metin **URL**. Hem kaynak hem de hedef kapsayıcılarını URL'lerini gerekir. 
+* **Portal**: tıklatın **>** için **tüm hizmetleri** > **depolama hesapları** > *depolama Hesap* > **BLOB'lar** ve kaynak VHD dosyası büyük olasılıkla kullanımda **VHD'ler** kapsayıcı. Tıklatın **özellikleri** kapsayıcı ve kopyalama etiketli metin **URL**. Hem kaynak hem de hedef kapsayıcılarını URL'lerini gerekir. 
 * **PowerShell**: kullanım [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) adlı VM için bilgi almak için **myVM** kaynak grubunda **myResourceGroup**. Sonuçlarda konum **depolama profili** bölümü **Vhd Uri'si**. Kapsayıcı URL'si URI ilk parçası olan ve son bölümü VM için işletim sistemi VHD adıdır.
 
 ```powershell

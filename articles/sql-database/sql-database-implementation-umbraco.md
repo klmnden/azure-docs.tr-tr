@@ -1,19 +1,19 @@
 ---
-title: "Azure SQL veritabanı Azure örnek olay incelemesi - Umbraco | Microsoft Docs"
-description: "SQL veritabanı Umbraco hızlıca sağlamak için nasıl kullandığını ve bulutta kiracılar binlerce ölçek hizmetleri hakkında bilgi edinin"
+title: Azure SQL veritabanı Azure örnek olay incelemesi - Umbraco | Microsoft Docs
+description: SQL veritabanı Umbraco hızlıca sağlamak için nasıl kullandığını ve bulutta kiracılar binlerce ölçek hizmetleri hakkında bilgi edinin
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: af59c22279eeee4b3e5d699da4c98094df815c1f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1079adb6ef8a206506823fdee6721aabbf857b4d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco, kiracılar bulutta binlerce için hızlı sağlama ve ölçek Hizmetleri için Azure SQL veritabanı kullanır.
 ![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)

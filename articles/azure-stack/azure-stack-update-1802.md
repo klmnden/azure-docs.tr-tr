@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b3a3c07446ad04a58d5180793404fc04677749b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6f654e7897a9a00b0e53849002d5d4b16eab2bd6
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -56,7 +56,9 @@ Azure yığın 1802 güncelleştirme yapı numarası **20180302.1**.
 
 
 ### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-*Güncelleştirme sonrası adımı 1802 güncelleştirmesi yoktur.*
+1802 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).  
+- [Bir Azure yığın güncelleştirme yüklemeye çalıştığınızda KB 4103348 - Ağ denetleyicisi API'si Hizmeti kilitleniyor](https://support.microsoft.com/help/4103348)
+
 
 
 ### <a name="new-features-and-fixes"></a>Yeni özellikler ve düzeltmeler
@@ -141,6 +143,10 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 #### <a name="compute"></a>İşlem
 - Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
+
+- <!-- 2290877  --> You cannot scale up a virtual machine scale set (VMSS) that was created when using Azure Stack prior to version 1802. This is due to the change in support for using availability sets with virtual machine scale sets. This support was added with version 1802.  When you attempt to add additional instances to scale a VMSS that was created prior to this support being added, the action fails with the message *Provisioning state failed*. 
+
+  Bu sorunu sürüm 1803 çözümlenir. Sürüm 1802 için bu sorunu çözmek için Azure yığın düzeltmeyi yükleyin **1.0.180302.4**. Daha fazla bilgi için bkz: [KB 4131152: var olan sanal makine ölçek kümeleri kullanılamaz hale]( https://support.microsoft.com/help/4131152). 
 
 - Azure yığını yalnızca sabit türü VHD'lerin destekler. Dinamik VHD Azure yığında Market üzerinden sunulan bazı görüntüleri kullanır ancak bu kaldırıldı. Ekli dinamik bir diski bir sanal makine (VM) yeniden boyutlandırma VM başarısız durumda bırakır.
 

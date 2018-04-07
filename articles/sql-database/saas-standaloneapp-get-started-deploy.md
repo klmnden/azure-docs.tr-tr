@@ -1,20 +1,20 @@
 ---
-title: "Çok kiracılı SaaS öğretici - Azure SQL veritabanı | Microsoft Docs"
-description: "Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı SaaS uygulaması keşfedin."
-keywords: "sql veritabanı öğreticisi"
+title: Çok kiracılı SaaS öğretici - Azure SQL veritabanı | Microsoft Docs
+description: Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı SaaS uygulaması keşfedin.
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: e30f096a9f02214839550c2dc143ab665e1cd85c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı uygulama keşfedin
 
@@ -73,16 +73,16 @@ Uygulama olayları konak görebildikleri gösterir.  Görebildikleri uygulama ki
 
 1. Her üç ayrı tarayıcı sekmeleri kiracılar Etkinlikler sayfasını açın:
 
-    - http://Events.contosoconcerthall. &lt;kullanıcı&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
     - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://Events.fabrikamjazzclub. &lt;kullanıcı&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (Her URL ile değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
    ![Olaylar](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Her bir kiracı özel uygulama örneği URL'de Kiracı adı etki alanı adının bir parçası olarak içerir. Tüm Kiracı URL'leri özel **kullanıcı** değeri. URL aşağıdaki biçimde izleyin:
-- http://Events. &lt;venuename&gt;.&lt; Kullanıcı&gt;. trafficmanager.net
+- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
 
 Her bir kiracının veritabanı **konumu** karşılık gelen dağıtılan uygulama uygulaması ayarları içinde bulunur.
 

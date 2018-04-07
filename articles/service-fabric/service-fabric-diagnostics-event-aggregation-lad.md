@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric olay toplama Linux Azure tanılama | Microsoft Docs"
-description: "Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için LAD kullanarak olay toplama hakkında bilgi edinin."
+title: Azure Service Fabric olay toplama Linux Azure tanılama | Microsoft Docs
+description: Toplama ve izleme ve tanılama Azure Service Fabric kümeleri için LAD kullanarak olay toplama hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b70780b2e1d169aced3412f6fe6d13ad4dab82be
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 9ad63a67d3b51cad1376eb9e97e68fb9102013e3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="event-aggregation-and-collection-using-linux-azure-diagnostics"></a>Olay toplama ve Linux Azure Tanılama'yı kullanarak koleksiyonu
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 12/21/2017
 
 Azure Service Fabric kümesi çalıştırırken, merkezi bir konumda tüm düğümlerdeki günlükleri toplamak için iyi bir fikirdir. Merkezi bir konumda günlükler sahip çözümlemek ve sorunları kümenizdeki veya bu kümede çalışan hizmetler ve uygulamalar sorunları gidermenize yardımcı olur.
 
-Karşıya yükleme ve günlükleri toplamak için bir yol günlükleri Azure Storage'a yükler ve ayrıca Azure Application Insights veya olay hub'ları için günlükleri gönderme seçeneği içeren Linux Azure tanılama (LAD) uzantısı kullanmaktır. Olayları depolama alanından okuyun ve bunları bir analiz platformu üründe gibi yerleştirmek için bir dış işlem kullanabilirsiniz [OMS günlük analizi](../log-analytics/log-analytics-service-fabric.md) veya başka bir çözüm günlük ayrıştırma.
+Karşıya yükleme ve günlükleri toplamak için bir yol günlükleri Azure Storage'a yükler ve ayrıca Azure Application Insights veya olay hub'ları için günlükleri gönderme seçeneği içeren Linux Azure tanılama (LAD) uzantısı kullanmaktır. Olayları depolama alanından okuyun ve bunları bir analiz platformu üründe gibi yerleştirmek için bir dış işlem kullanabilirsiniz [günlük analizi](../log-analytics/log-analytics-service-fabric.md) veya başka bir çözüm günlük ayrıştırma.
 
 ## <a name="log-and-event-sources"></a>Günlük ve olay kaynakları
 
@@ -52,4 +52,4 @@ Belirtilen günlük dosyalarını izlemek için LAD Aracısı yapılandırır. Y
 ## <a name="next-steps"></a>Sonraki adımlar
 
 1. Hangi olayların sorunlarını giderme sırasında incelemeniz daha ayrıntılı olarak anlamak için bkz: [LTTng belgelerine](http://lttng.org/docs) ve [kullanarak LAD](../virtual-machines/linux/classic/diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
-2. [OMS Aracısı kurun](service-fabric-diagnostics-event-analysis-oms.md) ölçümleri toplamak yardımcı olmak için kümenizde dağıtılan kapsayıcıları izlemek ve günlüklerinizi Görselleştirme 
+2. [Günlük analizi aracısını ayarlama](service-fabric-diagnostics-event-analysis-oms.md) ölçümleri toplamak yardımcı olmak için kümenizde dağıtılan kapsayıcıları izlemek ve günlüklerinizi Görselleştirme 

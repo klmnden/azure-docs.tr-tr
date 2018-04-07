@@ -1,12 +1,12 @@
 ---
-title: "Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs"
-description: "Azure CLI ya da Resource Manager şablonları ile bağlı birden çok NIC içeren bir Linux VM oluşturmayı öğrenin."
+title: Birden çok NIC ile azure'da bir Linux VM oluşturma | Microsoft Docs
+description: Azure CLI ya da Resource Manager şablonları ile bağlı birden çok NIC içeren bir Linux VM oluşturmayı öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.openlocfilehash: 93a32ae7ec0cf73825791e8c8bc3d388cf999ece
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 20e3a65c28e95849822d81076b6780e05a2aebbf
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-multiple-nics-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak birden çok NIC ile Linux sanal makine oluşturma
 Bir sanal makine (VM) bağlı birden çok sanal ağ arabirimlerine (NIC'ler) sahip Azure oluşturabilirsiniz. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede bağlı birden çok NIC içeren bir VM oluşturmak için hızlı komutları sağlar. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
@@ -43,7 +43,7 @@ azure config mode arm
 
 Aşağıdaki örneklerde, örnek parametre adları kendi değerlerinizle değiştirin. Örnek parametre adları dahil *myResourceGroup*, *mystorageaccount*, ve *myVM*.
 
-İlk olarak, bir kaynak grubu oluşturun. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroup* içinde *eastus* konumu:
+İlk olarak, bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 azure group create myResourceGroup --location eastus
@@ -143,6 +143,8 @@ azure vm create \
     --ssh-publickey-file ~/.ssh/id_rsa.pub
 ```
 
+Bir Linux VM için birden çok NIC eklediğinizde, yönlendirme kuralları oluşturmanız gerekir. Bu kurallar VM belirli bir NIC'ye ait trafiği gönderip almasına izin ver Aksi takdirde eth1 için ait olduğu trafiği Örneğin, doğru tarafından tanımlanan varsayılan rota işlenemiyor. Bu yönlendirme sorunu düzeltmek için bkz: [birden çok NIC için yapılandırma konuk işletim sistemi](multiple-nics.md#configure-guest-os-for-multiple-nics).
+
 ## <a name="create-multiple-nics-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak birden çok NIC oluşturun
 Azure Resource Manager şablonları bildirim temelli JSON dosyaları ortamınızı tanımlamak için kullanın. Okuyabilirsiniz bir [genel bakış Azure Kaynak Yöneticisi'nin](../../azure-resource-manager/resource-group-overview.md). Resource Manager şablonları birden çok NIC oluşturma gibi dağıtımı sırasında bir kaynağın birden çok örneğini oluşturmak için bir yol sağlar. Kullandığınız *kopyalama* oluşturmak için örnek sayısını belirtmek için:
 
@@ -155,13 +157,15 @@ Azure Resource Manager şablonları bildirim temelli JSON dosyaları ortamınız
 
 Daha fazla bilgi edinin [kullanarak birden çok örneği oluşturma *kopya*](../../resource-group-create-multiple.md). 
 
-Aynı zamanda bir `copyIndex()` oluşturmanıza olanak tanıyan bir kaynak adı için bir sayı sonuna eklemek için `myNic1`, `myNic2`vb.. Dizin değeri ekleyerek bir örnek gösterilmektedir:
+Aynı zamanda bir `copyIndex()` oluşturmanıza olanak tanıyan bir kaynak adı için bir sayı sonuna eklemek için `myNic1`, `myNic2`vb. Dizin değeri ekleyerek bir örnek gösterilmektedir:
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
 ```
 
 Tam örnek okuyabilirsiniz [Resource Manager şablonları kullanarak birden çok NIC oluşturma](../../virtual-network/virtual-network-deploy-multinic-arm-template.md).
+
+Bir Linux VM için birden çok NIC eklediğinizde, yönlendirme kuralları oluşturmanız gerekir. Bu kurallar VM belirli bir NIC'ye ait trafiği gönderip almasına izin ver Aksi takdirde eth1 için ait olduğu trafiği Örneğin, doğru tarafından tanımlanan varsayılan rota işlenemiyor. Bu yönlendirme sorunu düzeltmek için bkz: [birden çok NIC için yapılandırma konuk işletim sistemi](multiple-nics.md#configure-guest-os-for-multiple-nics).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Gözden geçirdiğinizden emin olun [Linux VM boyutları](sizes.md) birden çok NIC ile VM oluşturmaya çalışırken. Her VM boyutu destekliyorsa NIC sayısı dikkat edin. 

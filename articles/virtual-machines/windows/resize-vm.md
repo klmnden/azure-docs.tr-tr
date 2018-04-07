@@ -1,11 +1,11 @@
 ---
-title: "Azure Windows VM yeniden boyutlandırmak için PowerShell kullanın | Microsoft Docs"
-description: "Azure Powershell kullanarak Resource Manager dağıtım modelinde oluşturulmuş bir Windows sanal makine yeniden boyutlandırın."
+title: Azure Windows VM yeniden boyutlandırmak için PowerShell kullanın | Microsoft Docs
+description: Azure Powershell kullanarak Resource Manager dağıtım modelinde oluşturulmuş bir Windows sanal makine yeniden boyutlandırın.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: Drewm3
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-ms.openlocfilehash: a3d4b6e5db8835b23b014b344f0c9daae68adc09
-ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
+ms.openlocfilehash: 09a20892770ada7c67c43c20f3c4f36b5a76f09d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="resize-a-windows-vm"></a>Bir Windows VM yeniden boyutlandırma
 Bu makalede Windows Azure Powershell kullanarak Resource Manager dağıtım modelinde oluşturulan bir VM'yi yeniden boyutlandırın gösterilmiştir.
