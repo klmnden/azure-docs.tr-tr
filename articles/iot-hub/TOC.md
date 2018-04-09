@@ -45,6 +45,7 @@
 ### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 ### [Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
+### [Azure cihaz ikizlerini kullanarak MXChip IoT DevKit RGB LED’i denetleme](iot-hub-arduino-iot-devkit-az3166-devkit-state.md)
 
 # Nasıl yapılır kılavuzları
 ## Planlama
@@ -173,7 +174,7 @@
 ## [Java (Hizmet)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Cihazlar)](/java/api/com.microsoft.azure.sdk.iot.device)
 ## [Node.js (Cihazlar)](https://docs.microsoft.com/javascript/api/azure-iot-device/)
-## [Node.js (Hizmet)](https://docs.microsoft.com/javascript/api/azure-iothub)
+## [Node.js (Hizmet)](https://docs.microsoft.com/javascript/api/azure-iothub/)
 ## [C cihaz API’si](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Kaynak Sağlayıcısı)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
