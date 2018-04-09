@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c5952422bb4faec196a5a54b9f18cf9700988aad
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 655f0b625d9f1b7c7ad216e9276da62d8454380f
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 1. Portalda, sol taraftaki **+** simgesine tıklayın ve arama alanına "sanal ağ geçidi" yazın. Arama sonuçlarında **Sanal ağ geçidi** seçeneğini bulun ve girişe tıklayın. **Sanal ağ geçidi** sayfasının en altındaki **Oluştur** seçeneğine tıklayarak **Sanal ağ geçidi oluştur** sayfasını açın.
 2. **Sanal ağ geçidi oluştur** sayfasında, sanal ağ geçidinize ait değerleri girin.
@@ -32,7 +32,7 @@ ms.lasthandoff: 03/23/2018
     - Önce **Ağ geçidi IP yapılandırması oluştur**'a tıklayarak ‘Genel IP adresi seç’ sayfasını, sonra da **+Yeni Oluştur**'a tıklayarak ‘Genel IP adresi oluştur" sayfasını açın.
     - Ardından, genel IP adresiniz için bir **Ad** girin. Başka bir değere değiştirmeniz için özel bir neden yoksa SKU’yu **Temel** olarak bırakın, sonra bu sayfanın altındaki **Tamam**’a tıklayarak değişikliklerinizi kaydedin.
 
-      ![Genel IP oluşturma](./media/vpn-gateway-add-gw-s2s-rm-portal-include/gwip.png "PIP oluşturma")
+      ![Genel IP oluşturma](./media/vpn-gateway-add-gw-rm-portal-include/gwip.png "PIP oluşturma")
 
 4. Ayarları doğrulayın. Ağ geçidinizin panoda görünmesini istiyorsanız sayfanın en altında yer alan **Panoya sabitle** seçeneğini belirleyebilirsiniz. 
 5. VPN ağ geçidi oluşturmaya başlamak için **Oluştur**'a tıklayın. Ayarlar doğrulandıktan sonra, panoda "Sanal ağ geçidi dağıtma" kutucuğunu görürsünüz. Bir ağ geçidi oluşturma 45 dakika kadar sürebilir. Tamamlanma durumunu görmek için portal sayfanızı yenilemeniz gerekebilir.

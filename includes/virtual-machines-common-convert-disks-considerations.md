@@ -3,6 +3,8 @@
 
 * Bu dönüştürme geri alınamaz. 
 
+* Herhangi bir unutmayın kullanıcılarla [sanal makine Katılımcısı](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacak. Yönetilen disklerle VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin kullanıcının gerektiren olmasıdır.
+
 * Dönüştürmeyi test ettiğinizden emin olun. Üretimde geçişi gerçekleştirmeden önce bir sınama sanal makinesini geçirin.
 
 * Dönüştürme sırasında VM’yi serbest bırakın. VM, dönüştürmeden sonra başlatıldığında yeni bir IP adresi alır. Gerekirse VM’ye [statik bir IP adresi atayabilirsiniz](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md).
