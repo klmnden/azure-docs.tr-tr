@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Öğreticiler
   items:
+    - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
+      href: terraform-slot-walkthru.md
     - name: MSI etkin bir Terraform VM’si oluşturma
       href: terraform-vm-msi.md
     - name: Terraform modülleri ile VM kümesi oluşturma

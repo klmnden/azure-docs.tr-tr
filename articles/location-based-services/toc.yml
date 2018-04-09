@@ -19,16 +19,18 @@
       href: tutorial-prioritized-routes.md
 - name: Kavramlar
   items:
-    - name: Yakınlaştırma Düzeyleri ve Döşeme Kılavuzu
+    - name: Yakınlaştırma düzeyleri ve kutucuk kılavuzu
       href: zoom-levels-and-tile-grid.md
-    - name: Coğrafi Kodlama Kapsamı
+    - name: Coğrafi kodlama kapsamı
       href: geocoding-coverage.md
-    - name: Trafik Kapsamı
+    - name: Trafik kapsamı
       href: traffic-coverage.md
-    - name: İşleme Kapsamı
+    - name: İşleme kapsamı
       href: render-coverage.md
-    - name: Yönlendirme Kapsamı
+    - name: Yönlendirme kapsamı
       href: routing-coverage.md
+    - name: Desteklenen diller
+      href: supported-languages.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Hesapları ve anahtarları yönetme

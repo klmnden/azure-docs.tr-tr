@@ -249,12 +249,12 @@
               href: service-fabric-reliable-services-diagnostics.md
             - name: Reliable Actors olayları
               href: service-fabric-reliable-actors-diagnostics.md
-            - name: Performans ölçümleri
-              href: service-fabric-diagnostics-event-generation-perf.md
             - name: Uzaktan Hizmet İletişimini izleme
               href: service-fabric-reliable-serviceremoting-diagnostics.md
         - name: Uygulama günlüğüne kaydetme
           href: service-fabric-diagnostics-event-generation-app.md
+        - name: Performans ölçümleri
+          href: service-fabric-diagnostics-event-generation-perf.md
         - name: Sistem durumu modeline genel bakış
           href: service-fabric-health-introduction.md
         - name: Sistem durumu olaylarını bildirme
@@ -433,6 +433,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Önerilen uygulamalar
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
+        - name: Geçirilmiş bir uygulamayı yeniden düzenleme
+          href: /azure/architecture/service-fabric/refactor-migrated-app
     - name: Uygulama yaşam döngüsünü yönetme
       items:
         - name: Uygulamaları paketleme

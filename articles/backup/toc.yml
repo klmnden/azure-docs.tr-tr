@@ -155,14 +155,10 @@
           href: backup-client-automation.md
     - name: Azure SQL Database
       items:
-        - name: Uzun süreli yedek saklama yapılandırma
-          href: ../sql-database/sql-database-configure-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Kurtarma Hizmetleri kasasındaki yedekleri görüntüleme
-          href: ../sql-database/sql-database-view-backups-in-vault.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Uzun süreli yedek saklamadan geri yükleme
-          href: ../sql-database/sql-database-restore-from-long-term-retention.md?toc=%2fazure%2fbackup%2ftoc.json
-        - name: Uzun süreli Azure SQL yedeklerini silme
-          href: ../sql-database/sql-database-long-term-retention-delete.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: SQL Veritabanı yedeklemelerini yapılandırma ve geri yükleme - SQL depolama
+          href: ../sql-database/sql-database-long-term-backup-retention-configure.md?toc=%2fazure%2fbackup%2ftoc.json
+        - name: SQL Veritabanı yedeklemelerini yapılandırma ve geri yükleme - Kurtarma Hizmetleri kasası
+          href: ../sql-database/sql-database-long-term-backup-retention-configure-vault.md?toc=%2fazure%2fbackup%2ftoc.json
     - name: Windows Server
       items:
         - name: Windows Server dosya ve klasörlerini yedekleme

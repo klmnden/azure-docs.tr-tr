@@ -139,6 +139,8 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Twitter ile kimlik doğrulaması
               href: app-service-mobile-how-to-configure-twitter-authentication.md
+        - name: AuthN/authZ özelleştirme
+          href: app-service-authentication-how-to.md
         - name: Yönetilen Hizmet Kimliğini Kullanma
           href: app-service-managed-service-identity.md
         - name: Uygulama kodunda SSL sertifikası kullanma

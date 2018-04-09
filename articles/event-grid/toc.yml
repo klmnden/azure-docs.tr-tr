@@ -53,6 +53,8 @@
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Olay teslimi izleme
       href: monitor-event-delivery.md
+    - name: Olay aboneliklerini sorgulama
+      href: query-event-subscriptions.md
 - name: Başvuru
   items:
     - name: Azure CLI

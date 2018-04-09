@@ -43,6 +43,7 @@
 ## MXChip IoT DevKit kullanma
 ### [Azure Bilişsel Hizmetler'le sesli mesajı çevirme](iot-hub-arduino-iot-devkit-az3166-translator.md)
 ### [Azure İşlevleri içeren bir Twitter iletisini alma](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
+### [Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 ### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
 # Nasıl yapılır kılavuzları

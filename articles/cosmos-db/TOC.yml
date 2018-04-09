@@ -164,7 +164,7 @@ items:
       - name: Güvenlik
         href: database-security.md
       - name: TCO
-        href: 'https://aka.ms/documentdb-tco-paper'
+        href: 'https://aka.ms/cosmosdb-tco-paper'
       - name: Uygulama alanları
         href: use-cases.md
         items:
@@ -184,13 +184,15 @@ items:
               - name: SQL sorgu performansı
                 href: sql-api-sql-query-metrics.md
               - name: SQL oyun alanı
-                href: 'https://www.documentdb.com/sql/demo'
+                href: 'https://aka.ms/cosmos-db-playground'
               - name: Bölümleme
                 href: sql-api-partition-data.md
               - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
                 href: programming.md
               - name: Performansı test etme
                 href: performance-testing.md
+              - name: Async Java için performans ipuçları
+                href: performance-tips-async-java.md
               - name: .NET için performans ipuçları
                 href: performance-tips.md
               - name: Java için performans ipuçları
@@ -378,17 +380,17 @@ items:
           - name: Logic Apps ile uygulama günlüğü kaydı
             href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
           - name: Azure İşlevlerine Bağlama
-            href: ../azure-functions/functions-bindings-documentdb.md
+            href: ../azure-functions/functions-bindings-cosmosdb.md
           - name: Azure Search ile Tümleştirme
-            href: ../search/search-howto-index-documentdb.md
+            href: ../search/search-howto-index-cosmosdb.md
           - name: Azure Data Factory ile veri taşıma
             href: ../data-factory/connector-azure-cosmos-db.md
           - name: Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme
-            href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
+            href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Logic Apps kullanarak HL7 FHIR kaydını değiştirme
             href: change-feed-hl7-fhir-logic-apps.md
           - name: Gerçek zamanlı sensör verisi işleme
-            href: ../hdinsight/hdinsight-storm-iot-eventhub-documentdb.md
+            href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
           - name: Power BI ile verilerinizi görselleştirme
             href: powerbi-visualize.md
           - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
