@@ -17,18 +17,18 @@
       href: tutorial-simulate-device-linux.md
     - name: Bir Edge cihazını benzetme - Windows
       href: tutorial-simulate-device-windows.md
-    - name: 'C# modülü geliştirme'
-      href: tutorial-csharp-module.md
-    - name: Python modülü geliştirme
-      href: tutorial-python-module.md
+    - name: Bir modülde kod dağıtma
+      items:
+        - name: 'C#'
+          href: tutorial-csharp-module.md
+        - name: Python
+          href: tutorial-python-module.md
     - name: Azure Stream Analytics’i dağıtma
       href: tutorial-deploy-stream-analytics.md
     - name: Azure Machine Learning’i dağıtma
       href: tutorial-deploy-machine-learning.md
     - name: Azure İşlevleri’ni dağıtma
       href: tutorial-deploy-function.md
-    - name: VS Code’da birden çok modülle çalışma
-      href: tutorial-multiple-modules-in-vscode.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Ağ geçidi oluşturma
@@ -53,6 +53,8 @@
           href: how-to-vscode-develop-azure-function.md
         - name: Azure İşlevleri’nde hata ayıklama
           href: how-to-vscode-debug-azure-function.md
+        - name: Birden çok modül ile çalışma
+          href: tutorial-multiple-modules-in-vscode.md
     - name: Uçta veri depolama
       href: sql-storage.md
     - name: Sorun giderme

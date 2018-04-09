@@ -215,11 +215,12 @@
 ##### [Özel giriş sayfası](application-proxy-office365-app-launcher.md)
 ##### [Satır içi bağlantıları çevirme](application-proxy-link-translation.md)
 ##### [Joker uygulamalar](active-directory-application-proxy-wildcard.md)
-##### [Azure AD Uygulama Ara Sunucusu ve Qlik Sense](active-directory-application-proxy-qlik.md) 
+
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](application-proxy-publish-remote-desktop.md)
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
+##### [Qlik Sense](active-directory-application-proxy-qlik.md) 
 #### [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management)
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 

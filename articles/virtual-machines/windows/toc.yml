@@ -342,13 +342,20 @@
         - name: Azure Günlük Toplayıcı uzantısı
           href: log-collector-extension.md
         - name: Azure tanılama uzantısı
-          href: ps-extensions-diagnostics.md
+          href: extensions-diagnostics.md
+          items:
+            - name: Uzantı şeması
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
+            - name: PowerShell’i kullanarak etkinleştirme
+              href: ps-extensions-diagnostics.md
+            - name: Şablonlar ile etkinleştirme
+              href: extensions-diagnostics-template.md
+            - name: Sorun giderme
+              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
         - name: VM uzantılarını dışarı aktarma
           href: extensions-export-templates.md
         - name: Uzantı sorunlarını giderme
           href: extensions-troubleshoot.md
-        - name: İzleme ve Tanılama Uzantısı
-          href: extensions-diagnostics-template.md
         - name: Ağ İzleyicisi Aracısı
           href: extensions-nwa.md
         - name: Uzantı yüklemesini kısıtlama
