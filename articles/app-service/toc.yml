@@ -51,6 +51,8 @@
       href: app-service-web-tutorial-custom-ssl.md
     - name: 4 - CDN ekleme
       href: app-service-web-tutorial-content-delivery-network.md
+    - name: 5 - Kullanıcıların kimliklerini doğrulama
+      href: app-service-web-tutorial-auth-aad.md
 - name: Örnekler
   items:
     - name: Azure CLI
@@ -139,7 +141,7 @@
               href: app-service-mobile-how-to-configure-microsoft-authentication.md
             - name: Twitter ile kimlik doğrulaması
               href: app-service-mobile-how-to-configure-twitter-authentication.md
-        - name: AuthN/authZ özelleştirme
+        - name: Kimlik doğrulamayı özelleştirme
           href: app-service-authentication-how-to.md
         - name: Yönetilen Hizmet Kimliğini Kullanma
           href: app-service-managed-service-identity.md
