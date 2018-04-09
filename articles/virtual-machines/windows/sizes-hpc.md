@@ -1,13 +1,13 @@
 ---
-title: "Azure Windows VM boyutları - HPC | Microsoft Docs"
-description: "Windows yüksek performanslı bilgi işlem azure'da sanal makineler için kullanılabilir farklı boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler."
+title: Azure Windows VM boyutları - HPC | Microsoft Docs
+description: Windows yüksek performanslı bilgi işlem azure'da sanal makineler için kullanılabilir farklı boyutlarını listeler. Vcpu, veri diskleri ve NIC yanı sıra bu serideki boyutları için depolama üretilen iş ve ağ bant sayısı hakkında bilgi listeler.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: 6f2c72689811d26f95a64fdf5f473606f3ea3f7d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: e402fd3ac95cac4816b9442f7c08aeaf7c108886
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="high-performance-compute-vm-sizes"></a>Yüksek performanslı bilgi işlem VM boyutları
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 03/16/2018
 * **HpcVmDrivers VM uzantısı** - RDMA özellikli Vm'lerinde RDMA bağlantısı için Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısını ekleyin. (A8 ve A9 örneklerinin bazı dağıtımlarda HpcVmDrivers uzantı otomatik olarak eklenir.) Bir VM için VM uzantısı eklemek için kullanabileceğiniz [Azure PowerShell](/powershell/azure/overview) cmdlet'leri. 
 
   
-  Aşağıdaki komutu en son sürüm 1.1 HpcVMDrivers uzantısı adlı bir varolan RDMA özelliğine sahip VM yükler *myVM* adlı kaynak grubunda dağıtılan *myResourceGroup* içinde  *Batı ABD* bölge:
+  Aşağıdaki komutu en son sürüm 1.1 HpcVMDrivers uzantısı adlı bir varolan RDMA özelliğine sahip VM yükler *myVM* adlı kaynak grubunda dağıtılan *myResourceGroup* içinde * Batı ABD* bölge:
 
   ```PowerShell
   Set-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
