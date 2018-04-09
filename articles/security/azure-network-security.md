@@ -1,12 +1,12 @@
 ---
-title: "Azure ağ güvenliği | Microsoft Docs"
-description: "Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin."
+title: Azure ağ güvenliği | Microsoft Docs
+description: Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9b86eda1f4ddff9b61ff5b0f9c465e5ef6c2088b
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -214,7 +214,7 @@ Uzak bir konumdan gibi giriş veya bir Konferanstan Merkezi'nden bağlanmak iste
 
 P2S bağlantılarının bir VPN cihazına veya genel kullanıma yönelik bir IP adresine gerek yoktur. VPN bağlantısını istemci bilgisayardan kurarsınız. Bu nedenle, P2S birçok şirket içi cihazlar ve Bilgisayarları'ndan kalıcı bir bağlantı Azure ağınıza gerektiğinde Azure'a bağlanmak için yol önerilmez.
 
-![Siteden siteye VPN](media/azure-network-security/azure-network-security-fig-6.png)
+![Konumdan Konuma VPN](media/azure-network-security/azure-network-security-fig-6.png)
 
 > [!Note]
 > Noktadan siteye bağlantılar hakkında daha fazla bilgi için bkz: [noktası siteye FA v Q](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal).
@@ -347,7 +347,7 @@ VNet güvenlik ve ağ işlevlerini Azure ağ güvenliği uygulamaları geliştir
 
 -   Yetkisiz erişim önleme
 
--   Yetkisiz erişim algılama
+-   Intrusion detection
 
 -   Web uygulaması Güvenlik Duvarı (WAFs)
 
@@ -363,7 +363,7 @@ VNet güvenlik ve ağ işlevlerini Azure ağ güvenliği uygulamaları geliştir
 
 -   Active Directory
 
--   Çok faktörlü kimlik doğrulama
+-   Çok faktörlü kimlik doğrulaması
 
 #### <a name="application-gateway"></a>Uygulama ağ geçidi
 
@@ -392,7 +392,7 @@ Ayrıca, uygulama ağ geçidi WAF web uygulamaları ile tümleşik gerçek zaman
 
 JSON biçimli günlük doğrudan Müşteri'nin depolama hesabına gider. Bu günlükler üzerinde tam denetime sahiptir ve kendi bekletme ilkeleri uygulayabilirsiniz.
 
-Kullanarak kendi analytics sistem Bu günlükler işleyebilen [Azure günlük tümleştirme](https://aka.ms/AzLog). WAF günlükleri ile tümleşik de [Operations Management Suite (OMS)](https://www.microsoft.com/cloud-platform/operations-management-suite) Gelişmiş hassas sorgularını yürütmek için OMS günlük analizi kullanabilirsiniz.
+Kullanarak kendi analytics sistem Bu günlükler işleyebilen [Azure günlük tümleştirme](https://aka.ms/AzLog). WAF günlükleri ile tümleşik de [günlük analizi](../log-analytics/log-analytics-overview.md) Gelişmiş hassas sorgularını yürütmek için günlük analizi kullanabilirsiniz.
 
 #### <a name="azure-web-application-firewall-waf"></a>Azure web uygulaması Güvenlik Duvarı (WAF)
 
@@ -437,7 +437,7 @@ Buluttaki tüm kaynaklara Internet'ten erişilebilir olması için bir ortak IP 
 
  Uygulama ağ geçidi (OSI Ağ başvurusu yığınında katman 7) uygulama katmanında çalışır. İstemci bağlantısını sonlandıran ve istekleri arka uç noktalarına ileten ters proxy hizmeti olarak çalışır.
 
- **Trafik Yöneticisi**
+ **Traffic manager**
 
 Microsoft Azure trafik Yöneticisi, farklı veri merkezlerinde bulunan hizmet uç noktaları için kullanıcı trafiğinin dağıtımını denetlemenize olanak sağlar. Trafik Yöneticisi tarafından desteklenen hizmet uç noktaları ve bulut hizmetlerini Azure VM'ler, Web uygulamaları içerir. Traffic Manager’ı harici, Azure dışı uç noktalar için de kullanabilirsiniz.
 
@@ -510,7 +510,7 @@ Azure izlemek, engellemenize, algılamanıza ve ağ güvenlik olaylarına yanıt
 
 -   Log Analytics
 
-### <a name="network-watcher"></a>Ağ İzleyicisi
+### <a name="network-watcher"></a>Ağ izleyicisi
 
 [Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -senaryo tabanlı izleme Ağ İzleyicisi'deki özelliklerle sağlanır. Bu hizmet içeren paket yakalama, sonraki atlama IP akış, güvenlik grubu görünümü, NSG akış günlükleri doğrulayın. Senaryo düzeyi izleme kaynak tek tek ağ izleme aksine ağ kaynaklarına bir uçtan uca görünümünü sağlar.
 
@@ -580,7 +580,7 @@ Ağ İzleyicisi sağlayan bir [tanılama günlüklerini](https://docs.microsoft.
 
 Aşağıdaki özellikler, kaynak düzeyi izleme için kullanılabilir:
 
-#### <a name="audit-log"></a>Denetim günlüğü
+#### <a name="audit-log"></a>Denetleme günlüğü
 
 Ağ yapılandırmasının bir parçası gerçekleştirilen işlemleri günlüğe kaydedilir. Bu denetim günlükleri çeşitli compliances kurmak için gereklidir. Bu günlükler Azure Portalı'nda görüntülenebilir veya Power BI gibi Microsoft araçları veya üçüncü taraf araçlarını kullanarak alınamıyor. Denetim günlükleri, portal, PowerShell'i, CLI ve Rest API kullanılabilir.
 
@@ -606,7 +606,7 @@ Ağ İzleyicisi görünümü bir tanılama günlükleri sağlar. Bu görünüm, 
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bir hizmetidir [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) bulut izler ve şirket içi ortamları kendi kullanılabilirliğini ve performansını korumak için. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
+[Günlük analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bir bulut izler ve şirket içi ortamları kendi kullanılabilirliğini ve performansını korumak için Azure hizmetidir. Birden fazla kaynak arasında analiz sağlamak üzere bulut ve şirket içi ortamlarınızdaki kaynaklar ile diğer izleme araçları tarafından oluşturulan verileri toplar.
 
 Günlük analizi, ağları izleme için aşağıdaki çözümleri sunar:
 
@@ -648,7 +648,7 @@ Günlükleri için desteklenen [ağ güvenlik grubu](https://docs.microsoft.com/
 
 - **NetworkSecurityGroupEvent:** hangi NSG kuralları Vm'lere uygulanan ve örnek MAC adresine dayalı rolleri girişleri içerir. Bu kurallar durumunun her 60 saniyede toplanır.
 
-- **NetworkSecurityGroupRuleCounter:** kaç kez her NSG için içerir girişleri kural reddetmek veya trafiğine izin vermek üzere uygulanır.
+- **NetworkSecurityGroupRuleCounter:** Contains entries for how many times each NSG rule is applied to deny or allow traffic.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Güvenlik hakkında daha fazla bizim kapsamlı güvenlik konuların bazıları okuyarak bulun:
