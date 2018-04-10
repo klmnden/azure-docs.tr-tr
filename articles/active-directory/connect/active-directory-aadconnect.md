@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 6f0b5cd7b981cddeda7e5630967f5f8dba18bb98
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: febe055348efb49ea1e6bc670333f435de654cfc
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
@@ -88,7 +88,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 
 [Filtreleme](active-directory-aadconnectsync-configure-filtering.md), hangi nesnelerin Azure AD ile eşitleneceğine yönelik bir sınırlama getirmek istediğinizde kullanılır. Varsayılan olarak tüm kullanıcılar, kişiler, gruplar ve Windows 10 yüklü bilgisayarlar eşitlenir. Etki alanlarına, kuruluş birimlerine veya özniteliklere göre filtrelemeyi değiştirebilirsiniz.
 
-[Parola eşitleme](active-directory-aadconnectsync-implement-password-synchronization.md), Active Directory'deki parola karmasını Azure AD ile eşitler. Son kullanıcı, şirket içinde ve bulutta aynı parolayı kullanabilir ancak parolayı yalnızca tek bir konumda yönetebilir. Yetkili olarak şirket içi Active Directory'nizi kullandığından, kendi parola ilkenizi de kullanabilirsiniz.
+[Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md), Active Directory'deki parola karmasını Azure AD ile eşitler. Son kullanıcı, şirket içinde ve bulutta aynı parolayı kullanabilir ancak parolayı yalnızca tek bir konumda yönetebilir. Yetkili olarak şirket içi Active Directory'nizi kullandığından, kendi parola ilkenizi de kullanabilirsiniz.
 
 [Parola geri yazma](../active-directory-passwords-getting-started.md) özelliği, kullanıcılarınızın buluttaki parolalarını değiştirmelerine ve sıfırlamalarına olanak sağlamanın yanı sıra şirket içi parola ilkenizi uygular.
 
@@ -102,7 +102,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 |Konu |Bağlantı|  
 | --- | --- |
 |Filtrelemeyi yapılandırma | [Azure AD Connect eşitleme: Filtrelemeyi yapılandırma](active-directory-aadconnectsync-configure-filtering.md)|
-|Parola eşitleme | [Azure AD Connect eşitleme: Parola eşitlemesi uygulama](active-directory-aadconnectsync-implement-password-synchronization.md)|
+|Parola karması eşitleme | [Azure AD Connect eşitleme: Parola karması eşitlemeyi uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
 |Parola geri yazma | [Parola yönetimine başlarken](../active-directory-passwords-getting-started.md)|
 |Cihaz geri yazma | [Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)|
 |Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitleme: Yanlışlıkla Silmeleri Engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|

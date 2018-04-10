@@ -15,15 +15,15 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: e789d3c6e10399491eb055b850a590ae10aacd11
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 85a3898145f7aea5d3f668caeafb62286006230d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
 # <a name="web-apps-overview"></a>Web Apps’e Genel Bakış
 
-*Azure App Service Web Apps* (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Windows veya Linux VM’lerinde uygulamalarınızı kolayca çalıştırabilir ve ölçeklendirebilirsiniz (bkz. [Linux’ta App Service](containers/app-service-linux-intro.md)). 
+*Azure App Service Web Apps* (veya yalnızca Web Apps) web uygulamaları, REST API'leri ve mobil arka uçlar barındırmaya yönelik bir hizmettir. .NET, .NET Core, Java, Ruby, Node.js, PHP veya Python dahil en sevdiğiniz dilde geliştirebilirsiniz. Windows tabanlı ortamlarda uygulamalar kolaylıkla çalıştırılıp ölçeklendirilebilir. Linux tabanlı ortamlar için bkz. [Linux’ta App Service](containers/app-service-linux-intro.md). 
 
 Web Apps, uygulamanıza güvenlik, yük dengeleme, otomatik ölçeklendirme ve otomatik yönetim gibi özelliklerle Microsoft Azure’un gücünü katmakla kalmaz. Aynı zamanda VSTS, GitHub, Docker Hub ve diğer kaynaklardan sürekli dağıtım, paket yönetimi, hazırlık ortamları, özel etki alanı ve SSL sertifikaları gibi DevOps özelliklerinden de yararlanabilirsiniz. 
 

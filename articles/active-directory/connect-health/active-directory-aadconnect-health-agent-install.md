@@ -1,8 +1,8 @@
 ---
-title: "Azure AD Connect Health Aracısı yüklemesi | Microsoft Belgeleri"
-description: "Bu Azure AD Connect Health sayfasında, AD FS ve Eşitleme için aracı yükleme işlemi açıklanmıştır."
+title: Azure AD Connect Health Aracısı yüklemesi | Microsoft Belgeleri
+description: Bu Azure AD Connect Health sayfasında, AD FS ve Eşitleme için aracı yükleme işlemi açıklanmıştır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 editor: curtand
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 85a12cbfdad4a1b8fbc7c3e3ea15b91c5267d7c8
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 5a0dadb86b6bdcbf8fc9ba38d09a2bfc9f8ec341
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Aracısı Yüklemesi
 Bu belge, Azure AD Connect Health Aracılarını yüklemenize ve yapılandırmanıza yardımcı olur. Aracıları [buradan](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent) indirebilirsiniz.
@@ -35,7 +35,7 @@ Aşağıdaki tabloda Azure AD Connect Health kullanımına ilişkin gereksinimle
 |IP Adreslerini temel alan giden bağlantı | Güvenlik duvarlarında IP adresine göre filtreleme için bkz. [Azure IP Aralıkları](https://www.microsoft.com/en-us/download/details.aspx?id=41653).|
 | Giden trafik için SSL İncelemesi filtrelenmiş ya da devre dışı | Ağ katmanında giden trafik için SSL incelemesi veya sonlandırması mevcutsa aracı kaydı adımı veya veri yükleme işlemleri başarısız olabilir. |
 | Aracıyı çalıştıran sunucudaki güvenlik duvarı bağlantı noktaları. |Aracının Azure AD Health hizmet uç noktaları ile iletişim kurabilmesi için aşağıdaki güvenlik duvarı bağlantı noktalarının açık olması gerekir.</br></br><li>TCP bağlantı noktası 443</li><li>TCP bağlantı noktası 5671</li> |
-| IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örnek: https://sts.contoso.com</li> |
+| IE Artırılmış Güvenlik etkinse aşağıdaki web sitelerine izin verin |IE Artırılmış Güvenlik etkinse aracının yükleneceği sunucuda aşağıdaki web sitelerine izin verilmesi gerekir.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Kuruluşunuz için Azure Active Directory tarafından güvenilen federasyon sunucusu. Örneğin, https://sts.contoso.com</li> |
 | PowerShell v4.0 veya üzerinin yüklü olduğundan emin olun | <li>Windows Server 2008 R2, aracı için yeterli olmayan PowerShell v2.0 sürümüne sahiptir.  PowerShell'i [Windows Server 2008 R2 Sunucularında aracı yüklemesi](#agent-installation-on-windows-server-2008-r2-servers) belgesine göre güncelleştirin.</li><li>Windows Server 2012, aracı için yeterli olmayan PowerShell v3.0 sürümüne sahiptir.  Windows Management Framework'ü [güncelleştirin](http://www.microsoft.com/en-us/download/details.aspx?id=40855).</li><li>Windows Server 2012 R2 ve üzeri ile gelen PowerShell sürümü yeterli olacaktır.</li>|
 |FIPS’yi devre dışı bırakma|FIPS, Azure AD Connect Health aracıları tarafından desteklenmez.|
 
@@ -136,7 +136,7 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 9. **(Success audits and Failure audits) Başarı denetimleri ve Hata denetimleri** onay kutularını seçin ve **OK (Tamam)** düğmesine tıklayın. Bu seçenek varsayılan olarak etkindir.
 10. Bir PowerShell penceresi açın ve şu komutu çalıştırın: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-"Temel" denetim düzeyi varsayılan olarak etkindir. [Windows Server 2016’da AD FS Denetimini geliştirme](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016) hakkında daha fazla bilgi edinin
+"Temel" denetim düzeyi varsayılan olarak etkindir. [Windows Server 2016’da AD FS Denetimini geliştirme](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016) hakkında daha fazla bilgi edinin
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>AD FS denetim günlüklerini bulma
@@ -144,6 +144,8 @@ Kullanım Analizi özelliğinin verileri toplaması ve analiz edebilmesi için, 
 2. Windows Günlüklerine gidin ve **Security (Güvenlik)** seçeneğini belirleyin.
 3. Sağ tarafta bulunan **Filter Current Logs (Geçerli Günlükleri Filtrele)** seçeneğine tıklayın.
 4. Event Source (Olay Kaynağı) altındaki **AD FS Auditing (AD FS Denetimi)** seçeneğini belirleyin.
+
+    Ve Denetim günlükleri için hızlı [SSS notu](active-directory-aadconnect-health-faq.md#operations-questions).
 
 ![AD FS denetim günlükleri](./media/active-directory-aadconnect-health-requirements/adfsaudit.png)
 
