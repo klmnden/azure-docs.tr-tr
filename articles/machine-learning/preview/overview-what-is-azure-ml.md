@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning nedir? | Microsoft Docs
-description: Uzman veri bilimcilerinin bulut ölçeğinde gelişmiş analiz uygulamaları geliştirmesini, üzerinde deneme yapmasını ve dağıtmasını sağlayan tümleşik, uçtan uca veri bilimi çözümü olan Azure Machine Learning Denemesi ve Model Yönetimi'ne genel bakış.
+description: Bulutta makine öğrenimine ilişkin temel kavramları açıklar, bunu ne için kullanabileceğinizi anlatır ve makine öğrenimi terimlerini tanımlar. Uzman veri bilimcilerinin bulut ölçeğinde gelişmiş analiz uygulamaları geliştirmesini, üzerinde deneme yapmasını ve dağıtmasını sağlayan tümleşik, uçtan uca veri bilimi çözümü olan Azure Machine Learning’e genel bakış.
 services: machine-learning
 author: mwinkle
 ms.author: mwinkle
@@ -9,14 +9,19 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
-ms.openlocfilehash: e5716e3fc519c48aaea3ec17939d11008a1b1fd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 8a92f42ecee926042e9e0662f6b0bd9438024248
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/29/2018
 ---
-# <a name="what-is-azure-machine-learning"></a>Azure Machine Learning nedir?
+# <a name="what-is-machine-learning"></a>Machine Learning nedir?
 
+Makine öğrenimi; bilgisayarların var olan verileri kullanarak gelecekteki davranışları, sonuçları ve eğilimleri öngörmelerini sağlayan bir veri bilimi tekniğidir. Bilgisayarlar, makine öğrenimini kullanarak açıkça programlamaya gerek kalmadan öğrenir.
+
+Makine öğreniminin öngörüleri veya tahminleri, uygulama ve cihazları daha akıllı hale getirir. Çevrimiçi alışveriş yaparken makine öğrenimi önceden satın aldıklarınızı temel alarak beğenebileceğiniz diğer ürünleri önermede yardımcı olur. Kredi kartınız makineden geçirildiğinde, makine öğrenimi işlemi bir işlem veritabanıyla karşılaştırır ve sahtekarlıkların saptanmasına yardımcı olur. Elektrikli süpürge robotunuz bir odayı temizlediğinde, makine öğrenimi robotunuzun işin tamamlanıp tamamlanmadığına karar vermesine yardımcı olur.
+
+## <a name="what-is-azure-machine-learning"></a>Azure Machine Learning nedir?
 Azure Machine Learning tümleşik ve uçtan uca bir veri bilimi ve gelişmiş analiz çözümüdür. Bu çözüm veri bilimcilerin bulut ölçeğinde veri hazırlamasını, deneme geliştirmesini ve model dağıtmasını sağlar.
 
 Azure Machine Learning'in ana bileşenleri şunlardır:
@@ -29,6 +34,7 @@ Azure Machine Learning'in ana bileşenleri şunlardır:
 Bu uygulamalar ve hizmetler birlikte veri bilimi proje geliştirme ve dağıtma süreçlerinizi hızlandırmanıza yardımcı olur. 
 
 ![Azure Machine Learning Kavramları](media/overview-what-is-azure-ml/aml-concepts.png)
+
 
 ## <a name="open-source-compatible"></a>Açık kaynak uyumluluğu
 

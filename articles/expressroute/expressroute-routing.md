@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: 829646be6404f86d9f370b3a402cfc0c0c980699
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7380629344b27d5bb1e7af0aeddcb8f7665c1a5c
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -107,7 +107,7 @@ IP adresi ve AS numarasının aşağıdaki kayıt defterlerinden birinde size ka
 
 Ön ekleriniz ve AS numaranız yukarıdaki kayıtlarla atanmamışsa ön eklerinizin ve ASN değerinizin el ile doğrulanması amacıyla bir destek olayı oluşturmanız gerekir. Destek ekibi kaynakları kullanma izniniz olduğunu gösteren Yetki Yazısı gibi bir belge talep edecektir.
 
-Özel AS Numarası, Microsoft Eşlemesi ile birlikte kullanılabilir ancak bunun için de el ile doğrulama yapılması gerekecektir. Ayrıca, alınan ön ekler için AS YOLU’ndaki özel AS numaralarını kaldırırız. Bunun sonucu olarak, Microsoft Eşlemesi için yönlendirmeyi etkilemek amacıyla AS YOLU’nda özel AS numaraları ekleyemezsiniz. 
+Özel AS Numarası, Microsoft Eşlemesi ile birlikte kullanılabilir ancak bunun için de el ile doğrulama yapılması gerekecektir. Ayrıca, alınan ön ekler için AS YOLU’ndaki özel AS numaralarını kaldırırız. Bunun sonucu olarak, [Microsoft Eşlemesi için yönlendirmeyi etkilemek](expressroute-optimize-routing.md) amacıyla AS YOLU’nda özel AS numaraları ekleyemezsiniz. 
 
 > [!IMPORTANT]
 > ExpressRoute üzerinden Microsoft'a tanıtılan genel IP adreslerinin İnternet’e tanıtılması gerekmez. Bu, diğer Microsoft hizmetlerine bağlantıyı kesebilir. Ancak ağınızda Microsoft içindeki O365 uç noktalarıyla iletişim kuran sunucular tarafından kullanılan Genel IP adresleri, ExpressRoute üzerinden tanıtılabilir. 
@@ -197,7 +197,7 @@ Bir jeopolitik bölge için birden fazla ExpressRoute devresi satın alabilirsin
 Microsoft tarafından tanıtılan tüm yollar uygun topluluk değeriyle etiketlenecektir. 
 
 > [!IMPORTANT]
-> Genel ön ekler uygun bir topluluk değeri ile etiketlenecek ve yalnızca ExpressRoute premium eklentisi etkinleştirildiğinde tanıtılacaktır.
+> Genel ön ekler, uygun bir topluluk değeri ile etiketlenir.
 > 
 > 
 

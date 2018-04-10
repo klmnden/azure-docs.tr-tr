@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: f9487067ae77fbb261fb683ddd15207670f9576f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: aab864696be7121be049ce4e907b10431a7b63cb
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="deploy-sql-server-integration-services-packages-to-azure-with-powershell"></a>PowerShell kullanarak SQL Server Integration Services paketlerini Azure'a dağıtma
 Bu öğretici, Azure Data Factory’de bir Azure-SSIS tümleştirme çalışma zamanı (IR) sağlama adımlarını sunar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio’yu (SSMS) kullanarak Azure’da bu çalışma zamanına SQL Server Integration Services (SSIS) paketleri dağıtabilirsiniz. Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
@@ -83,7 +83,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 ```
@@ -246,7 +246,7 @@ $AzureSSISMaxParallelExecutionsPerNode = 2
 $SSISDBServerEndpoint = "<Azure SQL server name>.database.windows.net"
 $SSISDBServerAdminUserName = "<Azure SQL server - user name>"
 $SSISDBServerAdminPassword = "<Azure SQL server - user password>"
-# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (private preview)
+# Remove the SSISDBPricingTier variable if you are using Azure SQL Managed Instance (Preview)
 # This parameter applies only to Azure SQL Database. For the basic pricing tier, specify "Basic", not "B". For standard tiers, specify "S0", "S1", "S2", 'S3", etc.
 $SSISDBPricingTier = "<pricing tier of your Azure SQL server. Examples: Basic, S0, S1, S2, S3, etc.>" 
 
@@ -300,7 +300,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 ```
 
 ## <a name="join-azure-ssis-ir-to-a-vnet"></a>Azure-SSIS IR’yi bir sanal ağa ekleme
-Bir sanal ağ (VNet) içinde SQL Server Integration Services (SSIS) kataloğunu barındırmak için Azure SQL Yönetilen Örneği (Özel Önizleme) kullanıyorsanız, Azure-SSIS tümleştirme çalışma zamanınızı da aynı sanal ağa eklemeniz gerekir. Azure Data Factory sürüm 2 (Önizleme), Azure SSIS tümleştirme çalışma zamanını bir sanal ağa eklemenize olanak tanır. Daha fazla bilgi için bkz. [Azure-SSIS çalışma zamanını bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md).
+Bir sanal ağ (VNet) içinde SQL Server Integration Services (SSIS) kataloğunu barındırmak için Azure SQL Yönetilen Örneği (Önizleme) kullanıyorsanız, Azure-SSIS tümleştirme çalışma zamanınızı da aynı sanal ağa eklemeniz gerekir. Azure Data Factory sürüm 2 (Önizleme), Azure SSIS tümleştirme çalışma zamanını bir sanal ağa eklemenize olanak tanır. Daha fazla bilgi için bkz. [Azure-SSIS çalışma zamanını bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md).
 
 Bir sanal ağa katılan Azure-SSIS çalışma zamanı oluşturmaya yönelik tam betik için bkz. [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md).
 
