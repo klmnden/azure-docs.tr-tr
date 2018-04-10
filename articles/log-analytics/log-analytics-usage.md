@@ -1,27 +1,27 @@
 ---
-title: "Log Analytics'te veri kullanımını çözümleme | Microsoft Belgeleri"
-description: "Log Analytics hizmetine ne kadar veri gönderildiğini görmek ve neden büyük miktarda veri gönderildiğiyle ilgili sorunları gidermek için Log Analytics'in Kullanım panosunu kullanın."
+title: Log Analytics'te veri kullanımını çözümleme | Microsoft Belgeleri
+description: Log Analytics’e ne kadar veri gönderileceğini değerlendirmek ve nelerin öngörülemez artışlara neden olabileceğini belirlemek için Log Analytics’te Kullanım ve tahmini maliyet panosunu kullanın.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/13/2018
+ms.date: 03/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8d6baa6b46290c7a332f5cf780c7f70680fb6a2c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
-Log Analytics toplanan veri miktarı, verileri hangi sistemlerin gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Log Analytics hizmetine gönderilen veri miktarını görmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
+Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
 
 ## <a name="understand-the-usage-dashboard"></a>Kullanım panosunu anlama
 **Log Analytics kullanım** panosu aşağıdaki bilgileri gösterir:
@@ -41,20 +41,17 @@ Log Analytics toplanan veri miktarı, verileri hangi sistemlerin gönderdiği ve
     - Verileri toplamak ve dizinlemek için harcanan süre  
 - Sorgu listesi
 
-![kullanım panosu](./media/log-analytics-usage/usage-dashboard01.png)
+![Kullanım ve maliyet panosu](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+)
 
 ### <a name="to-work-with-usage-data"></a>Kullanım verileriyle çalışma
-1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
-2. **Tüm hizmetler**’e tıklayın ve kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
-    ![Azure hub'ı](./media/log-analytics-usage/hub.png)
-3. **Log Analytics** panosunda çalışma alanlarınızın listesi gösterilir. Bir çalışma alanı seçin.
-4. *Çalışma alanı* panosunda **Log Analytics kullanımı**’na tıklayın.
-5. **Log Analytics Kullanım** panosunda **Zaman: Son 24 saat**’e tıklayarak zaman aralığını değiştirin.  
-    ![zaman aralığı](./media/log-analytics-usage/time.png)
-6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.  
-    ![örnek veri kullanım dikey penceresi](./media/log-analytics-usage/blade.png)
-7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.  
-    ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search.png)
+1. [Azure Portal](https://portal.azure.com) oturum açın.
+2. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.<br><br> ![Azure Portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+3. Log Analytics çalışma alanlarınızın listesinde, bir çalışma alanı seçin.
+4. Sol bölmedeki listeden **Kullanım ve tahmini maliyetler**’i seçin.
+5. **Kullanım ve tahmini maliyetler** panosunda, **Zaman: Son 24 saat** değerini seçerek zaman aralığı üzerinde değişiklik yapabilir ve zaman aralığını değiştirebilirsiniz.<br><br> ![zaman aralığı](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
+6. İlginizi çeken alanları gösteren kategori dikey pencerelerini görüntüleyin. Bir dikey pencere seçin [Günlük Arama](log-analytics-log-searches.md)’te ayrıntılarını görüntülemek istediğiniz öğeye tıklayın.<br><br> ![örnek veri kullanım kpi’si](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+7. Günlük Arama panosunda aramanın döndürdüğü sonuçları inceleyin.<br><br> ![örnek kullanım günlüğü araması](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Toplanan veriler beklenenden fazlaysa uyarı oluşturma
 Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklanır:

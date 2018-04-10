@@ -1,12 +1,12 @@
 ---
-title: "Azure ağ güvenliğine genel bakış | Microsoft Docs"
-description: "Azure kaynakları arasındaki ağ trafiği akışını denetlemeye yönelik güvenlik seçenekleri hakkında bilgi edinin."
+title: Azure ağ güvenliğine genel bakış | Microsoft Docs
+description: Azure kaynakları arasındaki ağ trafiği akışını denetlemeye yönelik güvenlik seçenekleri hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: fbf0556cc47bc08a71fcf050b43c2dbbe5d27184
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 950c64ea1ea2edc072650a9f63a6d21ad369c496
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -117,7 +117,7 @@ Varsayılan kuralları kaldıramazsınız ancak daha yüksek önceliğe sahip ku
  Hizmet etiketi, güvenlik kuralı oluşturma sırasındaki karmaşıklığı en aza indirmeye yardımcı olmak için bir IP adresi ön eki grubunu temsil eder. Kendi hizmet etiketinizi oluşturamaz veya bir etiket içinde yer alacak IP adreslerini belirleyemezsiniz. Hizmet etiketine dahil olan adres ön ekleri Microsoft tarafından yönetilir ve hizmet etiketi adresler değiştikçe otomatik olarak güncelleştirilir. Hizmet etiketlerini güvenlik kuralı oluştururken belirli IP adreslerinin yerine kullanabilirsiniz. Güvenlik kuralı tanımlarken aşağıdaki hizmet etiketlerinden faydalanabilirsiniz. Farklı [Azure dağıtım modellerindeki](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) etiket adları arasında küçük farklar vardır.
 
 * **VirtualNetwork** (Kaynak Yöneticisi) (klasik için **VIRTUAL_NETWORK**): Bu etiket sanal ağ adres alanını (sanal ağ için tanımlanmış olan tüm CIDR aralıkları), bağlı olan tüm şirket içi adres alanlarını ve [eşlenmiş](virtual-network-peering-overview.md) sanal ağları ya da bir [sanal ağ geçidine](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) bağlı olan sanal ağı içerir.
-* **AzureLoadBalancer** (Resource Manager) (Klasik için **AZURE_LOADBALANCER**): Bu etiket Azure altyapı infrastructure yük dengeleyicisini belirtir. Bu etiket, Azure'ın sistem durumu araştırmalarının kaynağı olan bir [Azure veri merkezi IP adresine](https://www.microsoft.com/download/details.aspx?id=41653) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
+* **AzureLoadBalancer** (Kaynak Yöneticisi) (Klasik için **AZURE_LOADBALANCER**): Bu etiket, Azure’ın altyapı yük dengeleyicisini belirtir. Bu etiket, Azure’ın sistem durumu araştırmalarının kaynağı olan bir [Azure veri merkezi IP adresine](https://www.microsoft.com/download/details.aspx?id=41653) çevrilir. Azure yük dengeleyiciyi kullanmıyorsanız bu kuralı geçersiz kılabilirsiniz.
 * **Internet** (Resource Manager) (klasik için **INTERNET**): Bu etiket, sanal ağın dışında olan ve genel İnternet ile ulaşılabilen IP adresi alanını belirtir. Adres aralığı [Azure'a ait genel IP adresi alanını](https://www.microsoft.com/download/details.aspx?id=41653) içerir.
 * **AzureTrafficManager** (yalnızca Resource Manager): Bu etiket Azure Traffic Manager araştırması için IP adresi alanını belirtir. Traffic Manager araştırma IP’leri hakkında daha fazla bilgi için [Azure Traffic Manager hakkında SSS](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-faqs) sayfasına göz atın.
 * **Storage** (yalnızca Resource Manager): Bu etiket Azure Storage hizmeti için IP adresi alanını belirtir. *Depolama* değerini belirtirseniz depolama alanına gelen trafiğe izin verilir veya trafik reddedilir. Yalnızca belirli bir [bölgedeki](https://azure.microsoft.com/regions) depolama alanına erişime izin vermek istiyorsanız bölgeyi belirtebilirsiniz. Örneğin yalnızca Doğu ABD bölgesindeki Azure Depolama hizmetine erişim izni vermek istiyorsanız *Storage.EastUS* hizmet etiketini kullanabilirsiniz. Bu etiket hizmetin belirli örneklerini değil yalnızca hizmetin kendisini temsil eder. Örneğin etiket belirli bir Azure Depolama hesabını değil Azure Depolama hizmetini temsil eder.
@@ -141,7 +141,7 @@ Hedef olarak başka uygulama güvenlik gruplarını belirten ek kurallar oluştu
  
 Uygulama güvenlik grubu oluşturma ve bunları güvenlik kurallarında belirtme limitleri hakkında bilgi edinmek için bkz. [Azure limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Uygulama güvenlik grupları önizleme sürümündedir. Önizleme sürümündeki özellikler, genel sürümdeki özelliklerle aynı kullanılabilirlik ve güvenilirlik seviyesine sahip değildir. Uygulama güvenlik gruplarını kullanmadan önce [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md) makalesinin Azure veya PowerShell bölümlerinde yer alan 1-5 arası adımları tamamlayıp kullanmak üzere kaydolmanız gerekir. Uygulama güvenlik grupları aşağıdaki sınırlamalara sahiptir:
+Uygulama güvenlik grupları aşağıdaki sınırlamalara sahiptir:
 
 -   Bir uygulama güvenlik grubu içindeki tüm ağ arabirimlerinin aynı sanal ağda olması gerekir. Bir uygulama güvenlik grubuna farklı ağlarda bulunan ağ arabirimlerini ekleyemezsiniz. Uygulama güvenlik grubuna atanmış olan ilk ağ arabiriminin bulunduğu sanal ağ, sonraki ağ arabirimlerinin de bulunması gereken sanal ağı belirtir.
 - Uygulama güvenlik gruplarını bir güvenlik kuralında kaynak ve hedef olarak belirtirseniz iki uygulama güvenlik grubundaki ağ arabirimlerinin de aynı sanal ağda bulunması gerekir. Örneğin ASG1 içinde VNet1 içinde bulunan ağ arabirimleri, ASG2 içinde de VNet2 içinde bulunan ağ arabirimleri varsa bir kural içinde ASG1 grubunu kaynak, ASG2 grubunu da hedef olarak belirleyemezsiniz. Tüm ağ arabirimlerinin VNet1 içinde olması gerekir.
@@ -165,5 +165,4 @@ Uygulama güvenlik grupları önizleme sürümündedir. Önizleme sürümündeki
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Ağ güvenlik grubu oluşturma](virtual-networks-create-nsg-arm-pportal.md) öğreticisini tamamlayın
-* [Uygulama güvenlik gruplarıyla ağ güvenlik grubu oluşturma](create-network-security-group-preview.md) öğreticisini tamamlayın
+* [Ağ güvenlik grubu oluşturmayı](tutorial-filter-network-traffic.md) öğrenin.

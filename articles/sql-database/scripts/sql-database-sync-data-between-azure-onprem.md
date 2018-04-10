@@ -1,13 +1,13 @@
 ---
-title: "Şirket içi PowerShell örnek-eşitleme SQL Database ve SQL Server arasında | Microsoft Docs"
-description: "Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitleme için azure PowerShell örnek betiği"
+title: PowerShell örneği-SQL Veritabanı ve SQL Server şirket içi arasında eşitleme | Microsoft Docs
+description: Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme için Azure PowerShell örnek betiği
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,23 +17,23 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: a29c8c7fbd583b45849be6fcab046c578dbbb98a
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
-ms.translationtype: MT
+ms.openlocfilehash: 31be6bc80b147e106066c064903c6eb9e1900e12
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma
+# <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell kullanarak bir SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme
 
-Bu PowerShell örnek bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için veri eşitleme yapılandırır. 
+Bu PowerShell örneği, bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme yapmak için Veri Eşitleme’yi (Önizleme) yapılandırır. 
 
-Bu örnek, Azure PowerShell modülü 4.2 veya sonraki bir sürümü gerektiriyor. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Bu örnek için Azure PowerShell modülünün 4.2 veya daha sonraki bir sürümü gerekir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Çalıştırma `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
-SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](../sql-database-sync-data.md).
+SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme) ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](../sql-database-sync-data.md).
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 ```powershell
 # prerequisites: 
@@ -360,50 +360,50 @@ else
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme
 
-Örnek betiği çalıştırma sonra kaynak grubu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırabilirsiniz.
+Örnek betiği çalıştırdıktan sonra kaynak grubunu ve onunla ilişkili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırabilirsiniz.
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
 Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyasını aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her komut.
+Bu betik aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [AzureRmSqlSyncAgent yeni](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Yeni bir eşitleme aracı oluşturur |
-| [AzureRmSqlSyncAgentKey yeni](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Eşitleme Aracı ile ilişkili Aracısı anahtar üretir. |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Eşitleme aracısı için tüm bilgileri alın |
-| [AzureRmSqlSyncMember yeni](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Yeni bir üye eşitleme grubuna Ekle |
-| [Güncelleştirme AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Veritabanı şema bilgileri yeniler |
-| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Veritabanı şema bilgileri alma |
-| [Güncelleştirme AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Eşitleme grubunu güncelleştirir |
-| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Bir eşitleme tetikler |
-| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Eşitleme günlüğü denetler |
+| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Yeni bir Eşitleme Aracısı oluşturur |
+| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Eşitleme Aracısı ile ilişkili aracı anahtarı oluşturur |
+| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Eşitleme Aracısına ait tüm bilgileri alır |
+| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Eşitleme Grubuna yeni bir üye ekler |
+| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Veritabanı şema bilgilerini yeniler |
+| [Get-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchem) |  Veritabanı şema bilgilerini alır |
+| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Eşitleme Grubunu güncelleştirir |
+| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Bir Eşitlemeyi tetikler |
+| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Eşitleme Günlüğünü denetler |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Ek SQL veritabanı PowerShell Betiği örnekleri bulunabilir [Azure SQL veritabanı PowerShell komut dosyalarını](../sql-database-powershell-samples.md).
+Ek SQL Veritabanı PowerShell betiği örnekleri [Azure SQL Veritabanı PowerShell betikleri](../sql-database-powershell-samples.md) içinde bulunabilir.
 
-SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
--   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](../sql-database-sync-data.md)
--   [Azure SQL veri eşitleme ayarı](../sql-database-get-started-sql-data-sync.md)
--   [Azure SQL veri eşitleme için en iyi yöntemler](../sql-database-best-practices-data-sync.md)
--   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](../sql-database-sync-monitor-oms.md)
--   [Azure SQL veri eşitleme ile ilgili sorunları giderme](../sql-database-troubleshoot-data-sync.md)
+-   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](../sql-database-sync-data.md)
+-   [Azure SQL Data Sync’i ayarlama](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync için en iyi yöntemler](../sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync’i OMS Log Analytics ile izleme](../sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync ile ilgili sorun giderme](../sql-database-troubleshoot-data-sync.md)
 
--   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](sql-database-sync-data-between-sql-databases.md)
+-   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](sql-database-sync-data-between-sql-databases.md)
 
--   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-SQL veritabanı hakkında daha fazla bilgi için bkz:
+SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 
--   [SQL veritabanı genel bakış](../sql-database-technical-overview.md)
--   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [SQL Veritabanı'na Genel Bakış](../sql-database-technical-overview.md)
+-   [Veritabanı Yaşam Döngüsü Yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)

@@ -1,8 +1,8 @@
 ---
-title: "İlk Azure Resource Manager şablonunu oluşturma | Microsoft Docs"
-description: "İlk Azure Resource Manager şablonunuzu oluşturmaya yönelik adım adım kılavuz. Şablon oluşturmak için bir depolama hesabına ait şablon başvurusunun nasıl kullanılacağını gösterir."
+title: İlk Azure Resource Manager şablonunu oluşturma | Microsoft Docs
+description: İlk Azure Resource Manager şablonunuzu oluşturmaya yönelik adım adım kılavuz. Şablon oluşturmak için bir depolama hesabına ait şablon başvurusunun nasıl kullanılacağını gösterir.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -10,14 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2017
+ms.date: 03/30/2018
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: adf7d6ad04b9c341eac2172e09da3cb1f044aa62
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>İlk Azure Resource Manager şablonunuzu oluşturma ve dağıtma
 Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adımları gösterilmektedir. Resource Manager şablonları, çözümünüz için dağıtmanız gereken kaynakları tanımlayan JSON dosyalarıdır. Azure çözümlerinizi dağıtma ve yönetmeyle ilgili kavramları anlamak için bkz. [Azure Resource Manager’a genel bakış](resource-group-overview.md). Kaynaklarınız varsa ve bu kaynaklara yönelik bir şablon almak istiyorsanız bkz. [Mevcut kaynaklardan Azure Resource Manager şablonunu dışarı aktarma](resource-manager-export-template.md).
@@ -26,8 +26,9 @@ Bu konu başlığında, ilk Azure Resource Manager şablonunuzu oluşturma adım
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-* Visual Studio Code. Gerekirse, [https://code.visualstudio.com/](https://code.visualstudio.com/) adresinden yükleyin.
+* Visual Studio Code. Gerekirse, [https://code.visualstudio.com/](https://code.visualstudio.com/) içinden yükleyin.
 * Azure aboneliği. Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps) veya [Azure CLI](/cli/azure/install-azure-cli) yerel olarak yüklenir. Şablonunuz yerel dosya olarak kaydedildiğinden, bu öğretici için yerel bir yükleme gerekir. Cloud Shell kullanmak için, [şablonunuzu bir depolama hesabına yüklemeniz](resource-group-template-deploy-cli.md#deploy-template-from-cloud-shell) gerekir.
 
 ## <a name="create-template"></a>Şablon oluşturma
 
@@ -92,24 +93,6 @@ Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerS
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file azuredeploy.json
    ```
-
-Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
-
-Azure CLI için aşağıdaki komutları kullanın:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-```
-
-Şu anda PowerShell, Cloud Shell'de önizleme olarak kullanılabilir. PowerShell için aşağıdaki komutları kullanın:
-
-```powershell
-New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
-```
 
 Dağıtım tamamlandığında, depolama hesabınız kaynak grubunda mevcut olur.
 
@@ -244,12 +227,6 @@ Azure CLI için şunu kullanın:
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
 ```
 
-Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. Var olan dosyanın üzerine yazın. Ardından, aşağıdaki komutu kullanın:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageSKU=Standard_RAGRS storageNamePrefix=newstore
-```
-
 ## <a name="use-autocomplete"></a>Otomatik Tamamlama kullanma
 
 Şablondaki şimdiye kadarki çalışmalarınız bu makaleden JSON kodlarını kopyalamak ve yapıştırmaktan ibaretti. Ancak, kendi şablonlarınızı geliştirirken, kaynak türü için kullanılabilir olan değerleri ve özellikleri bulmanız ve belirtmeniz gerekir. VS Code, şemayı okuyup kaynak türünü bulur ve özellikler ve değerler önerir. Otomatik Tamamlama özelliğini görmek için şablonunuzun özellikler öğesine gidip ve yeni bir satır ekleyin. Tırnak işareti girdiğinizde VS Code hemen özellikler öğesi altında kullanılabilir adları önerir.
@@ -377,12 +354,6 @@ Azure CLI için şunu kullanın:
 
 ```azurecli
 az group deployment create --resource-group examplegroup --template-file azuredeploy.json --parameters storageNamePrefix=storesecure
-```
-
-Cloud Shell için, değiştirdiğiniz şablonu dosya paylaşımına yükleyin. Var olan dosyanın üzerine yazın. Ardından, aşağıdaki komutu kullanın:
-
-```azurecli
-az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageNamePrefix=storesecure
 ```
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme

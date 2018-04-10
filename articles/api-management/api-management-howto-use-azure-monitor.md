@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management’ta yayımlanmış API’leri izleme | Microsoft Docs"
-description: "Azure API Management’ta API’nizi izleme hakkında bilgi edinmek için bu öğreticideki adımları izleyin."
+title: Azure API Management’ta yayımlanmış API’leri izleme | Microsoft Docs
+description: Azure API Management’ta API’nizi izleme hakkında bilgi edinmek için bu öğreticideki adımları izleyin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 445723242a76dcef4a6b137439728235d5d6e32a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 93cbcf91af4ecf9425ed43ade400a0c82cea72d8
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="monitor-published-apis"></a>Yayımlanan API’leri izleme
 
@@ -44,29 +44,6 @@ Aşağıdaki videoda, Azure İzleyici'yi kullanarak API Management’ı izleme i
 + Ayrıca, şu öğreticiyi tamamlayın: [İlk API'nizi içeri aktarma ve yayımlama](import-and-publish.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
-
-## <a name="diagnostic-logs"></a>Etkinlik günlüklerini görüntüleme
-
-Etkinlik günlükleri, API Management hizmetleriniz üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüklerini kullanarak, API Management hizmetleriniz üzerinde gerçekleştirilen herhangi bir yazma işlemi (PUT, POST, DELETE) için "ne, kim ve ne zaman" sorularını yanıtlayabilirsiniz. 
-
-> [!NOTE]
-> Etkinlik günlükleri, okuma (GET) işlemlerini ya da Azure portalında gerçekleştirilen veya özgün Yönetim API’leri kullanan işlemleri içermez.
-
-API Management hizmetinizdeki etkinlik günlüklerine veya Azure İzleyici’deki tüm Azure kaynaklarınızın günlüklerine erişebilirsiniz. 
-
-Etkinlik günlüklerini görüntülemek için:
-
-1. APIM hizmet örneğinizi seçin.
-2. **Etkinlik günlüğü**’ne tıklayın.
-
-## <a name="view-diagnostic-logs"></a>Tanılama günlüklerini görüntüleme
-
-Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar.
-
-Tanılama günlüklerine erişmek için:
-
-1. APIM hizmet örneğinizi seçin.
-2. **Tanılama günlüğü**’ne tıklayın.
 
 ## <a name="view-metrics-of-your-apis"></a>API'lerinizin ölçümlerini görüntüleme
 
@@ -109,6 +86,118 @@ Uyarıları yapılandırmak için:
     > Uyarı kuralı tetiklendiğinde bir Web Kancası veya Azure Mantıksal Uygulaması da çağırabilir.
 
     ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+
+## <a name="activity-logs"></a>Etkinlik Günlükleri
+
+Etkinlik günlükleri, API Management hizmetleriniz üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Etkinlik günlüklerini kullanarak, API Management hizmetleriniz üzerinde gerçekleştirilen herhangi bir yazma işlemi (PUT, POST, DELETE) için "ne, kim ve ne zaman" sorularını yanıtlayabilirsiniz. 
+
+> [!NOTE]
+> Etkinlik günlükleri, okuma (GET) işlemlerini ya da Azure portalında gerçekleştirilen veya özgün Yönetim API’leri kullanan işlemleri içermez.
+
+API Management hizmetinizdeki etkinlik günlüklerine veya Azure İzleyici’deki tüm Azure kaynaklarınızın günlüklerine erişebilirsiniz. 
+
+Etkinlik günlüklerini görüntülemek için:
+
+1. APIM hizmet örneğinizi seçin.
+2. **Etkinlik günlüğü**’ne tıklayın.
+
+## <a name="diagnostic-logs"></a>Tanılama Günlükleri
+
+Tanılama günlükleri, denetim ve sorun giderme konularında önemli işlem ve hatalar hakkında zengin bilgiler sağlar. Tanılama günlükleri, etkinlik günlüklerinden farklıdır. Etkinlik günlükleri, Azure kaynaklarınız üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Tanılama günlükleri, kaynağınızın kendisi tarafından gerçekleştirilen işlemler hakkında bilgi sağlar.
+
+Tanılama günlüklerini yapılandırmak için:
+
+1. APIM hizmet örneğinizi seçin.
+2. **Tanılama günlüğü**’ne tıklayın.
+3. **Tanılamayı aç**’a tıklayın. Tanılama günlüklerini, ölçümlerle birlikte bir depolama hesabına arşivleyebilir, bunları bir Olay Hub’ında akışa alabilir veya Log Analytics’e gönderebilirsiniz. 
+
+API Management şu anda her bir girdi aşağıdaki şemayı içerecek şekilde tek tek API isteğiyle ilgili tanılama günlükleri (saatlik olarak toplanır) sağlar:
+
+```json
+{  
+    "isRequestSuccess" : "",
+    "time": "",   
+    "operationName": "",      
+    "category": "",   
+    "durationMs": ,   
+    "callerIpAddress": "",   
+    "correlationId": "",   
+    "location": "",      
+    "httpStatusCodeCategory": "",      
+    "resourceId": "",      
+    "properties": {   
+        "method": "", 
+        "url": "", 
+        "clientProtocol": "", 
+        "responseCode": , 
+        "backendMethod": "", 
+        "backendUrl": "", 
+        "backendResponseCode": ,
+        "backendProtocol": "",  
+        "requestSize": , 
+        "responseSize": , 
+        "cache": "", 
+        "cacheTime": "", 
+        "backendTime": , 
+        "clientTime": , 
+        "apiId": "",
+        "operationId": "", 
+        "productId": "", 
+        "userId": "", 
+        "apimSubscriptionId": "", 
+        "backendId": "",
+        "lastError": { 
+            "elapsed" : "", 
+            "source" : "", 
+            "scope" : "", 
+            "section" : "" ,
+            "reason" : "", 
+            "message" : ""
+        } 
+    }      
+}  
+```
+
+| Özellik  | Tür | Açıklama |
+| ------------- | ------------- | ------------- |
+| isRequestSuccess | boole | HTTP isteği, 2xx veya 3xx aralığı içinde yanıt durum koduyla tamamlandıysa true olur |
+| time | date-time | Ağ geçidi tarafından HTTP isteğini almaya ilişkin zaman damgası |
+| operationName | string | 'Microsoft.ApiManagement/GatewayLogs' sabit değeri |
+| category | string | 'GatewayLogs' sabit değeri |
+| durationMs | integer | Ağ geçidinin isteği aldığı andan, yanıtın tamamen gönderildiği ana kadar geçen milisaniye cinsinden süre |
+| callerIpAddress | string | İlk Ağ Geçidi çağıranın (bir aracı olabilir) IP adresi |
+| correlationId | string | API Management tarafından atanmış benzersiz http isteği tanımlayıcısı |
+| location | string | İsteği işleyen Ağ Geçidinin bulunduğu Azure bölgesinin adı |
+| httpStatusCodeCategory | string | Http yanıtı durum kodunun kategorisi: Başarılı (301 veya daha küçük ya da 304 veya 307), Yetkisiz (401, 403, 429), Hatalı (400, 500 ve 600 arası), Diğer |
+| resourceId | string | "API Management kaynağının kimliği /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| properties | object | Geçerli isteğin özellikleri |
+| method | string | Gelen isteğin HTTP yöntemi |
+| url | string | Gelen isteğin URL’si |
+| clientProtocol | string | Gelen isteğin HTTP protokolü sürümü |
+| responseCode | integer | Bir istemciye gönderilen HTTP yanıtının durum kodu |
+| backendMethod | string | Arka uca gönderilen isteğin HTTP yöntemi |
+| backendUrl | string | Arka uca gönderilen isteğin URL’si |
+| backendResponseCode | integer | Arka uçtan alınan HTTP yanıtının kodu |
+| backendProtocol | string | Arka uca gönderilen isteğin HTTP protokolü sürümü | 
+| requestSize | integer | İstek işlenirken bir istemciden alınan bayt sayısı | 
+| responseSize | integer | İstek işlenirken bir istemciye gönderilen bayt sayısı | 
+| cache | string | API Management önbelleğinin istek işlemeye katılım durumu (örn. hit, miss, none) | 
+| cacheTime | integer | Genel API Management önbelleği GÇ (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
+| backendTime | integer | Genel arka uç GÇ (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
+| clientTime | integer | Genel istemci GÇ (bağlanma, gönderme ve alma bayt’ları) için harcanan milisaniye sayısı | 
+| apiId | string | Geçerli istek için API varlığı tanımlayıcısı | 
+| operationId | string | Geçerli istek için işlem varlığı tanımlayıcısı | 
+| productId | string | Geçerli istek için ürün varlığı tanımlayıcısı | 
+| userId | string | Geçerli istek için kullanıcı varlığı tanımlayıcısı | 
+| apimSubscriptionId | string | Geçerli istek için abonelik varlığı tanımlayıcısı | 
+| backendId | string | Geçerli istek için arka uç varlığı tanımlayıcısı | 
+| LastError | object | Son istek işleme hatası | 
+| elapsed | integer | Ağ Geçidinin isteği aldığı andan, hatanın oluştuğu ana kadar geçen milisaniye cinsinden süre | 
+| source | string | İlke veya işleme iç işleyicisinin adı hataya neden oldu | 
+| scope | string | Hataya neden olan ilkeyi içeren ilke belgesinin kapsamı | 
+| section | string | Hataya neden olan ilkeyi içeren ilke belgesinin bölümü | 
+| reason | string | Hata nedeni | 
+| message | string | Hata iletisi | 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
