@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2018
+ms.date: 03/26/2018
 ms.author: richrund; bwren
-ms.openlocfilehash: 23e4b7c74e6dfb88ec6ec50d5b8ae6d8288223f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 434cbdca42e4287a0f3d7e3960bc0baa373bc358
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 03/30/2018
 ---
 # <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions"></a>Abonelikler arasında Azure Etkinlik Günlüklerini Log Analytics'e toplama
 
@@ -324,15 +324,15 @@ Her adımla ilgili ayrıntılı bilgileri görmek için, adım adına tıklayara
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>5. Adım - Log Analytics'de Azure Etkinlik Günlüğü'nü görüntüleme
 Son adım Log Analytics çalışma alanını denetleyip verilerin beklendiği gibi toplandığından emin olmaktır.
 
-1. Azure Portal'da **Log Analytics**'i seçin.
-2. Çalışma alanınızı ve ardından **Günlük Araması** kutucuğunu seçin.
-3. Arama sorgu çubuğunda `AzureActivity_CL` yazın ve arama düğmesine tıklayın. Özel günlüğünüze *AzureActivity* adını vermediyseniz, seçtiğiniz adı yazın ve sonuna `_CL` ekleyin.
+1. Azure portalının sol alt köşesinde bulunan **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+2. Log Analytics çalışma alanlarınızın listesinde çalışma alanınızı seçin.
+3.  **Günlük Araması** kutucuğuna tıklayın ve Günlük Araması bölmesinde, sorgu alanında `AzureActivity_CL` yazıp Enter tuşuna basın veya sorgu alanının sağındaki arama düğmesine tıklayın. Özel günlüğünüze *AzureActivity* adını vermediyseniz, seçtiğiniz adı yazın ve sonuna `_CL` ekleyin.
 
 >[!NOTE]
 > Yeni özel günlük Log Analytics'e ilk kez gönderildiğinde, özel günlüğün arama yapılabilir duruma gelmesi bir saat kadar sürebilir.
 
 >[!NOTE]
-> Etkinlik günlükleri özel tabloya yazılır ve [Etkinlik Günlüğü çözümünde](./log-analytics-activity.md) gösterilmez.
+> Etkinlik günlükleri bir özel tabloya yazılır ve [Etkinlik Günlüğü çözümünde](./log-analytics-activity.md) görüntülenmez.
 
 
 ![Mantıksal uygulamayı test etme](media/log-analytics-activity-logs-subscriptions/log-analytics-results.png)

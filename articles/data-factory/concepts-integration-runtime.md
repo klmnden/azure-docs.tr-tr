@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 88475c169bd6cc8fc4d653801ec1af58ebc7620e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory'deki tümleştirme çalışma zamanı
 Integration Runtime (IR), Azure Data Factory tarafından farklı ağ ortamlarında aşağıdaki veri tümleştirme özelliklerini sunmak için kullanılan işlem altyapısıdır:
@@ -94,14 +94,14 @@ Var olan SSIS iş yükünü artırmak ve değiştirmek için Azure-SSIS IR oluş
 Azure-SSIS IR ortak ağ veya özel ağ üzerinde sağlanabilir.  Şirket içi verilere erişim için Azure-SSIS IR'nin şirket içi ağınıza bağlı bir Sanal Ağa katılması gerekir.  
 
 ### <a name="compute-resource-and-scaling"></a>İşlem kaynağı ve ölçeklendirme
-Azure-SSIS IR, SSIS paketlerinizi çalıştırmaya ayrılmış Azure sanal makinelerinin tam yönetilen bir kümesidir. Kendi Azure SQL Veritabanı veya Yönetilen Örneği (özel önizleme) sunucunuzu kullanarak eklenecek SSIS projelerini/paketlerini (SSISDB) barındırmasını sağlayabilirsiniz. Düğüm boyutunu belirttikten sonra kümedeki düğüm sayısını belirtik ölçeğini genişleterek işlem gücünü artırabilirsiniz. Azure-SSIS Integration Runtime hizmetini gerekli olduğunda durdurup başlatarak çalıştırma maliyetlerini kontrol altına alabilirsiniz.
+Azure-SSIS IR, SSIS paketlerinizi çalıştırmaya ayrılmış Azure sanal makinelerinin tam yönetilen bir kümesidir. Kendi Azure SQL Veritabanı veya Yönetilen Örneği (Önizleme) sunucunuzu kullanarak eklenecek SSIS projelerini/paketlerini (SSISDB) barındırmasını sağlayabilirsiniz. Düğüm boyutunu belirttikten sonra kümedeki düğüm sayısını belirtik ölçeğini genişleterek işlem gücünü artırabilirsiniz. Azure-SSIS Integration Runtime hizmetini gerekli olduğunda durdurup başlatarak çalıştırma maliyetlerini kontrol altına alabilirsiniz.
 
 Daha fazla bilgi için nasıl yapılır kılavuzlarında Azure SSIS IR oluşturma ve yapılandırma makalesine bakın.  Oluşturduktan sonra var olan SSIS paketlerinizi çok az veya sıfır değişiklikle SQL Server Veri Araçları (SSDT) ve SQL Server Management Studio (SSMS) gibi bilinen araçları kullanarak şirket içi SSIS kullanır gibi dağıtabilir ve yönetebilirsiniz.
 
 Azure-SSIS çalışma zamanı hakkında daha fazla bilgi için aşağıdaki makalelere bakın: 
 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (özel önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (Önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
 - [Azure-SSIS IR’yi izleme](monitor-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede bir Azure-SSIS IR ile ilgili bilgileri ve döndürülen bilgilerdeki durumların açıklamalarını alma işlemi gösterilmektedir. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, IR’ye daha fazla düğüm ekleyerek Azure-SSIS IR’nizi ölçeklendirmeyi gösterir. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına (VNet) ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure portalını kullanarak Azure-SSIS IR’nin sanal ağa katılmasını sağlayacak şekilde sanal ağı yapılandırma adımları sunar. 
@@ -178,13 +178,13 @@ Kendinden konak IR veri taşıma işlemini gerçekleştirmek için kullanıldı�
 ### <a name="azure-ssis-ir"></a>Azure-SSIS IR
 Ayıklama, dönüştürme, yükleme (ETL) iş akışlarınızda yüksek performansa ulaşmak için doğru Azure-SSIS IR konumunu seçmek önemlidir.  Önizleme sürümünde altı konum (Doğu ABD, Doğu ABD 2, Orta ABD, Avustralya Doğu, Kuzey Avrupa ve Batı Avrupa) kullanılabilir.
 
-- Azure-SSIS IR konumunun veri fabrikası konumu ile aynı olması gerekmez ancak SSISDB'nin barındırılacağı Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucusunun konumuyla aynı olmalıdır. Bu şekilde Azure-SSIS Integration Runtime biriminiz farklı konumlar arasında aşırı trafik oluşturmadan kolayca SSISDB öğesine erişebilir.
-- SSISDB'yi barındırmak için var olan bir Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucunuz yoksa ancak şirket içi veri kaynaklarınız/hedeflerini varsa şirket içi ağınıza bağlı sanal ağ ile aynı konumda yeni bir Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucusu oluşturmanız gerekir.  Bu şekilde Azure-SSIS IR öğenizi yeni Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucunu kullanarak oluşturabilir ve tümünü aynı konumdaki sanal ağa ekleyerek farklı konumlar arasında veri taşıma sayısını en aza indirebilirsiniz.
-- SSISDB'nin barındırıldığı var olan Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucunuzun konumu şirket içi ağınıza bağlı özel ağın konumuyla aynı değilse öncelikle var olan bir Azure SQL Veritabanı/Yönetilen Örnek (özel önizleme) sunucusunu kullanarak Azure SSIS IR öğenizi oluşturup aynı konumdaki başka bir sanal ağa ekleyin ve ardından iki konumdaki sanal ağlar arasında bağlantı yapılandırması gerçekleştirin.
+- Azure-SSIS IR konumunun veri fabrikası konumu ile aynı olması gerekmez ancak SSISDB'nin barındırılacağı Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucusunun konumuyla aynı olmalıdır. Bu şekilde Azure-SSIS Integration Runtime biriminiz farklı konumlar arasında aşırı trafik oluşturmadan kolayca SSISDB öğesine erişebilir.
+- SSISDB'yi barındırmak için var olan bir Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucunuz yoksa ancak şirket içi veri kaynaklarınız/hedeflerini varsa şirket içi ağınıza bağlı sanal ağ ile aynı konumda yeni bir Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucusu oluşturmanız gerekir.  Bu şekilde Azure-SSIS IR öğenizi yeni Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucunu kullanarak oluşturabilir ve tümünü aynı konumdaki sanal ağa ekleyerek farklı konumlar arasında veri taşıma sayısını en aza indirebilirsiniz.
+- SSISDB'nin barındırıldığı var olan Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucunuzun konumu şirket içi ağınıza bağlı özel ağın konumuyla aynı değilse öncelikle var olan bir Azure SQL Veritabanı/Yönetilen Örnek (Önizleme) sunucusunu kullanarak Azure SSIS IR öğenizi oluşturup aynı konumdaki başka bir sanal ağa ekleyin ve ardından iki konumdaki sanal ağlar arasında bağlantı yapılandırması gerçekleştirin.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki makalelere bakın:
 
 - [Kendinden konak tümleştirme çalışma zamanı oluşturma](create-self-hosted-integration-runtime.md)
-- [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (özel önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
+- [Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (Önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 

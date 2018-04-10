@@ -1,106 +1,104 @@
 ---
-title: "Azure IOT Hub cihaz sağlama hizmeti ile bir cihaz hazırlayın | Microsoft Docs"
-description: "Cihazınızı Azure IOT Hub cihaz sağlama hizmeti ile tek bir IOT hub'ına sağlama"
+title: Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak cihaz sağlama | Microsoft Docs
+description: Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak tek bir IoT hub’a cihazınızı sağlama
 services: iot-dps
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 03/28/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 4d98ce103bed7f9d14eb45422b70ceca1328afaa
+ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 03/30/2018
 ---
-# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile bir IOT hub'ına cihaz hazırlayın
+# <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak bir IoT hub’a cihazı sağlama
 
-Önceki öğreticide, bir aygıtı Aygıt sağlama hizmete bağlanmak için ayarlama öğrendiniz. Bu öğreticide, tek bir IOT hub aygıtınıza sağlamak için bu hizmeti kullanmak nasıl öğreneceksiniz kullanarak  **_kayıt listeleri_**. Bu öğretici şunların nasıl yapıldığını gösterir:
+Önceki öğreticide, Cihaz Sağlama hizmetine bağlanmak için bir cihazın nasıl ayarlanacağını öğrendiniz. Bu öğreticide, **_kayıt listelerini_** kullanarak, tek bir IoT hub’a cihazınızı sağlamak için bu hizmetin nasıl kullanılacağını öğreneceksiniz. Bu öğretici şunların nasıl yapıldığını gösterir:
 
 > [!div class="checklist"]
-> * Cihaz kaydı
-> * Cihaz Başlat
-> * Cihaz kayıtlı doğrulayın
+> * Cihazı kaydedin
+> * Cihazı başlatın
+> * Cihaz kayıtlı olduğunu doğrulayın
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Devam etmeden önce Cihazınızı yapılandırdığınızdan emin olun ve kendi *donanım güvenlik modülü* öğreticide anlatıldığı gibi [Azure IOT Hub cihaz sağlama hizmeti ile sağlamak için bir aygıtı ayarlama](./tutorial-set-up-device.md).
+Devam etmeden önce, [Azure IoT Hub Cihazı Sağlama Hizmeti’ni kullanarak bir cihazı sağlamak üzere ayarlama](./tutorial-set-up-device.md) öğreticisinde açıklandığı gibi cihazınızı yapılandırdığınızdan emin olun.
 
+Otomatik sağlama işlemini bilmiyorsanız, devam etmeden önce [Otomatik sağlama kavramlarını](concepts-auto-provisioning.md) gözden geçirdiğinizden emin olun.
 
 <a id="enrolldevice"></a>
-## <a name="enroll-the-device"></a>Cihaz kaydı
+## <a name="enroll-the-device"></a>Cihazı kaydedin
 
-Bu adım, cihazın benzersiz güvenlik yapıları sağlama cihazı hizmetine ekleme içerir. Bu güvenlik yapıtların aşağıdaki gibidir:
+Bu adım, cihazın benzersiz güvenlik yapılarının Cihaz Sağlama Hizmeti’ne eklenmesini kapsar. Bu güvenlik yapıları, aşağıdaki gibi cihazın [Kanıtlama mekanizması](concepts-device.md#attestation-mechanism)’nı temel alır:
 
-- TPM tabanlı cihazlar için:
-    - *Onay anahtarını* her TPM yongası veya benzetimi benzersiz. Okuma [anlamak TPM onay anahtarını](https://technet.microsoft.com/library/cc770443.aspx) daha fazla bilgi için.
-    - *Kayıt kimliği* ad/kapsamında bir cihazı benzersiz olarak tanımlamak için kullanılır. Bu olabilir veya cihaz kimliği ile aynı olamaz Kimliği her aygıt için zorunludur. TPM tabanlı cihazlar için kayıt kimliği TPM kendisini, örneğin, bir SHA-256 karmasını TPM onay anahtarını türetilmiş olmalıdır.
+- TPM tabanlı cihazlar için şunlar gerekir:
+    - TPM yongası veya simülasyonu için benzersiz olan, TPM yonga üreticisinden alınan *Onay Anahtarı*.  Daha fazla bilgi için [TPM Onay Anahtarını Anlama](https://technet.microsoft.com/library/cc770443.aspx) bölümünü okuyun.
+    - Ad alanındaki/kapsamdaki bir cihazı benzersiz şekilde tanımlamak için kullanılan *Kayıt Kimliği*. Bu kimlik, cihaz kimliğiyle aynı olabilir veya olmayabilir. Kimlik her cihaz için zorunludur. TPM tabanlı cihazlar için kayıt kimliği, TPM’den türetilebilir; örneğin, TPM Onay Anahtarının SHA-256 karması.
 
-    ![Portal TPM için kayıt bilgileri](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
+    ![Portalda TPM için kayıt bilgileri](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)
 
-- X.509 tabanlı cihazlar için:
-    - [X.509 sertifikası](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) yonga veya ya da biçiminde benzetimi bir *.pem* veya *.cer* dosya. Tek tek kayıt için kullanmanız gerekir. *imzalayan sertifika* X.509 sisteminiz için kayıt gruplarının karşın, kullanmanız gereken *kök sertifika*.
+- X.509 tabanlı cihazlar için şunlar gerekir:
+    - *.pem* veya *.cer* dosyası şeklinde [X.509 yongasına ya da simülasyonuna düzenlenen sertifika](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx). Bireysel kayıt için, X.509 sisteminiz için cihaz başına *imzalayan sertifikayı* kullanmanız, kayıt grupları içinse *kök sertifika* kullanmanız gerekir. 
 
-    ![Portal X.509 için kayıt bilgileri](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
+    ![Portalda X.509 için kayıt bilgileri](./media/tutorial-provision-device-to-hub/x509-device-enrollment.png)
 
+Cihaz Sağlama Hizmeti’ne cihazı kaydetmenin iki yolu vardır:
 
-Cihaz sağlama hizmetine cihazı kaydetmek için iki yolu vardır:
+- **Kayıt Grupları** Bu, belirli bir kanıtlama mekanizmasını paylaşan bir aygıt grubunu temsil eder. İstenen bir ilk yapılandırmayı paylaşan çok sayıda cihaz için veya aynı kiracıya giden tüm cihazlar için bir kayıt grubu kullanılmasını öneririz.
 
-- **Kayıt grupları** bu belirli kanıtlama mekanizması paylaşan aygıtları grubunu temsil eder. Çok sayıda istenen ilk yapılandırma paylaşmak, cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz.
+    ![Portalda X.509 için Kayıt Grupları](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
 
-    ![X.509 portalı için kayıt grupları](./media/tutorial-provision-device-to-hub/x509-enrollment-groups.png)
+- **Bireysel Kayıtlar** Bu, Cihaz Sağlama Hizmeti’ne kaydolabilecek tek bir cihaz için bir girdiyi temsil eder. Bireysel kayıtlar, kanıtlama mekanizması olarak x509 sertifikalarını veya SAS belirteçlerini (gerçek ya da sanal TPM’de) kullanabilir. Benzersiz ilk yapılandırma gerektiren cihazlar için veya kanıtlama mekanizması olarak TPM ya da sanal TPM aracılığıyla yalnızca SAS belirteçlerini kullanabilen cihazlar için bireysel kayıtların kullanılmasını öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
 
-- **Tek tek kayıtları** bu cihaz sağlama hizmeti ile kaydedebilir tek bir cihaz için bir giriş temsil eder. Tek tek kayıtları ya da x509 kullanabilir sertifikalar veya SAS belirteçleri (gerçek veya sanal TPM'de) kanıtlama mekanizmaları. Benzersiz başlangıç yapılandırmasını gerektiren cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Tek tek kayıtları, belirtilen istenen IOT hub cihaz kimliği olabilir.
+Şimdi cihazın kanıtlama mekanizmasına dayalı olarak gerekli güvenlik yapılarını kullanarak Cihaz Sağlama Hizmeti örneğinize cihazı kaydedersiniz: 
 
-Cihaz portalında kaydetme adımları şunlardır:
+1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar** düğmesine tıklayın ve Cihaz Sağlama hizmetinizi açın.
 
-1. HSM aygıtınızda için güvenlik yapıları unutmayın. Başlıklı bölümde belirtilen API'lerini kullanmanız gerekebilir [ayıklamak güvenlik yapıları](./tutorial-set-up-device.md#extractsecurity) önceki öğreticinin bir geliştirme ortamı.
+2. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. Cihaz kurulumunuza göre **Bireysel Kayıtlar** sekmesini veya **Kayıt Grupları** sekmesini seçin. Üstteki **Ekle** düğmesine tıklayın. Kimlik kanıtlama *Mekanizması* olarak **TPM** veya **X.509** seçeneğini belirleyin ve önceden açıklandığı şekilde uygun güvenlik yapılarını girin. Yeni bir **IoT Hub cihaz kimliği** girebilirsiniz. Tamamlandığında **Kaydet** düğmesine tıklayın. 
 
-1. Azure portalında oturum açın, sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve Cihaz Sağlama hizmetinizi açın.
+3. Cihaz başarıyla kaydedildiğinde cihazın portalda şu şekilde görüntülendiğini görmeniz gerekir:
 
-1. Cihaz Sağlama Hizmeti özet dikey penceresinde, **Kayıtları yönet**’i seçin. Şunlardan birini seçin **tek tek kayıtları** sekmesini veya **kayıt grupları** sekmesi, cihaz Kurulumu göredir. Tıklatın **Ekle** üstündeki düğmesi. Seçin **TPM** veya **X.509** kimlik kanıtı olarak *mekanizması*ve daha önce açıklandığı gibi uygun güvenlik yapıları girin. Yeni bir girebilirsiniz **IOT Hub cihaz kimliği**. Tamamlandığında **Kaydet** düğmesine tıklayın. 
+    ![Portalda başarılı TPM kaydı](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
 
-1. Cihaz başarıyla kaydedildiğinde görüntülenen aşağıdaki olarak Portalı'nda görmeniz gerekir:
+Kayıttan sonra sağlama hizmeti, cihazın önyüklenmesini ve daha sonra buna bağlanmasını bekler. Cihazınız ilk kez önyüklendiğinde, istemci SDK’sı kitaplığı, cihazdaki güvenlik yapılarını ayıklamak için yonganız ile etkileşime geçer ve Cihaz Sağlama hizmetinize kaydı doğrular. 
 
-    ![TPM kayıt Portalı'nda](./media/tutorial-provision-device-to-hub/tpm-enrollment-success.png)
+## <a name="start-the-device"></a>Cihazı başlatın
 
+Bu noktada, aşağıdaki kurulum cihaz kaydı için hazırdır:
 
-## <a name="start-the-device"></a>Cihaz Başlat
+1. Cihazınız veya cihaz grubunuz, Cihaz Sağlama hizmetinize kaydolur ve 
+2. Cihazınız, yapılandırılan kanıtlama mekanizmasına hazır olur ve Cihaz Sağlama Hizmeti istemci SDK’sı kullanılarak uygulamadan cihaza erişilebilir.
 
-Bu noktada, aşağıdaki Kurulum cihaz kaydı için hazır:
+İstemci uygulamanızın, Cihaz Sağlama hizmetinize kaydı başlatmasını sağlamak için cihazı başlatın.  
 
-1. Cihaz veya cihaz grubu cihaz sağlamayı hizmetinize kaydedilen ve 
-2. Cihazınızı HSM yonga yapılandırıldı ve cihaz sağlama hizmeti istemci SDK'sını kullanarak uygulama üzerinden erişilebilir ile hazırdır.
+## <a name="verify-the-device-is-registered"></a>Cihaz kayıtlı olduğunu doğrulayın
 
-Cihazı Cihaz sağlamayı hizmetiniz ile kaydı'nı başlatmak istemci uygulamanızı başlatın.  
+Cihazınız önyüklendikten sonra aşağıdaki eylemler gerçekleşmelidir. Daha fazla bilgi için [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) TPM simülatör örnek uygulamasına bakın. 
 
+1. Cihaz, Cihaz Sağlama hizmetinize bir kayıt isteği gönderir.
+2. TPM cihazları için Cihaz Sağlama Hizmeti bir kayıt sınaması gönderir ve cihazınız da buna yanıt verir. 
+3. Kayıt başarılı olduğunda Cihaz Sağlama hizmeti, IoT hub URI’sini, cihaz kimliğini ve şifrelenmiş anahtarı cihaza geri gönderir. 
+4. Sonra cihazdaki IoT Hub istemci uygulaması, hub’ınıza bağlanır. 
+5. Hub’a başarılı bağlantı gerçekleştiğinde, IoT hub’ın **Cihaz Gezgini**’nde cihazın görünmesi gerekir. 
 
-## <a name="verify-the-device-is-registered"></a>Cihaz kayıtlı doğrulayın
-
-Bir kez, cihaz önyüklemesinde, aşağıdaki eylemleri gerçekleşmesi. TPM simulator örnek bir uygulama bkz [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) daha fazla ayrıntı için. 
-
-1. Aygıtın aygıt sağlama hizmetinize bir kayıt isteği gönderir.
-2. TPM aygıtları için aygıt hizmeti sağlama Cihazınızı yanıt vereceği bir kayıt sınama geri gönderir. 
-3. Başarılı kaydı üzerinde aygıt hizmeti sağlama IOT hub'ı URI, cihaz kimliği ve şifrelenmiş anahtar cihaza geri gönderir. 
-4. IOT Hub istemci uygulaması cihazda ardından hub'ınıza bağlanır. 
-5. Hub'ına başarılı bağlantı üzerine IOT hub ' ın görünür aygıt görmelisiniz **aygıt Explorer**. 
-
-    ![Hub'ına Portalı'nda başarılı bağlantı](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+    ![Portalda hub ile başarılı bağlantı](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Cihaz kaydı
-> * Cihaz Başlat
-> * Cihaz kayıtlı doğrulayın
+> * Cihazı kaydedin
+> * Cihazı başlatın
+> * Cihaz kayıtlı olduğunu doğrulayın
 
-Yük dengeli hubs arasında birden çok aygıt sağlama konusunda bilgi almak için sonraki öğretici ilerleyin. 
+Yük dengeli hublar arasında birden çok cihaz sağlamayı öğrenmek için sonraki öğreticiye ilerleyin. 
 
 > [!div class="nextstepaction"]
-> [Yük dengeli IOT hub'ları aygıtlarda sağlama](./tutorial-provision-multiple-hubs.md)
+> [Yük dengeli IoT hubları arasında cihaz sağlama](./tutorial-provision-multiple-hubs.md)

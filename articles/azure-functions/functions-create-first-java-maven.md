@@ -11,14 +11,14 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 04/02/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 81d9d8790a750f34133f3f00dafc15c56185d7b1
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java ve Maven (Önizleme) ile ilk işlevinizi oluşturma
 
@@ -45,7 +45,7 @@ Java ile işlev uygulamaları geliştirebilmeniz için şunlar yüklü olmalıd�
 
 [Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools), Azure İşlevleri yazmak, çalıştırmak ve bunların hatalarını ayıklamak için yerel bir geliştirme ortamı sağlar. 
 
-Yüklemek için, [Yükleme](https://github.com/azure/azure-functions-core-tools#installing) bölümünü ziyaret edin ve tercih ettiğiniz işletim sistemine (Windows, Linux, Mac) yönelik özel yönergeleri bulun.
+Yüklemek için, Azure İşlevleri Çekirdek Araçları projesinin [Yükleme](https://github.com/azure/azure-functions-core-tools#installing) bölümünü ziyaret ederek işletim sisteminize yönelik yönergeleri bulun.
 
 Aşağıdaki gereksinimleri yükledikten sonra bunu, [Node.js](https://nodejs.org/) ile birlikte sunulan [npm](https://www.npmjs.com/) ile ayrıca kendiniz yükleyebilirsiniz:
 
@@ -82,6 +82,8 @@ mvn archetype:generate ^
 
 Maven, proje oluşturma işleminin tamamlanması için gereken değerleri ister. _groupId_, _artifactId_ ve _version_ değerleri için [Maven adlandırma kuralları](https://maven.apache.org/guides/mini/guide-naming-conventions.html) başvurusuna bakın. _appName_ değerinin Azure genelinde benzersiz olması gerektiğinden, Maven bir varsayılan olarak daha önce girilen _artifactId_’yi temel alarak bir uygulama adı oluşturur. _packageName_ değeri, oluşturulan işlev kodu için Java paketini belirler.
 
+Aşağıdaki `com.fabrikam.functions` ve `fabrikam-functions` tanımlayıcıları, örnek olarak ve bu hızlı başlangıcın ilerleyen kısımlarındaki adımların okunmasını kolaylaştırmak için kullanılır. Bu adımda Maven’e kendi değerlerinizi sağlamanız önerilir.
+
 ```Output
 Define value for property 'groupId': com.fabrikam.functions
 Define value for property 'artifactId' : fabrikam-functions
@@ -91,7 +93,7 @@ Define value for property 'appName' fabrikam-functions-20170927220323382:
 Confirm properties configuration: Y
 ```
 
-Maven, _artifactId_ adlı yeni bir dosyada proje dosyalarını oluşturur. Projede oluşturulan bu kod, isteğin gövdesini yankılayan [HTTP tetiklemeli](/azure/azure-functions/functions-bindings-http-webhook) basit bir işlevdir:
+Maven, şu örnekte _artifactId_ adlı yeni bir klasörde proje dosyalarını oluşturur: `fabrikam-functions`. Projedeki çalıştırılmaya hazır olarak oluşturulan bu kod, isteğin gövdesini yankılayan [HTTP tetiklemeli](/azure/azure-functions/functions-bindings-http-webhook) basit bir işlevdir:
 
 ```java
 public class Function {
@@ -133,7 +135,7 @@ mvn azure-functions:run
 > [!NOTE]
 > Java 9 ile `javax.xml.bind.JAXBException` özel durumunu yaşıyorsanız, [GitHub](https://github.com/jOOQ/jOOQ/issues/6477)’daki geçici çözüme bakın.
 
-İşlev çalışırken bu çıktıyı görürsünüz:
+İşlev sisteminizde yerel olarak çalıştırılırken ve HTTP isteklerine yanıt vermeye hazır olduğunda şu çıktıyı görürsünüz:
 
 ```Output
 Listening on http://localhost:7071
@@ -144,7 +146,7 @@ Http Functions:
    hello: http://localhost:7071/api/hello
 ```
 
-Komut satırından yeni bir terminalde curl kullanarak işlevi tetikleyin:
+Yeni bir terminal penceresinde curl kullanarak komut satırından işlevi tetikleyin:
 
 ```
 curl -w '\n' -d LocalFunction http://localhost:7071/api/hello
@@ -158,10 +160,15 @@ Hello LocalFunction!
 
 ## <a name="deploy-the-function-to-azure"></a>İşlevi Azure’a dağıtma
 
-Azure İşlevleri’ne dağıtım işlemi, Azure CLI’dan hesap kimlik bilgilerini kullanır. [Azure CLI ile oturum açın](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) ve sonra `azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın.
+Azure İşlevleri’ne dağıtım işlemi, Azure CLI’dan hesap kimlik bilgilerini kullanır. Devam etmeden önce [Azure CLI ile oturum açın](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+
+```azurecli
+az login
+```
+
+`azure-functions:deploy` Maven hedefini kullanarak kodunuzu yeni bir İşlev uygulamasına dağıtın.
 
 ```
-az login
 mvn azure-functions:deploy
 ```
 
@@ -175,7 +182,7 @@ Dağıtım tamamlandığında, Azure işlev uygulamanıza erişmek için kullana
 [INFO] ------------------------------------------------------------------------
 ```
 
-Azure’da çalışan işlev uygulamasını curl kullanarak test edin:
+Azure’da çalışan işlev uygulamasını `cURL` kullanarak test edin. Önceki adımdan kendi işlev uygulamanız için dağıtılan URL ile eşleşmek üzere aşağıdaki örnekten URL’yi değiştirmeniz gerekir.
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

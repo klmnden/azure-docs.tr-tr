@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 03/16/2018
+ms.date: 03/29/2018
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: 7c51a2a1cace89305b971d5fb0f56c360cbf93cb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f47d250bbe6689e19dda5042b335ff1812a790d4
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>Öğretici: MongoDB API’sini kullanarak Azure Cosmos DB’yi sorgulama
 
@@ -30,6 +30,10 @@ Bu makale aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * MongoDB ile verileri sorgulama
+
+MongoDB sorgulama hakkında Azure Cosmos DB Program Yöneticisi Andy Hoh ile bu videoyu izleyerek çalışmaya başlayabilirsiniz:
+
+>[!VIDEO https://www.youtube.com/tVk8S7lFWMA]
 
 ## <a name="sample-document"></a>Örnek belge
 
@@ -300,7 +304,7 @@ Sonraki sorgu, çocuk dizisi boyutu 3 olan tüm aileleri döndürür.
 
 **Sonuçlar**
 
-2'den fazla çocuğumuz olmadığından bir sonuç döndürülmez. Yalnızca parametre 2 olduğunda bu sorgu başarılı olur ve tam belgeyi döndürür.
+İkiden fazla çocuğu olan bir aile olmadığından herhangi bir sonuç döndürülmez. Yalnızca parametre 2 olduğunda bu sorgu başarılı olur ve tam belgeyi döndürür.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

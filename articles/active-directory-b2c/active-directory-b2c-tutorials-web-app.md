@@ -8,11 +8,11 @@ ms.date: 1/23/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory-b2c
-ms.openlocfilehash: c2a52a387860de640e290746b25c164090819654
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19629f383bdab19a2541ca33dd2937574c2ced17
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="tutorial-authenticate-users-with-azure-active-directory-b2c-in-an-aspnet-web-app"></a>Öğretici: Bir ASP.NET web uygulamasında Azure Active Directory B2C ile kullanıcıların kimliğini doğrulama
 
@@ -66,7 +66,7 @@ Kayıtlı uygulamalar Azure AD B2C kiracısı için uygulamalar listesinde gör�
 
 ### <a name="create-a-client-password"></a>İstemci parolası oluşturma
 
-Azure AD B2C, [istemci uygulamaları](../active-directory/develop/active-directory-dev-glossary.md#client-application) için OAuth2 kimlik doğrulaması kullanır. Web uygulamaları [gizli istemciler](../active-directory/develop/active-directory-dev-glossary.md#web-client) olduğundan bir gizli anahtar (parola) gerektirir. Web uygulaması Azure Active Directory ile kimlik doğrulaması yaparken uygulama istemci kimliği ve gizli anahtar kullanılır. 
+Azure AD B2C, [istemci uygulamaları](../active-directory/develop/active-directory-dev-glossary.md#client-application) için OAuth2 kimlik doğrulaması kullanır. Web uygulamaları [gizli istemciler](../active-directory/develop/active-directory-dev-glossary.md#web-client) olup istemci kimliği veya uygulama kimliği ve gizli anahtar, istemci parolası ya da uygulama anahtarı gerektirir.
 
 1. Kayıtlı web uygulaması için Anahtarlar sayfasını seçin ve **Anahtar oluştur**’a tıklayın.
 
@@ -150,7 +150,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 **Örnek web API’si uygulaması (TaskService):** Görev listesi oluşturma, okuma, güncelleştirme ve silme işlevlerini destekleyen web API’si. Web API’si Azure AD B2C tarafından korunur ve web uygulaması tarafından çağrılır.
 
-Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz gerekir. Ayrıca oluşturduğunuz ilkeleri yapılandırmanız gerekir. Örnek web uygulaması, yapılandırma değerlerini Web.config dosyasındaki uygulama ayarları olarak tanımlar. Uygulama ayarlarını değiştirmek için:
+İstemci kimliğini veya uygulama kimliğini ve istemci parolasını ya da uygulama anahtarını içeren kiracınızdaki uygulama kaydını kullanmak için uygulamayı değiştirmeniz gerekir. Ayrıca oluşturduğunuz ilkeleri yapılandırmanız gerekir. Örnek web uygulaması, yapılandırma değerlerini Web.config dosyasındaki uygulama ayarları olarak tanımlar. Uygulama ayarlarını değiştirmek için:
 
 1. **B2C-WebAPI-DotNet** çözümünü Visual Studio’da açın.
 
@@ -161,7 +161,7 @@ Kiracınızda uygulama kaydını kullanmak için uygulamayı değiştirmeniz ger
     
     <add key="ida:ClientId" value="The Application ID for your web app registered in your tenant" />
     
-    <add key="ida:ClientSecret" value="Client password (client secret)" />
+    <add key="ida:ClientSecret" value="Client password (client secret or app key)" />
     ```
 3. İlke ayarlarını, ilkelerinizi oluştururken oluşturulan ad ile güncelleştirin.
 

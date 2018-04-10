@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 227ca3533c7a06b726c758be931df8ec0314e90f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7331c3385f70de7d13895fc88d1d8630af4e9b05
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -47,10 +47,10 @@ Gerekenler:
 ## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. Projenize Java için Application Insights SDK’sı ekleme
 *Projeniz için uygun yolu seçin.*
 
-#### <a name="if-youre-using-eclipse-to-create-a-maven-or-dynamic-web-project-"></a>Maven veya Dinamik Web projesi oluşturmak için Eclipse kullanıyorsanız...
+#### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project"></a>Dinamik Web projesi oluşturmak için Eclipse kullanıyorsanız...
 [Java eklentisi için Application Insights SDK'sı][eclipse] kullanın.
 
-#### <a name="if-youre-using-maven"></a>Maven kullanıyorsanız...
+#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Maven kullanıyorsanız... <a name="maven-setup" />
 Projenizi derleme için zaten Maven kullanmak üzere ayarlanmışsa aşağıdaki kodu pom.xml dosyanızla birleştirin.
 
 Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yenileyin.
@@ -75,15 +75,15 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
     </dependencies>
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>2.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitemizde bulacaksınız.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `<version>2.0.n</version>` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
 * *Yeni SDK’ye mi güncelleştirmeniz gerekiyor?* Proje bağımlılıklarınızı yenileyin.
 
-#### <a name="if-youre-using-gradle"></a>Gradle kullanıyorsanız...
+#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Gradle kullanıyorsanız... <a name="gradle-setup" />
 Projenizi derleme için zaten Gradle kullanmak üzere ayarlanmışsa aşağıdaki kodu build.gradle dosyanızla birleştirin.
 
 Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yenileyin.
 
-```JSON
+```gradle
 
     repositories {
       mavenCentral()
@@ -95,27 +95,24 @@ Daha sonra, proje bağımlılıklarını ikili dosyaları indirmek için yeniley
     }
 ```
 
-* *Derleme veya sağlama toplamı doğrulama hataları mı var? `version:'2.0.n'` gibi belirli bir sürümü kullanmayı deneyin*. *En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) bulabilirsiniz.*
-* *Yeni SDK’ya güncelleştirmek için*
-  * Proje bağımlılıklarınızı yenileyin.
+* *Derleme veya sağlama toplamı doğrulama hataları mı var?* `version:'2.0.n'` gibi belirli bir sürümü kullanmayı deneyin. En son sürümü [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) veya [Maven yapıtları](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights) sitesinde bulacaksınız.
+* *Yeni bir SDK’ya güncelleştirmek için* Proje bağımlılıklarınızı yenileyin.
 
-#### <a name="otherwise-"></a>Aksi taktirde...
-SDK'yi el ile ekleyin:
-
-1. [Java için Application Insights SDK’sı](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) indirin.
-2. İkili dosyaları zip dosyasından ayıklayıp projenize ekleyin.
+#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>Aksi takdirde, bağımlılıkları el ile yönetiyorsanız...
+[En son sürümü](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest) indirin ve önceki sürümleri değiştirerek gerekli dosyaları projenize kopyalayın.
 
 ### <a name="questions"></a>Sorular...
-* *Zip’teki `-core` ve `-web` bileşenleri arasındaki ilişki nedir?*
-
+* *`-core` ve `-web` bileşenleri arasındaki ilişki nedir?*
   * `applicationinsights-core` size tam API sağlar. Bu bileşen her zaman gerekecektir.
   * `applicationinsights-web`, HTTP istek sayısını ve yanıt sürelerini izleyen ölçümleri sağlar. Bu telemetrinin otomatik olarak toplanmasını istemiyorsanız, bu bileşeni atlayabilirsiniz. Örneğin, kendiniz yazmak istiyorsanız.
-* *Değişiklikleri yayımladığınızda SDK’yı güncelleştirmek için*
+  
+* *SDK’yı en son sürüme nasıl güncelleştirmeliyim?*
+  * Gradle veya Maven kullanıyorsanız...
+    * En son sürümü belirtmek için derleme dosyanızı güncelleştirin veya en son sürümü otomatik olarak dahil etmek için Gradle/Maven’in joker karakter sözdizimini kullanın. Ardından projenizin bağımlılıklarını yenileyin. Joker karakter sözdizimi, [Gradle](#gradle-setup) veya [Maven](#maven-setup) için yukarıdaki örneklerde görülebilir.
+  * Bağımlılıkları el ile yönetiyorsanız...
+    * En son [Java için Application Insights SDK’si](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)’ni indirin ve eskilerle değiştirin. Değişiklikler [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) açıklanmıştır.
 
-  * En son [Java için Application Insights SDK’si](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)’ni indirin ve eskilerle değiştirin.
-  * Değişiklikler [SDK sürüm notlarında](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) açıklanmıştır.
-
-## <a name="3-add-an-application-insights-xml-file"></a>3. Application Insights .xml dosyasını ekleme
+## <a name="3-add-an-applicationinsightsxml-file"></a>3. ApplicationInsights.xml dosyası ekleme
 Projenizin kaynaklar klasörüne ApplicationInsights.xml dosyasını ekleyin veya projenizin dağıtım sınıfı yoluna eklendiğinden emin olun. Aşağıdaki XML dosyasını buraya kopyalayın.
 
 Azure portalından aldığınız izleme anahtarını bununla değiştirin.
@@ -127,12 +124,10 @@ Azure portalından aldığınız izleme anahtarını bununla değiştirin.
 
 
       <!-- The key from the portal: -->
-
       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
 
 
       <!-- HTTP request component (not required for bare API) -->
-
       <TelemetryModules>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
         <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
@@ -153,11 +148,11 @@ Azure portalından aldığınız izleme anahtarını bununla değiştirin.
     </ApplicationInsights>
 ```
 
+İsteğe bağlı olarak, yapılandırma dosyası, uygulamanızın erişebildiği herhangi bir konumda bulunabilir.  `-Dapplicationinsights.configurationDirectory` sistem özelliği, ApplicationInsights.xml dosyasını içeren dizini belirtir. Örneğin, `E:\myconfigs\appinsights\ApplicationInsights.xml` konumunda bulunan bir yapılandırma dosyası, `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` özelliği ile yapılandırılır.
 
 * İzleme anahtarı telemetrinin her öğesiyle birlikte gönderilir ve Application Insights’ın bunu kaynağınızda görüntülemesini isteyin.
 * HTTP isteği bileşeni isteğe bağlıdır. İstek ve yanıt süreleri hakkında telemetriyi otomatik olarak portala gönderir.
-* Olay bağıntısı HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bu tanımlayıcıyı bir özellik olarak, telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
-* Application Insights anahtarı, Azure portalından bir sistem özelliği olarak dinamik şekilde geçirilebilir (-DAPPLICATION_INSIGHTS_IKEY=your_ikey). Tanımlı bir özellik yoksa, Azure Uygulama Ayarlarında ortam değişkeni (APPLICATION_INSIGHTS_IKEY) denetlenir. Her iki özellik de tanımlanmamışsa ApplicationInsights.xml dosyasındaki varsayılan InstrumentationKey kullanılır. Bu sıra farklı ortamlar için farklı InstrumentationKeys’i dinamik olarak yönetmenize yardımcı olur.
+* Olay bağıntısı, HTTP isteği bileşenine bir ektir. Sunucu tarafından alınan her istek için bir tanımlayıcı atar ve bu tanımlayıcıyı bir özellik olarak, telemetrinin her öğesine 'Operation.Id' özelliği olarak ekler. [Tanı aramaya][diagnostic] bir filtre ayarlayarak her istekle ilişkili telemetrinin bağıntısını kurmanızı sağlar.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>İzleme anahtarını ayarlamak için alternatif yollar
 Application Insights SDK’sı anahtarı şu sırayla arar:
@@ -219,7 +214,7 @@ Bu öğeyi Struts yapılandırma dosyasına ekleyin (genellikle struts.xml veya 
      <default-interceptor-ref name="ApplicationInsightsRequestNameInterceptor" />
 ```
 
-(Varsayılan yığında tanımlı dinleyiciler varsa, dinleyiciyi yalnızca o yığına eklenebilir.)
+Varsayılan yığında tanımlı dinleyiciler varsa, dinleyici o yığına eklenebilir.
 
 ## <a name="5-run-your-application"></a>5. Uygulamanızı çalıştırma
 Geliştirme makinenizde hata ayıklama modunda çalıştırın ya da sunucunuza yayımlayın.

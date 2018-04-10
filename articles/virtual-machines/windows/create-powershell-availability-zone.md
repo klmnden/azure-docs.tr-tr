@@ -1,32 +1,32 @@
 ---
-title: "Bölgesi olan bir Windows VM oluşturma - Azure PowerShell | Microsoft Docs"
-description: "Azure PowerShell ile bir kullanılabilirlik alanında Windows sanal makinesi oluşturma"
+title: Bölgesi olan bir Windows VM oluşturma - Azure PowerShell | Microsoft Docs
+description: Azure PowerShell ile bir kullanılabilirlik alanında Windows sanal makinesi oluşturma
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
-editor: tysonn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 03/27/2018
 ms.author: danlep
-ms.custom: 
-ms.openlocfilehash: ada47536dbd736386a4efc76249f4ff3a1cfd527
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.custom: ''
+ms.openlocfilehash: 4b6ae95d9b8f7cc4924ea89a743cf9878c7dd79a
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>PowerShell ile bir kullanılabilirlik alanında Windows sanal makinesi oluşturma
 
 Bu makalede, Azure PowerShell kullanarak bir Azure kullanılabilirlik alanında Windows Server 2016 çalıştıran bir Azure sanal makinesi oluşturma hakkında detaylı bilgiler sağlanmaktadır. [Kullanılabilirlik alanı](../../availability-zones/az-overview.md), bir Azure bölgesinde fiziksel olarak ayrılmış bir alandır. Uygulamalarınızı beklenmeyen hatalardan veya tüm veri merkezinin kaybedilmesinden korumak için kullanılabilirlik alanlarından yararlanın.
 
-[!INCLUDE [availability-zones-preview-statement.md](../../../includes/availability-zones-preview-statement.md)]
+Kullanılabilirlik alanı kullanmak için, [desteklenen bir Azure bölgesinde](../../availability-zones/az-overview.md#regions-that-support-availability-zones) sanal makinenizi oluşturun.
 
 En son Azure PowerShell modülünün yüklendiğinden emin olun. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](/powershell/azure/install-azurerm-ps).
 
@@ -50,7 +50,7 @@ Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
 Çıktı, her VM boyutunun kullanılabilir olduğu Kullanılabilir Alanlarını gösteren aşağıdaki sıkıştırılmış örneğe benzer:
 
 ```powershell
-ResourceType                Name  Location      Zones
+ResourceType                Name  Location      Zones   [...]
 ------------                ----  --------      -----
 virtualMachines  Standard_DS1_v2   eastus2  {1, 2, 3}
 virtualMachines  Standard_DS2_v2   eastus2  {1, 2, 3}
@@ -68,16 +68,16 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
-[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu örnekte, *eastus2* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur. Doğu ABD 2, kullanılabilirlik alanlarını önizlemede destekleyen Azure bölgelerinden biridir.
+[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) ile yeni bir Azure kaynak grubu oluşturun. Kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bu örnekte, *eastus2* bölgesinde *myResourceGroup* adlı bir kaynak grubu oluşturulur. 
 
 ```powershell
-New-AzureRmResourceGroup -Name myResourceGroup -Location eastus2
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2
 ```
 
 ## <a name="create-networking-resources"></a>Ağ kaynakları oluşturma
 
 ### <a name="create-a-virtual-network-subnet-and-a-public-ip-address"></a>Bir sanal ağ, alt ağ ve genel IP adresi oluşturma 
-Bu kaynaklar, sanal makineye ağ bağlantısı sağlamak ve sanal makineyi İnternet'e bağlamak için kullanılır. IP adresini bir kullanılabilirlik alanında oluşturun (bu örnekte *2*). VM’yi bir kullanılabilirlik alanında oluşturmak için (sonraki adımlarda gösterilir), IP adresini oluşturmada kullanılan alanı belirtin.
+Bu kaynaklar, sanal makineye ağ bağlantısı sağlamak ve sanal makineyi İnternet'e bağlamak için kullanılır. IP adresini bir kullanılabilirlik alanında oluşturun (bu örnekte *2*). Sonraki bir adımda, IP adresini oluşturmak için kullanılan aynı bölgede sanal makineyi oluşturursunuz.
 
 ```powershell
 # Create a subnet configuration
@@ -85,7 +85,7 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPre
 
 # Create a virtual network
 $vnet = New-AzureRmVirtualNetwork -ResourceGroupName myResourceGroup -Location eastus2 `
-    -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
+    -Name myVNet -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
 
 # Create a public IP address in an availability zone and specify a DNS name
 $pip = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup -Location eastus2 -Zone 2 `
@@ -122,7 +122,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName myResourceGrou
 
 ## <a name="create-virtual-machine"></a>Sanal makine oluşturma
 
-Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makineyi dağıtırken kullanılan sanal makine görüntüsü, boyutu ve kimlik doğrulama yapılandırması gibi ayarları içerir. Bu örnekteki *Standard_DS1_v2* boyutu, kullanılabilirlik alanı önizlemesinde desteklenir. Bu yapılandırma, IP adresini oluştururken ayarladığınız kullanılabilirlik alanını da belirtir. Bu adımı çalıştırırken kimlik bilgileri istenir. Girdiğiniz değerler, sanal makinenin kullanıcı adı ve parolası olarak yapılandırılır.
+Sanal makine yapılandırması oluşturun. Bu yapılandırma, sanal makineyi dağıtırken kullanılan sanal makine görüntüsü, boyutu ve kimlik doğrulama yapılandırması gibi ayarları içerir. Bu örnekteki *Standard_DS1_v2* boyutu, kullanılabilirlik alanlarında desteklenir. Bu yapılandırma, IP adresini oluştururken ayarladığınız kullanılabilirlik alanını da belirtir. Bu adımı çalıştırırken kimlik bilgileri istenir. Girdiğiniz değerler, sanal makinenin kullanıcı adı ve parolası olarak yapılandırılır.
 
 ```powershell
 # Define a credential object
@@ -141,9 +141,9 @@ $vmConfig = New-AzureRmVMConfig -VMName myVM -VMSize Standard_DS1_v2 -Zone 2 | `
 New-AzureRmVM -ResourceGroupName myResourceGroup -Location eastus2 -VM $vmConfig
 ```
 
-## <a name="zone-for-ip-address-and-managed-disk"></a>IP adresi ve yönetilen disk için alan
+## <a name="confirm-zone-for-managed-disk"></a>Yönetilen disk için bölgeyi onaylama
 
-VM’nin IP adresi kaynağını, VM ile aynı kullanılabilirlik alanında oluşturdunuz. VM için yönetilen disk kaynağı da aynı kullanılabilirlik alanında oluşturulur. Bunu [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk) ile doğrulayabilirsiniz:
+VM’nin IP adresi kaynağını, VM ile aynı kullanılabilirlik alanında oluşturdunuz. Sanal makine için yönetilen disk kaynağı, aynı kullanılabilirlik alanında oluşturulur. Bunu [Get-AzureRmDisk](/powershell/module/azurerm.compute/get-azurermdisk) ile doğrulayabilirsiniz:
 
 ```powershell
 Get-AzureRmDisk -ResourceGroupName myResourceGroup
@@ -154,9 +154,9 @@ Get-AzureRmDisk -ResourceGroupName myResourceGroup
 ```powershell
 ResourceGroupName  : myResourceGroup
 AccountType        : PremiumLRS
-OwnerId            : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+OwnerId            : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
-ManagedBy          : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+ManagedBy          : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx//resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/virtualMachines/myVM
 Sku                : Microsoft.Azure.Management.Compute.Models.DiskSku
 Zones              : {2}
@@ -166,7 +166,7 @@ CreationData       : Microsoft.Azure.Management.Compute.Models.CreationData
 DiskSizeGB         : 127
 EncryptionSettings :
 ProvisioningState  : Succeeded
-Id                 : /subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.
+Id                 : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.
                      Compute/disks/myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Name               : myVM_OsDisk_1_bd921920bb0a4650becfc2d830000000
 Type               : Microsoft.Compute/disks
@@ -175,8 +175,6 @@ Tags               : {}
 ```
 
 
-
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir kullanılabilirlik alanında VM oluşturmayı öğrendiniz. Azure VM’leri için [bölgeler ve kullanılabilirlik](regions-and-availability.md) hakkında daha fazla bilgi edinin.
+Bu makalede, kullanılabilirlik alanında nasıl sanal makine oluşturulacağını öğrendiniz. Azure VM’leri için [bölgeler ve kullanılabilirlik](regions-and-availability.md) hakkında daha fazla bilgi edinin.

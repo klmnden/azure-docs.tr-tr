@@ -1,4 +1,4 @@
-1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın, ardından **İşlem** > **İşlev Uygulaması** seçeneğini belirleyin. 
+1. Azure portalının sol üst köşesinde bulunan **Yeni** düğmesine tıklayın, ardından **İşlem** > **İşlev Uygulaması** seçeneğini belirleyin. 
 
     ![Azure portalında işlev uygulaması oluşturma](./media/functions-create-function-app-portal/function-app-create-flow.png)
 
@@ -16,8 +16,14 @@
     | **Konum** | Batı Avrupa | Kendinize veya işlevinizin erişeceği diğer hizmetlere yakın bir [bölge](https://azure.microsoft.com/regions/) seçin. |
     | **[Depolama hesabı](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)** |  Genel olarak benzersiz bir ad |  İşlev uygulamanız tarafından kullanılan yeni depolama hesabının adı. Depolama hesabı adları 3 ile 24 karakter arasında olmalı ve yalnızca sayıyla küçük harf içermelidir. Var olan bir hesabı da kullanabilirsiniz. |
 
-1. Yeni işlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'a tıklayın. Portalın sağ üst köşesindeki Bildirim simgesine tıklayarak dağıtımın durumunu izleyebilirsiniz. 
+3. İşlev uygulamasını sağlamak ve dağıtmak için **Oluştur**'u seçin. 
+
+4. Portalın sağ üst köşesindeki Bildirim simgesini seçin ve **Dağıtım başarılı** iletisini bekleyin. 
 
     ![Yeni işlev uygulaması ayarlarını tanımlama](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
-    **Kaynağa git**’e tıklamak sizi yeni işlev uygulamanıza götürür.
+4. Yeni işlev uygulamanızı görüntülemek için **Kaynağa git**’i seçin.
+
+>[!TIP]
+>Portalda işlev uygulamalarınızı bulma konusunda sorun yaşıyorsanız, [Azure portalında İşlev Uygulamalarını sık kullanılanlarınıza eklemeyi](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite) deneyin.   
+

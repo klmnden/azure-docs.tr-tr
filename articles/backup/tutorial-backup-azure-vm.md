@@ -1,13 +1,13 @@
 ---
-title: "Ölçekli azure'da Azure Vm'leri yedekleme | Microsoft Docs"
-description: "Birden fazla Azure sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme Bu öğretici ayrıntıları."
+title: Azure sanal makinelerini uygun ölçekte yedekleme | Microsoft Docs
+description: Bu öğreticide, birden fazla Azure sanal makinelerinin bir Kurtarma Hizmetleri kasasına yedeklenmesi işlemi açıklanmaktadır.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "sanal makine yedeklemesi; sanal makineyi geri; Yedekleme ve olağanüstü durum kurtarma"
-ms.assetid: 
+editor: ''
+keywords: sanal makine yedeklemesi; sanal makineyi yedekleme; yedekleme ve olağanüstü durum kurtarma
+ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
@@ -16,37 +16,37 @@ ms.topic: tutorial
 ms.date: 09/06/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: mvc
-ms.openlocfilehash: 01609c00c6f0585eff4843932b9eb7a090a59c19
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
-ms.translationtype: MT
+ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure Azure sanal makinelerinde ölçekte yedekleyin
+# <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure sanal makinelerini uygun ölçekte yedekleme
 
-Bu öğretici Azure sanal makineleri bir kurtarma Hizmetleri kasasına yedekleme konusunda ayrıntılı olarak açıklanmaktadır. Sanal makineleri yedekleme için işlerin çoğunu hazırlık olur. Geri yükleyebileceğiniz önce Yukarı (veya koruma) bir sanal makine, tamamlamanız gereken [Önkoşullar](backup-azure-arm-vms-prepare.md) Vm'lerinizi koruma için ortamınızı hazırlamak için. 
+Bu öğreticide, Azure sanal makinelerinin bir Kurtarma Hizmetleri kasasına yedeklenmesi işlemi açıklanmaktadır. Sanal makineleri yedekleme işleminin çoğunu hazırlık oluşturur. Bir sanal makineyi yedekleyebilmeniz (veya koruyabilmeniz) için önce sanal makinelerinizi korumak için ortamınızı hazırlamaya yönelik [önkoşulları](backup-azure-arm-vms-prepare.md) tamamlamanız gerekir. 
 
 > [!IMPORTANT]
-> Bu öğretici, bir kaynak grubu ve bir Azure sanal makinesi zaten oluşturmuş varsayar.
+> Bu öğretici, önceden bir kaynak grubu ve bir Azure sanal makinesi oluşturmuş olduğunuzu varsayar.
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-A [kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md) yedeklenmekte olan öğeler için kurtarma noktalarını tutan bir kapsayıcıdır. Kurtarma Hizmetleri kasası dağıtılan ve bir Azure kaynak grubu bir parçası olarak yönetilen bir Azure kaynak değil. Bu öğreticide, korunan sanal makine ile aynı kaynak grubunda bir kurtarma Hizmetleri kasası oluşturun.
+[Kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md), yedeklenmekte olan öğeler için kurtarma noktalarını tutan bir kapsayıcıdır. Kurtarma Hizmetleri kasası, Azure kaynak grubunun parçası olarak dağıtılabilen ve yönetilebilen bir Azure kaynağıdır. Bu öğreticide, korunmakta olan sanal makineyle aynı kaynak grubunda bir Kurtarma Hizmetleri kasası oluşturursunuz.
 
 
-Azure Backup, ilk kullanışınızda Azure kurtarma hizmet sağlayıcısı, aboneliğiniz ile kaydetmeniz gerekir. Sağlayıcı aboneliğinizle kaydetmediyseniz, sonraki adıma gidin.
+Azure Backup’ı ilk kullandığınızda, Azure Kurtarma Hizmetleri sağlayıcısını aboneliğinize kaydetmeniz gerekir. Sağlayıcıyı önceden aboneliğinize kaydettiyseniz sonraki adıma gidin.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
 ```
 
-**New-AzureRmRecoveryServicesVault** cmdlet'iyle bir Kurtarma Hizmetleri kasası oluşturun. Yedeklemek istediğiniz sanal makineyi yapılandırırken kullandığınız konumunu ve kaynak grubu adı belirttiğinizden emin olun. 
+**New-AzureRmRecoveryServicesVault** cmdlet'iyle bir Kurtarma Hizmetleri kasası oluşturun. Yedeklemek istediğiniz sanal makine yapılandırılırken kullanılan kaynak grubu adını ve konumunu belirttiğinizden emin olun. 
 
 ```powershell
 New-AzureRmRecoveryServicesVault -Name myRSvault -ResourceGroupName "myResourceGroup" -Location "EastUS"
 ```
 
-Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bir değişkende yedekleme kurtarma Hizmetleri kasası nesne depolamak uygundur. Ardından **kümesi AzureRmRecoveryServicesBackupProperties** ayarlamak için **- BackupStorageRedundancy** için seçenek [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). 
+Çoğu Azure Backup cmdlet’i, girdi olarak Kurtarma Hizmetleri kasasını gerektirir. Bu nedenle, Yedekleme Kurtarma Hizmetleri kasasının bir değişkende depolanması uygundur. Daha sonra **Set-AzureRmRecoveryServicesBackupProperties** komutunu kullanarak **-BackupStorageRedundancy** seçeneğini [Coğrafi Olarak Yedekli Depolama (GRS)](../storage/common/storage-redundancy-grs.md) olarak ayarlayın. 
 
 ```powershell
 $vault1 = Get-AzureRmRecoveryServicesVault –Name myRSVault
@@ -55,15 +55,15 @@ Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedund
 
 ## <a name="back-up-azure-virtual-machines"></a>Azure sanal makinelerini yedekleme
 
-İlk yedekleme çalıştırmadan önce kasa bağlam ayarlamanız gerekir. Kasa bağlam kasaya korunan verileri türüdür. Kurtarma Hizmetleri kasası oluşturduğunuzda, varsayılan koruma ve bekletme ilkeleri ile birlikte gelir. Varsayılan koruma İlkesi, bir yedekleme işi her gün belirtilen zamanda tetikler. Varsayılan saklama İlkesi 30 gün boyunca günlük kurtarma noktası korur. Bu öğretici için varsayılan ilkesini kabul edin. 
+İlk yedeklemeyi çalıştırabilmeniz için önce kasa bağlamını ayarlamanız gerekir. Kasa bağlamı, kasada korunan veri türüdür. Bir Kurtarma Hizmetleri kasası oluşturduğunuzda bu, varsayılan koruma ve saklama ilkeleri ile birlikte gelir. Varsayılan koruma ilkesi, her gün belirtilen saatte bir yedekleme işini tetikler. Varsayılan saklama ilkesi, 30 gün boyunca günlük kurtarma noktasını korur. Bu öğretici için varsayılan ilkeyi kabul edin. 
 
-Kullanım  **[kümesi AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**  kasası bağlam ayarlamak için. Kasa bağlam ayarladıktan sonra sonraki tüm cmdlet'ler için geçerlidir. 
+Kasa bağlamını ayarlamak için **[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** komutunu kullanın. Kasa bağlamı ayarlandıktan sonra, sonraki tüm cmdlet’ler için geçerli olur. 
 
 ```powershell
 Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
 ```
 
-Kullanım  **[yedekleme AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**  yedekleme işini tetikleyecek. Yedekleme işi, bir kurtarma noktası oluşturur. Ardından ilk yedekleme ise, kurtarma noktası bir tam yedekleme ' dir. Sonraki yedeklemelerin artımlı bir kopyasını oluşturun.
+Yedekleme işini tetiklemek için **[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** komutunu kullanın. Yedekleme işi bir kurtarma noktası oluşturur. Bu ilk yedekleme ise, kurtarma noktası tam bir yedeklemedir. Sonraki yedeklemeler, artımlı bir kopya oluşturur.
 
 ```powershell
 $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"
@@ -71,9 +71,9 @@ $item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -Worklo
 $job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
 ```
 
-## <a name="delete-the-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını Sil
+## <a name="delete-the-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 
-Kurtarma Hizmetleri kasası silmek için önce bir kurtarma noktası kasadaki silin ve kasa kaydı silinemedi. Aşağıdaki komutları adımları ayrıntılı olarak açıklanmaktadır. 
+Bir Kurtarma Hizmetleri kasasını silmek için önce kasadaki kurtarma noktalarını silmeniz ve kasanın kaydını kaldırmanız gerekir. Aşağıdaki komutlar bu adımları açıklamaktadır. 
 
 
 ```powershell
@@ -84,12 +84,12 @@ Unregister-AzureRmRecoveryServicesBackupContainer -Container $namedContainer
 Remove-AzureRmRecoveryServicesVault -Vault $vault1
 ```
 
-## <a name="troubleshooting-errors"></a>Sorun giderme
-Sanal makineniz yedekleme sırasında sorunları içine çalıştırırsanız bkz [makale sorun giderme Azure sanal makineleri yedekleyin](backup-azure-vms-troubleshoot.md) Yardım.
+## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
+Sanal makinenizi yedeklerken sorunlarla karşılaşırsanız yardım için [Azure sanal makinelerini yedekleme sorunlarını giderme makalesine](backup-azure-vms-troubleshoot.md) bakın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Korunan, sanal makine, yönetim görevleri ve sanal makineleri bir kurtarma noktasından geri yükleme hakkında bilgi edinmek için aşağıdaki makalelere bakın.
+Sanal makinelerinizi koruduğunuza göre şimdi yönetim görevleri hakkında bilgi edinmek ve bir kurtarma noktasından sanal makinelerin nasıl geri yükleneceğini öğrenmek için aşağıdaki makalelere bakın.
 
-* Yedekleme ilkesini değiştirmek için bkz: [sanal makineleri yedeklemek için kullanım AzureRM.RecoveryServices.Backup cmdlet'leri](backup-azure-vms-automation.md#create-a-protection-policy).
+* Yedekleme ilkesini değiştirmek için bkz. [Sanal makineleri yedeklemek için AzureRM.RecoveryServices.Backup cmdlet’lerini kullanma](backup-azure-vms-automation.md#create-a-protection-policy).
 * [Sanal makinelerinizi yönetme ve izleme](backup-azure-manage-vms.md)
 * [Sanal makineleri geri yükleme](backup-azure-arm-restore-vms.md)

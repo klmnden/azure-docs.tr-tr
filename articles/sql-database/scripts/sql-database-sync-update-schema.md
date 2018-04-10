@@ -1,13 +1,13 @@
 ---
-title: "PowerShell örnek - güncelleştirme SQL veri eşitleme eşitleme şema | Microsoft Docs"
-description: "SQL veri eşitleme için eşitleme şemasını güncelleştirmek için azure PowerShell örnek betiği"
+title: PowerShell örneği - SQL Data Sync (Önizleme) eşitleme şemasını güncelleştirme | Microsoft Docs
+description: SQL Data Sync için eşitleme şemasını güncelleştirmek için Azure PowerShell örnek betiği
 services: sql-database
 documentationcenter: sql-database
 author: jognanay
 manager: craigg
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: sql-database
 ms.custom: load & move data, mvc
 ms.devlang: PowerShell
@@ -17,96 +17,96 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 66bf084f585b86979e6521321daf466c571de10c
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
-ms.translationtype: MT
+ms.openlocfilehash: 5f9f0a5921951669d451a9755c5da2091287c909
+ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/03/2018
 ---
-# <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Varolan bir eşitleme grubu eşitleme şemasında güncelleştirmek için PowerShell kullanın
+# <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>Mevcut bir eşitleme grubunda eşitleme şemasını güncelleştirmek için PowerShell kullanma
 
-Bu PowerShell örnek varolan bir eşitleme grubu eşitleme şemasında güncelleştirir. Birden çok tablo eşitlerken, bu komut dosyası, eşitleme şemasını verimli bir şekilde güncelleştirmek için yardımcı olur.
+Bu PowerShell örneği, mevcut bir SQL Data Sync (Önizleme) eşitleme grubundaki eşitleme şemasını güncelleştirir. Birden çok tabloyu eşitlerken bu betik, eşitleme şemasını verimli bir şekilde güncelleştirmenize yardımcı olur.
 
-Bu örnek kullanımını gösteren **UpdateSyncSchema** github'da kullanılabilir komut dosyası [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1).
+Bu örnek, GitHub’da [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) olarak kullanılabilir olan **UpdateSyncSchema** betiğinin kullanımını göstermektedir.
 
-SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](../sql-database-sync-data.md).
-## <a name="prerequisites"></a>Önkoşullar
+SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme) ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](../sql-database-sync-data.md).
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu örnek, Azure PowerShell modülü 4.2 veya sonraki bir sürümü gerektiriyor. Çalıştırma `Get-Module -ListAvailable AzureRM` yüklü olan sürümü bulunamıyor. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Bu örnek için Azure PowerShell modülünün 4.2 veya daha sonraki bir sürümü gerekir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure PowerShell Modülü yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
  
-Çalıştırma `Login-AzureRmAccount` Azure ile bir bağlantı oluşturmak için.
+Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` komutunu çalıştırın.
 
 ## <a name="examples"></a>Örnekler
 
-### <a name="example-1---add-all-tables-to-the-sync-schema"></a>Örnek 1 - eşitleme şemaya tüm tablolar ekleyin
+### <a name="example-1---add-all-tables-to-the-sync-schema"></a>Örnek 1 - Eşitleme şemasına tüm tabloları ekleme
 
-Aşağıdaki örnek veritabanı şeması yeniler ve tüm geçerli tabloları eşitleme şemasına hub veritabanına ekler.
+Aşağıdaki örnek, veritabanı şemasını yeniler ve eşitleme şemasının hub veritabanındaki tüm geçerli tabloları ekler.
 
 ```powershell
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### <a name="example-2---add-and-remove-tables-and-columns"></a>Örnek 2 - ekleme ve tabloları ve sütunları kaldırma
+### <a name="example-2---add-and-remove-tables-and-columns"></a>Örnek 2 - Tabloları ve sütunları ekleme ve kaldırma
 
-Aşağıdaki örnek, `[dbo].[Table1]` ve `[dbo].[Table2].[Column1]` kaldırır ve Eşitleme şeması için `[dbo].[Table3]`.
+Aşağıdaki örnek, eşitleme şemasına `[dbo].[Table1]` ve `[dbo].[Table2].[Column1]` ekler ve `[dbo].[Table3]` öğesini kaldırır.
 
 ```powershell
 UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
-## <a name="script-parameters"></a>Komut dosyası parametreleri
+## <a name="script-parameters"></a>Betik parametreleri
 
-**UpdateSyncSchema** betiği aşağıdaki parametreleri vardır:
+**UpdateSyncSchema** betiği aşağıdaki parametrelere sahiptir:
 
 | Parametre | Notlar |
 |---|---|
-| $SubscriptionId | Eşitleme grubunu oluşturulduğu abonelik. |
-| $ResourceGroupName | Eşitleme grubunu oluşturulduğu kaynak grubu.|
-| $ServerName | Hub veritabanı sunucu adı.|
+| $SubscriptionId | Eşitleme grubunun oluşturulduğu abonelik. |
+| $ResourceGroupName | Eşitleme grubunun oluşturulduğu kaynak grubu.|
+| $ServerName | Hub veritabanının sunucu adı.|
 | $DatabaseName | Hub veritabanı adı. |
 | $SyncGroupName | Eşitleme grubu adı. |
-| $MemberName | Veritabanı şeması eşitleme üye hub veritabanından yüklemek istiyorsanız, üye adı belirtin. Veritabanı şeması hub'dan yüklemek istiyorsanız, bu parametre boş bırakın. |
-| $TimeoutInSeconds | Veritabanı şeması betik yeniler zaman aşımı oluştu. Varsayılan değer 900 saniyedir. |
-| $RefreshDatabaseSchema | Komut dosyası veritabanı şeması yenilemek gerekip gerekmediğini belirtin. Yeni bir tablo eklediyseniz, veritabanı şemasını önceki yapılandırmasından - Örneğin, değişirse veya mı başlatacağı sütun), onu yeniden önce şema yenilemeniz gerekir. Varsayılan false olur. |
-| $AddAllTables | Bu değeri true ise, tüm geçerli tablolar ve sütunlar eşitleme şemaya eklenir. $TablesAndColumnsToAdd ve $TablesAndColumnsToRemove değerlerini göz ardı edilir. |
-| $TablesAndColumnsToAdd | Tablolar ve sütunlar eşitleme şemaya eklenecek belirtin. Her bir tablo veya sütun adı ile şema adı tam olarak ayrılmış gerekir. Örneğin: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Birden çok tablo veya sütun adları belirtilen ve virgülle (,) ayırarak. |
-| $TablesAndColumnsToRemove | Tablolar ve sütunlar eşitleme şemadan kaldırılacak belirtin. Her bir tablo veya sütun adı şema adı ile tam olarak ayrılmış gerekir. Örneğin: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Birden çok tablo veya sütun adları belirtilen ve virgülle (,) ayırarak. |
+| $MemberName | Hub veritabanı yerine, eşitleme üyesinden veritabanı şemasını yüklemek istiyorsanız üye adını belirtin. Hub’dan veritabanı şemasını yüklemek istiyorsanız bu parametreyi boş bırakın. |
+| $TimeoutInSeconds | Betik, veritabanı şemasını yenilediğinde gerçekleşen zaman aşımı. Varsayılan değer 900 saniyedir. |
+| $RefreshDatabaseSchema | Betiğin, veritabanı şemasını yenilemesi gerekip gerekmediğini belirtin. Önceki yapılandırmadan veritabanı şemanız değiştiyse (örneğin, yeni bir tablo veya yeni bir sütun eklediyseniz), yeniden yapılandırmadan önce şemayı yenilemeniz gerekir. Varsayılan değer false’tur. |
+| $AddAllTables | Bu değer true olursa, tüm geçerli tablolar ve sütunlar eşitleme şemasına eklenir. $TablesAndColumnsToAdd ve $TablesAndColumnsToRemove değerleri yoksayılır. |
+| $TablesAndColumnsToAdd | Eşitleme şemasına eklenecek tabloları veya sütunları belirtin. Her bir tablo veya sütun adının şema adıyla tam olarak ayrılmış olması gerekir. Örneğin: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Birden çok tablo veya sütun adı belirtilebilir ve virgül (,) ile ayrılabilir. |
+| $TablesAndColumnsToRemove | Eşitleme şemasından kaldırılacak tabloları veya sütunları belirtin. Her bir tablo veya sütun adının şema adıyla tam olarak ayrılmış olması gerekir. Örneğin: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Birden çok tablo veya sütun adı belirtilebilir ve virgül (,) ile ayrılabilir. |
 |||
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-**UpdateSyncSchema** komut dosyası aşağıdaki komutları kullanır. Komut özgü belgelere Tablo bağlantıları her komut.
+**UpdateSyncSchema** betiği aşağıdaki komutları kullanır. Tablodaki her komut, komuta özgü belgelere yönlendirir.
 
 | Komut | Notlar |
 |---|---|
-| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Eşitleme grubu hakkında bilgi döndürür. |
-| [Güncelleştirme AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Eşitleme grubunu güncelleştirir. |
-| [Get-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncmember) | Eşitleme üyesi hakkında bilgi döndürür. |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) | Eşitleme şeması hakkında bilgi döndürür. |
-| [Güncelleştirme AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Bir eşitleme şema güncelleştirir. |
+| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | Bir eşitleme grubu hakkındaki bilgileri döndürür. |
+| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | Bir eşitleme grubunu güncelleştirir. |
+| [Get-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncmember) | Bir eşitleme üyesi hakkındaki bilgileri döndürür. |
+| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) | Bir eşitleme şeması hakkındaki bilgileri döndürür. |
+| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | Bir eşitleme şemasını güncelleştirir. |
 |||
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Ek SQL veritabanı PowerShell Betiği örnekleri bulunabilir [Azure SQL veritabanı PowerShell komut dosyalarını](../sql-database-powershell-samples.md).
+Ek SQL Veritabanı PowerShell betiği örnekleri [Azure SQL Veritabanı PowerShell betikleri](../sql-database-powershell-samples.md) içinde bulunabilir.
 
-SQL veri eşitleme hakkında daha fazla bilgi için bkz:
+SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
--   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme](../sql-database-sync-data.md)
--   [Azure SQL veri eşitleme ayarı](../sql-database-get-started-sql-data-sync.md)
--   [Azure SQL veri eşitleme için en iyi yöntemler](../sql-database-best-practices-data-sync.md)
--   [OMS günlük analizi ile İzleyici Azure SQL veri eşitleme](../sql-database-sync-monitor-oms.md)
--   [Azure SQL veri eşitleme ile ilgili sorunları giderme](../sql-database-troubleshoot-data-sync.md)
+-   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](../sql-database-sync-data.md)
+-   [Azure SQL Data Sync’i ayarlama](../sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync için en iyi yöntemler](../sql-database-best-practices-data-sync.md)
+-   [Azure SQL Data Sync’i OMS Log Analytics ile izleme](../sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync ile ilgili sorun giderme](../sql-database-troubleshoot-data-sync.md)
 
--   SQL veri eşitleme yapılandırmayı gösterir PowerShell örnekleri tamamlayın:
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](sql-database-sync-data-between-sql-databases.md)
-    -   [Bir Azure SQL Database ve SQL Server içi veritabanı arasında eşitlemek için PowerShell kullanma](sql-database-sync-data-between-azure-onprem.md)
+-   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](sql-database-sync-data-between-azure-onprem.md)
 
--   [SQL veri eşitleme REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
-SQL veritabanı hakkında daha fazla bilgi için bkz:
+SQL Veritabanı hakkında daha fazla bilgi için bkz.:
 
--   [SQL veritabanı genel bakış](../sql-database-technical-overview.md)
--   [Veritabanı yaşam döngüsü yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [SQL Veritabanı'na Genel Bakış](../sql-database-technical-overview.md)
+-   [Veritabanı Yaşam Döngüsü Yönetimi](https://msdn.microsoft.com/library/jj907294.aspx)
