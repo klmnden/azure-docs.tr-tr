@@ -1,11 +1,11 @@
 ---
-title: "Azure portalını kullanarak Nsg'ler yönetme | Microsoft Docs"
-description: "Azure Portalı'nı kullanarak var olan Nsg'ler yönetmeyi öğrenin."
+title: Azure portalını kullanarak Nsg'ler yönetme | Microsoft Docs
+description: Azure Portalı'nı kullanarak var olan Nsg'ler yönetmeyi öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 5d55679d-57da-457c-97dc-1e1973909ee5
 ms.service: virtual-network
@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.openlocfilehash: e9bcf8a893ff209337f6a5763b631a22f8514e20
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-nsgs-using-the-portal"></a>Nsg'ler Portalı'nı kullanarak yönetme
 
@@ -44,7 +44,7 @@ Varolan Nsg'lerinizi görüntülemek için varolan bir NSG kuralları almak ve h
 
 Bir Abonelikteki tüm mevcut Nsg'ler görüntülemek için aşağıdaki adımları tamamlayın:
 
-1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
+1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınızla oturum açın.
 
 2. Tıklatın **Gözat >** > **ağ güvenlik grupları**.
 
@@ -98,7 +98,7 @@ Hangi kaynakları görüntülemek için **NSG ön uç** NSG ilişkilendirmek, a�
 
 3. İçinde **ayarları** sekmesini tıklatın, **ağ arabirimleri** NIC'ler NSG'yi ilişkili nelerdir görüntülemek için.
 
-## <a name="manage-rules"></a>Kuralları yönet
+## <a name="manage-rules"></a>Kuralları yönetme
 Varolan bir NSG kuralları ekleme, mevcut kuralları düzenlemek ve kuralları kaldırın.
 
 ### <a name="add-a-rule"></a>Kural ekleme
