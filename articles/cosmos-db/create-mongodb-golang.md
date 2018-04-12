@@ -3,24 +3,23 @@ title: "Azure Cosmos DB: Golang ve Azure portalıyla bir MongoDB API'si konsol u
 description: Azure Cosmos DB’ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Golang kod örneği sunar
 services: cosmos-db
 author: Durgaprasad-Budhwani
-manager: jhubbard
-editor: mimig1
+manager: kfile
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
-ms.author: mimig
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 49bf6aed5a8daa482be9d22ecd97b6ab43cae5fe
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 5e8a85af7bfb3245f766b932397999726746dfa7
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB: Golang ve Azure portalıyla bir MongoDB API'si konsol uygulaması oluşturma
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
-Bu hızlı başlangıçta, [MongoDB API](mongodb-introduction.md) kullanarak [Golang](mongodb-introduction.md) dilinde yazılmış mevcut bir MongoDB uygulamasını kullanma ve MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir.
+Bu hızlı başlangıçta, [MongoDB API](mongodb-introduction.md) kullanarak [Golang](https://golang.org/) dilinde yazılmış mevcut bir MongoDB uygulamasını kullanma ve MongoDB istemci bağlantılarını destekleyen Azure Cosmos DB veritabanınıza bağlama işlemi gösterilmektedir.
 
 Diğer bir deyişle, Golang uygulamanız yalnızca MongoDB API’lerini kullanarak bir veritabanına bağlandığını bilir. Verilerin Azure Cosmos DB'de depolandığı uygulamaya açıkça gösterilir.
 
