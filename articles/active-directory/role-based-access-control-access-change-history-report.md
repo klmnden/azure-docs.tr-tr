@@ -1,8 +1,8 @@
 ---
-title: "Erişim raporlama - Azure RBAC | Microsoft Docs"
-description: "Tüm değişiklikleri, Azure aboneliklerinize Son 90 gün içinde rol tabanlı erişim denetimi ile erişimi listeleyen bir rapor oluşturur."
+title: Erişim raporlama - Azure RBAC | Microsoft Docs
+description: Tüm değişiklikleri, Azure aboneliklerinize Son 90 gün içinde rol tabanlı erişim denetimi ile erişimi listeleyen bir rapor oluşturur.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: 2bc68595-145e-4de3-8b71-3a21890d13d9
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 169ed8dd6d14d8d9d0fd49ad7306b1d4fb2c4d90
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-an-access-report-for-role-based-access-control"></a>Rol tabanlı erişim denetimi için bir access raporu oluşturma
 Birisi erişim izni verilir veya erişim aboneliklerinizi içinde iptal eder dilediğiniz zaman değişiklikleri Azure olayları günlüğe. Son 90 gün için tüm değişiklikleri görmek için erişim değişiklik geçmişi raporları oluşturabilirsiniz.
@@ -41,7 +41,7 @@ Bu komut çağırdığınızda, aşağıdakiler de dahil olmak üzere listelenen
 | **Kapsam** | Abonelik, kaynak grubu veya atama uygulandığı kaynak benzersiz tanıtıcısı | 
 | **ScopeName** |Abonelik, kaynak grubu veya kaynak adı |
 | **ScopeType** |Atama abonelik, kaynak grubu veya kaynak kapsamı olmasına |
-| **Zaman damgası** |Erişim değiştirildi saat ve tarihi |
+| **zaman damgası** |Erişim değiştirildi saat ve tarihi |
 
 Bu örnek komut Abonelik son yedi gün için tüm erişim değişiklikleri listeler:
 

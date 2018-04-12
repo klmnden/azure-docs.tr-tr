@@ -1,8 +1,8 @@
 ---
-title: "Azure RBAC için özel roller oluşturmanızı | Microsoft Docs"
-description: "Azure aboneliğinizde daha kesin kimlik yönetimi için Azure rol tabanlı erişim denetimi ile özel rolleri tanımlama öğrenin."
+title: Azure RBAC için özel roller oluşturmanızı | Microsoft Docs
+description: Azure aboneliğinizde daha kesin kimlik yönetimi için Azure rol tabanlı erişim denetimi ile özel rolleri tanımlama öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: rolyon
 manager: mtillman
 ms.assetid: e4206ea9-52c3-47ee-af29-f6eef7566fa5
@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 2871ff5eea8fb99040dfab2593d1640d79f51092
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="create-custom-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için özel roller oluşturma
 Yerleşik roller hiçbiri belirli erişim gereksinimlerinizi karşılıyorsa özel bir rol Azure rol tabanlı erişim denetimi (RBAC) oluşturun. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](role-based-access-control-manage-access-powershell.md), [Azure komut satırı arabirimi](role-based-access-control-manage-access-azure-cli.md) (CLI) ve [REST API](role-based-access-control-manage-access-rest.md). Yalnızca yerleşik roller gibi kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller Azure AD kiracısı içinde depolanır ve abonelikler arasında paylaşılabilir.
@@ -59,11 +59,11 @@ Aşağıdaki örnek, izleme ve sanal makineleri yeniden başlatmayı için özel
 ## <a name="actions"></a>Eylemler
 **Eylemler** özel bir rol özelliği rol için erişim verir Azure işlemleri belirtir. Azure kaynak sağlayıcıları güvenliği sağlanabilir işlemlerini tanımlayan işlemi dizelerin koleksiyonudur. İşlemi dizeleri izleyin biçimi `Microsoft.<ProviderName>/<ChildResourceType>/<action>`. Joker karakterler içeren işlemi dizeleri (\*) işlemi dizeyle eşleşen tüm işlemler için erişim verin. Örneğin:
 
-* `*/read`verir tüm Azure kaynak sağlayıcıları tüm kaynak türleri için okuma erişimi.
-* `Microsoft.Compute/*`tüm işlemler Microsoft.Compute kaynak sağlayıcısındaki tüm kaynak türleri için erişim verir.
-* `Microsoft.Network/*/read`verir Azure Microsoft.Network kaynak Sağlayıcısı'nda tüm kaynak türleri için okuma erişimi.
-* `Microsoft.Compute/virtualMachines/*`verir kaynak türleri için sanal makinelerin ve kendi alt tüm işlemleri erişin.
-* `Microsoft.Web/sites/restart/Action`Web siteleri yeniden başlatmak için verir erişin.
+* `*/read` verir tüm Azure kaynak sağlayıcıları tüm kaynak türleri için okuma erişimi.
+* `Microsoft.Compute/*` tüm işlemler Microsoft.Compute kaynak sağlayıcısındaki tüm kaynak türleri için erişim verir.
+* `Microsoft.Network/*/read` verir Azure Microsoft.Network kaynak Sağlayıcısı'nda tüm kaynak türleri için okuma erişimi.
+* `Microsoft.Compute/virtualMachines/*` verir kaynak türleri için sanal makinelerin ve kendi alt tüm işlemleri erişin.
+* `Microsoft.Web/sites/restart/Action` Web siteleri yeniden başlatmak için verir erişin.
 
 Kullanım `Get-AzureRmProviderOperation` (PowerShell'de) veya `azure provider operations show` (içinde Azure CLI) Azure kaynak sağlayıcılarının listesi işlemleri için. Bu komutlar bir işlemi dizesi geçerli olduğunu doğrulayın ve joker işlemi dizeleri genişletmek için de kullanabilirsiniz.
 
@@ -96,9 +96,9 @@ Kullanım **NotActions** izin vermek istediğiniz işlem kümesi daha kolay kıs
 
 Geçerli atanabilir kapsamların örnekleri şunlardır:
 
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e”, “/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624” - makes the role available for assignment in two subscriptions.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e” - makes the role available for assignment in a single subscription.
-* “/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network” - makes the role available for assignment only in the Network resource group.
+* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/ subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624" - rolü iki Aboneliklerde atama için kullanılabilir hale getirir.
+* "/ subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e" - kullanılabilir hale getirir rol ataması tek bir abonelik.
+* "/ abonelikleri/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/ağ" - yalnızca ağ kaynak grubunda rol ataması için kullanılabilir hale getirir.
 
 > [!NOTE]
 > En az bir kullanmalısınız abonelik, kaynak grubu veya kaynak kimliği

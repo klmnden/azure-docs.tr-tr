@@ -1,11 +1,11 @@
 ---
-title: "Rol tabanlı erişim denetimini REST - Azure AD ile | Microsoft Docs"
-description: "Rol tabanlı erişim denetimini REST API ile yönetme"
+title: Rol tabanlı erişim denetimini REST - Azure AD ile | Microsoft Docs
+description: Rol tabanlı erişim denetimini REST API ile yönetme
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: active-directory
 ms.workload: multiple
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.openlocfilehash: ba25340e41cefe2b7847a39a6c9182cd0fc057d3
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Rol tabanlı erişim denetimini REST API ile yönetme
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 | Öğe adı | Gerekli | Tür | Açıklama |
 | --- | --- | --- | --- |
 | roleDefinitionId |Evet |Dize |Rol tanımlayıcısı. Tanımlayıcı biçimdedir: `{scope}/providers/Microsoft.Authorization/roleDefinitions/{role-definition-id-guid}` |
-| principalId |Evet |Dize |objectID rolü atanmış Azure AD asıl (kullanıcı, Grup veya hizmet sorumlusu). |
+| Principalıd |Evet |Dize |objectID rolü atanmış Azure AD asıl (kullanıcı, Grup veya hizmet sorumlusu). |
 
 ### <a name="response"></a>Yanıt
 Durum kodu: 201
@@ -440,7 +440,7 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 | properties.roleName |Evet |Dize |Özel rol adını görüntüler. En büyük boyutu 128 karakter. |
 | properties.description |Hayır |Dize |Özel rol tanımı. En büyük boyutu 1024 karakter. |
 | properties.type |Evet |Dize |"CustomRole" ayarlayın |
-| properties.permissions.actions |Evet |String[] |Özel rol tarafından verilen operations belirten bir eylem dizeler dizisi. |
+| Properties.Permissions.Actions |Evet |String[] |Özel rol tarafından verilen operations belirten bir eylem dizeler dizisi. |
 | properties.permissions.notActions |Hayır |String[] |Özel rol tarafından verilen Operations dışarıda bırakılacak işlemler belirten bir eylem dizeler dizisi. |
 | properties.assignableScopes |Evet |String[] |Özel rol kullanılabilir kapsamları dizisi. |
 
@@ -543,7 +543,7 @@ URI içinde isteğiniz özelleştirmek için aşağıdaki alternatifleri olun:
 | properties.roleName |Evet |Dize |Güncelleştirilmiş özel rol adını görüntüler. |
 | properties.description |Hayır |Dize |Güncelleştirilmiş özel rol tanımı. |
 | properties.type |Evet |Dize |"CustomRole" ayarlayın |
-| properties.permissions.actions |Evet |String[] |Güncelleştirilmiş özel rol erişim verdiği operations belirten bir eylem dizeler dizisi. |
+| Properties.Permissions.Actions |Evet |String[] |Güncelleştirilmiş özel rol erişim verdiği operations belirten bir eylem dizeler dizisi. |
 | properties.permissions.notActions |Hayır |String[] |Güncelleştirilmiş özel rol verir işlemlerinden hariç tutulacak işlemler belirten bir eylem dizeler dizisi. |
 | properties.assignableScopes |Evet |String[] |Güncelleştirilmiş özel rol kullanılabilir kapsamları dizisi. |
 

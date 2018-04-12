@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme SCC yaşam | Microsoft Docs"
-description: "Çoklu oturum açma, otomatik sağlama ve daha fazla etkinleştirmek için Azure Active Directory ile SCC yaşam döngüsü kullanmayı öğrenin!"
+title: 'Öğretici: Azure Active Directory Tümleştirme SCC yaşam | Microsoft Docs'
+description: Çoklu oturum açma, otomatik sağlama ve daha fazla etkinleştirmek için Azure Active Directory ile SCC yaşam döngüsü kullanmayı öğrenin!
 services: active-directory
 author: jeevansd
 documentationcenter: na
@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.openlocfilehash: 943698311d10b479879fd92d2482d827650e2b0c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>Öğretici: Azure Active Directory Tümleştirme ile SCC yaşam döngüsü
 Bu öğreticinin amacı, Azure ve SCC yaşam döngüsü tümleştirmesini göstermektir.  
@@ -36,7 +36,7 @@ Bu öğreticide gösterilen senaryo, aşağıdaki yapı taşlarını oluşur:
 3. Kullanıcı hazırlama işleminin yapılandırılması
 4. Kullanıcılar atama
 
-![Senaryo](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "senaryosu")
+![Scenario](./media/active-directory-saas-scc-lifecycle-tutorial/IC794120.png "Scenario")
 
 ## <a name="enable-the-application-integration-for-scc-lifecycle"></a>SCC yaşam döngüsü için uygulama tümleştirmeyi etkinleştir
 Bu bölümün amacı SCC yaşam döngüsü için uygulama tümleştirme sağlamak üzere nasıl anahat sağlamaktır.
@@ -61,7 +61,7 @@ Bu bölümün amacı SCC yaşam döngüsü için uygulama tümleştirme sağlama
     ![Uygulama Galerisi](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "uygulama Galerisi")
 7. Sonuçlar bölmesinde seçin **SCC yaşam döngüsü**ve ardından **tam** uygulama eklemek için.
    
-    ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
+    ![SCC yaşam döngüsü](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC yaşam döngüsü")
    
 ## <a name="configure-single-sign-on"></a>Çoklu oturum açmayı yapılandırın
 
@@ -75,7 +75,7 @@ Bu bölümün amacı kullanıcıların SCC yaşam döngüsü için kendi hesabı
 2. Üzerinde **SCC yaşam döngüsü için oturum açmasını nasıl istiyorsunuz** sayfasında, **Microsoft Azure AD çoklu oturum açma**ve ardından **sonraki**.
    
     ![Çoklu oturum açma yapılandırma](./media/active-directory-saas-scc-lifecycle-tutorial/IC794123.png "çoklu oturum açmayı yapılandırın")
-3. Üzerinde **uygulama URL'sini Yapılandır** sayfasında **oturum üzerinde URL'si** metin kutusuna, türü URL kullanıcılarınız tarafından şu biçimi kullanarak SCC yaşam döngüsü uygulamanıza oturum açma için kullanılan " *https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx* "ve ardından **sonraki**.
+3. Üzerinde **uygulama URL'sini Yapılandır** sayfasında **oturum üzerinde URL'si** metin kutusuna, türü URL kullanıcılarınız tarafından şu biçimi kullanarak SCC yaşam döngüsü uygulamanıza oturum açma için kullanılan "*https://bs1.scc.com/lc7/welcome/customer/PICTtest.aspx*"ve ardından **sonraki**.
    
     ![Uygulama URL'sini Yapılandır](./media/active-directory-saas-scc-lifecycle-tutorial/IC794124.png "uygulama URL'sini yapılandırın")
 4. Üzerinde **çoklu oturum açma SCC yaşam döngüsü sırasında yapılandırma** sayfasında, **karşıdan meta veri**ve meta veri dosyası, bilgisayarınıza yerel olarak kaydedin.

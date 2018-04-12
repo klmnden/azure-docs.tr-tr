@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
 ms.openlocfilehash: 4d9df6743d84310b7db70034d1e84dd3591b3c21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/11/2018
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
 Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve hizmetlere atanmış aşağıdaki yerleşik rolleri ile birlikte gelir. Yerleşik rol tanımlarını değiştiremezsiniz. Ancak, oluşturabileceğiniz [Azure rbac'de özel roller](role-based-access-control-custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
@@ -41,7 +41,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | --- | --- |
 | [Sahibi](#owner) | Kaynaklara erişim dahil olmak üzere her şeyi yönetmenizi sağlar. |
 | [Katkıda bulunan](#contributor) | Kaynaklara erişim hariç olmak üzere her şeyi yönetmenizi sağlar. |
-| [Reader](#reader) | Her şeyi görüntülemenizi sağlar ancak değişiklik yapmanıza izin vermez. |
+| [Okuyucu](#reader) | Her şeyi görüntülemenizi sağlar ancak değişiklik yapmanıza izin vermez. |
 | [API Management hizmeti katkıda bulunan](#api-management-service-contributor) | Hizmeti ve API'leri yönetebilir |
 | [API Management hizmet işleci rolü](#api-management-service-operator-role) | Hizmeti yönetebilir, ancak API'leri yönetemez |
 | [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | Hizmet ve API'lere salt okunur erişim |
@@ -49,7 +49,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Uygulama Öngörüler anlık görüntü hata ayıklayıcı](#application-insights-snapshot-debugger) | Kullanıcıya Application Insights Anlık Görüntü Hata Ayıklayıcısı özelliklerini kullanma izni verir |
 | [Otomasyon iş işleci](#automation-job-operator) | Otomasyon Runbook'larını kullanarak İş oluşturun ve yönetin. |
 | [Automation operatörü](#automation-operator) | Otomasyon Operatörleri, işleri başlatabilir, durdurabilir, askıya alabilir ve sürdürebilir |
-| [Otomasyon Runbook işleci](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |
+| [Automation Runbook Operator](#automation-runbook-operator) | Runbook'un İşlerini oluşturabilmek için Runbook özelliklerini okuyun. |
 | [Azure yığın kayıt sahibi](#azure-stack-registration-owner) | Azure Stack kayıtlarını yönetmenize imkan sağlar. |
 | [Yedekleme katkıda bulunan](#backup-contributor) | Yedekleme hizmetini yönetmenize olanak sağlar ancak kasa oluşturma ve diğer kullanıcılara erişim verme izni sağlamaz |
 | [Yedekleme işletmeni](#backup-operator) | Yedekleme kaldırma, kasa oluşturma ve diğer kullanıcılara erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak sağlar |
@@ -57,7 +57,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Faturalama okuyucusu](#billing-reader) | Faturalandırma verilerine okuma erişimi verir |
 | [BizTalk katkıda bulunan](#biztalk-contributor) | BizTalk hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [CDN uç noktası katkıda bulunan](#cdn-endpoint-contributor) | CDN uç noktalarını yönetebilir, ancak diğer kullanıcılara erişim izni veremez. |
-| [CDN Endpoint Reader](#cdn-endpoint-reader) | CDN uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
+| [CDN uç noktası okuyucusu](#cdn-endpoint-reader) | CDN uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
 | [CDN profili katkıda bulunan](#cdn-profile-contributor) | CDN profillerini ve uç noktalarını yönetebilir, ancak diğer kullanıcılara erişim izni veremez. |
 | [CDN profili okuyucusu](#cdn-profile-reader) | CDN profillerini ve uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
 | [Klasik Ağ Katılımcısı](#classic-network-contributor) | Klasik ağları yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -75,7 +75,7 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Anahtar kasası katkıda bulunan](#key-vault-contributor) | Anahtar kasalarını yönetmenize izin verir, ancak bunlara erişmenize izin vermez. |
 | [Laboratuvar Oluşturucusu](#lab-creator) | Oluşturma, yönetme, Azure Laboratuvar hesaplarınızı altında yönetilen labs silme olanak sağlar. |
 | [Günlük analizi katkıda bulunan](#log-analytics-contributor) | Günlük analizi katkıda bulunan tüm izleme verilerini okuma ve izleme ayarlarını düzenleyin. İzleme ayarları düzenleme, VM'ler için VM uzantısı eklemeyi içerir; Azure Storage günlüklerinden koleksiyonu yapılandırmak için depolama hesabı anahtarlarını okuma; oluşturma ve Automation hesapları yapılandırma; çözümleri ekleme; ve tüm Azure kaynaklara Azure tanılama yapılandırılıyor. |
-| [Log Analytics Reader](#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
+| [Günlük analizi okuyucu](#log-analytics-reader) | Log Analytics Okuyucusu, tüm izleme verilerinin görüntüleme ve aramanın yanı sıra izleme ayarlarını da (tüm Azure kaynaklarındaki Azure tanılama yapılandırmalarını görüntüleme dahil) görüntüleyebilir. |
 | [Mantığı uygulamasını katkıda bulunan](#logic-app-contributor) | Mantıksal uygulamayı yönetmenize izin verir, ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Mantıksal uygulama işleci](#logic-app-operator) | Mantıksal uygulamayı okumanıza, etkinleştirmenize ve devre dışı bırakmanıza izin verir. |
 | [Yönetilen kimlik katkıda bulunan](#managed-identity-contributor) | Oluşturma, okuma, güncelleştirme ve kullanıcı kimliği atanır silme |
@@ -91,8 +91,8 @@ Bu makalede yalnızca bugün mevcut farklı rolleri giderir. Ancak, bir kullanı
 | [Güvenlik Yöneticisi](#security-manager) | Güvenlik bileşenlerini, güvenlik ilkelerini ve sanal makineleri yönetmenizi sağlar |
 | [Güvenlik okuyucusu](#security-reader) | Yalnızca Güvenlik Merkezi'nde: önerileri ve uyarılar, güvenlik ilkeleri, güvenlik durumları görüntüleyebilir ancak değişiklik yapamaz görünümü görüntüleyebilirsiniz |
 | [Site kurtarma katkıda bulunan](#site-recovery-contributor) | Kasa oluşturma ve rol atama işlemleri dışında Site Recovery hizmetini yönetmenize imkan sağlar |
-| [Site Recovery Operator](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
-| [Site Recovery Reader](#site-recovery-reader) | Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işlemlerini gerçekleştirmenize izin vermez |
+| [Site kurtarma işleci](#site-recovery-operator) | Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işlemlerini gerçekleştirmenize izin vermez |
+| [Site kurtarma okuyucusu](#site-recovery-reader) | Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işlemlerini gerçekleştirmenize izin vermez |
 | [SQL DB Katılımcısı](#sql-db-contributor) | SQL veritabanları, ancak onlara erişimi yönetmenize olanak tanır. Ayrıca, güvenlikle ilgili ilkelerini veya kendi üst SQL Server'lar yönetemezsiniz. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetmenizi sağlar ancak onlara erişimi yönetme izni vermez. |
 | [SQL Server katkıda bulunan](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetmenizi sağlar ancak güvenlikle ilgili ilkelerini yönetmenize izin vermez. |
@@ -558,7 +558,7 @@ ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik eriş
 | Microsoft.Resources/deployments/* | Oluşturma ve kaynak grubu dağıtımı yönetme |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
-| successbricks.cleardb/databases/* | Oluşturma ve ClearDB MySQL veritabanları yönetme |
+| successbricks.cleardb/Databases/* | Oluşturma ve ClearDB MySQL veritabanları yönetme |
 
 ## <a name="cosmos-db-account-reader-role"></a>Cosmos DB Hesabı Okuyucusu Rolü
 Azure Cosmos DB hesap verileri okuyabilir. Bkz: [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetmek için.
@@ -1033,8 +1033,8 @@ Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işleml
 | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Ağ geçidi yeniden ilişkilendirin |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Yapı sertifikasını Yenile |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Herhangi bir ağa okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Tüm ağ eşlemeleri okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Herhangi bir koruma kapsayıcıdaki okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/okuma | Tüm ağ eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/okuma | Herhangi bir koruma kapsayıcıdaki okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Korunabilir tüm öğeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Kurtarma noktası Uygula |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Yük devretmenin yürütülmesi |
@@ -1047,11 +1047,11 @@ Yük devretme ve yeniden çalışma dışındaki Site Recovery yönetimi işleml
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Yük devretme sınaması temizliğini |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devretme |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Mobility hizmeti güncelleştirmesi |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Koruma kapsayıcısı eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/okuma | Koruma kapsayıcısı eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Tüm kurtarma Hizmetleri sağlayıcılarını okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/action | Sağlayıcı Yenile |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/refreshProvider/eylem | Sağlayıcı Yenile |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Tüm depolama sınıflandırmaları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Tüm depolama sınıflandırması eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/okuma | Tüm depolama sınıflandırması eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Herhangi bir işi okuma |
 | Microsoft.RecoveryServices/vaults/replicationJobs/* | Çoğaltma işleri oluşturmak ve yönetmek |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Tüm ilkeleri okuma |
@@ -1092,15 +1092,15 @@ Site Recovery durumunu görüntülemenize izin verir, ancak diğer yönetim işl
 | Microsoft.RecoveryServices/vaults/replicationEvents/read | Tüm olayları okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Tüm yapıları okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Herhangi bir ağa okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/read | Tüm ağ eşlemeleri okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/read | Herhangi bir koruma kapsayıcıdaki okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationNetworks/replicationNetworkMappings/okuma | Tüm ağ eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/okuma | Herhangi bir koruma kapsayıcıdaki okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectableItems/read | Korunabilir tüm öğeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/read | Tüm korumalı öğeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Bir çoğaltma kurtarma noktası okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/read | Koruma kapsayıcısı eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationProtectionContainers/replicationProtectionContainerMappings/okuma | Koruma kapsayıcısı eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationRecoveryServicesProviders/read | Tüm kurtarma Hizmetleri sağlayıcılarını okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/read | Tüm depolama sınıflandırmaları okuma |
-| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/read | Tüm depolama sınıflandırması eşlemeleri okuma |
+| Microsoft.RecoveryServices/vaults/replicationFabrics/ replicationStorageClassifications/replicationStorageClassificationMappings/okuma | Tüm depolama sınıflandırması eşlemeleri okuma |
 | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Herhangi bir işi okuma |
 | Microsoft.RecoveryServices/vaults/replicationJobs/read | Herhangi bir işi okuma |
 | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Tüm ilkeleri okuma |
