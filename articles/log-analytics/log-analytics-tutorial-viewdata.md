@@ -1,31 +1,30 @@
 ---
-title: "Toplanan Azure Log Analytics verilerini görüntüleme veya çözümleme | Microsoft Docs"
-description: "Bu makale, günlük aramalarının oluşturulması ve Log Analytics kaynağınızdaki verilerin Günlük Araması portalı kullanılarak çözümlenmesine ilişkin bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir."
+title: Toplanan Azure Log Analytics verilerini görüntüleme veya çözümleme | Microsoft Docs
+description: Bu makale, günlük aramalarının oluşturulması ve Log Analytics kaynağınızdaki verilerin Günlük Araması portalı kullanılarak çözümlenmesine ilişkin bir öğretici içerir.  Öğreticiye farklı veri türlerinin döndürülmesine ve sonuçların çözümlenmesi için bazı basit sorguların çalıştırılması da dahildir.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2017
+ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fc5dcc945750b4ab4eef337dbd96bd051bb4dd81
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics günlük araması ile toplanan verileri görüntüleme veya çözümleme
 
 Log Analytics’te, toplanan verileri çözümlemek için sorguları yapılandırarak günlük aramalarından yararlanabilir, en fazla önem verdiğiniz aramaların grafik görünümleriyle özelleştirebileceğiniz önceden mevcut olan panoları kullanabilirsiniz.  Azure VM’lerinizden ve Etkinlik Günlüklerinizden işletimsel verileri toplamayı tanımladığınıza göre bu öğreticide aşağıdaki konularda bilgi edinebilirsiniz:
 
 > [!div class="checklist"]
-> * Azure Log Analytics kaynağınızı yeni sorgu diline yükseltme 
 > * Olay verilerinde basit bir arama gerçekleştirme ve sonuçları değiştirip filtrelemek için özellikleri kullanma 
 > * Performans verileriyle çalışmayı öğrenme
 
@@ -36,21 +35,13 @@ Döndürülen verilerle etkileşimli bir şekilde çalışmanın yanı sıra sor
 Bu öğreticide, Azure portalındaki Günlük Araması özelliğiyle çalışacağız. 
 
 ## <a name="log-in-to-azure-portal"></a>Azure portalında oturum açın
-[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
 
 ## <a name="open-the-log-search-portal"></a>Günlük Araması portalını açma 
 Günlük Araması portalını açarak işleme başlayın.   
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. Log Analytics abonelikleri bölmesinde, bir çalışma alanını ve sonra **Günlük Araması** kutucuğunu seçin.<br> ![Günlük Araması düğmesi](media/log-analytics-tutorial-viewdata/azure-portal-01.png)
-
-Portalda Log Analytics kaynak sayfanızın üst tarafında yükseltme yapmanızı isteyen başlığı görmüş olabilirsiniz.<br> ![Azure portalında Log Analytics yükseltme bildirimi](media/log-analytics-tutorial-viewdata/log-analytics-portal-upgradebanner.png)
-
-Log Analytics; sorguların oluşturulmasını, çeşitli kaynaklara ait verilerin ilişkilendirilmesini ve eğilimlerin veya sorunların hızlıca belirlenmesine yönelik analizi kolaylaştırmak için kısa bir süre önce yeni bir sorgu dilini kullanıma sunmuştur.
-
-Yükseltme basit bir işlemdir.  **Daha fazla bilgi edinin ve yükseltin** ifadesinin yer aldığı başlığa tıklayarak işleme başlayın.  Yükseltme ile ilgili daha fazla bilgi için yükseltme bilgileri sayfasını okuyun ve sonra **Şimdi Yükseltin**’e tıklayın.
-
-İşlemin tamamlanması birkaç dakika sürebilir ve bu sırada ilerleme durumunu menüdeki **Bildirimler** bölümünde izleyebilirsiniz. [Yeni sorgu dilinin avantajları](log-analytics-log-search-upgrade.md#why-the-new-language) hakkında daha fazla bilgi edinebilirsiniz.
+2. Log Analytics abonelikleri bölmesinde, bir çalışma alanını ve sonra **Günlük Araması** kutucuğunu seçin.<br><br> ![Günlük Araması düğmesi](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
 
 ## <a name="create-a-simple-search"></a>Basit bir arama oluşturma
 Üzerinde çalışılacak bazı verileri almanın en hızlı yolu, tablodaki tüm kayıtları döndüren basit bir sorgudur.  Çalışma alanınıza bağlı Windows veya Linux istemcileriniz varsa Olay (Windows) veya Syslog (Linux) tablosunda verileriniz olur.

@@ -1,11 +1,11 @@
 ---
-title: "Azure'da Linux sanal makinelerine genel bakış | Microsoft Docs"
-description: "Linux sanal makineleriyle Azure İşlem, Depolama ve Ağ hizmetlerini açıklar."
+title: Azure'da Linux sanal makinelerine genel bakış | Microsoft Docs
+description: Linux sanal makineleriyle Azure İşlem, Depolama ve Ağ hizmetlerini açıklar.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: cdb2bda0c3f7e73b115c2609c3f229c633093bdc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-and-linux"></a>Azure ve Linux
 Microsoft Azure çözümlerinizi barındırmak için ideal olan ve giderek büyüyen bir analiz, Sanal Makineler, veritabanları, mobil kullanım, ağ, depolama ve web dahil tümleşik genel bulut hizmetleri koleksiyonudur.  Microsoft Azure şirket içi donanım için yatırım yapmanıza gerek olmadan istediğiniz zaman yalnızca kullandığınız hizmetler için ödeme yapmanızı sağlayan ölçeklenebilir bir bilgi işlem platformu sunar.  Azure, çözümlerinizin ölçeğini artırmaya hazır olduğunuzda müşterilerinizin ihtiyaçlarını karşılamak için gereken ölçeğe yükseltilmek için hazırdır.
