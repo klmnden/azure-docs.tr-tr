@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1b7901542a699e74f65527bf734133f73acb0bea
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c646b0b1ab0ec62cffb4f7cf7474b48c68dfabb4
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="create-a-public-basic-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Azure portalını kullanarak sanal makinelerin yük dengelemesi için genel bir Temel Yük Dengeleyici oluşturma
 
@@ -37,9 +37,9 @@ Bu bölümde, portalı kullanarak genel bir Temel Yük Dengeleyici oluşturacaks
 
 1. Ekranın sol üst kısmında **Kaynak oluştur** > **Ağ** > **Yük Dengeleyici** seçeneklerine tıklayın.
 2. **Yük dengeleyici oluştur** sayfasına, yük dengeleyici için şu değerleri girin:
-    - *myLoadBalancer* - yük dengeleyicinin adı için.
-    - **Public** - yük dengeleyicinin fonrt türü için 
-     - *myPublicIP* - SKU **Temel** ve **Atama** **Dinamik** olarak ayarlanmış şekilde oluşturmanız gereken Genel IP için.
+    - Yük dengeleyicinin adı için *myLoadBalancer*.
+    - Yük dengeleyicinin türü için **Public**.
+    - *myPublicIP* - SKU **Temel** ve **Atama** **Dinamik** olarak ayarlanmış şekilde oluşturmanız gereken Genel IP için.
     - *myResourceGroupLB* - oluşturduğunuz yeni kaynak grubunun adı için.
 3. Yük dengeleyiciyi oluşturmak için **Oluştur**’a tıklayın.
    
@@ -51,7 +51,7 @@ Bu bölümde, portalı kullanarak genel bir Temel Yük Dengeleyici oluşturacaks
 Bu bölümde, bir sanal ağ oluşturur, Temel Yük Dengeleyicinizin arka uç havuzu için iki sanal makine oluşturur ve sonra yük dengeleyicinin test edilmesi için sanal makinelere IIS yüklersiniz.
 
 ### <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
-1. Ekranın sol üst kısmında **Yeni** > **Ağ** > **Sanal ağ** seçeneklerine tıklayın ve sanal ağ için şu değerleri girin:
+1. Ekranın sol üst kısmında **Yeni** > **Ağ** > **Sanal ağ**'e tıklayın ve sanal ağ için şu değerleri girin:
     - Sanal ağın adı için *myVnet*.
     - Mevcut kaynak grubunun adı için *myResourceGroupLB*
     - Alt ağ adı için *myBackendSubnet*.
@@ -61,15 +61,15 @@ Bu bölümde, bir sanal ağ oluşturur, Temel Yük Dengeleyicinizin arka uç hav
 
 ### <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-1. Ekranın sol üst kısmında **Yeni** > **İşlem** > **Windows Server 2016 Datacenter** seçeneklerine tıklayın ve sanal makine için şu değerleri girin:
+1. Ekranın sol üst kısmında **Yeni** > **İşlem** > **Windows Server 2016 Datacenter**'a tıklayın ve sanal makine için şu değerleri girin:
     - Sanal makinenin adı için *myVM1*.        
     - Yönetici kullanıcı adı için *azureuser*. -    
     - *myResourceGroupLB* - **Kaynak grubu** için **Var olanı kullan**’ı seçin ve sonra *myResourceGroupLB* seçeneğini belirleyin.
 2. **Tamam**’a tıklayın.
 3. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
-4. Sanal makine ayarları için şu değerleri silin:
+4. Sanal makine ayarları için şu değerleri girin:
     - Oluşturduğunuz yeni Kullanılabilirlik kümesinin adı için *myAvailabilitySet*.
-    -  Sanal ağ olarak *myVNet* öğesinin seçildiğinden emin olun.
+    -  Sanal makine olarak *myVNet*'in seçildiğinden emin olun.
     - Alt ağ olarak *myBackendSubnet* öğesinin seçildiğinden emin olun.
     - Genel IP adresi için *myVM1-ip*.
     - Oluşturmanız gereken yeni ağ güvenliği grubunun (güvenlik duvarı) adı için *myNetworkSecurityGroup*.
@@ -109,7 +109,7 @@ Bu bölümde, HTTP ve RDP kullanarak gelen bağlantılara izin vermek için NSG 
 
 ### <a name="install-iis"></a>IIS yükleme
 
-1. Sol menüden **Tüm kaynaklar**’a tıklayın ve kaynak listesinden, *myResourceGroupLB* kaynak grubunda bulunan **myVM1** seçeneğine tıklayın.
+1. Sol menüden **Tüm kaynaklar**’a tıklayın ve kaynak listesinden, *myResourceGroupLB* kaynak grubunda bulunan **myVM1** öğesine tıklayın.
 2. Sanal makineye yönelik RDP için **Genel Bakış** sayfasında **Bağlan**’a tıklatın.
 3. *azureuser* kullanıcı adı ve *Azure123456!* parolasıyla sanal makinede oturum açın
 4. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Sunucu Yöneticisi** bölümüne gidin.
@@ -137,7 +137,7 @@ Trafiği VM’lere dağıtmak için, bir arka uç adres havuzunda yük dengeleyi
     - Ad için, arka uç havuzunuzun adı olarak *myBackEndPool yazın.
     - **İlişkilendirildiği öğe** için, açılır menüden **Kullanılabilirlik kümesi**’ne tıklayın
     - **Kullanılabilirlik kümesi** için **myAvailabilitySet** seçeneğine tıklayın.
-    - Arka uç havuzunda oluşturduğunuz her bir sanal makineyi(*myVM1* & *myVM2*) eklemek için **Hedef ağ IP yapılandırması ekle** seçeneğine tıklayın.
+    - Arka uç havuzunda oluşturduğunuz tüm sanal makineleri (*myVM1* & *myVM2*) eklemek için **Hedef ağ IP yapılandırması ekle** seçeneğine tıklayın.
     - **Tamam**’a tıklayın.
 
     ![Arka uç adres havuzuna ekleme - ](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
@@ -146,9 +146,9 @@ Trafiği VM’lere dağıtmak için, bir arka uç adres havuzunda yük dengeleyi
 
 ### <a name="create-a-health-probe"></a>Durum araştırması oluşturma
 
-Temel Yük Dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum araştırması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik bir şekilde yük dengeleyiciye dönüşümlü olarak ekler ve kaldırır. Sanal makinelerin durumunu izlemek için *myHealthProbe* durum araştırması oluşturun.
+Temel Yük Dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum yoklaması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik olarak yük dengeleyici rotasyonuna ekler ve kaldırır. Sanal makinelerin durumunu izlemek için *myHealthProbe* durum araştırması oluşturun.
 
-1. Sol menüden **Tüm kaynaklar**’a tıklayın ve sonra kaynak listesinden **myLoadBalancer** seçeneğine tıklayın.
+1. Sol taraftaki menüden **Tüm kaynaklar**’a tıklayın ve sonra kaynak listesinden **myLoadBalancer** seçeneğine tıklayın.
 2. **Ayarlar** bölümünde **Durum araştırmaları**’na ve sonra **Ekle**’ye tıklayın.
 3. Durum araştırması oluşturmak için şu değerleri kullanın:
     - Durum araştırmasının adı için *myHealthProbe*.

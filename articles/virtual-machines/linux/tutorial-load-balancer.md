@@ -1,13 +1,13 @@
 ---
-title: "Azure’da Linux sanal makinelerinde yük dengeleme | Microsoft Docs"
-description: "Üç Linux VM’sinde yüksek oranda kullanılabilir ve güvenli bir uygulama oluşturmak için Azure yük dengeleyicisinin nasıl kullanılacağını öğrenin"
+title: Azure’da Linux sanal makinelerinde yük dengeleme | Microsoft Docs
+description: Üç Linux VM’sinde yüksek oranda kullanılabilir ve güvenli bir uygulama oluşturmak için Azure yük dengeleyicisinin nasıl kullanılacağını öğrenin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: feb2c369fc00d37c9a6af0c0be68cbf7d9e59921
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: c473a31261337f0b968ca21c85b61dafbf8fa74a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="how-to-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure’da Linux sanal makinelerinde yük dengeleme
 Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğreticide, Azure yük dengeleyicisinin trafiği dağıtan ve yüksek kullanılabilirlik sağlayan farklı bileşenleri hakkında bilgi edinebilirsiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Azure yük dengeleyici oluşturma
-> * Yük dengeleyici durum araştırması oluşturma
+> * Yük dengeleyici durum yoklaması oluşturma
 > * Yük dengeleyici trafik kuralları oluşturma
 > * Basit bir Node.js uygulaması oluşturmak için cloud-init kullanma
 > * Sanal makineler oluşturma ve yük dengeleyici oluşturma
@@ -39,7 +39,7 @@ Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek d
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
 
-## <a name="azure-load-balancer-overview"></a>Azure yük dengeleyiciye genel bakışı
+## <a name="azure-load-balancer-overview"></a>Azure yük dengeleyiciye genel bakış
 Azure yük dengeleyici, gelen trafiği iyi durumdaki VM'ler arasında dağıtmak için yüksek kullanılabilirlik sağlayan bir 4. Katman (TCP, UDP) yük dengeleyicidir. Yük dengeleyici durum araştırması, her VM'deki belirli bir bağlantı noktasını izler ve trafiği yalnızca çalışır durumdaki VM'lere yönlendirir.
 
 Bir veya daha fazla genel IP adresi içeren bir ön uç IP yapılandırması tanımlayın. Bu ön uç IP yapılandırması yük dengeleyicinize ve uygulamalarınıza İnternet üzerinden erişilmesine izin verir. 
@@ -80,7 +80,7 @@ az network lb create \
 ```
 
 ### <a name="create-a-health-probe"></a>Durum araştırması oluşturma
-Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum araştırması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik bir şekilde yük dengeleyiciye dönüşümlü olarak ekler ve kaldırır. VM, 15 saniyelik aralıklarda art arda iki kez başarısız olursa varsayılan olarak yük dengeleyici dağıtımından kaldırılır. Bir protokolü temel alan bir durum araştırması veya uygulamanız için özel bir sistem durumu denetim sayfası oluşturabilirsiniz. 
+Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum yoklaması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik olarak yük dengeleyici rotasyonuna ekler ve kaldırır. VM, 15 saniyelik aralıklarda art arda iki kez başarısız olursa varsayılan olarak yük dengeleyici dağıtımından kaldırılır. Bir protokolü temel alan bir durum araştırması veya uygulamanız için belirli bir sistem durumu denetim sayfası oluşturun. 
 
 Aşağıdaki örnek bir TCP araştırması oluşturur. Ayrıca daha ayrıntılı sistem durumu denetimleri için özel HTTP araştırmaları oluşturabilirsiniz. Özel bir HTTP araştırması kullandığınızda *healthcheck.js* gibi bir sistem durumu denetimi sayfası oluşturmanız gerekir. Konağı dönüşüm içinde tutmak üzere araştırmanın yük dengeleyici için bir **HTTP 200 OK** yanıtı döndürmesi gerekir.
 
@@ -115,7 +115,7 @@ az network lb rule create \
 
 
 ## <a name="configure-virtual-network"></a>Sanal ağ yapılandırma
-VM’leri dağıtmadan ve dengeleyicinizi sınamadan önce yardımcı sanal ağ kaynaklarını oluşturun. Sanal ağlar hakkında daha fazla bilgi edinmek için [Azure Sanal Ağlarını Yönetme](tutorial-virtual-network.md) öğreticisine göz atın.
+VM’leri dağıtmadan ve dengeleyicinizi sınamadan önce yardımcı sanal ağ kaynaklarını oluşturun. Sanal ağlar hakkında daha fazla bilgi edinmek için [Azure Sanal Ağlarını Yönetme](tutorial-virtual-network.md) öğreticisine gözatın.
 
 ### <a name="create-network-resources"></a>Ağ kaynakları oluşturma
 [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) komutu ile bir sanal ağ oluşturun. Aşağıdaki örnek *mySubnet* alt ağına sahip *myVnet* adında bir sanal ağ oluşturur:
@@ -260,11 +260,11 @@ Daha sonra genel IP adresini bir web tarayıcısına girebilirsiniz. Yük dengel
 
 ![Node.js uygulaması çalıştırma](./media/tutorial-load-balancer/running-nodejs-app.png)
 
-Yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtma işlemini görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
+Yük dengeleyicinin trafiği, uygulamanızı çalıştıran üç VM’ye dağıtmasını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
 
 
 ## <a name="add-and-remove-vms"></a>VM’leri ekleme ve kaldırma
-Uygulamanızı çalıştıran VM’lerde bakım işlemi (örneğin, işletim sistemi güncelleştirmelerini yükleme) gerçekleştirmeniz gerekebilir. Uygulamanıza gelen artan trafiği yönetmek için ek VM’lere ihtiyaç duyabilirsiniz. Bu bölümde yük dengeleyiciden bir VM’yi nasıl kaldırabileceğiniz veya ekleyebileceğiniz gösterilmektedir.
+Uygulamanızı çalıştıran VM’lerde işletim sistemi güncelleştirmelerini yükleme gibi bakım işlemleri gerçekleştirmeniz gerekebilir. Uygulamanıza gelen trafiği fazla trafiği yönetmek için ek VM’lere ihtiyaç duyabilirsiniz. Bu bölümde VM’yi yük dengeleyiciden nasıl kaldırabileceğiniz veya ekleyebileceğiniz gösterilmektedir.
 
 ### <a name="remove-a-vm-from-the-load-balancer"></a>VM’yi yük dengeleyiciden kaldırma
 VM’yi arka uç adres havuzundan [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove) komutu ile kaldırabilirsiniz. Aşağıdaki örnek **myVM2** için sanal NIC’yi *myLoadBalancer*’dan kaldırır:
@@ -314,11 +314,11 @@ Sanal NIC’nin arka uç adres havuzuna bağlı olduğundan emin olmak için ön
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir yük dengeleyici oluşturdunuz ve buna sanal makineler eklediniz. Şunları öğrendiniz:
+Bu öğreticide, bir yük dengeleyici oluşturdunuz ve ona sanal makineler eklediniz. Şunları öğrendiniz:
 
 > [!div class="checklist"]
 > * Azure yük dengeleyici oluşturma
-> * Yük dengeleyici durum araştırması oluşturma
+> * Yük dengeleyici durum yoklaması oluşturma
 > * Yük dengeleyici trafik kuralları oluşturma
 > * Basit bir Node.js uygulaması oluşturmak için cloud-init kullanma
 > * Sanal makineler oluşturma ve yük dengeleyici oluşturma

@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse'a – Data Factory veri yükleme | Microsoft Docs"
-description: "Bu öğreticide Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükler ve veri kaynağı olarak bir SQL Server veritabanını kullanır."
+title: Azure SQL Data Warehouse'a – Data Factory veri yükleme | Microsoft Docs
+description: Bu öğreticide Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükler ve veri kaynağı olarak bir SQL Server veritabanını kullanır.
 services: sql-data-warehouse
 documentationcenter: NA
 author: ckarst
 manager: jhubbard
-editor: 
+editor: ''
 tags: azure-sql-data-warehouse;azure-data-factory
 ms.service: sql-data-warehouse
 ms.workload: data-management
@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>Data Factory ile SQL veri ambarına veri yükleme
 
@@ -27,7 +27,7 @@ Azure Data Factory herhangi birini Azure SQL Data Warehouse'a veri yüklemek iç
 
 **Zaman tahmin**: Bu öğreticide Önkoşullar sağlandığında tamamlamak için yaklaşık 10-15 dakika sürer.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 - Gereksinim duyduğunuz bir **SQL Server veritabanı** SQL veri ambarı'na üzerinden kopyalanacak verileri içeren tablolar ile.  
 

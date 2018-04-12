@@ -2,18 +2,17 @@
 title: Azure Dosyalarını Azure'a yedekleme
 description: Bu makalede Azure dosya paylaşımlarınızı yedekleme ve geri yükleme işlemlerinin ayrıntıları verilir ve yönetim görevleri açıklanır.
 services: backup
-keywords: SEO uzmanınıza danışmadan anahtar sözcük eklemeyin veya anahtar sözcükleri düzenlemeyin.
 author: markgalioto
 ms.author: markgal
 ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 3eab85aa4f7fde190a93239fc396cb9c04c2396c
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
@@ -32,7 +31,7 @@ Azure dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama 
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure dosya paylaşımı yedeklemesine yönelik sınırlamalar
 Azure dosya paylaşımları için yedekleme önizlemede sunulmaktadır. Önizleme sırasında aşağıdaki sınırlamaları unutmayın:
-- [Bölgesel olarak yedekli depolama (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage) çoğaltması ile depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
+- [Bölgesel olarak yedekli depolama (ZRS)](../storage/common/storage-redundancy-zrs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md) çoğaltması ile depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Sanal Ağların etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
 - Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
 - Günlük zamanlanan maksimum yedekleme sayısı birdir.
