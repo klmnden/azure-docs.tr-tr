@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL veri ambarı performans katmanı | Microsoft Docs"
-description: "Esneklik ve Azure SQL Data Warehouse kullanılabilir işlem iyileştirilmiş performans katmanlarda giriş."
+title: Azure SQL veri ambarı performans katmanı | Microsoft Docs
+description: Esneklik ve Azure SQL Data Warehouse kullanılabilir işlem iyileştirilmiş performans katmanlarda giriş.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -15,10 +15,10 @@ ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
 ms.openlocfilehash: 03881c12faed723999e97431e4a69fdeb6bfa10d
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Azure SQL veri ambarı performans Katmanı (Önizleme)
 SQL veri ambarı analitik iş yükleri için en iyi duruma getirilir iki performans katmanı sunar. Bu makalede, iş yükü için en uygun performans katmanı seçmenize yardımcı olmak için performans katmanı kavramlarını açıklar. 
