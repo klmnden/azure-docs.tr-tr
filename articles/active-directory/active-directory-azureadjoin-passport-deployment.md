@@ -1,9 +1,9 @@
 ---
-title: "Microsoft iş için Windows Hello kuruluşunuzda etkinleştirme | Microsoft Docs"
-description: "Microsoft Passport, kuruluşunuzda etkinleştirmek için dağıtım yönergeleri."
+title: Microsoft iş için Windows Hello kuruluşunuzda etkinleştirme | Microsoft Docs
+description: Microsoft Passport, kuruluşunuzda etkinleştirmek için dağıtım yönergeleri.
 services: active-directory
-documentationcenter: 
-keywords: "Microsoft Passport, Microsoft Windows Hello iş dağıtım için yapılandırma"
+documentationcenter: ''
+keywords: Microsoft Passport, Microsoft Windows Hello iş dağıtım için yapılandırma
 author: MarkusVi
 manager: mtillman
 tags: azure-classic-portal
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: 0aa16e3466b36b6d1d83308cf37623aa15d61fcb
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>Microsoft iş için Windows Hello kuruluşunuzda etkinleştir
 Sonra [Windows 10 etki alanına katılmış cihazları Azure Active Directory ile bağlanma](active-directory-azureadjoin-devices-group-policy.md), Microsoft iş için Windows Hello kuruluşunuzda etkinleştirmek için aşağıdakileri yapın:

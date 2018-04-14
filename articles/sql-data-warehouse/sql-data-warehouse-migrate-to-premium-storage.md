@@ -1,11 +1,11 @@
 ---
-title: "Premium depolama alanına var olan Azure veri ambarınız geçiş | Microsoft Docs"
-description: "Mevcut bir veri ambarı premium depolama alanına geçirmek için yönergeler"
+title: Premium depolama alanına var olan Azure veri ambarınız geçiş | Microsoft Docs
+description: Mevcut bir veri ambarı premium depolama alanına geçirmek için yönergeler
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 03/15/2018
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 3b43bc17b7f9cf80a9520c5c573be3a48d82e4e7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Premium depolama alanına, veri ambarı geçiş
 En yeni Azure SQL Data Warehouse [büyük performans öngörülebilirlik için premium depolama][premium storage for greater performance predictability]. Standart depolama üzerinde şu anda mevcut veri ambarlarında artık premium depolama alanına geçirilemez. Otomatik geçiş yararlanabilir veya geçirmek denetlemek tercih ederseniz (hangi içeren miktar kapalı kalma süresi), kendiniz geçiş yapabilirsiniz.
@@ -51,7 +51,7 @@ Varsayılan olarak, biz veritabanınız için 6:00 ile 6: 00'da, bölgenin yerel
 Microsoft (bunlar herhangi katılımı yapmanıza gerek yoktur) geçiş işlemini tamamlamak için aşağıdaki adımları sürüyor. Bu örnekte, var olan veri ambarınız standart depolama üzerinde şu anda "MyDW." adlı düşünün
 
 1. Microsoft "MyDW_DO_NOT_USE_ [zaman damgası]." için "MyDW" yeniden adlandırır.
-2. Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].” Bu süre boyunca, bir yedekleme gerçekleştirilir. Biz bu işlem sırasında herhangi bir sorunla karşılaşırsanız, birden çok duraklatır ve sürdürür görebilirsiniz.
+2. Microsoft duraklatır "MyDW_DO_NOT_USE_ [zaman damgası]." Bu süre boyunca, bir yedekleme gerçekleştirilir. Biz bu işlem sırasında herhangi bir sorunla karşılaşırsanız, birden çok duraklatır ve sürdürür görebilirsiniz.
 3. Microsoft, premium depolama 2. adımda alınan yedekten "MyDW" adlı yeni bir veri ambarını oluşturur. Geri yükleme tamamlandıktan sonra "MyDW" kadar görünmez.
 4. Olan geçişten önce oluştu. geri yükleme tamamlandığında, "MyDW" aynı data warehouse birimleri ve durumu (duraklatılmış ya da etkin) döndürür.
 5. Geçiş işlemi tamamlandıktan sonra Microsoft "MyDW_DO_NOT_USE_ [zaman damgası]" siler.
@@ -108,7 +108,7 @@ Bu örnekte, var olan veri ambarınız standart depolama üzerinde şu anda "MyD
    ```
    ALTER DATABASE CurrentDatabasename MODIFY NAME = NewDatabaseName;
    ```
-2. [Pause][Pause] "MyDW_BeforeMigration." 
+2. [Duraklatma] [ Pause] "MyDW_BeforeMigration." 
 3. [Geri yükleme] [ Restore] en son kullanılan (örneğin, "MyDW") olacak şekilde ada sahip yeni bir veritabanı anlık görüntüsü.
 4. "MyDW_BeforeMigration." Sil **Bu adım başarısız olursa, her iki veri ambarlarında için sizden ücret alınır.**
 
