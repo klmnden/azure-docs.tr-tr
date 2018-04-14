@@ -1,11 +1,11 @@
 ---
-title: "Aracılığıyla parolası olmayan kimlikleri Windows Hello iş ve Azure AD için kimlik doğrulaması | Microsoft Docs"
-description: "İş ve iş için Windows Hello dağıtma hakkında ek bilgi için Windows Hello genel bakış sağlar."
+title: Aracılığıyla parolası olmayan kimlikleri Windows Hello iş ve Azure AD için kimlik doğrulaması | Microsoft Docs
+description: İş ve iş için Windows Hello dağıtma hakkında ek bilgi için Windows Hello genel bakış sağlar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: f907bb90-8776-46ca-9e12-279949af66ff
 ms.service: active-directory
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 22534cc5f7f2de235bc1f1212c63ea227083c5a4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/14/2018
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>Kimlik doğrulama aracılığıyla parolası olmayan kimlikleri iş için Windows Hello
 Geçerli parolalar tek başına ile kimlik doğrulama yöntemlerinin kullanıcıların güvenli tutmak yeterli değildir. Kullanıcıların yeniden kullanmak ve parolaları unutmayın. Parolalar breachable, phishable, kırık yatkın ve guessable. Ayrıca unutmayın zor ve saldırıları gibi yatkın Al "[karma değer geçişi](https://technet.microsoft.com/dn785092.aspx)".
