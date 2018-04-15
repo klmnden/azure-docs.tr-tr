@@ -6,15 +6,15 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 04/02/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d7dd0986878c747f92afc712301453bc8772ef2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f1c6b5cd07752c6b29234a365b3298d76b639b3a
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Azure İşlevi'ni IoT Edge modülü olarak dağıtma - önizleme
 İş mantığınızı doğrudan IoT Edge cihazlarınıza uygulayan kodu dağıtmak için Azure İşlevleri'ni kullanabilirsiniz. Bu öğreticide, [Windows][lnk-tutorial1-win] veya [Linux][lnk-tutorial1-lin]'ta simülasyon cihazındaki Azure IoT Edge'e dağıtma öğreticilerinde oluşturduğunuz simülasyon IoT Edge cihazındaki algılayıcı verilerini filtreleyen bir Azure İşlevi oluşturma ve dağıtma işlemlerinde yol gösterilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:     
@@ -95,8 +95,7 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
                 // Copy the properties of the original message into the new Message object
                 foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);
-                }
+                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
                 // Add a new property to the message to indicate it is an alert
                 filteredMessage.Properties.Add("MessageType", "Alert");
                 // Send the message        
@@ -136,10 +135,13 @@ Aşağıdaki adımlarda, Visual Studio Code'u ve Azure IoT Edge uzantısını ku
    ```
    Bu komutta kullanılacak kullanıcı adını, parolayı ve oturum açma sunucusunu bulmak için [Azure portalına] (https://portal.azure.com)) gidin. **Tüm kaynaklar**'da, Azure kapsayıcı kayıt defterinizin kutucuğuna tıklayarak özelliklerini açın ve **Erişim tuşları**'na tıklayın. **Kullanıcı adı**, **Parola** ve **Oturum açma sunucusu** alanlarındaki değerleri kopyalayın. 
 
-2. VS Code gezgininde **module.json** dosyasına sağ tıklayın ve **IoT Edge modülü Docker görüntüsü derle ve gönder** seçeneğine tıklayın. VS Code penceresinin açılır kutusunda, Linux kapsayıcı için **amd64** ve Windows kapsayıcı için **windows-amd64** olacak şekilde kapsayıcı platformunuzu seçin. VS Code, işlev kodlarınızı kapsayıcılı hale getirir ve belirttiğiniz kapsayıcı kayıt defterine bunu gönderir.
+2. **module.json** dosyasını açın. Örneğin dilerseniz `"version"`ü şöyle güncelleştirebilirsiniz: **"1.0"**. Ayrıca, `dotnet new aziotedgefunction` işlevinin `-r` parametresine girdiğiniz depo adı da görüntülenir.
 
+3. **module.json** dosyasını kaydedin.
 
-3. VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini alabilirsiniz. Derleme ve gönderme tanımı hakkında daha fazla bilgi için `module.json` dosyasına bakabilirsiniz.
+4. VS Code gezgininde **module.json** dosyasına sağ tıklayın ve **IoT Edge modülü Docker görüntüsü derle ve gönder** seçeneğine tıklayın. VS Code penceresinin açılır kutusunda, Linux kapsayıcı için **amd64** ve Windows kapsayıcı için **windows-amd64** olacak şekilde kapsayıcı platformunuzu seçin. VS Code, işlev kodlarınızı kapsayıcılı hale getirir ve belirttiğiniz kapsayıcı kayıt defterine bunu gönderir.
+
+5. VS Code tümleşik terminalinde etiketle tam kapsayıcı görüntü adresini alabilirsiniz. Derleme ve gönderme tanımı hakkında daha fazla bilgi için `module.json` dosyasına bakabilirsiniz.
 
 ## <a name="add-registry-credentials-to-your-edge-device"></a>Kayıt defteri kimlik bilgilerini Edge cihazınıza ekleme
 Kayıt defterinizin kimlik bilgilerini, Edge cihazınızı çalıştırdığınız bilgisayarın Edge çalışma zamanına ekleyin. Bu, kapsayıcıyı çekmek için çalışma zamanı erişimi sağlar. 
