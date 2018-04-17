@@ -6,8 +6,6 @@ items:
     items:
       - name: Azure Cosmos DB hakkında
         href: introduction.md
-      - name: Belge deneme
-        href: experiment.md
   - name: Hızlı Başlangıçlar
     expanded: true
     items:
@@ -185,7 +183,7 @@ items:
                 href: sql-api-sql-query-metrics.md
               - name: SQL oyun alanı
                 href: 'https://aka.ms/cosmos-db-playground'
-              - name: Bölümleme
+              - name: SQL veri bölümleme
                 href: sql-api-partition-data.md
               - name: 'Saklı yordamlar, tetikleyiciler ve UDF''ler'
                 href: programming.md
@@ -288,6 +286,8 @@ items:
             items:
               - name: Gremlin desteği
                 href: gremlin-support.md
+              - name: Grafik bölümleme
+                href: graph-partitioning.md
           - name: Tablo API’si
             items:
               - name: Tablo geliştirme
@@ -330,8 +330,6 @@ items:
             href: geospatial.md
           - name: Dizinleme
             href: indexing-policies.md
-          - name: Visual Studio'da Bağlı Hizmet
-            href: connected-service.md
       - name: Yönetme
         items:
           - name: Düşük maliyetli okuma ve yazmalar
@@ -396,7 +394,7 @@ items:
           - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
             href: odbc-driver.md
           - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db.md
+            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
   - name: Başvuru
     items:
       - name: Kod örnekleri

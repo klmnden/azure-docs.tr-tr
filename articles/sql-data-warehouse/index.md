@@ -1,26 +1,25 @@
 ---
-title: "Azure SQL Veri Ambarı Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "SQL Server’ı yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Belgelerde verileri nasıl yükleyeceğiniz, çözümleyeceğiniz, yöneteceğiniz ve dışarı aktaracağınız açıklanmıştır."
+title: Azure SQL Veri Ambarı Belgeleri - Öğreticiler, Kavramlar| Microsoft Docs
+description: SQL ilişkisel veritabanlarını yüksek düzeyde paralel işleme ile birleştiren Azure SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticiler ve diğer belgeler, bir veri ambarı kullanarak verileri nasıl tasarlayacağınızı, yükleyeceğinizi, yöneteceğinizi ve analiz edeceğinizi gösterir.
 services: sql-data-warehouse
-author: czeumault
-manager: carolz
+author: hirokib
+manager: craigg-msft
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 47807360dd58f0c19360d90ed66f726d8922be1e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.component: design
+ms.date: 04/11/2018
+ms.author: elbutter
+ms.reviewer: jrj
+ms.openlocfilehash: 42db87fd64bca58ee3e86589acdc85107e057665
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-documentation"></a>SQL Veri Ambarı Belgeleri
 
-SQL Server ilişkisel veritabanını yüksek düzeyde paralel işleme ile birleştiren SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticilerde ve diğer belgelerd,e ambara veri yükleme ve yüklenen verileri çözümleme, yönetme ve dışarı aktarma ile ilgili bilgiler sağlanmıştır.
+SQL ilişkisel veritabanlarını yüksek düzeyde paralel işleme ile birleştiren Azure SQL Veri Ambarı’nı nasıl kullanacağınızı öğrenin. Öğreticiler ve diğer belgeler, bir veri ambarı kullanarak verileri nasıl tasarlayacağınızı, yükleyeceğinizi, yöneteceğinizi ve analiz edeceğinizi gösterir. 
 
 <ul class="panelContent cardsFTitle">
     <li>

@@ -293,8 +293,8 @@
               href: delete-vault.md
         - name: İzleme ve sorun giderme
           items:
-            - name: Azure'a yük devretme sorunlarını giderme
-              href: site-recovery-failover-to-azure-troubleshoot.md
+            - name: Hyper-V çoğaltma sorunlarını giderme
+              href: hyper-v-azure-troubleshoot.md
             - name: Azure Site Recovery’yi izleme
               href: site-recovery-monitor-and-troubleshoot.md
     - name: Hyper-V’den ikincile

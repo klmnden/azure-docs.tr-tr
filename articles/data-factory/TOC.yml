@@ -364,6 +364,10 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure’da SSIS paketlerini çalıştırma
       items:
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için özel kurulum
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için Enterprise Edition sağlama
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını VNET’e bağlama
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
@@ -374,6 +378,8 @@
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS tümleştirmesi çalışma zamanı zamanlama
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS tümleştirmesi çalışma zamanı için lisanslı bileşenler geliştirme
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
     - name: Tetikleyici oluşturma
       items:
         - name: Zamanlama tetikleyicisi oluşturma

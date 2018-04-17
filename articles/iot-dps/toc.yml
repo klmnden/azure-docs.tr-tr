@@ -89,28 +89,30 @@
       href: concepts-service.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Cihaz kayıtlarını yönetme
+    - name: MXChip IoT DevKit’i IoT Hub’a bağlama
+      href: how-to-connect-mxchip-iot-devkit.md
+    - name: Cihaz sağlama yapılandırmasını yönetme
       items:
-        - name: Azure portalı ile cihaz kayıtlarını yönetme
+        - name: Doğrulanmış CA sertifikalarını yapılandırma
+          href: how-to-verify-certificates.md
+        - name: Sağlamayı yönetme
+          href: how-to-unprovision-devices.md
+        - name: Kayıt silmeyi yönetme
+          href: how-to-revoke-device-access-portal.md
+        - name: Kayıtları yönetme - Portal
           href: how-to-manage-enrollments.md
-        - name: Hizmet SDK’leri ile cihaz kayıtlarını yönetme
+        - name: Kayıtları yönetme - Hizmet SDK’ları
           href: how-to-manage-enrollments-sdks.md
-    - name: Cihaz erişimini iptal etme
-      href: how-to-revoke-device-access-portal.md
-    - name: Cihaz sağlamasını kaldırma
-      href: how-to-unprovision-devices.md
-    - name: X.509 sertifikalarına sahip olduğunuzu kanıtlama işlemini gerçekleştirme
-      href: how-to-verify-certificates.md
-    - name: SDK ile HSM kullanma
+    - name: Cihaz sağlama hizmetini yönetme
+      items:
+        - name: Azure CLI’sini kullanarak cihaz sağlama hizmetini yapılandırma
+          href: how-to-manage-dps-with-cli.md
+        - name: Sağlama Hizmeti API’lerine erişimi denetleme
+          href: how-to-control-access.md
+    - name: Kanıtlama mekanizmasını SDK ile kullanma
       href: use-hsm-with-sdk.md
-    - name: Sağlama Hizmeti’ne erişimi denetleme
-      href: how-to-control-access.md
-    - name: Cihaz sağlama hizmetini yönetmek için Azure CLI kullanma
-      href: how-to-manage-dps-with-cli.md
     - name: Geliştirme için SDK araçlarını kullanma
       href: how-to-use-sdk-tools.md
-    - name: MXChip IoT DevKit’e bağlanma
-      href: how-to-connect-mxchip-iot-devkit.md
 - name: Başvuru
   items:
     - name: REST

@@ -196,6 +196,8 @@
               href: app-insights-usage-segmentation.md
             - name: Huniler
               href: usage-funnels.md
+            - name: Kohortlar
+              href: app-insights-usage-cohorts.md
             - name: Etki
               href: app-insights-usage-impact.md
             - name: Bekletme

@@ -1,11 +1,10 @@
 ---
-title: 'Azure Cosmos DB: Xamarin ve Facebook kimlik doğrulaması ile web uygulaması derleme | Microsoft Docs'
-description: Azure Cosmos DB’ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir .NET kod örneği sunar
+title: 'Azure Cosmos DB: Xamarin ile todo uygulaması derleme | Microsoft Docs'
+description: Azure Cosmos DB'ye bağlanmak ve veritabanını sorgulamak için kullanabileceğiniz bir Xamarin kod örneği sunar
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: quick start connect, mvc
@@ -13,26 +12,30 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/29/2017
-ms.author: mimig
-ms.openlocfilehash: 593c55951479a3cdebfe8bdc08ca0443738269ef
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/04/2018
+ms.author: sngun
+ms.openlocfilehash: 1fec2604dc2aee412e73f5ca332d2852bf7e58bd
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: .NET, Xamarin ve Facebook kimlik doğrulaması ile web uygulaması derleme
+# <a name="azure-cosmos-db-build-a-todo-app-with-xamarin"></a>Azure Cosmos DB: Xamarin ile todo uygulaması derleme
 
 Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Bu hizmetle belge, anahtar/değer ve grafik veritabanlarını kolayca oluşturup sorgulayabilir ve tüm bunları yaparken Azure Cosmos DB'nin genel dağıtım ve yatay ölçeklendirme özelliklerinden faydalanabilirsiniz.
 
 > [!NOTE]
 > CosmosDB de dahil birçok Azure teklifini gösteren tamamen kurallı örnek bir Xamarin uygulaması için örnek koda GitHub’da [buradan](https://github.com/xamarinhq/app-geocontacts) erişilebilir. Bu uygulama, coğrafi olarak dağınık kişilerin görüntülenmesini sergileyerek bu kişilerin konumlarını güncelleştirmesine olanak sağlar.
 
-Bu hızlı başlangıçta Azure portalı kullanarak bir Azure Cosmos DB hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Daha sonra [SQL .NET API](sql-api-sdk-dotnet.md), [Xamarin](https://www.xamarin.com/) ve Azure Cosmos DB yetkilendirme altyapısı üzerinde oluşturulmuş bir yapılacaklar listesi web uygulaması derleyip dağıtacaksınız. Yapılacaklar listesi web uygulaması, kullanıcıların Facebook Kimlik Doğrulaması kullanarak oturum açmasına ve kendi yapılacaklar listesi öğelerini yönetmesine olanak tanır.
+Bu hızlı başlangıç belgesinde Azure portalını kullanarak bir Azure Cosmos DB SQL API hesabını, belge veritabanını ve koleksiyonunu nasıl oluşturacağınız anlatılmıştır. Daha sonra [SQL .NET API](sql-api-sdk-dotnet.md) ile [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) üzerinde derlenmiş bir todo liste web uygulamasını [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) ve [MVVM mimari deseni](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm) kullanarak derleyip dağıtacaksınız.
+
+![iOS’ta çalışan Xamarin todo uygulaması](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure dağıtımını** etkinleştirdiğinizden emin olun.
+Windows üzerinde geliştirme yapıyorsanız ve henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)’ı indirip kullanabilirsiniz. Visual Studio kurulumu sırasında **Azure geliştirme** ve **.NET ile Mobil Dağıtım** iş yüklerini etkinleştirdiğinizden emin olun.
+
+Mac kullanıyorsanız, [Mac için Visual Studio](https://www.visualstudio.com/vs/mac/)’yu **ücretsiz** olarak indirebilirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -45,74 +48,197 @@ Henüz Visual Studio 2017’yi yüklemediyseniz, **ücretsiz** [Visual Studio 20
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
+## <a name="add-sample-data"></a>Örnek verileri ekleme
+
+Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
+
+1. Veri Gezgini menüsünden > **Görevler** veritabanını genişletin, **Öğeler** koleksiyonunu genişletin, **Belgeler**'e ve ardından **Yeni Belge**'ye tıklayın.
+
+   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-new-document.png)
+
+2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin.
+
+     ```json
+     {
+         "id": "1",
+         "name": "groceries",
+         "description": "Pick up apples and strawberries.",
+         "completed": false
+     }
+     ```
+
+3. JSON öğesini **Belgeler** sekmesine ekledikten sonra **Kaydet**'e tıklayın.
+
+    ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-sql-api-xamarin-dotnet/azure-cosmosdb-data-explorer-save-document.png)
+
+4. `id` özelliği için benzersiz bir değer eklediğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+
+     Şimdi verilerinizi almak için Veri Gezgini'ndeki sorguları kullanabilirsiniz. Veri Gezgini koleksiyondaki tüm belgeleri almak için varsayılan olarak `SELECT * FROM c` komutunu kullanır ancak bunu `SELECT * FROM c ORDER BY c._ts DESC` gibi farklı bir [SQL sorgusuyla](sql-api-sql-query.md) değiştirerek tüm belgelerin zaman damgasına göre azalan sırada döndürülmesini sağlayabilirsiniz.
+
+     Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabilir, bu sayede sunucu tarafı iş mantığını gerçekleştirebilir ve aktarım hızını ölçeklendirebilirsiniz. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
+
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 
-Şimdi GitHub'dan bir SQL API'si uygulaması kopyalayalım, bağlantı dizesini ayarlayalım ve uygulamayı çalıştıralım. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz. 
+Şimdi Xamarin SQL API uygulamasını github'dan kopyalayın, kodu gözden geçirin, API anahtarlarını edinin ve çalıştırın. Verilerle program aracılığıyla çalışmanın ne kadar kolay olduğunu göreceksiniz.
 
 1. Git bash gibi bir git terminal penceresi açın ve `cd` ile çalışma dizinine gidin.
 
-2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın. 
+2. Örnek depoyu kopyalamak için aşağıdaki komutu çalıştırın.
 
     ```bash
     git clone https://github.com/Azure/azure-documentdb-dotnet.git
     ```
 
-3. Ardından Visual Studio’nun samples/xamarin/UserItems/xamarin.forms klasöründen DocumentDBTodo.sln dosyasını açın.
+3. Ardından Visual Studio’da samples/xamarin/ToDoItems klasöründen ToDoItems.sln dosyasını açın.
 
-## <a name="review-the-code"></a>Kodu gözden geçirin
+## <a name="obtain-your-api-keys"></a>API anahtarlarınızı edinme
 
-Xamarin klasöründeki kod şunları içerir:
+Azure portalına geri dönerek API anahtarı bilgilerini alın ve uygulamaya kopyalayın.
 
-* Xamarin uygulaması. Uygulama, kullanıcının yapılacaklar listesi öğelerini UserItems adlı bölümlendirilmiş bir koleksiyonda depolar.
-* Kaynak belirteci aracı API’si. Azure Cosmos DB kaynak belirteçleri ile uygulamada oturum açmış kullanıcılar arasında aracılık yapan basit bir ASP.NET Web API. Kaynak belirteçleri, uygulamaya oturum açmış kullanıcının verilerini sağlayan kısa süreli erişim belirteçleridir.
-
-Kimlik doğrulaması ve veri akışı aşağıdaki diyagramda gösterilmiştir.
-
-* UserItems koleksiyonu '/userid' bölüm anahtarı ile oluşturulur. Bir koleksiyon için bölüm anahtarı belirtilmesi, Azure Cosmos DB’nin kullanıcı ve öğe sayısı arttıkça sonsuz ölçeklendirme yapmasını sağlar.
-* Xamarin uygulaması, kullanıcıların Facebook kimlik bilgileriyle oturum açmasına olanak tanır.
-* Xamarin uygulaması, ResourceTokenBroker API’si ile kimlik doğrulaması yapmak için Facebook erişim belirtecini kullanır
-* Kaynak belirteci aracı API’si, App Service Kimlik Doğrulama özelliğini kullanarak isteğin kimliğini doğrular ve kimliği doğrulanmış kullanıcının bölüm anahtarını paylaşan tüm belgelere okuma/yazma erişimine sahip bir Azure Cosmos DB kaynak belirteci ister.
-* Kaynak belirteci aracısı, kaynak belirtecini istemci uygulamasına döndürür.
-* Uygulama, kaynak belirtecini kullanarak kullanıcının yapılacaklar listesi öğelerine erişir.
-
-![Yapılacaklar listesi uygulaması ve örnek veriler](./media/create-sql-api-xamarin-dotnet/tokenbroker.png)
-
-## <a name="update-your-connection-string"></a>Bağlantı dizenizi güncelleştirme
-
-Bu adımda Azure portalına dönerek bağlantı dizesi bilgilerinizi kopyalayıp uygulamaya ekleyin.
-
-1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda Web.config dosyasına yapıştırın.
+1. [Azure portalında](http://portal.azure.com/), Azure Cosmos DB SQL API hesabınızın sol taraftaki gezinti menüsünden **Anahtarlar**'a ve ardından **Okuma/Yazma Anahtarları**'na tıklayın. Ekranın sağ tarafındaki kopyalama düğmelerini kullanarak URI ve Birincil Anahtar değerlerini kopyalayarak sonraki adımda APIKeys.cs dosyasına yapıştırın.
 
     ![Azure portalında erişim anahtarı görüntüleme ve kopyalama, Anahtarlar dikey penceresi](./media/create-sql-api-xamarin-dotnet/keys.png)
 
-2. Visual Studio 2017’de, azure-documentdb-dotnet/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker klasöründeki Web.config dosyasını açın. 
+2. Visual Studio 2017 veya Mac için Visual Studio’da azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Helpers klasöründen APIKeys.cs dosyasını açın.
 
-3. Portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve Web.config dosyasına accountUrl değeri olarak yapıştırın. 
+3. Portaldaki URI değerinizi kopyalayın (kopyalama düğmesini kullanarak) ve APIKeys.cs dosyasındaki `CosmosEndpointUrl` değişkeninin değeri yapın.
 
-    `<add key="accountUrl" value="{Azure Cosmos DB account URL}"/>`
+    `public static readonly string CosmosEndpointUrl = "{Azure Cosmos DB account URL}";`
 
-4. Ardından portaldaki BİRİNCİL ANAHTAR değerinizi kopyalayıp Web.config dosyasına accountKey değeri olarak yapıştırın.
+4. Ardından portaldaki BİRİNCİL ANAHTAR değerinizi kopyalayıp APIKeys.cs dosyasına `Cosmos Auth Key` değeri olarak yapıştırın.
 
-    `<add key="accountKey" value="{Azure Cosmos DB secret}"/>`
+    `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
 
-Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz. 
+## <a name="review-the-code"></a>Kodu gözden geçirin
 
-## <a name="build-and-deploy-the-web-app"></a>Web uygulaması derleme ve dağıtma
+Bu çözüm, Azure Cosmos DB SQL API ve Xamarin.Forms kullanarak bir ToDo uygulaması oluşturma işlemini gösterir. Uygulamada iki sekme bulunur; birinci sekme henüz tamamlanmamış todo öğelerini gösteren bir liste görünümü içerir. İkinci sekme tamamlanmış todo öğelerini gösterir. Birinci sekmede tamamlanmamış todo öğelerini görüntülemeye ek olarak yeni todo öğeleri ekleyebilir, var olanları düzenleyebilir ve öğeleri tamamlandı olarak işaretleyebilirsiniz.
 
-1. Azure portalında Kaynak belirteci aracı API’sini barındıracak bir App Service web sitesi oluşturun.
-2. Azure portalında, Kaynak belirteci aracı API’si web sitesinin Uygulama Ayarları dikey penceresini açın. Aşağıdaki uygulama ayarlarını doldurun:
+![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
 
-    * accountUrl - Azure Cosmos DB hesabınızın Anahtarlar sekmesindeki Azure Cosmos DB hesap URL’si.
-    * accountKey - Azure Cosmos DB hesabınızın Anahtarlar sekmesindeki Azure Cosmos DB hesabı ana anahtarı.
-    * Oluşturduğunuz veritabanı ve koleksiyonun databaseId ile collectionId değerleri
+ToDoItems çözümündeki kod şunları içerir:
 
-3. Oluşturduğunuz web sitesinde ResourceTokenBroker çözümünü yayımlayın.
+* ToDoItems.Core: Azure Cosmos DB’de todo öğelerini sürdüren bir paylaşılan uygulama mantığı ve bir Xamarin.Forms projesi içeren .NET Standard projesidir.
+* ToDoItems.Android: Bu proje Android uygulamasını içerir.
+* ToDoItems.iOS: Bu proje iOS uygulamasını içerir.
 
-4. Xamarin projesini açıp TodoItemManager.cs dosyasına gidin. Kaynak belirteci aracı web sitesi için accountURL, collectionId, databaseId değerlerinin yanı sıra taban https url’si olarak resourceTokenBrokerURL değerini girin.
+Şimdi uygulamanın Azure Cosmos DB ile nasıl iletişim kurduğuna hızlıca göz atalım.
 
-5. Facebook kimlik doğrulamasını ayarlamak ve ResourceTokenBroker web sitesini yapılandırmak için [App Service uygulamanızı Facebook oturum açma bilgilerini kullanacak şekilde yapılandırma](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md) öğreticisini tamamlayın.
+* [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) NuGet paketinin tüm projelere eklenmesi gerekir.
+* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Models klasöründeki `ToDoItem` sınıfı, yukarıda oluşturulan **Items** koleksiyonundaki belgeleri modeller. Özellik adlarının büyük/küçük harfe duyarlı olduğunu unutmayın.
+* azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services klasöründeki `CosmosDBService` sınıfı, Azure Cosmos DB ile iletişimi kapsüller.
+* `CosmosDBService` sınıfında bir `DocumentClient` tür değişkeni bulunur. `DocumentClient`, Azure Cosmos DB hesabına göre istekleri yapılandırıp yürütmek için kullanılır ve 31. satırda örneği oluşturulur:
 
-    Xamarin uygulamasını çalıştırın.
+    ```csharp
+    docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
+    ```
+
+* Bir belge koleksiyonu sorgulanırken, buradaki `CosmosDBService.GetToDoItems` işlevinde görüldüğü gibi `DocumentClient.CreateDocumentQuery<T>` yöntemi kullanılır:
+
+    ```csharp
+    public async static Task<List<ToDoItem>> GetToDoItems()
+    {
+        var todos = new List<ToDoItem>();
+
+        var todoQuery = docClient.CreateDocumentQuery<ToDoItem>(
+                                UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+                                .Where(todo => todo.Completed == false)
+                                .AsDocumentQuery();
+
+        while (todoQuery.HasMoreResults)
+        {
+            var queryResults = await todoQuery.ExecuteNextAsync<ToDoItem>();
+
+            todos.AddRange(queryResults);
+        }
+
+        return todos;
+    }
+    ```
+
+    `CreateDocumentQuery<T>`, önceki bölümde oluşturulan koleksiyona işaret eden bir URI alır. Ayrıca, bir `Where` yan tümcesi gibi LINQ işleçleri belirtebilirsiniz. Bu durumda yalnızca tamamlanmamış todo öğeleri döndürülür.
+
+    `CreateDocumentQuery<T>` işlevi zaman uyumlu olarak yürütülür ve bir `IQueryable<T>` döndürür. Ancak, `AsDocumentQuery` yöntemi `IQueryable<T>` değerini zaman uyumsuz olarak yürütülebilen bir `IDocumentQuery<T>` nesnesine dönüştürür. Böylece, mobil uygulamalar için kullanıcı arabirimi iş parçacığı engellenmez.
+
+    `IDocumentQuery<T>.ExecuteNextAsync<T>` işlevi Azure Cosmos DB’den sonuç sayfasını alır ve bu sayfa, döndürülecek başka sonuçların kalıp kalmadığını görmek üzere `HasMoreResults` tarafından denetlenir.
+
+> [!TIP]
+> Azure Cosmos DB koleksiyonları ve belgeleri üzerinde çalışan birkaç işlev, koleksiyon veya belgenin adresini belirten bir parametre olarak URI alır. Bu URI `URIFactory` sınıfı kullanılarak oluşturulur. Veritabanı, koleksiyon ve belge URI'lerinin tümü bu sınıfla oluşturulabilir.
+
+* 107. satırdaki `ComsmosDBService.InsertToDoItem` işlevi yeni bir belge ekleme işlemini gösterir:
+
+    ```csharp
+    public async static Task InsertToDoItem(ToDoItem item)
+    {
+        ...
+        await docClient.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), item);
+        ...
+    }
+    ```
+
+    Belge toplama URI’sinin yanı sıra eklenecek öğe belirtilir.
+
+* 124. satırdaki `CosmosDBService.UpdateToDoItem` işlevi, var olan bir belgeyi yeni bir belgeyle değiştirme işlemini gösterir:
+
+    ```csharp
+    public async static Task UpdateToDoItem(ToDoItem item)
+    {
+        ...
+        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+
+        await docClient.ReplaceDocumentAsync(docUri, item);
+    }
+    ```
+
+    Burada değiştirilecek belgeyi benzersiz bir şekilde tanımlamak için yeni bir URI gerekir ve bu URI, `UriFactory.CreateDocumentUri` kullanılarak ve veritabanı ile koleksiyon adlarının yanında belgenin kimliği geçirilerek elde edilir.
+
+    `DocumentClient.ReplaceDocumentAsync`, URI tarafından tanımlanan belgeyi parametre olarak belirtilen bir belgeyle değiştirir.
+
+* Bir öğenin silindiği, 115. satırdaki `CosmosDBService.DeleteToDoItem` işlevi ile gösterilir:
+
+    ```csharp
+    public async static Task DeleteToDoItem(ToDoItem item)
+    {
+        ...
+        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
+
+        await docClient.DeleteDocumentAsync(docUri);
+    }
+    ```
+
+    Yine, oluşturulup `DocumentClient.DeleteDocumentAsync` işlevine geçirilen benzersiz belge URI’sini not edin.
+
+## <a name="run-the-app"></a>Uygulamayı çalıştırma
+
+Bu adımlarla uygulamanıza Azure Cosmos DB ile iletişim kurması için gereken tüm bilgileri eklemiş oldunuz.
+
+Aşağıdaki adımlarda, Mac için Visual Studio hata ayıklayıcısı kullanılarak uygulamayı çalıştırma işlemi gösterilecektir.
+
+> [!NOTE]
+> Android sürümündeki bir uygulama da tamamen aynı şekilde kullanılır ve her türlü değişiklik aşağıdaki adımlarda belirtilir. Windows üzerinde Visual Studio hatalarını ayıklamak isterseniz buna yönelik belgeler [iOS için burada](https://docs.microsoft.com/xamarin/ios/deploy-test/debugging-in-xamarin-ios?tabs=vswin) ve [Android için burada](https://docs.microsoft.com/xamarin/android/deploy-test/debugging/) bulunabilir.
+
+1. İlk olarak vurgulanan açılır listeye tıklayarak ve iOS için ToDoItems.iOS, Android için ToDoItems.Android öğesini seçerek hedeflemek istediğiniz platformu seçin.
+
+    ![Mac için Visual Studio'da hata ayıklamak için platform seçme](./media/create-sql-api-xamarin-dotnet/ide-select-platform.png)
+
+2. Uygulamada hata ayıklamaya başlamak için cmd+Enter tuşlarına basın veya oynat düğmesine tıklayın.
+
+    ![Mac için Visual Studio'da hata ayıklamayı başlatma](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
+
+3. iOS simülatörü veya Android öykünücüsü başlatma işlemini tamamladığında, uygulama iOS için alt ekranda ve Android için üst ekranda 2 sekme gösterir. Birinci sekme tamamlanmamış todo öğelerini, ikinci sekme ise tamamlanmış todo öğelerini gösterir.
+
+    ![ToDo uygulamasının başlatma ekranı](./media/create-sql-api-xamarin-dotnet/ios-droid-started.png)
+
+4. iOS’ta bir todo öğesini tamamlamak için sola kaydırın > **Tamamla** düğmesine dokunun. Android’de bir todo öğesini tamamlamak için öğeye uzun basın > ardından tamamla düğmesine dokunun.
+
+    ![Todo öğesini tamamlama](./media/create-sql-api-xamarin-dotnet/simulator-complete.png)
+
+5. Bir todo öğesini düzenlemek için > öğeye dokunun > yeni değerler girmenize olanak tanıyan yeni bir ekran görüntülenir. Kaydet düğmesine dokunduğunuzda değişiklikler Azure Cosmos DB’de kalıcı hale gelir.
+
+    ![Todo öğesini düzenleme](./media/create-sql-api-xamarin-dotnet/simulator-edit.png)
+
+6. Bir todo öğesi eklemek için > giriş ekranının sağ üst köşesindeki **Ekle** düğmesine dokunun > yeni ve boş bir düzenleme sayfası görüntülenir.
+
+    ![Todo öğesi ekleme](./media/create-sql-api-xamarin-dotnet/simulator-add.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure portalında SLA'ları gözden geçirme
 
@@ -127,7 +253,7 @@ Bu uygulamayı kullanmaya devam etmeyecekseniz aşağıdaki adımları kullanara
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir Xamarin uygulaması derleyip dağıtmayı öğrendiniz. Şimdi Cosmos DB hesabınıza ek veri aktarabilirsiniz.
+Bu hızlı başlangıçta Azure Cosmos DB hesabı oluşturmayı, Veri Gezgini'ni kullanarak koleksiyon oluşturmayı ve bir Xamarin uygulaması derleyip dağıtmayı öğrendiniz. Şimdi Azure Cosmos DB hesabınıza ek veriler aktarabilirsiniz.
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB hesabınıza veri aktarma](import-data.md)

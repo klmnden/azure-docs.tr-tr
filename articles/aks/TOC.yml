@@ -83,6 +83,8 @@
           href: openfaas.md
         - name: AKS’de Spark işleri çalıştırma
           href: spark-job.md
+        - name: AKS üzerinde GPU kullanma
+          href: gpu-cluster.md
     - name: Kubernetes hakkında temel bilgiler
       items:
         - name: Kubernetes panosunu kullanma
