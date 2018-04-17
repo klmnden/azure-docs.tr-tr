@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 3/6/2018
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 92073cd29f29c1ddf5863e23c4a12dfdf8e21598
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>App Service Ortamınızı zorlamalı tünel ile yapılandırma
 
@@ -49,6 +49,8 @@ Azure sanal ağınız, ExpressRoute ile yapılandırılmış olsa bile ASE’niz
 
 Bu iki değişikliği yaparsanız, App Service Ortamı alt ağından çıkıp internet’i hedefleyen trafik, ExpressRoute bağlantısına zorlanmaz.
 
+Ağ zaten şirket içi trafiği yönlendiriyorsa, ASE’nizi barındırmak ve ASE’yi dağıtmaya çalışmadan önce UDR’yi yapılandırmak için alt ağı oluşturmanız gerekir.  
+
 > [!IMPORTANT]
 > Bir UDR’de tanımlanan yollar, ExpressRoute yapılandırması tarafından tanıtılan herhangi bir yoldan öncelikli olacak kadar spesifik olmalıdır. Önceki örnekte geniş 0.0.0.0/0 adres aralığı kullanılır. Bu aralık, daha spesifik adres aralıkları kullanan yol tanıtımları tarafından yanlışlıkla geçersiz kılınabilir.
 >
@@ -56,13 +58,16 @@ Bu iki değişikliği yaparsanız, App Service Ortamı alt ağından çıkıp in
 
 ![Doğrudan İnternet erişimi][1]
 
-## <a name="configure-your-ase-with-service-endpoints"></a>Hizmet Uç Noktaları ile ASE’nizi yapılandırma
+
+## <a name="configure-your-ase-with-service-endpoints"></a>Hizmet Uç Noktaları ile ASE’nizi yapılandırma ##
 
 Azure SQL ve Azure Depolama’ya gidenler dışında, ASE’nizden çıkan tüm giden trafiği yönlendirmek için aşağıdaki adımları gerçekleştirin:
 
 1. Bir rota tablosu oluşturun ve bunu ASE alt ağınıza atayın. Burada bölgenizle eşleşen adresleri bulun: [App Service Ortamı yönetim adresleri][management]. Sonraki İnternet atlaması olan adresler için rotalar oluşturun. App Service Ortamı gelen yönetim trafiğinin, gönderildiği aynı adresten yanıt göndermesi gerektiğinden bu gereklidir.   
 
-2. ASE alt ağınız ile Azure SQL ve Azure Depolama ile birlikte Hizmet Uç Noktalarını etkinleştirme
+2. ASE alt ağınız ile Azure SQL ve Azure Depolama ile birlikte Hizmet Uç Noktalarını etkinleştirin.  Bu adım tamamlandıktan sonra zorlamalı tünel ile VNet’inizi yapılandırabilirsiniz.
+
+Tüm şirket içi trafiği yönlendirmek için önceden yapılandırılmış bir sanal ağ üzerinde ASE’nizi oluşturmak için, kaynak yöneticisi şablonunu kullanarak ASE’nizi oluşturmanız gerekir.  Önceden mevcut olan bir alt ağ içinde portal ile ASE oluşturulması mümkün değildir.  Şirket içi giden trafiği yönlendirmek için önceden yapılandırılmış bir VNet’e ASE’nizi dağıtırken, önceden mevcut olan bir alt ağ belirtmenize olanak sağlayan bir kaynak yöneticisi şablonu kullanarak ASE’nizi oluşturmanız gerekir. Bir şablon ile ASE dağıtma hakkında ayrıntılar için [Şablon kullanarak App Service Ortamı oluşturma][template] bölümünü okuyun.
 
 Hizmet Uç Noktaları, çok kiracılı hizmetlere erişimi bir dizi Azure sanal ağı ve alt ağı ile kısıtlamanızı sağlar. [Sanal Ağ Hizmet Uç Noktaları][serviceendpoints] belgelerinde Hizmet Uç Noktaları hakkında daha fazla bilgi edinebilirsiniz. 
 
@@ -70,7 +75,7 @@ Bir kaynakta Hizmet Uç Noktalarını etkinleştirdiğinizde, diğer tüm yönle
 
 Azure SQL örneği içeren bir alt ağda Hizmet Uç Noktaları etkinleştirilirse, o alt ağa veya alt ağdan bağlanan tüm Azure SQL örnekleri için Hizmet Uç Noktaları etkinleştirilmiş olmalıdır. Aynı alt ağdan birden fazla Azure SQL örneğine erişmek istiyorsanız, tek bir Azure SQL örneğinde Hizmet Uç Noktalarını etkinleştirebilir, başka bir örnekte etkinleştiremezsiniz.  Azure Depolama, Azure SQL ile aynı şekilde hareket etmez.  Azure Depolama ile Hizmet Uç Noktalarını etkinleştirdiğinizde, alt ağınızdan o kaynağa erişimi kilitlersiniz, ancak Hizmet Uç Noktaları etkinleştirilmiş olmasa da diğer Azure Depolama hesaplarından erişmeye devam edebilirsiniz.  
 
-Bir ağ filtresi gereci ile zorlamalı tüneli yapılandırırsanız, ASE’nin Azure SQL ve Azure Depolama’ya ek olarak birçok bağımlılık içerdiğini unutmayın. Trafiğe izin vermeniz gerekir; aksi takdirde ASE düzgün çalışmaz.
+Bir ağ filtresi gereci ile zorlamalı tüneli yapılandırırsanız, ASE’nin Azure SQL ve Azure Depolama’ya ek olarak bağımlılıklar içerdiğini unutmayın. Bu bağımlılıklara yönelik trafiğe izin vermeniz gerekir; aksi takdirde ASE düzgün çalışmaz.
 
 ![Hizmet uç noktaları ile zorlamalı tünel][2]
 
@@ -122,7 +127,7 @@ Bu değişiklikler, doğrudan ASE’de Azure Depolama’ya trafiği gönderir ve
 
 ASE ile bağımlılıkları arasındaki iletişim koparsa ASE uygun olmayan duruma geçer.  Çok uzun süre uygun olmayan durumda kalırsa ASE askıya alınır. ASE’yi askıya alma işlemini kaldırmak için ASE portalınızdaki yönergeleri izleyin.
 
-Yalnızca iletişimi koparmanın yanı sıra, çok fazla gecikmeye neden olarak da ASE’nizi olumsuz etkileyebilirsiniz. ASE’niz şirket içi ağınızdan çok uzaktaysa çok fazla gecikme oluşabilir.  Şirket içi ağınıza ulaşmak için okyanus veya kıta aşırı bir yere gitmek uzakta olmaya örnek verilebilir. İntranet tıkanması veya giden bant genişliği kısıtlamaları nedeniyle de gecikme süresi söz konusu olabilir.
+Yalnızca iletişimi koparmanın yanı sıra, çok fazla gecikmeye neden olarak da ASE’nizi olumsuz etkileyebilirsiniz. ASE’niz şirket içi ağınızdan çok uzaktaysa çok fazla gecikme oluşabilir.  Şirket içi ağa ulaşmak için okyanus veya kıta aşırı bir yere gitmek uzakta olmaya örnek verilebilir. İntranet tıkanması veya giden bant genişliği kısıtlamaları nedeniyle de gecikme süresi söz konusu olabilir.
 
 
 <!--IMAGES-->

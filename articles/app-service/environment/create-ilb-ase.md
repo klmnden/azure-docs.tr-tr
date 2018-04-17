@@ -1,6 +1,6 @@
 ---
-title: Bir Azure App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma
-description: İnternet’ten yalıtılmış bir Azure App Service ortamı oluşturma ve kullanma ayrıntıları
+title: Azure App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma
+description: İnternet’ten yalıtılmış bir Azure App Service Ortamı oluşturma ve kullanma ayrıntıları
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 0d08d140ab338d8c742277835fdfb4316862f07b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a454ffb36865d4e1bc6b7ae5622fa4d4e85fd2
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service ortamı ile iç yük dengeleyici oluşturma ve kullanma #
+# <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Bir App Service Ortamı ile iç yük dengeleyici oluşturma ve kullanma #
 
- Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır. Bir App Service ortamı (ASE) iki şekilde dağıtılabilir: 
+ Azure App Service Ortamı, Azure App Service’in Azure sanal ağı (VNet) içindeki bir alt ağa dağıtımıdır. Bir App Service Ortamı (ASE) iki şekilde dağıtılabilir: 
 
 - Genellikle Dış ASE olarak adlandırılan durumda, bir dış IP adresi üzerindeki VIP ile.
 - Genellikle iç uç nokta bir iç yük dengeleyici (ILB) olduğu için ILB ASE olarak adlandırılan durumda, bir iç IP adresi üzerindeki VIP ile. 
 
-Bu makale bir ILB ASE oluşturma işlemini gösterir. ASE’ye genel bakış için bkz. [App Service ortamlarına giriş][Intro]. Dış ASE oluşturma hakkında bilgi almak için bkz. [Dış ASE Oluşturma][MakeExternalASE].
+Bu makale bir ILB ASE oluşturma işlemini gösterir. ASE’ye genel bakış için bkz. [App Service Ortamlarına giriş][Intro]. Dış ASE oluşturma hakkında bilgi almak için bkz. [Dış ASE Oluşturma][MakeExternalASE].
 
 ## <a name="overview"></a>Genel Bakış ##
 
@@ -63,7 +63,7 @@ ILB ASE oluşturmak için:
 
 4. Bir VNet seçin veya oluşturun.
 
-5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 128 adres içeren ve en büyük boyutlu ASE’yi işleyebilen `/25` dosya boyutu önerilir. Seçebileceğiniz en küçük boyut `/28`. Altyapı için gerekirse bu boyut en fazla 11 örnek için ölçeklendirilebilir.
+5. Varolan bir sanal ağı seçerseniz, ASE’yi tutmak için bir alt ağ oluşturmanız gerekir. Alt ağ boyutunu, ASE’nizin gelecekteki her türlü büyümesine uyum sağlayacak kadar büyük ayarladığınızdan emin olun. 128 adres içeren ve en büyük boyutlu ASE’yi işleyebilen `/25` dosya boyutu önerilir. Seçebileceğiniz en küçük boyut `/28`. Altyapı için gerekirse bu boyut en fazla yalnızca 3 örnek için ölçeklendirilebilir.
 
     * App Service planlarınızda varsayılan 100 örnek üst sınırının ötesine geçin.
 
@@ -81,7 +81,7 @@ ILB ASE oluşturmak için:
 
     * &lt;asename&gt;.p.azurewebsites.net
 
-   Uygulamalar için kullanılan özel etki alanı adı ve ASE’niz için kullanılan etki alanı adı örtüşemez. Etki alanı adı _contoso.com_ olan bir ILB ASE ile uygulamalarınız için şunlar gibi özel etki alanı adlarını kullanamazsınız:
+   Mevcut bir DNS adını web uygulamanıza eşlemenize olanak sağlayan özel etki alanı adları adı verilen bir özellik vardır. [Mevcut bir DNS adını web uygulamanıza eşleme][customdomain] belgesinden bu özellik hakkında daha fazla bilgi edinebilirsiniz. Uygulamalar için kullanılan özel etki alanı adı ve ASE’niz için kullanılan etki alanı adı örtüşemez. Etki alanı adı _contoso.com_ olan bir ILB ASE ile uygulamalarınız için şunlar gibi özel etki alanı adlarını kullanamazsınız:
 
     * www.contoso.com
 
@@ -250,3 +250,4 @@ ILB ASE’nizi bir WAF cihazıyla yapılandırma hakkında daha fazla bilgi içi
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[customdomain]: ../app-service-web-tutorial-custom-domain.md

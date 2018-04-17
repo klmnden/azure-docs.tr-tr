@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi Hızlı Başlangıç - Windows bilgisayarlarınızı Güvenlik Merkezi’ne ekleme | Microsoft Docs"
-description: "Bu hızlı başlangıçta Microsoft Monitoring Agent’ı bir Windows bilgisayarda nasıl sağlayacağınız gösterilmektedir."
+title: Azure Güvenlik Merkezi Hızlı Başlangıç - Windows bilgisayarlarınızı Güvenlik Merkezi’ne ekleme | Microsoft Docs
+description: Bu hızlı başlangıçta Microsoft Monitoring Agent’ı bir Windows bilgisayarda nasıl sağlayacağınız gösterilmektedir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 8d9b0fcc8b72f947cbc64c6ac9a428ac29f8dfd2
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Windows bilgisayarları Azure Güvenlik Merkezi’ne ekleme
 Azure aboneliklerinizi ekledikten sonra Microsoft Monitoring Agent’ı sağlayarak Azure’ın dışında (örneğin, şirket içi ortamda veya diğer bulutlarda) çalışan kaynaklar için Güvenlik Merkezi’ni etkinleştirebilirsiniz.
@@ -62,7 +62,7 @@ Bu hızlı başlangıca başlamadan önce Güvenlik Merkezi’nin Standart fiyat
 2. **Hoş Geldiniz** sayfasında, **İleri**’yi seçin.
 3. **Lisans Koşulları** sayfasında, lisansı okuyun ve sonra **Kabul Ediyorum**’u seçin.
 4. **Hedef Klasör** sayfasında, varsayılan yükleme klasörünü değiştirin veya aynı şekilde bırakın ve daha sonra **İleri**’yi seçin.
-5. **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics’e (OMS) bağlamayı seçin ve sonra **İleri**’yi seçin.
+5. **Aracı Kurulum Seçenekleri** sayfasında, aracıyı Azure Log Analytics’e bağlamayı seçin ve sonra **İleri**’yi seçin.
 6. **Azure Log Analytics** sayfasında, önceki prosedürde Not Defteri’ne kopyaladığınız **Çalışma Alanı Kimliğini** ve **Çalışma Alanı Anahtarını (Birincil Anahtar)** yapıştırın.
 7. Bilgisayarın Azure Kamu’daki bir Log Analytics çalışma alanına raporlama yapması gerekiyorsa **Azure Cloud** açılan listesinden **Azure US Government**’ı seçin.  Bilgisayarın, Log Analytics hizmetiyle bir ara sunucu üzerinden iletişim kurması gerekiyorsa **Gelişmiş** seçeneğini belirleyip ara sunucunun URL’sini ve bağlantı noktası numarasını sağlayın.
 8. Gerekli yapılandırma ayarlarını sağlamayı tamamladıktan sonra **İleri**’yi seçin.

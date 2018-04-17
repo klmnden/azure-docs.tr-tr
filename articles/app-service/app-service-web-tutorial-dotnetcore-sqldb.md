@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma | Microsoft Docs"
-description: "Azure App Service’te çalışan ve bir SQL Veritabanı’na bağlantısı olan bir .NET Core uygulamasını nasıl edinebileceğinizi öğrenin."
+title: Azure App Service’te .NET Core ve SQL Veritabanı uygulaması oluşturma | Microsoft Docs
+description: Azure App Service’te çalışan ve bir SQL Veritabanı’na bağlantısı olan bir .NET Core uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
 manager: syntaxc4
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -14,13 +14,13 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: d7f7407a385dd38989eaca2b81f66600c82cac2e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 2fb966d92dec713d5bf5ca48e8d15ae489227739
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma
+# <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>Öğretici: Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service’e dağıtım yapmak için, bkz. [Linux üzerinde Azure App Service’te .NET Core ve SQL Veritabanı web uygulaması oluşturma](./containers/tutorial-dotnetcore-sqldb-app.md).

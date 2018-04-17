@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
+ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 0de8dda6f88f31208c3fe7d560a461fea46a67e6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88b95c28cd64afb97fb34d2bced09161c3aa9312
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Güvenlik Merkezi Hazırlığı Yol Haritası
 Bu belge, Azure Güvenlik Merkezi ile çalışmaya başlamanıza yardımcı olacak bir hazırlık yol haritası sağlar.
@@ -94,8 +94,9 @@ Azure VM'ler, Güvenlik Merkezi’ndeki gelişmiş bulut savunma özelliklerinde
 
 Bu özelliklerin Güvenlik Merkezi’nde nasıl kullanılacağını öğrenmek için aşağıdaki kaynakları kullanın.
 
-Video   
+Videolar  
 * [Azure Güvenlik Merkezi – Zamanında VM Erişimi](https://youtu.be/UOQb2FcdQnU)
+* [Azure Güvenlik Merkezi - Uyarlamalı Uygulama Denetimleri](https://youtu.be/wWWekI1Y9ck)
 
 Makaleler    
 * [Tam zamanında özelliğini kullanarak sanal makine erişimini yönetme](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
@@ -105,6 +106,7 @@ Makaleler
 
 * [Güvenlik Merkezi uygulamalı laboratuvarı](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Güvenlik Merkezi'nde Web Uygulaması Güvenlik Duvarı (WAF) öneri playbook’u](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
+* [Azure Güvenlik Merkezi Playbook: Güvenlik Uyarıları](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [Güvenlik Merkezi Belgeleri Sayfası](https://docs.microsoft.com/azure/security-center/)
@@ -115,6 +117,7 @@ Makaleler
 * [Ağ güvenliği için en iyi uygulamalar](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS önerileri](https://docs.microsoft.com/azure/security/security-paas-deployments)
 * [Uyumluluk](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [OMS müşterileri artık karma bulut iş yüklerini korumak için Azure Güvenlik Merkezi’ni kullanabilir](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>Topluluk Kaynakları
 

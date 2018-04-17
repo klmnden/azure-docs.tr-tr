@@ -1,30 +1,31 @@
 ---
-title: "Bir Azure sanal ağı - Portal oluştur | Microsoft Docs"
-description: "Hızlı bir şekilde Azure portalını kullanarak bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ özel olarak birbirleriyle ve internet ile iletişim kurmak için sanal makineler gibi Azure kaynakları sağlar."
+title: Sanal ağ oluşturma - hızlı başlangıç - Azure portalı | Microsoft Docs
+description: Bu hızlı başlangıçta, Azure portalını kullanarak sanal ağ oluşturmayı öğreneceksiniz. Sanal ağ, sanal makineler gibi Azure kaynaklarının birbiriyle ve İnternet ile özel olarak iletişim kurmasına olanak sağlar.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+Customer intent: I want to create a virtual network so that virtual machines can communicate with privately with each other and with the internet.
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: 
+ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/09/2018
 ms.author: jdial
-ms.custom: 
-ms.openlocfilehash: c8f2cbe6b7377772e019a4ff90f91355ba0815ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: 7107dc72686004141d8bea0083089cba065a9f4c
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="create-a-virtual-network-using-the-azure-portal"></a>Azure portalını kullanarak bir sanal ağ oluşturma
+# <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>Hızlı başlangıç: Azure portalını kullanarak bir sanal ağ oluşturma
 
-Bir sanal ağ sanal makineler (VM) gibi Azure kaynakları özel olarak birbirleriyle ve internet ile iletişim kurmasını sağlar. Bu makalede, bir sanal ağ oluşturmayı öğrenin. Bir sanal ağ oluşturduktan sonra iki VM sanal ağa dağıtın. Ardından internet'ten bir VM'ye bağlanın ve özel olarak iki VM iletişim.
+Sanal ağ, sanal makineler (VM) gibi Azure kaynaklarının birbiriyle ve İnternet ile özel olarak iletişim kurmasına olanak sağlar. Bu hızlı başlangıçta, sanal ağ oluşturmayı öğreneceksiniz. Bir sanal ağ oluşturduktan sonra, sanal ağa iki sanal makine dağıtacaksınız. Ardından İnternet’ten bir sanal makineye bağlanacak ve iki sanal makine arasında özel olarak iletişim kuracaksınız.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -34,92 +35,89 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
-1. Seçin **+ kaynak oluşturma** üst üzerinde köşe Azure portalının sol.
-2. Seçin **ağ**ve ardından **sanal ağ**.
-3. Girin veya seçin, aşağıdaki bilgileri, diğer ayarlar için varsayılan değerleri kabul edin ve ardından **oluşturma**:
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **Ağ**’ı ve sonra **Sanal ağ**’ı seçin.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**’u seçin:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVirtualNetwork|
+    |Adı|myVirtualNetwork|
     |Abonelik| Aboneliğinizi seçin.|
-    |Kaynak grubu| Seçin **Yeni Oluştur** ve girin *myResourceGroup*.|
-    |Konum| Seçin **Doğu ABD**.|
+    |Kaynak grubu| **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin.|
+    |Konum| **Doğu ABD**’yi seçin.|
 
-    ![Sanal ağınız hakkında temel bilgileri girin](./media/quick-create-portal/create-virtual-network.png)
+    ![Sanal ağınızla ilgili temel bilgileri girin](./media/quick-create-portal/create-virtual-network.png)
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-İki VM sanal ağ oluşturun:
+Sanal ağ üzerinde iki sanal makine oluşturun:
 
-### <a name="create-the-first-vm"></a>İlk VM oluşturma
+### <a name="create-the-first-vm"></a>Birinci sanal makineyi oluşturma
 
-1. Seçin **+ kaynak oluşturma** üst, sol üst köşesinde Azure portalı üzerinde bulunamadı.
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
 2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin.
-3. Girin veya seçin, aşağıdaki bilgileri, diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**:
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVm1|
-    |Kullanıcı adı| Seçtiğiniz kullanıcı adı girin.|
-    |Parola| Seçtiğiniz bir parola girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
+    |Adı|myVm1|
+    |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
+    |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
     |Abonelik| Aboneliğinizi seçin.|
-    |Kaynak grubu| Seçin **var olanı kullan** seçip **myResourceGroup**.|
-    |Konum| Seçin **Doğu ABD**|
+    |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
+    |Konum| **Doğu ABD**’yi seçin|
 
-    ![Sanal makine temelleri](./media/quick-create-portal/virtual-machine-basics.png)
+    ![Sanal makine temel bilgileri](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. VM için bir boyut seçin ve ardından **seçin**.
-5. Altında **ayarları**, tüm Varsayılanları kabul edin ve ardından **Tamam**.
+4. Sanal makine için bir boyut seçin ve **Seç** seçeneğini belirleyin.
+5. **Ayarlar** bölümünde tüm varsayılan değerleri kabul edin ve **Tamam**’ı seçin.
 
     ![Sanal makine ayarları](./media/quick-create-portal/virtual-machine-settings.png)
 
-6. Altında **oluşturma** , **Özet**seçin **oluşturma** VM dağıtımı başlatmak için. VM dağıtmak için birkaç dakika sürer. 
+6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın. Sanal makinenin dağıtılması birkaç dakika sürer. 
 
-### <a name="create-the-second-vm"></a>İkinci VM oluşturma
+### <a name="create-the-second-vm"></a>İkinci sanal makineyi oluşturma
 
-Tüm adımları 1-6 yeniden, ancak adım 3, VM adı *myVm2*.
+1.-6. adımları tekrar tamamlayın, ancak 3. adımda sanal makineye *myVm2* adını verin.
 
-## <a name="connect-to-a-vm-from-the-internet"></a>İnternet'ten bir VM'ye bağlanın
+## <a name="connect-to-a-vm-from-the-internet"></a>İnternet'ten bir sanal makineye bağlanma
 
-1. Sonra *myVm1* olan bağlanmak için oluşturulmuş. Azure portalının en üstünde girin *myVm1*. Zaman **myVm1** arama sonuçlarında görünür. Seçin **Bağlan** düğmesi.
+1. *myVm1* oluşturulduktan sonra buna bağlanın. Azure portalının en üstüne *myVm1* değerini girin. Arama sonuçlarında **myVm1** görüntülendiğinde bunu seçin. **Bağlan** düğmesini seçin.
 
-    ![Bir sanal makineye bağlanma](./media/quick-create-portal/connect-to-virtual-machine.png)
+    ![Sanal makineye bağlanma](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-2. Seçtikten sonra **Bağlan** düğmesi, bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve bilgisayarınıza indirilmeden.  
-3. İndirilen rdp dosyasını açın. İstenirse, seçin **Bağlan**. Kullanıcı adı ve VM oluştururken belirttiğiniz parolayı girin. Seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için. 
+2. **Bağlan** düğmesini seçmenizin ardından bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve bilgisayarınıza indirilir.  
+3. İndirilen rdp dosyasını açın. İstendiğinde **Bağlan**’ı seçin. Sanal makine oluştururken belirttiğiniz kullanıcı adını ve parolayı girin. Sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan** seçeneğini belirlemeniz gerekebilir. 
 4. **Tamam**’ı seçin.
-5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, seçin **Evet** veya **devam**, bağlantı ile devam etmek için.
+5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Uyarı alırsanız, bağlantıya devam etmek için **Evet**’i veya **Bağlan**’ı seçin.
 
-## <a name="communicate-privately-between-vms"></a>Özel olarak VM'ler arasında iletişim
+## <a name="communicate-between-vms"></a>Sanal makineler arasında iletişim
 
-1. PowerShell girin `ping myvm2`. Ping başarısız olursa, Internet Denetim İletisi Protokolü (ICMP) ve ICMP ping kullandığı için Windows Güvenlik Duvarı üzerinden varsayılan olarak izin verilmiyor.
-2. İzin vermek için *myVm2* ping işlemi yapmak için *myVm1* bir sonraki adımda ICMP verir Powershell'den aşağıdaki komutu girin Windows Güvenlik Duvarı üzerinden gelen:
+1. PowerShell’den `ping myvm2` komutunu girin. Ping, İnternet Denetim İletisi Protokolü’nü (ICMP) kullandığından ve varsayılan olarak Windows güvenlik duvarı üzerinden ICMP’ye izin verilmediğinden ping başarısız olur.
+2. *myVm2*’nin sonraki bir adımda *myVm1*’e ping komutu göndermesine izin vermek için, PowerShell’den, Windows güvenlik duvarı üzerinden gelen ICMP’ye izin veren aşağıdaki komutu girin:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-3. Uzak Masaüstü Bağlantısı kapatmak *myVm1*. 
+3. *myVm1* ile uzak masaüstü bağlantısını kapatın. 
 
-4. Bölümündeki adımları tamamlamanız [VM Bağlan internet'ten](#connect-to-a-vm-from-the-internet) yeniden, ancak bağlanmak *myVm2*. Bir komut isteminden girin `ping myvm1`.
+4. [İnternet'ten bir sanal makineye bağlanma](#connect-to-a-vm-from-the-internet) bölümündeki adımları tekrar tamamlayın, ancak *myVm2*’ye bağlanın. Bir komut isteminden `ping myvm1` komutunu girin.
 
-    Yanıt aldığınız *myVm1*, üzerinde Windows Güvenlik Duvarı üzerinden ICMP izin *myVm1* bir önceki adımda VM.
+    Önceki bir adımda *myVm1* sanal makinesinde Windows güvenlik duvarı üzerinden ICMP’ye izin verdiğinizden, *myVm1*’den yanıt alırsınız.
 
-5. Uzak Masaüstü Bağlantısı kapatmak *myVm2*.
+5. *myVm2* ile uzak masaüstü bağlantısını kapatın.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, kaynak grubu ve içerdiği kaynakların tümünü Sil:
+Artık gerekli olmadığında kaynak grubunu ve içerdiği tüm kaynakları silin:
 
-1. Girin *myResourceGroup* içinde **arama** portalı üstündeki kutusu. Gördüğünüzde **myResourceGroup** arama sonuçlarında seçin.
+1. Portalın üst kısmındaki **Ara** kutusuna *myResourceGroup* değerini girin. Arama sonuçlarında **myResourceGroup** seçeneğini gördüğünüzde bunu seçin.
 2. **Kaynak grubunu sil**'i seçin.
-3. Girin *myResourceGroup* için **türü kaynak grubu adı:** seçip **silmek**.
+3. **KAYNAK GRUBU ADINI YAZIN:** için *myResourceGroup* girin ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir varsayılan sanal ağ ve iki VM oluşturdunuz. Internet'ten bir VM'ye bağlı ve özel olarak VM ve başka bir VM iletişim. Sanal ağ ayarları hakkında daha fazla bilgi için bkz: [sanal ağ yönetme](manage-virtual-network.md).
+Bu hızlı başlangıçta, varsayılan bir sanal ağ ve iki sanal makine oluşturdunuz. İnternet’ten bir sanal makineye bağlandınız ve sanal makine ile başka bir sanal makine arasında özel olarak iletişim kurdunuz. Sanal ağ ayarları hakkında daha fazla bilgi için [Sanal ağı yönetme](manage-virtual-network.md) başlıklı konuya bakın.
 
-Varsayılan olarak, Azure sanal makineler arasında Kısıtlanmamış özel iletişime olanak sağlar, ancak yalnızca gelen Uzak Masaüstü bağlantıları Windows VM'ler için Internet'ten izin verir. İzin vermek veya farklı türlerde ağ iletişimi için ve VM'ler kısıtlamak nasıl öğrenmek için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Ağ trafiği filtreleme](virtual-networks-create-nsg-arm-pportal.md)
+Varsayılan olarak Azure, sanal makineler arasında kısıtlanmamış özel iletişime olanak sağlar, ancak yalnızca İnternet’ten Windows sanal makinelerine gelen uzak masaüstü bağlantılarına izin verir. Sanal makinelere gelen ve sanal makinelerden giden farklı ağ iletişimi türlerine izin verme veya bunları kısıtlama hakkında bilgi edinmek için [Ağ trafiğini filtreleme](tutorial-filter-network-traffic.md) öğreticisine ilerleyin.

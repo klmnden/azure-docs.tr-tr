@@ -9,11 +9,11 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 03/15/2018
 ms.author: tamram
-ms.openlocfilehash: b84a56996a335f8a137c4219c55b9878e39b5a3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a34a94a9421c65a2b1d4ce5c390732e0adbb69d6
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Hızlı Başlangıç: .NET kullanarak blobları yükleme, indirme ve listeleme
 
@@ -56,26 +56,15 @@ Uygulamanın bir kopyasını geliştirme ortamınıza indirmek için [Git](https
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü açmak için, storage-blobs-dotnet-quickstart klasörünü bulun, açın ve storage-blobs-dotnet-quickstart.sln'ye çift tıklayın. 
+Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümünü açmak için, *storage-blobs-dotnet-quickstart* klasörünü bulun, açın ve *storage-blobs-dotnet-quickstart.sln*'ye çift tıklayın. 
+
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
 
-Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Bağlantı dizenizi Azure portalından kopyalayıp yeni bir ortam değişkenine yazın. Örnekte, ortam değişkenindeki bağlantı dizesi okunmakta ve Azure Depolama’ya yönelik isteklerinizin kimlik doğrulaması için bu dize kullanılmaktadır.
+Uygulamayı çalıştırmak istiyorsanız, depolama hesabınız için bağlantı dizesi sağlamanız gerekir. Örnek uygulamada, ortam değişkenindeki bağlantı dizesi okunmakta ve Azure Depolama’ya yönelik isteklerin kimlik doğrulaması için bu dize kullanılmaktadır.
 
-### <a name="copy-your-connection-string-from-the-azure-portal"></a>Bağlantı dizenizi Azure portalından kopyalama
-
-Bağlantı dizenizi kopyalamak için:
-
-1. [Azure portalına](https://portal.azure.com) gidin.
-2. Depolama hesabınızı bulun.
-3. Depolama hesabına genel bakışın **Ayarlar** bölümünde **Erişim anahtarları**’nı seçin.
-4. **key1** bölümünde **Bağlantı dizesi** değerini bulun ve **Kopyala** düğmesine tıklayarak bağlantı dizesini kopyalayın.  
-
-    ![Azure portalından bağlantı dizesinin kopyalanmasını gösteren ekran görüntüsü](media/storage-quickstart-blobs-dotnet/portal-connection-string.png)
-
-## <a name="write-your-connection-string-to-an-environment-variable"></a>Bağlantı dizenizi bir ortam değişkenine yazma
-
-Ardından, uygulamayı çalıştıran yerel makinede yeni ortam değişkenini yazın. Ortam değişkenini ayarlamak için bir konsol penceresi açın ve işletim sisteminizin yönergelerini izleyin. `<yourconnectionstring>` değerini gerçek bağlantı dizenizle değiştirin:
+Bağlantı dizenizi kopyaladıktan sonra uygulamayı çalıştıran yerel makine üzerindeki yeni bir ortam değişkenine yazın. Ortam değişkenini ayarlamak için bir konsol penceresi açın ve işletim sisteminizin yönergelerini izleyin. `<yourconnectionstring>` değerini gerçek bağlantı dizenizle değiştirin:
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 

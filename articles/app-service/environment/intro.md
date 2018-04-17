@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service ortamlarına giriş"
-description: "Azure App Service ortamlarına kısa genel bakış"
+title: Azure App Service Ortamlarına giriş
+description: Azure App Service Ortamlarına kısa genel bakış
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/13/2017
+ms.date: 03/20/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 803a1cde5387b549504b42346d1a2e6a5df04746
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 0b113a594ebf1180346eccc295251f522dcc29c5
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="introduction-to-app-service-environments"></a>App Service ortamlarına giriş #
+# <a name="introduction-to-the-app-service-environments"></a>App Service Ortamlarına giriş #
  
 ## <a name="overview"></a>Genel Bakış ##
 
@@ -43,7 +43,7 @@ ASE’ler yalnızca tek bir müşterinin uygulamalarını çalıştırmak üzere
 
 ## <a name="dedicated-environment"></a>Ayrılmış ortam ##
 
-Bir ASE yalnızca tek bir aboneliğe ayrılmıştır ve 100 örneği barındırabilir. Aralık tek bir App Service planında 100 örnek ile 100 tek örnekli App Service planı arasındaki bir değer ve bunların arasındaki her değer olabilir.
+Bir ASE yalnızca tek bir aboneliğe ayrılmıştır ve 100 App Service Planı örneği barındırabilir. Aralık tek bir App Service planında 100 örnek ile 100 tek örnekli App Service planı arasındaki bir değer ve bunların arasındaki her değer olabilir.
 
 ASE, ön uçlar ve çalışanlardan oluşur. Ön uçlar HTTP/HTTPS sonlandırmadan ve bir ASE içindeki uygulama isteklerinin otomatik yük dengelemesinden sorumludur. ASE içindeki App Service planlarının ölçeği artırıldıkça ön uçlar otomatik olarak eklenir.
 

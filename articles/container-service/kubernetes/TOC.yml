@@ -23,7 +23,7 @@
       href: container-service-tutorial-kubernetes-scale.md
     - name: 6 - Uygulamayı güncelleştirme
       href: container-service-tutorial-kubernetes-app-update.md
-    - name: 7 - OMS ile izleme
+    - name: 7 - Log Analytics ile izleme
       href: container-service-tutorial-kubernetes-monitor.md
 - name: Kavramlar
   items:
@@ -45,7 +45,7 @@
       href: container-service-scale.md
     - name: İzleme
       items:
-        - name: OMS ile izleme
+        - name: Log Analytics ile izleme
           href: container-service-kubernetes-oms.md
         - name: Datadog ile izleme
           href: container-service-kubernetes-datadog.md

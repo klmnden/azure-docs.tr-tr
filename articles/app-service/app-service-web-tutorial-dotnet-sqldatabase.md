@@ -1,11 +1,11 @@
 ---
-title: "Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma | Microsoft Docs"
-description: "Azure'da çalışan ve bir SQL Veritabanı’na bağlantısı olan ASP.NET uygulamasını nasıl alabileceğinizi öğrenin."
+title: Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma | Microsoft Docs
+description: Azure'da çalışan ve bir SQL Veritabanı’na bağlantısı olan ASP.NET uygulamasını nasıl alabileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bd5aa5186bdec84e1943887ef0980fa50cd26324
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 72bc8e95e5b77baec29247f5593a522bbe663368
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>Azure'da SQL Veritabanı ile ASP.NET uygulaması oluşturma
+# <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Öğretici: Azure’da SQL Veritabanı ile ASP.NET uygulaması derleme
 
 [Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide size, Azure'da veri temelli bir ASP.NET web uygulamasını dağıtma ve bunu [Azure SQL Veritabanı](../sql-database/sql-database-technical-overview.md)'na bağlama işlemleri gösterilir. Tamamladığınızda, Azure'da çalışan ve SQL Veritabanı'na bağlanan bir ASP.NET uygulamanız olur.
 
@@ -48,6 +48,8 @@ Bu öğreticiyi tamamlamak için:
   - **Azure geliştirme**
 
   ![ASP.NET ve web geliştirme ile Azure geliştirme (Web ve Bulut altında)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+
+Visual Studio’yu önceden yüklediyseniz, **Araçlar** > **Araçları ve Özellikleri Al** seçeneklerine tıklayarak Visual Studio’da iş yüklerini ekleyin.
 
 ## <a name="download-the-sample"></a>Örneği indirme
 

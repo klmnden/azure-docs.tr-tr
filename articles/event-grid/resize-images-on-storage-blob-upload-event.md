@@ -1,10 +1,10 @@
 ---
-title: "Karşıya yüklenen görüntülerin yeniden boyutlandırılmasını otomatikleştirmek için Azure Event Grid kullanma | Microsoft Docs"
-description: "Azure Event Grid, Azure Depolama’da blob yüklemelerini tetikleyebilir. Bu hizmeti kullanarak, Azure Depolama’ya yüklenmiş görüntü dosyalarını, yeniden boyutlandırma ve diğer iyileştirmeler için Azure İşlevleri gibi diğer hizmetlere gönderebilirsiniz."
+title: Karşıya yüklenen görüntülerin yeniden boyutlandırılmasını otomatikleştirmek için Azure Event Grid kullanma | Microsoft Docs
+description: Azure Event Grid, Azure Depolama’da blob yüklemelerini tetikleyebilir. Bu hizmeti kullanarak, Azure Depolama’ya yüklenmiş görüntü dosyalarını, yeniden boyutlandırma ve diğer iyileştirmeler için Azure İşlevleri gibi diğer hizmetlere gönderebilirsiniz.
 services: event-grid, functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 68343c3ffd87496ed4ae89b478ee5c8119ed67f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Karşıya yüklenen görüntüleri yeniden boyutlandırmayı Event Grid kullanarak otomatikleştirme
 
@@ -90,7 +90,7 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbs
+myContainerName=thumbnails
 ```
 
 Bu işlev uygulamasına bir işlev kodu projesi dağıtabilirsiniz.
@@ -145,7 +145,7 @@ Olay aboneliği, belirli bir uç noktaya gönderilmesini istediğiniz, sağlayı
     | **Abone uç noktası** | otomatik oluşturulmuş | Sizin için oluşturulan uç nokta URL'sini kullanın. | 
     | **Önek filtresi** | /blobServices/default/containers/images/blobs/ | Depolama olaylarını yalnızca **images** kapsayıcısı üzerindeki olaylarla filtreler.| 
 
-4. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev görüntüleri yeniden boyutlandırır ve *thumbs* kapsayıcısına ekler.
+4. Olay aboneliği eklemek için **Oluştur**’a tıklayın. Bu işlem, *images* kapsayıcısına bir blob eklendiğinde `imageresizerfunc` olayını tetikleyen bir olay aboneliği oluşturur. İşlev, görüntüleri yeniden boyutlandırır ve *thumbnails* kapsayıcısına ekler.
 
 Arka uç hizmetleri yapılandırıldıktan sonra, görüntü yeniden boyutlandırma işlevini örnek web uygulamasında test edin. 
 
@@ -155,7 +155,7 @@ Web uygulamasında görüntü yeniden boyutlandırmayı test etmek için, yayım
 
 **Karşıya fotoğraf yükle** bölgesine tıklayarak bir dosyayı seçip karşıya yükleyin. Ayrıca bu bölgeye fotoğraf sürükleyebilirsiniz. 
 
-Karşıya yüklenen görüntü kaybolduktan sonra **Oluşturulan küçük resimler** döngüsünde karşıya yüklenen görüntünün bir kopyasının gösterildiğine dikkat edin. Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbs* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
+Karşıya yüklenen görüntü kaybolduktan sonra **Oluşturulan küçük resimler** döngüsünde karşıya yüklenen görüntünün bir kopyasının gösterildiğine dikkat edin. Bu görüntü, işlev tarafından yeniden boyutlandırılmış, *thumbnails* kapsayıcısına eklenmiş ve web istemcisi tarafından indirilmiştir.
 
 ![Edge tarayıcısında web uygulaması yayımlama](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png) 
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure'da Python ve PostgreSQL web uygulaması oluşturma | Microsoft Docs"
-description: "Azure'da çalışan ve bir PostgreSQL veritabanına bağlantısı olan Python uygulamasını nasıl alabileceğinizi öğrenin."
+title: Azure'da Python ve PostgreSQL web uygulaması oluşturma | Microsoft Docs
+description: Azure'da çalışan ve bir PostgreSQL veritabanına bağlantısı olan Python uygulamasını nasıl alabileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: python
 author: berndverst
@@ -12,13 +12,13 @@ ms.topic: tutorial
 ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
-ms.openlocfilehash: de20dae10ae6b43adcbc5040a8a71ba5650bafec
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 9694dcfec7b3297e925bb45bee5e74b69609063d
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-python-and-postgresql-web-app-in-azure"></a>Azure'da Python ve PostgreSQL web uygulaması oluşturma
+# <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>Öğretici: Azure’da Python ve PostgreSQL web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için, bkz. [Azure’da Docker Python ve PostgreSQL web uygulaması oluşturma](./containers/tutorial-docker-python-postgresql-app.md).
@@ -226,7 +226,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Bir tarayıcıda http://localhost:5000 konumuna gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
+Bir tarayıcıda http://localhost:5000 sayfasına gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -345,7 +345,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 konumuna gidin. Test kaydı oluşturun.
+Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 adresine gidin. Test kaydı oluşturun.
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 

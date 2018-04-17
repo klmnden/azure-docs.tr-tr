@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/18
+ms.date: 04/03/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: eb4de9d7781ae355e42a6fec9f7732ad67228e70
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 47a4e75699e024dae367524f16eb23fb72043ef5
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>Hızlı başlangıç: Azure’da bir Service Fabric Windows kapsayıcı uygulaması dağıtma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -29,11 +29,11 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
 ![IIS varsayılan web sayfası][iis-default]
 
 Bu hızlı başlangıçta şunları yapmayı öğrenirsiniz:
-> [!div class="checklist"]
-> * Docker görüntü kapsayıcısını paketleme
-> * İletişimi yapılandırma
-> * Service Fabric uygulamasını oluşturma ve paketleme
-> * Kapsayıcı uygulamasını Azure’a dağıtma
+
+* Docker görüntü kapsayıcısını paketleme
+* İletişimi yapılandırma
+* Service Fabric uygulamasını oluşturma ve paketleme
+* Kapsayıcı uygulamasını Azure’a dağıtma
 
 ## <a name="prerequisites"></a>Ön koşullar
 * Bir Azure aboneliği ([ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturabilirsiniz).
@@ -210,16 +210,16 @@ Bu hızlı başlangıçta kullanılan tam hizmet ve uygulama bildirimleri aşağ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu hızlı başlangıçta şunları öğrendiniz:
-> [!div class="checklist"]
-> * Docker görüntü kapsayıcısını paketleme
-> * İletişimi yapılandırma
-> * Service Fabric uygulamasını oluşturma ve paketleme
-> * Kapsayıcı uygulamasını Azure’a dağıtma
 
-* [Service Fabric’te kapsayıcı](service-fabric-containers-overview.md) çalıştırma hakkında daha fazla bilgi edinin.
-* [Kapsayıcı içinde .NET uygulaması dağıtma](service-fabric-host-app-in-a-container.md) öğreticisini okuyun.
-* Service Fabric [uygulama yaşam döngüsü](service-fabric-application-lifecycle.md) hakkında bilgi edinin.
-* GitHub’da [Service Fabric kapsayıcı kod örneklerine](https://github.com/Azure-Samples/service-fabric-containers) bakın.
+* Docker görüntü kapsayıcısını paketleme
+* İletişimi yapılandırma
+* Service Fabric uygulamasını oluşturma ve paketleme
+* Kapsayıcı uygulamasını Azure’a dağıtma
+
+Service Fabric’te Windows kapsayıcılarıyla çalışma hakkında daha fazla bilgi için Windows kapsayıcı uygulamaları öğreticisiyle devam edin.
+
+> [!div class="nextstepaction"]
+> [Windows kapsayıcı uygulaması oluşturma](./service-fabric-host-app-in-a-container.md)
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png

@@ -1,12 +1,12 @@
 ---
-title: "Azure'da Java ve MySQL web uygulaması oluşturma"
-description: "Azure uygulama hizmetinde çalışan Azure MySQL veritabanına bağlanacak bir Java uygulaması edinmeyi öğrenin."
+title: Azure'da Java ve MySQL web uygulaması oluşturma
+description: Azure uygulama hizmetinde çalışan Azure MySQL veritabanına bağlanacak bir Java uygulaması edinmeyi öğrenin.
 services: app-service\web
 documentationcenter: Java
 author: bbenz
 manager: jeffsand
 editor: jasonwhowell
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 2df08c8e3dbadbfc1a9d2cfb3adcda4f5bae2851
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-java-and-mysql-web-app-in-azure"></a>Azure'da Java ve MySQL web uygulaması oluşturma
+# <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da Java ve MySQL web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. App Service'i _Linux_ üzerinde dağıtmak için bkz. [Kapsayıcılı bir Spring Boot uygulamasını Azure'a dağıtma](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
@@ -137,7 +137,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-Cloud Shell’de, MySQL için Azure Veritabanı (Önizleme) içinde [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) komutu ile bir sunucu oluşturun. `<mysql_server_name>` yer tutucusunu gördüğünüz yerde kendi benzersiz MySQL sunucunuzun adıyla değiştirin. Bu ad, MySQL sunucusu konak adınızın (`<mysql_server_name>.mysql.database.azure.com`) bir parçasıdır ve genel olarak benzersiz olması gerekir. Ayrıca `<admin_user>` ve `<admin_password>` değerlerini de kendi değerlerinizle değiştirin.
+Cloud Shell’de, MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) komutuyla bir sunucu oluşturun. `<mysql_server_name>` yer tutucusunu gördüğünüz yerde kendi benzersiz MySQL sunucunuzun adıyla değiştirin. Bu ad, MySQL sunucusu konak adınızın (`<mysql_server_name>.mysql.database.azure.com`) bir parçasıdır ve genel olarak benzersiz olması gerekir. Ayrıca `<admin_user>` ve `<admin_password>` değerlerini de kendi değerlerinizle değiştirin.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -168,7 +168,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> MySQL için Azure Veritabanı (Önizleme) şu anda Azure hizmetlerinden gelen bağlantıları otomatik olarak etkinleştirmemektedir. Azure’daki IP adresleri dinamik olarak atandığından, şimdilik tüm IP adreslerinin etkinleştirilmesi daha iyi olur. Hizmet önizlemesi devam ettikçe, veritabanınızı korumaya yönelik daha iyi yöntemler etkinleştirilecektir.
+> MySQL için Azure Veritabanı şu anda Azure hizmetlerinden gelen bağlantıları otomatik olarak etkinleştirmemektedir. Azure’daki IP adresleri dinamik olarak atandığından, şimdilik tüm IP adreslerinin etkinleştirilmesi daha iyi olur. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemler etkinleştirilecektir.
 
 ## <a name="configure-the-azure-mysql-database"></a>Azure MySQL veritabanını yapılandırma
 

@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad8ed320a8dd91ea83dbaf71e2e9514b4df4cdb5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 630a633cf8657d43d6416d316928830634c9bf48
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>AD FS'yi Azure AD Connect Health'i kullanarak izleme
 Aşağıdaki belgeler, AD FS altyapınızın Azure AD Connect Health ile izlenmesine ilişkin belgelerdir. Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md). Ek olarak, Active Directory Etki Alanı Hizmetleri’ni Azure AD Connect Health ile izleme hakkında bilgi için bkz. [AD DS ile Azure AD Connect Health Kullanma](active-directory-aadconnect-health-adds.md).
@@ -109,7 +109,7 @@ Raporda şu bilgiler yer alır:
 | Kullanıcı Kimliği |Kullanılan kullanıcı kimliğini gösterir. Bu değer, kullanıcının ne yazdığıyla ilgilidir ve bazı durumlarda yanlış kullanıcı kimliği kullanılır. |
 | Başarısız Denemeler |Belirli bir kullanıcı kimliğine ait başarısız denemelerin toplam sayısını gösterir. Tablo, en fazla deneme sayısından en aza doğru azalan bir düzende sıralanır. |
 | Son Hata |Son hatanın oluştuğu andaki zaman damgasını gösterir. |
-| Son Hata IP’si |Son hatalı istekteki İstemci IP adresini gösterir. |
+| Son Hata IP’si |Son hatalı istekteki İstemci IP adresini gösterir. Bu değerde birden fazla IP adresi görürseniz, kullanıcının son girişim isteği IP’si ile birlikte iletme istemci IP’sini içerebilir.  |
 
 > [!NOTE]
 > Bu rapor, her 12 saatte bir bu süre içinde toplanan yeni bilgilerle otomatik olarak güncelleştirilir. Bu nedenle raporda son 12 saat içinde gerçekleşen oturum açma denemeleri bulunmayabilir.
@@ -191,11 +191,14 @@ Uyarı eşiği, Eşik Ayarları üzerinden güncelleştirilebilir. Başlangıç 
 1. Neden raporda özel IP adresi aralıkları görüyorum?  <br />
 Özel IP adresleri (<i>10.x.x.x, 172.x.x.x ve 192.168.x.x</i>) ile Exchange IP adresleri filtrelenir ve IP güvenilir listesinde True olarak işaretlenir. Özel IP adresi aralıkları görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir.
 
-2. IP adresini engellemek için ne yapmalıyım?  <br />
+2. Neden raporda yük dengeleyici IP adreslerini görüyorum?  <br />
+Yük dengeleyici IP adreslerini görüyorsanız, dış yük dengeleyicinizin Web Uygulaması Ara sunucusuna isteği geçirdiğinde istemci IP adresini göndermeme olasılığı yüksektir. Lütfen, iletme istemci IP adresini geçirmek için yük dengeleyicinizi doğru şekilde yapılandırın. 
+
+3. IP adresini engellemek için ne yapmalıyım?  <br />
 Tanımlanmış kötü amaçlı IP adreslerini güvenlik duvarına eklemeniz veya Exchange’de engellemeniz gerekir.   <br />
 AD FS 2016 + 1803.C+ QFE IP adresini doğrudan AD FS’de engelleyebilirsiniz. 
 
-3. Neden bu raporda hiçbir öğe görmüyorum? <br />
+4. Neden bu raporda hiçbir öğe görmüyorum? <br />
    - Başarısız oturum açma etkinlikleri eşik ayarlarını aşmıyor. 
    - AD FS sunucu listenizde etkin bir "Sistem durumu hizmeti güncel değil" uyarısı olmadığından emin olun.  [Bu uyarıyla ilgili sorunları giderme](active-directory-aadconnect-health-data-freshness.md) hakkında daha fazla bilgi edinin.
    - AD FS gruplarınde denetimler etkin değildir.

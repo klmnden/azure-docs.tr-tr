@@ -1,11 +1,11 @@
 ---
-title: "Azure'da PHP ve MySQL web uygulaması derleme | Microsoft Docs"
-description: "Azure’da çalışan ve bir MySQL veritabanı ile bağlantısı olan PHP uygulamasını nasıl edinebileceğinizi öğrenin."
+title: Azure'da PHP ve MySQL web uygulaması derleme | Microsoft Docs
+description: Azure’da çalışan ve bir MySQL veritabanı ile bağlantısı olan PHP uygulamasını nasıl edinebileceğinizi öğrenin.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 39bfc4e6a4f4066e8aeda0da387fe570525b6086
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 28c50aea9aaad1b9b18fb6b3034617d10beea7ec
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-php-and-mysql-web-app-in-azure"></a>Azure'da PHP ve MySQL web uygulaması derleme
+# <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da PHP ve MySQL web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te PHP ve MySQL web uygulaması derleme](./containers/tutorial-php-mysql-app.md).
@@ -88,7 +88,7 @@ quit
 ## <a name="create-a-php-app-locally"></a>Yerel olarak PHP uygulaması oluşturma
 Bu adımda bir Laravel örnek uygulaması edinir, veritabanı bağlantısını yapılandırır ve yerel olarak çalıştırırsınız. 
 
-### <a name="clone-the-sample"></a>Örneği
+### <a name="clone-the-sample"></a>Örneği kopyalama
 
 Terminal penceresinde, `cd` ile bir çalışma dizinine gidin.
 
@@ -98,7 +98,7 @@ Terminal penceresinde, `cd` ile bir çalışma dizinine gidin.
 git clone https://github.com/Azure-Samples/laravel-tasks
 ```
 
-`cd` kopyalanmış dizininize kopyalayın.
+`cd` komutuyla kopyalanmış dizininize geçin.
 Gereken paketleri yükleyin.
 
 ```bash
@@ -154,7 +154,7 @@ PHP sunucusu durdurmak için terminale `Ctrl + C` yazın.
 
 ## <a name="create-mysql-in-azure"></a>Azure’da MySQL oluşturma
 
-Bu adımda, [MySQL için Azure Veritabanı (Önizleme)](/azure/mysql) içinde bir MySQL veritabanı oluşturursunuz. Daha sonra, PHP uygulamasını bu veritabanına bağlanacak şekilde yapılandırırsınız.
+Bu adımda, [MySQL için Azure Veritabanı](/azure/mysql) içinde bir MySQL veritabanı oluşturursunuz. Daha sonra, PHP uygulamasını bu veritabanına bağlanacak şekilde yapılandırırsınız.
 
 ### <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
 
@@ -162,7 +162,7 @@ Bu adımda, [MySQL için Azure Veritabanı (Önizleme)](/azure/mysql) içinde bi
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-Cloud Shell’de, MySQL için Azure Veritabanı (Önizleme) içinde [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutu ile bir sunucu oluşturun.
+Cloud Shell’de, [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) komutuyla MySQL için Azure Veritabanı içinde bir sunucu oluşturun.
 
 Aşağıdaki komutta, _&lt;mysql_server_name>_ yer tutucusunu gördüğünüz yerde MySQL sunucunuzun adını değiştirin (geçerli karakterler `a-z`, `0-9` ve `-`). Bu ad, MySQL sunucusu ana bilgisayar adının (`<mysql_server_name>.database.windows.net`) bir parçasıdır ve genel olarak benzersiz olması gerekir.
 
@@ -199,7 +199,7 @@ az mysql server firewall-rule create --name allIPs --server <mysql_server_name> 
 ```
 
 > [!NOTE]
-> MySQL için Azure Veritabanı (Önizleme) şu anda bağlantıları yalnızca Azure hizmetleriyle sınırlamamaktadır. Azure’daki IP adresleri dinamik olarak atandığından, tüm IP adreslerinin etkinleştirilmesi daha iyidir. Hizmet önizleme aşamasındadır. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemler planlanmaktadır.
+> MySQL için Azure Veritabanı şu anda bağlantıları yalnızca Azure hizmetleriyle sınırlamamaktadır. Azure’daki IP adresleri dinamik olarak atandığından, tüm IP adreslerinin etkinleştirilmesi daha iyidir. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemler planlanmaktadır.
 >
 >
 
@@ -236,7 +236,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Uygulamayı Azure MySQL’e bağlama
 
-Bu adımda, PHP uygulamasını MySQL için Azure Veritabanı (Önizleme) içinde oluşturduğunuz MySQL veritabanına bağlarsınız.
+Bu adımda, PHP uygulamasını MySQL için Azure Veritabanı içinde oluşturduğunuz MySQL veritabanına bağlarsınız.
 
 <a name="devconfig"></a>
 
@@ -260,7 +260,7 @@ MYSQL_SSL=true
 Değişiklikleri kaydedin.
 
 > [!TIP]
-> MySQL bağlantı bilgilerinizin güvenliğini sağlamak için bu dosya zaten Git deposunun dışında bırakılmıştır (Depo kökünde _.gitignore_ dosyasına bakın). Daha sonra, App Service ortam değişkenlerini, MySQL için Azure Veritabanı (Önizleme) içinde veritabanınıza bağlanmak üzere nasıl yapılandıracağınızı öğreneceksiniz. Ortam değişkenlerini kullandığınızda App Service içinde *.env* dosyası gerekli değildir.
+> MySQL bağlantı bilgilerinizin güvenliğini sağlamak için bu dosya zaten Git deposunun dışında bırakılmıştır (Depo kökünde _.gitignore_ dosyasına bakın). Daha sonra, App Service’teki ortam değişkenlerini, MySQL için Azure Veritabanı içinde veritabanınıza bağlanmak üzere nasıl yapılandıracağınızı öğreneceksiniz. Ortam değişkenlerini kullandığınızda App Service içinde *.env* dosyası gerekli değildir.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL sertifikası yapılandırma
@@ -283,7 +283,7 @@ _config/database.php_ dosyasını açın ve aşağıdaki kodda gösterildiği gi
 
 ### <a name="test-the-application-locally"></a>Uygulamayı yerel olarak test etme
 
-MySQL için Azure Veritabanı (Önizleme) içinde tablolar oluşturmak için, Laravel veritabanı geçişlerini ortam dosyası olarak _.env.production_ ile çalıştırın. _.env.production_ dosyasının, Azure’da MySQL veritabanınızla bağlantı bilgilerini içerdiğini unutmayın.
+MySQL için Azure Veritabanı içinde tablolar oluşturmak için, _.env.production_ ile Laravel veritabanı geçişlerini ortam dosyası olarak çalıştırın. _.env.production_ dosyasının, Azure’da MySQL veritabanınızla bağlantı bilgilerini içerdiğini unutmayın.
 
 ```bash
 php artisan migrate --env=production --force
@@ -305,7 +305,7 @@ php artisan serve --env=production
 
 Sayfaya birkaç görev ekleyin.
 
-![PHP, MySQL için Azure Veritabanına (Önizleme) başarıyla bağlanır](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
+![PHP, MySQL için Azure Veritabanı’na başarıyla bağlanır](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
 PHP’yi durdurmak için terminale `Ctrl + C` yazın.
 

@@ -1,17 +1,17 @@
 ---
-title: "Azure’a geçiş için şirket içi VMware VM’lerini Azure Geçişi ile bulma ve değerlendirme | Microsoft Docs"
-description: "Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geçişi hizmeti kullanılarak nasıl bulunacağı ve değerlendirileceği açıklanmaktadır."
+title: Azure’a geçiş için şirket içi VMware VM’lerini Azure Geçişi ile bulma ve değerlendirme | Microsoft Docs
+description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geçişi hizmeti kullanılarak nasıl bulunacağı ve değerlendirileceği açıklanmaktadır.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bbd08637894c43c543aeb8236f515e5ed9c5fc19
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: d70b4ea2d45c38fa53ab3c00f76c00ef6f3d7663
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -84,7 +84,15 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. Oluşturulan karma bu ayarlara uygun olmalıdır.
+    
+    OVA sürüm 1.0.9.7 için
 
+    **Algoritma** | **Karma değeri**
+    --- | ---
+    MD5 | d5b6a03701203ff556fa78694d6d7c35
+    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+    
     OVA sürüm 1.0.9.5 için
 
     **Algoritma** | **Karma değeri**
@@ -151,7 +159,7 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin.
 
     > [!NOTE]
-    > Proxy adresi şu biçimde girilmelidir http://ProxyIPAdresi veya http://ProxyFQDN. Yalnızca HTTP proxy’si desteklenir.
+    > Proxy adresinin, http://ProxyIPAddress veya http://ProxyFQDN biçiminde girilmesi gerekir. Yalnızca HTTP proxy’si desteklenir.
 
     - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
     - VMware PowerCLI’yı indirin ve yükleyin.
