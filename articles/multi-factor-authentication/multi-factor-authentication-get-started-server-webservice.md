@@ -1,8 +1,8 @@
 ---
 title: Azure MFA Sunucusu Mobil Uygulama Web Hizmeti | Microsoft Belgeleri
-description: "Microsoft Authenticator uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar.  MFA sunucusunun kullanıcılar için anında iletme bildirimleri kullanmasına olanak tanır."
+description: Microsoft Authenticator uygulaması ek bir bant dışı kimlik doğrulama seçeneği sunar.  MFA sunucusunun kullanıcılar için anında iletme bildirimleri kullanmasına olanak tanır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.assetid: 6c8d6fcc-70f4-4da4-9610-c76d66635b8b
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 83b04e48dd528881097bcf16bc03e1a18ea20c43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile mobil uygulama kimlik doğrulamasını etkinleştirme
 
@@ -29,11 +29,13 @@ Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği su
 
 Ortamınıza bağlı olarak, mobil uygulama web hizmetini Azure Multi-Factor Authentication sunucusu ile aynı sunucuya veya İnternet'e yönelik başka bir sunucuya dağıtmak isteyebilirsiniz.
 
+MFA Sunucusu 8.0 veya üzeri bir sürümü yüklediyseniz aşağıdaki adımların çoğu gerekmez. [Mobil uygulamayı yapılandırma](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) bölümündeki adımlar izlenerek mobil uygulama kimlik doğrulaması ayarlanabilir.
+
 ## <a name="requirements"></a>Gereksinimler
 
 Microsoft Authenticator uygulamasını kullanmak için, uygulamanın Mobil Uygulama Web Hizmeti ile başarıyla iletişim kurabilmesini sağlamak amacıyla aşağıdakiler gereklidir:
 
-* Azure Multi-Factor Authentication Sunucusu v6.0 veya üzeri
+* Azure Multi-Factor Authentication Sunucusu v6.x veya üzeri
 * Microsoft® [Internet Information Services (IIS) IIS 7.x veya üzerini](http://www.iis.net/) çalıştıran İnternet’e yönelik bir web sunucusuna Mobil Uygulama Web Hizmeti’ni yükleme
 * ASP.NET v4.0.30319’un yüklenmesi, kaydedilmesi ve İzinli olarak ayarlanması
 * Gerekli rol hizmetleri ASP.NET ve IIS 6 Metatabanı Uyumluluğu’nu içerir.
@@ -48,6 +50,7 @@ Microsoft Authenticator uygulamasını kullanmak için, uygulamanın Mobil Uygul
 
 Mobil uygulama web hizmetini yüklemeden önce aşağıdaki ayrıntılara dikkat edin:
 
+* v8.0 veya üzeri için mobil uygulama web hizmetinin yüklenmesi gerekmez. Yalnızca [Mobil uygulamayı yapılandırma](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) bölümündeki adımları tamamlayın.
 * "PhoneFactor Admins" grubunun bir parçası olan bir Hizmet Hesabınız olması gerekir. Bu hesap, Kullanıcı Portalı yüklemesinde kullanılanla aynı olabilir.
 * İnternet'e yönelik web sunucusunda bir web tarayıcısı açmak ve web.config dosyasına girilen Web hizmeti SDK’sının URL’sine gitmek faydalıdır. Tarayıcı web hizmetine başarıyla gidebilirse, sizden kimlik bilgilerinizi ister. Aynen dosyada göründüğü gibi web.config dosyasına girilen parola girilen kullanıcı adını ve parolayı girin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 * Mobil Uygulama Web Hizmeti web sunucusunun önünde ters bir proxy ya da güvenlik duvarı yer alıyorsa ve SSL boşaltma gerçekleştiriyorsa, Mobil Uygulama Web Hizmeti’nin https yerine http kullanabilmesi için Mobil Uygulama Web Hizmeti web.config dosyasını düzenleyebilirsiniz. Güvenlik duvarı/ters proxy’ye yönelik Mobil Uygulamadan alınan SSL hala gereklidir. Aşağıdaki anahtarları \<appSettings\> bölümüne ekleyin:
@@ -80,25 +83,24 @@ Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu 
 
    * **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** anahtarını bulun ve **value=""** değerini **value="DOMAIN\User"** değeriyle değiştirin. Burada DOMAIN\User, "PhoneFactor Admins" grubunun parçası olan bir Hizmet Hesabıdır.
    * **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** anahtarını bulun ve **value=""** değerini **value="Password"** ile değiştirin. Burada Password, önceki satırda girdiğiniz Hizmet Hesabının parolasıdır.
-   * **pfMobile App Web Service_pfwssdk_PfWsSdk** ayarını bulup **http://localhost:4898/PfWsSdk.asmx** değerini Web hizmeti SDK URL'siyle (Örneğin https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx) değiştirin.
+   * **pfMobile App Web Service_pfwssdk_PfWsSdk** ayarını bulun ve **http://localhost:4898/PfWsSdk.asmx** olan değeri, Web Hizmeti SDK’sı URL’sine (Örnek: https://mfa.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx)) değiştirin.
    * Web.Config dosyasını kaydedin ve Not Defteri'ni kapatın.
 
    > [!NOTE]
    > Bu bağlantı için SSL kullanıldığından, Web Hizmeti SDK'sına **IP adresi** ile değil **tam etki alanı adı (FQDN)** ile başvurmanız gerekir. SSL sertifikası FQDN için verilmiş olacaktır ve kullanılan URL’nin sertifikadaki adla eşleşmesi gerekir.
 
 7. Mobil Uygulama Web Hizmeti’nin altında yüklendiği web sitesi halihazırda ortak olarak imzalanmış bir sertifikayla bağlanmadıysa sertifikayı sunucuya yükleyin, IIS Yöneticisi’ni açın ve sertifikayı web sitesine bağlayın.
-8. Herhangi bir bilgisayarda web tarayıcısını açın ve Mobil Uygulama Web Hizmetinin yüklendiği URL’ye gidin (örneğin https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
+8. Herhangi bir bilgisayarda web tarayıcısını açın ve Mobil Uygulama Web Hizmeti’nin yüklendiği URL’ye (Örnek: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService)) gidin. Sertifika uyarısı ya da hatası görüntülenmediğinden emin olun.
 9. Web hizmetleri SDK’da kullanılabilecek metotlar hakkında daha fazla ilgi için MFA sunucusu yardım dosyasına bakın.
+10. Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak için Azure Multi-Factor Authentication Sunucusu’nu yapılandırmalısınız.
 
 ## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu’nda mobil uygulama ayarlarını yapılandırma
-
-Artık mobil uygulama web hizmeti yüklendiğine göre, portal ile çalışmak için Azure Multi-Factor Authentication Sunucusu’nu yapılandırmalısınız.
 
 1. Multi-Factor Authentication Sunucusu konsolunda Kullanıcı Portalı simgesine tıklayın. Kullanıcıların kendi kimlik doğrulama yöntemlerini denetlemesine izin veriliyorsa, Ayarlar sekmesindeki **Kullanıcıların yöntemi seçmesine izin ver** bölümünden **Mobil Uygulama**’yı işaretleyin. Bu özellik etkinleştirilmeden, Mobil Uygulama için etkinleştirme işlemini tamamlamak üzere son kullanıcıların Yardım Masanızla iletişim kurması gerekir.
 2. **Kullanıcıların Mobil Uygulamaları etkinleştirmesine izin ver** kutusunu işaretleyin.
 3. **Kullanıcı Kaydına İzin Ver** kutusunu işaretleyin.
 4. **Mobil Uygulama** simgesine tıklayın.
-5. **Mobil Uygulama Web Hizmeti URL'si:** alanına MultiFactorAuthenticationMobileAppWebServiceSetup64 yüklenirken oluşturulan sanal dizinde kullanılan URL'yi girin (Örneğin https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/).
+5. v8.0 veya üzerini kullanıyorsanız şu adımı atlayın: **Mobil Uygulama Web Hizmeti URL'si:** alanına MultiFactorAuthenticationMobileAppWebServiceSetup64 yüklenirken oluşturulan sanal dizinle kullanılan URL’yi (Örnek: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/)) girin.
 6. **Hesap adı** alanına bu hesabın mobil uygulamasında görüntülenecek şirket veya kuruluş adını girin.
    ![MFA Sunucusu yapılandırması Mobil Uygulama ayarları](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
 

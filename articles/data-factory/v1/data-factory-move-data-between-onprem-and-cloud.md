@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: eff58d77b2f79581ee0f611ca25d6cbbc258e996
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93b63e7c657282fc0ef285054ba90c9d6bc310b6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Şirket içi kaynakları ve veri yönetimi ağ geçidi ile bulut arasında veri taşıma
 > [!NOTE]
@@ -72,7 +72,7 @@ Bu adımda, Azure portalında adlı bir Azure Data Factory örneğini oluşturma
 6. Tıklatın **oluşturma** üzerinde **yeni data factory** sayfası.
 
    > [!IMPORTANT]
-   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../../role-based-access-control/built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
    >
    >
 7. Oluşturma işlemi tamamlandıktan sonra gördüğünüz **Data Factory** sayfasında aşağıdaki resimde gösterildiği gibi:

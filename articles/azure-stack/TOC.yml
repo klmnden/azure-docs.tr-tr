@@ -55,11 +55,11 @@
         - name: Azure yığın dağıtım PKI gereksinimleri
           href: azure-stack-pki-certs.md
           items:
-            - name: Azure yığın PKI sertifikaları alma
+            - name: PKI sertifikaları oluşturun
               href: azure-stack-get-pki-certs.md
             - name: Azure yığın PKI sertifikaları hazırlama
               href: azure-stack-prepare-pki-certs.md
-            - name: Azure yığın PKI sertifikaları doğrula
+            - name: PKI sertifikaları doğrula
               href: azure-stack-validate-pki-certs.md
         - name: Kimlik Tümleştirme
           href: azure-stack-integrate-identity.md
@@ -286,8 +286,6 @@
           href: azure-stack-diagnostics.md
         - name: Azure yığını için doğrulama
           href: azure-stack-diagnostic-test.md
-        - name: Azure Stack Geliştirme Seti’ni yeniden dağıtma
-          href: azure-stack-redeploy.md
 - name: Başvuru
   items:
     - name: Azure Stack PowerShell

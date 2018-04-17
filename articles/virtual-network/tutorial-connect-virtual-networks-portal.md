@@ -1,6 +1,6 @@
 ---
-title: Sanal Ağ eşlemesi ile - sanal ağlara bağlanabilir Azure portalı | Microsoft Docs
-description: Bu makalede, eşliği, Azure Portalı'nı kullanarak sanal ağ ile sanal ağlara bağlanabilir öğrenin.
+title: Sanal ağ eşlemesi ile sanal ağları bağlama - öğretici - Azure portalı | Microsoft Docs
+description: Bu öğreticide, Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağların nasıl bağlanacağını öğreneceksiniz.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
@@ -11,29 +11,29 @@ Customer intent: I want to connect two virtual networks so that virtual machines
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: b864c71a62289b3abef13a98b52683f7d928b8e1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Azure Portalı'nı kullanarak sanal ağ eşlemesi ile sanal ağlara bağlanabilir
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ eşlemesi ile sanal ağları bağlama
 
-Sanal ağlar birbirlerine sanal ağ eşlemesi ile bağlayabilirsiniz. Sanal ağlar eşlendikten sonra iki sanal ağlarda bulunan kaynaklar kaynaklar aynı sanal ağda değilmiş gibi aynı gecikme süresi ve bant genişliği ile birbirleri ile iletişim kuramıyor. Bu makalede, bilgi nasıl yapılır:
+Sanal ağ eşlemesi ile sanal ağları birbirine bağlayabilirsiniz. Sanal ağlar eşlendikten sonra, kaynaklar aynı sanal ağ üzerindeymiş gibi, aynı gecikme süresi ve bant genişliği ile her iki sanal ağdaki kaynaklar birbiriyle iletişim kurabilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * İki sanal ağ oluşturma
-> * Sanal Ağ eşlemesi iki sanal ağlara bağlanabilir
-> * Her sanal ağ içinde bir sanal makine (VM) dağıtma
-> * VM'ler arasında iletişim
+> * Sanal ağ eşlemesi iki sanal ağı bağlama
+> * Her sanal ağa sanal makine (VM) dağıtma
+> * Sanal makineler arasında iletişim
 
-Tercih ederseniz, bu makalede kullanarak tamamlayabilirsiniz [Azure CLI](tutorial-connect-virtual-networks-cli.md) veya [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md).
+Tercih ederseniz, [Azure CLI](tutorial-connect-virtual-networks-cli.md) veya [Azure PowerShell](tutorial-connect-virtual-networks-powershell.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -43,145 +43,145 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-virtual-networks"></a>Sanal ağlar oluşturma
 
-1. Seçin **+ kaynak oluşturma** üst üzerinde köşe Azure portalının sol.
-2. Seçin **ağ**ve ardından **sanal ağ**.
-3. Girin veya seçin, aşağıdaki bilgileri, diğer ayarlar için varsayılan değerleri kabul edin ve ardından **oluşturma**:
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **Ağ**’ı ve sonra **Sanal ağ**’ı seçin.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**’u seçin:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVirtualNetwork1|
+    |Adı|myVirtualNetwork1|
     |Adres alanı|10.0.0.0/16|
     |Abonelik| Aboneliğinizi seçin.|
-    |Kaynak grubu| Seçin **Yeni Oluştur** ve girin *myResourceGroup*.|
-    |Konum| Seçin **Doğu ABD**.|
+    |Kaynak grubu| **Yeni oluştur**’u seçin ve *myResourceGroup* değerini girin.|
+    |Konum| **Doğu ABD**’yi seçin.|
     |Alt Ağ Adı|Subnet1|
-    |Alt ağ adres aralığı|10.0.0.0/24|
+    |Alt Ağ Adresi aralığı|10.0.0.0/24|
 
       ![Sanal ağ oluşturma](./media/tutorial-connect-virtual-networks-portal/create-virtual-network.png)
 
-4. Adım 1-3 aşağıdaki değişikliklerle yeniden tamamlayın:
+4. Aşağıdaki değişikliklerle birlikte 1.-3. adımları tekrar tamamlayın:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVirtualNetwork2|
+    |Adı|myVirtualNetwork2|
     |Adres alanı|10.1.0.0/16|
-    |Kaynak grubu| Seçin **var olanı kullan** ve ardından **myResourceGroup**.|
-    |Alt ağ adres aralığı|10.1.0.0/24|
+    |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
+    |Alt Ağ Adresi aralığı|10.1.0.0/24|
 
-## <a name="peer-virtual-networks"></a>Eş sanal ağlar
+## <a name="peer-virtual-networks"></a>Sanal ağları eşleme
 
-1. Azure portalı üstündeki arama kutusuna yazmaya başlayın *MyVirtualNetwork1*. Zaman **myVirtualNetwork1** arama sonuçlarında görünür.
-2. Seçin **eşlemeler**altında **ayarları**ve ardından **+ Ekle**, aşağıdaki resimde gösterildiği gibi:
+1. Azure portalının üst kısmındaki Arama kutusuna *MyVirtualNetwork1* yazmaya başlayın. Arama sonuçlarında **myVirtualNetwork1** görüntülendiğinde bunu seçin.
+2. **AYARLAR** bölümünden **Eşdüzey hizmet sağlamaları**’nı seçin ve sonra aşağıdaki resimde gösterildiği gibi **+ Ekle** seçeneğini belirleyin:
 
-    ![Eşlemesi oluşturma](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
+    ![Eşleme oluşturma](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. Girin veya seçin, aşağıdaki bilgileri, diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin.
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVirtualNetwork1-myVirtualNetwork2|
+    |Adı|myVirtualNetwork1-myVirtualNetwork2|
     |Abonelik| Aboneliğinizi seçin.|
-    |Sanal ağ|Seçilecek myVirtualNetwork2 - *myVirtualNetwork2* sanal ağ, select **sanal ağ**seçeneğini belirleyip **myVirtualNetwork2**.|
+    |Sanal ağ|myVirtualNetwork2 - *myVirtualNetwork2* sanal ağını seçmek için **Sanal ağ**’ı seçin ve sonra **myVirtualNetwork2** seçeneğini belirleyin.|
 
     ![Eşleme ayarları](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
-    **EŞLİĞİ durumu** olan *başlatılan*, aşağıdaki resimde gösterildiği gibi:
+    Aşağıdaki resimde gösterildiği gibi **EŞLEME DURUMU**, *Başlatıldı* durumundadır:
 
     ![Eşleme durumu](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
 
-    Durum görmüyorsanız, tarayıcınızı yenileyin.
+    Durumu görmüyorsanız tarayıcınızı yenileyin.
 
-4. İçinde **arama** kutusunda Azure portalının en üstünde, yazmaya başlayın *MyVirtualNetwork2*. Zaman **myVirtualNetwork2** arama sonuçlarında görünür.
-5. 2-3 adımları yeniden aşağıdaki değişiklikleri tamamlayın ve ardından **Tamam**:
+4. Azure portalının üst kısmındaki **Arama** kutusuna *MyVirtualNetwork2* yazmaya başlayın. Arama sonuçlarında **myVirtualNetwork2** görüntülendiğinde bunu seçin.
+5. Aşağıdaki değişikliklerle birlikte 2.-3. adımları tamamlayın ve sonra **Tamam**’ı seçin:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVirtualNetwork2-myVirtualNetwork1|
+    |Adı|myVirtualNetwork2-myVirtualNetwork1|
     |Sanal ağ|myVirtualNetwork1|
 
-    **EŞLİĞİ durumu** olan *bağlı*. Azure eşleme durumunu da değişir *myVirtualNetwork2 myVirtualNetwork1* gelen eşleme *başlatılan* için *bağlandı.* Sanal Ağ eşlemesi değil tam olarak kurulduğunda her iki sanal ağ eşleme durumu kadar *bağlandı.* 
+    **EŞLEME DURUMU**, *Bağlanıldı* durumundadır. Azure, *myVirtualNetwork2-myVirtualNetwork1* eşlemesi için eşleme durumunu *Başlatıldı* durumundan *Bağlanıldı* durumuna da geçirmiştir. Her iki sanal ağın da eşleme durumu *Bağlanıldı* olana kadar sanal ağ eşlemesi tam olarak oluşturulmuş olmaz. 
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Sonraki adımda aralarında iletişim kurabilmesi için bir VM her sanal ağ oluşturun.
+Sonraki bir adımda aralarında iletişim kurabilmeniz için her sanal ağ üzerinde bir sanal makine oluşturun.
 
-### <a name="create-the-first-vm"></a>İlk VM oluşturma
+### <a name="create-the-first-vm"></a>Birinci sanal makineyi oluşturma
 
-1. Seçin **+ kaynak oluşturma** üst üzerinde köşe Azure portalının sol.
-2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. Farklı bir işletim sistemi seçebilirsiniz, ancak geri kalan adımları seçtiğiniz varsayın **Windows Server 2016 Datacenter**. 
-3. Girin veya seçin, için aşağıdaki bilgileri **Temelleri**diğer ayarlar için varsayılan değerleri kabul edin ve ardından **oluşturma**:
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **İşlem**'i seçin ve sonra da **Windows Server 2016 Datacenter**'ı seçin. Farklı bir işletim sistemi seçebilirsiniz, ancak geri kalan adımlarda, **Windows Server 2016 Datacenter** seçeneğini belirlediğiniz varsayılır. 
+3. **Temel Bilgiler** için aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Oluştur**’u seçin:
 
     |Ayar|Değer|
     |---|---|
-    |Ad|myVm1|
-    |Kullanıcı adı| Seçtiğiniz kullanıcı adı girin.|
-    |Parola| Seçtiğiniz bir parola girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
-    |Kaynak grubu| Seçin **var olanı kullan** ve ardından **myResourceGroup**.|
-    |Konum| Seçin **Doğu ABD**.|
-4. VM boyutu altında seçin **bir boyutu seçin**.
-5. İçin aşağıdaki değerleri seçin **ayarları**seçeneğini belirleyip **Tamam**:
+    |Adı|myVm1|
+    |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
+    |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
+    |Kaynak grubu| **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.|
+    |Konum| **Doğu ABD**’yi seçin.|
+4. **Boyut seçin** bölümünden bir sanal makine boyutu seçin.
+5. **Ayarlar** için aşağıdaki değerleri seçin ve **Tamam**’a tıklayın:
     |Ayar|Değer|
     |---|---|
-    |Sanal ağ| myVirtualNetwork1 - henüz seçili değilse seçin **sanal ağ** ve ardından **myVirtualNetwork1** altında **Seç sanal ağ**.|
-    |Alt ağ| Subnet1 - henüz seçili değilse seçin **alt** ve ardından **Subnet1** altında **alt ağ seçin**.|
+    |Sanal ağ| myVirtualNetwork1 - Önceden seçili değilse **Sanal ağ**’ı seçin ve sonra **Sanal ağ seç** bölümünden **myVirtualNetwork1** seçeneğini belirleyin.|
+    |Alt ağ| Subnet1 - Önceden seçili değilse **Alt ağ**’ı seçin ve sonra **Alt ağ seç** bölümünden **Subnet1** seçeneğini belirleyin.|
     
     ![Sanal makine ayarları](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
-6. Altında **oluşturma** içinde **Özet**seçin **oluşturma** VM dağıtımı başlatmak için.
+6. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
 
-### <a name="create-the-second-vm"></a>İkinci VM oluşturma
+### <a name="create-the-second-vm"></a>İkinci sanal makineyi oluşturma
 
-Adım 1-6 aşağıdaki değişikliklerle yeniden tamamlayın:
+Aşağıdaki değişikliklerle birlikte 1.-6. adımları tekrar tamamlayın:
 
 |Ayar|Değer|
 |---|---|
-|Ad | myVm2|
+|Adı | myVm2|
 |Sanal ağ | myVirtualNetwork2|
 
-Sanal makineleri oluşturmak için birkaç dakika sürebilir. Her iki VM oluşturulana kadar kalan adımlara devam etmeyin.
+Sanal makinelerin oluşturulması birkaç dakika sürebilir. Her iki sanal makine de oluşturulmadan kalan adımlara devam etmeyin.
 
-## <a name="communicate-between-vms"></a>VM'ler arasında iletişim
+## <a name="communicate-between-vms"></a>Sanal makineler arasında iletişim
 
-1. İçinde *arama* kutusunda portalın en üstünde, yazmaya başlayın *myVm1*. Zaman **myVm1** arama sonuçlarında görünür.
-2. Uzak Masaüstü bağlantı oluşturmak *myVm1* seçerek VM **Bağlan**, aşağıdaki resimde gösterildiği gibi:
+1. Portalın üst kısmındaki *Arama* kutusuna *myVm1* yazmaya başlayın. Arama sonuçlarında **myVm1** görüntülendiğinde bunu seçin.
+2. Aşağıdaki resimde gösterildiği gibi, **Bağlan**’ı seçerek *myVm1* sanal makinesine uzak masaüstü bağlantısı oluşturun:
 
     ![Sanal makineye bağlanma](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
-3. VM'e bağlanmak için indirilen RDP dosyasını açın. İstenirse, seçin **Bağlan**.
-4. Kullanıcı adını ve VM oluştururken belirttiğiniz parolayı girin (seçmek için gerek duyabileceğiniz **daha fazla seçenek**, ardından **farklı bir hesap kullan**, VM oluşturduğunuz sırada girdiğiniz kimlik bilgileri belirtmek için), ardından **Tamam**.
-5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Seçin **Evet** bağlantı ile devam etmek için.
-6. Bir sonraki adımda ping ile iletişim kurmak için kullanılan *myVm2* VM'den *myVm1* VM. Varsayılan olarak Windows Güvenlik Duvarı üzerinden engellenir Internet Denetim İletisi Protokolü (ICMP) ping komutunu kullanır. Üzerinde *myVm1* VM, böylece bu VM ping ICMP Windows Güvenlik Duvarı üzerinden etkinleştirme *myVm2* PowerShell kullanarak bir sonraki adımda:
+3. Sanal makineye bağlanmak için indirilen RDP dosyasını açın. İstendiğinde **Bağlan**’ı seçin.
+4. Sanal makineyi oluştururken belirttiğiniz kullanıcı adını ve parolayı girin (sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan**’ı seçmeniz gerekebilir), ardından **Tamam**’ı seçin.
+5. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet**’i seçin.
+6. Sonraki bir adımda, *myVm1* sanal makinesinden *myVm2* sanal makinesiyle iletişim kurmak için ping kullanılır. Ping, varsayılan olarak Windows Güvenlik Duvarı üzerinden reddedilen İnternet Denetim İletisi Protokolü’nü (ICMP) kullanır. *myVm1* sanal makinesinde, Windows güvenlik duvarı üzerinden ICMP’yi etkinleştirin; böylece sonraki bir adımda PowerShell kullanarak *myVm2* sanal makinesinden bu sanal makineye ping komutu gönderebilirsiniz:
 
     ```powershell
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
     
-    Bu makalede yer alan VM'ler arasında iletişim kurmak için ping kullanılsa da ICMP üretim dağıtımları için Windows Güvenlik Duvarı aracılığıyla izin vererek önerilmez.
+    Bu öğreticide sanal makineler arasında iletişim kurmak için ping kullanılsa da, üretim dağıtımları için Windows Güvenlik Duvarı üzerinden ICMP’ye izin verilmesi önerilmez.
 
-7. Bağlanmak için *myVm2* VM, bir komut isteminden aşağıdaki komutu girin *myVm1* VM:
+7. *myVm2* sanal makinesine bağlanmak için, *myVm1* sanal makinesinde bir komut isteminden aşağıdaki komutu girin:
 
     ```
     mstsc /v:10.1.0.4
     ```
     
-8. Ping etkinleştirilmiş olduğundan *myVm1*, bu IP adresine göre şimdi ping:
+8. *myVm1* sanal makinesinde ping’i etkinleştirdiğinizden şimdi IP adresine göre ping komutu gönderebilirsiniz:
 
     ```
     ping 10.0.0.4
     ```
     
-9. Hem sizin RDP oturumların bağlantısını kesmek *myVm1* ve *myVm2*.
+9. Hem *myVm1* hem de *myVm2* sanal makinesine yönelik RDP oturumlarınızın bağlantısını kesin.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Artık gerekli olduğunda, kaynak grubu ve içerdiği tüm kaynaklar Sil: 
+Artık gerekli olmadığında kaynak grubunu ve içerdiği tüm kaynakları silin: 
 
-1. Girin *myResourceGroup* içinde **arama** portalı üstündeki kutusu. Gördüğünüzde **myResourceGroup** arama sonuçlarında seçin.
+1. Portalın üst kısmındaki **Ara** kutusuna *myResourceGroup* değerini girin. Arama sonuçlarında **myResourceGroup** seçeneğini gördüğünüzde bunu seçin.
 2. **Kaynak grubunu sil**'i seçin.
-3. Girin *myResourceGroup* için **türü kaynak grubu adı:** seçip **silmek**.
+3. **KAYNAK GRUBU ADINI YAZIN:** için *myResourceGroup* girin ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, sanal ağ eşlemesi ile iki ağ aynı Azure bölgesinde bağlanma öğrendiniz. Ayrıca farklı sanal ağlar eş [bölgeler desteklenen](virtual-network-manage-peering.md#cross-region) ve [farklı Azure abonelikleri](create-peering-different-subscriptions.md#portal), yanı sıra oluşturma [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) ile eşleme. Sanal Ağ eşlemesi hakkında daha fazla bilgi için bkz: [sanal ağ eşleme genel bakış](virtual-network-peering-overview.md) ve [sanal ağ eşlemeleri yönetme](virtual-network-manage-peering.md).
+Bu öğreticide, sanal ağ eşlemesi ile aynı Azure bölgesindeki iki ağın nasıl bağlanacağını öğrendiniz. Farklı [desteklenen bölgelerde](virtual-network-manage-peering.md#cross-region) ve [farklı Azure aboneliklerinde](create-peering-different-subscriptions.md#portal) sanal ağları eşleyebilir ve eşleme ile [hub ve bağlı bileşen ağ tasarımları](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) oluşturabilirsiniz. Sanal ağ eşlemesi hakkında daha fazla bilgi için bkz. [Sanal ağ eşlemesine genel bakış](virtual-network-peering-overview.md) ve [Sanal ağ eşlemelerini yönetme](virtual-network-manage-peering.md).
 
-Kendi bilgisayarınızı VPN üzerinden sanal bir ağa bağlayın ve sanal ağ veya eşlenmiş sanal ağlar kaynakları ile etkileşim için bkz: [bilgisayarınızı bir sanal ağa bağlamak](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Kendi bilgisayarınızı VPN üzerinden bir sanal ağa bağlamak ve bir sanal ağdaki veya eşlenmiş sanal ağlardaki kaynaklarla etkileşim kurmak için bkz. [Bilgisayarınızı sanal ağa bağlama](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
