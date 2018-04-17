@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 04/12/2018
 ms.author: dukek
-ms.openlocfilehash: a7f8697b7a92de1c19ceb65fadbcd7e4186e83f7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e3185b8d8ce97ffd04188b2b49a457bd14d5c6c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
@@ -26,10 +26,10 @@ Bu makalede, Azure portalında Eylem grupları oluşturmak ve yönetmek nasıl g
 
 Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Bu gruplar aynı eylemleri bir uyarı her tetiklenişinde alınır sağlama tanımlamak her uyarı tarafından kullanılabilir.
 
-Bir eylem grubu 10 her eylem türünde olabilir. Her eylem aşağıdaki özellikleri oluşur:
+Her eylem aşağıdaki özellikleri oluşur:
 
 * **Ad**: eylem grubu içinde benzersiz bir tanımlayıcı.  
-* **Eylem türü**: bir sesli arama veya SMS gönder, bir e-posta Gönder, bir Web kancası çağrı, bir ITSM aracı veri göndermek, bir Azure uygulaması çağrısı veya bir Otomasyon runbook'u çalıştırmak.
+* **Eylem türü**: bir sesli arama veya SMS gönder, bir e-posta Gönder bir Web kancası çağrısı bir ITSM aracı veri Gönder mantıksal uygulamayı çağırmak Azure uygulaması anında iletme bildirimi göndermek veya bir Otomasyon runbook'u çalıştırmak.
 * **Ayrıntılar**: karşılık gelen telefon numarası, e-posta adresi, Web kancası URI veya ITSM bağlantı ayrıntıları.
 
 Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullanma hakkında daha fazla bilgi için bkz: [eylem Grup Resource Manager şablonları](monitoring-create-action-group-with-resource-manager-template.md).
@@ -56,14 +56,45 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 
     a. **Ad**: Bu eylem için benzersiz bir tanımlayıcı girin.
 
-    b. **Eylem türü**: e-posta/SMS/itme/ses, Web kancası, ITSM ya da Otomasyon Runbook'u seçin.
+    b. **Eylem türü**: e-posta/SMS/itme/ses, mantıksal uygulama, Web kancası, ITSM ya da Otomasyon Runbook'u seçin.
 
     c. **Ayrıntılar**: eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, Azure uygulaması, ITSM bağlantı ya da Otomasyon runbook'u girin. ITSM eylem için ayrıca belirtin **iş öğesi** ve diğer alanlar ITSM aracınızı gerektirir.
 
-   > [!NOTE]
-   > ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md). 
-
 8. Seçin **Tamam** eylem grubu oluşturmak için.
+
+## <a name="action-specific-information"></a>Eylem belirli bilgileri
+<dl>
+<dt>Azure uygulaması anında iletme</dt>
+<dd>Bir eylem grubunda en fazla 10 Azure uygulaması eylemler olabilir.</dd>
+<dd>Şu anda Azure uygulaması eylem yalnızca ServiceHealth uyarıları destekler. Başka bir uyarı zaman yoksayılacak. Bkz: [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
+
+<dt>E-posta</dt>
+<dd>Bir eylem grubunda en fazla 50 e-posta eylemler olabilir</dd>
+<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
+
+<dt>ITSM</dt>
+<dd>Bir eylem grubunda en fazla 10 ITSM eylemler olabilir</dd>
+<dd>ITSM eylemi ITSM bağlantı gerektirir. Oluşturmayı öğrenin bir [ITSM bağlantı](../log-analytics/log-analytics-itsmc-overview.md).</dd>
+
+<dt>Mantıksal uygulama</dt>
+<dd>Bir eylem grubunda en fazla 10 mantıksal uygulama eylemler olabilir</dd>
+
+<dt>runbook</dt>
+<dd>Bir eylem grubunda en fazla 10 Runbook eylemler olabilir</dd>
+
+<dt>SMS</dt>
+<dd>Bir eylem grubunda en fazla 10 SMS eylemler olabilir</dd>
+<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
+<dd>Bkz: [SMS uyarı davranışı](monitoring-sms-alert-behavior.md) makale</dd>
+
+<dt>Ses</dt>
+<dd>Bir eylem grubunda en fazla 10 sesli eylemler olabilir</dd>
+<dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
+
+<dt>Web kancası</dt>
+<dd>Bir eylem grubunda en fazla 10 Web kancası eylemleri olabilir
+<dd>Logic - yeniden deneme Web kancası Araması 3 kez zaman aşağıdaki HTTP durum kodları döndürülür, maksimum yeniden deneme işlemi: 408 429, 503, 504</dd>
+</dl>
 
 ## <a name="manage-your-action-groups"></a>Eylem gruplarınızı yönetme ##
 Bir eylem grubu oluşturduktan sonra görünür **Eylem grupları** bölümünü **İzleyici** dikey. Yönetmek istediğiniz eylem grubunu seçin:

@@ -1,24 +1,24 @@
 ---
-title: "Hdınsight üzerinde Kafka veri göndermek için Azure işlevleri kullanın | Microsoft Docs"
-description: "Hdınsight üzerinde Kafka için veri yazmak için bir Azure işlevi kullanmayı öğrenin."
+title: Hdınsight üzerinde Kafka veri göndermek için Azure işlevleri kullanın | Microsoft Docs
+description: Hdınsight üzerinde Kafka için veri yazmak için bir Azure işlevi kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: cgronlun
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
+ms.devlang: ''
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: larryfr
-ms.openlocfilehash: c1c03cfcbcb7e0bfdb4a631b9e2ae568f0684069
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 6c462f9fe5e152c82be1a2b8643ee35d260a90f6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-kafka-on-hdinsight-from-an-azure-function-app"></a>Kafka Hdınsight'ta bir Azure işlevi uygulamadan kullanın.
 
@@ -70,7 +70,7 @@ Bu bölümdeki bilgiler, Kafka küme Azure işlevi verileri kabul etmek üzere h
 
 Varsayılan olarak, Zookeeper istemcilere Kafka aracıların etki alanı adını döndürür. Sanal ağ adları (Azure işlevleri) istemci çözümlenemiyor gibi bu yapılandırma bir DNS sunucusu çalışmaz. Bu yapılandırma için IP adresleri etki alanı adları yerine tanıtmak için Kafka yapılandırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısı kullanarak https://CLUSTERNAME.azurehdinsight.net için gidin. Değiştir __CLUSTERNAME__ Hdınsight kümesinde Kafka adı.
+1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştir __CLUSTERNAME__ Hdınsight kümesinde Kafka adı.
 
     İstendiğinde, küme için HTTPS kullanıcı adı ve parola kullanın. Küme için Ambari Web kullanıcı Arabirimi görüntülenir.
 

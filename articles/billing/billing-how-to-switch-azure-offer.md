@@ -1,11 +1,11 @@
 ---
-title: "Değişiklik Azure abonelik teklif | Microsoft Docs"
-description: "Azure aboneliğinizi değiştirme ve farklı bir teklif Azure hesap Merkezi'ni kullanarak geçiş hakkında bilgi edinin"
-services: 
-documentationcenter: 
+title: Değişiklik Azure abonelik teklif | Microsoft Docs
+description: Azure aboneliğinizi değiştirme ve farklı bir teklif Azure hesap Merkezi'ni kullanarak geçiş hakkında bilgi edinin
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: aae227b3-6d64-4550-a5b6-d359f53f0a59
 ms.service: billing
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
-ms.openlocfilehash: 381994079b7bcaeff08802b06573b977bf631e9d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 12e5641093dd1bdc1546cc115283f48d5c134121
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Farklı bir teklif Azure Kullandıkça Öde aboneliğinizi değiştirme
 
@@ -29,11 +29,11 @@ Farklı bir [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p
 
 ## <a name="whats-supported"></a>Ne desteklenir:
 
-| Başlangıç | Alıcı |
+| Kaynak | Alıcı |
 | --- | --- |
 | Kullandıkça Öde |[Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/) |
 | Kullandıkça Öde |[Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) |
-| Kullandıkça Öde |[Visual Studio Test uzmanı](https://azure.microsoft.com/offers/ms-azr-0060p/) |
+| Kullandıkça Öde |[Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) |
 | Kullandıkça Öde |[MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/) |
 | Kullandıkça Öde |[Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) |
 | Kullandıkça Öde |[Visual Studio Enterprise (Bizspark)](https://azure.microsoft.com/offers/ms-azr-0064p/) |
@@ -105,7 +105,7 @@ Geçiş günde bir fatura için tüm bekleyen ücretleri oluşturulur. Ardından
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kullandıkça Öde aboneliğine gelen geçirebilirsiniz [bulut çözümü sağlayıcısı](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) veya [Kurumsal Anlaşma](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
 
-* CSP'ye geçirmek için bkz [Azure Pas olarak-size-Git abonelik geçişi için CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* CSP'ye geçirmek için bkz [CSP Azure Kullandıkça Öde aboneliğine geçiş](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * İçin EA geçirmek için kayıt hesabınızı EA ekleme yöneticiniz olması. Aboneliklerinizi EA kayıt altında taşınmış olması için davet e-postadaki yönergeleri izleyin. Daha fazla bilgi için bkz: [var olan bir hesabı ilişkilendirin](https://ea.azure.com/helpdocs/associateExistingAccount) EA Portalı'nda.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Yeni bir abonelik için veri ve hizmetlerini geçirebilirsiniz?

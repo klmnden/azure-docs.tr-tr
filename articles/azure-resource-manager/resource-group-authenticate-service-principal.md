@@ -1,6 +1,6 @@
 ---
-title: "PowerShell ile Azure uygulama kimliği oluşturma | Microsoft Docs"
-description: "Bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak ve rol tabanlı erişim denetimi aracılığıyla kaynaklara erişim izni için Azure PowerShell kullanmayı açıklar. Uygulama bir sertifika ile kimlik doğrulaması yapmayı gösterir."
+title: PowerShell ile Azure uygulama kimliği oluşturma | Microsoft Docs
+description: Bir Azure Active Directory uygulaması ve hizmet sorumlusu oluşturmak ve rol tabanlı erişim denetimi aracılığıyla kaynaklara erişim izni için Azure PowerShell kullanmayı açıklar. Uygulama bir sertifika ile kimlik doğrulaması yapmayı gösterir.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 175d95c16484b90b13936c3be39b67749f0c3238
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3b14d148669457a47eecda11cf6a8c85b5361677
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Bir sertifika ile bir hizmet sorumlusu oluşturmak için Azure PowerShell'i kullanma
 
@@ -40,7 +40,7 @@ Hesabınızın yeterli izinlere sahip olup olmadığını denetlemenin en kolay 
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>Hizmet sorumlusu ile otomatik olarak imzalanan sertifika oluşturma
 
-Aşağıdaki örnekte basit bir senaryoyu ele alınmaktadır. Kullandığı [yeni AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) otomatik olarak imzalanan bir sertifika ve kullandığı bir hizmet sorumlusu oluşturmak için [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) atamak için [katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#contributor)hizmet sorumlusu rolüne. Rol ataması şu anda seçili Azure aboneliğinize kapsamlıdır. Farklı bir abonelik seçmek için kullanın [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Aşağıdaki örnekte basit bir senaryoyu ele alınmaktadır. Kullandığı [yeni AzureRmADServicePrincipal](/powershell/module/azurerm.resources/new-azurermadserviceprincipal) otomatik olarak imzalanan bir sertifika ve kullandığı bir hizmet sorumlusu oluşturmak için [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) atamak için [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor)hizmet sorumlusu rolüne. Rol ataması şu anda seçili Azure aboneliğinize kapsamlıdır. Farklı bir abonelik seçmek için kullanın [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" `
@@ -170,7 +170,7 @@ Uygulama Kimliğini almak gereken durumlarda kullanın:
 
 ## <a name="create-service-principal-with-certificate-from-certificate-authority"></a>Sertifika yetkilisinden sertifika ile hizmet sorumlusu oluşturma
 
-Aşağıdaki örnek, hizmet sorumlusu oluşturmak için bir sertifika yetkilisi tarafından verilen bir sertifika kullanıyor. Atama belirtilen Azure aboneliği kapsamlıdır. Hizmet sorumlusu ekler [katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#contributor) rol. Rol atama sırasında bir hata meydana gelirse, atama yeniden dener.
+Aşağıdaki örnek, hizmet sorumlusu oluşturmak için bir sertifika yetkilisi tarafından verilen bir sertifika kullanıyor. Atama belirtilen Azure aboneliği kapsamlıdır. Hizmet sorumlusu ekler [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rol. Rol atama sırasında bir hata meydana gelirse, atama yeniden dener.
 
 ```powershell
 Param (

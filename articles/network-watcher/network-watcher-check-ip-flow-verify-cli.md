@@ -1,11 +1,11 @@
 ---
-title: "Trafik Azure Ağ İzleyicisi IP akış ile - Azure CLI doğrulayın | Microsoft Docs"
-description: "Bu makalede denetlemek için veya bir sanal makineden trafiğin izin verilen veya Azure CLI kullanarak reddedildi varsa açıklar"
+title: Trafik Azure Ağ İzleyicisi IP akış ile - Azure CLI doğrulayın | Microsoft Docs
+description: Bu makalede denetlemek için veya bir sanal makineden trafiğin izin verilen veya Azure CLI kullanarak reddedildi varsa açıklar
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
 ms.service: network-watcher
 ms.devlang: na
@@ -14,22 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-<<<<<<< HEAD
-ms.openlocfilehash: f78550c1ffce02cdfabd8b3c6af1fa3636ac9146
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 3f4a7d3f96a08b3296dd1abfec8abfbcb9759e9f
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: b7122b632dca99eba6fae058beb644f945f67872
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Trafiği olup veya izin verilen IP akış doğrulayın ile bir VM'den/VM'ye Azure Ağ İzleyicisi'nin bir bileşeni reddedildi denetleyin
 
 > [!div class="op_single_selector"]
-> - [Azure portalı](network-watcher-check-ip-flow-verify-portal.md)
+> - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
@@ -60,7 +54,7 @@ az vm show --resource-group MyResourceGroup5431 --name MyVM-Web
 
 ## <a name="get-the-nics"></a>NIC alma
 
-Bu örnekte, bir sanal makinede NIC alıyoruz sanal makinede bir NIC IP adresi gereklidir. Sanal makinede test etmek istediğiniz IP adresi zaten biliyorsanız, bu adımı atlayabilirsiniz.
+Sanal makinede bir NIC IP adresi gereklidir. Aşağıdaki komutla bir sanal makineye bağlı NIC alma. Sanal makinede test etmek istediğiniz IP adresi zaten biliyorsanız, bu adımı atlayabilirsiniz.
 
 ```azurecli
 az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
@@ -68,7 +62,7 @@ az network nic show --resource-group MyResourceGroup5431 --name MyNic-Web
 
 ## <a name="run-ip-flow-verify"></a>Çalışma IP akış doğrulayın
 
-Biz cmdlet'i biz çalıştırmak çalıştırmak için gereken bilgileri sahip olduğunuza `az network watcher test-ip-flow` trafiği test etmek için cmdlet. Bu örnekte, ilk IP adresi ilk NIC üzerinde kullanıyoruz
+Çalıştırma `az network watcher test-ip-flow` trafiği test etmek için cmdlet. Bu örnekte ilk ilk NIC IP adresi kullanılır.
 
 ```azurecli
 az network watcher test-ip-flow --resource-group resourceGroupName --direction directionInboundorOutbound --protocol protocolTCPorUDP --local ipAddressandPort --remote ipAddressandPort --vm vmNameorID --nic nicNameorID
@@ -90,7 +84,7 @@ az network watcher test-ip-flow --resource-group resourceGroupName --direction d
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tanımlanan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) tanımlanan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
 
 NSG ayarlarınızı ziyaret ederek denetim öğrenin [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md).
 

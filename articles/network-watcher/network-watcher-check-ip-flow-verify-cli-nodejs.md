@@ -1,11 +1,11 @@
 ---
-title: "Trafik Azure Ağ İzleyicisi IP akış ile - Azure CLI doğrulayın | Microsoft Docs"
-description: "Bu makalede denetlemek için veya bir sanal makineden trafiğin izin verilen veya Azure CLI kullanarak reddedildi varsa açıklar"
+title: Trafik Azure Ağ İzleyicisi IP akış ile - Azure CLI doğrulayın | Microsoft Docs
+description: Bu makalede denetlemek için veya bir sanal makineden trafiğin izin verilen veya Azure CLI kullanarak reddedildi varsa açıklar
 services: network-watcher
 documentationcenter: na
 author: jimdial
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
 ms.service: network-watcher
 ms.devlang: na
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f1355cd861722848211277250155c434da1e774d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8681118e55d8ddddf17ebac3bae63486446c70e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>Trafiği olup veya izin verilen IP akış doğrulayın ile bir VM'den/VM'ye Azure Ağ İzleyicisi'nin bir bileşeni reddedildi denetleyin
 
 > [!div class="op_single_selector"]
-> - [Azure portalı](network-watcher-check-ip-flow-verify-portal.md)
+> - [Azure Portal](network-watcher-check-ip-flow-verify-portal.md)
 > - [PowerShell](network-watcher-check-ip-flow-verify-powershell.md)
 > - [CLI 1.0](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 > - [CLI 2.0](network-watcher-check-ip-flow-verify-cli.md)
@@ -53,7 +53,7 @@ azure vm show -g resourceGroupName -n virtualMachineName
 
 ## <a name="get-the-nics"></a>NIC alma
 
-Bu örnekte, bir sanal makinede NIC alıyoruz sanal makinede bir NIC IP adresi gereklidir. Sanal makinede test etmek istediğiniz IP adresi zaten biliyorsanız, bu adımı atlayabilirsiniz.
+Sanal makinede bir NIC IP adresi gereklidir. Aşağıdaki komutu kullanarak sanal makine için NIC'ler alın. Sanal makinede test etmek istediğiniz IP adresi zaten biliyorsanız, bu adımı atlayabilirsiniz.
 
 ```
 azure network nic show -g resourceGroupName -n nicName
@@ -61,7 +61,7 @@ azure network nic show -g resourceGroupName -n nicName
 
 ## <a name="run-ip-flow-verify"></a>Çalışma IP akış doğrulayın
 
-Biz cmdlet'i biz çalıştırmak çalıştırmak için gereken bilgileri sahip olduğunuza `network watcher ip-flow-verify` trafiği test etmek için cmdlet. Bu örnekte, ilk IP adresi ilk NIC üzerinde kullanıyoruz
+Çalıştırma `network watcher ip-flow-verify` trafiği test etmek için cmdlet. Bu örnekte ilk ilk NIC IP adresi kullanılır:
 
 ```
 azure network watcher ip-flow-verify -g resourceGroupName -n networkWatcherName -t targetResourceId -d directionInboundorOutbound -p protocolTCPorUDP -o localPort -m remotePort -l localIpAddr -r remoteIpAddr
@@ -82,7 +82,7 @@ info:    network watcher ip-flow-verify command OK
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) tanımlanan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Trafik engelleniyor ve olmamalıdır, bkz: [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) tanımlanan ağ güvenlik grubu ve güvenlik kuralları izlemek için.
 
 NSG ayarlarınızı ziyaret ederek denetim öğrenin [denetim ağ güvenlik grupları (NSG) Ağ İzleyicisi ile](network-watcher-nsg-auditing-powershell.md).
 

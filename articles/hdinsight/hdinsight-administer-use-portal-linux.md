@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 9b5df3d5e355fac0c0ea4203d28170a2d3c04ad9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ea5b19abed0b9d2a2b8131f2be3be14e94e17405
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -63,7 +61,7 @@ Bir Hdınsight kümesi oluştururken, bir Azure aboneliği belirtmeniz gerekir. 
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Tıklatın **abonelik** sol menüden. Sarı bir anahtar simgesi vardır. Aboneliklerin listesini göreceksiniz.
     3. Kümeleri oluşturmak için kullandığınız aboneliğe tıklayın. 
-    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../active-directory/role-based-access-control-what-is.md#built-in-roles) abonelikte. En az gereksinim duyduğunuz Hdınsight kümesi oluşturmak için katkıda bulunan erişim.
+    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../role-based-access-control/overview.md#built-in-roles) abonelikte. En az gereksinim duyduğunuz Hdınsight kümesi oluşturmak için katkıda bulunan erişim.
 
 - Var olan bir kaynak grubunu kullanmak için:
 
@@ -89,7 +87,7 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
 
     **Sol menü:**
     * **Etkinlik günlükleri**: Göster ve sorgu etkinlik günlükleri.
-    * **Erişim denetimi (IAM)**: rol atamalarını kullanın.  Bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md).
+    * **Erişim denetimi (IAM)**: rol atamalarını kullanın.  Bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../role-based-access-control/role-assignments-portal.md).
     * **Etiketler**: Bulut hizmetlerinizi, özel bir sınıflandırma tanımlamak için anahtar/değer çiftlerinin ayarlamanıza olanak tanır. Örneğin, adlı bir anahtar oluşturabilir **proje**ve ardından belirli bir projeyle ilişkili tüm hizmetler için ortak bir değer kullanın.
     * **Sorunları tanılamak ve**: sorun giderme bilgileri görüntüler.
     * **Kilitler**: değiştirilmiş veya silinmiş olan küme önlemek için bir kilit ekleyin.
@@ -176,7 +174,7 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
-  * Storm web UI
+  * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
     Başvurmak [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.

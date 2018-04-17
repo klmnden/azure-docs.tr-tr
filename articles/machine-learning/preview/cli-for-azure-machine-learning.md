@@ -1,20 +1,21 @@
 ---
-title: "Yükleme ve üst Azure Machine Learning görevler için CLI öğrenme makine kullanma"
-description: "Azure Machine Learning görevlerinde öğrenme en yaygın makine için CLI yükleyip öğrenin."
+title: Yükleme ve en önemli görevler - Azure Machine Learning CLI kullanma
+description: Azure Machine Learning görevlerinde öğrenme en yaygın makine için CLI yükleyip öğrenin.
 services: machine-learning
 author: haining
 ms.author: haining
-manager: mwinkler
+manager: cgronlun
 ms.reviewer: mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2018
-ms.openlocfilehash: f34c247728c854c47f486925d440eee0dc5b1945
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 33a1665c8f09efae88c831172199fca3e0b7634d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-the-machine-learning-cli-for-top-tasks-in-azure-machine-learning"></a>Yükleme ve Azure Machine Learning üst görevler için CLI öğrenme makine kullanma
 
@@ -32,14 +33,18 @@ Bu makale size kolaylık sağlamak için en kullanışlı CLI komutlarının baz
 
 ![Azure Machine Learning CLI](media/cli-for-azure-machine-learning/flow.png)
 
->[!NOTE]
+## <a name="what-you-need-to-get-started"></a>Başlamak için ihtiyacınız olanlar
+
+Bir Azure aboneliği veya burada Modellerinizi dağıtabilmeniz için bir kaynak grubu için katkıda bulunan erişmeniz gerekir. Ayrıca, CLI çalıştırmak için Azure Machine Learning çalışma ekranı yüklemeniz gerekir. 
+
+>[!IMPORTANT]
 >Azure Machine Learning hizmetleriyle teslim CLI farklıdır [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest), hangi Azure kaynaklarını yönetmek için kullanılır.
 
 ## <a name="get-and-start-cli"></a>Alın ve CLI başlayın
 
 Bu CLI almak için buradan yüklenebilir Azure Machine Learning çalışma yükleyin:
     + Windows - https://aka.ms/azureml-wb-msi 
-    + MacOS - https://aka.ms/azureml-wb-dmg 
+    + MacOS- https://aka.ms/azureml-wb-dmg 
 
 CLI başlatmak için:
 + Azure Machine Learning çalışma içinde menüsünde CLI başlatma **Dosya -> komut istemini açın.**

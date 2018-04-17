@@ -1,8 +1,8 @@
 ---
-title: "Azure kaynaklarınızı yönetmek için Azure portalını kullanma | Microsoft Docs"
-description: "Azure portalı ve Azure Resource Manager kaynaklarınızı yönetmek için kullanın. Kaynakları izlemek için Panolar ile çalışmaya nasıl gösterir."
+title: Azure kaynaklarınızı yönetmek için Azure portalını kullanma | Microsoft Docs
+description: Azure portalı ve Azure Resource Manager kaynaklarınızı yönetmek için kullanın. Kaynakları izlemek için Panolar ile çalışmaya nasıl gösterir.
 services: azure-resource-manager,azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2016
 ms.author: tomfitz
-ms.openlocfilehash: 27213482c3ef6b35e1e3f887c9a336b946850802
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 61cfd9e9d955b6a722bc88542b872a4a3edf5a36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-azure-resources-through-portal"></a>Portal üzerinden Azure kaynaklarınızı yönetmek
 
@@ -26,7 +26,7 @@ Bu makalede nasıl kullanılacağını gösterir [Azure portal](https://portal.a
 
 ## <a name="manage-resource-groups"></a>Kaynak gruplarını yönetme
 
-Bir kaynak grubu Azure çözümünü ilgili kaynaklara tutan bir kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Genellikle, kolayca dağıtabilir, güncelleştirme ve bir grup olarak silmek için aynı kaynak grubunda aynı yaşam döngüsü paylaşan kaynak ekleyin. 
+Kaynak grubu, bir Azure çözümü için ilgili kaynakları bir arada tutan kapsayıcıdır. Kaynak grubu bir çözümün tüm kaynaklarını veya yalnızca grup olarak yönetmek istediğiniz kaynakları içerebilir. Kuruluş için önemli olan faktörleri temel alarak kaynakları kaynak gruplarına nasıl ayıracağınıza siz karar verirsiniz. Genellikle, kolayca dağıtabilir, güncelleştirme ve bir grup olarak silmek için aynı kaynak grubunda aynı yaşam döngüsü paylaşan kaynak ekleyin. 
 
 Kaynak grubu, kaynaklarla ilgili meta verileri depolar. Bu nedenle, kaynak grubu için bir konum belirttiğinizde meta verilerin nereye depolanacağını belirtirsiniz. Uyumluluk nedeniyle verilerinizin belirli bir bölgeye depolandığından emin olmanız gerekebilir.
 
@@ -127,6 +127,6 @@ Bir kaynak grubunu silme içerdiği tüm kaynakları siler. Kaynakların kaynak 
 * Etkinlik günlükleri görüntülemek için bkz: [denetim işlemleri Resource Manager ile](resource-group-audit.md).
 * Bir dağıtımı hakkındaki ayrıntıları görüntülemek için bkz: [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).
 * Kaynakları portal üzerinden dağıtmak için bkz: [kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma](resource-group-template-deploy-portal.md).
-* Kaynaklara erişimi yönetmek için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md).
+* Kaynaklara erişimi yönetmek için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../role-based-access-control/role-assignments-portal.md).
 * Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
 

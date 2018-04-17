@@ -1,10 +1,10 @@
 ---
-title: "Görünümleri - Azure maliyeti Kurumsal sorunlarını giderme | Microsoft Docs"
-description: "Azure portalındaki kuruluş maliyet görünümlerle sahip olabileceğiniz sorunları çözmeyi öğrenin."
+title: Görünümleri - Azure maliyeti Kurumsal sorunlarını giderme | Microsoft Docs
+description: Azure portalındaki kuruluş maliyet görünümlerle sahip olabileceğiniz sorunları çözmeyi öğrenin.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: billing
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 54c7610f1a0d3de2503ef471ca9adc0db423f530
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 527e12cdcc4eaebf98708c389dd21e8ac6ae4ac7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Görünümleri maliyet Kurumsal sorun giderme 
 
-Kurumsal kayıtları içinde maliyetleri görüntülemek üzere olmayan kullanıcıların kayıt içinde neden olabilecek birden çok ayarları vardır.  Kayıt doğrudan Microsoft'a satın değil, bu ayarlar kayıt yönetici tarafından veya iş ortağı tarafından yönetilir.  Bu makalede, ayarları nelerdir ve bunlar kayıt nasıl etkiler anlamanıza yardımcı olur. Bu ayarları bağımsız olarak [Azure RBAC rolleri](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
+Kurumsal kayıtları içinde maliyetleri görüntülemek üzere olmayan kullanıcıların kayıt içinde neden olabilecek birden çok ayarları vardır.  Kayıt doğrudan Microsoft'a satın değil, bu ayarlar kayıt yönetici tarafından veya iş ortağı tarafından yönetilir.  Bu makalede, ayarları nelerdir ve bunlar kayıt nasıl etkiler anlamanıza yardımcı olur. Bu ayarları bağımsız olarak [Azure RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal). 
 
 
 ## <a name="enabling-access-to-costs"></a>Maliyetleri erişimini etkinleştirme
@@ -41,7 +41,7 @@ Aşağıdaki nedenlerden biri olabilir:
 ## <a name="asset-is-unavailable"></a>Varlık kullanılamıyor? 
 "Bu varlık kullanılamıyor" hata iletisi alıyorsanız, bir abonelik veya yönetim grubu, sonra erişmeye sahip olmadığında bu öğeyi görüntülemek için doğru rol.  
 
-![asset-not-found](media/billing-enterprise-mgmt-groups/asset-not-found.png)
+![varlık olmayan bulundu](media/billing-enterprise-mgmt-groups/asset-not-found.png)
 
 Erişim verilecek abonelik veya yönetim gruplarının Yönet başvurun.  
-* Abonelikler için başvuru [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) belge rolü gerekli Yardım için.
+* Abonelikler için başvuru [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) belge rolü gerekli Yardım için.

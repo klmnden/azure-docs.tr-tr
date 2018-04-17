@@ -1,6 +1,6 @@
 ---
-title: "Azure uygulama Insights Telemetri bağıntı | Microsoft Docs"
-description: "Uygulama Insights telemetri bağıntı"
+title: Azure uygulama Insights Telemetri bağıntı | Microsoft Docs
+description: Uygulama Insights telemetri bağıntı
 services: application-insights
 documentationcenter: .net
 author: SergeyKanzhelev
@@ -10,13 +10,13 @@ ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 04/09/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5d4abbf8194d633305877275e3dd273352906ad3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9adecca35524962402d46169c531d135d0772bbd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application ınsights'ta telemetri bağıntı
 
@@ -57,8 +57,8 @@ Tüm telemetri öğelerini kök paylaşma sonuç görünümü notta `operation_I
 |------------|---------------------------|--------------|--------------------|--------------|
 | Sayfa görünümü   | Stok sayfası                |              | STYz               | STYz         |
 | bağımlılık | GET /Home/stok           | qJSXU        | STYz               | STYz         |
-| İstek    | GET Home/stok            | KqKwlrSt9PA= | qJSXU              | STYz         |
-| bağımlılık | /Api/Stock/Value Al      | bBrf2L7mm2g= | KqKwlrSt9PA=       | STYz         |
+| İstek    | GET Home/stok            | KqKwlrSt9PA = | qJSXU              | STYz         |
+| bağımlılık | /Api/Stock/Value Al      | bBrf2L7mm2g= | KqKwlrSt9PA =       | STYz         |
 
 Şimdi, çağrı `GET /api/stock/value` sunucu kimliğinin bilinmesi istediğiniz bir dış hizmet yapılan. Böylece, ayarlayabilirsiniz `dependency.target` uygun şekilde alan. Dış hizmet izleme - desteklemediğinde `target` gibi hizmet ana bilgisayar adı olarak ayarlanmış `stock-prices-api.com`. Ancak bu hizmetin kendisi önceden tanımlanmış bir döndürerek tanımlarsa HTTP üstbilgisi - `target` telemetri bu hizmetinden sorgulayarak dağıtılmış izleme oluşturmak Application Insights sağlayan hizmet kimliği içerir. 
 
@@ -103,6 +103,31 @@ ASP.NET Core 2.0 Http üstbilgileri ve yeni etkinlik başlangıç ayıklama dest
 Yeni bir Http modülü yok [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) ASP.NET Classic için. Bu modül telemetri bağıntı DiagnosticsSource kullanarak uygular. Gelen istek üstbilgileri göre etkinlik başlatır. İstek işleme farklı aşamalarını telemetrisinden hatalarla ilintilidir. Her IIS aşaması farklı Yönet iş parçacığı üzerinde çalıştığında bile durumlar için.
 
 Uygulama Insights SDK'sı başlangıç sürümü `2.4.0-beta1` DiagnosticsSource ve etkinlik telemetri toplamak ve geçerli etkinliğin ile ilişkilendirmek için kullanır. 
+
+<a name="java-correlation"></a>
+## <a name="telemetry-correlation-in-the-java-sdk"></a>Java SDK'sındaki telemetri bağıntı
+[Application Insights Java SDK'sı](app-insights-java-get-started.md) telemetri başlayan sürümüyle otomatik bağıntı destekleyen `2.0.0`. Otomatik olarak doldurur `operation_id` için bir istek kapsamı içinde yayınlanan tüm telemetri (izlemeler, özel durumlar, özel olaylar, vb.). Bu ayrıca (HTTP üzerinden hizmet çağrıları için yukarıda) bağıntı üstbilgileri yayılıyor varsa mvc'deki [Java SDK'sı Aracısı](app-insights-java-agent.md) yapılandırılır. Not: Yalnızca Apache HTTP istemcisi yapılan çağrılar bağıntı özelliği için desteklenir. Yay Rest şablon veya Feign kullanıyorsanız, her ikisi de başlık altında Apache HTTP istemci ile kullanılabilir.
+
+Şu anda, otomatik bağlam yayma (örneğin Kafka, RabbitMQ, Azure Service Bus) Mesajlaşma teknolojilerde desteklenmiyor. Ancak, mümkündür el ile kullanarak bu senaryolara kod `trackDependency` ve `trackRequest` alınabildiği bir bağımlılık telemetrisi bir üretici tarafından sıraya alınan olan bir ileti temsil eder ve bir tüketici tarafından işlenen bir ileti isteğini temsil eder API. Bu durumda, her ikisi de `operation_id` ve `operation_parentId` ileti özelliklerinde yayılır.
+
+<a name="java-role-name"></a>
+### <a name="role-name"></a>Rol Adı
+Bazen bileşen adlarına görüntülenir şekilde özelleştirmek isteyebilirsiniz [uygulama eşlemesi](app-insights-app-map.md). Bunu yapmak için el ile ayarlayabilirsiniz `cloud_roleName` aşağıdakilerden birini yaparak:
+
+(Tüm telemetri öğeleri etiketlenir) bir telemetri Başlatıcı
+```Java
+public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
+
+    @Override
+    protected void onInitializeTelemetry(Telemetry telemetry) {
+        telemetry.getContext().getTags().put(ContextTagKeys.getKeys().getDeviceRoleName(), "My Component Name");
+    }
+  }
+```
+Aracılığıyla [aygıt bağlam sınıfını](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (yalnızca bu telemetri öğe etiketli)
+```Java
+telemetry.getContext().getDevice().setRoleName("My Component Name");
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

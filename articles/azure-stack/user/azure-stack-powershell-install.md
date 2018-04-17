@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 04/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7bf2d9b999db738007f75d72a8818ca0eb6f34ba
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 70a2118ef0e26043f9f6a9cceb9d4a533d343556
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell için Azure yığın yükle  
 
@@ -55,8 +55,7 @@ Aşağıdaki bölümlerde Azure yığını için PowerShell yüklemek için gere
 
 Azure yığın uyumlu AzureRM modülleri API sürümü profilleri yüklenir. Azure yığın gerektirir **2017-03-09-profili** AzureRM.Bootstrapper modülü yükleyerek kullanılabilir API sürümü profili. API sürümü profilleri ve onlar tarafından sağlanan cmdlet'leri hakkında bilgi edinmek için bkz [API sürümü profillerini yönetmek](azure-stack-version-profiles-powershell.md). AzureRM modülleri yanı sıra Azure yığın özgü PowerShell modülleri de yüklemeniz gerekir. Bu modüller, geliştirme iş istasyonunda yüklemek için aşağıdaki PowerShell betiğini çalıştırın:
 
-> [!IMPORTANT]  
-> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
+
 
   ```powershell
   # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
@@ -83,9 +82,6 @@ Yükleme işlemini onaylamak için aşağıdaki komutu çalıştırın:
 ## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>PowerShell bir bağlantısı kesilmiş veya kısmen bağlı bir senaryo (sınırlı internet bağlantısı ile) yükleyin
 
 Bağlantısı kesilmiş veya kısmen bağlı senaryoda, PowerShell modülleri Internet bağlantısına sahip bir makine için ilk indirme ve yükleme için Azure yığın Geliştirme Seti için Aktarım gerekir.
-
-> [!IMPORTANT]
-> AzureRM 1.2.11 PowerShell modülü sürümü yeni değişiklikler ile ilgili bir listesi bulunur. 1.2.10 yükseltme sürümü, geçiş Guide'a bakın [ https://aka.ms/azspowershellmigration ](https://aka.ms/azspowershellmigration).
 
 1. Burada Internet bağlantısına sahip ve aşağıdaki komut dosyasını indirme AzureRM ve AzureStack paketleri için yerel bilgisayarınıza kullanın bir bilgisayarda oturum açın:
 

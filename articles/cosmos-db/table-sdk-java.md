@@ -1,12 +1,12 @@
 ---
-title: "Azure Cosmos DB Java için API tablo | Microsoft Docs"
-description: "Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin."
+title: Azure Cosmos DB Java için API tablo | Microsoft Docs
+description: Tüm Azure Cosmos DB tablo yayın tarih, sona erme tarihlerini ve her bir sürümü arasında yapılan değişiklikler dahil olmak üzere API hakkında bilgi edinin.
 services: cosmos-db
 documentationcenter: java
 author: yarong
-manager: jhubbard
-editor: 
-ms.assetid: 
+manager: kfile
+editor: ''
+ms.assetid: ''
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: yaronyg
-ms.custom: 
-ms.openlocfilehash: 06ce541b42de2ad20014199a7e87fe3d8c2dfe01
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: ''
+ms.openlocfilehash: ac699f3b0d8e0e352d7701682f832c53074b0238
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Java için Azure Cosmos DB tablo API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]

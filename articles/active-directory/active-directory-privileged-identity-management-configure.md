@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Privileged Identity Management yapılandırma | Microsoft Docs"
-description: "Azure AD Privileged Identity Management nedir ve PIM bulut güvenliğinizi artırmak için nasıl kullanılacağını açıklayan bir konu."
+title: Azure AD Privileged Identity Management yapılandırma | Microsoft Docs
+description: Azure AD Privileged Identity Management nedir ve PIM bulut güvenliğinizi artırmak için nasıl kullanılacağını açıklayan bir konu.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: c548ed2e-06e3-4eaf-a63d-0f02ee72da25
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 827e3521be8918f4de00113fd9eaf4e01679cac5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f91ebe0f94c57c9ad217ffe280f9aa0a9aa6acb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management nedir?
 
@@ -72,7 +72,7 @@ Azure RBAC rolleri için yalnızca bir abonelik Yöneticisi, bir kaynak sahibi v
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management genel bakış (giriş noktası)
 
-Azure AD Privileged Identity Management Azure kaynakları (Önizleme) Azure AD directory rolleri ve rol yönetimini destekler. Azure kaynakları için rolleri işlevi, Azure AD'de yönetici rollerini farklı. Azure kaynak rolleri atanmışlarsa kaynak ve (devralma da bilinir) kaynak hiyerarşideki tüm alt kaynaklar için ayrıntılı izinler sağlar. [Daha fazla hakkında RBAC, kaynak hiyerarşisi ve devralma öğrenin](role-based-access-control-configure.md). PIM hem Azure AD directory rolleri için ve Azure kaynakları (Önizleme) PIM genel bakış giriş noktası sol gezinti menüsünün Yönet bölümünde altındaki ilgili bağlantıyı erişerek yönetilebilir.
+Azure AD Privileged Identity Management Azure kaynakları (Önizleme) Azure AD directory rolleri ve rol yönetimini destekler. Azure kaynakları için rolleri işlevi, Azure AD'de yönetici rollerini farklı. Azure kaynak rolleri atanmışlarsa kaynak ve (devralma da bilinir) kaynak hiyerarşideki tüm alt kaynaklar için ayrıntılı izinler sağlar. [Daha fazla hakkında RBAC, kaynak hiyerarşisi ve devralma öğrenin](../role-based-access-control/role-assignments-portal.md). PIM hem Azure AD directory rolleri için ve Azure kaynakları (Önizleme) PIM genel bakış giriş noktası sol gezinti menüsünün Yönet bölümünde altındaki ilgili bağlantıyı erişerek yönetilebilir.
 
 PIM rolleri etkinleştirmek için bekleyen etkinleştirmeleri/istekler, bekleyen onayları (Azure AD directory roller için) görüntülemek için uygun erişim sağlar ve yanıtınız sol gezinti menüsünde görevleri bölümünden bekleyen inceler.
 

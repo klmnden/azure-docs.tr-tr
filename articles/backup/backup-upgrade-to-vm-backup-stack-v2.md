@@ -13,11 +13,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/08/2018
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 6d214072bccb8b2b42828ee003dcf349985b4f43
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4bdbf48030dda18e6698a7731989ec2de2319b35
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-to-vm-backup-stack-v2"></a>VM yedek yığını V2’ye yükseltme
 Sanal makine (VM) yedekleme yığını V2 yükseltme aşağıdaki özellik geliştirmeleri sağlar:
@@ -49,7 +49,9 @@ Varsayılan olarak, anlık görüntüleri yedi gün boyunca saklanır. Bu müşt
 * Tek yönlü yükseltme VM yedekleme yığınının budur. Bu nedenle, gelecekteki tüm yedeklemeler bu akışına geçer. Bu yana **abonelik düzeyinde etkinleştirildiğinde, tüm sanal makineleri bu akışı gider**. Tüm yeni özellik eklemeler aynı yığında dayalı olarak belirlenir. Bu ilke düzeyinde gelecekte geliyor denetleme olanağı serbest bırakır. 
 * Premium diskler, ilk yedekleme sırasında olan VM'ler için ilk yedekleme tamamlanana kadar depolama alanı boyutu eşdeğer VM depolama hesabında kullanılabilir olduğundan emin olun. 
 * Anlık görüntüler yerel olarak kurtarma noktası oluşturma artırmak ve geri yükleme hızlandırmak için depolandığından, anlık görüntüler için yedi günlük dönem boyunca karşılık gelen depolama maliyetleri görürsünüz.
+* Artımlı anlık görüntüleri, sayfa blobları depolanır. Tüm yönetilmeyen diskleri kullanan müşteriler 7 gün anlık görüntüler için sizden ücret alınır, Müşteri'nin yerel depolama hesabında depolanır. Geçerli fiyatlandırma modeli göredir yönetilen disklerde müşteriler için hiçbir ücret yoktur.
 * Premium VM için anlık görüntü kurtarma noktasından geri yükleme yapıyorsanız, geri yüklemenin bir parçası olarak VM oluşturulurken kullanılan geçici depolama konumu görürsünüz. 
+* Premium depolama hesapları durumunda anlık kurtarma için alınan anlık görüntü premium bir depolama hesabında ayrılan 10 TB alanı kaplar.
 
 ## <a name="how-to-upgrade"></a>Yükseltme için nasıl?
 ### <a name="the-azure-portal"></a>Azure portalı

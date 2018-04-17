@@ -8,18 +8,16 @@ author: raviperi
 manager: ''
 editor: ''
 ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: raviperi
-ms.openlocfilehash: 6ee408b32650fe0f0e0b66294896756732a2ca5b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 46f07a1512435fd8ad5cae4df1858f948fe017e1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Storm Azure Hdınsight kullanarak sorun giderme
 
@@ -28,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 ## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>Bir küme üzerindeki Storm kullanıcı arabirimini nasıl erişirim?
 Storm kullanıcı Arabirimi bir tarayıcıdan erişirken için iki seçeneğiniz vardır:
 
-### <a name="ambari-ui"></a>Ambari UI
+### <a name="ambari-ui"></a>Ambari kullanıcı Arabirimi
 1. Ambari panoya gidin.
 2. Hizmetler listesinde seçin **Storm**.
 3. İçinde **hızlı bağlantılar** menüsünde, select **Storm kullanıcı Arabirimi**.

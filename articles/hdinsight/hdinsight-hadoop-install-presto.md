@@ -1,28 +1,26 @@
 ---
-title: "Azure Hdınsight Linux kümelerinde presto yükleme | Microsoft Docs"
-description: "Presto ve Airpal betik eylemleri kullanarak Linux tabanlı Hdınsight Hadoop kümeleri üzerinde nasıl yükleneceğini öğrenin."
+title: Azure Hdınsight Linux kümelerinde presto yükleme | Microsoft Docs
+description: Presto ve Airpal betik eylemleri kullanarak Linux tabanlı Hdınsight Hadoop kümeleri üzerinde nasıl yükleneceğini öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 1e6f1e1ee37592d974cab01ca229995c4ff6b70e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 32b7925b7414f00dfdd7d5c8a45b3601bf58942e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>Yükleme ve Presto Hdınsight Hadoop kümeleri kullanma
 
-Bu konuda, nasıl betik eylemi kullanarak Hdınsight Hadoop kümeleri üzerinde Presto yükleyeceğinizi öğrenin. Ayrıca varolan bir Presto Hdınsight kümesinde Airpal yüklemeyi öğrenin.
+Bu belgede, Presto Hdınsight Hadoop kümeleri üzerinde betik eylemi kullanarak yüklemeyi öğrenin. Ayrıca varolan bir Presto Hdınsight kümesinde Airpal yüklemeyi öğrenin.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar gerektiren bir **Hdınsight 3.5 Hadoop kümesi** Linux kullanır. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight sürümleri](hdinsight-component-versioning.md).
@@ -33,7 +31,7 @@ Bu konuda, nasıl betik eylemi kullanarak Hdınsight Hadoop kümeleri üzerinde 
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenir ve Microsoft Support yalıtmak ve bu bileşenleri ilgili sorunları gidermek için yardımcı olur.
 > 
-> Presto gibi özel bileşenleri daha fazla sorunu gidermeye yardımcı olmak üzere ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Presto gibi özel bileşenleri daha fazla sorunu gidermeye yardımcı olmak üzere ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Bu sorunu çözmek veya bu teknoloji derin uzmanlık bulunduğu açık kaynak teknolojileri için kullanılabilir kanalları devreye isteyen neden olabilir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 > 
 > 
 
@@ -42,15 +40,15 @@ Bu konuda, nasıl betik eylemi kullanarak Hdınsight Hadoop kümeleri üzerinde 
 
 Bu bölümde Azure Portalı'nı kullanarak yeni bir küme oluştururken, örnek komut dosyası kullanma hakkında yönergeler sağlar. 
 
-1. ' Ndaki adımları kullanarak bir küme hazırlama Başlat [sağlama Linux tabanlı Hdınsight kümeleri](hdinsight-hadoop-create-linux-clusters-portal.md). Küme kullanarak oluşturduğunuz emin olun **özel** küme oluşturma akış. Oluşturduğunuz küme aşağıdaki gereksinimleri karşıladığından emin olmanız gerekir.
+1. ' Ndaki adımları kullanarak bir küme hazırlama Başlat [sağlama Linux tabanlı Hdınsight kümeleri](hdinsight-hadoop-create-linux-clusters-portal.md). Küme kullanarak oluşturduğunuz emin olun **özel** küme oluşturma akış. Küme, aşağıdaki gereksinimleri karşılaması gerekir.
 
-    a. Bir Hadoop kümesine Hdınsight sürüm 3.5 ile olmalıdır.
+    * Bir Hadoop kümesine Hdınsight sürüm 3.5 ile olmalıdır.
 
-    b. Veri deposu olarak Azure Storage kullanmanız gerekir. Azure Data Lake Store depolama seçeneği olarak kullanan bir kümede presto kullanarak henüz desteklenmiyor. 
+    * Veri deposu olarak Azure Storage kullanmanız gerekir. Azure Data Lake Store depolama seçeneği olarak kullanan bir kümede presto kullanarak henüz desteklenmiyor. 
 
     ![Özel seçenekleri kullanarak Hdınsight kümesi oluşturma](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. Üzerinde **Gelişmiş ayarları** dikey penceresinde, select **betik eylemleri**ve aşağıdaki bilgileri sağlayın:
+2. Üzerinde **Gelişmiş ayarları** alanında **betik eylemleri**ve aşağıdaki bilgileri sağlayın:
    
    * **AD**: betik eylemi için kolay bir ad girin.
    * **Bash betiği URI’si**: `https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
@@ -60,7 +58,7 @@ Bu bölümde Azure Portalı'nı kullanarak yeni bir küme oluştururken, örnek 
    * **PARAMETRELERİ**: Bu alanı boş bırakın
 
 
-3. Ekranın alt kısmındaki **betik eylemleri** dikey penceresinde tıklatın **seçin** yapılandırmayı kaydetmek için düğmesi. Son olarak, tıklatın **seçin** alt kısmındaki düğmesi **Gelişmiş ayarları** yapılandırma bilgilerini kaydetmek için dikey penceresini.
+3. Ekranın alt kısmındaki **betik eylemleri** alanında tıklatın **seçin** düğmesi yapılandırmayı kaydetmek için. Son olarak, tıklatın **seçin** düğmesini alt kısmındaki **Gelişmiş ayarları** alan yapılandırma bilgilerini kaydedin.
 
 4. Bölümünde açıklandığı gibi küme hazırlama devam [sağlama Linux tabanlı Hdınsight kümeleri](hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -71,7 +69,7 @@ Bu bölümde Azure Portalı'nı kullanarak yeni bir küme oluştururken, örnek 
 
 ## <a name="use-presto-with-hdinsight"></a>Hdınsight ile presto kullanma
 
-Yukarıda açıklanan adımları kullanarak yükledikten sonra bir Hdınsight küme Presto kullanmak için aşağıdaki adımları gerçekleştirin.
+Presto bir Hdınsight kümesi çalışmak için aşağıdaki adımları kullanın:
 
 1. SSH kullanarak HDInsight kümesine bağlanma:
    
@@ -90,13 +88,13 @@ Yukarıda açıklanan adımları kullanarak yükledikten sonra bir Hdınsight k�
    
     Varsayılan olarak, [Hive](https://prestodb.io/docs/current/connector/hive.html) ve [TPCH](https://prestodb.io/docs/current/connector/tpch.html) bağlayıcıları Presto için zaten yapılandırılmış. Hive bağlayıcı Hive tüm tablolardan Presto içinde otomatik olarak görünür olması için varsayılan olarak yüklenen Hive yükleme kullanmak için yapılandırılır.
 
-    Presto nasıl kullanabileceğiniz hakkında ayrıntılı bir açıklaması için bkz: [Presto belgelerine](https://prestodb.io/docs/current/index.html).
+    Daha fazla bilgi için bkz: [Presto belgelerine](https://prestodb.io/docs/current/index.html).
 
 ## <a name="use-airpal-with-presto"></a>Airpal Presto ile kullanma
 
 [Airpal](https://github.com/airbnb/airpal#airpal) Presto için bir açık kaynak web tabanlı sorgu arabirimdir. Airpal hakkında daha fazla bilgi için bkz: [Airpal belgelerine](https://github.com/airbnb/airpal#airpal).
 
-Bu bölümde, aşağıdaki adımları olarak ele **Airpal üzerinde edgenode yükleme** Presto önceden sahip olan bir Hdınsight Hadoop kümesini yüklü. Bu Airpal web sorgu arabirimi Internet üzerinden kullanılabilir olmasını sağlar.
+Airpal kenar düğümüne yüklemek için aşağıdaki adımları kullanın:
 
 1. SSH kullanarak, Presto yüklü olduğu Hdınsight küme headnode için Bağlan:
    
@@ -108,7 +106,7 @@ Bu bölümde, aşağıdaki adımları olarak ele **Airpal üzerinde edgenode yü
 
         sudo slider registry  --name presto1 --getexp presto 
    
-    Aşağıdaki gibi bir çıktı görmeniz gerekir:
+    Aşağıdaki JSON benzer bir çıktı görürsünüz:
 
         {
             "coordinator_address" : [ {
@@ -117,9 +115,9 @@ Bu bölümde, aşağıdaki adımları olarak ele **Airpal üzerinde edgenode yü
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
         } ]
 
-3. Çıktıdan değeri Not **değeri** özelliği. Bu, küme edgenode Airpal yüklenirken gerekir. Yukarıdaki çıktısını ihtiyacınız olacak değerdir **10.0.0.12:9090**.
+3. Çıktıdan değeri Not **değeri** özelliği. Bu değer, küme edgenode Airpal yüklenirken gerekir. Yukarıdaki çıktısını ihtiyacınız olacak değerdir **10.0.0.12:9090**.
 
-4. Şablon kullanmak  **[burada](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)**  bir Hdınsight kümesi edgenode oluşturma ve aşağıdaki ekran görüntüsünde gösterildiği gibi değerlerini belirtin.
+4. Şablon kullanmak **[burada](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fhdinsight%2Fpresto-hdinsight%2Fmaster%2Fairpal-deploy.json)** bir Hdınsight kümesi edgenode oluşturma ve aşağıdaki ekran görüntüsünde gösterildiği gibi değerlerini belirtin.
 
     ![Hdınsight yükle Airpal Presto küme](./media/hdinsight-hadoop-install-presto/hdinsight-install-airpal.png)
 
@@ -127,19 +125,19 @@ Bu bölümde, aşağıdaki adımları olarak ele **Airpal üzerinde edgenode yü
 
 6. Küme yapılandırmasında değişiklikler uygulandıktan sonra aşağıdaki adımları kullanarak Airpal web arabirimi erişebilirsiniz.
 
-    a. Küme dikey penceresinden tıklayın **uygulamaları**.
+    1. Küme iletişim kutusundan tıklatın **uygulamaları**.
 
-    ![Hdınsight başlatılırken Airpal Presto küme](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
+        ![Hdınsight başlatılırken Airpal Presto küme](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal.png)
 
-    b. Gelen **yüklü uygulamalar** dikey penceresinde tıklatın **Portal** airpal karşı.
+    2. Gelen **yüklü uygulamalar** alanında tıklatın **Portal** airpal karşı.
 
-    ![Hdınsight başlatılırken Airpal Presto küme](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
+        ![Hdınsight başlatılırken Airpal Presto küme](./media/hdinsight-hadoop-install-presto/hdinsight-presto-launch-airpal-1.png)
 
-    c. İstendiğinde, Hdınsight Hadoop kümesi oluşturulurken belirtilen yönetici kimlik bilgilerini girin.
+    3. İstendiğinde, Hdınsight Hadoop kümesi oluşturulurken belirtilen yönetici kimlik bilgilerini girin.
 
 ## <a name="customize-a-presto-installation-on-hdinsight-cluster"></a>Hdınsight kümesinde Presto yüklemeyi özelleştirme
 
-Bir Hdınsight Hadoop kümesinde Presto yükledikten sonra yüklemenin bellek ayarlarını güncelleştirmek, Değiştir bağlayıcılar, vb. gibi değişiklik için özelleştirebilirsiniz. Bunu yapmak için aşağıdaki adımları gerçekleştirin.
+Yüklemeyi özelleştirmek için aşağıdaki adımları kullanın:
 
 1. SSH kullanarak, Presto yüklü olduğu Hdınsight küme headnode için Bağlan:
    
@@ -165,12 +163,12 @@ Bir Hdınsight Hadoop kümesinde Presto yükledikten sonra yüklemenin bellek ay
 
 ## <a name="generate-benchmark-data-for-hdinsight-clusters-that-run-presto"></a>Kıyaslama verileri Presto çalıştırmak Hdınsight kümeleri oluşturma
 
-TPC DS birçok karar destek büyük veri sistemlerini sistemlerle performansını ölçmek için endüstri standardıdır. Hdınsight kümelerinde Presto veriler oluşturulmasına neden ve nasıl kendi Hdınsight Kıyaslama verilerle karşılaştırır değerlendirmek için de kullanabilirsiniz. Daha fazla bilgi için bkz: [burada](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
+TPC DS birçok karar destek büyük veri sistemlerini sistemlerle performansını ölçmek için endüstri standardıdır. Presto veriler oluşturulmasına neden ve nasıl kendi Hdınsight Kıyaslama verilerle karşılaştırır değerlendirmek için kullanabilirsiniz. Daha fazla bilgi için bkz: [burada](https://github.com/hdinsight/tpcds-datagen-as-hive-query/blob/master/README.md).
 
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Yükleme ve Hdınsight kümelerinde ton kullanma](hdinsight-hadoop-hue-linux.md). Hue web oluşturmak, çalıştırmak ve Pig ve Hive işleri, Hdınsight için varsayılan depolama Gözat yanı sıra küme daha kolay hale getirir UI ' dir.
+* [Yükleme ve Hdınsight kümelerinde ton kullanma](hdinsight-hadoop-hue-linux.md). Hue web kullanıcı arabirimini oluşturmak, çalıştırmak, kolaylaştırır ve Pig ve Hive işleri bulunuyor.
 
 * [Hdınsight kümelerinde Giraph yükleme](hdinsight-hadoop-giraph-install-linux.md). Küme özelleştirme Giraph Hdınsight Hadoop kümelerine yüklemek için kullanın. Giraph Hadoop kullanarak işleme grafik işlemleri yapmanıza olanak tanır ve Azure Hdınsight ile kullanılabilir.
 

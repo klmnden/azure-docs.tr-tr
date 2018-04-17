@@ -1,35 +1,23 @@
 ---
-title: "Azure SQL veri ambarı için kimlik doğrulaması | Microsoft Docs"
-description: "Azure Active Directory (AAD) ve SQL Server kimlik doğrulaması Azure SQL veri ambarı."
+title: Azure SQL veri ambarı için kimlik doğrulaması | Microsoft Docs
+description: Azure SQL Data Warehouse için Azure Active Directory (AAD) veya SQL Server kimlik doğrulaması kullanarak kimlik doğrulaması öğrenin.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-tags: 
-ms.assetid: fefaaa75-2d0c-4e5d-aadb-410342d1ad73
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-management
-ms.custom: security
-ms.date: 03/21/2017
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 92f48027051bc4aff4d6b8d66fdd6de81bba3657
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 2340168e736c13b5d911a987d36b0224d3c3b1ed
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="authentication-to-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’nda kimlik doğrulama
-> [!div class="op_single_selector"]
-> * [Güvenlik genel bakış](sql-data-warehouse-overview-manage-security.md)
-> * [Kimlik doğrulaması](sql-data-warehouse-authentication.md)
-> * [Şifreleme (Portal)](sql-data-warehouse-encryption-tde.md)
-> * [Şifreleme (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
-> 
-> 
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL veri ambarı için kimlik doğrulaması
+Azure SQL Data Warehouse için Azure Active Directory (AAD) veya SQL Server kimlik doğrulaması kullanarak kimlik doğrulaması öğrenin.
 
 SQL veri ambarı'na bağlanmak için kimlik doğrulama amacıyla güvenlik kimlik bilgilerini geçmesi gerekir. Bağlantı kurulduktan sonra belirli bağlantı ayarları, sorgu oturumu bir parçası olarak yapılandırılır.  
 

@@ -3,22 +3,21 @@ title: Azure depolama tablo hizmeti veya Azure Cosmos DB tablo API php'den nası
 description: Php'den Table hizmeti API'si oluşturma ve bir tablo silme kullanmayı öğrenin ve ekleme, silme ve tablo sorgu.
 services: cosmos-db
 documentationcenter: php
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
-ms.date: 02/22/2018
-ms.author: mimig
-ms.openlocfilehash: 69fa1f8f9717d1ea4ca5081a45317cff8d752809
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>Azure depolama tablo hizmeti veya php'den Cosmos DB tablo API kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -27,23 +26,18 @@ ms.lasthandoff: 04/06/2018
 ## <a name="overview"></a>Genel Bakış
 Bu kılavuz Azure depolama tablo hizmeti ve Azure Cosmos DB tablo API kullanarak genel senaryolar gerçekleştirme gösterir. PHP ve kullanım örnekleri yazılır [Azure Storage tablo PHP istemci Kitaplığı][download]. Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme**, ve **ekleme, silme ve bir tablo varlıkları sorgulama**. Azure tablo hizmeti hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
 ## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
 
-Azure Table storage veya Azure Cosmos DB tablo API kullanarak tabloları ile çalışabilirsiniz. Okuyarak Hizmetleri arasındaki farklar hakkında daha fazla bilgiyi [tablo teklifleri](table-introduction.md#table-offerings). Hizmeti için kullanacağınız bir hesap oluşturmanız gerekir. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Azure Depolama hesabı oluşturma
+### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 
-İlk Depolama hesabınızı oluşturmak için en kolay yolu kullanmaktır [Azure portal](https://portal.azure.com). Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-Kullanarak bir depolama hesabı oluşturabilirsiniz [Azure PowerShell](../storage/common/storage-powershell-guide-full.md) veya [Azure CLI](../storage/common/storage-azure-cli.md).
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
 
-Bir depolama hesabı şu anda oluşturmamayı tercih ederseniz, çalıştırmak ve yerel bir ortamda kodunuzu test etmek için Azure Storage öykünücüsü de kullanabilirsiniz. Daha fazla bilgi için bkz. [Geliştirme ve test için Azure depolama öykünücüsünü kullanma](../storage/common/storage-use-emulator.md).
-
-### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
-
-Bir Azure Cosmos DB hesap oluşturma ile ilgili yönergeler için bkz: [tablo API hesabı oluşturma](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-php-application"></a>PHP uygulaması oluşturma
 
@@ -431,7 +425,7 @@ Eşzamanlılık denetleyeceğini kullanarak silinecek bir varlık için Etag aya
 * **addUpdateEntity** (bir updateEntity işlem ekler)
 * **addMergeEntity** (mergeEntity işlemi ekler)
 * **addInsertOrReplaceEntity** (bir insertOrReplaceEntity işlem ekler)
-* **addInsertOrMergeEntity** (adds an insertOrMergeEntity operation)
+* **addInsertOrMergeEntity** (bir insertOrMergeEntity işlem ekler)
 * **addDeleteEntity** (deleteEntity işlemi ekler)
 
 Aşağıdaki örnekte nasıl yürütüleceği gösterilmektedir **insertEntity** ve **deleteEntity** tek bir istek işlemleri. 

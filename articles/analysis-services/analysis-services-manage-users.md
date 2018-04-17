@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services kimlik doğrulaması ve kullanıcı izinleri | Microsoft Docs"
-description: "Azure Analysis Services kimlik doğrulama ve kullanıcı izinleri hakkında bilgi edinin."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services kimlik doğrulaması ve kullanıcı izinleri | Microsoft Docs
+description: Azure Analysis Services kimlik doğrulama ve kullanıcı izinleri hakkında bilgi edinin.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 1011e2c8351839cc8c93fc74a7d6f51f29e52410
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authentication-and-user-permissions"></a>Kimlik doğrulaması ve kullanıcı izinleri
 Azure Analysis Services Kimlik Yönetimi ve kullanıcı kimlik doğrulaması için Azure Active Directory (Azure AD) kullanır. Herhangi bir kullanıcı oluşturma, yönetme veya bir Azure Analysis Services'a bağlanma sunucu geçerli kullanıcı kimlik olmalıdır bir [Azure AD kiracısı](../active-directory/active-directory-administer.md) aynı abonelik.
@@ -69,7 +62,7 @@ Excel kullanıcılar, bir Windows hesabı, bir kuruluş kimliği (e-posta adresi
 
 ![Azure portalında erişim denetimi](./media/analysis-services-manage-users/aas-manage-users-rbac.png)
 
-Bu düzeyde rolleri kullanıcı veya portalında veya Azure Resource Manager şablonları kullanarak tamamlanabilir görevleri gerçekleştirmek için gereken hesapları için geçerlidir. Daha fazla bilgi için bkz: [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md). 
+Bu düzeyde rolleri kullanıcı veya portalında veya Azure Resource Manager şablonları kullanarak tamamlanabilir görevleri gerçekleştirmek için gereken hesapları için geçerlidir. Daha fazla bilgi için bkz: [rol tabanlı erişim denetimi](../role-based-access-control/overview.md). 
 
 
 ## <a name="database-roles"></a>Veritabanı rolleri
@@ -85,4 +78,4 @@ Bu düzeyde rolleri kullanıcı veya portalında veya Azure Resource Manager şa
 [Azure Active Directory grupları ile kaynaklara erişimi yönetme](../active-directory/active-directory-manage-groups.md)   
 [Veritabanı rolleri ve kullanıcıları yönetme](analysis-services-database-users.md)  
 [Sunucu yöneticilerini yönetme](analysis-services-server-admins.md)  
-[Rol Tabanlı Access Control](../active-directory/role-based-access-control-what-is.md)  
+[Rol Tabanlı Access Control](../role-based-access-control/overview.md)  

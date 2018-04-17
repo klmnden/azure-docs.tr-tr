@@ -9,18 +9,16 @@ editor: cgronlun
 tags: azure-portal
 ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6efb7ea26c3cdf7748fff4b02b5810c85cc41e1a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: d263f6255eedb9b45b7f0b232e1595197556b7c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Yükleme ve Windows tabanlı Hdınsight kümelerinde Solr kullanma
 
@@ -83,9 +81,9 @@ Bazı veri dosyalarıyla Solr dizin ile başlamalıdır. Solr sonra dizinli veri
         Time spent: 0:00:01.624
 
     Post.jar yardımcı programı, iki örnek belgelerle Solr dizinler **solr.xml** ve **monitor.xml**. Solr yüklemeye post.jar yardımcı programı ve örnek belgeleri kullanılabilir.
-3. **Solr Pano içinde dizinlenmiş belgeleri aramak için kullanın**. RDP oturumu Hdınsight kümesi için Internet Explorer'ı açın ve Solr Panosu'nda başlatın **http://headnodehost:8983/solr/#/**. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örnek olarak, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri girin:
+3. **Solr Pano içinde dizinlenmiş belgeleri aramak için kullanın**. RDP oturumu Hdınsight kümesi için Internet Explorer'ı açın ve Solr Panosu'nda başlatın ** http://headnodehost:8983/solr/#/ **. Sol bölmeden gelen **çekirdek Seçici** açılan listesinde, select **collection1**, tıklatıp, içinde **sorgu**. Örnek olarak, seçin ve tüm belgeleri Solr döndürmek için aşağıdaki değerleri girin:
 
-   * İçinde **q** metin kutusuna  **\*:**\*. Bu dizini tüm belgeleri Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
+   * İçinde **q** metin kutusuna ** \*:**\*. Bu dizini tüm belgeleri Solr döndürür. Belirli bir dizeyi belgelerde arama yapmak istiyorsanız, o dizeyi buraya girebilirsiniz.
    * İçinde **wt** metin kutusunda, çıktı biçimi seçin. Varsayılan değer **json**. Tıklatın **sorgu yürütme**.
 
      ![Bir küme özelleştirmek için betik eylemi kullanın](./media/hdinsight-hadoop-solr-install/hdi-solr-dashboard-query.png "Solr Panoda bir sorgu çalıştırın")

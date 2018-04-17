@@ -1,8 +1,8 @@
 ---
-title: "Windows tabanlı Hdınsight'ta Linux tabanlı Hdınsight'a - Azure geçirme | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümesi için bir Windows tabanlı Hdınsight kümeden geçiş öğrenin."
+title: Windows tabanlı Hdınsight'ta Linux tabanlı Hdınsight'a - Azure geçirme | Microsoft Docs
+description: Linux tabanlı Hdınsight kümesi için bir Windows tabanlı Hdınsight kümeden geçiş öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: ff35be59-bae3-42fd-9edc-77f0041bab93
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: dff9eaad252a71942b07212b7cfa9d9ddf346a3f
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6d4b537834b8a70f0015fc9c6316dae20af5dd5a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Bir Windows tabanlı Hdınsight kümeden Linux tabanlı bir kümeye geçirme
 
@@ -148,7 +146,7 @@ Yapılandırma gereksinimleri hakkında daha fazla bilgi için bkz: [kullanarak 
 
 ## <a name="management-and-monitoring"></a>Yönetim ve izleme
 
-Birçok iş geçmişi veya Yarn kullanıcı Arabiriminde, gibi Windows tabanlı Hdınsight ile kullanmış olabilirsiniz Uı'lar web Ambari kullanılabilir. Ayrıca, Ambari Hive görünümü, web tarayıcısı kullanarak Hive sorguları çalıştırmak için bir yol sağlar. Ambari Web kullanıcı arabirimini https://CLUSTERNAME.azurehdinsight.net adresindeki Linux tabanlı kümelerde kullanılabilir.
+Birçok iş geçmişi veya Yarn kullanıcı Arabiriminde, gibi Windows tabanlı Hdınsight ile kullanmış olabilirsiniz Uı'lar web Ambari kullanılabilir. Ayrıca, Ambari Hive görünümü, web tarayıcısı kullanarak Hive sorguları çalıştırmak için bir yol sağlar. Ambari Web kullanıcı Arabirimi Linux tabanlı kümelerde kullanılabilir https://CLUSTERNAME.azurehdinsight.net.
 
 Ambari ile çalışma hakkında daha fazla bilgi için aşağıdaki belgelere bakın:
 
@@ -172,8 +170,8 @@ Linux küme dosya sistemi Windows tabanlı Hdınsight kümeleri farklı yerleşt
 | --- | --- |
 | Yapılandırma |`/etc`. Örneğin, `/etc/hadoop/conf/core-site.xml` |
 | Günlük dosyaları |`/var/logs` |
-| Hortonworks Data Platform (HDP) |`/usr/hdp`. İki dizini bulunan Burada, geçerli HDP sürümü olan bir vardır ve `current`. `current` Dizin dosyaları ve dizinleri sürüm numarası dizininde sembolik bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları bu yana sürüm numarası değişikliklerini HDP erişmek için kolay bir yol olarak güncelleştirilir. |
-| hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
+| Hortonworks veri Platformu (HDP) |`/usr/hdp`. İki dizini bulunan Burada, geçerli HDP sürümü olan bir vardır ve `current`. `current` Dizin dosyaları ve dizinleri sürüm numarası dizininde sembolik bağlantılar içerir. `current` Dizindir sağlanan sürüm HDP dosyaları bu yana sürüm numarası değişikliklerini HDP erişmek için kolay bir yol olarak güncelleştirilir. |
+| hadoop streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 Genel olarak, dosyanın adını biliyorsanız, dosya yolunu bulmak için bir SSH oturumunda aşağıdaki komutu kullanabilirsiniz:
 
@@ -200,7 +198,7 @@ Aşağıdaki grafikte, Hive iş yüklerinizi geçirme hakkında yönergeler sağ
 
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
-| **Hive Editor** |[Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| **Hive düzenleyicisinin** |[Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md) |
 | `set hive.execution.engine=tez;` Tez etkinleştirmek için |Tez Linux tabanlı kümeler için varsayılan yürütme altyapısı olduğundan set deyimi artık gerekli değildir. |
 | C# kullanıcı tanımlı işlevler | C# Linux tabanlı Hdınsight bileşenleriyle doğrulama hakkında daha fazla bilgi için bkz: [Linux tabanlı Hdınsight geçirmek .NET çözümleri](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | CMD dosyaları veya bir Hive işi bir parçası olarak çağrılan sunucuda komut dosyaları |Bash betiklerini kullanın |
@@ -234,7 +232,7 @@ C# uygulama kullanan bir iş akışı varsa, bu uygulamalar Linux ortamında do�
 | Üzerinde Windows tabanlı kullanmam... | Linux tabanlı... |
 | --- | --- |
 | Storm Panosu |Storm panosunu kullanılabilir değil. Bkz: [dağıtma ve yönetme Storm topolojileri Linux tabanlı Hdınsight üzerinde](storm/apache-storm-deploy-monitor-topology-linux.md) topolojileri göndermek yöntemleri |
-| Storm kullanıcı Arabirimi |Storm kullanıcı Arabirimi https://CLUSTERNAME.azurehdinsight.net/stormui kullanılabilir |
+| Storm kullanıcı Arabirimi |Storm kullanıcı Arabirimi şu adresten edinilebilir https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio oluşturmak, dağıtmak ve C# veya karma topolojiler yönetmek için |Visual Studio oluşturmak, dağıtmak ve C# (SCP.NET) ya da karma topolojiler hdınsight'ta Linux tabanlı Storm üzerinde yönetmek için kullanılabilir. Yalnızca, 28/10/2016 sonrasında oluşturulan kümeleri ile de kullanılabilir. |
 
 ## <a name="hbase"></a>HBase

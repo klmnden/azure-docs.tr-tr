@@ -1,11 +1,11 @@
 ---
 title: Azure AD Privileged Identity Management rollerinde | Microsoft Docs
-description: "Azure Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için hangi rolleri kullanılan öğrenin."
+description: Azure Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için hangi rolleri kullanılan öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 03/04/2018
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 500fb11627fa0ce7ac838c650a582dd9d49b598c
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 94a066c43d1b04161a46dac15e5b373d97cc063d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM farklı yönetim rolü
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -67,7 +67,7 @@ PIM yönetmek için başka bir kullanıcı erişimi vermek istiyorsanız, PIM ku
 ## <a name="roles-not-managed-in-pim"></a>PIM içinde yönetilmeyen rolleri
 Exchange Online veya SharePoint Online içinde rolleri olanlar, yukarıda belirtilen dışında Azure AD'de temsil edilmez ve bu nedenle PIM görünür değildir. Bu Office 365 Hizmetleri hassas rol atamalarını değiştirme hakkında daha fazla bilgi için bkz: [Office 365'te izinleri](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez. Azure Aboneliklerini yönetmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md) ve Azure RBAC bakın hakkında daha fazla bilgi için [Azure rol tabanlı erişim denetimi](role-based-access-control-configure.md).
+Ayrıca Azure Abonelikleriniz ve kaynak gruplarınız Azure AD'de temsil edilmez. Azure Aboneliklerini yönetmek için bkz: [eklemek veya Azure yönetici rollerini değiştirmek nasıl](../billing/billing-add-change-azure-subscription-administrator.md) ve Azure RBAC bakın hakkında daha fazla bilgi için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

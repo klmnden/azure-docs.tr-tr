@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile Workday | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile iş günü arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile Workday | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile iş günü arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 04/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 1dfe319e708e6a4e815413da1a7bf635f4d0a53d
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: ad3428c659e7f950d08b34d82b99930db92c0996
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Öğretici: Azure Active Directory Tümleştirme ile iş günü
 
@@ -108,15 +108,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma bilgileri tek bir iş günü etki alanı ve URL'leri](./media/active-directory-saas-workday-tutorial/tutorial_workday_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://impl.workday.com/<tenant>/login-saml2.htmld`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın:`http://www.workday.com`
+    b. İçinde **tanımlayıcısı** metin kutusuna, bir URL yazın: `http://www.workday.com`
 
 4. Denetleme **Göster Gelişmiş URL ayarları** ve aşağıdaki adımı gerçekleştirin:
 
     ![Oturum açma bilgileri tek bir iş günü etki alanı ve URL'leri](./media/active-directory-saas-workday-tutorial/tutorial_workday_url1.png)
 
-    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://impl.workday.com/<tenant>/login-saml.htmld`
+    İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://impl.workday.com/<tenant>/login-saml.htmld`
      
     > [!NOTE] 
     > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve yanıt URL'si ile güncelleştirin. Yanıt URL'si bir alt etki alanı gibi olmalıdır: www, wd2, wd3, wd3 impl, wd5, wd5 impl). Aşağıdakine benzer kullanarak "*http://www.myworkday.com*" çalışır, ancak "*http://myworkday.com*" desteklemez. Kişi [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) bu değerleri almak için.  
@@ -153,7 +153,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     >[!NOTE]
     > Ortam özniteliğinin değeri Kiracı URL değerine bağlıdır:  
-    >-Workday kiracısı URL'si etki alanı adı ile impl örneğin başlayıp başlamadığını: *https://impl.workday.com/\<Kiracı\>/login-saml2.htmld*), **ortam** uygulamasına özniteliği ayarlanmalıdır.  
+    >-Workday kiracısı URL'si etki alanı adı ile impl örneğin başlayıp başlamadığını:  *https://impl.workday.com/ \<Kiracı\>/login-saml2.htmld*), **ortam** özniteliği ayarlanmalıdır Uygulaması için.  
     >-Etki alanı adı başka bir şey ile başlarsa başvurmanız gerekir [Workday istemci destek ekibi](https://www.workday.com/en-us/partners-services/services/support.html) eşleştirme almak için **ortam** değeri.
 
 11. İçinde **SAML Kurulumu** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -172,9 +172,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     b. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **SAML varlık kimliği** değer ve ardından yapıştırın **veren** metin kutusu.
 
-    ![SAML kimlik sağlayıcısı](./media/active-directory-saas-workday-tutorial/IC7829271(1).png "SAML kimlik sağlayıcısı")
+    ![SAML kimlik sağlayıcısı](./media/active-directory-saas-workday-tutorial/IC7829272.png "SAML kimlik sağlayıcısı")
    
-    c. Seçin **etkinleştirmek iş günü başlatılan oturum kapatma**.
+    c. Seçin **etkinleştirmek IDP başlatılan oturum kapatma**.
    
     d. Azure portalında üzerinde **yapılandırma oturum açma** penceresinde, kopya **Sign-Out URL** değer ve ardından yapıştırın **oturum kapatma yanıt URL'si** metin kutusu.
 
@@ -225,10 +225,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
    
     d. **Tamam**’a tıklayın. 
    
-    ![OK](./media/active-directory-saas-workday-tutorial/IC782933.png "OK")
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![TAMAM](./media/active-directory-saas-workday-tutorial/IC782933.png "TAMAM")
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -309,7 +306,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
 
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-workday-tutorial/tutorial_general_01.png
@@ -323,4 +319,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-workday-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workday-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workday-tutorial/tutorial_general_203.png
-

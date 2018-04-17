@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 858c8933565aeeb22dc1b685082dab2c6481737b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f56b651c40187e42361ac12f0cbf4e509385e0d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-the-container-image-used-for-azure-ml-models"></a>Azure ML modelleri için kullanılan kapsayıcı görüntüsünü özelleştirme
 
@@ -23,7 +23,7 @@ Bu makalede, Azure Machine Learning modellerini için bir kapsayıcı görüntü
 ## <a name="how-to-customize-the-docker-image"></a>Docker görüntüsünün nasıl özelleştirileceğini
 Azure ML kullanarak dağıtır Docker görüntüsünü özelleştirme:
 
-1. Depenencies.yml dosya: gelen yüklenebilir bağımlılıkları yönetmek için [Pypı]( https://pypi.python.org/pypi), çalışma ekranı proje conda_dependencies.yml dosyasından kullanın veya kendinizinkini oluşturun. Bu mod PIP yüklenebilir Python Bağımlılıkların yüklenmesi önerilen yaklaşımdır.
+1. A `dependencies.yml` dosya: gelen yüklenebilir bağımlılıkları yönetmek için [Pypı]( https://pypi.python.org/pypi), kullanabileceğiniz `conda_dependencies.yml` dosya çalışma ekranı projeden veya kendinizinkini oluşturun. Bu mod PIP yüklenebilir Python Bağımlılıkların yüklenmesi önerilen yaklaşımdır.
 
    Örnek CLI komut:
    ```azurecli

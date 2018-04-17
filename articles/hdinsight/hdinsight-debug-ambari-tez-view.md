@@ -1,8 +1,8 @@
 ---
-title: "Hdınsight ile - Azure Ambari Tez görünümünü kullanın | Microsoft Docs"
-description: "Tez işlerinde hdınsight'ta hata ayıklamak için Ambari Tez görünümü kullanmayı öğrenin."
+title: Hdınsight ile - Azure Ambari Tez görünümünü kullanın | Microsoft Docs
+description: Tez işlerinde hdınsight'ta hata ayıklamak için Ambari Tez görünümü kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bf34bc5a65c2beb55c7039868e4d90d83d28de51
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Tez işlerinde hdınsight'ta hata ayıklamak için Ambari görünümleri kullanma
 
@@ -52,7 +50,7 @@ Tez görünüm Tez Altyapısı şu anda çalışıyor ya da bırakıldı kullana
 
 Tez kullanan bir Hive sorgusu çalıştırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısında https://CLUSTERNAME.azurehdinsight.net için gidin nerede **CLUSTERNAME** Hdınsight kümenizin adıdır.
+1. Bir web tarayıcısında gidin https://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** Hdınsight kümenizin adıdır.
 
 2. Sayfanın üstündeki menüsünden seçin **görünümleri** simgesi. Bu simgeyi bir dizi kare gibi görünüyor. Görüntülenen açılır menüde seçin **Hive görünümü**.
 

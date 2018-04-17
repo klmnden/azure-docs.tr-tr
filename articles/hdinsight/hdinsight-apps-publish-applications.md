@@ -1,8 +1,8 @@
 ---
-title: "Azure Hdınsight uygulamalarını yayımlama | Microsoft Docs"
-description: "Hdınsight uygulaması oluşturma ve Azure Marketi'nde yayımlama hakkında bilgi edinin."
+title: Azure Hdınsight uygulamalarını yayımlama | Microsoft Docs
+description: Hdınsight uygulaması oluşturma ve Azure Marketi'nde yayımlama hakkında bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 14aef891-7a37-4cf1-8f7d-ca923565c783
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: aef54782c200ad0be261959705b9b10cd0ebb064
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir Hdınsight uygulamasının Azure Marketi'nde yayımlama
 Linux tabanlı Hdınsight kümesinde bir Azure Hdınsight uygulamayı yükleyebilir. Bu makalede bir Hdınsight uygulamasının Azure Marketi'nde yayımlama öğrenin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md).
@@ -99,8 +97,8 @@ Bir Hdınsight uygulamasını yayımlamak için:
 3. Bir başlık girin ve ardından **yeni bir çözüm şablonu oluşturmak**.
 4. Kuruluşunuz zaten kaydolmadıysanız seçin **Geliştirme Merkezi hesabı oluşturun ve Azure programına katılın**.  Daha fazla bilgi için bkz: [Microsoft Developer hesabı oluşturma](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md).
 5. Seçin **başlamak için bazı topolojiler tanımlayın**. Bir çözüm şablonu tüm Topolojileri için "üst" dir. Bir teklif ya da çözüm şablonunda birden fazla topoloji tanımlayabilirsiniz. Bir teklif hazırlama için gönderildiğinde tüm topolojileri ile gönderilir. 
-6. Bir topoloji adı girin ve ardından  **+** .
-7. Yeni bir sürüm girin ve ardından  **+** .
+6. Bir topoloji adı girin ve ardından **+**.
+7. Yeni bir sürüm girin ve ardından **+**.
 8. Ne zaman oluşturduğunuz .zip dosyasını karşıya yükleyin, [uygulama paketlenmiş](#package-application).  
 9. Seçin **sertifika iste**. Microsoft Sertifika ekibi dosyaları gözden geçirir ve topolojiyi onaylar.
 

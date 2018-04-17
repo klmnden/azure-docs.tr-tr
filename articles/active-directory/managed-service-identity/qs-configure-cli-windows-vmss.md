@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI kullanarak bir Azure sanal makine ölçek üzerinde MSI yapılandırın"
-description: "Bir Azure sanal makine ölçek Azure CLI kullanarak kümesinde, bir yönetilen hizmet Kimliği'ni (MSI) yapılandırma için adım yönergeler tarafından adım."
+title: Azure CLI kullanarak bir Azure sanal makine ölçek üzerinde MSI yapılandırın
+description: Bir Azure sanal makine ölçek Azure CLI kullanarak kümesinde, bir yönetilen hizmet Kimliği'ni (MSI) yapılandırma için adım yönergeler tarafından adım.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d7a7b0c8b3f9bf0279282dbf1fed4fc8163d9170
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9cdf5225f2d87fffa2290e3edd09d4ae829aee21
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal makine yapılandırma ölçek kümesi yönetilen hizmet kimliği (MSI) Azure CLI kullanma
 
@@ -71,10 +71,10 @@ Var olan bir Azure sanal makine ölçek kümesinde MSI etkinleştirmeniz gerekir
    az login
    ```
 
-2. Kullanım [az vmss Ata-identity](/cli/azure/vm/#az_vmss_assign_identity) ile `--assign-identity` parametresi bir MSI için mevcut bir VM'yi eklemek için:
+2. Kullanım [az vmss kimlik atamak](/cli/azure/vmss/identity/#az_vmss_identity_assign) bir MSI için mevcut bir VM'yi eklemek için komutu:
 
    ```azurecli-interactive
-   az vmss assign-identity -g myResourceGroup -n myVMSS
+   az vmss identity assign -g myResourceGroup -n myVMSS
    ```
 
 ## <a name="remove-msi-from-an-azure-virtual-machine-scale-set"></a>Bir Azure sanal makine ölçek kümesinden MSI kaldırma
@@ -87,10 +87,10 @@ Artık bir MSI gereken bir sanal makine ölçek kümesi varsa:
    az login
    ```
 
-2. Kullanım `--identities` anahtarı ile [az vmss Kaldır-identity](/cli/azure/vmss/#az_vmss_remove_identity) MSI kaldırmak için:
+2. Kullanım [az vmss kimliğini kaldırma](/cli/azure/vmss/identity/#az_vmss_remove_identity) MSI kaldırmak için komutu:
 
    ```azurecli-interactive
-   az vmss remove-identity -g myResourceGroup -n myVMSS --identities readerID writerID
+   az vmss identity remove -g myResourceGroup -n myVMSS --identities readerID writerID
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

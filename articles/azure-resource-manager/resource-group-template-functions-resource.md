@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager şablonu işlevleri - kaynakları | Microsoft Docs"
-description: "Kaynaklarla ilgili değerleri almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır."
+title: Azure Resource Manager şablonu işlevleri - kaynakları | Microsoft Docs
+description: Kaynaklarla ilgili değerleri almak için bir Azure Resource Manager şablonunda kullanmak için işlevleri açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: f92afd27540e935ed901151d980377b9b34ea8f5
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: f2ff44fc6644f3a4294f7b2c752a7f3ab05f351d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
 Resource Manager kaynak değerlerini almak için aşağıdaki işlevleri sunar:
 
-* [listKeys ve liste {Value}](#listkeys)
+* [listKeys](#listkeys)
+* [listSecrets](#list)
+* [Liste *](#list)
 * [sağlayıcıları](#providers)
-* [reference](#reference)
+* [Başvuru](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
 * [aboneliği](#subscription)
@@ -36,19 +38,21 @@ Parametreler, değişkenleri veya geçerli dağıtım değerlerini almak için b
 <a id="listkeys" />
 <a id="list" />
 
-## <a name="listkeys-and-listvalue"></a>listKeys ve liste {Value}
+## <a name="listkeys-listsecrets-and-list"></a>listKeys, listSecrets ve liste *
 `listKeys(resourceName or resourceIdentifier, apiVersion)`
+
+`listSecrets(resourceName or resourceIdentifier, apiVersion)`
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion)`
 
-Liste işlemi destekleyen herhangi bir kaynak türü için değerleri döndürür. En yaygın kullanımı `listKeys`. 
+Liste işlemi destekleyen herhangi bir kaynak türü için değerleri döndürür. En yaygın kullanımları şunlardır `listKeys` ve `listSecrets`. 
 
 ### <a name="parameters"></a>Parametreler
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |dize |Kaynak için benzersiz tanımlayıcı. |
-| apiVersion |Evet |dize |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
+| resourceName veya resourceIdentifier |Evet |string |Kaynak için benzersiz tanımlayıcı. |
+| apiVersion |Evet |string |Kaynak çalışma zamanı durumunu API sürümü. Genellikle, biçiminde **yyyy-aa-gg**. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -153,8 +157,8 @@ Bir kaynak sağlayıcısı ve desteklenen kaynak türleri hakkında bilgi dönd�
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Evet |dize |Namespace sağlayıcısı |
-| resourceType |Hayır |dize |Belirtilen ad alanı içindeki kaynak türü. |
+| providerNamespace |Evet |string |Namespace sağlayıcısı |
+| Kaynak türü |Hayır |string |Belirtilen ad alanı içindeki kaynak türü. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -241,9 +245,9 @@ Bir kaynağın çalışma zamanı durumunu temsil eden bir nesne döndürür.
 
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
-| resourceName veya resourceIdentifier |Evet |dize |Adı veya bir kaynak benzersiz tanıtıcısı. |
-| apiVersion |Hayır |dize |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
-| 'Tam' |Hayır |dize |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
+| resourceName veya resourceIdentifier |Evet |string |Adı veya bir kaynak benzersiz tanıtıcısı. |
+| apiVersion |Hayır |string |Belirtilen kaynak API sürümü. Kaynak aynı şablonu içinde değil sağlandığında bu parametreyi dahil edin. Genellikle, biçiminde **yyyy-aa-gg**. |
+| 'Tam' |Hayır |string |Tam kaynak nesnesi döndürülmeyeceğini belirten değer. Belirtmezseniz, `'Full'`, yalnızca kaynak özellikleri nesnesinin döndürülür. Tam nesne konumu ve kaynak kimliği gibi değerler içerir. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -441,7 +445,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 <a id="resourcegroup" />
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>kaynak grubu
 `resourceGroup()`
 
 Geçerli kaynak grubunda temsil eden bir nesne döndürür. 
@@ -534,10 +538,10 @@ Bir kaynak benzersiz tanımlayıcısını döndürür. Kaynak adı belirsiz ya d
 | Parametre | Gerekli | Tür | Açıklama |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Hayır |dize (içinde GUID biçimi) |Geçerli aboneliğe varsayılan değerdir. Bir kaynağı başka bir abonelik almak gerektiğinde bu değeri belirtin. |
-| resourceGroupName |Hayır |dize |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
-| resourceType |Evet |dize |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
-| resourceName1 |Evet |dize |Kaynağın adı. |
-| resourceName2 |Hayır |dize |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
+| resourceGroupName |Hayır |string |Geçerli kaynak grubunda varsayılan değerdir. Bir kaynağı başka bir kaynak grubunda almanız gerektiğinde, bu değeri belirtin. |
+| Kaynak türü |Evet |string |Kaynak sağlayıcısı ad alanı dahil olmak üzere kaynak türü. |
+| resourceName1 |Evet |string |Kaynağın adı. |
+| resourceName2 |Hayır |string |Kaynak iç içe yerleştirilmiş ise sonraki kaynak adı kesimi. |
 
 ### <a name="return-value"></a>Dönüş değeri
 
@@ -654,10 +658,10 @@ Varsayılan değerlerle önceki örnekten çıktısı şöyledir:
 
 | Ad | Tür | Değer |
 | ---- | ---- | ----- |
-| sameRGOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| sameRGOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentSubOutput | Dize | /Subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | Dize | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| nestedResourceOutput | Dize | /Subscriptions/{Current-Sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/Servers/ServerName/Databases/databaseName |
 
 Bu örnek şablonu Azure CLI ile dağıtmak için kullanın:
 

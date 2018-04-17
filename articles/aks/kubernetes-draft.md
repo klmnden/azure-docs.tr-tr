@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 2ab79e3a6308d01d836a82f356f43eccb6af9791
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b91d446f4c43a4ecae40ef49e5e7f930f25e6ad2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-draft-with-azure-container-service-aks"></a>Taslak Azure kapsayıcı hizmeti (AKS) kullanın
 
@@ -33,10 +33,10 @@ Son olarak, yüklemeniz gereken [Docker](https://www.docker.com).
 
 ## <a name="install-draft"></a>Taslak yükleyin
 
-Taslak CLI geliştirme sisteminizde çalıştıran ve quicky için kod Kubernetes kümesine dağıttığınız sağlayan bir istemci olur. 
+Taslak CLI geliştirme sisteminizde çalıştıran ve quicky için kod Kubernetes kümesine dağıttığınız sağlayan bir istemci olur.
 
-> [!NOTE] 
-> Taslak sürümü 0.12 önce yüklediyseniz, Taslak, küme kullanımından silmeniz `helm delete --purge draft` ve yerel yapılandırmanızı çalıştırarak kaldırın `rm -rf ~/.draft`. MacOS üzerinde varsa, çalıştırabilirsiniz `brew upgrade draft`.
+> [!NOTE]
+> Taslak sürümü 0.12 önce yüklediyseniz, Taslak, küme kullanımından silmeniz `helm delete --purge draft` ve yerel yapılandırmanızı çalıştırarak kaldırın `rm -rf ~/.draft`. MacOS üzerinde varsa, çalıştırmak `brew upgrade draft`.
 
 Bir Mac üzerinde taslak CLI yüklemek için `brew`. Ek yükleme seçenekleri için bkz, [taslak Yükleme Kılavuzu][install-draft].
 
@@ -71,9 +71,9 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 Yoktur göre AKS ACR arasında bir güven ilişkisi, aşağıdaki adımları AKS kümenizi ACR kullanımdan etkinleştirin.
 1. Taslak yapılandırma kümesi `registry` çalıştırarak değeri `draft config set registry <registry name>.azurecr.io`, burada _&lt;kayıt defteri adı&lt;_ ACR kaydınız adıdır.
-2. Oturum çalıştırarak ACR kayıt defterini açın `az acr login -n <registry name>`. 
+2. Oturum çalıştırarak ACR kayıt defterini açın `az acr login -n <registry name>`.
 
-Şimdi yerel olarak ACR için oturum açmış ve AKS ve ACR ile bir güven ilişkisi oluşturan olduğundan, hiçbir parolaları veya gizli iletin veya ACR AKS çekmek için gereklidir. Kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Resource Manager düzeyinde gerçekleşir. 
+Şimdi yerel olarak ACR için oturum açmış ve AKS ve ACR ile bir güven ilişkisi oluşturan olduğundan, hiçbir parolaları veya gizli iletin veya ACR AKS çekmek için gereklidir. Kimlik doğrulaması Azure Active Directory'yi kullanarak Azure Resource Manager düzeyinde gerçekleşir.
 
 ## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
@@ -143,7 +143,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-Göz atarak şimdi uygulamanızı test etmek http://localhost:46143 (önceki örneğin; bağlantı noktası farklı olabilir). Uygulama kullanımı test bittiğinde `Control+C` proxy bağlantı durdurmak için.
+Artık uygulamanızı test etmek için göz atarak http://localhost:46143 (önceki örneğin; bağlantı noktası farklı olabilir). Uygulama kullanımı test bittiğinde `Control+C` proxy bağlantı durdurmak için.
 
 > [!NOTE]
 > Aynı zamanda `draft up --auto-connect` oluşturmak ve uygulamanızı dağıtmak ve hemen yineleme yapmak için ilk çalışan kapsayıcıya bağlanmak için komut daha hızlı geçiş.

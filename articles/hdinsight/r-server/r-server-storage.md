@@ -1,25 +1,23 @@
 ---
 title: Hdınsight'ta - Azure R Server için Azure depolama çözümleri | Microsoft Docs
 description: Hdınsight'ta R Server ile birlikte farklı depolama seçenekleri hakkında bilgi edinin
-services: HDInsight
+services: hdinsight
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
-ms.service: HDInsight
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: nitinme
-ms.openlocfilehash: f0333252e404c52f123da916df01d198234ef5af
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 23e32a913fb73d2207f7cf37ce6230e428fbe95c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Azure hdınsight'ta R Server için Azure depolama çözümleri
 
@@ -176,5 +174,5 @@ Azure dosyaları önemli bir avantajı dosya paylaşımları takılı ve Windows
 
 * [Hdınsight R Server kümesine genel bakış](r-server-overview.md)
 * [R Server kümesinde Hadoop kullanmaya başlama](r-server-get-started.md)
-* [Hdınsight'ta R Server kümesi için içerik seçeneklerini işlem](r-server-compute-contexts.md)
+* [HDInsight üzerinde R Server kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
 

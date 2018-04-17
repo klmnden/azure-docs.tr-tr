@@ -1,47 +1,44 @@
 ---
-title: "Cihaz kayıtlarını Azure cihaz sağlama hizmeti SDK'ları ile yönetme | Microsoft Docs"
-description: "IOT Hub cihaz sağlama hizmeti hizmeti SDK'ları ile cihaz kayıtlarını yönetme"
+title: Azure cihaz sağlama hizmeti SDK'ları kullanarak cihaz kayıtlarını yönetme | Microsoft Docs
+description: IOT Hub cihaz sağlama hizmeti SDK'ları kullanarak hizmet cihaz kayıtlarını yönetme
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 12/01/2017
+ms.date: 04/04/18
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
-manager: arjmands
+documentationcenter: ''
+manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 14e353af82342bc7a580e1a0a02b8b4e29514fb9
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Cihaz kayıtlarını Azure cihaz sağlama hizmeti SDK'ları ile yönetme
 A *cihaz kaydı* tek bir cihazı veya grubun belirli bir noktada cihaz sağlama hizmeti ile kaydedebilir cihazların bir kayıt oluşturur. İlk istenen yapılandırma istenen IOT hub'ı dahil, kaydın parçası olarak aygıt kaydı içerir. Bu makalede Azure IOT sağlama hizmeti SDK'ları kullanarak programlı olarak sağlama hizmetiniz için cihaz kayıtlarını yönetme gösterilmektedir.  SDK'ları, Azure IOT SDK'ları ile aynı Havuzda github'da kullanılabilir.
 
-## <a name="samples"></a>Örnekler
-Bu makale Azure IOT sağlama hizmeti SDK'ları kullanarak programlı olarak sağlama hizmetiniz için cihaz kayıtları yönetmek için üst düzey kavramlarını gözden geçirir.  Tam API çağrıları dil farklılıkları nedeniyle farklı olabilir.  Lütfen ayrıntılar için Github'da sağladığımız örnekleri gözden geçirin:
-* [Java sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
-* [Node.js sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
-* [.NET sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
-
 ## <a name="prerequisites"></a>Önkoşullar
-* Bağlantı dizesinden bir cihaz sağlama hizmet örneği
-* Cihaz güvenlik yapıları:
-    * [**TPM**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
+* Bağlantı dizesi, cihaz sağlama hizmeti örneğinin edinin.
+* Aygıt için güvenlik yapılar elde [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) kullanılır:
+    * [**Güvenilir Platform Modülü (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Tek tek kayıt: kayıt kimliği ve TPM onay anahtarını fiziksel aygıttan veya TPM Simulator.
         * Kayıt grubu TPM kanıtı için geçerli değildir.
-    * [**X.509**](https://docs.microsoft.com/azure/iot-dps/concepts-security):
-        * Tek tek kayıt: [Yaprak sertifikası](https://docs.microsoft.com/azure/iot-dps/concepts-security#leaf-certificate) fiziksel aygıttan veya BÖLMEK öykünücüsü.
-        * Kayıt Grup: [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel bir aygıtı Aygıt sertifika üretmek için kullanılan.  Aynı zamanda BÖLMEK Öykünücüsünden oluşturulabilir.
+    * [**X.509**](/azure/iot-dps/concepts-security):
+        * Tek tek kayıt: [Yaprak sertifikası](/azure/iot-dps/concepts-security#leaf-certificate) fiziksel aygıttan veya SDK [BÖLMEK](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) öykünücüsü.
+        * Kayıt Grup: [CA/kök sertifikası](/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika](/azure/iot-dps/concepts-security#intermediate-certificate), fiziksel bir aygıtı Aygıt sertifika üretmek için kullanılan.  Aynı zamanda SDK BÖLMEK öykünücüsünden oluşturulabilir.
+* Tam API çağrıları dil farklılıkları nedeniyle farklı olabilir. Lütfen ayrıntılar için Github'da sağlanan örnekleri gözden geçirin:
+   * [Java sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
+   * [Node.js sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
+   * [.NET sağlama hizmet istemci örnekleri](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples)
 
 ## <a name="create-a-device-enrollment"></a>Cihaz kaydı oluşturma
-
 Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
 
-* Bir **kayıt grup** X.509 sertifika tarafından imzalanan ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Çok sayıda istenen ilk yapılandırmasını paylaşan cihazlar için veya cihazlar için bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
+* Bir **kayıt grup** X.509 sertifika tarafından imzalanan ortak bir kanıtlama mekanizması paylaşan aygıtları bir grup için bir giriş [kök sertifika](https://docs.microsoft.com/azure/iot-dps/concepts-security#root-certificate) veya [ara sertifika ](https://docs.microsoft.com/azure/iot-dps/concepts-security#intermediate-certificate). Çok sayıda istenen ilk yapılandırma paylaşan aygıtları veya cihazları bir kayıt grubunu kullanarak aynı Kiracı tüm gitmeyi öneririz. Yalnızca X.509 kanıtlama mekanizması olarak kullanan cihazları kaydedebilmeniz için Not *kayıt grupları*. 
 
     Bu iş akışını aşağıdaki SDK'ları ile bir kayıt grubu oluşturabilirsiniz:
 
@@ -49,7 +46,7 @@ Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
     1. Yeni bir ```EnrollmentGroup``` değişken kullanarak ```attestation``` oluşturulan ve benzersiz bir ```enrollmentGroupId```.  İsteğe bağlı olarak, gibi parametreleri ayarlayabilirsiniz ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     2. Hizmet SDK API çağrısı ```createOrUpdateEnrollmentGroup``` ile arka uç uygulamanıza ```EnrollmentGroup``` bir kayıt grubu oluşturmak için.
 
-* Bir **tek tek kayıt** kaydedebilir tek bir cihaz için bir giriş. Tek tek kayıtları kanıtlama mekanizmaları X.509 sertifikalarını veya SAS belirteçlerinde (gerçek veya sanal TPM) kullanabilir. Benzersiz başlangıç yapılandırmasını gerektiren cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Tek tek kayıtları, belirtilen istenen IOT hub cihaz kimliği olabilir.
+* Bir **tek tek kayıt** kaydedebilir tek bir cihaz için bir giriş. Tek tek kayıtları kanıtlama mekanizmaları X.509 sertifikalarını veya SAS belirteçlerinden (fiziksel veya sanal TPM) kullanabilir. Benzersiz ilk yapılandırmaları gerektirir cihazlar için veya yalnızca TPM ya da sanal TPM aracılığıyla SAS belirteci kanıtlama mekanizması olarak kullanabileceğiniz cihazlar için tek tek kayıtları kullanmanızı öneririz. Bireysel kayıtlar için istenen IoT hub cihazı kimliği belirtilmiş olabilir.
 
     Bu iş akışını aşağıdaki SDK'ları ile tek bir kayıt oluşturabilirsiniz:
     
@@ -59,9 +56,7 @@ Aygıtlarınızı sağlama hizmeti ile kaydetmek için iki yolu vardır:
     2. Yeni bir ```IndividualEnrollment``` kullanarak değişken ```attestation``` oluşturulan ve benzersiz bir ```registrationId``` aygıtınızda veya TPM Simulator oluşturulan giriş olarak.  İsteğe bağlı olarak, gibi parametreleri ayarlayabilirsiniz ```Device ID```, ```IoTHubHostName```, ```ProvisioningStatus```.
     3. Hizmet SDK API çağrısı ```createOrUpdateIndividualEnrollment``` ile arka uç uygulamanıza ```IndividualEnrollment``` tek tek bir kayıt oluşturmak için.
 
-Bir kayıt başarıyla oluşturduktan sonra cihaz hizmeti sağlama bir kayıt sonucunu döndürür.
-
-Bu iş akışı içinde gösterilen [örnekleri](#samples).
+Bir kayıt başarıyla oluşturduktan sonra cihaz hizmeti sağlama bir kayıt sonucunu döndürür. Bu iş akışı örnekleri gösterilmiştir [daha önce bahsedilen](#prerequisites).
 
 ## <a name="update-an-enrollment-entry"></a>Güncelleştirme kayıt girişi
 
@@ -77,14 +72,14 @@ Bu iş akışı izleyen bir kayıt girişi güncelleştirebilirsiniz:
     2. Parametresi son kayıt gerektiği gibi değiştirin.
     3. En son kayıt kullanarak hizmet SDK API çağrısı ```createOrUpdateEnrollmentGroup``` kayıt girişini güncelleştirmek için.
 
-Bu iş akışı içinde gösterilen [örnekleri](#samples).
+Bu iş akışı örnekleri gösterilmiştir [daha önce bahsedilen](#prerequisites).
 
 ## <a name="remove-an-enrollment-entry"></a>Bir kayıt girişi Kaldır
 
 * **Tek tek kayıt** hizmet SDK API'sini çağırarak silinebilir ```deleteIndividualEnrollment``` kullanarak ```registrationId```.
 * **Grup kayıt** hizmet SDK API'sini çağırarak silinebilir ```deleteEnrollmentGroup``` kullanarak ```enrollmentGroupId```.
 
-Bu iş akışı içinde gösterilen [örnekleri](#samples).
+Bu iş akışı örnekleri gösterilmiştir [daha önce bahsedilen](#prerequisites).
 
 ## <a name="bulk-operation-on-individual-enrollments"></a>Tek tek kayıtları toplu işlem
 
@@ -95,4 +90,4 @@ Oluştur, Güncelleştir veya bu iş akışını aşağıdaki birden çok tek te
 
 Bir işlem başarılı bir şekilde gerçekleştirdikten sonra aygıtı sağlama hizmeti bir toplu işlem sonucu döndürür.
 
-Bu iş akışı içinde gösterilen [örnekleri](#samples).
+Bu iş akışı örnekleri gösterilmiştir [daha önce bahsedilen](#prerequisites).

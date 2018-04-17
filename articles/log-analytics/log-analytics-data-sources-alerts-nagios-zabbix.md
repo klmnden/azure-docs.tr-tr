@@ -1,8 +1,8 @@
 ---
-title: "OMS günlük analizi Nagios ve Zabbix uyarıları Topla | Microsoft Docs"
-description: "Nagios ve Zabbix izleme araçları açık kaynaktır. Bunları yanı sıra diğer kaynaklardan uyarıları çözümlemek amacıyla yararlı günlük analizi bu Araçları'ndan uyarıları toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar."
+title: OMS günlük analizi Nagios ve Zabbix uyarıları Topla | Microsoft Docs
+description: Nagios ve Zabbix izleme araçları açık kaynaktır. Bunları yanı sıra diğer kaynaklardan uyarıları çözümlemek amacıyla yararlı günlük analizi bu Araçları'ndan uyarıları toplayabilirsiniz.  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -12,27 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 0b64c32e1031e704d50aab0b38eaea41e27d134b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve günlük analizi OMS aracısından Zabbix uyarılarını Topla 
-[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları.  Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
+[Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları. Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
  
+## <a name="prerequisites"></a>Önkoşullar
+Linux için OMS Aracısı Nagios toplama uyarıları sürüm kadar destekler 4.2.x ve sürüm kadar Zabbix 2.x.
+
 ## <a name="configure-alert-collection"></a>Uyarı koleksiyonunu yapılandırma
 
 ### <a name="configuring-nagios-alert-collection"></a>Nagios uyarı koleksiyonunu yapılandırma
 Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçekleştirin.
 
-1. Kullanıcının izni **omsagent** okuma erişimi Nagios günlük dosyasına (yani `/var/log/nagios/nagios.log`). Nagios.log dosya varsayılarak grupla sahibi `nagios`, kullanıcı ekleyebilir **omsagent** için **nagios** grubu. 
+1. Kullanıcının izni **omsagent** Nagios günlük dosyası okuma erişimi `/var/log/nagios/nagios.log`. Nagios.log dosya varsayılarak grupla sahibi `nagios`, kullanıcı ekleyebilir **omsagent** için **nagios** grubu. 
 
     sudo usermod - a -G nagios omsagent
 
-2.  Konumunda yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı aşağıdaki girdileri çalıştığından emin olun:  
+2.  Konumunda yapılandırma dosyasını değiştirme `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Mevcut ve kullanıma açıklamalı aşağıdaki girdileri çalıştığından emin olun:  
 
         <source>  
           type tail  
@@ -53,11 +56,11 @@ Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçek
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Zabbix uyarı koleksiyonunu yapılandırma
-Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*. Bu ideal değildir, ancak kullanıcı oluşturmak ve onlu izlemek için izinleri öneririz.
+Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*.  Değil ideal olsa da, kullanıcı oluşturmak ve onlu izlemek için izinleri öneririz.
 
-Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçekleştirin.
+Nagios sunucuda uyarılarını toplamak için aşağıdaki adımları gerçekleştirin.
 
-1. Konumunda yapılandırma dosyasını değiştirme (`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`). Mevcut ve kullanıma açıklamalı aşağıdaki girdileri olduğundan emin olun.  Kullanıcı adı ve parola Zabbix ortamınız için değerlerle değiştirin.
+1. Konumunda yapılandırma dosyasını değiştirme `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`. Mevcut ve kullanıma açıklamalı aşağıdaki girdileri olduğundan emin olun.  Kullanıcı adı ve parola Zabbix ortamınız için değerlerle değiştirin.
 
         <source>
          type zabbix_alerts
@@ -86,7 +89,7 @@ Nagios tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **
 | SourceSystem |*Nagios* |
 | AlertName |Uyarı adı. |
 | AlertDescription | Uyarı açıklaması. |
-| AlertState | Hizmet veya ana bilgisayar durumu.<br><br>TAMAM<br>UYARI<br>AYARLAMA<br>AŞAĞI |
+| AlertState | Hizmet veya ana bilgisayar durumu.<br><br>Tamam<br>UYARI<br>AYARLAMA<br>AŞAĞI |
 | Ana bilgisayar adı | Uyarı oluşturan ana bilgisayar adı. |
 | PriorityNumber | Uyarı öncelik düzeyi. |
 | StateType | Uyarının durumunu türü.<br><br>SOFT - değil yeniden sorun.<br>Sabit - bırakıldı sorunu belirtilen kaç kez yeniden.  |
@@ -101,7 +104,7 @@ Zabbix tarafından toplanan kayıtları uyarı bir **türü** , **uyarı** ve **
 | Tür |*Uyarı* |
 | SourceSystem |*Zabbix* |
 | AlertName | Uyarı adı. |
-| AlertPriority | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>Bilgi<br>Uyarı<br>Ortalama<br>Yüksek<br>Olağanüstü durum  |
+| AlertPriority | Uyarının önem derecesi.<br><br>Sınıflandırılmamış<br>bilgi<br>uyarı<br>ortalama<br>Yüksek<br>Olağanüstü durum  |
 | AlertState | Uyarı durumu.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.  |
 | AlertTypeNumber | Uyarı birden çok sorun Olay Oluştur olup olmadığını belirtir.<br><br>0 - durumu güncel değil.<br>1 - durumu bilinmiyor.    |
 | Yorumlar | Ek açıklamalar uyarı için. |

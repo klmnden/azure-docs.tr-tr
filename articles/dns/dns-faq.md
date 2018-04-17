@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/06/2017
 ms.author: kumud
-ms.openlocfilehash: f07f914ccf8ea6df216e3f571e38d7628b2d7fb6
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0eb39ced1d88d2e0b6128493304f112f9c685fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-dns-faq"></a>Azure DNS hakkında SSS
 
@@ -46,6 +46,7 @@ Daha fazla bilgi için bkz: [Azure DNS SLA sayfa](https://azure.microsoft.com/su
 ### <a name="what-is-a-dns-zone-is-it-the-same-as-a-dns-domain"></a>'DNS bölgesini' nedir? DNS etki alanıyla aynı şey midir? 
 
 Bir etki alanında benzersiz bir ad etki alanı adı sistemi, örneğin "contoso.com" dir.
+
 
 DNS bölgesi belirli bir etki alanıyla ilgili DNS kayıtlarını barındırmak için kullanılır. Örneğin, "contoso.com" etki alanı 'mail.contoso.com"(bir posta sunucusu) ve 'www.contoso.com' (bir web sitesi) gibi birçok DNS kayıtlarını içerebilir. Bu kayıtları 'contoso.com' DNS bölgesindeki barındırılması.
 
@@ -90,6 +91,14 @@ Bölge aktarımı Azure DNS biriktirme listesi üzerinde izlenmekte olan bir öz
 Hayır. URL yeniden yönlendirme hizmetleri gerçekte bir DNS hizmeti olmayan - HTTP, yerine düzeyinde DNS düzeyi çalışırlar. Bir URL gruplanacağını bazı DNS sağlayıcıları hizmet kendi genel teklifinin bir parçası olarak yeniden yönlendir. Bu Azure DNS tarafından şu anda desteklenmiyor.
 
 URL yeniden yönlendirme özelliğini Azure DNS biriktirme listesi üzerinde izlenir. Geri bildirim sitesi kullanabileceğiniz [bu özellik için destek kaydetmek](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape).
+
+### <a name="does-azure-dns-support-extended-ascii-encoding-8-bit-set-for-txt-recordset-"></a>Azure DNS TXT kayıt kümesi için (8-bit) kümesi kodlaması genişletilmiş ASCII destekliyor mu?
+
+Evet. Azure REST API'leri, SDK'ları, PowerShell ve CLI (2017-10-01'den daha eski sürümleri veya genişletilmiş ASCII kümesi desteklemiyor SDK 2.1 yapın) en son sürümünü kullanıyorsanız, azure DNS TXT kayıt kümeleri için genişletilmiş ASCII kodlama kümesini destekler. Örneğin, kullanıcı bir dize değeri olarak bir TXT kaydı sağlarsa, genişletilmiş ASCII karakter \128 sahip (örn: "abcd\128efgh"), Azure DNS iç gösterimi (128'dir) bu karakteri bayt değeri kullanır. DNS çözümlemesi aynı anda yanıt olarak da bu bayt değeri döndürülür. Ayrıca çözümleme kaygı kadar "abc" ve "\097\098\099" birbirinin yerine olduğunu unutmayın. 
+
+Biz izleyin [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) bölge TXT kayıtları için dosya asıl biçimini kaçış kuralları. Örneğin, ' \' gerçekte çıkışları RFC başına her şeyi şimdi. TXT kaydı değeri olarak "A\B" belirtirseniz, temsil edilir ve yalnızca "AB" çözümleyin. Gerçekten TXT kaydı çözünürlükte "A\B" olmasını istiyorsanız, atlamanız gerekir "\" yeniden, yani olarak belirtin "A\\B". 
+
+Bu destek şu anda Azure Portalı'ndan oluşturulan TXT kayıt için kullanılabilir olmadığını unutmayın. 
 
 ## <a name="using-azure-dns"></a>Azure DNS kullanma
 
@@ -169,7 +178,7 @@ Hayır. Özel bölgeler sanal ağlar ile birlikte çalışır ve müşterilerin 
 Evet. Müşteriler en fazla 10 çözümleme sanal ağlar tek bir özel bölge ile ilişkilendirebilirsiniz.
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Farklı bir aboneliğe ait bir sanal ağ özel bölgesine bir çözümleme sanal ağ olarak eklenebilir mi? 
-Evet, hem sanal ağlar, hem de özel DNS bölgesi izninin yazma işlemi kullanıcının sahip olduğu sürece. Yazma izni için birden fazla RBAC rolü ayrılabilir unutmayın. Örneğin, Klasik ağ Katılımcısı RBAC rolü sanal ağlar için yazma izinlerine sahiptir. RBAC rolleri hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md)
+Evet, hem sanal ağlar, hem de özel DNS bölgesi izninin yazma işlemi kullanıcının sahip olduğu sürece. Yazma izni için birden fazla RBAC rolü ayrılabilir unutmayın. Örneğin, Klasik ağ Katılımcısı RBAC rolü sanal ağlar için yazma izinlerine sahiptir. RBAC rolleri hakkında daha fazla bilgi için bkz: [rol tabanlı erişim denetimi](../role-based-access-control/overview.md)
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Sanal makineler müşteri tarafından silindiğinde özel bir bölgedeki otomatik olarak kayıtlı sanal makine DNS kayıtları otomatik olarak silinir mi?
 Evet. Bir sanal makine kaydı sanal ağ içinde silerseniz, biz bu kaydı sanal ağ olması nedeniyle bölge içine kayıtlı olan DNS kayıtları otomatik olarak silecektir. 

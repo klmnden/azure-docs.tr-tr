@@ -1,8 +1,8 @@
 ---
-title: "Azure Hdınsight erişmek için tünel SSH kullanma | Microsoft Docs"
-description: "Linux tabanlı Hdınsight düğümler üzerinde barındırılan web kaynaklarına güvenli bir şekilde göz atmak için SSH tüneli kullanmayı öğrenin."
+title: Azure Hdınsight erişmek için tünel SSH kullanma | Microsoft Docs
+description: Linux tabanlı Hdınsight düğümler üzerinde barındırılan web kaynaklarına güvenli bir şekilde göz atmak için SSH tüneli kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 879834a4-52d0-499c-a3ae-8d28863abf65
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a6604cca4056acf3ce759eaf56bb9130ef672bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 05e06d6ed8c2a3bec0d12f81aae6f7022a56b942
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Ambari web kullanıcı Arabirimi, kaynak, iş, Oozie ve diğer web Uı'lar erişmek için SSH tünel kullan
 
@@ -32,9 +30,9 @@ Ambari menülerde çeşitli yalnızca SSH tüneli çalışır. Bu menüler web s
 Aşağıdaki Web kullanıcı arabirimleri SSH tüneli gerektirir:
 
 * Kaynak
-* NameNode
+* İş
 * İş parçacığı yığınları
-* Oozie web UI
+* Oozie web kullanıcı Arabirimi
 * HBase ana ve günlükleri kullanıcı Arabirimi
 
 Kümenizi özelleştirmek için betik eylemleri kullanın, herhangi bir hizmet veya bir web kullanıcı arabirimini kullanıma yüklediğiniz utilities SSH tüneli gerektirir. Örneğin, ton betik eylemini kullanarak yüklerseniz, Hue web kullanıcı arabirimini erişmek için bir SSH tüneli kullanmanız gerekir.
@@ -75,7 +73,7 @@ Bu komut, bağlantı noktasına yerel 9876 kümeye SSH üzerinden trafiğini yö
 * **2** -force Protokolü sürüm 2 yalnızca denemek için SSH.
 * **q** -Sessiz mod.
 * **T** -yalnızca bir bağlantı noktası iletme bu yana sözde tty ayırma, devre dışı.
-* **n**-Yalnızca bir bağlantı noktası iletme bu yana STDIN, okunması engelleyin.
+* **n** -yalnızca bir bağlantı noktası iletme bu yana STDIN, okunması engelleme.
 * **N** -yalnızca bir bağlantı noktası iletme bu yana bir uzak komutu yürütülmez.
 * **f** -arka planda çalıştırın.
 
@@ -115,16 +113,16 @@ Komut bittikten sonra yerel bilgisayarda 9876 numaralı bağlantı noktasına g�
    > [!NOTE]
    > Seçme **uzak DNS** Hdınsight kümesi kullanarak etki alanı adı sistemi (DNS) isteklerinin giderir. Bu ayar kümenin baş düğümüne kullanarak DNS çözümler.
 
-2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [http://www.whatismyip.com/](http://www.whatismyip.com/). Döndürülen IP bir Microsoft Azure veri merkezi tarafından kullanılan olması.
+2. Tünel bir siteyi ziyaret ederek gibi çalıştığını doğrulamak [ http://www.whatismyip.com/ ](http://www.whatismyip.com/). Döndürülen IP bir Microsoft Azure veri merkezi tarafından kullanılan olması.
 
 ## <a name="verify-with-ambari-web-ui"></a>Ambari web kullanıcı Arabirimi ile doğrulayın
 
 Küme oluşturulduktan sonra hizmet web Uı'lar Ambari Web üzerinden erişebilirsiniz doğrulamak için aşağıdaki adımları kullanın:
 
-1. Tarayıcınızda, http://headnodehost:8080 için gidin. `headnodehost` Adresi ambarı üzerinde çalıştığı headnode çözümleyip ve küme için tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
+1. Tarayıcınızda, Git http://headnodehost:8080. `headnodehost` Adresi ambarı üzerinde çalıştığı headnode çözümleyip ve küme için tüneli üzerinden gönderilir. İstendiğinde, kümeniz için yönetici kullanıcı adını (Yönetici) ve parolasını girin. Ambari web kullanıcı arabirimini ikinci kez istenebilir. Öyleyse, bilgileri yeniden girin.
 
    > [!NOTE]
-   > Http://headnodehost:8080 adresi kümeye bağlanmak için kullanırken, tünel üzerinden bağlanırsınız. İletişim HTTPS yerine SSH tüneli kullanılarak güvenli hale getirilir. HTTPS kullanarak Internet üzerinden bağlanmak için https://CLUSTERNAME.azurehdinsight.net, kullanın nerede **CLUSTERNAME** kümesinin adı.
+   > Kullanırken http://headnodehost:8080 kümeye bağlanmak için adres, tünel üzerinden bağlanan. İletişim HTTPS yerine SSH tüneli kullanılarak güvenli hale getirilir. HTTPS kullanarak Internet üzerinden bağlanırken kullanacağı https://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** kümesinin adı.
 
 2. Ambari Web kullanıcı arabirimini HDFS sayfanın sol taraftaki listeden seçin.
 
@@ -144,7 +142,7 @@ Küme oluşturulduktan sonra hizmet web Uı'lar Ambari Web üzerinden erişebili
     ![İş UI görüntüsü](./media/hdinsight-linux-ambari-ssh-tunnel/namenode.png)
 
    > [!NOTE]
-   > Bu sayfanın URL'sini dikkat edin. benzer olmalıdır **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/küme**. Bu URI düğümünün iç tam etki alanı adı (FQDN) kullanıyor ve SSH tüneli kullanırken, yalnızca erişilebilir.
+   > Bu sayfanın URL'sini dikkat edin. benzer olmalıdır **http://hn1-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8088/cluster**. Bu URI düğümünün iç tam etki alanı adı (FQDN) kullanıyor ve SSH tüneli kullanırken, yalnızca erişilebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,24 +1,18 @@
 ---
-title: "Azure Analysis Services diğer ad sunucusu adlarını | Microsoft Docs"
-description: "Oluşturun ve sunucu adları kullanın açıklar."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services diğer ad sunucusu adlarını | Microsoft Docs
+description: Oluşturun ve sunucu adları kullanın açıklar.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: e0119580c4128ffd237127a62e29dac34297da5d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: edd13e9372643769060f43e952737154d812292d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="alias-server-names"></a>Diğer sunucu adları
 

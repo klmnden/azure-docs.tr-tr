@@ -1,8 +1,8 @@
 ---
-title: "Yığın dökümleri hdınsight'ta - Azure Hadoop Hizmetleri için etkinleştirme | Microsoft Docs"
-description: "Hata ayıklama ve çözümleme için Hadoop Linux tabanlı Hdınsight kümeleri Hizmetleri'nden yığın dökümleri etkinleştirin."
+title: Yığın dökümleri hdınsight'ta - Azure Hadoop Hizmetleri için etkinleştirme | Microsoft Docs
+description: Hata ayıklama ve çözümleme için Hadoop Linux tabanlı Hdınsight kümeleri Hizmetleri'nden yığın dökümleri etkinleştirin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 8f151adb-f687-41e4-aca0-82b551953725
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 2bc7b35a87f3973c59fb36372d4edad86412ea0e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: cd906736f2642d764c2b72a0572f63d675613c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Linux tabanlı hdınsight'ta Hadoop Hizmetleri için yığın dökümleri etkinleştir
 
@@ -63,7 +61,7 @@ Bir OutOfMemoryError oluştuğunda aşağıdaki yığın dökümleri sağlar:
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+**  Bu seçeneği etkin olduğunu gösterir. Varsayılan olarak devre dışı seçeneği kullanılır.
+**+** Bu seçeneği etkin olduğunu gösterir. Varsayılan olarak devre dışı seçeneği kullanılır.
 
 > [!WARNING]
 > Döküm dosyaları büyük olabileceğinden yığın dökümleri hdınsight'ta Hadoop Hizmetleri için varsayılan olarak etkin değildir. Sorunu yeniden ve döküm dosyaları toplanan sonra bunları devre dışı bırakmak, bunları gidermek için etkinleştirirseniz, unutmayın.
@@ -91,7 +89,7 @@ Bir komut dosyası ayrıca tetikleyebilir olduğunda bir **OutOfMemoryError** ol
 
 Bir hizmetin yapılandırmasını değiştirmek için aşağıdaki adımları kullanın:
 
-1. Kümeniz için Ambari web kullanıcı arabirimini açın. Https://YOURCLUSTERNAME.azurehdinsight.net URL'dir.
+1. Kümeniz için Ambari web kullanıcı arabirimini açın. URL https://YOURCLUSTERNAME.azurehdinsight.net.
 
     İstendiğinde, HTTP hesap adını kullanarak site kimlik doğrulaması (varsayılan: Yönetici) ve parola kümeniz için.
 

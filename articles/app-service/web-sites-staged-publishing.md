@@ -1,8 +1,8 @@
 ---
-title: "Hazırlık ortamları için Azure App Service'te web uygulamalarını ayarlama | Microsoft Docs"
-description: "Azure App Service'deki web uygulamaları için hazırlanmış yayımlamayı kullanmayı öğrenin."
+title: Hazırlık ortamları için Azure App Service'te web uygulamalarını ayarlama | Microsoft Docs
+description: Azure App Service'deki web uygulamaları için hazırlanmış yayımlamayı kullanmayı öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: a262ba335256878b03a9a2cce6f7ba6a3dae715c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c02b7a74eea6973d6ccfbc1cc59d15bfd5cb5b77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Hazırlık Azure App Service ortamları ayarlama
 <a name="Overview"></a>
@@ -30,7 +30,7 @@ Web uygulaması, Linux, mobil arka uç ve API uygulaması için web uygulaması 
 * Bir uygulama için bir yuva ilk dağıtma ve üretim ile değiştirmeden yuva tüm örneklerini üretime takas önce warmed olduğunu sağlar. Uygulamanızı dağıttığınızda bu kapalı kalma süresini ortadan kaldırır. Trafik yeniden yönlendirmesi sorunsuzdur ve değiştirme işlemleri sonucunda hiçbir istek bırakılır. Yapılandırarak bu iş akışının tamamı otomatikleştirilebilir [otomatik takas](#Auto-Swap) zaman öncesi takas doğrulama gerekli değildir.
 * Değiştirme işleminden sonra önceden hazırlanmış uygulama yuvasıyla artık önceki üretim uygulamasına sahiptir. Beklendiği gibi üretim yuvasına değişiklikleri varsa, "son bilinen iyi sitenizi" hemen almak için aynı değiştirme işlemini gerçekleştirebilirsiniz geri.
 
-Her uygulama hizmeti planı katmanı dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın katmanı destekler yuvası için bkz: [App Service fiyatlandırması](https://azure.microsoft.com/pricing/details/app-service/).
+Her uygulama hizmeti planı katmanı dağıtım yuvaları farklı sayıda destekler. Out sayısını bulmak için uygulamanızın katmanı destekler yuvası için bkz: [uygulama hizmet sınırları](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#app-service-limits).
 
 * Uygulamanız birden çok yuvası olduğunda, katmanı değiştirilemiyor.
 * Ölçeklendirme için üretim dışı yuvası kullanılabilir değil.

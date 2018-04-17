@@ -1,8 +1,8 @@
 ---
-title: "Apache Storm Python bileşenleri - Azure Hdınsight ile | Microsoft Docs"
-description: "Python bileşenleri kullanan bir Apache Storm topolojisini oluşturmayı öğrenin."
+title: Apache Storm Python bileşenleri - Azure Hdınsight ile | Microsoft Docs
+description: Python bileşenleri kullanan bir Apache Storm topolojisini oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1da38ebbe3354bbb36f68d1243b30bf2f4c5633f
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: ebfc9d5aa1c3a650a938c0a9f5fc3d047f90458d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Python kullanarak Hdınsight üzerinde Apache Storm topolojileri geliştirme
 
@@ -29,7 +27,7 @@ Python bileşenleri kullanan bir Apache Storm topolojisini oluşturmayı öğren
 > [!IMPORTANT]
 > Bu belgedeki bilgiler Hdınsight 3.6 üzerinde Storm kullanılarak test edilmiştir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-Bu proje için kod şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
+Bu proje için kod şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-python-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -43,7 +41,7 @@ Bu proje için kod şu adresten edinilebilir [https://github.com/Azure-Samples/h
 
 ## <a name="storm-multi-language-support"></a>Storm çoklu dil desteği
 
-Apache Storm, herhangi bir programlama dili kullanılarak yazılmış bileşenleriyle çalışmak üzere tasarlanmıştır. Bileşenleri ile nasıl çalışılacağını anlamalısınız [Thrift tanımıdır Storm için](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Python için bir modül Storm ile kolayca arabirim sayesinde Apache Storm projenin bir parçası olarak sağlanır. Bu modülü bulabilirsiniz [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
+Apache Storm, herhangi bir programlama dili kullanılarak yazılmış bileşenleriyle çalışmak üzere tasarlanmıştır. Bileşenleri ile nasıl çalışılacağını anlamalısınız [Thrift tanımıdır Storm için](https://github.com/apache/storm/blob/master/storm-core/src/storm.thrift). Python için bir modül Storm ile kolayca arabirim sayesinde Apache Storm projenin bir parçası olarak sağlanır. Bu modülü bulabilirsiniz [ https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py ](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
 Storm Java sanal makine (JVM) üzerinde çalışan Java bir işlemdir. Diğer dillerde yazılmış bileşenleri alt yürütülür. Storm stdin/stdout gönderilen JSON iletileri kullanarak bu alt iletişim kurar. Bileşenleri arasındaki iletişim hakkında daha fazla ayrıntı bulunabilir [çoklu dil Protokolü](https://storm.apache.org/documentation/Multilang-protocol.html) belgeleri.
 
@@ -140,7 +138,7 @@ Topoloji durdurmak için kullanma __Ctrl + C__.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Kümede topolojisini görüntülemek için Storm kullanıcı Arabirimi kullanabilirsiniz. Storm kullanıcı Arabirimi https://mycluster.azurehdinsight.net/stormui bulunur. Değiştir `mycluster` küme adıyla.
+3. Kümede topolojisini görüntülemek için Storm kullanıcı Arabirimi kullanabilirsiniz. Storm kullanıcı Arabirimi konumundadır https://mycluster.azurehdinsight.net/stormui. Değiştir `mycluster` küme adıyla.
 
 > [!NOTE]
 > Başladıktan sonra Storm topolojisini durdurulana kadar çalışır. Topoloji durdurmak için aşağıdaki yöntemlerden birini kullanın:

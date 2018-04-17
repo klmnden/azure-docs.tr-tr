@@ -4,7 +4,7 @@ description: SQL Node.js API ve yayın tarih, sona erme tarihlerini ve her Azure
 services: cosmos-db
 documentationcenter: nodejs
 author: rnagpal
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 ms.assetid: 9d5621fa-0e11-4619-a28b-a19d872bcf37
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 1/4/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 728db669954e317905d762c68c8990f064529699
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 68c124bc2a89c819eb72310138ddd5d0c7739c4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SQL API için Azure Cosmos DB Node.js SDK: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ ms.lasthandoff: 03/30/2018
 * Bir hata, burada ilgili belgelerini özel Unicode karakterler (LS, PS) b executeStoredProcedure içinde sabit.
 * Bölüm anahtarı Unicode karakterler içeren belgeleri işlemedeki hatanın düzeltildiğini.
 * Sabit koleksiyonlar ile ad ortamı oluşturma desteği. Github sorunu #114.
-* İzni yetkilendirme belirtecini sabit desteği. Github issue #178.
+* İzni yetkilendirme belirtecini sabit desteği. Github sorunu #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
 * Yeni bir desteği eklendi [tutarlılık düzeyi](consistency-levels.md) ConsistentPrefix çağrılır.

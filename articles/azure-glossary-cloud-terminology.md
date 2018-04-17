@@ -1,12 +1,12 @@
 ---
-title: "Azure sözlüğünü - Azure sözlüğünü | Microsoft Docs"
-description: "Azure platformunda bulut terminolojisi anlamak için Azure sözlüğünü kullanın. Bu kısa Azure sözlük tanımları için Azure ortak bulut koşulları sağlar."
-keywords: "Azure sözlüğünü, bulut terminolojisi, Azure sözlüğünü, terim tanımları, bulut koşulları"
+title: Azure sözlüğünü - Azure sözlüğünü | Microsoft Docs
+description: Azure platformunda bulut terminolojisi anlamak için Azure sözlüğünü kullanın. Bu kısa Azure sözlük tanımları için Azure ortak bulut koşulları sağlar.
+keywords: Azure sözlüğünü, bulut terminolojisi, Azure sözlüğünü, terim tanımları, bulut koşulları
 services: na
 documentationcenter: na
 author: MonicaRush
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d7ac12f7-24b5-4bcd-9e4d-3d76fbd8d297
 ms.service: multiple
 ms.workload: na
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: fd20405c284161a1a66493056f21c147efa632cb
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 953320734c1601c411144bd7a6496716a65e452e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure sözlüğü: Azure platformunda bulut terimler sözlüğü
 
@@ -59,7 +59,7 @@ Bkz: [nasıl Azure PowerShell'i yükleme ve yapılandırma](/powershell/azure/ov
 Sanal makineler aynı anda büyük olasılıkla başarısız olabilir bir kullanılabilirlik kümesinde koleksiyonu. Bir örnek, bir dolapta ortak bir güç kaynağı ve ağ anahtarı paylaşmak makineler grubudur. Azure üzerinde bir kullanılabilirlik kümesi'nde sanal makinelerin birden çok hata etki alanları arasında otomatik olarak ayrılır.  
 Bkz: [Windows sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) veya [Linux sanal makinelerin kullanılabilirliğini yönetme](virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)  
 
-## <a name="geo"></a>geo
+## <a name="geo"></a>coğrafi
 Genellikle iki veya daha fazla bölge içeren veri residency için tanımlanmış bir sınır. Sınırlar içinde veya Ulusal sınırların dışında olabilir ve vergi düzenlemesi tarafından etkilenir. Her coğrafi en az bir bölge vardır. Asya Pasifik ve Japonya geos örnekleridir. Olarak da bilinir *Coğrafya*.  
 Bkz: [Azure bölgeleri](best-practices-availability-paired-regions.md)
 
@@ -111,7 +111,7 @@ Bkz: [Azure Resource Manager'a genel bakış](azure-resource-manager/resource-gr
 
 ## <a name="role"></a>rol
 Kullanıcılar, gruplar ve hizmetlere atanmış erişimi denetlemek için bir anlamına gelir. Roller gibi oluştururken, yönetmek ve Azure kaynakları okuma Eylemler gerçekleştirebilecek.  
-Bkz: [RBAC: yerleşik roller](active-directory/role-based-access-built-in-roles.md)
+Bkz: [RBAC: yerleşik roller](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>Hizmet düzeyi sözleşmesi (SLA)
 Açık kalma süresi ve bağlantı için Microsoft'un taahhüt açıklar anlaşma. Her Azure hizmetin belirli bir SLA'sı vardır.  

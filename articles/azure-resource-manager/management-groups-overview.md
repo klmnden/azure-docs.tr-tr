@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 911043c8fda985f25023dc1224d8e67b283f4d6c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 31e71f153c7bbf76b0f06f8f17a74c43cc1b1c81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
@@ -32,7 +32,7 @@ Esnek yapısını Yönetim grupları ve Abonelikleri birleşik İlkesi ve erişi
 
 ![Ağaç](media/management-groups/MG_overview.png)
 
-Departmanlara göre gruplandırılmış bir hiyerarşi oluşturarak, atayabilirsiniz [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) rolleri, *devral* departmanlara bu yönetim grubu altında. Yönetim gruplarını kullanarak, iş yükünü azaltabilir ve rol kez atamak yalnızca sağlayarak hata riskini azaltır. 
+Departmanlara göre gruplandırılmış bir hiyerarşi oluşturarak, atayabilirsiniz [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) rolleri, *devral* departmanlara bu yönetim grubu altında. Yönetim gruplarını kullanarak, iş yükünü azaltabilir ve rol kez atamak yalnızca sağlayarak hata riskini azaltır. 
 
 ### <a name="important-facts-about-management-groups"></a>Yönetim grupları hakkında önemli bilgiler
 - 10.000 Yönetim grupları tek bir dizin desteklenebilir. 
@@ -55,7 +55,7 @@ Bu öğe üzerinde çalışılan ve Yönetim grupları "Genel kullanılabilirlik
 
 ## <a name="root-management-group-for-each-directory"></a>Her dizin için kök yönetim grubu
 
-Her dizin "Root" Yönetim grubu olarak adlandırılan tek bir üst düzey yönetim grubu verilir. Bu kök yönetim grubunun tüm Yönetim gruplarını sağlamak için hiyerarşiye oluşturulur ve abonelikleri Katlama. Bu kök yönetim grubu genel ilkeler ve RBAC atamaları için dizin düzeyinde uygulanmasını sağlar. [Directory yöneticisinin gereken kendilerini yükseltmesine](../active-directory/role-based-access-control-tenant-admin-access.md) başlangıçta bu kök grubunun sahibi olmalıdır. Yönetici grubun sahibi olduktan sonra bunların herhangi bir RBAC rolü hiyerarşi yönetmek için diğer dizin kullanıcılara ve gruplara atayabilirsiniz.  
+Her dizin "Root" Yönetim grubu olarak adlandırılan tek bir üst düzey yönetim grubu verilir. Bu kök yönetim grubunun tüm Yönetim gruplarını sağlamak için hiyerarşiye oluşturulur ve abonelikleri Katlama. Bu kök yönetim grubu genel ilkeler ve RBAC atamaları için dizin düzeyinde uygulanmasını sağlar. [Directory yöneticisinin gereken kendilerini yükseltmesine](../role-based-access-control/elevate-access-global-admin.md) başlangıçta bu kök grubunun sahibi olmalıdır. Yönetici grubun sahibi olduktan sonra bunların herhangi bir RBAC rolü hiyerarşi yönetmek için diğer dizin kullanıcılara ve gruplara atayabilirsiniz.  
 
 ### <a name="important-facts-about-the-root-management-group"></a>Kök yönetim grubu hakkında önemli bilgiler
 - Kök yönetim grubunun adı ve kimliği Azure Active Directory kimliği varsayılan olarak verilir. Görünen ad, Azure Portalı'ndan farklı göstermek için herhangi bir zamanda güncelleştirilebilir. 
@@ -67,9 +67,9 @@ Her dizin "Root" Yönetim grubu olarak adlandırılan tek bir üst düzey yönet
   
 ## <a name="management-group-access"></a>Yönetim grubu erişimi
 
-Azure Yönetim gruplarını destekleyen [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) tüm kaynak erişir ve rol tanımları için. Bu izinler, hiyerarşi içinde mevcut alt kaynaklara devralınır.   
+Azure Yönetim gruplarını destekleyen [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) tüm kaynak erişir ve rol tanımları için. Bu izinler, hiyerarşi içinde mevcut alt kaynaklara devralınır.   
 
-While herhangi [yerleşik RBAC rolü](../active-directory/role-based-access-control-what-is.md#built-in-roles) atanabilir bir yönetim grubu için sık kullanılan dört rolleri vardır: 
+While herhangi [yerleşik RBAC rolü](../role-based-access-control/overview.md#built-in-roles) atanabilir bir yönetim grubu için sık kullanılan dört rolleri vardır: 
 - **Sahibi** temsilci başkalarına erişimi hakkı dahil olmak üzere tüm kaynaklara tam erişimi vardır. 
 - **Katkıda bulunan** olabilir oluşturun ve tüm türlerini Azure kaynaklarını yönetmek ancak başkalarına erişim izni veremiyor.
 - **Kaynak İlkesi katkıda bulunan** oluşturabilir ve kaynakları dizininde ilkelerini yönetebilirsiniz.     

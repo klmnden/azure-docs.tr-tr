@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2018
+ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 086cc528e500a55bba73796e5fc7b17c561de8b4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0afdfb7b7d1f74d3df40b22bb97afc0f39bcc6d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB gelen veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Bir şirket içi MongoDB veri deposundan verileri herhangi bir desteklenen havuz
 ## <a name="prerequisites"></a>Önkoşullar
 Azure Data Factory hizmetinin şirket içi MongoDB veritabanınıza bağlanmak aşağıdaki bileşenleri yüklemeniz gerekir:
 
-- Desteklenmeyen MongoDB sürümler: 2.4, 2.6, 3.0 ve 3.2.
+- Desteklenmeyen MongoDB sürümler: 2.4, 2.6, 3.0, 3.2, 3.4 ve 3.6.
 - Veri yönetimi veritabanı ile kaynakları için rekabete önlemek için ağ geçidi veritabanını barındıran aynı makine üzerindeki veya ayrı bir makine. Veri Yönetimi ağ geçidi, şirket içi veri kaynakları bulut hizmetlerine güvenli ve yönetilen bir şekilde birbirine bağlayan bir yazılımdır. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale veri yönetimi ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale verileri taşımak veri ardışık ağ geçidi kurun ayarı ilişkin adım adım yönergeler.
 
     Ağ geçidi yüklediğinizde, MongoDB için bağlanmak için kullanılan bir Microsoft MongoDB ODBC sürücüsü otomatik olarak yükler.
@@ -326,7 +326,7 @@ Kullanabileceğiniz [Kopyalama Sihirbazı'nı](data-factory-data-movement-activi
 
 | _ıd | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:”123”, item:”toaster”, price:”456”, discount:”0.2”}, {invoice_id:”124”, item:”oven”, price: ”1235”, discount: ”0.2”}] |Gümüş |[5,6] |
+| 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", fiyat: "456", indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", fiyat: "1235" indirim: "0.2"}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", fiyat: "12543", indirim: "0,0"}] |Altın |[1,2] |
 
 Sürücü bu tek tablo göstermek için birden çok sanal tablo oluşturur. İlk sanal "aşağıda gösterilen ExampleTable" adlı temel tablo tablodur. Temel tablo özgün tablonun tüm verileri içerir, ancak diziler verilerden çıkarıldı ve sanal tablolarda genişletilir.

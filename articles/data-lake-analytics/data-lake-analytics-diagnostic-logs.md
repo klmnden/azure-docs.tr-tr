@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Lake Analytics için tanılama günlükleri görüntüleme | Microsoft Docs"
-description: "Kurulum ve Azure Data Lake analytics için tanılama günlüklerine erişmek öğrenme "
+title: Azure Data Lake Analytics için tanılama günlükleri görüntüleme | Microsoft Docs
+description: 'Kurulum ve Azure Data Lake analytics için tanılama günlüklerine erişmek öğrenme '
 services: data-lake-analytics
-documentationcenter: 
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
+documentationcenter: ''
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.service: data-lake-analytics
 ms.devlang: na
@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/12/2018
-ms.author: larryfr
-ms.openlocfilehash: e6cc5fd3d45691dbdc004f346c10d7b4568ae9aa
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: efec1e00e9c2da519028f7e6ff094a0f0876df79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics için tanılama günlüklerine erişme
 
@@ -215,7 +214,7 @@ Burada JSON biçimli Denetim günlüğüne örnek girişi verilmiştir. Her bir 
 
 ## <a name="process-the-log-data"></a>İşlem günlük verileri
 
-Azure Data Lake Analytics hakkında işlemek ve günlük verileri analiz etmek bir örnek sağlar. Örnek: bulabilirsiniz [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
+Azure Data Lake Analytics hakkında işlemek ve günlük verileri analiz etmek bir örnek sağlar. Örnek: bulabilirsiniz [ https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample ](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)

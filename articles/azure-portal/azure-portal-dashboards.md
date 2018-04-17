@@ -1,8 +1,8 @@
 ---
-title: "Oluşturma ve Azure portalı panoları paylaşma | Microsoft Docs"
-description: "Bu makalede, oluşturma ve Azure portalında panolar düzenleme açıklanmaktadır."
+title: Oluşturma ve Azure portalı panoları paylaşma | Microsoft Docs
+description: Bu makalede, oluşturma ve Azure portalında panolar düzenleme açıklanmaktadır.
 services: azure-portal
-documentationcenter: 
+documentationcenter: ''
 author: sewatson
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.openlocfilehash: 7f90c882285170bac34bfe020831d3ac04010a11
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4e5a5ae944b5f0059ee78a2171a9688902aaf6db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Oluşturma ve Azure portalındaki pano paylaşma
 Birden çok panolar oluşturun ve bunları Azure aboneliklerinize erişimi başkalarıyla paylaşabilir.  Bu makalede oluşturma, düzenleme, yayımlama ve panolar erişimi yönetme temellerini geçer.
@@ -75,7 +75,7 @@ Bir Pano oluşturduğunuzda, görebileceğiniz tek kişi olduğunuz anlamına ge
 
 ![Pano paylaşımı](./media/azure-portal-dashboards/share-dashboard.png)
 
-Abonelik ve kaynak grubu için yayımlanması panonuz için seçim istenir. (Size bir e-posta adresi yazarak paylaşamaz şekilde) sorunsuz bir şekilde panolar ekosistemi tümleştirmek için paylaşılan panoları Azure kaynaklarını uyguladık.  Portal döşemeleri çoğu tarafından görüntülenen bilgilere erişim tarafından yönetilir [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md). Bir erişim denetimi açısından bakıldığında, paylaşılan Pano sanal makine ya da bir depolama hesabı hiç farklı değildir.  
+Abonelik ve kaynak grubu için yayımlanması panonuz için seçim istenir. (Size bir e-posta adresi yazarak paylaşamaz şekilde) sorunsuz bir şekilde panolar ekosistemi tümleştirmek için paylaşılan panoları Azure kaynaklarını uyguladık.  Portal döşemeleri çoğu tarafından görüntülenen bilgilere erişim tarafından yönetilir [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir erişim denetimi açısından bakıldığında, paylaşılan Pano sanal makine ya da bir depolama hesabı hiç farklı değildir.  
 
 Bir Azure aboneliğiniz varsa ve ekibinizin üyeleri rolleri atanmış düşünelim **sahibi**, **katkıda bulunan**, veya **okuyucu** abonelik.  Sahipler veya katkıda bulunanlar kullanıcılar listesinde, görüntülemek, oluşturmak, değiştirmek veya bu abonelik içindeki panolar silmek kullanabilirsiniz.  Okuyucular kullanıcılar listesi ve görünümü panolarına kullanabilirsiniz ancak değiştirin veya silin.  Okuyucu erişimi olan kullanıcılar bir paylaşılan Pano yerel düzenlemeler yapabilir, ancak bu değişiklikleri geri sunucuya yayımlayın mümkün değildir.  Ancak, bunlar Pano kendi kullanmak için özel bir kopyasını yapabilirsiniz.  Her zaman olduğu gibi tek tek döşeme Panoda için karşılık gelen kaynaklara göre kendi erişim denetim kurallarını uygulayın.  
 

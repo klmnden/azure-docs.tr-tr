@@ -1,16 +1,16 @@
 ---
-title: "Grup bağımlılık eşlemesindeki Azure geçirmek değerlendirme grubuyla İyileştir | Microsoft Docs"
-description: "Azure geçirmek hizmetinde Grup bağımlılık eşlemesi kullanarak bir değerlendirme iyileştirmek açıklar."
+title: Grup bağımlılık eşlemesindeki Azure geçirmek değerlendirme grubuyla İyileştir | Microsoft Docs
+description: Azure geçirmek hizmetinde Grup bağımlılık eşlemesi kullanarak bir değerlendirme iyileştirmek açıklar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/22/2017
 ms.author: raynew
-ms.openlocfilehash: 3b10765894501791004e3a9221363f196cc0c91d
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: a7c1dcae5708164252fa04a0fd1471eb1ae9bf90
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Grup bağımlılık eşlemesi kullanarak bir grup daraltın
 
@@ -37,8 +37,8 @@ Bir Windows makinesinde aracı yüklemek için:
 1. İndirilen Aracısı'nı çift tıklatın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. Üzerinde **Lisans Koşulları'nı** sayfasında, **ediyorum** lisans kabul etmek için.
 3. İçinde **hedef klasörü**, saklamak veya varsayılan yükleme klasörünü değiştirmek > **sonraki**. 
-4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi (OMS)** > **sonraki**. 
-5. Tıklatın **Ekle** yeni bir OMS çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
+4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi** > **sonraki**. 
+5. Tıklatın **Ekle** yeni bir günlük analizi çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
 
 Bir Linux makinesinde aracı yüklemek için:

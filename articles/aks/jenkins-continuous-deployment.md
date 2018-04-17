@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8238e0f55b88e4fa207357630aa4228250c33249
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b0adf5098b1be9f245b22c859dbb86a14335e435
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-container-service"></a>Jenkins ve Azure kapsayıcı hizmeti ile sürekli dağıtımı
 
-Bu belge, temel sürekli dağıtımı iş akışı Jenkins ve Azure kapsayıcı hizmeti (AKS) kümesini arasında kurmak gösterilmiştir. 
+Bu belge, temel sürekli dağıtımı iş akışı Jenkins ve Azure kapsayıcı hizmeti (AKS) kümesini arasında kurmak gösterilmiştir.
 
 Örnek iş akışı aşağıdaki adımları içerir:
 
@@ -41,7 +41,7 @@ Aşağıdaki öğeler, bu makaledeki adımları tamamlamak için gerekir.
 
 ## <a name="prepare-application"></a>Uygulama hazırlama
 
-Bu belge boyunca kullanılan Azure oy uygulama bir veya daha fazla pod'ları ve geçici veri depolama için Redis barındırma ikinci bir pod barındırılan bir web arabirimi içerir. 
+Bu belge boyunca kullanılan Azure oy uygulama bir veya daha fazla pod'ları ve geçici veri depolama için Redis barındırma ikinci bir pod barındırılan bir web arabirimi içerir.
 
 Jenkins derleme önce / AKS tümleştirmesi, hazırlamak ve AKS kümenizi Azure oy uygulamayı dağıtın. Bu uygulama biri sürümü düşünün.
 
@@ -94,7 +94,7 @@ Kullanım [docker etiketi] [ docker-tag] oturum açma sunucusu adı ve sürüm n
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-ACR oturum açma sunucusu değeri, ACR oturum açma sunucusu adı ve anında iletme ile güncelleştirme `azure-vote-front` kayıt defterine görüntü. 
+ACR oturum açma sunucusu değeri, ACR oturum açma sunucusu adı ve anında iletme ile güncelleştirme `azure-vote-front` kayıt defterine görüntü.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -118,7 +118,7 @@ Ardından, kullanın [kubectl oluşturma] [ kubectl-create] uygulamayı çalış
 kubectl create -f azure-vote-all-in-one-redis.yaml
 ```
 
-A [Kubernetes hizmet] [ kubernetes-service] internet uygulamasını kullanıma sunmak için oluşturulur. Bu işlem birkaç dakika sürebilir. 
+A [Kubernetes hizmet] [ kubernetes-service] internet uygulamasını kullanıma sunmak için oluşturulur. Bu işlem birkaç dakika sürebilir.
 
 İlerleme durumunu izlemek için [kubectl get service][kubectl-get] komutunu `--watch` bağımsız değişkeniyle birlikte kullanın.
 
@@ -127,12 +127,12 @@ kubectl get service azure-vote-front --watch
 ```
 
 Başlangıçta *azure-vote-front* için *EXTERNAL-IP* durumu *pending* olarak görünür.
-  
+
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-*EXTERNAL-IP* adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `control+c` komutunu kullanın. 
+*EXTERNAL-IP* adresi *pending* durumundan *IP address* değerine değiştiğinde kubectl izleme işlemini durdurmak için `control+c` komutunu kullanın.
 
 ```
 azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
@@ -205,21 +205,21 @@ Tamamlandığında, kimlik bilgileri form bu görüntüsüne benzer görünmelid
 
 Tıklatın **Tamam** ve Jenkins Yönetici portalına geri dönün.
 
-## <a name="create-jenkins-project"></a>Create Jenkins project
+## <a name="create-jenkins-project"></a>Jenkins projesi oluşturma
 
 Jenkins Yönetim Portalı'ndan tıklatın **yeni öğe**.
 
-Proje Örneğin, bir ad verin `azure-vote`seçin **Freestyle proje**, tıklatıp **Tamam**. 
+Proje Örneğin, bir ad verin `azure-vote`seçin **Freestyle proje**, tıklatıp **Tamam**.
 
-![Jenkins project](media/aks-jenkins/jenkins-project.png)
+![Jenkins proje](media/aks-jenkins/jenkins-project.png)
 
 Altında **genel**seçin **GitHub proje** ve Azure oy GitHub proje sayfanızı çatala URL'yi girin.
 
 ![GitHub proje](media/aks-jenkins/github-project.png)
 
-Altında **kaynak kodu Yönetimi**seçin **Git**, Azure oy GitHub depo sayfanızı çatala URL'sini girin. 
+Altında **kaynak kodu Yönetimi**seçin **Git**, Azure oy GitHub depo sayfanızı çatala URL'sini girin.
 
-Kimlik bilgilerini tıklayın ve **Ekle** > **Jenkins**. Altında **türü**seçin **gizli metin** ve girin, [GitHub kişisel erişim belirteci] [ git-access-token] gizli olarak. 
+Kimlik bilgilerini tıklayın ve **Ekle** > **Jenkins**. Altında **türü**seçin **gizli metin** ve girin, [GitHub kişisel erişim belirteci] [ git-access-token] gizli olarak.
 
 Seçin **Ekle** bittiğinde.
 
@@ -233,7 +233,7 @@ Altında **yapı ortamı**seçin **gizli metni veya dosyaları kullanmanız**.
 
 ![Jenkins yapı ortamı](media/aks-jenkins/build-environment.png)
 
-Altında **bağlamaları**seçin **Ekle** > **kullanıcı adı ve parolası (ayrılmış)**. 
+Altında **bağlamaları**seçin **Ekle** > **kullanıcı adı ve parolası (ayrılmış)**.
 
 Girin `ACR_ID` için **kullanıcı adı değişkeni**, ve `ACR_PASSWORD` için **parola değişkenini**.
 
@@ -263,13 +263,13 @@ Tamamlandığında, tıklatın **kaydetmek**.
 
 Devam etmeden önce Jenkins yapı sınayın. Bu derleme işi yapılandırıldığını, uygun Kubernetes kimlik doğrulama dosyasını yerinde olduğundan ve doğru ACR kimlik bilgilerini sağladığınızdan emin doğrular.
 
-Tıklatın **şimdi yapı** projenin sol menüde. 
+Tıklatın **şimdi yapı** projenin sol menüde.
 
 ![Yapı Jenkins test](media/aks-jenkins/test-build.png)
 
 Bu işlem sırasında GitHub deposuna Jenkins yapı sunucusuna kopyalanması. Yeni bir kapsayıcı görüntüsü oluşturulur ve ACR kayıt defterine gönderilir. Son olarak, yeni görüntüyü kullanarak AKS küme üzerinde çalışan Azure oy uygulama güncelleştirilir. Uygulama kodu herhangi bir değişiklik yapılmıştır çünkü uygulama değiştirilmez.
 
-İşlem tamamlandıktan sonra tıklatabilirsiniz **#1 yapı** altında geçmişi yapı ve seçin **konsol çıktısı** yapı işlemi gelen tüm çıkış görmek için. Son satırı başarılı bir derlemede belirtmeniz gerekir. 
+İşlem tamamlandıktan sonra tıklayın **#1 yapı** altında geçmişi yapı ve seçin **konsol çıktısı** yapı işlemi gelen tüm çıkış görmek için. Son satırı başarılı bir derlemede belirtmeniz gerekir.
 
 ## <a name="create-github-webhook"></a>GitHub web kancası oluşturma
 
@@ -280,14 +280,14 @@ Ardından, böylece tüm yürütme üzerinde yeni bir yapı tetiklenir Jenkins y
 3. Seçin **Hizmet Ekle**, girin `Jenkins (GitHub plugin)` filtre kutusuna ve eklenti seçin.
 4. URL Jenkins kanca için girin `http://<publicIp:8080>/github-webhook/` nerede `publicIp` Jenkins sunucunun IP adresidir. Sondaki eklediğinizden emin olun /.
 5. Ekle hizmeti seçin.
-  
+
 ![GitHub web kancası](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>CI/CD işlemi uçtan uca test edin
 
-Geliştirme makinenizde kopyalanan uygulama ile bir kod düzenleyicisini açın. 
+Geliştirme makinenizde kopyalanan uygulama ile bir kod düzenleyicisini açın.
 
-Altında **/azure-vote/azure-vote** dizin adlı bir dosya bulabilir **config_file.cfg**. Bu dosyadaki oy değerleri için bir şeyler kediler ve köpekler dışında güncelleştirin. 
+Altında **/azure-vote/azure-vote** dizin, bir dosya adındaki bulun **config_file.cfg**. Bu dosyadaki oy değerleri için bir şeyler kediler ve köpekler dışında güncelleştirin.
 
 Aşağıdaki örnek gösterir ve güncelleştirilmiş **config_file.cfg** dosya.
 
@@ -299,7 +299,7 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-Tamamlandığında, dosyayı kaydedin, değişiklikleri ve bunları sizin çatalı GitHub deposunun itme... Yürütme tamamlandıktan sonra GitHub Web kancası kapsayıcı görüntü ve AKS dağıtım güncelleştirmeleri yeni bir Jenkins yapı tetikler. Jenkins Yönetici konsolunda yapı işlemini izleyin. 
+Tamamlandığında, dosyayı kaydedin, değişiklikleri ve bunları sizin çatalı GitHub deposunun itme... Yürütme tamamlandıktan sonra GitHub Web kancası kapsayıcı görüntü ve AKS dağıtım güncelleştirmeleri yeni bir Jenkins yapı tetikler. Jenkins Yönetici konsolunda yapı işlemini izleyin.
 
 Yapı tamamlandıktan sonra yeniden değişiklikleri izlemek için uygulama uç noktasına göz atın.
 

@@ -1,25 +1,25 @@
 ---
-title: "Geliştirme basitleştirmek için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçlarını kullanma"
-description: "Bu belge geliştirme için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçları incelemeleri"
+title: Geliştirme basitleştirmek için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçlarını kullanma
+description: Bu belge geliştirme için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçları incelemeleri
 services: iot-dps
-keywords: 
+keywords: ''
 author: yzhong94
 ms.author: yizhon
-ms.date: 01/18/2018
+ms.date: 04/09/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 76c6f64dea202f661691fafaa78a6d77b4a40f14
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
+ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Geliştirme sağlama işlemini basitleştirmek için SDK'ları sağlanan araçları kullanma
-IOT Hub cihaz sağlama hizmeti güvenli ve ölçeklenebilir bir şekilde zero touch, yalnızca zaman sağlamayla sağlama işlemini basitleştirir.  X.509 sertifikası veya Güvenilir Platform Modülü (TPM) biçiminde güvenlik kanıtlama gereklidir.  Microsoft ile ortaklık de [diğer güvenlik donanım iş ortaklarından](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) IOT dağıtımının güvenliğini sağlama güvenini artırmak için. Donanım güvenlik gereksinimi anlama geliştiriciler için oldukça zor olabilir. Azure IOT sağlama hizmeti SDK'ları bir dizi geliştiriciler kolaylık katman sağlama hizmete konuşun yazma istemcilerin kullanabilmesi için sağlanır. SDK'ları örnekleri yaygın senaryolar ve bunun yanı sıra güvenlik kanıtlama geliştirme basitleştirmek için araçlar da sağlar.
+IOT Hub cihaz hizmeti sağlama sıfır-dokunuşla sağlama işlemini basitleştirir yalnızca zaman [otomatik sağlama](concepts-auto-provisioning.md) güvenli ve ölçeklenebilir bir şekilde.  X.509 sertifikası veya Güvenilir Platform Modülü (TPM) biçiminde güvenlik kanıtlama gereklidir.  Microsoft ile ortaklık de [diğer güvenlik donanım iş ortaklarından](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) IOT dağıtımının güvenliğini sağlama güvenini artırmak için. Donanım güvenlik gereksinimi anlama geliştiriciler için oldukça zor olabilir. Azure IOT sağlama hizmeti SDK'ları bir dizi geliştiriciler kolaylık katman sağlama hizmete konuşun yazma istemcilerin kullanabilmesi için sağlanır. SDK'ları örnekleri yaygın senaryolar ve bunun yanı sıra güvenlik kanıtlama geliştirme basitleştirmek için araçlar da sağlar.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Güvenilir Platform Modülü (TPM) simulator
 [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security#trusted-platform-module-tpm) platform kimliğini doğrulamak için anahtarlarını güvenli bir şekilde depolamak için bir standart başvurabilir veya standart uygulama modülleri ile etkileşim kurmak için kullanılan g/ç arabirimi başvurabilirsiniz. TPM'ler ayrık donanım, tümleşik donanım, bellenim veya yazılım tabanlı bulunabilir.  Üretimde TPM cihazda ayrık donanım, tümleşik donanım olarak da bulunur ve bellenim tabanlı. Sınama aşamasında, bir yazılım tabanlı TPM simulator geliştiricileri için sağlanır.  Bu simulator, yalnızca Windows platformunda şimdilik geliştirmek için kullanılabilir.
@@ -56,7 +56,7 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 2. Kök azure-IOT-sdk-java ile değiştirin.
 3. Çalıştırma ```mvn install -DskipTests=true``` gereken tüm paketler indirip SDK derleme
 4. X.509 sertifikası üreteci için kök dizinine gidin ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
-5. İle derleme```mvn clean install```
+5. İle derleme ```mvn clean install```
 6. Aşağıdaki komutları kullanarak aracı çalıştırın:
 ```
 cd target

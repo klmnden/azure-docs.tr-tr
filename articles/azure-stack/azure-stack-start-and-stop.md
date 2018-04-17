@@ -1,28 +1,28 @@
 ---
-title: "Başlatma ve durdurma Azure yığın | Microsoft Docs"
-description: "Başlat ve Azure yığın kapatma hakkında bilgi edinin."
+title: Başlatma ve durdurma Azure yığın | Microsoft Docs
+description: Başlat ve Azure yığın kapatma hakkında bilgi edinin.
 services: azure-stack
-documentationcenter: 
-author: mattbriggs
+documentationcenter: ''
+author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 43BF9DCF-F1B7-49B5-ADC5-1DA3AF9668CA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
-ms.author: mabrigg
-ms.openlocfilehash: 98bf75f5883b734c785ed1a3ed924afca1737c56
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.date: 04/09/2018
+ms.author: jeffgilb
+ms.reviewer: misainat
+ms.openlocfilehash: 53015ba5c282bbe9c7b8185b080ffb6d834b6c75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="start-and-stop-azure-stack"></a>Azure yığın durdurup başlatın
-
-*Uygulandığı öğe: Azure yığın tümleşik sistemleri (sürüm 1712 ve üzeri)*
+Düzgün kapatılır ve Azure yığın hizmetlerini yeniden başlatmak için bu makaledeki yordamları izlemelisiniz. 
 
 ## <a name="stop-azure-stack"></a>Azure yığın Durdur 
 
@@ -86,4 +86,4 @@ Altyapı ve Kiracı Hizmetleri Azure yığın ortamınıza başarıyla 2 saat so
 
 ## <a name="next-steps"></a>Sonraki adımlar 
 
-Azure yığın Tanılama aracı hakkında daha fazla bilgi edinin ve günlüğe kaydetme Bkz [Azure yığın tanılama araçları. Azure yığın tanılama araçları. Azure yığın tanılama araçları. Azure yığın tanılama araçları.
+Azure yığın Tanılama aracı hakkında daha fazla bilgi edinin ve günlüğe kaydetme bkz [Azure yığın tanılama araçları](azure-stack-diagnostics.md).

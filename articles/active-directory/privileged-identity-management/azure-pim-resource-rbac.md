@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/30/2018
 ms.author: billmath
-ms.openlocfilehash: 87d349933a8daeaf8b7a4487612ad62dd2b9efc2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="pim-for-azure-resources"></a>PIM Azure kaynakları için
 
@@ -43,7 +43,7 @@ Azure AD PIM (ancak bunlarla sınırlı değil) dahil olmak üzere özel (RBAC) 
 - Güvenlik Yöneticisi ve daha fazla bilgi
 
 >[!NOTE]
-Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD içinde abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyeleri kaynak yöneticileri olur. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırmak ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../role-based-access-built-in-roles.md).
+Kullanıcılar veya sahibi ya da kullanıcı erişimi yöneticisi rolü ve Azure AD içinde abonelik yönetimini etkinleştirme genel Yöneticiler atanmış bir grubun üyeleri kaynak yöneticileri olur. Bu yöneticileri, Rolleri Ata, rol ayarlarını yapılandırmak ve Azure kaynakları için PIM kullanarak erişimi gözden geçirin. Listesini görüntülemek [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="tasks"></a>Görevler
 
@@ -193,6 +193,6 @@ My rolleri sol gezinti menüsünde ve etkinleştirmek için uygun rolü seçin. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure kaynakları için yerleşik roller](../role-based-access-built-in-roles.md)
+- [Azure kaynakları için yerleşik roller](../../role-based-access-control/built-in-roles.md)
 - Hakkında bilgi edinin [burada Azure AD rolleri etkinleştirme](../active-directory-privileged-identity-management-how-to-activate-role.md)
 - [PIM onay iş akışları](azure-ad-pim-approval-workflow.md)

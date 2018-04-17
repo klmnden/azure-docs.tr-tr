@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 65319df8db339b1c124be47f27a841bbd7141921
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d3387812e064d3ce8a293db7d2c942a34cd5b364
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
@@ -42,7 +42,7 @@ Her Azure aboneliğinin Azure Active Directory örneği ile ilişkili olabilir. 
 ## <a name="authorization-and-access-control"></a>Yetkilendirme ve erişim denetimi
 Azure Data Lake Store erişebilmesi için Azure Active Directory kullanıcı kimlik doğrulaması yaptıktan sonra Data Lake Store izinlerini erişimi yetkilendirme kontrol eder. Data Lake Store hesabı ve veri ilgili etkinlikler için yetkilendirme aşağıdaki şekilde ayırır:
 
-* [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan
+* [Rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan
 * POSIX deposundaki verileri erişmek için ACL
 
 ### <a name="rbac-for-account-management"></a>Hesap yönetimi için RBAC

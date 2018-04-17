@@ -1,11 +1,10 @@
 ---
-title: "Azure Cosmos DB tarihleri ile çalışma | Microsoft Docs"
-description: "Azure Cosmos veritabanı tarihleri ile birlikte çalışma hakkında bilgi edinin."
+title: Azure Cosmos DB tarihleri ile çalışma | Microsoft Docs
+description: Azure Cosmos veritabanı tarihleri ile birlikte çalışma hakkında bilgi edinin.
 services: cosmos-db
-author: arramac
-manager: jhubbard
-editor: mimig
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: e587772f-ce9f-498c-a017-a51e7265bb23
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: arramac
-ms.openlocfilehash: 1a54884196e5b4ff5b16425e902abeb8d82aa8f1
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: sngun
+ms.openlocfilehash: a1f8b38725eb188b609fbdc8efa09ed5aaaf6ae5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Azure Cosmos DB tarihleri ile çalışma
 Azure Cosmos DB sunar şema esnekliği ve zengin bir yerel dizin oluşturma [JSON](http://www.json.org) veri modeli. Veritabanları, koleksiyonlar, belgeler ve saklı yordamları da dahil olmak üzere tüm Azure Cosmos DB kaynakları modellenir ve JSON belgeleri olarak depolanır. Olma taşınabilir bir zorunluluk, JSON (ve Azure Cosmos DB) temel türleri, yalnızca küçük bir kümesini destekler: dize, sayı, Boole değeri, dizi, nesne ve Null. Ancak, JSON esnektir ve geliştiriciler ve çerçeveleri nesneleri veya dizi oluşturma ve bu temelleri kullanarak daha karmaşık türleri temsil eden kullanmasına olanak tanır. 

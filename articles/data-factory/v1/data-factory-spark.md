@@ -1,11 +1,11 @@
 ---
-title: "Azure Data Factory Spark programlardan çağırma | Microsoft Docs"
-description: "MapReduce etkinliğini kullanarak bir Azure data factory Spark programlardan çağırma öğrenin."
+title: Azure Data Factory Spark programlardan çağırma | Microsoft Docs
+description: MapReduce etkinliğini kullanarak bir Azure data factory Spark programlardan çağırma öğrenin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: sharonlo101
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: fd98931c-cab5-4d66-97cb-4c947861255c
 ms.service: data-factory
 ms.workload: data-services
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b39e6012365c426e95a38d5c5a40790f584ba473
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 9df8b0987378fef37c7ca8f24070a88cbfc42f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlardan çağırma
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md)
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce activity](data-factory-map-reduce.md)
+> * [MapReduce etkinliği](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning toplu iş yürütme etkinliği](data-factory-azure-ml-batch-execution-activity.md)
@@ -59,7 +59,7 @@ Spark etkinliği ile bir data factory işlem hattı oluşturmak için tipik adı
 
 2. Öğreticide yönergeleri izleyerek Hdınsight'ta Spark kümesi oluşturma [Hdınsight'ta Spark kümesi oluşturma](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Bu küme ile 1. adımda oluşturduğunuz depolama hesabı ilişkilendirin.
 
-3. Karşıdan yükle ve Python komut dosyasını gözden **test.py** konumunda bulunan [https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
+3. Karşıdan yükle ve Python komut dosyasını gözden **test.py** konumunda bulunan [ https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py ](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py).
 
 4. Karşıya yükleme **test.py** için **pyFiles** klasöründe **adfspark** blob depolama alanınızın kapsayıcısında. Yoksa kapsayıcıyı ve klasör oluşturun.
 
@@ -84,7 +84,7 @@ Veri fabrikası oluşturmak için bu adımları izleyin:
 7. **Oluştur**’u seçin.
 
    > [!IMPORTANT]
-   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory katılımcısı](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+   > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory katılımcısı](../../role-based-access-control/built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
 
 8. Azure portal panosunda oluşturulduğunda, veri fabrikası görürsünüz.
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure yığın aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştirme | Microsoft Docs"
-description: "Bir abonelik Azure yığınında erişmek hizmet sağlayıcısı etkinleştirin."
+title: Azure yığın aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştirme | Microsoft Docs
+description: Bir abonelik Azure yığınında erişmek hizmet sağlayıcısı etkinleştirin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 4bc5644425aa11fb210d81095e4166baefc6432e
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 26ba68be6d4932da77befaf7c968525393c0a033
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>Azure yığın aboneliğinizi yönetmek bir bulut hizmeti sağlayıcısı etkinleştir
 
@@ -41,7 +41,7 @@ Bir bulut hizmeti sağlayıcısı (CSP) ile Azure yığın kullanıyorsanız, Az
 CSP aboneliğinize sahibi olarak ekleyin. 
 
 1. Konuk kullanıcı olarak, CSP ekleyin. Kiracı dizinine sahip rolüyle.  Kullanıcı ekleme adımları için bkz: [Azure Active Directory'ye yeni kullanıcı ekleme](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)
-2. Sahip rolü CSP Konuk kullanıcıya ekleyin. Aboneliğinize CSP kullanıcı ekleme hakkında daha fazla adımlar için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)
+2. Sahip rolü CSP Konuk kullanıcıya ekleyin. Aboneliğinize CSP kullanıcı ekleme hakkında daha fazla adımlar için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek üzere Use Role-Based erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 3. CSP, ardından yerel Azure yığın abonelik sizin için oluşturur.
 4. Azure yığın kullanmaya başlamak hazır olursunuz.
 5. CSP aboneliğinizde kaynaklarınızı yönetebilir doğrulamak için bir kaynak sonra oluşturmanız gerekir. 

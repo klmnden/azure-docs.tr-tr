@@ -1,25 +1,23 @@
 ---
-title: "Uçuş gecikme verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs"
-description: "Hdınsight kümesi oluşturmak, bir Hive işi çalıştırın, Sqoop işini çalıştırın ve kümeyi silmek için bir Windows PowerShell komut dosyası kullanmayı öğrenin."
+title: Uçuş gecikme verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs
+description: Hdınsight kümesi oluşturmak, bir Hive işi çalıştırın, Sqoop işini çalıştırın ve kümeyi silmek için bir Windows PowerShell komut dosyası kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da745901ec2fe57530e4d7fe38a055e0b8691ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6e42cfa666ad6b6523043f4412a321789adad9a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 Hive sağlar Hadoop MapReduce işleri adlı bir SQL benzeri komut dosyası dili ile çalışan bir  *[HiveQL][hadoop-hiveql]*, hangi uygulanabilir özetlemeye doğrultusunda, sorgulama, ve büyük miktarda veriyi analiz etme.
@@ -51,10 +49,10 @@ Diyagramdaki sayıları bölüm başlıkları karşılık unutmayın. **M** içi
 > [!NOTE]
 > Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümelerine özeldir. Linux tabanlı bir küme ile çalışma adımları için bkz: [(Linux) hdınsight'ta Hive kullanarak uçuş gecikme verileri analiz](hdinsight-analyze-flight-delay-data-linux.md)
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
 
-* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü edinme](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Azure PowerShell içeren bir iş istasyonu**.
 
     > [!IMPORTANT]
@@ -259,9 +257,9 @@ Veri dosyası ve HiveQL komut dosyaları karşıya yükleme (bkz [ek B](#appendi
     <tr><th>Ad</th><th>Değer</th></tr>
     <tr><td>Filtre yıl</td><td>2013 </td></tr>
     <tr><td>Dönem filtre</td><td>Ocak</td></tr>
-    <tr><td>Alanları</td><td>*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID* , *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *hedef* , *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</td></tr>
+    <tr><td>Alanlar</td><td>*Yıl*, *FlightDate*, *UniqueCarrier*, *taşıyıcı*, *FlightNum*, *OriginAirportID*, *Kaynak*, *OriginCityName*, *OriginState*, *DestAirportID*, *taşınmaya*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (diğer tüm alanlar Temizle)</td></tr>
     </table>
-3.Tıklatın **karşıdan**.
+3. Tıklatın **karşıdan**.
 4. Dosyanın sıkıştırmasını açın **C:\Tutorials\FlightDelay\2013Data** klasör. Her dosya, bir CSV dosyası ve yaklaşık 60 GB boyutunda.
 5. Dosya verilerini içeren ayın adını yeniden adlandırın. Örneğin, Ocak verilerini içeren dosyayı adlı *January.csv*.
 6. 2 ve her 12 ay 2013'te bir dosyayı indirmek için 5. adımları yineleyin. Öğretici çalıştırmak için bir dosya en az gerekir.
@@ -383,8 +381,10 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     <tr><td>$storageAccountName</td><td>HiveQL betiğini karşıya yüklemek istediğiniz Azure depolama hesabı.</td></tr>
     <tr><td>$blobContainerName</td><td>HiveQL betiğini karşıya yüklemek istediğiniz Blob kapsayıcısı.</td></tr>
     </table>
-2. Azure PowerShell ISE açın.
-3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
+    
+2. Azure PowerShell ISE açın.  
+
+3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:  
 
     ```powershell
     [CmdletBinding()]
@@ -573,8 +573,10 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     <tr><td>$sqlDatabaseLocation</td><td>Yalnızca yeni bir Azure veritabanı sunucusu oluştururken bu değeri kullanılır.</td></tr>
     <tr><td>$sqlDatabaseName</td><td>Sqoop iş AvgDelays tablo oluşturmak için kullanılan SQL veritabanı. Boş bırakarak HDISqoop adlı bir veritabanı oluşturur. AvgDelays Sqoop iş çıktısı için tablo adıdır. </td></tr>
     </table>
+    
 2. Azure PowerShell ISE açın.
-3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:
+
+3. Kopyalayın ve aşağıdaki komut dosyası komut dosyası bölmesine yapıştırın:  
 
     ```powershell
     [CmdletBinding()]
@@ -699,11 +701,11 @@ HiveQL komutları tam bir listesi için bkz: [Hive veri tanımlama dili][hadoop-
     ```
 
    > [!NOTE]
-   > Komut dosyasını bir temsili durum aktarımı (REST) hizmeti http://bot.whatismyipaddress.com, dış IP adresi almak için kullanır. IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
+   > Komut dosyasını bir temsili durum aktarımı (REST) hizmeti kullanan http://bot.whatismyipaddress.com, dış IP adresi alınamadı. IP adresi, SQL veritabanı sunucunuz için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
 
     Komut dosyasında kullanılan bazı değişkenler şunlardır:
 
-   * **$ipAddressRestService** -http://bot.whatismyipaddress.com varsayılan değerdir. Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil. İsterseniz diğer hizmetler kullanabilirsiniz. Böylece (bir Windows PowerShell komut dosyası kullanarak) veritabanı istasyonunuzdan erişebilirsiniz hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
+   * **$ipAddressRestService** -varsayılan değer http://bot.whatismyipaddress.com. Bir ortak IP adresi, dış IP adresi almak için REST hizmeti değil. İsterseniz diğer hizmetler kullanabilirsiniz. Böylece (bir Windows PowerShell komut dosyası kullanarak) veritabanı istasyonunuzdan erişebilirsiniz hizmet aracılığıyla alınan dış IP adresi, Azure SQL veritabanı sunucusu için bir güvenlik duvarı kuralı oluşturmak için kullanılır.
    * **$fireWallRuleName** -güvenlik duvarı kuralı adı Azure SQL veritabanı sunucusu budur. Varsayılan ad <u>FlightDelay</u>. İstiyorsanız, onu yeniden adlandırabilirsiniz.
    * **$sqlDatabaseMaxSizeGB** -yalnızca yeni bir Azure SQL veritabanı sunucusu oluştururken bu değer kullanılır. Varsayılan değer 10 GB'tır. Bu öğretici için 10GB yeterlidir.
    * **$sqlDatabaseName** -yalnızca yeni bir Azure SQL veritabanı oluştururken bu değer kullanılır. HDISqoop varsayılan değerdir. Adlandırırsanız, Sqoop Windows PowerShell komut dosyasını uygun şekilde güncelleştirmeniz gerekir.

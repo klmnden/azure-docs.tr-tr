@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Insights ile Java eclipse'te kullanmaya başlama | Microsoft docs"
-description: "Eklenti Eclipse performansı ve Application Insights ile Java Web sitenize kullanımı izleme eklemek için kullanın"
+title: Azure Application Insights ile Java eclipse'te kullanmaya başlama | Microsoft docs
+description: Eklenti Eclipse performansı ve Application Insights ile Java Web sitenize kullanımı izleme eklemek için kullanın
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 616cbfed405454d2abbb6bb526166d2c72e4365d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Application Insights ile Java eclipse'te kullanmaya başlama
 Application Insights SDK'sı, telemetri Java web uygulamanızı gönderir kullanımını ve performansını analiz edin. Böylece kutusunu telemetri artı özel telemetri yazmak için kullanabileceğiniz bir API dışında almak için Application Insights eklenti Eclipse SDK projenize otomatik olarak yükler.   
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Şu anda eklenti works Maven projelerini ve Eclipse dinamik Web projeleri için.
 ([Java projesi diğer türleri için Application Insights Ekle][java].)
 
 Gerekenler:
 
-* Oracle JRE 1.6 veya sonraki sürümleri
+* JRE 1.7 veya 1,8
 * Bir [Microsoft Azure](https://azure.microsoft.com/) aboneliği.
 * [Java EE geliştiricileri için Eclipse IDE](http://www.eclipse.org/downloads/), Indigo olarak biliniyordu veya üzeri.
 * Windows 7 veya üzeri ya da Windows Server 2008 veya üzeri
@@ -39,7 +39,7 @@ Yalnızca bu makine başına bir kez yapmanız gerekir. Bu adım, daha sonra SDK
 1. Eclipse'te, Yardım, yeni yazılım Yükle'yi tıklatın.
 
     ![Yardım, yeni yazılım yükleme](./media/app-insights-java-eclipse/0-plugin.png)
-2. SDK Azure Araç Seti altında http://dl.microsoft.com/eclipse kullanılıyor.
+2. SDK'sı olarak http://dl.microsoft.com/eclipse, Azure Araç Seti altında.
 3. İşaretini **tüm güncelleştirme siteleri başvurun...**
 
     ![Application Insights SDK'sı, temizlemek için kişi tüm siteleri güncelleştir](./media/app-insights-java-eclipse/1-plugin.png)

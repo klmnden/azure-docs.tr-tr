@@ -1,6 +1,6 @@
 ---
-title: "Senaryolar ve örnekler için abonelik idare | Microsoft Docs"
-description: "Yaygın senaryolar için Azure aboneliği idare uygulamak örnekler sağlar."
+title: Senaryolar ve örnekler için abonelik idare | Microsoft Docs
+description: Yaygın senaryolar için Azure aboneliği idare uygulamak örnekler sağlar.
 services: azure-resource-manager
 documentationcenter: na
 author: rdendtler
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6bd4e9f6bbc5bba73b2c169b7f3c5931f30029e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Azure enterprise iskele uygulamanın örnekleri
 Bu konu kuruluş için önerilerin nasıl uygulayabilirsiniz örnekler sağlayan bir [Azure enterprise iskele](resource-manager-subscription-governance.md). Contoso adlı kurgusal bir şirket yaygın senaryolar için en iyi yöntemleri göstermek için kullanır.
@@ -54,12 +54,12 @@ Bu abonelik oluşturduktan sonra Dave uygun ekipleri ve uygulama sahipleri kayna
 
 Aşağıdaki roller için abonelik Dave atar:
 
-| Rol | Atanan | Açıklama |
+| Rol | Atanan: | Açıklama |
 | --- | --- | --- |
-| [Sahibi](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso'nun kimliği yönetilen AD |Bu kimliği ile sadece anında (JIT) erişim Contoso'nun kimlik yönetimi aracı üzerinden denetlenir ve abonelik sahibi erişim tam olarak denetlenir sağlar |
-| [Güvenlik Yöneticisi](../active-directory/role-based-access-built-in-roles.md#security-manager) |Güvenliği ve risk yönetimi bölümü |Bu rolü kullanıcılarının Azure Güvenlik Merkezi ve kaynakların durumunu bakın sağlar |
-| [Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Ağ ekibi |Bu rolü Contoso'nun ağ takım siteden siteye VPN ve sanal ağlar yönetmenizi sağlar |
-| *Özel rol* |Uygulama sahibi |Dave kaynakların kaynak grubunda değiştirme olanağı veren bir rolü oluşturur. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../active-directory/role-based-access-control-custom-roles.md) |
+| [Sahibi](../role-based-access-control/built-in-roles.md#owner) |Contoso'nun kimliği yönetilen AD |Bu kimliği ile sadece anında (JIT) erişim Contoso'nun kimlik yönetimi aracı üzerinden denetlenir ve abonelik sahibi erişim tam olarak denetlenir sağlar |
+| [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-manager) |Güvenliği ve risk yönetimi bölümü |Bu rolü kullanıcılarının Azure Güvenlik Merkezi ve kaynakların durumunu bakın sağlar |
+| [Ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor) |Ağ ekibi |Bu rolü Contoso'nun ağ takım siteden siteye VPN ve sanal ağlar yönetmenizi sağlar |
+| *Özel rol* |Uygulama sahibi |Dave kaynakların kaynak grubunda değiştirme olanağı veren bir rolü oluşturur. Daha fazla bilgi için bkz: [Azure rbac'de özel roller](../role-based-access-control/custom-roles.md) |
 
 ### <a name="policies"></a>İlkeler
 Dave abonelik kaynaklarını yönetmek için aşağıdaki gereksinimlere sahiptir:
@@ -86,7 +86,7 @@ Müşterinizle aşağıdaki ekler [etiketleri](resource-group-using-tags.md) kay
 | Etiket adı | Etiket değeri |
 | --- | --- |
 | ApplicationOwner |Bu uygulama yöneten kişinin adı |
-| costCenter |Azure tüketimi için ödeme grubunun maliyet merkezi |
+| Maliyet merkezi |Azure tüketimi için ödeme grubunun maliyet merkezi |
 | Departmanı |**Madde işaretleri** (abonelikle ilişkili iş birimi) |
 
 ### <a name="core-network"></a>Çekirdek Ağ
@@ -98,7 +98,7 @@ Aşağıdaki kaynaklar oluşturur:
 | --- | --- | --- |
 | Sanal Ağ |vnet iç |ExpressRoute aracılığıyla Contoso şirket ağına ve BitBucket uygulama ile kullanılır.  Bir alt ağ (`bitbucket`) belirli bir IP adresi alanı uygulamayla sağlar |
 | Sanal Ağ |Dış sanal ağ |Genel kullanıma yönelik uç noktalar gerektiren gelecekteki uygulamalar için kullanılabilir |
-| Ağ Güvenlik Grubu |bitbucket nsg |Bu iş yükü, saldırı yüzeyini nerede uygulama yaşıyor yalnızca bağlantı noktası 443 üzerinden alt ağ için bağlantılara izin vererek indirilir sağlar (`bitbucket`) |
+| Ağ Güvenliği Grubu |bitbucket nsg |Bu iş yükü, saldırı yüzeyini nerede uygulama yaşıyor yalnızca bağlantı noktası 443 üzerinden alt ağ için bağlantılara izin vererek indirilir sağlar (`bitbucket`) |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
 Contoso şirket ağı iç sanal ağ bağlantısını herhangi bir wayward komut dosyası veya yanlışlıkla silinmesini korunmalıdır Dave tanır.
@@ -173,7 +173,7 @@ Contoso madde işaretleri bilgi güvenliği ve risk yönetimi ekibi uygulamayı 
 | Kaynak türü | Ad | Açıklama |
 | --- | --- | --- |
 | Sanal Ağ |Dış sanal ağ |Bağlılık kartı uygulamayı barındıran ve doğrudan Contoso'nun ExpressRoute bağlı değil. Kod kaynak kodu sistemlerine doğrudan PaaS hizmetlere gönderilir |
-| Ağ Güvenlik Grubu |loyaltycard nsg |Bu iş yükü, saldırı yüzeyini bağlı iletişimi yalnızca TCP 443 numaralı vererek indirilir sağlar.  Contoso ayrıca ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak araştırmaktadır. |
+| Ağ Güvenliği Grubu |loyaltycard nsg |Bu iş yükü, saldırı yüzeyini bağlı iletişimi yalnızca TCP 443 numaralı vererek indirilir sağlar.  Contoso ayrıca ek koruma için bir Web uygulaması Güvenlik Duvarı'nı kullanarak araştırmaktadır. |
 
 ### <a name="resource-locks"></a>Kaynak kilitleri
 Dave Alice confer ve bazı yalıtılarak bir kodun sırasında yanlışlıkla silinmesini önlemek için ortamı anahtar kaynakların kaynak kilitleri eklemeye karar.

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/10/2018
 ms.author: jeffgilb
 ms.reviewer: ppacent
-ms.openlocfilehash: 583f827fe77ef7721b3098dee01c418c9e5cccd8
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff3fd8ea331c02aa2666ec20b56dbbaef473a4df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -65,27 +65,27 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 
 | Dağıtım klasörü | Gerekli sertifika konusu ve konu alternatif adları (SAN) | Kapsam (her bölge) | Alt etki alanı ad alanı |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Ortak portalı | portal.&lt;region>.&lt;fqdn> | Portallar | &lt;region>.&lt;fqdn> |
-| Yönetim Portalı | adminportal.&lt;region>.&lt;fqdn> | Portallar | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager genel | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager Admin | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Blob Depolama | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Tablo Depolama | table.&lt;region>.&lt;fqdn> |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Kuyruk Depolama | queue.&lt;region>.&lt;fqdn> |
-| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Anahtar Kasası | vault.&lt;region>.&lt;fqdn> |
-| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) |  İç Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+| Ortak portalı | Portal. &lt;bölge >. &lt;fqdn > | Portallar | &lt;region>.&lt;fqdn> |
+| Yönetim Portalı | adminportal. &lt;bölge >. &lt;fqdn > | Portallar | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager genel | yönetimi. &lt;bölge >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Kaynak Yöneticisi'ni yönetici | adminmanagement. &lt;bölge >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Joker SSL sertifikası) | Blob Depolama | BLOB. &lt;bölge >. &lt;fqdn > |
+| ACSTable | * .table. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Tablo Depolama | Tablo. &lt;bölge >. &lt;fqdn > |
+| ACSQueue | * .queue. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Kuyruk Depolama | sıra. &lt;bölge >. &lt;fqdn > |
+| KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Anahtar Kasası | Kasa. &lt;bölge >. &lt;fqdn > |
+| KeyVaultInternal | *.adminvault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) |  İç Keyvault |  adminvault. &lt;bölge >. &lt;fqdn > |
 
 ### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Öncesi 1803 sürümlerinde Azure yığın ortamı için
 
 |Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
-|Ortak portalı|Portal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
-|Yönetim Portalı|adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|Azure Resource Manager Admin|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure Resource Manager|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|Depolama|blob.*&lt;region>.&lt;fqdn>*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
+|Ortak portalı|Portal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;bölge >. &lt;fqdn >*|
+|Yönetim Portalı|adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;bölge >. &lt;fqdn >*|
+|Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
+|Azure Kaynak Yöneticisi'ni yönetici|adminmanagement.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
+|ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.BLOB.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|Depolama|BLOB.  *&lt;bölge >.&lt; FQDN >*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
 |KeyVault|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Anahtar Kasası|Kasa.  *&lt;bölge >.&lt; FQDN >*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(Joker SSL sertifikası)|İç Keyvault|adminvault.  *&lt;bölge >.&lt; FQDN >*|
+|KeyVaultInternal|&#42;.adminvault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|İç Keyvault|adminvault.  *&lt;bölge >.&lt; FQDN >*|
 |
 <sup>1</sup> ACS sertifikası üç joker SAN'ları üzerinde tek bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir. 
 
@@ -93,8 +93,8 @@ Azure yığını Azure AD dağıtım modunu kullanarak dağıtırsanız, yalnız
 
 |Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
-|ADFS|ADFS.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graf|Grafik.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|Graf|*&lt;region>.&lt;fqdn>*|
+|ADFS|ADFS.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|ADFS|*&lt;bölge >. &lt;fqdn >*|
+|Graf|Grafik.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası)|Graf|*&lt;bölge >. &lt;fqdn >*|
 |
 
 > [!IMPORTANT]
@@ -110,15 +110,15 @@ Aşağıdaki tabloda, SQL ve MySQL bağdaştırıcıları ve uygulama hizmeti i�
 
 |Kapsam (her bölge)|Sertifika|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Alt etki alanı ad alanı|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL ve MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Joker SSL sertifikası)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Birden çok etki alanı joker SSL sertifikası<sup>1</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|SSO|SSO.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|SQL, MySQL|SQL ve MySQL|&#42;.dbadapter.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|dbadapter.*&lt;region>.&lt;fqdn>*|
+|App Service|Web trafiği varsayılan SSL sertifikası|&#42;.appservice.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. scm.appservice.  *&lt;bölge >.&lt; FQDN >*<br>&#42;. sso.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(Birden çok etki alanı joker SSL sertifikası<sup>1</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
+|App Service|API|api.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
+|App Service|FTP|FTP.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
+|App Service|SSO|SSO.appservice.  *&lt;bölge >.&lt; FQDN >*<br>(SSL sertifikası<sup>2</sup>)|uygulama hizmeti.  *&lt;bölge >.&lt; FQDN >*<br>SCM.appservice.  *&lt;bölge >.&lt; FQDN >*|
 
 <sup>1</sup> birden fazla joker ilgili alternatif adlarına sahip bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir 
 
-<sup>2</sup> A &#42;.appservice.*&lt;region>.&lt;fqdn>* wild card certificate cannot be used in place of these three certificates (api.appservice.*&lt;region>.&lt;fqdn>*, ftp.appservice.*&lt;region>.&lt;fqdn>*, and sso.appservice.*&lt;region>.&lt;fqdn>*. Uygulama hizmeti açıkça Bu uç noktalar için ayrı sertifikaların kullanımını gerektirir. 
+<sup>2</sup> A &#42;.appservice. *&lt;bölge >. &lt;fqdn >* joker sertifika yerine bu üç sertifikalar kullanılamıyor (api.appservice. *&lt;bölge >. &lt;fqdn >*, ftp.appservice. *&lt;bölge >. &lt;fqdn >*ve sso.appservice. *&lt;bölge >. &lt;fqdn >*. Uygulama hizmeti açıkça Bu uç noktalar için ayrı sertifikaların kullanımını gerektirir. 
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 Bilgi edinmek için nasıl [Azure yığın dağıtımı için PKI sertifikalarını oluşturmak](azure-stack-get-pki-certs.md). 

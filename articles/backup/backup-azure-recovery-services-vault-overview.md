@@ -1,6 +1,6 @@
 ---
-title: "Genel Bakış kurtarma Hizmetleri kasaları | Microsoft Docs"
-description: "Genel bir bakış ve kurtarma Hizmetleri kasalarının ve Azure yedekleme kasaları karşılaştırması."
+title: Genel Bakış kurtarma Hizmetleri kasaları | Microsoft Docs
+description: Genel bir bakış ve kurtarma Hizmetleri kasalarının ve Azure yedekleme kasaları karşılaştırması.
 services: backup
 documentationcenter: " "
 author: markgalioto
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 10/15/2017
 ms.author: markgal;arunak;sogup
-ms.openlocfilehash: ad685744595ab86def8d226d7c2fb5455af98da4
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 2d25782ef73f8899587636b65ccd2d7870f89e6f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="recovery-services-vaults-overview"></a>Kurtarma Hizmetleri kasaları genel bakış
 
@@ -33,9 +33,9 @@ Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modelin
 
 - **Gelişmiş Güvenlik yedekleme verileri yardımcı olmak için özellikleri**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedekleme korumak için güvenlik özellikleri sağlar. Üretim ve yedekleme sunucuları tehlikeye olsa bile güvenlik özellikleri Yedeklemelerinizin güvenli ve güvenli bir şekilde verileri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
 
-- **Karma BT ortamında Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [içi varlıklar](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir gelen Portal. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Karma BT ortamında Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [içi varlıklar](backup-azure-manage-windows-server.md#manage-backup-items) merkezi portalından. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Rol tabanlı erişim denetimi (RBAC)**: RBAC Azure ayrıntılı erişim yönetimi denetim sağlar. [Azure sağlayan çeşitli yerleşik roller](../active-directory/role-based-access-built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları yedekleme kısıtlayan RBAC ile uyumludur ve kullanıcı rolleri tanımlı kümesine erişim geri yükleyin. [Daha fazla bilgi](backup-rbac-rs-vault.md)
+- **Rol tabanlı erişim denetimi (RBAC)**: RBAC Azure ayrıntılı erişim yönetimi denetim sağlar. [Azure sağlayan çeşitli yerleşik roller](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları yedekleme kısıtlayan RBAC ile uyumludur ve kullanıcı rolleri tanımlı kümesine erişim geri yükleyin. [Daha fazla bilgi](backup-rbac-rs-vault.md)
 
 - **Tüm yapılandırmaları Azure sanal makinelerin korunmasına**: Kurtarma Hizmetleri kasaları şunları korur Resource Manager tabanlı VM'ler Premium diskler, yönetilen diskleri ve şifrelenmiş VM'ler dahil olmak üzere. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme Resource Manager tabanlı VM'ler için Service Manager tabanlı VM'ler yükseltme olanağı sağlar. Kasa yükseltirken, Service Manager tabanlı VM kurtarma noktalarını korumak ve yükseltilen (Resource Manager etkin) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

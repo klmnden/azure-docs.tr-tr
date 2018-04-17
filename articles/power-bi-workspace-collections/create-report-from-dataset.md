@@ -1,26 +1,26 @@
 ---
-title: "Power BI çalışma koleksiyonlarda kümesinden yeni rapor oluşturma | Microsoft Docs"
-description: "Power BI çalışma alanı koleksiyonu raporları, kendi uygulamanızda kümesinden şimdi oluşturulabilir."
+title: Power BI çalışma koleksiyonlarda kümesinden yeni rapor oluşturma | Microsoft Docs
+description: Power BI çalışma alanı koleksiyonu raporları, kendi uygulamanızda kümesinden şimdi oluşturulabilir.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
-ms.assetid: 
+ms.assetid: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: aa902cbc4992292420948b36d85e52fafc7224de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Power BI çalışma koleksiyonlarda kümesinden yeni rapor oluşturma
 
@@ -63,7 +63,7 @@ var token = embedToken.Generate("{access key}");
 
 ## <a name="create-a-new-blank-report"></a>Yeni boş bir rapor oluşturun
 
-Yeni bir rapor oluşturmak için Oluştur yapılandırma sağlanmalıdır. Bu erişim belirteci, embedURL ve karşı raporu oluşturmak için istiyoruz Datasetıd içermelidir. Bu, nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl yalnızca https://embedded.powerbi.com/appTokenReportEmbed olacaktır.
+Yeni bir rapor oluşturmak için Oluştur yapılandırma sağlanmalıdır. Bu erişim belirteci, embedURL ve karşı raporu oluşturmak için istiyoruz Datasetıd içermelidir. Bu, nuget yüklemenizi gerektirir [Power BI JavaScript paket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). EmbedUrl yalnızca olacaktır https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
 > Kullanabileceğiniz [JavaScript rapor katıştırmak örnek](https://microsoft.github.io/PowerBI-JavaScript/demo/) işlevselliğini test etmek için. Aynı zamanda kullanılabilir farklı işlemler için kod örnekleri sağlar.

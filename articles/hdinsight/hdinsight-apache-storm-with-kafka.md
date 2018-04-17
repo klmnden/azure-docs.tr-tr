@@ -1,8 +1,8 @@
 ---
-title: "Storm hdınsight'ta - Azure Apache Kafka kullanın | Microsoft Docs"
-description: "Apache Kafka, Hdınsight üzerinde Apache Storm ile yüklenir. Kafka için yazma ve ondan, Storm ile sağlanan KafkaBolt ve KafkaSpout Bileşenleri'ni kullanarak okunur öğrenin. Ayrıca Flux framework tanımlayın ve Storm topolojilerini göndermek için nasıl kullanılacağını öğrenin."
+title: Storm hdınsight'ta - Azure Apache Kafka kullanın | Microsoft Docs
+description: Apache Kafka, Hdınsight üzerinde Apache Storm ile yüklenir. Kafka için yazma ve ondan, Storm ile sağlanan KafkaBolt ve KafkaSpout Bileşenleri'ni kullanarak okunur öğrenin. Ayrıca Flux framework tanımlayın ve Storm topolojilerini göndermek için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: e4941329-1580-4cd8-b82e-a2258802c1a7
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/08/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c74e46f37319a9d1eb0ea1587087e24312de451
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: be62705ce0217235b75ec5ad220ad6f32dfd3c10
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-apache-kafka-with-storm-on-hdinsight"></a>Hdınsight üzerinde Storm ile Apache Kafka kullanın
 
@@ -32,7 +30,7 @@ Apache Storm okuma ve yazma Apache Kafka için nasıl kullanılacağını öğre
 
 ## <a name="get-the-code"></a>Kodu alma
 
-Bu belgede kullanılan örnek kodunu şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
+Bu belgede kullanılan örnek kodunu şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka).
 
 Bu projeyi derlemek için geliştirme ortamınız için aşağıdaki yapılandırma gerekir:
 
@@ -68,7 +66,7 @@ Azure sanal ağı, Kafka, oluşturabilir ve Storm el ile kümeleri olsa da, bir 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-storm-java-kafka%2Fmaster%2Fcreate-kafka-storm-clusters-in-vnet.json" target="_blank"><img src="./media/hdinsight-apache-storm-with-kafka/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-    Azure Resource Manager şablonu bulunur **https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json**. Aşağıdaki kaynaklar oluşturur:
+    Azure Resource Manager şablonu bulunur ** https://github.com/Azure-Samples/hdinsight-storm-java-kafka/blob/master/create-kafka-storm-clusters-in-vnet.json **. Aşağıdaki kaynaklar oluşturur:
     
     * Azure kaynak grubu
     * Azure Sanal Ağ
@@ -131,11 +129,11 @@ Aşağıdaki parametreleri bu topolojiler için çalışma zamanında ayarlanır
 
 * `${kafka.zookeeper.hosts}`: Zookeeper Kafka kümesinde çalışır ana bilgisayar.
 
-Flux topolojileri hakkında daha fazla bilgi için bkz: [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html).
+Flux topolojileri hakkında daha fazla bilgi için bkz: [ https://storm.apache.org/releases/1.1.2/flux.html ](https://storm.apache.org/releases/1.1.2/flux.html).
 
 ## <a name="download-and-compile-the-project"></a>Karşıdan yükle ve projeyi derleme
 
-1. Geliştirme ortamınızı projesinden indirmeniz [https://github.com/Azure-Samples/hdinsight-storm-java-kafka](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), bir komut satırı açın ve dizinleri proje indirdiğiniz konuma değiştirin.
+1. Geliştirme ortamınızı projesinden indirmeniz [ https://github.com/Azure-Samples/hdinsight-storm-java-kafka ](https://github.com/Azure-Samples/hdinsight-storm-java-kafka), bir komut satırı açın ve dizinleri proje indirdiğiniz konuma değiştirin.
 
 2. Gelen **hdınsight storm java kafka** dizin, projeyi derlemek ve dağıtım için bir paketi oluşturmak için aşağıdaki komutu kullanın:
 

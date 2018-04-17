@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: mabrigg
 ms.reviewer: jeffgo
-ms.openlocfilehash: d0b287eb61087e90c898aad5273ab5be8c1f98b2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bd3618367f91fe043cc8412481b38a9c996a5275
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 
@@ -81,7 +81,7 @@ Siz bir (veya daha fazla) SQL Server örneklerini oluşturmak veya dış SQL Ser
 
     - Yalnızca tek bir sertifika dosyası DependencyFilesLocalPath parametresiyle işaret dizininde bulunabilir.
 
-    - Dosya adı özel karakterler içermemelidir.
+    - Dosya adı, herhangi bir özel karakter veya boşluk içermemelidir.
 
 
 5. Açık bir **yeni** yükseltilmiş (Yönetim) PowerShell konsolu ve dosyaları ayıkladığınız dizine geçin. Sistemde zaten yüklü olan yanlış PowerShell modüllerden doğabilecek sorunları önlemek için yeni bir pencere kullanın.
@@ -144,7 +144,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -DependencyFilesLocalPath $tempDir\cert
  ```
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parametreleri
 Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
 
 | Parametre adı | Açıklama | Açıklama veya varsayılan değer |

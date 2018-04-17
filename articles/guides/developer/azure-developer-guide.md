@@ -1,12 +1,12 @@
 ---
-title: "Get Azure üzerinde geliştiriciler için Başlangıç Kılavuzu | Microsoft Docs"
-description: "Bu konu, Microsoft Azure platform için geliştirme gereksinimlerine kullanmaya başlamak için isteyen geliştiriciler için önemli bilgiler sağlar."
-services: 
-cloud: 
-documentationcenter: 
+title: Get Azure üzerinde geliştiriciler için Başlangıç Kılavuzu | Microsoft Docs
+description: Bu konu, Microsoft Azure platform için geliştirme gereksinimlerine kullanmaya başlamak için isteyen geliştiriciler için önemli bilgiler sağlar.
+services: ''
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: erikre
-ms.assetid: 
+ms.assetid: ''
 ms.service: na
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e740b655cbd22a08aab988e83a057cc770e8dfe3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b1cda302636d8bd4d0f14536f186c7b4951c09c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -295,7 +295,7 @@ Azure kaynakları için erişim izni verdiğinizde, her zaman belirli bir görev
 
     >**Ne zaman kullanılacağı**: gerektiğinde ayrıntılı erişim yönetimini kullanıcılar ve gruplar için.
 
-    >**Başlama**: daha fazla bilgi için bkz: [Azure portalında erişim yönetimini kullanmaya başlama](../../active-directory/role-based-access-control-what-is.md).
+    >**Başlama**: daha fazla bilgi için bkz: [Azure portalında erişim yönetimini kullanmaya başlama](../../role-based-access-control/overview.md).
 
 -   **Hizmet sorumlusu nesneleri**: kullanıcı ilkeleri ve gruplara erişim sağlamasının yanı sıra, bir hizmet sorumlusu aynı erişim verebilirsiniz.
 

@@ -1,8 +1,8 @@
 ---
-title: "Hadoop - Azure Hdınsight ile MapReduce ve PowerShell kullanma | Microsoft Docs"
-description: "PowerShell uzaktan MapReduce işleri Hdınsight'ta Hadoop ile çalıştırmak için nasıl kullanılacağını öğrenin."
+title: Hadoop - Azure Hdınsight ile MapReduce ve PowerShell kullanma | Microsoft Docs
+description: PowerShell uzaktan MapReduce işleri Hdınsight'ta Hadoop ile çalıştırmak için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 21b56d32-1785-4d44-8ae8-94467c12cfba
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: larryfr
-ms.openlocfilehash: ba4a2dfc6a69e9ab18948bc9e33597a56bdd3bd9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b6e68b4c93e6385367b5aab01bebe1d29b7b9d13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>PowerShell kullanarak Hdınsight'ta Hadoop ile MapReduce işleri çalıştırma
 
@@ -30,7 +28,7 @@ Bu belge, Hdınsight kümesinde bir Hadoop MapReduce işi çalıştırmak için 
 
 ## <a id="prereq"></a>Önkoşullar
 
-* Azure Hdınsight (Hadoop hdınsight) kümesi
+* **Azure Hdınsight (Hadoop hdınsight) kümesi**
 
   > [!IMPORTANT]
   > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -45,7 +43,7 @@ Aşağıdaki cmdlet, MapReduce işleri uzaktan Hdınsight kümesinde çalıştı
 
 * **Login-AzureRmAccount**: Azure PowerShell'i Azure aboneliğinize kimliğini doğrular.
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**: Creates a new *job definition* by using the specified MapReduce information.
+* **AzureRmHDInsightMapReduceJobDefinition yeni**: yeni bir *iş tanımı* belirtilen MapReduce bilgileri kullanarak.
 
 * **Başlangıç AzureRmHDInsightJob**: iş tanımı için Hdınsight gönderir ve işini başlatır. A *iş* nesne döndürülür.
 

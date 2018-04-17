@@ -1,6 +1,6 @@
 ---
-title: "Apache Pig işleri Hadoop - Azure Hdınsight .NET SDK'sı ile çalıştırma | Microsoft Docs"
-description: "Hadoop için .NET SDK'sı hdınsight'ta Hadoop Pig iş göndermek için nasıl kullanılacağını öğrenin."
+title: Apache Pig işleri Hadoop - Azure Hdınsight .NET SDK'sı ile çalıştırma | Microsoft Docs
+description: Hadoop için .NET SDK'sı hdınsight'ta Hadoop Pig iş göndermek için nasıl kullanılacağını öğrenin.
 services: hdinsight
 documentationcenter: .net
 author: Blackmist
@@ -11,16 +11,14 @@ ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: larryfr
-ms.openlocfilehash: 5510d64b518e4694caa8e35140907b55c01ecd8a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 782e524027ce4953379e8365846b35954aa70c37
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Hdınsight'ta Hadoop için .NET SDK kullanarak Pig işleri çalıştırma
 

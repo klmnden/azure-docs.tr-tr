@@ -1,26 +1,24 @@
 ---
-title: "Apache Spark, Kafka - Azure Hdınsight akış | Microsoft Docs"
-description: "İçine veya dışına Apache DStreams kullanarak Kafka Spark Apache Spark veri akışı kullanmayı öğrenin. Bu örnekte, Hdınsight'ta Spark gelen Jupyter Not Defteri kullanarak veri akışı."
-keywords: "kafka örnek, kafka zookeeper spark kafka, kafka örnek Spark Akış akış"
+title: Apache Spark, Kafka - Azure Hdınsight akış | Microsoft Docs
+description: İçine veya dışına Apache DStreams kullanarak Kafka Spark Apache Spark veri akışı kullanmayı öğrenin. Bu örnekte, Hdınsight'ta Spark gelen Jupyter Not Defteri kullanarak veri akışı.
+keywords: kafka örnek, kafka zookeeper spark kafka, kafka örnek Spark Akış akış
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 8c9a901b8922bf349959438487c88e3df4f2ebea
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: a9463b5983b5f41683a5cfe416ca125bf2810062
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Apache Spark Hdınsight üzerinde Kafka (DStream) örnekle akış
 
@@ -87,7 +85,7 @@ Kaynakları oluşturduktan sonra bir Özet sayfası görüntülenir.
 
 ## <a name="use-the-notebooks"></a>Not defterlerini kullanma
 
-Bu belgede açıklanan örnek kodunu şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
+Bu belgede açıklanan örnek kodunu şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-spark-scala-kafka ](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka).
 
 Bu örnek tamamlamak için adımları `README.md`.
 

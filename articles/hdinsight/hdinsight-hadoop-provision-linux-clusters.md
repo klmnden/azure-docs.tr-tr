@@ -1,9 +1,9 @@
 ---
-title: "Kurulum Hadoop, Spark, Kafka, HBase veya R Server - Azure Hdınsight küme | Microsoft Docs"
-description: "Hadoop, Kafka, Spark, HBase, R Server veya Storm kümeleri Hdınsight için bir tarayıcı, Azure CLI, Azure PowerShell, REST veya SDK ayarlayın."
-keywords: "hadoop kümesi kurulumu, kafka Küme kurulumu, spark Küme kurulumu, hadoop kümesinde nedir"
+title: Kurulum Hadoop, Spark, Kafka, HBase veya R Server - Azure Hdınsight küme | Microsoft Docs
+description: Hadoop, Kafka, Spark, HBase, R Server veya Storm kümeleri Hdınsight için bir tarayıcı, Azure CLI, Azure PowerShell, REST veya SDK ayarlayın.
+keywords: hadoop kümesi kurulumu, kafka Küme kurulumu, spark Küme kurulumu, hadoop kümesinde nedir
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -12,16 +12,14 @@ ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: jgao
-ms.openlocfilehash: 39c1be51d7aa54691a6ff55483138a603c3fabed
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 54c88b25911ddfa4ed9ecf6ea4b28278c2d9aac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
@@ -40,7 +38,7 @@ Aşağıdaki tabloda bir Hdınsight kümesini ayarlamak için kullanabileceğini
 
 | Oluşturulan kümeleri | Web tarayıcısı | Komut satırı | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure portalı](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -68,7 +66,7 @@ Temel Küme kurulumu yapmak için ekrandaki yönergeleri izleyin. Ayrıntılar i
 
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) yardımcı olan bir grup olarak, uygulamanızdaki kaynaklarla çalışma başvurduğu bir Azure kaynak grubu. Dağıtmak, güncelleştirme, izlemek veya tüm kaynakları tek ve eşgüdümlü bir işlemde, uygulamanız için silin.
 
-## <a name="cluster-types">Küme türleri ve yapılandırma</a>
+## <a name="cluster-types"></a> Küme türleri ve yapılandırma
 Azure Hdınsight şu anda aşağıdaki küme türü, her biri belirli işlevlerin sağlamak için bileşenleri kümesi sağlar.
 
 > [!IMPORTANT]
@@ -139,7 +137,7 @@ Hdınsight kümesi silindikten sonra Hive tablolarını korumak istiyorsanız, �
 
 Bir Hdınsight kümesi sürüm oluşturulan Hdınsight meta depo farklı Hdınsight küme sürümleri arasında paylaşılamaz. Hdınsight sürümlerinin listesi için bkz: [desteklenen Hdınsight sürümleri](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="oozie-metastore"></a>Oozie metastore
+### <a name="oozie-metastore"></a>Oozie meta depo
 
 Oozie kullanırken, performansı artırmak için özel bir meta depo kullanın. Kümenizi sildikten sonra bir meta depo ayrıca Oozie iş verilerine erişim sağlayabilir. 
 
@@ -228,16 +226,16 @@ Mahout ve basamaklama, gibi yerel bazı Java bileşenleri kümede Java arşiv (J
 Bazı durumlarda, aşağıdaki yapılandırma dosyalarını oluşturma işlemi sırasında yapılandırmak istediğiniz:
 
 * clusterIdentity.xml
-* core-site.xml
+* Core-site.xml
 * Gateway.XML
-* hbase-env.xml
+* hbase env.xml
 * hbase-site.xml
 * hdfs-site.xml
-* hive-env.xml
-* hive-site.xml
+* Hive env.xml
+* Hive-site.xml
 * mapred site
 * oozie-site.xml
-* oozie-env.xml
+* oozie env.xml
 * storm-site.xml
 * tez-site.xml
 * webhcat-site.xml

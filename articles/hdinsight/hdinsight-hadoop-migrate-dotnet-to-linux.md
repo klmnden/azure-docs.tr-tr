@@ -1,36 +1,34 @@
 ---
-title: ".NET Hadoop MapReduce hdınsight'ta Linux tabanlı - Azure ile kullanma | Microsoft Docs"
-description: "Linux tabanlı Hdınsight üzerinde MapReduce akış için .NET uygulamaları kullanmayı öğrenin."
+title: .NET Hadoop MapReduce hdınsight'ta Linux tabanlı - Azure ile kullanma | Microsoft Docs
+description: Linux tabanlı Hdınsight üzerinde MapReduce akış için .NET uygulamaları kullanmayı öğrenin.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: bff53af8f5c0b74cf0f69ba474d62ecdb7e20ce1
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 36b8f51122bad6614e63dfc58e09e5c1ca08f83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>Windows tabanlı Hdınsight Linux tabanlı hdınsight'a için .NET çözümleri geçirme
 
-Linux tabanlı Hdınsight kümeleri kullanım [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono, Linux tabanlı Hdınsight ile MapReduce uygulamalar gibi .NET bileşenleri kullanmanıza olanak sağlar. Bu belgede, Windows tabanlı Hdınsight kümeleri Mono Linux tabanlı Hdınsight üzerinde çalışmak oluşturulan .NET çözümlerin geçirmek öğrenin.
+Linux tabanlı Hdınsight kümeleri kullanım [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono, Linux tabanlı Hdınsight ile MapReduce uygulamalar gibi .NET bileşenleri kullanmanıza olanak sağlar. Bu belgede, Windows tabanlı Hdınsight kümeleri Mono Linux tabanlı Hdınsight üzerinde çalışmak oluşturulan .NET çözümlerin geçirmek öğrenin.
 
 ## <a name="mono-compatibility-with-net"></a>.NET ile Mono uyumluluk
 
 Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir. Hdınsight ile dahil Mono sürümü hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü](hdinsight-component-versioning.md). Mono belirli bir sürümünü yüklemek için bkz: [veya Mono güncelleştirmesini](hdinsight-hadoop-install-mono.md) belge.
 
-Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz: [Mono uyumluluk (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
+Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz: [Mono uyumluluk (http://www.mono-project.com/docs/about-mono/compatibility/) ](http://www.mono-project.com/docs/about-mono/compatibility/) belge.
 
 > [!IMPORTANT]
 > SCP.NET framework Mono ile uyumludur. SCP.NET Mono ile kullanma hakkında daha fazla bilgi için bkz: [Hdınsight üzerinde Apache Storm için C# topolojileri geliştirme için Visual Studio](storm/apache-storm-develop-csharp-visual-studio-topology.md).
@@ -58,7 +56,7 @@ Mono ve .NET uyumluluğu hakkında daha fazla bilgi için bkz: [Mono uyumluluk (
 
 ## <a name="manual-portability-analysis"></a>El ile Taşınabilirlik çözümleme
 
-El ile denetim bilgileri kullanarak, kodunuzun gerçekleştirmek [uygulama taşınabilirliği (http://www.mono-project.com/docs/getting-started/application-portability/)](http://www.mono-project.com/docs/getting-started/application-portability/) belge.
+El ile denetim bilgileri kullanarak, kodunuzun gerçekleştirmek [uygulama taşınabilirliği (http://www.mono-project.com/docs/getting-started/application-portability/) ](http://www.mono-project.com/docs/getting-started/application-portability/) belge.
 
 ## <a name="modify-and-build"></a>Değiştirme ve oluşturma
 

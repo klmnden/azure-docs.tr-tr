@@ -6,15 +6,15 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 04/06/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 3180b24454fc49a34a40bdf2873fad1d56173e3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4ecd08f3750e8521270369a69c6801497e587a75
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
@@ -65,7 +65,7 @@ Otomasyon parametre için girdi olarak aşağıdaki bilgiler gereklidir:
 
 |Parametre|Açıklama|Örnek|
 |---------|---------|---------|
-|CustomADGlobalCatalog|Active Directory ormanı hedef FQDN'si<br>ile tümleştirmek istediğiniz|Contoso.com|
+|CustomADGlobalCatalog|Active Directory ormanı hedef FQDN'si<br>ile tümleştirmek istediğiniz|contoso.com|
 |CustomADAdminCredentials|LDAP okuma izni olan bir kullanıcı|YOURDOMAIN\graphservice|
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Kullanıcı hesabı var olan Active Directory (isteğe bağlı) oluşturun
@@ -252,7 +252,7 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
-   **For AD FS 2012/2012 R2**
+   **AD FS 2012/2012 R2 için**
 
    ```powershell
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
@@ -262,6 +262,9 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    > AD FS MMC ek bileşenini Windows Server 2012 veya 2012 R2 AD FS kullanırken verme yetkilendirme kurallarını yapılandırmak için kullanmanız gerekir.
 
 4. Azure yığın erişmek için Internet Explorer veya Edge tarayıcısı kullandığınızda, belirteç bağlamaları yoksay gerekir. Aksi takdirde, oturum açma denemeleri başarısız. AD FS örneğini veya bir grup üyesi, aşağıdaki komutu çalıştırın:
+
+   > [!note]  
+   > Bu adım, Windows Server 2012 veya 2012 R2 AD FS kullanırken geçerli değildir. Bu komut atlayıp ile tümleştirme devam etmek güvenlidir.
 
    ```powershell
    Set-AdfsProperties -IgnoreTokenBinding $true

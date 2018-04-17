@@ -1,12 +1,12 @@
 ---
-title: "Azure Güvenlik Merkezi'nde izinleri | Microsoft Docs"
-description: "Bu makalede, rol tabanlı erişim denetimini Azure Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığını açıklar ve her rol için izin verilen eylemleri tanımlar."
+title: Azure Güvenlik Merkezi'nde izinleri | Microsoft Docs
+description: Bu makalede, rol tabanlı erişim denetimini Azure Güvenlik Merkezi kullanıcılara izinler atamak için nasıl kullandığını açıklar ve her rol için izin verilen eylemleri tanımlar.
 services: security-center
 cloud: na
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f85f49bd54eacbca67143b35eaf555cfb744a41d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde izinleri
 
-Azure Güvenlik Merkezi, Azure'daki kullanıcılara, gruplara ve hizmetlere atanabilen [yerleşik roller](../active-directory/role-based-access-built-in-roles.md) sağlayan [Rol Tabanlı Erişim Denetimi'ni (RBAC)](../active-directory/role-based-access-control-configure.md) kullanır.
+Azure Güvenlik Merkezi kullanan [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md), sağlayan [yerleşik roller](../role-based-access-control/built-in-roles.md) kullanıcıları, grupları ve Azure Hizmetleri için atanabilir.
 
 Güvenlik Merkezi güvenlik sorunları ve güvenlik açıklarını tanımlamak için kaynaklarınızı yapılandırmasını değerlendirir. Güvenlik Merkezi'nde, yalnızca kaynak sahibi, katkıda bulunan veya okuyucu rolü abonelik veya kaynak ait olduğu kaynak grubu için atandığında ilgili bilgileri görebilirsiniz.
 
@@ -48,7 +48,7 @@ Aşağıdaki tabloda rollerini görüntüler ve Güvenlik Merkezi'nde Eylemler i
 | Kaynak grubu katkıda bulunan | -- | X | -- | X |
 | Okuyucu | -- | -- | -- | X |
 | Güvenlik Yöneticisi | X | -- | X | X |
-| Güvenlik okuyucusu | -- | -- | -- | X |
+| Güvenlik Okuyucu | -- | -- | -- | X |
 
 > [!NOTE]
 > Kullanıcılara, görevlerini tamamlamak için gereken rolleri en alt seviyede esneklik sunacak şekilde atamanızı öneririz. Örneğin, yalnızca bir kaynak güvenlik durumu hakkındaki bilgileri görüntüleyebilir, ancak önerileri uygulamak veya ilkeleri düzenleme gibi bir eylemde bulunmamasını gereken kullanıcılar için okuyucu rolüne atayın.

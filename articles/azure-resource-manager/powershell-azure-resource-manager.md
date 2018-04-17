@@ -1,8 +1,8 @@
 ---
-title: "PowerShell ile Azure çözümleri yönetmek | Microsoft Docs"
-description: "Azure PowerShell ve Resource Manager kaynaklarınızı yönetmek için kullanın."
+title: PowerShell ile Azure çözümleri yönetmek | Microsoft Docs
+description: Azure PowerShell ve Resource Manager kaynaklarınızı yönetmek için kullanın.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 96206482195cdcbd06ee2dafdc551f7b1f81d319
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 9521a9be1d2bdc91836830dbb6471d2ffcb4daaf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Azure PowerShell ile kaynakları yönetme
 
@@ -51,9 +51,9 @@ Kaynak grubu şu anda boştur.
 
 Bu makalede, bir sanal makine ve onun ilişkili sanal ağ dağıtın. Sanal makine çözümleri yönetmek için yaygın olarak gerekli erişim sağlayan üç kaynağa özel rollere vardır:
 
-* [Sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Depolama hesabı katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Ağ Katılımcısı](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Depolama hesabı katkıda bulunan](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Tek tek kullanıcılara roller atama yerine genellikle daha kolay olur [bir Azure Active Directory grubu oluşturun](../active-directory/active-directory-groups-create-azure-portal.md) benzer önlemler almak için gereken kullanıcılar için. Ardından, bu grup için uygun rolü atayın. Bu makalede basitleştirmek için bir Azure Active Directory grubu üyeleri olmadan oluşturun. Hala bu grubun bir kapsam için bir rol atayabilirsiniz. 
 

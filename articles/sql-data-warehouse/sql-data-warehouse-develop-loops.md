@@ -1,11 +1,11 @@
 ---
-title: "Azure SQL Data Warehouse T-SQL Döngülerde yararlanan | Microsoft Docs"
-description: "Transact-SQL döngüler ve çözümleri geliştirmek için Azure SQL Data Warehouse değiştirerek imleçler için ipuçları."
+title: Azure SQL Data Warehouse'da T-SQL döngüleri kullanma | Microsoft Docs
+description: T-SQL döngüleri kullanma ve çözümleri geliştirmek için Azure SQL Data Warehouse imleçler değiştirme ipuçları.
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: f3384b81-b943-431b-bc73-90e47e4c195f
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,19 +15,23 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e49a0de0e4a6aba6639f7f3100f41c8db254220
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="loops-in-sql-data-warehouse"></a>SQL Data warehouse'da döngüler
-SQL veri ambarı destekleyen [sırada][sırada] art arda deyim blokları yürütmek döngü. Belirtilen koşullar doğru olduğunda sürece veya kadar döngü kullanarak kod özellikle sonlandırır için devam eder `BREAK` anahtar sözcüğü. Döngüler SQL kod içinde tanımlanan imleçler değiştirme için özellikle yararlıdır. Neyse ki, SQL kodda yazılır neredeyse tüm imleçler sarma okunur yalnızca çeşitli. Bu nedenle [sırada] döngüler olup mükemmel bir alternatif kendiniz bunlardan değiştirmek zorunda bulun.
+# <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL veri ambarı'nda T-SQL döngüleri kullanma
+T-SQL döngüleri kullanma ve çözümleri geliştirmek için Azure SQL Data Warehouse imleçler değiştirme ipuçları.
 
-## <a name="leveraging-loops-and-replacing-cursors-in-sql-data-warehouse"></a>Döngüler yararlanan ve SQL Data Warehouse imleçler değiştirme
-Ancak, head ilk girmeden önce kendiniz aşağıdaki soru: "Bu imleç göre ayarlama işlemleri kullanacak şekilde yeniden yazılabilir?". Çoğu durumda yanıta Evet olacaktır ve genellikle en iyi yaklaşımdır. Temel ayarlama işlemi genellikle yinelemeli, satır temelinde bir yaklaşım daha önemli ölçüde daha hızlı gerçekleştirir.
+## <a name="purpose-of-while-loops"></a>Döngüler sırasında amacı
 
-İleri Sarma salt okunur imleçler, döngü yapısı ile kolayca değiştirilebilir. Basit bir örnek aşağıda verilmiştir. Bu kod örneği, veritabanındaki her tablo için istatistiklerini güncelleştirir. Döngü tablolarda üzerinde yineleme tarafından biz her komut dizisi sorgulayabilmesi.
+SQL veri ambarı destekleyen [sırada](/sql/t-sql/language-elements/while-transact-sql) art arda deyim blokları yürütmek döngü. İçin belirtilen koşullar doğru veya kod kadar özellikle olduğu sürece bu WHILE döngünün devam BREAK anahtar sözcüğü kullanılarak döngü sonlandırır. Döngüler, SQL kod içinde tanımlanan imleçler değiştirme için kullanışlıdır. Neyse ki, SQL kodda yazılır neredeyse tüm imleçler ileri sarma, salt okunur çeşitli ' dir. Bu nedenle, [döngüler imleçler değiştirme için mükemmel bir alternatif çalışırken].
+
+## <a name="replacing-cursors-in-sql-data-warehouse"></a>SQL veri ambarı imleçler değiştirme
+Ancak, head ilk girmeden önce kendiniz aşağıdaki soru: "Bu imleç kümesi tabanlı işlemlerini kullanmak için yazılması?." Çoğu durumda, yanıt Evet ve genellikle en iyi yaklaşımdır. Set-based işlemi genellikle yinelemeli, satır temelinde bir yaklaşım daha hızlı gerçekleştirir.
+
+İleri Sarma salt okunur imleçler, döngü yapısı ile kolayca değiştirilebilir. Basit bir örnek verilmiştir. Bu kod örneği, veritabanındaki her tablo için istatistiklerini güncelleştirir. Döngü tablolarda üzerinde yineleme tarafından her komutun sırayla yürütür.
 
 İlk olarak, tek tek deyimleri tanımlamak için kullanılan benzersiz bir satır numarası içeren geçici bir tablo oluşturun:
 
@@ -69,19 +73,6 @@ Son olarak ilk adımda oluşturduğunuz geçici tablo bırakma
 DROP TABLE #tbl;
 ```
 
-
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][development overview].
+Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış](sql-data-warehouse-overview-develop.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[development overview]: sql-data-warehouse-overview-develop.md
-
-<!--MSDN references-->
-[WHILE]: https://msdn.microsoft.com/library/ms178642.aspx
-
-
-<!--Other Web references-->

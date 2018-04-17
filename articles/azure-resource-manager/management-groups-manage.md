@@ -1,10 +1,10 @@
 ---
-title: "Değiştirmek, silmek veya yönetim gruplarınızı - Azure yönetmek nasıl | Microsoft Docs"
-description: "Korumak ve Yönetim Grup hiyerarşiniz güncelleştirmek hakkında bilgi edinin."
+title: Değiştirmek, silmek veya yönetim gruplarınızı - Azure yönetmek nasıl | Microsoft Docs
+description: Korumak ve Yönetim Grup hiyerarşiniz güncelleştirmek hakkında bilgi edinin.
 author: rthorn17
 manager: rithorn
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/1/2018
 ms.author: rithorn
-ms.openlocfilehash: 33797ddcd2a6ff083c5fb4b2fa7ddb8f9d6bd76c
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: cba3f9290aff1808133b9d7780e4169fa25a10b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim grupları ile kaynaklarınızı yönetmek 
-Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. Değiştirme, silme ve bu kapsayıcıları kullanılabilir hiyerarşileri yönetme [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini (RBAC)](../active-directory/role-based-access-control-what-is.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md).
+Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. Değiştirme, silme ve bu kapsayıcıları kullanılabilir hiyerarşileri yönetme [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini (RBAC)](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md).
 
 Yönetim grubu özelliğini genel önizleme olarak kullanılabilir. Management'ı kullanmaya başlamak için gruplar, oturum açma [Azure portal](https://portal.azure.com) veya kullanabilirsiniz [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), veya [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) için Yönetim gruplarını yönetin.
 
-Bir yönetim grubuna değişiklik yapmak için yönetim grubu üzerinde bir sahibi veya katkıda bulunan rolü olmalıdır. Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi edinmek için [erişim ve izinleri ile RBAC yönetme](../active-directory/role-based-access-control-what-is.md).
+Bir yönetim grubuna değişiklik yapmak için yönetim grubu üzerinde bir sahibi veya katkıda bulunan rolü olmalıdır. Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi edinmek için [erişim ve izinleri ile RBAC yönetme](../role-based-access-control/overview.md).
 
 ## <a name="change-the-name-of-a-management-group"></a>Bir yönetim grubu adını değiştirin 
 Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştirebilirsiniz.
@@ -64,7 +64,7 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimlerin karşılanması g
 1. Alt Yönetim grupları veya yönetim grubu altında Abonelikleriniz yok. 
     - Bir yönetim grubu dışında bir aboneliği taşımak için bkz: [abonelik başka bir managemnt grubuna taşımak](#Move-subscriptions-in-the-hierarchy). 
     - Yönetim grubu başka bir yönetim grubuna taşımak için bkz: [Yönetim grupları hiyerarşide Taşı](#Move-management-groups-in-the-hierarchy). 
-2. Yönetim grubunda yönetim grubu sahibi veya katkıda bulunan rolü yazma izinlerine sahip. Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz: [erişim ve izinleri ile RBAC yönetme](../active-directory/role-based-access-control-what-is.md).  
+2. Yönetim grubunda yönetim grubu sahibi veya katkıda bulunan rolü yazma izinlerine sahip. Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz: [erişim ve izinleri ile RBAC yönetme](../role-based-access-control/overview.md).  
 
 ### <a name="delete-in-the-portal"></a>Portalda Sil
 
@@ -139,7 +139,7 @@ Aboneliği taşımak için bilmeniz gereken birkaç izinleri vardır:
 - Alt abonelik "Sahip" rolü.
 - Yeni üst yönetim grubunda "Sahibi" veya "Katkıda" rolü. 
 - Eski üst yönetim grubunda "Sahibi" veya "Katkıda" rolü.
-Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz: [erişim ve izinleri ile RBAC yönetme](../active-directory/role-based-access-control-what-is.md). 
+Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi için bkz: [erişim ve izinleri ile RBAC yönetme](../role-based-access-control/overview.md). 
 
 ### <a name="move-subscriptions-in-the-portal"></a>Portalda abonelik taşıma
 

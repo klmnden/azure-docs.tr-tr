@@ -1,6 +1,6 @@
 ---
-title: "Azure kapsayıcı kayıt defteri ile kimlik doğrulaması"
-description: "Azure Active Directory dahil olmak üzere bir Azure kapsayıcı kayıt defteri için kimlik doğrulama seçenekleri ilkeleri doğrudan ve kayıt defteri oturum açma hizmeti."
+title: Azure kapsayıcı kayıt defteri ile kimlik doğrulaması
+description: Azure Active Directory dahil olmak üzere bir Azure kapsayıcı kayıt defteri için kimlik doğrulama seçenekleri ilkeleri doğrudan ve kayıt defteri oturum açma hizmeti.
 services: container-registry
 author: stevelas
 manager: timlt
@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70758f938718aef160670bc023aff5fc0c9fb92a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 349d4f8cba2967edcedb202979695d271283fa8b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Bir özel Docker kapsayıcısı kayıt defteri ile kimlik doğrulaması
 
@@ -31,11 +31,11 @@ Görüntüleri çekme ve görüntüleri geliştirme istasyonunuzdan gönderilmes
 az acr login --name <acrName>
 ```
 
-İle oturum açtığınızda `az acr login`, CLI, çalıştırıldığında oluşturulan belirteç kullanan `az login` sorunsuz bir şekilde kaydınız oturumunuzun kimliğini doğrulamak için. Bu şekilde oturum açtığınız sonra kimlik bilgilerinizi önbelleğe alınmış ve sonraki `docker` komutları bir kullanıcı adı veya parola gerektirmez. Belirtecinizin süresi dolarsa, bunu kullanarak yenileyebilirsiniz `az acr login` yeniden kimlik doğrulamaya komutu. Kullanarak `az acr login` Azure kimliklerle sağlar [rol tabanlı erişim](../active-directory/role-based-access-control-configure.md).
+İle oturum açtığınızda `az acr login`, CLI, çalıştırıldığında oluşturulan belirteç kullanan `az login` sorunsuz bir şekilde kaydınız oturumunuzun kimliğini doğrulamak için. Bu şekilde oturum açtığınız sonra kimlik bilgilerinizi önbelleğe alınmış ve sonraki `docker` komutları bir kullanıcı adı veya parola gerektirmez. Belirtecinizin süresi dolarsa, bunu kullanarak yenileyebilirsiniz `az acr login` yeniden kimlik doğrulamaya komutu. Kullanarak `az acr login` Azure kimliklerle sağlar [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="service-principal"></a>Hizmet sorumlusu
 
-Atamak için bir [hizmet sorumlusu](../active-directory/develop/active-directory-application-objects.md) , kayıt defterine ve uygulama veya hizmet gözetimsiz kimlik doğrulaması için kullanabilirsiniz. Hizmet sorumluları izin [rol tabanlı erişim](../active-directory/role-based-access-control-configure.md) bir kayıt defteri ve birden çok hizmet asıl adı için bir kayıt defteri atayabilirsiniz. Birden çok hizmet asıl adı, farklı uygulamalar için farklı erişim tanımlamanıza olanak sağlar.
+Atamak için bir [hizmet sorumlusu](../active-directory/develop/active-directory-application-objects.md) , kayıt defterine ve uygulama veya hizmet gözetimsiz kimlik doğrulaması için kullanabilirsiniz. Hizmet sorumluları izin [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md) bir kayıt defteri ve birden çok hizmet asıl adı için bir kayıt defteri atayabilirsiniz. Birden çok hizmet asıl adı, farklı uygulamalar için farklı erişim tanımlamanıza olanak sağlar.
 
 Kullanılabilir roller şunlardır:
 

@@ -1,8 +1,8 @@
 ---
-title: "İzleme ve Hadoop Ambari REST API - Azure Hdınsight ile yönetme | Microsoft Docs"
-description: "Azure hdınsight'ta Hadoop kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Hdınsight kümeleriyle dahil Ambari REST API kullanmayı öğreneceksiniz."
+title: İzleme ve Hadoop Ambari REST API - Azure Hdınsight ile yönetme | Microsoft Docs
+description: Azure hdınsight'ta Hadoop kümelerini yönetmek ve izlemek için Ambari kullanmayı öğrenin. Bu belgede, Hdınsight kümeleriyle dahil Ambari REST API kullanmayı öğreneceksiniz.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 2400530f-92b3-47b7-aa48-875f028765ff
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 44066a3b4d5bebc67b089bebc2f3c11d33c77000
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 6d82e67e546c8c2079d1feced6e10954fe67a83d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Ambari REST API kullanarak Hdınsight kümelerini yönetme
 
@@ -51,7 +49,7 @@ Bash veya PowerShell kullanarak olup olmadığını oluşturmuş olmanız da ger
 
 ### <a name="base-uri-for-ambari-rest-api"></a>Temel Ambari Rest API için URI
 
-Https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, hdınsight'ta Ambari REST API için ana URI olduğu yere **CLUSTERNAME** kümenizin adıdır.
+Hdınsight üzerinde Ambari REST API için ana Uri https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME, burada **CLUSTERNAME** kümenizin adıdır.
 
 > [!IMPORTANT]
 > URI (CLUSTERNAME.azurehdinsight.net) tam etki alanı adı (FQDN) parçası olarak küme adı büyük küçük harf duyarsız olsa da, diğer örnekleri URI büyük küçük harfe duyarlıdır. Örneğin, kümenizi adlı `MyCluster`, geçerli URI'ler şunlardır:
@@ -82,7 +80,7 @@ curl -u admin -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$C
 > Bu belgedeki Bash örnekler aşağıdaki varsayımlar olun:
 >
 > * Küme için oturum açma adı varsayılan değeri `admin`.
-> * `$CLUSTERNAME`Küme adını içerir. Bu değer kullanılarak ayarlanır`set CLUSTERNAME='clustername'`
+> * `$CLUSTERNAME` Küme adını içerir. Bu değer kullanılarak ayarlanır `set CLUSTERNAME='clustername'`
 > * İstendiğinde, küme oturum açma (Yönetici) için parolayı girin.
 
 ```powershell
@@ -94,8 +92,8 @@ $resp.Content
 > [!IMPORTANT]
 > Bu belgedeki PowerShell örnekleri aşağıdaki varsayımlar olun:
 >
-> * `$creds`yönetici oturum açma ve küme için parola içeren bir kimlik bilgisi nesnesidir. Bu değer kullanılarak ayarlanır `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` ve istendiğinde kimlik bilgileri sağlama.
-> * `$clusterName`Küme adını içeren bir dizedir. Bu değer kullanılarak ayarlanır `$clusterName="clustername"`.
+> * `$creds` yönetici oturum açma ve küme için parola içeren bir kimlik bilgisi nesnesidir. Bu değer kullanılarak ayarlanır `$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"` ve istendiğinde kimlik bilgileri sağlama.
+> * `$clusterName` Küme adını içeren bir dizedir. Bu değer kullanılarak ayarlanır `$clusterName="clustername"`.
 
 Örneklerin her ikisi de aşağıdaki örneğe benzer bilgiler ile başlayan bir JSON belgesi döndürün:
 
@@ -259,9 +257,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 Dönüş değeri aşağıdaki örneklerde birine benzer:
 
-* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net`-Bu değer, kümenin varsayılan depolama için bir Azure Storage hesabı kullanarak gösterir. `ACCOUNTNAME` Değeri, depolama hesabının adıdır. `CONTAINER` Bölümüdür depolama hesabındaki blob kapsayıcısının adı. Kapsayıcı küme için HDFS uyumlu depolama köküdür.
+* `wasb://CONTAINER@ACCOUNTNAME.blob.core.windows.net` -Bu değer, kümenin varsayılan depolama için bir Azure Storage hesabı kullanarak gösterir. `ACCOUNTNAME` Değeri, depolama hesabının adıdır. `CONTAINER` Bölümüdür depolama hesabındaki blob kapsayıcısının adı. Kapsayıcı küme için HDFS uyumlu depolama köküdür.
 
-* `adl://home`-Bu değer, kümenin varsayılan depolama için bir Azure Data Lake Store kullandığını gösterir.
+* `adl://home` -Bu değer, kümenin varsayılan depolama için bir Azure Data Lake Store kullandığını gösterir.
 
     Data Lake Store hesap adını bulmak için aşağıdaki örneklerde kullanın:
 

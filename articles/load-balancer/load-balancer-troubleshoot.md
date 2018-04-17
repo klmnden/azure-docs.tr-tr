@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 560e2ed7cafd1018f4b64ac6d0e45134560082b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 69b2caa6cd2fe6d2c89074614aaf28e2ad68a25a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure yük dengeleyici sorun giderme
 
@@ -103,9 +103,7 @@ Bir VM için veri trafiğini yanıt vermezse, hedef bağlantı katılımcı VM a
 
 Bir veya daha fazla ağ güvenlik grupları veya VM alt ağ üzerinde yapılandırdıysanız, VM yanıt verip vermediğini ise kaynak IP veya bağlantı noktası, engelliyor.
 
-* VM arka uçta yapılandırılmış ağ güvenlik grupları listesi. Daha fazla bilgi için bkz.
-    -  [Ağ güvenlik grupları Portalı'nı kullanarak yönetme](../virtual-network/virtual-network-manage-nsg-arm-portal.md)
-    -  [PowerShell’i kullanarak ağ güvenlik gruplarını yönetme](../virtual-network/virtual-network-manage-nsg-arm-ps.md)
+* VM arka uçta yapılandırılmış ağ güvenlik grupları listesi. Daha fazla bilgi için bkz: [ağ güvenlik gruplarını yönet](../virtual-network/manage-network-security-group.md).
 * Ağ güvenlik grupları listesinden kontrol edin:
     - veri bağlantı noktasındaki gelen veya giden trafiğe girişim sahiptir. 
     - bir **Reddet tüm** ağ güvenlik grubu kural NIC VM veya yük dengeleyici izin veren varsayılan kural yoklamaları daha yüksek bir önceliği olan alt ağ üzerinde ve trafik (ağ güvenlik grupları izin vermelidir 168.63.129.16, yük dengeleyici IP Sonda bağlantı noktası olan) 

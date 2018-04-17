@@ -1,26 +1,24 @@
 ---
-title: "Azure Hdınsight araçları - Visual Studio kodunu PySpark etkileşimli ortamını ayarlama | Microsoft Docs"
-description: "Visual Studio Code Azure Hdınsight araçları oluşturmak ve sorgular ve komut dosyaları göndermek için nasıl kullanılacağını öğrenin."
+title: Azure Hdınsight araçları - Visual Studio kodunu PySpark etkileşimli ortamını ayarlama | Microsoft Docs
+description: Visual Studio Code Azure Hdınsight araçları oluşturmak ve sorgular ve komut dosyaları göndermek için nasıl kullanılacağını öğrenin.
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 author: jejiang
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 5a64023df813262c461b9d772b722ebd613369ed
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 4ab7b95861fcd1ff75f8ac84e4f00aedb6e526f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio kodunu PySpark etkileşimli ortamını ayarlama
 
@@ -110,5 +108,5 @@ Kullanıyorsanız, **python 3.x**, komut kullanmanıza gerek **pip3** aşağıda
 * [HDInsight için Spark kümesinde Jupyter not defteri için kullanılabilir çekirdekler](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Jupyter not defterleri ile dış paketleri kullanma](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Jupyter’i bilgisayarınıza yükleme ve bir HDInsight Spark kümesine bağlanma](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [Microsoft Power BI'ı Azure hdınsight'ta Hive verileri görselleştirin](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın](hdinsight-connect-hive-zeppelin.md)
+* [Azure HDInsight’ta Microsoft Power BI ile Hive verileri görselleştirme](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [Azure Hdınsight'ta Hive sorguları çalıştırmak için Zeppelin kullanın ](hdinsight-connect-hive-zeppelin.md)

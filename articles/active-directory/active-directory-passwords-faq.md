@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory SSS - Self Servis parola sıfırlama"
-description: "Azure AD Self Servis parola hakkında sık sorulan sorular Sıfırla"
+title: Azure Active Directory SSS - Self Servis parola sıfırlama
+description: Azure AD Self Servis parola hakkında sık sorulan sorular Sıfırla
 services: active-directory
-keywords: "Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama"
-documentationcenter: 
+keywords: Active directory parola yönetimi, Azure AD parola yönetimi self servis parola sıfırlama
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
 ms.custom: seohack1
-ms.openlocfilehash: f5236b81c70caee4417777ffadcababebaa84620
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6d30e3f099f497f35938b702d5fbb3ca38565f7c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-management-frequently-asked-questions"></a>Parola yönetimi sık sorulan sorular
 
@@ -105,7 +105,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
     >Bu zaman dilimi içinde bildirim almadıysanız:
         > * Gereksiz klasörünüzü kontrol edin.
         > * Numarası veya e-posta iletişim kurulan bir beklediğiniz olup olmadığını denetleyin.
-        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya  *user@contoso.com* . 
+        > * Kimlik doğrulama verilerinin dizininde doğru olduğunu denetleyin biçimlendirilmiş, örneğin, + 1 4255551234 veya *user@contoso.com*. 
   >
   >
 * **S: hangi dilde parola sıfırlama tarafından destekleniyor mu?**
@@ -190,7 +190,7 @@ Bu SSS, aşağıdaki bölümlere ayrılır:
   >
 * **S:, parola sıfırlama kullanıcıların engellemek?**
 
-  > **Y:** SSPR etkinleştirmek için bir grubu kullanıyorsanız, Evet, tek bir kullanıcı parolalarını sıfırlama olanağı tanıyan grubundan kaldırabilirsiniz.
+  > **Y:** SSPR etkinleştirmek için bir grubu kullanıyorsanız, Evet, tek bir kullanıcı parolalarını sıfırlama olanağı tanıyan grubundan kaldırabilirsiniz. Kullanıcı genel yönetici ise parolalarını sıfırlama olanağı korur ve bu devre dışı bırakılamaz.
   >
   >
 

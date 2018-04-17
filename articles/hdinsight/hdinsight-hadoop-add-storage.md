@@ -1,25 +1,23 @@
 ---
-title: "Hdınsight için ek Azure depolama hesapları ekleme | Microsoft Docs"
-description: "Ek Azure depolama hesapları olan bir Hdınsight kümesine eklemeyi öğrenin."
+title: Hdınsight için ek Azure depolama hesapları ekleme | Microsoft Docs
+description: Ek Azure depolama hesapları olan bir Hdınsight kümesine eklemeyi öğrenin.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.devlang: ''
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 72045d363516a2f16d45e3f8ee157ddd9d9242bd
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 569a41dfdbf2f9d911e67f283f413130ba7e1f79
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Hdınsight için ek depolama hesapları ekleme
 
@@ -68,7 +66,7 @@ Bu komut, Azure portalı, Azure PowerShell veya Azure CLI 1.0 kullanılabilir. D
 > [!IMPORTANT]
 > Özelleştirme belgede sağlanan adımları kullanarak, bu komut dosyasını uygulamak için aşağıdaki bilgileri kullanın:
 >
-> * Tüm örnek betik eylemi URI bu komut dosyası (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh) için URI ile değiştirin.
+> * Tüm örnek betik eylemi URI bu komut dosyası için URI ile değiştirin (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh).
 > * Kümeye eklenecek depolama hesabı anahtarı ve Azure depolama hesabı adı ile örnek parametreleri değiştirin. Azure portalını kullanıyorsanız, bu parametreler boşlukla ayrılmış olması gerekir.
 > * Bu komut dosyası olarak işaretlemek gerekmez __kalıcı__, doğrudan bir küme için Ambari yapılandırmasını güncelleştirir.
 
@@ -100,7 +98,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > Ayarlama `$PASSWORD` küme oturum açma (Yönetici) hesap parolası için. Ayarlama `$CLUSTERNAME` Hdınsight kümesinin adı. Ayarlama `$STORAGEACCOUNTNAME` depolama hesabının adı.
 >
-> Bu örnekte [curl (http://curl.haxx.se/)](http://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) almak ve JSON verilerini ayrıştırılamadı.
+> Bu örnekte [curl (http://curl.haxx.se/) ](http://curl.haxx.se/) ve [jq (https://stedolan.github.io/jq/) ](https://stedolan.github.io/jq/) almak ve JSON verilerini ayrıştırılamadı.
 
 Bu komut, kullanırken değiştirin __CLUSTERNAME__ Hdınsight kümesi adı. Değiştir __parola__ küme için HTTP oturum açma parolası ile. Değiştir __STORAGEACCOUNT__ betik eylemi kullanarak eklenen depolama hesabı adı. Bu komuttan döndürülen bilgi için aşağıdaki metni benzer görünür:
 
@@ -116,7 +114,7 @@ Betik eylemi yeniden çalıştıran mu __değil__ anahtar depolama hesabı için
 
 Bu sorunu gidermek için depolama hesabı için varolan bir girişi kaldırmanız gerekir. Varolan bir girişi kaldırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısında Hdınsight kümeniz için Ambari Web kullanıcı arabirimini açın. URI https://CLUSTERNAME.azurehdinsight.net ' dir. __CLUSTERNAME__ değerini kümenizin adıyla değiştirin.
+1. Bir web tarayıcısında Hdınsight kümeniz için Ambari Web kullanıcı arabirimini açın. URI https://CLUSTERNAME.azurehdinsight.net. __CLUSTERNAME__ değerini kümenizin adıyla değiştirin.
 
     İstendiğinde, kümeniz için HTTP oturum açma kullanıcı adı ve parola girin.
 

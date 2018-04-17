@@ -1,26 +1,24 @@
 ---
-title: "Apache Hive - Azure Hdınsight ile twitter veri çözümleme | Microsoft Docs"
-description: "Kullanmayı öğrenin Hive ve hdınsight'ta Hadoop ham TWitter verilerini aranabilir Hive tabloya dönüştürür."
+title: Apache Hive - Azure Hdınsight ile twitter veri çözümleme | Microsoft Docs
+description: Kullanmayı öğrenin Hive ve hdınsight'ta Hadoop ham TWitter verilerini aranabilir Hive tabloya dönüştürür.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b6e540576bc4a5876bc8546262a181bd82ad9727
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 1e3a9b12a9621baf91d49be48fb79a5d6bca1326
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter verilerini Hdınsight'ta Hive ve Hadoop kullanarak çözümleme
 
@@ -35,9 +33,9 @@ Apache Hive işlem Twitter verilerini kullanmayı öğrenin. Sonucu, belirli bir
 
 Twitter almanıza olanak tanır [her tweet için veri](https://dev.twitter.com/docs/platform-objects/tweets) bir REST API'si aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak. [OAuth](http://oauth.net) API kimlik doğrulaması için gereklidir.
 
-### <a name="create-a-twitter-application"></a>Bir Twitter uygulaması oluşturma
+### <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
-1. Bir web tarayıcısından oturum [https://apps.twitter.com/](https://apps.twitter.com/). Tıklatın **kaydolma şimdi** bir Twitter hesabı yoksa bağlantı.
+1. Bir web tarayıcısından oturum [ https://apps.twitter.com/ ](https://apps.twitter.com/). Tıklatın **kaydolma şimdi** bir Twitter hesabı yoksa bağlantı.
 
 2. Tıklatın **yeni uygulama oluştur**.
 

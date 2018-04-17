@@ -1,28 +1,26 @@
 ---
-title: "Hdınsight'ta - Azure Hdınsight Apache Phoenix | Microsoft Docs"
-description: 
+title: Hdınsight'ta - Azure Hdınsight Apache Phoenix | Microsoft Docs
+description: ''
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/19/2018
 ms.author: ashishth
-ms.openlocfilehash: a82ddc4a94688df87043ef93f24956efb93220c4
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 5d96b5656881815a82c89e0d159ba2bf556946b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="apache-phoenix-in-hdinsight"></a>Hdınsight'ta Apache Phoenix
+# <a name="apache-phoenix-in-hdinsight"></a>HDInsight üzerinde Apache Phoenix
 
 [Apache Phoenix](http://phoenix.apache.org/) yüksek düzeyde paralel ilişkisel veritabanı katmanı üzerinde oluşturulan bir açık kaynaklı [HBase](hbase/apache-hbase-overview.md). Phoenix, HBase üzerinde SQL benzeri sorguları kullanmanıza olanak sağlar. Phoenix, kullanıcıların oluştur, Sil, ayrı ayrı ve toplu SQL tablolar, dizinler, görünümler ve dizileri ve upsert satırları değiştirmek altındaki JDBC sürücüleri kullanır. Phoenix, HBase düşük gecikme süreli uygulamalarınızı oluşturulmasına etkinleştirme sorgular derlemek için MapReduce kullanmak yerine noSQL yerel derleme kullanır. Phoenix, verilerle birlikte bulunan kod yürütmek sunucu adres alanında istemci tarafından sağlanan kod çalıştırılmasını desteklemek üzere coprocessors ekler. Bu yaklaşım istemci/sunucu veri aktarımını en aza indirir.
 

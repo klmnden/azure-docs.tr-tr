@@ -3,8 +3,8 @@ title: Azure Cosmos DB tanılama günlük | Microsoft Docs
 description: Azure Cosmos DB ile başlamanıza yardımcı olması için bu öğreticiyi kullanın günlüğü.
 services: cosmos-db
 documentationcenter: ''
-author: mimig1
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: cosmos-db
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: mimig
-ms.openlocfilehash: 3b7c9f1acd79a2f170ecead9dedd200ad37d9388
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: 0b49a23de62385a8aa362680dde845512d9302fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -445,11 +445,11 @@ Aşağıdaki tabloda her günlük girişinin içeriğini açıklar.
 | **Saat** | **TimeGenerated** | Tarih ve saat (UTC) işlemi oluştuğunda. |
 | **resourceId** | **Kaynak** | Günlükleri etkin Azure Cosmos DB hesabı.|
 | **Kategori** | **Kategori** | Azure Cosmos DB günlükleri için **DataPlaneRequests** yalnızca kullanılabilen değerdir. |
-| **operationName** | **OperationName** | İşlemin adı. Bu değer aşağıdaki işlemlerden birini olabilir: oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütme, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
+| **OperationName** | **OperationName** | İşlemin adı. Bu değer aşağıdaki işlemlerden birini olabilir: oluşturma, güncelleştirme, okuma, ReadFeed, Sil, Değiştir, yürütme, SqlQuery, sorgu, JSQuery, Head, HeadFeed veya Upsert.   |
 | **özellikleri** | yok | Bu alanın içeriğini izleyen satırları açıklanmaktadır. |
 | **activityId** | **activityId_g** | Oturum işlemi için benzersiz bir GUID. |
-| **userAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimi {kullanıcı aracısı adıdır} / {version}.|
-| **resourceType** | **ResourceType** | Erişilen kaynak türü. Bu değer aşağıdaki kaynak türlerinden herhangi birinde olabilir: veritabanı, koleksiyon, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
+| **UserAgent** | **userAgent_s** | İsteği gerçekleştiren istemcinin kullanıcı aracısı belirten bir dize. Biçimi {kullanıcı aracısı adıdır} / {version}.|
+| **resourceType** | **Kaynak türü** | Erişilen kaynak türü. Bu değer aşağıdaki kaynak türlerinden herhangi birinde olabilir: veritabanı, koleksiyon, belge, ek, kullanıcı, izin, StoredProcedure, tetikleyici, UserDefinedFunction veya teklif. |
 | **statusCode** | **statusCode_s** | İşlem yanıt durumu. |
 | **requestResourceId** | **ResourceId** | İsteği ilgilidir ResourceId. Değer databaseRid, collectionRid veya documentRid yapılan işleme bağlı olarak işaret edebilir.|
 | **clientIpAddress** | **clientIpAddress_s** | İstemcinin IP adresi. |

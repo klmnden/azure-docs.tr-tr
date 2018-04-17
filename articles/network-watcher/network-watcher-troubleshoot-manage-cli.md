@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal ağ geçidi ve bağlantıları - Azure CLI 2.0 sorun giderme | Microsoft Docs"
-description: "Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır Azure CLI 2.0 sorun giderme"
+title: Azure sanal ağ geçidi ve bağlantıları - Azure CLI 2.0 sorun giderme | Microsoft Docs
+description: Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır Azure CLI 2.0 sorun giderme
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
 ms.service: network-watcher
 ms.devlang: na
@@ -14,17 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-<<<<<<< HEAD
-ms.openlocfilehash: 8ed01a0ff18eef2ea7fafe9e60e9606e33b4d9da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 6e55e0a70142c81e9543688bf699ef149f3ecff2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 67f2e8a897c7bcb66b2950925480b3dff5a09f61
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-20"></a>Sanal ağ geçidi ve Azure Ağ İzleyicisi Azure CLI 2.0 kullanarak bağlantı sorunlarını giderme
 
@@ -105,4 +99,4 @@ Azure depolama hesaplarından dosyaları indirme ile ilgili yönergeler için bk
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Dur VPN bağlantısı ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Bu Dur VPN bağlantısı ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.

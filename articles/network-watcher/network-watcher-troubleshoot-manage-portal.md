@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal ağ geçidi ve bağlantıları - Portal sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır Portal sorunlarını giderme"
+title: Azure sanal ağ geçidi ve bağlantıları - Portal sorunlarını giderme | Microsoft Docs
+description: Bu sayfa, Azure Ağ İzleyicisi'ni kullanma açıklanmaktadır Portal sorunlarını giderme
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
 ms.service: network-watcher
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: fb8f60eea0eaa24649f584ae4183aa8e552a433e
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: becc4f799e34aabba5c703f09e51a4b7d497c45a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-network-watcher-from-azure-portal"></a>Sanal ağ geçidi ve Azure Portalı'ndan Ağ İzleyicisi'ni kullanarak bağlantı sorunlarını giderme
 
@@ -74,7 +74,7 @@ Tamamlandığında, Durum sütununda değişikliklerini **sağlıklı** veya **s
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu Dur VPN bağlantısı ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/virtual-network-manage-nsg-arm-portal.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.
+Bu Dur VPN bağlantısı ayarları değiştirilmiş olup [ağ güvenlik grupları yönet](../virtual-network/manage-network-security-group.md) söz konusu olabilecek ağ güvenlik grubu ve güvenlik kuralları izlemek için.
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png

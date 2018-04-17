@@ -10,11 +10,11 @@ ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 322de1fb19461455a063d939ace3d5553ed1fc79
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 5e8ac9da4df2428191e8a7e6402f2ac06e695503
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak MySQL için Azure veritabanı bir sunucuya geri yükleme
 
@@ -52,7 +52,7 @@ Dönüş JSON'u aşağıdakileri içermelidir:
 }
 ```
 
-Sürüm 0.0.5 döndürülmezse, uzantı güncelleştirmek için aşağıdaki komutu çalıştırın: 
+Sürüm 0.0.5 döndürülmezse, aşağıdakini çalıştırarak uzantıyı güncelleştirin: 
 ```azurecli-interactive
 az extension update --name rdbms
 ```
@@ -114,6 +114,10 @@ Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, var o
 
 Coğrafi olarak yedekli yedeklemeyi kullanarak bir sunucu oluşturmak için Azure CLI kullanma `az mysql server georestore` komutu.
 
+> [!NOTE]
+> Bir sunucu ilk oluşturulduğunda coğrafi geri yükleme için hemen kullanılabilir olmayabilir. Doldurulması gerekli meta veriler için birkaç saat sürebilir.
+>
+
 Coğrafi geri yükleme sunucu Azure CLI komut isteminde aşağıdaki komutu girin:
 
 ```azurecli-interactive
@@ -132,10 +136,10 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 | Ayar | Önerilen değer | Açıklama  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | Yeni Sunucu ait olacağı kaynak grubunun adı.|
-|ad | mydemoserver-georestored | Yeni sunucunun adıdır. |
+|ad | mydemoserver georestored | Yeni sunucunun adıdır. |
 |source-server | mydemoserver | Coğrafi olarak yedekli yedekleri kullanılan mevcut sunucunun adıdır. |
 |location | eastus | Yeni sunucu konumu. |
-|sku-name| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun vCores sayısını ayarlar. GP_Gen4_8 genel amaçlı, 8 vCores Gen 4 sunucusuyla eşleştirir.|
+|SKU adı| GP_Gen4_8 | Bu parametre, fiyatlandırma katmanı, işlem oluşturma ve yeni sunucunun vCores sayısını ayarlar. GP_Gen4_8 genel amaçlı, 8 vCores Gen 4 sunucusuyla eşleştirir.|
 
 
 >[!Important]

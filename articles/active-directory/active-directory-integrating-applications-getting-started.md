@@ -1,11 +1,11 @@
 ---
-title: "Azure AD uygulamaları ile tümleştirme kullanmaya başlama | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory (AD) şirket içi uygulamaları ve bulut uygulamaları ile tümleştirmek için bir başlangıç kılavuzuna getirilmiştir."
+title: Azure AD uygulamaları ile tümleştirme kullanmaya başlama | Microsoft Docs
+description: Bu makalede, Azure Active Directory (AD) şirket içi uygulamaları ve bulut uygulamaları ile tümleştirmek için bir başlangıç kılavuzuna getirilmiştir.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: db6d210d-c970-49e9-bd20-36d984bcd1c3
 ms.service: active-directory
 ms.devlang: na
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: bf8ef28b49a3a12772965e7ebc85539c1a86e10f
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: dd118dbda9b7b0bee27bf9c97627bb8269e2d9b4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme Kılavuzu
 ## <a name="overview"></a>Genel Bakış
@@ -51,7 +51,7 @@ Uygulamaları Azure AD ile tümleştirmek için hemen önce nerede olduğunuza v
 * Tümleştirme önce kullanıcı/Grup veritabanlarını temizleme gerekecek mi?  (Bu oldukça önemli bir soru içindir. Çöp girişi, atık.)
 
 ### <a name="access-management-inventory"></a>Erişim Yönetimi envanteri
-* Şu anda uygulamalara kullanıcı erişimi yönetme? Değiştirmeniz gerekiyor mu?  Erişim gibi ile yönetmenin başka yolları göz önünde bulundurduğunuzdan [RBAC](role-based-access-control-configure.md) Örneğin?
+* Şu anda uygulamalara kullanıcı erişimi yönetme? Değiştirmeniz gerekiyor mu?  Erişim gibi ile yönetmenin başka yolları göz önünde bulundurduğunuzdan [RBAC](../role-based-access-control/role-assignments-portal.md) Örneğin?
 * Kimin ne erişmesi gerekiyor?
 
 Bu soruların yanıtlarını Önden belki yok ancak Tamam olmasıdır.  Bu kılavuz, bu sorulara yanıt ve bazı bilinçli kararlar almanıza yardımcı olabilir.

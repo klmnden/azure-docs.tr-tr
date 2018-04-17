@@ -4,8 +4,7 @@ description: Tüm değişiklik akış işlemci API ve yayın tarih, sona erme ta
 services: cosmos-db
 documentationcenter: .net
 author: ealsur
-manager: kirillg
-editor: mimig1
+manager: kfile
 ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
 ms.workload: data-services
@@ -14,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: maquaran
-ms.openlocfilehash: 43ba189332cf012a80c309a0dc0f383e38a0915c
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fe6dd9545be17453be38ce9afd5836aa07882ce6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -61,7 +60,7 @@ ms.lasthandoff: 03/30/2018
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.13.2 ve üstü.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK
+* GA SDK'SI
 * Uyumlu [SQL .NET SDK'sı](sql-api-sdk-dotnet.md) sürümleri 1.14.1 ve aşağıdaki.
 
 ## <a name="release--retirement-dates"></a>Yayın & sona erme tarihleri

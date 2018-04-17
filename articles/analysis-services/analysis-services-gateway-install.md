@@ -1,25 +1,18 @@
 ---
 title: Şirket içi veri ağ geçidi yükleme | Microsoft Docs
 description: Yükleme ve bir şirket içi veri ağ geçidi yapılandırma öğrenin.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/03/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: b57ee7d9617f8bf2e54122ac37f351ae0cf9db26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.reviewer: minewiskan
+ms.openlocfilehash: 5a923d3b5fbb5e7afe5f2a922ba083608ff35fd9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Yükleme ve bir şirket içi veri ağ geçidi yapılandırma
 Bir veya daha fazla Azure Analysis Services sunucuları aynı bölgede şirket içi veri kaynaklarına bağlanmak için bir şirket içi veri ağ geçidi gereklidir. Ağ geçidi hakkında daha fazla bilgi için bkz: [şirket içi veri ağ geçidi](analysis-services-gateway.md).
@@ -44,7 +37,7 @@ Bir veya daha fazla Azure Analysis Services sunucuları aynı bölgede şirket i
 * Ağ geçidi üzerinde kalır ve uyku moduna geçmez bir bilgisayara yükleyin.
 * Ağ geçidi kablosuz ağınıza bağlı bir bilgisayarda yüklemeyin. Performans yayınladıklarını.
 * Azure'da oturum aç sahip bir hesap için aynı Azure AD'de [Kiracı](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) abonelik, ağ geçidini kaydediyorsunuz. Azure B2B yüklerken ve bir ağ geçidi kaydediliyor (konuk) hesapları desteklenmez.
-* Burada açıklanan (Birleşik) ağ geçidi Azure kamu (Fairfax) desteklenmiyor. Ayrılmış şirket içi ağ geçidi, Azure Analysis Services için kullanın. Özel ağ geçidi, Power BI ve güç uygulamalar gibi ek hizmetler desteklemez. Sunucularınızdan hızlı başlangıç Portalı'nda özel ağ geçidi yüklü.
+* Burada açıklanan (Birleşik) ağ geçidi Azure kamu, Azure Almanya ve Azure Çin sovereign bölgelerde desteklenmiyor. Kullanım **Azure Analysis Services için ayrılmış şirket içi ağ geçidi**, sunucunuzun yüklü **Hızlı Başlangıç** Portalı'nda. 
 
 
 ## <a name="download"></a>İndirme

@@ -1,26 +1,24 @@
 ---
-title: "Web sitesi günlüğü analizi - Azure Hdınsight Hadoop ile Hive kullanma | Microsoft Docs"
-description: "Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma öğrenin. Bir Hdınsight tabloya giriş olarak bir günlük dosyası kullanmak ve verileri sorgulamak için HiveQL kullanma."
+title: Web sitesi günlüğü analizi - Azure Hdınsight Hadoop ile Hive kullanma | Microsoft Docs
+description: Web sitesi günlüklerini çözümlemek için Hdınsight ile Hive kullanma öğrenin. Bir Hdınsight tabloya giriş olarak bir günlük dosyası kullanmak ve verileri sorgulamak için HiveQL kullanma.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 6fb7b5c2-8df4-40b1-a9e2-6815080004f9
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5aabb69dc233dfd927c1d6cc1b131115e2d096d4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 53a0560d3bc5a52069d5829b9c3bd353e0c37ef3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Web sitesi günlüklerini çözümlemek için Windows tabanlı Hdınsight ile Hive kullanma
 Bir Web sitesi günlüklerini çözümlemek için Hdınsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü analizi benzer etkinliklere dayalı kitlenizi segmentlere, site ziyaretçilerini demografisine göre kategorilere ayırmak ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyor ve benzeri kullanılabilir.
@@ -37,7 +35,7 @@ Bu örnekte, Web sitesi günlük dosyaları ziyaretlerin sıklığını Web site
 
 ![HDI. Samples.Website.Log.Analysis](./media/apache-hive-analyze-website-log/hdinsight-weblogs-sample.png)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Azure Hdınsight Hadoop kümesinde sağlanması gerekir. Yönergeler için bkz: [sağlama Hdınsight kümeleri](../hdinsight-hadoop-provision-linux-clusters.md).
 * Excel 2010 yüklü veya Microsoft Excel 2013 yüklü olmalıdır.
 * Bilmeniz gereken [Microsoft Hive ODBC sürücüsü](http://www.microsoft.com/download/details.aspx?id=40886) kovanından Excel'e veri almak için.

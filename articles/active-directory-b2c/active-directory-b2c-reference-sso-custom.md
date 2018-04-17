@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 3d378d188d9acec06f37ca91e3c67e82fb31fc08
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ca7160d39d5d26ca69345ce636f22afbe44b25db
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C: Çoklu oturum açma (SSO) oturum yönetimi
 
@@ -47,6 +47,9 @@ Bu sağlayıcı adı belirleyen gibi hiçbir şey yapmaz. Bu sağlayıcı için 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
 Bu sağlayıcı talep bir oturumda depolamak için kullanılabilir. Bu sağlayıcı genellikle yerel hesaplarını yönetmek için kullanılan bir teknik profili başvurulur. 
+
+> [!NOTE]
+> DefaultSSOSessionProvider bir oturumda talep depolamak için kullanırken, sonraki adımlarda ön koşullar tarafından kullanılan veya uygulamaya döndürülen gereken herhangi bir talep oturumda depolanan veya kullanıcıların profilinden okuma tarafından engagement'ta emin olmak gerekir Dizin. Bu, kimlik doğrulama Yolculuğunuzun 's eksik taleplere başarısız olmayan güvence altına alır.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">

@@ -1,7 +1,7 @@
 ---
-title: "Azure Automation’da Rol Tabanlı Erişim Denetimi"
-description: "Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Bu makalede, Azure Automation’da RBAC’nin nasıl ayarlanacağı açıklanmaktadır."
-keywords: "otomasyon rbac, rol tabanlı erişim denetimi, azure rbac"
+title: Azure Automation’da Rol Tabanlı Erişim Denetimi
+description: Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Bu makalede, Azure Automation’da RBAC’nin nasıl ayarlanacağı açıklanmaktadır.
+keywords: otomasyon rbac, rol tabanlı erişim denetimi, azure rbac
 services: automation
 ms.service: automation
 author: georgewallace
@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9fb77f3b435491b5ac5b16327d6ce74f90664a79
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: c9cdebd2fb7f650b042fa04f345ac440e0b41cb8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation’da Rol Tabanlı Erişim Denetimi
 
-Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Kullanarak [RBAC](../active-directory/role-based-access-control-configure.md), ekibiniz içinde görevleri kurabilmeleri ve kullanıcıları, grupları sadece erişim miktarını vermek ve işlerini gerçekleştirmek için gereksinim duydukları uygulamaları. Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API'leri kullanılarak verilebilir.
+Rol tabanlı erişim denetimi (RBAC), Azure kaynakları için erişim yönetimi sağlar. Kullanarak [RBAC](../role-based-access-control/role-assignments-portal.md), ekibiniz içinde görevleri kurabilmeleri ve kullanıcıları, grupları sadece erişim miktarını vermek ve işlerini gerçekleştirmek için gereksinim duydukları uygulamaları. Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API'leri kullanılarak verilebilir.
 
 ## <a name="roles-in-automation-accounts"></a>Automation hesapları rollerinde
 Azure Automation’da, otomasyon hesabı kapsamında kullanıcılara, gruplara ve uygulamalara uygun RBAC rolü atanarak erişim verilir. Aşağıda Automation hesabının desteklediği yerleşik roller bulunmaktadır:
@@ -307,7 +307,7 @@ Bu kullanıcının runbook’la ilişkili web kancalarını da görüntüleme er
 ![Web kancalarına erişim yok](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)  
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Azure PowerShell kullanarak Automation hesabınız için RBAC yapılandırma
-Rol tabanlı erişim aşağıdaki kullanarak bir Otomasyon hesabı için de yapılandırılabilir [Azure PowerShell cmdlet'lerini](../active-directory/role-based-access-control-manage-access-powershell.md):
+Rol tabanlı erişim aşağıdaki kullanarak bir Otomasyon hesabı için de yapılandırılabilir [Azure PowerShell cmdlet'lerini](../role-based-access-control/role-assignments-powershell.md):
 
 • [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx), Azure Active Directory’de kullanılabilen tüm RBAC rollerini listeler. Belirli bir rol tarafından gerçekleştirilebilen tüm eylemleri listelemek için bu komutu **Ad** özelliğiyle birlikte bu komutu kullanabilirsiniz.
 
@@ -380,7 +380,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 Yukarıdaki örneklerde Değiştir **kimliğinde oturum**, **abonelik kimliği**, **kaynak grubu adı**, ve **Automation hesabı adını** ile Hesap ayrıntıları. Kullanıcı rolü atamasını kaldırmak için devam etmeden önce onaylamanız istendiğin **Evet**’i seçin.   
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Azure Otomasyonu’nda RBAC yapılandırmak için çeşitli yollar hakkında daha fazla bilgi için bkz. [Azure PowerShell ile RBAC yönetme](../active-directory/role-based-access-control-manage-access-powershell.md).
+* Azure Otomasyonu’nda RBAC yapılandırmak için çeşitli yollar hakkında daha fazla bilgi için bkz. [Azure PowerShell ile RBAC yönetme](../role-based-access-control/role-assignments-powershell.md).
 * Runbook başlatmak için çeşitli yollar hakkında daha fazla ayrıntı için bkz. [runbook başlatma](automation-starting-a-runbook.md)
 * Farklı runbook türleri hakkında daha fazla bilgi için bkz. [Azure Otomasyonu runbook türleri](automation-runbook-types.md)
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage erişmek için bir Linux VM üzerinde MSI atanmış bir kullanıcı kullanın"
-description: "Azure depolama alanına erişmek için bir Linux VM üzerinde bir kullanıcı atanan yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici."
+title: Azure Storage erişmek için bir Linux VM üzerinde MSI atanmış bir kullanıcı kullanın
+description: Azure depolama alanına erişmek için bir Linux VM üzerinde bir kullanıcı atanan yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: arluca
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5ae0e4e8149772d79190ee196cdd1c1bef344681
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: dd82f1757d9c5a5fc8fb110cc36ec9f4bbd73e8a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-a-user-assigned-managed-service-identity-msi-on-a-linux-vm-to-access-azure-storage"></a>Bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI), Azure Storage erişmek için bir Linux VM üzerinde kullanın.
 
@@ -45,7 +45,7 @@ Bu öğreticide CLI komut dosyası örnekleri çalıştırmak için iki seçene�
 
 ## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-Oturum açmak için Azure portalında [ https://portal.azure.com ](https://portal.azure.com).
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Yeni bir kaynak grubunda bir Linux sanal makine oluşturun
 
@@ -189,7 +189,7 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
 4. Şimdi, örneğin, daha önce kapsayıcıya karşıya örnek dosyanın içeriğini okumak Azure Storage erişmek için erişim belirteci kullanın. Değerlerini değiştirmek `<STORAGE ACCOUNT>`, `<CONTAINER NAME>`, ve `<FILE NAME>` daha önce belirttiğiniz değerleri içeren ve `<ACCESS TOKEN>` önceki adımda döndürülen belirteci ile.
 
    ```bash
-   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME>?api-version=2017-11-09 -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl https://<STORAGE ACCOUNT>.blob.core.windows.net/<CONTAINER NAME>/<FILE NAME> -H "x-ms-version: 2017-11-09" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    Yanıt dosyasının içeriğini içerir:

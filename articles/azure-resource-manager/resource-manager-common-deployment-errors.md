@@ -1,13 +1,13 @@
 ---
-title: "Ortak Azure dağıtım hatalarını giderme | Microsoft Docs"
-description: "Azure Kaynak Yöneticisi'ni kullanarak Azure kaynakları dağıttığınızda sık karşılaşılan hataların nasıl çözüleceği açıklanmaktadır."
+title: Ortak Azure dağıtım hatalarını giderme | Microsoft Docs
+description: Azure Kaynak Yöneticisi'ni kullanarak Azure kaynakları dağıttığınızda sık karşılaşılan hataların nasıl çözüleceği açıklanmaktadır.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
 manager: timlt
 editor: tysonn
-keywords: "Dağıtım hatası, azure dağıtım azure'a dağıtma"
+keywords: Dağıtım hatası, azure dağıtım azure'a dağıtma
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: support-article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: f251fe11c43dc4b3f29c70f937f5bfcb6af6c44e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 01cc75c522b85f7b4a4b38c92f42cb113d016b73
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Ortak Azure dağıtım hataları Azure Resource Manager ile ilgili sorunları giderme
 
@@ -31,9 +31,9 @@ Bu makalede karşılaşabilir ve hataları gidermek için bilgi sağlayan bazı 
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Depolama hesapları için adlandırma kısıtlamaları izleyin. | [Depolama hesabı adı çözümlenemedi](resource-manager-storage-account-name-errors.md) |
 | AccountPropertyCannotBeSet | Kullanılabilir depolama hesabı özellikleri denetleyin. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. İsteği daha sonra yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) ve [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| AllocationFailed | Küme veya bölgede kullanılabilir kaynak yok veya istenen VM boyutu destekleyemez. İsteği daha sonra yeniden deneyin veya farklı bir VM boyutu isteyin. | [Linux için sağlama ve ayırma sorunları](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Windows için sağlama ve ayırma sorunları](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) ve [ayırma hatalarını giderme](../virtual-machines/windows/allocation-failure.md)|
 | AnotherOperationInProgress | Eşzamanlı işlemin tamamlanmasını bekleyin. | |
-| AuthorizationFailed | Hizmet sorumlusu veya hesabınızı dağıtımını tamamlamak için yeterli erişimi yok. Hesabınıza ait olduğu rol ve dağıtım kapsamın erişimini denetleyin. | [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) |
+| AuthorizationFailed | Hizmet sorumlusu veya hesabınızı dağıtımını tamamlamak için yeterli erişimi yok. Hesabınıza ait olduğu rol ve dağıtım kapsamın erişimini denetleyin. | [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) |
 | BadRequest | Kaynak Yöneticisi tarafından beklenen eşleşmeyen dağıtım değerlerini gönderdi. Sorun giderme konusunda yardım için iç durum iletisini kontrol edin. | [Şablon başvurusu](/azure/templates/) ve [desteklenen konumlar](resource-manager-templates-resources.md#location) |
 | Çakışma | Kaynağın geçerli durumunda izin verilmiyor bir işlem istiyor. Örneğin, disk yeniden boyutlandırmaya yalnızca VM oluşturulurken veya VM serbest bırakıldığında izin verilir. | |
 | DeploymentActive | Eşzamanlı dağıtım tamamlamak için bu kaynak grubu için bekleyin. | |

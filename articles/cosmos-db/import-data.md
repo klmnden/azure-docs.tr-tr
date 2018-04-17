@@ -4,7 +4,7 @@ description: Açık kaynak Azure Cosmos DB veri geçiş araçları Azure Cosmos 
 keywords: json, veritabanı Geçiş Araçları, CSV'ye Dönüştür csv için json
 services: cosmos-db
 author: andrewhoh
-manager: jhubbard
+manager: kfile
 editor: monicar
 documentationcenter: ''
 ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/30/2018
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: 317e5f2696635d28b5dbab302e45960af9c8aee2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c4908775ab9a471201cc4bb0c35ab863f5d6d50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: Veri geçiş aracı
 
@@ -75,7 +75,7 @@ Aracı yükledikten sonra verilerinizi almak için zaman yapılır. Ne tür veri
 * [CSV dosyaları](#CSV)
 * [Azure Tablo Depolama](#AzureTableSource)
 * [Amazon DynamoDB](#DynamoDBSource)
-* [Blob](#BlobImport)
+* [BLOB](#BlobImport)
 * [Azure Cosmos DB koleksiyonları](#SQLSource)
 * [HBase](#HBaseSource)
 * [Azure Cosmos DB toplu içeri aktarma](#SQLBulkImport)
@@ -194,7 +194,7 @@ SQL kaynağına benzer, iç içe geçmiş ayırıcı özellik alma sırasında h
 
 Diğer adlar DomainInfo.Domain_Name ve RedirectInfo.Redirecting gibi unutmayın. İç içe geçmiş bir ayırıcı olarak belirterek '.', içeri aktarma aracını içeri aktarma sırasında DomainInfo ve RedirectInfo belgeler oluşturur. Azure Cosmos DB ortaya çıkan bir belgede bir örneği burada verilmiştir:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{"DomainInfo": {"Etki_alanı_adı": "ACUS.GOV", "Domain_Name_Address": "http://www.ACUS.GOV"}, "Federal Teşkilatı": "Yönetimsel konferans, Amerika Birleşik Devletleri", "RedirectInfo": {"Yeniden yönlendirme": "0", "Redirect_Destination": ""}, "id": " 9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d"}*
 
 İçeri aktarma aracını (tırnak içine alınmış değerler her zaman dize olarak kabul edilir) türü bilgileri CSV dosyaları tırnak işareti olmayan değerleri Infer dener.  Türleri, aşağıdaki sırayla tanımlanır: sayı, datetime, Boole değeri.  
 

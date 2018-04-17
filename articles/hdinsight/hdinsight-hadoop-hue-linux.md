@@ -1,26 +1,24 @@
 ---
-title: "Hdınsight Linux tabanlı kümelerde - Azure Hadoop ile ton | Microsoft Docs"
-description: "Hdınsight kümelerinde Hue yüklemek ve istekleri için ton yönlendirmek için tünel kullanmayı öğrenin. Depolama göz atın ve Hive veya Pig çalıştırmak için ton kullanın."
+title: Hdınsight Linux tabanlı kümelerde - Azure Hadoop ile ton | Microsoft Docs
+description: Hdınsight kümelerinde Hue yüklemek ve istekleri için ton yönlendirmek için tünel kullanmayı öğrenin. Depolama göz atın ve Hive veya Pig çalıştırmak için ton kullanın.
 keywords: Hue hadoop
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 9e57fcca-e26c-479d-a745-7b80a9290447
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 5cef5e72af8a8b7c007b688b029f875e89d163ae
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 829f309fa66bc548b9f74cca8112c244cc88775e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Yükleme ve Hue Hdınsight Hadoop kümeleri kullanma
 
@@ -100,7 +98,7 @@ SSH tünel çalışmaya başladıktan sonra kümede ton erişmek için tek yolud
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Bu, ana birincil headnode Hue Web sitesi bulunduğu adıdır.
-4. http://HOSTNAME:8888 adresindeki Hue portalını açmak için tarayıcı kullanın. Ana bilgisayar adı önceki adımda elde ettiğiniz adla değiştirin.
+4. Konumundaki Hue portalını açmak için tarayıcıyı kullanın http://HOSTNAME:8888. Ana bilgisayar adı önceki adımda elde ettiğiniz adla değiştirin.
 
    > [!NOTE]
    > İlk kez oturum açtığınızda ton portalına oturum açmak için bir hesap oluşturmak için istenir. Burada belirttiğiniz kimlik portalına sınırlı olacaktır ve yönetici veya küme hazırlama sırasında belirtilen SSH kullanıcısı kimlik bilgileriyle ilişkili değil.

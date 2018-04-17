@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Java komut satırı Başlarken | Microsoft Docs"
-description: "Bir API erişmek için kullanıcı oturum açtığında bir Java komut satırı uygulaması oluşturma."
+title: Azure AD Java komut satırı Başlarken | Microsoft Docs
+description: Bir API erişmek için kullanıcı oturum açtığında bir Java komut satırı uygulaması oluşturma.
 services: active-directory
 documentationcenter: java
 author: navyasric
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 51e1a8f9-6ff0-4643-a350-0ba794e26fd1
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 895741c6a33434633b8c35df959b3c68d005ba3e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: a0e12711e4a7e67861d61ae4575c4956531cf841
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-java-command-line-app-to-access-an-api-with-azure-ad"></a>Azure AD ile bir API erişmek için Java komut satırı uygulaması kullanma
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -258,7 +258,7 @@ Kök dizinine değiştirme geri çıkışı ve put birlikte kullanma örneği ol
 `http://localhost:8080/adal4jsample/`
 
 > [!NOTE]
-> En son Tomcat sunucularıyla WAR dağıtmak çok kolaydır. Yalnızca gidin `http://localhost:8080/manager/` ve karşıya yükleme üzerinde yönergeleri izleyin, '' adal4jsample.war' dosyası. İçinde autodeploy sizin için doğru bitiş noktası ile.
+> En son Tomcat sunucularıyla WAR dağıtmak çok kolaydır. Yalnızca gidin `http://localhost:8080/manager/` ve karşıya yükleme üzerinde yönergeleri izleyin, `adal4jsample.war` dosya. İçinde autodeploy sizin için doğru bitiş noktası ile.
 > 
 > 
 

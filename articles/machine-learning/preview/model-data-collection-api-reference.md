@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modeli veri toplama API Başvurusu | Microsoft Docs"
-description: "Azure Machine Learning modeli veri toplama API'si başvurusu."
+title: Azure Machine Learning modeli veri toplama API Başvurusu | Microsoft Docs
+description: Azure Machine Learning modeli veri toplama API'si başvurusu.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 2de5e8bc8880fea5e7f57c88590e32a9fbb60ac6
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: db8718b60cdd934e3301479489f21fe45f5578cd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning modeli veri toplama API'si başvurusu
 
@@ -48,7 +48,7 @@ Operationalization için kullanılan Puanlama dosyasında ModelDataCollector sı
 ## <a name="model-data-collector-instantiation"></a>Model Veri Toplayıcı örnek oluşturma
 Bir ModelDataCollector yeni bir örneğini örneği:
 
-DC ModelDataCollector = (model_adı, tanımlayıcısı 'default', feature_names = None, model_management_account_id = 'bilinmeyen', webservice_name = 'bilinmeyen', model_id = 'bilinmeyen', model_version = 'bilinmeyen' =)
+    dc = ModelDataCollector(model_name, identifier='default', feature_names=None, model_management_account_id='unknown', webservice_name='unknown', model_id='unknown', model_version='unknown')
 
 Sınıf ve parametre ayrıntıları bakın:
 
@@ -62,7 +62,7 @@ Sınıf ve parametre ayrıntıları bakın:
 
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
-| model_name | string | hangi verilerin toplanan modelinin adı |
+| model_adı | string | hangi verilerin toplanan modelinin adı |
 | tanımlayıcı | string | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
 | feature_names | dize listesi | sağlandığında csv başlığı hale özellik adlarının listesi |
 | model_management_account_id | string | Bu model depolandığı model yönetim hesabı tanımlayıcısı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |

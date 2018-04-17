@@ -1,26 +1,26 @@
 ---
-title: "Hdınsight'ta - Azure Hadoop ile MapReduce ve SSH bağlantısı | Microsoft Docs"
-description: "MapReduce işleri Hdınsight'ta Hadoop kullanarak çalıştırmak için SSH kullanmayı öğrenin."
+title: Hdınsight'ta - Azure Hadoop ile MapReduce ve SSH bağlantısı | Microsoft Docs
+description: MapReduce işleri Hdınsight'ta Hadoop kullanarak çalıştırmak için SSH kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlunb
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 01/17/2018
+ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 08c67168cde60c1b7551806da8542c98dcb82f55
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 67e1bf6cee04eda51f5dbfc51a95614347fc2b7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>Hdınsight ile SSH Hadoop ile MapReduce kullanma
 
@@ -42,16 +42,16 @@ Güvenli Kabuk (SSH) bağlantısı MapReduce işleri hdınsight'a gönderme öğ
 
 ## <a id="ssh"></a>SSH ile bağlanma
 
-SSH kullanarak kümeye bağlanın. Örneğin, aşağıdaki komutu adlı bir kümeye bağlanır **myhdinsight**:
+SSH kullanarak kümeye bağlanın. Örneğin, aşağıdaki komutu adlı bir kümeye bağlanır **myhdinsight** olarak **sshuser** hesabı:
 
 ```bash
-ssh admin@myhdinsight-ssh.azurehdinsight.net
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **SSH kimlik doğrulaması için bir sertifika anahtarı kullanırsanız**, örneğin, istemci sisteminizde özel anahtarı konumunu belirtmeniz gerekebilir:
 
 ```bash
-ssh -i ~/mykey.key admin@myhdinsight-ssh.azurehdinsight.net
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **SSH kimlik doğrulaması için bir parola kullanıyorsanız**, istendiğinde parolayı sağlamanız gerekir.

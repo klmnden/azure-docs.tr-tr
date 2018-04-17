@@ -5,7 +5,7 @@ services: cosmos-db
 documentationcenter: ''
 keywords: Azure Cosmos DB öykünücüsü
 author: David-Noble-at-work
-manager: jhubbard
+manager: kfile
 editor: ''
 ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
 ms.author: danoble
-ms.openlocfilehash: e0d23a163f16763dd4764eb7857dec8076f4754c
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 810e3e8af5295348ba73b4f7433e3203f47f4554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Yerel geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 04/03/2018
 </tr>
 <tr>
   <td><strong>Docker</strong></td>
-  <td>[Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
+  <td>[Docker hub'a](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)</td>
 </tr>
 <tr>
   <td><strong>Docker kaynak</strong></td>
@@ -202,25 +202,25 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Kapat</td>
   <td>Azure Cosmos DB öykünücüsü kapatır.</td>
-  <td>CosmosDB.Emulator.exe /Shutdown</td>
+  <td>CosmosDB.Emulator.exe Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>DataPath</td>
   <td>Veri dosyalarını depolamak yolu belirtir. % LocalAppdata%\CosmosDBEmulator varsayılandır.</td>
-  <td>CosmosDB.Emulator.exe /DataPath=&lt;datapath&gt;</td>
+  <td>CosmosDB.Emulator.exe /DataPath =&lt;datapath&gt;</td>
   <td>&lt;DataPath&gt;: erişilebilir yolu</td>
 </tr>
 <tr>
   <td>Bağlantı noktası</td>
   <td>Öykünücü için kullanılacak bağlantı noktası numarasını belirtir.  8081 varsayılandır.</td>
-  <td>CosmosDB.Emulator.exe /Port=&lt;port&gt;</td>
+  <td>CosmosDB.Emulator.exe Port =&lt;bağlantı noktası&gt;</td>
   <td>&lt;bağlantı noktası&gt;: tek bir bağlantı noktası numarası</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>API MongoDB uyumluluk için kullanılacak bağlantı noktası numarasını belirtir. Varsayılandır 10255 değerini bulur.</td>
-  <td>CosmosDB.Emulator.exe /MongoPort=&lt;mongoport&gt;</td>
+  <td>CosmosDB.Emulator.exe /MongoPort =&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: tek bir bağlantı noktası numarası</td>
 </tr>
 <tr>
@@ -232,7 +232,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Anahtar</td>
   <td>Öykünücü için yetkilendirme anahtar. Anahtarı bir 64 baytlık vektör 64 tabanlı kodlama olması gerekir.</td>
-  <td>CosmosDB.Emulator.exe /Key:&lt;key&gt;</td>
+  <td>CosmosDB.Emulator.exe /Key:&lt;anahtarı&gt;</td>
   <td>&lt;anahtar&gt;: anahtarı bir 64 baytlık vektör 64 tabanlı kodlama olması gerekir</td>
 </tr>
 <tr>
@@ -248,9 +248,9 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td></td>
 </tr>
 <tr>
-  <td>NoUI</td>
+  <td>Nouı</td>
   <td>Öykünücü kullanıcı arabirimi gösterme.</td>
-  <td>CosmosDB.Emulator.exe /NoUI</td>
+  <td>CosmosDB.Emulator.exe/nouı</td>
   <td></td>
 </tr>
 <tr>
@@ -260,9 +260,9 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
   <td></td>
 </tr>
 <tr>
-  <td>PartitionCount</td>
+  <td>bölüm sayısı</td>
   <td>Bölümlenmiş koleksiyonlar en fazla sayısını belirtir. Bkz: [koleksiyonları sayısını değiştirme](#set-partitioncount) daha fazla bilgi için.</td>
-  <td>CosmosDB.Emulator.exe /PartitionCount=&lt;partitioncount&gt;</td>
+  <td>CosmosDB.Emulator.exe /PartitionCount =&lt;bölüm sayısı&gt;</td>
   <td>&lt;bölüm sayısı&gt;: maksimum sayısı, izin verilen tek bölüm koleksiyonları. Varsayılan 25'tir. İzin verilen en fazla 250'dir.</td>
 </tr>
 <tr>
@@ -274,7 +274,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>AllowNetworkAccess</td>
   <td>Bir ağ üzerinden öykünücüsü erişim sağlar. /Key geçmesi gereken =&lt;key_string&gt; veya/keyfile =&lt;dosya_adı&gt; ağ erişimini etkinleştirmek için.</td>
-  <td>CosmosDB.Emulator.exe /AllowNetworkAccess /Key=&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess /KeyFile=&lt;file_name&gt;</td>
+  <td>CosmosDB.Emulator.exe AllowNetworkAccess /Key =&lt;key_string&gt;<br><br>or<br><br>CosmosDB.Emulator.exe /AllowNetworkAccess/keyfile =&lt;dosya_adı&gt;</td>
   <td></td>
 </tr>
 <tr>
@@ -292,7 +292,7 @@ Seçeneklerinin listesini görüntülemek için şunu yazın `CosmosDB.Emulator.
 <tr>
   <td>Tutarlılık</td>
   <td>Hesap için varsayılan tutarlılık düzeyini ayarlayın.</td>
-  <td>CosmosDB.Emulator.exe /Consistency=&lt;consistency&gt;</td>
+  <td>CosmosDB.Emulator.exe /Consistency =&lt;tutarlılık&gt;</td>
   <td>&lt;Tutarlılık&gt;: değeri şunlardan biri olmalıdır [tutarlılık düzeylerini](consistency-levels.md): oturum, güçlü, Eventual veya BoundedStaleness.  Varsayılan değer oturumdur.</td>
 </tr>
 <tr>

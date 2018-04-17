@@ -1,6 +1,6 @@
 ---
-title: "VMware VM ve Azure Site Recovery ile fiziksel sunucuya yeniden çalışma için bir işlem sunucusu Azure ayarlama | Microsoft Docs"
-description: "Bu makalede, azure'da yeniden çalışma VMware Azure Vm'lerine bir işlem sunucusu kurma açıklar."
+title: VMware VM ve Azure Site Recovery ile fiziksel sunucuya yeniden çalışma için bir işlem sunucusu Azure ayarlama | Microsoft Docs
+description: Bu makalede, azure'da yeniden çalışma VMware Azure Vm'lerine bir işlem sunucusu kurma açıklar.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: 9d9270d8c6d2ffc5e42dfc6f94818fdace89bfb5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>Yeniden çalışma için azure'da bir işlem sunucusu kurma
 
@@ -26,7 +26,7 @@ Daha fazla bilgi edinmek [yükü](vmware-azure-reprotect.md) ve [geri dönme](vm
 
 ## <a name="deploy-a-process-server-in-azure"></a>Azure'da bir işlem sunucusu Dağıt
 
-1. Kasadaki > **Site Recovery altyapısı**> **Mnaage** > **yapılandırma sunucularına**, yapılandırma sunucusu seçin.
+1. Kasadaki > **Site Recovery altyapısı**> **Yönet** > **yapılandırma sunucularına**, yapılandırma sunucusu seçin.
 2. Sunucu sayfasında tıklatın **+ işlem sunucusu**
 3. İçinde **işlem Sunucu Ekle** sayfası ve Azure işlem sunucusu dağıtmak için seçin.
 4. Yük devretme, bir kaynak grubu, yük devretme ve Azure sanal makinelerini bulunan sanal ağ için kullanılan Azure bölgesi için kullanılan abonelik dahil olmak üzere Azure ayarlarını belirtin. Birden çok Azure ağları kullandıysanız, her biri bir işlem sunucusu gerekir.

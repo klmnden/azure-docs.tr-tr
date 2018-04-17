@@ -1,8 +1,8 @@
 ---
 title: "Son kullanıcı kimlik doğrulaması: Azure Active Directory'yi kullanarak .NET SDK Data Lake Store ile | Microsoft Docs"
-description: "Azure Active Directory ile .NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması elde öğrenin"
+description: Azure Active Directory ile .NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması elde öğrenin
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: ea71743e775da8cfd85ecbd20e9c5981a198e05c
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 524b00c9fac8b874576cb756c1c8ee39e15e9882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapm
    4. **NuGet Paket Yöneticisi**'ni kapatın.
 
 6. Açık **Program.cs**
-7. Using replease deyimleri aşağıdaki satırlar:
+7. Using Değiştir deyimleri aşağıdaki satırlar:
 
     ```csharp
     using System;

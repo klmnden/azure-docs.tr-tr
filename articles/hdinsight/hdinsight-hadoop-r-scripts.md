@@ -1,32 +1,30 @@
 ---
-title: "Hdınsight kümeleri - Azure özelleştirmek için R kullanımda | Microsoft Docs"
-description: "Betik eylemi kullanarak R yüklemeyi öğrenin ve Hdınsight kümelerinde R kullanın."
+title: Hdınsight kümeleri - Azure özelleştirmek için R kullanımda | Microsoft Docs
+description: Betik eylemi kullanarak R yüklemeyi öğrenin ve Hdınsight kümelerinde R kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: be851270-afa5-4af0-a69e-2d343a4deeb7
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 666b51970bf04634708cbf65b8bca0c05412934b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c5fb38de8b1023a05709d07ba17b0c776c87957e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-and-use-r-on-hdinsight-hadoop-clusters"></a>HDInsight'taki Hadoop kümelerinde R programını yükleme ve kullanma
 
 Windows özelleştirmek nasıl Hdınsight kümesi ile betik eylemi kullanarak R dayalı ve kümeleri Hdınsight'ta R kullanmayı öğrenin. [Hdınsight teklifi](https://azure.microsoft.com/pricing/details/hdinsight/) R Server Hdınsight kümenize bir parçası olarak içerir. Bu, MapReduce ve Spark dağıtılmış hesaplamaları çalıştırmak R betiklerini sağlar. Daha fazla bilgi için bkz. [HDInsight R Server kullanmaya başlama](r-server/r-server-get-started.md). Linux tabanlı bir kümeyle R kullanma hakkında daha fazla bilgi için bkz: [yükleme ve kullanma R Hdınsight Hadoop kümeleri (Linux) üzerinde](hdinsight-hadoop-r-scripts-linux.md).
 
-Kullanarak Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir türde üzerinde R yükleyebilirsiniz *betik eylemi*. R bir Hdınsight kümesine yüklemek için örnek komut dosyası salt okunur Azure depolama blobunu gelen kullanılabilir [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Kullanarak Azure Hdınsight (Hadoop, Storm, HBase, Spark) kümede herhangi bir türde üzerinde R yükleyebilirsiniz *betik eylemi*. R bir Hdınsight kümesine yüklemek için örnek komut dosyası salt okunur Azure depolama blobunu gelen kullanılabilir [ https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 ](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 **İlgili makaleler**
 
@@ -58,7 +56,7 @@ A [örnek komut dosyası](https://hdiconfigactions.blob.core.windows.net/rconfig
         <tr><td>Ad</td>
             <td>Örneğin, betik eylemi için bir ad belirtmeniz <b>R yükleme</b>.</td></tr>
         <tr><td>Betik URI'si</td>
-            <td>Bu gibi bir durumda küme özelleştirmek için çağrılan betik URI'si belirtin <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
+            <td>Küme özelleştirmek için çağrılan betik URI'si örneğin belirtin, <i>https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1</i></td></tr>
         <tr><td>Düğüm Türü</td>
             <td>Özelleştirme kodun çalıştığı düğüm belirtin. Seçebileceğiniz <b>tüm düğümleri</b>, <b>Head yalnızca düğümlerin</b>, veya <b>çalışan düğümleri</b> yalnızca.
         <tr><td>Parametreler</td>
@@ -95,10 +93,10 @@ Bu bölümde, Hdınsight ile Hadoop küme üzerinde bir R betiği çalıştırma
 
 
 ## <a name="install-r-using-aure-powershell"></a>R işlemleri PowerShell kullanarak yükleme
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek, Azure PowerShell kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
+Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  Örnek, Azure PowerShell kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [ https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 ](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1).
 
 ## <a name="install-r-using-net-sdk"></a>.NET SDK kullanarak R yükleme
-Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek, .NET SDK kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
+Bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). Örnek, .NET SDK kullanarak Spark yükleneceği gösterilmiştir. Kullanılacak komut dosyasını özelleştirmeniz gerekiyorsa [ https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1 ](https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps11).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Yükleme ve Hdınsight Hadoop kümeleri (Linux) R kullanma](hdinsight-hadoop-r-scripts-linux.md)

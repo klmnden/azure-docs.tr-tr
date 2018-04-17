@@ -1,8 +1,8 @@
 ---
-title: "Kullanarak .NET - Azure Hdınsight Hadoop kümeleri oluşturma | Microsoft Docs"
-description: "Hadoop, HBase, Storm ve Spark kümeleri Linux'ta Hdınsight .NET SDK kullanarak Hdınsight için oluşturmayı öğrenin."
+title: Kullanarak .NET - Azure Hdınsight Hadoop kümeleri oluşturma | Microsoft Docs
+description: Hadoop, HBase, Storm ve Spark kümeleri Linux'ta Hdınsight .NET SDK kullanarak Hdınsight için oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 9c74e3dc-837f-4c90-bbb1-489bc7124a3d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: a2258aa6df04f213652f6ce460b8cf0e7e3969e5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: eda1f0e434c59a2a1c7bb63d92ce7b1fa5b42344
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>.NET SDK kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 

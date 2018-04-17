@@ -8,17 +8,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 36e25d7e5f1e5c6e1cf72442b73ac081810d216a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: a6bc79d0556299634a78c5232bbab4e20810172c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Azure diskleri kalıcı birimler
 
 Kalıcı bir birim Kubernetes pod'ları ile kullanılmak üzere sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Kubernetes kalıcı birimler hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birimler][kubernetes-volumes].
 
 Bir Azure kapsayıcı hizmeti (AKS) kümesindeki Azure diskleri kalıcı birimler kullanarak bu belge ayrıntıları.
+
+> [!NOTE]
+> Azure disk yalnızca tek bir AKS düğüm için kullanılabilir hale getirir ReadWriteOnce erişim modu türüyle bağlanabilir. Kalıcı bir birim birden çok düğüm arasında paylaşmak gerek kullanmayı [Azure dosyaları][azure-files-pvc].
 
 ## <a name="built-in-storage-classes"></a>Depolama sınıfları yerleşik
 
@@ -40,7 +43,7 @@ Kalıcı birim talep (PVC) otomatik olarak bir depolama sınıfına dayalı depo
 
 Adlı bir dosya oluşturun `azure-premimum.yaml`ve aşağıdaki bildiriminde kopyalayın.
 
-Not alın `managed-premium` depolama sınıfı açıklama içinde belirtilen ve talep bir disk isteyen `5GB` boyutta `ReadWriteOnce` erişim. 
+Not alın `managed-premium` depolama sınıfı açıklama içinde belirtilen ve talep bir disk isteyen `5GB` boyutta `ReadWriteOnce` erişim.
 
 ```yaml
 apiVersion: v1
@@ -63,12 +66,9 @@ Kalıcı birim taleple oluşturma [kubectl oluşturma] [ kubectl-create] komutu.
 kubectl create -f azure-premimum.yaml
 ```
 
-> [!NOTE]
-> Azure disk yalnızca tek bir AKS düğüm için kullanılabilir hale getirir ReadWriteOnce erişim modu türüyle bağlanabilir. Kalıcı bir birim birden çok düğüm arasında paylaşmak gerek kullanmayı [Azure dosyaları][azure-files-pvc].
-
 ## <a name="using-the-persistent-volume"></a>Kalıcı birim kullanma
 
-Sonra kalıcı birim talep oluşturulan ve başarıyla sağlanan bir disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirimi kalıcı birim talep kullanan bir pod oluşturur `azure-managed-disk` adresindeki Azure diski `/mnt/azure` yolu. 
+Sonra kalıcı birim talep oluşturulan ve başarıyla sağlanan bir disk disk erişimi olan bir pod oluşturulabilir. Aşağıdaki bildirimi kalıcı birim talep kullanan bir pod oluşturur `azure-managed-disk` adresindeki Azure diski `/mnt/azure` yolu.
 
 Adlı bir dosya oluşturun `azure-pvc-disk.yaml`ve aşağıdaki bildiriminde kopyalayın.
 
@@ -96,7 +96,7 @@ spec:
 kubectl create -f azure-pvc-disk.yaml
 ```
 
-Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Birimi, pod aracılığıyla incelerken bağlama görebilirsiniz `kubectl describe pod mypod`.
+Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Bu yapılandırma, pod aracılığıyla incelerken görülebilir `kubectl describe pod mypod`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

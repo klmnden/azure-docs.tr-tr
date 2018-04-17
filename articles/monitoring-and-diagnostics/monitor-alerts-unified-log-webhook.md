@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/2/2018
+ms.date: 04/09/2018
 ms.author: vinagara
-ms.openlocfilehash: cd289d506cbe22e683392256cce14211a5db0729
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a786ac2e241657cc0020ecfe9438e3d1a5e4c5fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Zaman bir [uyarı Azure içinde oluşturulan ](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntılar ve kullanılabilir farklı Web kancası eylemleri açıklanmaktadır.
@@ -54,22 +54,26 @@ Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yük
 | Arama aralığı başlangıç saati |#searchintervalstarttimeutc |Sorgu saati UTC biçiminde başlatın. 
 | SearchQuery |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
 | SearchResults |"IncludeSearchResults": true|Bir JSON tablosu olarak ilk 1.000 kayıtları sınırlı sorgu tarafından döndürülen kayıt; varsa "IncludeSearchResults": true, özel JSON Web kancası tanımında en üst düzey bir özellik olarak eklenir. |
-| WorkspaceID |#workspaceid |Günlük analizi çalışma alanı kimliği. |
+| Workspaceıd |#workspaceid |Günlük analizi çalışma alanı kimliği. |
 | Uygulama Kimliği |#applicationid |Uygulama Insight Kimliğini uygulama. |
 | Abonelik Kimliği |#subscriptionid |Application Insights ile kullanılan Azure aboneliğinizi kimliği. 
 
 
 Örneğin, adlı tek bir parametre içeren aşağıdaki özel yükü belirtebilir *metin*.  Bu Web kancası çağırır hizmet, bu parametre bekleniyor.
 
+```json
+
     {
         "text":"#alertrulename fired with #searchresultcount over threshold of #thresholdvalue."
     }
-
+```
 Bu örnek yükü için Web kancası gönderildiğinde aşağıdaki gibi bir şey çözümlemek.
 
+```json
     {
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
+```
 
 Özel bir yükte arama sonuçlarında için emin **IncudeSearchResults** json yükü en üst düzey özelliği olarak ayarlayın. 
 
@@ -85,7 +89,8 @@ Bu örneklerin her ikisi de yalnızca iki sütun ve iki satır bir kukla yükü 
 #### <a name="log-alert-for-azure-log-analytics"></a>Azure günlük analizi için günlük uyarı
 Standart Web kancası eylemi için örnek yükü aşağıdadır *özel Json seçeneği olmadan* günlük analizi tabanlı uyarılar için kullanılan.
 
-    {
+```json
+{
     "WorkspaceId":"12345a-1234b-123c-123d-12345678e",
     "AlertRuleName":"AcmeRule","SearchQuery":"search *",
     "SearchResult":
@@ -95,7 +100,7 @@ Standart Web kancası eylemi için örnek yükü aşağıdadır *özel Json seç
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -104,7 +109,7 @@ Standart Web kancası eylemi için örnek yükü aşağıdadır *özel Json seç
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -114,15 +119,14 @@ Standart Web kancası eylemi için örnek yükü aşağıdadır *özel Json seç
     "LinkToSearchResults": "https://workspaceID.portal.mms.microsoft.com/#Workspace/search/index?_timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
     "Severity": "Warning"
-    }
-    
-
+ }
+ ```   
 
 #### <a name="log-alert-for-azure-application-insights"></a>Azure Application Insights için günlük uyarı
 Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçeneği olmadan* uygulama Öngörüler tabanlı günlük-uyarıları için kullanıldığında.
     
-
-    {
+```json
+{
     "schemaId":"Microsoft.Insights/LogAlert","data":
     { 
     "SubscriptionId":"12345a-1234b-123c-123d-12345678e",
@@ -134,7 +138,7 @@ Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçene
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -143,7 +147,7 @@ Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçene
                         ]
                     }
                 ]
-        }
+        },
     "SearchIntervalStartTimeUtc": "2018-03-26T08:10:40Z",
     "SearchIntervalEndtimeUtc": "2018-03-26T09:10:40Z",
     "AlertThresholdOperator": "Greater Than",
@@ -152,10 +156,11 @@ Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçene
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error"
+    "Severity": "Error",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
-    }
+}
+```
 
 > [!NOTE]
 > Günlük için Application Insights, uyarıları anda ortak Önizleme - işlevselliği ve kullanıcı deneyimi değiştirilebilir değil.
@@ -163,14 +168,16 @@ Standart bir Web kancası için örnek yükü aşağıdadır *özel Json seçene
 #### <a name="log-alert-with-custom-json-payload"></a>Özel JSON yükü olan günlük uyarı
 Örneğin, yalnızca uyarı adı ve arama sonuçlarını içeren özel bir yükü oluşturmak için aşağıdakileri kullanabilirsiniz: 
 
+```json
     {
        "alertname":"#alertrulename",
        "IncludeSearchResults":true
     }
+```
 
 Herhangi bir günlük uyarı için bir özel Web kancası eylemi için örnek yükü aşağıdadır.
     
-
+```json
     {
     "alertname":"AcmeRule","IncludeSearchResults":true,
     "SearchResult":
@@ -180,7 +187,7 @@ Herhangi bir günlük uyarı için bir özel Web kancası eylemi için örnek y�
                         [
                         {"name":"$table","type":"string"},
                         {"name":"Id","type":"string"},
-                        {"name":"TimeGenerated","type":"datetime"},
+                        {"name":"TimeGenerated","type":"datetime"}
                         ],
                     "rows":
                         [
@@ -191,8 +198,7 @@ Herhangi bir günlük uyarı için bir özel Web kancası eylemi için örnek y�
                 ]
         }
     }
-
-
+```
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

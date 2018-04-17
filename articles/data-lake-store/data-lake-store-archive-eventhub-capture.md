@@ -1,8 +1,8 @@
 ---
 title: Azure Data Lake Store Event Hubs verilerini yakalama | Microsoft Docs
-description: "Event Hubs verilerini yakalamak için kullanım Azure Data Lake Store"
+description: Event Hubs verilerini yakalamak için kullanım Azure Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: ac8000abc35cba89c4bf655a4806636933ab8d08
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9f91acf8c26fdec0c8d128f598f218cff091c7aa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Event Hubs verilerini yakalamak için kullanım Azure Data Lake Store
 
@@ -27,7 +27,7 @@ Azure Event Hubs tarafından alınan verileri yakalamak için Azure Data Lake St
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Bir Azure Data Lake Store hesabı**. Bir oluşturma hakkında yönergeler için bkz: [Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md).
+* **Bir Azure Data Lake Store hesabı**. Hesap oluşturmaya ilişkin yönergeler için bkz. [Azure Data Lake Store kullanmaya başlama](data-lake-store-get-started-portal.md).
 
 *  **Bir olay hub'ları ad alanı**. Yönergeler için bkz: [bir olay hub'ları ad alanı oluşturma](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace). Data Lake Store hesabı ve Event Hubs ad alanı aynı Azure abonelikte olduğundan emin olun.
 
@@ -58,9 +58,12 @@ Bu bölümde, Event Hubs verilerini yakalamak istediğiniz bir klasörde hesabı
 
     c. Altında **izinleri atamak**, tıklatın **Select izinleri**. Ayarlama **izinleri** için **yürütme**. Ayarlama **eklemek** için **bu klasör ve tüm alt öğeleri**. Ayarlama **olarak eklemek** için **erişim izni girdisi ve varsayılan izin girdisi**.
 
-    ![Data Lake Store kök izinlerini atamak](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Store kök izinlerini atama")
+> [!IMPORTANT]
+> Azure Event Hubs tarafından alınan veri yakalama işlemi için yeni bir klasör hiyerarşisi oluştururken, hedef klasör erişim sağlamak için kolay bir yolu budur.  Bununla birlikte, birçok alt dosya ve klasör izinlerini en üst düzey klasöre tüm alt öğelerini eklemek, uzun zaman alabilir.  Kök klasörünüzde çok sayıda dosya ve klasörleri varsa, bu daha hızlı eklemek için olabilir **yürütme** izinlerini `Microsoft.EventHubs` son hedef klasörünüzün yolunu her klasör için ayrı ayrı. 
 
-    **Tamam**’a tıklayın.
+    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+
+    Click **OK**.
 
 4. Data Lake Store hesabı altında veri yakalamak istediğiniz klasör izinlerini atayın.
 

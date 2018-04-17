@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory Connect Health işlemleri"
-description: "Bu makalede, Azure AD Connect Health dağıttıktan sonra gerçekleştirilebilir ek işlemleri açıklanır."
+title: Azure Active Directory Connect Health işlemleri
+description: Bu makalede, Azure AD Connect Health dağıttıktan sonra gerçekleştirilebilir ek işlemleri açıklanır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: karavar
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 98dc12a857d910e8822dcfbb61209aa9ef773f47
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health işlemleri
 Bu konuda, Azure Active Directory (Azure AD) Connect Health kullanarak gerçekleştirebileceğiniz çeşitli işlemler açıklanmaktadır.
@@ -91,9 +91,9 @@ Bir hizmet örneği silmekte olduğunuz, aşağıdakilere dikkat edin:
 4. **Sil**'e tıklayın.
    <br><br>
 
-[//]: # (Start of RBAC section)
+[//]: # (RBAC bölüm başlangıcı)
 ## <a name="manage-access-with-role-based-access-control"></a>Rol tabanlı erişim denetimi ile erişimi yönetme
-[Rol tabanlı erişim denetimi (RBAC)](../role-based-access-control-configure.md) kullanıcılar ve gruplar dışında genel Yöneticiler için Azure AD Connect Health erişim sağlar. RBAC atar rolleri hedeflenen kullanıcılara ve gruplara ve dizininizde genel Yöneticiler sınırlamak için bir mekanizma sağlar.
+[Rol tabanlı erişim denetimi (RBAC)](../../role-based-access-control/role-assignments-portal.md) kullanıcılar ve gruplar dışında genel Yöneticiler için Azure AD Connect Health erişim sağlar. RBAC atar rolleri hedeflenen kullanıcılara ve gruplara ve dizininizde genel Yöneticiler sınırlamak için bir mekanizma sağlar.
 
 ### <a name="roles"></a>Roller
 Azure AD Connect Health aşağıdaki yerleşik roller destekler:
@@ -153,7 +153,7 @@ Bir kullanıcının erişim izin vermek için *tüm hizmet örnekleri* düzey Az
 Bir kullanıcı veya Azure AD Connect sistem durumu RBAC eklenen bir grup kaldırabilirsiniz. Sadece kullanıcı veya grubunu sağ tıklatın ve seçin **kaldırmak**.<br>
 ![Vurgulanan Kaldır ile Azure ekran AD sistem durumu RBAC kullanıcıların bağlanmasına penceresi](./media/active-directory-aadconnect-health/RBAC_remove.png)
 
-[//]: # (End of RBAC section)
+[//]: # (RBAC bölümün sonuna)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

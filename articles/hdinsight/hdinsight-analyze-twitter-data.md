@@ -1,25 +1,23 @@
 ---
-title: "Twitter verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs"
-description: "Belirli bir sözcük kullanımı sıklığını bulmak için hdınsight'ta hadoop'ta Twitter verileri çözümlemek için Hive kullanmayı öğrenin."
+title: Twitter verilerini hdınsight'ta - Azure Hadoop ile çözümleme | Microsoft Docs
+description: Belirli bir sözcük kullanımı sıklığını bulmak için hdınsight'ta hadoop'ta Twitter verileri çözümlemek için Hive kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 78e4ea33-9714-424d-ac07-3d60ecaebf2e
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: a5f97dfa084291cefde9bf27b5639926de1bc80e
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 1d3f00658c836eaba41b7ab3d1c065991a2c12a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter verilerini hdınsight'ta Hive kullanma çözümleme
 Sosyal Web siteleri büyük veri benimseme için önemli yönlendirmeli zorlar biridir. Twitter gibi siteler tarafından sağlanan ortak API'ler verileri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.
@@ -28,7 +26,7 @@ Bu öğreticide, API akış Twitter kullanarak tweet'leri alın ve ardından Apa
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar Windows tabanlı Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Adımlar için belirli Linux tabanlı bir küme için bkz: [(Linux) hdınsight'ta Hive kullanarak Analiz Twitter veri](hdinsight-analyze-twitter-data-linux.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Bir iş istasyonu** Azure yüklenir ve yapılandırılır. PowerShell ile.
@@ -77,7 +75,7 @@ OAuth kullanmak için ilk adım, yeni bir uygulama Twitter Developer sitesinde o
 
 **Bir Twitter uygulaması oluşturmak için**
 
-1. Oturum [https://apps.twitter.com/](https://apps.twitter.com/). Tıklatın **şimdi kaydolun** bir Twitter hesabı yoksa bağlantı.
+1. Oturum [ https://apps.twitter.com/ ](https://apps.twitter.com/). Tıklatın **şimdi kaydolun** bir Twitter hesabı yoksa bağlantı.
 2. Tıklatın **yeni uygulama oluştur**.
 3. Girin **adı**, **açıklama**, **Web sitesi**. Bir URL yukarı yapabileceğiniz **Web sitesi** alan. Aşağıdaki tabloda bazı örnek değerleri gösterir:
 

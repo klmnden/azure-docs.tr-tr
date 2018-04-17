@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: efbed264babe0b192590380639cdc1c8861b4f38
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 42fbf50ac0807a3982385990871d9c4724bdaaad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web uygulamalarının yapılandırması ve Yönetimi SSS
 
@@ -84,7 +84,7 @@ Web uygulamanız için giden IP adreslerinin listesini almak için:
 
 Giden IP adresleri listesi görüntülenir.
 
-Web sitenizi PowerApps için uygulama hizmeti ortamı'nda barındırılıyorsa, giden IP adresiniz alma hakkında bilgi için bkz: [giden ağ adresleri](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
+Web sitenizi bir uygulama hizmeti ortamı'nda barındırılıyorsa giden IP adresi alma hakkında bilgi için bkz: [giden ağ adresleri](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses).
 
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>Web Uygulamam için nasıl bir ayrılmış ya da ayrılmış gelen IP adresi elde?
 
