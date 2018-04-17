@@ -1,11 +1,11 @@
 ---
-title: "Azure yığın depolama hesaplarını yönetme | Microsoft Docs"
-description: "Bulma, yönetme, kurtarmak ve Azure yığın depolama hesapları geri hakkında bilgi edinin"
+title: Azure yığın depolama hesaplarını yönetme | Microsoft Docs
+description: Bulma, yönetme, kurtarmak ve Azure yığın depolama hesapları geri hakkında bilgi edinin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 627d355b-4812-45cb-bc1e-ce62476dab34
 ms.service: azure-stack
 ms.workload: na
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 02/22/2018
 ms.author: mabrigg
 ms.reviewer: anirudha
-ms.openlocfilehash: 395cd113e21bf747c796ff28026f552f30656b47
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ce61dec785d6207e2d2df21884525f76a6778f4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Depolama hesaplarını Azure yığınında yönetme
 Azure bulmak, kurtarmak ve iş ihtiyaçlarına göre depolama kapasiteyi geri kazanmak için yığın depolama hesaplarında yönetmeyi öğrenin.
@@ -27,7 +27,7 @@ Azure bulmak, kurtarmak ve iş ihtiyaçlarına göre depolama kapasiteyi geri ka
 ## <a name="find"></a>Bir depolama hesabı bulunamadı
 Bölgede depolama hesaplarının listesini Azure yığını tarafından görüntülenebilir:
 
-1. Bir Internet tarayıcısında için https://adminportal.local.azurestack.external gidin.
+1. Bir Internet tarayıcısında gidin https://adminportal.local.azurestack.external.
 2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
 3. Varsayılan Panoda – Bul **bölge Yönetimi** listesinde ve örneğin keşfetmek istediğiniz bölgeyi tıklatın **(yerel**).
    
@@ -99,11 +99,11 @@ Azure yığınında Bunu yapmak için basit bir yol vardır:
   Çöp toplama silinen hesabın zaten olduğunda, hesap hesap listesinden göstermeyebilir. Bu durumda, kurtarılamaz. Bkz: [geri kapasite](#reclaim) bu konuda.
 
 ## <a name="set-the-retention-period"></a>Bekletme süresini ayarlama
-Saklama dönemi ayarı sırasında olası tüm silinen hesabın kurtarılabilir gün içinde (0 ve 9999 gün arasında) bir süre belirtmek bir bulut operatörü sağlar. Varsayılan saklama dönemi 15 gün olarak ayarlanır. Değer, silinen tüm hesap hemen dışında tutma olduğu ve düzenli atık toplama için işaretlenmiş "0" anlamına gelir için ayarlama.
+Saklama dönemi ayarı sırasında olası tüm silinen hesabın kurtarılabilir gün içinde (0 ve 9999 gün arasında) bir süre belirtmek bir bulut operatörü sağlar. Varsayılan saklama dönemi 0 gün olarak ayarlanır. Değer, silinen tüm hesap hemen dışında tutma olduğu ve düzenli atık toplama için işaretlenmiş "0" anlamına gelir için ayarlama.
 
 **Saklama dönemi değiştirmek için:**
 
-1. Bir internet tarayıcısında için https://adminportal.local.azurestack.external gidin.
+1. Bir internet tarayıcısında gidin https://adminportal.local.azurestack.external.
 2. Bir bulut işleci (dağıtım sırasında sağladığınız kimlik bilgilerini kullanarak) olarak Azure yığın yönetim portalında oturum açın
 3. Varsayılan Panoda – Bul **bölge Yönetimi** listesinde ve – örneğin keşfetmek istediğiniz bölgeyi tıklatın **(yerel**).
 4. Seçin **depolama** gelen **kaynak sağlayıcıları** listesi.

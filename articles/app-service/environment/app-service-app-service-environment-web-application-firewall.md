@@ -1,8 +1,8 @@
 ---
-title: "Bir Web uygulaması Güvenlik Duvarı (WAF) için uygulama hizmeti ortamını yapılandırma"
-description: "Uygulama hizmeti ortamınızı önünde bir web uygulaması güvenlik duvarı yapılandırmayı öğrenin."
+title: App Service Ortamı için Web Uygulaması Güvenlik Duvarı (WAF) Yapılandırma
+description: App Service Ortamınızın önünde bir web uygulaması güvenlik duvarını yapılandırma hakkında bilgi edinin.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -12,95 +12,98 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/17/2016
+ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: mvc
-ms.openlocfilehash: bfe36ee5365e71db4280e8e2ccff6db8e552dd39
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.openlocfilehash: bc59d8671d904cf5096d616213cc4674ef5743b8
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/05/2018
 ---
-# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Bir Web uygulaması Güvenlik Duvarı (WAF) için uygulama hizmeti ortamını yapılandırma
+# <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Ortamı için Web Uygulaması Güvenlik Duvarı (WAF) Yapılandırma
 ## <a name="overview"></a>Genel Bakış
-Web uygulaması güvenlik duvarı ister [Barracuda WAF Azure](https://www.barracuda.com/programs/azure) üzerinde kullanılabilir [Azure Marketi](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/) güvenli SQL eklemelerini, siteler arası komut dosyası, kötü amaçlı yazılım yüklemeleri engellemek için gelen web trafiği incelemek tarafından web uygulamalarınızın & uygulama DDoS ve diğer saldırılara yardımcı olur. Ayrıca arka uç web sunucularından yanıtları veri kaybını önleme (DLP) inceler. Yalıtım ve App Service ortamları tarafından sağlanan ek ölçeklendirme birlikte, bu kötü amaçlı istekleri ve yüksek hacimli trafik dayanacak gereken iş kritik web uygulamalarını barındırmasını ideal bir ortam sağlar.
+
+Web uygulaması güvenlik duvarları (WAF), SQL eklemelerini, Siteler Arası Betik Kullanmayı, kötü amaçlı yazılım yüklemelerini ve uygulama DDoS ve diğer saldırıları engellemek üzere gelen web trafiğini denetleyerek web uygulamalarınızın güvenliğini sağlamaya yardımcı olur. Ayrıca, Veri Kaybı Önleme (DLP) için arka uç web sunucularından gelen yanıtları denetler. App Service Ortamlarının sağladığı yalıtım ve ek ölçeklendirme ile bir araya geldiğinde bu özellik, kötü amaçlı isteklere ve yüksek hacimli trafiğe dayanıklı olması gereken iş açısından kritik web uygulamalarını barındırmak için ideal bir ortam sağlar. Azure, [Application Gateway](http://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) ile bir WAF özelliği sağlar.  App Service Ortamınızı bir Application Gateway ile tümleştirme hakkında bilgi almak için [ILB ASE’nizi bir Application Gateway ile tümleştirme](http://docs.microsoft.com/azure/app-service/environment/integrate-with-application-gateway) belgesine bakın.
+
+Azure Application Gateway’e ek olarak, [Azure Market](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf-byol/)’te [Azure için Barracuda WAF](https://www.barracuda.com/programs/azure) gibi birden çok market seçeneği mevcuttur. Bu belgenin geri kalanında App Service Ortamınızı bir Barracuda WAF cihazı ile tümleştirme işlemine odaklanılmaktadır.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../../includes/app-service-web-to-api-and-mobile.md)] 
 
 ## <a name="setup"></a>Kurulum
-Bu belge için biz Barracuda WAF birden çok yük dengeli örneğini arkasında uygulama hizmeti ortamı WAF yalnızca trafiğinden uygulama hizmeti ortamı erişebilir ve çevre ağından erişilebilir değil şekilde yapılandırın. Biz de Azure Traffic Manager Azure veri merkezlerinde ve bölgeler arasında yük dengelemesi için Barracuda WAF örnekler önünde vardır. Yüksek düzey bir diyagramını Kurulumu aşağıdaki görüntü gibi görünür:
+Bu belgede, yalnızca WAF’den gelen trafiğin App Service Ortamına ulaşabilmesi ve DMZ’den erişilememesi için App Service Ortamını Barracuda WAF’nin yük dengelemesi yapılmış birden fazla örneğinin arkasında yapılandırıyoruz. Ayrıca, Azure veri merkezleri ve bölgeleri arasında yük dengelemek için Barracuda WAF örneklerinin önünde Azure Traffic Manager kullanıyoruz. Kurulumun yüksek düzey bir diyagramı aşağıdaki görüntü gibi görünür:
 
 ![Mimari][Architecture] 
 
 > [!NOTE]
-> Girişiyle [ILB desteklemek için uygulama hizmeti ortamı](app-service-environment-with-internal-load-balancer.md), çevre ağından erişilemeyen ve yalnızca özel ağa kullanılabilir olması için ana yapılandırabilirsiniz. 
+> [App Service Ortamı için ILB desteğinin](app-service-environment-with-internal-load-balancer.md) kullanıma sunulmasıyla birlikte ASE’yi DMZ’den erişilemeyecek ve yalnızca özel ağda kullanılabilecek şekilde yapılandırabilirsiniz. 
 > 
 > 
 
-## <a name="configuring-your-app-service-environment"></a>Uygulama hizmeti ortamınızı yapılandırma
-Bir uygulama hizmeti ortamı yapılandırmak için bkz [Belgelerimizi](app-service-web-how-to-create-an-app-service-environment.md) konu hakkında. Oluşturulan bir uygulama hizmeti ortamı olduktan sonra Web Apps, API uygulamaları oluşturabilirsiniz ve [Mobile Apps](../../app-service-mobile/app-service-mobile-value-prop.md) Bu ortamdaki tüm biz yapılandırmak bir sonraki bölümde WAF arkasında korunur.
+## <a name="configuring-your-app-service-environment"></a>App Service Ortamınızı yapılandırma
+Bir App Service Ortamını yapılandırmak için konu ile ilgili [belgelerimize](app-service-web-how-to-create-an-app-service-environment.md) bakın. Bir App Service Ortamı oluşturduktan sonra bu ortamda, hepsi sonraki bölümde yapılandıracağımız WAF’nin ardında korunacak Web Uygulamaları, API Uygulamaları ve [Mobil Uygulamalar](../../app-service-mobile/app-service-mobile-value-prop.md) oluşturabilirsiniz.
 
-## <a name="configuring-your-barracuda-waf-cloud-service"></a>Barracuda WAF bulut hizmetini yapılandırma
-Barracuda sahip bir [ayrıntılı makale](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) kendi WAF azure'da bir sanal makinede dağıtma. Ancak bu yönergeleri izleyerek, aynı bulut hizmetine en az iki WAF örneği VM dağıtmak istediğiniz artıklık istediğiniz ve tek hata noktası tanıtmak değil çünkü.
+## <a name="configuring-your-barracuda-waf-cloud-service"></a>Barracuda WAF Bulut Hizmetinizi yapılandırma
+Barracuda, WAF’yi Azure’daki bir sanal makineye dağıtma hakkında [ayrıntılı bir makaleye](https://campus.barracuda.com/product/webapplicationfirewall/article/WAF/DeployWAFInAzure) sahiptir. Ancak yedeklilik istediğimiz ve tek bir hata noktası tanımlamak istemediğimiz için, bu yönergeleri takip ederken aynı Bulut Hizmetine en az iki WAF örneği sanal makinesi dağıtmanız gerekir.
 
-### <a name="adding-endpoints-to-cloud-service"></a>Bulut hizmeti için uç noktaları ekleme
-2 veya daha fazla WAF VM bulut hizmetiniz örnekleri sonra kullanabileceğiniz [Azure portal](https://portal.azure.com/) aşağıdaki görüntüde gösterildiği gibi uygulamanız tarafından kullanılan HTTP ve HTTPS uç noktalarını eklemek için:
+### <a name="adding-endpoints-to-cloud-service"></a>Bulut Hizmetine Uç Nokta Ekleme
+Bulut Hizmetinizde 2 veya daha fazla WAF VM örneği olduğunda, aşağıdaki görüntüde gösterildiği gibi [Azure portalını](https://portal.azure.com/) kullanarak uygulamanız tarafından kullanılan HTTP ve HTTPS uç noktaları ekleyebilirsiniz:
 
-![Uç noktasını yapılandırma][ConfigureEndpoint]
+![Uç Nokta Yapılandırma][ConfigureEndpoint]
 
-Uygulamalarınız diğer uç noktaları kullanıyorsa, bu listeye eklediğinizden emin olun. 
+Uygulamalarınız başka uç noktalar kullanıyorsa onları da bu listeye eklediğinizden emin olun. 
 
-### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Barracuda WAF kendi Yönetim Portalı üzerinden yapılandırma
-Barracuda WAF TCP bağlantı noktası 8000 kendi Yönetim Portalı aracılığıyla yapılandırması için kullanır. WAF VM'ler birden çok örneği varsa, her bir VM örneği için adımlar burada tekrarlamanız gerekir. 
+### <a name="configuring-barracuda-waf-through-its-management-portal"></a>Barracuda WAF’yi Yönetim Portalından yapılandırma
+Barracuda WAF, yönetimi portalı üzerinden yapılandırma için TCP Bağlantı Noktası 8000’i kullanır. Birden fazla WAF VM örneğiniz varsa, buradaki adımları her VM örneği için yinelemeniz gerekir. 
 
 > [!NOTE]
-> WAF yapılandırmayla tamamladıktan sonra TCP/8000 endpoint tüm WAF, WAF güvenli tutmak için Vm'leriniz kaldırın.
+> WAF yapılandırmasını tamamladıktan sonra WAF’nin güvenliğini korumak için TCP/8000 uç noktasını tüm WAF VM’lerinizden kaldırın.
 > 
 > 
 
-Yönetim uç nokta Barracuda WAF yapılandırmak için aşağıdaki görüntüde gösterildiği gibi ekleyin.
+Barracuda WAF’nizi yapılandırmak için aşağıdaki görüntüde gösterildiği gibi yönetim uç noktasını ekleyin.
 
-![Yönetim uç nokta ekleyin][AddManagementEndpoint]
+![Yönetim Uç Noktası Ekleme][AddManagementEndpoint]
 
-Bulut hizmetinizi yönetim noktadaki gözatmak için bir tarayıcı kullanın. Bulut hizmetinizi test.cloudapp.net çağrılırsa, bu uç nokta için http://test.cloudapp.net:8000 göz atarak erişir. Oturum açma sayfası WAF VM kurulumu aşamasında belirtilen kimlik bilgilerini kullanarak oturum aşağıdaki görüntü gibi görmeniz gerekir.
+Bulut Hizmetinizdeki yönetim uç noktasına göz atmak için bir tarayıcı kullanın. Bulut Hizmetinizin adı test.cloudapp.net ise, http://test.cloudapp.net:8000 adresine göz atarak bu uç noktaya erişebilirsiniz. Aşağıdaki görüntüde gösterildiği gibi, WAF VM kurulum aşamasında belirttiğiniz kimlik bilgilerini kullanarak oturum açabileceğiniz bir oturum açma sayfası görmeniz gerekir.
 
-![Yönetim oturum açma sayfası][ManagementLoginPage]
+![Yönetim Oturum Açma Sayfası][ManagementLoginPage]
 
-Oturum açtığında bir Pano WAF koruma hakkında temel istatistikleri gösterir aşağıdaki resimde bir gibi görmeniz gerekir.
+Oturum açtıktan sonra, aşağıdaki görüntüde gösterildiği gibi WAF korumasına ilişkin temel istatistikler sunan bir pano görmeniz gerekir.
 
 ![Yönetim Panosu][ManagementDashboard]
 
-Tıklayarak **Hizmetleri** sekmesi, WAF koruma hizmetleri için yapılandırmanıza olanak sağlar. Barracuda WAF yapılandırma hakkında daha fazla ayrıntı için bkz: [kendi belgelerine](https://techlib.barracuda.com/waf/getstarted1). Aşağıdaki örnekte, HTTP ve HTTPS trafiğini hizmet veren bir Azure Web uygulaması yapılandırıldı.
+**Hizmetler** sekmesine tıklayarak WAF’yi koruduğu hizmetler için yapılandırabilirsiniz. Barracuda WAF’nizi yapılandırma hakkında daha ayrıntılı bilgi için [ilgili belgelere](https://techlib.barracuda.com/waf/getstarted1) bakın. Aşağıdaki örnekte, HTTP ve HTTPS üzerindeki trafiğe hizmet veren bir Azure Web Uygulaması yapılandırılmıştır.
 
-![Yönetim Hizmetleri Ekle][ManagementAddServices]
+![Yönetim Hizmet Ekleme][ManagementAddServices]
 
 > [!NOTE]
-> Bir Web uygulaması için IP SSL Kurulum varsa uygulamalarınızı nasıl yapılandırılır ve hangi özelliklerin uygulama hizmeti ortamı'nda kullanıldığını bağlı olarak, trafiği için TCP bağlantı noktaları 80 ve 443, örneğin, dışındaki iletmek gerekir. App Service ortamlarda kullanılan ağ bağlantı noktalarının listesi için bkz: [denetim gelen trafiği belgelerine'nın](app-service-app-service-environment-control-inbound-traffic.md) ağ bağlantı noktaları bölümü.
+> Uygulamalarınızın nasıl yapılandırıldığına ve App Service Ortamınızda hangi özelliklerin kullanıldığına bağlı olarak, örneğin bir Web Uygulaması için IP SSL ayarını yaptıysanız, 80 ile 443 dışındaki TCP bağlantı noktaları için trafiği iletmeniz gerekir. App Service Ortamlarında kullanılan ağ bağlantı noktalarının listesi için [Gelen Trafiği Denetleme belgelerinde](app-service-app-service-environment-control-inbound-traffic.md) Ağ Bağlantı Noktaları bölümüne bakın.
 > 
 > 
 
-## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Microsoft Azure trafik Yöneticisi (isteğe bağlı) yapılandırma
-Yüklemek istediğiniz uygulamanız birden çok bölgede kullanılabilir ise arkasına Bakiye [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). Bunu yapmak için bir uç nokta olarak ekleyebilirsiniz [Azure portal](https://portal.azure.com) aşağıdaki görüntüde gösterildiği gibi WAF için bulut hizmeti adı trafik Yöneticisi profili kullanarak. 
+## <a name="configuring-microsoft-azure-traffic-manager-optional"></a>Microsoft Azure Traffic Manager’ı Yapılandırma (İSTEĞE BAĞLI)
+Uygulamanız birden fazla bölgede kullanılabiliyorsa, [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)’ın arkasında bu bölgelere yük dengelemesi uygulamak isteyebilirsiniz. Bunu yapmak için, aşağıdaki görüntüde gösterildiği gibi Traffic Manager profilindeki WAF’nizin Bulut Hizmeti adını kullanarak [Azure portalına](https://portal.azure.com) bir uç nokta ekleyebilirsiniz. 
 
-![Trafik Yöneticisi uç noktası][TrafficManagerEndpoint]
+![Traffic Manager Uç Noktası][TrafficManagerEndpoint]
 
-Uygulamanızın kimlik doğrulaması gerektiriyorsa, herhangi bir kimlik doğrulaması ping işlemi yapmak için trafik Yöneticisi'için uygulamanızın kullanılabilirlik için gerektirmeyen bazı kaynak olduğundan emin olun. URL yapılandırabilirsiniz **yapılandırma** sayfasındaki [Azure portal](https://portal.azure.com) aşağıdaki görüntüde gösterildiği gibi:
+Uygulamanız kimlik doğrulaması gerektiriyorsa, uygulamanızın kullanılabilirliği için ping işlemi yapmak üzere Traffic Manager için herhangi bir kimlik doğrulaması gerektirmeyen bazı kaynaklarınızın olduğundan emin olun. [Azure portalının](https://portal.azure.com) **Yapılandırma** sayfasındaki URL’yi aşağıdaki görüntüde gösterildiği gibi yapılandırabilirsiniz:
 
-![Traffic Manager'ı yapılandırma][ConfigureTrafficManager]
+![Traffic Manager'ı Yapılandırma][ConfigureTrafficManager]
 
-Trafik Yöneticisi ping uygulamanıza, WAF iletmek için aşağıdaki örnekte gösterildiği gibi uygulamanızın trafiği iletmek için Web sitesi çevirileri Barracuda WAF üzerinde ayarlamanız gerekir:
+WAF’nizden gelen Traffic Manager pinglerini uygulamanıza iletmek için, aşağıdaki görüntüde gösterildiği gibi trafiği uygulamanıza iletmek üzere Barracuda WAF’niz üzerinde Web Sitesi Çevirilerini ayarlamanız gerekir:
 
-![Web sitesi çevirileri][WebsiteTranslations]
+![Web Sitesi Çevirileri][WebsiteTranslations]
 
-## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Ağ güvenlik grupları (NSG) kullanarak uygulama hizmeti ortamı için trafiğinin güvenliğini sağlama
-İzleyin [denetim gelen trafiği belgelerine](app-service-app-service-environment-control-inbound-traffic.md) trafiği yalnızca bulut hizmetinizin VIP adresi kullanarak uygulama hizmeti ortamınızı WAF kısıtlama hakkında bilgi. Burada, TCP bağlantı noktası 80 bu görevi gerçekleştirmek için bir örnek Powershell komut verilmiştir.
+## <a name="securing-traffic-to-app-service-environment-using-network-security-groups-nsg"></a>Ağ Güvenlik Gruplarını (NSG) Kullanarak App Service Ortamına Giden Trafiğin Güvenliğini Sağlama
+Bulut Hizmetinizin VIP adresini kullanarak App Service Ortamınıza gelen trafiği yalnızca WAF’den gelecek şekilde kısıtlamaya ilişkin ayrıntılar için [Gelen Trafiği Denetleme belgelerini](app-service-app-service-environment-control-inbound-traffic.md) takip edin. TCP bağlantı noktası 80 için bu görevi gerçekleştirmeye yönelik örnek bir Powershell komutu aşağıda verilmiştir.
 
     Get-AzureNetworkSecurityGroup -Name "RestrictWestUSAppAccess" | Set-AzureNetworkSecurityRule -Name "ALLOW HTTP Barracuda" -Type Inbound -Priority 201 -Action Allow -SourceAddressPrefix '191.0.0.1'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
 
-SourceAddressPrefix WAF'ın bulut hizmeti ile sanal IP adresi (VIP) değiştirin.
+SourceAddressPrefix değerini WAF Bulut Hizmetinin Sanal IP Adresi (VIP) ile değiştirin.
 
 > [!NOTE]
-> VIP bulut hizmeti değişikliklerinizi sildiğinizde ve bulut hizmeti yeniden oluşturun. Bunu yaptıktan sonra IP adresi ağ kaynak grubunda güncelleştirdiğinizden emin olun. 
+> Bulut Hizmetini silip yeniden oluşturduğunuzda Bulut Hizmetinizin VIP’si değişir. Bunu yaptıktan sonra Ağ Kaynağı grubunda IP adresini güncelleştirmeyi unutmayın. 
 > 
 > 
 

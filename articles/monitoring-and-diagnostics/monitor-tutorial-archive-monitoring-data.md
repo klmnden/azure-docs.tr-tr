@@ -1,6 +1,6 @@
 ---
-title: "Arşiv izleme verilerini Azure | Microsoft Docs"
-description: "Bir depolama hesabı için Azure içinde üretilen günlük ve ölçüm verilerini arşivleyebilirsiniz."
+title: Azure izleme verilerini arşivleme | Microsoft Docs
+description: Azure içinde oluşturulmuş günlük ve ölçüm verilerini bir depolama hesabında arşivleyin.
 author: johnkemnetz
 manager: orenr
 services: monitoring-and-diagnostics
@@ -10,23 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: a3ab4713861d4d9681ad2ac5f084255fc29462ce
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: MT
+ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="archive-azure-monitoring-data"></a>Arşiv Azure izleme verileri
+# <a name="archive-azure-monitoring-data"></a>Azure izleme verilerini arşivleme
 
-Azure ortamınıza birkaç katmandan günlük ve bir Azure depolama hesabı arşivlenebilir ölçüm veri üretir. Bir geçmiş verilerin günlük analizi ya da Azure İzleyicisi, saklama süresi geçtikten sonra zaman içinde bir uygun maliyetli, aranabilir olmayan depolama alanına izleme verilerini korumak için bunu isteyebilirsiniz. Bu öğretici adım adım bir depolama hesabına verileri arşivlemek üzere Azure ortamınızı yapılandırma sürecinde.
+Azure ortamınızın birkaç katmanında, bir Azure Depolama Hesabında arşivlenebilen günlük ve ölçüm verileri oluşturulur. Verilerin Log Analytics veya Azure İzleyici’deki bekletme süresi geçtikten sonra zaman içinde verileri izleme geçmişini hesaplı, aranabilir olmayan bir depoda korumak için bu arşivlemeyi yapmak isteyebilirsiniz. Bu öğreticide, verileri bir depolama hesabında arşivlemek üzere Azure ortamınızı yapılandırma işlemi adım adım gösterilmektedir.
 
 > [!div class="checklist"]
-> * İzleme verileri tutmak için depolama hesabı oluşturma
-> * Abonelik günlüklerini ona yönlendirme 
-> * Rota kaynak veri 
-> * Sanal makine (konuk işletim sistemi) veri ona yönlendirme 
-> * İzleme verilerini görüntüleme 
-> * Kaynaklarınızı temizleme 
+> * İzleme verilerini tutmak için depolama hesabı oluşturma
+> * Abonelik günlüklerini depolama hesabına yönlendirme
+> * Kaynak verilerini depolama hesabına yönlendirme
+> * Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme
+> * İçindeki izleme verilerini görüntüleme
+> * Kaynaklarınızı temizleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -36,148 +36,155 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 ## <a name="create-a-storage-account"></a>Depolama hesabı oluşturma
 
-İlk izleme verilerini arşivlenir bir depolama hesabı ayarlamanız gerekir. Bunu yapmak için [burada adımları](../storage/common/storage-create-storage-account.md).
+İlk olarak izleme verilerinin arşivleneceği bir depolama hesabı ayarlamanız gerekir. Bunu yapmak için [buradaki adımları izleyin](../storage/common/storage-create-storage-account.md).
 
-## <a name="route-subscription-logs-to-the-storage-account"></a>Rota abonelik günlüklerini depolama hesabı
+## <a name="route-subscription-logs-to-the-storage-account"></a>Abonelik günlüklerini depolama hesabına yönlendirme
 
-Artık bir depolama hesabı izleme verileri yönlendirmek için Azure ortamınızı ayarlayın başlamak hazırsınız. İlk biz depolama hesabına yönlendirilecek abonelik düzeyinde veri (Azure etkinlik günlüğünde yer alan) yapılandırın. [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) Azure abonelik düzeyinde olayları geçmişini sağlar. Belirlemek için Azure Portal'da Gözat *kimin* oluşturulan, güncellenen veya silinen *ne* kaynakları ve *zaman* yaptıkları işlemin.
+Artık, verileri bir depolama hesabına yönlendirmek üzere Azure ortamınızı ayarlamaya başlamak için hazırsınız. İlk olarak, depolama hesabına yönlendirilecek abonelik düzeyinde verileri (Azure Etkinlik Günlüğünde yer alır) yapılandıracağız. [**Azure Etkinlik Günlüğü**](monitoring-overview-activity-logs.md), Azure'da abonelik düzeyindeki olayların geçmişini sağlar. *Hangi* kaynakları *kimin*, *zaman* oluşturduğunu, güncelleştirdiğini veya sildiğini belirlemek için Azure portalında bu geçmişe göz atabilirsiniz.
 
-1. Tıklatın **İzleyici** düğmesi bulunamadı sol taraftaki gezinti listesinde sonra **etkinlik günlüğü**.
+1. Sol gezinti listesinde bulunan **İzleyici** düğmesine ve sonra **Etkinlik Günlüğü**’ne tıklayın.
 
-   ![Etkinlik günlüğü bölümü](media/monitor-tutorial-archive-monitoring-data/activity-log-home.png)
+   ![Etkinlik Günlüğü bölümü](media/monitor-tutorial-archive-monitoring-data/activity-log-home.png)
 
-2. Görüntülenen etkinlik günlüğü bölümüne tıklayın **verme** düğmesi.
+2. Görüntülenen Etkinlik Günlüğü bölümünde **Dışarı Aktar** düğmesine tıklayın.
 
-3. İçinde **verme etkinlik günlüğü** görünür, bölüm onay kutusu için **dışarı aktarma bir depolama hesabına** tıklatıp **bir depolama hesabı seçin.**
+3. Görüntülenen **Etkinlik günlüğünü dışarı aktar** bölümünde **Bir depolama hesabına aktarın** kutusunu işaretleyin ve **Bir depolama hesabı seçin**’e tıklayın.
 
-   ![Etkinlik günlüğü dışarı aktarma](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
+   ![Etkinlik Günlüğünü dışarı aktarma](media/monitor-tutorial-archive-monitoring-data/activity-log-export.png)
 
-4. Görüntülenen, bölümün **depolama hesabı** oluşturulan önceki depolama hesabının adını seçmek için açılır **depolama hesabı oluşturma** adım ve ardından **Tamam**.
+4. Görüntülenen bölümde **Depolama hesabı** açılır listesini kullanarak önceki **Depolama hesabı oluşturma** adımında oluşturduğunuz depolama hesabı adını seçin ve sora **Tamam**’a tıklayın.
 
-   ![Bir depolama hesabı seç](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
+   ![Depolama hesabı seçme](media/monitor-tutorial-archive-monitoring-data/activity-log-storage.png)
 
-5. Ayarlama **bekletme (gün)** kaydırıcı 30. Bu kaydırıcı izleme verilerini depolama hesabındaki tutulacak gün sayısını ayarlar. Azure İzleyicisi otomatik olarak gün sayısından daha eski verileri siler belirtilen. Sıfır gün bekletme verileri süresiz olarak depolar.
+5. **Bekletme (gün)** kaydırıcısını 30’a ayarlayın. Bu kaydırıcı, depolama hesabında izleme verilerinin tutulacağı gün sayısını ayarlar. Azure İzleyici, belirtilen gün sayısından daha eski verileri otomatik olarak siler. Bekletme günü sayısının sıfır olması verileri süresiz olarak depolar.
 
-6. Tıklatın **kaydetmek** ve bu bölümde kapatın.
+6. **Kaydet**’e tıklayıp bu bölümü kapatın.
 
-İzleme verilerini aboneliğiniz storage hesabınıza şimdi akar.
+Aboneliğinizdeki izleme verileri artık depolama hesabına akar.
 
-## <a name="route-resource-data-to-the-storage-account"></a>Rota kaynak verileri depolama hesabı
+## <a name="route-resource-data-to-the-storage-account"></a>Kaynak verilerini depolama hesabına yönlendirme
 
-Biz kaynak düzeyi verileri (kaynak ölçümleri ve tanılama günlükleri) için depolama hesabı ayarlama tarafından yönlendirilmesini yapılandırmak artık **kaynak tanılama ayarlarını**.
+Şimdi, **kaynak tanılama ayarlarını** yaparak kaynak düzeyinde verileri (kaynak ölçümleri ve tanılama günlükleri) depolama hesabına yönlendirilecek şekilde yapılandıracağız.
 
-1. Tıklatın **İzleyici** düğmesi bulunamadı sol taraftaki gezinti listesinde sonra **tanılama ayarlarını**. Burada, aboneliğinizde Azure İzleyicisi İzleme verilerine üretmek tüm kaynakların bir listesini görürsünüz. Bu listedeki tüm kaynakları yoksa, şunları yapabilirsiniz [mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) tanılama ayarını yapılandırabilirsiniz bir kaynağa sahip bir devam etmeden önce.
+1. Sol gezinti listesinde bulunan **İzleyici** düğmesine ve sonra **Tanılama Ayarları**’na tıklayın. Burada, aboneliğinizde Azure İzleyici ile izleme verileri oluşturan tüm kaynakların bir listesini görürsünüz. Bu listede herhangi bir kaynak yoksa, bir tanılama ayarını açık olarak yapılandırabileceğiniz bir kaynağınızın olması için devam etmeden önce [bir mantıksal uygulama oluşturabilirsiniz](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. Listedeki bir kaynakta tıklayın ve ardından **tanılamayı açın**.
-   
-   ![Tanılamayı aç](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
+2. Listedeki bir kaynağa ve ardından **Tanılamayı aç**’a tıklayın.
 
-   Yapılandırılmış bir ayarı ise, bunun yerine var olan ayarları ve bir düğmeye gördüğünüz **tanılama ayar Ekle**. Bu düğmeye tıklayın.
+   ![Tanılamayı açma](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-turn-on.png)
 
-   Kaynağın tanılama ayarını tanımıdır *ne* verilerin izlenmesi yönlendirilir belirli bir kaynaktan ve *burada* izleme verilerini tamamlamalıdır.
+   Zaten yapılandırılmış bir ayar varsa, bunun yerine mevcut ayarları ve **Tanılama ayarı ekle** düğmesini görürsünüz. Bu düğmeye tıklayın.
 
-3. Görüntülenen bölümünde ayarınız verin bir **adı** ve için kutuyu **bir depolama hesabı arşive**.
+   Kaynak tanılama ayarı, belirli bir kaynaktan *hangi* izleme verilerinin yönlendirilmesi gerektiğine ve bu izleme verilerinin *nereye* gideceğine ilişkin bir tanımdır.
+
+3. Görüntülenen bölümde, ayarınıza bir **ad** verin ve **Bir depolama hesabında arşivle** kutusunu işaretleyin.
 
    ![Tanılama ayarları bölümü](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-home.png)
 
-4. Tıklayın **yapılandırma** altında düğmesini **bir depolama hesabı arşive** ve önceki bölümde oluşturduğunuz depolama hesabını seçin. **Tamam**’a tıklayın.
+4. **Bir depolama hesabında arşivle** altındaki **Yapılandır** düğmesine tıklayın ve önceki bölümde oluşturduğunuz depolama hesabını seçin. **Tamam**’a tıklayın.
 
    ![Tanılama ayarları depolama hesabı](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-storage.png)
 
-5. Altındaki tüm onay kutularını işaretleyin **günlük** ve **ölçüm**. Kaynak türüne bağlı olarak, aşağıdaki seçeneklerden birini yalnızca olabilir. Bu onay kutuları için kullanılabilir kaynak türü gönderileceği, bu durumda, seçtiğiniz hedef depolama hesabı günlüğü ve ölçüm verilerinin kategoriler denetler.
+5. **Günlük** ve **Ölçüm** altındaki tüm kutuları işaretleyin. Kaynak türüne bağlı olarak, bu seçeneklerden yalnızca birini kullanabilirsiniz. Bu onay kutuları, seçtiğiniz hedefe (bu örnekte bir depolama hesabına) ilgili kaynak türü için kullanılabilen günlük ve ölçüm verileri kategorilerinden hangilerinin gönderildiğini denetler.
 
    ![Tanılama ayarları kategorileri](media/monitor-tutorial-archive-monitoring-data/diagnostic-settings-categories.png)
-   
-6. Ayarlama **bekletme (gün)** kaydırıcı 30. Bu kaydırıcı izleme verilerini depolama hesabındaki tutulacak gün sayısını ayarlar. Azure İzleyicisi otomatik olarak gün sayısından daha eski verileri siler belirtilen. Sıfır gün bekletme verileri süresiz olarak depolar.
+
+6. **Bekletme (gün)** kaydırıcısını 30’a ayarlayın. Bu kaydırıcı, depolama hesabında izleme verilerinin tutulacağı gün sayısını ayarlar. Azure İzleyici, belirtilen gün sayısından daha eski verileri otomatik olarak siler. Bekletme günü sayısının sıfır olması verileri süresiz olarak depolar.
 
 7. **Kaydet**’e tıklayın.
 
-İzleme verileri, kaynaktan storage hesabınıza şimdi akar.
+Kaynağınızdaki izleme verileri artık depolama hesabına akar.
 
-## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Rota sanal makine (konuk işletim sistemi) veri depolama hesabı
+> [!NOTE]
+> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
+>
+> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
+>
+>
 
-1. Bir sanal makine, aboneliğinizde zaten yoksa [bir sanal makine oluşturmak](../virtual-machines/windows/quick-create-portal.md).
+## <a name="route-virtual-machine-guest-os-data-to-the-storage-account"></a>Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme
 
-2. Portalın sol gezinti listesinde tıklayın **sanal makineleri**.
+1. Aboneliğinizde henüz bir sanal makine yoksa [bir sanal makine oluşturun](../virtual-machines/windows/quick-create-portal.md).
 
-3. Görüntülenen listede sanal makinelerin, oluşturduğunuz sanal makineye tıklayın.
+2. Portalın sol gezinti listesinde **Sanal Makineler**’e tıklayın.
 
-4. Görüntülenen bölümüne tıklayın **tanılama ayarlarını** sol gezinti çubuğunda. Bu bölüm out-of-box İzleme uzantı, sanal makine ve bir depolama hesabına Windows veya Linux tarafından üretilen rota verilerini Azure İzleyicisi'nden ayarlamanıza olanak sağlar.
+3. Görüntülenen sanal makineler listesinde, oluşturduğunuz sanal makineye tıklayın.
+
+4. Görüntülenen bölümde, sol gezinti listesindeki **Tanılama Ayarları**’na tıklayın. Bu bölüm, sanal makinenizde Azure İzleyici’den kullanıma hazır izleme uzantısını ayarlamanıza ve Windows ya da Linux tarafından oluşturulan verileri bir depolama hesabına yönlendirmenize olanak tanır.
 
    ![Tanılama ayarlarına gidin](media/monitor-tutorial-archive-monitoring-data/guest-navigation.png)
 
-5. Tıklatın **Konuk düzeyinde izlemeyi etkinleştir** bölümünde görüntülenir.
+5. Görüntülenen bölümde **Konuk düzeyinde izlemeyi etkinleştir**’e tıklayın.
 
-   ![Tanılama ayarlarını etkinleştirin](media/monitor-tutorial-archive-monitoring-data/guest-enable.png)
+   ![Tanılama ayarlarını etkinleştirme](media/monitor-tutorial-archive-monitoring-data/guest-enable.png)
 
-6. Tanılama ayarını doğru kaydedildikten sonra **genel bakış** sekmesini toplanmakta olan verilerin listesini gösterir ve depolanır. Tıklayın **performans sayaçları** Windows Performans kümesi gözden geçirmek için bölümüne sayaçları toplanmakta olan.
+6. Tanılama ayarı doğru şekilde kaydedildikten sonra **Genel Bakış** sekmesinde toplanmakta olan verilerin bir listesi ve nerede depolandıkları gösterilir. Toplanmakta olan Windows performans sayaçları kümesini gözden geçirmek için **Performans sayaçları** bölümüne tıklayın.
 
    ![Performans sayaçları ayarları](media/monitor-tutorial-archive-monitoring-data/guest-perf-counters.png)
-   
-7. Tıklayın **günlükleri** sekmesinde ve onay kutularını kontrol **bilgi** düzeyi günlüğe kaydeder, uygulama ve sistem günlüklerini.
 
-   ![Günlükleri ayarları](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
+7. **Günlükler** sekmesine tıklayın ve Uygulama ile Sistem günlüklerindeki **Bilgi** düzeyi günlüklerinin onay kutularını işaretleyin.
 
-8. Tıklayın **Aracısı** sekmesi ve altında **depolama hesabı** gösterilen depolama hesabı adına tıklayın.
+   ![Günlük ayarları](media/monitor-tutorial-archive-monitoring-data/guest-logs.png)
 
-   ![Depolama hesabı güncelleştirme](media/monitor-tutorial-archive-monitoring-data/guest-storage-home.png)
+8. **Aracı** sekmesine tıklayın ve **Depolama hesabı** altında gösterilen depolama hesabının adına tıklayın.
 
-9. Görüntülenen bölümünde oluşturulan önceki depolama hesabı seç **depolama hesabı oluşturma** adım.
+   ![Depolama hesabını güncelleştirme](media/monitor-tutorial-archive-monitoring-data/guest-storage-home.png)
+
+9. Görüntülenen bölümde, önceki **Depolama hesabı oluşturma** adımında oluşturduğunuz depolama hesabını seçin.
 
 10. **Kaydet**’e tıklayın.
 
-Sanal makinelerinizi verilerden izleme storage hesabınıza şimdi akar.
+Sanal makinelerinizdeki izleme verileri artık depolama hesabına akar.
 
-## <a name="view-the-monitoring-data-in-the-storage-account"></a>Depolama hesabında izleme verilerini görüntüleme
+## <a name="view-the-monitoring-data-in-the-storage-account"></a>Depolama hesabındaki izleme verilerini görüntüleme
 
-Yukarıdaki adımları izlediyseniz, veri depolama hesabınıza akan başladı.
+Yukarıdaki adımları izlediyseniz, veriler depolama hesabınıza akmaya başlamıştır.
 
-1. Bazı veri türleri için örneğin, etkinlik günlüğü vardır ve depolama hesabında bir olay oluşturur bazı etkinlikler olması gerekir. Etkinlik günlüğünde etkinlik oluşturmak için takip [bu yönergeleri](./monitor-quick-audit-notify-action-in-subscription.md). Depolama hesabında olay görünmeden önce en fazla beş dakika beklemeniz gerekebilir.
+1. Bazı veri türleri için (örneğin, Etkinlik Günlüğü), depolama hesabında olay oluşturan bazı etkinliklerin olması gerekir. Etkinlik Günlüğünde etkinlik oluşturmak için [bu yönergeleri](./monitor-quick-audit-notify-action-in-subscription.md) takip edin. Olayın depolama hesabında görünmesi için beş dakikaya kadar beklemeniz gerekebilir.
 
-2. Portalı'nda gidin **depolama hesapları** sol gezinti çubuğunda bulma tarafından bölümü.
+2. Portalda, sol gezinti çubuğundaki **Depolama Hesapları** bölümüne gidin.
 
-3. Önceki bölümde oluşturduğunuz depolama hesabı tanımlayabilir ve tıklayın.
+3. Önceki bölümde oluşturduğunuz depolama hesabını belirleyin ve tıklayın.
 
-4. Tıklayın **BLOB'lar**, sonra etiketli kapsayıcısı üzerinde **Öngörüler işletimsel-günlükleri** ve son olarak kapsayıcısında etiketli **adı = varsayılan**. Etkinlik günlüğü içerdiği kapsayıcıdır. İzleme verilerini kapsayıcılarına kaynak kimliği (yalnızca abonelik kimliği için etkinlik günlüğü), sonra tarih ve saat tarafından ayrılır. Bu BLOB'ları için tam biçimi şöyledir:
+4. **Bloblar**’a tıklayın, ardından **insights-operational-logs** etiketli kapsayıcıya ve son olarak **name=default** etiketli kapsayıcıya tıklayın. Etkinlik Günlüğünüz bu kapsayıcının içindedir. İzleme verileri, kaynak kimliğine (yalnızca Etkinlik Günlüğünün abonelik kimliği) ve sonra tarih ve saate göre kapsayıcılara ayrılır. Bu blobların tam biçimi şöyledir:
 
    insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 
-5. Kaynak Kimliği, tarih ve saat için kapsayıcılarına tıklayarak PT1H.json dosyasına gidin. PT1H.json dosyayı ve'ı tıklatın **karşıdan**. Her bir PT1H.json blob JSON blobu blob URL'SİNDE belirtilen saat içinde gerçekleşen olayların içerir (örneğin, h = 12). Bunlar ortaya çıktığında mevcut saatte olayları PT1H.json dosyasına eklenir. Dakika değeri (m 00 =) her zaman günlük olaylarının saat başına tek tek bloblar ayrılmış bu yana 00.
+5. Kaynak kimliği, tarih ve saat için kapsayıcılara tıklayarak PT1H.json dosyasına gidin. PT1H.json dosyasına ve **İndir**’e tıklayın. Her PT1H.json blobu, blob URL’sinde belirtilen saat (örneğin, h=12) içinde gerçekleşen bir JSON olay blobu içerir. Mevcut saat boyunca, olaylar meydana geldikçe PT1H.json dosyasına eklenir. Günlük olayları saat başına bloblara ayrıldığı için dakika değeri (m=00) her zaman 00’dır.
 
-   Artık depolama hesabında depolanan JSON olay görüntüleyebilirsiniz. Kaynak için tanılama günlükleri, BLOB biçimi şöyledir:
+   Artık depolama hesabında depolanmış JSON olayını görüntüleyebilirsiniz. Kaynak tanılama günlükleri için blob biçimi şu şekildedir:
 
-   Öngörüler - günlükleri-{günlük kategori adı} / ResourceId = / {kaynak kimliği} / y = {dört basamaklı sayısal year} / m = {iki basamaklı sayısal ay} / d = {iki basamaklı sayısal günü} / h = {iki basamaklı 24 saatlik hour}/m=00/PT1H.json
+   insights-logs-{log category name}/resourceId=/{resource ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 
-6. Konuk işletim sistemi izleme verilerini tablolarında depolanır. geri depolama hesabına giriş gidin ve tıklayın **tabloları**. Tablolar ölçümleri, performans sayaçları ve olay günlüklerini için vardır.
+6. Konuk işletim sistemi izleme verileri tablolarda depolanır. Depolama hesabı giriş sayfasına geri dönüp **Tablolar**’a tıklayın. Ölçümler, performans sayaçları ve olay günlüklerine yönelik tablolar bulunur.
 
-Şimdi başarıyla izleme verilerini bir depolama hesabına arşivlenecek ayarladınız.
+Bir depolama hesabında arşivlenecek izleme verilerini başarıyla ayarladınız.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-1. Geri gidin **etkinlik günlüğü dışarı** önceki bölümde **depolama hesabı için abonelik günlüklerini rota** tıklayın ve adım **sıfırlama**.
+1. Önceki **Abonelik günlüklerini depolama hesabına yönlendirme** adımında bulunan **Etkinlik Günlüğünü Dışarı Aktarma** bölümüne geri gidin ve **Sıfırla**’ya tıklayın.
 
-2. Gidin **tanılama ayarlarını** bölümünde, üzerinde oluşturduğunuz bir tanılama ayarını önceki kaynağa tıklayın **kaynak verileri depolama hesabına rota** adım sonra ayarını bulun, oluşturulan, tıklatın **ayarını Düzenle** düğmesini tıklatın ve tıklatın **silmek**.
+2. **Tanılama Ayarları** bölümüne gidin, önceki **Kaynak verilerini depolama hesabına yönlendirme** adımında tanılama ayarını oluşturduğunuz kaynağa tıklayın, sonra oluşturduğunuz ayarı bulun, **Ayarı düzenle** düğmesine ve **Sil**’e tıklayın.
 
-3. Gidin **tanılama ayarlarını** yapılandırılmış önceki sanal makine bölüm **sanal makine (konuk işletim sistemi) verileri depolama hesabına rota** adım ve altında  **Aracı** sekmesini tıklatın **kaldırmak** (altındaki **kaldırmak Azure Tanılama Aracı** bölümü).
+3. Önceki **Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme** adımında yapılandırdığınız sanal makinede **Tanılama Ayarları** bölümüne gidin ve **Aracı** sekmesi altında **Kaldır**’a tıklayın (**Azure Tanılama aracısını kaldırma** bölümü altında).
 
-4. Oluşturulan önceki depolama hesabına gidin **depolama hesabı oluşturma** adım ve tıklatın **depolama hesabı Sil**. Depolama hesabı adını yazın ve ardından **silmek**.
+4. Önceki **Depolama hesabı oluşturma** adımında oluşturduğunuz depolama hesabına gidip **Depolama hesabını sil**’e tıklayın. Depolama hesabının adını yazıp **Sil**'e tıklayın.
 
-5. Bir sanal makine ya da mantıksal uygulama için yukarıdaki adımları oluşturduysanız, bu da silin.
+5. Önceki adımlar için bir sanal makine ya da mantıksal uygulama oluşturduysanız onları da silin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, Azure ortamınıza (abonelik, kaynak ve konuk işletim sistemi) bir depolama hesabına arşivlenecek verilerden izleme işlevini ayarlama öğrendiniz. 
+Bu öğreticide, Azure ortamınızdan bir depolama hesabında arşivlenecek izleme verilerini (abonelik, kaynak ve konuk işletim sistemi) ayarlamayı öğrendiniz.
 
 
 > [!div class="checklist"]
-> * İzleme verileri tutmak için depolama hesabı oluşturma
-> * Abonelik günlüklerini ona yönlendirme 
-> * Rota kaynak veri 
-> * Sanal makine (konuk işletim sistemi) veri ona yönlendirme 
-> * İzleme verilerini görüntüleme 
-> * Kaynaklarınızı temizleme 
+> * İzleme verilerini tutmak için depolama hesabı oluşturma
+> * Abonelik günlüklerini depolama hesabına yönlendirme
+> * Kaynak verilerini depolama hesabına yönlendirme
+> * Sanal makine (konuk işletim sistemi) verilerini depolama hesabına yönlendirme
+> * İçindeki izleme verilerini görüntüleme
+> * Kaynaklarınızı temizleme
 
-Dışında verilerinizi daha fazla almak ve ek Öngörüler türetilmesi için de verilerinizi günlük analizi gönderir.
+Verilerinizden daha iyi şekilde yararlanmak ve ek bilgiler edinmek için verilerinizi Log Analytics’e de gönderin.
 
 > [!div class="nextstepaction"]
-> [Günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md)
+> [Log Analytics'i kullanmaya başlama](../log-analytics/log-analytics-get-started.md)

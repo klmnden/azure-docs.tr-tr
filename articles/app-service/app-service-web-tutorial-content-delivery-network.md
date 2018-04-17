@@ -1,6 +1,6 @@
 ---
-title: "Bir Azure uygulama hizmeti için bir CDN ekleme | Microsoft Docs"
-description: "Statik dosyalarınızı, dünya çapındaki müşterilerinize yakın sunucularda önbelleğe almak ve dağıtmak için bir Azure Uygulama Hizmetine Content Delivery Network (CDN) ekleyin."
+title: Azure App Service’e CDN Ekleme | Microsoft Docs
+description: Statik dosyalarınızı, dünya çapındaki müşterilerinize yakın sunucularda önbelleğe almak ve dağıtmak için bir Azure Uygulama Hizmetine Content Delivery Network (CDN) ekleyin.
 services: app-service\web
 author: syntaxc4
 ms.author: cfowler
@@ -10,13 +10,13 @@ ms.service: app-service-web
 manager: erikre
 ms.workload: web
 ms.custom: mvc
-ms.openlocfilehash: 257b75d01f3904661c1a188a2d53ffcb74f48f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: 74344b72869ef6b27f9e7329c7a1777a40662b17
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Bir Azure Uygulama Hizmetine Content Delivery Network (CDN) Ekleme
+# <a name="tutorial-add-a-content-delivery-network-cdn-to-an-azure-app-service"></a>Öğretici: Azure App Service’e Content Delivery Network (CDN) Ekleme
 
 [Azure Content Delivery Network (CDN)](../cdn/cdn-overview.md), kullanıcılara içerik teslim etmek için en yüksek aktarım hızını sağlamak üzere stratejik olarak yerleştirilmiş konumlardaki statik web içeriğini önbelleğe alır. CDN, ayrıca web uygulamanızdaki sunucu yükünü de azaltır. Bu öğretici, [Azure Uygulama Hizmeti'ndeki bir web uygulamasına](app-service-web-overview.md) nasıl Azure CDN ekleyeceğinizi gösterir. 
 
@@ -37,17 +37,17 @@ Kullanacağınız örnek statik HTML sitesinin ana sayfası:
 Bu öğreticiyi tamamlamak için:
 
 - [Git'i yükleyin](https://git-scm.com/)
-- [Azure CLI 2.0 yükleyin](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Azure CLI 2.0’ı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Web uygulaması oluşturma
 
-İle iş web uygulaması oluşturmak için izlemeniz [statik HTML Hızlı Başlangıç](app-service-web-get-started-html.md) aracılığıyla **app uygulamanıza gözatma** adım.
+Kullanacağınız web uygulamasını oluşturmak için, [statik HTML hızlı başlangıç](app-service-web-get-started-html.md) ila **Uygulamaya göz atma** adımlarını izleyin.
 
 ### <a name="have-a-custom-domain-ready"></a>Özel bir etki alanına sahip olma
 
-Bu öğreticinin özel etki alanı adımı tamamlamak için özel bir etki alanı kendi ve etki alanı sağlayıcınızın (örneğin, GoDaddy), DNS kayıt defterine erişim sağlamak gerekir. Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırmanız gerekir.
+Bu öğreticinin özel etki alanı adımını tamamlamak için, bir özel etki alanına sahip olmanız ve etki alanı sağlayıcınız (GoDaddy gibi) için DNS kayıt defterinize erişiminiz olması gerekir. Örneğin, `contoso.com` ve `www.contoso.com` için DNS girdileri eklemek üzere `contoso.com` kök etki alanının DNS ayarlarını yapılandırmanız gerekir.
 
 Henüz bir etki alanınız yoksa, Azure portalını kullanarak bir etki alanı satın almak için [App Service etki alanı öğreticisini](custom-dns-web-site-buydomains-web-app.md) izlemeniz yararlı olabilir. 
 
@@ -71,8 +71,8 @@ Sol gezinti bölmesinde **Uygulama Hizmetleri**’ni ve sonra [statik HTML hızl
 
 | Ayar | Önerilen değer | Açıklama |
 | ------- | --------------- | ----------- |
-| **CDN profili** | myCDNProfile | Seçin **Yeni Oluştur** bir CDN profili oluşturmak için. CDN profili, aynı fiyatlandırma katmanına sahip bir CDN uç noktaları koleksiyonudur. |
-| **Fiyatlandırma katmanı** | Standart Akamai | [Fiyatlandırma katmanı](../cdn/cdn-overview.md#azure-cdn-features), sağlayıcıyı ve kullanılabilir özellikleri belirtir. Bu öğreticide, standart Akamai kullanıyoruz. |
+| **CDN profili** | myCDNProfile | CDN profili oluşturmak için **Yeni oluştur**’u seçin. CDN profili, aynı fiyatlandırma katmanına sahip bir CDN uç noktaları koleksiyonudur. |
+| **Fiyatlandırma katmanı** | Standart Akamai | [Fiyatlandırma katmanı](../cdn/cdn-overview.md#azure-cdn-features), sağlayıcıyı ve kullanılabilir özellikleri belirtir. Bu öğreticide, Standart Akamai kullanıyoruz. |
 | **CDN uç noktası adı** | azureedge.net etki alanında benzersiz olan tüm adlar | Önbelleğe alınmış kaynaklarınıza *\<uçnoktaadı> .azureedge.net* etki alanından erişebilirsiniz.
 
 **Oluştur**’u seçin.
@@ -95,7 +95,7 @@ http://<appname>.azurewebsites.net/css/bootstrap.css
 http://<endpointname>.azureedge.net/css/bootstrap.css
 ```
 
-Aşağıdaki URL'yi bir tarayıcı gidin:
+Bir tarayıcıdan aşağıdaki URL’ye gidin:
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -103,7 +103,7 @@ http://<endpointname>.azureedge.net/index.html
 
 ![CDN'den sunulan örnek uygulama ana sayfası](media/app-service-web-tutorial-content-delivery-network/sample-app-home-page-cdn.png)
 
- Daha önce bir Azure web uygulamasında çalışan aynı sayfa bakın. Azure CDN kaynak web uygulamanızın varlıklar alınan ve bunları CDN uç noktasından hizmet
+ Azure web uygulamasında daha önce çalıştırdığınız aynı sayfayı görürsünüz. Azure CDN, kaynak web uygulamasının varlıklarını almıştır ve CDN uç noktasından bunları sunmaktadır
 
 Bu sayfanın CDN'de önbelleğe alınmasını sağlamak için sayfayı yenileyin. CDN'nin istenen içeriği önbelleğe alması için bazen aynı varlığa ilişkin iki istekte bulunulması gerekir.
 
@@ -194,7 +194,7 @@ Azure CDN, aşağıdaki önbelleğe alma davranışı seçeneklerini sunar:
 * Sorgu dizeleri için önbelleğe almayı atla
 * Her benzersiz URL'yi önbelleğe al 
 
-Bunlardan ilki olan bir varlık URL'deki sorgu dizesi bağımsız olarak yalnızca bir önbelleğe alınan sürümü anlamına gelir, varsayılandır. 
+Bunlardan ilki varsayılan davranıştır ve URL’de kullanılan sorgu dizesine bakılmaksızın, bir varlığın yalnızca önbelleğe alınmış bir sürümü olduğu anlamına gelir. 
 
 Öğreticinin bu bölümünde, önbelleğe alma davranışını, her benzersiz URL'yi önbelleğe alacak şekilde değiştirme hakkında bilgi edineceksiniz.
 
@@ -241,10 +241,10 @@ http://<endpointname>.azureedge.net/index.html?q=1
 
 ![CDN'deki başlıkta V2, sorgu dizesi 1](media/app-service-web-tutorial-content-delivery-network/v2-in-cdn-title-qs1.png)
 
-Bu çıktı, her sorgu dizesi farklı şekilde ele gösterir:
+Bu çıktı, her sorgu dizesinin farklı şekilde değerlendirildiğini gösterir:
 
-* q = 1 kullanıldı önce şekilde ön belleğe alınmış içeriği (V2) döndürülür.
-* q = 2'dir yeni, böylece en son web uygulama içeriği alınır ve (V3) döndürdü.
+* q = 1 daha önce kullanılmıştır, bu nedenle önbelleğe alınan içerikler döndürülür (V2).
+* q = 2 yenidir, bu nedenle en son web uygulaması içerikleri alınır ve döndürülür (V3).
 
 Daha fazla bilgi için bkz. [Sorgu dizeleri içeren Azure CDN önbelleğe alma davranışını kontrol etme](../cdn/cdn-query-string.md).
 
@@ -270,7 +270,7 @@ Etki alanı kayıt şirketinizin web sitesine gidin ve DNS kayıtları oluşturm
 
 CNAME'leri yönetme ile ilgili bölümü bulun. Gelişmiş ayarlar sayfasına gidip CNAME, Diğer Ad veya Alt Etki Alanları sözcüklerini aramanız gerekebilir.
 
-Seçilen alt eşleyen bir CNAME kaydı oluşturun (örneğin, **statik** veya **cdn**) için **uç noktası ana bilgisayar adı** Portalı'nda daha önce gösterilen. 
+Seçtiğiniz alt etki alanını (örneğin, **statik** veya **cdn**) portalın başında gösterilen **Uç nokta konak adı** ile eşleyen bir CNAME kaydı oluşturun. 
 
 ### <a name="enter-the-custom-domain-in-azure"></a>Azure'de özel etki alanını girme
 
@@ -278,7 +278,7 @@ Seçilen alt eşleyen bir CNAME kaydı oluşturun (örneğin, **statik** veya **
    
 Azure, girdiğiniz alan adı için CNAME kaydının bulunduğunu doğrular. CNAME doğruysa, özel alan adınız doğrulanır.
 
-CNAME kaydını İnternet üzerindeki ad sunucularına yayma işlemi zaman alabilir. Etki alanınızı hemen doğrulanmaz, birkaç dakika bekleyin ve yeniden deneyin.
+CNAME kaydını İnternet üzerindeki ad sunucularına yayma işlemi zaman alabilir. Etki alanınız hemen doğrulanmazsa birkaç dakika bekleyin ve tekrar deneyin.
 
 ### <a name="test-the-custom-domain"></a>Özel etki alanını sınama
 
@@ -292,7 +292,7 @@ Daha fazla bilgi için bkz. [Azure CDN içeriğini özel bir etki alanıyla eşl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Öğrendiklerinizi:
+Öğrendikleriniz:
 
 > [!div class="checklist"]
 > * CDN uç noktası oluşturma.
@@ -300,7 +300,7 @@ Daha fazla bilgi için bkz. [Azure CDN içeriğini özel bir etki alanıyla eşl
 > * Önbelleğe alınan sürümleri denetlemek için sorgu dizeleri kullanma.
 > * CDN uç noktası için özel bir etki alanı kullanma.
 
-Aşağıdaki makalelerde CDN performansını iyileştirmek nasıl öğrenin:
+CDN performansını nasıl iyileştirebileceğinizi öğrenmek için aşağıdaki makalelere göz atın:
 
 > [!div class="nextstepaction"]
 > [Azure CDN’de dosyaları sıkıştırarak performansı geliştirme](../cdn/cdn-improve-performance.md)

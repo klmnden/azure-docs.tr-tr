@@ -8,13 +8,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/03/2018
+ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: ffe25e911273b93f1c16224d30fea5c920425f03
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ba57530c5708216ca7c990025d513144dcdf82a4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -74,7 +74,7 @@ Aşağıdaki tabloda çeşitli özellikleri, Transact SQL erişilebilir uygulama
 Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, saydamlık vCore tabanlı satın alma modeli sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore modeli de yüzde 30 tasarrufları ile için uygun yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder.
-- 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci.
+- 4. Nesil Mantıksal CPU’lar Intel E5-2673 v3 (Haswell) 2,4 GHz işlemcileri temel alır.
 - 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı gen (Broadwell) 2.3 GHz işlemci.
 
 Aşağıdaki tabloda, en uygun yapılandırma hesaplama, bellek, depolama ve g/ç kaynakları seçmek nasıl anlamanıza yardımcı olur.
@@ -106,7 +106,7 @@ Genel amaçlı hizmet Katmanı'nın temel özellikleri özetlenmektedir:
 
 |Özellik | Açıklama|
 |---|---|
-| VCores * sayısı | 8, 16, 24 (Gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
+| VCores * sayısı | 8, 16, 24 (gen 4)<br>8, 16, 24, 32, 40 (Gen5)|
 | SQL Server sürümü / build | SQL Server Son (kullanılabilir) |
 | En küçük depolama boyutu | 32 GB |
 | En fazla depolama boyutu | 8 TB |
@@ -131,7 +131,7 @@ Genel amaçlı hizmet Katmanı'nın temel özellikleri özetlenmektedir:
 
 Yönetilen örneği Azure bulutta diğer kiracıdan ek güvenlik yalıtım sağlar. Güvenlik yalıtımı içerir: 
 
-- Yerel sanal ağ uygulaması ve Azure Express rota ya da VPN ağ geçidi kullanarak, şirket içi ortamınız için bağlantı 
+- [Yerel sanal ağ uygulaması](sql-database-managed-instance-vnet-configuration.md) ve Azure Express rota ya da VPN ağ geçidi kullanarak, şirket içi ortamınız için bağlantı 
 - SQL uç noktası güvenli bağlantı özel Azure veya karma ağları izin vererek yalnızca özel bir IP adresi, aracılığıyla sunulur
 - Tek-Kiracı altyapısıyla ayrılmış temel alınan (işlem, depolama)
 
@@ -185,7 +185,13 @@ Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma 
 
 ### <a name="backup-and-restore"></a>Yedekleme ve geri yükleme  
 
-Geçiş yaklaşım SQL yedeklemeleri Azure blob depolamaya yararlanır. Azure depolama blobunu depolanan yedeklerini doğrudan yönetilen örneğine geri yüklenebilir. 
+Geçiş yaklaşım SQL yedeklemeleri Azure blob depolamaya yararlanır. Azure depolama blobunu depolanan yedeklerini doğrudan yönetilen örneğine geri yüklenebilir. Varolan bir SQL veritabanının bir yönetilen örneğine geri yüklemek için şunları yapabilirsiniz:
+
+- Kullanım [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview). Bir öğretici için bkz: [yönetilen Azure veritabanı geçiş hizmeti (DMS) kullanarak bir örneğini geçiş](../dms/tutorial-sql-server-to-managed-instance.md) bir veritabanı yedekleme dosyasından geri yüklemek için
+- Kullanım [T-SQL Geri Yükle komutunu](https://docs.microsoft.com/en-us/sql/t-sql/statements/restore-statements-transact-sql). 
+  - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme gösteren bir öğretici için bkz: [bir yedekleme dosyası yönetilen bir örneğine geri](sql-database-managed-instance-restore-from-backup-tutorial.md). Bu öğretici, Azure blogu depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterir.
+  - URL'den geri yükleme hakkında daha fazla bilgi için bkz: [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
+- [Bir BACPAC Dosyadan İçeri Aktar](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Desteklenen SQL özellikleri 
 
@@ -217,5 +223,6 @@ Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetl
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Bir özellik için ve karşılaştırma listesi, bkz: [SQL ortak özellikleri](sql-database-features.md).
+- Sanal ağ yapılandırması hakkında daha fazla bilgi için bkz. [Yönetilen Örnek Sanal Ağ Yapılandırması](sql-database-managed-instance-vnet-configuration.md).
 - Yönetilen bir örnek oluşturur ve bir yedek dosyasından bir veritabanı geri yükleyen bir öğretici için bkz: [bir yönetilen örneği oluşturmayı](sql-database-managed-instance-tutorial-portal.md).
 - Azure Veritabanı Geçiş Hizmeti’ni (DMS) geçiş için kullanmaya ilişkin bir öğretici için bkz. [DMS kullanarak Yönetilen Örnek geçişi](../dms/tutorial-sql-server-to-managed-instance.md).

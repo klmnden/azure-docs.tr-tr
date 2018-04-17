@@ -1,12 +1,12 @@
 ---
-title: "Azure yığın kimliğini genel bakış | Microsoft Docs"
-description: "Azure yığın ile kullanabileceğiniz kimlik sistemleri hakkında bilgi edinin."
+title: Azure yığın kimliğini genel bakış | Microsoft Docs
+description: Azure yığın ile kullanabileceğiniz kimlik sistemleri hakkında bilgi edinin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 2/22/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: deebe5d8ff4c35c4507d2daf5c15025a1810d865
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.reviewer: ''
+ms.openlocfilehash: 607c7938a789b3504a425057645b291bd4c8235b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure yığın kimliğini genel bakış
 
@@ -52,12 +52,12 @@ Kullanıcı hesapları (Kimlikler) kişiler bir kullanıcı kimliği ve parola k
 Kullandığınız kimlik çözümü nasıl oluşturmak ve kullanıcıları ve grupları yönetin bağlıdır. 
 
 Azure yığınında kullanıcı hesapları: 
-- Oluşturulan  *username@domain*  biçimi. AD FS kullanıcı hesaplarını Active Directory örneğine eşlemeleri rağmen AD FS kullanımını desteklemez  *\<etki alanı >\<diğer adı >* biçimi. 
+- Oluşturulan *username@domain* biçimi. AD FS kullanıcı hesaplarını Active Directory örneğine eşlemeleri rağmen AD FS kullanımını desteklemez  *\<etki alanı >\<diğer adı >* biçimi. 
 - Çok faktörlü kimlik doğrulaması kullanacak şekilde ayarlanabilir. 
 - Kuruluşun dizin olan burada bunlar ilk kaydetmek, dizine kısıtlanır.
 - Şirket içi dizinlerinizi içeri aktarılabilir. Daha fazla bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](/azure/active-directory/connect/active-directory-aadconnect). 
 
-Kuruluşunuzun Kiracı portalında oturum açtığınızda, kullandığınız  *https://portal.local.azurestack.external*  URL. 
+Kuruluşunuzun Kiracı portalında oturum açtığınızda, kullandığınız *https://portal.local.azurestack.external* URL. 
 
 ### <a name="guest-users"></a>Konuk kullanıcılar
 Konuk kullanıcılar, diğer dizin kiracıdan dizininizde kaynaklara erişim izni verilen kullanıcı hesaplarıdır. Konuk kullanıcılar desteklemek için Azure AD kullanın ve çoklu kiracı için desteği etkinleştirir. Destek etkinleştirildiğinde, dış kuruluşlar kendi işbirliğiyle sırayla sağlayan directory kiracınızda bulunan kaynaklara erişmek için konuk kullanıcıları davet edebilirsiniz. 
@@ -145,10 +145,10 @@ Uygulamalar ve kullanıcılar için Azure yığın mimarisi dört katmanı taraf
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Azure kaynak yöneticisi için kimlik doğrulaması
 Kimlik sağlayıcısı ile kimlik doğrulaması ve bir JSON Web belirteci almak için aşağıdaki bilgileri olması gerekir: 
-1.  **Kimlik sistemi (yetkilisi) URL'sini**: URL, kimlik sağlayıcısı ulaşılabilir. Örneğin,  *https://login.windows.net* . 
+1.  **Kimlik sistemi (yetkilisi) URL'sini**: URL, kimlik sağlayıcısı ulaşılabilir. Örneğin, *https://login.windows.net*. 
 2.  **Uygulama Kimliği URI'si için Azure Resource Manager**: Azure kaynak kimlik sağlayıcınız ile kayıtlı Yöneticisi için benzersiz tanımlayıcı. Ayrıca, her Azure yığın yüklemesine de benzersizdir.
 3.  **Kimlik bilgileri**: kimlik doğrulaması için kullandığınız kimlik sağlayıcısı ile kimlik bilgileri. 
-4.  **URL için Azure Resource Manager**: URL, Azure Kaynak Yöneticisi hizmeti konumdur. Örneğin,  *https://management.azure.com*  veya  *https://management.local.azurestack.external* .
+4.  **URL için Azure Resource Manager**: URL, Azure Kaynak Yöneticisi hizmeti konumdur. Örneğin, *https://management.azure.com* veya *https://management.local.azurestack.external*.
 
 (Bir istemci, uygulama veya kullanıcı) sorumlu bir kaynağa erişmek için kimlik doğrulama isteği yaptığında, istek şunları içermelidir:
 - Sorumlunun kimlik bilgileri.
@@ -169,9 +169,9 @@ Tüm doğrulamaları tamamlandığında, Azure Resource Manager kullanan *ait ne
 
 ### <a name="use-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanma  
 Rol tabanlı erişim denetimi (RBAC) Azure yığınında, Microsoft Azure uygulamasında tutarlıdır. Kullanıcılar, gruplar ve uygulamalara uygun RBAC rolü atayarak kaynaklara erişimi yönetebilir. RBAC Azure yığın ile kullanma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
-- [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](/azure/active-directory/role-based-access-control-what-is).
-- [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi kullanmak](/azure/active-directory/role-based-access-control-configure).
-- [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](/azure/active-directory/role-based-access-control-custom-roles).
+- [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](/azure/role-based-access-control/overview).
+- [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol tabanlı erişim denetimi kullanmak](/azure/role-based-access-control/role-assignments-portal).
+- [Azure rol tabanlı erişim denetimi için özel roller oluşturmanızı](/azure/role-based-access-control/custom-roles).
 - [Rol tabanlı erişim denetimini yönetmesine](azure-stack-manage-permissions.md) Azure yığınında.
 
 
