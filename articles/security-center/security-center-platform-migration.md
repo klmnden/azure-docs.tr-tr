@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi Platform Geçişi | Microsoft Docs"
-description: "Bu belgede, Azure Güvenlik Merkezi verilerinin toplanma biçiminde yapılan bazı değişiklikler açıklanmaktadır."
+title: Azure Güvenlik Merkezi Platform Geçişi | Microsoft Docs
+description: Bu belgede, Azure Güvenlik Merkezi verilerinin toplanma biçiminde yapılan bazı değişiklikler açıklanmaktadır.
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 80246b00-bdb8-4bbc-af54-06b7d12acf58
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2e2e8d7213504ccd71df7048045925bf566c76d5
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure Güvenlik Merkezi platform geçişi
 
@@ -32,7 +32,7 @@ Haziran 2017’nin başlarından itibaren Azure Güvenlik Merkezi tarafından ve
 
 Güvenlik Merkezi, VM’lerinizden güvenlik verilerini toplamak için eskiden Azure İzleme Aracısı’nı kullanıyordu. Buna güvenlik açıklarını tanımlamak için kullanılan güvenlik yapılandırmalarıyla ilgili bilgiler ve tehditleri algılamak için kullanılan güvenlik olayları dahildir. Bu veriler, Azure’daki Depolama hesabınızda veya hesaplarınızda saklanıyordu.
 
-Bundan sonra, Güvenlik Merkezi Microsoft Monitoring Agent’ı (Operations Management Suite ve Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanacak. Bu aracıdan toplanan veriler, sanal makinenin coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili bir *Log Analytics* [çalışma alanında](../log-analytics/log-analytics-manage-access.md) veya yeni çalışma alanlarında depolanır.
+Bundan sonra Güvenlik Merkezi, Microsoft Monitoring Agent’ı (Log Analytics hizmeti tarafından kullanılan aracının aynısı) kullanacak. Bu aracıdan toplanan veriler, sanal makinenin coğrafi konumu göz önünde bulundurularak Azure aboneliğinizle ilişkili bir *Log Analytics* [çalışma alanında](../log-analytics/log-analytics-manage-access.md) veya yeni çalışma alanlarında depolanır.
 
 ## <a name="agent"></a>Aracı
 
@@ -62,9 +62,9 @@ Güvenlik Merkezi tarafından oluşturulan çalışma alanları için veriler 30
 > [!NOTE]
 > Güvenlik Merkezi tarafından daha önce toplanan veriler Depolama hesaplarınızda kalır. Geçiş tamamlandıktan sonra bu Depolama hesaplarını silebilirsiniz.
 
-### <a name="oms-security-solution"></a>OMS Güvenlik Çözümü 
+### <a name="security-management-solution"></a>Güvenlik Yönetimi Çözümü 
 
-OMS Güvenlik Çözümü, çözümü yüklememiş olan mevcut müşterilerin çalışma alanına Microsoft tarafından yalnızca Azure VM’lerini hedefleyecek şekilde yükleniyor. OMS yönetim konsolundan bu çözümün kaldırılması otomatik olarak düzeltilemeyen bir işlem olduğundan, bunun yapılması önerilmez.
+Log Analytics’te bir güvenlik yönetimi çözümü yüklememiş olan mevcut müşterilerin çalışma alanına Microsoft tarafından yalnızca Azure sanal makinelerini hedefleyecek şekilde yükleniyor. Yönetim konsolundan bu çözümün kaldırılması otomatik olarak düzeltilemeyen bir işlem olduğundan, bunun yapılması önerilmez.
 
 
 ## <a name="other-updates"></a>Diğer güncelleştirmeler

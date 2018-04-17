@@ -1,11 +1,11 @@
 ---
-title: "Azure AD erişim gözden geçirmeleri| Microsoft Docs"
-description: "Azure Active Directory erişim gözden geçirmelerini kullanarak kuruluşunuzda yönetim, risk yönetimi ve uyumluluk girişimlerini karşılamak için grup üyeliği ve uygulama erişimini denetleyebilirsiniz."
+title: Azure AD erişim gözden geçirmeleri| Microsoft Docs
+description: Azure Active Directory erişim gözden geçirmelerini kullanarak kuruluşunuzda yönetim, risk yönetimi ve uyumluluk girişimlerini karşılamak için grup üyeliği ve uygulama erişimini denetleyebilirsiniz.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: markwahl-msft
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.openlocfilehash: 40c3cfaf723a22013c93e0efae3d074e98643742
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3c5d09b6f17fe8ae9be73d23d7aef6beae2ae43c
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="azure-ad-access-reviews-preview"></a>Azure AD erişim gözden geçirmeleri (önizleme)
+# <a name="azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleri
 
-Azure Active Directory (Azure AD) erişim gözden geçirmeleri, kuruluşların grup üyeliklerini ve kurumsal uygulamalara erişimi etkili bir şekilde yönetmesine olanak sağlar. 
+Azure Active Directory (Azure AD) erişim gözden geçirmeleri, kuruluşların grup üyeliklerini, kurumsal uygulamalara erişimi ve ayrıcalıklı rol atamalarını verimli şekilde yönetmesine olanak sağlar. 
 
 ## <a name="what-can-you-do-with-access-reviews"></a>Erişim gözden geçirmeleri ile yapabilecekleriniz
    
@@ -30,6 +30,8 @@ Azure Active Directory (Azure AD) erişim gözden geçirmeleri, kuruluşların g
 - Erişim gözden geçirmeleri ile çalışanların uygulamalara erişimini ve grup üyeliklerini yeniden onaylayabilirsiniz.
    
 - Erişim gözden geçirmesi denetimlerini kuruluşunuza uygun programlarda toplayarak, uyumluluk veya riske duyarlı uygulamalar için gözden geçirmeleri takip edebilirsiniz.
+
+- Genel Yönetici gibi Azure AD rollerine veya Azure abonelik rollerine atanan yönetici kullanıcıların rol atamasını yeniden onaylayabilirsiniz.  Bu özellik, Azure AD Privileged Identity Management’a dahil edilmiştir.
     
 
 ## <a name="next-steps"></a>Sonraki adımlar

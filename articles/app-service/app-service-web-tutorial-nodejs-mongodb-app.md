@@ -1,11 +1,11 @@
 ---
-title: "Azure’da bir Node.js ve MongoDB web uygulaması oluşturma | Microsoft Docs"
-description: "Azure’da MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin."
+title: Azure’da bir Node.js ve MongoDB web uygulaması oluşturma | Microsoft Docs
+description: Azure’da MongoDB bağlantı dizesine sahip Cosmos DB veritabanı bağlantısıyla bir Node.js uygulamasının nasıl çalıştırılacağı hakkında bilgi edinin.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
 ms.workload: web
@@ -15,13 +15,13 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b191af9edd8fd38c819483e8836568657d0b6bf0
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure"></a>Azure’da bir Node.js ve MongoDB web uygulaması oluşturma
+# <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Öğretici: Azure’da bir Node.js ve MongoDB web uygulaması derleme
 
 > [!NOTE]
 > Bu makalede bir uygulamanın Windows üzerinde App Service'e dağıtımı yapılır. _Linux_ üzerinde App Service'e dağıtım yapmak için bkz. [Linux üzerinde Azure App Service'te Node.js ve MongoDB web uygulaması oluşturma](./containers/tutorial-nodejs-mongodb-app.md).
@@ -51,7 +51,7 @@ Bu öğreticiyi tamamlamak için:
 1. [Node.js ve NPM'yi yükleyin](https://nodejs.org/)
 1. [Bower yükleme](https://bower.io/) ([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
 1. [Gulp.js yükleme](http://gulpjs.com/) ([MEAN.js](http://meanjs.org/docs/0.5.x/#getting-started) için gerekli)
-1. [MongoDB Community Edition’ı yükleyip çalıştırma](https://docs.mongodb.com/manual/administration/install-community/) 
+1. [MongoDB Community Edition’ı yükleyin ve çalıştırın](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## <a name="test-local-mongodb"></a>Yerel MongoDB’yi test etme
 
@@ -85,7 +85,7 @@ Bu örnek depo, [MEAN.js deposu](https://github.com/meanjs/mean)’nun bir kopya
 
 ### <a name="run-the-application"></a>Uygulamayı çalıştırma
 
-Gerekli paketleri yüklemek ve uygulamayı başlatmak için şu komutları çalıştırın.
+Gerekli paketleri yüklemek ve uygulamayı başlatmak için aşağıdaki komutları çalıştırın.
 
 ```bash
 cd meanjs
@@ -161,17 +161,17 @@ Cosmos DB hesabı oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bil
 
 ## <a name="connect-app-to-production-mongodb"></a>Üretim MongoDB’sine uygulama bağlama
 
-Bu adımda, MEAN.js örnek uygulamanızı, MongoDB bağlantı dizesi kullanarak yeni oluşturduğunuz bir Cosmos DB veritabanına bağlayacaksınız. 
+Bu adımda, MEAN.js örnek uygulamanızı, MongoDB bağlantı dizesi kullanarak yeni oluşturduğunuz Cosmos DB veritabanına bağlayacaksınız. 
 
 ### <a name="retrieve-the-database-key"></a>Veritabanı anahtarını alma
 
-Bir Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Cloud Shell’de, birincil anahtarı almak için [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) komutunu kullanın.
+Cosmos DB veritabanına bağlanmak için veritabanı anahtarı gerekir. Cloud Shell'de, birincil anahtarı almak için [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) komutunu kullanın.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
 ```
 
-Azure CLI şu örneğe benzer bilgiler gösterir:
+Azure CLI aşağıdaki örneğe benzer bilgiler görüntüler:
 
 ```json
 {
@@ -187,7 +187,7 @@ Azure CLI şu örneğe benzer bilgiler gösterir:
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Node.js uygulamanızda bağlantı dizesini yapılandırma
 
-Yerel MEAN.js deponuzun içinde, _config/env/_ klasöründe _local-production.js_ adında bir dosya oluşturun. Varsayılan olarak, _.gitignore_ bu dosyayı deponun dışında tutmak için yapılandırılmıştır. 
+Yerel MEAN.js deponuzda, _config/env/_ klasöründe _local-production.js_ adlı bir dosya oluşturun. Varsayılan olarak, _.gitignore_ bu dosyayı deponun dışında tutmak için yapılandırılmıştır. 
 
 Şu kodu içine kopyalayın. İki *\<cosmosdb_name>* yer tutucusunu Cosmos DB veritabanı adınız ile, *\<primary_master_key>* yer tutucusunu da önceki adımda kopyaladığınız anahtar ile değiştirdiğinizden emin olun.
 
@@ -272,7 +272,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 Node.js kodunda, her ortam değişkenine eriştiğiniz gibi bu uygulama ayarına da `process.env.MONGODB_URI` ile erişirsiniz. 
 
-Yerel MEAN.js deponuzda, üretim ortamına özel yapılandırma içeren _config/env/production.js_ (_config/env/local-production.js_ değil) öğesini açın. Varsayılan MEAN.js uygulaması, zaten `MONGODB_URI` ortam değişkenini kullanmak üzere yapılandırılmıştır.
+Yerel MEAN.js deponuzda, üretim ortamına özel yapılandırma içeren _config/env/production.js_ (_config/env/local-production.js_ değil) dosyasını açın. Varsayılan MEAN.js uygulaması, zaten `MONGODB_URI` ortam değişkenini kullanmak üzere yapılandırılmıştır.
 
 ```javascript
 db: {
@@ -361,7 +361,7 @@ var ArticleSchema = new Schema({
 
 Değiştirmeniz gereken beş dosya vardır: sunucu denetleyici ve dört istemci görünümü. 
 
-_modules/articles/server/controllers/articles.server.controller.js_ öğesini açın.
+_modules/articles/server/controllers/articles.server.controller.js_ dosyasını açın.
 
 `update` işlevinde, `article.comment` için bir atama ekleyin. Şu kod tamamlanmış `update` işlevini gösterir:
 
@@ -377,7 +377,7 @@ exports.update = function (req, res) {
 };
 ```
 
-_modules/articles/client/views/view-article.client.view.html_ öğesini açın.
+_modules/articles/client/views/view-article.client.view.html_ dosyasını açın.
 
 `</section>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
 
@@ -385,7 +385,7 @@ _modules/articles/client/views/view-article.client.view.html_ öğesini açın.
 <p class="lead" ng-bind="vm.article.comment"></p>
 ```
 
-_modules/articles/client/views/list-articles.client.view.html_ öğesini açın.
+_modules/articles/client/views/list-articles.client.view.html_ dosyasını açın.
 
 `</a>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanı ile birlikte görüntülemek için şu satırı ekleyin:
 
@@ -393,7 +393,7 @@ _modules/articles/client/views/list-articles.client.view.html_ öğesini açın.
 <p class="list-group-item-text" ng-bind="article.comment"></p>
 ```
 
-_modules/articles/client/views/admin/list-articles.client.view.html_ öğesini açın.
+_modules/articles/client/views/admin/list-articles.client.view.html_ dosyasını açın.
 
 `<div class="list-group">` öğesinin içinde ve `</a>` kapanış etiketinin hemen üzerinde, `comment` öğesini makale verilerinin geri kalanıyla birlikte görüntülemek için şu satırı ekleyin:
 
@@ -411,7 +411,7 @@ Gönder düğmesini içeren ve şuna benzeyen `<div class="form-group">` öğesi
 </div>
 ```
 
-Bu etiketin hemen üzerinde, kişilerin `comment` alanını düzenleyebilmesini sağlayan başka bir `<div class="form-group">` öğesi ekleyin. Yeni öğeniz şunun gibi görünmelidir:
+Bu etiketin hemen üzerinde, kişilerin `comment` alanını düzenleyebilmesini sağlayan başka bir `<div class="form-group">` öğesi ekleyin. Yeni öğeniz şöyle görünmelidir:
 
 ```HTML
 <div class="form-group">

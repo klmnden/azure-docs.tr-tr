@@ -1,12 +1,12 @@
 ---
-title: "Mevcut bir özel DNS adını Azure Web Apps ile eşleme | Microsoft Docs"
-description: "Mevcut özel DNS etki alanı adını (gösterim etki alanı) web uygulamasına, mobil uygulama arka ucuna veya Azure App Service'te API uygulamasına eklemeyi öğrenin."
-keywords: "uygulama hizmeti, azure app service, etki alanı eşlemesi, etki alanı adı, mevcut etki alanı, konak adı"
+title: Mevcut bir özel DNS adını Azure Web Apps ile eşleme | Microsoft Docs
+description: Mevcut özel DNS etki alanı adını (gösterim etki alanı) web uygulamasına, mobil uygulama arka ucuna veya Azure App Service'te API uygulamasına eklemeyi öğrenin.
+keywords: uygulama hizmeti, azure app service, etki alanı eşlemesi, etki alanı adı, mevcut etki alanı, konak adı
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
 ms.service: app-service-web
 ms.workload: web
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9867cc2f8a8d484ca4bfb160c20a07df38790f4d
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/06/2018
 ---
-# <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mevcut bir özel DNS adını Azure Web Apps ile eşleme
+# <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Öğretici: Mevcut bir özel DNS adını Azure Web Apps ile eşleme
 
 [Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar. Bu öğreticide, mevcut bir özel DNS adını Azure Web Apps ile nasıl eşleyeceğiniz gösterilir.
 
@@ -292,7 +292,7 @@ Sayfanın en altında, kök sanal dizin `/` varsayılan olarak `site\wwwroot` di
 
 ![Sanal dizini özelleştirme](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-İşlem tamamlandığında, uygulamanız kök yolda (örneğin, http://contoso.com) doğru sayfaya dönmelidir.
+İşlem tamamlandığında, uygulamanız kök yolda (örneğin, http://contoso.com)) doğru sayfaya dönmelidir.
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 

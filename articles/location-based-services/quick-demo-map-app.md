@@ -1,26 +1,26 @@
 ---
-title: "Azure Konum Tabanlı Hizmetler ile Etkileşimli Harita Araması | Microsoft Docs"
-description: "Azure Hızlı Başlangıç - Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir demo etkileşimli harita araması başlatma"
+title: Azure Konum Tabanlı Hizmetler ile Etkileşimli Harita Araması | Microsoft Docs
+description: Azure Hızlı Başlangıç - Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir demo etkileşimli harita araması başlatma
 services: location-based-services
-keywords: 
+keywords: ''
 author: kgremban
 ms.author: kgremban
-ms.date: 11/28/2017
+ms.date: 04/03/2018
 ms.topic: quickstart
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 288044b2f8a4b996489bbd6a6b0a61b455e8f4ad
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 7a61d56f8e649d60dacff8f9849ab7e26363e119
+ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/05/2018
 ---
 # <a name="launch-a-demo-interactive-map-search-using-azure-location-based-services-preview"></a>Azure Konum Tabanlı Hizmetler (önizleme) kullanarak bir demo etkileşimli harita araması başlatma
 
-Bu makalede Azure Haritalar kullanan etkileşimli bir arama ile Azure Konum Tabanlı Hizmetler’in (LBS) özellikleri gösterilmektedir. Ayrıca kedi LBS hesabınızı oluşturma ve demo web uygulamasında kullanmak üzere hesap anahtarınızı alma adımları gösterilmektedir. 
+Bu makalede, etkileşimli bir arama gerçekleştirmek için Azure Konum Tabanlı Hizmetler’in (LBS) özellikleri gösterilmektedir. Ayrıca kedi LBS hesabınızı oluşturma ve demo web uygulamasında kullanmak üzere hesap anahtarınızı alma adımları gösterilmektedir. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -40,14 +40,14 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 5. Hesabınız başarıyla oluşturulduğunda, hesabı açıp **AYARLAR**’a gidin. Azure Konum Tabanlı Hizmetler hesabının birincil ve ikincil anahtarlarını almak için **Anahtarlar**’a tıklayın. **Birincil Anahtar** değerini sonraki bölümde kullanmak üzere yerel panonuza kopyalayın. 
 
-## <a name="download-the-demo-application-for-azure-maps"></a>Azure Haritalar için demo uygulamasını indirme
+## <a name="download-the-demo-application"></a>Demo uygulamayı indirme
 
 1. [interactiveSearch.html](https://github.com/Azure-Samples/location-based-services-samples/blob/master/src/interactiveSearch.html) dosyasının içeriklerini indirin veya kopyalayın.
 2. Bu dosyanın içeriklerini **AzureMapDemo.html** olarak yerel olarak kaydedin ve bir metin düzenleyicide açın.
 3. `<insert-key>` dizesini arayın ve önceki bölümde aldığınız **Birincil Anahtar** değeriyle değiştirin. 
 
 
-## <a name="launch-the-demo-application-for-azure-maps"></a>Azure Haritalar için demo uygulamasını başlatma
+## <a name="launch-the-demo-application-for"></a>Demo uygulamayı başlatma
 
 1. **AzureMapDemo.html** dosyasını istediğiniz bir tarayıcıda açın.
 2. Gösterilen Los Angeles haritasına bakın. Şehir, *AzureMapDemo.html* içinde **center** adlı JavaScript değişkenine verilen `[longitude, latitude]` çiftinin değeri tarafından belirlenir. Bu koordinatları istediğiniz herhangi bir şehrin koordinatlarıyla değiştirebilirsiniz. Örneğin, New York City’nin koordinatları *[-74.0060, 40.7128]*’dir.

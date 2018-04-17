@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 030c6fbfb5eb76a745a1089acab54e74ce7a01e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: febeb2b7e6ada69db78cb0553b4fa90874f5f2eb
+ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/06/2018
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Öğretici: Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 Bu öğretici, bir serinin dördüncü bölümüdür. Service Fabric kümesinde çalışan bir ASP.NET Core uygulaması için Application Insights kullanarak izleme ve tanılamayı ayarlama adımlarında yol gösterilir. Öğreticinin ilk bölümü olan [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde geliştirilen uygulamadan telemetri toplarız. 
@@ -89,8 +89,12 @@ NuGet'i ayarlama adımları şunlardır:
 1. Çözüm Gezgininizin üst kısmındaki **Çözüm 'Oylama'** öğesine sağ tıklayın ve **Çözüm için NuGet Paketlerini Yönet...** öğesine tıklayın.
 2. "NuGet - Çözüm" penceresinin üst gezinti menüsünde **Gözat**'a tıklayın ve arama çubuğunun yanındaki **Ön sürümü dahil et** kutusunu işaretleyin.
 3. `Microsoft.ApplicationInsights.ServiceFabric.Native` için arama yapın ve uygun NuGet paketine tıklayın.
+
+>[!NOTE]
+>Application Insights paketini yüklemeden önce, önceden yüklenmemişse Microsoft.ServiceFabric.Diagnistics.Internal paketini benzer şekilde yüklemeniz gerekebilir
+
 4. Sağ tarafta, uygulamadaki iki hizmetin (**VotingWeb** ve **VotingData**) yanında bulunan iki onay kutusuna tıklayın ve sonra da **Yükle**'ye tıklayın.
-    ![AI kaydı tamamlandı](./media/service-fabric-tutorial-monitoring-aspnet/aisdk-sf-nuget.png)
+    ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
 5. Açılan **Değişiklikleri Gözden Geçir** iletişim kutusunda *Tamam*'a tıklayın ve *Lisans Kabulü*'nü kabul edin. Bu noktada NuGet'i hizmetlere ekleme işlemi tamamlanır.
 6. Şimdi iki hizmette telemetri başlatıcısını ayarlamanız gerekir. Bunu yapmak için, *VotingWeb.cs* ve *VotingData.cs*'yi açın. Her ikisinde de aşağıdaki iki adımı izleyin:
     1. Bu iki *using* deyimini her *\<HizmetAdı>.cs*'nin üstüne ekleyin:
@@ -114,6 +118,7 @@ NuGet'i ayarlama adımları şunlardır:
                 .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
         .UseContentRoot(Directory.GetCurrentDirectory())
         .UseStartup<Startup>()
+        .UseApplicationInsights()
         .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
         .UseUrls(url)
         .Build();
@@ -137,6 +142,19 @@ NuGet'i ayarlama adımları şunlardır:
         .Build();
     ```
 
+Yukarıda gösterildiği gibi her iki dosyada `UseApplicationInsights()` yönteminin çağrıldığını iki kez denetleyin. 
+
+>[!NOTE]
+>Bu örnek uygulama, hizmetlerin iletişim kurması için http’yi kullanır. Uzaktan İletişim V2 ile bir uygulama geliştirirseniz, yukarıdakiyle aynı yere aşağıdaki kod satırlarını da eklemeniz gerekir
+
+```csharp
+ConfigureServices(services => services
+    ...
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingDependencyTrackingTelemetryModule())
+    .AddSingleton<ITelemetryModule>(new ServiceRemotingRequestTrackingTelemetryModule())
+)
+```
+
 Bu noktada uygulamayı dağıtmaya hazırsınız. Üst kısımdaki **Başlat**'a (veya **F5**'e) tıklayın; Visual Studio uygulamayı derler ve paketler, yerel kümenizi ayarlar ve uygulamayı buraya dağıtır. 
 
 Uygulamanın dağıtılması tamamlandığında [localhost:8080](localhost:8080) bağlantısına gidin; burada Voting Sample tek sayfalı uygulamasını görebilmelisiniz. İstediğiniz birkaç farklı öğeye oy vererek biraz örnek veri ve telemetri oluşturun; ben burada tatlıları seçtim!
@@ -147,9 +165,7 @@ Birkaç oy eklemeyi tamamladığınızda, bazı oylama seçeneklerini de rahatç
 
 ## <a name="view-telemetry-and-the-app-map-in-application-insights"></a>Application Insights'da telemetriyi ve Uygulama haritasını görüntüleme 
 
-Azure Portal'da Application Insights kaynağınıza gidin ve kaynağın sol gezinti çubuğunda, **Yapılandır**'ın altındaki *Önizlemeler*'e tıklayın. Kullanılabilir önizlemeler listesinde **Çok Rollü Uygulama Haritası**'nı *Açık* duruma getirin.
-
-![AI AppMap'i etkinleştirme](./media/service-fabric-tutorial-monitoring-aspnet/ai-appmap-enable.png)
+Azure portalında Application Insights kaynağınıza gidin.
 
 Kaynağınızın giriş sayfasına dönmek için **Genel Bakış**'a tıklayın. Sonra üst kısımdaki **Ara**'ya tıklayarak gelen izlemelere bakın. İzlemelerin Application Insights'da gösterilmesi birkaç dakika sürer. Hiç izleme görmüyorsanız, bir dakika bekleyin ve üst kısımdaki **Yenile** düğmesine tıklayın.
 ![AI izlemelere bakma](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
@@ -160,9 +176,9 @@ Kaynağınızın giriş sayfasına dönmek için **Genel Bakış**'a tıklayın.
 
 ![AI izleme ayrıntıları](./media/service-fabric-tutorial-monitoring-aspnet/trace-details.png)
 
-Bunların yanı sıra, Uygulama haritasını etkinleştirdiğimiz için, *Genel Bakış* sayfasında **Uygulama haritası** simgesine tıklandığında bağlı her iki hizmetiniz de gösterilir.
+Ayrıca Genel Bakış sayfasındaki sol menüde *Uygulama haritası*’na tıklayarak veya **Uygulama haritası** simgesine tıklayarak, iki hizmetin bağlandığını gösteren Uygulama Haritası’na gidebilirsiniz.
 
-![AI izleme ayrıntıları](./media/service-fabric-tutorial-monitoring-aspnet/app-map.png)
+![AI izleme ayrıntıları](./media/service-fabric-tutorial-monitoring-aspnet/app-map-new.png)
 
 Uygulama haritası, özellikle birlikte çalışan birden çok farklı hizmet eklemeye başlarken uygulamanızın topolojisini daha iyi anlamanıza yardımcı olabilir. Ayrıca istek başarı oranlarıyla ilgili temel verileri sağlar ve başarısız isteklerde nedene sorun olduğunu anlayabilmeniz için tanılamada size yardımcı olabilir. Uygulama haritası kullanma hakkında daha fazla bilgi edinmek için bkz. [Application Insights'da Uygulama Haritası](../application-insights/app-insights-app-map.md).
 
