@@ -201,6 +201,8 @@
       items:
         - name: Küme güvenliği
           href: service-fabric-cluster-security.md
+        - name: Ölçeklendirme
+          href: service-fabric-cluster-scaling.md
         - name: Linux ve Windows arasındaki özellik farkları
           href: service-fabric-linux-windows-differences.md
         - name: Azure’da kümeler
@@ -323,6 +325,8 @@
               href: service-fabric-resource-governance.md
             - name: Hacim ve günlüğe kaydetme sürücüleri
               href: service-fabric-containers-volume-logging-drivers.md
+            - name: Kapsayıcı günlüklerini görüntüleme
+              href: service-fabric-containers-view-logs.md
             - name: Kapsayıcılara dahil hizmetler
               href: service-fabric-services-inside-containers.md
             - name: Kapsayıcı ağ modları
@@ -539,8 +543,10 @@
           href: service-fabric-visualizing-your-cluster.md
         - name: Güvenli bir kümeye bağlanma
           href: service-fabric-connect-to-secure-cluster.md
-        - name: Küme düğümlerine yama yapma
+        - name: Küme düğümlerine yama yapma (Windows)
           href: service-fabric-patch-orchestration-application.md
+        - name: Küme düğümlerine yama yapma (Linux)
+          href: service-fabric-patch-orchestration-application-linux.md
     - name: İzleme ve tanılama
       items:
         - name: OMS ile analiz

@@ -10,13 +10,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: b20283e1189e4f1a3555e2dd8d25972c9a677cd6
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-management---monitoring"></a>Azure Yönetimi - İzleme
 
@@ -54,3 +54,14 @@ Koruma, kontrolünüzün dışındaki kesintilerde bile uygulamalarınızın ve 
 
 ## <a name="migrate"></a>Geçiş 
 Geçiş, şirket içinde çalışan mevcut iş yüklerini Azure bulut ortamına geçirmeyi ifade eder.  [Azure Geçişi](../migrate/migrate-overview.md), performansı temel alan boyutlandırma ve maliyet tahminleri de dahil olmak üzere şirket içi sanal makinelerinizin Azure’a geçiş uygunluğunu değerlendirmenize yardımcı olur.  Azure Site Recovery, sanal makinelerin [şirket içinden](../site-recovery/migrate-tutorial-on-premises-azure.md) veya [Amazon Web Services’tan](../site-recovery/migrate-tutorial-aws-azure.md) fiili geçişini gerçekleştirmenize yardımcı olur.  [Azure Veritabanı Geçişi](../dms/dms-overview.md), birden çok veritabanı kaynağını Azure Data platformlarına geçirmenizde yardımcı olur.
+
+
+## <a name="operations-management-suite"></a>Operations Management Suite
+Azure yönetimine ilişkin önceki teknik belgeler arasında, aşağıdaki Azure yönetim hizmetlerinin bir arada toplandığı bir paket olan Operations Management Suite (OMS) de bulunuyordu:
+
+- Azure Otomasyonu
+- Azure Backup
+- Log Analytics
+- Site Recovery
+
+Azure’da eksiksiz yönetim diğer hizmetleri de kapsayacak şekilde genişletildiğinden, artık teknik belgelerimizde bu paketi açıklamayacağız. OMS’ye dahil olan hizmetlerde herhangi bir değişiklik yapılmamıştır ve bunlar, Azure uygulamalarınızın ve kaynaklarınızın yönetiminde kritik bir rol oynamaya devam eder. Gerçekleştirmeniz gereken yönetim görevlerine ve her bir görev için birlikte çalışan farklı Azure hizmetlerine odaklanmalısınız.

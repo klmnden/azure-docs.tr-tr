@@ -35,8 +35,6 @@
       items:
         - name: MPP mimarisi
           href: massively-parallel-processing-mpp-architecture.md
-        - name: Performans katmanları
-          href: performance-tiers.md
         - name: Veri ambarı birimleri
           href: what-is-a-data-warehouse-unit-dwu-cdwu.md
         - name: 'Ölçeği genişletme, duraklatma, sürdürme'
@@ -79,8 +77,10 @@
           href: how-to-use-elastic-query-with-sql-data-warehouse.md
     - name: Sorgu performansı
       items:
-        - name: Kaynak sınıfları
+        - name: Kaynak sınıfları ve iş yükü yönetimi
           href: resource-classes-for-workload-management.md
+        - name: Bellek ve eşzamanlılık sınırları
+          href: memory-and-concurrency-limits.md
         - name: Columnstore sıkıştırması
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
     - name: İzleme
@@ -172,9 +172,7 @@
         - name: BCP
           href: sql-data-warehouse-load-with-bcp.md
         - name: Data Factory
-          href: sql-data-warehouse-load-with-data-factory.md
-        - name: AzCopy
-          href: sql-data-warehouse-load-from-sql-server-with-polybase.md
+          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
         - name: RedGate
           href: sql-data-warehouse-load-with-redgate.md
         - name: SSIS

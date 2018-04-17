@@ -7,9 +7,9 @@
 ### [Genel Bakış](active-directory-authentication-scenarios.md#native-application-to-web-api)
 ### [iOS](active-directory-devquickstarts-ios.md)
 ### [Android](active-directory-devquickstarts-android.md)
-### [.NET](active-directory-devquickstarts-dotnet.md)
-### [Windows](active-directory-devquickstarts-windowsstore.md)
-### [Xamarin](active-directory-devquickstarts-xamarin.md)
+### [.NET (Windows Masaüstü)](active-directory-devquickstarts-dotnet.md)
+### [.NET (Windows Evrensel)](active-directory-devquickstarts-windowsstore.md)
+### [.NET (Xamarin)](active-directory-devquickstarts-xamarin.md)
 ### [Cordova](active-directory-devquickstarts-cordova.md)
 ### [OAuth 2.0](active-directory-protocols-oauth-code.md)
 ## Web uygulamaları
@@ -96,11 +96,16 @@
 ### Mobil ve Masaüstü uygulamaları
 #### [iOS](guidedsetups/active-directory-ios.md)
 #### [Android](guidedsetups/active-directory-android.md)
-#### [Windows Masaüstü .NET](guidedsetups/active-directory-windesktop.md)
+#### [.NET (Windows Masaüstü)](guidedsetups/active-directory-windesktop.md)
 ### Web uygulamaları
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
-#### [ASP.NET Web Sunucusu](guidedsetups/active-directory-aspnetwebapp.md)
-#### [NodeJS Web Uygulaması](active-directory-v2-devquickstarts-node-web.md)
+#### [ASP.NET](guidedsetups/active-directory-aspnetwebapp.md)
+#### [NodeJS](active-directory-v2-devquickstarts-node-web.md)
+### Tek sayfa uygulamalar
+#### [JavaScript](guidedsetups/active-directory-javascriptspa.md)
+### Web API'leri
+#### [NodeJS](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
+### Hizmetten hizmete
+#### [ASP.NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)
 ## Kılavuzlar
 ### [Bir uygulamayı kaydetme](active-directory-v2-app-registration.md)
 ## Başvuru
@@ -110,10 +115,10 @@
 #### [OAuth 2.0 yetkilendirme kodu verme](active-directory-v2-protocols-oauth-code.md)
 #### [OAuth 2.0 örtülü izin](active-directory-v2-protocols-implicit.md)
 #### [OAuth 2.0 istemci kimlik bilgileri verme](active-directory-v2-protocols-oauth-client-creds.md)
-#### [Oauth 2.0 on-behalf-of akışı](active-directory-v2-protocols-oauth-on-behalf-of.md)
-#### [Belirteç başvurusu](active-directory-v2-tokens.md)
+#### [OAuth 2.0 on-behalf-of akışı](active-directory-v2-protocols-oauth-on-behalf-of.md)
 #### [Sertifika kimlik bilgileri](active-directory-certificate-credentials.md)
-### [Kapsamlar](active-directory-v2-scopes.md)
+### [Belirteçler](active-directory-v2-tokens.md)
+### [Kapsamlar ve Onaylar](active-directory-v2-scopes.md)
 # Kaynaklar
 ## [Yardım alma](active-directory-develop-help-support.md)
 ## [Azure yol haritası](https://azure.microsoft.com/roadmap/?category=security-identity)

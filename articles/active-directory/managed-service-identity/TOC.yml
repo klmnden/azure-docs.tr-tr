@@ -1,6 +1,14 @@
 - name: Yönetilen Hizmet Kimliği
   href: overview.md
   items:
+    - name: Hızlı Başlangıçlar
+      items:
+        - name: Azure Resource Manager’a erişmek için VM MSI kullanma
+          items:
+            - name: Windows VM
+              href: tutorial-windows-vm-access-arm.md
+            - name: Linux VM
+              href: tutorial-linux-vm-access-arm.md
     - name: Azure VM için MSI yapılandırma
       items:
         - name: Azure Portalı’nı kullanma
@@ -41,8 +49,6 @@
       items:
         - name: Azure Data Lake Store’a erişme
           href: tutorial-windows-vm-access-datalake.md
-        - name: Azure Resource Manager’a erişme
-          href: tutorial-windows-vm-access-arm.md
         - name: Azure SQL’e erişme
           href: tutorial-windows-vm-access-sql.md
         - name: Erişim anahtarı kullanarak Azure Depolama’ya erişme
@@ -55,14 +61,14 @@
       items:
         - name: Azure Data Lake Store’a erişme
           href: tutorial-linux-vm-access-datalake.md
-        - name: Azure Resource Manager’a erişme
-          href: tutorial-linux-vm-access-arm.md
         - name: Erişim anahtarı kullanarak Azure Depolama’ya erişme
           href: tutorial-linux-vm-access-storage.md
         - name: SAS kullanarak Azure Depolama’ya erişme
           href: tutorial-linux-vm-access-storage-sas.md
         - name: Azure Key Vault’a erişme
           href: tutorial-linux-vm-access-nonaad.md
+        - name: Azure Cosmos DB’ye erişme
+          href: tutorial-linux-vm-access-cosmos-db.md
     - name: SSS ve bilinen sorunlar
       href: known-issues.md
     - name: Başvuru

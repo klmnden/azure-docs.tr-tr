@@ -56,6 +56,7 @@
 #### [Davet e-postası](active-directory-b2b-invitation-email.md)
 #### [Davet kullanma](active-directory-b2b-redemption-experience.md)
 #### [Davetiye olmadan B2B kullanıcıları ekleme](active-directory-b2b-add-user-without-invite.md)
+#### [Davetlere izin verme veya davetleri engelleme](active-directory-b2b-allow-deny-list.md)
 #### [B2B için koşullu erişim](active-directory-b2b-mfa-instructions.md)
 #### [B2B paylaşım ilkeleri](active-directory-b2b-delegate-invitations.md)
 #### [Bir role B2B kullanıcısı ekleme](active-directory-b2b-add-guest-to-role.md)
@@ -327,9 +328,6 @@
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [SSS](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
-#### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)

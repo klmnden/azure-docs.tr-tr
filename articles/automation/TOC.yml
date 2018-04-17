@@ -21,7 +21,7 @@
       href: automation-tutorial-update-management.md
     - name: Runbook ile güncelleştirme ekleme ve değişiklik izleme
       href: automation-onboard-solutions.md
-    - name: VM üzerinde yazılım tanımlama
+    - name: Ortamınızdaki yazılımları belirleme
       href: automation-tutorial-installed-software.md
     - name: VM üzerindeki değişikliklerle ilgili sorunları giderme
       href: automation-tutorial-troubleshoot-changes.md

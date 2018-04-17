@@ -2,40 +2,38 @@
 
 # Genel Bakış
 ## [Akış Analizi nedir?](stream-analytics-introduction.md)
-## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
 
-# başlarken
-## [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
-## [Gerçek zamanlı sahtekarlık algılama](stream-analytics-real-time-fraud-detection.md)
-## [Power BI ile veri analizi](stream-analytics-power-bi-dashboard.md)
+# Hızlı Başlangıçlar
+## [İş oluşturma - Azure portalı](stream-analytics-quick-create-portal.md)
+## [İş oluşturma - PowerShell](stream-analytics-quick-create-powershell.md)
+
+# Öğreticiler
+## [1 - İş oluşturma / yönetme](stream-analytics-manage-job.md)
+## [2 - Azure İşlevleri’ni çalıştırma](stream-analytics-with-azure-functions.md)
+## [3 - JavaScript UDF çalıştırma](stream-analytics-javascript-user-defined-functions.md)
 
 # Örnekler
 ## [Kod örnekleri](https://azure.microsoft.com/en-us/resources/samples/?service=stream-analytics)
 
 # Kavramlar
-## İş için giriş türleri
+## [İş için giriş türleri](stream-analytics-add-inputs.md)
 ### [Veri akışı girişleri](stream-analytics-define-inputs.md)
 ### [Başvuru verisi girişleri](stream-analytics-use-reference-data.md)
 ## [İş için çıktı türleri](stream-analytics-define-outputs.md)
+### [Cosmos DB çıkışı](stream-analytics-documentdb-output.md)
 ## [Pencere işlevleri](stream-analytics-window-functions.md)
 ## [Uyumluluk düzeyi](stream-analytics-compatibility-level.md)
 ## [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
 ## [Olay sıralama konusunda dikkat edilmesi gerekenler](stream-analytics-out-of-order-and-late-events.md)
 
-
 # Nasıl yapılır kılavuzları
-
-## İş oluşturma
-### [Sınama sorguları ve örnek giriş verileri](stream-analytics-sample-data-input.md)
-### [Test sorguları](stream-analytics-test-query.md)
-### [JavaScript UDF çalıştırma](stream-analytics-javascript-user-defined-functions.md)
-### [Data Lake Store’a çıktı sağlama](stream-analytics-data-lake-output.md)
-### [Cosmos DB çıkışı](stream-analytics-documentdb-output.md)
-### [Uyarı yapılandırma](stream-analytics-set-up-alerts.md)
 
 ## Yönetme
 ### [İşi güncelleştirme](stream-analytics-job-reliability.md)
 ### [Kimlik bilgilerini güncelleştirme](stream-analytics-login-credentials-inputs-outputs.md)
+### [Uyarı yapılandırma](stream-analytics-set-up-alerts.md)
+### [İşinizi test etme](stream-analytics-test-query.md)
+### [Sonuçları panoda görüntüleme](stream-analytics-power-bi-dashboard.md)
 
 ## Çözüm oluşturma
 ### [Twitter yaklaşım analizi](stream-analytics-twitter-sentiment-analysis-trends.md)
@@ -44,11 +42,11 @@
 ### [Ücretli geçiş algılayıcısı veri analizi](stream-analytics-build-an-iot-solution-using-stream-analytics.md)
 ### [JavaScript UDA çalıştırma](stream-analytics-javascript-user-defined-aggregates.md)
 ### [Yüksek frekanslı alım-satım](stream-analytics-high-frequency-trading.md)
-### [Azure İşlevleri’ni çalıştırma](stream-analytics-with-azure-functions.md)
+### [IoT akış verilerini işleme](stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md)
 
 ## İzleme
 
-### [İşleri izleme - Portal](stream-analytics-monitoring.md)
+### [İşleri izleme - Azure portalı](stream-analytics-monitoring.md)
 ### [İşleri izleme - PowerShell](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
 ### [İşleri izleme - Azure .Net SDK](stream-analytics-monitor-jobs.md)
 
@@ -82,7 +80,6 @@
 ### [Anormallik algılama](stream-analytics-machine-learning-anomaly-detection.md)
 ### [REST API'lerini kullanma](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 
-
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.streamanalytics)
 ## [Sorgu dili](https://msdn.microsoft.com/library/azure/dn834998)
@@ -102,7 +99,8 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Müşteri örnek olay incelemeleri](https://azure.microsoft.com/case-studies/?service=stream-analytics)
-## [Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Teknik inceleme - Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
+## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
 
 
 

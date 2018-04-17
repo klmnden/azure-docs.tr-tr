@@ -48,14 +48,18 @@
       href: sql-database-design-first-database.md
     - name: 1 - .NET kullanarak DB tasarlama
       href: sql-database-design-first-database-csharp.md
-    - name: 2- SQL Server DB’ye geçirme
+    - name: 2- DMS’yi kullanarak SQL Server DB’ye geçirme
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - SQL veritabanınızı güvenli hale getirme
       href: sql-database-security-tutorial.md
     - name: 4 - Coğrafi olarak dağıtılmış bir veritabanı uygulama
       href: sql-database-implement-geo-distributed-database.md
     - name: 5 - Yönetilen Örnek oluşturma
-      href: sql-database-managed-instance-tutorial-portal.md
+      href: sql-database-managed-instance-create-tutorial-portal.md
+    - name: 6 - Bir Yönetilen Örneğe yedek geri yükleme
+      href: sql-database-managed-instance-restore-from-backup-tutorial.md
+    - name: 7 - DMS kullanarak Yönetilen Örneğe geçirme
+      href: ../dms/tutorial-sql-server-to-managed-instance.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -328,7 +332,7 @@
       items:
         - name: Performansı izleme ve artırma
           href: sql-database-performance.md
-        - name: Sorgu Performansı Öngörüleri’ni kullanma
+        - name: Sorgu Performansı İçgörüleri’ni kullanma
           href: sql-database-query-performance.md
         - name: Performans önerilerini uygulama
           href: sql-database-advisor-portal.md
@@ -410,6 +414,10 @@
               href: saas-tenancy-cross-tenant-reporting.md
             - name: Analiz için ETL
               href: saas-tenancy-tenant-analytics.md
+            - name: Coğrafi geri yüklemeyi kullanarak olağanüstü durum kurtarma
+              href: saas-dbpertenant-dr-geo-restore.md
+            - name: Coğrafi veri tabanı çoğaltmayı kullanarak olağanüstü durum kurtarma
+              href: saas-dbpertenant-dr-geo-replication.md
         - name: Çok kiracılı veritabanı
           items:
             - name: Örnek uygulamayı dağıtma
