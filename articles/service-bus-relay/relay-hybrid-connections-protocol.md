@@ -1,11 +1,11 @@
 ---
-title: "Azure geçişi karma bağlantılar protokol Kılavuzu | Microsoft Docs"
-description: "Azure geçişi karma bağlantılar Protokolü Kılavuzu."
+title: Azure geçişi karma bağlantılar protokol Kılavuzu | Microsoft Docs
+description: Azure geçişi karma bağlantılar Protokolü Kılavuzu.
 services: service-bus-relay
 documentationcenter: na
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: sethm
-ms.openlocfilehash: 43c40baa74b3f7c1f5c9d6626b25bcd45c2f9a10
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 1979746d143dbf8c3f4bca3f9a3a7925fe8e3f0d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure geçişi karma bağlantılar Protokolü
-Azure geçişi Azure Service Bus platformunun anahtar özelliği ayaklar biridir. Yeni *karma bağlantılar* yetenektir geçişinin HTTP ve WebSockets dayalı bir güvenli, açık Protokolü evrimi. Eşit oranda adlı eski yerini *BizTalk Services* özel Protokolü foundation üzerinde oluşturulmuş özellik. Azure App Services karma bağlantılar tümleştirilmesi olarak çalışmaya devam edecek-değil.
+Azure geçişi Azure Service Bus platformunun anahtar özelliği ayaklar biridir. Yeni *karma bağlantılar* yetenektir geçişinin HTTP ve WebSockets dayalı bir güvenli, açık Protokolü evrimi. Aynı adlı eski yerini *BizTalk Services* özel Protokolü foundation üzerinde oluşturulmuş özellik. Azure App Services karma bağlantılar tümleştirilmesi olarak çalışmaya devam edecek-değil.
 
 Karma bağlantılar sırasında birini veya her ikisini tarafların NAT veya güvenlik duvarı arkasında bulunduğu iki ağa bağlı uygulamalar arasında çift yönlü, ikili akış iletişim sağlar. Bu makalede bağlanan istemciler dinleyicisi ve gönderen rol ve nasıl dinleyicileri yeni bağlantıları kabul etmek için karma bağlantılar geçiş ile istemci tarafı etkileşimler açıklanmaktadır.
 
 ## <a name="interaction-model"></a>Etkileşim modeli
 Karma bağlantılar geçişi, bir randevu noktası Azure bulutta, hem tarafların bulmak ve kendi ağın açısından bağlanmak sağlayarak iki taraf bağlanır. Bu randevu noktası "karma" Bu ve diğer belgelerin API'leri hem de Azure portalında bağlantısıdır. Karma bağlantılar Hizmeti uç noktası bu makalenin geri kalanı için "hizmet" olarak adlandırılır. Diğer ağ birçok API'ler tarafından kurulan terminolojisi üzerinde etkileşim modeli leans.
 
-İlk gelen bağlantıları işlemek için hazırlık gösterir ve daha sonra bunları kabul geldikçe dinleyici yoktur. Diğer tarafta bir çift yönlü iletişim yolu kurmak için kabul edilmesi için bu bağlantıyı bekleniyor dinleyicisi doğru bağlayan bağlanan bir istemcinin yoktur.
+İlk gelen bağlantıları işlemek için hazırlık gösterir ve daha sonra bunları kabul geldikçe dinleyici yoktur. Diğer tarafta bir çift yönlü iletişim yolu kurmak için kabul edilmesi için bu bağlantıyı bekleniyor dinleyicisi, bir bağlantı sunar bağlanan bir istemcinin yoktur.
 "Bağlan" "Dinleme" ve "Kabul" çoğu yuva API'leri Bul aynı şartları şunlardır.
 
-Herhangi bir geçişli iletişim modelini "dinleyicisi", "istemci" de cümlecik kullanımda hale getirir. ve diğer terminolojisi aşırı da neden olabilir bir hizmet uç noktası doğru giden bağlantı her iki taraf sahiptir. Bu nedenle karma bağlantılar için kullandığımız kesin terminolojisi aşağıdaki gibidir:
+Herhangi bir geçişli iletişim modelini cümlecik kullanımda "dinleyicisi" de "istemci" yaptığında bir hizmet uç noktası doğru giden bağlantılar yapmadan her iki taraf sahip ve aynı zamanda diğer terminolojisi aşırı neden olabilir. Bu nedenle karma bağlantılar için kullandığımız kesin terminolojisi aşağıdaki gibidir:
 
 Hizmet istemcilere olduğundan bağlantısının her iki tarafında programlar "istemcileri," adı verilir. Bekler ve bağlantıları kabul istemci "dinleyicisi" veya "dinleyicisi rol." olarak kabul edilir Hizmeti üzerinden bir dinleyici doğru yeni bir bağlantı başlatır istemci "gönderen" adlı ya da "gönderen rol."
 
@@ -40,10 +40,10 @@ Dinleyici hizmeti ile dört etkileşimleri; yine de sahip istiyor musunuz? Tüm 
 
 #### <a name="listen"></a>Dinle
 Bir dinleyicisi hizmetine hazırlık belirtmek için bağlantıları kabul etmeye hazır bir giden WebSocket bağlantısı oluşturur. Bağlantı el sıkışması geçiş ad alanı ve bu ad "Dinleme" hakkı confers bir güvenlik belirteci yapılandırılmış karma bağlantı adını taşır.
-WebSocket hizmeti tarafından kabul edildiğinde kayıt tamamlandıktan ve yerleşik web WebSocket "etkinleştirilmesine yönelik tüm sonraki etkileşimler denetim kanalı olarak" Canlı tutulur. Hizmetin en fazla 25 eşzamanlı dinleyicileri karma bir bağlantı sağlar. İki veya daha fazla etkin dinleyiciler varsa, gelen bağlantıları bunları rastgele sırayla dengeli; Orta dağıtım garanti edilmez.
+WebSocket hizmeti tarafından kabul edildiğinde kayıt tamamlandıktan ve kurulan WebSocket "etkinleştirilmesine yönelik tüm sonraki etkileşimler denetim kanalı olarak" Canlı tutulur. Hizmetin en fazla 25 eşzamanlı dinleyicileri karma bir bağlantı sağlar. İki veya daha fazla etkin dinleyiciler varsa, gelen bağlantıları bunları rastgele sırayla dengeli; Orta dağıtım garanti edilmez.
 
 #### <a name="accept"></a>Kabul
-Bir gönderici service üzerinde yeni bir bağlantı oturum açtığında, hizmet seçer ve karma bağlantı etkin dinleyicileri birini bildirir. Bu bildirim için dinleyici dinleyici bağlantı kabul etmek için bağlanmalısınız WebSocket uç noktasının URL'sini içeren bir JSON ileti olarak açık denetim kanalı üzerinden gönderilir.
+Bir gönderici service üzerinde yeni bir bağlantı oturum açtığında, hizmet seçer ve karma bağlantı etkin dinleyicileri birini bildirir. Bu bildirim için dinleyici dinleyici bağlantı kabul etmek için bağlamanız gerekir WebSocket uç noktasının URL'sini içeren bir JSON ileti açık denetim kanalı üzerinden gönderilir.
 
 URL olabilir ve doğrudan ek iş olmadan dinleyicisi tarafından kullanılan gerekir.
 Kodlanmış bilgiler yalnızca temelde için gönderen bağlantının kurulan baştan sona olması, ancak en çok 30 saniye bekleyin konusunda istekli mi kadar uzun süre kısa bir süre için geçerlidir. URL, yalnızca bir başarılı bağlantı denemesinde için kullanılabilir. Randevu URL WebSocket bağlantı kuran hemen tüm başka etkinlik bu WebSocket ilk ve son gönderen herhangi bir araya veya hizmeti tarafından tercüme olmadan geçirilen.
@@ -52,7 +52,7 @@ Kodlanmış bilgiler yalnızca temelde için gönderen bağlantının kurulan ba
 Dinleyici etkinken dinleyicisi kaydetme ve denetim kanalı korumak için kullanılması gereken güvenlik belirteci dolabilir. Belirteç süre sonu devam eden bağlantılarını etkilemez, ancak denetim kanalı düzeyinde veya sona erme anda hemen sonra hizmeti tarafından kesilmesine neden olmaz. "Yenile" işlemi dinleyicisi denetim kanalı için uzun süreler sürdürülebilir denetim kanalı ile ilişkili belirteci değiştirdiğinizden gönderebileceğiniz bir JSON iletisidir.
 
 #### <a name="ping"></a>Ping
-Denetim kanalı aracılar şekilde, uzun bir süre için boşta kalırsa gibi yük Dengeleyiciler ya da NAT TCP bağlantısı kaybolmasına neden olabilir. "Ping" işlemi, çok küçük miktarda veri herkes bağlantı etkin olması için tasarlanmıştır ve ayrıca için dinleyici "canlı" test hizmet ağdaki yönlendiricilerin anımsatır kanalda göndererek önler. Ping başarısız olursa, denetim kanalı kullanılamaz olarak düşünülmelidir ve dinleyiciyi yeniden bağlanmanız.
+Denetim kanalı uzunlukta bir süre boyunca boşta kalırsa, yük Dengeleyiciler ya da NAT, gibi şekilde aracılar TCP bağlantısı bırakabilir. "Ping" işlemi, çok küçük miktarda veri herkes bağlantı etkin olması için tasarlanmıştır ve ayrıca için dinleyici "canlı" test hizmet ağdaki yönlendiricilerin anımsatır kanalda göndererek önler. Ping başarısız olursa, denetim kanalı kullanılamaz olarak düşünülmelidir ve dinleyiciyi yeniden bağlanmanız.
 
 ### <a name="sender-interaction"></a>Gönderen etkileşimi
 Gönderen yalnızca tek bir etkileşim hizmeti ile vardır: bağladığı.
@@ -75,7 +75,7 @@ Tüm WebSocket bağlantılar bağlantı noktası 443 üzerinde bazı WebSocket f
 Dinleyici Protokolü iki bağlantı hareketleri ve üç ileti işlemlerini oluşur.
 
 #### <a name="listener-control-channel-connection"></a>Dinleyici denetim kanalı bağlantısı
-Denetim kanalı WebSocket bağlantı oluşturma konusunda açıldığında:
+Denetim kanalı WebSocket bağlantısı oluşturarak açıldığında:
 
 ```
 wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
@@ -147,11 +147,11 @@ URL olarak kullanılması gereken-kabul yuva kurmak için olsa da, aşağıdaki 
 
 | Parametre | Gerekli | Açıklama |
 | --- | --- | --- |
-| `sb-hc-action` |Evet |Bir yuva kabul etmek için parametre olmalıdır`sb-hc-action=accept` |
+| `sb-hc-action` |Evet |Bir yuva kabul etmek için parametre olmalıdır `sb-hc-action=accept` |
 | `{path}` |Evet |(aşağıdaki paragraf bakın) |
 | `sb-hc-id` |Hayır |Önceki açıklamasına bakın **kimliği**. |
 
-`{path}`URL kodlanmış ad alanı, bu dinleyiciyi kaydetmek önceden yapılandırılmış karma bağlantısı yoludur. Bu deyim eklenir sabit `$hc/` yol bölümü. 
+`{path}` URL kodlanmış ad alanı, bu dinleyiciyi kaydetmek önceden yapılandırılmış karma bağlantısı yoludur. Bu deyim eklenir sabit `$hc/` yol bölümü. 
 
 `path` İfade genişletilmiş bir sonek ve kayıtlı adı ayıran eğik sonra izleyen bir sorgu dizesi ifadesi. Bu, HTTP üstbilgilerini eklemek mümkün değilse, gönderme bağımsız değişkenleri kabul dinleyicisi geçirmek gönderen istemci sağlar. Dinleyici framework sabit yol bölümü ve yolun kayıtlı adından ayrıştırır ve önüne hiçbir sorgu dizesi bağımsız değişkenler olmadan geri kalanı, büyük olasılıkla hale getirir beklenir `sb-`, bağlantı kabul etmeye karar verme için uygulama tarafından kullanılabilir.
 
@@ -195,7 +195,7 @@ Hiçbir WebSocket kurulduktan sonra doğru tamamlarken, bu el sıkışma bilerek
 | 500 |İç Hata |Bir hizmette sorun oluştu. |
 
 ### <a name="listener-token-renewal"></a>Dinleyici belirteci yenileme
-Dinleyici belirteci dolmak üzere olduğunda, bu yerleşik denetim kanalı aracılığıyla hizmetine çerçeve mesaj göndererek değiştirebilirsiniz. İleti adlı bir JSON nesnesi içerir `renewToken`, şu anda aşağıdaki özelliği tanımlar:
+Dinleyici belirteci dolmak üzere olduğunda, dinleyiciyi kurulan denetim kanalı aracılığıyla hizmetine çerçeve mesaj göndererek değiştirebilirsiniz. İleti adlı bir JSON nesnesi içerir `renewToken`, şu anda aşağıdaki özelliği tanımlar:
 
 * **belirteç** – ad alanı veya confers karma bağlantı için geçerli, URL kodlanmış bir hizmet veri yolu paylaşılan erişim belirteci **dinleme** doğru.
 

@@ -1,47 +1,95 @@
 ---
-title: "İş yükü yönetimi - Azure SQL Data Warehouse için kaynak sınıfları | Microsoft Docs"
-description: "Eşzamanlılık yönetmek ve işlem kaynaklarını Azure SQL Data Warehouse sorguları için kaynak sınıfları kullanmaya yönelik kılavuz."
+title: İş yükü yönetimi - Azure SQL Data Warehouse için kaynak sınıfları | Microsoft Docs
+description: Eşzamanlılık yönetmek ve işlem kaynaklarını Azure SQL Data Warehouse sorguları için kaynak sınıfları kullanmaya yönelik kılavuz.
 services: sql-data-warehouse
-documentationcenter: NA
-author: sqlmojo
-manager: jhubbard
-editor: 
-ms.assetid: ef170f39-ae24-4b04-af76-53bb4c4d16d3
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 10/23/2017
-ms.author: joeyong;barbkess;kavithaj
-ms.openlocfilehash: c76fb73c9beda93c407d1af29e157682c7fe58c0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+author: kevinvngo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: kevin
+ms.reviewer: jrj
+ms.openlocfilehash: 289281567eff7f2575f26f1ae7ec2f9ee4389461
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="resource-classes-for-workload-management"></a>İş yükü yönetimi için kaynak sınıfları
-Eşzamanlı olarak çalıştıran ve işlem kaynaklarını Azure SQL Data Warehouse sorguları için eş zamanlı sorguları sayısını yönetmek için kaynak sınıfları kullanmaya yönelik kılavuz.
+# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse kaynak sınıflarda ile iş yükü yönetimi
+Bellek ve Azure SQL veri ambarı sorgularda eşzamanlılık yönetmek için kaynak sınıfları kullanmaya yönelik kılavuz.  
  
 ## <a name="what-is-workload-management"></a>İş yükü yönetimi nedir?
-İş yükü, tüm sorguları genel performansını en iyi duruma getirme olanağı yönetimidir. İyi bizi iş yükü, sorgular ve işlem yoğunluklu veya g/ç yoğunluklu olup olmadıkları bakılmaksızın verimli bir şekilde yük işlemler çalışır. 
+İş yükü, tüm sorguları genel performansını en iyi duruma getirme olanağı yönetimidir. İyi bizi iş yükü, sorgular ve işlem yoğunluklu veya g/ç yoğunluklu olup olmadıkları bakılmaksızın verimli bir şekilde yük işlemler çalışır.  SQL veri ambarı çok kullanıcılı ortamlar için iş yükü yönetimi özelliklerini sağlar. Veri ambarı çok Kiracı İş yükleri için tasarlanmamıştır.
 
-SQL veri ambarı çok kullanıcılı ortamlar için iş yükü yönetimi özelliklerini sağlar. Veri ambarı çok Kiracı İş yükleri için tasarlanmamıştır.
+Veri ambarı performans kapasitesi tarafından belirlenen [performans katmanı](memory-and-concurrency-limits.md#performance-tiers) ve [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). 
+
+- Tüm performans profiller için bellek ve eşzamanlılık sınırları görüntülemek için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md).
+- Performans kapasitesi ayarlamak için [yukarı veya aşağı Ölçeklendirmesi](quickstart-scale-compute-portal.md).
+
+Bir sorgu performansı kapasitesini sorgunun kaynak sınıfı tarafından belirlenir. Bu bu makalenin sonraki bölümlerinde kaynak sınıfları nelerdir ve bunları ayarlama konusunda açıklanmaktadır.
+
 
 ## <a name="what-are-resource-classes"></a>Kaynak sınıfları nelerdir?
-Kaynak, sorgu yürütme yöneten önceden belirlenen kaynak sınırları sınıflarıdır. SQL veri ambarı işlem kaynakları kaynak sınıfı göre her bir sorgu için sınırlar. 
+Kaynak sınıfları yöneten Azure SQL Data Warehouse kaynak sınırları işlem kaynakları ve sorgu yürütmesi için eşzamanlılık önceden belirlenir. Kaynak sınıflar, İş yükünüzün eşzamanlı olarak çalışan sorguları ve her sorgu için atanan işlem kaynakları sayısı sınırlarını ayarlama yönetmenize yardımcı olabilir. Bellek ve eşzamanlılık arasında kolaylığını yoktur.
 
-Kaynak, veri ambarı iş yükü genel performansını yönetmenize yardımcı sınıfları. Kaynak sınıflarını etkili bir şekilde kullanma eşzamanlı olarak çalışan sorguları ve her sorgu için atanan işlem kaynakları sayısı sınırları ayarlayarak İş yükünüzün yönetmenize yardımcı olur. 
+- Daha küçük kaynak sınıfları sorgu başına en fazla bellek miktarını azaltmak ancak eşzamanlılık artırır.
+- Daha büyük kaynak sınıfları sorgu başına en fazla bellek artırır, ancak eşzamanlılık azaltın. 
 
-- Daha küçük kaynak sınıfları daha az işlem kaynaklarını kullanır ancak büyük genel sorgu eşzamanlılık etkinleştir
-- Daha fazla işlem kaynaklarını ancak sorgu eşzamanlılık kısıtlamak büyük kaynak sınıfları sağlar
+Bir sorgu performansı kapasitesini kullanıcının kaynak sınıfı tarafından belirlenir.
 
-Kaynak sınıfları veri yönetim ve düzenleme etkinlikleri için tasarlanmıştır. Büyük birleştirmeler ve varken sıralar sistem diskine değişkenlere yerine bellek Sorguyu yürüten böylece bazı çok karmaşık sorgular ayrıca yararlanabilir.
+- Kaynak sınıfları için kaynak kullanımını görmek için bkz: [bellek ve eşzamanlılık sınırları](memory-and-concurrency-limits.md#concurrency-maximums).
+- Kaynak sınıfı ayarlamak için farklı bir kullanıcı altında sorgu çalıştırabilirsiniz veya [geçerli kullanıcının kaynak sınıfı değiştirmek](#change-a-user-s-resource-class) üyeliği. 
 
-Aşağıdaki işlemleri kaynak sınıfları tarafından yönetilir:
+Kaynak sınıflarını eşzamanlılık yuvaları kaynak tüketimini ölçmek için kullanın.  [Eşzamanlılık yuvaları](#concurrency-slots) bu makalenin sonraki bölümlerinde açıklanmıştır. 
 
-* INSERT-SELECT, UPDATE, DELETE
+### <a name="static-resource-classes"></a>Statik kaynak sınıfları
+Statik kaynak sınıflarını ayırmak bellek ölçülür geçerli performans düzeyi bakılmaksızın aynı miktarda [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). Sorguları performans düzeyi bağımsız olarak aynı bellek ayırma aldığından [veri ambarı ölçeklendirme](quickstart-scale-compute-portal.md) kaynak sınıfı içinde çalıştırmak daha fazla sorguları sağlar.
+
+Statik kaynak sınıflar bu önceden tanımlanmış veritabanı rolleri ile uygulanır:
+
+- staticrc10
+- staticrc20
+- staticrc30
+- staticrc40
+- staticrc50
+- staticrc60
+- staticrc70
+- staticrc80
+
+Bu kaynak sınıfları başka işlem kaynakları almak için kaynak sınıfı artıran çözümleri için uygundur.
+
+### <a name="dynamic-resource-classes"></a>Dinamik kaynak sınıfları
+Dinamik kaynak sınıflar değişken bir hizmet düzeyine bağlı olarak bellek miktarı ayırın. Daha büyük bir hizmet düzeyine ölçeklendirmek, sorgularınızı daha fazla bellek otomatik olarak alın. 
+
+Dinamik kaynak sınıflar bu önceden tanımlanmış veritabanı rolleri ile uygulanır:
+
+- smallrc
+- mediumrc
+- largerc
+- xlargerc. 
+
+Bu kaynak sınıfları hangi artış ek kaynaklar almak için ölçek compute çözümleri için uygundur. 
+
+
+### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
+Varsayılan olarak, her kullanıcı dinamik kaynak sınıfı üyesidir **smallrc**. 
+
+Hizmet Yöneticisi kaynak sınıfının sabittir ve değiştirilemez.  Sağlama işlemi sırasında oluşturulan kullanıcı hizmet yöneticisidir.
+
+> [!NOTE]
+> Kullanıcıları veya Active Directory Yöneticisi tanımlanan Ayrıca hizmet yöneticileri gruplarıdır.
+>
+>
+
+## <a name="resource-class-operations"></a>Kaynak sınıf işlemleri
+
+Kaynak sınıfları veri yönetim ve düzenleme etkinlikler için performansı artırmak için tasarlanmıştır. Karmaşık sorgular büyük kaynak sınıfı altında çalıştırılmasını da yararlı olabilir. Örneğin, büyük birleştirmelerde performans sorgular ve kaynak sınıfı bellekte çalıştırılacak sorgu etkinleştirmek için büyük olduğunda sıralar artırabilir.
+
+### <a name="operations-governed-by-resource-classes"></a>Kaynak sınıfları tarafından yönetilen işlemleri
+
+Bu işlemler kaynak sınıfları tarafından yönetilir:
+
+* EKLE-SELECT, UPDATE, DELETE
 * (Kullanıcı tablosu sorgulanırken) seçin
 * ALTER INDEX - yeniden oluşturma veya yeniden Düzenle
 * ALTER TABLE YENİDEN OLUŞTURMA
@@ -56,50 +104,7 @@ Aşağıdaki işlemleri kaynak sınıfları tarafından yönetilir:
 > 
 > 
 
-## <a name="static-and-dynamic-resource-classes"></a>Statik ve dinamik kaynak sınıfları
-
-İki tür kaynak sınıfı vardır: dinamik ve statik.
-
-- **Statik kaynak sınıflar** bellek ölçülür geçerli hizmet düzeyi bakılmaksızın aynı miktarda tahsis [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). Bu statik ayırma daha büyük hizmet düzeylerini, her kaynak sınıfında daha fazla sorguları çalıştırabileceğiniz anlamına gelir.  Statik kaynak sınıfları staticrc10, staticrc20, staticrc30, staticrc40, staticrc50, staticrc60, staticrc70 ve staticrc80 olarak adlandırılır. Bu kaynak sınıfları başka işlem kaynakları almak için kaynak sınıfı artıran çözümleri için uygundur.
-
-- **Dinamik kaynak sınıflar** değişken bir hizmet düzeyine bağlı olarak bellek miktarı ayırın. Daha büyük bir hizmet düzeyine ölçeklendirmek, sorgularınızı daha fazla bellek otomatik olarak alın. Dinamik kaynak sınıfları smallrc, mediumrc, largerc ve xlargerc olarak adlandırılır. Bu kaynak sınıfları hangi artış ek kaynaklar almak için ölçek compute çözümleri için uygundur. 
-
-[Performans katmanı](performance-tiers.md) aynı kaynak sınıf adlarını kullanın, ancak farklı [bellek ve eşzamanlılık belirtimleri](performance-tiers.md). 
-
-
-## <a name="assigning-resource-classes"></a>Atama Kaynağı sınıfları
-
-Kaynak sınıfları veritabanı rollere kullanıcıları atayarak uygulanır. Bir kullanıcı bir sorgu çalıştırıldığında, sorgu kullanıcının kaynak sınıf ile çalışır. Örneğin, bir kullanıcı smallrc veya staticrc10 veritabanı rolünün bir üyesi olduğunda sorgularını küçük miktarlarda bellek ile çalıştırın. Bir veritabanı kullanıcısı xlargerc veya staticrc80 veritabanı rollerinin bir üyesi olduğunda, sorgularını büyük miktarlarda bellek ile çalıştırın. 
-
-Bir kullanıcının kaynak sınıfı artırmak için saklı yordam kullanın [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
-
-```sql
-EXEC sp_addrolemember 'largerc', 'loaduser';
-```
-
-Kaynak sınıfı azaltmak için kullanmak [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
-
-```sql
-EXEC sp_droprolemember 'largerc', 'loaduser';
-```
-
-Hizmet Yöneticisi kaynak sınıfının sabittir ve değiştirilemez.  Sağlama işlemi sırasında oluşturulan kullanıcı hizmet yöneticisidir.
-
-> [!NOTE]
-> Kullanıcıları veya Active Directory Yöneticisi tanımlanan Ayrıca hizmet yöneticileri gruplarıdır.
->
->
-
-### <a name="default-resource-class"></a>Varsayılan kaynak sınıfı
-Varsayılan olarak, her kullanıcı küçük kaynak sınıfı üyesidir **smallrc**. 
-
-### <a name="resource-class-precedence"></a>Kaynak sınıf önceliği
-Kullanıcılar, birden çok kaynak sınıflarının üyelerini olabilir. Ne zaman bir kullanıcı birden fazla kaynak sınıfına ait:
-
-- Dinamik kaynak sınıfları statik kaynak sınıfları göre önceliklidir. Örneğin, bir kullanıcı mediumrc(dynamic) ve staticrc80 (statik) bir üyesi ise, mediumrc ile sorgular çalıştırın.
-- Daha büyük kaynak sınıfları küçük kaynak sınıfları göre önceliklidir. Örneğin, bir kullanıcı mediumrc ve largerc bir üyesi ise, largerc ile sorgular çalıştırın. Benzer şekilde, bir kullanıcı staticrc20 ve statirc80 bir üyesi ise, sorguları staticrc80 kaynak ayırma ile çalışır.
-
-### <a name="queries-exempt-from-resource-classes"></a>Kaynak sınıflardan muafiyet sorgular
+### <a name="operations-not-governed-by-resource-classes"></a>Kaynak sınıfları tarafından yönetilmeyen işlemleri
 Kullanıcı daha büyük bir kaynak sınıfı üyesi olsa bile bazı sorgular smallrc kaynak sınıfında her zaman çalışır. Bu muafiyet sorgular eşzamanlılık sınırında sayılmaz. Eşzamanlılık sınırı 16 ise, örneğin, çok sayıda kullanıcı sistem görünümleri kullanılabilir eşzamanlılık yuvaları etkilemeden seçerek.
 
 Aşağıdaki deyimleri kaynak sınıflardan muaf tutulan ve her zaman içinde smallrc çalıştırın:
@@ -126,6 +131,45 @@ Removed as these two are not confirmed / supported under SQLDW
 - CREATE EXTERNAL TABLE AS SELECT
 - REDISTRIBUTE
 -->
+
+## <a name="concurrency-slots"></a>Eşzamanlılık yuvaları
+Eşzamanlılık yuvaları sorgu yürütme için kullanılabilir kaynakları izlemek için kullanışlı bir yoldur. Katılımcı sınırlı olduğundan bir birlikte adresindeki kişilik ayırmak için satın aldığınız biletleri gibi olduklarını. Eşzamanlılık yuva veri ambarı başına toplam sayısı hizmet düzeyi tarafından belirlenir. Bir sorgu yürütme başlamadan önce yeterli eşzamanlılık yuvaları ayırabilir olmalıdır. Bir sorgu sona erdiğinde, eşzamanlılık yuvaları serbest bırakır.  
+
+- 10 eşzamanlılık yuvası ile çalışan bir sorgu 2 eşzamanlılık yuvası ile çalışan bir sorgu daha 5 kat daha fazla bilgi işlem kaynaklarına erişebilir.
+- Her sorgu 10 eşzamanlılık yuva gerektirir ve 40 eşzamanlılık yuva yok, yalnızca 4 sorguları birlikte çalışabilir.
+ 
+Yalnızca yönetilen kaynak sorguları eşzamanlılık yuvaları kullanabilir. Sistem sorguları ve bazı Önemsiz sorguları yuva kullanamayacaktır. Tam sayı tüketilen eşzamanlılık yuva sorgunun kaynak sınıfı tarafından belirlenir.
+
+## <a name="view-the-resource-classes"></a>Kaynak sınıfları görüntülemek
+
+Kaynak sınıf önceden tanımlanmış veritabanı rolleri uygulanır. İki tür kaynak sınıfı vardır: dinamik ve statik. Kaynak sınıflarının bir listesini görüntülemek için aşağıdaki sorguyu kullanın:
+
+    ```sql
+    SELECT name FROM sys.database_principals
+    WHERE name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
+    ```
+
+## <a name="change-a-users-resource-class"></a>Bir kullanıcının kaynak sınıfı değiştirme
+
+Kaynak sınıfları veritabanı rollere kullanıcıları atayarak uygulanır. Bir kullanıcı bir sorgu çalıştırıldığında, sorgu kullanıcının kaynak sınıf ile çalışır. Örneğin, bir kullanıcı smallrc veya staticrc10 veritabanı rolünün bir üyesi olduğunda sorgularını küçük miktarlarda bellek ile çalıştırın. Bir veritabanı kullanıcısı xlargerc veya staticrc80 veritabanı rollerinin bir üyesi olduğunda, sorgularını büyük miktarlarda bellek ile çalıştırın. 
+
+Bir kullanıcının kaynak sınıfı artırmak için saklı yordam kullanın [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). 
+
+```sql
+EXEC sp_addrolemember 'largerc', 'loaduser';
+```
+
+Kaynak sınıfı azaltmak için kullanmak [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql).  
+
+```sql
+EXEC sp_droprolemember 'largerc', 'loaduser';
+```
+
+## <a name="resource-class-precedence"></a>Kaynak sınıf önceliği
+Kullanıcılar, birden çok kaynak sınıflarının üyelerini olabilir. Ne zaman bir kullanıcı birden fazla kaynak sınıfına ait:
+
+- Dinamik kaynak sınıfları statik kaynak sınıfları göre önceliklidir. Örneğin, bir kullanıcı mediumrc(dynamic) ve staticrc80 (statik) bir üyesi ise, mediumrc ile sorgular çalıştırın.
+- Daha büyük kaynak sınıfları küçük kaynak sınıfları göre önceliklidir. Örneğin, bir kullanıcı mediumrc ve largerc bir üyesi ise, largerc ile sorgular çalıştırın. Benzer şekilde, bir kullanıcı staticrc20 ve statirc80 bir üyesi ise, sorguları staticrc80 kaynak ayırma ile çalışır.
 
 ## <a name="recommendations"></a>Öneriler
 Biz belirli bir sorgu türü çalıştırmaya adanmış bir kullanıcı oluşturulması önerilir ya da işlemleri yükleyin. Ardından o kullanıcı kaynak sınıfı düzenli aralıklarla değiştirme yerine kalıcı kaynak sınıfı verin. İş yükü hakkında daha fazla genel denetim statik kaynak sınıfları göze koşuluyla, dinamik kaynak sınıfları belirlemeden önce bu ilk kullanılarak da öneririz.

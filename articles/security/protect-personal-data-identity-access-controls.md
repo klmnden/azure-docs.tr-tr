@@ -1,12 +1,12 @@
 ---
-title: "Kişisel veriler Azure kimlik ve erişim denetimleri ile koruma | Microsoft Docs"
-description: "Azure kimlik ve erişim denetimleri kişisel verileri korumak ve genel veri koruma düzenleme (GDPR) ile uymak yardımcı olabilecek Yardım"
+title: Kişisel veriler Azure kimlik ve erişim denetimleri ile koruma | Microsoft Docs
+description: Azure kimlik ve erişim denetimleri kişisel verileri korumak ve genel veri koruma düzenleme (GDPR) ile uymak yardımcı olabilecek Yardım
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: barclayn
-ms.custom: 
-ms.openlocfilehash: fd3beb57cda4993f922fb935263b0e962b38da6a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.custom: ''
+ms.openlocfilehash: 45b148a9ccbd7c801821f23586810872a4a0d50d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory ve çok faktörlü kimlik doğrulaması: kimlik ve erişim denetimleri ile kişisel verileri koruma
 
@@ -39,7 +39,7 @@ Amerika Birleşik Devletleri'nde yönetim büyük seyahat şirket, masrafların�
 
 ## <a name="company-goal"></a>Şirket hedefi
 
-Şirketin hedefi, kişisel verilere erişimi kesinlikle denetlenir sağlamaktır. Kişisel verilere erişimi olan kullanıcıların kimliklerini güçlü kimlik doğrulamasıyla korunması önemlidir. Bir ilke [en az ayrıcalık] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) gerekir zorunlu böylece yetkili kullanıcıları yalnızca ihtiyaç duydukları erişim ve artık düzeyine sahip.
+Şirketin hedefi, kişisel verilere erişimi kesinlikle denetlenir sağlamaktır. Kişisel verilere erişimi olan kullanıcıların kimliklerini güçlü kimlik doğrulamasıyla korunması önemlidir. Bir ilke [en az ayrıcalık] (https://en.wikipedia.org/wiki/Principle_of_least_privilege) böylece yetkili kullanıcıları yalnızca ihtiyaç duydukları erişim ve artık düzeyi zorlanmış olmalıdır.
 
 ## <a name="solutions"></a>Çözümler
 
@@ -83,11 +83,11 @@ Daha fazla bilgi ve AAD PIM ile çalışmaya başlama hakkında yönergeler içi
 
 ### <a name="azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi
 
-[Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) Azure kaynaklarına erişimi kullanıcının atanmış rol tabanlı olarak erişim verilmesi etkinleştirerek Azure yönetmesine yardımcı olur. Ekip içinde görevlerini kurabilmeleri ve kullanıcıları, grupları ve işlerini yapmak için gereksinim duydukları uygulamaları sadece erişim miktarını verebilirsiniz.
+[Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) Azure kaynaklarına erişimi kullanıcının atanmış rol tabanlı olarak erişim verilmesi etkinleştirerek Azure yönetmesine yardımcı olur. Ekip içinde görevlerini kurabilmeleri ve kullanıcıları, grupları ve işlerini yapmak için gereksinim duydukları uygulamaları sadece erişim miktarını verebilirsiniz.
 
 Kullanıcılara rol tabanlı erişim Azure portalı, Azure Komut Satırı araçları ve Azure Management API’leri kullanılarak verilebilir.
 
-Azure RBAC temel kavramları hakkında daha fazla bilgi için bkz: [Azure Portal'da rol tabanlı erişim denetimi kullanmaya başlayın.](https://docs.microsoft.com/active-directory/role-based-access-control-what-is)
+Azure RBAC temel kavramları hakkında daha fazla bilgi için bkz: [Azure Portal'da rol tabanlı erişim denetimi kullanmaya başlayın.](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 #### <a name="how-do-i-manage-azure-rbac-with-powershell"></a>PowerShell ile Azure RBAC nasıl yönetebilirim?
 
@@ -111,7 +111,7 @@ Aşağıdaki yönetim görevlerini de dahil olmak üzere Azure RBAC yönetmek i�
 
 - Liste özel roller
 
-PowerShell ile Azure RBAC yönetme hakkında daha fazla yönerge için bkz: [yönetmek rol tabanlı erişim Azure PowerShell ile](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell).
+PowerShell ile Azure RBAC yönetme hakkında daha fazla yönerge için bkz: [yönetmek rol tabanlı erişim Azure PowerShell ile](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 ### <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
@@ -135,7 +135,7 @@ Lisansları şu anda yoksa senaryonuz için en uygun dağıtım türünü belirl
 
     ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-4. Tıklatın **Kaydet**
+4. **Kaydet**’e tıklayın
 
 Bu pencerede MFA sunucusu yükleme seçeneği de vardır. Boyut ve makaleyi gözden geçirerek dağıtımınızı planlama hakkında ek ayrıntılar elde edebilirsiniz [Azure multi-Factor Authentication Sunucusu'nu kullanmaya başlama](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
@@ -184,6 +184,6 @@ Sahtekarlık Uyarıları ayarlayın, bir kerelik geçiş oluşturmak, özel sesl
 
 - [Azure Multi-Factor Authentication hakkında sık sorulan sorular](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-faq)
 
-- [Rol tabanlı erişim denetimi sorunlarını giderme](https://docs.microsoft.com/azure/active-directory/role-based-access-control-troubleshooting)
+- [Rol tabanlı erişim denetimi sorunlarını giderme](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting)
 
 - [Azure Active Directory kimlik koruması](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)

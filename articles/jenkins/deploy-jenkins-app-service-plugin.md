@@ -1,12 +1,12 @@
 ---
-title: "Jenkins eklentisi kullanarak Azure App Service'e dağıtma | Microsoft Docs"
-description: "Java web uygulaması Jenkins Azure'da dağıtmak için Azure App Service Jenkins eklentisi kullanmayı öğrenin"
+title: Jenkins eklentisi kullanarak Azure App Service'e dağıtma | Microsoft Docs
+description: Java web uygulaması Jenkins Azure'da dağıtmak için Azure App Service Jenkins eklentisi kullanmayı öğrenin
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 0e5916b2f8f901ff549ef74fca57cf09dc9fec21
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0128ad37e3ba66710279de42cf4eae0ce5431b5b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Jenkins eklentisi kullanarak Azure App Service'e dağıtma 
 
@@ -39,7 +39,7 @@ Jenkins asıl zaten sahip değilseniz, başlayın [çözüm şablonu](install-je
 * [Jenkins Git istemcisi eklentisi](https://plugins.jenkins.io/git-client) sürüm 2.4.6 
 * [Docker Commons eklentisi](https://plugins.jenkins.io/docker-commons) sürüm 1.4.0
 * [Azure kimlik](https://plugins.jenkins.io/azure-credentials) sürüm 1.2
-* [Azure uygulama hizmeti](https://plugins.jenkins.io/azure-app-server) sürüm 0.1
+* [Azure uygulama hizmeti](https://plugins.jenkins.io/azure-app-service) sürüm 0.1
 
 Jenkins eklenti, C#, PHP, Java ve Node.js gibi Web uygulamaları tarafından desteklenen herhangi bir dil bir web uygulamasını dağıtmak için kullanabilirsiniz. Bu öğreticide, kullandığımız bir [basit Java web uygulaması için Azure](https://github.com/azure-devops/javawebappsample). Kendi GitHub hesabınızda depoyu çatallaştırma için seçin **çatalı** GitHub arabirimi sağ üst köşesindeki düğmesini.  
 > [!NOTE]
@@ -54,7 +54,7 @@ sudo apt-get install -y maven
 
 Web uygulaması kapsayıcıları için dağıtmak için Docker üzerinde Jenkins asıl veya derleme için kullanılan VM aracısı yükleyin. Yönergeler için bkz: [yükleme Docker Ubuntu üzerinde](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a>Jenkins kimlik bilgileri için bir Azure hizmet sorumlusu ekleme
+##<a name="service-principal"></a> Jenkins kimlik bilgileri için bir Azure hizmet sorumlusu ekleme
 
 Azure'a dağıtmak için bir Azure hizmet sorumlusu gerekir. 
 
@@ -90,7 +90,7 @@ Jenkins işinde ayarlama önce Azure App Service planı ve bir web uygulaması J
 ### <a name="set-up-the-jenkins-job"></a>Jenkins iş ayarlayın
 
 1. Yeni bir **freestyle** Jenkins Pano projede.
-2. Yapılandırma **kaynak kodu Yönetimi** , yerel çatalı, kullanılacak alanı [basit Java web uygulaması için Azure](https://github.com/azure-devops/javawebappsample). Sağlamak **depo URL'si** değeri. Örneğin: http://github.com/&lt;your_ID > / javawebappsample.
+2. Yapılandırma **kaynak kodu Yönetimi** , yerel çatalı, kullanılacak alanı [basit Java web uygulaması için Azure](https://github.com/azure-devops/javawebappsample). Sağlamak **depo URL'si** değeri. Örneğin: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Ekleyerek Maven kullanarak Projeyi derlemek için bir adım eklemek **Kabuk yürütme** komutu. Bu örnekte, yeniden adlandırmak için ek bir komut ihtiyacımız \*hedef klasöre .war dosyasında **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Jenkins işinde ayarlamadan önce Linux üzerinde bir web uygulaması gerekir. A
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Jenkins iş için Docker ayarlayın
 
 1. Yeni bir **freestyle** Jenkins Pano projede.
-2. Yapılandırma **kaynak kodu Yönetimi** , yerel çatalı, kullanılacak alanı [basit Java web uygulaması için Azure](https://github.com/azure-devops/javawebappsample). Sağlamak **depo URL'si** değeri. Örneğin: http://github.com/&lt;your_ID > / javawebappsample.
+2. Yapılandırma **kaynak kodu Yönetimi** , yerel çatalı, kullanılacak alanı [basit Java web uygulaması için Azure](https://github.com/azure-devops/javawebappsample). Sağlamak **depo URL'si** değeri. Örneğin: http://github.com/ &lt;your_ID > / javawebappsample.
 3. Ekleyerek Maven kullanarak Projeyi derlemek için bir adım eklemek bir **Kabuk yürütme** komutu. Komutta aşağıdaki satırı ekleyin:
     ```bash
     mvn clean package

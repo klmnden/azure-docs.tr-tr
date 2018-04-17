@@ -3,23 +3,23 @@ title: İş yükü - Azure SQL veri ambarı çözümleme | Microsoft Docs
 description: Azure SQL Data Warehouse, iş yükü için sorgu öncelik çözümleme için teknikler.
 services: sql-data-warehouse
 author: sqlmojo
-manager: jhubbard
+manager: craigg-msft
 ms.topic: conceptual
 ms.component: manage
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: joeyong
 ms.reviewer: jrj
-ms.openlocfilehash: 7fa5bbd8d9a50bb1dcd1ab5be73f4e248cbbf8fc
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 609a0d72aa646054273e1a8ea8e02e3c3ae95dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="analyze-your-workload"></a>İş yükünüzü çözümleme
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse, iş yükü Çözümle
 Azure SQL Data Warehouse, iş yükü için sorgu öncelik çözümleme için teknikler.
 
 ## <a name="workload-groups"></a>İş yükü grupları 
-SQL veri ambarı iş yükü gruplarını kullanarak kaynak sınıfları uygular. Çeşitli DWU boyutları arasında kaynak sınıfları davranışını denetleyen sekiz iş yükü grupları toplam vardır. SQL veri ambarı tüm DWU için yalnızca dört sekiz iş yükü gruplarını kullanır. Her iş yükü grubu dört kaynak sınıflardan birine atanmış olduğundan bu mantıklı: smallrc, mediumrc, largerc, veya xlargerc. Bu iş yükü grupları bazıları için daha yüksek ayarlandığını iş yükü grupları anlama önemi olan *önem*. Önem derecesi CPU için kullanılan planlama. Yüksek öncelikli olarak çalıştırılan sorguların olandan Orta önem düzeyine sahip üç kat daha fazla CPU döngülerini alırsınız. Bu nedenle, eşzamanlılık yuvası eşlemeleri CPU Öncelik belirler. Bir sorgu 16 veya daha fazla yuvaları tüketir yüksek önem olarak çalışır.
+SQL veri ambarı iş yükü gruplarını kullanarak kaynak sınıfları uygular. Çeşitli DWU boyutları arasında kaynak sınıfları davranışını denetleyen sekiz iş yükü grupları toplam vardır. SQL veri ambarı tüm DWU için yalnızca dört sekiz iş yükü gruplarını kullanır. Her iş yükü grubu dört kaynak sınıflardan birine atanmış olduğundan bu yaklaşım mantıklı: smallrc, mediumrc, largerc, veya xlargerc. Bu iş yükü grupları bazıları için daha yüksek ayarlandığını iş yükü grupları anlama önemi olan *önem*. Önem derecesi CPU için kullanılan planlama. Üç kat daha fazla CPU döngülerini Orta öncelikli olarak çalıştırılan sorguların daha yüksek öncelikli olarak çalışan sorgu alın. Bu nedenle, eşzamanlılık yuvası eşlemeleri CPU Öncelik belirler. Bir sorgu 16 veya daha fazla yuvaları tüketir yüksek önem olarak çalışır.
 
 Aşağıdaki tabloda, her iş yükü grubu için önem eşlemeler gösterilmektedir.
 
@@ -38,7 +38,7 @@ Aşağıdaki tabloda, her iş yükü grubu için önem eşlemeler gösterilmekte
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Yüksek               |
 
 <!-- where are the allocation and consumption of concurrency slots charts? -->
-Gelen **ayırma ve kullanımını eşzamanlılık yuva** grafiği, bir DW500 1, 4, 8 ya da 16 eşzamanlılık yuvası smallrc, mediumrc, largerc ve xlargerc, sırasıyla kullandığını görebilirsiniz. Bu değerleri her kaynak sınıfı için önem bulmak için yukarıdaki grafikte bakabilirsiniz.
+**Ayırma ve kullanımını eşzamanlılık yuva** bir DW500 kullanan 1, 4, 8 ya da 16 eşzamanlılık yuvası smallrc, mediumrc, largerc ve xlargerc, sırasıyla grafik gösterir. Her kaynak sınıfı için önem bulmak için bu değerler yukarıdaki grafikte arayabilirsiniz.
 
 ### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Önem derecesi için kaynak sınıfların DW500 eşleme
 | Kaynak sınıfı | İş yükü grubu | Kullanılan eşzamanlılık yuvaları | MB / dağıtım | Önem derecesi |
@@ -57,7 +57,7 @@ Gelen **ayırma ve kullanımını eşzamanlılık yuva** grafiği, bir DW500 1, 
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Yüksek       |
 
 ## <a name="view-workload-groups"></a>İş yükü grupları görüntüle
-Bellek kaynağı ayırma ayrıntılı farklılıkları kaynak İdarecisi perspektifinden bakmak ya da etkin ve geçmiş kullanımı iş yükü gruplarının sorunlarını giderirken çözümlemek için aşağıdaki DMV sorgusu kullanabilirsiniz.
+Aşağıdaki sorguyu kaynak İdarecisi perspektifinden bellek kaynağı ayırma ayrıntılarını gösterir. Bu, iş yükü grupları etkin ve geçmiş kullanımı sorunlarını giderirken çözümlemek için yararlıdır.
 
 ```sql
 WITH rg
@@ -106,7 +106,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>Sıraya alınan sorgu algılama ve diğer Dmv'leri
-Kullanabileceğiniz `sys.dm_pdw_exec_requests` bir eşzamanlılık sırada bekleyen sorguları tanımlamak için DMV. Sorgular bir eşzamanlılık yuva durumu için bekleyen **askıya**.
+Kullanabileceğiniz `sys.dm_pdw_exec_requests` bir eşzamanlılık sırada bekleyen sorguları tanımlamak için DMV. Sorgular için bir eşzamanlılık yuva bekleyen olan durumu **askıya**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -146,7 +146,7 @@ SQL veri ambarı türleri bekleyin aşağıdakileri içerir:
 * **LocalQueriesConcurrencyResourceType**: dışında eşzamanlılık yuvası framework sit sorgular. DMV sorgular ve sistem işlevleri gibi `SELECT @@VERSION` yerel sorgular gösterilebilir.
 * **UserConcurrencyResourceType**: içinde eşzamanlılık yuvası framework sit sorgular. Son kullanıcı tabloları sorguları bu kaynak türü kullanırsınız örnekleri temsil eder.
 * **DmsConcurrencyResourceType**: veri taşıma işlemleri kaynaklanan bekler.
-* **BackupConcurrencyResourceType**: Bu bekleme bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı anda birden çok yedekleme istenmiş, diğerleri sıraya koyar.
+* **BackupConcurrencyResourceType**: Bu bekleme bir veritabanı yedekleniyor olduğunu gösterir. Bu kaynak türü için maksimum değeri 1'dir. Aynı anda diğerlerinin birden çok yedekleme istenen varsa sırası.
 
 `sys.dm_pdw_waits` DMV, bir isteği bekliyor kaynakları görmek için kullanılabilir.
 

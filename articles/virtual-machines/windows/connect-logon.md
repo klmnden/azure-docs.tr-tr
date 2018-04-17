@@ -1,8 +1,8 @@
 ---
-title: "Windows Server VM’ye bağlanma | Microsoft Belgeleri"
-description: "Azure portal ve Resource Manager dağıtım yöneticisini kullanarak bir Windows VM’ye nasıl bağlanacağınızı ve oturum açacağınızı öğrenin."
+title: Windows Server VM’ye bağlanma | Microsoft Belgeleri
+description: Azure portal ve Resource Manager dağıtım yöneticisini kullanarak bir Windows VM’ye nasıl bağlanacağınızı ve oturum açacağınızı öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 04/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 3e7b7c2ffa7471b96ebd23ac430fbd21eb21e9c5
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 0c81e70a76983885fdfb6eefe9b6cbe407e117c8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Windows çalıştıran bir Azure Virtual Machine’e bağlanma ve oturum açma
 Bir Windows masaüstü bilgisayarından Uzak Masaüstü (RDP) oturumu başlatmak için Azure portalında **Bağlan** düğmesini kullanırsınız. Önce sanal makineye bağlandıktan sonra oturum açın.
@@ -30,9 +30,7 @@ Bir Mac bilgisayardan bir Windows VM’e bağlanmaya çalışıyorsanız, Mac bi
 1. Önceden yapmadıysanız, [Azure portal](https://portal.azure.com/)da oturum açın
 2. Sol menüde **Sanal Makineler**'e tıklayın.
 3. Listeden sanal makineyi seçin.
-4. Sanal makine sayfasında **Bağlan**'a tıklayın.
-   
-    ![VM'nize nasıl bağlanacağınızı gösteren Azure portal ekran görüntüsü.](./media/connect-logon/connect.png)
+4. Sanal makine için sayfanın üst kısmında tıklatın ![Bağlan düğmesi görüntüsü.](./media/connect-logon/connect.png) tıklayın.
    
    > [!TIP]
    > Portal'daki **Bağlan** düğmesi gri ise ve Azure’a bir [Express Route](../../expressroute/expressroute-introduction.md) veya [Siteden Siteye VPN](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) aracılığıyla bağlı değilseniz RDP kullanmadan önce IP adresi oluşturmalı ve VM’nize atamalısınız. [Azure’da genel IP adresleri](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) hakkında daha fazlasını okuyabilirsiniz.

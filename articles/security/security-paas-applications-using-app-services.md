@@ -1,12 +1,12 @@
 ---
-title: "PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme | Microsoft Docs"
+title: PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme | Microsoft Docs
 description: " Azure uygulama hizmeti güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
 services: security
 documentationcenter: na
 author: techlake
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dec45d91ad1a73306b3e2656dd9bf7fdbe456720
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: d2e606fe23a3a6eb9d2310b0932ccec8fcfc518c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-app-service"></a>PaaS web ve mobil uygulamaları Azure uygulama hizmeti kullanarak güvenli hale getirme
 
@@ -32,7 +32,7 @@ Bu makalede, bir koleksiyonu aşağıdakiler ele [Azure App Service](https://azu
 Uygulama hizmeti kullanırken, bu en iyi uygulamaları izleyin:
 
 - [Azure Active Directory (AD) aracılığıyla kimlik doğrulaması](../app-service/app-service-authentication-overview.md). App Service kimlik sağlayıcınız için OAuth 2.0 hizmeti sağlar. OAuth 2.0 istemci Geliştirici Basitlik, Web uygulamaları, Masaüstü uygulamaları ve cep telefonları için özel yetkilendirme akışları sağlarken odaklanır. Azure AD, web uygulamaları ve mobil erişim yetkisi vermek etkinleştirmek için OAuth 2.0 kullanır.
-- Bilmeniz gereken ve en az ayrıcalık güvenlik ilkelerine göre erişimi kısıtlayın. Erişimi kısıtlamak, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur. Rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Kullanıcılar uygulamalara erişim izni verme hakkında daha fazla bilgi için bkz: [access management ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).
+- Bilmeniz gereken ve en az ayrıcalık güvenlik ilkelerine göre erişimi kısıtlayın. Erişimi kısıtlamak, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur. Rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Kullanıcılar uygulamalara erişim izni verme hakkında daha fazla bilgi için bkz: [access management ile çalışmaya başlama](../role-based-access-control/overview.md).
 - Anahtarlarınızı koruyun. Güvenlik ne kadar iyi olduğu önemli değildir, abonelik anahtarlarınızı kaybetmeniz durumunda. Azure Anahtar Kasası, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarının ve gizli anahtarların korunmasına yardımcı olur. Anahtar Kasası'nı kullanarak anahtarları ve gizli anahtarları (kimlik doğrulaması anahtarları, depolama hesabı anahtarları, veri şifreleme anahtarları, .PFX dosyaları ve parolalar gibi), donanım güvenlik modülleri tarafından korunan anahtarları kullanarak şifreleyebilirsiniz. Ek güvenlik için HSM'lerde anahtarları içeri aktarabilir veya oluşturabilirsiniz. Bkz: [Azure anahtar kasası](../key-vault/key-vault-whatis.md) daha fazla bilgi için. Anahtar kasası, TLS sertifikalarınızı otomatik yenileme ile yönetmek için de kullanabilirsiniz.
 - Gelen kaynak IP adreslerini kısıtlayın. [Uygulama hizmeti ortamı](../app-service/environment/intro.md) ağ güvenlik grupları (Nsg'ler) üzerinden gelen kaynak IP adresleri kısıtlamanıza yardımcı olan bir sanal ağ tümleştirme özelliği vardır. Azure sanal ağlar (Vnet'ler) ile bilginiz yoksa, bu Azure kaynaklarınızı çoğunu erişimini denetleyen bir dışındaki Internet yönlendirilebilir ağı yerleştirmek izin veren bir yetenektir. Daha fazla bilgi için bkz: [uygulamanız bir Azure sanal ağı ile tümleştirmek](../app-service/web-sites-integrate-with-vnet.md).
 

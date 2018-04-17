@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 81f083b799e359f69605de22c30d3adc4480e44b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Roller, izinleri ve güvenlik Azure İzleyicisi ile kullanmaya başlama
 İzleme verilerini ve ayarları için erişimi kesinlikle yönetmenin birçok ekip gerekir. Örneğin, özel olarak (destek mühendisleri, devops mühendisleri) izleme üzerinde çalışan takım üyeleri sahipseniz veya bir yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği kısıtlama sırasında yalnızca izleme verilerine erişim vermek isteyebilirsiniz, değiştirmek veya kaynakları silin. Bu makalede, hızlı bir şekilde bir kullanıcı Azure içinde yerleşik bir izleme RBAC rolü uygulamak veya kendi özel rol sınırlı izleme izinleri gereken kullanıcılar için yapı gösterilmektedir. Ardından Azure İzleyicisi ile ilgili kaynaklarınızın ve içerdikleri verilere erişimin nasıl sınırlandırmak için güvenlik konuları ele alınmıştır.
@@ -71,27 +71,27 @@ Kişilerin izleme katılımcı rolü atanmış bir abonelikte tüm izleme verile
 > 
 
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>İzinler ve özel RBAC rolleri izleme
-Yukarıdaki yerleşik roller ekibinizin tam gereksinimlerini karşılamıyorsa, aşağıdakileri yapabilirsiniz [özel RBAC rolü oluşturma](../active-directory/role-based-access-control-custom-roles.md) daha ayrıntılı izinlere sahip. Açıklamaları ortak Azure İzleyici RBAC işlemleriyle aşağıda verilmiştir.
+Yukarıdaki yerleşik roller ekibinizin tam gereksinimlerini karşılamıyorsa, aşağıdakileri yapabilirsiniz [özel RBAC rolü oluşturma](../role-based-access-control/custom-roles.md) daha ayrıntılı izinlere sahip. Açıklamaları ortak Azure İzleyici RBAC işlemleriyle aşağıda verilmiştir.
 
 | İşlem | Açıklama |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, yazma, silme] |Okuma/yazma/silme Eylem grupları. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, yazma, silme] |Okuma/yazma/silme etkinlik günlüğü uyarıları. |
-| Microsoft.Insights/AlertRules/[Read, Write, Delete] |Okuma/yazma/silme uyarı kurallarını (Uyarılar Klasik). |
+| Microsoft.Insights/AlertRules/[Read, yazma, silme] |Okuma/yazma/silme uyarı kurallarını (Uyarılar Klasik). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Olaylar (tetiklenen uyarı kuralı geçmişini) için uyarı kuralları listesi. Bu, yalnızca portalına geçerlidir. |
 | Microsoft.Insights/AutoscaleSettings/[Read, yazma, silme] |Okuma/yazma/silme otomatik ölçeklendirme ayarları. |
-| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Okuma/yazma/silme tanılama ayarları. |
+| Microsoft.Insights/DiagnosticSettings/[Read, yazma, silme] |Okuma/yazma/silme tanılama ayarları. |
 | Microsoft.Insights/EventCategories/Read |Etkinlik günlüğünde olası tüm kategorileri numaralandırır. Azure portal tarafından kullanılır. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Bu izin, etkinlik günlükleri için portal aracılığıyla erişmek isteyen kullanıcılar için gereklidir. |
 | Microsoft.Insights/eventtypes/values/Read |Bir abonelikte etkinlik günlüğü olayları (Yönetim olayları) listeler. Bu izin, etkinlik günlüğü programlı ve portal erişimi için geçerlidir. |
-| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | Okuma/yazma/silme ağ akış günlükleri için tanılama ayarları. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, yazma, silme] | Okuma/yazma/silme ağ akış günlükleri için tanılama ayarları. |
 | Microsoft.Insights/LogDefinitions/Read |Bu izin, etkinlik günlükleri için portal aracılığıyla erişmek isteyen kullanıcılar için gereklidir. |
-| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |Okuma/yazma/silme günlük profilleri (Etkinlik günlüğü olay hub'ı ya da depolama hesabınıza akış). |
+| Microsoft.Insights/LogProfiles/[Read, yazma, silme] |Okuma/yazma/silme günlük profilleri (Etkinlik günlüğü olay hub'ı ya da depolama hesabınıza akış). |
 | Microsoft.Insights/MetricAlerts/[Read, yazma, silme] |Yakın gerçek zamanlı ölçüm uyarıları okuma/yazma/silme |
 | Microsoft.Insights/MetricDefinitions/Read |Ölçüm tanımlarını (bir kaynak için kullanılabilir ölçüm türlerinin listesi) okuyun. |
 | Microsoft.Insights/Metrics/Read |Bir kaynak için ölçümleri okuyun. |
 | Microsoft.Insights/Register/Action |Azure İzleyicisi kaynak sağlayıcısı kaydedin. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, Write, Delete] |Application Insights için okuma/yazma/silme günlük uyarıları. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, yazma, silme] |Application Insights için okuma/yazma/silme günlük uyarıları. |
 
 
 
@@ -125,7 +125,7 @@ Bu veri türlerini üç bir depolama hesabında depolanan veya olay her ikisi de
 
 * Bir tek, özel bir depolama hesabı verileri izlemek için kullanın. İzleme verilerini birden çok depolama hesabı ayırmak gerekiyorsa, hiçbir zaman bir depolama hesabı izleme arasında kullanımı paylaşabilir ve bu olarak izleme olmayan veri yanlışlıkla yalnızca izleme verilerine (örneğin, bir üçüncü taraf SIEM) erişmesi gereken olanlar verebilir İzleme erişimi veri.
 * Tek ve özel bir hizmet veri yolu veya olay hub'ın ad yukarıdaki gibi aynı nedenden dolayı tüm tanılama ayarlarını kullanın.
-* Farklı bir kaynak grubunda tutarak izleme ile ilgili depolama hesapları veya olay hub'ları erişimi sınırlayabilir ve [kapsamı kullan](../active-directory/role-based-access-control-what-is.md#basics-of-access-management-in-azure) yalnızca o kaynak grubu erişimi sınırlamak için izleme rolleri.
+* Farklı bir kaynak grubunda tutarak izleme ile ilgili depolama hesapları veya olay hub'ları erişimi sınırlayabilir ve [kapsamı kullan](../role-based-access-control/overview.md#basics-of-access-management-in-azure) yalnızca o kaynak grubu erişimi sınırlamak için izleme rolleri.
 * Hiçbir zaman ListKeys ya da depolama hesapları için izni veya olay hub'ları abonelik kapsamında bir kullanıcı yalnızca izleme verilerine erişimi olması gerekir. (Ayrılmış bir izleme kaynak grubu varsa) bunun yerine, bu izinleri bir kaynak veya kaynak grubu kullanıcıya vermek kapsamı.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>İzleme ile ilgili depolama hesaplarına erişimi sınırlandırma
@@ -178,6 +178,6 @@ Event hubs ile benzer bir desen izlenebilir, ancak önce adanmış bir dinleme y
    ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [RBAC ve izinlerini Kaynak Yöneticisi'ni okuyun](../active-directory/role-based-access-control-what-is.md)
+* [RBAC ve izinlerini Kaynak Yöneticisi'ni okuyun](../role-based-access-control/overview.md)
 * [Azure'da izleme genel bakış bilgileri okuyun](monitoring-overview.md)
 

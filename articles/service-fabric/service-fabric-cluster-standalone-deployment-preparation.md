@@ -1,23 +1,23 @@
 ---
-title: "Azure Service Fabric tek başına küme dağıtım hazırlama | Microsoft Docs"
-description: "Ortamı hazırlama ve üretim iş yükü işleme için amacını küme dağıtmadan önce kabul edilmesi için küme yapılandırması oluşturma ile ilgili belgeler."
+title: Azure Service Fabric tek başına küme dağıtım hazırlama | Microsoft Docs
+description: Ortamı hazırlama ve üretim iş yükü işleme için amacını küme dağıtmadan önce kabul edilmesi için küme yapılandırması oluşturma ile ilgili belgeler.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/12/2017
-ms.author: dekapur;maburlik;chackdan
-ms.openlocfilehash: b1190ec5a3ff70a368b29465699f9082d2b989bf
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: dekapur;maburlik;aljo
+ms.openlocfilehash: 62673025f5c597f6ed958ad523190d937a52c912
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 <a id="preparemachines"></a>
 
@@ -49,11 +49,11 @@ ClusterConfig.json içinde UDs belirttiğinizde, her UD adını seçebilirsiniz.
 
 FDs ve UDs hakkında daha ayrıntılı bilgi için bkz: [Service Fabric kümesi açıklayan](service-fabric-cluster-resource-manager-cluster-description.md).
 
-Üretim bir kümede bir üretim ortamında desteklenmesi için en az üç FDs yayılacağı Bakım ve yönetim düğümü üzerinde tam denetime sahiptir, yani, güncelleştirme ve makineler değiştirme sorumludur. (Yani, Amazon Web Hizmetleri VM örnekleri) ortamlarında, makineler üzerinde tam denetime sahip olduğu değil çalıştıran kümeler için en az beş FDs kümenizdeki olmalıdır. Her FD bir veya daha fazla düğüm olabilir. Bu makine yükseltmeleri ve kendi zamanlama bağlı olarak, uygulamaların ve hizmetlerin kümelerinde çalışan intefere olabilir, güncelleştirmeleri nedeniyle oluşan sorunları önlemek için yapılır.
+Üretim bir kümede bir üretim ortamında desteklenmesi için en az üç FDs yayılacağı Bakım ve yönetim düğümü üzerinde tam denetim varsa, diğer bir deyişle, güncelleştirme ve makineler değiştirme sorumludur. Makineler üzerinde tam denetim olduğu değil (diğer bir deyişle, Amazon Web Hizmetleri VM örnekleri) ortamlarında çalışan kümeler için en az beş FDs kümenizdeki olmalıdır. Her FD bir veya daha fazla düğüm olabilir. Bu makine yükseltmeleri ve hangi kullanıcıların zamanlama çalışan uygulamaların ve hizmetlerin kümelerinde etkileyebilir güncelleştirmeleri nedeniyle oluşan sorunları önlemek için yapılır.
 
 ## <a name="determine-the-initial-cluster-size"></a>İlk küme boyutu belirleme
 
-Genellikle, kümenizdeki düğümlerin sayısını iş gereksinimlerinize bağlı olarak, yani, kaç tane Hizmetleri ve kapsayıcıları küme üzerinde çalışacağı ve iş yüklerinizi sürdürebilmek gereken kaç kaynak belirlenir. Üretim kümeleri için en az 5 düğümleri, kümede sahip 5 FDs kapsayıcı öneririz. Ancak, düğümleriniz üzerinde tam denetime sahiptir ve üç FDs yayılabilir yukarıda açıklandığı gibi ardından üç düğüm ayrıca iş yapmanız gerekir.
+Genellikle, kümenizdeki düğümlerin sayısı, iş gereksinimlerinize, kaç tane Hizmetleri ve kapsayıcıları kümede üzerinde çalışacağı göre belirlenir ve iş yüklerinizi sürdürebilmek gereken kaç kaynak. Üretim kümeleri için kümede en az beş düğümü olan 5 FDs kapsayıcı öneririz. Ancak, düğümleriniz üzerinde tam denetime sahiptir ve üç FDs yayılabilir yukarıda açıklandığı gibi ardından üç düğüm ayrıca iş yapmanız gerekir.
 
 Test kümelerindeki yalnızca yalnızca durum bilgisiz iş yükleri çalıştıran tek bir düğüm gerekiyor ancak test kümelerindeki durum bilgisi olan iş yükleri çalıştıran üç düğümü olmalıdır. Bu, geliştirme amaçlı birden fazla düğüm verilen makinede sağlayabilirsiniz de unutulmamalıdır. Bir üretim ortamında, ancak yalnızca bir düğüm fiziksel veya sanal makine başına Service Fabric destekler.
 
@@ -99,7 +99,7 @@ Bir Küme Yöneticisi bir Service Fabric tek başına küme yapılandırdığın
 * Service Fabric SDK kaldırdınız
 * Service Fabric çalışma zamanı modülünün kaldırıldı 
 * Windows Güvenlik Duvarı hizmetini (mpssvc) etkinleştirdikten
-* Uzak Kayıt Hizmeti (remoteregistry) etkinleştirdiyseniz
+* Uzak Kayıt Hizmeti (uzak kayıt defteri) etkinleştirdiyseniz
 * Dosya Paylaşımı (SMB) etkin
 * Gerekli bağlantı noktaları açıldı, küme yapılandırması bağlantı noktalarını temel alarak sahip
 * Sahip Windows SMB ve uzak kayıt defteri hizmeti için açılan gerekli bağlantı noktaları: 135 ve 137, 138, 139 ve 445

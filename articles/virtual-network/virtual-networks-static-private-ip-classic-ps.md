@@ -1,10 +1,10 @@
 ---
-title: "VM'ler için (Klasik) - Azure PowerShell özel IP adreslerini yapılandırın | Microsoft Docs"
-description: "PowerShell kullanarak sanal makineleri (Klasik) için özel IP adresleri yapılandırmayı öğrenin."
+title: VM'ler için (Klasik) - Azure PowerShell özel IP adreslerini yapılandırın | Microsoft Docs
+description: PowerShell kullanarak sanal makineleri (Klasik) için özel IP adresleri yapılandırmayı öğrenin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 60c7b489-46ae-48af-a453-2b429a474afd
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5da2992fad89a703086b7645c88f6d8e1a39e4b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e2aaecd7cb883841941d494a057ac23239a2a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>PowerShell kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
 
@@ -127,6 +127,10 @@ Beklenen çıktı:
     OperationDescription OperationId                          OperationStatus
     -------------------- -----------                          ---------------
     Update-AzureVM       77d8cae2-87e6-0ead-9738-7c7dae9810cb Succeeded 
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
+
+Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilen gerekli. İşletim sistemi içinde özel IP adresini el ile ayarlayın, Azure VM'ye atanan özel IP adresi aynı adresi olduğundan emin olun veya sanal makineye bağlantısını kaybedebilir. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.

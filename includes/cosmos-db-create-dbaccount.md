@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: cosmos-db
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: sngun
+ms.custom: include file
+ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
 1. Yeni bir tarayıcı penceresinde [Azure portalında](https://portal.azure.com/) oturum açın.
 2. **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB** seçeneğine tıklayın.
    
@@ -17,7 +33,7 @@
 
     Sonra **Oluştur**’a tıklayın.
 
-    ![Azure Cosmos DB için yeni hesap sayfası](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-2.png)
+    ![Azure Cosmos DB için yeni hesap sayfası](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account.png)
 
 4. Hesabın oluşturulması birkaç dakika sürer. Portal görüntülenecek bekleyin **Tebrikler! Azure Cosmos DB hesabınız oluşturuldu** sayfası.
 

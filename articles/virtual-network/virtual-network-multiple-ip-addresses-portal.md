@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makineleri - Portal için birden çok IP adresi | Microsoft Docs"
-description: "Azure portalını kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager."
+title: Azure sanal makineleri - Portal için birden çok IP adresi | Microsoft Docs
+description: Azure portalını kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: anavinahar
 manager: narayan
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 3a8cae97-3bed-430d-91b3-274696d91e34
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
-ms.openlocfilehash: 906105e737087de91e7393861e9057f8acb06aa4
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 85eefd0d15ed08eaa82983c6901faa0aa1ff303c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Azure Portalı'nı kullanarak sanal makineleri için birden çok IP adresi atayın
 
@@ -35,11 +35,11 @@ Birden çok IP adresi ya da özel bir statik IP adresi bir VM oluşturmak istiyo
 
 ## <a name="add"></a>Bir VM için IP adreslerini ekleyin
 
-Adımları tamamlayarak bir NIC'ye özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde yer alan örnekler, zaten bir VM açıklanan üç IP yapılandırmaya sahip olduğunu varsayın [senaryo](#Scenario), ancak gerekli değildir.
+Adımları tamamlayarak bir Azure ağı arabirimi özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde yer alan örnekler, zaten bir VM açıklanan üç IP yapılandırmaya sahip olduğunu varsayın [senaryo](#Scenario), ancak gerekli değildir.
 
 ### <a name="coreadd"></a>Çekirdek adımları
 
-1. Https://portal.azure.com ve oturum Azure portalında, gerekirse göz atın.
+1. Azure portalında göz https://portal.azure.com ve oturum açın, gerekiyorsa.
 2. Portalı'nda tıklatın **daha fazla hizmet** > türü *sanal makineleri* filtre kutusuna ve ardından **sanal makineleri**.
 3. İçinde **sanal makineleri** bölmesinde, IP eklemek istediğiniz VM adresleri için tıklatın. Tıklatın **ağ arabirimleri** görünür ve IP eklemek istediğiniz ağ arabirimi seçin bölmesinde sanal makinenin adresleri. Aşağıdaki resimde gösterilen örnekte NIC adlı *myNIC* adlı VM'den *myVM* seçilir:
 
@@ -75,7 +75,7 @@ Bir ortak IP adresi, yeni bir IP yapılandırması ya da var olan bir IP yapıla
 
 Bir ortak IP adresi, bir ortak IP adresi kaynağı için bir ayardır. Şu anda bir IP yapılandırmasına ilişkilendirmek istediğiniz bir IP yapılandırmasıyla ilişkilendirilmemiş bir ortak IP adresi kaynağı varsa, aşağıdaki adımları atlayın ve gereksinim duyduğunuz kadar aşağıdaki bölümlerde birindeki adımları tamamlayın. Kullanılabilir bir ortak IP adresi kaynak yoksa, oluşturmak için aşağıdaki adımları tamamlayın:
 
-1. Https://portal.azure.com ve oturum Azure portalında, gerekirse göz atın.
+1. Azure portalında göz https://portal.azure.com ve oturum açın, gerekiyorsa.
 3. Portalı'nda tıklatın **kaynak oluşturma** > **ağ** > **genel IP adresi**.
 4. İçinde **ortak IP adresi oluştur** görünen bölmesinde girin bir **adı**seçin bir **IP adresi ataması** türü, bir **abonelik**, **Kaynak grubu**ve bir **konumu**, ardından **oluşturma**, aşağıdaki resimde gösterildiği gibi:
 

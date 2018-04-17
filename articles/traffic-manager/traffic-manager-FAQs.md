@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/18/2018
 ms.author: kumud
-ms.openlocfilehash: d9db669ab905fb51390f6ca80736af4cde13d902
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 18a0ca32f51e6c1be01e59c3899bc2e625868cad
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -233,7 +233,7 @@ Görünüm trafiği fiyatlandırma çıktı oluşturmak için kullanılan veri n
 
 Birden çok abonelik uç noktalarını kullanarak Azure Web Apps ile mümkün değildir. Azure Web uygulamaları, Web uygulamaları ile kullanılan bir özel etki alanı adı yalnızca tek bir abonelik içinde kullanılan gerektirir. Aynı etki alanı adına sahip birden çok aboneliklerden Web uygulamaları kullanmak mümkün değil.
 
-Diğer uç nokta türleri için trafik Yöneticisi uç noktaları birden fazla aboneliğe ilişkin kullanmak da mümkündür. Kaynak Yöneticisi'nde, uç nokta için okuma erişimi Traffic Manager profilinin yapılandırma kişinin sahip olduğu sürece herhangi bir abonelik uç noktalarının trafik Yöneticisi için eklenebilir. Bu izinler kullanılarak verilebilir [Azure Resource Manager rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md).
+Diğer uç nokta türleri için trafik Yöneticisi uç noktaları birden fazla aboneliğe ilişkin kullanmak da mümkündür. Kaynak Yöneticisi'nde, uç nokta için okuma erişimi Traffic Manager profilinin yapılandırma kişinin sahip olduğu sürece herhangi bir abonelik uç noktalarının trafik Yöneticisi için eklenebilir. Bu izinler kullanılarak verilebilir [Azure Resource Manager rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 
 ### <a name="can-i-use-traffic-manager-with-cloud-service-staging-slots"></a>Trafik Yöneticisi bulut hizmeti 'Staging' yuvası ile kullanabilir miyim?

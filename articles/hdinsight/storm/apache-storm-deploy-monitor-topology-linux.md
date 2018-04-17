@@ -1,8 +1,8 @@
 ---
-title: "Dağıtma ve Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs"
-description: "Dağıtma, izleme ve Linux tabanlı Hdınsight üzerinde Storm panosunu kullanarak Apache Storm topolojilerini yönetme öğrenin. Visual Studio Hadoop araçlarını kullanın."
+title: Dağıtma ve Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs
+description: Dağıtma, izleme ve Linux tabanlı Hdınsight üzerinde Storm panosunu kullanarak Apache Storm topolojilerini yönetme öğrenin. Visual Studio Hadoop araçlarını kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 18b7b5d56acb4d9d0c2ed007f0521193e37d82e8
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9dd63e1f3ec381dd99495ebc6193198611c76c88
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme
 
@@ -95,13 +93,13 @@ Hdınsight araçları C# veya karma topolojiler Storm kümenize göndermek için
 
 ## <a name="submit-a-topology-programmatically"></a>Bir topoloji gönderin: program aracılığıyla
 
-Nimbus hizmetini kullanarak bir topoloji programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) provides an example Java application that demonstrates how to deploy and start a topology through the Nimbus service.
+Nimbus hizmetini kullanarak bir topoloji programlı olarak dağıtabilirsiniz. [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) bir örnek nasıl dağıtıp Nimbus hizmeti aracılığıyla bir topoloji başlatmak gösteren bir Java uygulama sağlar.
 
 ## <a name="monitor-and-manage-visual-studio"></a>İzleme ve yönetme: Visual Studio
 
 Visual Studio kullanarak bir topoloji gönderildiğinde **Storm topolojilerini** görünümü görüntülenir. Topoloji çalışan topolojisi ile ilgili bilgileri görüntülemek için listeden seçin.
 
-![visual studio monitor](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
+![Visual studio İzleyicisi](./media/apache-storm-deploy-monitor-topology-linux/vsmonitor.png)
 
 > [!NOTE]
 > De görüntüleyebilirsiniz **Storm topolojilerini** gelen **Sunucu Gezgini** genişleterek **Azure** > **Hdınsight**ve Hdınsight kümesinde bir Storm sağ tıklayıp seçerek **görünüm Storm topolojilerini**.
@@ -220,7 +218,7 @@ Daha fazla bilgi için bkz: [Storm kullanıcı Arabirimi REST API](http://storm.
 
 ### <a name="base-uri"></a>Taban URI
 
-Linux tabanlı Hdınsight kümeleri REST API için taban URI konumundaki baş düğüm üzerinde kullanılabilir **API/https://HEADNODEFQDN:8744/v1/**. Baş düğüm etki alanı adı, küme oluşturma sırasında oluşturulur ve statik değil.
+Linux tabanlı Hdınsight kümeleri REST API için taban URI konumundaki baş düğüm üzerinde kullanılabilir **https://HEADNODEFQDN:8744/api/v1/**. Baş düğüm etki alanı adı, küme oluşturma sırasında oluşturulur ve statik değil.
 
 Küme baş düğüm için tam etki alanı adı (FQDN) birkaç farklı şekilde bulabilirsiniz:
 

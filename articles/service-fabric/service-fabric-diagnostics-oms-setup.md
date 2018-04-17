@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric - ayarlamak OMS günlük analizi ile izleme | Microsoft Docs
-description: Operations Management Suite Görselleştirme ve olayları çözümlemek için Azure Service Fabric kümeleri izlemek için nasıl ayarlanacağını öğrenin.
+title: Azure Service Fabric - ayarlamak günlük analizi ile izleme | Microsoft Docs
+description: Günlük analizi Görselleştirme ve olayları çözümlemek için Azure Service Fabric kümeleri izlemek için nasıl ayarlanacağını öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: srrengar
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/30/2018
 ms.author: dekapur; srrengar
-ms.openlocfilehash: 2589efa1808a394f2e32b842efa2ee70809da232
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 807c703eccf336236846212b8a0cadc20ec2bc4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="set-up-operations-management-suite-log-analytics-for-a-cluster"></a>Operations Management Suite günlük analizi bir küme için Ayarla
+# <a name="set-up-log-analytics-for-a-cluster"></a>Bir küme için günlük analizi Ayarla
 
-Bir Operations Management Suite (OMS) çalışma alanını Azure Resource Manager, PowerShell veya Azure Marketi kullanarak ayarlayabilirsiniz. Dağıtımınızın gelecekte kullanım için güncelleştirilmiş bir Resource Manager şablonu bulunduruyorsanız, OMS ortamınızı ayarlamak için aynı şablonu kullanın. Market aracılığıyla dağıtımı etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. OMS dağıtma hesabında abonelik düzeyinde erişimi yoksa, PowerShell veya Resource Manager şablonunu kullanarak dağıtın.
+Günlük analizi çalışma alanı Azure Resource Manager, PowerShell veya Azure Market üzerinden ayarlayabilirsiniz. Dağıtımınızın gelecekte kullanım için güncelleştirilmiş bir Resource Manager şablonu bulunduruyorsanız, OMS ortamınızı ayarlamak için aynı şablonu kullanın. Market aracılığıyla dağıtımı etkin Tanılama ile dağıtılan bir kümeye zaten sahipseniz daha kolay olur. OMS dağıtma hesabında abonelik düzeyinde erişimi yoksa, PowerShell veya Resource Manager şablonunu kullanarak dağıtın.
 
 > [!NOTE]
-> Kümenizi izlemek için OMS ayarlamak için tanılama küme düzeyi veya platform düzeyi olayları görüntülemek için etkin olması gerekir.
+> Kümenizi izlemek için günlük analizi ayarlamak için tanılama küme düzeyi veya platform düzeyi olayları görüntülemek için etkin olması gerekir.
 
 ## <a name="deploy-oms-by-using-azure-marketplace"></a>Azure Market kullanarak OMS dağıtma
 

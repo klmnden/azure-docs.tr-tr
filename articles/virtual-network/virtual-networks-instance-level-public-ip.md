@@ -1,10 +1,10 @@
 ---
-title: "Azure örneği düzeyinde (Klasik) ortak IP adresleri | Microsoft Docs"
-description: "Örnek düzeyinde ortak IP (ILPIP) yöneliktir ve bunların nasıl yönetileceğini anlamak PowerShell kullanarak."
+title: Azure örneği düzeyinde (Klasik) ortak IP adresleri | Microsoft Docs
+description: Örnek düzeyinde ortak IP (ILPIP) yöneliktir ve bunların nasıl yönetileceğini anlamak PowerShell kullanarak.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
 ms.service: virtual-network
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
-ms.author: jdial
-ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: genli
+ms.openlocfilehash: 631b667b12941781a7e69361a0e731f94b7119f8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyinde ortak IP (Klasik) genel bakış
 Bir örnek düzeyinde ortak IP (ILPIP), VM veya Bulut Hizmetleri rol örneği için doğrudan yerine, VM'deki veya rol örneğindeki bulunan bulut hizmetine atayabilirsiniz genel bir IP adresi ' dir. Bir ILPIP, sanal IP (bulut Hizmetinize atanmış VIP) yer almaz. Bunun yerine, doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz ek bir IP adresi değil.
@@ -43,7 +43,7 @@ Azure'da bulut hizmeti oluşturduğunuzda, karşılık gelen DNS A kayıtların�
 ## <a name="why-would-i-request-an-ilpip"></a>Bir ILPIP isteme neden?
 Bulut kullanmak yerine VIP Doğrudan kendisine atanmış bir IP adresine göre VM'deki veya rol örneğine bağlanmak istiyorsanız, hizmet:&lt;bağlantı noktası numarası&gt;, VM veya rol örneği için bir ILPIP isteyin.
 
-* **Etkin FTP** -bir VM için bir ILPIP atayarak onu herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları VM trafiği almak gerekli değildir.  (Https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) [FTP Protokolü genel bakış] FTP protokolünü hakkında ayrıntılı bilgi için bkz.
+* **Etkin FTP** -bir VM için bir ILPIP atayarak onu herhangi bir bağlantı noktasında trafik alabilir. Uç noktaları VM trafiği almak gerekli değildir.  Bakın (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview)[FTP Protokolü genel bakış] FTP protokolünü hakkında ayrıntılı bilgi için.
 * **Giden IP** - sanal makineden giden trafiği ILPIP kaynağı olarak eşleştirilir ve ILPIP dış varlıklar VM benzersiz şekilde tanımlar.
 
 > [!NOTE]

@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 6c5b5c8c9dbb03a2189eb5f1539499ace55e7dfc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3e3ee232b6342601e44d728148d32e70e6f3f00b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Örnek veri bilimi sanal makinelerde (DSVM)
 
@@ -36,7 +36,7 @@ Jupyter not defterlerini ve Jupyter üzerinde dayalı olmayan bazı biçiminde d
 | **CNTK** <br/> (Microsoft Bilişsel Araç Seti)  | Bilişsel Araç Seti ekibi Microsoft tarafından yayımlanan örnekleri öğrenme derin.  <br/> [ekran görüntüsü](#cntk) | <br/>**Windows**:<br/> `~notebooks/CNTK/Tutorials`<br/><br/>`~/samples/CNTK-Samples-2-0/Examples`<br/><br/> **Linux**:<br/> `~notebooks/CNTK`<br/> <br/>|
 | **MXNet** dizüstü bilgisayarlar  | Derin kullanılarak örnekleri öğrenme **MXNet** sinir ağları tabanlı. Gelişmiş senaryolar için başlangıç değişen not defterlerini çeşitli vardır.  <br/> [ekran görüntüsü](#mxnet) | <br/>`~notebooks/mxnet`<br/> <br/>|
 | **Azure Machine Learning** AzureML  | Etkileşimde **Azure Machine Learning** Studio ve bulut tabanlı Puanlama iş akışları için yerel olarak eğitilmiş modeller web hizmeti uç noktaları oluşturuluyor. <br/> [ekran görüntüsü](#azureml) | <br/>`~notebooks/azureml`<br/> <br/>|
-| **caffe2** | Derin kullanılarak örnekleri öğrenme **caffe2** sinir ağları tabanlı. Veri kümesi oluşturma, regresyon, önceden işlenmesi ve kullanarak görüntü eğitilmiş modeller önceden gibi örnekler dahil olmak üzere birkaç dizüstü kullanıcıları caffe2 ve etkili bir şekilde kullanma hakkında bilgi edinmek için tasarlanmış vardır. <br/> [ekran görüntüsü](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
+| **Caffe2** | Derin kullanılarak örnekleri öğrenme **caffe2** sinir ağları tabanlı. Veri kümesi oluşturma, regresyon, önceden işlenmesi ve kullanarak görüntü eğitilmiş modeller önceden gibi örnekler dahil olmak üzere birkaç dizüstü kullanıcıları caffe2 ve etkili bir şekilde kullanma hakkında bilgi edinmek için tasarlanmış vardır. <br/> [ekran görüntüsü](#caffe2) | <br/>`~notebooks/caffe2`<br/><br/> |
 | **H2O**   | Python tabanlı örnekleri kullanan **H2O** pek çok gerçek dünya senaryoları sorunları. <br/> [ekran görüntüsü](#h2o) | <br/>`~notebooks/h2o`<br/><br/> |
 | **SparkML** dili  | Özellik ve yetenekler Spark ın kullanan örnek **Mllib'i** araç takımı aracılığıyla **pySpark 2.0** üzerinde **Apache Spark 2.0**.  <br/> [ekran görüntüsü](#sparkml) | <br/>`~notebooks/SparkML/pySpark`<br/><br/> |
 | **MMLSpark** dili  | Örnekleri yararlanarak çeşitli **MMLSpark - Apache Spark Microsoft Machine Learning'de**, hangi birkaç derin öğrenme ve veri bilimi araçlar sağlayan bir çerçevedir **Apache Spark**. <br/> [ekran görüntüsü](#sparkml) | <br/>`~notebooks/MMLSpark`<br/><br/> |
@@ -87,7 +87,7 @@ Aynı parola, oturum açma olarak DSVM için oturum açın.
 <br/>![MXnet örnekleri](./media/mxnet-samples.png)<br/>
 
 ## <a name="azureml"></a>AzureML 
-<br/>![AzurekML Samples](./media/azureml-samples.png)<br/>
+<br/>![AzurekML örnekleri](./media/azureml-samples.png)<br/>
 
 ## <a name="caffe2"></a>Caffe2 
 <br/>![caffe2 örnekleri](./media/caffe2-samples.png)<br/>

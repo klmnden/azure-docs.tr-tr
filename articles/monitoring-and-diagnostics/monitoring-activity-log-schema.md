@@ -1,6 +1,6 @@
 ---
-title: "Azure etkinlik günlüğü olay şeması | Microsoft Docs"
-description: "Etkinlik günlüğü yayılan veriler için olay şeması anlama"
+title: Azure etkinlik günlüğü olay şeması | Microsoft Docs
+description: Etkinlik günlüğü yayılan veriler için olay şeması anlama
 author: johnkemnetz
 manager: robb
 services: monitoring-and-diagnostics
@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
-ms.author: johnkem
-ms.openlocfilehash: a5c05466b21184a73d08190856e00ae95ee3727f
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.date: 4/12/2018
+ms.author: dukek
+ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da oluşan herhangi bir abonelik düzeyi olayı bir anlayış sağlar günlüktür. Bu makalede veri kategorisi başına olay şema açıklanmaktadır.
@@ -29,7 +29,7 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
 {
     "authorization": {
         "action": "Microsoft.Network/networkSecurityGroups/write",
-        "scope": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
+        "scope": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG"
     },
     "caller": "rob@contoso.com",
     "channels": "Operation",
@@ -74,7 +74,7 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
         "localizedValue": "Administrative"
     },
     "eventTimestamp": "2018-01-29T20:42:31.3810679Z",
-    "id": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
+    "id": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG/events/d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d/ticks/636528553513810679",
     "level": "Informational",
     "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
     "operationName": {
@@ -90,7 +90,7 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
         "value": "Microsoft.Network/networkSecurityGroups",
         "localizedValue": "Microsoft.Network/networkSecurityGroups"
     },
-    "resourceId": "/subscriptions/dd042f02-6b3e-4f79-939a-6a381ffed3c0/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
+    "resourceId": "/subscriptions/<subscription ID>/resourcegroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/myNSG",
     "status": {
         "value": "Succeeded",
         "localizedValue": "Succeeded"
@@ -100,7 +100,7 @@ Bu kategorideki tüm kaydını içerir oluşturma, güncelleştirme, silme ve ey
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-01-29T20:42:50.0724829Z",
-    "subscriptionId": "dd042f02-6b3e-4f79-939a-6a381ffed3c0",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "statusCode": "Created",
         "serviceRequestId": "a4c11dbd-697e-47c5-9663-12362307157d",
@@ -154,7 +154,7 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
       "localizedValue": "Service Health"
   },
   "eventTimestamp": "2017-07-20T23:30:14.8022297Z",
-  "id": "/subscriptions/mySubscriptionID/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
+  "id": "/subscriptions/<subscription ID>/events/c5bc4514-6642-2be3-453e-c6a67841b073/ticks/636361902148022297",
   "level": "Warning",
   "operationName": {
       "value": "Microsoft.ServiceHealth/incident/action",
@@ -167,7 +167,7 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
       "value": null,
       "localizedValue": ""
   },
-  "resourceId": "/subscriptions/mySubscriptionID",
+  "resourceId": "/subscriptions/<subscription ID>",
   "status": {
       "value": "Active",
       "localizedValue": "Active"
@@ -176,7 +176,7 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
       "value": null
   },
   "submissionTimestamp": "2017-07-20T23:30:34.7431946Z",
-  "subscriptionId": "mySubscriptionID",
+  "subscriptionId": "<subscription ID>",
   "properties": {
     "title": "Network Infrastructure - UK South",
     "service": "Service Fabric",
@@ -194,35 +194,7 @@ Bu kategori, Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir.
   }
 }
 ```
-
-### <a name="property-descriptions"></a>Özellik açıklamaları
-Öğe adı | Açıklama
--------- | -----------
-kanallar | Aşağıdaki değerlerden biridir: "Yönetici", "İşlem"
-correlationId | Genellikle bir GUID dize biçiminde değil. Olaylar, ile ait aynı uber eylemi genellikle aynı correlationıd değeri paylaşın.
-açıklama | Olay açıklaması.
-eventDataId | Bir olay benzersiz tanımlayıcısı.
-EventName | Olay başlığı.
-düzey | Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" ve "Ayrıntılı"
-resourceProviderName | Etkilenen kaynak için kaynak sağlayıcısının adı. Bilinmiyor, bu boş olacaktır.
-resourceType| Etkilenen kaynağın kaynak türü. Bilinmiyor, bu boş olacaktır.
-alt durum | Genellikle hizmet sistem durumu olayları için null.
-eventTimestamp | Günlük olayı oluşturulur ve etkinlik günlüğü gönderilen zaman damgası.
-submissionTimestamp |   Olay etkinlik günlüğünde kullanılabilir duruma zaman damgası.
-subscriptionId | Bu olayın günlüğe yazıldığı Azure aboneliği.
-durum | İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır: etkin, çözüldü.
-operationName | İşlemin adı. Genellikle Microsoft.ServiceHealth/incident/action.
-category | "ServiceHealth"
-resourceId | Etkilenen kaynağının biliniyorsa kaynak kimliği. Abonelik kimliği aksi sağlanır.
-Properties.title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılan dildir.
-Properties.communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
-Properties.incidentType | Olası değerler: AssistedRecovery, ActionRequired, bilgi, olay, bakım, güvenlik
-Properties.trackingId | Bu olay ile ilişkili olay tanımlar. Bir olaya ilgili olayları ilişkilendirmek için bunu kullanın.
-Properties.impactedServices | Hizmetlerin ve olaydan etkilenen bölgeler açıklar bir kaçış karakterli JSON blobu. Her biri bir ServiceName ve her biri bir RegionName sahip ImpactedRegions listesini sahip hizmetlerin listesini.
-Properties.defaultLanguageTitle | İngilizce dilinde iletişim
-Properties.defaultLanguageContent | Html biçimlendirmesi veya düz metin olarak İngilizce dilinde iletişim
-Properties.Stage | AssistedRecovery, ActionRequired, bilgi, olay, güvenlik için olası değerler: etkin, olan çözümlendi. Bakım için oldukları: etkin, planlanmış, devam ediyor, iptal edildi, Rescheduled, çözümlenmiş, tamamlandı
-Properties.communicationId | Bu olay iletişimi ilişkilidir.
+Başvurmak [hizmet durumu bildirimlerine](./monitoring-service-notifications.md) özelliklerinde değerler ile ilgili belgeler için makalenin.
 
 ## <a name="alert"></a>Uyarı
 Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategorideki görür olay türü "myVM CPU % 80'den son 5 dakika için bırakıldı." örneğidir Azure sistemleri çeşitli sahip bir uyarı verme kavramı--bir kural çeşit tanımlayabilir ve bu kural için koşullara uyan bir bildirim alıyorsunuz. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar, bir kayıt etkinleştirme etkinlik günlüğü bu kategoriyi de gönderilir.
@@ -236,7 +208,7 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
   "claims": {
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/alertRules"
   },
-  "correlationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "correlationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "description": "'Disk read LessThan 100000 ([Count]) in the last 5 minutes' has been resolved for CloudService: myResourceGroup/Production/Event.BackgroundJobsWorker.razzle (myResourceGroup)",
   "eventDataId": "149d4baf-53dc-4cf4-9e29-17de37405cd9",
   "eventName": {
@@ -247,25 +219,25 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
     "value": "Alert",
     "localizedValue": "Alert"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle/events/149d4baf-53dc-4cf4-9e29-17de37405cd9/ticks/636362258535221920",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "Microsoft.ClassicCompute",
     "localizedValue": "Microsoft.ClassicCompute"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/Event.BackgroundJobsWorker.razzle",
   "resourceType": {
     "value": "Microsoft.ClassicCompute/domainNames/slots/roles",
     "localizedValue": "Microsoft.ClassicCompute/domainNames/slots/roles"
   },
-  "operationId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
+  "operationId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert/incidents/L3N1YnNjcmlwdGlvbnMvZGY2MDJjOWMtN2FhMC00MDdkLWE2ZmItZWIyMGM4YmQxMTkyL3Jlc291cmNlR3JvdXBzL0NzbUV2ZW50RE9HRk9PRC1XZXN0VVMvcHJvdmlkZXJzL21pY3Jvc29mdC5pbnNpZ2h0cy9hbGVydHJ1bGVzL215YWxlcnQwNjM2MzYyMjU4NTM1MjIxOTIw",
   "operationName": {
     "value": "Microsoft.Insights/AlertRules/Resolved/Action",
     "localizedValue": "Microsoft.Insights/AlertRules/Resolved/Action"
   },
   "properties": {
-    "RuleUri": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
+    "RuleUri": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/alertrules/myalert",
     "RuleName": "myalert",
     "RuleDescription": "",
     "Threshold": "100000",
@@ -284,14 +256,14 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
   },
   "eventTimestamp": "2017-07-21T09:24:13.522192Z",
   "submissionTimestamp": "2017-07-21T09:24:15.6578651Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 ```
 
 ### <a name="property-descriptions"></a>Özellik açıklamaları
 | Öğe adı | Açıklama |
 | --- | --- |
-| çağıran | Always Microsoft.Insights/alertRules |
+| çağıran | Her zaman Microsoft.Insights/alertRules |
 | kanallar | Her zaman "Yönetici, işlemi" |
 | Talepleri | JSON blob uyarı altyapısı SPN (hizmet asıl adı) ya da kaynak türüne sahip. |
 | correlationId | Dize biçimindeki bir GUID. |
@@ -322,20 +294,20 @@ Bu kategorideki tüm etkinleştirmeleri Azure uyarı kaydı içerir. Bu kategori
 | properties.resourceId | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay kaynağı kimliği. |
 | properties.eventTimestamp | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı olay zaman damgası. |
 | properties.operationName | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olayı işlem adı. |
-| properties.status | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay durumu.|
+| Properties.Status | Etkinleştirilmesi bu etkinliği günlük uyarı kuralı neden etkinlik günlüğü olay durumu.|
 
 #### <a name="properties-for-metric-alerts"></a>Ölçüm uyarıların özellikleri
 | Öğe adı | Açıklama |
 | --- | --- |
-| properties.RuleUri | Ölçüm uyarı kuralı kendisini kaynak kimliği. |
-| properties.RuleName | Ölçüm uyarı kuralı adı. |
-| properties.RuleDescription | (Uyarı kuralı tanımlanan) ölçüm uyarı kuralı açıklaması. |
+| Özellikler. RuleUri | Ölçüm uyarı kuralı kendisini kaynak kimliği. |
+| Özellikler. RuleName | Ölçüm uyarı kuralı adı. |
+| Özellikler. RuleDescription | (Uyarı kuralı tanımlanan) ölçüm uyarı kuralı açıklaması. |
 | Özellikler. Eşik | Ölçüm uyarı kuralı hesaplanmasında kullanılan eşik değeri. |
-| properties.WindowSizeInMinutes | Ölçüm uyarı kuralı hesaplanmasında kullanılan pencere boyutu. |
-| properties.Aggregation | Ölçüm uyarı kuralda tanımlanan toplama türü. |
-| properties.Operator | Ölçüm uyarı kuralı hesaplanmasında kullanılan koşullu işleç. |
-| properties.MetricName | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçüm adı. |
-| properties.MetricUnit | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçü birimi. |
+| Özellikler. WindowSizeInMinutes | Ölçüm uyarı kuralı hesaplanmasında kullanılan pencere boyutu. |
+| Özellikler. Toplama | Ölçüm uyarı kuralda tanımlanan toplama türü. |
+| Özellikler. İşleci | Ölçüm uyarı kuralı hesaplanmasında kullanılan koşullu işleç. |
+| Özellikler. MetricName | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçüm adı. |
+| Özellikler. MetricUnit | Ölçüm uyarı kuralı hesaplanmasında kullanılan ölçüm ölçü birimi. |
 
 ## <a name="autoscale"></a>Otomatik Ölçeklendirme
 Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Ne zaman koşulları Ölçekle yukarı veya aşağı, başlangıç sınamadan ve başarılı veya başarısız olayları bu kategorideki kaydedilmez.
@@ -349,7 +321,7 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
     "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/autoscaleSettings"
   },
   "correlationId": "fc6a7ff5-ff68-4bb7-81b4-3629212d03d0",
-  "description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+  "description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
   "eventDataId": "a5b92075-1de9-42f1-b52e-6f3e4945a7c7",
   "eventName": {
     "value": "AutoscaleAction",
@@ -359,14 +331,14 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
     "value": "Autoscale",
     "localizedValue": "Autoscale"
   },
-  "id": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
+  "id": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup/events/a5b92075-1de9-42f1-b52e-6f3e4945a7c7/ticks/636361956518681572",
   "level": "Informational",
   "resourceGroupName": "myResourceGroup",
   "resourceProviderName": {
     "value": "microsoft.insights",
     "localizedValue": "microsoft.insights"
   },
-  "resourceId": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
+  "resourceId": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/microsoft.insights/autoscalesettings/myResourceGroup-Production-myResource-myResourceGroup",
   "resourceType": {
     "value": "microsoft.insights/autoscalesettings",
     "localizedValue": "microsoft.insights/autoscalesettings"
@@ -377,8 +349,8 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
     "localizedValue": "Microsoft.Insights/AutoscaleSettings/Scaledown/Action"
   },
   "properties": {
-    "Description": "The autoscale engine attempting to scale resource '/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
-    "ResourceName": "/subscriptions/mySubscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
+    "Description": "The autoscale engine attempting to scale resource '/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource' from 3 instances count to 2 instances count.",
+    "ResourceName": "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.ClassicCompute/domainNames/myResourceGroup/slots/Production/roles/myResource",
     "OldInstancesCount": "3",
     "NewInstancesCount": "2",
     "LastScaleActionTime": "Fri, 21 Jul 2017 01:00:51 GMT"
@@ -392,7 +364,7 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
   },
   "eventTimestamp": "2017-07-21T01:00:51.8681572Z",
   "submissionTimestamp": "2017-07-21T01:00:52.3008754Z",
-  "subscriptionId": "mySubscriptionID"
+  "subscriptionId": "<subscription ID>"
 }
 
 ```
@@ -413,11 +385,11 @@ Bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçekle
 | operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). |
-| properties.Description | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
-| properties.ResourceName | Etkilenen kaynağının kaynak kimliği (kaynak üzerinde ölçek eylemi gerçekleştirilir) |
+| Özellikler. Açıklama | Otomatik ölçeklendirme altyapısı yapmakta olduğu ayrıntılı açıklaması. |
+| Özellikler. ResourceName | Etkilenen kaynağının kaynak kimliği (kaynak üzerinde ölçek eylemi gerçekleştirilir) |
 | properties.OldInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü önce örneği sayısı. |
-| properties.NewInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü sonra örneği sayısı. |
-| properties.LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği damgası. |
+| Özellikler. NewInstancesCount | Otomatik ölçeklendirme eylemi etkisi sürdü sonra örneği sayısı. |
+| Özellikler. LastScaleActionTime | Otomatik ölçeklendirme eylemi gerçekleştiği damgası. |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
 | alt durum | Genellikle otomatik ölçeklendirme için null. |
 | eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
@@ -443,7 +415,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
         "localizedValue": "Security"
     },
     "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
-    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "id": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
     "level": "Informational",
     "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
     "operationName": {
@@ -459,7 +431,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
         "value": "Microsoft.Security/locations/alerts",
         "localizedValue": "Microsoft.Security/locations/alerts"
     },
-    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "resourceId": "/subscriptions/<subscription ID>/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -468,7 +440,7 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
         "value": null
     },
     "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
-    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "accountLogonId": "0x2r4",
         "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
@@ -499,12 +471,12 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
 | düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
 | resourceGroupName |Kaynak için kaynak grubunun adı. |
 | resourceProviderName |Azure Güvenlik Merkezi için kaynak sağlayıcısının adı. Her zaman "Microsoft.Security". |
-| resourceType |"Microsoft.Security/locations/alerts" gibi güvenlik olayı oluşturulan kaynak türü |
+| Kaynak türü |"Microsoft.Security/locations/alerts" gibi güvenlik olayı oluşturulan kaynak türü |
 | resourceId |Güvenlik Uyarısı kaynak kimliği. |
 | operationId |Tek bir işleme karşılık gelen olayları arasında paylaşılan bir GUID. |
 | operationName |İşlemin adı. |
 | properties |Kümesi `<Key, Value>` olay ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük). Bu özellikler, güvenlik uyarısı türüne bağlı olarak değişir. Bkz: [bu sayfayı](../security-center/security-center-alerts-type.md) gelen güvenlik Merkezi'nden uyarı türlerini açıklaması. |
-| properties.Severity |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
+| Özellikler. Önem derecesi |Önem düzeyi. Olası değerler şunlardır: "Yüksek" "Orta" veya "Düşük." |
 | durum |İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır:, ilerleme, başarılı, başarısız, etkin, çözümlenmiş başlatıldı. |
 | alt durum | Genellikle güvenlik olayları için null. |
 | eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |

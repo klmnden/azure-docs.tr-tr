@@ -1,24 +1,20 @@
 ---
 title: Data Warehouse birimlerinde (Dwu, cDWUs) Azure SQL Data Warehouse nedir? | Microsoft Docs
-description: "Azure SQL veri ambarı özellikleri genişletme performans. Dwu, cDWUs, ayarlayarak ölçeğini veya duraklatıp işlem kaynakları maliyet tasarrufu sağlamak."
+description: Azure SQL veri ambarı özellikleri genişletme performans. Dwu, cDWUs, ayarlayarak ölçeğini veya duraklatıp işlem kaynakları maliyet tasarrufu sağlamak.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jhubbard
-editor: 
-ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: f634bdde2c71f7563df11f686d7ce217311df81d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+author: sqlmojo
+manager: craigg-msft
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/09/2018
+ms.author: joeyong
+ms.reviewer: jrj
+ms.openlocfilehash: 56d59be2074a3047ce19fde3e808354266040864
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
+---
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimlerini (Dwu'lar) ve bilgi işlem Data Warehouse birimleri (cDWUs)
 Veri ambarı birimlerini (cDWUS) Azure SQL Data Warehouse için işlem ve veri ambarı birimlerini (Dwu'lar) açıklanmaktadır. Data warehouse birimleri ve bunları sayısını değiştirmek nasıl ideal sayısını seçmeye ilişkin öneriler içerir. 
@@ -38,6 +34,27 @@ Dwu artırma:
 - Doğrusal olarak taramaları, toplamalar ve CTAS deyimleri için sistem performansını değiştirir
 - Okuyucular ve PolyBase yükleme işlemleri için yazarları sayısını artırır
 - Eş zamanlı sorgular ve eşzamanlılık yuvaları en fazla sayısını artırır.
+
+## <a name="service-level-objective"></a>Hizmet düzeyi hedefi
+Hizmet düzeyi hedefi (SLO), veri ambarı maliyet ve performans düzeyini belirler ölçeklenebilirlik ayardır. İşlem performans katmanı ölçek için iyileştirilmiş için hizmet düzeylerini işlem data warehouse birimlerinde (cDWU), örneğin DW2000c ölçülür. Esneklik hizmet düzeyleri için iyileştirilmiş Dwu, örneğin DW2000 ölçülür. 
+
+T-SQL servıce_objectıve ayarı, hizmet düzeyi ve veri ambarınız için performans katmanı belirler.
+
+```sql
+--Optimized for Elasticity
+CREATE DATABASE myElasticSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000'
+)
+;
+
+--Optimized for Compute
+CREATE DATABASE myComputeSQLDW
+WITH
+(    SERVICE_OBJECTIVE = 'DW1000c'
+)
+;
+```
 
 ## <a name="performance-tiers-and-data-warehouse-units"></a>Performans katmanı ve Data Warehouse birimleri
 
@@ -209,7 +226,7 @@ Bazı ek anahtar performans kavramlarını anlamanıza yardımcı olması için 
 [Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
-[SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor
+[SQL DB Contributor]:../role-based-access-control/built-in-roles.md#sql-db-contributor
 
 <!--MSDN references-->
 [ALTER DATABASE]: https://msdn.microsoft.com/library/mt204042.aspx

@@ -87,14 +87,14 @@ PerfMon sayaçları işlemci, bellek ve her mantıksal disk ve fiziksel disk sun
 | --- | --- | --- | --- |
 | **IOPS veya saniye başına işlem** |Saniye başına depolama disk verilen g/ç istek sayısı. |Disk Okuma/sn <br> Disk Yazma/sn |TP'leri <br> r/s <br> w/s |
 | **Disk okuma ve yazma işlemleri** |% Okuma ve yazma disk üzerinde gerçekleştirilen işlemler. |% Disk okuma süresi <br> % Disk yazma süresi |r/s <br> w/s |
-| **Üretilen iş** |Okunan veya diske saniye başına yazılan veri miktarı. |Disk okuma bayt/sn <br> Disk Yazma Bayt/sn |kB_read/s <br> kB_wrtn/s |
+| **Aktarım hızı** |Okunan veya diske saniye başına yazılan veri miktarı. |Disk Okuma Bayt/sn <br> Disk Yazma Bayt/sn |kB_read/s <br> kB_wrtn/s |
 | **Gecikme süresi** |Bir disk g/ç isteği tamamlamak için toplam süre. |Ortalama Disk sn/Okuma <br> Ortalama disk sn/yazma |await <br> svctm |
 | **G/ç boyutu** |G/ç boyutu, depolama diskleri sorunları ister. |Ortalama Disk bayt/okuma <br> Ortalama Disk Bayt/yazma |avgrq sz |
 | **Sıra Derinliği** |Formu okuma veya depolama diske yazılan üzere bekleyen istekleri bekleyen g/ç sayısı. |Geçerli Disk Sırası Uzunluğu |avgqu sz |
 | **Maks. Bellek** |Uygulamanın düzgün çalışması için gerekli bellek miktarı |% Kullanılan kaydedilmiş bayt |Vmstat kullanın |
 | **Maks. CPU** |Uygulamanın düzgün çalışması için gerekli CPU tutar |% İşlemci zamanı |% kul |
 
-Daha fazla bilgi edinmek [iostat](http://linuxcommand.org/man_pages/iostat1.html) ve [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Daha fazla bilgi edinmek [iostat](https://linux.die.net/man/1/iostat) ve [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
 
 ## <a name="optimizing-application-performance"></a>Uygulama performansı en iyi duruma getirme
 Premium depolama üzerinde çalışan bir uygulama performansını etkileyen ana faktörler yapısı, g/ç isteği, VM boyutunu, Disk boyutu, diskler, Disk önbelleğe alma, çoklu iş parçacığı kullanımı ve sıra derinliği sayısı adı verilir. Bu etkenler bazıları, sistem tarafından sağlanan düğmelerini ile denetleyebilirsiniz. Çoğu uygulama sıra derinliği ve g/ç boyutu doğrudan değiştirmek için bir seçenek vermeyebilir. Örneğin, SQL Server kullanıyorsanız, g/ç boyutu ve sıra derinliği seçemezsiniz. SQL Server çoğu performans almak için en iyi g/ç boyutu ve sıra derinliği değerleri seçer. Böylece performans gereksinimlerini karşılamak için uygun kaynaklara sağlayabilirsiniz Etkenler her iki tür, uygulama performansı üzerindeki etkisini anlamak önemlidir.
@@ -104,7 +104,7 @@ Bu bölümde, uygulama performansını iyileştirmek ne kadar gerektiğini belir
 ### <a name="optimizing-iops-throughput-and-latency-at-a-glance"></a>IOPS, üretilen iş ve gecikme süresi bir bakışta en iyi duruma getirme
 Aşağıdaki tabloda tüm performans Etkenler ve IOPS, üretilen iş ve gecikme süresi en iyi duruma getirmek için gereken adımları özetler. Bu Özet aşağıdaki bölümler her anlatmaktadır çok daha kapsamlı bir faktördür.
 
-| &nbsp; | **IOPS** | **Üretilen iş** | **Gecikme süresi** |
+| &nbsp; | **IOPS** | **Aktarım hızı** | **Gecikme süresi** |
 | --- | --- | --- | --- |
 | **Örnek senaryo** |İkinci oranı başına çok yüksek işlem gerektiren Kurumsal OLTP uygulama. |Kurumsal veri uygulama işleme büyük miktarlarda veri ambarı. |Çevrimiçi oyun gibi kullanıcı isteklerine anlık yanıtlar gerektiren gerçek zamanlı uygulamaları. |
 | Performans Etkenler | &nbsp; | &nbsp; | &nbsp; |
@@ -140,10 +140,10 @@ G/ç boyutu değiştirmenize izin verir, bir uygulama kullanıyorsanız, diğer 
 
 | Uygulama dağıtımı gereksinimi | G/ç boyutu | IOPS | Üretilen iş/bant genişliği |
 | --- | --- | --- | --- |
-| Maksimum IOPS |8 KB |5,000 |Saniye başına 40 MB |
-| En fazla üretilen işi |1024 KB |200 |200 MB / saniye |
+| Maks. IOPS |8 KB |5.000 |Saniye başına 40 MB |
+| En fazla üretilen işi |1.024 KB |200 |200 MB / saniye |
 | En büyük verimi + yüksek IOPS |64 KB |3,200 |200 MB / saniye |
-| Maksimum IOPS + yüksek verimlilik |32 KB |5,000 |Saniye başına 160 MB |
+| Maksimum IOPS + yüksek verimlilik |32 KB |5.000 |Saniye başına 160 MB |
 
 IOPS ve tek premium depolama diskini en büyük değerden daha yüksek bant genişliği elde etmek için birlikte şeritli birden çok premium diskleri kullanın. Örneğin, bir birleşik IOPS 10.000 IOPS sayısı veya 400 MB birleşik verimini saniyede almak için iki P30 disk şeritler. Sonraki bölümde açıklandığı gibi birleştirilmiş destekleyen bir VM boyutu kullanmalısınız IOPS ve üretilen iş disk.
 
@@ -246,7 +246,7 @@ Veri diskleri için önerilen disk önbellek ayarlarını şunlardır,
 | salt okunur |Konak önbelleği salt okunur ve okuma-yazma diskler için salt okunur olarak yapılandırın. |
 | ReadWrite |Yalnızca uygulamanızı düzgün bir şekilde gerektiğinde kalıcı disklere önbelleğe alınmış veri yazma işliyorsa konak önbelleği ReadWrite yapılandırın. |
 
-*Salt okunur*  
+*salt okunur*  
 Premium depolama verileri önbelleğe alma diskleri ReadOnly yapılandırarak, düşük okuma gecikme süresine ulaşmanız ve çok yüksek okuma IOPS ve üretilen iş uygulamanız için alın. İki nedeni budur,
 
 1. Okuma VM belleği ve yerel SSD önbelleğinden gerçekleştirilen, Azure blob depolama veri diskten okuma hızlıdır.  

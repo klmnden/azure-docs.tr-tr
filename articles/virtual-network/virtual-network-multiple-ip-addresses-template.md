@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal makineleri - şablonu için birden çok IP adresi | Microsoft Docs"
-description: "Bir Azure Resource Manager şablonu kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin."
-documentationcenter: 
+title: Azure sanal makineleri - şablonu için birden çok IP adresi | Microsoft Docs
+description: Bir Azure Resource Manager şablonu kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin.
+documentationcenter: ''
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak sanal makineleri için birden çok IP adresi atayın
 
@@ -47,7 +47,7 @@ Bir şablonu dağıtmayı, hızlı ve tutarlı bir şekilde Azure kaynakları il
 |Ad|Açıklama|
 |---|---|
 |adminUsername|Yönetici kullanıcı adı. Kullanıcı adı uymalıdır [Azure kullanıcı adı gereksinimleri](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Admınpassword|Yönetici parolası parola ile uyumlu [Azure parola gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+|adminPassword|Yönetici parolası parola ile uyumlu [Azure parola gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|PublicIPAddressName1 için DNS adı. DNS adı, bir VM'ye atanan genel IP adresleri çözer. Ad, VM oluşturma Azure bölgesi (konum) içinde benzersiz olmalıdır.|
 |dnsLabelPrefix1|PublicIPAddressName2 için DNS adı. DNS adı, bir VM'ye atanan genel IP adresleri çözer. Ad, VM oluşturma Azure bölgesi (konum) içinde benzersiz olmalıdır.|
 |OSVersion|VM için Windows/Linux sürümü. Seçili verilen Windows/Linux sürümü tam olarak düzeltme eki görüntüsü işletim sistemidir.|
@@ -68,7 +68,7 @@ Azure portalını kullanarak şablonu dağıtmak için aşağıdaki adımları t
 1. Şablon isterseniz değiştirin. Şablon kaynakları dağıtır ve ayarları listelenen [kaynakları](#resources) bu makalenin. Şablonlar ve bunlara Yazar hakkında daha fazla bilgi için okuma [Azure Resource Manager şablonları yazma](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-network%2ftoc.json)makalesi.
 2. Şablon aşağıdaki yöntemlerden biriyle dağıtın:
     - **Portalda şablonu seçin:** bölümündeki adımları tamamlamanız [özel şablon kaynaklardan dağıtmak](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template) makalesi. Adlı önceden var olan şablonu seçin *vm birden çok ipconfig 101*.
-    - **Doğrudan:** doğrudan portal şablonu açmak için aşağıdaki düğmeye tıklayın:<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+    - **Doğrudan:** doğrudan portal şablonu açmak için aşağıdaki düğmeye tıklayın: <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-multiple-ipconfig%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
 Yönteminden bağımsız olarak seçtiğiniz için değerler girmeniz gerekir [parametreleri](#parameters) daha önce bu makalede listelenmektedir. VM dağıtıldıktan sonra VM'ye bağlanın ve dağıtılan içindeki adımları tamamlayarak işletim sistemine özel IP adresleri ekleme [eklemek IP adresleri bir VM işletim sistemine](#os-config) bu makalenin. Genel IP adreslerine işletim sistemine eklemeyin.
 

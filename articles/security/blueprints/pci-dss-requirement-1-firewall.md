@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması - güvenlik duvarı gereksinimleri"
+title: Azure ödeme işleme şeması - güvenlik duvarı gereksinimleri
 description: PCI DSS gereksinim 1
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 995ecd5ef876695145fc6313aba2a46d2cc085cc
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 4e04d6417f1468c1bafada1a93ab63a73e39653d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="firewall-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için güvenlik duvarı gereksinimleri 
 ## <a name="pci-dss-requirement-1"></a>PCI DSS gereksinim 1
@@ -43,7 +43,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore CDE saldırısından PaaS yalıtım kullanarak sağlar ve bir uygulama hizmeti ortamı uygulama CDE giriş ve çıkış veri korunur sağlar.<br /><br />Bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) olan uyumluluk nedenleriyle kullanılan bir Premium hizmet planı. Ana denetimleri ve yapılandırma hakkında daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore CDE saldırısından PaaS yalıtım kullanarak sağlar ve bir uygulama hizmeti ortamı uygulama CDE giriş ve çıkış veri korunur sağlar.<br /><br />Bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) olan uyumluluk nedenleriyle kullanılan bir Premium hizmet planı. Ana denetimleri ve yapılandırma hakkında daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -57,7 +57,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore örneği tüm değişiklikleri doğru yönetilen sağlamaya yönelik bir CI/CD DevOps modeli oluşturur. [Operations Management Suite (OMS)](/azure/operations-management-suite/) değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore örneği tüm değişiklikleri doğru yönetilen sağlamaya yönelik bir CI/CD DevOps modeli oluşturur. Günlük analizi değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).<br /><br />[Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.|
 
 
 
@@ -70,7 +70,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Yükleme düzeni çözümün bir parçası olarak sağlanan Contoso Webstore başvuru mimarisi ve tasarım belgelerine bakın.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Yükleme düzeni çözümün bir parçası olarak sağlanan Contoso Webstore başvuru mimarisi ve tasarım belgelerine bakın.|
 
 
 
@@ -83,7 +83,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore DFD ve tehdit modeli bakın.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore DFD ve tehdit modeli bakın.|
 
 
 
@@ -96,7 +96,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure sınır koruma cihazları ağ geçitleri, ağ ACL'leri ve platform düzeyinde iç ve dış sınırlarında denetim iletişimler için uygulama güvenlik duvarları gibi kullanır. Müşteri, sonra bunları kendi belirtimler ve gereklilikler için yapılandırır. Microsoft Azure platformu ile çıkarken iletişimi filtreler. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore PaaS yalıtım kullanarak DMZ sağlar ve bir uygulama hizmeti ortamı uygulama CDE giriş ve çıkış veri korunur sağlar.<br /><br />Bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) olan uyumluluk nedenleriyle kullanılan bir Premium hizmet planı. Ana denetimleri ve yapılandırma hakkında daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore PaaS yalıtım kullanarak DMZ sağlar ve bir uygulama hizmeti ortamı uygulama CDE giriş ve çıkış veri korunur sağlar.<br /><br />Bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) olan uyumluluk nedenleriyle kullanılan bir Premium hizmet planı. Ana denetimleri ve yapılandırma hakkında daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -109,7 +109,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure rol tabanlı erişim denetimi (RBAC)](/azure/active-directory/role-based-access-control-configure) kullanıcı rollerine ayırmak için. RBAC tam olarak Azure için odaklı erişim yönetimi sağlar. Belirli yapılandırmalar abonelik erişim ve Azure anahtar kasası erişim için mevcut.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/role-assignments-portal) kullanıcı rollerine ayırmak için. RBAC tam olarak Azure için odaklı erişim yönetimi sağlar. Belirli yapılandırmalar abonelik erişim ve Azure anahtar kasası erişim için mevcut.|
 
 
 
@@ -122,7 +122,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalnızca gerekli bağlantı noktalarını ve protokolleri RA tasarım boyunca açar. Veri akışı ayrıntılarını DFD ve tehdit modeli görülebilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalnızca gerekli bağlantı noktalarını ve protokolleri RA tasarım boyunca açar. Veri akışı ayrıntılarını DFD ve tehdit modeli görülebilir.|
 
 
 
@@ -135,7 +135,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore'un hiçbir gereksiz veya kullanılmayan kuralları dahil olduğundan emin olmak için güvenlik duvarı kural kümeleri incelenen. Tasarım gereği, en küçük yolu kaplama alanı bir en az ayrıcalık demo dağıtılır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore'un hiçbir gereksiz veya kullanılmayan kuralları dahil olduğundan emin olmak için güvenlik duvarı kural kümeleri incelenen. Tasarım gereği, en küçük yolu kaplama alanı bir en az ayrıcalık demo dağıtılır.|
 
 
 
@@ -151,7 +151,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore'nın CDE RA ve dağıtım belgelerinde tanımlanır. Güvenilmeyen ağlarda tasarım gereği reddedilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore'nın CDE RA ve dağıtım belgelerinde tanımlanır. Güvenilmeyen ağlarda tasarım gereği reddedilir.|
 
 
 
@@ -164,7 +164,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore'nın CDE RA ve dağıtım belgelerinde tanımlanır. Güvenilmeyen ağlarda tasarım gereği reddedilir. Contoso Webstore demo yalnızca belirtilen Microsoft Azure hizmetlerine erişmek için IP adresi aralıklarına izin vermek için Microsoft Azure uygulaması güvenlik duvarı yapılandırır. Contoso Webstore reddetme tüm güvenlik duvarı hiç CDE sınırları sağlar. Tüm yapılandırmaları dağıtımı ilk kurulum sırasında gerçekleştirilir.
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore'nın CDE RA ve dağıtım belgelerinde tanımlanır. Güvenilmeyen ağlarda tasarım gereği reddedilir. Contoso Webstore demo yalnızca belirtilen Microsoft Azure hizmetlerine erişmek için IP adresi aralıklarına izin vermek için Microsoft Azure uygulaması güvenlik duvarı yapılandırır. Contoso Webstore reddetme tüm güvenlik duvarı hiç CDE sınırları sağlar. Tüm yapılandırmaları dağıtımı ilk kurulum sırasında gerçekleştirilir.
 
 > [!NOTE]
 > Uygulama hizmeti ortamı (ana) kullanılan ana ana tarafından yapılması giden bağlantılara izin veren bir DMZ yalıtım uygulayan CDE ancak yalıtmak için bu çözümde, tam güvenlik Assessor'ne (QSA) Bu çözüm, hesaplar gerekli olur. PCI-DSS gerekli olmayan tüm gelen ve giden bağlantılara engellenmelidir gerektirir. Ana düzgün çalışması için ana giden bağlantılar olarak kuracak için tanımlandığı gibi gerekli ["Uygulama hizmeti ortamı için ağ konuları"](/azure/app-service/app-service-environment/network-info). Müşteriler gereksinimlerini karşılayacak emin olmak için çözüm bir üretim ortamına dağıtmadan önce QSA ile giden bağlantılar belirlemelidir. |
@@ -180,7 +180,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore yapılandırmaları için Microsoft Azure yerel ağ denetimleri eşitlenmesini sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore yapılandırmaları için Microsoft Azure yerel ağ denetimleri eşitlenmesini sağlar.|
 
 
 
@@ -193,7 +193,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore herhangi bir kablosuz çözümleri veya etkin özelliklerine sahip değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore herhangi bir kablosuz çözümleri veya etkin özelliklerine sahip değil.|
 
 
 
@@ -206,7 +206,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure güvenlik duvarları, yük Dengeleyiciler ve ACL'ler gibi ağ ve ana bilgisayar tabanlı sınır koruma cihazlar kullanır. Bu aygıtların VLAN yalıtımı, NAT ve paket ayrı müşteri Internet'ten ve yönetim trafiği için filtreleme gibi kullanın. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı, aynı anda yalnızca belirtilen Azure VM'ler savunma kendi CDE içeriyor, siteye erişmek için IP adreslerini aralıklarına izin vermek için Azure uygulaması güvenlik duvarı yapılandırmalarını sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı, aynı anda yalnızca belirtilen Azure VM'ler savunma kendi CDE içeriyor, siteye erişmek için IP adreslerini aralıklarına izin vermek için Azure uygulaması güvenlik duvarı yapılandırmalarını sağlar.|
 
 
 
@@ -220,7 +220,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Yalnızca yetkili hizmetler ile CDE bağlanabilir kendi DMZ Contoso Webstore uygulanmasını sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Yalnızca yetkili hizmetler ile CDE bağlanabilir kendi DMZ Contoso Webstore uygulanmasını sağlar.|
 
 
 
@@ -233,7 +233,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Yalnızca yetkili hizmetler ile CDE bağlanabilir kendi DMZ Contoso Webstore uygulanmasını sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Yalnızca yetkili hizmetler ile CDE bağlanabilir kendi DMZ Contoso Webstore uygulanmasını sağlar.|
 
 
 
@@ -246,7 +246,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ağ sahte trafiğini önlemek ve güvenilir platform bileşenleri için gelen ve giden trafiği kısıtlamak için filtreyi uygular. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -260,7 +260,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore mimarisi kapsam içinde ortamından yetkisiz giden trafik Internet'e engeller. Bu, Microsoft Azure'da giden trafik ACL'ler onaylanan bağlantı noktalarını ve protokolleri için yapılandırarak gerçekleştirilir. Bu denetimler SQL Server veritabanında CDE erişimi bulunur. <br /><br />PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore mimarisi kapsam içinde ortamından yetkisiz giden trafik Internet'e engeller. Bu, Microsoft Azure'da giden trafik ACL'ler onaylanan bağlantı noktalarını ve protokolleri için yapılandırarak gerçekleştirilir. Bu denetimler SQL Server veritabanında CDE erişimi bulunur. <br /><br />PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -274,7 +274,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ağ sahte trafiğini önlemek ve güvenilir platform bileşenleri için gelen ve giden trafiği kısıtlamak için filtreyi uygular. Microsoft Azure ağı müşteri trafiğinden gelen yönetim trafiğini ayırmak için ayrılır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -288,7 +288,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure müşteri trafiği yönetim trafiği ayrı ağ arasında ayrım yapma ve NAT'ı kullanır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore mimarisi kapsam içinde ortamından yetkisiz giden trafik Internet'e engeller. Bu, Microsoft Azure'da giden trafik ACL'ler onaylanan bağlantı noktalarını ve protokolleri için yapılandırarak gerçekleştirilir. Bu denetimler SQL Server veritabanında CDE erişimi bulunur. <br /><br />PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore mimarisi kapsam içinde ortamından yetkisiz giden trafik Internet'e engeller. Bu, Microsoft Azure'da giden trafik ACL'ler onaylanan bağlantı noktalarını ve protokolleri için yapılandırarak gerçekleştirilir. Bu denetimler SQL Server veritabanında CDE erişimi bulunur. <br /><br />PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -309,7 +309,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure müşteri trafiği yönetim trafiği ayrı ağ adresi çevirisi (NAT) ve ağ arasında ayrım yapma kullanır. Azure cihazlar tarafından kendi UUID benzersiz şekilde tanımlanır ve Kerberos kullanarak kimlik doğrulaması. Azure ağ aygıtları ele RFC 1918 IP tarafından tanımlanan yönetilen. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore proxy sunucuları/güvenlik duvarı arkasında tüm kart sahibi veri yerleştirir ve RFC1918 adres alanı dahili olarak kullanır.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore proxy sunucuları/güvenlik duvarı arkasında tüm kart sahibi veri yerleştirir ve RFC1918 adres alanı dahili olarak kullanır.|
 
 
 
@@ -324,7 +324,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore cihazları son kullanıcı koruma sağlamaz. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) tanıdıkları kullanan şirket verilerine erişmek için mobil cihazları yönetmek için kullanılabilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore cihazları son kullanıcı koruma sağlamaz. [Microsoft Intune](https://www.microsoft.com/cloud-platform/microsoft-intune) tanıdıkları kullanan şirket verilerine erişmek için mobil cihazları yönetmek için kullanılabilir.|
 
 
 
@@ -337,7 +337,7 @@ Güvenlik duvarları için minimum gereksinimleri gereksinim 1'de tanımlanan ka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı, aynı anda yalnızca belirtilen Azure VM'ler savunma kendi CDE içeriyor, siteye erişmek için IP adreslerini aralıklarına izin vermek için Azure uygulaması güvenlik duvarı yapılandırmalarını sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore dağıtımı, aynı anda yalnızca belirtilen Azure VM'ler savunma kendi CDE içeriyor, siteye erişmek için IP adreslerini aralıklarına izin vermek için Azure uygulaması güvenlik duvarı yapılandırmalarını sağlar.|
 
 
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5316efb54a12b5ad057d5a0561f36efdfff30884
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: devtiw
+ms.openlocfilehash: cb523b4fbf6e8abdf5c5158ab041d3485add9b23
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk şifrelemesi ile ilgili SSS
 
@@ -46,7 +46,7 @@ Azure Disk şifrelemesi aşağıdaki Linux sunucu dağıtımları ve sürümleri
 
 | Linux dağıtım | Sürüm | Şifreleme için desteklenen birim türü|
 | --- | --- |--- |
-| Ubuntu | 16.04-DAILY-LTS | İşletim sistemi ve veri diski |
+| Ubuntu | 16.04 GÜNLÜK LTS | İşletim sistemi ve veri diski |
 | Ubuntu | 14.04.5-DAILY-LTS | İşletim sistemi ve veri diski |
 | RHEL | 7.4 | Veri diski * |
 | RHEL | 7.3 | Veri diski * |
@@ -63,9 +63,9 @@ Azure Disk şifrelemesi aşağıdaki Linux sunucu dağıtımları ve sürümleri
 | CentOS | 6.5 | Veri diski |
 | openSUSE | 13.2 | Veri diski |
 | SLES | 12 SP1 | Veri diski |
-| SLES | Priority:12-SP1 | Veri diski |
+| SLES | Öncelik: 12-SP1 | Veri diski |
 | SLES | HPC 12 | Veri diski |
-| SLES | Priority:11-SP4 | Veri diski |
+| SLES | Öncelik: 11-SP4 | Veri diski |
 | SLES | 11 SP4 | Veri diski |
 
 *__ADE RHEL için veri diski için desteklenir. Geçerli ADE uygulaması için işletim sistemi diski çalışır ancak şu anda ortaklaşa desteklenmiyor. Hem Microsoft hem de Red Hat ortaklaşa desteklenen bir çözüm üzerinde çalışmaktadır. Bu arada, Linux işletim sistemi disk şifrelemesi ADE Teknik Başvurusu yapabilir [burada](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption).__

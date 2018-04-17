@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi şeması"
-description: "FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi"
+title: Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi şeması
+description: FedRAMP Web uygulamaları Otomasyon - Risk değerlendirmesi
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7abdb674b9d6bb000ce9a8e1861d012c1882f2a5
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 7a7529f9a0ebe43c9fd6e473baff6f7a3b61e5e5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="risk-assessment-ra"></a>Risk değerlendirmesi (RA)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu bir risk değerlendirme İlkesi Kurumsal varlıklar ve uyumluluk arasında; ve ilişkili risk değerlendirmesi denetimleri ve risk değerlendirme ilkesi uygulaması kolaylaştırmak için yordamlar; gözden geçirir ve geçerli risk değerlendirme İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve risk değerlendirmesi yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.a** kuruluş bilgilerini ve bilgi sistem federal yasaların, Executive siparişler, yönergeleri, ilkeleri, düzenlemeler, standartlar ve Kılavuzu uygun olarak kategorilere ayırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.b** bilgi sistemi güvenlik planı (stratejinin destekleme dahil) güvenlik kategori sonuçlarını kuruluş belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-2.c** kuruluş resmi yetkilendirme veya belirlenen temsilcisi gözden geçirir ve güvenlik kategori kararı onaylar resmi yetkilendirme sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.a** olasılığını ve yetkisiz erişim, kullanım, açığa çıkması, kesintisi, değiştirme veya bilgileri sistem ve bilgileri yok etme zarar büyüklüğünü dahil olmak üzere risk değerlendirmesini kuruluş yürütür, işler, depolar ve iletir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.b** kuruluş risk değerlendirmesi sonuçlarında belgeleri [seçim: güvenlik planı; risk değerlendirmesi raporu; [Atama: kuruluş tarafından tanımlanan belge]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.c** kuruluş risk değerlendirme sonuçlarını gözden geçirir [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.d** kuruluş risk değerlendirme sonuçlarını disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-3.e** Risk değerlendirmesi kuruluş güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı] veya bilgi sistem veya ortam (yeni tehditler ve güvenlik açıkları tanımlaması dahil), işleminin önemli bir değişiklik olduğunda veya Sistem güvenlik durumunu etkileyebilecek diğer koşulları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,11 +157,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.a** kuruluş içinde bilgi sistem güvenlik açıkları için tarar ve barındırılan uygulamalara [atama: kuruluş tarafından tanımlanan sıklığı ve/veya kuruluşunuz tarafından tanımlanan işlem rastgele içinde belge] ve ne zaman yeni güvenlik açıkları Sistem/uygulamaları olası etkileyen tanımlanır ve bildirdi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Kayıt defteri anahtarlarını, Denetim İlkesi ayarlarını ve bu ayarlar için önerilen değerleri Microsoft'un yanı sıra güvenlik ilkesi ayarları kümesi temeli değerlendirme değerlendirir. Güncelleştirme değerlendirme dağıtılan tüm sanal makinelerin kullanılabilir güncelleştirmeleri durumunu değerlendirir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Kayıt defteri anahtarlarını, Denetim İlkesi ayarlarını ve bu ayarlar için önerilen değerleri Microsoft'un yanı sıra güvenlik ilkesi ayarları kümesi temeli değerlendirme değerlendirir. Güncelleştirme değerlendirme dağıtılan tüm sanal makinelerin kullanılabilir güncelleştirmeleri durumunu değerlendirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -171,11 +171,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.b** kuruluşun güvenlik açığı tarama araçları ve Araçlar birlikte çalışabilirliğini kolaylaştırmak ve güvenlik açığı Yönetimi sürecinin bölümleri platformları, yazılım açıkları numaralandırmak için standartlar kullanarak otomatikleştirmek teknikler kullanır ve yanlış yapılandırmaları; Biçimlendirme listelerini ve test yordamları; ve güvenlik açığı etkisi ölçme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Tanımlanan sorunların önem derecesi atanır. Common Configuration Enumeration (CCE) kimlikleri için taban çizgisi değerlendirme kuralları sağlanır.  |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Tanımlanan sorunların önem derecesi atanır. Common Configuration Enumeration (CCE) kimlikleri için taban çizgisi değerlendirme kuralları sağlanır.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.c** kuruluş sonuçları güvenlik denetimi değerlendirmeleri ve güvenlik açığı taraması raporları analiz eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.d** kuruluş yasal güvenlik açıkları çözümlerse [atama: kuruluş tarafından tanımlanan yanıt sürelerini] bir kuruluş risk değerlendirmesini uygun olarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5.e** Kuruluş işlemi ve güvenlik denetimi değerlendirmeleri ile tarama açığından alınan bilgi paylaşır [atama: kuruluş tarafından tanımlanan personel ya da roller] benzer güvenlik açıkları diğer bilgi systems (yani, ortadan kaldırmanıza yardımcı olmak için sistemle ilgili zayıf veya eksiklikleri).
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,11 +227,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (1)** kuruluşun güvenlik açığı tarama taşımalarına taranacak bilgileri sistem güvenlik açıkları güncelleştirme yeteneğine sahiptir araçlarını kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (2)** kuruluş taranan bilgileri sistem güvenlik açıkları güncelleştirmeleri [seçimi (bir veya daha fazla): [atama: kuruluş tarafından tanımlanan sıklığı] yeni güvenlik açıkları tanımlanır ve raporlanan zaman yeni bir tarama önce;;].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Göre bu çözümleri değerlendirme ölçütleri otomatik olarak güncelleştirilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (3)** kuruluş avantajlarına ve kapsamı (yani, taranan bilgi sistem bileşenleri ve kullanıma güvenlik açıkları) derinliği belirleyebilir yordamları tarama güvenlik açığı kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Güncelleştirme değerlendirme hem Windows hem de Linux sanal makinelere karşı değerlendirmesi gerçekleştirir. Taban çizgisi değerlendirme endüstri en iyi uygulamalarına göre geliştirilmiş Microsoft baseline kullanarak Windows sanal makineleri karşı değerlendirmesi gerçekleştirir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Çözüm içinde iki güvenlik etki alanları, güncelleştirme değerlendirmesi ve temel değerlendirme kullanılabilir. Güncelleştirme değerlendirme hem Windows hem de Linux sanal makinelere karşı değerlendirmesi gerçekleştirir. Taban çizgisi değerlendirme endüstri en iyi uygulamalarına göre geliştirilmiş Microsoft baseline kullanarak Windows sanal makineleri karşı değerlendirmesi gerçekleştirir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (4)** rakiplerin tarafından bulunabilir olduğundan ve daha sonra geçen bilgi sistemi hakkında bilgiler kuruluş belirler [atama: kuruluş tarafından tanımlanan düzeltici eylemler].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (5)** bilgi sistemi ayrıcalıklı erişim yetkisi uygulayan [atama: kuruluş tanımlanan bilgiler sistem bileşenleri] Seçilen için [atama: kuruluş tarafından tanımlanan güvenlik açığı etkinlikleri tarama].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,11 +297,11 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (6)** kuruluşun güvenlik açığı taramaları bilgileri sistem güvenlik açıkları eğilimleri belirlemek için zaman içinde sonuçları karşılaştırmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | OMS günlük analizi ve Microsoft izleme aracısı tarafından toplanan verileri çözümlemek için özelleştirilmiş Pano kutucukları oluşturma yeteneği sağlar. Bu kutucuklar, zaman içinde eğilimleri göstermek için özelleştirilebilir. |
+| **Müşteri** | Azure günlük analizi ve Microsoft izleme aracısı tarafından toplanan verileri çözümlemek için özelleştirilmiş Pano kutucukları oluşturma yeteneği sağlar. Bu kutucuklar, zaman içinde eğilimleri göstermek için özelleştirilebilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (8)** kuruluş bilgileri sistemde tanımlanan bir güvenlik açığı daha önce Yararlanılması durumunda belirlemek için geçmiş denetim günlüklerini gözden geçirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,9 +325,9 @@ ms.lasthandoff: 02/11/2018
 
 **RA-5 (10)** kuruluş çok-vulnerability/çok-hop saldırı vektörlerinin varlığını belirlemek için Araçlar tarama güvenlik açığı çıktısını karşılık gelen.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik tutumunu kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan yönetim çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |

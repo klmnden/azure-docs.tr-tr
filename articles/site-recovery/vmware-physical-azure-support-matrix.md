@@ -5,37 +5,57 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 04/08/2018
 ms.author: raynew
-ms.openlocfilehash: 28ddecc45faa213d1fd536b5ad8690e151037505
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b2a6e3052c64ab6a2865a0c24a4876cb2b98d1a8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
 Bu makalede desteklenen bileşenleri ve VMware Vm'lerini olağanüstü durum kurtarma Azure ayarlarını kullanarak özetler [Azure Site Recovery](site-recovery-overview.md).
 
-## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="replication-scenario"></a>Çoğaltma senaryosu
 
 **Senaryo** | **Ayrıntılar**
 --- | ---
-VMware Sanal Makineleri | Şirket içi VMware Vm'leri için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
-Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel sunucuları için Azure olağanüstü durum kurtarma gerçekleştirebilirsiniz. Bu senaryo Azure portalında dağıtabilirsiniz.
+VMware Sanal Makineleri | Şirket içi VMware Vm'lerini azure'a çoğaltma. Bu senaryo Azure portalında veya PowerShell kullanarak dağıtabilirsiniz.
+Fiziksel sunucuları | Şirket içi Windows/Linux fiziksel serversto Azure çoğaltma. Bu senaryo Azure portalında dağıtabilirsiniz.
 
 ## <a name="on-premises-virtualization-servers"></a>Şirket içi sanallaştırma sunucuları
 
 **Sunucu** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.
+VMware | vCenter Server 6.5, 6.0 veya 5.5 ya da vSphere 6.5, 6.0 veya 5.5 | Bir vCenter sunucusu kullanmanızı öneririz.<br/><br/> VSphere ana bilgisayarları ve vCenter sunucuları işlem sunucusu olarak aynı ağda bulunan öneririz. İşlem sunucusu bileşenleri çalıştırır yapılandırma sunucusunda bir adanmış işlem sunucusu ayarlamadıysanız bu yapılandırma sunucu, ayarlama ağ olur. 
 Fiziksel | Yok
 
+## <a name="site-recovery-configuration-server"></a>Site kurtarma yapılandırma sunucusu
+
+Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak üzere, Site Recovery bileşenlerini çalıştıran bir şirket içi makineyi yapılandırma sunucusudur. VMware çoğaltma için yapılandırma sunucusu tüm gereksinimleri ile VMware VM oluşturmak için OVF şablon kullanma ayarladığınız. Fiziksel sunucu çoğaltma için yapılandırma sunucusu makine el ile ayarlayabilir.
+
+**Bileşen** | **Gereksinimleri**
+--- |---
+CPU çekirdekleri | 8 
+RAM | 12 GB
+Disk sayısı | 3 diskleri<br/><br/> Diskler, işletim sistemi diski, işlem sunucusu önbellek disk ve yeniden çalışma için bekletme sürücüsü içerir.
+Boş disk alanı | İşlem sunucusunun önbellek için gereken alanı 600 GB.
+Boş disk alanı | Bekletme sürücüsü için gerekli alanı 600 GB.
+İşletim sistemi  | Windows Server 2012 R2 veya Windows Server 2016 | 
+İşletim sistemi yerel ayarı | İngilizce (en-us) 
+Powerclı | [Powerclı 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "Powerclı 6.0") yüklü olmalıdır.
+Windows Server rolleri | Etkinleştirme: <br> - Active Directory Domain Services <br>- İnternet Bilgi Hizmetleri <br> - Hyper-V |
+Grup İlkeleri| Etkinleştirme: <br> -Komut istemi erişimi engelleyin. <br> -Düzenleme araçları kayıt defterine erişim engelleyin. <br> -Dosya ekleri için mantığı güven. <br> -Komut dosyası yürütme açın. <br> [Daha fazla bilgi](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+IIS | Emin olun:<br/><br/> -Önceden var olan bir varsayılan Web sitesi yok <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -443 numaralı bağlantı noktasını dinlemeye önceden var olan Web sitesi/uygulama yok<br>
+NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3 
+IP adresi türü | Statik 
+Bağlantı Noktaları | denetim kanalı düzenleme için kullanılan 443)<br>Veri taşıma için kullanılan 9443
 
 ## <a name="replicated-machines"></a>Çoğaltılan makineler
 
-VMware Vm'lerini ve fiziksel sunucuları çoğaltma desteği aşağıdaki tabloda özetlenmiştir. Site Recovery, desteklenen bir işletim sistemine sahip bir makine üzerinde çalışan herhangi bir iş yükünü çoğaltmasını destekler.
+Site Recovery, desteklenen bir makinede çalışan herhangi bir iş yükünü çoğaltmasını destekler.
 
 **Bileşen** | **Ayrıntılar**
 --- | ---
@@ -155,7 +175,7 @@ Konuk/sunucu çok yollu (MPIO) | Yok
 **Bileşen** | **Destekleniyor**
 --- | ---
 Yerel olarak yedekli depolama | Evet
-Coğrafi Olarak Yedekli Depolama | Evet
+Coğrafi olarak yedekli depolama | Evet
 Coğrafi olarak yedekli depolamaya okuma erişimi | Evet
 Seyrek erişimli depolama | Hayır
 Sık erişimli depolama| Hayır

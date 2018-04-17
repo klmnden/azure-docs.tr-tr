@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse ile Azure Data Factory kullanın | Microsoft Docs"
-description: "Çözümleri geliştirme için Azure SQL Data Warehouse ile Azure Data Factory (ADF) kullanma ipuçları."
+title: SQL Data Warehouse ile Azure Data Factory kullanın | Microsoft Docs
+description: Çözümleri geliştirme için Azure SQL Data Warehouse ile Azure Data Factory (ADF) kullanma ipuçları.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: 492de762-c7a2-4cdb-943f-3135230e94f1
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
 ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>SQL Data Warehouse ile Azure Data Factory kullanın
 Azure Data Factory veri aktarımını ve saklı yordamlar SQL veri ambarı üzerinde yürütülmesi yönetme için tam olarak yönetilen bir yöntem sağlar.  Bu yordamlara daha kolay kurulum ve zamanlama karmaşık ayıklamak dönüştürme ve yükleme (ETL) SQL veri ambarı ile olanak sağlar. Azure Data Factory daha kapsamlı bir genel bakış için bkz: [Azure Data Factory belgelerine][Azure Data Factory documentation].

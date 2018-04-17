@@ -2,7 +2,7 @@
 |-----------------------------------------|------------|---|
 |[C#](../articles/azure-functions/functions-reference-csharp.md)|GA|Önizleme|
 |[JavaScript](../articles/azure-functions/functions-reference-node.md)|GA|Önizleme|
-|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA||
+|[F#](../articles/azure-functions/functions-reference-fsharp.md)|GA|Önizleme|
 |[Java](../articles/azure-functions/functions-reference-java.md)||Önizleme|
 |Python              |Deneysel||
 |PHP                 |Deneysel||

@@ -1,12 +1,12 @@
 ---
-title: "Azure genel bulutunda yalıtım | Microsoft Docs"
-description: "Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin."
+title: Azure genel bulutunda yalıtım | Microsoft Docs
+description: Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a153d70e077ad63a042e76d0c4ae40e3cc067a2a
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 996079e0062bf1e24ae2bf24354a94167e6adff3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutunda yalıtımı
 ##  <a name="introduction"></a>Giriş
@@ -52,7 +52,7 @@ Bulutun etkin olduğu çalışma alanında kiracı, bulut hizmetinin belirli bir
 Her Azure AD dizini, diğer Azure AD dizinlerinden farklı ve ayrıdır. Kurumsal ofis binasının yalnızca kuruluşunuza özel güvenilir bir varlık olması gibi, Azure AD dizini de yalnızca sizin kuruluşunuz tarafından kullanılmak üzere tasarlanan güvenilir bir varlıktır. Azure AD mimarisi, müşteri verilerini ve kimlik bilgilerini ortak karıştırma alanından yalıtır. Bu, bir Azure AD dizinindeki kullanıcıların ve yöneticilerin yanlışlıkla veya kötü amaçlı olarak başka bir dizindeki verilere erişemeyeceği anlamına gelir.
 
 ### <a name="azure-tenancy"></a>Azure kiralama
-Azure kiralama (Azure abonelik) başvuran bir "Müşteri/faturalama" ilişki ve benzersiz bir [Kiracı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) içinde [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kiracı düzeyinde yalıtım Microsoft Azure, Azure Active Directory'yi kullanarak gerçekleştirilir ve [rol tabanlı denetimler](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) tarafından sunulan. Her Azure aboneliği bir Azure Active Directory (AD) dizin ile ilişkilendirilir.
+Azure kiralama (Azure abonelik) başvuran bir "Müşteri/faturalama" ilişki ve benzersiz bir [Kiracı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) içinde [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Kiracı düzeyinde yalıtım Microsoft Azure, Azure Active Directory'yi kullanarak gerçekleştirilir ve [rol tabanlı denetimler](https://docs.microsoft.com/azure/role-based-access-control/overview) tarafından sunulan. Her Azure aboneliği bir Azure Active Directory (AD) dizin ile ilişkilendirilir.
 
 Kullanıcılar, gruplar ve bu dizine uygulamalardan Azure aboneliğindeki kaynaklar yönetebilirsiniz. Azure portalı, Azure komut satırı araçları ve Azure Management API'leri kullanılarak bu erişim haklarını atayabilirsiniz. Azure AD kiracısı böylece hiçbir müşterinin erişmek veya kötü amaçlı olarak veya yanlışlıkla ortak kiracılar tehlikeye güvenlik sınırları kullanarak mantıksal olarak ayrı tutulur. İstenmeyen bağlantılar ve trafik burada ana bilgisayar düzeyinde paket filtreleme ve Windows Güvenlik Duvarı Engelleme "tam" sunuculara ayrı ağ kesiminde yalıtılmış Azure AD çalışır.
 
@@ -80,7 +80,7 @@ Kiracı kapsayıcıları kavramı derine tüm katmanlar, bu süreç boyunca tüm
 Hatta birden çok Azure Active Directory Kiracı meta verilerini aynı fiziksel diskte depolandığında ilişkisi yoktur sırayla Kiracı Yöneticisi tarafından dikte edilir dizin hizmeti tarafından tanımlanan dışında kapsayıcıları arasında.
 
 ### <a name="azure-role-based-access-control-rbac"></a>Azure rol tabanlı erişim denetimi (RBAC)
-[Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) Azure için ayrıntılı erişim yönetimi sağlayarak bir Azure aboneliği kullanılabilen çeşitli bileşenler paylaşmanıza yardımcı olur. Azure RBAC kuruluşunuzdaki görevlerini kurabilmeleri ve kullanıcıların işlerini yapmak için gerekenler üzerinde tabanlı erişim sağlar. Kısıtlanmamış izinlerini herkes vermek yerine Azure aboneliği veya kaynakları, yalnızca belirli eylemleri izin verebilirsiniz.
+[Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) Azure için ayrıntılı erişim yönetimi sağlayarak bir Azure aboneliği kullanılabilen çeşitli bileşenler paylaşmanıza yardımcı olur. Azure RBAC kuruluşunuzdaki görevlerini kurabilmeleri ve kullanıcıların işlerini yapmak için gerekenler üzerinde tabanlı erişim sağlar. Kısıtlanmamış izinlerini herkes vermek yerine Azure aboneliği veya kaynakları, yalnızca belirli eylemleri izin verebilirsiniz.
 
 Azure RBAC tüm kaynak türleri için geçerli üç temel rol vardır:
 
@@ -94,7 +94,7 @@ Azure RBAC tüm kaynak türleri için geçerli üç temel rol vardır:
 
 Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturmak ve sanal makineleri yönetmek kullanıcının sağlar. Bu onları erişimi Azure sanal ağı veya sanal makine bağlandığı alt sağlamaz.
 
-[RBAC yerleşik rolleri](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) mevcut rolleri listeler. Her yerleşik rol kullanıcılara veren kapsam ve işlemleri belirtir. Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, nasıl oluşturacağınızı öğrenin [Azure rbac'de özel roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
+[RBAC yerleşik rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) mevcut rolleri listeler. Her yerleşik rol kullanıcılara veren kapsam ve işlemleri belirtir. Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, nasıl oluşturacağınızı öğrenin [Azure rbac'de özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Azure Active Directory için başka bazı özellikleri şunlardır:
 - Azure AD SaaS uygulamaları burada barındırılan SSO sağlar. Bazı uygulamalar Azure AD federasyonu kullanırken diğerleri parola SSO hizmetinden yararlanır. Federasyon uygulamalarına, kullanıcı sağlamayı da destekleyebilir ve [parola kasası oluşturma](https://www.techopedia.com/definition/31415/password-vault).

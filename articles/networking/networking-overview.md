@@ -1,13 +1,13 @@
 ---
-title: "Azure ağı | Microsoft Docs"
-description: "Azure ağ hizmetlerini ve özellikleri hakkında bilgi edinin."
+title: Azure ağı | Microsoft Docs
+description: Azure ağ hizmetlerini ve özellikleri hakkında bilgi edinin.
 services: networking
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: b0de4aa816d7decab1831449f855ab01b101db3a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a4f1c7c3342a2a78a2a5b765bd688bed4c85392f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-networking"></a>Azure ağı
 
@@ -138,7 +138,7 @@ Azure ağı yönetmek ve izlemek için aşağıdaki araçları sağlar:
 - **Tanılama günlüklerini:** Periyodik ve spontaneous olayları ağ kaynakları tarafından oluşturulan ve Azure depolama hesaplarında oturum, Azure olay Hub'ına gönderilen veya Azure günlük analizi için gönderilir. Tanılama günlükleri kaynak sistem durumu ilişkin bilgi sağlar. Tanılama günlükleri, yük dengeleyici (Internet'e yönelik), ağ güvenlik grupları, yol ve uygulama ağ geçidi için sağlanır. Tanılama günlükleri hakkında daha fazla bilgi için okuma [tanılama günlükleri'ne genel bakış](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Ölçümler:** ölçümleri performans ölçümleri ve kaynakları bir süre boyunca toplanan sayaçları verilmiştir. Ölçümleri eşiklere dayanarak uyarıları tetiklemek için kullanılabilir. Şu anda ölçümleri uygulama ağ geçidinde bulunmaktadır. Ölçümler hakkında daha fazla bilgi için okuma [ölçümleri genel bakış](../monitoring-and-diagnostics/monitoring-overview-metrics.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **Sorun giderme:** sorun giderme bilgileri doğrudan Azure Portalı'nda erişilebilir. ExpressRoute, VPN ağ geçidi, uygulama ağ geçidi, ağ güvenlik günlükleri, yollar, DNS, yük dengeleyici ve trafik Yöneticisi ile ortak sorunları tanılama bilgileri yardımcı olur.
-- **Rol tabanlı erişim denetimi (RBAC):** kimin oluşturabilir ve rol tabanlı erişim denetimi (RBAC) ile ağ kaynaklarını yönetme. Okuyarak RBAC hakkında daha fazla bilgi [RBAC ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi. 
+- **Rol tabanlı erişim denetimi (RBAC):** kimin oluşturabilir ve rol tabanlı erişim denetimi (RBAC) ile ağ kaynaklarını yönetme. Okuyarak RBAC hakkında daha fazla bilgi [RBAC ile çalışmaya başlama](../role-based-access-control/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi. 
 - **Paket yakalama:** Azure Ağ İzleyicisi hizmeti uzantı VM dahilinde aracılığıyla bir paket yakalama bir VM üzerinde çalışan olanağı sağlar. Bu özellik, Linux ve Windows VM'ler için kullanılabilir. Paket yakalama hakkında daha fazla bilgi için okuma [paket yakalama genel bakış](../network-watcher/network-watcher-packet-capture-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **IP akışları doğrulayın:** Ağ İzleyicisi paketleri izin verilen veya reddedilen olup olmadığını belirlemek için bir Azure VM ve uzak bir kaynak arasındaki IP akışları doğrulayın olanak tanır. Bu yetenek Yöneticiler bağlantı sorunları çabucak tanılamanızı olanağı sağlar. IP akışları doğrulama hakkında daha fazla bilgi için okuma [IP akış doğrulayın genel bakış](../network-watcher/network-watcher-ip-flow-verify-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.
 - **VPN bağlantı sorunlarını giderme:** VPN sorun gidericisini özelliği Ağ İzleyicisi, bir bağlantı veya ağ geçidi sorgulamak ve kaynakların durumunu doğrulamak olanağı sağlar. VPN bağlantılarında sorun giderme hakkında daha fazla bilgi için okuma [sorun giderme genel bakış VPN bağlantısı](../network-watcher/network-watcher-troubleshoot-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) makalesi.

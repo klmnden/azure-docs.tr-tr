@@ -1,34 +1,30 @@
 ---
-title: MPP mimarisi - Azure SQL Data Warehouse? | Microsoft Belgeleri
-description: "Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin."
+title: Azure SQL Data Warehouse - MPP mimarisi | Microsoft Docs
+description: Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: acomet
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: architecture
-ms.date: 11/15/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: 4c230eb0633b2917b90a5c1f9f4176882bfd0290
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.topic: conceptual
+ms.component: design
+ms.date: 04/11/2018
+ms.author: acomet
+ms.reviewer: mausher
+ms.openlocfilehash: a0dad8afa87b3424c8561b2aaf44fbe0f5d5dae6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - yüksek düzeyde paralel işleme (MPP) mimarisi
 Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin. 
 
 ## <a name="mpp-architecture-components"></a>MPP mimarisi bileşenleri
-SQL veri ambarı veri hesaplama işlenmesini birden çok düğüm arasında dağıtmak için Mimari genişletme yararlanır. Veri ambarı birimi bilinen işlem gücü için bir Özet ölçek birimidir. SQL veri ambarı ayırır, ölçeklendirmek için kullanıcı olarak bağımsız olarak veri sisteminizde işlem hangi etkinleştirir depolama biriminden işlem.
+SQL veri ambarı veri hesaplama işlenmesini birden çok düğüm arasında dağıtmak için Mimari genişletme yararlanır. Veri ambarı birimi bilinen işlem gücü için bir Özet ölçek birimidir. Hangi etkinleştirir ölçeklendirmenizi bağımsız olarak veri sisteminizde işlem depolama alanından SQL Data Warehouse ayırır işlem.
 
 ![SQL Data Warehouse Mimarisi](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL veri ambarı göre düğüm mimarisi kullanır. Uygulamaları bağlanın ve tek veri ambarı için giriş noktası bir denetim düğümü için T-SQL komutlarını verin. Denetim düğümü sorguları paralel işleme için en iyi duruma getirir ve ardından çalışmalarını paralel yapmak için işlem düğümlerine operations geçirir MPP altyapısı çalışır. İşlem düğümlerini Azure depolama alanında tüm kullanıcı verilerini depolamak ve paralel sorgular çalıştırın. Veri Taşıma hizmeti (DMS), paralel sorgular çalıştırmak ve doğru sonuçlar döndürmek için gerekli olan düğümler arasında verileri taşır ve sistem düzeyinde çalışan bir iç hizmetidir. 
+SQL veri ambarı düğümü tabanlı bir mimari kullanır. Uygulamaları bağlanın ve tek veri ambarı için giriş noktası bir denetim düğümü için T-SQL komutlarını verin. Denetim düğümü sorguları paralel işleme için en iyi duruma getirir ve ardından çalışmalarını paralel yapmak için işlem düğümlerine operations geçirir MPP altyapısı çalışır. İşlem düğümlerini Azure depolama alanında tüm kullanıcı verilerini depolamak ve paralel sorgular çalıştırın. Veri Taşıma hizmeti (DMS), paralel sorgular çalıştırmak ve doğru sonuçlar döndürmek için gerekli olan düğümler arasında verileri taşır ve sistem düzeyinde çalışan bir iç hizmetidir. 
 
 Ayrılmış depolama ve işlem ile SQL Veri Ambarı şunları yapabilir:
 
@@ -57,7 +53,7 @@ Her işlem düğümü sistem görünümlerde görülebilir bir düğüm kimliği
 ### <a name="data-movement-service"></a>Veri Taşıma hizmeti
 Veri Taşıma hizmeti (DMS), veri taşıma işlem düğümleri arasında koordinatları veri aktarım teknolojisidir. Bazı sorguları paralel sorgular doğru sonuçlar döndürebilir emin olmak için veri taşıma gerektirir. Veri taşıma gerekli olduğunda, doğru konuma doğru verileri alır DMS sağlar. 
 
-## <a name="distributions"></a>Dağıtımları
+## <a name="distributions"></a>Dağıtımlar
 
 Bir dağıtım depolama ve Dağıtılmış veri üzerinde çalıştıran paralel sorgular için işleme temel birimidir. SQL veri ambarı bir sorgu çalıştığında, paralel olarak çalışan 60 küçük sorgulara iş ayrılmıştır. Her 60 küçük sorgulara veri dağıtımları biri üzerinde çalışır. Her işlem düğümünde bir veya daha fazla 60 dağıtımları yönetir. Veri ambarı en fazla işlem kaynağı işlem düğümü başına tek bir dağıtım sahiptir. Veri ambarı minimum işlem kaynağı tüm dağıtımları bir işlem düğümünde sahiptir.  
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve bilgi tutarlılığı"
-description: "FedRAMP Web uygulamaları Otomasyon - sistem ve bilgi tutarlılığı"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve bilgi tutarlılığı
+description: FedRAMP Web uygulamaları Otomasyon - sistem ve bilgi tutarlılığı
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2d744032c2a35fbbedf34397861c3bb03aa39939
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 0eca3c82aea287f6582bd56574512dce5e8e86c7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-information-integrity-si"></a>Sistem ve bilgilerin bütünlüğünü (sı)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt bir sistem ve bilgi bütünlüğü İlkesi Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve sistem bilgi bütünlüğü ilkesini ve ilişkili sistem ve bilgi tutarlılığı denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli sistem ve bilgi bütünlüğü İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve sistem ve bilgi tutarlılığı yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,11 +45,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.a** kuruluş tanımlar, raporları ve bilgileri sistem açıkları düzeltir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için otomasyon ve denetim çözümü dağıtır. Panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.b** kuruluş verimliliğini ve olası yan etkileri yüklemeden önce kusur düzeltme ilgili yazılım ve bellenim güncelleştirmeleri test eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,11 +73,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.c** kuruluş içinde ilgili güvenlik yazılımı ve bellenim güncelleştirmeleri yükler [atama: kuruluş tanımlı süre] güncelleştirme sürümü.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS otomasyon ve denetim çözümü dağıtır. |
+| **Müşteri** | Bu şeması tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği otomasyon ve denetim çözümü dağıtır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 2.d** kuruluş Kurumsal yapılandırma yönetimi işlemine kusur düzeltme içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,11 +101,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (1)** kuruluşun merkezi olarak kusur düzeltme işlemini yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. OMS panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. Güncelleştirme dağıtımları, düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabilir. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için otomasyon ve denetim çözümü dağıtır. Panodan kusur düzeltme durumu dağıtılan tüm Windows sunucuları için güncelleştirme yönetimi kutucuğu görüntüler. Güncelleştirme dağıtımları, düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (2)** kuruluş otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan sıklığı] kusur düzeltme ilgili bilgileri sistem bileşenlerinin durumunu belirlemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için OMS otomasyon ve denetim çözümü dağıtır. Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır. |
+| **Müşteri** | Bu şeması bu mimaride dağıtılan Windows sanal makineleri için güncelleştirmeleri durumunu izlemek için otomasyon ve denetim çözümü dağıtır. Yönetilen her Windows bilgisayarı için günde iki kez tarama gerçekleştirilir. Her 15 dakikada bir Windows API’si çağrılarak son güncelleştirme zamanı sorgulanır; böylelikle durumun değişip değişmediği saptanır ve değişmişse bir uyumluluk taraması başlatılır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (3) bir** kuruluş kusur tanımlama ve kusur düzeltme arasındaki süreyi ölçer.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-2 (3) .b** kuruluş kurar [atama: kuruluş tarafından tanımlanan kıyaslamaları] sorunu düzeltecek eylemleri gerçekleştirmek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.a** kötü amaçlı kod koruma mekanizmalarını noktalarda Algıla ve kötü amaçlı kod yok bilgileri sistem giriş ve çıkış kuruluş kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.b** yeni sürümler Kuruluş yapılandırması yönetim ilkesi ve yordamları uygun olarak kullanılabilir olduğunda kuruluş kötü amaçlı kod koruma mekanizmalarını güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.c** kuruluş bilgi sisteminin düzenli taramalar gerçekleştirmek için kötü amaçlı kod koruma mekanizmalarını yapılandırır [atama: kuruluş tarafından tanımlanan sıklığı] ve dış kaynaklardan dosyaların gerçek zamanlı tarama [seçimi (tek veya Daha fazla); uç nokta; ağ giriş/çıkış noktaları] indirilen dosyaları gibi açılamıyor veya kuruluş güvenliği politikasının uygun olarak yürütülen; ve [seçimi (bir veya daha fazla): kötü amaçlı kod engelle; kötü amaçlı kod; yönetici; gönderme uyarısını karantinaya Al [Atama: kuruluş tarafından tanımlanan eylem]] kötü amaçlı kod algılama yanıt olarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 3.d** kötü amaçlı kod algılama ve eradication ve sonuçta elde edilen olası etkisini bilgileri sistem kullanılabilirliğini sırasında hatalı pozitif sonuç alındığını kuruluş giderir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,11 +213,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (1)** kuruluş kötü amaçlı kod koruma mekanizmalarını merkezi olarak yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Azure OMS kötü amaçlı yazılımdan koruma çözümünü geçerli durumunu gözden geçirmek için merkezi bir özellik sunar. |
+| **Müşteri** | Bu şeması tüm dağıtılan Windows sanal Microsoft Antimalware sanal makine uzantısı kullanılarak uygulanan makineler için kötü amaçlı yazılımdan koruma ana bilgisayar tabanlı korumalar dağıtır. Azure kötü amaçlı yazılımdan koruma çözümünü geçerli durumunu gözden geçirmek için merkezi bir özellik sunar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (2)** bilgi sistemi kötü amaçlı kod koruma mekanizmalarını otomatik olarak güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-3 (7)** bilgi sistemi nonsignature tabanlı kötü amaçlı kod algılama mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,11 +255,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.a** kuruluş saldırıları ve göstergeleri ile uyumlu olarak olası saldırıları algılamak için bilgi sistemi izler [atama: kuruluş tanımlı hedeflerini izleme]; ve yetkisiz yerel, ağ ve Uzaktan bağlantılar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik yaklaşımı, saldırıları ve olası saldırılara karşı göstergelerini kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözümü dağıtır. Bu çözüm güvenlik yaklaşımı, saldırıları ve olası saldırılara karşı göstergelerini kapsamlı bir görünümünü sağlar. Güvenlik ve Denetim Panosu, dağıtılan yönetim çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -269,11 +269,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.b** kuruluş bilgi sistemi yetkisiz kullanımını tanımlayan [atama: kuruluş tarafından tanımlanan teknikleri ve yöntemleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümü dağıtır. Tanımlayın ve erişim etki alanı başarısız oturum açma girişimleri sayısı ve oturum açmış geçerli hesapları sayısı gibi bilgiler sistem kimlik durumu özetini içeren bir Pano sağlar. Bu Panoda kullanılabilir bilgiler potansiyel şüpheli Etkinlik Kimliği'nde yardımcı olabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dağıtır. Tanımlayın ve erişim etki alanı başarısız oturum açma girişimleri sayısı ve oturum açmış geçerli hesapları sayısı gibi bilgiler sistem kimlik durumu özetini içeren bir Pano sağlar. Bu Panoda kullanılabilir bilgiler potansiyel şüpheli Etkinlik Kimliği'nde yardımcı olabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -283,11 +283,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.c** kuruluş izleme aygıtlar önemli bilgiler; kuruluşunuz tarafından belirlenen toplamak üzere stratejik bilgi sistemi içinde ve geçici konumlara hareketlerinin belirli türlerdeki izlemek için sistem içinde dağıtır. Kuruluş ilgilendiren.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı günlük analizi ve OMS güvenlik ve denetim çözümü dağıtır. Güvenlik ve Denetim Panosu veri kullanılabilir VM işletim sistemi izleme verilerini bir anlayış dahil olmak üzere, dağıtılan OMS çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözümü dağıtır. Güvenlik ve Denetim Panosu veri kullanılabilir VM işletim sistemi izleme verilerini bir anlayış dahil olmak üzere, dağıtılan yönetim çözümleri kullanılarak dağıtılan kaynakların güvenlik durumu üst düzey bir anlayış sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.d** kuruluş izinsiz izleme alınan bilgileri korur yetkisiz erişim, değiştirilmesi ve silinmesini araçlarından.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.e** Kuruluş bilgileri sistem kuruluş operations ve varlıklar, kişiler, diğer kuruluşların veya yasalar zorlama bilgilere göre Ulus riskinin belirtisi olduğunda Etkinlik izleme düzeyini getirilmesini sağlayan, Bilgileri'ni veya güvenilir diğer bilgi kaynakları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.f** kuruluş federal yasaların, Executive siparişler, yönergeleri, ilkeleri veya yönetmeliklere uygun olarak etkinlikleri izleme bilgileri sistem ilgili yasal fikir alır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 4.g** kuruluş sağlar [atama: kuruluş tarafından tanımlanan bilgileri sistem izleme bilgilerini] için [atama: kuruluş tarafından tanımlanan personel ya da roller] [seçimi (bir veya daha fazla): gerektiğinde; [Atama: kuruluş tarafından tanımlanan sıklığı]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (1)** kuruluş bağlanır ve tek tek izinsiz giriş algılama araçları bilgileri sistem genelinde izinsiz giriş algılama sisteme yapılandırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (2)** kuruluş gerçek zamanlı analiz olayların desteklemek için otomatik araçları kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli yönetim çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. Yönetim çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. Günlük analizi dağıtılan yönetim çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. Günlük analizi tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (4)** bilgi sistemi izler gelen ve giden iletişim trafiğini [atama: kuruluş tarafından tanımlanan sıklığı] olağan dışı ya da yetkisiz etkinlikleri veya koşulların.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,11 +395,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (5)** bilgileri sistem uyarıları [atama: kuruluş tarafından tanımlanan personel ya da roller] risk veya olası riski belirtebilen aşağıdaki belirtileri ortaya çıktığında: [atama: kuruluş tarafından tanımlanan güvenliğinin aşılmasına göstergeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dahil olmak üzere çeşitli OMS çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. OMS çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. OMS tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümü dahil olmak üzere çeşitli yönetim çözümleri dağıtır. Günlük analizi gerçek zamanlı analiz olayların dağıtılan kaynaklar sağlar. Yönetim çözümleri çözüm etki alanları arasında güvenlik tutumunu kapsamlı bir görünümünü sağlar. Günlük analizi tanımlanan ölçütlere göre uyarıları oluşturmak için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (11)** kuruluşun dış sınır bilgileri sisteminin giden iletişimler trafiğini analiz eder ve seçili [atama: kuruluş tarafından tanımlanan iç işaret (örneğin, alt ağlar, alt sistemleri) sisteminde] için anormallikleri bulma.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (14)** dolandırıcı kablosuz cihazlar tanımlamak ve saldırı algılamak için kablosuz izinsiz giriş algılama sistem dener kuruluş kullanır ve olası güvenlik ihlalleri/ihlallerine bilgi sistemi.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -437,11 +437,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (16)** kuruluş araçları bilgileri sistem genelinde değişiklik izleme bilgilerinin karşılık gelen.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli OMS çözümleri dağıtır. OMS dağıtılan OMS çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi ve güvenlik ve denetim çözüm de dahil olmak üzere çeşitli yönetim çözümleri dağıtır. Günlük analizi dağıtılan yönetim çözümleri arasında kullanılabilir veri kullanılarak dağıtılan kaynakların güvenlik durumu hakkında bilgi sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (18)** kuruluşun dış sınır bilgileri sisteminin (yani, sistem çevre) hem de giden iletişimler trafiğinin çözümler [atama: kuruluş tarafından tanımlanan iç işaret (örneğin, alt sistemleri, sistem içinde bilgilerin gizli exfiltration algılamak için alt ağlar)].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (19)** kuruluş uygular [atama: kuruluş tarafından tanımlanan ek izleme] tarafından tanımlanan kişilerin [atama: kuruluş tarafından tanımlanan kaynakları] risk daha yüksek bir düzeyde taşıyor olarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (20)** kuruluş Implements [atama: kuruluş tarafından tanımlanan ek izleme] ayrıcalıklı kullanıcı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (22)** yetkili edilmemiş veya tarafından onaylanan Ağ Hizmetleri bilgi sistemi algılar [atama: kuruluş tarafından tanımlanan yetkilendirme veya onay işlemleri] ve [seçimi (bir veya daha fazla): denetler; uyarıları [atama: "kuruluş tarafından tanımlanan personel veya rolleri]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,11 +507,11 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (23)** kuruluş uygular [atama: kuruluş tanımlı ana bilgisayar tabanlı izleme mekanizmaları] konumundaki [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması dağıtılan kaynakları ana bilgisayar tabanlı izleme yeteneklerini verileri de dahil olmak üzere, izleme verilerini toplar. Microsoft Monitoring Agent, tüm Windows sanal makinelerde günlük analizi ve diğer OMS çözümler tarafından kullanılan izleme verilerini toplamak için yüklenir. |
+| **Müşteri** | Bu şeması dağıtılan kaynakları ana bilgisayar tabanlı izleme yeteneklerini verileri de dahil olmak üzere, izleme verilerini toplar. Microsoft Monitoring Agent, tüm Windows sanal makinelerde günlük analizi ve diğer yönetim çözümleri tarafından kullanılan izleme verilerini toplamak için yüklenir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-4 (24)** bilgi sistemi bulur, toplar, dağıtır ve güvenliğin göstergeleri kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.a** kuruluş bilgileri sistem güvenlik uyarıları, danışma ve gelen yönergeleri alan [atama: kuruluş tarafından tanımlanan dış kuruluşlar] düzenli olarak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.b** gerekli görüldüğü gibi kuruluş iç güvenlik uyarıları, danışma ve yönergeleri oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.c** kuruluşun güvenlik uyarıları, danışma ve yönergeleri disseminates: [seçimi (bir veya daha fazla): [atama: kuruluş tarafından tanımlanan personel ya da roller]; [Atama: kuruluş içinde kuruluşunuz tarafından tanımlanan öğelerin]; [Atama: kuruluş tarafından tanımlanan dış kuruluşlar]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 5.d** kuruluşun güvenlik yönergeleri kurulan aralıklarına göre uygulayan veya uyumsuzluk derecesini sertifikayı veren kuruluşu bildirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-5 (1)** kuruluşun güvenlik yapmak için otomatik mekanizmaları kullanan uyarı ve danışma bilgileri kuruluş genelinde kullanılabilir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.a** doğru işlem bilgileri sistem doğrular [atama: kuruluş tanımlanan güvenlik işlevleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.b** bu doğrulama bilgileri sistem gerçekleştirir [seçimi (bir veya daha fazla): [atama: kuruluş tarafından tanımlanan sistem geçici durumlarını]; uygun ayrıcalık; sahip kullanıcı tarafından komut bağlı [Atama: kuruluş tarafından tanımlanan sıklığı]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.c** bilgi sistemi bildirir [atama: kuruluş tarafından tanımlanan personel ya da roller] başarısız güvenlik doğrulama testlerinin.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 6.d** bilgi sistemi [seçimi (bir veya daha fazla): bilgi sistem kapanıp; Information system; yeniden başlatır [Atama: kuruluş tanımlı alternatif eylemleri]] anormallikleri bulunduğunda.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7** kuruluş yetkisiz değişiklikler algılamak için bütünlüğünü doğrulama araçları kullanır [atama: kuruluş tanımlı yazılım, bellenim ve bilgileri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (1)** bilgi sistemi bir bütünlük denetimi gerçekleştirir [atama: kuruluş tanımlı yazılım, bellenim ve bilgileri] [seçimi (bir veya daha fazla): başlangıçta; konumunda [atama: kuruluş tanımlanmış geçici durumlar veya Güvenlik ilgili olayları]; [Atama: kuruluş tarafından tanımlanan sıklığı]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (2)** kuruluş için bildirim sağlamak otomatik araçları kullanır [atama: kuruluş tarafından tanımlanan personel ya da roller] bütünlüğünü doğrulama sırasında tutarsızlıklar keşfetme bağlıdır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (5)** bilgi sistemi otomatik olarak [seçimi (bir veya daha fazla): bilgi sistemi kapanır, uygular; bilgileri sistem yeniden başlatıldıktan [atama: kuruluş tanımlanan güvenlik önlemlerinin]] bütünlüğünü ihlal eden olduğunda bulunan.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (7)** yetkisiz algılanması kuruluş içerir [atama: kuruluş tarafından tanımlanan güvenlik ilgili değişiklikleri bilgi sisteme] kuruluş olay yanıtlama yetenek içine.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-7 (14)** kuruluş sınırlı veya hiçbir garanti ve kaynak kodu; sağlanmasını olmadan kaynaklardan ikili veya makine yürütülebilir kod kullanımını engeller ve ilgi çekici görev için yalnızca kaynak kodu gereksinimi için özel durumlar sağlar / işletimsel gereksinimlerini ve yetki vererek resmi onayla.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 8.a** kuruluş kullanan istenmeyen posta koruma mekanizmalarını noktalarda algılamak ve istenmeyen iletileri eylemde için bilgi sistem giriş ve çıkış.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 8.b** yeni sürümler Kuruluş yapılandırması yönetim ilkesi ve yordamları uygun olarak kullanılabilir olduğunda kuruluş güncelleştirmeleri istenmeyen posta korumasını mekanizmaları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-8 (1)** kuruluş istenmeyen posta koruma mekanizmalarını merkezi olarak yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-8 (2)** bilgi sistemi istenmeyen posta koruma mekanizmalarını otomatik olarak güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 10** bilgi sistemi geçerliliğini denetler [atama: kuruluş tarafından tanımlanan bilgileri girişleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 11.a** bilgileri sistem tarafından rakiplerin yararlanılabilir bilgi göstermeden düzeltici eylemler için gerekli bilgileri sağlayın hata mesajları oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI 11.b** bilgi sistemi hata iletileri yalnızca ortaya çıkarır [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-12** kuruluş bilgileri sistem ve ilgili federal yasalarına uygun olarak sistem bilgileri çıktısını içindeki bilgileri saklar ve işler Executive siparişleri, yönergeleri, ilkeleri, düzenlemeler, standartları ve işletimsel gereksinimleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **SI-16** bilgi sistemi uygulayan [atama: kuruluş tanımlanan güvenlik önlemlerinin] kendi bellek yetkisiz kod yürütülmesini korumak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

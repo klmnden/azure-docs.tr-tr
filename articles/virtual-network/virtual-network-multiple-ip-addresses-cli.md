@@ -1,13 +1,13 @@
 ---
-title: "VM ile birden çok IP adreslerini Azure CLI kullanarak | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin."
+title: VM ile birden çok IP adreslerini Azure CLI kullanarak | Microsoft Docs
+description: Azure komut satırı arabirimi (CLI) kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: aa0f84299dcb4800cd332d8276785f6b08152060
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: a1e78f7fa892586385e1dbd186125630ee1fb307
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Azure CLI kullanarak sanal makineleri için birden çok IP adresi atayın
 
@@ -167,7 +167,7 @@ VM oluşturulduktan sonra girin `az network nic show --name MyNic1 --resource-gr
 
 ## <a name="add"></a>Bir VM için IP adreslerini ekleyin
 
-Adımları izleyerek mevcut NIC'in için ek özel ve genel IP adresleri ekleyebilirsiniz. Temel örnekler yapı [senaryo](#Scenario) bu makalede açıklanan.
+Adımları tamamlayarak var olan bir Azure ağ arabirimine ek özel ve genel IP adresleri ekleyebilirsiniz. Temel örnekler yapı [senaryo](#Scenario) bu makalede açıklanan.
 
 1. Bir komut kabuğu'nu açın ve tek bir oturum içinde bu bölümdeki kalan adımları tamamlayın. Azure CLI yüklenmiş ve yapılandırılmış zaten sahip değilseniz, bölümündeki adımları tamamlamanız [Azure CLI 2.0 yüklemesi](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) makale ve Azure oturum açma hesabı ile `az-login` komutu.
 

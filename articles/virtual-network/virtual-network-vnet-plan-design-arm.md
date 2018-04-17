@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal ağı (VNet) Plan ve Tasarım Kılavuzu | Microsoft Docs"
-description: "Planlama ve tasarım yalıtımı, bağlantı ve konumunu gereksinimlerinize göre azure'da sanal ağlar hakkında bilgi edinin."
+title: Azure sanal ağı (VNet) Plan ve Tasarım Kılavuzu | Microsoft Docs
+description: Planlama ve tasarım yalıtımı, bağlantı ve konumunu gereksinimlerinize göre azure'da sanal ağlar hakkında bilgi edinin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.openlocfilehash: f11b2d1b4061b395918a274c4c53688bf34fbae1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 6e41dae2f4e93fe2e3cef689596612a6a192c844
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planlama ve Azure sanal ağlar tasarlama
 Denemeniz için bir VNet oluşturma yeterince kolay, ancak büyük olasılıkla, birden çok sanal ağlar, kuruluşunuzun üretim gereksinimlerini desteklemek için zaman içinde dağıtır. Bazı planlama ve tasarım ile sanal ağlar dağıtabilmeli ve daha etkili bir şekilde ihtiyacınız olan kaynakları bağlanmak olacaktır. Sanal ağlar ile bilmiyorsanız, önermiştir, [sanal ağlar hakkında bilgi edinin](virtual-networks-overview.md) ve [nasıl dağıtılacağı](quick-create-portal.md) devam etmeden önce bir.
@@ -78,7 +78,7 @@ Alt ağları aşağıdaki özellikleri içerir.
 | **addressPrefix** |Alt ağ CIDR gösteriminde oluşturan tek adresi öneki |Sanal ağınızın adres alanlarından birini parçası olan tek bir CIDR bloğu olmalıdır. |
 | **networkSecurityGroup** |NSG alt ağına uygulanır | |
 | **routeTable** |Alt ağa uygulanan yol tablosu | |
-| **ipConfigurations** |Alt ağına bağlı NIC tarafından kullanılan IP yapılandırma nesneleri koleksiyonu | |
+| **Ipconfigurations** |Alt ağına bağlı NIC tarafından kullanılan IP yapılandırma nesneleri koleksiyonu | |
 
 ### <a name="name-resolution"></a>Ad çözümlemesi
 Varsayılan olarak, sanal ağınızı kullanır [Azure tarafından sağlanan ad çözümlemesi](virtual-networks-name-resolution-for-vms-and-role-instances.md) VNet içindeki ve ortak Internet'te adları çözümlemek için. Şirket içi veri merkezleri, sanal ağlar bağlanıyorsanız, ancak sağlamanız gerekir [kendi DNS sunucusu](virtual-networks-name-resolution-for-vms-and-role-instances.md) ağlarınız arasında adları çözümlemek için.  
@@ -87,16 +87,16 @@ Varsayılan olarak, sanal ağınızı kullanır [Azure tarafından sağlanan ad 
 Ağ sınırları gözden [Azure sınırlar](../azure-subscription-service-limits.md#networking-limits) tasarımınızı herhangi bir sınırları ile çakışan değil emin olmak için makale. Bazı sınırlar bir destek bileti açılarak artırılabilir.
 
 ### <a name="role-based-access-control-rbac"></a>Rol Tabanlı Erişim Denetimi (RBAC)
-Kullanabileceğiniz [Azure RBAC](../active-directory/role-based-access-built-in-roles.md) farklı kullanıcıların farklı kaynaklara sahip olabilir erişim düzeyini denetlemek için. Bu şekilde kendi ihtiyaçlarına göre ekibiniz tarafından çalışmanın ayırabilirsiniz.
+Kullanabileceğiniz [Azure RBAC](../role-based-access-control/built-in-roles.md) farklı kullanıcıların farklı kaynaklara sahip olabilir erişim düzeyini denetlemek için. Bu şekilde kendi ihtiyaçlarına göre ekibiniz tarafından çalışmanın ayırabilirsiniz.
 
 Sanal ağlar olarak uzak kaygı, kullanıcılar **ağ Katılımcısı** rol Azure Resource Manager sanal ağ kaynaklarına üzerinde tam denetime sahiptir. Benzer şekilde, kullanıcılar **Klasik ağ Katılımcısı** rol Klasik sanal ağ kaynaklarına üzerinde tam denetime sahiptir.
 
 > [!NOTE]
-> Ayrıca [kendi rolleri oluşturma](../active-directory/role-based-access-control-configure.md) yönetim gereksinimlerinizi ayırmak için.
+> Ayrıca [kendi rolleri oluşturma](../role-based-access-control/role-assignments-portal.md) yönetim gereksinimlerinizi ayırmak için.
 >
 >
 
-## <a name="design"></a>Tasarlayın
+## <a name="design"></a>Tasarım
 Soruların yanıtlarını öğrendikten sonra [planlama](#Plan) bölümünde, sanal ağlar tanımlama önce aşağıdakileri gözden geçirin.
 
 ### <a name="number-of-subscriptions-and-vnets"></a>Abonelikler ve sanal ağlar sayısı
@@ -188,7 +188,7 @@ Tasarımınızın soruyu yanıtlayarak planlama başlamalıdır [gereksinimlerin
 
     Evet. Geliştiriciler yalnızca Vm'leri önceden var olan alt ağlarınıza dağıtmanız gerekir sırasında ağ takım sanal ağ ayarları üzerinde tam denetim gerekir.
 
-### <a name="design"></a>Tasarlayın
+### <a name="design"></a>Tasarım
 Abonelikler, sanal ağlar, alt ağları ve Nsg'ler belirtme tasarım izlemelisiniz. Nsg'ler burada ele alınacaktır, ancak, daha fazla bilgi edinmek [Nsg'ler](virtual-networks-nsg.md) tasarımınızı tamamlamadan önce.
 
 **Abonelikler ve sanal ağlar sayısı**
@@ -206,7 +206,7 @@ Bu gereksinimlerine bağlı olarak, her iş birimi için bir abonelik gerekiyor.
 
 Ayrıca her sanal ağ için adres alanı belirtmeniz gerekir. Gereksinim duyduğunuz beri şirket içi veri arasında bağlantı merkezleri ve Azure bölgeleri Azure sanal ağlar için kullanılan adres alanı ile şirket içi ağ artar olamaz ve her sanal ağ tarafından kullanılan adres alanı ile var olan diğer sanal ağlardan artar değil. Bu gereksinimleri karşılamak için aşağıdaki tabloda adres alanlarını kullanabilirsiniz.  
 
-| **Abonelik** | **VNet** | **Azure bölgesi** | **Adres alanı** |
+| **Abonelik** | **Sanal ağ** | **Azure bölgesi** | **Adres alanı** |
 | --- | --- | --- | --- |
 | BU1 |ProdBU1US1 |Batı ABD |172.16.0.0/16 |
 | BU1 |ProdBU1US2 |Doğu ABD |172.17.0.0/16 |

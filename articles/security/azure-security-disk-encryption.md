@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
-ms.author: devtiw;ejarvi;mayank88mahajan;vermashi;sudhakarareddyevuri;aravindthoram
-ms.openlocfilehash: 5219ebc22e56ad4b5cdfc125f7fa5882c61adb9f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: devtiw
+ms.openlocfilehash: f42f20893a815640378b9d18186c88b782e61284
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows ve Linux Iaas VM'ler için Azure Disk şifrelemesi
 Microsoft Azure veri gizliliği, veri egemenliği ve etkinleştirir, Azure veri aralığı boyunca barındırılan denetime Gelişmiş Şifreleme teknolojileri denetlemek ve şifreleme anahtarlarını yönetmek sağlamak için kesinlikle kaydedilmiş veri denetim & Denetim erişimi. Bu Azure müşterilerin kendi iş gereksinimlerine en uygun çözümü seçim yapma esnekliği sağlar. Bu yazıda, biz, yeni bir teknoloji çözümüne "Azure Disk şifrelemesi Windows ve Linux Iaas VM'ın" korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olmak için tanıtılacaktır. Kağıt desteklenen senaryolar ve kullanıcı da dahil olmak üzere Azure disk şifrelemesi özelliklerinin nasıl kullanılacağı hakkında ayrıntılı yönergeler deneyimleri sağlar.
@@ -429,7 +429,7 @@ Aşağıdaki tabloda, Azure AD İstemci Kimliğini kullanarak Market senaryodan 
 | vmSize | VM boyutu. Şu anda yalnızca standart bir, D ve G serisi desteklenir. |
 | virtualNetworkName | VM NIC ait olması gereken Vnet'in adı. |
 | subnetName | VM NIC ait olması gereken sanal ağ içindeki alt ağ adı. |
-| AADClientID | Gizli anahtar kasanızı yazma iznine sahip Azure AD uygulamasının istemci kimliği. |
+| Aadclientıd | Gizli anahtar kasanızı yazma iznine sahip Azure AD uygulamasının istemci kimliği. |
 | AADClientSecret | Gizli anahtar kasanızı yazma iznine sahip Azure AD uygulamasının istemci gizli anahtarı. |
 | keyVaultURL | BitLocker anahtarını karşıya yüklenmelidir anahtar kasası URL'si. Cmdlet'ini kullanarak elde edebilirsiniz `(Get-AzureRmKeyVault -VaultName,-ResourceGroupName ).VaultURI`. |
 | keyEncryptionKeyURL | (İsteğe bağlı) oluşturulan BitLocker anahtarını şifrelemek için kullanılan anahtar şifreleme anahtarını URL'si. |
@@ -515,7 +515,7 @@ Aşağıdaki tabloda, var olan veya bir Azure AD İstemci Kimliğini kullanan sa
 
 | Parametre | Açıklama |
 | --- | --- |
-| AADClientID | Anahtar kasasına gizli anahtarları yazmak için izinlere sahip Azure AD uygulamasının istemci kimliği. |
+| Aadclientıd | Anahtar kasasına gizli anahtarları yazmak için izinlere sahip Azure AD uygulamasının istemci kimliği. |
 | AADClientSecret | Anahtar kasasına gizli anahtarları yazmak için izinlere sahip Azure AD uygulamasının istemci gizli anahtarı. |
 | keyVaultName | BitLocker anahtarını karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edebilirsiniz `(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname`. |
 |  keyEncryptionKeyURL | Oluşturulan BitLocker anahtarını şifrelemek için kullanılan anahtar şifreleme anahtarını URL'si. Bu seçerseniz isteğe bağlı bir parametredir **nokek** UseExistingKek aşağı açılan listesinde. Seçerseniz **kek** UseExistingKek aşağı açılan listesinde, girmelisiniz _keyEncryptionKeyURL_ değeri. |
@@ -565,7 +565,7 @@ Aşağıdaki tabloda, var olan veya bir Azure AD İstemci Kimliğini kullanan sa
 
 | Parametre | Açıklama |
 | --- | --- |
-| AADClientID | Anahtar kasasına gizli anahtarları yazmak için izinlere sahip Azure AD uygulamasının istemci kimliği. |
+| Aadclientıd | Anahtar kasasına gizli anahtarları yazmak için izinlere sahip Azure AD uygulamasının istemci kimliği. |
 | AADClientSecret | Gizli anahtar kasanızı yazma iznine sahip Azure AD uygulamasının istemci gizli anahtarı. |
 | keyVaultName | BitLocker anahtarını karşıya yüklenmelidir anahtar kasasının adı. Cmdlet'ini kullanarak elde edebilirsiniz `(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname`. |
 |  keyEncryptionKeyURL | Oluşturulan BitLocker anahtarını şifrelemek için kullanılan anahtar şifreleme anahtarını URL'si. Bu seçerseniz isteğe bağlı bir parametredir **nokek** UseExistingKek aşağı açılan listesinde. Seçerseniz **kek** UseExistingKek aşağı açılan listesinde, girmelisiniz _keyEncryptionKeyURL_ değeri. |
@@ -858,7 +858,7 @@ Yeniden önce kaydetmeniz önerilir [önyükleme tanılama](https://azure.micros
 
 * VM SSH aracılığıyla oturum açın ve uzantı günlüğü'nden alın:
 
-    /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
+    /var/log/Azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
  İşletim sistemi şifreleme işlemi devam ederken VM oturumunuzu değil, öneririz. Yalnızca diğer iki yöntemden yanıt vermediğinde günlüklerini kopyalayın.
 
@@ -868,23 +868,23 @@ Yeniden önce kaydetmeniz önerilir [önyükleme tanılama](https://azure.micros
 
 1. Seçin **yapılandırma şifrelenmiş birimler** diskleri bölümlemek zaman.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Şifrelenmemiş olması bir ayrı önyükleme sürücüsü oluşturun. Kök sürücüsünde şifreleyin.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Bir parola girin. Anahtar Kasası'na karşıya parola budur.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Bölümleme tamamlayın.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. VM önyükleme için bir parola istendiğinde, adım 3'te sağlanan parolası kullanın.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Azure kullanarak yüklemek için VM hazırlama [bu yönergeleri](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). (VM sağlama kaldırmayı) son adımı çalıştırmayın henüz.
 
@@ -950,7 +950,7 @@ Aşağıdakileri yaparak Azure ile çalışmak için şifreleme yapılandırın:
 
 7. Şimdi VM yetkisini kaldırma.
 
- ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+ ![Ubuntu 16.04 Kurulumu](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Sonraki adıma devam et ve [, VHD'yi karşıya](#upload-encrypted-vhd-to-an-azure-storage-account) Azure içine.
 
@@ -996,7 +996,7 @@ yerine şunu yazın:
 ```
     if [ 1 ]; then
 ```
-4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append it to “# Open LUKS device”:
+4. /Usr/lib/dracut/Modules.d/90crypt/cryptroot-ASK.sh düzenleyin ve "# açık LUKS aygıt için" Ekle:
 
     ```
     MountPoint=/tmp-keydisk-mount
@@ -1076,7 +1076,7 @@ Ve tüm oluşumlarını değiştirin:
 ```
     if [ 1 ]; then
 ```
-4. Edit /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh and append this after the “# Open LUKS device”:
+4. /Usr/lib/dracut/Modules.d/90crypt/cryptroot-ASK.sh düzenleyin ve bu "# açık LUKS sonra aygıtı" ekleyin:
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName

@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis önbelleği yapılandırma | Microsoft Docs"
-description: "Azure Redis önbelleği için varsayılan Redis yapılandırma anlamak ve Azure Redis önbelleği örnekleri yapılandırmayı öğrenin"
+title: Azure Redis önbelleği yapılandırma | Microsoft Docs
+description: Azure Redis önbelleği için varsayılan Redis yapılandırma anlamak ve Azure Redis önbelleği örnekleri yapılandırmayı öğrenin
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: wesmc
-ms.openlocfilehash: 2e2e22c17bce4bdaf4988001db8de31b68f497fc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0cd21c0367a95d3e866137797ac32fc5bdd196c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis önbelleğini yapılandırma
 Bu konuda, Azure Redis önbelleği örnekleri için kullanılabilir yapılandırmaları açıklanmaktadır. Bu konuda, Azure Redis önbelleği örnekleri için varsayılan Redis sunucu yapılandırması da kapsar.
@@ -79,7 +79,7 @@ Tıklatın **etkinlik günlüğü** önbelleğiniz üzerinde gerçekleştirilen 
 
 ### <a name="access-control-iam"></a>Erişim denetimi (IAM)
 
-**Erişim denetimi (IAM)** bölüm Azure portalında rol tabanlı erişim denetimi (RBAC) için destek sağlar. Bu yapılandırma, kuruluşların kendi erişim yönetimi sadece ve tam olarak gereksinimlerini yardımcı olur. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+**Erişim denetimi (IAM)** bölüm Azure portalında rol tabanlı erişim denetimi (RBAC) için destek sağlar. Bu yapılandırma, kuruluşların kendi erişim yönetimi sadece ve tam olarak gereksinimlerini yardımcı olur. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="tags"></a>Etiketler
 

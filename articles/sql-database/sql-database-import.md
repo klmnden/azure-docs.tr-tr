@@ -1,19 +1,19 @@
 ---
-title: "Bir Azure SQL veritabanı oluşturmak için bir BACPAC dosyasını içeri | Microsoft Docs"
-description: "Bir BACPAC dosyasını içeri aktararak newAzure SQL veritabanı oluşturun."
+title: Bir Azure SQL veritabanı oluşturmak için bir BACPAC dosyasını içeri | Microsoft Docs
+description: Bir BACPAC dosyasını içeri aktararak newAzure SQL veritabanı oluşturun.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 01/29/2018
+ms.date: 04/10/2018
 ms.author: carlrab
 ms.topic: article
-ms.openlocfilehash: 9d829bd312bb1ae2468258bc2ec8619b2858394e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4279630816b6d5f7cf15b7555bf951d3f2a5f95a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içeri aktarın
 
@@ -31,6 +31,9 @@ Azure Portalı'nı kullanarak bir veritabanını almak için veritabanına iliş
    ![Veritabanını içeri aktarma](./media/sql-database-import/import.png)
 
 İçeri aktarma işlemin ilerlemesini izlemek için içeri aktarılan veritabanını içeren mantıksal sunucu için sayfayı açın. Ekranı aşağı kaydırarak **Operations** ve ardından **içeri/dışarı aktarma** geçmişi.
+
+> [!NOTE]
+> [Yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md) bu makalede başka yöntemler kullanarak bir BACPAC dosyasından içe aktarma desteklenir, ancak Azure Portalı'nı kullanarak geçirme şu anda desteklemiyor.
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>İçeri aktarma işleminin ilerleyişini izleyin
 
@@ -98,6 +101,13 @@ $importStatus
 
 > [!TIP]
 Başka bir komut dosyası örneği için bkz: [bir BACPAC dosyadan bir veritabanı](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="import-using-other-methods"></a>Başka yöntemler kullanarak içeri aktarma
+
+Bu sihirbazlar de kullanabilirsiniz:
+
+- [Veri katmanı Uygulama Sihirbazı SQL Server Management Studio'da almak](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
+- [SQL Server içeri ve Dışarı Aktarma Sihirbazı'nı](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bağlanmak ve içeri aktarılan bir SQL veritabanını sorgulamak öğrenmek için bkz: [SQL Server Management Studio ile SQL veritabanına bağlanma ve örnek T-SQL sorgusu gerçekleştirmeyi](sql-database-connect-query-ssms.md).

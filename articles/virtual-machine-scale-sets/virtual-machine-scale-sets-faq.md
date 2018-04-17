@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: e7fc12c9b4cc79109975e34f64f236394c33af25
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b0a704a6ac4a317e0d8e280a9353b04f9b4d919b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
@@ -121,7 +121,7 @@ PowerShell veya Azure CLI aracılığıyla sanal makine ölçek kümeleri için 
 
 Sanal makine ölçek kümesinin uç noktası Targetresourceıd şöyle görünür: 
 
-/subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
+/Subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.COMPUTE/virtualMachineScaleSets/yourvmssname
 
 Tüm VM performans sayacı için uyarı ayarlamak için ölçüm olarak seçebilirsiniz. Daha fazla bilgi için bkz: [Resource Manager tabanlı Windows VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) ve [Linux VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) içinde [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) makale.
 
@@ -264,7 +264,7 @@ linuxConfiguration öğe adı | Gerekli | Tür | Açıklama
 --- | --- | --- | --- |  ---
 SSH | Hayır | Koleksiyon | Linux işletim sistemi SSH anahtar yapılandırması belirtir
 yol | Evet | Dize | Burada SSH anahtarlarını veya sertifika yerleştirilmelidir Linux dosya yolunu belirtir
-keyData | Evet | Dize | Bir base64 ile kodlanmış SSH ortak anahtarını belirtir
+anahtar verileri | Evet | Dize | Bir base64 ile kodlanmış SSH ortak anahtarını belirtir
 
 Bir örnek için bkz: [101 vm sshkey GitHub hızlı başlatma şablonunu](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
@@ -383,7 +383,7 @@ Daha fazla bilgi için bkz. [Microsoft Güven Merkezi](https://www.microsoft.com
 
 ### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Mu [Azure yönetilen hizmet kimliği](https://docs.microsoft.com/azure/active-directory/msi-overview) sanal makine ölçek kümeleri ile çalışma?
 
-Evet. Bazı örnek MSI şablonları Azure hızlı başlangıç şablonlarında görebilirsiniz. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
+Evet. Bazı örnek MSI şablonları Azure hızlı başlangıç şablonlarında görebilirsiniz. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Uzantılar
@@ -402,9 +402,9 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 UzantıAdı değeri bulabilirsiniz `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-operations-management-suite"></a>Operations Management Suite ile tümleşir şablon örnek bir sanal makine ölçek kümesi var mı?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Günlük analizi ile tümleşir şablon örnek bir sanal makine ölçek kümesi var mı?
 
-Operations Management Suite ile tümleşir şablon örnek bir sanal makine ölçek kümesi için ikinci örnekte bkz [Azure Service Fabric kümesi dağıtma ve günlük analizi kullanarak izlemeyi etkinleştir](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Günlük analizi ile tümleşir şablon örnek bir sanal makine ölçek kümesi için ikinci örnekte bkz [Azure Service Fabric kümesi dağıtma ve günlük analizi kullanarak izlemeyi etkinleştir](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Sanal makine ölçek kümeleri üzerinde paralel olarak çalıştırmak için uzantıları gözükmüyor. Bu, my özel betik uzantısı başarısız olmasına neden olur. Bu sorunu gidermek için ne yapabilirim?
 
@@ -693,9 +693,9 @@ Evet, bir VM görüntüsü değiştirmeden sıfırlamak için yeniden görüntü
 
 Daha fazla bilgi için bkz: [bir sanal makine ölçek kümesindeki tüm sanal makineleri yönetme](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>Ölçek kümeleri Azure OMS (Operations Management Suite) ile tümleştirmek mümkün mü?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Ölçek kümeleri Azure günlük analizi ile tümleştirmek mümkün mü?
 
-Evet, ölçeğini OMS uzantısı yükleyerek VM'ler ayarlayabilirsiniz. Azure CLI örnek aşağıda verilmiştir:
+Evet, ölçeğini günlük analizi uzantısı yükleyerek VM'ler ayarlayabilirsiniz. Azure CLI örnek aşağıda verilmiştir:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
@@ -734,7 +734,7 @@ Yeni VM oluşturulduğunda, VM InstanceView özelliğinin ekran görüntüsü vb
 
 Birden fazla çağrı yapmadan her VM için özellik bilgilerini almak için çağırabilirsiniz `ListVMInstanceViews` bir REST API yaparak `GET` aşağıdaki kaynak URI'si üzerinde:
 
-/subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
+/Subscriptions/ < ABONELİK_KİMLİĞİ > /resourceGroups/ < resource_group_name > /providers/Microsoft.Compute/virtualMachineScaleSets/ < scaleset_name > / virtualMachines? $expand = instanceView & $select = instanceView
 
 ### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Farklı uzantı bağımsız bir sanal makine ölçek kümesi farklı vm'lerinin geçirebilirsiniz?
 

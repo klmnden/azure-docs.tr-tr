@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-ms.openlocfilehash: 5d62c40bfc909915fa222db12413634aa7ce7158
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0539736f4b7294a613ffd42c28ff6bb29cf9e2bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Dinamik DNS ana bilgisayar adları kendi DNS sunucusu kaydolmak için kullanma
 [Azure ad çözümlemesi sağlar](virtual-networks-name-resolution-for-vms-and-role-instances.md) sanal makineleri (VM'ler) ve rol örnekleri için. Ancak, ad çözümlemesi Azure tarafından sağlanan ötesinde olduğunuzda, kendi DNS sunucularınızı sağlayabilir. Bu DNS çözümünüzü belirli gereksinimlerinize uyacak şekilde uyarlamak için güç sağlar. Örneğin, Active Directory etki alanı denetleyicinizi aracılığıyla şirket içi kaynaklara erişmek gerekebilir.
@@ -26,7 +26,7 @@ ms.lasthandoff: 03/23/2018
 Azure VM'ler, özel DNS sunucularınızın barındırıldığında ana bilgisayar adları çözümlemek için Azure'a aynı sanal ağ için ana bilgisayar adı sorguları iletebilir. Bu yol kullanmak istemiyorsanız, VM ana bilgisayar adları DNS sunucunuzun dinamik DNS kullanarak kaydedebilirsiniz.  Azure alternatif düzenlemeleri genellikle gerektiği şekilde kayıtları, DNS sunucularınızın doğrudan oluşturmak için (örneğin, kimlik bilgileri) yeteneğine sahip değil. Burada, Alternatiflerle birlikte ortak bazı senaryolar vardır.
 
 ## <a name="windows-clients"></a>Windows istemcileri
-Olmayan etki alanına katılmış Windows istemcileri güvenli olmayan dinamik DNS (DDNS) güncelleştirmeleri bunlar önyüklediğinizde veya IP adreslerini değiştiğinde çalışır. DNS ana bilgisayar adı ve birincil DNS sonekine adıdır. Azure birincil DNS soneki boş bırakır, ancak bu VM'de aracılığıyla ayarlayabileceğiniz [UI](https://technet.microsoft.com/library/cc794784.aspx) veya [burada açıklandığı gibi automation kullanarak](https://social.technet.microsoft.com/forums/windowsserver/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix).
+Olmayan etki alanına katılmış Windows istemcileri güvenli olmayan dinamik DNS (DDNS) güncelleştirmeleri bunlar önyüklediğinizde veya IP adreslerini değiştiğinde çalışır. DNS ana bilgisayar adı ve birincil DNS sonekine adıdır. Azure birincil DNS soneki boş bırakır, ancak bu VM'de aracılığıyla ayarlayabileceğiniz [kullanıcı arabirimi](https://technet.microsoft.com/library/cc794784.aspx) veya [PowerShell](/powershell/module/dnsclient/set-dnsclient).
 
 Etki alanına katılmış Windows istemcileri güvenli dinamik DNS kullanarak IP adresleri etki alanı denetleyicisi ile kaydedin. Etki alanına katılma işlemi istemcide birincil DNS soneki ayarlar ve oluşturur ve güven ilişkisini korur.
 

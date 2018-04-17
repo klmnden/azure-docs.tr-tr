@@ -1,31 +1,31 @@
 ---
-title: "Azure sanal makine kullanımını anlama | Microsoft Docs"
-description: "Sanal makine kullanım ayrıntılarını anlama"
+title: Azure sanal makine kullanımını anlama | Microsoft Docs
+description: Sanal makine kullanım ayrıntılarını anlama
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: c87c4256aa193a4971b75c3230d1996c2efdc352
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 9980650008e2d2c2f768dcb3256ea5344119fa13
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makinesi öngörme
-Azure kullanım verilerini analiz etme tarafından güçlü tüketim Öngörüler elde – etkinleştirebilirsiniz Öngörüler daha iyi yönetim ve kuruluşunuz genelinde ayırma maliyeti. Bu belgede Azure işlem tüketim ayrıntılarınızı içine derinlemesine bir bakış sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlamak](/billing/billing-understand-your-bill.md).
+Azure kullanım verilerini analiz etme tarafından güçlü tüketim Öngörüler elde – etkinleştirebilirsiniz Öngörüler daha iyi yönetim ve kuruluşunuz genelinde ayırma maliyeti. Bu belgede Azure işlem tüketim ayrıntılarınızı içine derinlemesine bir bakış sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlamak](../../billing/billing-understand-your-bill.md).
 
 ## <a name="download-your-usage-details"></a>Kullanım ayrıntılarını indirin
-Başlamak için [kullanım ayrıntılarınızı karşıdan](/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv.md). Aşağıdaki tabloda, Azure Resource Manager aracılığıyla dağıtılan sanal makineleri için kullanım tanımı ve örnek değerleri sağlar. Bu belge bizim Klasik modeli aracılığıyla dağıtılan VM'ler için ayrıntılı bilgileri içermiyor.
+Başlamak için [kullanım ayrıntılarınızı karşıdan](../../billing/billing-download-azure-invoice-daily-usage-date.md). Aşağıdaki tabloda, Azure Resource Manager aracılığıyla dağıtılan sanal makineleri için kullanım tanımı ve örnek değerleri sağlar. Bu belge bizim Klasik modeli aracılığıyla dağıtılan VM'ler için ayrıntılı bilgileri içermiyor.
 
 
 | Alanlar             | Anlamı                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Örnek değerler                                                                                                                                                                                                                                                                                                                                                   |
@@ -39,7 +39,7 @@ Başlamak için [kullanım ayrıntılarınızı karşıdan](/billing/billing-dow
 | Kullanılan           | O gün için kullanılan kaynak miktarı. İşlem için belirli bir saat için (doğruluk 6 ondalık basamak) VM çalıştıran her dakika biz faturalandıracaktır.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |    “1”, “0.5”                                                                                                                                                                                                                                                                                                                                                    |
 | Kaynak Konumu  | Kaynağın çalıştığı veri merkezini tanımlar.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | "JA Doğu"                                                                                                                                                                                                                                                                                                                                                        |
 | Kullanılan Hizmet   | Kullandığınız Azure platformu hizmet.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | "Microsoft.Compute"                                                                                                                                                                                                                                                                                                                                              |
-| Kaynak Grubu     | Dağıtılan kaynağın içinde çalıştığı kaynak grubu. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış.](/azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
+| Kaynak Grubu     | Dağıtılan kaynağın içinde çalıştığı kaynak grubu. Daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış.](../../azure-resource-manager/resource-group-overview.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |    "MyRG"                                                                                                                                                                                                                                                                                                                                                        |
 | Örnek Kimliği        | Kaynak tanımlayıcısı. Tanımlayıcı, kaynağı oluştururken belirttiğiniz adı içerir. VM için örnek kimliği Subscriptionıd, ResourceGroupName ve VMName içerir (veya ölçek kümesi kullanım için ad ölçek kümesi) kullanın.                                                                                                                                                                                                                                                                                                                                                                                                                    | "/ abonelikleri/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachines/MyVM1"<br><br>or<br><br>"/ abonelikleri/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx / resourceGroups/MyRG/providers/Microsoft.Compute/virtualMachineScaleSets/MyVMSS1"                                                                                           |
 | Etiketler               | Etiket kaynağa atayın. Fatura Kayıtları gruplandırmak için etiketler kullanın. Bilgi edinmek için nasıl [sanal makinelerinizi etiketi.](tag.md) Bu yalnızca Resource Manager VM'ler için kullanılabilir.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | "{"myDepartment":"RD","myUser":"myName"}"                                                                                                                                                                                                                                                                                                                        |
 | Ek Bilgi    | Hizmete özgü meta veriler. VM'ler için aşağıdaki ek bilgileri alanını doldurun: <ul><li>Çalıştırdığınız görüntü türüne özgü resim. Desteklenen dizelerin resim türleri altında tam listesini bulabilirsiniz.</li><li>Hizmet türü: dağıttığınız boyutu.</li><li>VMName: VM adıdır. Bu, yalnızca VM ölçek kümesi için doldurulur. Gerekirse VM'ler ölçek için VM adı ayarlayın, yukarıdaki örnek kimliği dizesi içinde bulabilirsiniz.</li><li>UsageType: Bu kullanım bu temsil eden türünü belirtir.<ul><li>ComputeHR Standard_D1_v2 gibi temel VM için işlem saati kullanımdır.</li><li>VM Microsoft R Server gibi premium yazılım kullanıyorsanız ComputeHR_SW premium yazılım ücret ' dir.</li></ul></li></ul>    | Sanal makineler {"ImageType": "Kurallı", "ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR"}<br><br>Sanal makine ölçek kümeleri {"ImageType": "Kurallı", "ServiceType": "Standard_DS1_v2", "VMName": "myVM1", "UsageType": "ComputeHR"}<br><br>Premium yazılım {"ImageType": "","ServiceType": "Standard_DS1_v2", "VMName": "", "UsageType": "ComputeHR_SW"} |
@@ -74,7 +74,7 @@ Azure Kaynak Yöneticisi'nde kullanılan bölge adı kullanım ayrıntılarını
 |    australiaeast         |    AU Doğu                               |
 |    australiasoutheast    |    AU Güneydoğu                          |
 |    brazilsouth           |    BR Güney                              |
-|    CanadaCentral         |    Kanada Orta                            |
+|    CanadaCentral         |    CA Orta                            |
 |    CanadaEast            |    CA Doğu                               |
 |    CentralIndia          |    IN Orta                            |
 |    centralus             |    Orta ABD                            |
@@ -100,11 +100,11 @@ Azure Kaynak Yöneticisi'nde kullanılan bölge adı kullanım ayrıntılarını
 |    ukwest                |    Birleşik Krallık Batı                               |
 |    USDoDCentral          |    US DoD Orta                        |
 |    USDoDEast             |    US DoD Doğu                           |
-|    USGovArizona          |    ABD hükümeti Arizona                         |
+|    USGovArizona          |    USGov Arizona                         |
 |    usgoviowa             |    USGov Iowa                            |
-|    USGovTexas            |    ABD hükümeti Texas                           |
+|    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
-|    westcentralus         |    ABD Batı Orta                       |
+|    westcentralus         |    ABD Orta Batı                       |
 |    westeurope            |    Batı Avrupa                           |
 |    WestIndia             |    IN Batı                               |
 |    westus                |    Batı ABD                               |
@@ -131,7 +131,7 @@ VMName yalnızca ek bilgileri alanında VM'ler için bir ölçek kümesinde dold
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>I premium yazılım için ücret olmadığını nasıl anlayabilirim?
 Hangi VM görüntüsü en iyi keşfetme ihtiyaçlarınıza uygun olduğunda, kullanıma mutlaka [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Görüntü yazılım plan oranı vardır. "Serbest" oranını görürseniz, yazılım için ek bir maliyet yoktur. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Kullanılan hizmet Microsoft.ClassicCompute ve Microsoft.Compute arasındaki fark nedir?
-Microsoft.ClassicCompute Azure Service Manager aracılığıyla dağıtılan Klasik kaynakları temsil eder. Resource Manager aracılığıyla dağıtırsanız, Microsoft.Compute tüketilen hizmetinde doldurulur. Daha fazla bilgi edinmek [Azure dağıtım modelleri](/azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft.ClassicCompute Azure Service Manager aracılığıyla dağıtılan Klasik kaynakları temsil eder. Resource Manager aracılığıyla dağıtırsanız, Microsoft.Compute tüketilen hizmetinde doldurulur. Daha fazla bilgi edinmek [Azure dağıtım modelleri](../../azure-resource-manager/resource-manager-deployment-model.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Neden InstanceId alan my sanal makine kullanımı için boş olur?
 Klasik dağıtım modeli aracılığıyla dağıtırsanız, InstanceId dizesi kullanılabilir değil.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Etiketler için neden Vm'lerimin kullanım ayrıntıları için akan değil?
@@ -142,5 +142,5 @@ Klasik modeli kaynakları için fatura bulut hizmet düzeyinde toplanır. Aynı 
 Premium depolama yeteneğine sahip sanal makineleri premium olmayan depolama aynı hızda faturalandırılır yeteneğine sahip sanal makineleri. Yalnızca depolama maliyetleriniz farklılık gösterir. Ziyaret [depolama fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kullanım ayrıntıları hakkında daha fazla bilgi için bkz: [Microsoft Azure için faturanızı anlamak.](/billing/billing-understand-your-bill.md)
+Kullanım ayrıntıları hakkında daha fazla bilgi için bkz: [Microsoft Azure için faturanızı anlamak.](../../billing/billing-understand-your-bill.md)
 

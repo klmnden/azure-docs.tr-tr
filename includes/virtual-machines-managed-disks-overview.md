@@ -24,7 +24,7 @@ Azure Diskleri %99,999 kullanılabilirlik sunacak şekilde tasarlanmıştır. Da
 
 ### <a name="granular-access-control"></a>Ayrıntılı erişim denetimi
 
-Kullanabileceğiniz [Azure rol tabanlı erişim denetimi (RBAC)](../articles/active-directory/role-based-access-control-what-is.md) bir veya daha fazla kullanıcılara yönetilen bir disk için belirli izinler atamak için. Yönetilen diskleri işlemleri dahil olmak üzere, çeşitli okuma çıkarır, yazma (oluşturma/güncelleştirme), silme ve alınırken bir [paylaşılan erişim imzası (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) disk. Yalnızca bir kişinin işini gerçekleştirmek için gereken işlemleri için erişim izni verebilir. Örneğin, yönetilen bir disk bir depolama hesabına kopyalamak için bir kişinin istemiyorsanız, bu yönetilen disk verme eylemi için erişim vermek seçebilirsiniz. Benzer şekilde, yönetilen bir diske kopyalamak için bir SAS URI'sini kullanmak için bir kişinin istemiyorsanız, bu yönetilen disk izni olmayan seçebilirsiniz.
+Kullanabileceğiniz [Azure rol tabanlı erişim denetimi (RBAC)](../articles/role-based-access-control/overview.md) bir veya daha fazla kullanıcılara yönetilen bir disk için belirli izinler atamak için. Yönetilen diskleri işlemleri dahil olmak üzere, çeşitli okuma çıkarır, yazma (oluşturma/güncelleştirme), silme ve alınırken bir [paylaşılan erişim imzası (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) disk. Yalnızca bir kişinin işini gerçekleştirmek için gereken işlemleri için erişim izni verebilir. Örneğin, yönetilen bir disk bir depolama hesabına kopyalamak için bir kişinin istemiyorsanız, bu yönetilen disk verme eylemi için erişim vermek seçebilirsiniz. Benzer şekilde, yönetilen bir diske kopyalamak için bir SAS URI'sini kullanmak için bir kişinin istemiyorsanız, bu yönetilen disk izni olmayan seçebilirsiniz.
 
 ### <a name="azure-backup-service-support"></a>Azure yedekleme hizmeti desteği
 Azure Backup hizmeti yönetilen disklerle zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedekleme bekletme ilkeleri ile bir yedekleme işi oluşturmak için kullanın. Yönetilen diskler, yalnızca yerel olarak yedekli depolama (LRS) çoğaltma seçeneği olarak destekler; başka bir deyişle, tek bir bölge içinde verileri üç kopyasını tutar. Bölgesel olağanüstü durum kurtarma için farklı bir bölgeye kullanarak VM disklerinizi yedekleme gerekir [Azure Backup hizmeti](../articles/backup/backup-introduction-to-azure-backup.md) ve yedekleme kasası olarak GRS depolama hesabı. Şu anda Azure yedekleme desteklediği veri diski yedekleme için 1 TB'ye kadar boyutları. Şu anda hakkında daha fazla bilgiyi [kullanarak Azure Backup hizmeti yönetilen diskleri olan VM'ler için](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -53,14 +53,14 @@ Premium yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
 | **Yönetilen premium <br>Disk türü** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
 |------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Disk Boyutu        | 32 GiB   | 64 GiB   | 128 GiB  | 256 GiB  | 512 GiB  | 1024 Gib'den (1 Tıb) | 2048 GiB (2 TiB) | 4095 Gib'den (4 Tıb) | 
+| Disk Boyutu        | 32 Gib'den   | 64 Gib'den   | 128 GiB  | 256 Gib'den  | 512 GiB  | 1024 Gib'den (1 Tıb) | 2048 Gib'den (2 Tıb) | 4095 Gib'den (4 Tıb) | 
 
 
 Standart yönetilen disk için kullanılabilir disk boyutları şunlardır:
 
 | **Standart yönetilen <br>Disk türü** | **S4** | **S6** | **S10** | **S20** | **S30** | **S40** | **S50** |
 |------------------|---------|---------|--------|--------|----------------|----------------|----------------| 
-| Disk Boyutu        | 32 GiB   | 64 GiB   | 128 GiB | 512 GiB | 1024 Gib'den (1 Tıb) | 2048 GiB (2 TiB) | 4095 Gib'den (4 Tıb) | 
+| Disk Boyutu        | 32 Gib'den   | 64 Gib'den   | 128 GiB | 512 GiB | 1024 Gib'den (1 Tıb) | 2048 Gib'den (2 Tıb) | 4095 Gib'den (4 Tıb) | 
 
 
 **İşlem sayısı**: standart yönetilen disk üzerinde gerçekleştirdiğiniz işlem sayısı için faturalandırılır. Premium yönetilen disk işlemleri için ücret ödemeden yoktur.
@@ -104,8 +104,7 @@ Ne VM beş disk vardır ve bunlar şeritli? Disklerin her biri bir anlık görü
 
 ### <a name="storage-service-encryption-sse"></a>Depolama hizmeti şifrelemesi (SSE)
 
-[Azure depolama hizmeti şifrelemesi](../articles/storage/common/storage-service-encryption.md) rest sırasında şifreleme sağlar ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için verilerinizi koruyun. SSE tüm yönetilen diskler, anlık görüntüler ve yönetilen diskleri olduğu kullanılabilir tüm bölgelerde görüntüleri için varsayılan olarak etkindir. 10 Haziran 2017 başlayan tüm yeni disk/anlık görüntüler/görüntüleri yönetilen ve otomatik olarak şifrelenmiş çalışmıyorken-varsayılan olarak Microsoft tarafından yönetilen anahtarlarla varolan yönetilen diske yazılan yeni veriler. Azure BLOB'ları ve dosyalar için şifreleme için kendi anahtarını Getir seçebilirsiniz. Tablolar ve Kuyruklar için şifreleme her zaman Microsoft yönetilen anahtarları kullanır.
-Lütfen depolama hizmeti şifrelemesi etkinleştirildikten sonra yalnızca yeni veri şifrelenir ve bu depolama hesabında varolan tüm dosyalar firmalarda geriye dönük bir arka plan şifreleme işlemi tarafından şifrelenir sonra unutmayın. Ziyaret [yönetilen diskleri SSS sayfasını](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) daha fazla ayrıntı için.
+[Azure depolama hizmeti şifrelemesi](../articles/storage/common/storage-service-encryption.md) rest sırasında şifreleme sağlar ve Kuruluş güvenliği ve uyumluluğu taahhüt karşılamak için verilerinizi koruyun. SSE tüm yönetilen diskler, anlık görüntüler ve yönetilen diskleri olduğu kullanılabilir tüm bölgelerde görüntüleri için varsayılan olarak etkindir. 10 Haziran 2017 başlayan tüm yeni disk/anlık görüntüler/görüntüleri yönetilen ve otomatik olarak şifrelenmiş çalışmıyorken-varsayılan olarak Microsoft tarafından yönetilen anahtarlarla varolan yönetilen diske yazılan yeni veriler. Ziyaret [yönetilen diskleri SSS sayfasını](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) daha fazla ayrıntı için.
 
 
 ### <a name="azure-disk-encryption-ade"></a>Azure Disk şifrelemesi (ADE)

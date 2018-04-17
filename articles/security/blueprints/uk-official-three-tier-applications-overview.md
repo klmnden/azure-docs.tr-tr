@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme"
-description: "Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme"
+title: Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme
+description: Azure güvenlik ve uyumluluk şeması - İngiltere resmi üç katmanlı Web uygulamaları otomatikleştirme
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9d95ccdd536efbff1540fab2b564e7745f5ac397
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure güvenlik ve uyumluluk şeması - İngiltere OFFICAL üç katmanlı Web uygulamaları otomatikleştirme
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 02/11/2018
 
 (1) /16 sanal ağ - işletimsel VNet
 - (3) /24 alt - 3 katmanlı (Web, Biz, veriler)
-- (1) /27 subnet - ADDS
+- (1) /27 subnet - EKLER
 - (1) /27 subnet - ağ geçidi alt ağı
 - (1) /29 subnet - uygulama ağ geçidi alt ağı
 - (Azure tarafından sağlanan) DNS kullandığı varsayılan
@@ -88,7 +88,7 @@ ms.lasthandoff: 02/11/2018
   - Etki alanına katılmış değil
 
 
-- (2) Web Tier VMs
+- (2) web katmanı VM'ler
   - (2) IIS sunucu rolleri - VM başına 1
   - (2) NIC'ler işletimsel VNet - VM başına 1 bağlı
   - Etki alanına katılmış değil
@@ -110,7 +110,7 @@ Kullanılabilirlik Kümeleri
 - (1) veri katmanı VM set - 2 VM
 
 Load Balancer
-- (1) Web Tier Load Balancer
+- (1) web katmanı yük dengeleyici
 - (1) biz katmanı yük dengeleyici
 - (1) yük dengeleyici veri katmanı
 
@@ -185,7 +185,7 @@ Bu sanal ağlar hala ayrı kaynakları olarak yönetilebilir, ancak bu sanal mak
 
 ### <a name="identity"></a>Kimlik
 
-**Active Directory etki alanı Hizmetleri**: Bu mimarinin Azure Active Directory etki alanı Hizmetleri dağıtım sunar. Azure Active Directory Uygulama belirli önerileri için aşağıdaki makalelere bakın:
+**Active Directory etki alanı Hizmetleri**: Bu mimarinin Azure Active Directory etki alanı Hizmetleri dağıtım sunar. Azure’da Active Directory uygulamaya yönelik belirli öneriler için aşağıdaki makalelere bakın:
 
 [Azure Active Directory etki alanı Hizmetleri (AD DS) genişletme](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
 
@@ -211,7 +211,7 @@ Müşteriler de dikkate kullanarak bir [Gelişmiş Güvenlik yönetim modeli](ht
 
 **Kaynak Yönetimi**: sanal makineleri, sanal ağlar ve yük Dengeleyiciler gibi Azure kaynakları birlikte halinde gruplayarak yönetilen [Azure kaynak gruplarını](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Yalnızca yetkili kullanıcıların erişimini kısıtlamak için kaynak tabanlı erişim denetimi rolleri sonra her kaynak grubuna atanabilir.
 
-**Erişim denetimi kısıtlamaları**: kullanım [rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) (RBAC) kullanarak uygulamanızı kaynakları yönetmek için [özel roller](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) RBAC işlemlerini kısıtlamak için kullanılabilir, DevOps her katmanında gerçekleştirebilirsiniz. İzin verme kullanırsanız [en az ayrıcalık prensibi](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Tüm yönetim işlemlerini oturum ve herhangi bir yapılandırma değişikliği planlanmış emin olmak için normal denetimleri gerçekleştirin.
+**Erişim denetimi kısıtlamaları**: kullanım [rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) kullanarak uygulamanızı kaynakları yönetmek için [özel roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC işlemlerini kısıtlamak için kullanılabilir, DevOps her katmanında gerçekleştirebilirsiniz. İzin verme kullanırsanız [en az ayrıcalık prensibi](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Tüm yapılandırma değişikliklerinin planlı olduğundan emin olmak için yönetim işlemlerinin tümünü günlüğe kaydedin ve normal denetimler gerçekleştirin.
 
 **Internet erişimi**: Bu başvuru mimarisinin utilises [Azure uygulama ağ geçidi](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) ağ geçidi ve yük dengeleyici Internet'e olarak. Bazı müşteriler, ayrıca güvenlik alternatif olarak ağ ek katmanlar için üçüncü taraf ağ sanal Gereçleri kullanma düşünebilirsiniz [Azure uygulama ağ geçidi](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 

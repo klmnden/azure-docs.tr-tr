@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/12/2018
-ms.openlocfilehash: cda5c26d4256720a8cf9af0e9abd604c979422a7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 04/09/2018
+ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure Stream Analytics anomali algılama
 
@@ -65,6 +65,8 @@ Kaydı dışında değerlerini ayrı ayrı ayıklamak için kullanma **getrecord
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
 Anomali puanları birini bir eşik kestiği zaman anomali türü algılandı. Eşik herhangi bir kayan noktalı sayı olabilir > = 0. Eşik kolaylığını duyarlılık güvenirlik arasındaki ise. Örneğin, düşük bir Eşikte algılama daha önemli değişiklikler yapmak ve daha yüksek bir eşik algılama daha az hassas ve daha emin olun ancak bazı anormallikleri maske ancak daha fazla uyarılar oluşturur. Kullanılacak tam eşik değeri senaryoya bağlıdır. Üst sınır yoktur ancak önerilen aralık 3,25-5'tir. 
+
+Örnekte gösterilen 3,25 yalnızca önerilen bir başlangıç noktası değerdir. Değeri kendi veri kümesi üzerinde işlemler çalıştırarak ince ayar ve tolerable eşik ulaşana kadar çıkış değerini inceleyin.
 
 ## <a name="anomaly-detection-algorithm"></a>Anomali algılama algoritması
 
@@ -118,19 +120,19 @@ Machine Learning düzeyinde bir geçmiş penceresinde olaylarla karşılaştıra
    - event_value/90th_percentile, eğer event_value > 90th_percentile  
    - 10th_percentile/event_value event_value ise, < 10th_percentile  
 
-2. **Yavaş pozitif eğilimi:** bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır ve biz satır pozitif bir eğilim arayın. Strangeness değeri olarak hesaplanır:  
+2. **Yavaş pozitif eğilimi:** bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır ve satır pozitif bir eğilim işlemi arar. Strangeness değeri olarak hesaplanır:  
 
    - Eğim pozitifse eğimi  
    - Aksi takdirde 0 
 
-1. **Yavaş negatif eğilimi:** bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır ve biz satır negatif eğilimi arayın. Strangeness değeri olarak hesaplanır: 
+3. **Yavaş negatif eğilimi:** işlemi satır içinde negatif eğilimi arar ve bir eğilim çizgisi Geçmiş penceresinde olay değerler üzerinden hesaplanır. Strangeness değeri olarak hesaplanır: 
 
    - Eğim negatifse eğimi  
    - Aksi takdirde 0  
 
 Gelen olay strangeness değeri hesaplanan sonra martingale değeri strangeness değere göre hesaplanır (bkz [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) martingale değerin nasıl hesaplanır ile ilgili ayrıntılar için). Bu martingale değeri anomali puan döndürülen. Martingale değer yavaş algılayıcısı durumlarıyla değişiklikler sağlam kalmasına izin verir ve yanlış uyarılar azaltan yanıtta garip değerlere artar. Ayrıca, kullanışlı bir özelliği vardır: 
 
-Olasılık [t tür vardır, M<sub>t</sub> > λ] < 1/λ, burada M<sub>t</sub> anlık t martingale değerdir ve λ gerçek bir değerdir. Örneğin, biz ne zaman uyarı M<sub>t</sub>> 100 hatalı pozitif sonuç olasılığını olduğundan 1/100'den küçük.  
+Olasılık [t tür vardır, M<sub>t</sub> > λ] < 1/λ, burada M<sub>t</sub> anlık t martingale değerdir ve λ gerçek bir değerdir. Örneğin, bir uyarı ise, M<sub>t</sub>> 100 hatalı pozitif sonuç olasılığını olduğundan 1/100'den küçük.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Çift yönlü düzeyi kullanmaya yönelik kılavuz algılayıcısı değiştirme 
 
@@ -140,7 +142,7 @@ Bu algılayıcısı kullanırken aşağıdaki noktaları bulundurulmalıdır:
 
 1. Zaman serisi aniden gördüğünde artışı veya değerinde bırakın, algıladığı AnomalyDetection işleci. Ancak dönüş normal algılama daha fazla planlama gerektirir. Bir zaman serisinin AnomalyDetection işlecin algılama aralığı en çok uzunluğunun yarısı anomali için ayarlanarak sağlanabilir anomali önce kararlı durumda olduğunda. Bu senaryo varsayar anomali en az süresi önceden tahmin edilebilir ve o zaman çerçevesinde yeterince modeli eğitmek için yeterli olay vardır (en az 50 olayları). 
 
-   Bu Şekil 1 ve 2 (alt sınırı değişiklik aynı mantığı uygular) bir üst sınır değişikliği kullanarak aşağıda gösterilmektedir. Her iki rakamlar dalga biçimleri anormal bir düzey değişikliği ' dir. Dikey turuncu satırlar atlama sınırlar belirtmek ve atlama boyutu AnomalyDetection işlecinde belirtilen algılama aralığı ile aynıdır. Çizgiler eğitim pencere boyutunu belirtin. Şekil 1'de atlama boyutu hangi anormallik lasts süredir ile aynıdır. Şekil 2'de, anomali sürer sürenin yarısından atlama boyutudur. Puanlama için kullanılan model üzerinde normal veri eğitilmiş çünkü her durumda, Yukarı herhangi bir değişiklik algılandı. Ancak, çift yönlü düzey değişikliği algılayıcısı nasıl çalıştığını bağlı olarak, biz normal değerleri normal dönün puanlar modeli için kullanılan eğitim penceresinden hariç tutmanız gerekir. Şekil 1'de Puanlama modelinin eğitimi normal bazı olaylar içerir, böylece geri dönmek için normal algılanamıyor. Ancak Şekil 2'de eğitim yalnızca normal dönün algılandığında sağlar anormal bölümü içerir. Daha büyük bir şey biraz normal olaylar dahil olmak üzere yukarı sona erer ancak yarısı küçük bir şey de aynı nedenden dolayı çalışır. 
+   Bu Şekil 1 ve 2 (alt sınırı değişiklik aynı mantığı uygular) bir üst sınır değişikliği kullanarak aşağıda gösterilmektedir. Her iki rakamlar dalga biçimleri anormal bir düzey değişikliği ' dir. Dikey turuncu satırlar atlama sınırlar belirtmek ve atlama boyutu AnomalyDetection işlecinde belirtilen algılama aralığı ile aynıdır. Çizgiler eğitim pencere boyutunu belirtin. Şekil 1'de atlama boyutu hangi anormallik lasts süredir ile aynıdır. Şekil 2'de, anomali sürer sürenin yarısından atlama boyutudur. Puanlama için kullanılan model üzerinde normal veri eğitilmiş çünkü her durumda, Yukarı herhangi bir değişiklik algılandı. Ancak, çift yönlü düzey değişikliği algılayıcısı nasıl çalıştığını bağlı olarak, bu normal değerleri normal dönün puanlar modeli için kullanılan eğitim penceresinden hariç tutmanız gerekir. Şekil 1'de Puanlama modelinin eğitimi normal bazı olaylar içerir, böylece geri dönmek için normal algılanamıyor. Ancak Şekil 2'de eğitim yalnızca normal dönün algılandığında sağlar anormal bölümü içerir. Daha büyük bir şey biraz normal olaylar dahil olmak üzere yukarı sona erer ancak yarısı küçük bir şey de aynı nedenden dolayı çalışır. 
 
    ![Pencere boyutu eşit anomali uzunluğa sahip AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
 

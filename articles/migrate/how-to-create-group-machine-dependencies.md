@@ -1,16 +1,16 @@
 ---
-title: "Grup Azure geçirme ile makine bağımlılıkları kullanarak makine | Microsoft Docs"
-description: "Makine bağımlılıkları ile Azure geçiş hizmetini kullanarak bir değerlendirme oluşturmayı açıklar."
+title: Grup Azure geçirme ile makine bağımlılıkları kullanarak makine | Microsoft Docs
+description: Makine bağımlılıkları ile Azure geçiş hizmetini kullanarak bir değerlendirme oluşturmayı açıklar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/25/2017
 ms.author: raynew
-ms.openlocfilehash: 720380fd14d9eaf4856ad75269a80f2b63a4725f
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 9e8e1fb918d9cd35b12e71abdd23ca101239ae26
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Makine bağımlılık eşleme kullanarak grubu makineleri
 
@@ -33,8 +33,8 @@ Bir Windows makinesinde aracı yüklemek için:
 1. İndirilen Aracısı'nı çift tıklatın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. Üzerinde **Lisans Koşulları'nı** sayfasında, **ediyorum** lisans kabul etmek için.
 3. İçinde **hedef klasörü**, saklamak veya varsayılan yükleme klasörünü değiştirmek > **sonraki**. 
-4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi (OMS)** > **sonraki**. 
-5. Tıklatın **Ekle** yeni bir OMS çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
+4. İçinde **aracı Kur Seçenekleri**seçin **Azure günlük analizi** > **sonraki**. 
+5. Tıklatın **Ekle** yeni bir günlük analizi çalışma alanı eklemek için. Çalışma alanı kimliği ve portaldan kopyaladığınız anahtarını yapıştırın. **İleri**’ye tıklayın.
 
 
 Bir Linux makinesinde aracı yüklemek için:
@@ -82,4 +82,4 @@ Grup oluşturulduktan sonra grubun tüm makinelerde aracıları yüklemek ve gru
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Bilgi nasıl](how-to-create-group-dependencies.md) Grup bağımlılıkları görselleştirme tarafından Grup iyileştirmek için
-- [Daha fazla bilgi edinin](concepts-assessment-calculation.md) değerlendirmelerinin nasıl hesaplandığını hakkında.
+- Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.

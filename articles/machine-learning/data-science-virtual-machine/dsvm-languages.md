@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 0c780b822e80bb8fce9ef4b1d85b445ee73ae7db
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Veri bilimi sanal makinede desteklenen diller 
 
@@ -33,7 +33,7 @@ Veri bilimi sanal makine (DSVM) birkaç önceden derlenmiş diller ve AI uygulam
 | Desteklenen DSVM sürümleri      | Windows Server 2016     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | İki genel `conda` ortamları oluşturulur. <br /> * `root` ortamında bulunan `/anaconda/` Python 3.6 değil. <br/> * `python2` ortamında bulunan `/anaconda/envs/python2`Python 2.7 olduğu       |
 | Örnekleri bağlantılar      | Python için örnek Jupyter not defterleri dahil edilir     |
-| DSVM ilgili araçları      | PySpark, R, Julia      |
+| DSVM ilgili araçları      | PySpark, R, Jale      |
 
 > [!NOTE]
 > Windows Server 2016 Mart 2018 önce oluşturulan Python 3.5 ve Python 2.7 içerir. Aynı zamanda Python 2.7 conda olan **kök** ortamı ve **py35** Python 3.5 ortamıdır. 
@@ -77,7 +77,7 @@ Varsayılan Python ortamları DSVM üzerinde genel ortam okunabilir ve tüm kull
 | Desteklenen DSVM sürümleri      | Linux, Windows Server 2012    |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | İki genel `conda` ortamları oluşturulur. <br /> * `root` ortamında bulunan `/anaconda/` Python 2.7 değil. <br/> * `py35` ortamında bulunan `/anaconda/envs/py35`Python 3.5       |
 | Örnekleri bağlantılar      | Python için örnek Jupyter not defterleri dahil edilir     |
-| DSVM ilgili araçları      | PySpark, R, Julia      |
+| DSVM ilgili araçları      | PySpark, R, Jale      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
 
 **Linux**
@@ -144,7 +144,7 @@ Varsayılan Python ortamları DSVM üzerinde genel ortam okunabilir ve tüm kull
 | Desteklenen DSVM sürümleri      | Linux, Windows     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Örnekleri bağlantılar      | R örnek Jupyter not defterleri dahil edilir     |
-| DSVM ilgili araçları      | SparkR, Python, Julia      |
+| DSVM ilgili araçları      | SparkR, Python, Jale      |
 ### <a name="how-to-use--run-it"></a>Kullanın / çalıştırmak için nasıl?    
 
 **Windows**:
@@ -188,7 +188,7 @@ R tüm kullanıcılar tarafından okunabilir genel ortamında DSVM yüklenir. An
 
 |    |           |
 | ------------- | ------------- |
-| Dil sürümleri destekleniyor | 0.6 |
+| Dil sürümleri destekleniyor | 0,6 |
 | Desteklenen DSVM sürümleri      | Linux, Windows     |
 | Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | Windows: yüklü `C:\JuliaPro-VERSION`<br /> Linux: yüklü `/opt/JuliaPro-VERSION`    |
 | Örnekleri bağlantılar      | Jale için örnek Jupyter not defterleri dahil edilir     |

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: article
-ms.date: 04/01/2018
+ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: e66adb8b0485e30fded487e18af6b2030f9c7f5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -58,7 +58,7 @@ Veri Eşitleme aşağıdaki senaryolar için uygun değil:
 
 -   Ölçek okuma
 
--   ETL (OLTP to OLAP)
+-   ETL (OLTP OLAP için)
 
 -   Şirket içi SQL Server'dan Azure SQL veritabanı geçiş
 
@@ -100,7 +100,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 #### <a name="unsupported-data-types"></a>Desteklenmeyen veri türleri
 
--   FileStream
+-   FILESTREAM
 
 -   SQL/CLR UDT
 
@@ -110,7 +110,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>Hizmet ve veritabanı boyutları sınırlamalar
 
-| **Boyutlar**                                                      | **Limit**              | **Geçici çözüm**              |
+| **Boyutlar**                                                      | **Sınırı**              | **Geçici çözüm**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Eşitleme grubu sayısı için herhangi bir veritabanı ait olabilir.       | 5                      |                             |
 | Bir tek eşitleme grubundaki uç noktaları sayısı              | 30                     | Birden çok eşitleme grupları oluşturma |
@@ -118,7 +118,7 @@ Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için 
 | Veritabanı, tablo, şema ve sütun adları                       | ad başına 50 karakter |                             |
 | Bir eşitleme grubundaki tablolar                                          | 500                    | Birden çok eşitleme grupları oluşturma |
 | Bir eşitleme grubundaki bir tablodaki sütunlar                              | 1000                   |                             |
-| Bir tabloda veri satır boyutu                                        | 24 Mb                  |                             |
+| Bir tabloda veri satır boyutu                                        | 24 mb                  |                             |
 | Minimum eşitleme aralığı                                           | 5 Dakika              |                             |
 |||
 
@@ -138,6 +138,11 @@ Evet. Hub veritabanını barındırmak için bir SQL veritabanı hesabınızın 
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Yalnızca SQL Server içi veritabanları arasında eşitlemek için veri eşitleme kullanabilir miyim? 
 Doğrudan yönetilemez. SQL Server içi veritabanları arasında dolaylı olarak, ancak Azure Hub veritabanı oluşturma ve ardından şirket içi veritabanlarını eşitleme grubuna ekleyerek eşitleyebilirsiniz.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Farklı aboneliklere ait SQL veritabanları arasında eşitlemek için veri eşitleme kullanabilir miyim?
+Evet. Farklı abonelik tarafından ait kaynak gruplarına ait SQL veritabanları arasında eşitleyebilirsiniz.
+-   Abonelikler aynı kiracısına ait ve tüm abonelikleri izni varsa, Azure portalında eşitleme grubunu yapılandırabilirsiniz.
+-   Aksi takdirde, farklı aboneliklere ait eşitleme üye eklemek için PowerShell kullanmak zorunda.
    
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>I veri eşitleme çekirdek veri my üretim veritabanından boş bir veritabanı ve kullanabileceğiniz bunları eşitlenmiş tut? 
 Evet. Şema özgün komut dosyası tarafından yeni veritabanında el ile oluşturun. Şema oluşturduktan sonra tabloları veri kopyalamak ve eşitlenmiş kalmasını sağlamak için bir eşitleme grubuna ekleyin.
@@ -147,6 +152,12 @@ Evet. Şema özgün komut dosyası tarafından yeni veritabanında el ile oluşt
 Verilerinizi bir yedekleme oluşturmak için SQL veri eşitleme (Önizleme) kullanmak için önerilmez. Yedekleme ve SQL veri eşitleme (Önizleme) eşitlemeleri sürümlü olduğundan zaman içinde belirli bir noktaya geri alamazsınız. Ayrıca, SQL veri eşitleme (Önizleme) saklı yordamlar gibi diğer SQL nesneleri yedeklemez ve geri yükleme işlemi denk hızlı bir şekilde yapın.
 
 Bir yedekleme teknik önerilen için bkz: [bir Azure SQL veritabanını kopyalama](sql-database-copy.md).
+
+### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>Veri Eşitleme şifrelenmiş tablolar ve sütunlar eşitleme yapabilirim?
+
+-   Her zaman şifreli bir veritabanı kullanıyorsa, yalnızca tablolar ve olan sütunlar eşitleyebilir *değil* şifrelenmiş. Veri Eşitleme verilerin şifresini çözemez için şifrelenmiş sütunlar eşitleyemiyor.
+
+-   Bir sütun sütun düzeyi şifreleme (Temizle) kullanıyorsa, satır boyutu 24 MB maksimum boyuttan daha küçük olduğu sürece sütun eşitleyebilirsiniz. Veri Eşitleme normal ikili veri olarak (Temizle) anahtar ile şifrelenmiş sütunu değerlendirir. Diğer eşitleme üyeler verilerin şifresini çözmek için aynı sertifika olması gerekir.
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>Harmanlamayı SQL veri eşitleme destekleniyor mu?
 
@@ -166,11 +177,11 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 
 -   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
 -   [Azure SQL Data Sync için en iyi yöntemler](sql-database-best-practices-data-sync.md)
--   [Günlük analizi ile İzleyici Azure SQL veri eşitleme](sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync’i Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
 -   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

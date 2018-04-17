@@ -1,25 +1,20 @@
 ---
-title: "En iyi veri yükleme uygulamaları - Azure SQL Veri Ambarı | Microsoft Docs"
-description: "Azure SQL Veri Ambarı ile veri yükleme ve ELT gerçekleştirme önerileri."
+title: En iyi veri yükleme uygulamaları - Azure SQL Veri Ambarı | Microsoft Docs
+description: Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyileştirmeleri.
 services: sql-data-warehouse
-documentationcenter: NA
-author: barbkess
-manager: jenniehubbard
-editor: 
-ms.assetid: 7b698cad-b152-4d33-97f5-5155dfa60f79
+author: ckarst
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: performance
-ms.date: 12/13/2017
-ms.author: barbkess
-ms.openlocfilehash: 277766c22e25945fb314aa51017a72f415cbab46
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: a416bf7965a5d297bfea698d318d45f6e47c9c50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı’na veri yüklemek için en iyi uygulamalar
 Azure SQL Veri Ambarı’na veri yüklemeye yönelik öneriler ve performans iyileştirmeleri. 
@@ -35,7 +30,7 @@ Verileri ORC Dosya Biçimi’ne aktarırken, verilerde büyük metin sütunları
 
 PolyBase 1.000.000 bayttan daha fazla veri içeren satırları yükleyemez. Azure Blob depolama veya Azure Data Lake Store’da verileri metin dosyalarına yerleştirdiğinizde, dosyaların 1.000.000 bayttan daha az veri içermesi gerekir. Bu bayt sınırlaması, tablo şemasından bağımsız olarak geçerlidir.
 
-Tüm dosya biçimleri farklı performans özelliklerine sahiptir. En hızlı yükleme için, sıkıştırılmış sınırlı metin dosyaları kullanın. UTF-8 ve UTF-16 arasındaki performans farkı azdır.
+Tüm dosya biçimleri farklı performans özelliklerine sahiptir. En hızlı yükleme için, sıkıştırılan sınırlandırılmış metin dosyaları kullanın. UTF-8 ve UTF-16 arasındaki performans farkı azdır.
 
 Büyük sıkıştırılmış dosyaları daha küçük sıkıştırılmış dosyalara bölün.
 
@@ -43,7 +38,7 @@ Büyük sıkıştırılmış dosyaları daha küçük sıkıştırılmış dosya
 
 En yüksek yükleme hızı için aynı anda yalnızca bir yük işi çalıştırın. Bunu yapmak uygun değilse, en az sayıda yükü eşzamanlı olarak çalıştırın. Büyük bir yükleme işi bekliyorsanız, yükten önce veri ambarınızın ölçeğini genişletmeyi düşünün.
 
-Yükleri uygun bilgisayar kaynaklarıyla çalıştırmak için, çalıştırma yükleri için ayrılmış yükleme kullanıcıları oluşturun. Her bir yükleme kullanıcısını belirli bir kaynak sınıfına atayın. Bir yük çalıştırmak için, yükleme kullanıcılarından biri olarak oturum açıp yükü çalıştırın. Yük, kullanıcının kaynak sınıfıyla çalıştırılır.  Bu yöntem bir kullanıcının kaynak sınıfını geçerli sınıfı ihtiyacına uygun olarak değiştirmeye çalışmaktan daha basittir.
+Yükleri uygun işlem kaynaklarıyla çalıştırmak için, yükleri çalıştırmaya ayrılmış yükleme kullanıcıları oluşturun. Her bir yükleme kullanıcısını belirli bir kaynak sınıfına atayın. Bir yük çalıştırmak için, yükleme kullanıcılarından biri olarak oturum açıp yükü çalıştırın. Yük, kullanıcının kaynak sınıfıyla çalıştırılır.  Bu yöntem bir kullanıcının kaynak sınıfını geçerli kaynak sınıfının ihtiyacına uygun olarak değiştirmeye çalışmaktan daha basittir.
 
 ### <a name="example-of-creating-a-loading-user"></a>Yükleme kullanıcısı oluşturmayla ilgili örnek
 Bu örnekte, staticrc20 kaynak sınıfı için bir yükleme kullanıcısı oluşturulmaktadır. İlk adım, **ana öğeye bağlanmak** ve oturum açma bilgisi oluşturmaktır.
@@ -62,13 +57,13 @@ Veri ambarına bağlanın ve bir kullanıcı oluşturun. Aşağıdaki kodda, myS
 ```
 StaticRC20 kaynak sınıflarıyla bir yükü çalıştırmak için, LoaderRC20 olarak oturum açıp yükü çalıştırın.
 
-Yükleri dinamik yerine statik kaynak sınıfları altında çalıştırın. Statik kaynak sınıflarını kullanmak, [hizmet düzeyinizden](performance-tiers.md#service-levels) bağımsız olarak aynı kaynakları garantiler. Bir dinamik kaynak sınıfı kullanırsanız, kaynaklar hizmet düzeyinize göre değişir. Dinamik sınıflar için, daha düşük bir hizmet düzeyi, yükleme kullanıcınız için daha büyük bir kaynak sınıfı kullanmanız gerektiğini gösteriyor olabilir.
+Yükleri dinamik yerine statik kaynak sınıfları altında çalıştırın. Statik kaynak sınıflarını kullanarak, bağımsız olarak, aynı kaynakları güvence altına alır, [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md). Bir dinamik kaynak sınıfı kullanırsanız, kaynaklar hizmet düzeyinize göre değişir. Dinamik sınıflar için, daha düşük bir hizmet düzeyi, yükleme kullanıcınız için daha büyük bir kaynak sınıfı kullanmanız gerektiğini gösteriyor olabilir.
 
 ## <a name="allowing-multiple-users-to-load"></a>Birden çok kullanıcının yüklemesine izin verme
 
-Genellikle bir veri ambarına veri yükleyebilen birden çok kullanıcı olması gerekir. [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] ile yükleme için veritabanının CONTROL izinleri gerekir.  CONTROL izinleri tüm şemalara denetim erişimi verir. Tüm yükleme kullanıcılarının tüm şemalarda denetim erişimine sahip olmasını istemeyebilirsiniz. İzinleri sınırlandırmak için, DENY CONTROL deyimini kullanabilirsiniz.
+Genellikle bir veri ambarına veri yükleyebilen birden çok kullanıcı olması gerekir. İle yükleme [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) veritabanının denetim izinleri gerektirir.  CONTROL izinleri tüm şemalara denetim erişimi verir. Tüm yükleme kullanıcılarının tüm şemalarda denetim erişimine sahip olmasını istemeyebilirsiniz. İzinleri sınırlandırmak için, DENY CONTROL deyimini kullanabilirsiniz.
 
-Örneğin, A departmanı için schema_A ve B departmanı için schema_B olduğunu düşünelim. user_A ve user_B adlı veritabanı kullanıcıları sırayla A ve B departmanları için PolyBase yükleme kullanıcıları olsun. Her ikisine de CONTROL veritabanı izinleri verilmiştir. A ve B şemasının sahipleri DENY kullanarak şemalarını kilitler:
+Örneğin, A departmanı için schema_A ve B departmanı için schema_B adında veritabanı şemaları olduğunu düşünelim. user_A ve user_B adlı veritabanı kullanıcıları sırayla A ve B departmanları için PolyBase yükleme kullanıcıları olsun. Her ikisine de CONTROL veritabanı izinleri verilmiştir. A ve B şemalarını oluşturanlar DENY kullanarak bu şemaları kilitler:
 
 ```sql
    DENY CONTROL ON SCHEMA :: schema_A TO user_B;
@@ -99,13 +94,13 @@ Bir dış tablo kullanan bir yük *"Sorgu iptal edildi-- dış bir kaynaktan oku
 Kirli kayıtları düzeltmek için dış tablo ve dış dosya biçimlerinizin doğru olduğundan ve dış verilerinizin bu tanımlara uyduğundan emin olun. Dış verilerin alt kümesinin kirli olması durumunda, CREATE EXTERNAL TABLE içinde reddetme seçeneklerini kullanarak sorgularınız için bu kayıtları reddedebilirsiniz.
 
 ## <a name="inserting-data-into-a-production-table"></a>Üretim tablosuna veri ekleme
-Küçük bir tabloya bir [INSERT](/sql/t-sql/statements/insert-transact-sql.md) deyimiyle tek seferlik yükleme yapmak veya `INSERT INTO MyLookup VALUES (1, 'Type 1')` gibi bir deyimle bir aramanın düzenli aralıklarla yeniden yüklenmesi yeterlidir.  Ancak, tekli ton eklemeleri toplu yükleme gerçekleştirmek kadar verimli değildir. 
+Küçük bir tabloya bir [INSERT](/sql/t-sql/statements/insert-transact-sql) deyimiyle tek seferlik yükleme yapmak veya `INSERT INTO MyLookup VALUES (1, 'Type 1')` gibi bir deyimle bir aramanın düzenli aralıklarla yeniden yüklenmesi yeterlidir.  Ancak, tekli ton eklemeleri toplu yükleme gerçekleştirmek kadar verimli değildir. 
 
 Gün boyunca binlerce ekleme yapmanız gerekiyorsa, eklemeleri toplu olarak yüklemek için toplu iş haline getirin.  Bir dosyaya tekli eklemeleri eklemek için işlemlerinizi geliştirin ve ardından dosyayı düzenli olarak yükleyen başka bir işlem oluşturun.
 
 ## <a name="creating-statistics-after-the-load"></a>Yüklemeden sonra istatistik oluşturma
 
-Sorgu performansını geliştirmek için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra istatistiklerin tüm sütunlarda oluşturulması önemlidir.  İstatistiklerin ayrıntılı bir açıklaması için bkz. [İstatistikler][İstatistikler]. Aşağıdaki örnek Customer_Speed tablosunun beş sütununda istatistikler oluşturur.
+Sorgu performansını geliştirmek için ilk yüklemeden veya verilerdeki önemli değişikliklerden sonra istatistiklerin tüm sütunlarda oluşturulması önemlidir.  İstatistiklerin ayrıntılı bir açıklaması için bkz. [İstatistikler](sql-data-warehouse-tables-statistics.md). Aşağıdaki örnek Customer_Speed tablosunun beş sütununda istatistikler oluşturur.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -120,17 +115,21 @@ Blob depolamanızın erişim anahtarlarını düzenli olarak değiştirmek iyi b
 
 Azure Depolama hesabı anahtarlarını döndürmek için:
 
-Anahtarı değişen her depolama hesabı için, [VERİTABANI KAPSAMLI KİMLİK BİLGİSİNİ DEĞİŞTİR](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql.md) yazın.
+Anahtarı değişen her depolama hesabı için, [VERİTABANI KAPSAMLI KİMLİK BİLGİSİNİ DEĞİŞTİR](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql) yazın.
 
 Örnek:
 
 Özgün anahtar oluşturuldu
 
-CREATE DATABASE SCOPED CREDENTIAL kimlik_bilgim WITH IDENTITY = 'kimliğim', SECRET = 'anahtar1' 
+    ```sql
+    CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
+    ``` 
 
 1. anahtardan 2. anahtara geçin
 
-ALTER DATABASE SCOPED CREDENTIAL kimlik_bilgim WITH IDENTITY = 'kimliğim', SECRET = 'anahtar2' 
+    ```sq;
+    ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key2' 
+    ```
 
 Temel dış veri kaynaklarında başka bir değişiklik yapılması gerekmez.
 

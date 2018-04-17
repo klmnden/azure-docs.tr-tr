@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL veritabanı örneği VNet yapılandırmasını yönetilen | Microsoft Docs"
-description: "Bu konuda, yönetilen bir Azure SQL veritabanı örneği ile bir sanal ağ (VNet) için yapılandırma seçenekleri açıklanmaktadır."
+title: Azure SQL veritabanı örneği VNet yapılandırmasını yönetilen | Microsoft Docs
+description: Bu konuda, yönetilen bir Azure SQL veritabanı örneği ile bir sanal ağ (VNet) için yapılandırma seçenekleri açıklanmaktadır.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: e724a660f8ba2373cefdabe8595908b7bb42f4d6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bccc2d52c592101a23338e57791a992441e80047
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
@@ -66,7 +66,7 @@ Alt ağ içindeki birden çok yönetilen örnekleri dağıtma ve alt ağ boyutu 
 Bir Azure sanal ağı oluşturma, yönetilen bir örneğini oluşturmak için bir önkoşuldur. Azure portalını kullanabilirsiniz [PowerShell](../virtual-network/quick-create-powershell.md), veya [Azure CLI](../virtual-network/quick-create-cli.md). Aşağıdaki bölümde Azure Portalı'nı kullanarak adımları gösterir. Burada tartışılan ayrıntılar bu yöntemlerin her biri için geçerlidir.
 
 1. Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** öğesine tıklayın.
-2. Bulun ve ardından **sanal ağ**, doğrulama **Resource Manager** dağıtım modu olarak seçilir ve ardından **oluşturma**.
+2. **Sanal Ağ**’ı bulup tıklayın, dağıtım modu olarak **Resource Manager**’ın seçili olduğunu doğrulayın ve ardından **Oluştur**’a tıklayın.
 
    ![sanal ağ oluşturma](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
 
@@ -93,23 +93,23 @@ Bir Azure sanal ağı oluşturma, yönetilen bir örneğini oluşturmak için bi
 ## <a name="create-the-required-route-table-and-associate-it"></a>Gerekli yol tablosu oluşturun ve ilişkilendirin
 
 1. Azure portalında oturum açın  
-2. Bulun ve ardından **yol tablosu**ve ardından **oluşturma** rota tablosu sayfasında.
+2. **Yol tablosu**’nu bulup tıklayın ve ardından Yol tablosu sayfasında **Oluştur**’a tıklayın.
 
-   ![yol tablosu formu oluşturma](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
+   ![yol tablosu oluşturma formu](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
 
 3. Aşağıdaki ekran görüntüleri gibi bir şekilde 0.0.0.0/0 sonraki atlama Internet rota oluşturun:
 
    ![yol tablosu ekleme](./media/sql-database-managed-instance-tutorial/route-table-add.png)
 
-   ![Rota](./media/sql-database-managed-instance-tutorial/route.png)
+   ![yol](./media/sql-database-managed-instance-tutorial/route.png)
 
 4. Bu yol, yönetilen Örneğin, aşağıdaki ekran görüntüleri gibi bir şekilde alt ağ ile ilişkilendirin:
 
     ![alt ağ](./media/sql-database-managed-instance-tutorial/subnet.png)
 
-    ![Rota tablo Ayarla](./media/sql-database-managed-instance-tutorial/set-route-table.png)
+    ![yol tablosu ayarlama](./media/sql-database-managed-instance-tutorial/set-route-table.png)
 
-    ![set rota tablosu-Kaydet](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
+    ![yol tablosu ayarlama-kaydetme](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
 
 
 Sanal ağınızı oluşturduktan sonra yönetilen örneğinizi oluşturmaya hazırsınız.  
@@ -145,5 +145,5 @@ Yanıt Evet ise, bkz: [özel DNS yapılandırma](sql-database-managed-instance-c
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Genel bir bakış için bkz: [yönetilen örneği nedir](sql-database-managed-instance.md)
-- Bir VNet oluşturun, yönetilen bir örneği oluşturun ve bir veritabanını bir veritabanı yedeklemeden geri yüklemek nasıl gösteren bir öğretici için bkz: [yönetilen bir Azure SQL veritabanı örneği oluşturmanızı](sql-database-managed-instance-tutorial-portal.md).
+- Bir VNet oluşturun, yönetilen bir örneği oluşturun ve bir veritabanını bir veritabanı yedeklemeden geri yüklemek nasıl gösteren bir öğretici için bkz: [yönetilen bir Azure SQL veritabanı örneği oluşturmanızı](sql-database-managed-instance-create-tutorial-portal.md).
 - DNS sorunları için bkz: [özel DNS yapılandırma](sql-database-managed-instance-custom-dns.md)

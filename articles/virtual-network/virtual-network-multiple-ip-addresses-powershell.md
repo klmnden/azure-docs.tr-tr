@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makineleri - PowerShell için birden çok IP adresi | Microsoft Docs"
-description: "PowerShell kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager."
+title: Azure sanal makineleri - PowerShell için birden çok IP adresi | Microsoft Docs
+description: PowerShell kullanarak bir sanal makine için birden çok IP adresi atama hakkında bilgi edinin | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: c44ea62f-7e54-4e3b-81ef-0b132111f1f8
 ms.service: virtual-network
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: b3690ec991add437afdaba3ef22022d49c962b34
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: bfc8f432e868c03d101ca7bfbc6b59f6e98ce29b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>PowerShell kullanarak sanal makineleri için birden çok IP adresi atayın
 
@@ -194,7 +194,7 @@ Adımları birden çok IP adresleriyle VM örneği oluşturmak senaryosunda aç�
 
 ## <a name="add"></a>Bir VM için IP adreslerini ekleyin
 
-Adımları tamamlayarak bir NIC'ye özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde yer alan örnekler, zaten bir VM açıklanan üç IP yapılandırmaya sahip olduğunu varsayın [senaryo](#Scenario) Bu makale, ancak gerekli değildir, yapın.
+Adımları izleyerek Azure ağ arabirimine özel ve genel IP adresleri ekleyebilirsiniz. Aşağıdaki bölümlerde yer alan örnekler, zaten bir VM açıklanan üç IP yapılandırmaya sahip olduğunu varsayın [senaryo](#Scenario) Bu makale, ancak gerekli değildir, yapın.
 
 1. Bir PowerShell komut istemi açın ve tek bir PowerShell oturumunda bu bölümdeki kalan adımları tamamlayın. Zaten yüklü ve yapılandırılmış PowerShell sahip değilseniz, bölümündeki adımları tamamlamanız [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) makale.
 2. Aşağıdaki $Variables "değerler" adı IP adresine eklemek istediğiniz NIC ve kaynak grubu ve NIC bulunmaktadır konumu ile değiştirin:

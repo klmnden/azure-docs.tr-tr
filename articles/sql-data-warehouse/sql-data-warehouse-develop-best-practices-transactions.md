@@ -1,30 +1,26 @@
 ---
-title: "İşlemleri SQL Data Warehouse için en iyi duruma getirme | Microsoft Docs"
-description: "Azure SQL Data Warehouse'da verimli işlem güncelleştirmeleri yazma en iyi uygulama kılavuzunu"
+title: İşlemleri Azure SQL Data Warehouse için en iyi duruma getirme | Microsoft Docs
+description: Uzun düzeyine riskini en aza indirme sırasında işlem kodunuzu Azure SQL veri ambarı performansını en iyi duruma öğrenin.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 03/15/2018
-ms.author: jrj;barbkess
-ms.openlocfilehash: 607c169e3d9e8aa741084392439da383f46cfe0c
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 55fc317dc9e7a1401aef8c5431ba04d86822d333
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="optimizing-transactions-for-sql-data-warehouse"></a>İşlemleri SQL Data Warehouse için en iyi duruma getirme
-Bu makalede, uzun düzeyine riskini en aza indirme sırasında işlem kodunuzu performansını en iyi duruma açıklanmaktadır.
+# <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse işlemlerinde en iyi duruma getirme
+Uzun düzeyine riskini en aza indirme sırasında işlem kodunuzu Azure SQL veri ambarı performansını en iyi duruma öğrenin.
 
 ## <a name="transactions-and-logging"></a>İşlemler ve günlüğe kaydetme
-İşlemler, ilişkisel veritabanı altyapısını önemli bileşenidir. SQL veri ambarı işlemleri sırasında veri değişikliği kullanır. Bu işlemler, açık veya örtülü olabilir. Tek `INSERT`, `UPDATE`, ve `DELETE` deyimleri örtülü işlemler tüm örnekler verilmiştir. Açık işlemleri kullanmak `BEGIN TRAN`, `COMMIT TRAN`, veya `ROLLBACK TRAN`. Birden çok değişikliği deyimleri tek bir atomik biriminde birlikte bağlanması gerektiğinde açık işlemler tipik olarak kullanılır. 
+İşlemler, ilişkisel veritabanı altyapısını önemli bileşenidir. SQL veri ambarı işlemleri sırasında veri değişikliği kullanır. Bu işlemler, açık veya örtülü olabilir. Tek bir INSERT, UPDATE ve DELETE deyimleri örtülü işlemler tüm örnekleridir. Açık işlemleri başlamak TRAN, TRAN yürütme veya geri alma TRAN kullanın. Birden çok değişikliği deyimleri tek bir atomik biriminde birlikte bağlanması gerektiğinde açık işlemler tipik olarak kullanılır. 
 
 Azure SQL Data Warehouse, işlem günlükleri kullanarak veritabanı değişiklikleri kaydeder. Her dağıtım kendi işlem günlüğü vardır. İşlem günlüğü yazma otomatik olarak yapılır. Gerekli yapılandırma yoktur. Ancak, bu işlem yazma garanti adımında, bir ek yük sistemde tanıtır. İşlemsel olarak verimli kodlar yazarak bu etkiyi en aza indirebilirsiniz. İşlemsel olarak verimli kod kapsamlı iki kategoride yer alır.
 
@@ -33,7 +29,7 @@ Azure SQL Data Warehouse, işlem günlükleri kullanarak veritabanı değişikli
 * Bir bölüm düzeni büyük değişiklikler belli bir bölüm için değiştirme benimsemeyi
 
 ## <a name="minimal-vs-full-logging"></a>En az tam günlük kaydı karşılaştırması
-Her satır değişiklik izlemek için işlem günlüğü kullanın, tam olarak günlüğe kaydedilmiş işlemlerin en düşük düzeyde günlüğe kaydedilmiş işlemlerin kapsam ayırma ve yalnızca meta veri değişiklikleri takip edin. Bu nedenle, en az günlük işlem bir hatadan sonra veya açık bir istek için geri almak için gerekli olan bilgiler günlüğü içerir (`ROLLBACK TRAN`). Bilgi işlem günlüğünde daha az izlenen gibi en düşük düzeyde günlüğe kaydedilmiş bir işlemin benzer şekilde boyutlandırılmış tam olarak günlüğe kaydedilmiş bir işlemin daha iyi gerçekleştirir. Ayrıca, daha az yazma işlem günlüğü gitmek için günlük verileri kadar daha az miktarda oluşturulur ve bu nedenle daha fazla g/ç etkilidir.
+Her satır değişiklik izlemek için işlem günlüğü kullanın, tam olarak günlüğe kaydedilmiş işlemlerin en düşük düzeyde günlüğe kaydedilmiş işlemlerin kapsam ayırma ve yalnızca meta veri değişiklikleri takip edin. Bu nedenle, en az günlük işlem bir hatadan sonra veya açık bir istek (ROLLBACK TRAN) için geri almak için gerekli olan bilgi günlük kaydı içerir. Bilgi işlem günlüğünde daha az izlenen gibi en düşük düzeyde günlüğe kaydedilmiş bir işlemin benzer şekilde boyutlandırılmış tam olarak günlüğe kaydedilmiş bir işlemin daha iyi gerçekleştirir. Ayrıca, daha az yazma işlem günlüğü gitmek için günlük verileri kadar daha az miktarda oluşturulur ve bu nedenle daha fazla g/ç etkilidir.
 
 İşlem güvenliği sınırları yalnızca tam olarak günlüğe kaydedilen işlemleri için geçerlidir.
 
@@ -45,7 +41,7 @@ Her satır değişiklik izlemek için işlem günlüğü kullanın, tam olarak g
 ## <a name="minimally-logged-operations"></a>En düşük düzeyde günlüğe kaydedilmiş işlemlerin
 Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneğine sahiptir:
 
-* TABLE AS SELECT OLUŞTURUN ([CTAS][CTAS])
+* TABLE AS SELECT OLUŞTURUN ([CTAS](sql-data-warehouse-develop-ctas.md))
 * EKLE... SEÇİN
 * DİZİN OLUŞTURMA
 * ALTER INDEX YENİDEN OLUŞTURMA
@@ -61,12 +57,12 @@ Aşağıdaki işlemleri en düşük düzeyde günlüğe kaydedilmesini yeteneği
 -->
 
 > [!NOTE]
-> İç veri taşıma işlemleri (gibi `BROADCAST` ve `SHUFFLE`) göre hareket güvenlik sınırı etkilenmez.
+> İç veri taşıma işlemleri (örneğin, yayın ve KARIŞIK) göre hareket güvenlik sınırı etkilenmez.
 > 
 > 
 
 ## <a name="minimal-logging-with-bulk-load"></a>Toplu yükleme ile en az günlüğe kaydetme
-`CTAS` ve `INSERT...SELECT` olan hem de toplu yükleme işlemleri. Ancak, hem de hedef tablo tanımı tarafından etkilenir ve yük senaryoya bağlıdır. Aşağıdaki tabloda, tam olarak veya en düşük düzeyde toplu işlemler ne zaman oturum açıklanmaktadır:  
+CTAS ve Ekle... SELECT hem toplu yük işlemleridir. Ancak, hem de hedef tablo tanımı tarafından etkilenir ve yük senaryoya bağlıdır. Aşağıdaki tabloda, tam olarak veya en düşük düzeyde toplu işlemler ne zaman oturum açıklanmaktadır:  
 
 | Birincil dizin | Yükleme senaryosu | Oturum açma modu |
 | --- | --- | --- |
@@ -87,7 +83,7 @@ Bu, ikincil veya kümelenmemiş dizinler güncelleştirilecek tüm yazma tam ola
 Kümelenmiş bir dizin ile bir boş olmayan tabloya veri yükleme genellikle tam olarak günlüğe kaydedilen ve en düşük düzeyde oturum satır bir karışımını içerebilir. Kümelenmiş bir dizin sayfalarını dengeli ağacının (b-ağacı) ' dir. Sayfa için zaten var. başka bir işlem satırları yazılmakta varsa, bu yazma tam olarak kaydedilir. Sayfa boş ise, ancak daha sonra bu sayfayı yazma en düşük düzeyde günlüğe kaydedilir.
 
 ## <a name="optimizing-deletes"></a>Siler en iyi duruma getirme
-`DELETE` tam olarak günlüğe kaydedilen bir işlemdir.  Büyük miktarda veri bir tablo veya bir bölümü silmek gerekiyorsa, genellikle daha fazla için mantıklıdır `SELECT` korumak istediğiniz veri en düşük düzeyde günlüğe kaydedilen bir işlem olarak çalıştırabilirsiniz.  Verileri seçmek için ile yeni bir tablo oluştur [CTAS][CTAS].  Oluşturduktan sonra kullanmak [yeniden adlandırma] [ RENAME] eski tablonuz yeni oluşturulan tabloyla takas etmek.
+DELETE tam olarak günlüğe kaydedilen bir işlemdir.  Büyük miktarda veri bir tablo veya bir bölümü silmek gerekiyorsa, genellikle daha fazla için mantıklıdır `SELECT` korumak istediğiniz veri en düşük düzeyde günlüğe kaydedilen bir işlem olarak çalıştırabilirsiniz.  Verileri seçmek için ile yeni bir tablo oluştur [CTAS](sql-data-warehouse-develop-ctas.md).  Oluşturduktan sonra kullanmak [yeniden adlandırma](/sql/t-sql/statements/rename-transact-sql) eski tablonuz yeni oluşturulan tabloyla takas etmek.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -118,9 +114,9 @@ RENAME OBJECT [dbo].[FactInternetSales_d] TO [FactInternetSales];
 ```
 
 ## <a name="optimizing-updates"></a>Güncelleştirmeleri en iyi duruma getirme
-`UPDATE` tam olarak günlüğe kaydedilen bir işlemdir.  Çok sayıda satır bir tablo veya bölüm güncellemeniz gerekiyorsa, bu genellikle en düşük düzeyde günlüğe kaydedilmiş bir işlemin gibi kullanmak için daha etkili olabilir [CTAS] [ CTAS] Bunu yapmak için.
+Tam olarak günlüğe kaydedilmiş bir işlemin güncelleştirmesidir.  Çok sayıda satır bir tablo veya bölüm güncellemeniz gerekiyorsa, bu genellikle en düşük düzeyde günlüğe kaydedilmiş bir işlemin gibi kullanmak için daha etkili olabilir [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) Bunu yapmak için.
 
-Tam bir tablo aşağıdaki örnekte güncelleştirme dönüştürülen bir `CTAS` en az günlük mümkün olmasını sağlayın.
+Böylece en az günlük mümkündür tam tablo aşağıdaki örnekte güncelleştirme bir CTAS dönüştürüldü.
 
 Bu durumda, retrospectively bir indirim tutarı tablosundaki Satış ekliyoruz:
 
@@ -184,7 +180,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 > 
 
 ## <a name="optimizing-with-partition-switching"></a>Bölüm geçiş ile en iyi duruma getirme
-Büyük ölçekli değişiklikleri içinde ile karşılaştığı varsa bir [tablo bölüm][table partition], bir bölüm düzeni değiştirme mantıklı sonra. Veri değişikliği önemlidir ve birden çok bölüm yayılan, bölümler yineleme aynı sonucu elde eder.
+Büyük ölçekli değişiklikleri içinde ile karşılaştığı varsa bir [tablo bölüm](sql-data-warehouse-tables-partition.md), bir bölüm düzeni değiştirme mantıklı sonra. Veri değişikliği önemlidir ve birden çok bölüm yayılan, bölümler yineleme aynı sonucu elde eder.
 
 Bir bölüm anahtarı gerçekleştirme adımları aşağıdaki gibidir:
 
@@ -416,23 +412,9 @@ Azure SQL Data Warehouse olanak tanır [duraklatma, sürdürme ve ölçeklendirm
 
 En iyi senaryo uçuş veri değişikliği işlemlerin duraklatma veya SQL Data Warehouse ölçeklendirme önce tam kurmanızı sağlamaktır. Ancak, bu senaryo her zaman pratik olmayabilir. Uzun bir geri alma riskini azaltmak için aşağıdaki seçeneklerden birini göz önünde bulundurun:
 
-* Uzun süre çalışan işlemleri kullanarak yeniden yazma [CTAS][CTAS]
+* Uzun süre çalışan işlemleri kullanarak yeniden yazma [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * İşlemi parçalara Böl; Alt satır kümesi üzerinde çalışan
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [SQL Data Warehouse işlemlerinde] [ Transactions in SQL Data Warehouse] yalıtım düzeylerinde ve işlem sınırları hakkında daha fazla bilgi edinmek için.  Diğer en iyi yöntemler genel bakış için bkz: [SQL veri ambarı en iyi uygulamalar][SQL Data Warehouse Best Practices].
-
-<!--Image references-->
-
-<!--Article references-->
-[Transactions in SQL Data Warehouse]: ./sql-data-warehouse-develop-transactions.md
-[table partition]: ./sql-data-warehouse-tables-partition.md
-[CTAS]: ./sql-data-warehouse-develop-ctas.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-
-<!--MSDN references-->
-[alter index]:https://msdn.microsoft.com/library/ms188388.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-
-<!-- Other web references -->
+Bkz: [SQL Data Warehouse işlemlerinde](sql-data-warehouse-develop-transactions.md) yalıtım düzeylerinde ve işlem sınırları hakkında daha fazla bilgi edinmek için.  Diğer en iyi yöntemler genel bakış için bkz: [SQL veri ambarı en iyi yöntemler](sql-data-warehouse-best-practices.md).
 

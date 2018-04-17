@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 2ff0dcba0912461d8528fc76c7c67d90febc0324
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: d5d855cac9f09f92798d955dda3d66ab6b631091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makine seri konsol (Önizleme) 
 
@@ -33,7 +33,7 @@ Azure sanal makine seri konsolunuzdaki Linux ve Windows sanal makineler için me
 ## <a name="prerequisites"></a>Önkoşullar 
 
 * Sanal makine olmalıdır [önyükleme tanılama](boot-diagnostics.md) etkin 
-* Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../active-directory/role-based-access-built-in-roles.md) VM için ve [önyükleme tanılama](boot-diagnostics.md) depolama hesabı. 
+* Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılama](boot-diagnostics.md) depolama hesabı. 
 
 ## <a name="open-the-serial-console"></a>Seri konsol açın
 sanal makineler için seri Konsolu aracılığıyla erişilebilir durumda yalnızca [Azure portal](https://portal.azure.com). Portal üzerinden sanal makineler için seri konsoluna erişmek için adımları aşağıda verilmiştir 
@@ -51,7 +51,7 @@ Seri konsol işlevlerini belirli VM'ler için bu VM'in önyükleme tanılama aya
 ## <a name="serial-console-security"></a>Seri konsol güvenlik 
 
 ### <a name="access-security"></a>Erişimi güvenliği 
-Seri konsol erişimi olan kullanıcılar için sınırlı [VM katkıda bulunanlar](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ya da sanal makineye erişim üstünde. AAD kiracınızın çok faktörlü kimlik doğrulaması gerektiren sonra uygulamaya erişim aracılığıyla olduğundan seri konsoluna erişimi MFA ayrıca gerekir [Azure portal](https://portal.azure.com).
+Seri konsol erişimi olan kullanıcılar için sınırlı [VM katkıda bulunanlar](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ya da sanal makineye erişim üstünde. AAD kiracınızın çok faktörlü kimlik doğrulaması gerektiren sonra uygulamaya erişim aracılığıyla olduğundan seri konsoluna erişimi MFA ayrıca gerekir [Azure portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalı güvenliği
 Tüm verileri geri gönderilir ve kablo İleri şifrelenir.
@@ -323,7 +323,7 @@ Ekleme `/f` olmayan uyarı kullanıcılar kapatmak için çalışan uygulamalar�
 #### <a name="detect-safe-mode-boot"></a>Güvenli modda önyükleme Algıla
 `bcdedit /enum | find /i "safeboot"` 
 
-## <a name="windows-commands---powershell"></a>Windows Commands - PowerShell
+## <a name="windows-commands---powershell"></a>Windows komutları - PowerShell
 
 Bir komut istemi eriştikten sonra PowerShell SAC içinde çalıştırmak için şunu yazın:
 

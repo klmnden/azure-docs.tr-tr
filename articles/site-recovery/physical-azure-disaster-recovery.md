@@ -1,6 +1,6 @@
 ---
-title: "Olağanüstü durum kurtarma Azure fiziksel şirket içi sunucular için Azure Site Recovery ile ayarlama | Microsoft Docs"
-description: "Azure Site Recovery hizmeti ile şirket içi Windows ve Linux sunucuları için olağanüstü durum kurtarma Azure ayarlanacağını öğrenin."
+title: Olağanüstü durum kurtarma Azure fiziksel şirket içi sunucular için Azure Site Recovery ile ayarlama | Microsoft Docs
+description: Azure Site Recovery hizmeti ile şirket içi Windows ve Linux sunucuları için olağanüstü durum kurtarma Azure ayarlanacağını öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: raynew
-ms.openlocfilehash: d460da197c6e9f0bface402d83d4788f8164cc9c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarma ayarlama
 
@@ -54,7 +54,7 @@ Bir Microsoft alma [Azure hesabı](http://azure.microsoft.com/).
 Azure hesabınız Azure VM'ler, çoğaltma için izinleri olduğundan emin olun.
 
 - Gözden geçirme [izinleri](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines) makineleri azure'a gerekir.
-- Doğrulama ve değiştirme [rol tabanlı erişim](../active-directory/role-based-access-control-configure.md) izinleri. 
+- Doğrulama ve değiştirme [rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md) izinleri. 
 
 
 

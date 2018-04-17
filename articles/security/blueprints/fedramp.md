@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme"
-description: "Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme"
+title: Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme
+description: Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 9b605e500925e8435b15ec8055f8d8f376888aaf
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 10ed297180f68fcaf006f2778990879be02f994d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---fedramp-web-applications-automation"></a>Azure güvenlik ve uyumluluk şeması - FedRAMP Web uygulamaları otomatikleştirme
 
@@ -55,7 +55,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 * **Kullanılabilirlik Kümeleri**
     - (1) active Directory etki alanı denetleyicileri
     - (1) SQL küme düğümlerini ve Tanık
-    - (1) Web/IIS
+    - (1) web/IIS
 * **Azure Sanal Ağ**
     - (1) /16 sanal ağlar
     - (5) /24 alt ağlar
@@ -76,10 +76,9 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanır. Dağıtım mimarisi ayr�
 * **Azure Active Directory**
 * **Azure Resource Manager**
 * **Azure Log Analytics**
+    - (1) günlük analizi çalışma alanı
 * **Azure Otomasyonu**
     - (1) Otomasyon hesabı
-* **Operations Management Suite**
-    - (1) OMS çalışma
 
 ## <a name="deployment-architecture"></a>Dağıtım mimarisi
 
@@ -91,7 +90,7 @@ Aşağıdaki bölümde geliştirme ve uygulama öğeleri ayrıntılarını verir
 
 Mimari web uygulaması Güvenlik Duvarı (WAF) sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Ek özellikler şunları içerir:
 
-- [End-to-End-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [SSL uç bitiş](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Etkinleştirme [SSL boşaltma](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Devre dışı [TLS v1.0 ve v1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web uygulaması güvenlik duvarı](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (WAF mod)
@@ -136,7 +135,7 @@ Azure Disk şifrelemesi şifrelenmiş Windows Iaas sanal makine disklerini kulla
 
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve denetleme
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) , sistem ve kullanıcı etkinliğini ve bunun yanı sıra sistem durumu ayrıntılı günlük kaydını sağlar. 
+[Günlük analizi](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) , sistem ve kullanıcı etkinliğini ve bunun yanı sıra sistem durumu ayrıntılı günlük kaydını sağlar. 
 
 - **Etkinlik günlükleri:**[etkinlik günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.
 - **Tanılama günlüklerini:**[tanılama günlükleri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri. Bu günlükler Windows olayı sistem günlükleri, Azure depolama günlükleri, anahtar kasası denetim günlüklerini ve uygulama ağ geçidi erişimi ve güvenlik duvarı günlüklerini içerir.
@@ -154,7 +153,7 @@ Azure Disk şifrelemesi şifrelenmiş Windows Iaas sanal makine disklerini kulla
 Aşağıdaki teknolojileri kimlik Azure ortamı yönetim yetenekleri sağlar.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir.
 - Müşteri tarafından dağıtılan web uygulamasının kimlik doğrulama, Azure AD kullanılarak gerçekleştirilebilir. Daha fazla bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
-- [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve kullanıcı rolüne bağlı kaynaklara erişimi sınırlı olabilir.
+- [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve kullanıcı rolüne bağlı kaynaklara erişimi sınırlı olabilir.
 - Dağıtılan bir Iaas Active Directory örneğine dağıtılan Iaas sanal makineleri için işletim sistemi düzeyinde kimlik yönetimi sağlar.
    
 ### <a name="compute-resources"></a>İşlem kaynakları
@@ -182,17 +181,17 @@ Yönetim jumpbox (savunma ana bilgisayarı) kaynaklara dağıtılan erişmek iç
 
 ### <a name="patch-management"></a>Düzeltme Eki Yönetimi
 
-Bu Azure güvenliği ve uyumluluk şeması Otomasyon tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği OMS Azure Otomasyon çözümünü dağıtır.
+Bu Azure güvenliği ve uyumluluk şeması Otomasyon tarafından dağıtılan Windows sanal makineleri, Windows Update hizmetinden otomatik güncelleştirmeleri almak için varsayılan olarak yapılandırılır. Bu çözüm Ayrıca güncelleştirme dağıtımları düzeltme ekleri gerektiğinde Windows sunucularına dağıtmak için oluşturulabileceği Azure Otomasyon çözümünü dağıtır.
 
-### <a name="operations-management"></a>İşlem yönetimi
+### <a name="operations-management"></a>Operasyon yönetimi
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) ve şirket içi ortamları Operations Management Suite (OMS) toplama ve Azure kaynaklarında tarafından oluşturulan veri analizini sağlar bir hizmettir.
+[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) koleksiyonu ve Azure kaynaklarında tarafından oluşturulan veri analizini sağlayan bir hizmettir ve şirket içi ortamları.
 
-#### <a name="oms-solutions"></a>OMS çözümleri
+#### <a name="management-solutions"></a>Yönetim çözümleri
 
-Aşağıdaki OMS çözümleri bu çözümün bir parçası önceden yüklenir:
+Aşağıdaki yönetim çözümleri bu çözümün bir parçası önceden yüklenir:
 - [AD Değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)
 - [Kötü amaçlı yazılımdan koruma değerlendirmesi](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware)
 - [Azure Otomasyonu](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)

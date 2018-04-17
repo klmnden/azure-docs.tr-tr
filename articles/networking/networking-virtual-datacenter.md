@@ -9,13 +9,13 @@ ms.service: virtual-network
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
+ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 7fcd8e12a7109218387788e47eddad48e72797bb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 1aab466a06711a334df0584334e5229b33f57754
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure sanal Datacenter: Ağ perspektifi
 **Microsoft Azure**: hızlı hareket, tasarruf, şirket içi uygulamaları ve verileri tümleştirme
@@ -97,7 +97,7 @@ Bir [ **Azure siteden siteye VPN** ] [ VPN] bir bağlantı şirket içi ağlar v
 ExpressRoute bağlantılarını dağıtma ile bir ExpressRoute servis sağlayıcı çekici içerir. Hızla başlamanıza gerek müşteriler, bu başlangıçta siteden siteye VPN vDC arasında bağlantı kurmak için kullanılacak ortak olan şirket içi kaynakları ve ExpressRoute bağlantısı geçirme.
 
 ##### <a name="connectivity-within-the-cloud"></a>*Bağlantı bulut içinde*
-[Sanal ağlar] [ VNet] ve [VNet eşlemesi] [ VNetPeering] temel ağ bağlantısı vDC içinde hizmetleridir. Bir sanal ağ yalıtım vDC kaynaklar için doğal bir sınır garanti eder ve VNet eşlemesi aynı Azure bölgesinde içinde farklı sanal ağlar arasında intercommunication sağlar. VNet içinde ve sanal ağlar arasındaki trafik denetimi erişim denetim listeleri belirtilen güvenlik kuralları kümesi eşleşmesi gerekir ([ağ güvenlik grubu][NSG]), [ağ sanal Gereçleri][NVA]ve özel yönlendirme tabloları ([UDR][UDR]).
+[Sanal ağlar] [ VNet] ve [VNet eşlemesi] [ VNetPeering] temel ağ bağlantısı vDC içinde hizmetleridir. Bir sanal ağ yalıtım vDC kaynaklar için doğal bir sınır garanti eder ve farklı sanal ağlar aynı Azure bölgesinde içinde veya hatta bölgeler arasında intercommunication VNet eşlemesi sağlar. VNet içinde ve sanal ağlar arasındaki trafik denetimi erişim denetim listeleri belirtilen güvenlik kuralları kümesi eşleşmesi gerekir ([ağ güvenlik grubu][NSG]), [ağ sanal Gereçleri][NVA]ve özel yönlendirme tabloları ([UDR][UDR]).
 
 ## <a name="virtual-data-center-overview"></a>Sanal veri merkezi genel bakış
 
@@ -124,7 +124,7 @@ Her bağlı bileşen rol konak farklı türlerde iş yükleri için olabilir. Ba
 ##### <a name="subscription-limits-and-multiple-hubs"></a>Abonelik sınırlarını ve birden çok hub'ları
 Azure üzerinde bir türü ne olursa olsun, her bileşen bir Azure aboneliği dağıtılır. Farklı Azure abonelikleri Azure bileşenlerinde yalıtım erişim ve yetkilendirme farklı düzeyleri ayarlama gibi farklı LOB'lar gereksinimlerini karşılayabilen.
 
-Her BT sistemi olduğu gibi olsa da, platformlar sınırları tek bir vDC sayıda bağlı bileşen, ölçeği artırabilirsiniz. Hub dağıtımı kısıtlamaları ve sınırları olan belirli bir Azure aboneliği için bağlı (örneğin, VNet eşlemeler - max sayısını görmek [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları] [ Limits] Ayrıntılar için). Burada sınırları bir sorun olabilir durumlarda mimarisi ölçeklendirebilirsiniz kadar hub ve bağlı bileşen oluşan bir küme için bir tek hub-bağlı bileşen modelini genişleterek daha fazla. Express Route veya siteden siteye VPN kullanarak bir veya daha fazla Azure bölgelerindeki çok sayıda hub birbirine bağlanabilir.
+Her BT sistemi olduğu gibi olsa da, platformlar sınırları tek bir vDC sayıda bağlı bileşen, ölçeği artırabilirsiniz. Hub dağıtımı kısıtlamaları ve sınırları olan belirli bir Azure aboneliği için bağlı (örneğin, VNet eşlemeler - max sayısını görmek [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları] [ Limits] Ayrıntılar için). Burada sınırları bir sorun olabilir durumlarda mimarisi ölçeklendirebilirsiniz kadar hub ve bağlı bileşen oluşan bir küme için bir tek hub-bağlı bileşen modelini genişleterek daha fazla. Bir veya daha fazla Azure bölgelerindeki çok sayıda hub VNet eşlemesi, ExpressRoute veya siteden siteye VPN kullanarak birbirine bağlanabilir.
 
 [![2]][2]
 
@@ -191,10 +191,10 @@ Altyapı bileşenlerini aşağıdaki işlevselliği içerir:
 -   [**Sanal ağ**][VPN]. Sanal ağlar vDC ana bileşenlerinin biridir ve trafik yalıtımı sınır Azure platformunda oluşturmanızı sağlar. Tek veya birden çok sanal ağ kesimleri, her biri belirli bir IP ağ öneki (alt ağ), bir sanal ağ oluşur. Sanal ağ nerede Iaas sanal makineleri ve PaaS Hizmetleri özel iletişim kurup bir iç çevre alanı tanımlar. Sanal makineleri (ve PaaS Hizmetleri) bir sanal ağ sanal makineleri doğrudan iletişim olamaz (ve PaaS Hizmetleri) farklı bir sanal ağ, her iki sanal ağlar aynı abonelik kapsamında aynı müşteri tarafından oluşturulan olsa bile. Yalıtım müşteri sanal makineleri sağlar önemli bir özelliktir ve iletişim bir sanal ağ içindeki özel kalır.
 -   [**UDR**][UDR]. Bir sanal ağ trafiğini, varsayılan sistem yönlendirme tablosuna dayalı tarafından yönlendirilir. Bir kullanıcı tanımlamak, ağ yöneticilerinin özel bir yönlendirme tablosu sistem yönlendirme tablosu davranışını üzerine ve sanal ağ içinde bir iletişim yolu tanımlamak için bir veya daha fazla alt ağlara ilişkilendirebilirsiniz yoldur. Belirli özel VM'ler ve/veya ağ sanal Gereçleri ve yük dengeleyici hub ve bağlı bileşen mevcut yoluyla spoke aktarım gelen o çıkış trafiği Udr'ler varlığını güvence altına alır.
 -   [**NSG**][NSG]. Bir ağ güvenlik grubu, trafik IP kaynakları, hedef IP, protokolleri, IP kaynak bağlantı noktaları ve IP hedef bağlantı noktalarına filtreleme gibi davranan güvenlik kuralları listesidir. NSG bir alt ağ, bir Azure VM veya her ikisi ile ilişkili bir sanal NIC kartı uygulanabilir. Nsg'ler hub ve bağlı bileşen doğru akış denetimi uygulamak için gereklidir. NSG tarafından karşılanan güvenlik düzeyini hangi bağlantı noktalarını açmanız ve hangi amaçla bir işlev değil. Müşteriler, ana bilgisayar tabanlı güvenlik duvarları gibi IPtables veya Windows Güvenlik Duvarı ek VM başına filtrelerle uygulamalıdır.
--   **DNS**. VDC Vnet'lerdeki kaynaklar ad çözümlemesi DNS yoluyla sağlanır. Varsayılan DNS adı çözümlemesini kapsamını Vnet'e sınırlıdır. Genellikle, özel bir DNS hizmeti hub'ı ortak Hizmetleri bir parçası olarak dağıtılması gerekiyor, ancak DNS Hizmetleri ana tüketicileri spoke bulunur. Gerekirse, müşteriler bağlı bileşen için DNS bölgeleri için temsilci seçme ile hiyerarşik bir DNS yapı oluşturabilir.
+-   [**DNS**][DNS]. VDC Vnet'lerdeki kaynaklar ad çözümlemesi DNS yoluyla sağlanır. Azure DNS hizmetleri her ikisi için de sağlar [ortak][DNS] ve [özel] [ PrivateDNS] ad çözümlemesi. Özel bölgeler bir sanal ağ içinde hem de sanal ağlar arasındaki ad çözümlemesi sağlar. Sanal ağlar aynı bölgede aynı zamanda bölgeler ve abonelikler arasında özel bölgeler yalnızca aralık olabilir. Ortak çözüm için Microsoft Azure altyapısı kullanılarak ad çözümlemesi sağlamanın Azure DNS DNS etki alanı için bir barındırma hizmeti sağlar. Etki alanlarınızı Azure'da barındırarak DNS kayıtlarınızı diğer Azure hizmetlerinde kullandığınız kimlik bilgileri, API’ler, araçlar ve faturalarla yönetebilirsiniz.
 -   [** Abonelik] [ SubMgmt] ve [kaynak grubu Yönetim][RGMgmt]**. Bir abonelik birden çok kaynak grupları oluşturmak için doğal bir sınır tanımlar. Bir Abonelikteki kaynakların kaynak grupları adlı mantıksal kapsayıcılarında birlikte birleştirilir. Kaynak grubu vDC kaynakları düzenlemek için mantıksal bir grubu temsil eder.
 -   [**RBAC**][RBAC]. RBAC, kullanıcıların yalnızca belirli bir alt kümesi eylemler için sınırlamanıza izin vererek belirli Azure kaynaklarına erişim hakkı birlikte harita Kurumsal rol için mümkündür. RBAC ile kullanıcılar, gruplar ve ilgili kapsam içinde uygulamalar için uygun rolü atayarak erişim izni verebilir. Rol atamasının kapsamı, bir Azure aboneliği, bir kaynak grubu veya tek bir kaynak olabilir. RBAC devralma izin verir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir. RBAC kullanarak, görevlerini kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz. Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içinde yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
--   [**VNet eşlemesi**][VNetPeering]. VDC altyapısı oluşturmak için kullanılan temel VNet eşlemesi, Azure veri merkezi ağ üzerinden aynı bölgedeki iki sanal ağlar (Vnet'ler) bağlanan bir mekanizma özelliğidir.
+-   [**VNet eşlemesi**][VNetPeering]. VDC altyapısı oluşturmak için kullanılan temel VNet eşlemesi, iki sanal ağlar (Vnet'ler) bağlanan bir mekanizma üzerinden Azure veri merkezi ağı veya bölgeler arasında Azure dünya çapında omurga kullanarak aynı bölgede özelliğidir.
 
 #### <a name="component-type-perimeter-networks"></a>Bileşen türü: Çevre ağları
 [Çevre ağı] [ DMZ] bileşenleri (çevre ağı olarak da bilinir) şirket içi veya fiziksel veri merkezi ağlarını, Internet'ten herhangi bağlantısı ile ağ bağlantısı sağlamak izin verir. Burada, ağ ve güvenlik muhtemelen çoğu zaman, ekipler de olabilir.
@@ -244,6 +244,8 @@ Azure yük dengeleyici sistem durumunu da çeşitli sunucu örnekleri araştırm
 
 Günlüğe kaydetme ve Hizmetleri Azure davranışını izlemek için izleme farklı türlerde Azure sunar kaynaklarını barındırılan. İdare ve azure'da iş yüklerini denetime bağlı değil yalnızca üzerinde toplama günlük verilerini, aynı zamanda belirli bildirilen olaylara dayanarak tetikleyici eylemleri yeteneği olur.
 
+[**Azure İzleyici** ] [ Monitor] -Azure ayrı ayrı bir spesifik rol ya da görev İzleme alanı gerçekleştirmek birden fazla hizmet içeriyor. Birlikte, bu hizmetleri toplama, çözümleme ve uygulamanız ve bunları destekleyen Azure kaynaklarını telemetrisinden işlevi gören için kapsamlı bir çözüm sunar. Karma bir ortamı izleme sağlamak için kritik şirket içi kaynakları izlemek için de çalışabilir. Araçlar ve kullanılabilir verileri anlamak, uygulamanız için tam bir izleme stratejisi geliştirme ilk adımdır.
+
 Azure günlükleri başlıca iki türde vardır:
 
 -   [**Etkinlik günlükleri** ] [ ActLog] ("İşlem günlüğü" olarak da bilinir) Azure aboneliğindeki kaynaklar üzerinde gerçekleştirilen işlemler hakkında bilgi sağlar. Bu günlükler aboneliklerinizi denetim düzlemi olayları bildirin. Her Azure kaynak denetim günlüklerini oluşturur.
@@ -259,9 +261,11 @@ Bir vDC, Nsg'ler günlükleri, özellikle bu bilgileri izlemek son derece öneml
 
 Tüm günlükler, Denetim, statik çözümleme veya yedekleme amacıyla Azure depolama hesaplarında depolanabilir. Günlükler, bir Azure depolama hesabında depolanır, müşteriler çerçeveler farklı türlerini kullanan almak için hazırla, çözümlemek ve durumunu ve bulut kaynaklarına durumunu bildirmek için bu verileri görselleştirin.
 
-Büyük ölçekli işletmeler, şirket içi sistemleri izleme için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu framework genişletebilirsiniz. Tüm günlük bulutta saklamak istediğiniz kuruluşlar için [günlük analizi] [ LogAnalytics] harika bir seçenektir. Günlük analizi bulut tabanlı bir hizmet olarak uygulandığından, hazır ve çalışır hızlı bir şekilde minimal yatırım altyapı hizmetleri ile sağlayabilirsiniz. Günlük analizi, ayrıca, varolan yönetim yatırımlarınızı buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile tümleştirebilirsiniz.
+Büyük ölçekli işletmeler, şirket içi sistemleri izleme için standart bir çerçeve almış olması ve bulut dağıtımları tarafından oluşturulan günlükleri tümleştirmek için bu framework genişletebilirsiniz. İster kuruluş bulutta tüm günlük tutmak için [günlük analizi] [LogAnalytics] harika bir seçenektir. Günlük analizi bulut tabanlı bir hizmet olarak uygulandığından, hazır ve çalışır hızlı bir şekilde minimal yatırım altyapı hizmetleri ile sağlayabilirsiniz. Günlük analizi, ayrıca, varolan yönetim yatırımlarınızı buluta genişletmek için System Center Operations Manager gibi System Center bileşenleri ile tümleştirebilirsiniz.
 
 Günlük analizi yardımcı toplamak, bağıntılı, arama ve işletim sistemleri, uygulamalar ve altyapı bulut bileşenleri tarafından oluşturulan günlük ve performans verilerini hareket azure'da bir hizmettir. Müşterilerin vDC içinde iş yükleri arasında tüm kayıtları çözümlemek için tümleşik arama ve özel panolar kullanarak gerçek zamanlı operasyonel Öngörüler verir.
+
+[Ağ Performans İzleyicisi'ni (NPM)] [ NPM] çözüm OMS içinde ayrıntılı ağ bilgileri için Azure ağlar ve şirket içi ağlarda, tek bir görünümünü de dahil olmak üzere uçtan, sağlayabilir. ExpressRoute ve kamu hizmetleri için belirli monitörlerle.
 
 #### <a name="component-type-workloads"></a>Bileşen türü: iş yükleri
 İş yükü, gerçek uygulama ve hizmetlerinize bulunduğu bileşenleridir. Burada, uygulama geliştirme çoğu zaman, ekipler de olabilir.
@@ -276,7 +280,7 @@ Günlük analizi yardımcı toplamak, bağıntılı, arama ve işletim sistemler
 -   **Veri tabanlı**. İş KOLU uygulamaları veritabanları veya diğer depolama için sık erişimli yoğun verilerdir.
 -   **Tümleşik**. Uygulamaları teklif tümleştirme diğer sistemlerle içinde veya kuruluş dışından LOB.
 
-**Müşteri Web sitelerini (Internet veya dahili e yönelik) karşılıklı** internetle etkileşimde çoğu uygulamayı web siteleridir. Azure Iaas VM'de veya bir web sitesini çalıştırmak için özelliği sunan bir [Azure Web Apps] [ WebApps] site (PaaS). Azure Web uygulamaları vDC spoke Web uygulamaları dağıtımını izin sanal ağlar ile tümleştirmeyi destekler. Uygulamalarınız için bir Internet uç nokta kullanıma kopyalaması gerekmeyen ile VNET tümleştirme, bunun yerine kaynakların özel dışındaki Internet yönlendirilebilir adresinden özel sanal ağınızı kullanın.
+**Müşteri Web sitelerini (Internet veya dahili e yönelik) karşılıklı** internetle etkileşimde çoğu uygulamayı web siteleridir. Azure Iaas VM'de veya bir web sitesini çalıştırmak için özelliği sunan bir [Azure Web Apps] [ WebApps] site (PaaS). Azure Web uygulamaları vDC spoke Web uygulamaları dağıtımını izin sanal ağlar ile tümleştirmeyi destekler. VNET Tümleştirmesi ile dahili kullanıma yönelik web siteleri bakıldığında uygulamalarınız için bir Internet uç nokta kullanıma kopyalaması gerekmeyen özel dışındaki Internet yönlendirilebilir adreslerden özel sanal ağınızı aracılığıyla kaynaklara kullanın.
 
 **Büyük veri analizi** veri çok büyük bir birime ölçeği gerektiğinde veritabanları düzgün ölçeği değil. Hadoop teknoloji dağıtılmış sorgular çok sayıda düğümü üzerinde paralel olarak çalıştırmak için bir sistem sunar. Müşterilerin Iaas Vm'si veya PaaS veri iş yüklerini çalıştırmaya yönelik seçeneği sahip ([Hdınsight][HDI]). Hdınsight bağlı bileşen vDC, kümede dağıtılabilir, konum tabanlı bir sanal ağ dağıtma destekler.
 
@@ -308,11 +312,12 @@ Bir olağanüstü durum kurtarma planı uyarlamasını kesinlikle ilgilenen iş 
 
 Eşitleme veya farklı VDC uygulamaların sinyal izleme bunların arasındaki iletişimi gerektirir. Farklı bölgelerdeki iki VDC üzerinden bağlı olması gerekir:
 
+-   VNet eşlemesi - VNet eşlemesi bağlanabilir hub'ları bölgeler arasında
 -   ExpressRoute aynı expressroute bağlantı hattı vDC hub'ları bağlıyken eşliği özel
 -   birden çok ExpressRoute bağlantı hatları, şirket omurga bağlı ve ExpressRoute bağlantı hatları için vDC kafes bağlı
 -   Her Azure bölgesindeki vDC hub'larınız arasında siteden siteye VPN bağlantıları
 
-Genellikle ExpressRoute bağlantısı tercih edilen yüksek bant genişliği ve tutarlı gecikme nedeniyle Microsoft omurga transiting zaman mekanizmadır.
+Genellikle VNet eşlemesi veya ExpressRoute bağlantıları tercih edilen yüksek bant genişliği ve tutarlı gecikme nedeniyle Microsoft omurga transiting zaman sistemdir.
 
 Farklı bölgelerde bulunan iki (veya daha fazla) farklı VDC arasında dağıtılan bir uygulama doğrulamak için hiçbir Sihirli tarif yoktur. Müşteriler gecikme süresi ve bant genişliği bağlantıları ve hedef zaman uyumlu veya zaman uyumsuz veri çoğaltma uygun olup olmadığını ve hangi, iş yükleri için en iyi kurtarma süresi hedefi (RTO) olabilir doğrulamak için ağ niteliğe testleri çalıştırmanız gerekir.
 
@@ -330,11 +335,11 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 | | | |
 |-|-|-|
 |Ağ Özellikleri|Yük Dengeleme|Bağlantı|
-|[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure Traffic Manager][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
+|[Azure sanal ağlar][VNet]</br>[Ağ güvenlik grupları][NSG]</br>[NSG günlüklerini][NSGLog]</br>[Kullanıcı tanımlı yönlendirme][UDR]</br>[Ağ sanal Gereçleri][NVA]</br>[Genel IP adresleri][PIP]</br>[DNS]|[Azure yük dengeleyici (L3) ][ALB]</br>[Uygulama ağ geçidi (L7) ][AppGW]</br>[Web uygulaması güvenlik duvarı][WAF]</br>[Azure trafik Yöneticisi][TM] |[VNet eşlemesi][VNetPeering]</br>[Sanal özel ağ][VPN]</br>[ExpressRoute][ExR]
 |Kimlik</br>|İzleme</br>|En İyi Uygulamalar</br>|
-|[Azure Active Directory][AAD]</br>[Multi-Factor Authentication][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Log Analytics][LogAnalytics]</br> |[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
+|[Azure Active Directory][AAD]</br>[Çok faktörlü kimlik doğrulaması][MFA]</br>[Rol tabanlı erişim denetimleri][RBAC]</br>[Varsayılan AAD rolleri][Roles] |[Azure İzleyicisi][Monitor]</br>[Etkinlik günlükleri][ActLog]</br>[Tanılama günlükleri][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Ağ Performansı İzleyicisi][NPM]|[En iyi yöntemler Çevre ağları][DMZ]</br>[Abonelik Yönetimi][SubMgmt]</br>[Kaynak grubu Yönetim][RGMgmt]</br>[Azure abonelik limitleri][Limits] |
 |Diğer Azure Hizmetleri|
-|[Azure Web Apps][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
+|[Azure Web uygulamaları][WebApps]</br>[Hdınsights (Hadoop) ][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
 
 
 
@@ -358,12 +363,14 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 
 <!--Link References-->
 [Limits]: https://docs.microsoft.com/azure/azure-subscription-service-limits
-[Roles]: https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles
+[Roles]: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 [VNet]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview
-[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg 
+[NSG]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg
+[DNS]: https://docs.microsoft.com/azure/dns/dns-overview
+[PrivateDNS]: https://docs.microsoft.com/azure/dns/private-dns-overview
 [VNetPeering]: https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview 
 [UDR]: https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview 
-[RBAC]: https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is
+[RBAC]: https://docs.microsoft.com/azure/role-based-access-control/overview
 [MFA]: https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: https://docs.microsoft.com/azure/active-directory/active-directory-whatis
 [VPN]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways 
@@ -376,10 +383,12 @@ Aşağıdaki özellikler, bu belgede ele alınan. Daha fazla bilgi için bağlan
 [PIP]: https://docs.microsoft.com/azure/virtual-network/resource-groups-networking#public-ip-address
 [AppGW]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
 [WAF]: https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview
+[Monitor]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/
 [ActLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
-[LogAnalytics]: https://docs.microsoft.com/azure/log-analytics/log-analytics-overview
+[OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
+[NPM]: https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor
 [WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 

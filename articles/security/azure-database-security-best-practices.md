@@ -1,12 +1,12 @@
 ---
-title: "En iyi güvenlik uygulamaları, Azure veritabanı | Microsoft Docs"
-description: "Bu makalede Azure veritabanı güvenliği için en iyi yöntemler kümesi sağlar."
+title: En iyi güvenlik uygulamaları, Azure veritabanı | Microsoft Docs
+description: Bu makalede Azure veritabanı güvenliği için en iyi yöntemler kümesi sağlar.
 services: security
 documentationcenter: na
 author: unifycloud
 manager: swadhwa
 editor: tomsh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 3c019e8e1518c661eb75065f061ee681f0231efa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-database-security-best-practices"></a>En iyi güvenlik uygulamaları, Azure veritabanı
 
@@ -112,7 +112,7 @@ Dosyaları ile ilgili anlaşılması önemlidir [arabellek havuzu genişletme (B
 Yetkili bir kullanıcı bu yana veritabanı ile TDE, şifreli olsa bile bir güvenlik yöneticisi veya bir veritabanı yöneticisi verilere erişebilirsiniz gibi aşağıdaki önerileri de izlemelisiniz:
 
 -   Veritabanı düzeyinde SQL kimlik doğrulamasını etkinleştirin.
--   Azure AD kimlik doğrulama kullanarak [RBAC rolleri](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+-   Azure AD kimlik doğrulama kullanarak [RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/overview).
 -   Kullanıcılar ve uygulamalar ayrı hesaplarının kimliğini doğrulamak için kullanmanız gerekir. Bu şekilde kullanıcılar ve uygulamalar için izinler sınırlayabilir ve kötü amaçlı etkinliği riskleri azaltın.
 -   Uygulama veritabanı düzeyi güvenlik (örneğin, db_datareader veya db_datawriter) sabit veritabanı rollerinin veya kullanarak, seçili veritabanı nesnelerini açık izinleri vermek, uygulamanız için özel roller oluşturabilirsiniz.
 

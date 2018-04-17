@@ -1,8 +1,8 @@
 ---
-title: "Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs"
-description: "Dağıtma, izleme ve Hdınsight üzerinde Storm panosunu kullanarak Apache Storm topolojilerini yönetme öğrenin. Visual Studio Hadoop araçlarını kullanın."
+title: Dağıtma ve Hdınsight üzerinde Apache Storm topolojilerini yönetme | Microsoft Docs
+description: Dağıtma, izleme ve Hdınsight üzerinde Storm panosunu kullanarak Apache Storm topolojilerini yönetme öğrenin. Visual Studio Hadoop araçlarını kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 92c1a02cd7d435809914e7f5bb43b2f8d6aa0cdb
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Dağıtma ve Windows tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme
 
@@ -33,7 +31,7 @@ Storm panosunu ve Hdınsight araçları Storm özelliklerinde kendi izleme oluş
 >
 > Dağıtma ve Storm topolojileri Linux kullanan bir Hdınsight kümesi ile yönetme hakkında daha fazla bilgi için bkz: [dağıtma ve Linux tabanlı Hdınsight üzerinde Apache Storm topolojilerini yönetme](apache-storm-deploy-monitor-topology-linux.md)
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Hdınsight üzerinde Apache Storm** -bkz [Hdınsight üzerinde Apache Storm ile çalışmaya başlama](apache-storm-tutorial-get-started-linux.md) küme oluşturma adımları için.
 
@@ -94,7 +92,7 @@ Bir bağlantıdan seçme **topoloji özeti** bölüm topolojisi hakkında aşağ
 
   * **Yeniden dengelemeniz**: topolojisinin paralelliğini ayarlar. Kümedeki düğüm sayısını değiştirdikten sonra çalışan topolojileri yeniden dengelemeniz gerekir. Bu kümedeki düğümlere artan veya azalan sayısını dengelemek üzere paralelliği ayarlamaya imkan tanır.
 
-      Daha fazla bilgi için bkz: [(http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) bir Storm topolojisinin paralelliğini anlama](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+      Daha fazla bilgi için bkz: [bir Storm topolojisinin paralelliğini anlama (http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
 
   * **KILL**: belirtilen zaman aşımından sonra Storm topolojisini sonlandırır.
 
@@ -134,7 +132,7 @@ Hdınsight kümesi üzerinde storm'a bir örnek dağıtmak sonra görüntülemek
 
 3. İçinde **yeni proje** iletişim kutusunda, genişletin **yüklü** > **şablonları**ve ardından **Hdınsight**. Şablonları listesinden seçin **Storm örnek**. İletişim kutusunun altında uygulama için bir ad yazın.
 
-    ![Görüntü](./media/apache-storm-deploy-monitor-topology/sample.png)
+    ![görüntü](./media/apache-storm-deploy-monitor-topology/sample.png)
 
 4. İçinde **Çözüm Gezgini**, projeye sağ tıklayın ve seçin **Hdınsight üzerinde Storm Gönder**.
 

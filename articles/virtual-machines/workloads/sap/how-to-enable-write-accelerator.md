@@ -16,21 +16,19 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0cb9b4003faa2ccdd07ccc78c2095472690f0e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 89a4216a3893892eedd6c216c7e0e5d51cf64749
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-write-accelerator-for-sap-deployments"></a>SAP dağıtımları için Azure yazma Hızlandırıcı
 Azure yazma Hızlandırıcı M-serisi VM'ler için özel olarak alınır bir işlevdir. Yazma Azure Hızlandırıcı herhangi diğer VM-serisi M-serisi dışında Azure ile kullanılamaz. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. 
 
->[!NOTE]
-> Bu noktada, yazma Azure Hızlandırıcı genel önizlemede ve Azure abonelik Kimliğinizi beyaz listesi gerektirir
-
 M-serisi dağıtım genel önizlemede olarak Azure yazma Hızlandırıcı işlevler kullanılabilir:
 
 - Batı US2
+- Doğu US2
 - Batı Avrupa
 - Güneydoğu Asya
 
@@ -44,8 +42,15 @@ Azure yazma Hızlandırıcı yalnızca çalışır birlikte [Azure yönetilen di
 
 Azure Premium Storage VHD'ler Azure yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlarını şunlardır:
 
-- Bir M128xx için 16 VHD'leri VM
-- Bir M64xx için 8 VHD'leri VM
+
+| VM SKU | Hızlandırıcı yazma disk sayısı | Hızlandırıcı VM başına IOPS yazma |
+| --- | --- | --- |
+| M128ms | 16 | 8000 |
+| M128s | 16 | 8000 |
+| M64ms | 8 | 4000 |
+| M64s | 8 | 4000 | 
+
+
 
 > [!IMPORTANT]
 > Etkinleştirmek veya Azure yazma Hızlandırıcı birden çok Azure Premium Storage disk oluşturulur ve Windows disk veya birim Yöneticisi kullanarak şeritli var olan bir birim için devre dışı bırakmak istiyorsanız, Windows depolama alanları, Windows genişleme dosya sunucusu (SOFS), Linux LVM veya MDADM, tüm diskleri birim oluşturma etkin veya yazma Hızlandırıcı için ayrı adımlarda devre dışı. **Etkinleştirme veya bu tür bir yapılandırmada yazma Hızlandırıcı devre dışı bırakma önce Azure VM kapatma**. 

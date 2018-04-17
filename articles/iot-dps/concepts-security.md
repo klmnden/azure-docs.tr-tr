@@ -5,22 +5,22 @@ services: iot-dps
 keywords: ''
 author: nberdy
 ms.author: nberdy
-ms.date: 03/27/2018
+ms.date: 03/30/2018
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 5e35a802349bd85b50a13a3d9a7e0c78945937bd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f6410aa3ab21e7c50ec6918930f31b9e1455c464
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IOT Hub cihaz sağlama hizmeti güvenlik kavramları 
 
-IOT Hub cihaz hizmeti sağlama, IOT Hub'de belirtilen bir IOT hub'ına sağlama zero touch Cihazınızı yapılandırmak üzere kullanmak için bir yardımcı hizmetidir. Cihaz Sağlama Hizmeti ile güvenli ve ölçeklenebilir bir şekilde milyonlarca cihaz sağlayabilirsiniz. Bu makalede genel bir fikir veren *güvenlik* kavramları söz konusu aygıt sağlama. Bu makalede, bir cihaz dağıtım için hazır hale katılan tüm kişiler için geçerlidir.
+IOT Hub cihaz hizmeti sağlama, IOT Hub'de belirtilen bir IOT hub'ına sağlama zero touch Cihazınızı yapılandırmak üzere kullanmak için bir yardımcı hizmetidir. Cihaz sağlama hizmeti ile yapabilecekleriniz [otomatik sağlama](concepts-auto-provisioning.md) milyonlarca cihaza güvenli ve ölçeklenebilir bir şekilde. Bu makalede genel bir fikir veren *güvenlik* kavramları söz konusu aygıt sağlama. Bu makalede, bir cihaz dağıtım için hazır hale katılan tüm kişiler için geçerlidir.
 
 ## <a name="attestation-mechanism"></a>Kanıtlama mekanizması
 
@@ -46,6 +46,8 @@ Cihaz gizlilikler de yazılım (bellek) depolanan, ancak bu daha az güvenli dep
 
 TPM platform kimliğini doğrulamak için kullanılan anahtarları güvenli bir şekilde depolamak için bir standart başvurabilir veya standart uygulama modülleri ile etkileşim kurmak için kullanılan g/ç arabirimi başvurabilirsiniz. TPM'ler ayrık donanım, tümleşik donanım, bellenim veya yazılım tabanlı bulunabilir. Daha fazla bilgi edinmek [TPM'ler ve TPM kanıtlama](/windows-server/identity/ad-ds/manage/component-updates/tpm-key-attestation). Cihaz sağlama hizmeti yalnızca TPM 2.0 destekler.
 
+TPM kanıtlama imzalı bir paylaşılan erişim imzası (SAS) belirteci sunmak için onay ve depolama kök anahtarları kullanan bir nonce challenge üzerinde temel alır.
+
 ### <a name="endorsement-key"></a>Onay anahtarı
 
 Onay anahtarı dahili olarak oluşturulan veya zaman üretim sırasında eklenen TPM içinde yer alan bir asimetrik anahtar olduğunu ve her TPM için benzersizdir. Onay anahtarı kaldırılamaz veya değiştirilemez. Onay anahtarı ortak kısmını orijinal TPM tanımak için kullanılırken onay anahtarını özel bölümünü TPM dışında hiçbir zaman yayımlanır. Daha fazla bilgi edinmek [onay anahtarını](https://technet.microsoft.com/library/cc770443(v=ws.11).aspx).
@@ -56,21 +58,27 @@ Depolama kök anahtarı TPM'de depolanan ve böylece bu anahtarlar TPM olmadan k
 
 ## <a name="x509-certificates"></a>X.509 sertifikaları
 
-X.509 sertifikaları kanıtlama mekanizması olarak kullanarak üretim ölçeği ve cihaz sağlamayı kolaylaştırmak için mükemmel bir yoldur. X.509 sertifikaları, genellikle bir Sertifika zincirindeki her sertifika, sonraki yüksek sertifika vb. bir otomatik olarak imzalanan kök sertifikayı sonlandırma, özel anahtarı tarafından imzalanır güven zinciri halinde düzenlenir. Bu, bir temsilci olarak atanan bir güvenilen kök sertifika yetkilisi (CA her ara CA'ın bir aygıtta yüklü son varlık sertifikası aracılığıyla) tarafından oluşturulan kök sertifika güven zinciri oluşturur. Daha fazla bilgi için bkz: [aygıt X.509 CA sertifikaları kullanarak kimlik doğrulaması](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+X.509 sertifikaları kanıtlama mekanizması olarak kullanarak üretim ölçeği ve cihaz sağlamayı kolaylaştırmak için mükemmel bir yoldur. X.509 sertifikaları, genellikle bir Sertifika zincirindeki her sertifika, sonraki yüksek sertifika vb. bir otomatik olarak imzalanan kök sertifikayı sonlandırma, özel anahtarı tarafından imzalanır güven zinciri halinde düzenlenir. Bu, bir temsilci olarak atanan bir güvenilen kök sertifika yetkilisi (CA üzerinden her bir aygıtta yüklü son varlık "yaprak" Sertifika ara CA) tarafından oluşturulan kök sertifika güven zinciri oluşturur. Daha fazla bilgi için bkz: [aygıt X.509 CA sertifikaları kullanarak kimlik doğrulaması](/azure/iot-hub/iot-hub-x509ca-overview). 
 
-Genellikle sertifika zinciri cihazlarla ilişkilendirilmiş bazı mantıksal veya fiziksel hiyerarşi temsil eder. Bir üretici Örneğin, otomatik olarak imzalanan kök CA sertifikası bu sertifikayı kullanmak her Fabrika için benzersiz bir ara CA sertifikası oluşturmak için her ürün için benzersiz bir ara CA sertifikası oluşturmak için her fabrikasının sertifika kullan Tesis satır ve son satırında üretilen her aygıt için benzersiz cihaz (son varlık) sertifikasını oluşturmak için üretim hattı sertifika kullanın. Daha fazla bilgi için bkz: [IOT endüstri X.509 CA sertifikaları kavramsal anlayış](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-concept). 
+Genellikle sertifika zinciri cihazlarla ilişkilendirilmiş bazı mantıksal veya fiziksel hiyerarşi temsil eder. Örneğin, bir üreticinin olabilir:
+- bir otomatik olarak imzalanan kök CA sertifika
+- Her fabrika için benzersiz bir ara CA sertifikası oluşturmak için kök sertifikayı kullanın
+- Tesis her üretim hattı için benzersiz bir ara CA sertifikası oluşturmak için her fabrikasının sertifika kullan
+- ve son satırında üretilen her aygıt için benzersiz cihaz (son varlık) sertifikasını oluşturmak için bir üretim hattı sertifika kullanın. 
+
+Daha fazla bilgi için bkz: [IOT endüstri X.509 CA sertifikaları kavramsal anlayış](/azure/iot-hub/iot-hub-x509ca-concept). 
 
 ### <a name="root-certificate"></a>Kök sertifikası
 
-Bir kök sertifikası, sertifika yetkilisi (CA) temsil eden otomatik olarak imzalanan bir X.509 sertifikasıdır. Terminus ya da sertifika zincirinin güven çıpası olduğundan. Kök sertifikalarını otomatik olarak bir kuruluş tarafından verilen veya bir kök sertifika yetkilisinden satın alınmış. Daha fazla bilgi için bkz: [alma X.509 CA sertifikaları](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Kök sertifikayı, aynı zamanda bir kök CA sertifikası başvuruda bulunulabilir.
+Bir kök sertifikası, sertifika yetkilisi (CA) temsil eden otomatik olarak imzalanan bir X.509 sertifikasıdır. Terminus ya da sertifika zincirinin güven çıpası olduğundan. Kök sertifikalarını otomatik olarak bir kuruluş tarafından verilen veya bir kök sertifika yetkilisinden satın alınmış. Daha fazla bilgi için bkz: [alma X.509 CA sertifikaları](/azure/iot-hub/iot-hub-security-x509-get-started#get-x509-ca-certificates). Kök sertifikayı, aynı zamanda bir kök CA sertifikası başvuruda bulunulabilir.
 
 ### <a name="intermediate-certificate"></a>Ara Sertifika
 
 Bir ara sertifika kök sertifika (veya başka bir ara sertifika kendi zincirindeki kök sertifikası tarafından) imzalanmış bir X.509 sertifikası yok. Son Ara Sertifika zincirindeki yaprak sertifikasını imzalamak için kullanılır. Ara Sertifika, ayrıca bir ara CA sertifikası olarak başvuruda bulunulabilir.
 
-### <a name="leaf-certificate"></a>Yaprak sertifikası
+### <a name="end-entity-leaf-certificate"></a>Son varlık "yaprak" Sertifika
 
-Yaprak sertifikası veya son varlık sertifikası, sertifika sahibinin tanımlar. Bu kök sertifika, Sertifika zincirindeki yanı sıra sıfır veya daha fazla ara sertifika verir. Yaprak sertifikası diğer sertifikaları imzalamak için kullanılmaz. Benzersiz cihaz sağlama hizmetine tanımlar ve bazen aygıt sertifikası olarak da adlandırılır. Kimlik doğrulaması sırasında aygıt hizmetinden kanıtı elinde sınaması için yanıt bu sertifikayla ilişkili özel anahtarı kullanır. Daha fazla bilgi için bkz: [aygıtları kimlik doğrulaması X.509 CA sertifikaları ile imzalanmış](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
+Yaprak sertifikası veya son varlık sertifikası, sertifika sahibinin tanımlar. Bu kök sertifika, Sertifika zincirindeki yanı sıra sıfır veya daha fazla ara sertifika verir. Yaprak sertifikası diğer sertifikaları imzalamak için kullanılmaz. Benzersiz cihaz sağlama hizmetine tanımlar ve bazen aygıt sertifikası olarak da adlandırılır. Kimlik doğrulaması sırasında aygıt hizmetinden kanıtı elinde sınaması için yanıt bu sertifikayla ilişkili özel anahtarı kullanır. Daha fazla bilgi için bkz: [aygıtları kimlik doğrulaması X.509 CA sertifikaları ile imzalanmış](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates).
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>X.509 sertifikaları sağlama hizmetiyle cihaz erişimi denetleme
 

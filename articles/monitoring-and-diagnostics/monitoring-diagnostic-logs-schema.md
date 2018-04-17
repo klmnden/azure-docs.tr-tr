@@ -1,9 +1,9 @@
 ---
-title: "Azure tanılama günlükleri desteklenen Hizmetleri ve şemaları | Microsoft Docs"
-description: "Desteklenen hizmetler ve olay şema Azure tanılama günlüklerini anlayın."
+title: Azure tanılama günlükleri desteklenen Hizmetleri ve şemaları | Microsoft Docs
+description: Desteklenen hizmetler ve olay şema Azure tanılama günlüklerini anlayın.
 author: johnkemnetz
 manager: orenr
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/24/2018
+ms.date: 4/12/2018
 ms.author: johnkem
-ms.openlocfilehash: 3e2b5305b969c96e6b14122af03da9249373094a
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -73,6 +73,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.DataLakeAnalytics/accounts|İstekler|İstek günlükleri|
 |Microsoft.DataLakeStore/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeStore/accounts|İstekler|İstek günlükleri|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL sunucu günlükleri|
 |Microsoft.Devices/IotHubs|Bağlantılar|Bağlantılar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Cihaz Telemetrisi|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D komutları|
@@ -84,6 +85,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Devices/IotHubs|TwinQueries|Twin sorguları|
 |Microsoft.Devices/IotHubs|JobsOperations|İşlerini işlemleri|
 |Microsoft.Devices/IotHubs|DirectMethods|Doğrudan yöntemleri|
+|Microsoft.Devices/IotHubs|E2EDiagnostics|E2E tanılama (Önizleme)|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Aygıt işlemleri|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Hizmet işlemleri|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -96,7 +98,6 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Tümleştirme Hesabı izleme olayları|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Ağ güvenlik grubu olayı|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Ağ güvenlik grubu kural sayacı|
-|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Ağ güvenlik grubu kural akış olayı|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Yük Dengeleyici uyarı olayları|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Yük Dengeleyici araştırması sistem durumu|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS koruması bildirimleri|
@@ -107,6 +108,8 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Ağ geçidi tanılama günlükleri|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tünel tanılama günlükleri|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Rota tanılama günlükleri|
+|Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE tanılama günlükleri|
+|Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S tanılama günlükleri|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Trafik Yöneticisi araştırma sistem durumu sonuçları olayı|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tablo GWM sayaçları|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Raporlama verilerini azure yedekleme|
@@ -125,8 +128,9 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Veritabanı bekleme istatistikleri|
 |Microsoft.Sql/servers/databases|Zaman aşımları|Zaman aşımları|
 |Microsoft.Sql/servers/databases|Blokları|Blokları|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Öngörüler|
 |Microsoft.Sql/servers/databases|Denetim|Denetim Günlükleri|
+|Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL güvenlik denetim olayı|
 |Microsoft.StreamAnalytics/streamingjobs|Yürütme|Yürütme|
 |Microsoft.StreamAnalytics/streamingjobs|Yazma|Yazma|
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: danis
-ms.openlocfilehash: ed5bea98bc9b4849436ff5fafc90f85c99d582aa
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 21165621478cc413b34a81345d6d3945f78148c0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Bir VM üzerinde Azure Linux Aracısı güncelleştirme
 
@@ -73,7 +73,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -152,7 +152,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -161,7 +161,7 @@ sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 sudo systemctl restart walinuxagent.service
 ```
 
-## <a name="redhat--centos"></a>Redhat / CentOS
+## <a name="redhat--centos"></a>RedHat / CentOS
 
 ### <a name="rhelcentos-6"></a>RHEL/CentOS 6
 
@@ -201,7 +201,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/\# AutoUpdate.Enabled=y/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -248,7 +248,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -295,7 +295,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -340,7 +340,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="restart-the-waagent-service"></a>Waagent hizmetini yeniden başlatın
@@ -380,7 +380,7 @@ name=Oracle Linux $releasever Add ons ($basearch)
 baseurl=http://public-yum.oracle.com/repo/OracleLinux/OL7/addons/$basearch/
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle
 gpgcheck=1
-enabled=0
+enabled=1
 ```
 
 Ardından yazın:
@@ -402,7 +402,7 @@ Açık [github'da Azure Linux Aracısı sürüm](https://github.com/Azure/WALinu
 #### <a name="for-version-22x-or-later-type"></a>Sürüm için 2.2.x veya daha sonra yazın:
 ```bash
 wget https://github.com/Azure/WALinuxAgent/archive/v2.2.x.zip
-unzip v2.2.x.zip.zip
+unzip v2.2.x.zip
 cd WALinuxAgent-2.2.x
 ```
 
@@ -441,7 +441,7 @@ AutoUpdate.Enabled=y
 Çalışma etkinleştirmek için:
 
 ```bash
-sudo sed -i 's/AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
 ### <a name="3-restart-the-waagent-service"></a>3. Waagent hizmetini yeniden başlatın

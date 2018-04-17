@@ -1,12 +1,12 @@
 ---
-title: "Bir örnek ile kullanmaya başlama"
-description: "Bu makalede, biz, Power BI çalışma koleksiyonları get başlatılan örnek eklemeniz."
+title: Bir örnek ile kullanmaya başlama
+description: Bu makalede, biz, Power BI çalışma koleksiyonları get başlatılan örnek eklemeniz.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: asaxton
-ms.openlocfilehash: 9049f95c9f81c0217c96469a45561b6cd0b33ae9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Power BI çalışma koleksiyonları örneği kullanmaya başlama
 
@@ -45,7 +45,7 @@ Biz daha ilerlemeden önce aşağıdaki kaynaklara kaydetmek istediğiniz: Power
 
 1. İndirip sıkıştırmasını [Power BI çalışma koleksiyonlar - bir web uygulamasına bir rapor tümleştirmek](http://go.microsoft.com/fwlink/?LinkId=761493) github'da örnek.
 2. Açık **Powerbı embedded.sln** Visual Studio. Yürütme gerekebilir **güncelleştirme paketini** bu çözümde kullanılan paketler güncelleştirmek için NuGet Paket Yöneticisi konsolunda komutu.
-3. Çözümü oluşturun.
+3. Çözümü derleyin.
 4. Çalıştırma **ProvisionSample** konsol uygulaması. Örnek konsol uygulamasındaki bir çalışma alanı sağlamak ve PBIX dosyasını içeri aktarın.
 5. Yeni bir sağlamak için **çalışma**, 1 seçeneğini belirleyin **koleksiyonu Yönetimi**ve ardından seçeneğini 6, **yeni bir çalışma alanı sağlanamadı**
 6. Yeni bir almak için **rapor**, 2, seçeneğini belirleyin **rapor Yönetim**ve seçenek 3, ardından **PBIX Masaüstü içeri aktarma dosyası bir çalışma alanına**.
@@ -71,7 +71,7 @@ Checking import state... Succeeded
 
 Bu noktada, içeri aktarılan bir Power BI PBIX rapor vardır, **çalışma**. Şimdi çalıştırmak ne bakalım **Power BI çalışma koleksiyonları** başlatılan örnek web uygulamasını edinin.
 
-## <a name="run-the-sample-web-app"></a>Örnek web uygulaması çalıştırın
+## <a name="run-the-sample-web-app"></a>Örnek web uygulamasını çalıştırma
 
 Web uygulaması örneği içeri aktarılan raporlar işleyen örnek bir uygulama olduğundan, **çalışma**. Web uygulaması örneği yapılandırma bırakılır.
 
@@ -105,7 +105,7 @@ Bir raporu tıklattıktan sonra **EmbedSample** web uygulaması görünmelidir b
 > [!NOTE]
 > Bu bölümde, kodu nasıl yazılmıştır gösteren örnek kod bir özetidir. Tam örnek görüntülemek için lütfen Visual Studio Powerbı embedded.sln çözümde yükleyin.
 
-### <a name="model"></a>modeli
+### <a name="model"></a>Model
 
 Örnek sahip bir **ReportsViewModel** ve **ReportViewModel**.
 

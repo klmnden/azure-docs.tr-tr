@@ -1,5 +1,5 @@
 ---
-title: "Azure güvenlik yönetimi ve izlemeye genel bakış | Microsoft Docs"
+title: Azure güvenlik yönetimi ve izlemeye genel bakış | Microsoft Docs
 description: " Azure yönetimi ve izlenmesi Azure bulut Hizmetleri ve sanal makineleri yardımcı olmak amacıyla güvenlik mekanizmaları sağlar.  Bu makalede bu temel güvenlik özellikleri ve Hizmetleri genel bakış sağlar. "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99e7a7746ae3f229614c8ac3d059b422a4ee6f74
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure güvenlik yönetimi ve izlemeye genel bakış
 Azure yönetimi ve izlenmesi Azure bulut Hizmetleri ve sanal makineleri yardımcı olmak amacıyla güvenlik mekanizmaları sağlar. Bu makalede bu temel güvenlik özellikleri ve Hizmetleri genel bakış sağlar. Daha fazla bilgi için her ayrıntılarını veren makaleler için bağlantılar sağlanmaktadır.
@@ -50,7 +50,7 @@ Rol tabanlı erişim denetimi (RBAC) Azure kaynakları için ayrıntılı erişi
 Daha fazla bilgi edinin:
 
 * [RBAC üzerinde Active Directory ekip blogu](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
-* [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md)
+* [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma
 Azure ile Microsoft, Symantec, eğilim mikro, McAfee ve Kaspersky gibi önemli güvenlik satıcılardan kötü amaçlı yazılımdan koruma yazılımı, sanal makinelerinizi kötü amaçlı dosyalar, reklam ve diğer tehditlere karşı korumaya yardımcı için kullanabilirsiniz.
@@ -125,7 +125,7 @@ Güvenlik Merkezi en iyi duruma getirme ve Azure kaynaklarınızın güvenliğin
 
 Daha fazla bilgi edinin:
 
-* [Azure Güvenlik Merkezi'ne giriş](../security-center/security-center-intro.md)
+* [Azure Güvenlik Merkezi'ne Giriş](../security-center/security-center-intro.md)
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png

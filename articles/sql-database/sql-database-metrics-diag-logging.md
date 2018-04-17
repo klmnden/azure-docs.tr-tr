@@ -1,8 +1,8 @@
 ---
-title: "Azure SQL veritabanı ölçümleri ve tanılama günlükleri | Microsoft Docs"
-description: "Kaynak kullanımı, bağlantı ve sorgu yürütme istatistikleri depolamak için Azure SQL veritabanını yapılandırma hakkında bilgi edinin."
+title: Azure SQL veritabanı ölçümleri ve tanılama günlükleri | Microsoft Docs
+description: Kaynak kullanımı, bağlantı ve sorgu yürütme istatistikleri depolamak için Azure SQL veritabanını yapılandırma hakkında bilgi edinin.
 services: sql-database
-documentationcenter: 
+documentationcenter: ''
 author: veljko-msft
 manager: craigg
 ms.service: sql-database
@@ -10,11 +10,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: 11ffb1a6260fca52ccb173cb842c1a2d5adbf139
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b1ac34c97d94f0b8759cb3e6f229ba0f7a2be7c9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:
@@ -32,7 +32,7 @@ Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlük
 - Azure portalına
 - PowerShell
 - Azure CLI
-- Azure Monitor REST API 
+- Azure monitör REST API'si 
 - Azure Resource Manager şablonu
 
 Ölçümleri ve tanılama günlükleri etkinleştirdiğinizde, burada seçilen verileri toplanır Azure kaynak belirtmeniz gerekir. Kullanılabilir seçenekler şunlardır:
@@ -191,11 +191,11 @@ Azure portalı üzerinden nerede veritabanları kendi ölçümleri kaydı yapıl
 
 ### <a name="install-the-sql-analytics-solution-from-the-gallery"></a>Galeriden SQL analiz çözümü yükleyin
 
-1. Günlük analizi kaynak oluşturmak ve verilerinizi içine akan sonra SQL analiz çözümü yükleyin. Operations Management Suite Giriş sayfasındaki yan menüde seçin **Çözümleri Galerisi**. Galeride seçin **Azure SQL analizi** çözümü ve select **Ekle**.
+1. Günlük analizi kaynak oluşturmak ve verilerinizi içine akan sonra SQL analiz çözümü yükleyin. Yan menüde giriş sayfasında seçin **Çözümleri Galerisi**. Galeride seçin **Azure SQL analizi** çözümü ve select **Ekle**.
 
    ![İzleme çözümü](./media/sql-database-metrics-diag-logging/monitoring-solution.png)
 
-2. Operations Management Suite Giriş sayfanızda **Azure SQL analizi** döşeme görüntülenir. SQL analizi panosunu açmak için bu kutucuğu seçin.
+2. Giriş sayfası, **Azure SQL analizi** döşeme görüntülenir. SQL analizi panosunu açmak için bu kutucuğu seçin.
 
 ### <a name="use-the-sql-analytics-solution"></a>SQL analiz çözümü kullanın
 
@@ -268,11 +268,11 @@ Bilgi edinmek için nasıl [depolama biriminden ölçümleri ve tanılama günl�
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: QueryStoreRuntimeStatistics|
 |OperationName|İşlemin adı. Her zaman: QueryStoreRuntimeStatisticsEvent|
 |Kaynak|Kaynağın adı.|
@@ -319,11 +319,11 @@ Daha fazla bilgi edinmek [Query Store çalışma zamanı istatistik verileri](ht
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: QueryStoreWaitStatistics|
 |OperationName|İşlemin adı. Her zaman: QueryStoreWaitStatisticsEvent|
 |Kaynak|Kaynağın adı|
@@ -357,11 +357,11 @@ Daha fazla bilgi edinmek [Query Store bekleyin istatistik verileri](https://docs
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: hataları|
 |OperationName|İşlemin adı. Her zaman: ErrorEvent|
 |Kaynak|Kaynağın adı|
@@ -386,11 +386,11 @@ Daha fazla bilgi edinmek [SQL Server hata iletileri](https://msdn.microsoft.com/
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: DatabaseWaitStatistics|
 |OperationName|İşlemin adı. Her zaman: DatabaseWaitStatisticsEvent|
 |Kaynak|Kaynağın adı|
@@ -415,11 +415,11 @@ Daha fazla bilgi edinmek [veritabanı bekleme istatistikleri](https://docs.micro
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: zaman aşımı|
 |OperationName|İşlemin adı. Her zaman: TimeoutEvent|
 |Kaynak|Kaynağın adı|
@@ -438,11 +438,11 @@ Daha fazla bilgi edinmek [veritabanı bekleme istatistikleri](https://docs.micro
 
 |Özellik|Açıklama|
 |---|---|
-|TenantId|Kiracı kimliğinizi|
+|Tenantıd|Kiracı kimliğinizi|
 |SourceSystem|Her zaman: Azure|
 |TimeGenerated [UTC]|Günlük kaydedilirken zaman damgası.|
 |Tür|Her zaman: AzureDiagnostics|
-|ResourceProvider|Kaynak sağlayıcısının adı. Always: MICROSOFT.SQL|
+|ResourceProvider|Kaynak sağlayıcısının adı. Her zaman: MICROSOFT. SQL|
 |Kategori|Kategori adı. Her zaman: blokları|
 |OperationName|İşlemin adı. Her zaman: BlockEvent|
 |Kaynak|Kaynağın adı|

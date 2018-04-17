@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: carlrab
-ms.openlocfilehash: 89575f94e95c5ae378d95220d63c162e53158069
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9a04f6ebbca60e969d608e0ad92839b5e04d772
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -28,7 +28,7 @@ El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [hizmet k
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Veritabanınızın artan performans katmanı
 
-Azure SQL veritabanı sunan dört [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz: temel, standart ve Premium (performans veritabanı işleme birimleri içinde ölçülen veya [Dtu'lar](sql-database-what-is-a-dtu.md). Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
+Azure SQL veritabanı iki satın alma modeli, vCore tabanlı satın alma modeli ve v-çekirdek tabanlı satın alma modeli sunar. Her model birden çok sahip [hizmet katmanları](sql-database-service-tiers.md) , arasından seçim yapabilirsiniz. Her hizmet katmanında kesinlikle SQL veritabanınız kullanabilirsiniz ve bu hizmet düzeyi için tahmin edilebilir performans garanti kaynakları yalıtır. Bu makalede, uygulamanız için hizmet katmanı seçmenize yardımcı olacak yönergeler sağlıyoruz. Biz de en iyi Azure SQL veritabanı için uygulamanızı ayarlayabilirsiniz yolları ele alınmıştır.
 
 > [!NOTE]
 > Bu makalede tek veritabanları Azure SQL Database performans rehberi odaklanır. Esnek havuzlar için ilgili performans yönergeler için bkz [esnek havuzlar için fiyat ve performans konuları](sql-database-elastic-pool-guidance.md). Ancak, bu makaledeki ayarlama önerilerin esnek havuzdaki veritabanları için geçerlidir ve benzer performans avantajlarından yararlanabilmek unutmayın.
@@ -70,7 +70,8 @@ Bu bölümde, uygulamanız için en iyi performansı elde etmek ve en düşük o
 ### <a name="identify-performance-issues-using-azure-portal"></a>Azure portalını kullanarak performans sorunlarını belirle
 Azure portalında aşağıdaki araçlar, SQL veritabanıyla performans sorunlarını çözün ve çözümlemenize yardımcı olabilir:
 
-* [Sorgu Performansı Öngörüleri](sql-database-query-performance.md)
+* 
+  [Sorgu Performansı İçgörüleri](sql-database-query-performance.md)
 * [SQL Veritabanı Danışmanı](sql-database-advisor.md)
 
 Azure portal her ikisi de bu araçlar ve bunların nasıl kullanılacağını hakkında daha fazla bilgi sahiptir. Verimli bir şekilde sorunlarını tanılamak ve düzeltmek için öncelikle Azure portalında araçları deneyin öneririz. Eksik dizinler ve özel durumlarda sorgu ayarlama için ardından, aşağıdakiler ele yaklaşımlar ayarlama el ile kullanmanızı öneririz.

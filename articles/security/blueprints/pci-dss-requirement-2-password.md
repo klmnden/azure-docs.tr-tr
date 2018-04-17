@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması - parola gereksinimleri"
+title: Azure ödeme işleme şeması - parola gereksinimleri
 description: PCI DSS gereksinim 2
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 4ae9fc7d5b53d33f9feb98c450970e0560afa2af
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 8fafc277d7410ab3f8f54b0defee127fd6ec2f4d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="password-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için parola gereksinimleri 
 ## <a name="pci-dss-requirement-2"></a>PCI DSS gereksinim 2
@@ -40,7 +40,7 @@ Bu, tüm varsayılan parolaları dahil, ancak bu işletim sistemleri tarafından
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure Active Directory parola ilkesi gereksinimlerini AADUX portalındaki müşteriler tarafından sağlanan yeni parolalar için uygulanır. Müşteri tarafından başlatılan Self Servis parola değişiklikleri önceki parola doğrulanması gerekir. Yönetici parolaları sıfırlama sonraki oturum açma sırasında değiştirilmesi için gereklidir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanıcıların tüm kullanıcılar için kümesi güçlü parolalar kullanmasını gerektirir. Hiçbir örnek veya Konuk hesap gösteride etkinleştirilir.<br /><br />Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanıcıların tüm kullanıcılar için kümesi güçlü parolalar kullanmasını gerektirir. Hiçbir örnek veya Konuk hesap gösteride etkinleştirilir.<br /><br />Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -53,7 +53,7 @@ Bu, tüm varsayılan parolaları dahil, ancak bu işletim sistemleri tarafından
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -71,7 +71,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure için Microsoft Azure ortamında endüstri standartları sağlamlaştırma kabul edilen tutarlıdır sistemler için güvenlik yapılandırma standartları OSSC Teknik Güvenlik Hizmetleri ekibi geliştirir. Bu yapılandırmalar Sistem Temelleri belgelenen ve ilgili yapılandırma değişikliklerinin etkilenen takımlar (örn., IPAK ekibi) açıkça. Yordamlar, güvenlik yapılandırması standartlarına göre uyumluluk izlemek için uygulanır. Microsoft Azure ortamında sistemler için güvenlik yapılandırma standartları endüstri kabul sağlamlaştırma standartları ile tutarlı ve en az yıllık gözden. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore sağlamlaştırma kart sahibi veri ortamı (CDE) için kapsamdaki tüm hizmetleri sağlar. <br /><br />Contoso Webstore de dağıtır [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.<br /><br />Contoso Webstore tüm sistem değişiklikleri oturum Operations Management Suite kullanır. [Operations Management Suite (OMS)](/azure/operations-management-suite/) değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore sağlamlaştırma kart sahibi veri ortamı (CDE) için kapsamdaki tüm hizmetleri sağlar. <br /><br />Contoso Webstore de dağıtır [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.<br /><br />Contoso Webstore tüm sistem değişiklikleri oturum Operations Management Suite kullanır. Günlük analizi değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -87,7 +87,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -100,7 +100,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure yazılım ve donanım yapılandırmaları tanımlamak ve gereksiz işlevleri, bağlantı noktaları, protokolleri ve Hizmetleri ortadan kaldırmak için en az üç aylık incelenen. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -117,7 +117,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş. Dağıtım sağlamlaştırma CDE kapsamındaki tüm hizmetleri de sağlar. <br /><br />Contoso Webstore de dağıtır [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Hizmetleri PaaS Hizmetleri olarak dağıtılır. Tüm hizmetler yalıtılır ve ağ kesimleri kullanarak bölümlenmiş. Dağıtım sağlamlaştırma CDE kapsamındaki tüm hizmetleri de sağlar. <br /><br />Contoso Webstore de dağıtır [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/), tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -130,7 +130,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure çok faktörlü erişim denetimleri ve belgelenen iş gereksiniminin kullanarak yalnızca yetkili personel Azure platformu güvenlik denetimleri yapılandırmak için sağlar. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore AAD kullanır ve güvenlik parametreleri yönetmek için AD RBAC doğru şekilde dağıtılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore AAD kullanır ve güvenlik parametreleri yönetmek için AD RBAC doğru şekilde dağıtılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Identity Management](payment-processing-blueprint.md#identity-management).|
 
 
 
@@ -143,7 +143,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore sınırları nasıl kurulacağını belgeler sağlar. Contoso'nun tehdit modeli ve veri akış diyagramı tüm kullanılan hizmetler ve etkin denetimler gösterilmektedir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore sınırları nasıl kurulacağını belgeler sağlar. Contoso'nun tehdit modeli ve veri akış diyagramı tüm kullanılan hizmetler ve etkin denetimler gösterilmektedir.|
 
 
 
@@ -159,7 +159,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure, hiper yönetici altyapı erişirken güçlü şifreleme kullanımını zorunlu sağlar. Microsoft Azure, aynı zamanda Microsoft Azure Yönetim Portalı'nı kullanarak müşteriler kendi hizmet/Iaas konsolları güçlü şifreleme ile erişmelerini sağlar. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore nasıl güçlü parolalar bir çözümde uygulanması gerektiğini gösterir; Ayrıca, tüm testler, şifreleme çözüm uygulandıktan doğrulamak için gerçekleştirilebilir.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore nasıl güçlü parolalar bir çözümde uygulanması gerektiğini gösterir; Ayrıca, tüm testler, şifreleme çözüm uygulandıktan doğrulamak için gerçekleştirilebilir.<br /><br />Contoso Webstore de kullanan bir [uygulama hizmeti ortamı (ana)](/azure/app-service-web/app-service-app-service-environment-intro) anahtar yöntemler zorlamak için. Daha fazla bilgi için bkz: [PCI Kılavuzu - uygulama hizmeti ortamı](payment-processing-blueprint.md#app-service-environment).|
 
 
 
@@ -172,7 +172,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore demo PaaS çözüm stok sağlanan belgelerde incelenebilir. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden OMS çözümleri](payment-processing-blueprint.md#oms-solutions).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore demo PaaS çözüm stok sağlanan belgelerde incelenebilir. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden yönetim çözümleri](payment-processing-blueprint.md#management-solutions).|
 
 
 
@@ -185,7 +185,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore güvenlik parametreleri bir anlayış sağlar belgeler sağlar ve belgeleri öğeleri hizmet. |
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore güvenlik parametreleri bir anlayış sağlar belgeler sağlar ve belgeleri öğeleri hizmet. |
 
 
 
@@ -198,7 +198,7 @@ Endüstri kabul sistem standartları sağlamlaştırma kaynakları içerebilir, 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. Microsoft Azure paylaşılan bir barındırma sağlayıcısı değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil. Microsoft Azure paylaşılan bir barındırma sağlayıcısı değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil. Microsoft Azure paylaşılan bir barındırma sağlayıcısı değil.|
 
 
 

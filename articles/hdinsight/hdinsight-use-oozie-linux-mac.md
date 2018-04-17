@@ -1,8 +1,8 @@
 ---
-title: "Azure Hdınsight'ta Linux tabanlı Hadoop Oozie iş akışlarını kullanın | Microsoft Docs"
-description: "Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin."
+title: Azure Hdınsight'ta Linux tabanlı Hadoop Oozie iş akışlarını kullanın | Microsoft Docs
+description: Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 53c249c24af774499becdf18350ff75dbc2ab861
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 586879c949a2acf5e84c0947864910fe120052ff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Azure Hdınsight'ta Linux tabanlı bir iş akışını çalıştırmak için kullanın.
 
@@ -513,7 +511,7 @@ Oozie REST API'si ile Oozie ile iş kendi araçları oluşturabilirsiniz. Oozie 
 
 Oozie REST API kullanma hakkında daha fazla bilgi için bkz: [Oozie Web Hizmetleri API'si](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-## <a name="oozie-web-ui"></a>Oozie web UI
+## <a name="oozie-web-ui"></a>Oozie web kullanıcı Arabirimi
 
 Oozie web kullanıcı Arabirimi kümede Oozie işlerin durumunu web tabanlı bir görünüme sağlar. Web kullanıcı Arabirimi ile aşağıdaki bilgileri görüntüleyebilirsiniz:
 
@@ -551,7 +549,7 @@ Oozie web kullanıcı Arabirimi erişmek için aşağıdaki adımları tamamlay�
 
    * **İş DAG**: DAG olan akışı gerçekleştirilecek veri yolları grafik bir genel bakış.
 
-       ![Job DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
+       ![İş DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
 7. Eylemlerden birini seçerseniz **iş bilgileri** sekmesi, beraberinde getirir eylemi için bilgileri. Örneğin, seçin **RunSqoopExport** eylem.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: ca1c3950c4135f4120c1d361d23746f9bfe95d65
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 91cd1cc746952ef8f442165b167f88f626870c70
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makineler için Boyutlar
 
@@ -44,7 +44,7 @@ Bu makalede, kullanılabilir boyutları ve Windows uygulamaları ve iş yükleri
 
 
 
-## <a name="rest-api"></a>REST API'si
+## <a name="rest-api"></a>REST API
 
 VM boyutları için sorgu için REST API kullanma hakkında daha fazla bilgi için aşağıdakilere bakın:
 
@@ -57,6 +57,10 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 
 Hakkında daha fazla bilgi [Azure işlem birimleri (ACU)](acu.md) Azure SKU'ları üzerinde işlem performans karşılaştırmanıza yardımcı olur.
 
+## <a name="benchmark-scores"></a>Kıyaslama puanları
+
+Windows sanal makineleri kullanma performans işlem hakkında daha fazla bilgi edinin [CoreMark Kıyaslama puanları](compute-benchmark-scores.md).
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Kullanılabilir farklı VM boyutları hakkında daha fazla bilgi edinin:
@@ -66,6 +70,7 @@ Kullanılabilir farklı VM boyutları hakkında daha fazla bilgi edinin:
 - [Depolama için iyileştirilmiş](../virtual-machines-windows-sizes-storage.md)
 - [GPU için iyileştirilmiş](sizes-gpu.md)
 - [Yüksek performanslı işlem](sizes-hpc.md)
+
 
 
 

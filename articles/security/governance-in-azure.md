@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 04d9e6152c87a49a5f1b1b1a29c16d80de00f4e9
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: af011cb3eea27498107cdfd650518552cd63bdf3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="governance-in-azure"></a>Azure’da idare
 
@@ -147,7 +147,7 @@ Azure başlangıçta yayımlandığında, bir abonelik için erişim denetimleri
 
 Bu abonelikleri çoğalmasıdır artık gerekli değildir. Rol tabanlı erişim denetimi ile standart rolleri (örneğin, "okuyucu" ve "yazıcı" karşılaşılan rollerinin) kullanıcıları atayabilirsiniz. Özel roller tanımlayabilir.
 
-[Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba kullanıma sunar. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. RBAC ekibiniz içinde görevleri kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz yardımcı olur. Kısıtlanmamış izinlerini herkes vermek yerine, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz.
+[Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gereksinim duyduğu erişim miktarını verebilirsiniz. Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba kullanıma sunar. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. Azure rol tabanlı erişim denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. RBAC ekibiniz içinde görevleri kurabilmeleri ve işlerini yapmak için gereksinim duydukları kullanıcılara sadece erişim miktarını verebilirsiniz yardımcı olur. Kısıtlanmamış izinlerini herkes vermek yerine, Azure aboneliği veya kaynakları yalnızca belirli eylemleri izin verebilirsiniz.
 
 Örneğin, bir çalışan başka bir SQL veritabanları aynı abonelik içindeki yönetebilirsiniz sırada bir Abonelikteki sanal makineleri yönetme izin vermek için RBAC kullanın.
 
@@ -161,7 +161,7 @@ Azure RBAC tüm kaynak türleri için geçerli üç temel rol vardır:
 
 Azure RBAC rollerin geri kalanı belirli Azure kaynaklarının yönetimini sağlar. Örneğin, sanal makine katılımcı rolü oluşturmak ve sanal makineleri yönetmek kullanıcının sağlar. Bunları erişimi sanal ağ veya sanal makine bağlandığı alt sağlamaz.
 
-[RBAC yerleşik rolleri](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) mevcut rolleri listeler. Her yerleşik rol kullanıcılara veren kapsam ve işlemleri belirtir.
+[RBAC yerleşik rolleri](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) mevcut rolleri listeler. Her yerleşik rol kullanıcılara veren kapsam ve işlemleri belirtir.
 
 Kullanıcılar, gruplar ve belirli bir kapsamda uygulamalara uygun RBAC rolü atayarak erişim sağla. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir. Bir üst kapsamda atanan bir rolü de içerdiği alt öğelerine erişim verir.
 
@@ -169,9 +169,9 @@ Kullanıcılar, gruplar ve belirli bir kapsamda uygulamalara uygun RBAC rolü at
 
 Azure RBAC Azure portalı ve Azure Resource Manager API'leri yalnızca Azure kaynaklarını yönetim işlemlerini destekler. Azure kaynakları için tüm veri düzeyi işlemleri yetkilendirilemiyor. Birisi depolama hesaplarını yönetmek için yetkilendirmek Örneğin, ancak BLOB veya bir depolama hesabı içindeki tabloları olamaz. Benzer şekilde, bir SQL veritabanı, içindeki tabloları ancak yönetilebilir.
 
-RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is).
+RBAC'nin erişimi yönetmenize nasıl yardımcı olduğu konusunda daha fazla bilgi isterseniz bkz. [Rol Tabanlı Erişim Denetimi Nedir?](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
-Ayrıca [özel bir rol oluşturmak](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) yerleşik roller hiçbiri belirli erişiminizi karşılamıyorsa Azure rol tabanlı erişim denetimi (RBAC) gerekir. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-powershell), [Azure komut satırı arabirimi (CLI)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-azure-cli)ve [REST API](https://docs.microsoft.com/azure/active-directory/role-based-access-control-manage-access-rest). Yalnızca yerleşik roller gibi özel roller, kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamlar için atanabilir.
+Ayrıca [özel bir rol oluşturmak](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) yerleşik roller hiçbiri belirli erişiminizi karşılamıyorsa Azure rol tabanlı erişim denetimi (RBAC) gerekir. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell), [Azure komut satırı arabirimi (CLI)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)ve [REST API](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest). Yalnızca yerleşik roller gibi özel roller, kullanıcılar, gruplar ve uygulamalar abonelik, kaynak grubu ve kaynak kapsamlar için atanabilir.
 
 Her abonelikte en fazla 2000 rol ataması verebilirsiniz.
 
@@ -271,7 +271,7 @@ Uygulama **ReadOnly** gibi görünen bazı işlemler gerektirir ek eylemleri oku
 
 Başka bir örnek için bir uygulama hizmeti kaynakta bir salt okunur kilidi yerleştirme, Visual Studio Sunucu Gezgini'bu etkileşimi yazma erişimi gerektirdiğinden kaynak dosyaları görüntülenmesini engeller.
 
-Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama uygulamak için yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir kısıtlama uygulamak için yönetim kilitleri kullanın. Kullanıcılar ve roller için izinleri ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 
 Bir üst kapsamda kilit uyguladığınızda, kapsamı içindeki tüm kaynakların aynı kilit devralır. Daha sonra eklediğiniz bile kaynakları kilidi üst devralır. Devralmada en kısıtlayıcı kilidi önceliklidir.
 

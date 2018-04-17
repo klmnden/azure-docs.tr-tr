@@ -3,29 +3,29 @@ title: Azure üzerinde bir Linux CentOS veri bilimi sanal makine sağlama | Micr
 description: Yapılandırın ve analizi yapabilir ve makine Azure'da bir Linux veri bilimi sanal makine oluşturun.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 7f683fff142a3654249560ed5299ed3cd7cb9cce
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: gokuma
+ms.openlocfilehash: 1a201974749acbbb9607e42e67d1935f437f9ca1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure üzerinde bir Linux CentOS veri bilimi sanal makine sağlama
 
 Linux veri bilimi sanal makine bir CentOS tabanlı Azure sanal önceden yüklenmiş bir araç koleksiyonu ile birlikte gelen makinedir. Bu araçlar, veri analizi yapmak için yaygın olarak kullanılır ve makine öğrenme. Dahil önemli yazılım bileşenleri şunlardır:
 
 * İşletim sistemi: Linux CentOS dağıtım.
-* Microsoft R Server Developer Edition
+* Microsoft R Server Geliştirici sürümü
 * Popüler veri analiz kitaplıkları anaconda Python dağıtımı (sürüm 2.7 ve 3.5) dahil olmak üzere
 * JuliaPro - Jale dili popüler bilimsel ve veri analizi kitaplıkları ile seçkin dağıtılması
 * Tek başına Spark örneğinde ve tek düğümlü Hadoop (HDFS, Yarn)
@@ -178,7 +178,7 @@ Herhangi bir ana bilgisayardan Jupyter not defteri sunucusuna erişebilir. Yaln�
 
 Biz örnek not defterlerini--bir söz Python ve r birinde paketlenmiş Yerel Linux kullanıcı adı ve parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. Seçerek yeni bir not defteri oluşturabilirsiniz **yeni**ve ardından uygun dil çekirdek. Görmüyorsanız, **yeni** düğmesini tıklatın, **Jupyter** not defteri sunucunun giriş sayfasına gitmek için sol üst simgesi.
 
-### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
+### <a name="apache-spark-standalone"></a>Tek başına Apache Spark 
 Apache Spark tek başına örneğini Spark uygulamalarında yerel olarak test etme ve büyük kümelerinde dağıtmadan önce ilk geliştirmenize yardımcı olması için bu Linux DSVM önceden yüklenir. PySpark programları Jupyter çekirdek çalıştırabilirsiniz. Ne zaman Jupyter açın ve tıklatın **yeni** düğmesi kullanılabilir tekrar listesini görmelisiniz. "Spark – Python" Spark Python dilini kullanarak uygulamalar oluşturmanıza olanak sağlayan PySpark Çekirdeği ' dir. Ayrıca, Spark programı oluşturmak için de bir Python IDE PyCharm veya Spyder gibi kullanabilirsiniz. Bu yana, bu tek başına bir örneğini, Spark yığını çağıran istemci programında çalışır. Bu daha hızlı ve Spark kümesinde geliştirme ile karşılaştırıldığında sorunlarını gidermek daha kolay hale getirir. 
 
 Bir örnek PySpark not defteri Jupyter ($ giriş/not defterlerini/SparkML/pySpark) giriş dizininin altındaki "SparkML" dizininde bulabilirsiniz Jupyter üzerinde sağlanır. 
@@ -217,7 +217,7 @@ Açık kaynak veritabanı **Postgres** VM üzerinde zaten tamamlanmış initdb v
 
 İlk kullanılmadan önce sürücüler ve veritabanı diğer adlar ayarlayın. JDBC sürücüleri şu adreste bulunabilir:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/Share/Java/jdbcdrivers*
 
 Daha fazla bilgi için bkz: [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 

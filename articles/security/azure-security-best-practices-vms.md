@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makinesi en iyi güvenlik uygulamaları"
-description: "Bu makalede, Azure'da bulunan sanal makinelerde kullanılacak en iyi güvenlik uygulamaları çeşitli sağlar."
+title: Azure sanal makinesi en iyi güvenlik uygulamaları
+description: Bu makalede, Azure'da bulunan sanal makinelerde kullanılacak en iyi güvenlik uygulamaları çeşitli sağlar.
 services: security
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5e757abe-16f6-41d5-b1be-e647100036d8
 ms.service: security
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 6541d09d7f1a7e85333f54797dba7db79328e9de
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.openlocfilehash: ddddf72d1ded0fb7952a641c287a4a5696e3aaef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM Güvenlik için en iyi yöntemler
 
@@ -49,14 +49,14 @@ Makaleyi aşağıdaki VM en iyi güvenlik uygulamaları inceler:
 
 VM korumanın ilk adımı, yalnızca yetkili kullanıcılar yeni Vm'leri ayarlayabilmek sağlamaktır. Kullanabileceğiniz [Azure ilkeleri](../azure-policy/azure-policy-introduction.md) , kuruluşunuzdaki kaynakların kuralları oluşturmak için özelleştirilmiş ilkeler oluşturma ve bu ilkeler, kaynaklara gibi uygulama [kaynak grupları](../azure-resource-manager/resource-group-overview.md).
 
-Doğal bir kaynak grubuna ait VM'ler ilkelerine devralır. Sanal makineleri yönetmek için bu yaklaşım önerilir ancak aynı zamanda erişimi tek tek VM ilkeleri kullanarak denetleyebilirsiniz [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md).
+Doğal bir kaynak grubuna ait VM'ler ilkelerine devralır. Sanal makineleri yönetmek için bu yaklaşım önerilir ancak aynı zamanda erişimi tek tek VM ilkeleri kullanarak denetleyebilirsiniz [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md).
 
 Resource Manager ilkeleri ve VM erişimi denetlemek için RBAC etkinleştirdiğinizde, genel VM Güvenlik geliştirilmesine yardımcı olun. Aynı kaynak grubuna VM'ler ile aynı yaşam döngüsü birleştirmek öneririz. Kaynak grupları kullanarak, dağıtmak, izlemek ve maliyetleri kaynaklarınız için faturalama yukarı alma. Erişim ve Vm'leri ayarlamak kullanıcıların etkinleştirmek için bir [en az ayrıcalık yaklaşım](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). Ve kullanıcıların ayrıcalıkları atadığınızda, aşağıdaki yerleşik Azure rolleri kullanmak plan yapın:
 
-- [Sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): VM'ler, ancak bunlar bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
-- [Klasik sanal makine Katılımcısı](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makineleri bağlı olmayan sanal ağ veya depolama hesabı kullanılarak oluşturulan sanal makineleri yönetebilirsiniz.
-- [Güvenlik Yöneticisi](../active-directory/role-based-access-built-in-roles.md#security-manager): güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz.
-- [DevTest Labs kullanıcı](../active-directory/role-based-access-built-in-roles.md#devtest-labs-user): her şeyi görüntüleyip bağlamak, başlatmak, yeniden başlatın ve sanal makineleri kapatın.
+- [Sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#virtual-machine-contributor): VM'ler, ancak bunlar bağlı sanal ağ veya depolama hesabı değil yönetebilirsiniz.
+- [Klasik sanal makine Katılımcısı](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor): Klasik dağıtım modeli, ancak sanal makineleri bağlı olmayan sanal ağ veya depolama hesabı kullanılarak oluşturulan sanal makineleri yönetebilirsiniz.
+- [Güvenlik Yöneticisi](../role-based-access-control/built-in-roles.md#security-manager): güvenlik bileşenleri, güvenlik ilkeleri ve sanal makineleri yönetebilirsiniz.
+- [DevTest Labs kullanıcı](../role-based-access-control/built-in-roles.md#devtest-labs-user): her şeyi görüntüleyip bağlamak, başlatmak, yeniden başlatın ve sanal makineleri kapatın.
 
 Hesapları ve parolaları Yöneticiler arasında paylaşmayın ve parolaları birden çok kullanıcı hesapları veya hizmetleri, özellikle sosyal medya için parolaları veya diğer yönetim dışı etkinlikler arasında yeniden yok. İdeal olarak, kullanmanız gereken [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) , Vm'leri güvenli bir şekilde ayarlamak için şablonlar. Bu yaklaşımı kullanarak, dağıtım seçenekleriniz güçlendirmek ve güvenlik ayarlarını dağıtım boyunca zorlamak.
 

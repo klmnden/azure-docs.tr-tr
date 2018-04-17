@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 85f25946974b7ede64f9f8fb0009eed42c55c25a
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c0cff73e8164bd493554b663d4ffbbf20f5155cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL veritabanı sorgu performansı öngörüleri
 Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzmanlık ve zaman yatırımı gerektiren bir görevdir. Sorgu performansı öngörüleri, aşağıdakileri sağlayarak veritabanı performans sorunlarını giderme daha az süre beklemesini sağlar:
@@ -29,7 +29,7 @@ Yönetme ve ilişkisel veritabanlarının performansını ayarlama önemli uzman
 * Sorgu performansı öngörüleri gerektirir [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) veritabanınızda etkindir. Query Store çalışmıyorsa, portal etkinleştirmek ister.
 
 ## <a name="permissions"></a>İzinler
-Aşağıdaki [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) sorgu performansı öngörüleri kullanmak için gereken izinler: 
+Aşağıdaki [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) sorgu performansı öngörüleri kullanmak için gereken izinler: 
 
 * **Okuyucu**, **sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** izinleri gereklidir üst görüntülemek için kaynak tüketen sorguları ve grafikleri. 
 * **Sahibi**, **katkıda bulunan**, **SQL DB Katılımcısı**, veya **SQL Server Katılımcısı** sorgu metnini görüntülemek için gereken izinler.

@@ -1,8 +1,8 @@
 ---
-title: "SCP.NET Programlama Kılavuzu | Microsoft Docs"
-description: "SCP.NET oluşturmak için nasıl kullanılacağını öğrenin. Hdınsight üzerinde Storm ile NET tabanlı Storm Topolojileri için kullanın."
+title: SCP.NET Programlama Kılavuzu | Microsoft Docs
+description: SCP.NET oluşturmak için nasıl kullanılacağını öğrenin. Hdınsight üzerinde Storm ile NET tabanlı Storm Topolojileri için kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: raviperi
 manager: jhubbard
 editor: cgronlun
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: a0ce92ba58fbcda812a3d4e5e275178b73400d6c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP gerçek zamanlı, güvenilir ve tutarlı, oluşturmak için platform ve yüksek performanslı veri işleme uygulama ' dir. Üstünde oluşturulmuş [Apache Storm](http://storm.incubator.apache.org/) --bir akış tarafından OSS toplulukları tasarlanmış sistemi işleme. Açık Twitter tarafından kaynaklıdır ve Storm Nathan Marz tarafından tasarlanmıştır. Bunu yararlanır [Apache ZooKeeper](http://zookeeper.apache.org/), yüksek oranda güvenilir etkinleştirmek için başka bir Apache proje dağıtılmış eşgüdümü ve durum yönetimi. 
@@ -76,7 +74,7 @@ ISCPSpout işlemsel olmayan spout arabirimidir.
 
 Zaman `NextTuple()` çağrılır, C\# kullanıcı kodu bir veya daha fazla tanımlama grubu yayma. Varsa yayma bir şey yok, bu yöntem herhangi bir şey yayma olmadan döndürmelidir. Dikkat edilmesi gereken, `NextTuple()`, `Ack()`, ve `Fail()` tümü tek bir iş parçacığı c sıkı döngü denir\# işlemi. Hiçbir tanımlama grubu yayma olduğunda, bu nedenle çok fazla CPU boşa harcanmasına değil olarak için kısa bir süre (örneğin, 10 milisaniye) için NextTuple uyku olması courteous.
 
-`Ack()`ve `Fail()` ack mekanizması belirtim dosyasında yalnızca etkin olarak adlandırılır. `seqId` Acked veya başarısız oldu başlığı tanımlamak için kullanılır. Bu nedenle ACK işlemsel olmayan topolojisinde etkinleştirilirse, aşağıdaki emit işlevi içinde Spout kullanılmalıdır:
+`Ack()` ve `Fail()` ack mekanizması belirtim dosyasında yalnızca etkin olarak adlandırılır. `seqId` Acked veya başarısız oldu başlığı tanımlamak için kullanılır. Bu nedenle ACK işlemsel olmayan topolojisinde etkinleştirilirse, aşağıdaki emit işlevi içinde Spout kullanılmalıdır:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -106,7 +104,7 @@ ISCPTxSpout işlem spout arabirimidir.
 
 İşlem olmayan karşı erişmelerini'olduğu gibi `NextTx()`, `Ack()`, ve `Fail()` tümü tek bir iş parçacığı c sıkı döngü denir\# işlemi. Hiçbir veri yayma olduğunda sahip courteous `NextTx` uyku için kısa bir nedenle çok fazla CPU boşa harcanmasına değil olarak süresi (10 milisaniye).
 
-`NextTx()`out parametresi yeni bir işlem başlatmaya adlı `seqId` ayrıca kullanılır işlem tanımlamak için kullanılan `Ack()` ve `Fail()`. İçinde `NextTx()`, kullanıcı veri Java dışarıdan yayma. Verileri yeniden yürütme desteklemek için ZooKeeper içinde depolanır. ZooKeeper kapasitesi sınırlı olduğundan, bir kullanıcı yalnızca meta veri yayma, işlem spout verileri toplu değil.
+`NextTx()` out parametresi yeni bir işlem başlatmaya adlı `seqId` ayrıca kullanılır işlem tanımlamak için kullanılan `Ack()` ve `Fail()`. İçinde `NextTx()`, kullanıcı veri Java dışarıdan yayma. Verileri yeniden yürütme desteklemek için ZooKeeper içinde depolanır. ZooKeeper kapasitesi sınırlı olduğundan, bir kullanıcı yalnızca meta veri yayma, işlem spout verileri toplu değil.
 
 Storm yeniden yürütme bir işlem otomatik olarak başarısız olursa, bunu `Fail()` normal durumda çağrılmamalıdır. Ancak SCP işlem spout'un yayılan meta verileri işaretlerseniz çağırabilirsiniz `Fail()` zaman meta veriler geçerli değil.
 
@@ -121,9 +119,9 @@ ISCPBatchBolt işlem Cıvata arabirimidir.
         void FinishBatch(Dictionary<string, Object> parms);  
     }
 
-`Execute()`Yeni kayıt sırasında Cıvata ulaşan olduğunda çağrılır. `FinishBatch()`Bu işlem sona erdikten sonra çağrılır. `parms` Giriş parametresi, gelecekte kullanılmak üzere ayrılmıştır.
+`Execute()` Yeni kayıt sırasında Cıvata ulaşan olduğunda çağrılır. `FinishBatch()` Bu işlem sona erdikten sonra çağrılır. `parms` Giriş parametresi, gelecekte kullanılmak üzere ayrılmıştır.
 
-İşlem topolojisi için önemli bir kavram – olduğundan `StormTxAttempt`. İki alanı olan `TxId` ve `AttemptId`. `TxId`belirli bir işlemi tanımlamak için kullanılır ve belirli bir işlem için birden çok deneme işlemi başarısız olur ve durumunda olabilir yeniden. SCP.NET her işlemek için yeni bir ISCPBatchBolt nesnesi oluşturur `StormTxAttempt`, yalnızca Storm Java yaptığı gibi. Bu tasarım amacı, paralel işlemleri işleme desteklemektir. Kullanıcı işlem girişimi tamamlandıysa, karşılık gelen ISCPBatchBolt nesnesi yok unutmayın ve toplanacak tutmanız gerekir.
+İşlem topolojisi için önemli bir kavram – olduğundan `StormTxAttempt`. İki alanı olan `TxId` ve `AttemptId`. `TxId` belirli bir işlemi tanımlamak için kullanılır ve belirli bir işlem için birden çok deneme işlemi başarısız olur ve durumunda olabilir yeniden. SCP.NET her işlemek için yeni bir ISCPBatchBolt nesnesi oluşturur `StormTxAttempt`, yalnızca Storm Java yaptığı gibi. Bu tasarım amacı, paralel işlemleri işleme desteklemektir. Kullanıcı işlem girişimi tamamlandıysa, karşılık gelen ISCPBatchBolt nesnesi yok unutmayın ve toplanacak tutmanız gerekir.
 
 ## <a name="object-model"></a>Nesne modeli
 SCP.NET anahtar nesneleri ile program geliştiriciler için basit bir dizi de sağlar. Bunlar **bağlamı**, **StateStore**, ve **SCPRuntime**. Bunlar, bu bölümde rest bölümünde ele alınmıştır.
@@ -137,9 +135,9 @@ Bağlamı uygulamaya çalışan bir ortam sağlar. Her ISCPPlugin örneğinin (I
     public static Config Config { get; set; }                    
     public static TopologyContext TopologyContext { get; set; }  
 
-`Logger`Günlük amaçla sağlanır.
+`Logger` Günlük amaçla sağlanır.
 
-`pluginType`C eklentisi türünü belirtmek için kullanılan\# işlemi. Varsa C\# işlemi (olmadan Java) yerel test modda çalıştırılır, eklenti tür `SCP_NET_LOCAL`.
+`pluginType` C eklentisi türünü belirtmek için kullanılan\# işlemi. Varsa C\# işlemi (olmadan Java) yerel test modda çalıştırılır, eklenti tür `SCP_NET_LOCAL`.
 
     public enum SCPPluginType 
     {
@@ -150,12 +148,12 @@ Bağlamı uygulamaya çalışan bir ortam sağlar. Her ISCPPlugin örneğinin (I
         SCP_NET_BATCH_BOLT = 4  
     }
 
-`Config`Java taraftan yapılandırma parametreleri almak için sağlanır. Java taraftan geçilen parametreler zaman C\# eklentisi başlatılır. `Config` Parametreleri iki parçalara bölünür: `stormConf` ve `pluginConf`.
+`Config` Java taraftan yapılandırma parametreleri almak için sağlanır. Java taraftan geçilen parametreler zaman C\# eklentisi başlatılır. `Config` Parametreleri iki parçalara bölünür: `stormConf` ve `pluginConf`.
 
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf`Storm tarafından tanımlanan parametre ve `pluginConf` SCP tarafından tanımlanan parametre. Örneğin:
+`stormConf` Storm tarafından tanımlanan parametre ve `pluginConf` SCP tarafından tanımlanan parametre. Örneğin:
 
     public class Constants
     {
@@ -169,7 +167,7 @@ Bağlamı uygulamaya çalışan bir ortam sağlar. Her ISCPPlugin örneğinin (I
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext`sağlanan topoloji içerik almak için birden çok paralellik ile bileşenleri için en yararlı olacaktır. Örnek aşağıda verilmiştir:
+`TopologyContext` sağlanan topoloji içerik almak için birden çok paralellik ile bileşenleri için en yararlı olacaktır. Örnek aşağıda verilmiştir:
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -210,7 +208,7 @@ ACK destekleme işlemsel olmayan Cıvata için açıkça gerektiği `Ack()` veya
     public abstract void Fail(SCPTuple tuple);
 
 ### <a name="statestore"></a>StateStore
-`StateStore`Meta Veri Hizmetleri, monoton sıra oluşturma ve bekleme serbest eşgüdüm sağlar. Üst düzey dağıtılmış eşzamanlılık soyutlamalar oluşturulabilen `StateStore`dağıtılmış kilitleri, dağıtılmış kuyruklar, engelleri ve işlem Hizmetleri dahil olmak üzere.
+`StateStore` Meta Veri Hizmetleri, monoton sıra oluşturma ve bekleme serbest eşgüdüm sağlar. Üst düzey dağıtılmış eşzamanlılık soyutlamalar oluşturulabilen `StateStore`dağıtılmış kilitleri, dağıtılmış kuyruklar, engelleri ve işlem Hizmetleri dahil olmak üzere.
 
 SCP uygulamalar kullanabilir `State` ZooKeeper, özellikle işlem topolojisi için bazı bilgileri kalıcı hale getirmek için nesne. Böylece işlem spout çöker ve yeniden başlatırsanız, ZooKeeper gerekli bilgileri almak ve ardışık düzeni yeniden yapılıyor.
 
@@ -304,9 +302,9 @@ SCPRuntime aşağıdaki iki yöntem sunar:
 
     public static void LaunchPlugin(newSCPPlugin createDelegate);  
 
-`Initialize()`SCP çalışma zamanı ortamı başlatmak için kullanılır. Bu yöntemde, C\# işlem Java yan bağlanır ve yapılandırma parametreleri ve topoloji bağlamını alır.
+`Initialize()` SCP çalışma zamanı ortamı başlatmak için kullanılır. Bu yöntemde, C\# işlem Java yan bağlanır ve yapılandırma parametreleri ve topoloji bağlamını alır.
 
-`LaunchPlugin()`ileti işleme döngüsü kazandırın için kullanılır. Bu döngü, C\# eklentisi aldığı iletileri form Java yan (başlık ve denetim sinyalleri dahil) ve sonra işlem belki de arabirim yöntemini çağırarak iletileri, kullanıcı kodu tarafından sağlayın. Giriş parametresi yöntemi için `LaunchPlugin()` ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt arabirimini uygulayan nesne döndüren bir temsilci.
+`LaunchPlugin()` ileti işleme döngüsü kazandırın için kullanılır. Bu döngü, C\# eklentisi aldığı iletileri form Java yan (başlık ve denetim sinyalleri dahil) ve sonra işlem belki de arabirim yöntemini çağırarak iletileri, kullanıcı kodu tarafından sağlayın. Giriş parametresi yöntemi için `LaunchPlugin()` ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt arabirimini uygulayan nesne döndüren bir temsilci.
 
     public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary\<string, Object\> parms); 
 
@@ -314,7 +312,7 @@ ISCPBatchBolt için biz alabilirsiniz `StormTxAttempt` gelen `parms`ve bunu dene
 
 Genel olarak bakıldığında, SCP eklentileri burada iki modda çalışabilir:
 
-1. Yerel Test modu: Bu modda SCP eklentileri (C\# kullanıcı kodu) Visual Studio içinde geliştirme aşamasında çalıştırın. `LocalContext`Bu modda, yerel dosyalara verilmiş başlıklar seri hale getirmek ve bunları geri belleğe okumak için yöntem sağlar kullanılabilir.
+1. Yerel Test modu: Bu modda SCP eklentileri (C\# kullanıcı kodu) Visual Studio içinde geliştirme aşamasında çalıştırın. `LocalContext` Bu modda, yerel dosyalara verilmiş başlıklar seri hale getirmek ve bunları geri belleğe okumak için yöntem sağlar kullanılabilir.
    
         public interface ILocalContext
         {
@@ -360,12 +358,12 @@ SCP.NET işlem topolojileri tanımlamak için aşağıdaki işlevleri ekledi:
 | **Yeni işlevleri** | **Parametreler** | **Açıklama** |
 | --- | --- | --- |
 | **Tx topolopy** |Topoloji adı<br />spout eşleme<br />Cıvata eşleme |Topoloji ada sahip bir işlem topolojisi tanımlayın &nbsp;tanımı harita ve Cıvatalar tanımı Haritası spout'lar |
-| **SCP tx spout** |Exec adı<br />bağımsız değişken<br />Alanları |İşlem spout tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** spout çıktı alanları |
-| **tx toplu Cıvata SCP** |Exec adı<br />bağımsız değişken<br />Alanları |Bir işlem toplu Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***bağımsız değişken.***<br /><br />Alanlar Cıvata çıktı alanları modudur. |
-| **SCP-tx-yürütme-Cıvata** |Exec adı<br />bağımsız değişken<br />Alanları |İşlem yürütme Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** Cıvata çıktı alanları |
+| **SCP tx spout** |Exec adı<br />bağımsız değişken<br />alanlar |İşlem spout tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** spout çıktı alanları |
+| **tx toplu Cıvata SCP** |Exec adı<br />bağımsız değişken<br />alanlar |Bir işlem toplu Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***bağımsız değişken.***<br /><br />Alanlar Cıvata çıktı alanları modudur. |
+| **SCP-tx-yürütme-Cıvata** |Exec adı<br />bağımsız değişken<br />alanlar |İşlem yürütme Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** Cıvata çıktı alanları |
 | **nontx topolopy** |Topoloji adı<br />spout eşleme<br />Cıvata eşleme |Topoloji ada sahip bir işlem topolojisi tanımlayın&nbsp; tanımı harita ve Cıvatalar tanımı Haritası spout'lar |
-| **SCP spout** |Exec adı<br />bağımsız değişken<br />Alanları<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** spout çıktı alanları<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanmak isteğe bağlıdır. |
-| **SCP Cıvata** |Exec adı<br />bağımsız değişken<br />Alanları<br />parametreler |İşlem dışı Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** Cıvata çıktı alanları<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanmak isteğe bağlıdır. |
+| **SCP spout** |Exec adı<br />bağımsız değişken<br />alanlar<br />parametreler |Bir işlem spout tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** spout çıktı alanları<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanmak isteğe bağlıdır. |
+| **SCP Cıvata** |Exec adı<br />bağımsız değişken<br />alanlar<br />parametreler |İşlem dışı Cıvata tanımlayın. Uygulama ile çalışan ***exec adı*** kullanarak ***args***.<br /><br />***Alanları*** Cıvata çıktı alanları<br /><br />***Parametreleri*** "nontransactional.ack.enabled" gibi bazı parametreler belirtmek için kullanmak isteğe bağlıdır. |
 
 SCP.NET tanımlanan aşağıdaki anahtar sözcükleri vardır:
 

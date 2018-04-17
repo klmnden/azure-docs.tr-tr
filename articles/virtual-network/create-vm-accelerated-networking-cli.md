@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: aa74596906206ba4460e80af9015955c0b848cd4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 718990b69cc75709af819ad7df9a77ad0f8f33ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Hızlandırılmış ağ ile Linux sanal makine oluşturma
 
@@ -66,7 +66,7 @@ Bu özelliği kullanırken aşağıdaki sınırlamalar bulunmaktadır:
 * **VM oluşturma:** etkin hızlandırılmış ağ ile bir NIC yalnızca eklenebilir bir VM VM oluşturulduğunda. NIC için mevcut bir VM'yi eklenemiyor. VM için mevcut bir kullanılabilirlik ekleme ayarlarsanız, kullanılabilirlik kümesindeki tüm sanal makineleri de etkin ağ hızlandırılmış gerekir.
 * **Yalnızca aracılığıyla Azure Resource Manager dağıtımı:** hızlandırılmış ağ ile sanal makineleri (Klasik) dağıtılamıyor.
 
-Bu makale ile hızlandırılmış ağ Azure CLI kullanarak bir sanal makine oluşturmak için adımlar sağlar ancak şunları da yapabilirsiniz. [ile hızlandırılmış ağ Azure portalını kullanarak bir sanal makine oluşturmak](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bir sanal makine desteklenen işletim sistemi ve Portalı'nda VM boyutu ile altında oluştururken **ayarları**seçin **etkin** altında **ağ hızlandırılmış**. Sanal makine oluşturulduktan sonra yönergeleri tamamlamak gereken [hızlandırılmış ağ etkinleştirildiğini onaylayın](#confirm-that-accelerated-networking-is-enabled).
+Bu makale ile hızlandırılmış ağ Azure CLI kullanarak bir sanal makine oluşturmak için adımlar sağlar ancak şunları da yapabilirsiniz. [ile hızlandırılmış ağ Azure portalını kullanarak bir sanal makine oluşturmak](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bir sanal makine portalında altında oluştururken **ayarları**seçin **etkin**altında **ağ hızlandırılmış**. Seçtiğiniz sürece hızlandırılmış ağ etkinleştirme seçeneği Portalı'nda görünmüyor bir [işletim sistemi desteklenen](#supported-operating-systems) ve [VM boyutu](#supported-vm-instances). Sanal makine oluşturulduktan sonra yönergeleri tamamlamak gereken [hızlandırılmış ağ etkinleştirildiğini onaylayın](#confirm-that-accelerated-networking-is-enabled).
 
 ## <a name="create-a-virtual-network"></a>Sanal ağ oluşturma
 
@@ -175,7 +175,7 @@ VM oluşturulduktan sonra aşağıdaki çıktı örneği ile benzer bir çıktı
 
 ## <a name="confirm-that-accelerated-networking-is-enabled"></a>Hızlandırılmış ağ etkinleştirilmiş olduğunu doğrulayın
 
-VM ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Değiştir `<your-public-ip-address>` sanal için atanan ortak IP adresiyle makine oluşturduğunuz ve Değiştir *azureuser* için farklı bir değer kullandıysanız `--admin-username` VM oluşturduğunuzda.
+Sanal makine ile bir SSH oturumu oluşturmak için aşağıdaki komutu kullanın. Değiştir `<your-public-ip-address>` sanal için atanan ortak IP adresiyle makine oluşturduğunuz ve Değiştir *azureuser* için farklı bir değer kullandıysanız `--admin-username` VM oluşturduğunuzda.
 
 ```bash
 ssh azureuser@<your-public-ip-address>

@@ -1,20 +1,20 @@
 ---
-title: "Azure SQL veritabanı örneği özel DNS yönetilen | Microsoft Docs"
-description: "Bu konuda bir özel DNS ile yönetilen bir Azure SQL veritabanı örneği için yapılandırma seçenekleri açıklanmaktadır."
+title: Azure SQL veritabanı örneği özel DNS yönetilen | Microsoft Docs
+description: Bu konuda bir özel DNS ile yönetilen bir Azure SQL veritabanı örneği için yapılandırma seçenekleri açıklanmaktadır.
 services: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 993ff518a1987581ad7de4797611f104080c2c2f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 3175b99c0e41cedf313115043b09608496adfdca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Örnek yönetilen Azure SQL veritabanı için özel bir DNS yapılandırma
 
@@ -51,7 +51,7 @@ DNS yapılandırması bir Azure sanal ağ üzerinde IP adreslerini girin, böyle
 
 1. Azure Portal'da özel DNS VM ağ arabirimine açın.
 
-   ![network-interface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
+   ![Ağ arabirimi](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
 
 2. IP yapılandırma bölümü. IP yapılandırması 
 
@@ -79,5 +79,5 @@ DNS yapılandırması bir Azure sanal ağ üzerinde IP adreslerini girin, böyle
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - Genel bir bakış için bkz: [yönetilen örneği nedir](sql-database-managed-instance.md)
-- Bir sanal ağ oluşturmak ve yönetilen bir örnek oluşturma örneği için bkz: [yönetilen örneği oluşturma](sql-database-managed-instance-tutorial-portal.md).
-- VNet yapılandırmak için bkz: [yönetilen örnekleri için sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md)
+- Yeni bir yönetilen örneğinin nasıl oluşturulacağını gösteren bir öğretici için bkz: [yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md).
+- Yönetilen bir örneği için bir sanal ağ yapılandırma hakkında daha fazla bilgi için bkz: [yönetilen örnekleri için sanal ağ yapılandırması](sql-database-managed-instance-vnet-configuration.md)

@@ -1,24 +1,24 @@
 ---
-title: "Azure Site Recovery kullanan çok katmanlı SharePoint uygulaması çoğaltmak | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery özelliklerini kullanarak çok katmanlı bir SharePoint uygulama çoğaltmak açıklar."
+title: Azure Site Recovery kullanan çok katmanlı SharePoint uygulaması çoğaltmak | Microsoft Docs
+description: Bu makalede, Azure Site Recovery özelliklerini kullanarak çok katmanlı bir SharePoint uygulama çoğaltmak açıklar.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: sujayt
 manager: rochakm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2017
+ms.date: 04/09/2018
 ms.author: sutalasi
-ms.openlocfilehash: 3610409691b71fcce0c36a3af94184dbe6db8661
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 86a1d53570aeefd57c5133688e67064da6f5dc77
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site RECOVERY'yi kullanarak olağanüstü durum kurtarma için çok katmanlı bir SharePoint uygulama Çoğalt
 
@@ -66,7 +66,7 @@ Bu makalede oluşturmak için Windows Server 2012 R2 Enterprise VMware sanal mak
 
 ### <a name="source-and-target"></a>Kaynak ve hedef
 
-**Senaryo** | **İkincil bir siteye** | **To Azure**
+**Senaryo** | **İkincil bir siteye** | **Azure’a**
 --- | --- | ---
 **Hyper-V** | Evet | Evet
 **VMware** | Evet | Evet

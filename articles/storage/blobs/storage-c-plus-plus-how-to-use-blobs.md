@@ -1,39 +1,27 @@
 ---
-title: "BLOB storage (nesne depolama) C++ içinden kullanma | Microsoft Docs"
-description: "Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
+title: C++ - Azure Storage'dan nesne (Blob) kullanma | Microsoft Docs
+description: Azure Blob (nesne) depolama ile bulutta yapılandırılmamış veri depolayın.
 services: storage
-documentationcenter: .net
 author: MichaelHauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: 9fe2112370f7d29eb0fde856995768660f9871e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-blob-storage-from-c"></a>C++ içinden BLOB Storage kullanma
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
+# <a name="how-to-use-blob-storage-from-c"></a>C++ içinden BLOB storage kullanma
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-## <a name="overview"></a>Genel Bakış
-Azure Blob Storage, bulutta nesne/blob olarak yapılandırılmamış veri depolayan bir hizmettir. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır.
-
-Bu kılavuz Azure Blob Depolama hizmeti kullanılarak yaygın senaryolar gerçekleştirme gösterilmektedir. C++ ve kullanım örnekleri yazılır [C++ için Azure Storage istemci Kitaplığı](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Kapsamdaki senaryolar dahil **karşıya**, **listeleme**, **indirme**, ve **silme** BLOB'lar.  
+Bu kılavuz, Azure Blob Depolama hizmetinin kullanarak genel senaryolar gerçekleştirmek gösterilmiştir. C++ ve kullanım örnekleri yazılır [C++ için Azure Storage istemci Kitaplığı](http://github.com/Azure/azure-storage-cpp/blob/master/README.md). Kapsamdaki senaryolar karşıya yükleme, listeleme, indirme ve BLOB'ları silme içerir.  
 
 > [!NOTE]
-> Bu kılavuz, c++ sürümü 1.0.0 ve yukarıda Azure Storage istemci kitaplığı hedefler. Aracılığıyla kullanılabilir olan depolama istemci kitaplığı 2.2.0, önerilen sürümüdür [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
-> 
-> 
+> Bu kılavuz, c++ sürümü 1.0.0 ve yukarıda Azure Storage istemci kitaplığı hedefler. Microsoft, C++, aracılığıyla kullanılabilen için depolama istemci kitaplığı en son sürümünü kullanarak önerir [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp).
+
+## <a name="what-is-blob-storage"></a>Blob storage nedir?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -88,7 +76,7 @@ Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil 
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Ardından, bir başvuru almak bir **cloud_blob_client** sınıfı gibi kapsayıcılar ve bloblar Blob Depolama hizmet içinde depolanan temsil eden nesneler almanıza olanak tanır. Aşağıdaki kod oluşturur bir **cloud_blob_client** biz alınan yukarıda depolama hesabı nesnesini kullanarak nesnesi:  
+Ardından, bir başvuru almak bir **cloud_blob_client** sınıfı gibi kapsayıcılara ve blob'lara Blob deposu içinde depolanan temsil eden nesneler almanıza olanak tanır. Aşağıdaki kod oluşturur bir **cloud_blob_client** biz alınan yukarıda depolama hesabı nesnesini kullanarak nesnesi:  
 
 ```cpp
 // Create the blob client.
@@ -133,7 +121,7 @@ container.upload_permissions(permissions);
 Internet üzerinden herkes ortak bir kapsayıcıdaki blobları görebilir ancak değiştirdiğinizde ya da yalnızca uygun erişim anahtarı varsa, bunları silin.  
 
 ## <a name="how-to-upload-a-blob-into-a-container"></a>Nasıl yapılır: bir kapsayıcıya bir blob karşıya yükleme
-Azure Blob Storage blok blobları ve sayfa bloblarını destekler. Çoğu durumda kullanılması önerilen blob türü blok blobudur.  
+Azure Blob Depolama destekler, blobları ve sayfa bloblarını engelleyin. Çoğu durumda kullanılması önerilen blob türü blok blobudur.  
 
 Bir dosyayı bir blok blobuna yüklemek için bir kapsayıcı başvurusu alın ve blok blob başvurusu almak için kullanın. Bir blob başvurusu edindiğinizde veri kendisine çağırarak yükleyebilirsiniz **upload_from_stream** yöntemi. Bu işlemle, eğer önceden oluşturulmadıysa bir blob oluşturulacaktır, aksi takdirde üzerine yazılacaktır. Aşağıdaki örnek kapsayıcının önceden oluşturulduğunu varsayarak bir blobun bir kapsayıcıya nasıl yükleneceğini gösterir.  
 

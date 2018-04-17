@@ -1,24 +1,24 @@
 ---
-title: "Buluta (Python) - Azure IOT Hub'ına bağlanmak Raspberry Pi'yi Böğürtlenli Pi | Microsoft Docs"
-description: "Kurulum ve Raspberry Pi'yi'nın bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub ile Raspberry Pi'yi bağlanma hakkında bilgi edinin."
+title: Buluta (Python) - Azure IOT Hub'ına bağlanmak Raspberry Pi'yi Böğürtlenli Pi | Microsoft Docs
+description: Kurulum ve Raspberry Pi'yi'nın bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub ile Raspberry Pi'yi bağlanma hakkında bilgi edinin.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: "Azure IOT Böğürtlenli PI Böğürtlenli PI IOT hub, bulut için Böğürtlenli pi gönderme, verileri buluta Böğürtlenli pi"
+tags: ''
+keywords: Azure IOT Böğürtlenli PI Böğürtlenli PI IOT hub, bulut için Böğürtlenli pi gönderme, verileri buluta Böğürtlenli pi
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2017
-ms.author: xshi
-ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: 7069748c10f7c98f80fadc008f43a3aa02f7ac0e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Azure IOT Hub (Python) Böğürtlenli Pi Bağlan
 
@@ -169,7 +169,7 @@ Raspberry Pi'yi bağlanmak için ana bilgisayarınız aşağıdaki SSH istemcile
    nano config.py
    ```
 
-   5 makroları vardır bu dosyada configurate olabilir. İlk sağlayıcıdır `MESSAGE_TIMESPAN`, bulut göndermek iki ileti süre (milisaniye cinsinden) tanımlar. İkincisi `SIMULATED_DATA`, benzetimli algılayıcı verilerini veya kullanıp kullanmayacağınızı için bir Boolean değeri değil. `I2C_ADDRESS`BME280 algılayıcı bağlı I2C adresidir. `GPIO_PIN_ADDRESS`için LED GPIO'yu adresidir. Son sunucudur `BLINK_TIMESPAN`, milisaniye cinsinden, LED açıldığında timespan tanımlı.
+   5 makroları vardır bu dosyada configurate olabilir. İlk sağlayıcıdır `MESSAGE_TIMESPAN`, bulut göndermek iki ileti süre (milisaniye cinsinden) tanımlar. İkincisi `SIMULATED_DATA`, benzetimli algılayıcı verilerini veya kullanıp kullanmayacağınızı için bir Boolean değeri değil. `I2C_ADDRESS` BME280 algılayıcı bağlı I2C adresidir. `GPIO_PIN_ADDRESS` için LED GPIO'yu adresidir. Son sunucudur `BLINK_TIMESPAN`, milisaniye cinsinden, LED açıldığında timespan tanımlı.
 
    Varsa, **algılayıcı yok**ayarlayın `SIMULATED_DATA` değeri `True` oluşturma ve sanal algılayıcı verilerini kullanma örnek uygulamayı yapmak için.
 

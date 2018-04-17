@@ -1,12 +1,12 @@
 ---
-title: "Yalnızca zaman sanal makineye erişim Azure Güvenlik Merkezi'nde | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi'nde VM erişim yardımcı nasıl zamanında Azure sanal makinelerinizi erişimi denetleme gösterir."
+title: Yalnızca zaman sanal makineye erişim Azure Güvenlik Merkezi'nde | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi'nde VM erişim yardımcı nasıl zamanında Azure sanal makinelerinizi erişimi denetleme gösterir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2018
 ms.author: terrylan
-ms.openlocfilehash: f1ea31d1081bc263cf85cf4dcc3d73d4cc0b842d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 22eee6c2253e6b1ff92de0cebf4fea451a0a8fe5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
 Yalnızca zaman sanal makine (VM) erişim gerektiğinde VM'ler bağlamak için kolay erişim sağlarken saldırılara maruz kalma azaltma, Azure vm'lerine gelen trafik kilitlemek için kullanılabilir.
 
 > [!NOTE]
-> Yalnızca zamanında özellik Güvenlik Merkezi'nin standart katmanında mevcuttur.  Bkz: [fiyatlandırma](security-center-pricing.md) Güvenlik Merkezi hakkında daha fazla katmanları fiyatlandırma öğrenin.
+> Yalnızca zamanında özellik Güvenlik Merkezi'nin standart katmanında mevcuttur.  Güvenlik Merkezi’nin fiyatlandırma katmanları hakkında daha fazla bilgi almak için bkz. [Fiyatlandırma](security-center-pricing.md).
 >
 >
 
@@ -41,7 +41,7 @@ Saldırılarına maruz azaltmak için tek bir bağlantı noktasının açık old
 
 Tam zamanında etkinleştirildiğinde, Güvenlik Merkezi bir NSG kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Aşağı gelen trafik için kilitlenir VM bağlantı noktalarını seçin. Bu bağlantı noktaları yalnızca tarafından denetlenen zaman çözümde.
 
-Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) VM için yazma erişimi sağlayan izinler. Belirtilen yazma izinlerine sahip oldukları isteğini onayladı ve Güvenlik Merkezi ağ güvenlik zaman miktarı yönetim bağlantı noktalarına gelen trafiğe izin verecek şekilde grupları (Nsg'ler) otomatik olarak yapılandırır. Güvenlik Merkezi Nsg'ler süresi dolduktan sonra önceki durumlarına geri yükler.
+Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Belirtilen yazma izinlerine sahip oldukları isteğini onayladı ve Güvenlik Merkezi ağ güvenlik zaman miktarı yönetim bağlantı noktalarına gelen trafiğe izin verecek şekilde grupları (Nsg'ler) otomatik olarak yapılandırır. Güvenlik Merkezi Nsg'ler süresi dolduktan sonra önceki durumlarına geri yükler.
 
 > [!NOTE]
 > Güvenlik Merkezi'nde yalnızca zaman VM erişim şu anda yalnızca Azure Resource Manager aracılığıyla dağıtılan VM'ler destekler. Klasik ve Resource Manager dağıtım modelleri hakkında daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).
@@ -129,7 +129,7 @@ Varolan yalnızca bir VM zaman İlkesi'nde düzenlemek için **yapılandırıld�
 1. Altında **VM'ler**, o VM için üç nokta satırdaki tıklayarak bir bağlantı noktası eklemek için VM seçin. Bir menüdeki açılır.
 2. Seçin **Düzenle** menüde. Bu açılır **JIT VM erişim yapılandırması**.
 
-  ![İlkeyi düzenle][8]
+  ![İlkeyi düzenleme][8]
 
 3. Altında **JIT VM erişim yapılandırması**, kendi bağlantı noktasında tıklayarak ya da zaten korumalı olan bir bağlantı noktası var olan ayarları düzenleyebilirsiniz veya seçebileceğiniz **Ekle**. Bu açılır **Ekle bağlantı noktası yapılandırmasını**.
 

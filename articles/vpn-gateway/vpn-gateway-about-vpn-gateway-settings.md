@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: dfa116981cb0ce912ee83fade54f2502262178bc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 9ecd8dc40e168c2fd37e3d58ee588a0d9626a04a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN ağ geçidi yapılandırma ayarları hakkında
 
@@ -79,9 +79,9 @@ New-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
 az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
 ```
 
-###  <a name="resizechange"></a>Bir SKU değiştirme ve yeniden boyutlandırma
+###  <a name="resizechange"></a>Yeniden boyutlandırma veya bir SKU değiştirme
 
-Bir ağ geçidi yeniden boyutlandırma SKU oldukça kolaydır. Ağ geçidi yeniden boyutlandırır olarak çok az kapalı kalma süresi gerekir. Ancak, kuralları vardır yeniden boyutlandırma ile ilgili:
+Bir VPN ağ geçidi varsa ve farklı bir ağ geçidi SKU'su kullanmak istiyorsanız, seçeneklerinizi ya da, ağ geçidi SKU'su yeniden boyutlandırmak veya başka bir SKU'ya değiştirmek için demektir. Başka bir ağ geçidi SKU'su değiştirdiğinizde, varolan ağ geçidi tamamen silin ve yeni bir tane oluşturun. Bu yapı 45 dakika kadar sürebilir. Bir ağ geçidi SKU'su, yeniden boyutlandırdığınızda silin ve ağ geçidi yeniden olmadığı için buna karşılık, çok az kapalı kalma süresi gerekir. Yerine, ağ geçidi SKU'su yeniden boyutlandırma değiştirmek seçeneği varsa, bunu yapmak isteyeceksiniz. Ancak, kuralları vardır yeniden boyutlandırma ile ilgili:
 
 1. VpnGw1, VpnGw2 ve VpnGw3 SKU'ları arasında yeniden boyutlandırma gerçekleştirebilirsiniz.
 2. Eski ağ geçidi SKU'larıyla çalışırken Temel, Standart ve Yüksek Performanslı SKU'lar arasında yeniden boyutlandırma yapabilirsiniz.

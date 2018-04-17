@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: c82b56cdf0fc2cb288986cf8fbf43c2dab5eacb6
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 130bb7f20c030433741a9b9ecebe740fb44f5f81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Azure günlüğe kaydetme ve denetleme
 ## <a name="introduction"></a>Giriş
 ### <a name="overview"></a>Genel Bakış
 Anlama ve çeşitli güvenlikle ilgili özellikleri bulunan kullanarak ve Azure platformu çevreleyen geçerli ve gelecekteki Azure müşterilere yardımcı olmak için Microsoft teknik incelemeler, güvenlik genel bakışlar, en iyi yöntemler ve denetim listeleri bir dizi geliştirmiştir. Konular avantajlarına ve derinliği bakımından aralığı ve düzenli aralıklarla güncelleştirilir. Bu belge aşağıdaki soyut bölümünde özetlenen serisi bir parçası değil.
-### <a name="azure-platform"></a>Azure Platform
+### <a name="azure-platform"></a>Azure platformu
 Azure işletim sistemlerinin programlama dilleri, çerçeveleri, Araçlar, veritabanları ve cihazları, en geniş seçim destekleyen bir açık ve esnek bir bulut hizmeti platformudur.
 
 Örneğin, şunları yapabilirsiniz:
@@ -73,7 +73,7 @@ Aşağıdaki tabloda Azure içinde kullanılabilir günlük en önemli türünü
 |[Sanal makine ve bulut Hizmetleri](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Windows olay günlüğü & Linux Syslog|    Sistem verileri ve sanal makinelerde günlük verilerini yakalar ve bu verileri tercih ettiğiniz bir depolama hesabına aktarır.|   Windows kullanarak [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (Windows Azure Diagnostics depolama) ve Linux Azure İzleyicisi|
 |[Depolama Analizi](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Depolama günlüğe kaydetme ve ölçüm verileri için bir depolama hesabı sağlar|Insight sağlar trace istekleri, kullanım eğilimlerini çözümleme ve depolama hesabınız ile ilgili sorunları tanılamak.|    REST API veya [istemci kitaplığı](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[NSG (ağ güvenlik grubu) akış günlükleri](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON biçimi ve bir kural başına temelinde giden ve gelen akışları gösterir|Giriş ve çıkış IP trafiği bir ağ güvenlik grubu ile ilgili bilgileri görüntüleyin|[Ağ İzleyicisi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
+|[Uygulama Insight](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Günlükleri, özel durumlar ve özel tanılama|    Uygulama performansı Yönetimi (APM) hizmeti birden çok platformdaki web geliştiricileri için.| REST API [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Veri işleme / Güvenlik Uyarısı| Azure Güvenlik Merkezi uyarı, günlük analizi Uyarısı|   Güvenlik bilgileri ve Uyarıları.|   REST API'leri, JSON|
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
@@ -101,7 +101,7 @@ Tümleştirme senaryolarına
 
 -   Etkinlik günlüğü için günlük profilleriyle verme [Analytics oturum](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).
 
-Bir depolama hesabı kullanabilir veya [olay hub'ı ad](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) olmayan bir verme günlük ile aynı abonelikte. Ayar yapılandıran kullanıcının uygun olmalıdır [RBAC](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) her iki aboneliğin erişimi
+Bir depolama hesabı kullanabilir veya [olay hub'ı ad](https://docs.microsoft.com/azure/event-hubs/event-hubs-resource-manager-namespace-event-hub-enable-archive) olmayan bir verme günlük ile aynı abonelikte. Ayar yapılandıran kullanıcının uygun olmalıdır [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) her iki aboneliğin erişimi
 ### <a name="azure-diagnostic-logs"></a>Azure tanılama günlükleri
 Azure tanılama günlükleri, bu kaynakla ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen. Bu günlükler içeriğini kaynak türüne göre değişir (örneğin, [Windows olayı sistem günlükleri](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-windows-events)VM'ler için bir kategori tanılama günlüğünün olan ve [blob, tablo ve kuyruk günlükleri](https://docs.microsoft.com/azure/storage/storage-monitor-storage-account) tanılama günlüklerini kategori depolama hesapları için) ve aboneliğinizi kaynaklarında gerçekleştirilen işlemler hakkında bilgi sağlayan etkinlik günlüğü farklıdır.
 
@@ -364,7 +364,7 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 |Veri Gölü deposu|   Microsoft.DataLakeStore/<br>accounts|   Tanılama|||
 |Olay Hub'ı ad alanı|   Microsoft.EventHub/<br>ad alanları|  Tanılama|    Tanılama||
 |IoT Hub|  Microsoft.Devices/<br>IotHubs||     Tanılama||
-|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
+|Anahtar Kasası| Microsoft.KeyVault/<br>kasaları|  Tanılama  || [KeyVault analizi](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault)|
 |Yük Dengeleyiciler|    Microsoft.Network/<br>loadBalancers|    Tanılama|||
 |Logic Apps|    Microsoft.Logic/<br>İş akışları|  Tanılama|    Tanılama||
 ||Microsoft.Logic/<br>integrationAccounts||||
@@ -372,7 +372,7 @@ Dört farklı yolu vardır [günlüklerini ve Azure Hizmetleri için ölçümler
 |Kurtarma kasaları|   Microsoft.RecoveryServices/<br>kasaları|||[Analytics (Önizleme) Azure kurtarma Hizmetleri](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 |Hizmet ara|   Microsoft.Search/<br>searchServices|    Tanılama|    Tanılama||
 |Service Bus ad alanı| Microsoft.ServiceBus/<br>ad alanları|    Tanılama|Tanılama|    [Hizmet veri yolu Analytics (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-|Service Fabric||       Depolama||    [Service Fabric Analytics (Preview)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
+|Service Fabric||       Depolama||    [Service Fabric Analytics (Önizleme)](https://docs.microsoft.com/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>sunucuları /<br>veritabanları||       Tanılama||
 ||Microsoft.Sql/<br>sunucuları /<br>elasticPools||||
 |Depolama|||         Betik| [Azure depolama çözümlemeleri (Önizleme)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution)|

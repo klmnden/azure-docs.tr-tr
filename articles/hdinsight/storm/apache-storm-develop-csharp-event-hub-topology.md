@@ -1,26 +1,24 @@
 ---
-title: "İşlem olayları Event Hubs'dan Storm - Azure Hdınsight | Microsoft Docs"
-description: "Visual Studio'da, Visual Studio için Hdınsight araçları kullanılarak oluşturulan bir C# Storm topolojisi ile Azure Event Hubs verilerini işlemek öğrenin."
+title: İşlem olayları Event Hubs'dan Storm - Azure Hdınsight | Microsoft Docs
+description: Visual Studio'da, Visual Studio için Hdınsight araçları kullanılarak oluşturulan bir C# Storm topolojisi ile Azure Event Hubs verilerini işlemek öğrenin.
 services: hdinsight,notification hubs
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 67f9d08c-eea0-401b-952b-db765655dad0
 ms.service: hdinsight
-ms.custom: 
+ms.custom: ''
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: fe1cf3eab1f0ca930b516e4ab44f1e2439cb3e07
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 475a63937ed09b4ce875465c0eb3488ce92c38be
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>Azure Event hubs'tan (C#) hdınsight'ta Storm işlem olayları
 
@@ -51,7 +49,7 @@ C# topolojileri ayrıca .NET 4.5 hedeflemesi gerekir.
 
 ## <a name="how-to-work-with-event-hubs"></a>Event Hubs ile çalışmaya nasıl
 
-Microsoft bir Storm topolojisinin Event Hubs'dan ile iletişim kurmak için kullanılan Java bileşenleri kümesi sağlar. Bu bileşenler bir Hdınsight 3.6 uyumlu sürümünü içeren Java arşiv (JAR) dosyasını bulabilirsiniz [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Microsoft bir Storm topolojisinin Event Hubs'dan ile iletişim kurmak için kullanılan Java bileşenleri kümesi sağlar. Bu bileşenler bir Hdınsight 3.6 uyumlu sürümünü içeren Java arşiv (JAR) dosyasını bulabilirsiniz [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 > [!IMPORTANT]
 > Bileşenleri Java'da yazılmış olsa da, bunları bir C# topolojisi kolayca kullanabilirsiniz.
@@ -132,7 +130,7 @@ Bu öğreticide oluşturulan proje tam bir sürümünü yükleyebilirsiniz [GitH
 
 ## <a name="download-the-event-hubs-components"></a>Olay hub'ları bileşenlerini yükle
 
-Event Hubs spout indirin ve Cıvata bileşeninden [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
+Event Hubs spout indirin ve Cıvata bileşeninden [ https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar ](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 Adlı bir dizin oluşturun `eventhubspout`ve dizine dosyayı kaydedin.
 

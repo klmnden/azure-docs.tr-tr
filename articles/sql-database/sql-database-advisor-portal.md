@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: a9b9bec4fd48c44ece9d762b539cd3d6e10c1858
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 92a7b46469bad56af2e08de98a1f79b4b8059eda
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Bul ve performans önerileri uygulayın
 
@@ -21,7 +21,7 @@ Azure portalı, Azure SQL veritabanı performansını en iyi duruma getirebilirs
 
 ## <a name="viewing-recommendations"></a>Öneriler görüntüleme
 
-Görüntülemek ve performans önerileri uygulamak için doğru ihtiyacınız [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) Azure izinleri. **Okuyucu**, **SQL DB Katılımcısı** önerileri, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** için izinler gereklidir herhangi bir eylem yürütme; oluşturma veya dizinleri bırakın ve dizin oluşturmayı iptal et.
+Görüntülemek ve performans önerileri uygulamak için doğru ihtiyacınız [rol tabanlı erişim denetimi](../role-based-access-control/overview.md) Azure izinleri. **Okuyucu**, **SQL DB Katılımcısı** önerileri, görüntülemek için gereken izinler ve **sahibi**, **SQL DB Katılımcısı** için izinler gereklidir herhangi bir eylem yürütme; oluşturma veya dizinleri bırakın ve dizin oluşturmayı iptal et.
 
 Azure Portal'da performans önerileri bulmak için aşağıdaki adımları kullanın:
 
@@ -154,5 +154,5 @@ Azure SQL veritabanı SQL veritabanı performansı artırmak için öneriler sa�
 ## <a name="additional-resources"></a>Ek kaynaklar
 * [Sorgu deposu](https://msdn.microsoft.com/library/dn817826.aspx)
 * [DİZİN OLUŞTURMA](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md)
+* [Rol tabanlı erişim denetimi](../role-based-access-control/overview.md)
 

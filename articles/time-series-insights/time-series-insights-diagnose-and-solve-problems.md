@@ -1,6 +1,6 @@
 ---
-title: "Tanılama ve Azure zaman serisi Öngörüler sorunlarını çözmek | Microsoft Docs"
-description: "Bu makalede, Azure zaman serisi Öngörüler ortamınızda karşılaşabileceğiniz sık karşılaşılan sorunları tanılamak ve sorun giderme açıklar."
+title: Tanılama ve Azure zaman serisi Öngörüler sorunlarını çözmek | Microsoft Docs
+description: Bu makalede, Azure zaman serisi Öngörüler ortamınızda karşılaşabileceğiniz sık karşılaşılan sorunları tanılamak ve sorun giderme açıklar.
 services: time-series-insights
 ms.service: time-series-insights
 author: venkatgct
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/15/2017
-ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 04/09/2018
+ms.openlocfilehash: f0c1b8aa99e9ac9c73f57af17490dd3a465a9cac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Zaman serisi Öngörüler ortamınızdaki sorunları tanılamada ve
 
@@ -45,6 +45,11 @@ IOT hub'ı am kaydı veya bir olay hub'ı sırasında verileri okumak için kull
 Veri kısmen görebilirsiniz, ancak veri geciken, dikkate alınması gereken birkaç olasılık vardır:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Olası neden A: ortamınızı azaltıldı
+Bu, bir olay kaynağı veri ile oluşturulduktan sonra ortamları sağlandığında yaygın görülen bir sorundur.  Azure IOT hub'ları ve olay hub'ları veri yedi gün için depolama yapar.  TSI her zaman en eski olayın (FIFO) içinde olay kaynağı başlar.  Bu nedenle bir S1, tek birim TSI ortamına bağlandığında, bir olay kaynağı beş milyon olay varsa TSI yaklaşık bir milyon olay günde okuyun.  Bu, TSI ilk bakışta beş gün gecikme yaşıyor gibi sorgulamanıza aramak için görünebilir.  Gerçekte ise ortamı kısıtlanıyor aramasıdır.  Eski olayları, olay kaynağı varsa, iki yoldan biriyle yaklaşır:
+
+- Yardımcı olmak için olay kaynağınızın bekletme sınırları içinde TSI göstermeyi istemediğiniz eski olayları elden Değiştir
+- Eski olayların verimliliğini artırmak için daha büyük bir ortam boyutu (bakımından birimlerinin sayısı) sağlayın.  Bu aynı S1 ortam beş birimlerine bir gün artan, yukarıdaki örneği kullanarak, ortam şimdi gün içinde nım gerekir.  Kararlı durum olay üretim 1 M veya daha az olaylar/gün olursa, onu yakalanan sonra olayına geri tek bir birim kapasitesi azaltabilir.  
+
 Azaltma sınırını ortamı SKU türüne ve kapasite göre uygulanır. Tüm olay kaynakları ortamında bu kapasite paylaşır. IOT hub'ını veya olay hub'ı için olay kaynağı veri zorlanan sınırları ötesinde itmesi olursa, azaltma ve bir gecikme bakın.
 
 Aşağıdaki diyagramda, bir SKU S1 ve 3 kapasiteye sahip bir zaman serisi Öngörüler ortamı gösterilmektedir. Gün başına giriş 3 milyon olayları dağıtabilirsiniz.
@@ -76,6 +81,12 @@ Gecikme düzeltmek için aşağıdaki adımları uygulayın:
 Ad ve değer aşağıdaki kurallara uygun emin olun:
 * Zaman damgası özelliği adı _büyük küçük harfe duyarlı_.
 * Olay kaynağınız bir JSON dizesi olarak geldiği zaman damgası özelliği değeri biçiminde olması _yyyy-MM-ddTHH. FFFFFFFK_. Bu tür bir dize örneğidir "2008-04-12T12:53Z".
+
+Emin olmak için en kolay yolu, *zaman damgası özelliği adı* yakalanır ve düzgün çalışmasını TSI Gezgini'ni kullanma.  TSI Gezgini içinde bir süre sonra sağladığınız seçin grafiğiyle *zaman damgası özelliği adı*.  Seçime sağ tıklayın ve seçin *olayları keşfedin* seçeneği.  İlk sütun üst bilgisi olmalıdır, *zaman damgası özelliği adı* ve olması gereken bir *($ts)* Word'ün yanındaki *zaman damgası*, yerine:
+- *(abc)* , hangi TSI gösterir veri değerleri dize olarak okuma
+- *Takvim simgesini*, veri değeri olarak okuma TSI belirtmek *datetime*
+- *#*, hangi TSI gösterir veri değerleri tamsayı olarak okuma
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - Ek Yardım için bir konuşma başlatmak [MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) veya [yığın taşması](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). 

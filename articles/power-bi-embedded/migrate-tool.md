@@ -1,24 +1,24 @@
 ---
-title: "Power BI Embedded Geçiş Aracı'nı | Microsoft Docs"
-description: "Power BI Embedded geçiş aracı, raporlarınızı Power BI çalışma koleksiyonlarından Power BI Embedded kopyalamak için kullanılabilir."
+title: Power BI Embedded Geçiş Aracı'nı | Microsoft Docs
+description: Power BI Embedded geçiş aracı, raporlarınızı Power BI çalışma koleksiyonlarından Power BI Embedded kopyalamak için kullanılabilir.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ms.service: power-bi-embedded
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
-ms.author: asaxton
-ms.openlocfilehash: 0b7b5089045daf6dd88fcd84e316b2bd44f8c927
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 4f76b1efb509745653bfde0926f56032030f7d47
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-power-bi-embedded-migration-tool"></a>Power BI Embedded geçiş aracını kullanma
 
@@ -31,7 +31,7 @@ Power BI Embedded geçiş aracı, raporlarınızı Power BI çalışma koleksiyo
 * Zorlanan veri kümeleri karşıdan yüklenemiyor ve Power BI hizmeti için Power BI REST API'lerini kullanarak yeniden oluşturulması gerekir.
 * 26 Kasım 2016 indirilebilir olmaz önce içeri PBIX dosyaları.
 
-## <a name="download"></a>İndir
+## <a name="download"></a>İndirme
 
 Geçiş Aracı örnekten indirebilirsiniz [GitHub](https://github.com/Microsoft/powerbi-migration-sample). Depo bir zip ya da yükleyebilir veya yerel olarak kopyalayabilirsiniz. Yüklendikten sonra açabilirsiniz *powerbı geçiş sample.sln* derlemek ve geçiş aracı çalıştırmak için Visual Studio içinde.
 

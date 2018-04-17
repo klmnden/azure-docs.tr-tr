@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 04/06/2018
 ms.author: genli
-ms.openlocfilehash: 2743a00404a2ee990147dfb6e73e9c2369eb4753
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 9026b702e6e0d27817955c70c733bf372005dd4b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Azure'da iç içe geçmiş sanallaştırma kullanarak Azure VM ilgili bir sorun giderme
 
 Bu makalede, sorun giderme amacıyla Hyper-V Konağı (Kurtarma VM) VM sorununun disk bağlayabilir şekilde Microsoft Azure'da bir iç içe geçmiş sanallaştırma ortamı oluşturmak gösterilmiştir.
 
-## <a name="prerequisite"></a>Önkoşul
+## <a name="prerequisites"></a>Önkoşullar
 
-VM sorun bağlamak için kurtarma VM aşağıdaki önkoşulları karşılaması gerekir:
+VM sorun bağlamak için kurtarma VM aşağıdaki gereksinimleri karşılamalıdır:
 
 -   Kurtarma VM sorun VM ile aynı konumda olması gerekir.
 
@@ -34,7 +34,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki önkoşulları karşılaması 
 
 -   Kurtarma VM VM sorunu aynı türde depolama hesabı (standart veya Premium) kullanmanız gerekir.
 
-## <a name="step-1-create-a-recovery-vm-and-install-hyper-v-role"></a>1. adım: Kurtarma VM oluşturma ve Hyper-V rolünü yükleyin
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>1. adım: bir kurtarma VM oluşturun ve Hyper-V rolünü yükleyin
 
 1.  Yeni bir kurtarma VM oluşturun:
 
@@ -70,7 +70,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki önkoşulları karşılaması 
 
 13. Hyper-V rolünü yüklemek için sunucu izin verin. Bu işlem birkaç dakika sürer ve sunucu otomatik olarak yeniden başlatılır.
 
-## <a name="step-2-create-the-problem-vm-on-the-recovery-vms-hyper-v-server"></a>2. adım: Kurtarma VM'ın Hyper-V sunucusunda sorun VM oluşturma
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>2. adım: Kurtarma VM'ın Hyper-V sunucusunda sorun VM oluşturma
 
 1.  Disk adı sorun VM kaydetmek ve VM sorun silin. Tüm bağlı disklerde tutmak emin olun. 
 
@@ -125,7 +125,7 @@ VM sorun bağlamak için kurtarma VM aşağıdaki önkoşulları karşılaması 
 
 1.  VM çevrimiçine aldıktan sonra Hyper-V Yöneticisi'ni VM'yi kapatın.
 
-2.  Git [Azure portal](https://portal.azure.com) ve kurtarma VM seçin > diskler, disk adı kopyalayın. Sonraki adımda adını kullanacaksınız. VM kurtarma sabit diski kullanımdan çıkarın.
+2.  Git [Azure portal](https://portal.azure.com) ve kurtarma VM seçin > diskler, disk adı kopyalayın. Sonraki adımda adını kullanacaksınız. Kurtarma sanal sabit diski kullanımdan çıkarın.
 
 3.  Git **tüm kaynakları**aramak için disk adı ve disk seçin.
 

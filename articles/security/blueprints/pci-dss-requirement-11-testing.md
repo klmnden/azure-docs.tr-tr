@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması gereksinimleri test-"
+title: Azure ödeme işleme şeması gereksinimleri test-
 description: PCI DSS gereksinim 11
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 57429741afd2ffd16c09a0f1485cb1cfbdda5571
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: db9f1022ecb3b727f08bb6f232a8df55476e0755
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="testing-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için test gereksinimleri 
 ## <a name="pci-dss-requirement-11"></a>PCI DSS gereksinim 11
@@ -44,7 +44,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure olmayan izin vermek veya kablosuz bağlantıları Azure ağ ortamında izin verin. İç güvenlik ekiplerinden üç aylık olarak yanlış kablosuz sinyalleri için düzenli olarak tarar ve yanlış sinyalleri araştırılan kaldırılır ve. Müşteriler kablosuz teknolojisini Azure ortamında dağıtmak için izin verilmez. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -57,7 +57,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinimi 11.1](#pci-dss-requirement-11-1). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -71,7 +71,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinimi 11.1](#pci-dss-requirement-11-1). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Kablosuz ve SNMP çözümde uygulanmadı.|
 
 
 
@@ -89,7 +89,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure üç aylık iç ve dış güvenlik açığı taramaları gerçekleştirir. Taramaları tam personeli tarafından gerçekleştirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
 
 
 
@@ -102,7 +102,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure, kapsam altyapının güvenlik açıklarını taramalar gerçekleştirir. Microsoft Azure sunucu işletim sistemleri, veritabanları ve uygun güvenlik açığı tarama araçları olan ağ aygıtlarını tarama güvenlik açığı uygular. Azure web uygulamaları ile uygun endüstri çözümleri tarama taranır. Güvenlik Açığı taramaları bir üç aylık temelinde gerçekleştirilir.<br /><br />Tekrar tarar (gereksinimi 6.1 tanımlandığı gibi) tüm "riskli" güvenlik açıkları çözülene kadar tüm sistemler karşı gerektiği gibi gerçekleştirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
 
 
 
@@ -119,7 +119,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure dış taramalar Dışarıdan erişilebilen kapsam altyapının güvenlik açıklarını gerçekleştirir. Taramaları bir onaylanmış tarama satıcı (ASV tarafından) gerçekleştirilir.<br /><br />Microsoft Azure MSRC/OSSC aylık düzeltme eki bildirimlerine abone olur ve güvenlik açıkları için en az üç aylık tarar. Tanımlanan güvenlik açıkları değerlendirilir ve risk düzeyine göre belirlenen zaman çizelgesi başına düzeltilebilir.<br /><br />Microsoft Azure ortamı öncelikli bileşenlerinin karşı tarama her hedeflenen Çeyrek kapsamlı güvenlik açığı güvenlik açıklarını tanımlamak için gerçekleştirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, tanıtım müşterileri dağıtma olduğunda üç aylık dış güvenlik açığı yapmaktan sorumlu tarar ve bir onaylanmış tarama satıcı (ASV) kullanarak tüm PaaS örnekleri karşı kart sahibi veri ortamlarında (CDE) gerektiği gibi yeniden tarar Ödeme Kartı sektör güvenlik standartları Council tarafından onaylanmış.<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, tanıtım müşterileri dağıtma olduğunda üç aylık dış güvenlik açığı yapmaktan sorumlu tarar ve bir onaylanmış tarama satıcı (ASV) kullanarak tüm PaaS örnekleri karşı kart sahibi veri ortamlarında (CDE) gerektiği gibi yeniden tarar Ödeme Kartı sektör güvenlik standartları Council tarafından onaylanmış.<br /><br />|
 
 
 
@@ -132,7 +132,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Sonuçları katılımcılara bildirilir ve düzeltme kapatma aracılığıyla Azure güvenlik ekibi tarafından izlenir. Azure test sonuçlarını müşterilerle Gizlilik Sözleşmesi altında paylaşılabilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Müşteriler, üç aylık iç ve dış güvenlik açığı taramaları gerçekleştirmek için sorumlu ve bunların CDE tüm PaaS örnekleri karşı gerektiği gibi yeniden tarar. Kapsam içinde ortamında önemli değişikliklerden sonra taramaları gerçekleştirilmesi gerekir.<br /><br />Taramaları kuruluş bağımsızlığı ile bir ASV veya personeli tarafından gerçekleştirilmelidir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Müşteriler, üç aylık iç ve dış güvenlik açığı taramaları gerçekleştirmek için sorumlu ve bunların CDE tüm PaaS örnekleri karşı gerektiği gibi yeniden tarar. Kapsam içinde ortamında önemli değişikliklerden sonra taramaları gerçekleştirilmesi gerekir.<br /><br />Taramaları kuruluş bağımsızlığı ile bir ASV veya personeli tarafından gerçekleştirilmelidir.|
 
 
 
@@ -153,7 +153,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure hizmetlerini üçüncü taraf sızma kullanarak doğrular (açık Web uygulaması güvenlik Proje) OWASP alarak, ilk on TEPE sertifikalı sınayıcılar kullanma. Test sonuçları, denetlenen ve güvenlik uygulamaları için uyumluluğu sağlamak için düzenli olarak gözden risk kayıt aracılığıyla izlenir. <br /><br />Microsoft ayrıca kırmızı gruplama Microsoft tarafından yönetilen altyapı, hizmetler ve uygulamalar karşı kullanır. Hiçbir end müşteri verilerini kasıtlı olarak kırmızı ekip oluşturma ve canlı site sızma sınama sırasında yöneliktir. Testleri Microsoft Azure altyapı ve platformlar yanı sıra Microsoft'un kendi uygulamaları ve verileri karşı ' dir. Müşteri kiracılar, uygulamaları ve verileri Azure üzerinde barındırılan hiçbir zaman hedefler.<br /><br />Microsoft Azure, bir Sistem Değerlendirme planı geliştirin ve denetimleri değerlendirmesi gerçekleştirmek için bağımsız bir assessor işe. Denetimleri değerlendirmeleri yıllık gerçekleştirilir ve sonuçları ilgili tarafları bildirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
 
 
 
@@ -166,7 +166,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 11,3 inç](#pci-dss-requirement-11-3). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
 
 
 
@@ -179,7 +179,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure sınırını sızma sınamasını gerçekleştirmek için Microsoft Azure Sözleşmelerle bağımsız assessors. Kırmızı takım alıştırmaları da düzenli olarak yapılan ve sonuçları güvenlik geliştirmeler yapmak için kullanılır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kalem test ve 'olduğundan' çaba güvenlik açığı taraması olmuştur. Kalem test sonuçlarını nmap veya pentest tools.com gibi ortak araçları kullanarak yinelenebilir. Kalem test sonuçlarını Etkilenme öğe ile yetersiz saldırı yüzeyini sağlar. Ayrıca, [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) güvenlik açığı bilgileri ve düzeltme sağlar.|
 
 
 
@@ -192,7 +192,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Yordamlar, bilinen güvenlik açıkları için Microsoft Azure platform bileşenleri izlemek için oluşturulmuştur. <br /><br /><br /><br />Azure üretim ortamının öncelikli bileşenlerinin karşı tarama her hedeflenen Çeyrek kapsamlı güvenlik açığı güvenlik açıklarını tanımlamak için gerçekleştirilir. Sonuçları katılımcılara bildirilir ve düzeltme kapatma aracılığıyla ekibi tarafından izlenir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
 
 
 
@@ -205,7 +205,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Yordamlar, bilinen güvenlik açıkları için Microsoft Azure platform bileşenleri izlemek için oluşturulmuştur. <br /><br /><br /><br />Azure üretim ortamının öncelikli bileşenlerinin karşı tarama her hedeflenen Çeyrek kapsamlı güvenlik açığı güvenlik açıklarını tanımlamak için gerçekleştirilir. Sonuçları katılımcılara bildirilir ve düzeltme kapatma aracılığıyla ekibi tarafından izlenir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
 
 
 
@@ -222,7 +222,7 @@ Hangi yöntemlerin kullanılacağını, bunlar algılamak ve yetkili ve yetkisiz
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 11.3.4](#pci-dss-requirement-11-3-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations), sağladığınız tüm bekleyen sorunları Contoso Webstore demo CDE düzeltilen emin olmak için güvenlik açığı bilgileri ve düzeltme, kullanılmış.|
 
 
 
@@ -236,7 +236,7 @@ Tüm izinsiz giriş algılama ve önleme motorları, taban çizgileri ve imzalar
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure işlem ortamında olayların gerçek zamanlı analiz yürütür ve sistem tehlikeye atabilecek olayları hakkında gerçek zamanlı uyarılar yakın Kimlikleri sistemleri oluşturur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmetidir ve ağ izinsiz giriş algılama ve önleme Azure'un sorumluluğu bakın. [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) yetkisiz erişim uyarı ve düzeltme sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmetidir ve ağ izinsiz giriş algılama ve önleme Azure'un sorumluluğu bakın. [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) ve [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) yetkisiz erişim uyarı ve düzeltme sağlar.|
 
 
 
@@ -252,7 +252,7 @@ Tüm izinsiz giriş algılama ve önleme motorları, taban çizgileri ve imzalar
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure tutar ve olası değişiklikleri ve güvenliğini etkileyebilecek olaylar müşterileri veya bir çevrimiçi hizmet Pano üzerinden hizmetlerin kullanılabilirliğini bildirir. Microsoft Azure müşterilerin güvenlik yükümlülüklerin ve güvenlik taahhütleri yapılan değişiklikler Microsoft Azure Web sitesinde zamanında güncelleştirilir.<br /><br />Yükleme veya üretim ortamı için sınırlı olduğu Microsoft Azure ile ilgili yazılım değişiklikleri yönetim personeli yetkili ve yönetimi yordamları aşağıdaki şekilde değiştirin. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore demo bir PaaS hizmetidir ve değiştirme algılama OMS kullanarak uygulanmıştır. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden OMS çözümleri](payment-processing-blueprint.md#oms-solutions).<br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Günlük analizi kullanarak değişikliği algılama uygulanmıştır ve contoso Webstore demo bir PaaS hizmetidir. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden yönetim çözümleri](payment-processing-blueprint.md#management-solutions).<br /><br />|
 
 
 
@@ -265,7 +265,7 @@ Tüm izinsiz giriş algılama ve önleme motorları, taban çizgileri ve imzalar
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Azure izleme olay kuralları artan bir yüksek riskli işlemleri ve varlıklar için izleme düzeyini belirtin. Azure yönetilen ağ aygıtlarının tesis edilmiş güvenlik standartlarıyla uyumluluğu izlenir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Değişiklikleri Contoso Webstore uyarılarını OMS uygulaması tarafından sağlanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden OMS çözümleri](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore uyarılar değişiklikleri için günlük analizi uygulaması tarafından sağlanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden yönetim çözümleri](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 
@@ -278,7 +278,7 @@ Tüm izinsiz giriş algılama ve önleme motorları, taban çizgileri ve imzalar
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Değişiklikleri Contoso Webstore uyarılarını OMS uygulaması tarafından sağlanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden OMS çözümleri](payment-processing-blueprint.md#oms-solutions).<br /><br /><br /><br />|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore uyarılar değişiklikleri için günlük analizi uygulaması tarafından sağlanır. Daha fazla bilgi için bkz: [PCI Kılavuzu - önceden yönetim çözümleri](payment-processing-blueprint.md#management-solutions).<br /><br /><br /><br />|
 
 
 

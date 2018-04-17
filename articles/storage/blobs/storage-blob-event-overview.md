@@ -1,6 +1,6 @@
 ---
-title: Azure Blob Storage olaylarına tepki | Microsoft Docs
-description: Blob Storage olaylarına abone olmak için Azure olay kılavuzunu kullanın.
+title: Azure Blob Depolama olaylarına tepki | Microsoft Docs
+description: Blob depolama olaylarına abone olmak için Azure Event Grid’i kullanın.
 services: storage,event-grid
 keywords: ''
 author: cbrooksmsft
@@ -8,23 +8,23 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: ea2ec712c8d8b5f85f020535ab0544986f0da53a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="reacting-to-blob-storage-events"></a>BLOB Storage olaylarına tepki
+# <a name="reacting-to-blob-storage-events"></a>BLOB Depolama olaylarına tepki
 
 Azure depolama olaylarında oluşturulması ve modern sunucusuz mimarileri kullanarak blob'lara silinmesini tepki vermek uygulamaların olanak tanır. Bunu karmaşık kodu veya verimsiz ve pahalı yoklama Hizmetleri gerek kalmadan yapar.  Bunun yerine, olayları gönderilen [Azure olay kılavuz](https://azure.microsoft.com/services/event-grid/) gibi abonelere [Azure işlevleri](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), ve hatta kendi özel http dinleyicisi ve yalnızca Kullanım için ödeme yaparsınız. 
 
-Resim veya video işleme, arama dizini oluşturma veya tüm dosya odaklı iş akışı ortak Blob Storage olay senaryolar içerir.  Zaman uyumsuz dosya yüklemeleriyle olayları için harika bir Sığdırma ' dir.  Sık değişir, ancak hemen yanıtlama senaryonuz gerektirir, olay tabanlı mimari özellikle etkili olabilir.
+Resim veya video işleme, arama dizini oluşturma veya tüm dosya odaklı iş akışı ortak Blob Depolama olay senaryolar içerir.  Zaman uyumsuz dosya yüklemeleriyle olayları için harika bir Sığdırma ' dir.  Sık değişir, ancak hemen yanıtlama senaryonuz gerektirir, olay tabanlı mimari özellikle etkili olabilir.
 
 Kullanılabilirlik depolama olayları için olay kılavuza bağlı [kullanılabilirlik](../../event-grid/overview.md) ve olay kılavuz yaptığı gibi diğer bölgelerde kullanılabilir hale gelecektir. Bir göz atalım [rota Blob Depolama olayları özel bir web uç noktası - CLI](storage-blob-event-quickstart.md) veya [rota Blob Depolama olayları özel bir web uç noktası - PowerShell](storage-blob-event-quickstart-powershell.md) kısa bir örnek için. 
 
 ![Olay kılavuz modeli](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## <a name="blob-storage-accounts"></a>Blob Depolama Hesapları
+## <a name="blob-storage-accounts"></a>Blob Storage hesapları
 BLOB Depolama olayları kullanılabilir [Blob storage hesapları](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ve [genel amaçlı v2 depolama hesapları](../common/storage-account-options.md#general-purpose-v2). **Genel amaçlı v2 (GPv2)** BLOB'lar, dosyalar, kuyruklar ve tablolar dahil olmak üzere tüm depolama hizmetleri için tüm özellikleri destekleyen depolama hesaplarıdır. A **Blob storage hesabı** , yapılandırılmamış verilerinizi bloblar (nesneler) olarak Azure Storage depolamak için bir özel depolama hesabı. BLOB storage hesapları, genel amaçlı depolama hesapları gibi ve % 100 API tutarlığı dahil günümüzde blok bloblar için kullanılır ve ilave blobları tüm harika dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini paylaşır. Yalnızca blok veya engelleme blobunun gerektiği uygulamalar için Blob Storage hesaplarının kullanılmasını öneririz. 
 
 ## <a name="available-blob-storage-events"></a>Kullanılabilir Blob Depolama olayları
@@ -44,7 +44,7 @@ Olay kılavuz olay özelliklerini kullanımı hakkında ek bilgi bölümlerinde 
 > |Konu|string|Olay yayar depolama hesabı tam Azure Resource Manager kimliği.|
 > |Konu|string|Depolama hesapları, hizmetleri ve kapsayıcıları için Azure RBAC açıklamak için kullanırız aynı Genişletilmiş Azure Resource Manager biçimini kullanarak konu olay nesne göreli kaynak yolu.  Bu biçim bir harf korumalıdır blob adı içerir.|
 > |EventTime|string|Olay oluşturuldu, ISO 8601 biçiminde tarih/saat|
-> |eventType|string|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
+> |Olay türü|string|"Microsoft.Storage.BlobCreated" veya "Microsoft.Storage.BlobDeleted"|
 > |Kimlik|string|Bu benzersiz tanımlayıcı olay|
 > |dataVersion|string|Veri nesnesi şema sürümü.|
 > |metadataVersion|string|Üst düzey özellikleri şema sürümü.|
@@ -92,7 +92,7 @@ BLOB olay abonelikleri olay türünü ve oluşturulan veya silinen nesnenin blob
 
 Blob Depolama olayların konu biçimi kullanır:
 
-```json
+```
 /blobServices/default/containers/<containername>/blobs/<blobname>
 ```
 
@@ -100,19 +100,19 @@ Bir depolama hesabı için tüm olayları eşleştirmek için konu filtreleri bo
 
 Bir önek paylaşımı kapsayıcıları kümesinde oluşturulan BLOB'lar olaylarından eşleşecek şekilde kullanmak bir `subjectBeginsWith` gibi Filtrele:
 
-```json
+```
 /blobServices/default/containers/containerprefix
 ```
 
 Belirli kapsayıcısında oluşturulan BLOB'lar olaylarından eşleşecek şekilde kullanmak bir `subjectBeginsWith` gibi Filtrele:
 
-```json
+```
 /blobServices/default/containers/containername/
 ```
 
 Bir blob adı ön eki paylaşımı belirli kapsayıcısında oluşturulan BLOB'lar olaylarından eşleşecek şekilde kullanmak bir `subjectBeginsWith` gibi Filtrele:
 
-```json
+```
 /blobServices/default/containers/containername/blobs/blobprefix
 ```
 

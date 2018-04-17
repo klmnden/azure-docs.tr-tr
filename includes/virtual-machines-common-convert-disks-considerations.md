@@ -3,7 +3,7 @@
 
 * Bu dönüştürme geri alınamaz. 
 
-* Herhangi bir unutmayın kullanıcılarla [sanal makine Katılımcısı](../articles/active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacak. Yönetilen disklerle VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin kullanıcının gerektiren olmasıdır.
+* Herhangi bir unutmayın kullanıcılarla [sanal makine Katılımcısı](../articles/role-based-access-control/built-in-roles.md#virtual-machine-contributor) rol (ön dönüştürme verebilir gibi) VM boyutunu değiştirmek mümkün olmayacak. Yönetilen disklerle VM'ler işletim sistemi disklerinde Microsoft.Compute/disks/write izninin kullanıcının gerektiren olmasıdır.
 
 * Dönüştürmeyi test ettiğinizden emin olun. Üretimde geçişi gerçekleştirmeden önce bir sınama sanal makinesini geçirin.
 

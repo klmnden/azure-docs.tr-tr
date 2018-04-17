@@ -7,14 +7,14 @@ manager: jhubbard
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 18d5f4131718021de82328719e0538db759dde9c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 13189bfe2e2e6db6185c798065dc3bea1fd3d537
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Ayıklama, yükleme ve dönüştürme (ELT) Azure SQL veri ambarı için tasarlama
 
@@ -48,8 +48,8 @@ PolyBase ile veri yüklemek için aşağıdaki yükleme seçeneklerinden herhang
 
 - [T-SQL ile PolyBase](load-data-from-azure-blob-storage-using-polybase.md) verileriniz Azure Blob storage veya Azure Data Lake Store olduğunda iyi çalışır. Yükleme işlemi üzerinde çoğu denetim sunar, ancak Ayrıca, dış veri nesneleri tanımlamanızı gerektirir. Kaynak tablolar için hedef tablo eşlemesi olarak diğer yöntemleri arka planda bu nesneleri tanımlar.  T-SQL yükleri düzenlemek için Azure Data Factory, SSIS ya da Azure işlevlerini kullanabilirsiniz. 
 - [SSIS Polybase'i](/sql/integration-services/load-data-to-sql-data-warehouse) veri kaynağınızı SQL Server'daki ya da SQL Server şirket içi veya bulutta olduğunda iyi çalışır. SSIS kaynak hedef tablo eşlemelere tanımlar ve ayrıca yük yönetir. SSIS paketleri zaten varsa, yeni veri ambarı hedef çalışmak için paketlerini değiştirebilirsiniz. 
-- [PolyBase Azure veri fabrikası (ADF) ile](sql-data-warehouse-load-with-data-factory.md) başka bir düzenleme aracıdır.  Bir işlem hattı tanımlar ve işleri zamanlar. ADF JSON verilerini ayrıştırma ve SQL Data Warehouse'a veri yüklemek için kullanabilirsiniz.
-- [Azure DataBricks Polybase'i](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) aktarır veri Azure Data Lake Deposu'ndan veri SQL veri ambarı. Azure DataBricks JSON verilerini ayrıştırma ve SQL Data warehouse'a veri yüklemek için kullanabilirsiniz. 
+- [PolyBase Azure veri fabrikası (ADF) ile](sql-data-warehouse-load-with-data-factory.md) başka bir düzenleme aracıdır.  Bir işlem hattı tanımlar ve işleri zamanlar. 
+- [Azure DataBricks Polybase'i](../azure-databricks/databricks-extract-load-sql-data-warehouse.md) aktarır verileri SQL Data Warehouse tablodan bir Databricks dataframe ve/veya bir SQL Data Warehouse tabloya Databricks dataframe verileri yazar.
 
 ### <a name="polybase-external-file-formats"></a>PolyBase dış dosya biçimleri
 
@@ -70,11 +70,8 @@ Verileri Azure depolama alanında güden için kendisine taşıyabilirsiniz [Azu
 Bunlar olan ve araçları ve Hizmetleri verileri Azure depolama birimine taşımak için kullanabilirsiniz.
 
 - [Azure ExpressRoute](../expressroute/expressroute-introduction.md) hizmeti, ağ verimliliğini, performans ve öngörülebilirlik geliştirir. ExpressRoute, Azure için verilerinizi adanmış özel bağlantı üzerinden yönlendiren bir hizmettir. ExpressRoute bağlantıları ortak internet üzerinden veri yol değil. Bağlantıları ortak internet üzerinden daha fazla güvenilirlik, yüksek hız, düşük gecikme ve normal bağlantıları daha yüksek güvenlik sunar.
-- [AZCopy yardımcı programı](../storage/common/storage-use-azcopy.md) verileri Azure depolama alanına genel internet üzerinden taşır. Bu, veri boyutu 10 TB değerinden küçük olduğunda çalışır. AZCopy ile düzenli olarak yükleri gerçekleştirmek için uygun olup olmadığını görmek için ağ hızı sınayın. 
-- [Azure veri fabrikası (ADF)](../data-factory/introduction.md) yerel sunucunuzda yükleyebilmek için bir ağ geçidi sahiptir. Ardından, Azure Storage kadar yerel sunucunuzdan verileri taşımak için bir işlem hattı oluşturabilirsiniz.
-
-Daha fazla bilgi için bkz: [için ve Azure Storage veri taşıma](../storage/common/storage-moving-data.md)
-
+- [AZCopy yardımcı programı](../storage/common/storage-moving-data.md) verileri Azure depolama alanına genel internet üzerinden taşır. Bu, veri boyutu 10 TB değerinden küçük olduğunda çalışır. AZCopy ile düzenli olarak yükleri gerçekleştirmek için uygun olup olmadığını görmek için ağ hızı sınayın. 
+- [Azure veri fabrikası (ADF)](../data-factory/introduction.md) yerel sunucunuzda yükleyebilmek için bir ağ geçidi sahiptir. Ardından, Azure Storage kadar yerel sunucunuzdan verileri taşımak için bir işlem hattı oluşturabilirsiniz. Veri Fabrikası SQL Data Warehouse ile kullanmak için bkz: [SQL Data Warehouse'a veri yükleme](/azure/data-factory/load-azure-sql-data-warehouse).
 
 ## <a name="prepare-data"></a>Verileri hazırlama
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure depolama kuyrukları ve Service Bus kuyruklarını karşılaştırıldığında ve contrasted | Microsoft Docs"
-description: "İki tür Azure tarafından sunulan kuyruk arasındaki benzerlikler ve farkları analiz eder."
+title: Azure depolama kuyrukları ve Service Bus kuyruklarını karşılaştırıldığında ve contrasted | Microsoft Docs
+description: İki tür Azure tarafından sunulan kuyruk arasındaki benzerlikler ve farkları analiz eder.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyruklarını - karşılaştırılan ve contrasted
 Bu makalede farklar ve iki tür bugün Microsoft Azure tarafından sunulan kuyruk arasındaki benzerlikler Çözümler: depolama kuyrukları ve Service Bus kuyruklarını. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -39,7 +39,7 @@ Belirli bir çözüm amaçla hangi queuing teknolojisi uygun belirlerken, çöz�
 
 Bir çözümü Mimarı/geliştirici, olarak **depolama kuyruklarını kullanmayı düşünmelisiniz** zaman:
 
-* Uygulamanızın üzerinde 80 GB iletileri iletileri 7 günden daha kısa bir ömre sahip olduğu bir kuyrukta depolamanız gerekir.
+* Uygulamanızın üzerinde 80 GB iletiler bir kuyrukta depolamanız gerekir.
 * Uygulamanızı bir ileti sırası içinde işlemek için ilerleme durumunu izlemek istiyor. Bu ileti işlenirken çalışan çökmesi durumunda faydalı olur. Bir sonraki alt sonra önceki çalışan burada bıraktığınız gelen devam etmek için bu bilgileri kullanabilirsiniz.
 * Sunucu tarafı günlükleri tüm, kuyruklar karşı yürütülen işlemlerin gerektirir.
 
@@ -51,7 +51,6 @@ Bir çözümü Mimarı/geliştirici, olarak **Service Bus kuyruklarını kullanm
 * Çözümünüzü otomatik yinelenen algılama destekleyebilmesi gerekir.
 * İşlem iletilerinin uygulamanıza paralel uzun süre çalışan akış olarak istediğiniz (ileti akışı kullanarak ilişkili [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) ileti özelliği). Bu modelde, kullanıcı uygulama her düğüme ileti aksine akışlar için rekabet. Bir akış süren bir düğüme verildiğinde düğüm işlemleri kullanarak uygulama akışı durumunu durumunu inceleyebilirsiniz.
 * Çözümünüzü işlem davranışı ve gönderme ya da birden fazla ileti kuyruktan alırken kararlılık gerektirir.
-* Yaşam süresi (TTL) karakteristiğini uygulamaya özgü iş yükü, 7 günlük sürede aşabilir.
 * Uygulamanız 64 KB aşabilir iletilerini işleme ancak olası değil yaklaşım 256 KB sınırlar.
 * Göndericiler ile alıcılar için bir rol tabanlı erişim modeli kuyruklara ve farklı rights/izinler sağlamak için bir gereksinim ile ilgilidir.
 * Sıra boyutu 80 GB'den büyük büyüyecektir değil.
@@ -107,7 +106,7 @@ Bu bölüm, depolama kuyrukları ve Service Bus kuyruklarını tarafından sağl
 | Yerinde güncelleştirme |**Evet** |**Evet** |
 | Sunucu tarafında işlem günlüğü |**Evet** |**Hayır** |
 | Depolama ölçümleri |**Evet**<br/><br/>**Ölçümleri dakika**: kullanılabilirlik, TP'leri, API için gerçek zamanlı ölçümleri çağrı sayısı, hata sayısı ve tüm gerçek (dakika başına toplanır ve yalnızca üretimde ne gelen birkaç dakika içinde bildirilen. zaman içinde daha sağlar Daha fazla bilgi için bkz: [Storage Analytics ölçümleri hakkında](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Evet**<br/><br/>(Toplu sorguları çağırarak [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Durum Yönetimi |**Hayır** |**Evet**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
+| Durum yönetimi |**Hayır** |**Evet**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Otomatik iletme iletisi |**Hayır** |**Evet** |
 | Sıra işlevi Temizle |**Evet** |**Hayır** |
 | İleti grupları |**Hayır** |**Evet**<br/><br/>(oturumları Mesajlaşma kullanımı ile) |
@@ -132,8 +131,8 @@ Bu bölümde depolama kuyrukları ve Service Bus kuyruklarını açısından kar
 | Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
 | --- | --- | --- |
 | En büyük sıra boyutu |**500 TB**<br/><br/>(sınırlı bir [tek bir depolama hesabı kapasitesi](../storage/common/storage-introduction.md#queue-storage)) |**80 GB için 1 GB**<br/><br/>(kuyruk oluşturma sırasında tanımlanan ve [bölümleme etkinleştirme](service-bus-partitioning.md) – "Ek bilgiler" bölümüne bakın) |
-| En büyük ileti boyutu |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
-| En fazla ileti TTL |**7 gün** |**TimeSpan.Max** |
+| İleti boyutu üst sınırı |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
+| En fazla ileti TTL |**Sonsuz** (itibariyle api-version 2017 07 27) |**TimeSpan.Max** |
 | Kuyruğu en yüksek sayısı |**Sınırsız** |**10,000**<br/><br/>(hizmet ad alanı) |
 | Maksimum eşzamanlı istemci sayısı |**Sınırsız** |**Sınırsız**<br/><br/>(yalnızca 100 eş zamanlı bağlantı sınırı TCP protokolü tabanlı iletişim'geçerlidir) |
 

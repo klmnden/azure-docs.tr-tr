@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07fb601b2cf6e3fe3cc9bfb7bca3bdcbec7e9ca7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f090bcd56377d167dddab1b8f942d473aecb66a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu
 
@@ -112,7 +112,7 @@ Her mağaza birden fazla yayımlama seçeneklerini ve teklif türlerini destekle
 
 |**Yayımlama seçeneği**  | **Teklif türü** | **Mağaza**  |
 |---------|---------|---------|
-|**List**    |    Danışmanlık Hizmetleri benimle iletişim     |  Azure Market, AppSource       |
+|**Liste**    |    Danışmanlık Hizmetleri benimle iletişim     |  Azure Market, AppSource       |
 |**Deneme**   |     Ücretsiz deneme sürümü, SaaS deneme, etkileşimli demo, sürücü sınayın.    |  Azure Market, AppSource       |
 |**İşlem**     |   Sanal makine, çözüm şablonu, uygulama yönetilen      |    Azure Market     |
 
@@ -121,8 +121,7 @@ Her mağaza birden fazla yayımlama seçeneklerini ve teklif türlerini destekle
 Deneme düzeyi veya işlem düzeyindeki katılım uygun olmadığı durumlarda kişi benim kullanın. Bu yaklaşımın avantajı, hemen iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi müşteri adayları almaya başlamak bir pazar çözümü olan yayımcı etkinleştirir ' dir. Ancak, dezavantajı müşteri katılım, diğer teklif türleri ile karşılaştırıldığında sınırlıdır.
 
 >[!IMPORTANT]
-<<<<<<< HEAD müşteri katılım deneme sürümü ile en iyi ve Transact sunar. Kişi benim aldığınız sağlama değeri, bu nedenle bu liste türü seçerseniz, sağlama Hedefinizi yapılandırıldığından ve sağlama en üst düzeye çıkarmak hazırsınız emin olun. === Kişi benim liste türü öneririz yok. Yalnızca durumlarda kullanması gereken bir deneme sürümü deneyimi oluşturmak için bir yol olduğu. Müşteri katılım deneme ve işlem teklifleri ile en iyisidir. Deneme sürümü deneyimi herhangi bir türde varsa, bizim ekleme işlemi için senaryonuza bağlı olarak bu seçeneklerden birini yol gösterecektir.
->>>>>>> 2874631130f763b6e91e8725781400bcb76d6a62
+>Müşteri katılım deneme sürümü ile en iyi ve Transact sunar. Kişi benim aldığınız sağlama değeri, bu nedenle bu liste türü seçerseniz, sağlama Hedefinizi yapılandırıldığından ve sağlama en üst düzeye çıkarmak hazırsınız emin olun. 
 
 Teklif kullanım öncelikle Profesyonel Hizmetler (örneğin, değerlendirmeleri, uygulamaları, Atölyeleri) oluşuyorsa danışmanlık hizmetleri türü sunar. Teklif kapsam, süre ve fiyat düzeltilmesi gereken, tek bir müşteri için olmalıdır ve sitesinde gerçekleştirilmesi gerekir.
 
@@ -342,7 +341,7 @@ Yayımlama işlemi başlamadan önce bir teklifi oluşturmak için gerekli bile�
 |**Geçerli sektörü, kategoriler ve arama anahtar sözcükleri**     |  Tümü       |
 |**Şirket logoları (48 x 48, 216 x 216)**     |  Danışmanlık Hizmetleri       |
 |**Ürün genel bakış videosu (isteğe bağlı)**  |  Tümü       |
-|**Screenshots (maximum 5, 1280x720)**   |    Tümü     |
+|**Ekran görüntüleri (en fazla 5, 1280 x 720)**   |    Tümü     |
 |**Pazarlama belgeleri (en fazla 3)**    |  Tümü       |
 |**Hedef yol**    |   Tümü      |
 
@@ -371,7 +370,7 @@ Yayımlama işlemi başlamadan önce bir teklifi oluşturmak için gerekli bile�
 |---------|---------|
 |**Açıklama ve süresi**     |  Yalnızca test sürücü       |
 |**Kullanıcı el ile**     |   Yalnızca test sürücü      |
-|**Test drive video (maximum 1)**     |  Yalnızca test sürücü       |
+|**Test sürücü video (maksimum 1)**     |  Yalnızca test sürücü       |
 |**Sınama sürücü ülke/bölge kullanılabilirliği**    |   Yalnızca test sürücü      |
 |**Azure kaynak grubu adı**   |         |
 |**Azure abonelik kimliği**     |  Yalnızca test sürücü       |
@@ -385,7 +384,7 @@ Yayımlama işlemi başlamadan önce bir teklifi oluşturmak için gerekli bile�
 |Bu yayımlama yapı gerekir  |Bu teklif türü için  |
 |---------|---------|
 |**Title (maximum 50 characters)**    |  İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)       |
-|**Summary (maximum 200 characters)**    |  İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)       |
+|**Özet (en fazla 200 karakter)**    |  İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)       |
 |**Uzun özeti (en fazla 256 karakter)**     |   İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)      |
 |**HTML tabanlı açıklaması (en fazla 3000 karakter)**    |  İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)       |
 |**Şirket logoları (40 x 40, 90 x 90, 115 x 115, 255 x 115, 815 x 290)**    |  İşlem: sanal makineler, Azure uygulamaları (Çözüm şablonları ve yönetilen uygulamalar)       |
@@ -413,7 +412,7 @@ Bu bölümde, adımları açıklanır:
 
 |Market kayıt adımı  |Zaman  |Açıklama  |
 |---------|---------|---------|
-| Microoft iş ortağı ağı kaydet | 15 dakika | Yayımcı, Microsoft Partner Network (Hesap doğrulama ilk düzeyine sahip ve ek avantajların yanı sıra ve bir Azure Market yayımcı olabilme desteği için MPN) kayıtlı olması gerekir |
+| Microsoft iş ortağı ağı kaydet | 15 dakika | Yayımcı, Microsoft Partner Network (Hesap doğrulama ilk düzeyine sahip ve ek avantajların yanı sıra ve bir Azure Market yayımcı olabilme desteği için MPN) kayıtlı olması gerekir |
 |Microsoft kimlik oluşturun     |   15 dakika      |   İş ortaklarının Microsoft ID. olması gerekir Bu Microsoft ID bulut iş ortağı portalına erişmek için kullanılır.       |
 |Market Adaylığı form gönderme     |  1-3 gün       |  Market onay işlemini başlatmak üzere Adaylığı form gönderilemedi ortakları gerekir. Form gönderildikten sonra Market hazırlanma ekibi uygulama gözden geçirin ve istek doğrulayın.       |
 |Geliştirici Merkezi'nde kaydetme     |    5-10 gün     | Microsoft iş ortağı kayıtlı olduğu ülkede için geçerli vergi numarası geçerli yasal bir varlıkla olduğunu doğrulamak için Microsoft Developer Center'da kayıt gereklidir. Geliştirici Merkezi kayıtlı Microsoft geliştirici olmanız ve bunları Azure Geliştirici programı erişim sağlamak için ortağı olanak sağlar. <br><br>Market Adaylığı form tamamladıysanız henüz 99 kayıt ücret ödemeniz istenir, olduğunu unutmayın. Kullanıma başlama öncesi bu ücret sağlamak için Market Adaylığı formu doldurun ve e-posta yoluyla bir promosyon kodu alırsınız.  |
@@ -493,7 +492,6 @@ Destek seçenekleri için Azure Marketi listesidir:
 
 |Destek kanal  |Açıklama  |
 |---------|---------|
-|Kayma: [Market kayma katılma](https://join.marketplace.azure.com)    |   Teknik sorunlar iş ortaklarıyla desteklemek için slack ortamı. Şu anda bu ortamda çalışan birden fazla 350 ortakları vardır.        |
 |MSDN Forumlarında: [Market](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=DataMarket)     | Microsoft Developer Network forum.         |
 |Yığın taşması: [Azure](https://stackoverflow.com/questions/tagged/azure)     |    Yığın taşması ortam çözümleri almak ve her şeyi Azure ve Market ilgili hakkında sorular sormak için:<ul><li>[Azure Market](https://stackoverflow.com/questions/tagged/azure-marketplace)</li><li>[Azure Resource Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li><li>[Azure Sanal Makineler](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li></ul> |
 

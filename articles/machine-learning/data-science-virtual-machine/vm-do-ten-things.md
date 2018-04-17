@@ -8,17 +8,18 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: f11aff2231a5ae6a58d5c9a3f53379a6849d226a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 09c48b92e39aa347c97d42358b50c338851fa59b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>Veri bilimi Sanal Makinesi üzerinde yapabileceğiniz on işlem
 
@@ -60,7 +61,7 @@ Python için Python araçları Visual Studio (PTVS) uzantısı önceden yüklenm
 
 Özel ortam kurulumu nasıl Visual Studio'da göründüğünü aşağıda verilmiştir.
 
-![PTVS Setup](./media/vm-do-ten-things/PTVSSetup.png)
+![PTVS Kurulumu](./media/vm-do-ten-things/PTVSSetup.png)
 
 Bkz: [PTVS belgelerine](https://github.com/Microsoft/PTVS/wiki/Selecting-and-Installing-Python-Interpreters#hey-i-already-have-an-interpreter-on-my-machine-but-ptvs-doesnt-seem-to-know-about-it) Python ortamları oluşturma hakkında daha fazla ayrıntı için.
 
@@ -807,7 +808,7 @@ Azure Cosmos DB DSVM erişmek için koşullar başına adımları şunlardır:
 3. "Azure Cosmos DB geçiş aracı" indirin [burada](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) ve tercih ettiğiniz bir dizine ayıklayın
 4. Alma depolanmış JSON verilerini (volcano) bir [ortak blob](https://cahandson.blob.core.windows.net/samples/volcano.json) Cosmos Geçiş Aracı (dtui.exe Cosmos DB geçiş aracı yüklendiği dizininden) için şu komutu parametreler ile DB içine. Bu parametreler ile kaynak ve hedef konumu girin:
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/; AccountKey = [[anahtar]; veritabanı volcano /t.Collection:volcano1 =
 
 Bir kez veri içe aktardıktan sonra Jupyter için gidip başlıklı not defteri açın *DocumentDBSample* Azure Cosmos DB erişmek ve bazı temel sorgulama yapmak için python kodu içerir. Cosmos DB hakkında daha fazla hizmet adresini ziyaret ederek bilgi [belge sayfasının](https://docs.microsoft.com/azure/cosmos-db/).
 

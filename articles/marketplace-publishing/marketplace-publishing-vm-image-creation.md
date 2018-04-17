@@ -1,11 +1,11 @@
 ---
-title: "Bir sanal makine görüntüsü için Azure Marketi oluşturma | Microsoft Docs"
-description: "Satın almak Azure Marketi başkaları için bir sanal makine görüntüsünün nasıl oluşturulacağı hakkında ayrıntılı yönergeler."
+title: Bir sanal makine görüntüsü için Azure Marketi oluşturma | Microsoft Docs
+description: Satın almak Azure Marketi başkaları için bir sanal makine görüntüsünün nasıl oluşturulacağı hakkında ayrıntılı yönergeler.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 5c937b8e-e28d-4007-9fef-624046bca2ae
 ms.service: marketplace
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: f7b19066ca3fa156456766ff82afeadadc6b1efa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: cb1d529f8e3eaabb4d49e8bbea03cab8e838cfa2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Market bir sanal makine görüntüsü oluşturmak için kılavuz
 Bu makalede **2. adım**, sanal sabit Azure Marketi dağıtacağınız diskleri (VHD) hazırlama size yol gösterir. Vhd'lerinizi, sku'sunun temelidir. İşlem, bir Windows tabanlı veya Linux tabanlı SKU olup sağlanmaktadır bağlı olarak farklılık gösterir. Bu makalede her iki senaryoyu ele alınmaktadır. Bu işlem ile paralel olarak gerçekleştirilebilir [hesap oluşturma ve kayıt][link-acct-creation].
@@ -69,7 +69,7 @@ Bu bölüm, Windows Server için Azure Marketi tabanlı bir SKU oluşturmak içi
 Başlamak için aşağıdaki görüntüleri birinden bir VM oluşturma bulunan [Microsoft Azure portal][link-azure-portal]:
 
 * Windows Server ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web][link-sql-2014-web])
+* SQL Server 2014 ([Kurumsal][link-sql-2014-ent], [standart][link-sql-2014-std], [Web] [ link-sql-2014-web])
 * SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web][link-sql-2012-web])
 
 Bu bağlantılar SKU sayfasındaki Yayımlama Portalı'nda da bulunabilir.
@@ -430,7 +430,7 @@ Microsoft Azure Storage Gezgini kullanarak SAS URL oluşturmak için adımlar a�
 
 Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
-1.  Microsoft Azure CLI üzerinden indirme [burada](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Farklı bağlantıları için bulabileceğiniz  **[Windows](http://aka.ms/webpi-azure-cli)**  ve  **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Microsoft Azure CLI üzerinden indirme [burada](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Farklı bağlantıları için bulabileceğiniz **[Windows](http://aka.ms/webpi-azure-cli)** ve  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Bir kez yüklenir, lütfen yükleyin
 
@@ -446,7 +446,7 @@ Azure CLI kullanarak SAS URL oluşturmak için adımlar aşağıda verilmiştir
 
     b. **`<Storage Account Key>`**: Depolama hesabı anahtarınızı verin
 
-    c. **`<Permission Start Date>`**: UTC saati için korumak için geçerli tarihten önce gün seçin. Örneğin, geçerli tarih 26 Ekim 2016 ise ardından değeri olmalıdır 25/10/2016. Azure CLI 2.0 (az komutu) kullanıyorsanız, tarih ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 10-25-2016T00:00:00Z.
+    c. **`<Permission Start Date>`**: UTC saati için korumak için geçerli tarihten önce gün seçin. Örneğin, geçerli tarih 25 Ekim 2016 ise ardından değeri olmalıdır 25/10/2016. Azure CLI 2.0 (az komutu) kullanıyorsanız, tarih ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 10-25-2016T00:00:00Z.
 
     d. **`<Permission End Date>`**: En az 3 hafta sonra olan bir tarih seçin **başlangıç tarihi**. Bu değer olmalıdır **02/11/2016**. Azure CLI 2.0 (az komutu) kullanıyorsanız, tarih ve saati başlangıç ve bitiş tarihleri, örneğin sağlar: 11-02-2016T00:00:00Z.
 

@@ -1,6 +1,6 @@
 ---
-title: "Cihaz benzetimi çözüm - Azure kullanmaya başlama | Microsoft Docs"
-description: "IOT paketi benzetimi çözüm geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Benzetim, yüklenebilir diğer önceden yapılandırılmış çözümleri ile birlikte veya kendi özel çözümler ile kullanılan sunumu tek başına bir hizmettir."
+title: Cihaz benzetimi çözüm - Azure kullanmaya başlama | Microsoft Docs
+description: IOT paketi benzetimi çözüm geliştirme ve test bir IOT çözüm yardımcı olmak üzere kullanılan bir araçtır. Benzetim, yüklenebilir diğer önceden yapılandırılmış çözümleri ile birlikte veya kendi özel çözümler ile kullanılan sunumu tek başına bir hizmettir.
 services: iot device simulation
 suite: iot-suite
 author: troyhopwood
@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 2a9a6f3387b7f9fb4e3896fc55a06ac4a902ad24
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1452508822f08d4554f419a72f7e9e6018a52469
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="device-simulation-walkthrough"></a>Cihaz benzetimi gözden geçirme
 
@@ -69,22 +69,22 @@ Cihaz modeli benzetimini yapmak için aygıt türünü seçmenize olanak tanır.
 
 Cihaz benzetimi üç önceden yapılandırılmış cihaz modeli sağlar. Chillers, asansörler ve kamyonlar için aygıt modelleri kullanılabilir.
 
-Önceden yapılandırılmış aygıt modelleri önceden belirlenen telemetri sıklık birden çok algılayıcılar içerir. Bu aygıtlar için telemetri sıklığı özelleştiremezsiniz.
+Önceden yapılandırılmış aygıt modelleri bir JavaScript dosyasında tanımlanmış Gelişmiş davranışları sahip birden çok algılayıcılar içerir. Bu özel davranışları web kullanıcı Arabirimi desteklenmez. 
 
 Aşağıdaki tabloda her önceden yapılandırılmış cihaz modeli için yapılandırmaları bir listesini gösterir:
 
-| Cihaz modeli | Algılayıcı | Birim | Telemetri sıklığı
-| -------------| ------ | -----| --------------------|
-| Soğutucu | nem oranı | % | 5 saniye |
-| | basınç | psig | 5 saniye |
-| | Sıcaklık | F | 5 saniye |
-| Fırsatınızdır | Kat | | 5 saniye |
-| | Titreşim | mm | 5 saniye |
-| | Sıcaklık | F | 5 saniye |
-| Kamyon | Enlem | | 3 saniye |
-| | Boylam | | 3 saniye |
-| | Hızı | mil hızla | 5 saniye |
-| | cargotemperature | F | 5 saniye |
+| Cihaz modeli | Algılayıcı | Birim | 
+| -------------| ------ | -----| 
+| Soğutucu | nem oranı | % |
+| | basınç | psig | 
+| | Sıcaklık | F | 
+| Fırsatınızdır | Kat | 
+| | Titreşim | mm | 
+| | Sıcaklık | F | 
+| Kamyon | Enlem | |
+| | Boylam | | 
+| | Hızı | mil hızla | 
+| | cargotemperature | F | 
 
 #### <a name="custom-device-model"></a>Özel aygıt modeli
 
@@ -106,7 +106,7 @@ Aşağıdaki tabloda her önceden yapılandırılmış cihaz modeli için yapıl
 
 ### <a name="number-of-devices"></a>Aygıt sayısı
 
-Cihaz benzetimi şu anda en çok 1.000 aygıtları benzetimini yapmak etkinleştirir.
+Cihaz benzetimi şu anda en fazla 20.000 aygıtları benzetimini yapmak sağlar.
 
 ![Aygıt sayısı](media/iot-suite-device-simulation-explore/numberofdevices.png)
 

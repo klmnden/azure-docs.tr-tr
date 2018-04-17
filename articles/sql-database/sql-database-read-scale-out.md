@@ -9,11 +9,11 @@ ms.custom: monitor & tune
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: sashan
-ms.openlocfilehash: 26204d5bd61d193a3d08e26f98faf77ecc367a94
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0eda9012e6b6c7207d200a6e550b6bc0b0b09882
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın
 
@@ -32,7 +32,7 @@ Bir veritabanı için okuma genişleme etkinleştirildikten sonra o veritabanın
 
 ## <a name="data-consistency"></a>Veri tutarlılığı
 
-AlwasyON yararları çoğaltmaların her zaman işlemsel olarak tutarlı bir durumdadır, ancak zaman içinde farklı noktalarda olabilir bazı küçük gecikme süresi arasında farklı çoğaltmaları biridir. Okuma genişleme oturum düzeyi tutarlılık destekler. Bu anlamına gelir, salt okunur oturum çoğaltma kullanılabilir olmamasından nedeni bağlantı hatası sonra bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel olmayan bir çoğaltma yönlendirilebilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, benzer şekilde, en son güncelleştirmeleri hemen görünmez mümkündür. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
+AlwaysON yararları çoğaltmaların her zaman işlemsel olarak tutarlı bir durumdadır, ancak zaman içinde farklı noktalarda olabilir bazı küçük gecikme süresi arasında farklı çoğaltmaları biridir. Okuma genişleme oturum düzeyi tutarlılık destekler. Bu anlamına gelir, salt okunur oturum çoğaltma kullanılabilir olmamasından nedeni bağlantı hatası sonra bağlanırsa, % 100 okuma-yazma çoğaltma ile güncel olmayan bir çoğaltma yönlendirilebilir. Bir uygulama bir okuma-yazma oturumu kullanarak verileri yazar ve hemen bir salt okunur oturumu kullanarak okur, benzer şekilde, en son güncelleştirmeleri hemen görünmez mümkündür. İşlem günlüğü Yinele çoğaltmaları için zaman uyumsuz olmasıdır.
 
 > [!NOTE]
 > Çoğaltma gecikmeleri bölge içindeki düşüktür ve bu nadir bir durumdur.
