@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 16ce5aac26abcf2ef2cf7664fb0b9aae600708d4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 550fe16c5997947b528d284b7afdce9af0b7a56b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Ekleme, değiştirme veya bir sanal ağ alt ağı silme
 
@@ -36,14 +36,14 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 ## <a name="add-a-subnet"></a>Bir alt ağ Ekle
 
-1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünür.
+1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden bir alt ağa eklemek istediğiniz sanal ağı seçin.
 3. Altında **ayarları**seçin **alt ağlar**.
 4. Seçin **+ alt**.
 5. Aşağıdaki parametreler için değerler girin:
     - **Ad**: ad sanal ağ içinde benzersiz olmalıdır.
     - **Adres aralığı**: aralık sanal ağın adres alanı içinde benzersiz olmalıdır. Aralık, diğer sanal ağ içinde alt ağ adres aralığı ile örtüşemez. Adres alanı, sınıfsız etki alanları arası yönlendirme (CIDR) gösterimini kullanarak belirtilmelidir. Örneğin, bir sanal ağda adres alanı 10.0.0.0/16, 10.0.0.0/24 alt ağ adres alanının tanımlayabilirsiniz. Belirleyebileceğiniz en küçük /29, alt ağ için sekiz IP adreslerini sağlayan aralıktır. Azure her alt ağ protokolü uyumluluğu için ilk ve son adresi ayırır. Üç ek adresleri Azure hizmetinin kullanım için ayrılmıştır. Sonuç olarak, bir alt ağ/29 ile tanımlama adres alt ağda üç kullanılabilir IP adresleri aralığı sonuçlanır. Bir sanal ağ VPN ağ geçidi bağlanmak istiyorsanız, bir ağ geçidi alt ağı oluşturmanız gerekir. Daha fazla bilgi edinmek [ağ geçidi alt ağları için belirli bir adresi aralığı konuları](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub). Alt ağ, belirli koşullar altında ekledikten sonra adres aralığını değiştirebilirsiniz. Bir alt ağ adresi aralığını değiştirmek konusunda bilgi almak için bkz: [alt ağ ayarlarını değiştirme](#change-subnet-settings).
-    - **Ağ güvenlik grubu**: sıfır veya bir alt ağ için gelen ve giden ağ trafiğini filtrelemek için bir mevcut ağ güvenlik grubunun bir alt ağa ilişkilendirebilirsiniz. Ağ güvenlik grubu aynı abonelikte ve konumda sanal ağ mevcut olmalıdır. Daha fazla bilgi edinmek [ağ güvenlik grubu](security-overview.md) ve [bir ağ güvenlik grubu oluşturmak nasıl](virtual-networks-create-nsg-arm-pportal.md).
+    - **Ağ güvenlik grubu**: sıfır veya bir alt ağ için gelen ve giden ağ trafiğini filtrelemek için bir mevcut ağ güvenlik grubunun bir alt ağa ilişkilendirebilirsiniz. Ağ güvenlik grubu aynı abonelikte ve konumda sanal ağ mevcut olmalıdır. Daha fazla bilgi edinmek [ağ güvenlik grubu](security-overview.md) ve [bir ağ güvenlik grubu oluşturmak nasıl](tutorial-filter-network-traffic.md).
     - **Yol tablosu**: ağ trafiği diğer ağlara yönlendirme denetlemek için bir alt ağa sıfır veya bir varolan yol tablosu ilişkilendirebilirsiniz. Yol tablosu, aynı abonelikte ve konumda sanal ağ içinde bulunmalıdır. Daha fazla bilgi edinmek [Azure yönlendirme](virtual-networks-udr-overview.md) ve [bir yol tablosu oluşturma](tutorial-create-route-table-portal.md)
     - **Hizmet uç noktaları:** bir alt ağ için etkin sıfır veya birden çok hizmet uç noktalarına sahip olabilir. Bir hizmet için bir hizmet uç noktası etkinleştirmek için hizmet veya hizmet uç noktalarından etkinleştirmek istediğiniz hizmetleri seçin **Hizmetleri** listesi. Hizmet uç noktası kaldırmak için hizmet uç noktası için kaldırmak istediğiniz hizmet seçimini kaldırın. Hizmet uç noktaları hakkında daha fazla bilgi için bkz: [sanal ağ hizmet uç noktaları genel bakış](virtual-network-service-endpoints-overview.md). Hizmet uç noktası bir hizmet için etkinleştirdikten sonra hizmet ile oluşturulan bir kaynak için alt ağ için ağ erişimini etkinleştirmeniz gerekir. Örneğin, hizmet uç noktası için etkinleştirirseniz *Microsoft.Storage*, ağ erişimi vermek istediğiniz tüm Azure depolama hesapları ağ erişimini etkinleştirmeniz gerekir. Hizmet uç noktası için etkin bir alt ağ erişiminin nasıl etkinleştirileceği hakkında daha fazla ayrıntı için hizmet uç noktası için etkin bireysel hizmet belgelerine bakın.
 6. Seçtiğiniz sanal ağ alt ağı eklemek için seçin **Tamam**.
@@ -51,30 +51,30 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 **Komutları**
 
 - Azure CLI: [az ağ sanal alt oluşturma](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)
-- PowerShell: [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
+- PowerShell: [ekleme AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)
 
 ## <a name="change-subnet-settings"></a>Alt ağ ayarlarını değiştirme
 
-1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünür.
+1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden ayarlarını değiştirmek için istediğiniz alt ağ içeren sanal ağı seçin.
 3. Altında **ayarları**seçin **alt ağlar**.
 4. Alt ağlar listesinde ayarlarını değiştirmek için istediğiniz alt ağ seçin. Aşağıdaki ayarları değiştirebilirsiniz:
 
     - **Adres aralığı:** hiçbir kaynak alt ağ içinde dağıtılırsa, adres aralığını değiştirebilirsiniz. Herhangi bir kaynağa alt ağda varsa, başka bir alt ağa kaynakları taşımak gerekir veya önce alt ağdan silin. Taşımak veya bir kaynak silmek için uygulayacağınız adımlar kaynak bağlı olarak değişir. Taşımak veya alt kaynaklarını silmek öğrenmek için taşımak veya silmek istediğiniz her bir kaynak türü için belgeleri okuyun. Kısıtlamalarını bkz **adres aralığı** adım 5 [bir alt ağ Ekle](#add-a-subnet).
-    - **Kullanıcıların**: yerleşik roller veya kendi özel roller kullanarak alt ağa erişimi denetleyebilirsiniz. Rol ve alt ağ erişmek için kullanıcı atama hakkında daha fazla bilgi için bkz: [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanın](../active-directory/role-based-access-control-configure.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
+    - **Kullanıcıların**: yerleşik roller veya kendi özel roller kullanarak alt ağa erişimi denetleyebilirsiniz. Rol ve alt ağ erişmek için kullanıcı atama hakkında daha fazla bilgi için bkz: [Azure kaynaklarınıza erişimi yönetmek için rol ataması kullanın](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access).
     - Değiştirme hakkında bilgi için **ağ güvenlik grubu**, **yol tablosu**, **kullanıcılar**, ve **hizmet uç noktaları**, 5adımdabakın[ Bir alt ağ Ekle](#add-a-subnet).
-5. Seçin **kaydetmek**.
+5. **Kaydet**’i seçin.
 
 **Komutları**
 
 - Azure CLI: [az ağ sanal ağ alt ağı güncelleştirme](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update)
-- PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
+- PowerShell: [kümesi AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
 ## <a name="delete-a-subnet"></a>Bir alt ağı silme
 
 Alt ağ içindeki kaynak varsa, bir alt ağ silebilirsiniz. Alt ağ içindeki kaynaklar varsa, alt ağı silmeden önce alt ağdaki kaynakları silmeniz gerekir. Bir kaynak silmek için uygulayacağınız adımlar kaynak bağlı olarak değişir. Alt kaynaklarını silmek öğrenmek için silmek istediğiniz her bir kaynak türü için belgeleri okuyun.
 
-1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünür.
+1. Portal üstündeki arama kutusuna girin *sanal ağlar* arama kutusuna. Zaman **sanal ağlar** arama sonuçlarında görünecek, onu seçin.
 2. Sanal ağlar listesinden silmek istediğiniz alt ağ içeren sanal ağı seçin.
 3. Altında **ayarları**seçin **alt ağlar**.
 4. Alt ağlar listesinde seçin **...** , sağ, alt ağ için silmek istediğiniz
@@ -83,11 +83,11 @@ Alt ağ içindeki kaynak varsa, bir alt ağ silebilirsiniz. Alt ağ içindeki ka
 **Komutları**
 
 - Azure CLI: [az ağ vnet Sil](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
-- PowerShell: [Remove-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- PowerShell: [AzureRmVirtualNetworkSubnetConfig Kaldır](/powershell/module/azurerm.network/remove-azurermvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>İzinler
 
-Alt ağlardaki görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun izinleri atanmış rolü aşağıdaki tabloda listelenen:
+Alt ağlardaki görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun izinleri atanmış rolü aşağıdaki tabloda listelenen:
 
 |İşlem                                                                |   İşlem adı                               |
 |-----------------------------------------------------------------------  |   -------------------------------------------  |

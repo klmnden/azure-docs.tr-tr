@@ -1,11 +1,11 @@
 ---
-title: "Güvenlik Merkezi platformu geçiş ile ilgili SSS | Microsoft Docs"
-description: "Bu SSS, Azure Güvenlik Merkezi platformu geçişi hakkında sorular yanıtlanmaktadır."
+title: Güvenlik Merkezi platformu geçiş ile ilgili SSS | Microsoft Docs
+description: Bu SSS, Azure Güvenlik Merkezi platformu geçişi hakkında sorular yanıtlanmaktadır.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2017
 ms.author: terrylan
-ms.openlocfilehash: 6ccf104ea09dc1fbce1dd34a06168205d6f5fac8
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 197b1a844291f2bef2dd35001d1e6b8807ac9805
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-center-platform-migration-faq"></a>Güvenlik Merkezi platformu geçiş ile ilgili SSS
 Erken Haziran 2017 toplamak ve verilerini depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başlamıştır. Daha fazla bilgi için bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md). Bu SSS platform geçiş ile ilgili sorular yanıtlanmaktadır.
@@ -34,7 +34,7 @@ Güvenlik Merkezi Microsoft Monitoring Agent, VM'lerin güvenlik verileri toplam
 Aracı tarafından toplanan verileri VM'ye bağlı olan bir günlük analizi çalışma veya Güvenlik Merkezi tarafından oluşturulan yeni bir çalışma alanı depolanır. Güvenlik Merkezi, yeni bir çalışma alanı oluşturduğunda, coğrafi konuma VM dikkate alınır.
 
 > [!NOTE]
-> Microsoft Monitoring Agent, Operations Management Suite (OMS tarafından), günlük analizi hizmeti ve System Center Operations Manager (SCOM) kullanılan aynı aracısıdır.
+> Microsoft Monitoring Agent, günlük analizi hizmeti ve System Center Operations Manager (SCOM) tarafından kullanılan aynı aracısıdır.
 >
 >
 
@@ -64,8 +64,8 @@ Otomatik sağlama (daha önce günlük toplama olarak adlandırılır) etkin old
 >
 >
 
-### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>Günlük analizi veya Güvenlik Merkezi tarafından oluşturulan çalışma alanları üzerindeki OMS faturalandırılır 'M?
-Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları için OMS düğümü faturalama başına yapılandırılmış olsa OMS ücretlendirme değil. Güvenlik Merkezi faturalama her zaman Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanı'na yüklü çözümleri dayanır:
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Güvenlik Merkezi tarafından oluşturulan çalışma alanları üzerinde günlük analizi için fatura 'M?
+Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları faturalama, düğüm başına günlük analizi için yapılandırılmış olsa günlük analizi ücrete tabi değildir. Güvenlik Merkezi faturalama her zaman Güvenlik Merkezi güvenlik ilkesi ve bir çalışma alanı'na yüklü çözümleri dayanır:
 
 - **Ücretsiz katmanı** – Güvenlik Merkezi varsayılan çalışma alanı 'SecurityCenterFree' çözümü sağlar. Ücretsiz katmanı için faturalandırılır değil.
 - **Standart katmanı** – Güvenlik Merkezi varsayılan çalışma alanı 'Security' çözümü sağlar.
@@ -73,7 +73,7 @@ Hayır. Güvenlik Merkezi tarafından oluşturulan çalışma alanları için OM
 Fiyatlandırma hakkında daha fazla bilgi için bkz: [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/). Fiyatlandırma sayfasını güvenlik veri depolama ve eşit olarak bölünmüş fatura Haziran 2017 başlangıç değişiklikler giderir.
 
 > [!NOTE]
-> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanlarının OMS Güvenlik Merkezi faturalama etkilemez.
+> Fiyatlandırma katmanı Güvenlik Merkezi tarafından oluşturulan çalışma alanlarının günlük analizi Güvenlik Merkezi faturalama etkilemez.
 >
 >
 
@@ -101,7 +101,7 @@ Varolan bir günlük analizi çalışma alanını seçmek için:
 
 1. Altında **güvenlik ilkesi – veri toplama**seçin **başka bir çalışma alanını kullanın**.
 
-   ![Başka bir çalışma alanını kullanın][5]
+   ![Başka bir çalışma alanı kullan][5]
 
 2. Aşağı açılır menüden, toplanan verileri depolamak için bir çalışma alanı seçin.
 
@@ -204,12 +204,12 @@ Aracıyı el ile kaldırmak için:
 >
 >
 
-## <a name="existing-oms-customers"></a>Var olan OMS müşterileri
+## <a name="existing-log-analytics-customers"></a>Var olan günlük analizi müşterileri
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Güvenlik Merkezi, VM'ler ve çalışma alanları arasında var olan tüm bağlantıları devre dışı bırakmaz?
 Bir VM Azure uzantı olarak yüklü Microsoft İzleme Aracısı zaten varsa, Güvenlik Merkezi varolan çalışma bağlantı kılmaz. Bunun yerine, Güvenlik Merkezi, varolan çalışma kullanır.
 
-Güvenlik Merkezi çözüm çalışma alanı yüklü henüz yoksa ve çözüm yalnızca ilgili VM'ler uygulanır. Bir çözümü eklediğinizde, varsayılan olarak, günlük analizi çalışma alanına bağlı tüm Windows ve Linux aracıları için otomatik olarak dağıtılır. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md), bir OMS özelliği olan bir kapsam çözümlerinizi uygulamak olanak tanır.
+Güvenlik Merkezi çözüm çalışma alanı yüklü henüz yoksa ve çözüm yalnızca ilgili VM'ler uygulanır. Bir çözümü eklediğinizde, varsayılan olarak, günlük analizi çalışma alanına bağlı tüm Windows ve Linux aracıları için otomatik olarak dağıtılır. [Çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) kapsam çözümlerinizi uygulamanıza imkan sağlar.
 
 Microsoft Monitoring Agent doğrudan (olarak değil bir Azure uzantısı) VM üzerinde yüklüyse, Güvenlik Merkezi Microsoft Monitoring Agent yüklemez ve güvenlik izleme sınırlıdır.
 
@@ -220,18 +220,13 @@ Bu durum oluşmamalıdır. Bu, ardından görülüyorsa [Azure destek isteği ol
 - Bağlantı kesildi önce uzantısına göre yapılandırılmış çalışma Azure kaynak kimliği
 - Aracı ve daha önce yüklenen sürüm
 
-### <a name="does-security-center-install-solutions-on-my-existing-oms-workspaces-what-are-the-billing-implications"></a>Güvenlik Merkezi çözümleri my varolan OMS çalışma alanlarına yükler mi? Fatura etkileri nelerdir?
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Güvenlik Merkezi çözümleri my mevcut günlük analizi çalışma alanlarına yükler mi? Fatura etkileri nelerdir?
 Güvenlik Merkezi bir VM zaten oluşturduğunuz bir çalışma alanına bağlı belirlediğinde, Güvenlik Merkezi bu çalışma alanındaki fiyatlandırma katmanınızı göre çözümleri sağlar. Çözümleri aracılığıyla yalnızca ilgili Azure VM'ler için uygulanan [çözüm hedefleme](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), faturalama aynı kalır.
 
 - **Ücretsiz katmanı** – Güvenlik Merkezi çalışma alanı 'SecurityCenterFree' çözüm yükler. Ücretsiz katmanı için faturalandırılır değil.
 - **Standart katmanı** – Güvenlik Merkezi çalışma alanı 'Security' çözüm yükler.
 
    ![Varsayılan çalışma alanı çözümlerini][4]
-
-> [!NOTE]
-> Günlük analizi 'Security' çözümde OMS, güvenlik ve denetim çözümüdür.
->
->
 
 ### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Çalışma Alanım ortamda zaten var, bunları güvenlik verileri toplamak için kullanabilir miyim?
 Güvenlik Merkezi, bir VM Azure uzantı olarak yüklü Microsoft İzleme Aracısı zaten varsa, mevcut bağlı çalışma kullanır. Güvenlik Merkezi çözüm çalışma alanı yüklü henüz yoksa ve çözüm yalnızca ilgili VM'ler uygulanan [çözüm hedefleme](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).

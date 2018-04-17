@@ -1,28 +1,26 @@
 ---
-title: "Azure SQL veri ambarı'nda denetim | Microsoft Docs"
-description: "Azure SQL Data Warehouse'da denetimi ile çalışmaya başlama"
+title: Azure SQL veri ambarı'nda denetim | Microsoft Docs
+description: Denetim ve Azure SQL Data Warehouse'da denetim yukarı nasıl ayarlanacağı hakkında bilgi edinin.
 services: sql-data-warehouse
-documentationcenter: 
 author: ronortloff
-manager: jhubbard
-editor: 
-ms.assetid: 0e6af148-b218-4b43-bb5f-907917d20330
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.custom: security
-ms.date: 01/16/2018
-ms.author: rortloff;barbkess
-ms.openlocfilehash: 5400f29d8c7579809ef7b2a084115473df7baa85
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.topic: conceptual
+ms.component: manage
+ms.date: 04/11/2018
+ms.author: rortloff
+ms.reviewer: jrj
+ms.openlocfilehash: 7bce59114dcfef7f9faa7f112c62dbb88044f2ab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda denetleme
 
+Denetim ve Azure SQL Data Warehouse'da denetim yukarı nasıl ayarlanacağı hakkında bilgi edinin.
+
+## <a name="what-is-auditing"></a>Ne Denetim?
 SQL veri ambarı denetim kayıtla Azure depolama hesabınızdaki denetim veritabanınızdaki olayları günlüğe sağlar. Denetim, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve iş endişeleri veya güvenlik ihlalleri hakkında daha fazla bilgi kavramanıza yardımcı olabilir. Ayrıca SQL Data Warehouse denetim Microsoft Power BI ile raporlama ve analiz için ile tümleştirir.
 
 Denetleme Araçları etkinleştirmek ve uyumluluk standartlarına bağlılığı kolaylaştırmak ancak Uyumluluk garanti etmez. Bu destek standartları uyumluluğu Azure hakkında daha fazla bilgi programlar için bkz: <a href="http://azure.microsoft.com/support/trust-center/compliance/" target="_blank">Azure Güven Merkezi</a>.
@@ -101,7 +99,7 @@ Ayrıca, aşağıdaki Otomasyon araçları kullanarak Azure SQL Data Warehouse'd
    * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
    * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
    * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+   * [Kullanım AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
 
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Denetime ve dinamik veri maskeleme için alt düzey istemci desteği

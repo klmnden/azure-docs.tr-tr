@@ -1,11 +1,11 @@
 ---
-title: "Özel IP adresleri VM'ler - Azure CLI için yapılandırma | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) kullanarak sanal makineleri için özel IP adresleri yapılandırmayı öğrenin."
+title: Özel IP adresleri VM'ler - Azure CLI için yapılandırma | Microsoft Docs
+description: Azure komut satırı arabirimi (CLI) kullanarak sanal makineleri için özel IP adresleri yapılandırmayı öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 40b03a1a-ea00-454c-b716-7574cea49ac0
 ms.service: virtual-network
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9fe7020719079e11150c62068650aa6ca17b056
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f4f6a40fde23ee70391c5057762f17ce1eb44123
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI kullanarak bir sanal makine için özel IP adreslerini yapılandırın
 
@@ -158,6 +158,7 @@ Adlı bir VM oluşturmak için *DNS01* içinde *ön uç* adlı bir sanal ağ alt
 
    * `--nics`: VM bağlı olduğu NIC adı.
    
+Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-cli.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar.
 
 ## <a name="retrieve-static-private-ip-address-information-for-a-vm"></a>Bir VM için özel statik IP adresi bilgilerini alma
 
@@ -267,9 +268,7 @@ Azure Resource Manager dağıtımları için Azure CLI içinde nıc'den özel bi
 
     > [!NOTE]
     > VM birden çok NIC için yeterince büyük olduğundan çalıştırırsanız **azure ağı NIC silme** eski NIC silmek için
-   
-## <a name="next-steps"></a>Sonraki adımlar
-* Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.
-* Hakkında bilgi edinin [örnek düzeyinde ortak IP (ILPIP)](virtual-networks-instance-level-public-ip.md) adresleri.
-* Başvurun [ayrılmış IP REST API'leri](https://msdn.microsoft.com/library/azure/dn722420.aspx).
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Yönetme hakkında bilgi edinin [IP adresi ayarlarını](virtual-network-network-interface-addresses.md).

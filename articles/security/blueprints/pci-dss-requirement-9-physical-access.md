@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması - fiziksel erişimi gereksinimleri"
+title: Azure ödeme işleme şeması - fiziksel erişimi gereksinimleri
 description: PCI DSS gereksinim 9
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 89f7b20a130e988bfe4964d50ae97de788ca4623
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 2dbf4d9e2f4ff7b6cdf8e48c24eeee4d036fe195
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için fiziksel erişimi gereksinimleri 
 ## <a name="pci-dss-requirement-9"></a>PCI DSS gereksinim 9
@@ -39,7 +39,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure, uygulama, zorlama ve fiziksel erişim güvenlik veri merkezleri için izleme sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -55,7 +55,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure, uygulama, zorlama ve izleme CCTV ve veri merkezlerinin biyometrik erişim denetimi mekanizmaları sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -70,7 +70,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure platformu içinde hiçbir genel olarak erişilebilir ağ girişlerine vardır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -83,7 +83,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ağ donanımına sıkı bir şekilde erişim listeleri tarafından denetlenen fiziksel erişim, birden çok form kimlik doğrulaması, giriş ve iş gereksinimini fiziksel engelleri donanımına erişim için onaylanması gerekir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -99,7 +99,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure, uygulama, zorlama ve veri merkezleri ziyaret eden fiziksel erişimi güvenliği ve çalışan veya yüklenici kimliği izleme sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -114,7 +114,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Erişim kimlik doğrulamalarını Microsoft veri merkezleri için en az ayrıcalık prensibi tabanlı veri merkezi ekibi tarafından onaylanan bir yetkili erişimi listesi kullanılarak denetlenir. Erişim denetim listesini gözden, doğrulandı ve üç aylık güncelleştirildi.<br /><br />Çevre ağ geçitleri, elektronik erişim rozet okuyucular, biyometrik okuyucular, ADAM-tuzakları/portalları ve koruma geçişi aygıtları geri gibi Microsoft Azure veri merkezlerinde fiziksel erişim aygıtları kullanın. Erişim rozet aygıtları sürekli olarak izlenir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -127,7 +127,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Zorunlu önceden onaylanmış teslimler bilgi işleme tesis fiziksel olarak yalıtılmış ve yetkili personel tarafından izlenen bir güvenli yükleme bay alındığı için Microsoft Azure sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -141,7 +141,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Zorunlu önceden onaylanmış teslimler bilgi işleme tesis fiziksel olarak yalıtılmış ve yetkili personel tarafından izlenen bir güvenli yükleme bay alındığı için Microsoft Azure sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -154,7 +154,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Veri Merkezi erişim önceden onaylanmış ve yetkili ziyaretçileri varış noktasında fiziksel güvenlik iade ve geçerli bir kimlik kanıtı girişi önce sağlamak için gereklidir. Rozetleri açıkça çalışanları belirtin. Yükleniciler ve ziyaretçileri ayrılma tesis öğesinden sonra surrendered gerekir geçici rozetleri alırsınız. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -167,7 +167,7 @@ Tüm fiziksel veri aygıtları veya veri erişimi ve sistemleri veya hardcopies 
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Ziyaretçilerin rozetleri ayrılma herhangi bir Microsoft tesisine öğesinden sonra surrender için gereklidir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -182,7 +182,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure ziyaretçi günlük ziyaretçi etkinliği tesis yanı sıra bilgisayar odaları ve kart sahibi veri nerede depolanır veya aktarılan veri merkezlerine fiziksel denetim izi olarak sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -195,7 +195,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -208,7 +208,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -221,7 +221,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -234,7 +234,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -247,7 +247,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -260,7 +260,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -273,7 +273,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -287,7 +287,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -300,7 +300,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -313,7 +313,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm verileri Azure SQL veritabanında depolar. PaaS SQL veritabanı örneğinde veritabanı güvenlik önlemleri göstermek için kullanılır. Daha fazla bilgi için bkz: [PCI Kılavuzu - Azure SQL veritabanı](payment-processing-blueprint.md#azure-sql-database).|
 
 
 
@@ -326,7 +326,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Veri yok etme teknikleri yoksa abonelikler, depolama, sanal makineler veya veritabanları mı yok veri nesnesi türüne bağlı olarak farklılık gösterir. Microsoft Azure çok kiracılı ortamı dikkatli dikkat emin olmak için gerçekleştirilecek bir müşterinin veri ya da "sızıntısı" başka bir müşteri'nin veri içine veya müşteri verileri, (, çoğu durumda, müşteri de dahil olmak üzere hiçbir müşterinin sildiğinde izin verilmiyor kimin bir kez veri ait) silinen bu verilere erişebilir.<br /><br />Microsoft Azure, bu verileri sağlamaya asıl sorunu adres medya temizleme 800 88 yönergeleri kasıtsız olarak kullanıma NIST izler. Bu yönergeleri elektronik ve fiziksel temizleme kapsar. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tamamen dağıtımı sırasında kullanılan kaynak grubunu silerek silinebilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tamamen dağıtımı sırasında kullanılan kaynak grubunu silerek silinebilir.|
 
 
 
@@ -342,7 +342,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore tüm sistem değişiklikleri oturum OMS kullanır.<br /><br />[Operations Management Suite (OMS)](/azure/operations-management-suite/) değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore tüm sistem değişiklikleri oturum Azure kullanır.<br /><br />Günlük analizi değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - oturum açma ve Denetim](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -358,7 +358,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore başvuru mimarisi ve dağıtım belgelerinde kullanılan tüm hizmetlerin bir listesini sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore başvuru mimarisi ve dağıtım belgelerinde kullanılan tüm hizmetlerin bir listesini sağlar.|
 
 
 
@@ -374,7 +374,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -391,7 +391,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 
@@ -404,7 +404,7 @@ En az üç ay için bu günlük, aksi takdirde yasalar tarafından kısıtlanmı
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Geçerli değil.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Geçerli değil.|
 
 
 

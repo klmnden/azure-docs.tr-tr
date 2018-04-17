@@ -3,7 +3,7 @@ title: Bağlama Azure File storage SMB kullanarak Linux vm'lerinde | Microsoft D
 description: Azure CLI 2.0 ile SMB kullanarak Linux vm'lerinde Azure File storage nasıl
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
-author: vlivech
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
-ms.author: v-livech
-ms.openlocfilehash: de200c9b18b9d27325bcb92e0d27e83ad7c65811
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: iainfou
+ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB kullanarak Linux VM'ler üzerinde bağlama Azure dosya depolama
 
-Bu makalede Azure CLI 2.0 ile SMB bağlama kullanarak bir Linux VM üzerinde Azure dosya depolama hizmeti kullanmaya nasıl gösterir. Azure File storage standart SMB protokolü kullanılarak bulutta dosya paylaşımları sağlar. Bu adımları [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz. Gereksinimler şunlardır:
+Bu makalede Azure CLI 2.0 ile SMB bağlama kullanarak bir Linux VM üzerinde Azure dosya depolama hizmeti kullanmaya nasıl gösterir. Azure File storage standart SMB protokolü kullanılarak bulutta dosya paylaşımları sağlar. Bu adımları [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md) ile de gerçekleştirebilirsiniz. Gereksinimler şunlardır:
 
 - [Bir Azure hesabı](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH ortak ve özel anahtar dosyaları](mac-create-ssh-keys.md)
@@ -36,7 +36,7 @@ Bu makalede Azure CLI 2.0 ile SMB bağlama kullanarak bir Linux VM üzerinde Azu
 * Bir Azure depolama hesabı
 * Azure depolama hesabı anahtarları
 * Azure File storage paylaşımı
-* A Linux VM
+* Bir Linux VM
 
 Tüm örnekleri kendi ayarlarınızla değiştirin.
 
@@ -49,14 +49,14 @@ mkdir -p /mnt/mymountpoint
 ### <a name="mount-the-file-storage-smb-share-to-the-mount-point"></a>SMB paylaşımı bağlama noktasına dosya depolama bağlama
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ### <a name="persist-the-mount-after-a-reboot"></a>Bağlama yeniden başlatmanın ardından sürdürülmesi
 Bunu yapmak için aşağıdaki satırı ekleyin `/etc/fstab`:
 
 ```bash
-//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+//myaccountname.file.core.windows.net/mysharename /mnt/mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 ## <a name="detailed-walkthrough"></a>Ayrıntılı kılavuz
@@ -121,7 +121,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
     SMB paylaşımı bağlamak için Linux dosya sistemindeki yerel bir dizin oluşturun. Herhangi bir şey yazıldığı veya yerel bağlama dizininden okuma iletilir File storage'ı barındırılan SMB paylaşımına. Yerel bir dizine /mnt/mymountdirectory oluşturmak için aşağıdaki örneği kullanın:
 
     ```bash
-    sudo mkdir -p /mnt/mymountdirectory
+    sudo mkdir -p /mnt/mymountpoint
     ```
 
 6. Yerel dizin SMB paylaşımı bağlayın.
@@ -129,7 +129,7 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
     Aşağıdaki gibi kendi depolama hesap kullanıcı adı ve depolama hesabı anahtarı bağlama kimlik bilgileri sağlayın:
 
     ```azurecli
-    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+    sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountpoint -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
     ```
 
 7. SMB bağlama yeniden başlatmalar aracılığıyla kalıcı olmasını sağlar.
@@ -137,11 +137,11 @@ Bu ayrıntılı kılavuz biz ilk File storage paylaşımı oluşturmak için ger
     Linux VM'i yeniden başlattığınızda takılı SMB paylaşımı kapatma sırasında kaldırılan değil. Önyükleme SMB paylaşımında yeniden bağlamaya yönelik Linux /etc/fstab bir satır ekleyin. Linux önyükleme işlemi sırasında bağlamak için gereken dosya sistemlerini listelemek için fstab dosyasını kullanır. SMB paylaşımı ekleme File storage paylaşımını Linux VM için kalıcı bağlı dosya sistemi olmasını sağlar. Bulut init kullandığınızda, SMB paylaşımı dosya depolama için yeni bir VM ekleme mümkündür.
 
     ```bash
-    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountdirectory cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+    //myaccountname.file.core.windows.net/mystorageshare /mnt/mymountpoint cifs vers=3.0,username=mystorageaccount,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
     ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Bir Linux VM oluşturma sırasında özelleştirmek için bulut init kullanma](using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Linux VM’ye disk ekleme](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Azure CLI kullanarak bir Linux VM disklerde şifrele](encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Bir Linux VM oluşturma sırasında özelleştirmek için bulut init kullanma](using-cloud-init.md)
+- [Linux VM’ye disk ekleme](add-disk.md)
+- [Azure CLI kullanarak bir Linux VM disklerde şifrele](encrypt-disks.md)

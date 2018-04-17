@@ -3,7 +3,7 @@ title: Bulut (Node.js) - Intel Edison'u Azure IOT Hub'ına bağlanmak için Inte
 description: Kurulum ve Intel Edison'u'nın bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub Intel Edison'u bağlanma hakkında bilgi edinin.
 services: iot-hub
 documentationcenter: ''
-author: shizn
+author: rangv
 manager: timlt
 tags: ''
 keywords: Azure IOT Intel edison'u, Intel edison'u IOT hub, Intel edison'u buluta, Intel veri Gönder edison'u bulut
@@ -13,14 +13,14 @@ ms.devlang: nodejs
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 6/15/2017
-ms.author: xshi
+ms.date: 4/11/2018
+ms.author: rangv
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a31efba704045196b5563f7bc467c773bea7805
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78dd623d021daa7f8cb0d52dd4e438aebe81e924
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-nodejs"></a>Azure IOT Hub (Node.js) Intel Edison'u Bağlan
 
@@ -57,7 +57,7 @@ Intel Edison'u, oluşturduğunuz bir IOT hub'ına bağlanın. Ardından, örnek 
 * Bir Internet bağlantısı.
 * Tür bir USB kablosu mikro B
 * Bir doğrudan geçerli (DC) güç kaynağı. Güç kaynağı gibi derecelendirilmiş:
-  - 7-15V DC
+  - 7 15V DC
   - En az 1500mA
   - Merkezi/iç PIN güç kaynağı, pozitif kutbu'na olmalıdır
 
@@ -73,7 +73,7 @@ Kod örneği desteği algılayıcı verilerini benzetimli çünkü bu öğeler i
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
-## <a name="setup-intel-edison"></a>Setup Intel Edison
+## <a name="setup-intel-edison"></a>Intel Edison'u Kurulumu
 
 ### <a name="assemble-your-board"></a>Panonuzu birleştirin
 
@@ -115,7 +115,7 @@ Panonuz artık derlenip.
 
 Artık, algılayıcı hazırdır.
 
-### <a name="power-up-edison"></a>Power up Edison
+### <a name="power-up-edison"></a>Güç Edison'u ayarlama
 
 1. Güç kaynağı takın.
 

@@ -1,25 +1,20 @@
 ---
-title: "SQL Veri Ambarı için destek bileti oluşturma | Microsoft Belgeleri"
-description: "Azure SQL Data Warehouse'da destek bileti oluşturma"
+title: Azure SQL Data Warehouse için destek bileti oluşturma | Microsoft Docs
+description: Azure SQL Data Warehouse'da destek bileti oluşturma
 services: sql-data-warehouse
-documentationcenter: NA
 author: kevinvngo
-manager: jhubbard
-editor: 
-ms.assetid: a91d1f53-03cb-464b-9d5b-4a9c1a194ed3
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 10/31/2016
-ms.author: kevin;barbkess
-ms.openlocfilehash: 66aa12431e39ce295ce76411693bd20535a5c70c
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
-ms.translationtype: HT
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: 1485ff4392caa5df0851d46a964c7699c9f8e90b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse için destek bileti oluşturma
 SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız mühendislik destek ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.

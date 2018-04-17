@@ -1,9 +1,9 @@
 ---
-title: "Etkinlik günlüğü uyarılar oluşturabilir ve bunları Azure İzleyicisi'nde yeni uyarılar (Önizleme) deneyimi kullanarak yönetme | Microsoft Docs"
-description: "Bu makalede Azure İzleyicisi altında uyarıları (Önizleme) sekmesinden etkinlik günlüğü uyarıları oluşturma hakkında bilgi sağlar. Bu makalede, bu özellik için yeni kullanıcı deneyimi ayrıntıları verilmektedir."
+title: Etkinlik günlüğü uyarılar oluşturabilir ve bunları Azure İzleyicisi'nde yeni uyarılar (Önizleme) deneyimi kullanarak yönetme | Microsoft Docs
+description: Bu makalede Azure İzleyicisi altında uyarıları (Önizleme) sekmesinden etkinlik günlüğü uyarıları oluşturma hakkında bilgi sağlar. Bu makalede, bu özellik için yeni kullanıcı deneyimi ayrıntıları verilmektedir.
 author: JYOTHIRMAISURI
 manager: vvithal
-editor: 
+editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: 
-ms.openlocfilehash: a7553e4155df0d4ee49b798f44ca636dc7ecdcd2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.custom: ''
+ms.openlocfilehash: 740edfd158d56fcb224cf93d1720a2330779bfd6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-preview-experience"></a>Yeni uyarılar (Önizleme) kullanarak uyarıları deneyimi etkinlik günlüğü oluşturma
 
@@ -103,13 +103,13 @@ Aşağıdaki yordamı kullanın:
 
     **Uyarı mantığı**:
 
-        - **Event Level**- The severity level of the event.**Verbose,Informational, Warning, Error**, or **Critical**.
-        - **Status**: The status of the event.**Started, Failed**, or **Succeeded**.
-        - **Event initiated by**: Also known as the caller; The email address or Azure Active Directory identifier of the user who performed the operation.
+     - **Olay düzeyi**-olay önem derecesi. **Ayrıntılı, bilgi, uyarı, hata**, veya **kritik**.
+     - **Durum**: olay durumu. **Başlatıldı, başarısız**, veya **başarılı**.
+     - **Olayı başlatan tarafından**: çağıran; da bilinir E-posta adresi veya işlemi gerçekleştiren kullanıcının Azure Active Directory tanıtıcısı.
 
-        **Sample signal graph with alert logic applied** :
+        **Örnek sinyal grafik uygulanan uyarı mantığı ile** :
 
-        ![ criteria selected](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ Seçilen ölçütü](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
 
 4. Altında **uyarı kuralları ayrıntılarını tanımlayın**, şu bilgileri sağlayın:
 

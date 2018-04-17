@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: muralikk
-ms.openlocfilehash: cc36fdde962ec44d679dc0e96f440b0437a84fa8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e94466d9d41bbc6a2100256d96e19d0d13600cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Azure depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma
 Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob Depolama ve Azure dosyaları için bir Azure veri merkezine sevkiyat disk sürücüleri tarafından aktarımı için Azure içeri/dışarı aktarma hizmeti kullanma hakkında adım adım yönergeler sağlar. Bu hizmet, Azure depolama biriminden sabit disk sürücülerine verileri aktarmak ve şirket içi siteleriniz sevk etmek için de kullanılabilir. Tek bir dahili SATA disk sürücüsü verileri Azure Blob storage veya Azure dosyaları içeri aktarılabilir. 
@@ -45,8 +45,8 @@ Bu makalede, sizi güvenli bir şekilde büyük miktarlarda verinin Azure Blob D
     |Seçenek  |Açıklama  |
     |---------|---------|
     |/j:     |.Jrn uzantısı ile günlük dosyasının adıdır. Sürücü bir günlük dosyası oluşturulur. Disk seri numarası günlük dosyası adı olarak kullanılması önerilir.         |
-    |/sk:     |Azure depolama hesabı anahtarı.         |
-    |/t:     |Sürücü harfi edilmeye disk. Örneğin, sürücü `D`.         |
+    |/SK:     |Azure depolama hesabı anahtarı.         |
+    |/ t:     |Sürücü harfi edilmeye disk. Örneğin, sürücü `D`.         |
     |/bk:     |Sürücü için BitLocker anahtar. Sayısal parolasını çıktısından ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Edilmeye diskinin sürücü harfi ve ardından `:\`. Örneğin, `D:\`.         |
     |/dstdir:     |Azure depolama alanındaki hedef kapsayıcı adı         |
@@ -431,7 +431,7 @@ Aşağıdaki ön denetimleri sürücülerinizin dışa aktarma işi için hazır
    | İle başlar |/Music/ |Kapsayıcıdaki tüm blob'lara aktarır **müzik** |
    | İle başlar |/ Müzik/love |Kapsayıcıdaki tüm blob'lara aktarır **müzik** önek ile başlayan **memnuniyet** |
    | Eşit |$root/logo.bmp |Dışarı aktarma blob **logo.bmp** kök kapsayıcısında |
-   | Eşit |videos/story.mp4 |Dışarı aktarma blob **story.mp4** kapsayıcısında **videolar** |
+   | Eşit |Videos/Story.mp4 |Dışarı aktarma blob **story.mp4** kapsayıcısında **videolar** |
    
    Bu ekran görüntüsünde gösterildiği gibi işleme sırasında hataları önlemek için geçerli biçimler blob yollarında sağlamanız gerekir.
    
@@ -560,7 +560,7 @@ En fazla sayfa Blob boyutu 1 TB'tır.
 
 AES 128 bitlocker şifrelemesi ile Azure içeri/dışarı aktarma hizmeti varsayılan olarak şifreler, ancak AES 256 Bu artırılabilir veri kopyalamadan önce el ile bitlocker ile şifreleyerek. 
 
-Kullanıyorsanız [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), aşağıda bir örnek komut verilmiştir
+Kullanıyorsanız [WAImportExport V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip), aşağıda bir örnek komut verilmiştir
 ```
 WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
 ```

@@ -7,14 +7,14 @@ ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 04/10/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b633c3c4a4f476cb8e89afde8adeb94558643d4b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0fe0b5d3120833b8472fcdaee366a5d1f2818600
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -239,7 +239,7 @@ Daha fazla bilgi için bkz: [FILESTREAM](https://docs.microsoft.com/sql/relation
 ### <a name="linked-servers"></a>Bağlı sunucular
  
 Bağlantılı sunucular yönetilen örneğinde hedefleri sınırlı sayıda destek: 
-- Hedefleri desteklenen: SQL Server, SQL veritabanı, yönetilen örneği ve bir sanal makinede SQL Server.
+- Hedefleri desteklenen: SQL Server ve SQL veritabanı
 - Hedefleri desteklenmez: dosya, Analysis Services ve diğer RDBMS.
 
 İşlemler
@@ -280,7 +280,7 @@ Dış tablolara başvuran HDFS veya Azure blob storage'da dosyaları desteklenme
  - `FROM DISK`/`TAPE`/ yedekleme aygıtı desteklenmiyor.
  - Yedekleme kümesi desteklenmiyor. 
 - `WITH` seçenekleri desteklenmez (No `DIFFERENTIAL`, `STATS`vb..)     
-- `ASYNC RESTORE` -İstemci bağlantısını keser olsa bile geri yükleme devam eder. Bağlantınızı kesilirse kontrol edebilirsiniz `sys.dm_operation_status` görünüm için bir geri yükleme işlemi durumunu (yanı sıra oluştur ve açılan veritabanı için). See [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
+- `ASYNC RESTORE` -İstemci bağlantısını keser olsa bile geri yükleme devam eder. Bağlantınızı kesilirse kontrol edebilirsiniz `sys.dm_operation_status` görünüm için bir geri yükleme işlemi durumunu (yanı sıra oluştur ve açılan veritabanı için). Bkz: [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database).  
  
 Aşağıdaki veritabanı seçenekleri kümesi ve geçersiz ve daha sonra değiştirilemez:  
 - `NEW_BROKER` (Aracısı .bak dosyasında etkin değilse)  
@@ -419,4 +419,4 @@ Yalnızca bir veritabanı posta profili olabilir ve çağrılması gerekir `Azur
 
 - Yönetilen örneği hakkında daha fazla ayrıntı için bkz: [yönetilen örneği nedir?](sql-database-managed-instance.md)
 - Bir özellik için ve karşılaştırma listesi, bkz: [SQL ortak özellikleri](sql-database-features.md).
-- Bir öğretici için bkz: [bir yönetilen örneği oluşturmayı](sql-database-managed-instance-tutorial-portal.md).
+- Yeni bir yönetilen örneğinin nasıl oluşturulacağını gösteren bir öğretici için bkz: [yönetilen örneği oluşturma](sql-database-managed-instance-create-tutorial-portal.md).

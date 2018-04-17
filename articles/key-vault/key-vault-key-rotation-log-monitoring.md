@@ -1,11 +1,11 @@
 ---
-title: "Azure anahtar kasası uçtan uca anahtar döndürme ve denetim ayarlama | Microsoft Docs"
-description: "Anahtar rotasyonu ve izleme anahtar kasası günlükleri ayarlanmasını yardımcı olması için bu nasıl yapılır konuları kullanın."
+title: Azure anahtar kasası uçtan uca anahtar döndürme ve denetim ayarlama | Microsoft Docs
+description: Anahtar rotasyonu ve izleme anahtar kasası günlükleri ayarlanmasını yardımcı olması için bu nasıl yapılır konuları kullanın.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: swgriffith
 manager: mbaldwin
-tags: 
+tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
 ms.service: key-vault
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: jodehavi;stgriffi
-ms.openlocfilehash: edc9a870257536235c2bef139dc4d1ead7dd7a8f
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.author: stgriffi
+ms.openlocfilehash: 701edc784dcde067e8ec585a3b31d6075207fbbf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Azure Anahtar Kasası’nı uçtan uca döndürme ve denetleme ile ayarlama
 ## <a name="introduction"></a>Giriş

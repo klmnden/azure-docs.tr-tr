@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - erişim denetimi"
-description: "FedRAMP Web uygulamaları Otomasyon - erişim denetimi"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - erişim denetimi
+description: FedRAMP Web uygulamaları Otomasyon - erişim denetimi
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 73ce33bc6136b9b76661dc9e29b3a11c3eabc5f8
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 3d30f889c4d7ed0dafcf8559e8987090c03f4d5e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="access-control-ac"></a>Access Control (AC)
+# <a name="access-control-ac"></a>Erişim denetimi (AC)
 
 > [!NOTE]
 > Bu denetimler NIST ve ABD tarafından tanımlanır Ticaret Bakanlığı NIST özel yayını 800-53 düzeltme 4 bir parçası olarak. Yordamlar ve yönergeler her denetim için test etme hakkında bilgi için NIST 800 53 düzeltme 4 bakın.
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt, koordinasyonu bir erişim denetimi İlkesi Kurumsal varlıklar ve uyumluluk arasında; ve erişim denetimi ilkesini ve ilişkili erişim denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli erişim denetim ilkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve erişim denetim yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.a** kuruluş tanımlar ve kuruluş görevler/iş işlevleri desteklemek için bilgi sistem hesapları aşağıdaki türlerini seçer: [atama: kuruluş tarafından tanımlanan bilgileri sistem hesap türleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.b** kuruluş bilgileri sistem hesapları için hesap yöneticileri atar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.c** grup ve rol üyeliğini koşullarını organizasyon oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.d** bilgi sistemi, Grup ve rol üyeliğini ve erişim yetkili kullanıcıların kuruluş belirtir yetkilerini (yani, ayrıcalıklar) ve her hesap için (gerektiği gibi) diğer öznitelikleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.e** Onaylar tarafından kuruluşunuza [atama: kuruluş tarafından tanımlanan personel ya da roller] bilgileri Sistem hesaplarını oluşturmak istekleri için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.f** kuruluş oluşturur, sağlar, değiştirir, devre dışı bırakır ve ile uyumlu olarak bilgi sistem hesapları kaldırır [atama: kuruluş tarafından tanımlanan yordamları veya koşulları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,11 +129,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.g** kuruluş bilgileri sistem hesapları kullanımını izler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.h** sonlandırıldı ya da aktarılan; kullanıcı hesapları artık gerekli; ne ve ne zaman kuruluş hesap yöneticileri uyarır bilmeniz gerek değişiklikleri veya tek tek bilgi sistem kullanımı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.i** kuruluş geçerli erişim yetkilendirme; hedeflenen sistem kullanımı; ve kuruluş veya ilişkili görevler/iş işlevleri gerektirdiği gibi diğer öznitelikleri göre bilgi sisteme erişim yetkisi verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.j** kuruluş hesabı Yönetimi gereksinimleri ile uyumluluk için hesapları incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 2.k** kuruluşun kişiler gruptan kaldırıldığında paylaşılan grup hesabının kimlik bilgilerini (dağıtıldıysa) vermeye yönelik bir proses oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,11 +199,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (1)** kuruluş bilgilerini system hesaplarının yönetimini desteklemek için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. OMS alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. Alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (2)** bilgi sistemi otomatik olarak [seçim: kaldırır; devre dışı bırakır] sonra geçici ve Acil Durum hesapları [atama: süre her hesap türü için kuruluşunuz tarafından tanımlanan].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (3)** bilgileri sistem otomatik olarak sonra etkin olmayan hesaplar devre dışı bırakır [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,11 +241,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (4)** bilgi sistemi otomatik olarak hesabı oluşturulması, değiştirilmesi, etkinleştirme, devre dışı bırakma ve kaldırma eylemleri denetler ve bildirir ve [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Aşağıdaki sistem hesap türleri bu şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesabı yönetim eylemleri bir olayı Azure etkinlik günlüğü oluşturur; İşletim sistemi düzeyinde bir hesap yönetimi eylemleri sistem günlüğüne bir olay oluşturur. Bu günlükler günlük analizi tarafından toplanan ve OMS deposunda saklanır. OMS önceden tanımlanmış olaylar meydana geldiğinde uyarıları göndermek üzere yapılandırılabilir.  |
+| **Müşteri** | Aşağıdaki sistem hesap türleri bu şeması uygulayan: Azure Active Directory kullanıcılarını, Windows işletim sistemi kullanıcılar, SQL Server hizmet hesabı. Azure Active Directory hesabı yönetim eylemleri bir olayı Azure etkinlik günlüğü oluşturur; İşletim sistemi düzeyinde bir hesap yönetimi eylemleri sistem günlüğüne bir olay oluşturur. Bu günlükler günlük analizi tarafından toplanan ve günlük analizi çalışma alanında depolanır. Günlük analizi, önceden tanımlanmış olaylar meydana geldiğinde uyarıları göndermek üzere yapılandırılabilir.  |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (5)** kuruluşun kullanıcılar ne zaman oturum gerektirir [atama: zaman aralığı kuruluşunuz tarafından tanımlanan beklenen etkinlik veya ne zaman oturum kapatma açıklaması].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (7) bir** kuruluş kurar ve ayrıcalıklı kullanıcı hesaplarına izin verilen bilgi sistem erişimi ve ayrıcalıkları rollere düzenler bir rol tabanlı erişim düzeni uygun olarak yönetir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -277,27 +277,27 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-2-7b"></a>NIST 800-53 Control AC-2 (7).b
+ ### <a name="nist-800-53-control-ac-2-7b"></a>NIST 800 53 AC-2 (7) .b denetleme
 
 #### <a name="account-management--role-based-schemes"></a>Hesap Yönetimi | Rol tabanlı düzenleri
 
 **AC-2 (7) .b** kuruluş ayrıcalıklı rol atamaları izler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. Bu çözüm, ayrıcalıklı rol atamaları bildirmek için sorgulanabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoyu bilgi sistem hesapları kullanımını izlemek hesap yöneticileri sağlar. Bu çözüm, ayrıcalıklı rol atamaları bildirmek için sorgulanabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-2-7c"></a>NIST 800-53 Control AC-2 (7).c
+ ### <a name="nist-800-53-control-ac-2-7c"></a>NIST 800 53 AC-2 (7) .c denetleme
 
 #### <a name="account-management--role-based-schemes"></a>Hesap Yönetimi | Rol tabanlı düzenleri
 
 **AC-2 (7) .c** kuruluş alır [atama: kuruluş tarafından tanımlanan Eylemler] ne zaman ayrıcalıklı rol atamaları artık uygun.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (9)** kuruluş yalnızca karşılayan paylaşılan grup hesapları kullanımına izin verir [atama: paylaşılan grup hesapları oluşturma için kuruluş tanımlanan koşullar].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (10)** üyeleri grubu ayrıldığında bilgi sistemi paylaşılan grup hesabının kimlik bilgilerini sonlandırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (11)** bilgi sistemi zorlar [atama: kuruluş tarafından tanımlanan koşullar ve/veya kullanım koşulları] için [atama: kuruluş tarafından tanımlanan bilgileri sistem hesapları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,11 +353,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) bir** kuruluş için bilgi sistem hesapları izler [atama: alışılmadık kullanımı kuruluş tanımlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -367,11 +367,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (12) .b** kuruluş bilgilerini system hesaplarının alışılmadık kullanım raporları [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması OMS güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. Bu çözüm, alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
+| **Müşteri** | Bu şeması güvenlik ve denetim çözümün kimlik ve erişim Pano uygular. Bu panoya erişim denemesi dağıtılan kaynaklara karşı izlemek hesap yöneticileri sağlar. Bu çözüm, alışılmadık etkinliği şüpheli veya diğer önceden tanımlanmış olaylarından uyarıları göndermek üzere yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-2 (13)** kuruluş içindeki önemli bir riski taşıyor kullanıcıların hesaplarını devre dışı bırakır [atama: kuruluş tanımlı süre] riskin bulma.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-3** bilgileri sistem bilgileri ve sistem kaynakları geçerli erişim denetim ilkelerini uygun şekilde mantıksal erişimi için onaylanan yetkilerini zorlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4** bilgileri sistem sistemi içinde ve temel birbirine sistemleri arasındaki bilgi akışını denetlemek için onaylanan yetkilerini zorlar [atama: kuruluş tarafından tanımlanan bilgileri akış denetimi ilkeleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (8)** bilgileri akış denetimi kullanarak bilgi sistemi zorlar [atama: kuruluş tanımlanan güvenlik ilke filtrelerini] temel akış denetimi kararlarını olarak [atama: kuruluş tarafından tanımlanan bilgileri akışları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-4 (21)** mantıksal veya fiziksel olarak kullanarak bilgi akışları bilgi sistemi ayıran [atama: kuruluş tarafından tanımlanan mekanizmaları ve/veya teknikleri] gerçekleştirmek için [atama: kuruluş tarafından tanımlanan gerekli tür tarafından ayırmaları Bilgi].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.a** kuruluş ayıran [atama: kuruluş tarafından tanımlanan görevlerini kişilerin].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.b** kuruluş, görevlerin ayrılmasını kişilerin belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 5.c** kuruluş, görevlerin ayrılmasını desteklemek için bilgi sistem erişim yetkilerini tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6** kuruluş kuruluş görevler uygun olarak atanan görevleri gerçekleştirmek gerekli olan yetkili erişimi kullanıcılar (veya kullanıcılar adına hareket işlemleri) için izin vererek, en az ayrıcalık ilkesini uygular ve İş işlevleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (1)** kuruluş açıkça erişimini yetkilendirir [atama: (donanım, yazılım ve bellenim dağıtılan) güvenlik kuruluşunuz tarafından tanımlanan işlevler ve güvenlik ilgili bilgileri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (2)** kuruluş gerektiren bilgi sistem hesapları veya rolleri erişimi olan kullanıcıları [atama: kuruluş tanımlanan güvenlik işlevleri veya güvenlik ilgili bilgileri], ayrıcalıklı olmayan hesaplar veya rolleri kullanın olduğunda güvenlikle ilgili olmayan işlevleri erişme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (3)** kuruluş ağ erişimini yetkilendirir [atama: kuruluş tarafından tanımlanan ayrıcalıklı komutları] yalnızca [atama: kuruluş tanımlı işlem ihtiyaçlarını çekici] ve bu tür erişim için stratejinin belgeleri bilgi sistemi güvenlik planı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (5)** kuruluş için bilgi sistemde ayrıcalıklı hesapların kısıtlayan [atama: kuruluş tarafından tanımlanan personel ya da roller].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (7) bir** kuruluş incelemeler [atama: kuruluş tarafından tanımlanan sıklığı] atanan ayrıcalıkları [atama: kuruluş tanımlı roller veya kullanıcı sınıfları] böyle ayrıcalıklarına gerek doğrulamak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -571,13 +571,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ### <a name="nist-800-53-control-ac-6-7b"></a>NIST 800-53 Control AC-6 (7).b
+ ### <a name="nist-800-53-control-ac-6-7b"></a>NIST 800 53 AC-6 (7) .b denetleme
 
 #### <a name="least-privilege--review-of-user-privileges"></a>En az ayrıcalık | Kullanıcı ayrıcalıkları, gözden geçirme
 
 **AC-6 (7) .b** kuruluş yeniden atar veya ayrıcalıkları, gerekirse, doğru kuruluş görev iş gereksinimleriniz yansıtacak şekilde kaldırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (8)** bilgi sistemi engeller [atama: kuruluş tanımlı yazılım] yazılım yürütme kullanıcıları daha yüksek ayrıcalık düzeyde yürütülmesini.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,11 +605,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (9)** bilgi sistemi ayrıcalıklı işlevleri yürütmesini denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti OMS uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesaplarıdır ayrıcalıklı işlevleri yürütmesini denetlenir günlük analizi sağlamak için bağlı kaynaklar. |
+| **Müşteri** | Bu ayrıntılı günlük analizi hizmeti uygular. Dağıtılan VM'ler ve Azure tanılama depolama hesaplarıdır ayrıcalıklı işlevleri yürütmesini denetlenir günlük analizi sağlamak için bağlı kaynaklar. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-6 (10)** devre dışı, atlamak, dahil etmek için ayrıcalıklı işlevler yürütülmesini ayrıcalıklı olmayan kullanıcılar bilgi sistemi engeller ya da uygulanan güvenlik önlemlerinin/önlemler değiştirme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.a** bilgi sistemi sınırı zorlar [atama: kuruluş tanımlı sayı] ardışık geçersiz oturum açma girişimi sırasında bir kullanıcı tarafından bir [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 7.b** bilgi sistemi otomatik olarak [seçim: hesap/düğümü için kilitler bir [atama: kuruluş tanımlı süre]; bir yönetici tarafından yayımlanan kadar hesap/düğüm kilitler; gecikmeler [göre bir sonraki oturum açma istemini Atama: kuruluş tarafından tanımlanan gecikme algoritması]] zaman başarısız deneme sayısı aşıldı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-7 (2)** bilgi sistemi temizler/temizleme bilgilerinden [atama: mobil cihazları kuruluşun tanımlı] göre [atama: kuruluş tanımlı gereksinimleri/teknikleri temizleme/silme] sonra [atama: Kuruluş tanımlı sayı] aygıt ardışık, başarısız oturum açma girişimleri.
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.a** kullanıcılara bilgi sistemi görüntülediği [atama: kuruluş tarafından tanımlanan sistem bildirim iletisi veya başlık kullanın] güvenlik ve gizlilik bildirimlerini geçerli federal ile tutarlı sağlayan sistem erişim vermeden önce yasaları, Executive siparişler, yönergeleri, ilkeleri, düzenlemeler, standartları ve Kılavuzu ve bir ABD erişen kullanıcı durumları Kamu bilgi sistemi; bilgi sistem kullanımı, kayıtlı ve denetim tabi izlenmesi; yetkisiz bilgi sistemi yasaklanmış ve suçlunun tabidir ve hukuki kullanımıdır; ve izleme ve kaydetme onay bilgi sistemi kullanımını gösterir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.b** kullanıcılar kullanım koşulları kabul etmek ve oturum açın veya daha fazla bilgi sistemi erişmek için açık eylemleri kadar bilgi sistemi bildirim iletisi veya ekran başlığında korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 8.c** bilgileri sistem genel olarak erişilebilir sistemleri için sistem kullanım bilgilerini görüntüler [atama: kuruluş tanımlanan koşullar], daha fazla erişim vermeden önce başvuruları varsa, izleme için görüntüler kaydı veya denetleme genellikle bu etkinlikleri engelle bu sistemlere gizlilik konaklamaları ile tutarlı; ve yetkili kullandığı sisteminin açıklamasını içerir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 10** bilgi sistemi her eşzamanlı oturum sayısını sınırlar [atama: kuruluş tanımlı bir hesabı ve/veya hesap türü] için [atama: kuruluş tanımlı sayı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.a** bilgi sistemi, bir oturumun kilidi sonra başlatarak sisteme başka erişimi engeller [atama: kuruluş tanımlı süre] yapılmadıktan veya bir kullanıcı isteği aldıklarında.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 11.b** kullanıcı erişimi kurulan tanımlama ve kimlik doğrulama yordamları kullanarak yeniden kurar kadar bilgi sistemi oturum kilidi korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-11 (1)** bilgi sistemi gizlendiğinden, oturumun kilidi herkes tarafından izlenen bir görüntü ile görüntüleme hakkında bilgi daha önce görünür.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12** bilgileri sistem bir kullanıcı oturumu sonra otomatik olarak sona erdirmeden [atama: kuruluş tanımlanan koşullar veya tetikleyici olay oturumu bağlantıyı kes gerektiren].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12 (1) bir** bilgi sistemi bir oturum kapatma özelliği kullanıcı tarafından başlatılan iletişim için kimlik doğrulaması erişmek için kullanılan her oturumları sağlar [atama: kuruluş tarafından tanımlanan bilgileri kaynakları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-12 (1) .b** bilgi sistemi kimliği doğrulanmış iletişimler oturumları güvenilir sonlandırılması belirten kullanıcılara bir açık oturum kapatma iletisi görüntüler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.a** kuruluş tanımlayan [atama: kuruluş tarafından tanımlanan kullanıcı eylemlerini] bilgi sistemde kimliği veya kuruluş görevler/iş işlevleri ile tutarlı kimlik doğrulaması olmadan gerçekleştirilebilir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 14.b** kuruluş belgeler ve destekleyici stratejinin güvenlik planında bilgileri sistem için kimlik veya kimlik doğrulaması gerektirmeyen kullanıcı eylemlerini sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.a** kuruluş oluşturur ve kullanım kısıtlamaları, yapılandırma/bağlantı gereksinimleri ve izin verilen uzaktan erişim her tür uygulama kılavuzunu belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 17.b** kuruluş bu tür bağlantıları vermeden önce bilgi sisteme uzaktan erişim yetkisi verir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -871,11 +871,11 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (1)** bilgi sistemi izler ve Uzaktan erişim yöntemleri denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı bilgi sistemi bir müşteri uygulanan web uygulaması ve bir jumpbox aracılığıyla Uzak Masaüstü bağlantısı üzerinden Azure Portalı aracılığıyla uzak erişim sağlar. Azure portal ve Uzaktan Yardım oturumları aracılığıyla erişir denetlenir ve OMS izlenebilir. Müşteri web uygulaması için gereken uzaktan erişim denetimleri uygulamalıdır. |
+| **Müşteri** | Bu ayrıntılı bilgi sistemi bir müşteri uygulanan web uygulaması ve bir jumpbox aracılığıyla Uzak Masaüstü bağlantısı üzerinden Azure Portalı aracılığıyla uzak erişim sağlar. Azure portal ve Uzaktan Yardım oturumları aracılığıyla erişir denetlenir ve günlük analizi izlenebilir. Müşteri web uygulaması için gereken uzaktan erişim denetimleri uygulamalıdır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -885,7 +885,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (2)** bilgi sistemi, uzaktan erişim oturumlarının bütünlüğü ve gizliliği korumak için şifreleme mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -899,7 +899,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (3)** aracılığıyla tüm uzaktan erişim bilgileri sistem yolları [atama: kuruluş tanımlı sayı] yönetilen ağ erişim denetim noktaları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -913,7 +913,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (4) bir** kuruluş ayrıcalıklı komutlar ve yalnızca için uzaktan erişim aracılığıyla güvenlik ilgili bilgilere erişim yürütülmesi yetkilendirir [atama: kuruluşunuzun ihtiyaçlarını tanımlı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (4) .b** bilgi sistemi güvenlik planı stratejinin gibi erişim için kuruluş belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-17 (9)** kuruluş süratle çağrı yapın bağlantısını kesmek veya bilgi sistem içinde uzaktan erişimi devre dışı yeteneği sağlar [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.a** kullanım kısıtlamaları, yapılandırma/bağlantı gereksinimleri ve uygulama kılavuzunu kablosuz erişim için kuruluş oluşturur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -969,7 +969,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 18.b** kuruluş bu tür bağlantıları vermeden önce bilgi sisteme kablosuz erişim yetkisi verir.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -983,7 +983,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (1)** kablosuz erişim için kimlik doğrulaması kullanarak sistem bilgileri sistem korur [seçimi (bir veya daha fazla): kullanıcılar; aygıtları] ve şifreleme.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -997,7 +997,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (3)** kullanım için tasarlanmamıştır, kuruluş devre dışı bırakır, kablosuz dahili olarak bilgi sistem bileşenleri verme ve dağıtım öncesinde içinde katıştırılmış yetenekleri ağ.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -1011,7 +1011,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (4)** kuruluş tanımlar ve açıkça bağımsız olarak kablosuz ağ özellikleri yapılandırmak için izin verilen kullanıcıların yetkilendirir.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -1025,7 +1025,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-18 (5)** kuruluş radyo antenler seçer ve kullanılabilir sinyalleri kuruluş denetlenen sınırları dışında aldığınızı olasılığını azaltmak için iletim güç düzeylerini yanı sıra de.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -1039,7 +1039,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.a** kuruluş kullanım kısıtlamaları, yapılandırma gereksinimleri, bağlantı gereksinimleri ve kuruluş tarafından denetlenen mobil aygıtlar için Uygulama Kılavuzu oluşturur.
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -1053,7 +1053,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 19.b** kuruluş kuruluş bilgi systems mobil aygıtlara bağlantı yetkilendirir.
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -1067,7 +1067,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-19 (5)** kuruluş kullanır [seçim: tam cihaz şifreleme; kapsayıcı şifrelemesi] bilgi bütünlüğü ve gizliliği korumak için [atama: kuruluş tarafından tanımlanan mobil cihazları].
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -1081,7 +1081,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.a** hüküm ve koşullar, işletim yapamaz, diğer kuruluşlarla kurulan herhangi bir güven ilişkisine tutarlı kuruluş kurar ve/veya dış bilgi systems, izin verme koruma yetkili kişiler Dış bilgi sistemlerden bilgi sisteme erişmek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1095,7 +1095,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 20.b** hüküm ve koşullar, işletim yapamaz, diğer kuruluşlarla kurulan herhangi bir güven ilişkisine tutarlı kuruluş kurar ve/veya dış bilgi systems, izin verme koruma yetkili kişiler işlem, saklamak veya dış bilgi systems kullanarak kuruluş denetlenen bilgi aktarmak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1109,7 +1109,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20 (1)** kuruluş bilgi sisteme erişmek için işlem, saklamak veya yalnızca kuruluş doğrularken kuruluş denetlenen bilgi iletimi için bir dış bilgi sistemi kullanmaya yetkili kişiler izin verir. gerekli güvenlik denetimleri kuruluşunuzun bilgi güvenlik ilkesi ve güvenlik planı belirtildiği gibi dış sistemdeki uyarlamasını; veya dış bilgi sistemi barındırma kuruluş varlıkla onaylanan bilgileri sistem bağlantı veya işleme anlaşmaları korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1123,7 +1123,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC-20 (2)** kuruluş [seçim: kısıtlar; yasaklar] dış bilgi sistemlerde yetkili kişiler tarafından kuruluş denetlenen taşınabilir depolama aygıtlarının kullanımını.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -1137,7 +1137,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.a** kuruluş bilgi paylaşımı ortağına atanmış erişim kimlik doğrulamalarını bilgilerini erişim kısıtlamalarını eşleşip eşleşmediğini belirlemek yetkili kullanıcıların etkinleştirerek paylaşımı kolaylaştıran [atama: Kullanıcı kendi takdirine bağlı gerekli olduğu durumlarda paylaşımı kuruluş tarafından tanımlanan bilgileri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1151,7 +1151,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 21.b** kuruluş kullanır [atama: kuruluş tarafından tanımlanan otomatik mekanizmaları veya el ile işlemler] bilgi paylaşımı işbirliği kararları vermekte yol kullanıcılara yardımcı olmak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1159,13 +1159,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22a"></a>NIST 800-53 Control AC-22.a
+ ## <a name="nist-800-53-control-ac-22a"></a>NIST 800 53 denetim AC-22.a
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 
 **AC 22.a** kuruluş genel olarak erişilebilir bilgi sistemi üzerine bilgi göndermek için yetkili kişiler belirler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1179,7 +1179,7 @@ ms.lasthandoff: 02/11/2018
 
 **AC 22.b** kuruluş genel olarak erişilebilir bilgi özel bilgiler içermediğinden emin olmak için yetkili kişiler eğitir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1187,13 +1187,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22c"></a>NIST 800-53 Control AC-22.c
+ ## <a name="nist-800-53-control-ac-22c"></a>NIST 800 53 denetim AC-22.c
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 
 **AC 22.c** kuruluş ortak olmayan bilgileri dahil olmadığından emin olmak için genel olarak erişilebilir bilgi sisteme nakil önce bilgi önerilen içeriğini gözden geçirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -1201,13 +1201,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
- ## <a name="nist-800-53-control-ac-22d"></a>NIST 800-53 Control AC-22.d
+ ## <a name="nist-800-53-control-ac-22d"></a>NIST 800 53 denetim AC-22.d
 
 #### <a name="publicly-accessible-content"></a>Genel olarak erişilebilir içerik
 
 **AC 22.d** kuruluş ortak olmayan bilgileri için genel olarak erişilebilir bilgi sistemde içerik incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] bulunan gibi bilgileri kaldırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

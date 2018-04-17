@@ -7,11 +7,11 @@ manager: rloutlaw
 ms.author: tarcher
 ms.date: 3/12/2018
 ms.topic: article
-ms.openlocfilehash: db45e9fe1eb724e6404f5e83bbbe4f62ee32343d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5f0ee2904c1072a5ad8c5f7ae1c90e649cc4813c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Yönetilen hizmet kimliği ile Terraform Linux sanal makine oluşturmak için Azure Market görüntü kullanın
 
@@ -88,7 +88,7 @@ Katkıda bulunan izni Terraform VM kaynak grubu dışındaki kaynaklar oluşturm
 
  `cp  ~/tfTemplate/remoteState.tf .`
 
- Uzak durum yönetimi hakkında daha fazla bilgi için bkz: [bu sayfa Terraform uzak durumu hakkında](https://www.terraform.io/docs/state/remote.html). Depolama erişim tuşu bu dosyada sunulur ve dikkatle kaynak denetimine iade edilmesi gerekir.  
+ Uzak durum yönetimi hakkında daha fazla bilgi için bkz: [bu sayfa Terraform uzak durumu hakkında](https://www.terraform.io/docs/state/remote.html). Depolama erişim tuşu bu dosyada sunulur ve teslim etme Terraform yapılandırma dosyalarını önce kaynak denetimine hariç tutulacak gerekiyor.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu makalede, Azure üzerinde Terraform Linux sanal makine ayarlama öğrendiniz. Azure üzerinde Terraform hakkında daha fazla bilgi edinmenize yardımcı olması için bazı ek kaynaklar aşağıda verilmiştir: 

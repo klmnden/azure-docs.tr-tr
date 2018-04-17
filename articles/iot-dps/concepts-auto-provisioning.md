@@ -12,11 +12,11 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: ''
-ms.openlocfilehash: cd458b1f6d26fbd5f5821a04cd01be5c3a4e4514
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="auto-provisioning-concepts"></a>Otomatik sağlama kavramları
 
@@ -31,7 +31,7 @@ Azure IOT otomatik sağlama üç aşamaya ayrılabilir:
    > [!NOTE]
    > IOT çözümünüzü boyutundan bağımsız olarak milyonlarca cihaza, desteklemeyi planladığınız olsa bile bu olan bir **tek seferlik yapılandırma**.
 
-2. **Cihaz kaydı** -cihaz sağlama hizmet örneği gelecekte kaydolmayı deneyecek cihazların uyumlu hale getirme işlemidir. Kayıt aygıtı kimlik bilgileri sağlama hizmetinde bir "tek tek kayıt" tek bir aygıt için veya bir "grubu"için kayıt birden çok aygıt olarak yapılandırılarak sağlanır. Kimlik temel [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) cihazı kullanmak için kayıt sırasında cihazın Orijinallik şifreli olarak sağlama hizmeti sağlayan tasarlanmıştır:
+2. **Cihaz kaydı** -cihaz sağlama hizmet örneği gelecekte kaydolmayı deneyecek cihazların uyumlu hale getirme işlemidir. [Kayıt](concepts-service.md#enrollment) aygıt kimlik bilgileri sağlama hizmetinde bir "tek tek kayıt" tek bir aygıt için veya bir "grubu"için kayıt birden çok aygıt olarak yapılandırılarak sağlanır. Kimlik temel [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) cihazı kullanmak için kayıt sırasında cihazın Orijinallik şifreli olarak sağlama hizmeti sağlayan tasarlanmıştır:
 
    - **TPM**: bir "tek tek kaydı" yapılandırılmış, cihaz kimliği TPM kayıt kimliği ve ortak onay anahtarını dayanır. TPM olması koşuluyla, bir [belirtimi]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), hizmet yalnızca TPM uygulamadan (donanım veya yazılım) bağımsız olarak belirtimi başına şifreli olarak bekler. Bkz: [cihaz sağlama: TPM ile kimlik kanıtlama](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) TPM tabanlı kanıtlama hakkında ayrıntılı bilgi için. 
 

@@ -1,6 +1,22 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-network
+author: jimdial
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="os-config"></a>Bir VM işletim sistemine IP adresleri ekleme
 
-Birden fazla özel IP adresi ile oluşturduğunuz sanal makineye bağlanın ve oturum açın. Sanal makineye eklediğiniz tüm özel IP adreslerini (birincil adres dahil) el ile eklemeniz gerekir. VM işletim sisteminiz için aşağıdaki adımları tamamlayın:
+Birden fazla özel IP adresi ile oluşturduğunuz sanal makineye bağlanın ve oturum açın. Sanal makineye eklediğiniz tüm özel IP adreslerini (birincil adres dahil) el ile eklemeniz gerekir. Adımları aşağıdaki VM işletim sisteminiz için.
 
 ### <a name="windows"></a>Windows
 
@@ -13,17 +29,16 @@ Birden fazla özel IP adresi ile oluşturduğunuz sanal makineye bağlanın ve o
     * **IP adresi**: *Birincil* özel IP adresini girin
     * **Alt ağ maskesi**: Alt ağınıza göre ayarlanır. Örneğin, alt ağ bir /24 alt ağı ise alt ağ maskesi 255.255.255.0 şeklindedir.
     * **Varsayılan ağ geçidi**: Alt ağdaki ilk IP adresi. Alt ağınız 10.0.0.0/24 ise ağ geçidi IP adresi 10.0.0.1 şeklindedir.
-    * **Aşağıdaki DNS sunucusu adreslerini kullan**’a tıklayıp aşağıdaki değerleri girin:
+    * Seçin **aşağıdaki DNS sunucu adreslerini kullan** ve aşağıdaki değerleri girin:
         * **Tercih edilen DNS sunucusu**: Kendi DNS sunucunuzu kullanmıyorsanız 168.63.129.16 girin.  Kendi DNS sunucunuzu kullanıyorsanız kendi sunucunuzun IP adresini girin.
-    * **Gelişmiş** düğmesine tıklayın ve diğer IP adreslerini ekleyin. 8. adımda listelenen ikincil IP adreslerinin her birini, birincil IP adresi için belirtilen aynı alt ağ ile NIC’ye ekleyin.
-        >[!WARNING] 
-        >Yukarıdaki adımları doğru şekilde izlemezseniz VM’niz ile bağlantıyı kaybedebilirsiniz. Devam etmeden önce 5. adım için girilen bilgilerin doğru olduğundan emin olun.
+    * Seçin **Gelişmiş** düğmesini tıklatın ve ek IP adreslerini ekleyin. Her Azure ağ arabirimi bir önceki adımda eklenen ikincil özel IP adresleri, Azure ağ arabirimine atanmış birincil IP adresi atanır Windows ağ arabirimi ekleyin.
+
+        Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. İşletim sistemi içinde IP adresini el ile ayarladığınızda, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) ayarlar. Hiçbir işletim sistemi içinde Azure genel IP adresi atamanız gerekir.
 
     * **Tamam**’a tıklayarak TCP/IP ayarlarını kapatın ve ardından tekrar **Tamam**’a tıklayarak bağdaştırıcı ayarlarını kapatın. RDP bağlantınız yeniden kurulur.
 
 6. Bir komut isteminde *ipconfig/all* yazın. Eklediğiniz tüm IP adresleri gösterilir ve DHCP kapatılır.
 7. Windows özel IP adresini birincil IP yapılandırmasının Azure'da Windows için birincil IP adresi olarak kullanacak şekilde yapılandırın. Bkz: [birden çok IP adresi varsa Azure Windows VM Hayır Internet erişimden](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) Ayrıntılar için. 
-
 
 ### <a name="validation-windows"></a>Doğrulama (Windows)
 

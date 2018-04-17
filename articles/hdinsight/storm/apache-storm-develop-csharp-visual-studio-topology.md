@@ -1,27 +1,25 @@
 ---
-title: "Visual Studio ve C# - Azure Hdınsight'ta Apache Storm topolojileri | Microsoft Docs"
-description: "Storm topolojilerini C# ' ta oluşturmayı öğrenin. Basit word count topolojisi için Visual Studio Hadoop araçlarını kullanarak Visual Studio'da oluşturun."
+title: Visual Studio ve C# - Azure Hdınsight'ta Apache Storm topolojileri | Microsoft Docs
+description: Storm topolojilerini C# ' ta oluşturmayı öğrenin. Basit word count topolojisi için Visual Studio Hadoop araçlarını kullanarak Visual Studio'da oluşturun.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
 ms.service: hdinsight
-ms.custom: 
+ms.custom: ''
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: c89556cf66526f793ab81383e205ff45075385a3
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1e35d795fb65c837f7a4152920f701da5bf8f506
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları kullanarak Apache Storm için C# topolojileri geliştirme
 
@@ -489,7 +487,7 @@ SCP.NET sürüm 0.9.4.203 bir yeni sınıf ve olay hub'ı spout (olay hub'ların
 
 * **EventHubSpoutConfig** sınıfı: spout bileşeni için yapılandırma içeren bir nesne oluşturur.
 
-* **TopologyBuilder.SetEventHubSpout** method: Adds the Event Hub spout component to the topology.
+* **TopologyBuilder.SetEventHubSpout** yöntemi: olay hub'ı spout bileşeni topolojiye ekler.
 
 > [!NOTE]
 > Hala kullanmalısınız **CustomizedInteropJSONSerializer** spout tarafından üretilen veri seri hale getirilemedi.

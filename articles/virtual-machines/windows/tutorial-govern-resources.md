@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 30f5fe83c46f2dbe1933e8347242be7fbb30a3e3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 3c32b5ce90d4e5aafacb8211ff8f432bc3c78db8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-governance-with-azure-powershell"></a>Azure PowerShell ile sanal makine Yönetimi
 
@@ -43,15 +43,15 @@ Kaynak grubu şu anda boştur.
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 
-Kuruluşunuzdaki kullanıcıların bu kaynaklara erişim doğru düzeyde sahip olduğunuzdan emin olmak istersiniz. Sınırsız erişimi kullanıcılara vermek istediğiniz yoktur, ancak işlerini yapmak için emin olmanız gerekir. [Rol tabanlı erişim denetimi](../../active-directory/role-based-access-control-what-is.md) hangi kullanıcıların belirli eylemleri bir kapsamda tamamlamak için izni yönetmenizi sağlar.
+Kuruluşunuzdaki kullanıcıların bu kaynaklara erişim doğru düzeyde sahip olduğunuzdan emin olmak istersiniz. Sınırsız erişimi kullanıcılara vermek istediğiniz yoktur, ancak işlerini yapmak için emin olmanız gerekir. [Rol tabanlı erişim denetimi](../../role-based-access-control/overview.md) hangi kullanıcıların belirli eylemleri bir kapsamda tamamlamak için izni yönetmenizi sağlar.
 
 Oluşturma ve rol atamalarını kaldırmak için kullanıcıların olmalıdır `Microsoft.Authorization/roleAssignments/*` erişim. Bu erişim sahibi veya kullanıcı erişimi yöneticisi rolleri aracılığıyla verilir.
 
 Sanal makine çözümleri yönetmek için yaygın olarak gerekli erişim sağlayan üç kaynağa özel rollere vardır:
 
-* [Sanal makine Katılımcısı](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Ağ Katılımcısı](../../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Depolama hesabı katkıda bulunan](../../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Sanal makine Katılımcısı](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Ağ Katılımcısı](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Depolama hesabı katkıda bulunan](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Tek tek kullanıcılara roller atama yerine genellikle daha kolay olur [bir Azure Active Directory grubu oluşturun](../../active-directory/active-directory-groups-create-azure-portal.md) benzer önlemler almak için gereken kullanıcılar için. Ardından, bu grup için uygun rolü atayın. Bu makalede basitleştirmek için bir Azure Active Directory grubu üyeleri olmadan oluşturun. Hala bu grubun bir kapsam için bir rol atayabilirsiniz. 
 

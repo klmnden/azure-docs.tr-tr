@@ -1,26 +1,24 @@
 ---
-title: "Yavaş ya da başarısız olan Hdınsight küme - Azure Hdınsight sorunlarını giderme | Microsoft Docs"
-description: "Tanılama ve sorun giderme yavaş veya başarısız olan bir Hdınsight kümesi."
+title: Yavaş ya da başarısız olan Hdınsight küme - Azure Hdınsight sorunlarını giderme | Microsoft Docs
+description: Tanılama ve sorun giderme yavaş veya başarısız olan bir Hdınsight kümesi.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 00c4ac0e2ac059efebbfbe0b2426b27361ad8e37
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Yavaş ya da başarısız olan bir HDInsight kümesinde sorun giderme
 
@@ -87,7 +85,7 @@ Her Hdınsight kümesi çeşitli Azure hizmetlerine ve Apache HBase ve Apache Sp
 
 Apache Ambari yönetimi ve izlenmesi web kullanıcı Arabirimi ile bir Hdınsight kümesi ve bir REST API sağlar. Linux tabanlı Hdınsight kümelerinde Ambari dahil edilir. Seçin **küme Panosu** sayfasında Azure portalı Hdınsight bölmesi.  Seçin **Hdınsight küme Panosu** bölmesinde Ambari kullanıcı arabirimini açın ve küme oturum açma kimlik bilgilerini girin.  
 
-![Ambari UI](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
+![Ambari kullanıcı Arabirimi](./media/hdinsight-troubleshoot-failed-cluster/ambari-ui.png)
 
 Hizmet görünümlerini listesini açmak için seçin **Ambari görünümleri** Azure portal sayfasında.  Bu liste, hangi kitaplıkların yüklü bağlıdır. Örneğin, YARN sıra yöneticisinin, Hive görünümü ve Tez görünümü görebilirsiniz.  Yapılandırma ve hizmet bilgileri görmek için bir hizmet bağlantı seçin.
 
@@ -183,7 +181,7 @@ YARN düzeyinde zaman aşımları iki tür vardır:
 
     Aşağıdaki resimde joblauncher sırası 714.4 aşırı kullanılmasına % gösterir. Var olduğu sürece hala boş kapasite gelen ödünç almak için varsayılan sırasındaki bu kabul edilebilir. Ancak, küme tam olarak kullanılan ve YARN bellek % 100 kapasitede olduğunda, yeni işleri, sonunda zaman aşımlarına neden olan beklemeniz gerekir.
 
-    ![Joblauncher queue](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
+    ![Joblauncher sırası](./media/hdinsight-troubleshoot-failed-cluster/joblauncher-queue.png)
 
     Bu sorunu çözmek için iki yolu vardır: ya da gönderilen yeni işleri ya da tüketim hızı eski işleri küme ölçeklendirme tarafından artış hızına azaltın.
 
@@ -209,7 +207,7 @@ Bu sorunları tanılamak için:
 
     Burada WebHCat ile etkileşim başarılı olur, ancak işleri başarısız durumlar olabilir.
 
-    Templeton olarak iş konsol çıktısı toplar `stderr` içinde `statusdir`, olduğu genellikle sorun giderme için yararlıdır. `stderr`Gerçek sorgu YARN uygulama kimliğini içerir.
+    Templeton olarak iş konsol çıktısı toplar `stderr` içinde `statusdir`, olduğu genellikle sorun giderme için yararlıdır. `stderr` Gerçek sorgu YARN uygulama kimliğini içerir.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>4. adım: sürümleri ve ortam yığını gözden geçirin
 

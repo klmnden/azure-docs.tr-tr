@@ -1,3 +1,19 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: a84b31d64f8f9900d342e245ca66cde3c0395be1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>Ağ yapılandırma dosyasından PowerShell kullanarak bir sanal ağ oluşturma
 Azure aboneliği kullanılabilir tüm sanal ağları tanımlamak için bir xml dosyası kullanır. Bu dosyayı yükleyin, değiştirmek veya varolan sanal ağlar silmek için düzenlemek ve yeni sanal ağlar oluşturun. Bu öğreticide öğrenmek için ağ yapılandırması (veya netcfg) dosyası olarak adlandırılan bu dosyayı yükleyin ve yeni bir sanal ağ oluşturmak üzere düzenleyebilirsiniz. Ağ yapılandırma dosyası hakkında daha fazla bilgi için bkz: [Azure virtual network yapılandırma şeması](https://msdn.microsoft.com/library/azure/jj157100.aspx).
 
@@ -18,8 +34,8 @@ PowerShell kullanarak bir netcfg dosyasını bir sanal ağ oluşturmak için aş
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. Herhangi bir XML veya metin düzenleyicisi uygulama kullanarak 2. adımda kaydettiğiniz dosyayı açın ve Ara  **<VirtualNetworkSites>**  öğesi. Önceden oluşturulmuş tüm ağlarınız varsa, her ağ kendi olarak görüntülenen  **<VirtualNetworkSite>**  öğesi.
-4. Bu senaryoda açıklanan sanal ağ oluşturmak için aşağıdaki XML yalnızca altında eklemek  **<VirtualNetworkSites>**  öğe:
+3. Herhangi bir XML veya metin düzenleyicisi uygulama kullanarak 2. adımda kaydettiğiniz dosyayı açın ve Ara **<VirtualNetworkSites>** öğesi. Önceden oluşturulmuş tüm ağlarınız varsa, her ağ kendi olarak görüntülenen **<VirtualNetworkSite>** öğesi.
+4. Bu senaryoda açıklanan sanal ağ oluşturmak için aşağıdaki XML yalnızca altında eklemek **<VirtualNetworkSites>** öğe:
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

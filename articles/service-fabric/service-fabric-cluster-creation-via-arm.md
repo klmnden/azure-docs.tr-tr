@@ -3,7 +3,7 @@ title: Bir şablondan bir Azure Service Fabric kümesi oluştur | Microsoft Docs
 description: Bu makalede, Azure Resource Manager, Azure anahtar kasası ve Azure Active Directory (Azure AD) istemci kimlik doğrulaması için kullanarak azure'da güvenli bir Service Fabric kümesi ayarlamak açıklar.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
 editor: chackdan
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
-ms.author: chackdan
-ms.openlocfilehash: b245c9e46c994d40a6d0f75eb8494828d0d4d165
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.author: aljo
+ms.openlocfilehash: 02ff0a8d2b7f594a7e1def23f91426639f52b150
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ni kullanarak bir Service Fabric kümesi oluştur 
 > [!div class="op_single_selector"]
@@ -376,7 +376,7 @@ ClusterName, komut dosyası tarafından oluşturulan Azure AD uygulamaları öne
 
 WebApplicationReplyUrl oturum açma işlemini tamamladıktan sonra kullanıcılarınıza Azure AD döndüren varsayılan uç noktadır. Bu uç nokta olan varsayılan olarak, kümeniz için Service Fabric Explorer uç noktası olarak ayarlayın:
 
-https://&lt;cluster_domain&gt;:19080/Explorer
+https://&lt;cluster_domain&gt;: 19080/Explorer
 
 Azure AD kiracısı için yönetici ayrıcalıklarına sahip bir hesapla oturum açmak için istenir. Oturum açtıktan sonra Service Fabric kümesi temsil etmek için yerel uygulamalar ve web komut dosyası oluşturur. Kiracının uygulamaları bakarsanız [Azure portal][azure-portal], iki yeni giriş görmeniz gerekir:
 

@@ -1,17 +1,17 @@
 ---
 title: " Fiziksel sunucu olağanüstü durum kurtarma Azure Site Recovery ile yapılandırma sunucusu yönetme | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery hizmeti ile Azure, fiziksel sunucu olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar."
+description: Bu makalede, Azure Site Recovery hizmeti ile Azure, fiziksel sunucu olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: anoopkv
-ms.openlocfilehash: 2fdccade577788d3fc5bc076604547b2ab6690d9
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 84969ff04684003a04f99b4fbf7f03be4140a277
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Fiziksel sunucu olağanüstü durum kurtarma için yapılandırma sunucusunu yönetme
 
@@ -24,7 +24,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için prerequistes
 | **Bileşen** | **Gereksinim** |
 | --- |---|
 | CPU çekirdekleri| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Disk sayısı | işletim sistemi diski, işlem sunucusu önbellek disk ve yeniden çalışma için bekletme sürücüsü dahil olmak üzere 3 |
 | Boş disk alanı (işlem sunucusu önbelleği) | 600 GB
 | Boş disk alanı (bekletme diski) | 600 GB|
@@ -36,7 +36,7 @@ Tablo, şirket içi yapılandırma sunucusu makine dağıtmak için prerequistes
 | IIS | -Önceden var olan varsayılan Web sitesi <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden varolan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3 |
 | IP adresi türü | Statik |
-| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (Genişleme İşlem Sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
+| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - dc.services.visualstudio.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (genişleme işlem sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|
 
 ## <a name="download-the-latest-installation-file"></a>En son yükleme dosyasını indirin
@@ -152,7 +152,7 @@ Yapılandırma sunucusu makine için proxy ayarlarını aşağıdaki gibi deği�
 3. Tıklatın **kasa kayıt** sekmesi.
 4. Yeni bir kasa kayıt dosyası portaldan indirmenizi ve aracı giriş olarak sağlayın.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+  ![YAZMAÇ yapılandırma sunucusu](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Yeni proxy ayrıntılarını girin ve tıklayın **kaydetmek** düğmesi.
 6. Bir yönetici PowerShell komut penceresi açın.
 7. Şu komutu çalıştırın:

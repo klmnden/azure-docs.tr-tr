@@ -1,5 +1,5 @@
 ---
-title: "Azure Storage ile kullanılan güvenlik özellikleri | Microsoft Docs"
+title: Azure Storage ile kullanılan güvenlik özellikleri | Microsoft Docs
 description: " Bu makalede Azure Storage ile kullanılan Azure güvenlik özellikleri çekirdek genel bir bakış sağlar. "
 services: security
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: a118bde2290e68c9a741e40cda210d47db918047
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8160ede71930bf4c15969044deb3fced855f03e6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-overview"></a>Azure depolama güvenliğine genel bakış
-Azure Storage, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, kullanılabilirlik ve ölçeklenebilirliğe dayanan modern uygulamalara yönelik bulut depolama çözümüdür. Azure depolama kapsamlı bir güvenlik özellikleri sağlar:
+Azure Depolama, müşterilerin ihtiyaçlarını karşılamak üzere sağlamlık, kullanılabilirlik ve ölçeklenebilirliğe dayanan modern uygulamalara yönelik bulut depolama çözümüdür. Azure depolama kapsamlı bir güvenlik özellikleri sağlar:
 
 * Depolama hesabı rol tabanlı erişim denetimi ve Azure Active Directory kullanılarak güvenli hale getirilebilir.
 * Verileri bir uygulama ile Azure arasında aktarımda istemci tarafı şifreleme, HTTPS veya SMB 3.0 kullanarak güvenli hale getirilebilir.
@@ -44,11 +44,11 @@ Bu makalede ele alınacak temel özellikleri aşağıda verilmiştir:
 * Azure Key Vault
 
 ## <a name="role-based-access-control-rbac"></a>Rol Tabanlı Erişim Denetimi (RBAC)
-Rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlayabilirsiniz. Erişimi kısıtlamak temel alarak [bilmeniz](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri kesinlik temelli veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için. Bu erişim haklarını grupları ve belirli bir kapsamda uygulamalara uygun RBAC rolü atayarak verilir. Kullanabileceğiniz [yerleşik RBAC rolleri](../active-directory/role-based-access-built-in-roles.md), ayrıcalıkları kullanıcılara atamak için depolama hesabı katılımcı gibi.
+Rol tabanlı erişim denetimi (RBAC) ile depolama hesabınızın güvenliğini sağlayabilirsiniz. Erişimi kısıtlamak temel alarak [bilmeniz](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri kesinlik temelli veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için. Bu erişim haklarını grupları ve belirli bir kapsamda uygulamalara uygun RBAC rolü atayarak verilir. Kullanabileceğiniz [yerleşik RBAC rolleri](../role-based-access-control/built-in-roles.md), ayrıcalıkları kullanıcılara atamak için depolama hesabı katılımcı gibi.
 
 Daha fazla bilgi edinin:
 
-* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>Depolama nesneleri yetkilendirilmiş erişim
 Paylaşılan erişim imzası (SAS) depolama hesabınızdaki kaynaklara yetkilendirilmiş erişim sağlar. SAS sınırlı, süre ve belirtilen bir izin kümesi ile belirli bir dönem için bir istemci ise depolama hesabındaki nesnelere izinleri verebilirsiniz anlamına gelir. Hesap erişim tuşlarınızı paylaşmak gerek kalmadan bu sınırlı izinleri verebilirsiniz. SAS depolama kaynağı için kimlik doğrulamalı erişim için gerekli tüm bilgileri kendi sorgu parametrelerini kapsayan bir URI değil. SAS ile depolama kaynaklarına erişmek için istemcinin yalnızca uygun Oluşturucusu veya yöntem SAS sağlaması gerekir.

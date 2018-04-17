@@ -1,22 +1,22 @@
 ---
-title: ".NET kullanarak Azure anahtar kasası için hizmetten hizmete kimlik doğrulaması"
-description: ".NET kullanarak Azure anahtar kasası için kimlik doğrulaması için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanın."
-keywords: "Azure anahtar kasası kimlik doğrulaması yerel kimlik bilgileri"
+title: .NET kullanarak Azure anahtar kasası için hizmetten hizmete kimlik doğrulaması
+description: .NET kullanarak Azure anahtar kasası için kimlik doğrulaması için Microsoft.Azure.Services.AppAuthentication kitaplığını kullanın.
+keywords: Azure anahtar kasası kimlik doğrulaması yerel kimlik bilgileri
 author: lleonard-msft
 manager: mbaldwin
 services: key-vault
 ms.author: alleonar
 ms.date: 11/15/2017
 ms.topic: article
-ms.prod: 
-ms.service: microsoft-keyvault
-ms.technology: 
+ms.prod: ''
+ms.service: key-vault
+ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: bff4b15ca2f1c985c4b4e27d159adaa5fd039553
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db0b0ca72f41c68e19db6635d9ba0e9144183204
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET kullanarak Azure anahtar kasası için hizmetten hizmete kimlik doğrulaması
 
@@ -113,7 +113,7 @@ Yerel geliştirme için Azure CLI kullanmak için:
 
 Kullanım `az account get-access-token` erişimi doğrulamak için.  Bir hata alırsanız, adım 1 başarıyla tamamlandığını doğrulayın. 
 
-Azure CLI varsayılan dizinine yüklü değilse, bildirdiği bir hata iletisi alabilirsiniz `AzureServiceTokenProvider` yolu için Azure CLI bulamıyor.  Kullanım **AzureCLIPath**Azure CLI yükleme klasörü tanımlamak için ortam değişkeni. `AzureServiceTokenProvider`Belirtilen dizin ekler **AzureCLIPath** ortam değişkenine **yolu** ortam değişkeni gerekli olduğunda.
+Azure CLI varsayılan dizinine yüklü değilse, bildirdiği bir hata iletisi alabilirsiniz `AzureServiceTokenProvider` yolu için Azure CLI bulamıyor.  Kullanım **AzureCLIPath**Azure CLI yükleme klasörü tanımlamak için ortam değişkeni. `AzureServiceTokenProvider` Belirtilen dizin ekler **AzureCLIPath** ortam değişkenine **yolu** ortam değişkeni gerekli olduğunda.
 
 Azure CLI için birden çok hesabı kullanarak oturum açtığınızdan ya da birden çok abonelik hesabınıza erişimi varsa, kullanılacak belirli aboneliği belirtmeniz gerekir.  Bunu yapmak için kullanın:
 
@@ -211,7 +211,7 @@ Bir Azure kullanarak oturum AD gizli kimlik bilgisi paylaşılan:
 
 3. Uygulamayı çalıştırın. 
 
-Her şeyin doğru başka hiçbir kod değişikliklerini ayarlandıktan sonra gereklidir.  `AzureServiceTokenProvider`Azure AD ile kimlik doğrulaması için ortam değişkeni ve sertifikayı kullanır. 
+Her şeyin doğru başka hiçbir kod değişikliklerini ayarlandıktan sonra gereklidir.  `AzureServiceTokenProvider` Azure AD ile kimlik doğrulaması için ortam değişkeni ve sertifikayı kullanır. 
 
 <a name="connectionstrings"></a>
 ## <a name="connection-string-support"></a>Bağlantı dizesi desteği
@@ -228,9 +228,9 @@ Aşağıdaki seçenekleri desteklenir:
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Yerel geliştirme | AzureServiceTokenProvider Visual Studio belirtecini almak için kullanır. |
 | `RunAs=CurrentUser;` | Yerel geliştirme | AzureServiceTokenProvider belirtecini almak için Azure AD ile tümleşik kimlik doğrulaması kullanır. |
 | `RunAs=App;` | Yönetilen Hizmet Kimliği | AzureServiceTokenProvider belirtecini almak için Yönetilen hizmet kimliği kullanır. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Hizmet sorumlusu | `AzureServiceTokenProvider`Azure AD'den belirtecini almak için sertifika kullanır. |
-| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Hizmet sorumlusu | `AzureServiceTokenProvider`Azure AD'den belirtecini almak için sertifika kullanıyor|
-| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Hizmet sorumlusu |`AzureServiceTokenProvider`Azure AD'den belirtecini almak için gizli anahtarı kullanır. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Hizmet sorumlusu | `AzureServiceTokenProvider` Azure AD'den belirtecini almak için sertifika kullanır. |
+| `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Hizmet sorumlusu | `AzureServiceTokenProvider` Azure AD'den belirtecini almak için sertifika kullanıyor|
+| `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Hizmet sorumlusu |`AzureServiceTokenProvider` Azure AD'den belirtecini almak için gizli anahtarı kullanır. |
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

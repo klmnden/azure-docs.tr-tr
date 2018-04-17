@@ -1,8 +1,8 @@
 ---
-title: "Azure günlük analizi uyarılarını yanıtlarını | Microsoft Docs"
-description: "Günlük analizi uyarılarını Azure alanınızdaki önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede, bir uyarı kuralı ve ayrıntıları yapabilecekleri farklı eylemler oluşturmayı açıklar."
+title: Azure günlük analizi uyarılarını yanıtlarını | Microsoft Docs
+description: Günlük analizi uyarılarını Azure alanınızdaki önemli bilgileri tanımlamak ve önceden sorunları size bildiren veya düzeltmenize girişiminde Eylemler çağırma.  Bu makalede, bir uyarı kuralı ve ayrıntıları yapabilecekleri farklı eylemler oluşturmayı açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e80481f074bc196caae7c03f54134eaef0fb46d5
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: 6a48e4c0ab61e5dcf526bb8b1d8bdc6b0d16f9e7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>Günlük analizi uyarı kurallarında eylemleri ekleyin
 Zaman bir [uyarı günlük analizi oluşturulan](log-analytics-alerts.md), seçeneğiniz vardır [uyarı kuralı yapılandırma](log-analytics-alerts.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, her tür yapılandırma hakkında ayrıntılar ve kullanılabilir farklı eylemler açıklanmaktadır.
@@ -28,7 +28,7 @@ Zaman bir [uyarı günlük analizi oluşturulan](log-analytics-alerts.md), seçe
 |:--|:--|
 | [E-posta](#email-actions) | Bir veya daha fazla alıcıya uyarı ayrıntılarını içeren bir e-posta gönderin. |
 | [Web kancası](#webhook-actions) | Bir dış işlem tek bir HTTP POST isteği üzerinden çağırır. |
-| [Runbook](#runbook-actions) | Bir runbook, Azure Automation'da başlatın. |
+| [runbook](#runbook-actions) | Bir runbook, Azure Automation'da başlatın. |
 
 
 ## <a name="email-actions"></a>E-posta Eylemler
@@ -39,7 +39,7 @@ E-posta eylemler özellikler aşağıdaki tabloda gerektirir.
 | Özellik | Açıklama |
 |:--- |:--- |
 | Konu |E-postayla konu.  Posta gövdesini değiştiremezsiniz. |
-| Alıcılar |Tüm e-posta alıcıları adresleri.  Birden fazla adres belirtirseniz, adreslerini noktalı virgül (;) ayırın. |
+| Alıcılar |Tüm e-posta alıcıları adresleri.  Birden fazla adres belirtirseniz, adresleri noktalı virgül (;) ile ayırın. |
 
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
@@ -603,6 +603,7 @@ Yükseltilmiş bir çalışma alanında bir runbook eylemi için örnek yükü a
                 "a4e29a95-5b4c-408b-80e3-113f9410566e",
                 "00000000-0000-0000-0000-000000000000",
                 "Usage"
+            ]
             ]
         }
         ]

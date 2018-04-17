@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları"
-description: "Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları"
+title: Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
+description: Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 services: security
 documentationcenter: na
 author: simorjay
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: frasim
-ms.openlocfilehash: 3e97862091e6ea334f2437bd8424b79952f41bf4
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 5851d5499c61cf99d7f85d07642a292f3b8c19d2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
@@ -95,7 +95,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 - Sqladmin hesabı filtrelenmemiş kredi kartı bilgileri görüntüleyemez. Tüm Eylemler günlüğe kaydedilir.
 - SQL veritabanı sqladmin hesabını yönetebilir.
 
-#### <a name="role-clerk"></a>Role: Clerk
+#### <a name="role-clerk"></a>Rol: yazıcısı
 
 |Öğe      |Örnek|
 |----------|------|
@@ -120,7 +120,7 @@ Bu çözüm, aşağıdaki Azure hizmetlerini kullanılır. Dağıtım mimarisi a
 >- Application Gateway
 >- Azure Active Directory
 >- Uygulama hizmeti ortamı v2
->- OMS Log Analytics
+>- Log Analytics
 >- Azure Key Vault
 >- Ağ Güvenlik Grupları
 >- Azure SQL DB
@@ -149,7 +149,7 @@ Aşağıdaki bölümde geliştirme ve uygulama öğeleri ayrıntılarını verir
 
 Temel mimari web uygulaması Güvenlik Duvarı (WAF) sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Ek özellikler şunları içerir:
 
-- [End-to-End-SSL](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [SSL uç bitiş](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Etkinleştirme [SSL boşaltma](/azure/application-gateway/application-gateway-ssl-portal)
 - Devre dışı [TLS v1.0 ve v1.1](/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Web uygulaması güvenlik duvarı](/azure/application-gateway/application-gateway-webapplicationfirewall-overview) (WAF mod)
@@ -173,7 +173,7 @@ Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü g�
 
 Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü için güvenli ve doğru çalışma açılır. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
 - Etkin [tanılama günlüklerini ve olayları](/azure/virtual-network/virtual-network-nsg-manage-log) depolama hesabında depolanır 
-- OMS günlük analizi bağlı [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+- Günlük analizi bağlı [NSG'ın tanılama](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 #### <a name="subnets"></a>Alt ağlar
  Her alt ağ, karşılık gelen NSG ile ilişkili olduğundan emin olun.
@@ -203,12 +203,12 @@ Azure SQL veritabanı örneğinde aşağıdaki veritabanı güvenlik önlemleri 
 
 ### <a name="logging-and-auditing"></a>Günlüğe kaydetme ve denetleme
 
-[Operations Management Suite (OMS)](/azure/operations-management-suite/) tüm sistemi ve kullanıcı etkinliğini kapsamlı günlük kaydıyla Contoso Webstore sağlamak, kart sahibi veri günlük kaydı içerir. Değişiklikleri gözden ve doğruluk doğrulandı. 
+[Günlük analizi](https://azure.microsoft.com/services/log-analytics) Contoso Webstore tüm sistemi ve kullanıcı etkinliğini kapsamlı günlük kaydıyla sağlamak, kart sahibi veri günlük kaydı içerir. Değişiklikleri gözden ve doğruluk doğrulandı. 
 
-- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.  
-- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri.   Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
+- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.
+- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri. Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
 - **Güvenlik Duvarı günlüklerini:** uygulama ağ geçidi tanılama tam ve günlükleri erişim sağlar. Güvenlik Duvarı günlüklerini etkin WAF sahip uygulama ağ geçidi kaynakları için kullanılabilir.
-- **Günlük arşivleme:** tüm tanılama günlüklerini merkezi ve şifrelenmiş Azure depolama hesabı için tanımlanan bekletme süresi (2 gün) ile arşivleme yazmak için yapılandırılır. Günlükleri işleme, depolama ve dashboarding için Azure günlük Analizi'ne bağlanmıştır. [Günlük analizi](https://azure.microsoft.com/services/log-analytics) ve şirket içi ortamları toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan bir OMS hizmetidir.
+- **Günlük arşivleme:** tüm tanılama günlüklerini merkezi ve şifrelenmiş Azure depolama hesabı için tanımlanan bekletme süresi (2 gün) ile arşivleme yazmak için yapılandırılır. Günlükleri işleme, depolama ve dashboarding için Azure günlük Analizi'ne bağlanmıştır. [Günlük analizi](https://azure.microsoft.com/services/log-analytics) ve şirket içi ortamları toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan bir hizmettir.
 
 ### <a name="encryption-and-secrets-management"></a>Şifreleme ve gizli anahtarları Yönetimi
 
@@ -224,7 +224,7 @@ Aşağıdaki teknolojileri kimlik Azure ortamı yönetim yetenekleri sağlar.
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) Microsoft'un çok kiracılı bulut tabanlı dizin ve kimlik yönetimi hizmetidir. Çözüm için tüm kullanıcılar Azure Active SQL veritabanına erişen kullanıcılar dahil olmak üzere Directory'de oluşturuldu.
 - Uygulama kimlik doğrulaması, Azure AD kullanılarak gerçekleştirilir. Daha fazla bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](/azure/active-directory/develop/active-directory-integrating-applications). Ayrıca, veritabanı sütun şifreleme Azure AD uygulama Azure SQL veritabanı kimlik doğrulaması için de kullanır. Daha fazla bilgi için bkz: [her zaman şifreli: SQL veritabanındaki hassas verileri korumaya](/azure/sql-database/sql-database-always-encrypted-azure-key-vault). 
 - [Azure Active Directory kimlik koruması](/azure/active-directory/active-directory-identityprotection) kuruluşunuzdaki kimlikleri etkileyen olası güvenlik açıklarını algılarsa, otomatik yanıtları, kuruluşunuzun kimlikleri, ilgili algılanan kuşkulu eylemler için yapılandırır ve Şüpheli olaylar araştırır ve bunları gidermek için uygun tedbiri alır.
-- [Azure rol tabanlı erişim denetimi (RBAC)](/azure/active-directory/role-based-access-control-configure) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve Azure anahtar kasası erişim tüm kullanıcılara kısıtlıdır.
+- [Azure rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/role-assignments-portal) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve Azure anahtar kasası erişim tüm kullanıcılara kısıtlıdır.
 
 Azure SQL veritabanı güvenlik özelliklerini kullanma hakkında daha fazla bilgi edinmek için [Contoso Clinic Demo uygulaması](https://github.com/Microsoft/azure-sql-security-sample) örnek.
    
@@ -266,7 +266,7 @@ Bir sanal makine aşağıdaki yapılandırmaları olan bir jumpbox (savunma ana 
 
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) tüm Azure kaynaklarınızın güvenlik durumunu merkezi bir görünümünü sağlar. Bir bakışta, uygun güvenlik denetimleri yerinde olduğundan ve doğru şekilde yapılandırıldığını ve dikkat gerektiren herhangi bir kaynağa hızla tanımlayabilen doğrulayabilirsiniz.  
 
-[Azure Danışmanı](/azure/advisor/advisor-overview) olan yardımcı olan kişiselleştirilmiş bulut Danışman Azure dağıtımlarınızı iyileştirmek için en iyi uygulamaları izleyin. Kaynak yapılandırması ve kullanım telemetri analiz eder ve maliyet verimliliği, performans, yüksek kullanılabilirlik ve Azure kaynaklarınızın güvenliğini geliştirmenize yardımcı olabilir çözümleri önerir.
+[Azure Danışmanı](/azure/advisor/advisor-overview) olan yardımcı olan kişiselleştirilmiş bulut Danışman Azure dağıtımlarınızı iyileştirmek için en iyi uygulamaları izleyin. Danışman, kaynak yapılandırmanızı ve kullanım telemetrinizi analiz ederek Azure kaynaklarınızın maliyet verimliliğini, performansını, yüksek kullanılabilirliğini ve güvenliğini geliştirmenize yardımcı olabilecek çözümler önerir.
 
 [Microsoft Antimalware](/azure/security/azure-security-antimalware) Azure Cloud Services ve sanal makineler için belirlemek ve virüsler, casus yazılım ve diğer kötü amaçlı yazılım, bilinen yapılandırılabilir uyarır kaldırmak yardımcı olan gerçek zamanlı koruma kötü amaçlı veya istenmeyen bir özelliktir yazılım kendini yüklemeye veya Azure sistemleriniz üzerinde çalışmaya dener.
 
@@ -278,11 +278,11 @@ Kullanım [Application Insights](https://azure.microsoft.com/services/applicatio
 
 #### <a name="log-analytics"></a>Log Analytics
 
-[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) ve şirket içi ortamları Operations Management Suite (OMS) toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan bir hizmettir.
+[Günlük analizi](https://azure.microsoft.com/services/log-analytics/) ve şirket içi ortamları toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan Azure hizmetidir.
 
-#### <a name="oms-solutions"></a>OMS çözümleri
+#### <a name="management-solutions"></a>Yönetim çözümleri
 
-Bu ek OMS çözümleri kabul ve yapılandırılmış:
+Bu ek yönetim çözümleri kabul ve yapılandırılmış:
 - [Activity Log Analytics](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 - [Azure Ağ Analizi](/azure/log-analytics/log-analytics-azure-networking-analytics?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 - [Azure SQL Analizi](/azure/log-analytics/log-analytics-azure-sql)
@@ -338,9 +338,9 @@ PowerShell temiz bir yüklemesini çözümü dağıtmak için kullanılması ön
     
     Ayrıntılı kullanım yönergeleri için bkz: [betik yönergeler - dağıtmak ve Azure kaynaklarını Yapılandır](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
     
-3. Günlüğe kaydetme ve izleme OMS. Çözüm dağıtıldığında, bir [Microsoft Operations Management Suite (OMS)](/azure/operations-management-suite/operations-management-suite-overview) çalışma açılabilir ve çözüm deposunda sağlanan örnek şablonları nasıl izleme Panosu göstermek için kullanılabilir yapılandırılmış. Örnek OMS şablonları başvurmak için [omsDashboards klasörü](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Verileri doğru şekilde dağıtmak için şablonları için OMS toplanan olduğunu unutmayın. Bu bir saat veya site etkinliğe bağlı olarak daha fazla sürebilir.
+3. Günlüğe kaydetme ve izleme. Çözüm dağıtıldığında, bir günlük analizi çalışma alanı açılabilir ve çözüm deposunda sağlanan örnek şablonları nasıl izleme Panosu yapılandırılabilir göstermek için kullanılabilir. Örnek şablonlar başvurmak için [omsDashboards klasörü](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Verileri doğru şekilde dağıtmak için şablonları için günlük analizi'içinde toplanması gereken unutmayın. Bu bir saat veya site etkinliğe bağlı olarak daha fazla sürebilir.
  
-    OMS günlüğünü ayarlama, bu kaynakları da dahil olmak üzere göz önünde bulundurun:
+    Günlük analizi günlüğünü ayarlama, bu kaynakları da dahil olmak üzere göz önünde bulundurun:
  
     - Microsoft.Network/applicationGateways
     - Microsoft.Network/NetworkSecurityGroups
@@ -371,7 +371,7 @@ Müşterilerin bir kopyasını koruyarak için sorumlu [sorumluluk özeti matris
 
 ## <a name="disclaimer-and-acknowledgements"></a>Vazgeçme ve bildirimleri
 
-Eylül 2017
+*Eylül 2017*
 
 - Bu belgede yalnızca bilgilendirme amaçlıdır. MICROSOFT VE AVYAN SARİH, ZIMNİ VEYA NİZAMİ BU BELGEDEKİ BİLGİLER HİÇBİR GARANTİ VERMEZ HALE GETİRİR. Bu belgede sağlanan "olarak-değil." URL ve diğer Internet Web sitesi başvuruları dahil olmak üzere bu belgede belirtilen bilgiler ve görüntüler bildirim yapılmadan değiştirilebilir. Bu belgeyi okuma müşterilerin kullanım riski size aittir.  
 - Bu belge müşterilerle herhangi bir Microsoft veya Avyan ürün veya çözümleri üzerinde hiçbir fikri mülkiyet hakkı sağlamaz.  
@@ -388,7 +388,7 @@ Eylül 2017
 ### <a name="document-authors"></a>Belge yazarları
 
 - *Frank Simorjay (Microsoft)*  
-- *Gururaj Pandurangi (Avyan Consulting)*
+- *Gururaj Pandurangi (Avyan danışmanlık)*
 
 
 [code-repo]: https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms "Kod deposu"

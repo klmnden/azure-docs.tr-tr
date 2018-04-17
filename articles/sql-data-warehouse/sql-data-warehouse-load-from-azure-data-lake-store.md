@@ -1,56 +1,50 @@
 ---
-title: "Yük - SQL veri ambarı için Azure Data Lake Store | Microsoft Docs"
-description: "Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tablolara kullanmayı öğrenin."
+title: "Öğretici: Azure SQL veri ambarı için Azure Data Lake Deposu'ndan veri yükleme | Microsoft Docs"
+description: Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tabloları kullanın.
 services: sql-data-warehouse
-documentationcenter: NA
 author: ckarst
-manager: barbkess
-editor: 
-ms.assetid: 
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: loading
-ms.date: 3/14/2018
-ms.author: cakarst;barbkess
-ms.openlocfilehash: f8cd293236255e227f80a42e78d25aebd8789bdd
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: cakarst
+ms.reviewer: igorstan
+ms.openlocfilehash: 3c6907e8eb4ae4bbfae76a5a220d670427afd703
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yükleme
-Bu belge Polybase'i kullanarak Azure Data Lake deposu (ADLS) SQL Data Warehouse'a veri yüklemek için gereken tüm adımları sağlar.
-Geçici sorguları dış tablolara kullanarak ADLS içinde depolanan veriler üzerinde çalıştırmak mümkün olmakla birlikte, en iyi performans için SQL veri ambarına veri alma öneririz.
+# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yükleme
+Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tabloları kullanın. ADLS içinde depolanan veriler üzerinde geçici sorguları çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarına veri alma öneririz.
 
-Bu öğreticide şunları öğreneceksiniz nasıl yapılır:
+> [!div class="checklist"]
+> * Azure Data Lake Deposu'ndan veri yüklemek için gerekli veritabanı nesnelerini oluşturun.
+> * Bir Azure Data Lake Store dizinine bağlanır.
+> * Azure SQL Data Warehouse'a veri yükleme.
 
-1. Azure Data Lake Deposu'ndan veri yüklemek için gerekli veritabanı nesnelerini oluşturun.
-2. Bir Azure Data Lake Store dizinine bağlanır.
-3. Azure SQL Data Warehouse'a veri yükleme.
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](https://azure.microsoft.com/free/).
 
 ## <a name="before-you-begin"></a>Başlamadan önce
+Bu öğreticiye başlamadan önce, [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
+
 Bu öğretici çalıştırmak için gerekir:
 
-* Azure Active Directory Hizmeti için kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için izlemeniz [Active directory kimlik doğrulaması](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory)
+* Azure Active Directory Hizmeti için kimlik doğrulaması için kullanılacak uygulama. Oluşturmak için izlemeniz [Active directory kimlik doğrulaması](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> İstemci kimliği, anahtar ve OAuth2.0 belirteç uç noktası değeri, uygulamanızın Active Directory, Azure Data Lake SQL veri ambarından bağlanmak için gerekir. Bu değerleri alma ayrıntılarını yukarıdaki bağlantıyı ' dir.
->Not Azure Active Directory Uygulama kaydı için istemci kimliği olarak 'Uygulama kimliği' kullanın
+> İstemci kimliği, anahtar ve OAuth2.0 belirteç uç noktası değeri, uygulamanızın Active Directory, Azure Data Lake SQL veri ambarından bağlanmak için gerekir. Bu değerleri alma ayrıntılarını yukarıdaki bağlantıyı ' dir. Azure Active Directory Uygulama kaydı için istemci kimliği olarak uygulama kimliği kullanın.
+> 
 
-* SQL Server Management Studio veya SQL Server veri araçları, SSMS karşıdan yüklemek ve bağlamak için bkz: [sorgu SSMS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-query-ssms)
+* Bir Azure SQL veri ambarı. Bkz: [oluşturma ve sorgu ve Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
-* Bir Azure SQL veri oluşturmak için bir izleyin deposu: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-provision
+* Azure Data Lake deposu. Bkz: [Azure Data Lake Store ile çalışmaya başlama](../data-lake-store/data-lake-store-get-started-portal.md). 
 
-* Bir Azure Data Lake oluşturmak için bir izleyin Store: https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
+##  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
+Azure Data Lake Store erişmek için sonraki adımda kullanılan kimlik bilgileri gizli anahtarı şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekir. Bir veritabanı kapsamlı AAD'de ayarlanmış hizmet asıl kimlik bilgilerini depolayan kimlik bilgileri, oluşturursunuz. Bu Windows Azure depolama BLOB'larını bağlamak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
 
-
-###  <a name="create-a-credential"></a>Bir kimlik bilgisi oluşturma
-Azure Data Lake Store erişmek için sonraki adımda kullanılan kimlik bilgileri gizli anahtarı şifrelemek için bir veritabanı ana anahtarı oluşturmanız gerekir.
-Bir veritabanı kapsamlı AAD'de ayarlanmış hizmet asıl kimlik bilgilerini depolayan kimlik bilgileri, oluşturursunuz. Bu Windows Azure depolama BLOB'larını bağlamak için PolyBase kullanmış olduğunuz CREDENTIAL sözdizimi farklı olduğuna dikkat edin.
-Azure Data Lake Store'a bağlanmak için yapmanız gerekir **ilk** Azure Active Directory uygulama oluşturmak, bir erişim anahtarı oluşturun ve Azure Data Lake kaynak uygulama erişimi verin. Bu adımları gerçekleştirmek için yönergeler konumlandırıldığını [burada](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory).
+Azure Data Lake Store'a bağlanmak için yapmanız gerekir **ilk** Azure Active Directory uygulama oluşturmak, bir erişim anahtarı oluşturun ve Azure Data Lake kaynak uygulama erişimi verin. Yönergeler için bkz: [Azure Data Lake deposu kullanarak Active Directory kimlik doğrulama](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -80,9 +74,8 @@ WITH
 ;
 ```
 
-
-### <a name="create-the-external-data-source"></a>Dış veri kaynağı oluşturun
-Bu [dış veri kaynağı oluştur] [ CREATE EXTERNAL DATA SOURCE] verilerin konumu depolamak için komutu. 
+## <a name="create-the-external-data-source"></a>Dış veri kaynağı oluşturun
+Bu [dış veri kaynağı oluştur](/sql/t-sql/statements/create-external-data-source-transact-sql) verilerin konumu depolamak için komutu. 
 
 ```sql
 -- C: Create an external data source
@@ -100,7 +93,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>Veri biçimini yapılandırın
 ADLS veri almak için dış dosya biçimini belirtmeniz gerekir. Bu nesne, dosyaları ADLS içinde nasıl yazılır tanımlar.
-Tam liste için bizim T-SQL belgelerine bakın [oluşturmak dış dosya biçimi][CREATE EXTERNAL FILE FORMAT]
+Tam liste için bizim T-SQL belgelerine bakın [oluşturmak dış dosya biçimi](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
 -- D: Create an external file format
@@ -160,7 +153,7 @@ REJECT_TYPE ve REJECT_VALUE seçenekleri, satır sayısını veya veri yüzdesin
  Azure Data Lake deposu, verilere erişimi denetlemek için rol tabanlı erişim denetimi (RBAC) kullanır. Başka bir deyişle, hizmet sorumlusu konumu parametresinde tanımlanan dizinlere ve son dizin ve dosyaların çocuklar için okuma iznine sahip olmalıdır. Bu kimlik doğrulaması ve bu verileri yüklemek PolyBase sağlar. 
 
 ## <a name="load-the-data"></a>Verileri yükleme
-Azure Data Lake Store kullanımdan veri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] deyimi. 
+Azure Data Lake Store kullanımdan veri yüklemek için [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) deyimi. 
 
 CTAS yeni bir tablo oluşturur ve bir select deyimi sonuçları ile doldurur. CTAS select deyimi sonuçları olarak aynı sütunları ve veri türleri için yeni tabloyu tanımlar. Dış bir tablodaki tüm sütunları seçin, yeni bir tablo sütunları ve dış tablosunda veri türlerini çoğaltmasını olur.
 
@@ -177,7 +170,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore sıkıştırma en iyi duruma getirme
-Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar. Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek][manage columnstore indexes].
+Varsayılan olarak, SQL Data Warehouse kümelenmiş columnstore dizini tablo depolar. Yükleme tamamlandıktan sonra bazı veriler satır columnstore sıkıştırılır değil.  Çeşitli nedenlerle oluşabilir neden yoktur. Daha fazla bilgi için bkz: [columnstore dizinleri yönetmek](sql-data-warehouse-tables-index.md).
 
 Sorgu performansı ve yük sonra columnstore sıkıştırma iyileştirmek için tüm satırların sıkıştırılacak columnstore dizinini zorlamak için tabloyu yeniden oluşturun.
 
@@ -187,41 +180,31 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 ```
 
-Columnstore dizinleri koruma ile ilgili daha fazla bilgi için bkz: [columnstore dizinleri yönetmek] [ manage columnstore indexes] makalesi.
-
 ## <a name="optimize-statistics"></a>İstatistikleri en iyi duruma getirme
 Bir yük hemen sonra tek sütunlu istatistikler oluşturmak en iyisidir. İstatistikleri için bazı seçeneğiniz vardır. Örneğin, her sütunda tek sütunlu İstatistikler oluşturursanız, tüm istatistikleri yeniden oluşturmak için uzun zaman alabilir. Belirli sütunları sorgu koşullarında yapmayacağınız biliyorsanız, bu sütunlarda oluşturma istatistikleri atlayabilirsiniz.
 
-Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri] [ statistics] makalesi.
+Tek sütunlu istatistikler her tablonun her sütunu üzerinde oluşturmaya karar verirseniz, saklı yordam kod örneği kullanabilirsiniz `prc_sqldw_create_stats` içinde [istatistikleri](sql-data-warehouse-tables-statistics.md) makalesi.
 
 Aşağıdaki istatistikler oluşturmak için iyi bir başlangıç noktası örnektir. Her sütunun Boyut tablosuna ve olgu tabloları katılan her sütunda tek sütunlu İstatistikler oluşturur. Her zaman tek veya birden çok sütun istatistikleri diğer olgu tablo sütunları daha sonra ekleyebilirsiniz.
-
 
 ## <a name="achievement-unlocked"></a>Kilidi başarı!
 Azure SQL Data Warehouse'a veri başarıyla yüklemiş olduğunuz. Harika iş!
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Veri yükleme SQL Data Warehouse kullanarak bir veri ambarı çözüm geliştirmek için ilk adımdır. Geliştirme KAYNAKLARIMIZI kontrol [tabloları](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview) ve [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops).
+## <a name="next-steps"></a>Sonraki adımlar 
+Bu öğreticide Azure Data Lake Store'da depolanan verilerin yapısını tanımlamak için dış tabloları oluşturulur ve ardından veri ambarına veri yüklemek için PolyBase CREATE TABLE AS SELECT deyimi kullanılır. 
+
+Şu işlemleri yaptınız:
+> [!div class="checklist"]
+> * Azure Data Lake Deposu'ndan veri yüklemek için gereken oluşturulan veritabanı nesneleri.
+> * Bir Azure Data Lake Store dizinine bağlı.
+> * Yüklenen verilerin Azure SQL veri ambarında.
+> 
+
+Veri yükleme SQL Data Warehouse kullanarak bir veri ambarı çözüm geliştirmek için ilk adımdır. Bizim geliştirme kaynaklara gözatın.
+
+> [!div class="nextstepaction"]
+>[SQL veri ambarı tablolarda geliştirmeyi öğrenin](sql-data-warehouse-tables-overview.md)
 
 
-<!--Image references-->
 
-<!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
-[manage columnstore indexes]: sql-data-warehouse-tables-index.md
-[Statistics]: sql-data-warehouse-tables-statistics.md
-[CTAS]: sql-data-warehouse-develop-ctas.md
-[label]: sql-data-warehouse-develop-label.md
 
-<!--MSDN references-->
-[CREATE EXTERNAL DATA SOURCE]: https://msdn.microsoft.com/library/dn935022.aspx
-[CREATE EXTERNAL FILE FORMAT]: https://msdn.microsoft.com/library/dn935026.aspx
-[CREATE TABLE AS SELECT (Transact-SQL)]: https://msdn.microsoft.com/library/mt204041.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[REBUILD]: https://msdn.microsoft.com/library/ms188388.aspx
-
-<!--Other Web references-->
-[Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
-[Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md

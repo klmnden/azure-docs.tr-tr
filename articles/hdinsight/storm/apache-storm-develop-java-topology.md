@@ -1,27 +1,25 @@
 ---
-title: "Apache Storm örnek Java topolojisi - Azure Hdınsight | Microsoft Docs"
-description: "Bir örnek word count topolojisi oluşturarak Java'da Apache Storm topolojilerini oluşturmayı öğrenin."
+title: Apache Storm örnek Java topolojisi - Azure Hdınsight | Microsoft Docs
+description: Bir örnek word count topolojisi oluşturarak Java'da Apache Storm topolojilerini oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "Apache storm, apache storm örnek, storm java, storm topoloji örneği"
+keywords: Apache storm, apache storm örnek, storm java, storm topoloji örneği
 ms.assetid: a8838f29-9c08-4fd9-99ef-26655d1bf6d7
 ms.service: hdinsight
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 2403261f05d9e5aab2e50939720b3eb007aecd6e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 5f2a6de9737569c75e0350e2aceec19b149d9549
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Apache Storm topolojisini Java oluşturma
 
@@ -30,13 +28,13 @@ Apache Storm için Java tabanlı bir topoloji oluşturmayı öğrenin. Word-coun
 Bu belgedeki adımları tamamladıktan sonra Hdınsight üzerinde Apache Storm topolojisini dağıtabilirsiniz.
 
 > [!NOTE]
-> Bu belgede oluşturulan Storm topolojisini örnekler tamamlanmış bir sürümünü şu adresten edinilebilir [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
+> Bu belgede oluşturulan Storm topolojisini örnekler tamamlanmış bir sürümünü şu adresten edinilebilir [ https://github.com/Azure-Samples/hdinsight-java-storm-wordcount ](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * [Java Geliştirme Seti (JDK) sürüm 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven is a project build system for Java projects.
+* [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven Java projeleri için bir proje derleme sistemidir.
 
 * Bir metin düzenleyicisi veya IDE.
 
@@ -169,7 +167,7 @@ Maven eklentileri projeyi derleme aşamaları özelleştirmenizi sağlar. Örne�
 </build>
 ```
 
-Bu bölümde, eklentiler, kaynakları ve diğer yapı yapılandırma seçeneklerini eklemek için kullanılır. Bir tam başvuru için **pom.xml** dosya için bkz: [http://maven.apache.org/pom.html](http://maven.apache.org/pom.html).
+Bu bölümde, eklentiler, kaynakları ve diğer yapı yapılandırma seçeneklerini eklemek için kullanılır. Bir tam başvuru için **pom.xml** dosya için bkz: [ http://maven.apache.org/pom.html ](http://maven.apache.org/pom.html).
 
 ### <a name="add-plug-ins"></a>Eklentiler
 
@@ -565,10 +563,10 @@ Yeni bir Günlükçü için bu XML yapılandırır `com.microsoft.example` Bu ö
 
 `<Root level="error">` Bölümü kök düzeyini yapılandırır (içinde değil her şeyi `com.microsoft.example`) yalnızca hata bilgileri günlüğe kaydetmek için.
 
-Log4j için günlüğe kaydetmeyi yapılandırma hakkında daha fazla bilgi için bkz: [http://logging.apache.org/log4j/2.x/manual/configuration.html](http://logging.apache.org/log4j/2.x/manual/configuration.html).
+Log4j için günlüğe kaydetmeyi yapılandırma hakkında daha fazla bilgi için bkz: [ http://logging.apache.org/log4j/2.x/manual/configuration.html ](http://logging.apache.org/log4j/2.x/manual/configuration.html).
 
 > [!NOTE]
-> Storm sürüm 0.10.0 ve daha yüksek kullanım Log4j 2.x. Storm eski sürümlerinde kullanılan Log4j günlük yapılandırması için farklı bir biçim kullanılan 1.x. Eski yapılandırma hakkında daha fazla bilgi için bkz: [http://wiki.apache.org/logging-log4j/Log4jXmlFormat](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
+> Storm sürüm 0.10.0 ve daha yüksek kullanım Log4j 2.x. Storm eski sürümlerinde kullanılan Log4j günlük yapılandırması için farklı bir biçim kullanılan 1.x. Eski yapılandırma hakkında daha fazla bilgi için bkz: [ http://wiki.apache.org/logging-log4j/Log4jXmlFormat ](http://wiki.apache.org/logging-log4j/Log4jXmlFormat).
 
 ## <a name="test-the-topology-locally"></a>Topoloji yerel olarak test etme
 
@@ -601,7 +599,7 @@ Topoloji ve verileri için kullanılacak bileşenleri YAML dosyası tanımlar ar
 Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache.org/releases/0.10.0/flux.html)](https://storm.apache.org/releases/0.10.0/flux.html).
 
 > [!WARNING]
-> Verilecek bir [hata (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 yüklemeniz gerekebilir bir [Storm geliştirme ortamı](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) Flux topolojileri yerel olarak çalıştırmak için.
+> Verilecek bir [hata (https://issues.apache.org/jira/browse/STORM-2055) ](https://issues.apache.org/jira/browse/STORM-2055) Storm 1.0.1 yüklemeniz gerekebilir bir [Storm geliştirme ortamı](https://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html) Flux topolojileri yerel olarak çalıştırmak için.
 
 1. Taşıma `WordCountTopology.java` dosya proje dışında. Daha önce bu dosyayı topoloji tanımlı, ancak Flux ile gerekli değildir.
 
@@ -720,7 +718,7 @@ Flux hakkında daha fazla bilgi için bkz: [Flux framework (https://storm.apache
     ```
 
     > [!WARNING]
-    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) ve aşağıdaki adımları kullanın:
+    > Topolojiniz Storm 1.0.1 BITS kullanıyorsa, bu komut başarısız olur. Bu hatanın nedeni [ https://issues.apache.org/jira/browse/STORM-2055 ](https://issues.apache.org/jira/browse/STORM-2055). Bunun yerine, [geliştirme ortamınızda Storm yüklemek](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) ve aşağıdaki adımları kullanın:
     >
     > Varsa [Storm geliştirme ortamınızda yüklü](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), bunun yerine aşağıdaki komutları kullanın:
     >

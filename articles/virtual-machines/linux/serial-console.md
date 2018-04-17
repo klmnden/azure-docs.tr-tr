@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: b7d6e48a6f34472bc38947fd70e850b1c3bf6f8a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makine seri konsol (Önizleme) 
 
@@ -32,7 +32,7 @@ Azure sanal makine seri konsolunuzdaki Linux ve Windows sanal makineler için me
 ## <a name="prerequisites"></a>Önkoşullar 
 
 * Sanal makine olmalıdır [önyükleme tanılama](boot-diagnostics.md) etkin 
-* Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../active-directory/role-based-access-built-in-roles.md) VM için ve [önyükleme tanılama](boot-diagnostics.md) depolama hesabı. 
+* Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılama](boot-diagnostics.md) depolama hesabı. 
 * Linux distro için belirli ayarları için bkz: [seri konsol için Linux erişme](#accessing-serial-console-for-linux)
 
 
@@ -56,7 +56,7 @@ Seri konsol işlevlerini belirli VM'ler için bu VM'in önyükleme tanılama aya
 ## <a name="serial-console-security"></a>Seri konsol güvenlik 
 
 ### <a name="access-security"></a>Erişimi güvenliği 
-Seri konsol erişimi olan kullanıcılar için sınırlı [VM katkıda bulunanlar](../../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor) ya da sanal makineye erişim üstünde. AAD kiracınızın çok faktörlü kimlik doğrulaması gerektiren sonra uygulamaya erişim aracılığıyla olduğundan seri konsoluna erişimi MFA ayrıca gerekir [Azure portal](https://portal.azure.com).
+Seri konsol erişimi olan kullanıcılar için sınırlı [VM katkıda bulunanlar](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) ya da sanal makineye erişim üstünde. AAD kiracınızın çok faktörlü kimlik doğrulaması gerektiren sonra uygulamaya erişim aracılığıyla olduğundan seri konsoluna erişimi MFA ayrıca gerekir [Azure portal](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalı güvenliği
 Tüm verileri geri gönderilir ve kablo İleri şifrelenir.

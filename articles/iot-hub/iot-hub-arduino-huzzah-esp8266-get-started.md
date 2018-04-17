@@ -1,25 +1,25 @@
 ---
-title: "Bulut için - ESP8266 yumuşatma HUZZAH ESP8266 Azure IOT Hub'ına bağlanmak | Microsoft Docs"
-description: "Kurulum ve Bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub için bu Adafruit yumuşatma HUZZAH ESP8266 bağlanma hakkında bilgi edinin."
+title: Bulut için - ESP8266 yumuşatma HUZZAH ESP8266 Azure IOT Hub'ına bağlanmak | Microsoft Docs
+description: Kurulum ve Bu öğreticide Azure bulut platformuna veri göndermek için Azure IOT Hub için bu Adafruit yumuşatma HUZZAH ESP8266 bağlanma hakkında bilgi edinin.
 services: iot-hub
-documentationcenter: 
-author: shizn
+documentationcenter: ''
+author: rangv
 manager: timlt
-tags: 
-keywords: 
+tags: ''
+keywords: ''
 ms.assetid: c505aacf-89a8-40ed-a853-493b75bec524
 ms.service: iot-hub
 ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/15/2017
-ms.author: xshi
-ms.openlocfilehash: e8f0397797d8f4c3349afcdfb02de071a6593c72
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 4/11/2018
+ms.author: rangv
+ms.openlocfilehash: b850bb25d7a6d06a2d0f55ed915321badf76bb39
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Bulutta Azure IOT Hub'ına Adafruit yumuşatma HUZZAH ESP8266 Bağlan
 
@@ -88,9 +88,9 @@ Algılayıcı PIN'ler için aşağıdaki kablolama kullanın:
 
 | Başlangıç (algılayıcı)           | Bitiş (kartı)           | Kablo rengi   |
 | -----------------------  | ---------------------- | ------------: |
-| VDD (Pin 31F)            | 3V (Pin 58H)           | Kırmızı kablosu     |
-| Veri (PIN 32F)           | GPIO 2 (Pin 46A)       | Mavi kablosu    |
-| GND (Pin 34F)            | GND (PIN 56I)          | Siyah kablosu   |
+| VDD (PIN 31F)            | 3v (PIN 58H)           | Kırmızı kablosu     |
+| Veri (PIN 32F)           | GPIO'yu 2 (PIN 46A)       | Mavi kablosu    |
+| GND (PIN 34F)            | GND (PIN 56I)          | Siyah kablosu   |
 
 Daha fazla bilgi için bkz: [Adafruit DHT22 algılayıcı Kurulum](https://learn.adafruit.com/dht/connecting-to-a-dhtxx-sensor) ve [Adafruit yumuşatma HUZZAH Esp8266 no'lu](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide?view=all#pinouts).
 
@@ -210,7 +210,7 @@ Visual Studio Code yumuşatma HUZZAH ESP8266 için paketi yükleyin:
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtmak
 
-1. Visual Studio kodda tıklatın  **<Select Serial Port>**  durumunu çubuk ve yumuşatma HUZZAH ESP8266 için seri bağlantı noktası'ı tıklatın.
+1. Visual Studio kodda tıklatın **<Select Serial Port>** durumunu çubuk ve yumuşatma HUZZAH ESP8266 için seri bağlantı noktası'ı tıklatın.
 1. Girin `F1`, yazın **Arduino** seçip **Arduino: karşıya** oluşturmak ve yumuşatma HUZZAH ESP8266 örnek uygulamayı dağıtmak için.
 
 ### <a name="enter-your-credentials"></a>Kimlik bilgilerinizi girin

@@ -1,9 +1,9 @@
 ---
 title: SQL Server Business Intelligence | Microsoft Docs
-description: "Bu konu, Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve Azure sanal makineleri (VM'ler) üzerinde çalışan SQL Server için kullanılabilir iş zekası (BI) özellikleri açıklar."
+description: Bu konu, Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve Azure sanal makineleri (VM'ler) üzerinde çalışan SQL Server için kullanılabilir iş zekası (BI) özellikleri açıklar.
 services: virtual-machines-windows
 documentationcenter: na
-author: guyinacube
+author: markingmyname
 manager: erikre
 editor: monicar
 tags: azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
-ms.author: asaxton
-ms.openlocfilehash: a010e60df2d86d2b1cc923b427aa7d7452f58089
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.author: maghan
+ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Sanal Makinelerde SQL Server İş Zekası
 > [!IMPORTANT] 
@@ -216,7 +216,7 @@ Rapor sunucusu izinleri hakkında daha fazla bilgi için bkz: [Yerel moddaki bir
 Yapılandırmayı doğrulamak için Rapor Yöneticisi VM'de göz atın.
 
 1. VM üzerinde yönetici ayrıcalıklarına sahip Internet Explorer'ı başlatın.
-2. VM üzerinde http://localhost/reports göz atın.
+2. Gözat http://localhost/reports VM üzerinde.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Uzak web portalı veya Rapor Yöneticisi 2014 ve 2012 için Bağlan
 2014 ve uzak bir bilgisayardan sanal makinedeki 2012 için web portalı veya Rapor Yöneticisi bağlanmak istiyorsanız, yeni bir sanal makine TCP uç noktası oluşturun. Rapor sunucusu varsayılan olarak, HTTP isteklerini dinler **bağlantı noktası 80**. Rapor sunucusu URL'leri farklı bir bağlantı noktası kullanacak şekilde yapılandırırsanız aşağıdaki yönergelerde yer bağlantı noktası numarasını belirtmeniz gerekir.
@@ -225,7 +225,7 @@ Yapılandırmayı doğrulamak için Rapor Yöneticisi VM'de göz atın.
 2. Bağlantı noktası 80 sanal makinenin Güvenlik Duvarı'nı açın.
 3. Web Portalı'na göz atın veya Rapor Yöneticisi'ni, Azure sanal makine kullanarak **DNS adı** URL sunucu adı olarak. Örneğin:
    
-    **Rapor sunucusu**: http://uebi.cloudapp.net/reportserver **Web portalı**: http://uebi.cloudapp.net/reports
+    **Rapor sunucusu**: http://uebi.cloudapp.net/reportserver **Web portalı**:   http://uebi.cloudapp.net/reports
    
     [Güvenlik duvarını rapor sunucusu erişimi için yapılandırma](https://msdn.microsoft.com/library/bb934283.aspx)
 
@@ -257,7 +257,7 @@ Analysis Services tabular modunda gibi ek SQL Server hizmetlerini yüklemek içi
 2. Tıklatın **Microsoft SQL Server 2016**, **Microsoft SQL Server 2014** veya **Microsoft SQL Server 2012** ve ardından **yapılandırma araçları** .
 3. Tıklatın **SQL Server Yükleme Merkezi'ni**.
 
-Or run C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe or C:\SQLServer_11.0_full\setup.exe
+Veya C:\SQLServer_13.0_full\setup.exe, C:\SQLServer_12.0_full\setup.exe veya C:\SQLServer_11.0_full\setup.exe çalıştırın
 
 > [!NOTE]
 > SQL Server Kurulumu çalıştırdığınız ilk kez daha fazla Kurulum dosyaları indirilebilir ve sanal makinenin yeniden başlatılması ve SQL Server Kurulumu'nu yeniden başlatılmasını gerektirir.
@@ -319,7 +319,7 @@ Bu bölüm oluşturmak için Microsoft Azure sanal makine uç ve sanal makine g�
   | Bağlantı noktası | Tür | Açıklama |
   | --- | --- | --- |
   | **80** |TCP |Rapor sunucusu uzaktan erişim (*). |
-  | **1433** |TCP |SQL Server Management Studio (*). |
+  | **1433** |TCP |SQL Server Management Studio'yu (*). |
   | **1434** |UDP |SQL Server Browser. VM bir etki alanına katıldığında bu gereklidir. |
   | **2382** |TCP |SQL Server Browser. |
   | **2383** |TCP |SQL Server Analysis Services varsayılan örneği ve kümelenmiş adlandırılmış örnekleri. |

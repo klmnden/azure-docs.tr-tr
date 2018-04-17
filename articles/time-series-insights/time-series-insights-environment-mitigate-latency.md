@@ -1,6 +1,6 @@
 ---
-title: "İzleme ve Azure zaman serisi öngörü azaltma azaltmak nasıl | Microsoft Docs"
-description: "Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure zaman serisi öngörü neden performans sorunlarını azaltmak açıklar."
+title: İzleme ve Azure zaman serisi öngörü azaltma azaltmak nasıl | Microsoft Docs
+description: Bu makalede, izleme, tanılama ve gecikme süresi ve azaltma Azure zaman serisi öngörü neden performans sorunlarını azaltmak açıklar.
 services: time-series-insights
 ms.service: time-series-insights
 author: jasonwhowell
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: ec16f20723e4a613c953363da6cf6b463de829a9
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: ac59359eb6af268f311534d90e1529fc5e41094f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>İzleme ve Azure zaman serisi Öngörüler gecikmesini azaltmak için azaltma azaltmak
 Gelen veri miktarına, ortam yapılandırma aşarsa, gecikme veya Azure zaman serisi öngörü azaltma karşılaşabilirsiniz.
@@ -41,7 +41,7 @@ Uyarılar tanılamak ve ortamınızın neden gecikmesi sorunları azaltmaya yard
 
 2. Tıklatın **ölçüm uyarı Ekle**.  
 
-    ![Ölçüm uyarısı ekleme](media/environment-mitigate-latency/add-metric-alert.png)
+    ![Ölçüm uyarısı ekle](media/environment-mitigate-latency/add-metric-alert.png)
 
 Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsiniz:
 
@@ -52,10 +52,17 @@ Buradan, aşağıdaki ölçümleri kullanarak uyarıları yapılandırabilirsini
 |**Giriş alınan iletileri**   | İleti sayısı tüm Event Hubs ya da IOT hub'ları olay kaynağından okuyun.        |
 |**Bayt giriş depolanan**     | Toplam boyut depolanan olayların ve sorgu için kullanılabilir. Boyutu yalnızca özellik değeri hesaplanır.        |
 |**Giriş olayları depolanan**     |   Sayısı düzleştirilmiş depolanan ve sorgu için kullanılabilir.      |
+|**Giriş alınan ileti zaman gecikmesini**    |  Olay kaynağı, sıraya alınan ileti saati ve giriş işlendiği saati arasındaki fark.      |
+|**Giriş alınan ileti sayısı gecikme**    |  Son sıraya alınan ileti sıra numarası arasındaki farkı olay kaynağı giriş işlenen ileti bölüm ve sıra sayısı.      |
+
 
 ![Gecikme süresi](media/environment-mitigate-latency/latency.png)
 
-Bir tekniktir ayarlamak için bir **giriş depolanan olayları** uyarı > bir eşiğinin biraz toplam ortamı kapasitenizi 2 saat boyunca =.  Bu uyarı, bir yüksek gecikme olasılığını gösterir kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
+Kısıtlanan değilse, için bir değer görür *giriş alınan ileti zaman gecikmesini*, kaç dakika geride TSI gerçek saati ileti mı olduğunu bildiren isabetler (appx dizin oluşturma süresi hariç. olay kaynağı 30-60 saniye).  *Giriş alınan ileti sayısı öteleme* de kaç iletiler, arkasında belirlemenize olanak sağlayan bir değer olmalıdır.  Yakalanan için en kolay yolu, ortamınızın 's kapasite fark üstesinden olanak tanıyan bir boyut artırmaktır.  
+
+Örneğin, bir tek birim S1 ortamınız varsa ve beş milyon ileti öteleme olup olmadığını, yakalanan için altı birimler için günde bir geçici ortamınıza boyutunu arttırabilir.  Hatta catch daha fazla sınırlandıramazsınız yukarı daha hızlı artırabilir.  Bu özellikle, olayları içinde zaten bir olay kaynağına bağlandığınızda başlangıçta bir ortam sağlamada veya karşıya yükleme çok fazla geçmiş veri toplu ortak occurance olacaktır.
+
+Ayarlamak için başka bir tekniktir bir **giriş depolanan olayları** uyarı > bir eşiğinin biraz toplam ortamı kapasitenizi 2 saat boyunca =.  Bu uyarı, bir yüksek gecikme olasılığını gösterir kapasitede sürekli olup olmadığını anlamanıza yardımcı olabilir.  
 
 Örneğin, sağlanan üç S1 birimler (veya dakika giriş kapasite başına 2100 olayları) varsa, ayarlayabileceğiniz bir **giriş depolanan olayları** için uyarı > 1900 olayları = için 2 saat. Sürekli olarak bu Eşiği aşan ve bu nedenle, uyarıyı tetikleyen varsa, büyük olasılıkla altında-sağlanır.  
 

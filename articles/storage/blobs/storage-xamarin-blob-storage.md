@@ -1,29 +1,22 @@
 ---
-title: "BLOB depolama alanından Xamarin kullanma | Microsoft Docs"
-description: "Xamarin için Azure Storage istemci kitaplığı, geliştiricilerin kendi yerel kullanıcı arabirimleri ile iOS, Android ve Windows mağazası uygulamaları oluşturmalarına olanak sağlar. Bu öğretici Xamarin Azure Blob Depolama kullanan bir uygulama oluşturmak için nasıl kullanılacağını gösterir."
+title: Xamarin nesne (Blob) depodan kullanma | Microsoft Docs
+description: Xamarin için Azure Storage istemci kitaplığı, geliştiricilerin kendi yerel kullanıcı arabirimleri ile iOS, Android ve Windows mağazası uygulamaları oluşturmalarına olanak sağlar. Bu öğretici Xamarin Azure Blob Depolama kullanan bir uygulama oluşturmak için nasıl kullanılacağını gösterir.
 services: storage
 documentationcenter: xamarin
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: 44cb845d-cf78-4942-95b8-952da4f9a2c2
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31dbaeb1dd998d8d27af5eff0fa293117ef7f471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>BLOB depolama alanından Xamarin kullanma
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-## <a name="overview"></a>Genel Bakış
 Yerel kullanıcı arabirimlerini ile iOS, Android ve Windows mağazası uygulamaları oluşturmak için bir paylaşılan C# kullanmaya Xamarin etkinleştirir geliştiriciler codebase. Bu öğretici Xamarin uygulamasıyla Azure Blob storage kullanmayı gösterir. Bilgi edinmek istiyorsanız, kodlara başlamadan önce Azure Storage hakkında daha fazla bakın [Microsoft Azure Storage'a giriş](../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -43,7 +36,7 @@ Uygulamanızı oluşturmak için aşağıdaki adımları izleyin:
 Şimdi bir sayaç artırılır bir düğmeye tıklayın olanak sağlayan bir uygulama olmalıdır.
 
 ## <a name="create-container-and-upload-blob"></a>Kapsayıcı oluşturun ve blob karşıya yükleme
-Ardından, altında `(Portable)` projesi için bazı kod ekleyeceğiz `MyClass.cs`. Bu kod, bir kapsayıcı oluşturur ve bu kapsayıcıya bir blob yükler. `MyClass.cs`aşağıdaki gibi görünmelidir:
+Ardından, altında `(Portable)` projesi için bazı kod ekleyeceğiz `MyClass.cs`. Bu kod, bir kapsayıcı oluşturur ve bu kapsayıcıya bir blob yükler. `MyClass.cs` aşağıdaki gibi görünmelidir:
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -84,7 +77,7 @@ namespace XamarinApp
 
 "Your_account_name_here" ve "your_account_key_here" gerçek hesap adı ve hesap anahtarı ile değiştirdiğinizden emin olun. 
 
-İOS, Android ve Windows Phone projeleri tüm, tüm paylaşılan kodunuzu birinde yazabilirsiniz anlamına gelir, taşınabilir projenizi - başvuran yerleştirin ve tüm projeleriniz arasında kullanın. Aşağıdaki kod satırını faydalanarak başlatmak için her proje için artık ekleyebilirsiniz:`MyClass.performBlobOperation()`
+İOS, Android ve Windows Phone projeleri tüm, tüm paylaşılan kodunuzu birinde yazabilirsiniz anlamına gelir, taşınabilir projenizi - başvuran yerleştirin ve tüm projeleriniz arasında kullanın. Aşağıdaki kod satırını faydalanarak başlatmak için her proje için artık ekleyebilirsiniz: `MyClass.performBlobOperation()`
 
 ### <a name="xamarinappdroid--mainactivitycs"></a>XamarinApp.Droid > MainActivity.cs
 

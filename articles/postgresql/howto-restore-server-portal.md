@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 0d67bf5625ee9037c5ec152c8ce8564235018e8e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b4fe1151337dc6f5874e6ad102c6e905e90fd963
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Yedekleme ve Azure veritabanındaki bir sunucu için Azure portalını kullanarak PostgreSQL geri yükleme
 
@@ -81,6 +81,10 @@ Coğrafi olarak yedekli yedekleme için sunucunuzu yapılandırdıysanız, var o
 
 2. Formun içinde **Kaynağı Seç** açılan listesinde, seçin **yedekleme**. Bu eylem, coğrafi olarak yedekli yedeklemeleri etkin olduğu sunucular listesini yükler. Yeni sunucunuzun bir kaynak olarak bu yedeklemeler birini seçin.
    ![Kaynak Seç: Yedekleme ve coğrafi olarak yedekli yedeklemeleri listesi](./media/howto-restore-server-portal/2-georestore.png)
+
+   > [!NOTE]
+   > Bir sunucu ilk oluşturulduğunda coğrafi geri yükleme için hemen kullanılabilir olmayabilir. Doldurulması gerekli meta veriler için birkaç saat sürebilir.
+   >
 
 3. Tercihlerinizi formla geri kalanını doldurun. Seçebilirsiniz **konumu**. Seçebileceğiniz konumu seçtikten sonra **fiyatlandırma katmanı**. Varsayılan olarak, geri yüklemekte olduğunuz var olan sunucu için parametreleri gösterilir. Tıklayabilirsiniz **Tamam** bu ayarları devralmak için herhangi bir değişiklik yapmadan olmadan. Veya değiştirebileceğiniz **işlem oluşturma** (bölgede kullanılabilir seçmiş olduğunuz varsa), sayısı **vCores**, **yedekleme Bekletme dönemi**, ve **yedekleme Artıklığı seçeneği**. Değiştirme **fiyatlandırma katmanı** (temel, genel amaçlı veya bellek için iyileştirilmiş) veya **depolama** geri yükleme sırasında boyutu desteklenmiyor.
 

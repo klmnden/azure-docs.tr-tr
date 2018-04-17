@@ -5,7 +5,7 @@
 | Bir [abonelikteki](../articles/billing-buy-sign-up-azure-subscription.md) seri (Dv2, F vb.) çekirdeği başına VM |Bölge başına 20<sup>1</sup> | Desteğe başvurun |
 | Abonelik başına [ortak yönetici](../articles/billing-add-change-azure-subscription-administrator.md) sayısı |Sınırsız |Sınırsız |
 | Abonelik başına [depolama hesabı](../articles/storage/common/storage-create-storage-account.md) sayısı |200 |200<sup>2</sup> |
-| Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |800 |800 |
+| Abonelik başına [Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md) |980 |980 |
 | Abonelik başına [Kullanılabilirlik Kümesi](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |Bölge başına 2.000 |Bölge başına 2.000 |
 | Resource Manager API'si Okuma İşlemleri |Saatte 15.000 |Saatte 15.000 |
 | Resource Manager API'si Yazma İşlemleri |Saatte 1.200 |Saatte 1.200 |

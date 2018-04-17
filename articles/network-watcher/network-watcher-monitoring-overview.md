@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 792b96e4f5ba5dc0f2f943f099a2fee339407d66
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a546296749ba9373355cfe2b857b83d8af94d5a1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-network-monitoring-overview"></a>Azure ağı izlemeye genel bakış
 
@@ -51,7 +51,7 @@ Ağ İzleyicisi'ni şu anda aşağıdaki özellikleri içerir:
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>Rol tabanlı erişim denetimi (RBAC) Ağ İzleyicisi
 
-Ağ İzleyicisi'ni kullanan [Azure rol tabanlı erişim denetimi (RBAC) modeli](../active-directory/role-based-access-control-what-is.md). Ağ İzleyicisi tarafından aşağıdaki izinler gerekir. Ağ İzleyicisi API'leri başlatılıyor veya portaldan Ağ İzleyicisi'ni kullanmak için kullanılan rol gerekli erişimi olduğundan emin olmak önemlidir.
+Ağ İzleyicisi'ni kullanan [Azure rol tabanlı erişim denetimi (RBAC) modeli](../role-based-access-control/overview.md). Ağ İzleyicisi tarafından aşağıdaki izinler gerekir. Ağ İzleyicisi API'leri başlatılıyor veya portaldan Ağ İzleyicisi'ni kullanmak için kullanılan rol gerekli erişimi olduğundan emin olmak önemlidir.
 
 |Kaynak| İzin|
 |---|---| 

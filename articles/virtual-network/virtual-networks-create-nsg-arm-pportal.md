@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - Azure portalında oluşturma | Microsoft Docs"
-description: "Azure Portalı'nı kullanarak ağ güvenlik grupları oluşturup öğrenin."
+title: Ağ güvenlik grupları - Azure portalında oluşturma | Microsoft Docs
+description: Azure Portalı'nı kullanarak ağ güvenlik grupları oluşturup öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 865032f350735d35668bb199ccf1ef3f0fae81de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd05df542327f9d8dae924b7097d247980a0558b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-the-azure-portal"></a>Ağ güvenlik grupları Azure portalını kullanarak oluşturma
 
@@ -39,7 +39,7 @@ Aşağıdaki komutları önceden oluşturulmuş basit bir ortam beklediğiniz Po
 ## <a name="create-the-nsg-frontend-nsg"></a>NSG ön uç NSG oluşturma
 Oluşturmak için **NSG ön uç** NSG yukarıdaki senaryoda gösterildiği gibi aşağıdaki adımları izleyin.
 
-1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
+1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınızla oturum açın.
 2. Tıklatın **Gözat >** > **ağ güvenlik grupları**.
    
     ![Azure portal - Nsg'ler](./media/virtual-networks-create-nsg-arm-pportal/figure11.png)
@@ -92,6 +92,6 @@ Oluşturmak için **NSG arka uç** NSG ve kendisine ilişkilendirmek **arka uç*
 3. Adımlarını yineleyin [FrontEnd alt ağı için NSG ilişkilendirmek](#Associate-the-NSG-to-the-FrontEnd-subnet) ilişkilendirilecek **NSG arka uç** NSG'yi **arka uç** alt ağ.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Bilgi edinmek için nasıl [varolan Nsg'ler yönetme](virtual-network-manage-nsg-arm-portal.md)
+* Bilgi edinmek için nasıl [varolan Nsg'ler yönetme](manage-network-security-group.md)
 * [Günlük kaydını etkinleştir](virtual-network-nsg-manage-log.md) Nsg'ler için.
 

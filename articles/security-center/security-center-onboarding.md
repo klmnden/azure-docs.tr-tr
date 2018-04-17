@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi standart Gelişmiş güvenlik için hazırlanma | Microsoft Docs"
+title: Azure Güvenlik Merkezi standart Gelişmiş güvenlik için hazırlanma | Microsoft Docs
 description: " Nasıl için yerleşik Azure Güvenlik Merkezi standardı için Gelişmiş bilgi güvenliği. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.openlocfilehash: a6394b1b02ebfe518dc2f2b7f65eb677bb0ba5f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Azure Güvenlik Merkezi standart Gelişmiş güvenlik için hazırlanma
 Gelişmiş güvenlik yönetimi ve tehdit koruması, karma bulut iş yükleri için yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart 60 gün süreyle ücretsiz deneyebilirsiniz. Güvenlik Merkezi bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.
@@ -30,7 +30,7 @@ Güvenlik Merkezi standart içerir:
 - **Erişim ve uygulama denetimleri** -bloğu kötü amaçlı yazılım ve diğer istenmeyebilecek uygulamaları uygulamaları güvenilir listeye almayı önerileri uygulayarak, belirli iş yükleri için uyarlanmış ve makine öğrenme tarafından sağlanmıştır. Ağ saldırı yüzeyini yalnızca zaman, denetlenen erişimi olan Yönetim noktalarına Azure vm'lerinde deneme yanılma ve diğer ağ saldırılarına maruz büyük ölçüde azaltır, azaltın.
 
 ## <a name="detecting-unprotected-resources"></a>Korumasız kaynakları algılama     
-Güvenlik Merkezi, herhangi bir Azure abonelikleri veya Güvenlik Merkezi standart için etkinleştirilmemiş çalışma alanları otomatik olarak algılar. Bu, Güvenlik Merkezi ücretsiz ve etkin bir güvenlik çözümü olmayan çalışma alanları kullanarak Azure abonelikleri içerir.
+Güvenlik Merkezi, Güvenlik Merkezi Standart sürümü için etkinleştirilmemiş herhangi bir Azure aboneliğini veya çalışma alanını otomatik olarak algılar. Buna, Güvenlik Merkezi Ücretsiz sürümünü kullanan Azure abonelikleri ve etkin bir Güvenlik çözümü olmayan çalışma alanları dahildir.
 
 Tüm Azure aboneliği abonelik içindeki tüm kaynaklar tarafından devralınan bir standart katmanı yükseltebilir veya yalnızca belirli bir kaynak grubunu yükseltmek için benzersiz bir ilke tanımlayabilirsiniz. Kaynak Grup İlkesi ayarlarının benzersiz olduğundan, Güvenlik Merkezi, abonelik için standart katmana yükselttiğinizde fiyatlandırma ilkeleri üzerine yazılmaz. Standart uygulama katmanı için bir abonelik yalnızca uygulanır abonelik içindeki Güvenlik Merkezi tarafından oluşturulan çalışma alanlarına raporlama VM'ler. Standart uygulama katmanı çalışma alanına raporlama çalışma alanı için tüm kaynakların uygulanır.
 
@@ -115,7 +115,7 @@ Biz, her iki yöntem yol:
 2. Seçin **işlem** döşeme.
 3. Altında **işlem**seçin **bilgisayarları eklemek**.
 
-   ![Dikey işlem][6]
+   ![Bilgi İşlem dikey penceresi][6]
 
 4. Altında **yeni Azure olmayan bilgisayarlar eklemek**, bilgisayarınıza bağlayın ve'ı tıklatın, bir çalışma alanı seç **bilgisayar Ekle**.
 

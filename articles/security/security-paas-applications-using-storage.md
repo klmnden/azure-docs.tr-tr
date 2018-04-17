@@ -1,12 +1,12 @@
 ---
-title: "Azure Storage kullanarak PaaS uygulamalarının güvenliğini sağlama | Microsoft Docs"
+title: Azure Storage kullanarak PaaS uygulamalarının güvenliğini sağlama | Microsoft Docs
 description: " Azure Storage güvenliği hakkında bilgi edinme PaaS web ve mobil uygulamaların güvenliğini sağlamaya yönelik en iyi uygulamalar. "
 services: security
 documentationcenter: na
 author: TomShinder
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomShinder
-ms.openlocfilehash: 16ee6d9d2f02c758d7682626a8b71a3ff17f841c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 9d4251e61b60d8da6ce5072ba66aeaedb60cb33a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>PaaS web ve mobil uygulamaları Azure Storage kullanarak güvenli hale getirme
 Bu makalede, PaaS web ve mobil uygulamaların güvenliğini sağlamak için Azure Storage en iyi güvenlik yöntemleri topluluğu tartışın. Bu en iyi uygulamaları Azure ile deneyimi bizim ve kendiniz gibi müşterilerin deneyimleri türetilir.
@@ -75,7 +75,7 @@ Daha fazla bilgi için bkz: [yönetilen ve yönetilmeyen premium diskler hakkın
 
 Daha önce hesabı depolama hesabı anahtarınızı sokmadan diğer istemcilere depolama hesabındaki nesnelere sınırlı erişim vermek için paylaşılan erişim imzası (SAS) kullanma açıklanmaktadır. Bazen, depolama hesabınız karşı belirli bir işlemle ilişkili riskleri SAS avantajlarından daha ağır basar. Bazen diğer yollarla erişimi yönetmek üzere basittir.
 
-Erişimi yönetmek için başka bir yolu kullanmaktır [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) (RBAC). RBAC, çalışanlar gereksinim duydukları tam izinleri veriyorsanız, odaklanmasına ile bilme gereğini ve en az ayrıcalık güvenlik ilkelerine göre. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. RBAC, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. Bu, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur.
+Erişimi yönetmek için başka bir yolu kullanmaktır [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC). RBAC, çalışanlar gereksinim duydukları tam izinleri veriyorsanız, odaklanmasına ile bilme gereğini ve en az ayrıcalık güvenlik ilkelerine göre. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. RBAC, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermeye yardımcı olur. Bu, veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için zorunludur.
 
 Azure ayrıcalıkları kullanıcılara atamak için yerleşik RBAC rollerinde yararlanabilirsiniz. Depolama hesabı katkıda bulunan depolama hesapları ve klasik depolama hesaplarını yönetmek için Klasik depolama hesabı katkıda bulunan rolü yönetmek için gereken bulut işleçlerini kullanmayı düşünün. Bulut operatörleri, gereksinim VM'ler ancak bağlı sanal ağ veya depolama hesabı değil yönetmek için sanal makine Katılımcısı rolüne eklemeyi düşünün.
 
@@ -83,8 +83,8 @@ Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşlar ke
 
 RBAC bakın hakkında daha fazla bilgi için:
 
-- [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md)
-- [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-built-in-roles.md)
+- [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
+- [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/built-in-roles.md)
 - [Azure depolama Güvenlik Kılavuzu](../storage/common/storage-security-guide.md) depolama hesabınızı RBAC ile güvenli konusunda ayrıntılı bilgi için
 
 ## <a name="storage-encryption"></a>Depolama şifrelemesi

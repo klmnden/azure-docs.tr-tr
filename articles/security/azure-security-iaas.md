@@ -1,5 +1,5 @@
 ---
-title: "Güvenlik en iyi yöntemler için Iaas azure'da iş yüklerini | Microsoft Docs"
+title: Güvenlik en iyi yöntemler için Iaas azure'da iş yüklerini | Microsoft Docs
 description: " Azure Iaas iş yüklerinin geçişi bizim tasarımları yeniden değerlendirmeye fırsatlar getirir "
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: barclayn
-ms.openlocfilehash: 376a3e47e5099aa4d74732e0b6ed14ed9af14091
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 8561d9ca2570975f4cd20a0606ce5b9cdee632b7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure Iaas iş yükleri için en iyi güvenlik uygulamaları
 
@@ -83,7 +83,7 @@ Kullanabileceğiniz [Privileged Identity Management](../active-directory/active-
 
 Labs ve geliştirme ortamları için Azure kullanarak kuruluşlarının hemen donanım tedarik tanıtır gecikmeler gerçekleştirerek test ve geliştirme çevikliği kazanırsınız olanak tanır. Ne yazık ki, Azure veya kendi benimseme artırılmasına yardımcı olur isteği ile benzerlik eksikliği yönetici hakları atama ile aşırı izin neden olabilir. Bu riski kasıtsız olarak iç saldırıları kuruluşa doğurabilir. Bazı kullanıcılar sahip olması gereken daha çok daha fazla erişim izni.
 
-[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) hizmet kullanır [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) (RBAC). RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gerekli erişim düzeyini vermek rollere görevlerini ekibiniz içinde ayırabilirsiniz. RBAC önceden tanımlı rollerle (sahibi, Laboratuvar kullanıcı ve katkıda bulunan) gelir. Dış iş ortakları hakları atamak ve büyük ölçüde işbirliği basitleştirmek için bu rolleri bile kullanabilirsiniz.
+[Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) hizmet kullanır [Azure rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC). RBAC kullanarak, yalnızca kullanıcıların işlerini yapmak için gerekli erişim düzeyini vermek rollere görevlerini ekibiniz içinde ayırabilirsiniz. RBAC önceden tanımlı rollerle (sahibi, Laboratuvar kullanıcı ve katkıda bulunan) gelir. Dış iş ortakları hakları atamak ve büyük ölçüde işbirliği basitleştirmek için bu rolleri bile kullanabilirsiniz.
 
 DevTest Labs RBAC kullandığından, bu ek, oluşturmak mümkündür [özel roller](../devtest-lab/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs yalnızca izinlerin yönetimini basitleştirir, sağlanan ortamları alma işlemini basitleştirir. Ayrıca, geliştirme ve test ortamları üzerinde çalıştığınız takım tipik diğer zorluklar uğraşmanız yardımcı olur. Bazı hazırlık gerektirir, ancak uzun vadede şeyler ekibiniz için kolaylaştırır.
 
@@ -178,7 +178,7 @@ Standartlarınıza endüstrideki en iyi uygulamaları için karşılaştırın, 
 Üretim ortamınızdan ayrı olarak barındırılan ortamlarda, kötü amaçlı yazılımdan koruma uzantı, sanal makinelerinizi korumak ve bulut Hizmetleri için kullanabilirsiniz. İle tümleştirilir [Azure Güvenlik Merkezi](../security-center/security-center-intro.md).
 
 
-[Microsoft Antimalware](azure-security-antimalware.md) gerçek zamanlı koruma, zamanlanmış tarama, kötü amaçlı yazılım düzeltme, imza güncelleştirmeleri, altyapı güncelleştirmeleri, örnekleri, dışlama olay toplama, raporlama gibi özellikler içerir ve [PowerShell desteği](https://msdn.microsoft.com/library/dn771715.aspx).
+[Microsoft Antimalware](azure-security-antimalware.md) gerçek zamanlı koruma, zamanlanmış tarama, kötü amaçlı yazılım düzeltme, imza güncelleştirmeleri, altyapı güncelleştirmeleri, örnekleri, dışlama olay toplama, raporlama gibi özellikler içerir ve [PowerShelldesteği](https://msdn.microsoft.com/library/dn771715.aspx).
 
 ![Azure kötü amaçlı yazılımdan koruma](./media/azure-security-iaas/azantimalware.png)
 

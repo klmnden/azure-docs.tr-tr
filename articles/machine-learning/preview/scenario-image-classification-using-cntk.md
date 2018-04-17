@@ -1,8 +1,8 @@
 ---
-title: "Görüntü CNTK Azure Machine Learning çalışma ekranı içinde kullanarak sınıflandırma | Microsoft Docs"
-description: "Eğitim, değerlendirmek ve Azure ML çalışma ekranı kullanarak özel görüntü sınıflandırma modeli dağıtın."
+title: Görüntü CNTK Azure Machine Learning çalışma ekranı içinde kullanarak sınıflandırma | Microsoft Docs
+description: Eğitim, değerlendirmek ve Azure ML çalışma ekranı kullanarak özel görüntü sınıflandırma modeli dağıtın.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: PatrickBue
 ms.author: pabuehle
 manager: mwinkle
@@ -11,11 +11,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 03fdd1265464355a2787eff897eb4f70faa095b0
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: c585609ec8854045e943ae7cd33089021f8f1f2f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -54,7 +54,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 4. 2 bölümünde açıklanan DNN iyileştirme için gerekli ancak adanmış bir GPU SVM eğitim bölümü 1, yürütmek için gerekli değildir. Güçlü bir GPU olmadığı, üzerinde birden çok GPU eğitmek istediğiniz ya da bir Windows makinesine sahip değil, daha sonra Azure'nın derin öğrenme sanal makine Windows işletim sistemiyle birlikte kullanmayı düşünün. Bkz: [burada](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning) 1-tıklatma dağıtım kılavuzu. Dağıtıldığında, bir Uzak Masaüstü bağlantısı üzerinden VM bağlanmak, çalışma ekranı var. yüklemek ve kod sanal makineden yerel olarak çalıştırmak.
 5. OpenCV gibi çeşitli Python kitaplıkları yüklü olması gerekir. Tıklatın *komut istemini açın* gelen *dosya* menüde çalışma ekranı ve bu bağımlılıklar yüklemek için aşağıdaki komutları çalıştırın:  
     - `pip install https://cntk.ai/PythonWheel/GPU/cntk-2.2-cp35-cp35m-win_amd64.whl`  
-    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` (tam dosya adı ve sürümü değiştirebilirsiniz) http://www.lfd.uci.edu/~gohlke/pythonlibs/ OpenCV Tekerlek indirdikten sonra
+    - `pip install opencv_python-3.3.1-cp35-cp35m-win_amd64.whl` gelen OpenCV indirdikten sonra Tekerlek http://www.lfd.uci.edu/~gohlke/pythonlibs/ (tam dosya adı ve sürümü değiştirebilirsiniz)
     - `conda install pillow`
     - `pip install -U numpy`
     - `pip install bqplot`
@@ -73,7 +73,7 @@ Bu örneği çalıştırmak için gereken önkoşullar aşağıdaki gibidir:
 
 Bu örnek bir şablon kullanarak yeni bir proje oluşturmak için:
 1.  Azure Machine Learning Workbench’i açın.
-2.  Üzerinde **projeleri** sayfasında,  **+**  oturum ve seçin **yeni proje**.
+2.  Üzerinde **projeleri** sayfasında, **+** oturum ve seçin **yeni proje**.
 3.  İçinde **yeni proje oluştur** bölmesinde, yeni projeniz için bilgileri doldurun.
 4.  İçinde **arama proje şablonları** arama kutusu, "sınıflandırma görüntü" yazın ve şablonu seçin.
 5.  **Oluştur**’a tıklayın.
@@ -82,13 +82,13 @@ Bu adımları gerçekleştiren aşağıda gösterilen Proje yapısı oluşturur.
 
   Klasör| Açıklama
   ---|---
-  aml_config/|                           Azure Machine Learning çalışma ekranı yapılandırma dosyalarını içeren dizini
+  aml_config /|                           Azure Machine Learning çalışma ekranı yapılandırma dosyalarını içeren dizini
   kitaplıkları /|                              Tüm Python ve Jupyter yardımcı işlevleri içeren dizin
   not defterlerini /|                              Tüm not defterlerini içeren dizin
   kaynakları /|                              Tüm kaynaklar (örneğin URL'sini şekilde görüntülerinin) içeren dizin
   komut dosyalarını /|                              Tüm komut dosyaları içeren dizini
   PARAMETERS.py|                       Python betiği tüm parametreleri belirtme
-  readme.md|                           Bu Benioku belgesine
+  Readme.MD|                           Bu Benioku belgesine
 
 
 ## <a name="data-description"></a>Veri açıklaması
@@ -215,7 +215,7 @@ Biz şimdi bölüm 1 modelden doğruluğunu artırmak için çeşitli yollar sun
 
 Bir SVM yerine bir sinir ağı sınıflandırmasında doğrudan yapabilirsiniz. Bu, yeni bir son katman giriş olarak sondan katmandan 512 float geçen önceden eğitilen DNN ekleyerek sağlanır. Tam ağ retrained backpropagation artık DNN sınıflandırmasında yapmanın avantajı olmasıdır. Bu yaklaşım genellikle önceden eğitilen DNN olarak kullanmaya kıyasla çok daha iyi sınıflandırma accuracies doğurur-olduğu, ancak daha uzun eğitim saatiyle (hatta GPU) ödün verme pahasına.
 
-Bir SVM yerine sinir ağı eğitiliyor yapılır değişkeni değiştirerek `classifier` içinde `PARAMETERS.py` gelen `svm` için `dnn`. Ardından, 1 bölümünde açıklandığı gibi verileri hazırlama (1. adım) ve SVM eğitim (adım 3) dışında tüm betikler yeniden yürütülmesi gerekir. DNN iyileştirme, bir GPU gerektirir. hiçbir GPU bulunduysa veya GPU (örneğin bir önceki CNTK çalıştırma tarafından) kilitliyse sonra komut dosyası `2_refineDNN.py` bir hata oluşturur. DNN eğitim throw bellek yetersiz hatası minibatch boyutunu azaltarak önlenebilir bazı GPU üzerinde (değişken `cntk_mb_size` içinde `PARAMETERS.py`).
+Bir SVM yerine sinir ağı eğitiliyor yapılır değişkeni değiştirerek `classifier` içinde `PARAMETERS.py` gelen `svm` için `dnn`. Ardından, 1 bölümünde açıklandığı gibi verileri hazırlama (1. adım) ve SVM eğitim (4. adım) dışında tüm betikler yeniden yürütülmesi gerekir. DNN iyileştirme, bir GPU gerektirir. hiçbir GPU bulunduysa veya GPU (örneğin bir önceki CNTK çalıştırma tarafından) kilitliyse sonra komut dosyası `2_refineDNN.py` bir hata oluşturur. DNN eğitim throw bellek yetersiz hatası minibatch boyutunu azaltarak önlenebilir bazı GPU üzerinde (değişken `cntk_mb_size` içinde `PARAMETERS.py`).
 
 Eğitim tamamlandıktan sonra Gelişmiş modeli kaydedilir *DATA_DIR/proc/fashionTexture/cntk_refined.model*, ve eğitim ve test sınıflandırma hataları eğitim sırasında nasıl değiştiğini gösteren bir çizim çizilmiştir. Eğitim kümesi hatasında test kümesinde çok daha küçük olan bu çizim unutmayın. Bu sözde aşırı sığdırma davranışı, örneğin, düşme oranı daha yüksek bir değer kullanılarak azaltılabilir `rf_dropoutRate`.
 <p align="center">
@@ -234,8 +234,7 @@ Her geçmişini çalıştırmak olan iki veya daha fazla çalıştığında kar�
 İlk ekran görüntüsünde, DNN iyileştirme SVM eğitim tüm sınıflar için daha iyi accuracies neden olmaktadır. İkinci ekran sınıflandırıcı neydi dahil olmak üzere izlendiğini tüm ölçümlerini gösterir. Bu izleme komut dosyasındaki yapılır `5_evaluate.py` Azure Machine Learning çalışma ekranı Günlükçü çağırarak. Ayrıca, komut dosyası ROC eğrisi ve karışıklığı matris de kaydeder *çıkarır* klasör. Bu *çıkarır* klasördür özel içeriği da çalışma ekranı geçmişi özelliği tarafından izlenir ve çıktı dosyaları herhangi bir zamanda olup yerel kopyaları üzerine bağımsız olarak, bu nedenle erişilebilir.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>  
-</p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
@@ -300,4 +299,4 @@ Bu örnekte anahtar bazı önemli şunlardır:
 ## <a name="references"></a>Başvurular
 
 [1] Alex Krizhevsky, Ilya Sutskever ve Geoffrey E. Hinton [ _ImageNet sınıflandırma Convolutional derin sinir ağları ile_](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf). NIPS 2012.  
-[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun, [_Deep Residual Learning for Image Recognition_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.
+[2] Kaiming He, Xiangyu Zhang, Shaoqing Ren ve Jian Sun, [ _derin fazlalık görüntü tanıma için öğrenme_](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf). CVPR 2016.

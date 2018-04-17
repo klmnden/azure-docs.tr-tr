@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 02/20/2018
 ms.author: elbutter
-ms.openlocfilehash: c34e37f0c6393c65d4b60705012769608bb7395b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ddd80f2ebfa9d06fcd47c41d337348e01ac112e9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse işlem yönetme
 Azure SQL Data Warehouse işlem kaynakları yönetme hakkında bilgi edinin. Veri ambarı duraklatarak maliyetlerine veya performans taleplerini karşılamak üzere veri ambarına ölçeklendirin. 
@@ -28,7 +28,7 @@ Azure SQL Data Warehouse işlem kaynakları yönetme hakkında bilgi edinin. Ver
 SQL Data Warehouse mimarisi, depolama ve işlem, her bağımsız olarak ölçeklendirebilirsiniz izin vererek ayırır. Sonuç olarak, veri depolamasını bağımsız performans taleplerini karşılamak üzere işlem ölçeklendirebilirsiniz. Ayrıca, duraklatma ve sürdürme işlem kaynakları. Bu mimarinin doğal bir sonuç [fatura](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) işlem ve depolama için ayrıdır. Veri ambarınız biraz kullanmanız gerekmez, duraklatarak işlem maliyetleri kaydedebilirsiniz işlem. 
 
 ## <a name="scaling-compute"></a>İşlem ölçeklendirme
-Ölçeği genişletme veya geri işlem ayarlayarak ölçeklendirme [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md) veri ambarınız için ayarlama. Daha fazla veri ambarı birimi ekledikçe yükleme ve sorgu performansı doğrusal olarak artırabilirsiniz. SQL veri ambarı sunar [hizmet düzeyleri](performance-tiers.md#service-levels) veri ölçeklendirmek yükleyen performansı belirgin bir değişiklik olun warehouse birimleri out veya yedekleme. 
+Ölçeği genişletme veya geri işlem ayarlayarak ölçeklendirme [veri ambarı birimlerini](what-is-a-data-warehouse-unit-dwu-cdwu.md) veri ambarınız için ayarlama. Daha fazla veri ambarı birimi ekledikçe yükleme ve sorgu performansı doğrusal olarak artırabilirsiniz. 
 
 Genişleme adımlar için bkz: [Azure portal](quickstart-scale-compute-portal.md), [PowerShell](quickstart-scale-compute-powershell.md), veya [T-SQL](quickstart-scale-compute-tsql.md) quickstarts. Genişletme işlemlerini de gerçekleştirebilirsiniz bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
 
@@ -103,19 +103,19 @@ Bir duraklama veya ölçek işlemini başlatmadan önce tamamlamak var olan işl
 
 SQL Veri Ambarınız için duraklatma veya ölçeklendirme isteğinde bulunduğunuzda, arka planda sorgularınız iptal edilir.  Basit bir SELECT sorgusunu hızlıca ve örnek duraklatma veya ölçeklendirme süresini neredeyse hiç etkilemeden iptal edebilirsiniz.  Ancak, verilerinizi veya verilerinizin yapısını değiştiren işlem sorguları o kadar hızlı durdurulamayabilir.  **Bir işlem sorgusunun tamamlanması veya yaptığı değişiklikleri geri alması gerekir.**  Bir işlem sorgusunun tamamladığı işi geri almak, sorgunun değişiklik yapmak için harcadığı süre kadar, hatta bazen daha fazla zaman alabilir.  Örneğin, bir saattir çalışan ve satır silen bir sorguyu iptal etmeniz halinde sistemin silinmiş olan satırları geri eklemesi bir saat sürebilir.  Duraklatma veya ölçeklendirme isteklerini işlemler devam ederken çalıştırmanız halinde, devam etmek için geri alma işleminin tamamlanmasını bekleyeceğinden ilgili duraklatma veya ölçeklendirme işleminin tamamlanması uzun sürebilir.
 
-Ayrıca bkz. [işlemleri anlama](sql-data-warehouse-develop-transactions.md)ve [işlemleri en iyi duruma getirme][işlemleri en iyi duruma getirme](sql-data-warehouse-develop-best-practices-transactions.md).
+Ayrıca bkz. [işlemleri anlama](sql-data-warehouse-develop-transactions.md), ve [işlemleri en iyi duruma getirme](sql-data-warehouse-develop-best-practices-transactions.md).
 
 ## <a name="automating-compute-management"></a>İşlem yönetimi otomatikleştirme
 İşlem yönetimi işlemleri otomatikleştirmek için bkz: [Azure işlevleri ile Yönet işlem](manage-compute-with-azure-functions.md).
 
 Her genişleme, duraklatma ve sürdürme işlemleri tamamlanması birkaç dakika sürebilir. Duraklatma, ölçekleme veya otomatik olarak devam ettirme, emin olmak için mantığı uygulamak öneririz, başka bir eylem işlemine devam etmeden önce belirli işlemleri tamamladınız. Çeşitli uç noktaları aracılığıyla veri ambarı durumu denetleniyor doğru Otomasyon böyle işlemlerinin uygulamaya izin verir. 
 
-Veri ambarı durumu se denetlemek için [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) veya [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) hızlı başlangıç. Veri ambarı durumunu kontrol edebilirsiniz bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
+Veri ambarı durumu denetlemek için bkz: [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) veya [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) hızlı başlangıç. Veri ambarı durumunu kontrol edebilirsiniz bir [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state).
 
 
 ## <a name="permissions"></a>İzinler
 
-Veri ambarı ölçeklendirme açıklanan izinleri gerektirir [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse.md).  Duraklatma ve sürdürme gerektiren [SQL DB Katılımcısı](../active-directory/role-based-access-built-in-roles.md#sql-db-contributor) izni, özellikle Microsoft.Sql/servers/databases/action.
+Veri ambarı ölçeklendirme açıklanan izinleri gerektirir [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse).  Duraklatma ve sürdürme gerektiren [SQL DB Katılımcısı](../role-based-access-control/built-in-roles.md#sql-db-contributor) izni, özellikle Microsoft.Sql/servers/databases/action.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

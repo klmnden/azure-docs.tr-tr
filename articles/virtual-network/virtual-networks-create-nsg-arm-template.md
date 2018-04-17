@@ -1,6 +1,6 @@
 ---
-title: "Ağ güvenlik grupları - Azure Resource Manager şablonu oluşturma | Microsoft Docs"
-description: "Bir Azure Resource Manager şablonu kullanarak ağ güvenlik grupları oluşturup öğrenin."
+title: Ağ güvenlik grupları - Azure Resource Manager şablonu oluşturma | Microsoft Docs
+description: Bir Azure Resource Manager şablonu kullanarak ağ güvenlik grupları oluşturup öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,10 +17,10 @@ ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1fc210ac5e28efe10be27f8b5a752788d3d5a5a3
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>Ağ güvenlik grupları bir Azure Resource Manager şablonu kullanarak oluşturma
 
@@ -104,7 +104,7 @@ Genel depoda yer alan örnek şablonda, yukarıdaki senaryoyu oluşturmak için 
 PowerShell kullanarak yüklediğiniz ARM şablonunu dağıtmak için aşağıdaki adımları izleyin.
 
 1. Azure PowerShell'i hiç kullanmadıysanız,'ndaki yönergeleri izleyin [nasıl yükleme ve yapılandırma Azure PowerShell](/powershell/azure/overview) yüklemek ve yapılandırmak için.
-2. Çalıştırma  **`New-AzureRmResourceGroup`**  şablonu kullanarak bir kaynak grubu oluşturmak için cmdlet'i.
+2. Çalıştırma **`New-AzureRmResourceGroup`** şablonu kullanarak bir kaynak grubu oluşturmak için cmdlet'i.
 
     ```powershell
     New-AzureRmResourceGroup -Name TestRG -Location uswest `
@@ -162,7 +162,7 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları izley
 
         info:    New mode is arm
 
-3. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`azure group deployment create`** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+3. Yukarıda indirdiğiniz ve değiştirdiğiniz şablonu ve parametre dosyalarını kullanarak yeni VNet’i dağıtmak için **`azure group deployment create`** cmdlet’ini çalıştırın. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
 
     ```azurecli
     azure group create -n TestRG -l westus -f 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.json' -e 'https://raw.githubusercontent.com/telmosampaio/azure-templates/master/201-IaaS-WebFrontEnd-SQLBackEnd/azuredeploy.parameters.json'
@@ -186,7 +186,7 @@ Azure CLI kullanarak ARM şablonu dağıtmak için aşağıdaki adımları izley
         info:    group create command OK
    
    * **-n (veya --name)**. Oluşturulacak kaynak grubunun adı.
-   * **-l (veya --location)**. Kaynak grubunun oluşturulacağı azure bölgesi.
+   * **-l (veya --konum)**. Kaynak grubunun oluşturulacağı azure bölgesi.
    * **-f (veya --şablon-dosyası)**. ARM şablon dosyanızın yolu.
    * **-e (veya--parametreler-dosyası)**. ARM parametreleri dosyanızın yolu.
 

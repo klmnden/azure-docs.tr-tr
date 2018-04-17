@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması - güvenli sistem gereksinimleri"
+title: Azure ödeme işleme şeması - güvenli sistem gereksinimleri
 description: PCI DSS gereksinim 6
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 24c8d90d3fec27258165472e99ba3d36ffcba733
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: cd9054afc359d7568fcd08f983f374e0b2bc3792
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-system-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için güvenli sistem gereksinimleri 
 ## <a name="pci-dss-requirement-6"></a>PCI DSS gereksinim 6
@@ -47,7 +47,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Yordamlar kurulan ve kapsam sınır hiper yönetici ana bilgisayarda güvenlik açıkları taramak için uygulanır. Güvenlik Açığı taraması, sunucu işletim sistemleri, veritabanları ve ağ aygıtlarını tarama araçlarının uygun güvenlik açığı ile gerçekleştirilir. Güvenlik Açığı taramaları en az üç aylık olarak gerçekleştirilir. Microsoft Azure sınırını sızma sınamasını gerçekleştirmek için Microsoft Azure Sözleşmelerle bağımsız assessors. Kırmızı takım alıştırmaları da düzenli olarak yapılan ve sonuçları güvenlik geliştirmeler yapmak için kullanılır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Tüm ağ aygıtlarını sağlamak için Microsoft Azure sorumludur ve hiper yönetici işletim sistemi yazılım uygun satıcı tarafından sağlanan güvenlik yamaları yükleyerek bilinen açıklarından korunur. Bir müşteri hizmeti kullanmamayı istemedikçe, işletim sistemi düzeyinde güvenlik açıkları engelledi ve zamanında düzeltilen emin olmak için bir düzeltme eki yönetimi işleminin bulunmaktadır. Üretim sunucularında, düzeltme eki uyumluluk aylık olarak doğrulamak için taranır. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Azure tüm hizmet düzeltme eklerini bakım sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Azure tüm hizmet düzeltme eklerini bakım sağlar.|
 
 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uygulamalarının ve uç noktaları uygun olarak DSS gereksinimleri olan Microsoft güvenlik geliştirme yaşam döngüsü (SDL) yönteme göre geliştirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore CHD korumak için endüstrideki en iyi uygulamaları izlemek için tasarlanmıştır. Dağıtım Kılavuzu güvenlik meassures ayrıntılarını sağlar ve günlük kaydı etkindir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore CHD korumak için endüstrideki en iyi uygulamaları izlemek için tasarlanmıştır. Dağıtım Kılavuzu güvenlik meassures ayrıntılarını sağlar ve günlük kaydı etkindir.|
 
 
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Son güvenlik gözden geçirme (FSR) varsayılan olarak, bir atanmış güvenlik yalnızca üretime hazır uygulamalar yayımlanan emin olmak için Advisor tarafından Azure geliştirme ekibi dışında üretim dağıtımından önce önemli sürümler için gerçekleştirilir. Bu son gözden bir parçası olarak, tüm hesapları test ve test verileri kaldırılmış güvence altına. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure uygulamalarının ve uç noktaları uygun olarak Microsoft Security Development Lifecycle (SDL) Metodoloji geliştirilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft bu bilgileri güvenlik yazılım geliştirme ilgili güvenlik konuları Sistem başlangıcından SDLC tümleştirilmesini gerekir NIST kılavuzu izler. Microsoft SDL güvenlik uygulamalarının sürekli tümleştirme sağlar:<ul><li>Erken tanımlama ve güvenlik açıkları ve yapılandırma hataları azaltma</li><li>Gerekli güvenlik denetimleri tarafından neden zorluklar kodlama olası yazılım tanıma</li><li>Paylaşılan güvenlik hizmetleri ve güvenlik tutumunu kanıtlanmış yöntem ve teknikler aracılığıyla artıran güvenlik en iyi yöntemler araçları kullanılmasını tanımlaması</li><li>Microsoft'un zaten kapsamlı risk yönetimi programının zorlama</li></ul>Microsoft Azure değişiklik oluşturulmuş ve yayın yönetimi işlemleri dahil olmak üzere önemli değişiklikler uyarlamasını denetlemek için:<ul><li>Tanımlama ve planlı değişikliği belgeleri</li><li>Ürün planlama sırasında tanımlaması iş hedeflerini, öncelikleri ve senaryoları</li><li>Özellik/bileşen tasarım belirtimi</li><li>Önceden tanımlanmış ölçüt/onay-genel risk/etkisi değerlendirmek için listesini esas alan işletimsel hazırlık gözden geçirme</li><li>Test, yetkilendirme ve değişiklik Yönetimi giriş/çıkış ölçütlere uygun şekilde ortamları geliştirme (Geliştirme), INT (tümleştirme test), aşama (üretim öncesi) ve üretim (üretim) göre. Müşteriler, Microsoft Azure üzerinde barındırılan kendi uygulamalarında sorumludur.</li></ul> |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore gösteri, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. <br /><br />Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).<br /><br />Operations Management Suite kullanarak değişiklikleri günlüğe kaydedilir ve Runbook günlükleri toplamak için kullanılır. [Operations Management Suite (OMS)](/azure/operations-management-suite/) değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore gösteri, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. <br /><br />Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).<br /><br />Operations Management Suite kullanarak değişiklikleri günlüğe kaydedilir ve Runbook günlükleri toplamak için kullanılır. Günlük analizi değişiklikleri ayrıntılı günlük kaydını sağlar. Değişiklikleri gözden ve doğruluk doğrulandı. Daha ayrıntılı yönergeler için bkz [PCI Kılavuzu - Operations Management Suite](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -156,7 +156,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, yalıtılmış ve günlüğe kaydedilen hazırlama bir hizmet sunar. Her ağ katmanı ayrılmış bir ağ güvenlik grubu [NSG] vardır. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](payment-processing-blueprint.md#network-security-groups).|
 
 
 
@@ -169,7 +169,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore birincil hesap numarası (PAN) verileri Canlı Hayır sahiptir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore birincil hesap numarası (PAN) verileri Canlı Hayır sahiptir.|
 
 
 
@@ -182,7 +182,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore bir test hesabınız yok.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore bir test hesabınız yok.|
 
 
 
@@ -199,7 +199,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Ve tüm hizmet düzeltme eklerini bakım Azure sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Ve tüm hizmet düzeltme eklerini bakım Azure sağlar.|
 
 
 
@@ -216,7 +216,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Ve tüm hizmet düzeltme eklerini bakım Azure sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore bir PaaS hizmet çözümüdür. Ve tüm hizmet düzeltme eklerini bakım Azure sağlar.|
 
 
 
@@ -248,7 +248,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 6.4](#pci-dss-requirement-6-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore demo güvenli geliştirme yöntemleri göstermek için güvenli geliştirme, DFD ve tehdit modeli için kılavuzluk sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore demo güvenli geliştirme yöntemleri göstermek için güvenli geliştirme, DFD ve tehdit modeli için kılavuzluk sağlar.|
 
 
 
@@ -268,7 +268,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Uygulamaları üretim ortamına dağıtılmadan önce Microsoft Azure genel kullanıma yönelik web uygulamaları kendi SDL işleminin bir parçası sınar. Ayrıca, Microsoft tüm olası güvenlik açıklarını algılamak için tüm genel kullanıma yönelik web uygulamalarında üretim düzenli olarak tarar. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Başvuru çözüm WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Başvuru çözüm WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
 
 
 
@@ -281,7 +281,7 @@ ms.lasthandoff: 11/16/2017
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Başvuru çözüm WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Başvuru çözüm WAF sahip bir uygulama ağ geçidi ve etkin OWASP ruleset kullanarak güvenlik açıkları riskini azaltır. Daha fazla bilgi için bkz: [PCI Kılavuzu - güvenlik açıkları riski azaltma](payment-processing-blueprint.md#application-gateway).|
 
 
 

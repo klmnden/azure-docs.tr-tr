@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 03/27/2018
 ms.author: kevin;barbkess
-ms.openlocfilehash: fa7d8a9880ff97f30dc583d792e39aa914ea5435
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4c49fa082547dc0de76126df17a888c6c32f03e4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için izin verilen en yüksek değerleri içerir.
@@ -27,12 +27,12 @@ Aşağıdaki tablolarda, Azure SQL Data Warehouse çeşitli bileşenler için iz
 ## <a name="workload-management"></a>İş yükü yönetimi
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](performance-tiers.md): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](performance-tiers.md): DW30000c |
+| [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Tek bir SQL Data Warehouse için en fazla DWU | Esneklik için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW6000<br></br>İşlem için en iyi duruma getirilmiş [performans katmanı](memory-and-concurrency-limits.md#performance-tiers): DW30000c |
 | [Veri ambarı birimi (DWU)][Data Warehouse Units (DWU)] |Sunucu başına DTU varsayılan |54,000<br></br>Varsayılan olarak, her bir SQL server (örneğin, myserver.database.windows.net) kadar DW6000c sağlayan bir DTU kota olarak 54.000, sahiptir. Bu kota yalnızca bir güvenlik sınırıdır. Tarafından kotayı artırabilir [bir destek bileti oluşturma] [ creating a support ticket] ve seçerek *kota* istek türü olarak.  DTU hesaplamak için 7.5 DWU gerektiği ve toplam çarpın veya gerekli toplam cDWU tarafından 9.0 Çarp gerekir. Örneğin:<br></br>7.5 = 45,000 x DW6000 Dtu'lar<br></br>9.0 = olarak 54.000 x DW600c Dtu'lar.<br></br>SQL server seçeneği, geçerli DTU tüketimi Portalı'nda görüntüleyebilirsiniz. DTU kotasında hem duraklatılmış hem de duraklatılmamış veritabanları sayılır. |
 | Veritabanı bağlantısı |Eşzamanlı açık oturum |1024<br/><br/>Her 1024 etkin oturumlar aynı anda SQL veri ambarı veritabanına istekleri gönderebilirsiniz. Not, aynı anda yürütebilir sorgu sayısı sınırlamaları vardır. Eşzamanlılık sınırı aşıldığında, istek bir iç sıra burada işlenmeyi bekleyen gider. |
 | Veritabanı bağlantısı |Hazırlanmış deyimleri için en fazla belleği |20 MB |
-| [İş yükü yönetimi][Workload management] |En fazla eş zamanlı sorgular |32<br/><br/> Varsayılan olarak, SQL Data Warehouse en fazla 32 eş zamanlı sorgular ve sorguları kalan sıraları yürütebilir.<br/><br/>Kullanıcılar daha yüksek kaynak sınıfları veya SQL Data Warehouse düşük olduğunda atanmış descrease eşzamanlı sorgu sayısı yapabilirsiniz [hizmet düzeyi](performance-tiers.md#service-levels). DMV sorgu gibi bazı sorgular çalıştırmak için her zaman izin verilir. |
-| [tempdb][Tempdb] |En çok GB |399 GB per DW100. Bu nedenle DWU1000 tempdb 3,99 TB boyuta sahip olmadığından |
+| [İş yükü yönetimi](resource-classes-for-workload-management.md) |En fazla eş zamanlı sorgular |32<br/><br/> Varsayılan olarak, SQL Data Warehouse en fazla 32 eş zamanlı sorgular ve sorguları kalan sıraları yürütebilir.<br/><br/>Kullanıcılar için daha yüksek kaynak sınıfları veya SQL Data Warehouse düşük olduğunda atandığında eşzamanlı olan sorgu sayısını azaltabilirsiniz [veri ambarı birimi](memory-and-concurrency-limits.md) ayarı. DMV sorgu gibi bazı sorgular çalıştırmak için her zaman izin verilir. |
+| [tempdb][Tempdb] |En çok GB |DW100 başına 399 GB. Bu nedenle DWU1000 tempdb 3,99 TB boyuta sahip olmadığından |
 
 ## <a name="database-objects"></a>Veritabanı nesneleri
 | Kategori | Açıklama | Maksimum |

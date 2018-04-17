@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi ve Azure SQL veritabanı hizmetinin | Microsoft Docs"
-description: "Bu makalede, Güvenlik Merkezi, Azure SQL veritabanı veritabanlarında güvenli nasıl yardımcı olabileceğini gösterir."
+title: Azure Güvenlik Merkezi ve Azure SQL veritabanı hizmetinin | Microsoft Docs
+description: Bu makalede, Güvenlik Merkezi, Azure SQL veritabanı veritabanlarında güvenli nasıl yardımcı olabileceğini gösterir.
 services: sql-database
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 46dd298a5664d914e55d45c5b7599d5983287476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure Güvenlik Merkezi ve Azure SQL veritabanı hizmeti
 [Azure Güvenlik Merkezi](https://azure.microsoft.com/documentation/services/security-center/), tehditleri önlemenize, algılamanıza ve yanıtlamanıza yardımcı olur. Aboneliklerinizde, tümleşik güvenlik izleme ve ilke yönetimi sağlar; normal koşullarda gözden kaçabilecek tehditleri algılamaya yardımcı olur ve güvenlik çözümlerinin geniş ekosistemiyle çalışır.
@@ -35,10 +35,10 @@ Güvenlik Merkezi, tüm sunucular ve veritabanları güvenliğini görünürlük
 
 SQL veritabanı kaynaklarınızın korunmasına yardımcı olma ek olarak, Güvenlik Merkezi güvenlik izleme ve de Azure sanal makineler, bulut Hizmetleri, uygulama hizmetleri, sanal ağlar ve daha fazla bilgi için yönetim sağlar. Güvenlik Merkezi hakkında daha fazla bilgi [burada](security-center-intro.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Güvenlik Merkezi ile çalışmaya başlamak için Microsoft Azure aboneliğinizin olması gerekir. Ücretsiz katmanı Güvenlik Merkezi, aboneliğiniz ile etkinleştirilir. Güvenlik Merkezi'nin ücretsiz ve standart katmanları hakkında daha fazla bilgi için bkz: [Güvenlik Merkezi fiyatlandırma](https://azure.microsoft.com/pricing/details/security-center/).
 
-Güvenlik Merkezi, rol tabanlı erişim destekler. Azure rol tabanlı erişim denetimi (RBAC) hakkında daha fazla bilgi için bkz: [Azure Active Directory rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md). Güvenlik Merkezi ile ilgili SSS hakkında bilgi sağlar. [izinleri Güvenlik Merkezi'nde işlenme](security-center-faq.md#permissions).
+Güvenlik Merkezi, rol tabanlı erişim destekler. Azure rol tabanlı erişim denetimi (RBAC) hakkında daha fazla bilgi için bkz: [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Güvenlik Merkezi ile ilgili SSS hakkında bilgi sağlar. [izinleri Güvenlik Merkezi'nde işlenme](security-center-faq.md#permissions).
 
 ## <a name="access-security-center"></a>Güvenlik Merkezi'ne erişme
 Güvenlik Merkezi'ne [Azure portalından](https://azure.microsoft.com/features/azure-portal/) erişebilirsiniz. [Portalı oturum açma](https://portal.azure.com/) seçip **Güvenlik Merkezi seçeneği**.
@@ -93,7 +93,7 @@ Daha fazla bilgi için bkz: [güvenlik durumunu izleme](security-center-monitori
 Güvenlik Merkezi otomatik olarak toplar, çözümler ve tümleştirir günlük verilerini [Azure SQL tehdit algılama](../sql-database/sql-database-threat-detection.md), gerçek tehditleri algılamak ve hatalı pozitif sonuçları azaltmak için diğer Azure kaynaklarını yanı sıra. Öncelikli güvenlik uyarıları listesi, sorunu hızlıca araştırmanız gereken bilgiler ve saldırıyı düzeltme hakkındaki önerilerle birlikte Güvenlik Merkezi'nde gösterilir.
 
 Uyarıları görmek için seçin **güvenlik uyarıları** döşeme Güvenlik Merkezi dikey penceresinde. Üzerinde **güvenlik uyarıları** dikey penceresinde, saldırıyı düzeltmek için atmanız gereken herhangi biri, adımlar varsa uyarı ve hangi tetiklenen olaylar hakkında daha fazla bilgi için bir uyarı seçin. Bu örnekte, şimdi seçin **olası SQL ekleme**.
-![Güvenlik Uyarıları][7]
+![Güvenlik uyarıları][7]
 
 Aşağıda gösterildiği gibi Güvenlik Merkezi ne hedef kaynak, uygulanabilirse uyarıyı tetikleyen içine Öngörüler sunar ek ayrıntılar sağlar kaynak IP adresi ve sorunun nasıl hakkında öneriler.
 ![Olası SQL ekleme][8]

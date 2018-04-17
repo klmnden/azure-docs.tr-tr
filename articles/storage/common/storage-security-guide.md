@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: cshoe
-ms.openlocfilehash: 73353d3b27b65298d804a138b33cdf2de23726fe
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 2debe3bb06f00741100883ff7c9978f11f5be799
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
 
@@ -61,7 +61,7 @@ Bu kılavuz, depolama hesapları oluşturmak için önerilen yöntemdir Resource
 
 Resource Manager modeli ile depolama hesabı Azure Active Directory'yi kullanarak, belirli bir depolama hesabı Yönetim düzeyi için bir kaynak grubu ve Denetim erişim yerleştirin. Örneğin, belirli kullanıcılar diğer kullanıcıların depolama hesabıyla ilgili bilgileri görüntüleyebilirsiniz, ancak depolama hesabı anahtarlarını erişemiyor depolama hesabı anahtarlarını erişim olanağı verebilirsiniz.
 
-#### <a name="granting-access"></a>Granting Access
+#### <a name="granting-access"></a>Erişim izni verme
 Kullanıcılar, gruplar ve doğru kapsamda uygulamalara uygun RBAC rolü atayarak erişimi verilir. Tüm abonelik erişim vermek için abonelik düzeyinde bir rol atayın. Kaynak grubunun kendisine izin vererek tüm kaynak grubundaki kaynaklar için erişim izni verebilir. Depolama hesapları gibi belirli kaynaklar belirli roller atayabilirsiniz.
 
 Bir Azure Storage hesabı yönetim işlemlerini erişmek için RBAC kullanarak hakkında bilmeniz gereken temel noktalar şunlardır:
@@ -85,16 +85,16 @@ Bir Azure Storage hesabı yönetim işlemlerini erişmek için RBAC kullanarak h
 * Kimin verilen/grafikten kim ve PowerShell veya Azure CLI kullanarak hangi kapsamında erişim türüne iptal bir rapor oluşturabilirsiniz.
 
 #### <a name="resources"></a>Kaynaklar
-* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../../role-based-access-control/role-assignments-portal.md)
 
   Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
-* [RBAC: Yerleşik Roller](../../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Yerleşik Roller](../../role-based-access-control/built-in-roles.md)
 
   Bu makalede tüm RBAC'de kullanılabilen yerleşik rollerin ayrıntılarını verir.
 * [Resource Manager dağıtımını ve klasik dağıtımı anlama](../../azure-resource-manager/resource-manager-deployment-model.md)
 
   Bu makalede, Resource Manager dağıtımını ve klasik dağıtım modellerine açıklar ve Resource Manager ve kaynak grupları kullanmanın avantajları açıklanmıştır. Bu, Azure işlem, ağ ve depolama sağlayıcıları Resource Manager modeli altında nasıl çalıştığı açıklanmıştır.
-* [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../../active-directory/role-based-access-control-manage-access-rest.md)
+* [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../../role-based-access-control/role-assignments-rest.md)
 
   Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
 * [Azure depolama kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
@@ -236,7 +236,7 @@ Paylaşılan erişim imzaları ve depolanan erişim ilkeleri, örnekler, tam kul
 
 * Başvuru makaleleri bunlar.
 
-  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Hizmet SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Bu makale bir hizmet düzeyi SAS BLOB'lar, iletileri kuyruğa, tablo aralıkları ve dosyaları kullanma örnekleri sağlar.
   * [Hizmet SAS oluşturma](https://msdn.microsoft.com/library/dn140255.aspx)
@@ -427,7 +427,7 @@ Biz ilgilendiğiniz üç durumda sunuyoruz.
    1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
 3. Blob özeldir ve depolama anahtarı erişmek için kullanıldı. Bu durumda, istek durumunu olan "**başarı**"ve Yetkilendirme türü"**kimliği doğrulanmış**".
 
-   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+   1.0; 2015-11-16T18:32:24.3174537Z; GetBlob; **Başarı**; 206 59; 22; **Kimliği doğrulanmış**; mystorage...
 
 Microsoft Message Analyzer görüntülemek ve bu günlükler çözümlemek için kullanabilirsiniz. Arama ve filtreleme yetenekleri içerir. Örneğin, aramak istediğiniz, diğer bir deyişle, beklediğiniz kullanım ise emin olmak için birisi değil eriştiği depolama hesabınız açamayacağı görmek için GetBlob örnekleri.
 

@@ -1,4 +1,19 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: b4d208ca28f6287489f104ba4e2ea9696e7a1f58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="about-vhds"></a>VHD'ler hakkında
 
 Azure’da kullanılan VHD’ler, Azure’daki standart veya premium depolama hesabında sayfa blobları olarak depolanır. Sayfa blobları hakkında bilgi için bkz. [Blok bloblarını ve sayfa bloblarını anlama](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs/). Premium depolama hakkında daha fazla ayrıntı için bkz. [Yüksek performanslı premium depolama ve Azure VM'leri](../articles/virtual-machines/windows/premium-storage.md).
@@ -10,10 +25,10 @@ Diskleri veya görüntüleri oluşturmak için bir kaynak olarak kullanmak isted
 Bir görüntüden sanal makine oluşturduğunuzda Azure, sanal makine için kaynak .vhd dosyasının kopyası olan bir disk oluşturur. Yanlışlıkla silmeye karşı korumak üzere Azure, bir görüntü, işletim sistemi diski ya da veri diski oluşturmak için kullanılan her kaynak .vhd dosyasına kira koyar.
 
 Bir kaynak .vhd dosyasını silmeden önce diski veya görüntüyü silerek kirayı kaldırmanız gerekir. Sanal makine tarafından işletim sistemi diski olarak kullanılan bir .vhd dosyasını silmek için, sanal makineyi ve ilişkili tüm diskleri silerek sanal makineyi, işletim sistemi diskini ve kaynak .vhd dosyasını tek seferde silebilirsiniz. Ancak, bir veri diskinin kaynağı olan .vhd dosyasının silinmesi, belirli bir sırada birkaç adımın uygulanmasını gerektirir. İlk olarak, diski sanal makineden ayırın, ardından diski ve sonra .vhd dosyasını silin.
-
 > [!WARNING]
 > Kaynak .vhd dosyasını depolama alanından silerseniz veya depolama hesabınızı silerseniz, Microsoft bu verileri kurtaramaz.
 > 
+> Sayfa bloblarını Premium depolama yalnızca VHD'ler olarak kullanılmak üzere tasarlanmıştır. Maliyetini önemli ölçüde daha büyük olabilir gibi diğer veri türleri Premium depolama, sayfa blobları depolamak Microsoft önermez. Blok blobları, bir VHD değil veri depolamak için kullanın.
 
 ## <a name="types-of-disks"></a>Disk türleri 
 
@@ -30,7 +45,7 @@ VM diskleri ile Standart Depolama kullanma hakkında daha fazla bilgi için lüt
 
 ### <a name="premium-storage"></a>Premium depolama 
 
-Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri için yüksek performanslı, düşük gecikme süresine sahip disk desteği sunar. Premium depolama DS, DSv2, GS, Ls veya FS serisi Azure VM'ler ile kullanabilirsiniz. Daha fazla bilgi için bkz. [Premium Depolama](../articles/virtual-machines/windows/premium-storage.md).
+Premium Depolama, SSD’ler ile desteklenir ve G/Ç yoğunluklu iş yükleri için yüksek performanslı, düşük gecikme süresine sahip disk desteği sunar. Genellikle seri adında bir "s" boyutlarıyla Premium depolama kullanabilirsiniz. Örneğin, Dv3 serisi yoktur ve Dsv3 serisi, Dsv3 serisi Premium depolama ile kullanılabilir.  Daha fazla bilgi için bkz. [Premium Depolama](../articles/virtual-machines/windows/premium-storage.md).
 
 ### <a name="unmanaged-disks"></a>Yönetilmeyen diskler
 

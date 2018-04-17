@@ -1,11 +1,11 @@
 ---
-title: "Columnstore dizini performansı - Azure SQL Data Warehouse | Microsoft Docs"
-description: "Bellek gereksinimlerini azaltın veya her satır grubu kimliğinde bir columnstore dizini sıkıştırır satırların sayısı en üst düzeye çıkarmak için kullanılabilir bellek artırın."
+title: Columnstore dizini performansı - Azure SQL Data Warehouse | Microsoft Docs
+description: Bellek gereksinimlerini azaltın veya her satır grubu kimliğinde bir columnstore dizini sıkıştırır satırların sayısı en üst düzeye çıkarmak için kullanılabilir bellek artırın.
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
 manager: jhubbard
-editor: 
+editor: ''
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 03/15/2018
 ms.author: barbkess
-ms.openlocfilehash: 74e641f9da418d678bdbef0c69f9f59ccee32303
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 6484f457731bb1b97f01df339eaf1b0aebf924c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Satır grubu kimliğinde kalitesi columnstore için en üst düzeye çıkarma
 
@@ -139,7 +139,7 @@ OPTION (MAXDOP 1);
 DWU boyutu ve kullanıcı kaynak sınıfı birlikte ne kadar bellek kullanıcı sorgu için uygun olduğunu belirler. Bir yük sorgu için bellek ataması artırmak için Dwu sayısını artırmak veya kaynak sınıfı artırın.
 
 - Dwu artırmak için bkz: [nasıl ı ölçeklendirme performans?](quickstart-scale-compute-portal.md)
-- Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#assigning-resource-classes).
+- Bir sorgu için kaynak sınıfı değiştirmek için bkz: [kullanıcı kaynak sınıfı örneğini değiştirmek](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
 Örneğin, DWU 100 üzerinde smallrc kaynak sınıfında bir kullanıcı her dağıtım için 100 MB bellek kullanabilir. Ayrıntılar için bkz [eşzamanlılık SQL Data warehouse'da](resource-classes-for-workload-management.md).
 

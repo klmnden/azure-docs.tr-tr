@@ -1,6 +1,6 @@
 ---
-title: "Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı için kuralları | Microsoft Docs"
-description: "Bir alt ağ, sanal ağ hizmeti uç noktası olarak işaretleyin. Ardından uç noktası olarak bir sanal ağ kuralı Azure SQL veritabanınıza ACL. SQL veritabanı sonra tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder."
+title: Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı için kuralları | Microsoft Docs
+description: Bir alt ağ, sanal ağ hizmeti uç noktası olarak işaretleyin. Ardından uç noktası olarak bir sanal ağ kuralı Azure SQL veritabanınıza ACL. SQL veritabanı sonra tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder.
 services: sql-database
 ms.service: sql-database
 author: MightyPen
@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 7622c6e6ffb1410cc2cbd42f6ac3601d281832da
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -140,7 +140,7 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 Azure SQL veritabanı için hizmet uç noktaları kullanırken, aşağıdaki konuları gözden geçirin:
 
 - **Azure SQL veritabanı genel IP'ler için giden gereklidir**: bağlantı izin vermek için Azure SQL veritabanı IP'leri için ağ güvenlik grupları (Nsg'ler) açılır. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
-- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa  *dmalik@microsoft.com* .
+- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa *dmalik@microsoft.com*.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure depolama, depolama hesabı bağlantı sınırlamak izin veren aynı özell
 Bir Azure SQL Server tarafından kullanılan bir depolama hesabıyla bu özelliği kullanmayı seçerseniz, sorunlar çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQLDB özelliklerinin tartışma olduğu.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa  *dmalik@microsoft.com*  daha fazla bilgi için.
+PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa *dmalik@microsoft.com* daha fazla bilgi için.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
 BLOB denetimi denetim günlüklerini kendi depolama hesabına iter. Bu depolama hesabını NCEKİ Hizmeti uç noktaları özelliğini kullanıyorsa, depolama hesabı Azure SQLDB bağlantısını kesintiye uğrar.
@@ -315,7 +315,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017 içind
 
 [expressroute-indexmd-744v]: ../expressroute/index.md
 
-[rbac-what-is-813s]: ../active-directory/role-based-access-control-what-is.md
+[rbac-what-is-813s]:../role-based-access-control/overview.md
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 

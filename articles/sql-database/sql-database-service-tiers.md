@@ -6,14 +6,14 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 04/09/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4474aec212084006becd02f317dabae6e731d98
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5ac9623b9089fc0aa8a440196fb7f48cb4963a64
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>Azure SQL Database hizmet katmanları nelerdir?
 
@@ -101,6 +101,12 @@ VCore tabanlı satın alma modeli müşteriler için ödeme içinde:
 > [!IMPORTANT]
 > İşlem, IOs, veri ve günlük depolama veritabanı veya esnek havuz ücretlendirilirsiniz. Yedekleme depolama her veritabanı başına ücret kesilir. Yönetilen örneğinin için ücret ayrıntı için [yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md).
 
+> [!IMPORTANT]
+> Bölge sınırlamaları: 
+>
+> VCore tabanlı satın alma modeli henüz Avustralya Güneydoğu kullanılabilir değil. Önizleme aşağıdaki bölgelerde kullanılabilir değil: Batı Avrupa, Fransa Merkezi, Birleşik Krallık Güney ve Birleşik Krallık Batı.
+> 
+
 ### <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Hizmet katmanı, hesaplama, bellek, depolama ve g/ç kaynakları seçme
 
 VCore tabanlı satın alma modeli için dönüştürme, bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak sağlar. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: en az 1 vCore her 100 DTU standart katmanındaki gerektirir ve en az 1 vCore Premium katmanındaki 125 her DTU gerektirir.
@@ -109,7 +115,7 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 
 ||**Genel amaçlı**|**Kritik iş**|
 |---|---|---|
-|En iyi kullanım alanı:|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek g/ç gereksinimleri olan iş uygulamalar. Birkaç yalıtılmış yinelemeler hatalarına yüksek esnekliği sunar.|
+|En iyi kullanım alanı:|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|
 |İşlem|1 ile 16 vCore|1 ile 16 vCore|
 |Bellek|Çekirdek başına 7 GB |Çekirdek başına 7 GB |
 |Depolama|Premium uzaktaki depolama birimi, 5 GB – 4 TB|Yerel SSD depolama, 5 GB – 1 TB|
@@ -149,7 +155,7 @@ MDF ve LDF geçerli toplam boyutunu izlemek için kullanın [bilgilerini sp_spac
 
 Veritabanı Yedeklemeleri için depolama noktası SQL veritabanı zaman geri yükleme (PITR) ve uzun vadeli bekletme (LTR) yeteneklerini desteklemek için ayrılır. Bu depolama ayrı olarak her veritabanı için ayrılan ve veritabanları ücretleri başına iki ayrı olarak faturalandırılır. 
 
-- **PITR**: olan otomatik olarak tek tek veritabanı yedeklemeleri RA-GRS depolama alanına kopyalanır. Yeni yedeklemeler oluşturuldukça dinamik olarak depolama boyutunu artırır.  Depolama haftalık tam yedekleme, günlük yedekleri ve işlem tarafından kullanılan oturum her 5 dakikada kopyalanan yedekler. Depolama alanı tüketimi veritabanının ve Bekletme dönemi değişiklik oranına bağlıdır. Farklı bekletme dönemi 7-35 gün arasında her veritabanı için yapılandırabilirsiniz. Veri boyutu, 1 x eşit bir en az depolama miktarını ekstra ücret ödemeden sağlanır. Çoğu veritabanları için bu miktar 7 gün yedeklemelerini depolamak için yeterlidir.
+- **PITR**: olan otomatik olarak tek tek veritabanı yedeklemeleri RA-GRS depolama alanına kopyalanır. Yeni yedeklemeler oluşturuldukça dinamik olarak depolama boyutunu artırır.  Depolama alanı, haftalık tam yedeklemeler, günlük fark yedekleri ve 5 dakikada bir kopyalanan işlem günlüğü yedeklemeleri tarafından kullanılır. Depolama alanı tüketimi veritabanının ve Bekletme dönemi değişiklik oranına bağlıdır. Farklı bekletme dönemi 7-35 gün arasında her veritabanı için yapılandırabilirsiniz. Veri boyutu, 1 x eşit bir en az depolama miktarını ekstra ücret ödemeden sağlanır. Çoğu veritabanları için bu miktar 7 gün yedeklemelerini depolamak için yeterlidir.
 - **LTR**: SQL veritabanı uzun vadeli bekletme, tam yedekleme 10 yılı aşkın yapılandırma seçeneği sunar. LTR ilkesi etkinleştirilirse, bu yedeklemeler RA-GRS depolama alanına otomatik olarak depolanır, ancak yedeklemelerin ne sıklıkta kopyalanır kontrol edebilirsiniz. Farklı bir uyumluluk gereksinimini karşılayacak şekilde, haftalık, aylık ve/veya yıllık yedekleme için farklı bekletme sürelerinin seçebilirsiniz. Bu yapılandırma, ne kadar depolama alanı LTR yedeklemeler için kullanılacak tanımlayacaksınız. LTR depolama maliyetini tahmin etmek için LTR fiyatlandırma hesaplayıcısı kullanabilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
 
 ### <a name="azure-hybrid-use-benefit"></a>Azure Hibrit Kullanım Teklifi

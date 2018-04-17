@@ -1,28 +1,56 @@
-## <a name="what-is-blob-storage"></a>Blob storage nedir?
-Azure Blob Storage; HTTP veya HTTPS aracılığıyla dünyanın her yerinde erişilebilen metin veya ikili veriler gibi büyük miktarda yapılandırılmamış nesne verilerinin depolanması için bir hizmettir. Verileri genel olarak herkese açık kullanıma sunmak veya uygulama verilerini özel olarak depolamak için Blob Storage’ı kullanabilirsiniz.
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 04/09/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 203f5a766c4c8a8f1e577f6be1e18d0f9ac95403
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
+Azure Blob storage Microsoft'un nesne depolama için bulut çözümüdür. BLOB Depolama oldukça büyük miktardaki metin veya ikili veriler gibi yapılandırılmamış verileri depolamak için en iyi duruma getirilmiştir.
 
-Blob Storage’ın yaygın kullanımları şunlardır:
+BLOB Depolama için idealdir:
 
 * Görüntülerin veya belgelerin doğrudan bir tarayıcıya hizmet.
 * Dağıtılan erişim için dosyaların depolanması.
 * Video ve ses akışları.
+* Günlük dosyalarına yazma.
 * Yedekleme ve geri yükleme, olağanüstü durum kurtarma ve arşivleme için verilerin depolanması.
 * Bir şirket içi tarafından analiz için verilerin depolanması veya Azure barındırılan hizmet.
 
+Blob depolama alanındaki nesnelerin herhangi bir yere HTTP veya HTTPS aracılığıyla dünyanın erişilebilir. Kullanıcılar ya da istemci uygulamalar blobları URL'ler aracılığıyla erişebilir [Azure Storage REST API'sini](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api), [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage), [Azure CLI](https://docs.microsoft.com/cli/azure/storage), veya bir Azure Storage istemci kitaplığı. Depolama istemcisi kitaplıklarını dahil olmak üzere birden çok dil için kullanılabilir olan [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client), [Java](https://docs.microsoft.com/java/api/overview/azure/storage/client), [Node.js](http://azure.github.io/azure-storage-node), [Python](https://azure-storage.readthedocs.io/en/latest/index.html), [PHP](http://azure.github.io/azure-storage-php/), ve [Ruby](http://azure.github.io/azure-storage-ruby).
+
 ## <a name="blob-service-concepts"></a>Blob hizmeti kavramları
-Blob hizmetinde şu bileşenler bulunur:
 
-![Blob hizmeti mimarisi diyagramı](./media/storage-blob-concepts-include/blob1.png)
+BLOB storage üç kaynakları gösterir: depolama hesabınız, hesaptaki kapsayıcılar ve bloblar bir kapsayıcıda. Aşağıdaki diyagramda, bu kaynakları arasındaki ilişkiyi gösterir.
 
-* **Depolama hesabı:** tüm Azure Storage erişimi bir depolama hesabıyla yapılır. Bu depolama hesabı olabilir bir **genel amaçlı depolama hesabı** veya **Blob storage hesabı**, hangi özelleştirilmiş nesneleri veya bloblarını depolamak için. Daha fazla bilgi için bkz. [Azure depolama hesapları hakkında](../articles/storage/common/storage-create-storage-account.md).
-* **Kapsayıcı:** Kapsayıcı, bir dizi blobun gruplandırılmasını sağlar. Tüm bloblar bir kapsayıcıda olmalıdır. Bir hesapta sınırsız sayıda kapsayıcı olabilir. Kapsayıcıda sınırsız sayıda blob depolanabilir. Kapsayıcı adındaki harflerin küçük harf olması gerektiğini unutmayın.
-* **Blob:** Herhangi bir türde ve boyutta bir dosya. Azure Storage üç tür BLOB sunar: blok blobları, ekleme blobları ve sayfa blobları.
+![Blob (nesne) depolama mimarisi diyagramı](./media/storage-blob-concepts-include/blob1.png)
+
+### <a name="storage-account"></a>Depolama Hesabı
+
+Azure Storage veri nesneleri tüm erişimi bir depolama hesabıyla yapılır. Daha fazla bilgi için bkz: [Azure storage hesapları hakkında](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### <a name="container"></a>Kapsayıcı
+
+Bir kapsayıcı, BLOB'ları, bir klasöre dosya sistemindeki benzer birtakım düzenler. Tüm bloblar bir kapsayıcıda yer alır. Bir depolama hesabı sınırsız sayıda kapsayıcı içerebilir ve bir kapsayıcıda sınırsız sayıda BLOB depolayabilirsiniz. Kapsayıcı adındaki harflerin küçük harf olması gerektiğini unutmayın.
+
+### <a name="blob"></a>Blob
+ 
+Azure Storage sunar üç türde BLOB--blok blobları, ekleme blobları ve [sayfa blobları](../articles/storage/blobs/storage-blob-pageblob-overview.md) (VHD dosyaları için kullanılan).
+
+* Blok blobları, metin ve yaklaşık 4.7 TB kadar ikili veri depolayın. Blok blobları, ayrı ayrı yönetilen veri bloklarını yapılır.
+* Ekleme blobları yapılma bloklarını blok blobları gibi çalışır, ancak için iyileştirilmiş ekleme işlemleri. Ekleme blobları sanal makinelerden verileri günlüğe kaydetmeye gibi senaryolar için idealdir.
+* Sayfa BLOB deposu rasgele erişim boyutu 8 TB'ye kadar dosyaları. Sayfa bloblarını VM'ler geri VHD dosyalarını depolar.
+
+Tüm bloblar bir kapsayıcıda yer alır. Bir kapsayıcı bir dosya sisteminde bir klasöre benzer. Daha fazla sanal dizinlere BLOB'lar düzenlemek ve bir dosya sistemi gibi bunları çapraz geçiş. 
+
+Ağ kısıtlamalarının kablo üzerinden Blob depolamaya veri yükleme veya indirme yapmayı kullanışsız hale getirdiği çok büyük veri kümelerinde verileri doğrudan veri merkezinden içeri veya dışarı aktarmak için Microsoft’a sabit sürücüler gönderebilirsiniz. Daha fazla bilgi için bkz: [Blob depolama alanına veri aktarmak için Microsoft Azure içeri/dışarı aktarma hizmeti kullanma](../articles/storage/common/storage-import-export-service.md).
   
-    *Blok blobları*, belgeler ve medya dosyaları gibi metin veya ikili dosyaların depolanması için idealdir. Tek bir blok blobu, her birinin büyüklüğü 100 MB’a kadar olabilen 50.000 blok içerebilir; toplam boyut 4,75 TB'tan biraz fazladır (100 MB X 50.000). 
-
-    *Ekleme blobları* blok bloblarına benzer; bloklardan oluşturulmuş olsalar da ekleme işlemleri için iyileştirilmişlerdir; bu nedenle, günlük kaydı senaryoları için kullanışlıdırlar. Tek bir ekleme blobu, her birinin büyüklüğü 4 MB’a kadar olabilen 50.000 blok içerebilir; toplam boyut 195 GB'tan biraz fazladır (4 MB X 50.000).
-  
-    *Sayfa blobları* boyut olarak 1 TB'ye kadar olabilir; sık gerçekleştirilen okuma/yazma işlemleri için daha verimlidir. Azure Virtual Machines sayfa bloblarını işletim sistemi ve veri diskleri kullanın.
-  
-    Kapsayıcıları ve blobları adlandırma hakkında daha fazla bilgi için bkz [adlandırma ve kapsayıcıları, blobları ve meta verileri başvuran](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).
-
+Kapsayıcıları ve blobları adlandırma hakkında ayrıntılı bilgi için bkz. [Kapsayıcıları, Blobları ve Meta Verileri Adlandırma ve Bunlara Başvurma](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata).

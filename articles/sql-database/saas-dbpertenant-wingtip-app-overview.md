@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 224639dcc7da950801c7a5959ec14fc5ac7313e0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cf54c789d766c4bd3d353028e75e34c961470070
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama giriş
 
@@ -24,7 +24,7 @@ Uygulama kaynak kodu ve yönetim komut dosyaları kullanılabilir [WingtipTicket
 
 ## <a name="application-architecture"></a>Uygulama mimarisi
 
-Wingtip SaaS uygulaması Kiracı başına veritabanı modeli kullanır. SQL esnek havuzu verimliliğini en üst düzeye çıkarmak için kullanır. Sağlama ve verilerine eşleme kiracılar için bir katalog veritabanı kullanılır. Wingtip SaaS uygulamasına çekirdek üç örnek kiracılar havuzuyla yanı sıra, Katalog veritabanı kullanır. İlk dağıtım eklentileri Wingtip SaaS öğreticileri sonuçlarında çoğunu tamamlanıyor. Analitik veritabanları ve veritabanları arası şema yönetimi gibi eklentiler sunulur.
+Wingtip SaaS uygulaması Kiracı başına veritabanı modeli kullanır. SQL esnek havuzu verimliliğini en üst düzeye çıkarmak için kullanır. Sağlama ve verilerine eşleme kiracılar için bir katalog veritabanı kullanılır. Wingtip SaaS uygulamasına çekirdek üç örnek kiracılar havuzuyla yanı sıra, Katalog veritabanı kullanır. Katalog ve Kiracı sunucuları, DNS diğer adları ile sağlanmış. Bu diğer adları Wingtip uygulama tarafından kullanılan etkin kaynaklar başvuru korumak için kullanılır. Bu diğer adları, olağanüstü durum kurtarma eğitimlerine kurtarma kaynaklarına işaret edecek şekilde güncelleştirilir. İlk dağıtım eklentileri Wingtip SaaS öğreticileri sonuçlarında çoğunu tamamlanıyor. Analitik veritabanları ve veritabanları arası şema yönetimi gibi eklentiler sunulur.
 
 
 ![Wingtip SaaS mimarisi](media/saas-dbpertenant-wingtip-app-overview/app-architecture.png)

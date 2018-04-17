@@ -1,27 +1,22 @@
 ---
-title: "SQL veri ambarı için sürücüleri | Microsoft Docs"
-description: "Bağlantı dizeleri ve SQL Data Warehouse için sürücüleri"
+title: Azure SQL Data Warehouse için bağlantı dizelerini | Microsoft Docs
+description: SQL veri ambarı için bağlantı dizeleri
 services: sql-data-warehouse
-documentationcenter: NA
-author: antvgski
-manager: jhubbard
-editor: 
-ms.assetid: 5c91f423-b550-4734-8094-c7f2c418ac8d
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: connect
-ms.date: 10/31/2016
-ms.author: anvang;barbkess
-ms.openlocfilehash: 6950fff1c899510ce9291393aa3f6cb9774c994d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 3445de83ff29ecf60cbd6d021b431f444284858c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="drivers-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için sürücüler
+# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için bağlantı dizeleri
 Gibi birçok farklı uygulama protokollerle SQL veri ambarına bağlanabilir [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] ve [JDBC][JDBC]. Bağlantı dizeleri her protokol için bazı örnekleri aşağıda verilmiştir.  Azure portalı, bağlantı dizesi oluşturmak için de kullanabilirsiniz.  Azure Portalı'nı kullanarak bağlantı dizenizi oluşturmak için veritabanı dikey penceresine, altında gidin *Essentials* tıklayın *veritabanı bağlantı dizelerini Göster*.
 
 ## <a name="sample-adonet-connection-string"></a>Örnek ADO.NET bağlantı dizesi

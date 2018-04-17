@@ -1,6 +1,6 @@
 ---
-title: "Azure kimlik ve erişim en iyi güvenlik uygulamaları | Microsoft Docs"
-description: "Bu makalede kimlik yönetimi için en iyi yöntemler kümesi sağlar ve erişim denetimi Azure özellikleri kullanılarak."
+title: Azure kimlik ve erişim en iyi güvenlik uygulamaları | Microsoft Docs
+description: Bu makalede kimlik yönetimi için en iyi yöntemler kümesi sağlar ve erişim denetimi Azure özellikleri kullanılarak.
 services: security
 documentationcenter: na
 author: YuriDio
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: d80fdd5a2e4339823c05368d76de333f3314d4ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ec8eb8759e310e31c7798c54cc95f0170e95cf50
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>En iyi güvenlik uygulamaları Azure kimlik yönetimi ve erişim denetimi
 Birçok yeni bir sınır katman geleneksel ağ merkezli açısından bu rolü ele güvenlik için kimlik göz önünde bulundurun. Bu birincil Özet evrimi güvenlik dikkat ve Yatırımlar ağ çevreyi hale giderek porous ve bu çevre savunması kez bunlar olabildiğince etkili olamaz olgu gelen için önce Patlaması olan [KCG](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
@@ -52,7 +52,7 @@ Kimliğinizi güvenliğini sağlamaya yönelik bir önemli adımlardan biri, BT 
 Bunu gerçekleştirmek için [karma kimlik](../active-directory/active-directory-hybrid-identity-design-considerations-overview.md) senaryo iki seçenek öneririz:
 
 * Şirket içi dizininizi Azure AD Connect'i kullanarak, bulut dizini ile eşitleme
-* Şirket içi kimlik bilgilerinizi kullanarak bulut dizini ile birleştirmek [Active Directory Federasyon Hizmetleri](https://msdn.microsoft.com/library/bb897402.aspx) (AD FS)
+* İle çoklu oturum açmayı etkinleştir [parola karması eşitlemesi](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization), [doğrudan kimlik doğrulama](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq) veya şirket içi kimlik bilgilerinizi kullanarak bulut dizini ile birleştirmek [Active Directory Federasyon Hizmetleri](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/deploying-federation-servers) (AD FS)
 
 Şirket içi kimliklerini kendi bulut kimliği ile tümleştirmek için başarısız olan kuruluşlar, hatalar ve güvenlik ihlallerini olasılığını hesapları yönetme yönetim iş yükünün artmasına karşılaşırsınız.
 
@@ -95,11 +95,11 @@ Azure MFA hakkında daha fazla bilgi için lütfen makaleyi okuyun [bulutta Azur
 ## <a name="use-role-based-access-control-rbac"></a>Kullanım rol tabanlı erişim denetimi (RBAC)
 Erişimi kısıtlamak temel alarak [bilmeniz](https://en.wikipedia.org/wiki/Need_to_know) ve [en az ayrıcalık](https://en.wikipedia.org/wiki/Principle_of_least_privilege) güvenlik ilkeleri kesinlik temelli veri erişimi için güvenlik ilkelerini zorlamak istiyorsanız kuruluşlar için. Azure rol tabanlı erişim denetimi (RBAC), kullanıcılar, gruplar ve uygulamalar belirli bir kapsamda izinleri atamak için kullanılabilir. Rol atamasının kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir.
 
-Yararlanabileceğiniz [RBAC yerleşik](../active-directory/role-based-access-built-in-roles.md) ayrıcalıkları kullanıcılara atamak için Azure rollerinde. Kullanmayı *depolama hesabı katkıda bulunan* depolama hesaplarını yönetmek için gereken bulut operatörleri için ve *Klasik depolama hesabı katkıda bulunan* Klasik depolama hesaplarını yönetmek için rol. Sanal makineleri ve depolama hesabı yönetmesi gereken bulut operatörleri için onlara eklemeyi düşünün *sanal makine Katılımcısı* rol.
+Yararlanabileceğiniz [RBAC yerleşik](../role-based-access-control/built-in-roles.md) ayrıcalıkları kullanıcılara atamak için Azure rollerinde. Kullanmayı *depolama hesabı katkıda bulunan* depolama hesaplarını yönetmek için gereken bulut operatörleri için ve *Klasik depolama hesabı katkıda bulunan* Klasik depolama hesaplarını yönetmek için rol. Sanal makineleri ve depolama hesabı yönetmesi gereken bulut operatörleri için onlara eklemeyi düşünün *sanal makine Katılımcısı* rol.
 
 Veri erişim denetimi RBAC gibi özellikler yararlanarak zorlamaz kuruluşların kullanıcılarına gerekenden daha fazla ayrıcalık vermiş. Bu yol açabilir veri güvenliğinin aşılmasına göre kullanıcılar erişime izin belirli türde bir ilk başta olmamalıdır (örneğin, yüksek iş etkisi) veri türleri için.
 
-Makaleyi okuyarak Azure RBAC hakkında daha fazla bilgiyi [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+Makaleyi okuyarak Azure RBAC hakkında daha fazla bilgiyi [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="control-locations-where-resources-are-created-using-resource-manager"></a>Kaynakları Kaynak Yöneticisi'ni kullanarak oluşturulduğu denetim konumları
 Bulut operatörleri, kuruluşunuzun kaynakları yönetmek için gerekli olan kuralları kesilmesini önlerken görevleri gerçekleştirmek etkinleştirme çok önemlidir. Kaynakları oluşturulduğu konumları denetlemek isteyen kuruluşlar, sabit bu konumları kod.

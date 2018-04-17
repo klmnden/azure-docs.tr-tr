@@ -1,6 +1,6 @@
 ---
-title: "Azure Market uygulamalarda yönetilen | Microsoft Docs"
-description: "Azure açıklar yönetilen Market üzerinden kullanılabilir uygulamalar."
+title: Azure Market uygulamalarda yönetilen | Microsoft Docs
+description: Azure açıklar yönetilen Market üzerinden kullanılabilir uygulamalar.
 services: azure-resource-manager
 author: tfitzmac
 manager: timlt
@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61815098a4935983f19b3dcea6e001230aee4771
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
 
@@ -107,7 +107,7 @@ Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purcha
 
 Birden çok yetkilerini ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturun ve kendi Kimliğini belirtin öneririz **Principalıd**. Bu şekilde, kullanıcı grubu SKU güncelleştirmeye gerek olmadan daha fazla kullanıcı ekleyebilirsiniz.
 
-RBAC hakkında daha fazla bilgi için bkz: [Azure portalında RBAC ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).
+RBAC hakkında daha fazla bilgi için bkz: [Azure portalında RBAC ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Market formu
 

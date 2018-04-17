@@ -1,24 +1,24 @@
 ---
-title: "Azure üzerinde bir Linux (Ubuntu) veri bilimi sanal makine sağlama | Microsoft Docs"
-description: "Yapılandırın ve analizi yapabilir ve makine Azure üzerinde bir veri bilimi sanal makine için Linux (Ubuntu) oluşturun."
+title: Azure üzerinde bir Linux (Ubuntu) veri bilimi sanal makine sağlama | Microsoft Docs
+description: Yapılandırın ve analizi yapabilir ve makine Azure üzerinde bir veri bilimi sanal makine için Linux (Ubuntu) oluşturun.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: cgronlun
-editor: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 721b18845a3b839d59c7eb0a04646635fa8d9fe7
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makine sağlama
 
@@ -159,7 +159,7 @@ Caffe2 Caffe üzerinde oluşturulmuş facebook'taki derin öğrenme çerçevedir
 Bazı örnek not defterlerini JupyterHub içinde kullanılabilir.
 
 #### <a name="h2o"></a>H2O
-H2O hızlı, bellek içi, dağıtılmış machine learning ve Tahmine dayalı analiz platformu ' dir. Python paket kök ve py35 Anaconda ortamlarında yüklenir. R paketi de yüklenir. H2O komut satırından başlatmak için Çalıştır `java -jar /dsvm/tools/h2o/current/h2o.jar`; vardır çeşitli [komut satırı seçenekleri](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) yapılandırmak istediğiniz. Akış Web UI başlamak için http://localhost:54321 için göz atarak erişilebilir. Örnek not defterlerini de JupyterHub içinde kullanılabilir.
+H2O hızlı, bellek içi, dağıtılmış machine learning ve Tahmine dayalı analiz platformu ' dir. Python paket kök ve py35 Anaconda ortamlarında yüklenir. R paketi de yüklenir. H2O komut satırından başlatmak için Çalıştır `java -jar /dsvm/tools/h2o/current/h2o.jar`; vardır çeşitli [komut satırı seçenekleri](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) yapılandırmak istediğiniz. Akış Web UI göz atarak erişilebilir http://localhost:54321 başlamak için. Örnek not defterlerini de JupyterHub içinde kullanılabilir.
 
 #### <a name="keras"></a>Keras
 Keras TensorFlow veya Theano üstte çalıştırabilen Python içinde üst düzey sinir ağı API ' dir. Kök ve py35 Python ortamlarında kullanılabilir. 
@@ -170,7 +170,7 @@ MXNet verimliliği ve esneklik için tasarlanmış bir derin öğrenme çerçeve
 #### <a name="nvidia-digits"></a>NVIDIA BASAMAK
 NVIDIA derin öğrenme GPU eğitim BASAMAKLI olarak bilinen sistem, verileri, tasarlama ve eğitim sinir ağları GPU sistemlerde yönetme ve Gelişmiş görselleştirme ile gerçek zamanlı performans izleme gibi genel derin öğrenme görevleri basitleştirmek için bir sistemdir. 
 
-BASAMAK basamak adlı bir hizmet olarak mevcut değil. Hizmeti başlatmak ve başlamak için http://localhost: 5000 için göz atın.
+BASAMAK basamak adlı bir hizmet olarak mevcut değil. Hizmeti başlatmak ve Gözat http://localhost:5000 başlamak için.
 
 BASAMAK da yüklü bir Python modülü Conda kök ortamında olarak.
 
@@ -221,7 +221,7 @@ Ek Python kitaplıkları yükleme için çalıştırmanız gerekir ```conda``` v
 ### <a name="jupyter-notebook"></a>Jupyter not defteri
 Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum açın.
 
-Jupyter not defteri sunucunun Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için Not Defteri" adlı bir masaüstü simgesi yoktur. SSH veya X2Go istemcisi VM kullanıyorsanız, de ziyaret edebilirsiniz [https://localhost:8000 /](https://localhost:8000/) Jupyter not defteri sunucusuna erişmek için.
+Jupyter not defteri sunucunun Python 2, Python 3 ve R tekrar önceden yapılandırıldı. "Jupyter not defteri sunucusuna erişmek için tarayıcı başlatmak için Not Defteri" adlı bir masaüstü simgesi yoktur. SSH veya X2Go istemcisi VM kullanıyorsanız, de ziyaret edebilirsiniz [ https://localhost:8000/ ](https://localhost:8000/) Jupyter not defteri sunucusuna erişmek için.
 
 > [!NOTE]
 > Hiçbir sertifika uyarısı alırsanız devam edin.
@@ -237,7 +237,7 @@ Herhangi bir ana bilgisayardan Jupyter not defteri sunucusuna erişebilir. Yaln�
 
 Biz örnek not defterlerini--bir söz Python ve r birinde paketlenmiş Yerel Linux kullanıcı adı ve parola kullanarak Jupyter not defteri için kimlik doğrulaması sonra not defteri giriş sayfasında örnekler bağlantısını görebilirsiniz. Seçerek yeni bir not defteri oluşturabilirsiniz **yeni**ve ardından uygun dil çekirdek. Görmüyorsanız, **yeni** düğmesini tıklatın, **Jupyter** not defteri sunucunun giriş sayfasına gitmek için sol üst simgesi.
 
-### <a name="apache-spark-standalone"></a>Apache Spark Standalone 
+### <a name="apache-spark-standalone"></a>Tek başına Apache Spark 
 Apache Spark tek başına örneğini Spark uygulamalarında yerel olarak test etme ve büyük kümelerinde dağıtmadan önce ilk geliştirmenize yardımcı olması için bu Linux DSVM önceden yüklenir. PySpark programları Jupyter çekirdek çalıştırabilirsiniz. Jupyter açtığınızda'ı **yeni** düğmesini kullanılabilir tekrar listesini görmeniz gerekir. "Spark – Python" Spark Python dilini kullanarak uygulamalar oluşturmanıza olanak sağlayan PySpark Çekirdeği ' dir. Ayrıca, Spark programı oluşturmak için de bir Python IDE PyCharm veya Spyder gibi kullanabilirsiniz. Bu yana, bu tek başına bir örneğini, Spark yığını çağıran istemci programında çalışır. Bu daha hızlı ve Spark kümesinde geliştirme ile karşılaştırıldığında sorunlarını gidermek daha kolay hale getirir. 
 
 Bir örnek PySpark not defteri Jupyter ($ giriş/not defterlerini/SparkML/pySpark) giriş dizininin altındaki "SparkML" dizininde bulabilirsiniz Jupyter üzerinde sağlanır. 
@@ -272,7 +272,7 @@ Birkaç kod Düzenleyicileri'nin seçeneğiniz vardır. Bu, VI/VIM, Emacs, PyCha
 
 İlk kullanılmadan önce sürücüler ve veritabanı diğer adlar ayarlayın. JDBC sürücüleri şu adreste bulunabilir:
 
-*/usr/share/java/jdbcdrivers*
+*/usr/Share/Java/jdbcdrivers*
 
 Daha fazla bilgi için bkz: [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
@@ -404,7 +404,7 @@ Sekmeleri bir dizi artık bir grafik arabirim açılır. Bir örnek hava veri k�
 7. Tıklatın **değerlendir** sekmesi.
 8. ' I tıklatın **Risk** radyo düğmesinin öğesini tıklatıp **yürütme** iki Risk (kümülatif) performans çizimleri görüntülemek için.
 9. Tıklatın **günlük** önceki işlemleri Oluştur R kodunu göstermek için sekmesi.
-   (Eklemek için gerek Çıngırağı geçerli sürümünde bir hata nedeniyle, bir  *#*  önüne karakter *... Bu günlüğünü Dışarı Aktar*  günlük metninde.)
+   (Eklemek için gerek Çıngırağı geçerli sürümünde bir hata nedeniyle, bir *#* önüne karakter *... Bu günlüğünü Dışarı Aktar*  günlük metninde.)
 10. Tıklatın **verme** adlı R betiği kaydetmek için düğmesini *weather_script. R* giriş klasörü için.
 
 Çıngırağı ve r çıkabilirsiniz Şimdi oluşturulan R betiği değiştirmek veya çalıştırmak için her zaman içinde Rattle UI yapıldığı her şeyi yinelemek için olduğu gibi kullanın. Özellikle yeni başlayanlar için R içinde bu hızlı bir şekilde analiz yapın ve basit bir grafik arabirim öğrenmede R değiştirmek ve/veya öğrenmek için otomatik kod oluşturma sırasında makine için kolay bir yoludur.

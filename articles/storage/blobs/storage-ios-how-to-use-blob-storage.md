@@ -1,32 +1,26 @@
 ---
-title: "Azure Blob depolama alanından iOS kullanma | Microsoft Docs"
-description: "Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın."
+title: İOS - Azure Storage'dan nesne (Blob) kullanma | Microsoft Docs
+description: Azure Blob Storage (nesne depolama) ile bulutta yapılandırılmamış veri depolayın.
 services: storage
 documentationcenter: ios
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: df188021-86fc-4d31-a810-1b0e7bcd814b
+manager: jeconnoc
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: f238804e6031fcf3f194695a06bf5b88733a27b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>BLOB depolama alanından iOS kullanma
-[!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
 
-[!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
+Bu makalede, Microsoft Azure Blob storage kullanarak yaygın senaryolar gerçekleştirme gösterilmektedir. Objective-C ve kullanım örnekleri yazılır [iOS için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-ios). Kapsamdaki senaryolar karşıya yükleme, listeleme, indirme ve BLOB'ları silme içerir. BLOB'ları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü. Ayrıca indirebilirsiniz [örnek uygulaması](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) hızlı bir şekilde bir iOS uygulamasına Azure Storage kullanımda görmek için.
 
-## <a name="overview"></a>Genel Bakış
-Bu makalede Microsoft Azure Blob storage kullanarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. Objective-C ve kullanım örnekleri yazılır [iOS için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-ios). Kapsamdaki senaryolar dahil **karşıya**, **listeleme**, **indirme**, ve **silme** BLOB'lar. BLOB'ları hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü. Ayrıca indirebilirsiniz [örnek uygulaması](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) hızlı bir şekilde bir iOS uygulamasına Azure Storage kullanımda görmek için.
+## <a name="what-is-blob-storage"></a>Blob storage nedir?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
@@ -91,7 +85,7 @@ SWIFT kullanıyorsanız, bir köprü oluşturma üst bilgisi oluşturun ve < AZS
 
 1. Bir üst bilgi dosyası oluştur `Bridging-Header.h`ve yukarıdaki içeri aktarma deyimini ekleyin.
 2. Git *Build Settings* arayın ve sekmesinde *Objective-C köprü oluşturma üst bilgisi*.
-3. Alanın üzerinde çift *Objective-C köprü oluşturma üst bilgisi* ve yolun üstbilgi dosyanıza ekleyin:`ProjectName/Bridging-Header.h`
+3. Alanın üzerinde çift *Objective-C köprü oluşturma üst bilgisi* ve yolun üstbilgi dosyanıza ekleyin: `ProjectName/Bridging-Header.h`
 4. Köprü oluşturma üst bilgisi tarafından Xcode çekilmiş olduğunu doğrulamak için projeyi (⌘ + B) oluşturun.
 5. Kitaplık doğrudan SWIFT herhangi dosyasında kullanmaya başlamak, içeri aktarma deyimlerini için gerek yoktur.
 

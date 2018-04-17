@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c9f7d4841846e41eacb66125bcdeeb29466bb0b8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>SendGrid Java kullanarak e-posta gönderme
 Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler Java'da yazılmış. Kapsamdaki senaryolar dahil **e-posta oluşturma**, **e-posta gönderme**, **eklerini ekleme**, **filtreleri kullanarak**, ve **özelliklerini güncelleştirme**. SendGrid ve e-posta gönderme hakkında daha fazla bilgi için bkz: [sonraki adımlar](#next-steps) bölümü.
@@ -81,7 +81,7 @@ Javax.mail kitaplıkları, örneğin almak <http://www.oracle.com/technetwork/ja
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
 3. İletinizi oluşturun ve Ata **için**, **gelen**, **konu** ve içerik değerleri. Bu gösterilen [nasıl yapılır: bir e-posta oluşturma](#how-to-create-an-email) bölümü.
-4. İletisi göndermesi bir *javax.mail.Transport* nesnesi. Bu gösterilen [nasıl yapılır: bir e-posta Gönder] [nasıl yapılır: bir e-posta Gönder] bölümü.
+4. İletisi göndermesi bir *javax.mail.Transport* nesnesi. Bu gösterilen [nasıl yapılır: bir e-posta Gönder] [#how-to-send-e-posta] bölümü.
 
 ## <a name="how-to-create-an-email"></a>Nasıl yapılır: bir e-posta oluşturma
 Bir e-posta için değerlerin nasıl belirtileceği gösterir.

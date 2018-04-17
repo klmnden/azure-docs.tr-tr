@@ -1,28 +1,28 @@
 ---
-title: "Azure IOT Hub cihaz sağlama hizmeti için cihaz erişimini yönetme | Microsoft Docs"
-description: "Azure Portalı'nda DPS hizmetinize cihaz erişimi iptal etme"
+title: Azure IOT Hub cihaz hizmeti sağlama aygıttan disenroll nasıl
+description: Azure IOT Hub cihaz sağlama hizmeti aracılığıyla sağlama önlemek için bir aygıt disenroll nasıl
 services: iot-dps
-keywords: 
-author: JimacoMS
-ms.author: v-jamebr
-ms.date: 12/22/2017
+keywords: ''
+author: bryanla
+ms.author: v-jamebr;bryanla
+ms.date: 04/05/2018
 ms.topic: article
 ms.service: iot-dps
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 12aebf3a56aa7469a765ab6fc67aa65b254db71a
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 50074eaecacf603d2bc6170183fd632b4a1ab2d1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="revoke-device-access-to-your-provisioning-service-in-the-azure-portal"></a>Azure portalında sağlama hizmetinizi cihaz erişimi iptal etme
+# <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz hizmeti sağlama aygıttan disenroll nasıl
 
-Cihaz kimlik bilgilerinin doğru yönetim IOT çözümleri gibi yüksek profilli sistemler için önemlidir. Bu sistemlere en iyi yöntem cihazlar için erişimi iptal etme NET bir plana yapmaktır zaman kullanıcıların kimlik bilgilerini bir paylaşılan erişim imzaları (SAS) belirteci ya da bir X.509 sertifikası tehlikeye. Bu makalede, cihaz erişimi sağlama adımda iptal açıklar.
+Cihaz kimlik bilgilerinin doğru yönetim IOT çözümleri gibi yüksek profilli sistemler için önemlidir. Bu sistemlere en iyi yöntem cihazlar için erişimi iptal etme NET bir plana yapmaktır zaman kullanıcıların kimlik bilgilerini bir paylaşılan erişim imzaları (SAS) belirteci ya da bir X.509 sertifikası tehlikeye. 
 
-Cihaz sağlandıktan sonra bir IOT hub'ına cihaz erişimi iptal etme hakkında bilgi edinmek için [aygıtları devre dışı bırakma](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-identity-registry#disable-devices).
+Cihaz sağlama hizmet kaydolmayı sağlayan olması bir aygıt [otomatik sağlanan](concepts-auto-provisioning.md). Sağlanan bir aygıtı ilk almasına izin vererek IOT Hub ile kayıtlı biridir [cihaz çifti](~/articles/iot-hub/iot-hub-devguide-device-twins.md) durum ve telemetri verileri raporlama başlayın. Bu makale, gelecekte tekrar sağlanan önleme, sağlama hizmet örneği bir aygıttan disenroll açıklar.
 
 > [!NOTE] 
 > Yeniden deneme ilkesi için erişimi iptal aygıtların farkında olun. Örneğin, bir sonsuz yeniden deneme ilkesi olan bir aygıtı sağlama Hizmeti'ne kaydolmak sürekli olarak deneyebilirsiniz. Bu durum Hizmet kaynağı tüketir ve büyük olasılıkla performansı etkiler.
@@ -37,10 +37,10 @@ Cihaz kayıt girdisini devre dışı bırakarak geçici olarak kara listeye:
 2. Kaynak listesinde cihazınızın kara listeye istediğiniz sağlama hizmeti seçin.
 3. Sağlama hizmetinizi seçin **kayıtlarını yönetme**ve ardından **tek tek kayıtları** sekmesi.
 4. Kara listeye istediğiniz cihaz kayıt girişini seçin. 
-5. Seçin **devre dışı** üzerinde **etkinleştirmek girişi** geçiş yapın ve ardından **kaydetmek**.  
+5. Alt kısmına kaydırın ve seçin **devre dışı** üzerinde **etkinleştirmek girişi** geçiş yapın ve ardından **kaydetmek**.  
 
-   ![Tek tek kayıt girişi portalında devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
-    
+   [![Tek tek kayıt girişi portalında devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png#lightbox)  
+
 Cihaz kayıt girişi silerek kalıcı olarak kara listeye:
 
 1. Azure portal ve Seç'i açın **tüm kaynakları** sol menüden.
@@ -64,9 +64,8 @@ Sertifika, kayıt grubu devre dışı bırakarak geçici olarak kara listeye:
 1. Azure portal ve Seç'i açın **tüm kaynakları** sol menüden.
 2. Kaynak listesinde imzalama sertifikası kara listeye istediğiniz sağlama hizmeti seçin.
 3. Sağlama hizmetinizi seçin **kayıtlarını yönetme**ve ardından **kayıt grupları** sekmesi.
-4. Kara listeye istediğiniz sertifika için kayıt grubunu seçin.
-5. Kayıt grubu girişi seçin **grubunu Düzenle**.
-6. Seçin **devre dışı** üzerinde **etkinleştirmek girişi** geçiş yapın ve ardından **kaydetmek**.  
+4. Kara listeye istediğiniz sertifikayı kullanarak kayıt grubunu seçin.
+5. Seçin **devre dışı** üzerinde **etkinleştirmek girişi** geçiş yapın ve ardından **kaydetmek**.  
 
    ![Kayıt Portalı'nda grup giriş devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-enrollment-group.png)
 
@@ -96,12 +95,15 @@ Bir kayıt grubundaki tek bir cihaza kara listeye şu adımları izleyin:
 2. Kaynaklar listesinden kara listeye istediğiniz cihaz kayıt grubunu içeren sağlama hizmeti seçin.
 3. Sağlama hizmetinizi seçin **kayıtlarını yönetme**ve ardından **tek tek kayıtları** sekmesi.
 4. Seçin **Ekle** üstündeki düğmesi. 
-5. Seçin **X.509** aygıt ve aygıt sertifikasını karşıya yükleme için güvenlik mekanizması olarak. Bu cihazda yüklü imzalı son varlık sertifikasıdır. Cihaz kimlik doğrulama sertifikalarını oluşturmak için kullanır.
+5. Seçin **X.509** cihaz ve cihaz sertifika yükleyin kanıtlama mekanizması olarak. Bu cihazda yüklü imzalı son varlık sertifikasıdır. Cihaz kimlik doğrulama sertifikalarını oluşturmak için kullanır.
 6. İçin **IOT Hub cihaz kimliği**, aygıtın Kimliğini girin. 
 7. Seçin **devre dışı** üzerinde **etkinleştirmek girişi** geçiş yapın ve ardından **kaydetmek**. 
 
-   ![Tek tek kayıt girişi portalında devre dışı bırak](./media/how-to-revoke-device-access-portal/disable-individual-enrollment.png)
+    [![Tek tek kayıt girişi portalında Grup kayıt aygıttan devre dışı bırakmak için devre dışı](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png)](./media/how-to-revoke-device-access-portal/disable-individual-enrollment-in-enrollment-group.png#lightbox)
 
 Kaydınızı başarıyla oluşturduğunuzda görünür Cihazınızı görmelisiniz **tek tek kayıtları** sekmesi.
 
+## <a name="next-steps"></a>Sonraki adımlar
+
+Disenrollment ayrıca büyük sağlamanın kaldırılması işlemini bir parçasıdır. Bir aygıt sağlamayı hem hizmet sağlama gelen disenrollment ve IOT hub'ından kaydı siliniyor içerir. Tam işlemi hakkında bilgi edinmek için [nasıl daha önce otomatik-sağlanan aygıtlar yetkisini kaldırma](how-to-unprovision-devices.md) 
 

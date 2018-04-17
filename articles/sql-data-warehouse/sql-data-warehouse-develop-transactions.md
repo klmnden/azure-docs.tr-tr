@@ -1,41 +1,39 @@
 ---
-title: SQL veri ambarı işlemlerinde | Microsoft Docs
+title: Azure SQL Data Warehouse'da işlemleri kullanma | Microsoft Docs
 description: Çözümleri geliştirme için Azure SQL Data Warehouse'da işlemleri uygulamak için ipuçları.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: ''
-ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
+author: ronortloff
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: t-sql
-ms.date: 10/31/2016
-ms.author: jrj;barbkess
-ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/12/2018
+ms.author: rortloff
+ms.reviewer: igorstan
+ms.openlocfilehash: 168fd15b5f93f59328a4b6a2d68b52500074c410
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="transactions-in-sql-data-warehouse"></a>SQL veri ambarı işlemleri
+# <a name="using-transactions-in-sql-data-warehouse"></a>SQL veri ambarı'nda işlemleri kullanma
+Çözümleri geliştirme için Azure SQL Data Warehouse'da işlemleri uygulamak için ipuçları.
+
+## <a name="what-to-expect"></a>Sizi neler bekliyor
 Beklediğiniz gibi SQL veri ambarı veri ambarı iş yükü bir parçası olarak işlemleri destekler. Ancak, SQL veri ambarı performansını ölçekte korunduğundan emin olmak için bazı özellikler SQL Server'a karşılaştırıldığında sınırlıdır. Bu makalede farklar vurgular ve diğerleri listeler. 
 
 ## <a name="transaction-isolation-levels"></a>İşlem yalıtım düzeyi
-SQL veri ambarı ACID işlemlerini uygular. Ancak, işlem desteği yalıtım sınırlıdır `READ UNCOMMITTED` ve bu değiştirilemez. Bu sizin için önemliyse verilerin kirli okuma engellemek için yöntem kodlama sayısı uygulayabilirsiniz. En yaygın yöntem, kullanıcıların hala hazırlanan veri sorgulama önlemek için hem CTAS hem de (genellikle kayan pencere düzeni bilinir) tabloda bölüm değiştirme yararlanın. Filtre öncesi veri görünümleri popüler bir yaklaşım da olur.  
+SQL veri ambarı ACID işlemlerini uygular. Ancak, işlem desteği yalıtım düzeyini READ UNCOMMITTED sınırlıdır; Bu düzey değiştirilemez. READ UNCOMMITTED önemliyse, verilerin kirli okuma engellemek için yöntem kodlama sayısı uygulayabilirsiniz. En popüler yöntemleri, kullanıcıların hala hazırlanan veri sorgulama önlemek için hem CTAS hem de (genellikle kayan pencere düzeni bilinir) tabloda bölüm değiştirme kullanın. Verileri önceden filtre görünümleri de popüler bir yaklaşım vardır.  
 
 ## <a name="transaction-size"></a>İşlem boyutu
-Bir tek veri değişikliği işlem boyutu sınırlıdır. Sınır Bugün "dağıtım" uygulanır. Bu nedenle, toplam ayırma dağıtım sayısı sınırı çarpılmasıyla hesaplanır. İçin yaklaşık işlemde satır sayısının üst sınırını dağıtım ucun her satır toplam boyutu tarafından bölün. Değişken uzunlukta sütunlar için en büyük boyutu kullanmak yerine bir ortalama sütun uzunluğu alma göz önünde bulundurun.
+Bir tek veri değişikliği işlem boyutu sınırlıdır. Sınır dağıtım uygulanır. Bu nedenle, toplam ayırma dağıtım sayısı sınırı çarpılmasıyla hesaplanır. İçin yaklaşık işlemde satır sayısının üst sınırını dağıtım ucun her satır toplam boyutu tarafından bölün. Değişken uzunlukta sütunlar için en büyük boyutu kullanmak yerine bir ortalama sütun uzunluğu alma göz önünde bulundurun.
 
 Aşağıdaki varsayımlar aşağıdaki tabloda yapılmıştır:
 
 * Bir dağılmış verilerinizin oluştu 
 * Ortalama satır uzunluğu 250 bayttır
 
-| [DWU][DWU] | Dağıtım (GiB) cap | Dağıtımların sayısı | En fazla işlem boyutu (GiB) | # Dağıtım başına satır | İşlem başına en fazla satır |
+| [DWU](sql-data-warehouse-overview-what-is.md) | Dağıtım (GiB) cap | Dağıtımların sayısı | En fazla işlem boyutu (GiB) | # Dağıtım başına satır | İşlem başına en fazla satır |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1,5 |60 |90 |6,000,000 |360,000,000 |
@@ -52,7 +50,7 @@ Aşağıdaki varsayımlar aşağıdaki tabloda yapılmıştır:
 
 İşlem boyut sınırı, işlem veya işlem uygulanır. Tüm eşzamanlı işlemler arasında uygulanmaz. Bu nedenle her bir işlem günlüğüne bu miktarda veri yazmak için izin verilir. 
 
-En iyi duruma getirme ve günlüğe yazılan veri miktarını en aza indirmek için lütfen [işlemleri en iyi uygulamalar] [ Transactions best practices] makalesi.
+En iyi duruma getirme ve günlüğe yazılan veri miktarını en aza indirmek için lütfen [işlemleri en iyi uygulamalar](sql-data-warehouse-develop-best-practices-transactions.md) makalesi.
 
 > [!WARNING]
 > Maksimum hareket boyutu yalnızca karma değeri sağlanabilir ve hatta dağıtılmış ROUND_ROBIN tabloları, verilerin bulunduğu. İşlem dağıtımlarına çarpık bir şekilde veri yazma, ardından sınırı önce maksimum hareket boyutu erişilmesi olasılığı yüksektir.
@@ -61,14 +59,14 @@ En iyi duruma getirme ve günlüğe yazılan veri miktarını en aza indirmek i�
 > 
 
 ## <a name="transaction-state"></a>İşlem durumu
-SQL veri ambarı XACT_STATE() işlevi -2 değerini kullanarak bir başarısız işlem raporlamak için kullanır. Bu işlem başarısız oldu ve yalnızca geri almak için işaretlenmiş anlamına gelir
+SQL veri ambarı XACT_STATE() işlevi -2 değerini kullanarak bir başarısız işlem raporlamak için kullanır. Bu değer, işlem başarısız oldu ve yalnızca geri almak için işaretlenmiş anlamına gelir.
 
 > [!NOTE]
-> -2 başarısız işlem belirtmek için XACT_STATE işlevi tarafından kullanımını farklı bir davranışı SQL Server'a temsil eder. SQL Server -1 değeri kaydedilemez bir işlem göstermek için kullanır. SQL Server bu olarak kaydedilemez işaretlenmesi gerek olmadan bir işlemin içindeki bazı hatalar dayanabilir. Örneğin `SELECT 1/0` hataya neden, ancak bir işlem kaydedilemez bir duruma zorla sağlamaz. SQL Server kaydedilemez işlemde de okuma izin verir. Ancak, SQL Data Warehouse, bunun izin vermez. Bir SQL Data Warehouse işlem içinde bir hata oluşursa,-2 durumu otomatik olarak girer ve deyim geri kadar daha fazla select deyimi yapmak mümkün olmaz. Bu nedenle, onu XACT_STATE() gibi kullanıp kullanmadığını görmek için uygulama kodunuzda bir kod değişikliği yapmanız gerekebilir denetlemek önemlidir.
+> -2 başarısız işlem belirtmek için XACT_STATE işlevi tarafından kullanımını farklı bir davranışı SQL Server'a temsil eder. SQL Server -1 değeri yürütülemeyen bir işlem göstermek için kullanır. SQL Server bu olarak yürütülemeyen işaretlenmesi gerek olmadan bir işlemin içindeki bazı hatalar dayanabilir. Örneğin `SELECT 1/0` hataya neden, ancak yürütülemeyen bir durum harekete zorla sağlamaz. SQL Server yürütülemeyen işlemde de okuma izin verir. Ancak, SQL Data Warehouse, bunun izin vermez. Bir SQL Data Warehouse işlem içinde bir hata oluşursa,-2 durumu otomatik olarak girer ve deyim geri kadar daha fazla select deyimi yapmak mümkün olmaz. Bu nedenle, onu XACT_STATE() gibi kullanıp kullanmadığını görmek için uygulama kodunuzda bir kod değişikliği yapmanız gerekebilir denetlemek önemlidir.
 > 
 > 
 
-Örneğin, SQL Server'da şuna benzer bir işlem görebilirsiniz:
+Örneğin, SQL Server'da, aşağıdakine benzer bir işlem görebilirsiniz:
 
 ```sql
 SET NOCOUNT ON;
@@ -106,11 +104,11 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-Ardından yukarıdaki olduğu gibi kodunuzu bırakırsanız aşağıdaki hata iletisini alırsınız:
+Önceki kod, aşağıdaki hata iletisini sağlar:
 
 Msg 111233, Level 16, State 1, satır 1 111233; Geçerli işlem iptal edildi ve bekleyen değişiklikleri geri alındı. Neden: Bir işlemi yalnızca geri alma durumunda açıkça DDL, DML veya SELECT deyimi önce geri alınmadı.
 
-Ayrıca ERROR_ * işlevleri çıktısını almazsınız.
+ERROR_ * işlevleri çıktısını alamazsınız.
 
 SQL veri ambarı'nda kod biraz değiştirilmesi gerekir:
 
@@ -151,19 +149,19 @@ SELECT @xact_state AS TransactionState;
 
 Şimdi beklenen bir davranış gözlenir. İşlem hata yönetilir ve beklendiği gibi ERROR_ * işlevleri değerler sağlayın.
 
-Değişen tüm olan `ROLLBACK` işlemi vardı hata bilgileri okuma önce gerçekleşmesi `CATCH` bloğu.
+Değişen tüm olduğundan işlem geri CATCH bloğu içinde hata bilgilerinin okuma önce gerçekleşir gerekiyordu.
 
 ## <a name="errorline-function"></a>Error_Line() işlevi
-Ayrıca, SQL Data Warehouse uygulama ya da ERROR_LINE() işlevini destekler, dikkate değerdir. Bu, kodunuzda varsa, SQL Data Warehouse ile uyumlu olması için kaldırmanız gerekir. Sorgu etiketleri, kodunuzda eşdeğer işlevsellik uygulamak için bunun yerine kullanın. Lütfen [etiket] [ LABEL] bu özellik hakkında daha fazla ayrıntı için makale.
+Ayrıca, SQL Data Warehouse uygulama ya da ERROR_LINE() işlevini destekler, dikkate değerdir. Bu, kodunuzda varsa, SQL Data Warehouse ile uyumlu olması için kaldırmanız gerekir. Sorgu etiketleri, kodunuzda eşdeğer işlevsellik uygulamak için bunun yerine kullanın. Daha fazla ayrıntı için bkz: [etiket](sql-data-warehouse-develop-label.md) makalesi.
 
 ## <a name="using-throw-and-raiserror"></a>THROW ve RAISERROR kullanma
 SQL Data warehouse'da özel durumlarını oluşturma için daha modern uygulama THROW olmakla birlikte RAISERROR da desteklenir. Dikkat edilmesi ancak ödeme değer olan bazı farklar vardır.
 
-* Kullanıcı tanımlı hata iletilerinin THROW 100.000 150.000 aralığında sayı olamaz
+* Kullanıcı tanımlı hata iletilerinin numaraları THROW 100.000 150.000 aralığının olamaz.
 * RAISERROR hata iletileri 50.000 düzeltilen
 * Sistem iletilerinde kullanımı desteklenmiyor
 
-## <a name="limitiations"></a>Limitiations
+## <a name="limitations"></a>Sınırlamalar
 SQL veri ambarı için işlemleri ile ilgili diğer birkaç kısıtlamalar sahip.
 
 Bunlar aşağıdaki gibidir:
@@ -173,20 +171,8 @@ Bunlar aşağıdaki gibidir:
 * İzin verilen noktaları kaydetme
 * Adlandırılmış işlem
 * İşaretli işlem
-* DDL gibi desteği `CREATE TABLE` işlem içinde bir kullanıcı tanımlı
+* Kullanıcı tanımlı bir işlemin içindeki CREATE TABLE gibi DDL desteği
 
 ## <a name="next-steps"></a>Sonraki adımlar
-İşlemler en iyi duruma getirme hakkında daha fazla bilgi için bkz: [işlemleri en iyi uygulamalar][Transactions best practices].  Diğer SQL Data Warehouse en iyi uygulamalar hakkında bilgi edinmek için [SQL veri ambarı en iyi yöntemler][SQL Data Warehouse best practices].
+İşlemler en iyi duruma getirme hakkında daha fazla bilgi için bkz: [işlemleri en iyi uygulamalar](sql-data-warehouse-develop-best-practices-transactions.md). Diğer SQL Data Warehouse en iyi uygulamalar hakkında bilgi edinmek için [SQL veri ambarı en iyi yöntemler](sql-data-warehouse-best-practices.md).
 
-<!--Image references-->
-
-<!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

@@ -1,5 +1,5 @@
-* [Rol tabanlı erişim denetimi](../articles/active-directory/role-based-access-control-configure.md)
-* [Azure Powershell kullanarak erişimini yönetme](../articles/active-directory/role-based-access-control-manage-access-powershell.md)
-* [Azure CLI kullanarak erişimini yönetme](../articles/active-directory/role-based-access-control-manage-access-azure-cli.md)
-* [RBAC yerleşik roller](../articles/active-directory/role-based-access-built-in-roles.md)
+* [Rol tabanlı erişim denetimi](../articles/role-based-access-control/role-assignments-portal.md)
+* [Azure Powershell kullanarak erişimini yönetme](../articles/role-based-access-control/role-assignments-powershell.md)
+* [Azure CLI kullanarak erişimini yönetme](../articles/role-based-access-control/role-assignments-cli.md)
+* [RBAC yerleşik roller](../articles/role-based-access-control/built-in-roles.md)
 

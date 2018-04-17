@@ -17,15 +17,15 @@ ms.workload: infrastructure
 ms.date: 03/30/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: dfda95d2340d7dd57ac7b4d7ed7b0665c8e9294e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 11dc0e5f6ee398b2a745ed60cbc166e2a1697c3e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI kullanarak bir ağ güvenlik grubu ile ağ trafiği filtreleme
 
-Ağ güvenlik grubu ile ağ trafiği için gelen ve giden sanal ağ alt ağından filtreleyebilirsiniz. Ağ güvenlik grupları, IP adresi, bağlantı noktası ve protokol ağ trafiğinin filtre güvenlik kuralları içerir. Güvenlik kuralları, bir alt ağda dağıtılan kaynaklara uygulanır. Bu makalede, bilgi nasıl yapılır:
+Ağ güvenlik grubu ile ağ trafiği için gelen ve giden sanal ağ alt ağından filtreleyebilirsiniz. Ağ güvenlik grupları, IP adresi, bağlantı noktası ve protokol ağ trafiğinin filtre güvenlik kuralları içerir. Güvenlik kuralları, bir alt ağda dağıtılan kaynaklara uygulanır. Bu makalede şunları öğreneceksiniz:
 
 * Ağ güvenlik grubu ve güvenlik kuralları oluşturma
 * Bir sanal ağ oluşturun ve bir alt ağ için ağ güvenlik grubu ilişkilendirin
@@ -161,7 +161,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-VM oluşturmak için birkaç dakika sürer. VM oluşturulduktan sonra aşağıdaki örneğe benzer bir çıktı verilir: 
+Sanal makinenin oluşturulması birkaç dakika sürer. VM oluşturulduktan sonra aşağıdaki örneğe benzer bir çıktı verilir: 
 
 ```azurecli 
 {
@@ -191,7 +191,7 @@ az vm create \
   --admin-password $adminPassword
 ```
 
-VM oluşturmak için birkaç dakika sürer. VM oluşturulduktan sonra Not **Publicıpaddress** döndürülen çıkışı. Bu adres, sonraki adımda VM erişmek için kullanılır. Azure VM oluşturma tamamlanana kadar sonraki adıma devam yok.
+Sanal makinenin oluşturulması birkaç dakika sürer. VM oluşturulduktan sonra Not **Publicıpaddress** döndürülen çıkışı. Bu adres, sonraki adımda VM erişmek için kullanılır. Azure VM oluşturma tamamlanana kadar sonraki adıma devam yok.
 
 ## <a name="test-traffic-filters"></a>Test trafik filtreleri
 
@@ -241,6 +241,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu makalede, bir ağ güvenlik grubu oluşturulur ve sanal ağ alt ağına ilişkilendirilmiş. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md) ve [bir ağ güvenlik grubunu yönetme](virtual-network-manage-nsg-arm-ps.md).
+Bu makalede, bir ağ güvenlik grubu oluşturulur ve sanal ağ alt ağına ilişkilendirilmiş. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md) ve [bir ağ güvenlik grubunu yönetme](manage-network-security-group.md).
 
 Varsayılan alt ağlar arasında trafiği Azure yollar. Bunun yerine, bir güvenlik duvarı hizmet veren bir VM ile alt ağlar arasında trafiği yönlendirmek için seçebilirsiniz örneğin. Bilgi edinmek için bkz [bir yol tablosu oluşturmanız](tutorial-create-route-table-cli.md).

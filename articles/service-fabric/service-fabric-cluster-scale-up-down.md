@@ -1,11 +1,11 @@
 ---
-title: "Service Fabric kümesi veya ölçeklendirin | Microsoft Docs"
-description: "Service Fabric kümesi içeri veya dışarı isteğe bağlı her düğüm türü/sanal makine ölçek kümesi için otomatik ölçeklendirme kurallarını ayarlayarak eşleşecek şekilde ölçeklendirilir. Service Fabric kümesi düğümlerine Ekle Kaldır"
+title: Service Fabric kümesi veya ölçeklendirin | Microsoft Docs
+description: Service Fabric kümesi içeri veya dışarı isteğe bağlı her düğüm türü/sanal makine ölçek kümesi için otomatik ölçeklendirme kurallarını ayarlayarak eşleşecek şekilde ölçeklendirilir. Service Fabric kümesi düğümlerine Ekle Kaldır
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeb76f63-7303-4753-9c64-46146340b83d
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
-ms.author: chackdan
-ms.openlocfilehash: 4813276ea8180aa8bdd385da289e6073f08d400e
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: aljo
+ms.openlocfilehash: 506877e12d12ff3b1372cc0360a8df1a1d52744a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Service Fabric kümesi veya otomatik ölçeklendirme kurallarını kullanarak uzaklaştırma ölçeklendirme
-Sanal makine ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynaktır. Service Fabric kümesi içinde tanımlanan her düğüm türü ayrı bir sanal makine ölçek kümesi ayarlanır. Her düğüm türü, genişletilebilir veya çıkışı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) belge. Service Fabric düğüm türleri kümenizdeki arka uç, sanal makine ölçek kümelerinin yapıldıktan sonra otomatik ölçek kuralı her düğüm türü/sanal makine ölçek kümesi için ayarlamanız gerekir.
+# <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules-or-manually"></a>Service Fabric kümesi veya otomatik ölçeklendirme kurallarını kullanarak uzaklaştırma ölçeklendirme veya el ile
+Sanal makine ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabileceğiniz bir Azure işlem kaynaktır. Service Fabric kümesi içinde tanımlanan her düğüm türü ayrı sanal makine ölçek kümesi ayarlanır. Her düğüm türü, genişletilebilir veya çıkışı bağımsız olarak, farklı bağlantı noktalarının açık olması ve farklı kapasite ölçümlerini olabilir. İçinde hakkında daha fazla bilgiyi [Service Fabric nodetypes](service-fabric-cluster-nodetypes.md) belge. Service Fabric düğüm türleri kümenizdeki arka uç, sanal makine ölçek kümelerinin yapıldıktan sonra otomatik ölçek kuralı her düğüm türü/sanal makine ölçek kümesi için ayarlamanız gerekir.
 
 > [!NOTE]
 > Aboneliğiniz bu küme olun yeni VM'ler eklemek için yeterli çekirdek olması gerekir. Olmadığından hiçbir model doğrulama şu anda, kota sınırları isabet durumunda bir dağıtım zaman hatası alır.
@@ -40,7 +40,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 ```
 
 ## <a name="set-auto-scale-rules-for-the-node-typevirtual-machine-scale-set"></a>Düğüm türü/sanal makine ölçek kümesi için otomatik ölçeklendirme kurallarını ayarlama
-Birden çok düğüm türleri kümeniz varsa, bu her düğüm türleri/sanal makine Ölçek (içeri veya dışarı) ölçeklendirmek istediğiniz ayarlar yineleyin. Otomatik ölçeklendirmeyi ayarlamadan önce bilmeniz gereken düğüm sayısını dikkate alın. Birincil düğüm türü için gereken düğüm sayısı alt sınırı seçmiş olduğunuz güvenilirlik düzeyi tarafından yönetilir. Daha fazla bilgi edinin [güvenilirlik düzeyleri](service-fabric-cluster-capacity.md).
+Birden çok düğüm türleri kümeniz varsa, bu her düğüm türleri/sanal makine Ölçek (içeri veya dışarı) ölçeklendirmek istediğiniz ayarlar yineleyin. Otomatik ölçeklendirmeyi ayarlamadan önce sahip olmanız gereken düğüm sayısını dikkate alın. Birincil düğüm türü için gereken düğüm sayısı alt sınırı seçmiş olduğunuz güvenilirlik düzeyi tarafından yönetilir. Daha fazla bilgi edinin [güvenilirlik düzeyleri](service-fabric-cluster-capacity.md).
 
 > [!NOTE]
 > Birincil düğüm Ölçeklendirmesi en küçük sayı yap değerinden kararsız küme yazın veya getir. Bu, uygulamalarınız için ve sistem hizmetleri için veri kaybına neden olabilir.
@@ -74,7 +74,7 @@ Aşağıdaki adımlar, bir VM örneği aynı anda yürütülmesi gerekir. Bu dü
 
 1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
 2. Çalıştırma [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu adım hurry olamaz.
-3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek bu Nodetype VM'lerin sayısını değiştirmek için. Kaldırılan yüksek VM örneği örneğidir. 
+3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek düğüm türü VM'lerin sayısını değiştirmek için. Kaldırılan yüksek VM örneği örneğidir. 
 4. 1 ile gerektiğinde 3 arasındaki adımları yineleyin, ancak hiçbir zaman birincil düğüm türleri ne güvenilirlik katmanını sağlayacağını değerinden sayısının ölçeğini. Başvurmak [burada güvenilirlik katmanları ayrıntıları](service-fabric-cluster-capacity.md). 
 
 ## <a name="manually-remove-vms-from-the-non-primary-node-typevirtual-machine-scale-set"></a>Sanal makineleri birincil olmayan düğüm türü/sanal makine ölçek kümesini el ile kaldırma
@@ -86,8 +86,8 @@ Aşağıdaki adımlar, bir VM örneği aynı anda yürütülmesi gerekir. Bu dü
 Aşağıdaki adımlar, bir VM örneği çalıştırma aynı anda gerekir. Bu kaldırdığınız VM örneğinde düzgün biçimde kapatılması Sistem Hizmetleri (ve durum bilgisi olan hizmetlerinizi) sağlar ve başka bir konumu yeni çoğaltmaları oluşturulur.
 
 1. Çalıştırma [devre dışı bırakma ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/disable-servicefabricnode?view=azureservicefabricps) düğümü devre dışı bırakmak amacıyla 'RemoveNode' kaldırın (Bu düğüm türü en yüksek örneğinde) oluşturacağız.
-2. Çalıştırma [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda düğüm devre dışı kadar bekleyin. Bu adım hurry olamaz.
-3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek bu Nodetype VM'lerin sayısını değiştirmek için. Bu artık yüksek VM örneği kaldırır. 
+2. Çalıştırma [Get-ServiceFabricNode](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) düğümü devre dışı olarak gerçekten çözümlemeye geçmiş emin olmak için. Aksi durumda, düğümü devre dışı kadar bekleyin. Bu adım hurry olamaz.
+3. Örnek/yönergeleri izleyin [hızlı başlangıç Şablon Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) tek düğüm türü VM'lerin sayısını değiştirmek için. Bu artık yüksek VM örneği kaldırır. 
 4. 1 ile gerektiğinde 3 arasındaki adımları yineleyin, ancak hiçbir zaman birincil düğüm türleri ne güvenilirlik katmanını sağlayacağını değerinden sayısının ölçeğini. Başvurmak [burada güvenilirlik katmanları ayrıntıları](service-fabric-cluster-capacity.md).
 
 ## <a name="behaviors-you-may-observe-in-service-fabric-explorer"></a>Service Fabric Explorer'da davranışlarla karşılaşabilirsiniz

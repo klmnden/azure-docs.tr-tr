@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V sanal makineleri olağanüstü durum kurtarma Azure için şirket içi Hyper-V server hazırlama | Microsoft Docs"
-description: "Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarma Azure Site Recovery hizmeti ile System Center VMM tarafından yönetilmeyen hazırlama hakkında bilgi edinin."
+title: Hyper-V sanal makineleri olağanüstü durum kurtarma Azure için şirket içi Hyper-V server hazırlama | Microsoft Docs
+description: Şirket içi Hyper-V Vm'lerini azure'a olağanüstü durum kurtarma Azure Site Recovery hizmeti ile System Center VMM tarafından yönetilmeyen hazırlama hakkında bilgi edinin.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1290a186ca8e83b09f53b286e80c5ce75f08d88c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 7e0219a662483ef123bdc2889a43dd3d93d23ac2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Olağanüstü durum kurtarma Azure için şirket içi Hyper-V sunucuları hazırlama
 
@@ -35,8 +35,8 @@ Emin Hyper-V konakları ve VM'ler gereksinimleriyle uyumlu hale getirir.
 1. [Doğrulama](hyper-v-azure-support-matrix.md#on-premises-servers) şirket içi sunucu gereksinimleri.
 2. [Gereksinimleri kontrol](hyper-v-azure-support-matrix.md#replicated-vms) Hyper-V sanal makinelerini Azure'a çoğaltmak istediğiniz için.
 3. Hyper-V konağı denetleyin [ağ](hyper-v-azure-support-matrix.md#hyper-v-network-configuration); ve ana hem de Konuk [depolama](hyper-v-azure-support-matrix.md#hyper-v-host-storage) şirket içi Hyper-V konakları için destek.
-4. İçin desteklenen denetleyin [Azure ağ](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [depolama](hyper-v-azure-support-matrix.md#azure-storage), ve [işlem](hyper-v-azure-support-matrix.md#azure-compute-features), yük devretme sonrasında.
-5. Şirket içi Vm'leriniz Azure'a çoğaltmak uymalıdır [Azure VM gereksinimleri](hyper-v-azure-support-matrix.md#azure-vm-requirements).
+4. Yük devretmenin ardından [Azure ağ](hyper-v-azure-support-matrix.md#azure-vm-network-configuration-after-failover), [depolama](hyper-v-azure-support-matrix.md#azure-storage) ve [işlem](hyper-v-azure-support-matrix.md#azure-compute-features) için nelerin desteklendiğini denetleyin.
+5. Azure’a çoğalttığınız şirket içi sanal makineleriniz, [Azure sanal makinesi gereksinimleri](hyper-v-azure-support-matrix.md#azure-vm-requirements) ile uyumlu olmalıdır.
 
 
 ## <a name="prepare-vmm-optional"></a>VMM (isteğe bağlı) hazırlama
@@ -58,14 +58,13 @@ VMM, ağ eşlemesi için aşağıdaki gibi hazırlayın:
 
 ## <a name="verify-internet-access"></a>Internet erişimi doğrulayın
 
-1. Öğreticinin amaçları doğrultusunda basit Hyper-V konakları ve VMM sunucusu için uygunsa, bir proxy kullanmadan doğrudan internet erişimi sağlamak için yapılandırmadır. 
+1. Öğreticinin amaçları doğrultusunda Hyper-V konakları ve VMM sunucusu bir proxy kullanmadan doğrudan internet erişimi sağlamak en basit yapılandırmadır içindir. 
 2. Bu Hyper-V konakları ve VMM sunucusu varsa, bu URL'ler erişebildiğinden emin olun: 
 
     [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
     
-3. Emin olun:
-    - Herhangi bir IP adresi tabanlı güvenlik duvarı kuralı Azure ile iletişim kurmaya izin vermelidir.
-    - [Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)'na ve HTTPS (443) bağlantı noktasına izin verin.
+3. IP adresine göre erişimi denetleme, emin olun:
+    - IP adresi tabanlı güvenlik duvarı kuralları bağlanabilir [Azure veri merkezi IP aralıkları](https://www.microsoft.com/download/confirmation.aspx?id=41653)ve HTTPS (443 numaralı) bağlantı noktası.
     - IP adres aralıklarını aboneliğinizin Azure bölgesi ve Batı ABD (erişim denetimi ve kimlik yönetimi için kullanılan) izin verir.
 
 

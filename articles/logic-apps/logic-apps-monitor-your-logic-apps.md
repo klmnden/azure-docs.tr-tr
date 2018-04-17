@@ -15,11 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: fdc986fb32225f94e5a257c46a7b943abc0edf8f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c1d5bc55b132b449ebc2964ef95016a6a4780c19
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
@@ -66,7 +66,7 @@ Hataları veya diğer olası sorunları hakkında bildirim almak için ayarladı
    ![Adım ayrıntıları](media/logic-apps-monitor-your-logic-apps/monitor-view-details.png)
    
    > [!NOTE]
-   > Tüm çalışma zamanı ayrıntılarını ve olayları Logic Apps Hizmeti'nde şifrelenir. Yalnızca bir kullanıcı bu verileri görüntülemek için istediğinde şifresi çözülür. Ayrıca bu olaylar ile erişimi denetleyebilirsiniz [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md).
+   > Tüm çalışma zamanı ayrıntılarını ve olayları Logic Apps Hizmeti'nde şifrelenir. Yalnızca bir kullanıcı bu verileri görüntülemek için istediğinde şifresi çözülür. Ayrıca bu olaylar ile erişimi denetleyebilirsiniz [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md).
 
 6. Belirli tetikleyici olay hakkında bilgi almak için geri dönüp **genel bakış** bölmesi. Altında **tetiklemek geçmişi**, tetikleyici olayı seçin. Şimdi girişleri ve çıkışları, gibi ayrıntıları örneğin gözden geçirebilirsiniz:
 
@@ -217,7 +217,7 @@ Uyarıları ayarlamak için [Azure günlük analizi](../log-analytics/log-analyt
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure Tanılama Olay ayarları ve ayrıntıları
 
-Mantıksal uygulamanızı ve bu olay, örneğin, durum ayrıntılarını her Tanılama Olay sahipse, başlangıç saati, bitiş saati ve benzeri. İzleme, izleme ve günlüğe kaydetme programlı olarak ayarlamak için ou bu ayrıntılarla kullanabilirsiniz [Azure Logic Apps için REST API](https://docs.microsoft.com/rest/api/logic) ve [Azure tanılama için REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
+Mantıksal uygulamanızı ve bu olay, örneğin, durum ayrıntılarını her Tanılama Olay sahipse, başlangıç saati, bitiş saati ve benzeri. İzleme, izleme ve günlüğe kaydetme programlı olarak ayarlamak için bu ayrıntılarla kullanabilirsiniz [Azure Logic Apps için REST API](https://docs.microsoft.com/rest/api/logic) ve [Azure tanılama için REST API](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows).
 
 Örneğin, `ActionCompleted` olayında `clientTrackingId` ve `trackedProperties` izleme ve izleme için kullanabileceğiniz özellikler:
 

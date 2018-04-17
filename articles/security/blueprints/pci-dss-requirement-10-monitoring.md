@@ -1,5 +1,5 @@
 ---
-title: "Azure ödeme işleme şeması gereksinimleri izleme-"
+title: Azure ödeme işleme şeması gereksinimleri izleme-
 description: PCI DSS gereksinim 10
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: frasim
-ms.openlocfilehash: 5fa1d17e68ce04b1f67081479518279be6cca099
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 708c57c1d7b79d3fd3c129de9a7ce4099ab6ac36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için izleme gereksinimleri 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS gereksinim 10
@@ -39,7 +39,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure erişimi yetkili personel yönetim ve tanılama araçları ile ilgili iş sorumluluk kısıtlar. Microsoft Azure en az ayrıcalık kurallara göre üretim ortamında kullanılan araçlar ayrıcalıklı erişimi sınırlandırır. Microsoft Azure kaydeder ve platform ortamında Microsoft Azure sistemi bileşenlerine tüm tek tek kullanıcı erişim günlüğünü tutar.<br /><br />Microsoft Azure platform bileşenleri (işletim sistemi, CloudNet, doku vb. dahil), oturum ve güvenlik olaylarını toplamak için yapılandırılır. Microsoft Azure platformu yönetici etkinliğinde günlüğe kaydedilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -59,7 +59,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure erişimi yetkili personel yönetim ve tanılama araçları ile ilgili iş sorumluluk kısıtlar. Microsoft Azure en az ayrıcalık kurallara göre üretim ortamında kullanılan araçlar ayrıcalıklı erişimi sınırlandırır. Microsoft Azure kaydeder ve platform ortamında Microsoft Azure sistemi bileşenlerine tüm tek tek kullanıcı erişim günlüğünü tutar.<br /><br />Microsoft Azure platform bileşenleri (işletim sistemi, CloudNet, doku vb. dahil), oturum ve güvenlik olaylarını toplamak için yapılandırılır. Microsoft Azure platformu yönetici etkinliğinde günlüğe kaydedilir. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore CHD günlükleri dahil olmak üzere tüm sistemi ve kullanıcı etkinliğini kapsamlı günlüğü vardır. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore CHD günlükleri dahil olmak üzere tüm sistemi ve kullanıcı etkinliğini kapsamlı günlüğü vardır. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -78,7 +78,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure sunucuları eşitlemek için yordamlar kurulduğunda ve NTP Katman 1 saat sunucuları ile Microsoft Azure ortamında ağ aygıtlarını uydunuz Genel Konumlandırma Sistemi (GPS için) eşitlenir. Eşitleme beş dakikada bir otomatik olarak gerçekleştirilir. Microsoft Azure hizmet konakları düzgün eşitleme zamanı sağlamak için sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore, kullanıcı kimliği, olay türü, tarih ve saat damgası, başarısız başarı olayları, olay kaynağı ve 10.3 denetim gerektirdiği kaynağın adını kaydeder.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore, kullanıcı kimliği, olay türü, tarih ve saat damgası, başarısız başarı olayları, olay kaynağı ve 10.3 denetim gerektirdiği kaynağın adını kaydeder.|
 
 
 
@@ -93,7 +93,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure sunucuları eşitlemek için yordamlar kurulduğunda ve NTP Katman 1 saat sunucuları ile Microsoft Azure ortamında ağ aygıtlarını uydunuz Genel Konumlandırma Sistemi (GPS için) eşitlenir. Eşitleme beş dakikada bir otomatik olarak gerçekleştirilir. Microsoft Azure hizmet konakları düzgün eşitleme zamanı sağlamak için sorumludur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
 
 
 
@@ -106,7 +106,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.4](#pci-dss-requirement-10-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
 
 
 
@@ -119,7 +119,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.4](#pci-dss-requirement-10-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
 
 
 
@@ -132,7 +132,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.4](#pci-dss-requirement-10-4). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Zaman eşitleme PaaS hizmeti için Azure tarafından gerçekleştirilir.|
 
 
 
@@ -145,7 +145,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | FIM ve Kimlikler araçları Microsoft Azure ortamında uygulanır. Microsoft Azure EWS işletimsel ortamı içindeki olayların gerçek zamanlı analiz desteklemek için kullanır. Sistem tehlikeye atabilecek olayları hakkında gerçek zamanlı uyarılar yakın mAs ve AMAÇLAR oluşturur. <br /><br />Hizmet, kullanıcı ve güvenlik olaylarını (web sunucusu günlükleri, FTP sunucusu günlükleri vb.) etkin ve merkezi olarak korunur. Azure denetim günlükleri yetkili personel iş sorumluluklarını göre erişimi kısıtlar. Olay günlükleri, Azure güvenli arşivleme altyapı arşivlenmiş ve 180 gün için korunur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -158,7 +158,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.5](#pci-dss-requirement-10-5). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -171,7 +171,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.5](#pci-dss-requirement-10-5). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -184,7 +184,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.5](#pci-dss-requirement-10-5). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -197,7 +197,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.5](#pci-dss-requirement-10-5). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -210,7 +210,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.5](#pci-dss-requirement-10-5). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore oms'ye tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore Azure tüm öğelerin denetimi için sağlar. Yedekleme dış kaynak tarafından gerçekleştirilebilir [Azure Backup](https://azure.microsoft.com/services/backup/).|
 
 
 
@@ -226,7 +226,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | FIM ve Kimlikler araçları Microsoft Azure ortamında uygulanır. Microsoft Azure EWS işletimsel ortamı içindeki olayların gerçek zamanlı analiz desteklemek için kullanır. Sistem tehlikeye atabilecek olayları hakkında gerçek zamanlı uyarılar yakın mAs ve AMAÇLAR oluşturur. <br /><br />Hizmet, kullanıcı ve güvenlik olaylarını (web sunucusu günlükleri, FTP sunucusu günlükleri vb.) etkin ve merkezi olarak korunur. Azure denetim günlükleri yetkili personel iş sorumluluklarını göre erişimi kısıtlar. Olay günlükleri, Azure güvenli arşivleme altyapı arşivlenmiş ve 180 gün için korunur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
 
 
 
@@ -243,7 +243,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.6](#pci-dss-requirement-10-6). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
 
 
 
@@ -256,7 +256,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | İçin "Microsoft Azure" bölümüne bakın. [gereksinim 10.6](#pci-dss-requirement-10-6). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
 
 
 
@@ -269,7 +269,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | "Microsoft Azure" bölümüne bakın [gereksinim 10.6](#pci-dss-requirement-10-6). |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanan [Azure Güvenlik Merkezi](https://azure.microsoft.com/services/security-center/) izlemek, rapor ve anormallikleri önlemek için. [Azure Danışmanı](/azure/advisor/advisor-security-recommendations) önerileri tüm Azure kaynakları için tutarlı, birleştirilmiş bir görünümünü sağlar.|
 
 
 
@@ -282,7 +282,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure denetim günlükleri kendi iç Portalı aracılığıyla hemen erişilebilir en son 3 ay ile bir yıl için korur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -308,7 +308,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure EWS işletimsel ortamı içindeki olayların gerçek zamanlı analiz desteklemek için kullanır. Sistem tehlikeye atabilecek olayları hakkında gerçek zamanlı uyarılar yakın mAs ve AMAÇLAR oluşturur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -331,7 +331,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Microsoft Azure EWS işletimsel ortamı içindeki olayların gerçek zamanlı analiz desteklemek için kullanır. Sistem tehlikeye atabilecek olayları hakkında gerçek zamanlı uyarılar yakın mAs ve AMAÇLAR oluşturur. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore ayrıntılı günlük kaydını ve tüm sistem, kullanıcı etkinliği (CHD dahil olmak üzere günlük) sahiptir. Daha fazla bilgi için bkz: [PCI Kılavuzu - günlük kaydı](payment-processing-blueprint.md#logging-and-auditing).|
 
 
 
@@ -345,7 +345,7 @@ Günlüğe kaydetme mekanizmaları ve kullanıcı etkinliklerini takip etme imka
 |||
 |---|---|
 | **Sağlayıcı<br />(Microsoft&nbsp;Azure)** | Geçerli değil. |
-| **Müşteri<br />(PCI &#8209; DSS&nbsp;Şeması)** | Contoso Webstore kullanım örneği ve CHD nasıl yönetilir ve korumalı hakkında bir açıklama sağlar.|
+| **Müşteri<br />(PCI&#8209;DSS&nbsp;Şeması)** | Contoso Webstore kullanım örneği ve CHD nasıl yönetilir ve korumalı hakkında bir açıklama sağlar.|
 
 
 

@@ -14,11 +14,11 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8d414a7a2ad46fbe63cc6eb8e6a6a41bb76aa432
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c8966f3dfa16010b82d1fe9cd02c63bdde65463c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
 Müşteri desteği ve bunların kullanılması Azure genişletmek için hizmetleriyle bağlanıyor bir hedef ile Azure Marketi sistem Tümleştirici (SI) ortaklarının Microsoft Danışmanlık hizmet teklifleri listesini destekler. 
@@ -48,6 +48,9 @@ Teklifleri (birden fazla listeleyebilirsiniz) aşağıdaki beş hizmet türlerin
 Dışında *Brifingi* danışmanlık hizmetleri hizmet türü yüz yüze (diğer bir deyişle, yerinde bir müşterinin konum veya bir iş ortağının tesis) sunulan veya neredeyse (diğer bir deyişle, konferans aracılığıyla konferans veya uzaktan web Uygulama). Brifingleri kişisel olarak sunulan gerekir.
 
 Daha fazla bilgi için bkz: [yetkinlikleri Microsoft iş ortağı ağı üzerinden](https://partner.microsoft.com/en-US/membership/competencies). 
+
+>[!TIP]
+>Bu bilgiler yalnızca Azure Marketi hizmetleri sağlar. Azure Market mağaza yayımlamak için "Azure" bulut iş ortağı Portalı'nda "Birincil ürün" açılan menüden seçerek bu seçim hale getirir. İçin AppSource yayımlamak için bu seçimi "Dynamics 365" seçerek yapar bulut iş ortağı Portalı'nda "Birincil ürün" açılan menüden "Güç uygulamaları" veya "Power BI". 
 
 ## <a name="supported-countries"></a>Desteklenen ülkelerdeki
 
@@ -82,7 +85,7 @@ Hizmetinizi belirler bile önce toplamaya başlamak ve listenizi yardımcı olac
 |Katılım süresi     |
 |Geçerli sektörü, kategoriler ve arama anahtar sözcükleri     |
 |Ürün genel bakış videosu    |
-|Screenshots (maximum of 5, 1280 &#215; 720)     |
+|Ekran görüntüleri (5, maksimum 1280 &#215; 720)     |
 |Pazarlama belgeleri (en fazla 3)     |
 
 
@@ -95,3 +98,31 @@ Danışmanlık hizmeti teklifiniz Azure Market'te listeleyen aşağıdaki aşama
 4. **Gözden geçirme**: pazarlama ve düzenleme ekibimiz gönderiminiz gözden geçirir ve okunabilirliği, dilbilgisi ve verimliliğini iyileştirir. 
 5. **Hazırlama**: gönderiminiz gözden geçirmeniz için hazırdır. 
 6. **Yayımlama**: Microsoft hazırlanmış içerikle sağlandığında listenizi Azure Marketi üzerinde çalışmaya hazırdır. Listenizi servise tarihini, Sunumda belirtilen ülke bağlıdır. Seçili ülkeniz için katalog zaten Azure Marketi üzerinde dinamik ise, listenizi birkaç saat içinde görüntülenir. Aksi takdirde, katalog Canlı gider hemen listesi görüntülenir.
+
+## <a name="content-review-criteria"></a>İçerik inceleme ölçütleri
+
+Yukarıda listelenen gerekli öğeler yapılandırdıktan sonra içerik İnceleme takımı teklif açıklamanızı bilgilendirici ve hedef kitlenizi için eksiksiz olduğunu doğrular. 
+
+Başlık alanı 50 karakter limiti vardır ve teklif süresi ve hizmet türünü göndermeniz gerekir unutmayın. Bu arama motoru iyileştirme en üst düzeye çıkarmak için yapılır. Gerekli biçime aşağıdaki gibidir: ad: süre türü
+
+Örnekler:
+
+
+|Örnek başlık  |Doğru biçimde  |
+|---------|---------|
+|Üretim Azure IOT ile çalışmaya başlama    |   Üretim IOT: 2 gün değerlendirme      |
+|Akıllı Tebrikleri üzerinde Atölyesi        |  Akıllı Tebrikleri: 1-Wk Atölyesi       |
+|  SQL Server Geçiş PoC    | SQL geçişi: 3 Wk kavram kanıtı        |
+
+ 
+Teklif açıklamaları ve teklif özetleri gözden geçirirken, takım aşağıdaki ölçütleri uygulanır:
+
+|Teklif Türü  |Gerekli |Önerilen  |
+|---------|---------|---------|
+|Değerlendirme    |   Birden çok gün veya hafta çok değerlendirmeleri için ayrıntılı bir gündem içerir ve ne iyileştirir müşteri teslim edilebilir bekleyebilirsiniz      |    Teklifiniz, üst arama motoru iyileştirme anahtar sözcükleriyle Özet en iyi duruma getirme     |
+|Bilgilendirme    |   Ne iyileştirir müşteri teslim edilebilir bekleyebilirsiniz. Lütfen Brifingleri da bizzat sunulmalıdır unutmayın. Sanal bir hizmeti sağlıyorsanız, Lütfen farklı bir teklif türü seçin    |  Teklifiniz, üst arama motoru iyileştirme anahtar sözcükleriyle Özet en iyi duruma getirme       |
+|Uygulama    |  Mühendislik değişiklikler, teknik yapıları ya da bir müşteri katılım sonuçlarını bekleyebilirsiniz diğer yapıları iyileştirir ve birden çok gün veya hafta çok uygulamaları için ayrıntılı bir gündem içerir       |    Teklifiniz, üst arama motoru iyileştirme anahtar sözcükleriyle Özet en iyi duruma getirme     |
+|Kavram kanıtı    |    Mühendislik değişiklikler, teknik yapıları ya da bir müşteri katılım sonuçlarını bekleyebilirsiniz diğer yapıları ifade     | Teklifiniz, üst arama motoru iyileştirme anahtar sözcükleriyle Özet en iyi duruma getirme        |
+|Atölye    |   Günlük, haftalık veya aylık teklifinizle seçilen süresi bağlı olarak ayrıntılı bir gündem içerir. , Atölye öğrenme hedefleri veya diğer teslim edilebilir öğeler nelerdir ifade     |   Teklifiniz, üst arama motoru iyileştirme anahtar sözcükleriyle Özet en iyi duruma getirme      |
+
+Bulut iş ortağı portalını kullanarak listenizi için biçimlendirme ekleyebilirsiniz [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Lehçe, listeye eklemek yardımcı olacak basit tasarım dili budur. 

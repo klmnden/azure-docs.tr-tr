@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2017
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: d5b606532ac445b03527c5027dc3b434d88b6b1f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kgremban
+ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-device-twins-python"></a>Cihaz çiftlerini (Python) ile çalışmaya başlama
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -242,7 +242,7 @@ Bu bölümde, hub'ınıza bağlanan bir Python konsol uygulaması oluşturun, **
 1. Cihaz uygulama çalıştırma
    
     ```cmd/sh
-    python ReportConnectivity.js
+    python ReportConnectivity.py
     ```
    
     Cihaz çiftlerini güncelleştirildi onay görmeniz gerekir.
@@ -252,7 +252,7 @@ Bu bölümde, hub'ınıza bağlanan bir Python konsol uygulaması oluşturun, **
 6. Aygıt bağlantısı bilgilerini bildirdi, her iki sorgularda görüntülenmelidir. Geri dönün ve yeniden sorgular çalıştırın:
    
     ```cmd/sh
-    python AddTagsAndQuery.js
+    python AddTagsAndQuery.py
     ```
    
     Bu süre, **{cihaz kimliği}** hem sorgu sonuçlarında görüntülenmesi gerekir.

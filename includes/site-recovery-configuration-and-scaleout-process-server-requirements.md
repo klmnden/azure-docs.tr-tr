@@ -1,7 +1,7 @@
 | **Bileşen** | **Gereksinim** |
 | --- |---|
 | CPU çekirdekleri| 8 |
-| RAM | 12 GB|
+| RAM | 16 GB|
 | Disk sayısı | işletim sistemi diski, işlem sunucusu önbellek disk ve yeniden çalışma için bekletme sürücüsü dahil olmak üzere 3 |
 | Boş disk alanı (işlem sunucusu önbelleği) | 600 GB
 | Boş disk alanı (bekletme diski) | 600 GB|
@@ -13,5 +13,5 @@
 | IIS | -Önceden var olan varsayılan Web sitesi <br> -Etkinleştirin [anonim kimlik doğrulaması](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) <br> -Etkinleştirin [Fastcgı](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) ayarı  <br> -Önceden var olan Web sitesi/443 numaralı bağlantı noktasını dinlemeye uygulama<br>|
 | NIC türü | (VMware VM olarak dağıtıldığında) VMXNET3 |
 | IP adresi türü | Statik |
-| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> -https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (genişleme işlem sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
+| İnternet erişimi | Sunucunun aşağıdaki URL'lere erişim gerekir: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi (genişleme işlem sunucuları için gerekli değildir) <br> - time.nist.gov <br> - time.windows.com |
 | Bağlantı Noktaları | 443 (Denetim kanalı düzenleme)<br>9443 (Veri aktarımı)|

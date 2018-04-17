@@ -1,26 +1,24 @@
 ---
-title: "Küme boyutlarını - Azure Hdınsight ölçeklendirin | Microsoft Docs"
-description: "İş yükünüzün bir Hdınsight kümesine ölçeklendirin."
+title: Küme boyutlarını - Azure Hdınsight ölçeklendirin | Microsoft Docs
+description: İş yükünüzün bir Hdınsight kümesine ölçeklendirin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 7e9ee660c07d6265e55e94cf79ed13334fcb3d16
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 8b76d7d0441a5c1c25ad17b73083ec0e4feef1fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="scale-hdinsight-clusters"></a>Ölçek Hdınsight kümeleri
 
@@ -121,16 +119,16 @@ Güvenli mod bırakarak sonra el ile geçici dosyaları kaldırabilir, veya Hive
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>Güvenli mod açıldığında örnek hataları
 
-* H070 Hive oturum açamıyor. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **Cannot create directory** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0. **Ad düğümdür güvenli modda**. Bildirilen blokları 75 toplam blokların 87 0.9900 eşik ulaşmak için ek 12 blokları gerekir. Canlı datanodes 10 sayısı 0 minimum sayısı sınırına ulaştı. Eşikleri ulaşıldığında güvenli mod otomatik olarak kapatılır.
+* H070 Hive oturum açamıyor. org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **dizini oluşturulamıyor**  /tmp/hive/hive / 819c215c - 6d 87 4311 97c 8-4f0b9d2adcf0. **Ad düğümdür güvenli modda**. Bildirilen blokları 75 toplam blokların 87 0.9900 eşik ulaşmak için ek 12 blokları gerekir. Canlı datanodes 10 sayısı 0 minimum sayısı sınırına ulaştı. Eşikleri ulaşıldığında güvenli mod otomatik olarak kapatılır.
 
 * Veritabanları H100 deyimi kurmada göster: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername için Bağlan . internal.cloudapp.NET/1.1.1.1] başarısız oldu: **bağlantı reddedildi**
 
-* H020 bağlantısı kuramadı hn0 hdisrv.servername.bx.internal.cloudapp .net için: 10001: org.apache.thrift.transport.TTransportException: http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 http bağlantısı oluşturulamadı /. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: Connection refused: org.apache.thrift.transport.TTransportException: Could not create http connection to http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
+* H020 bağlantısı kuramadı hn0 hdisrv.servername.bx.internal.cloudapp .net için: 10001: org.apache.thrift.transport.TTransportException: http bağlantısı oluşturulamadı http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: hn0-başarısız hdisrv.servername.bx.internal.cloudapp.net:10001 için [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] bağlantı: bağlantı reddedildi: org.apache.thrift.transport.TTransportException: http bağlantısı oluşturulamadı http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/. org.apache.http.conn.HttpHostConnectException: Connect to hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] failed: **Connection refused**
 
 * Hive günlüklerinden: [Temel] UYAR: sunucu. HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 21, denemede HiveServer2 başlatılırken hata oluştu, 60 saniye java.lang.RuntimeException deneyecek: hive yapılandırmasına yetkilendirme ilkesi uygulanırken hata oluştu: org.apache.hadoop.ipc.RemoteException () org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **dizini oluşturulamıyor** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374. **Ad düğümdür güvenli modda**.
     Bildirilen blokları 0 0.9900 toplam blokların 9 eşik ulaşmak için ek 9 blokları gerekir.
     Canlı datanodes 10 sayısı 0 minimum sayısı sınırına ulaştı. **Güvenli mod kapatılacak otomatik olarak eşikleri ulaşıldığında**.
-    at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
+    org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
 
 Ad düğümü günlükleri gözden geçirebilirsiniz `/var/log/hadoop/hdfs/` zaman küme ölçeği, ne zaman güvenli mod girilen görmek için zaman yakın klasör. Günlük dosyaları adlı `Hadoop-hdfs-namenode-hn0-clustername.*`.
 
@@ -156,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Güvenli modu devre dışı](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]
-> `-D` Anahtar, Azure Storage veya Azure Data Lake Store Hdınsight varsayılan dosya sisteminde olduğu için gereklidir. `-D`komutlar yerel HDFS dosya sistemi karşı yürütülürken belirtir.
+> `-D` Anahtar, Azure Storage veya Azure Data Lake Store Hdınsight varsayılan dosya sisteminde olduğu için gereklidir. `-D` komutlar yerel HDFS dosya sistemi karşı yürütülürken belirtir.
 
 Ardından, HDFS durumu ayrıntılarını gösteren bir rapor görüntüleyebilirsiniz:
 

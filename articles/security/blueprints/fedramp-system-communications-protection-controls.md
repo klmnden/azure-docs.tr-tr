@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve iletişim koruma"
-description: "FedRAMP Web uygulamaları Otomasyon - sistem ve iletişim koruması"
+title: Azure güvenlik ve uyumluluk şeması FedRAMP Web uygulamaları, Otomasyon - sistem ve iletişim koruma
+description: FedRAMP Web uygulamaları Otomasyon - sistem ve iletişim koruması
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: ce0917cec67612736103932903eab18d7f0f21bb
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 6749ad50cd1ea1cd4ec6ca2f86fef43a9f1515d9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="system-and-communications-protection-sc"></a>Sistem ve iletişim Koruması (SC)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim sistemi ve iletişim koruma ilke Taahhüt, Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve sistem iletişimi koruma ilkesini ve ilişkili sistem ve iletişim koruma denetimleri uyarlamasını kolaylaştırmak için yordamlar; gözden geçirir ve geçerli sistem ve iletişim koruma İlkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve sistem ve iletişim koruma yordamlar [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-2** Information system (kullanıcı arabirimi Hizmetleri dahil) kullanıcı işlevselliği bilgileri sistem yönetimi işlevinden ayırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-3** bilgi sistemi güvenlik işlevleri güvenlikle ilgili olmayan işlevlerden yalıtır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-4** yetkisiz ve istenmeyen bilgi aktarımı paylaşılan sistem kaynaklarının aracılığıyla bilgi sistemi engeller.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-5** bilgi sistemi korur veya hizmet reddi saldırılarını aşağıdaki türlerini etkilerini sınırlar: [atama: kuruluş tanımlı türler hizmet saldırılarını veya kaynakları gibi bilgileri için başvurular reddi] tarafından kullanan [atama: kuruluş tanımlanan güvenlik önlemlerinin].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-6** ayırarak bilgileri sistem kaynakları kullanılabilirliği korur [atama: kuruluş tanımlanan kaynaklara] tarafından [seçimi (bir veya daha fazla) öncelik; kota; [Atama: kuruluş tanımlanan güvenlik önlemlerinin]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,11 +115,11 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7.a** bilgi sistemi izleyiciler ve iletişimi denetleyen sisteminin dış sınır ve anahtar iç sınırlar içinde sistem.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu ayrıntılı bir uygulama ağ geçidi dağıtır, yük dengeleyici ve commutations dış sınırlarında ve iç alt ağlar arasında denetlemek için ağ güvenlik grubu kuralları yapılandırır. Uygulama ağ geçidi, yük dengeleyici ve ağ güvenlik grubu olayı ve tanılama günlüklerini izleme müşteri izin vermek için OMS günlük analizi tarafından toplanır. |
+| **Müşteri** | Bu ayrıntılı bir uygulama ağ geçidi dağıtır, yük dengeleyici ve commutations dış sınırlarında ve iç alt ağlar arasında denetlemek için ağ güvenlik grubu kuralları yapılandırır. Uygulama ağ geçidi, yük dengeleyici ve ağ güvenlik grubu olayı ve tanılama günlüklerini izleme müşteri izin vermek için günlük analizi tarafından toplanır. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7.b** bilgi sistemi genel olarak erişilebilir sistem bileşenleri için alt ağlar uygulayan [seçim: fiziksel olarak; mantıksal] iç kuruluş ağlardan ayrılmış.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -143,7 +143,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7.c** bilgi sistemi dış ağlara ya da bilgi systems yalnızca bir kuruluş güvenliği mimari göre düzenlenmiş sınır koruma cihazları oluşan yönetilen arabirimleri üzerinden bağlanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (3)** kuruluş bilgilerini sisteme dış ağ bağlantılarının sayısını sınırlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) bir** kuruluş her dış telekomünikasyon hizmet için yönetilen bir arabirimi uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .b** kuruluş her yönetilen arabirimi için bir trafik akışı ilkesi oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .c** kuruluşun gizlilik ve her bir arabirim aktarılan bilgilerin bütünlüğünü korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -213,7 +213,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (4) .d** her özel durum destekleyen görev/iş gereksinimlerini ve gereken süresi ile trafik akışı ilkeye kuruluş belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -225,9 +225,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="boundary-protection--external-telecommunications-services"></a>Sınır koruma | Dış telekomünikasyon Hizmetleri
 
-**SC-7 (4).e** Trafik akışı ilkesi için özel durumlar kuruluş incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] ve açık bir görev/iş gereksinimine göre artık desteklenmeyen özel durumları kaldırır.
+**SC-7 (4) .e** Trafik akışı ilkesi için özel durumlar kuruluş incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] ve açık bir görev/iş gereksinimine göre artık desteklenmeyen özel durumları kaldırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (5)** yönetilen arabirimleri bilgileri sistem varsayılan olarak ağ iletişimleri trafiği engeller ve bir özel durum nedeniyle ağ iletişimleri trafiğine izin verir (yani, tüm reddet, özel durum nedeniyle izin).
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (7)** bilgi sistemin, uzak bir aygıt ile birlikte aynı anda sistemiyle uzaktan olmayan bağlantı kurma ve dış ağlarda kaynaklara diğer bazı bağlantı üzerinden iletişim kurarken cihazın engeller.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (8)** bilgileri sistem yolları [atama: kuruluş tarafından tanımlanan iç iletişim trafiği] için [atama: kuruluş tarafından tanımlanan dış ağlara] aracılığıyla yönetilen arabirimleri proxy sunucularda kimlik doğrulaması.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (10)** kuruluş arasında yönetilen arabirimleri bilgilerin yetkisiz exfiltration engeller.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (12)** kuruluş uygular [atama: ana bilgisayar tabanlı sınır kuruluşunuz tarafından tanımlanan koruma mekanizmalarını] konumundaki [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -311,7 +311,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (13)** kuruluş yalıtır [atama: kuruluşunuz tarafından tanımlanan bilgileri güvenlik araçları, mekanizmaları ve destek bileşenlerini] fiziksel olarak uygulayarak diğer iç bilgileri sistem bileşenlerinden alt ağlar ile ayırın. diğer sistem bileşenlerini yönetilen arabirimleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (18)** bilgi sistemi güvenli bir şekilde bir sınır koruma aygıt işletimsel hatası durumunda başarısız olur.
 
-**Sorumlulukları:**`Azure Only`
+**Sorumlulukları:** `Azure Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (20)** bilgi sistemi dinamik ayırma/kurabilmeleri için yeteneği sağlar [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri] sisteminin diğer bileşenler'den.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-7 (21)** kuruluş sınır koruma mekanizmalarını ayırmak için kullanır [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri] destekleme [atama: kuruluş tarafından tanımlanan görevler ve/veya iş işlevleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-8** bilgi sistemi korur [seçimi (bir veya daha fazla): gizlilik; bütünlüğü] aktarılan bilgileri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-8 (1)** bilgileri sistem şifreleme mekanizmasıyla uygulayan [seçimi (bir veya daha fazla): yetkisiz bilgilerin açığa çıkmasının önleme; bilgilere değişikliklerini algılamak] iletim sırasında Aksi halde tarafından korunan sürece [atama: Kuruluşunuz tarafından tanımlanan alternatif fiziksel güvenlik önlemleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-10** bilgi sistemi iletişimlerdeki oturumunun veya sonra sonunda ilişkili ağ bağlantıyı sonlandırır [atama: kuruluş tanımlı süre] işlem yapılmadan geçen süre.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12** kuruluş kurar ve ile uyumlu olarak bilgi sistemi içinde değişiklik gerekli şifreleme için şifreleme anahtarları yönetir [atama: anahtar oluşturma, dağıtım, kuruluşun tanımlı gereksinimleri Depolama, erişimi ve yok etme].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (1)** kuruluş kullanılabilirliği kullanıcılar tarafından şifreleme anahtarlarının bilgi kaybı durumunda tutar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (2)** kuruluş oluşturur, denetler ve simetrik şifreleme anahtarlarını kullanarak dağıtır [seçim: NIST FIPS uyumlu; Anahtar Yönetimi NSA onaylı] teknolojisi ve işlemler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-12 (3)** kuruluş oluşturur, denetler ve asimetrik şifreleme anahtarlarını kullanarak dağıtır [seçim: NSA onaylı anahtar yönetim teknolojisi ve işlemleri; onaylanmış PKI sınıf 3 sertifikalar veya prepositioned anahtar malzemesini; PKI sınıf 3 veya sınıf 4 sertifikaları ve kullanıcının özel anahtarını korumak donanım güvenlik belirteçleri onaylanmış].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -461,11 +461,11 @@ ms.lasthandoff: 02/11/2018
 
  ## <a name="nist-800-53-control-sc-13"></a>NIST 800 53 denetim SC-13
 
-#### <a name="cryptographic-protection"></a>Cryptographic Protection
+#### <a name="cryptographic-protection"></a>Şifreleme koruma
 
 **SC-13** bilgi sistemi uygulayan [atama: kuruluş tarafından tanımlanan şifreleme kullanır ve her kullanım için gereken şifreleme türünü] geçerli federal yasalar, Executive siparişleri yönergeleri, ilkeleri düzenlemeleri uygun olarak ve standartları.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.a** bilgi sistemi uzaktan etkinleştirme aşağıdaki istisnalar dışında İşbirliği Bilgisayar aygıtların yasaklar: [atama: kuruluş tanımlı özel durumları olduğu uzaktan etkinleştirmeye izin].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-15.b** cihazları fiziksel olarak mevcut kullanıcılara açık göstergesidir kullanım bilgileri sistemi sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-17** kuruluş altında ortak anahtar sertifikaları veren bir [atama: kuruluş tarafından tanımlanan sertifika ilkesi] veya ortak anahtar sertifikaları bir onaylanan hizmet sağlayıcısı'ndan alır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.a** kuruluş mobil kod kabul edilebilir ve kabul edilemez ve mobil kod teknolojileri tanımlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.b** kuruluş kullanım kısıtlamaları ve uygulama yönergeleri için kabul edilebilir mobil kodu ve mobil kod teknolojileri oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-18.c** kuruluş yetkilendirir, izler ve bilgi sistemi içinde mobil kod kullanımını denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -563,7 +563,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-19.a** kullanım kısıtlamaları ve kötü amaçlı olarak kullanıldığında bilgi sisteme zarar görmesine neden olma olasılığı tabanlı Internet Protokolü (VoIP) teknolojileri üzerinden Uygulama Kılavuzu sesi için kuruluş oluşturur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-19.b** kuruluş yetkilendirir, izler ve bilgi sistemi içinde VoIP kullanımını denetler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-20.a** bilgi sistemi ek veri kaynağı kimlik doğrulaması ve bütünlük doğrulama yapıları sistem döndürür dış adı/adresi çözümleme sorgulara yanıt yetkili ad çözümlemesi verilerin sağlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-20.b** bilgi sistemi alt bölgeleri ve (alt güvenli Çözümleme Hizmetleri destekliyorsa) güvenlik durumunu göstermek için sağlar parçası olarak çalışırken, bir üst ve alt etki alanları arasında güven zinciri doğrulamayı etkinleştirmek için Dağıtılmış, hiyerarşik ad alanı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-21** bilgi sistemi ister ve sistem alan yetkili kaynaklardan gelen ad/adres çözümlemesi yanıtları veri kaynağı kimlik doğrulaması ve veri bütünlük doğrulaması gerçekleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-22** topluca bir kuruluş adı/adresi çözümleme hizmeti sağlama bilgi systems hataya dayanıklı ve iç/dış rol ayrımı uygulamak.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-23** bilgi sistemi iletişim oturumları özgünlüğünü korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-23 (1)** bilgi sistemi oturum tanımlayıcıları kullanıcı oturum kapatma veya diğer oturum sonlandırma sırasında geçersiz kılar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-24** bilgi sistemi başarısız bir [atama: kuruluş tarafından tanımlanan bilinen durumu] için [atama: kuruluş tanımlı türler hatalar] koruma [atama: kuruluş tarafından tanımlanan sistem durumu bilgisi] hata.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-28** bilgi sistemi korur [seçimi (bir veya daha fazla): gizlilik; bütünlüğü], [atama: kuruluş tarafından tanımlanan bilgileri REST].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-28 (1)** yetkisiz olarak ifşa ve değiştirilmesini önlemek için şifreleme mekanizmasıyla bilgi sistemi uygulayan [atama: kuruluş tarafından tanımlanan bilgileri] üzerinde [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **SC-39** yürütülen her işlem için ayrı yürütme etki alanı bilgileri sistem korur.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|

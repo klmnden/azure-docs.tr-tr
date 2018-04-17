@@ -1,11 +1,11 @@
 ---
-title: "Bir statik genel IP adresi ile - Azure CLI bir VM oluşturma | Microsoft Docs"
-description: "Azure komut satırı arabirimi (CLI) kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin."
+title: Bir statik genel IP adresi ile - Azure CLI bir VM oluşturma | Microsoft Docs
+description: Azure komut satırı arabirimi (CLI) kullanarak bir statik genel IP adresi ile VM oluşturmayı öğrenin.
 services: virtual-network
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 55bc21b0-2a45-4943-a5e7-8d785d0d015c
 ms.service: virtual-network
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c50f685745a645b5fbe383a5fe4726faa0e36345
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 93b284b207539ed87531b5554d70b2f16170ff7f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-cli"></a>Azure CLI kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure portalı](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [Şablon](virtual-network-deploy-static-pip-arm-template.md)
@@ -145,7 +145,11 @@ Bir VM oluşturmaya ek olarak, komut dosyası oluşturur:
 1. Kaynak grubunda olan kaynakları görüntülemek için Çalıştır `az resource list --resource-group IaaSStory` komutu.
 2. Bu makalede betik tarafından oluşturulan kaynakları dışında kaynak grubunda hiç kaynak yok onaylayın. 
 3. Bu alıştırmada oluşturulan tüm kaynakları silmek için çalıştırın `az group delete -n IaaSStory` komutu. Komut kaynak grubu ve içerdiği tüm kaynakları siler.
+ 
+## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
+
+Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir. Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilir gerekirse, ne zaman gibi [birden çok IP adresleri atama bir Windows VM](virtual-network-multiple-ip-addresses-cli.md). İşletim sistemi içinde özel IP adresini el ile ayarlarsanız, Azure için atanan özel IP adresi aynı adresi olduğundan emin olun [ağ arabirimi](virtual-network-network-interface-addresses.md#change-ip-address-settings), ya da sanal makineye bağlantısını kaybedebilir. Daha fazla bilgi edinmek [özel IP adresi](virtual-network-network-interface-addresses.md#private) ayarlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Herhangi bir ağ trafiği için ve bu makalede oluşturulan VM akabilir. Bir NSG içinde için ve ağ arabirimi, alt ağ ya da her ikisini de akabilir trafiğini sınırlandırmak gelen ve giden kurallar tanımlayabilirsiniz. Nsg'ler hakkında daha fazla bilgi için okuma [NSG genel bakış](virtual-networks-nsg.md) makalesi.
+Herhangi bir ağ trafiği için ve bu makalede oluşturulan VM akabilir. Ağ arabirimi, alt ağ ya da her ikisini de gelen ve giden akış trafiğini sınırlandırmak gelen ve giden güvenlik kuralları bir ağ güvenlik grubu içinde tanımlayabilirsiniz. Ağ güvenlik grupları hakkında daha fazla bilgi için bkz: [ağ güvenlik grubu genel bakış](security-overview.md).

@@ -1,10 +1,10 @@
 ---
-title: "Özel IP adresleri VM'ler için (Klasik) - Azure CLI 1.0 yapılandırma | Microsoft Docs"
-description: "Özel IP adresleri için Azure komut satırı arabirimi (CLI) 1.0 kullanarak sanal makineleri (Klasik) yapılandırma konusunda bilgi edinin."
+title: Özel IP adresleri VM'ler için (Klasik) - Azure CLI 1.0 yapılandırma | Microsoft Docs
+description: Özel IP adresleri için Azure komut satırı arabirimi (CLI) 1.0 kullanarak sanal makineleri (Klasik) yapılandırma konusunda bilgi edinin.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: genli
+manager: cshepard
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 17386acf-c708-4103-9b22-ff9bf04b778d
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
-ms.author: jdial
+ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c23419fdee7330d091d4699714f4ec08e72be2df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>Azure CLI 1.0 kullanarak sanal makine (Klasik) için özel IP adreslerini yapılandırın
 
@@ -48,7 +48,7 @@ Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *Tes
         info:    Creating cloud service
         data:    Cloud service name TestService
         info:    service create command OK
-3. Çalıştırma **azure vm oluşturma** VM oluşturmak için komutu. Özel bir statik IP adresi değeri dikkat edin. Çıktıdan sonra gösterilen listede, kullanılan parametreler açıklanmaktadır.
+3. Çalıştırma **azure vm oluşturma** VM oluşturmak için komutu. Özel bir statik IP adresi değeri dikkat edin. Çıktıdan sonra gösterilen listede kullanılan parametreler açıklanmaktadır.
    
         azure vm create -l centralus -n DNS01 -w TestVNet -S "192.168.1.101" TestService bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2 adminuser AdminP@ssw0rd
    
@@ -67,7 +67,7 @@ Adlı yeni bir VM oluşturmak için *DNS01* adlı yeni bir bulut hizmetinde *Tes
         info:    OK
         info:    vm create command OK
    
-   * **-l (veya --location)**. VM oluşturulacağı azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
+   * **-l (veya --konum)**. VM oluşturulacağı azure bölgesi. Bizim senaryomuz için bu *centralus* ’tur.
    * **-n (veya--vm adı)**. Oluşturulacak VM adıdır.
    * **-w (veya--ağ adı sanal)**. VM oluşturulacağı Vnet'in adı. 
    * **-S (veya--statik IP)**. Özel için statik IP adresi VM.
@@ -114,6 +114,10 @@ Beklenen çıktı:
     info:    Reading network configuration
     info:    Updating network configuration
     info:    vm static-ip set command OK
+
+## <a name="set-ip-addresses-within-the-operating-system"></a>İşletim sistemi içinde IP adreslerini ayarlayın
+
+Statik olarak bir VM işletim sistemi içinde Azure sanal makineye atanan özel IP sürece atadığınız değil, önerilen gerekli. İşletim sistemi içinde özel IP adresini el ile ayarlayın, Azure VM'ye atanan özel IP adresi aynı adresi olduğundan emin olun veya sanal makineye bağlantısını kaybedebilir. Hiçbir zaman el ile bir Azure sanal makinesi sanal makinenin işletim sistemi içinde atanan genel IP adresi atamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Hakkında bilgi edinin [ayrılmış genel IP](virtual-networks-reserved-public-ip.md) adresleri.

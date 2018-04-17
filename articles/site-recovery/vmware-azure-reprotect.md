@@ -1,6 +1,6 @@
 ---
-title: "Azure VM'lerin bir şirket içi siteye koruyun | Microsoft Docs"
-description: "Azure VM'ler, yük devretme sonrasında geri şirket içi sanal makineleri getirmek için yeniden çalışma başlatabilirsiniz. Yeniden çalışma önce koruyun öğrenin."
+title: Azure VM'lerin bir şirket içi siteye koruyun | Microsoft Docs
+description: Azure VM'ler, yük devretme sonrasında geri şirket içi sanal makineleri getirmek için yeniden çalışma başlatabilirsiniz. Yeniden çalışma önce koruyun öğrenin.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,11 +8,11 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: rajanaki
-ms.openlocfilehash: cd5e53b49a850acf851e8351b5e14e2993176435
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 499f363dd6241612553e94e43dd56de6cfc8f71f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Azure makinelerden bir şirket içi siteye koruyun
 
@@ -79,7 +79,7 @@ Bir ana hedef sunucusu oluşturduktan sonra aşağıdakileri yapın:
 - Var olan bir işlem sunucusu/configuration server makine veya bir ölçekte veya bir işlem sunucusu/ana hedef sunucu makinesi kullanıyorsanız, yeni bir sürücü eklemeniz gerekir. Yeni sürücü önceki gereksinimlerini karşılaması. Saklama sürücüsünün mevcut değilse, portal seçimi aşağı açılan listede görünmüyor. Şirket içi ana hedef için bir sürücü ekledikten sonra portal seçimini görünmesi sürücü 15 dakika kadar alır. Sürücü 15 dakika sonra görünmüyorsa, yapılandırma sunucusu de yenileyebilirsiniz.
 - VMware araçları ana hedef sunucuya yükleyin. VMware araçları ana Hedef'in ESXi konağına üzerinde datastores algılanamıyor.
 - Ayarlama `disk.EnableUUID=true` VMware ana hedef sanal makine yapılandırma parametrelerini ayarlama. Bu satır mevcut değilse, bunu ekleyin. Bu ayar, böylece doğru bağlar (VMDK) sanal makine diski için tutarlı bir UUID sağlamak için gereklidir.
-- Ana hedef en az bir VMFS veri deposu bağlı olması gerekir. Varsa none, **veri deposu** yeniden koruma sayfasında giriş boş olacaktır ve devam edemiyor.
+- Ana hedef oluşturulduğu ESX konak en az bir VMFS veri deposu bağlı olması gerekir. Varsa none, **veri deposu** yeniden koruma sayfasında giriş boş olacaktır ve devam edemiyor.
 - Ana hedef sunucusu anlık görüntüleri disklerde sahip olamaz. Anlık görüntüler varsa, yükü ve yeniden çalışma başarısız.
 - Ana hedef Paravirtual SCSI denetleyicisine sahip olamaz. Denetleyici yalnızca bir LSI Logic denetleyicisi olabilir. LSI Logic denetleyicisi, yükü başarısız olur.
 - Belirli bir örneğe bağlı atmst 60 disk ana hedef olabilir. Şirket içi ana hedef korunmuş sanal makine sayısı diskleri 60'den fazla Toplamı toplam sayısı sahip sonra ana hedefe yeniden korunmasını sağlayan, başarısız olan başlatılır. Disk yuvaları hedef veya ek ana hedef sunucusu dağıtın yeterli ana olduğundan emin olun.
@@ -92,7 +92,7 @@ Azure'da bir sanal makine önyükleme sonra yapılandırmayı sunucuya geri (en 
 
 1. İçinde **kasa** > **öğeleri çoğaltılan**üzerinden başarısız sanal makineye sağ tıklayın ve ardından **yeniden koruma**. Ayrıca makine tıklatın ve seçin **yeniden koruma** komutu düğmelerle.
 2. Koruma, yönünü doğrulayın **şirket içi Azure**, zaten seçilidir.
-3. İçinde **ana hedef sunucusu** ve **işlem sunucusu**, şirket içi ana hedef sunucusu ve işlem sunucusu seçin.
+3. İçinde **ana hedef sunucusu** ve **işlem sunucusu**, şirket içi ana hedef sunucusu ve işlem sunucusu seçin.  
 4. İçin **veri deposu**, diskleri şirket içi kurtarmak istediğiniz veri deposu seçin. Bu seçenek şirket içi sanal makine silinir ve yeni disk oluşturmanız gerektiğinde kullanılır. Bu seçenek diskleri zaten var, ancak yine de bir değer belirtmeniz gerekiyorsa, göz ardı edilir.
 5. Saklama sürücüsünün seçin.
 6. Yeniden çalışma ilkesi otomatik olarak seçilir.

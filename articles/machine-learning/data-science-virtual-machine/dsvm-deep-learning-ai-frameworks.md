@@ -6,20 +6,20 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 829095c7f9b92f64fd6204481e68b2594a3a0017
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: e2a0bdaf0d12a93dcee5a8a2657bb012095bb283
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Derin Öğrenme ve AI çerçeveleri
 [Veri bilimi sanal makine](http://aka.ms/dsvm) (DSVM) ve [derin öğrenme VM](http://aka.ms/dsvm/deeplearning) Tahmine dayalı analiz yapay Intelligence (AI) uygulamalarla oluşturmanıza yardımcı olmak üzere derin öğrenme çerçeveleri destekler ve bilişsel özellikleri görüntü ve dil anlama gibi. 
@@ -157,7 +157,7 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcı başla
 
 
 
-## <a name="nvdia-smi"></a>nvdia-smi
+## <a name="nvdia-smi"></a>nvdia SMI
 
 |    |           |
 | ------------- | ------------- |
@@ -205,7 +205,7 @@ Hizmeti başlatmak için yaklaşık bir dakika sürer. Bir web tarayıcı başla
 Bir terminal çalıştırmak _python_, torch içeri aktarın. Jupyter, Python 3.5 çekirdek seçin, ardından torch içeri aktarın.
 
 
-## <a name="mxnet-model-server"></a>MXNet Model Server
+## <a name="mxnet-model-server"></a>MXNet Model sunucu
 
 |    |           |
 | ------------- | ------------- |
@@ -221,6 +221,6 @@ Bir terminal çalıştırmak _python_, torch içeri aktarın. Jupyter, Python 3.
 | ------------- | ------------- |
 | Nedir?   | İnferencing TensorFlow model üzerinde çalıştırmak için bir sunucu      |
 | Desteklenen DSVM sürümleri      | Linux     |
-| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | _tensorflow_model_server_ is available at the terminal.   |
+| Nasıl, yapılandırılmış veya DSVM üzerinde yüklü?  | _tensorflow_model_server_ terminal kullanılabilir.   |
 | Örnekleri bağlantılar      | Örnekleri kullanılabilir [çevrimiçi](https://www.tensorflow.org/serving/).      |
 | DSVM ilgili araçları      | TensorFlow      |

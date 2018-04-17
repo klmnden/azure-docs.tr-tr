@@ -1,12 +1,12 @@
 ---
-title: "StorSimple için rol tabanlı erişim denetimini kullanma | Microsoft Docs"
-description: "StorSimple bağlamında Azure rol tabanlı erişim denetimi (RBAC) kullanmayı açıklar."
+title: StorSimple için rol tabanlı erişim denetimini kullanma | Microsoft Docs
+description: StorSimple bağlamında Azure rol tabanlı erişim denetimi (RBAC) kullanmayı açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: d040849360a47c611d44b3a5d7649c685dcc8068
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 5d68df424fbedbb9f0d17b87ceb243b079b3da14
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple için rol tabanlı erişim denetimi
 
-Bu makale Azure rol tabanlı erişim denetimi (RBAC) StorSimple cihazınız için nasıl kullanılabileceğini ilgili kısa bir açıklama sağlar. RBAC, Azure için ayrıntılı erişim yönetimi sağlar. RBAC herkes vermiş yerine işlerini yapmak için StorSimple kullanıcılara erişimi yalnızca doğru miktarda sınırsız erişimi vermek için kullanın. Azure erişim yönetimi temel kavramları hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).
+Bu makale Azure rol tabanlı erişim denetimi (RBAC) StorSimple cihazınız için nasıl kullanılabileceğini ilgili kısa bir açıklama sağlar. RBAC, Azure için ayrıntılı erişim yönetimi sağlar. RBAC herkes vermiş yerine işlerini yapmak için StorSimple kullanıcılara erişimi yalnızca doğru miktarda sınırsız erişimi vermek için kullanın. Azure erişim yönetimi temel kavramları hakkında daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 Bu makalede, StorSimple 8000 serisi cihazlar Update 3.0 çalıştıran veya daha sonra Azure Portalı'ndaki geçerlidir.
 
@@ -30,9 +30,9 @@ Bu makalede, StorSimple 8000 serisi cihazlar Update 3.0 çalıştıran veya daha
 
 RBAC rollere göre atanabilir. Rolleri ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. StorSimple kullanıcıların seçebileceği rolleri iki tür vardır: yerleşik veya özel.
 
-* **Yerleşik roller** -yerleşik roller sahip, katkıda bulunan, okuyucu veya kullanıcı erişimi Yöneticisi olabilir. Daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../active-directory/role-based-access-control-what-is.md#built-in-roles).
+* **Yerleşik roller** -yerleşik roller sahip, katkıda bulunan, okuyucu veya kullanıcı erişimi Yöneticisi olabilir. Daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/overview.md#built-in-roles).
 
-* **Özel roller** -yerleşik roller gereksinimlerinize göre değil, StorSimple için özel RBAC rolleri oluşturabilirsiniz. Bir özel RBAC rolü oluşturmak için sahip yerleşik bir rol Başlat, düzenlemek ve ortamı geri alma. İndirme ve yükleme rolünün Azure PowerShell veya Azure CLI kullanarak yönetilir. Daha fazla bilgi için bkz: [rol tabanlı erişim denetimi için özel roller oluşturmanızı](../active-directory/role-based-access-control-custom-roles.md).
+* **Özel roller** -yerleşik roller gereksinimlerinize göre değil, StorSimple için özel RBAC rolleri oluşturabilirsiniz. Bir özel RBAC rolü oluşturmak için sahip yerleşik bir rol Başlat, düzenlemek ve ortamı geri alma. İndirme ve yükleme rolünün Azure PowerShell veya Azure CLI kullanarak yönetilir. Daha fazla bilgi için bkz: [rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md).
 
 Azure portalında bir StorSimple cihaz kullanıcı için kullanılabilir farklı roller görüntülemek için StorSimple cihaz Yöneticisi hizmetinize gidin ve gidin **erişim denetimi (IAM) > rolleri**.
 
@@ -108,7 +108,7 @@ Bu rol artık rollerinde listesinde görünmesi gereken **erişim denetimi** dik
 
 ![Görünüm RBAC rolleri](./media/storsimple-8000-role-based-access-control/rbac-role-types.png)
 
-Daha fazla bilgi için Git [PowerShell kullanarak özel bir RBAC rolü oluşturma](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
+Daha fazla bilgi için Git [PowerShell kullanarak özel bir RBAC rolü oluşturma](../role-based-access-control/role-assignments-external-users.md#create-a-custom-rbac-role-to-open-support-requests-using-powershell).
 
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Örnek çıktı PowerShell aracılığıyla özel rol oluşturma
 
@@ -153,7 +153,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Özel rolüne kullanıcılar ekleyin
 
-Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz. Erişim sağlarken üst düğümü erişim izni aklınızda ayı alt tarafından devralınır. Daha fazla bilgi için Git [kaynak hiyerarşisi ve erişim devralma](../active-directory/role-based-access-control-what-is.md#resource-hierarchy-and-access-inheritance).
+Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz. Erişim sağlarken üst düğümü erişim izni aklınızda ayı alt tarafından devralınır. Daha fazla bilgi için Git [kaynak hiyerarşisi ve erişim devralma](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
 
 1. Git **erişim denetimi (IAM)**. Tıklatın **+ Ekle** erişim denetimi dikey.
 
@@ -186,5 +186,5 @@ Bu rolü oluşturulduktan sonra Azure portalında bu rolüyle ilişkili izinleri
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bilgi edinmek için nasıl [iç ve dış kullanıcılar için özel roller atama](../active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md).
+Bilgi edinmek için nasıl [iç ve dış kullanıcılar için özel roller atama](../role-based-access-control/role-assignments-external-users.md).
 

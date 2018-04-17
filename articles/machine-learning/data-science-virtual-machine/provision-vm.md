@@ -1,23 +1,23 @@
 ---
-title: "Azure üzerinde Windows veri bilimi sanal makine sağlama | Microsoft Docs"
-description: "Yapılandırma ve analizi için Azure üzerinde bir veri bilimi sanal makine oluşturun ve makine öğrenme."
+title: Azure üzerinde Windows veri bilimi sanal makine sağlama | Microsoft Docs
+description: Yapılandırma ve analizi için Azure üzerinde bir veri bilimi sanal makine oluşturun ve makine öğrenme.
 services: machine-learning
-documentationcenter: 
-author: bradsev
+documentationcenter: ''
+author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
-ms.author: bradsev
-ms.openlocfilehash: 9f01ba69f6511a3f9a7f99e379522be3c00554f5
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: gokuma
+ms.openlocfilehash: 34bdbf6e98d5232bf924f3f32a2acb3460a7737f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:
@@ -28,7 +28,7 @@ Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makin
 * Jupyter Not Defteri (ile R, Python, PySpark tekrar)
 * Visual Studio Community Edition
 * Power BI desktop
-* SQL Server 2017 Developer Edition
+* SQL Server 2017 Geliştirici sürümü
 * Yerel geliştirme ve test için tek başına Spark örneği
 * [JuliaPro](https://juliacomputing.com/products/juliapro.html)
 * Machine learning ve veri analiz araçları
@@ -126,7 +126,7 @@ Visual Studio Community edition VM'de yüklü. Küçük ekipleri ve değerlendir
 > 
 > 
 
-### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer edition
+### <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Geliştirici sürümü
 Geliştirici sürümü SQL Server 2017 veritabanı Analytics'i çalıştırmak için ML hizmetleriyle, R veya Python VM'de sağlanır. ML hizmetler geliştirmek ve akıllı uygulamaları dağıtmak için bir platform sağlar. Zengin ve güçlü bu diller ve topluluktan birçok paketleri modelleri oluşturun ve SQL Server verileri için tahminleri oluşturmak için kullanabilirsiniz. ML Hizmetleri (veritabanı-) R ve Python dil SQL Server içinde tümleştirir çünkü analytics veri yakın kullanmaya devam edebilir. Bu veri taşıma ile ilişkili güvenlik riskleri ve maliyetlerini ortadan kaldırır.
 
 > [!NOTE]
@@ -173,7 +173,7 @@ Azure Machine Learning çalışma ekranı, bir masaüstü uygulaması ve komut s
 | Öğe | Dizin |
 | --- | --- |
 | Jupyter not defteri sunucu yapılandırmaları |C:\ProgramData\jupyter |
-| Jupyter not defteri örnekleri giriş dizini |c:\dsvm\notebooks and c:\users\<username>\notebooks|
+| Jupyter not defteri örnekleri giriş dizini |c:\dsvm\notebooks ve c:\users\<kullanıcı adı > \notebooks|
 | Diğer örnekleri |c:\dsvm\samples |
 | Anaconda (varsayılan: Python 3.6) |c:\Anaconda |
 | Anaconda Python 2.7 ortamı |c:\Anaconda\envs\python2 |

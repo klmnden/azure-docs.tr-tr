@@ -1,11 +1,11 @@
 ---
-title: "Güvenli erişim Azure Logic Apps | Microsoft Docs"
-description: "Tetikleyiciler, girişleri ve çıkışları, eylem parametrelerini ve Azure mantıksal uygulamaları'nda iş akışları ile kullanılan hizmetler erişimi korumaya yönelik güvenlik ekleyin."
+title: Güvenli erişim Azure Logic Apps | Microsoft Docs
+description: Tetikleyiciler, girişleri ve çıkışları, eylem parametrelerini ve Azure mantıksal uygulamaları'nda iş akışları ile kullanılan hizmetler erişimi korumaya yönelik güvenlik ekleyin.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2042fdaa037fe1928fdb81727968a532ddfae0a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-access-to-your-logic-apps"></a>Mantıksal uygulamalarınızı güvenli erişim
 
@@ -77,7 +77,7 @@ Paylaşılan erişim imzası yanı sıra, yalnızca belirli istemcilerinden bir 
 Bu ayar mantığını uygulaması ayarları içinde yapılandırılabilir:
 
 1. Azure Portal'da, IP adresi sınırlamaları eklemek istediğiniz mantıksal uygulama açın
-1. Tıklatın **erişim denetimini yapılandırma** menü öğesi altında **ayarları**
+1. Tıklatın **iş akışı ayarları** menü öğesi altında **ayarları**
 1. Tetik tarafından kabul edilmesi için IP adres aralıklarına listesini belirtin
 
 Geçerli bir IP aralığı biçimini alır `192.168.1.1/255`. Yalnızca bir iç içe geçmiş mantıksal uygulama tetiklenecek mantıksal uygulama istiyorsanız seçin **yalnızca diğer logic apps** seçeneği. Bu seçenek, anlamı yalnızca çağırır hizmetin kendisini (üst mantıksal uygulamalar) kaynak için boş bir dizi Yazar başarıyla tetiklenecek.
@@ -119,7 +119,7 @@ Bir mantıksal uygulama üzerinde daha fazla yetkilendirme protokolleri eklemek 
 
 ## <a name="secure-access-to-manage-or-edit-logic-apps"></a>Güvenli erişim yönetmek veya logic apps düzenlemek için
 
-Böylece yalnızca belirli kullanıcılara veya gruplara kaynak üzerinde işlem gerçekleştirmek için bir mantıksal uygulama yönetimi işlemleri için erişimi kısıtlayabilirsiniz. Logic apps kullanan Azure [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) özellik ve aynı araçları ile özelleştirilebilir.  Aboneliğinize üyeleri de atayabilirsiniz birkaç yerleşik roller vardır:
+Böylece yalnızca belirli kullanıcılara veya gruplara kaynak üzerinde işlem gerçekleştirmek için bir mantıksal uygulama yönetimi işlemleri için erişimi kısıtlayabilirsiniz. Logic apps kullanan Azure [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) özellik ve aynı araçları ile özelleştirilebilir.  Aboneliğinize üyeleri de atayabilirsiniz birkaç yerleşik roller vardır:
 
 * **Mantığı uygulamasını katkıda bulunan** -görüntüleme, düzenleme ve bir mantıksal uygulama güncelleştirmek için erişim sağlar.  Kaynak kaldıramaz veya yönetim işlemleri.
 * **Mantıksal uygulama işleci** - mantıksal uygulama görüntüleyebilir ve çalıştırma geçmişi ve etkinleştir/devre dışı bırak.  Düzenleyemez veya tanımını güncelleştirin.

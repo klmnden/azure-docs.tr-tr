@@ -16,12 +16,12 @@ Geçiş sırasında bu Klasik Iaas kaynakları desteklenir
 * Sanal Ağlar
 * VPN Gateway’leri
 * Rota ağ geçitleri express _(aynı Abonelikteki sanal ağ olarak yalnızca)_
-* Ağ Güvenlik Grupları 
-* Yönlendirme Tabloları 
-* Ayrılmış IP’ler 
+* Ağ Güvenlik Grupları
+* Yönlendirme Tabloları
+* Ayrılmış IP’ler
 
 ## <a name="supported-scopes-of-migration"></a>Desteklenen kapsamları geçiş
-İşlem, ağ ve depolama kaynaklarını geçişini tamamlamak için 4 farklı yolu vardır. Bunlar 
+İşlem, ağ ve depolama kaynaklarını geçişini tamamlamak için 4 farklı yolu vardır. Bunlar
 
 * (Değil, sanal ağ için) sanal makinelerin geçişi
 * (Sanal ağındaki) sanal makinelerin geçişi
@@ -77,7 +77,7 @@ Aşağıdaki özellikleri şu anda desteklenmemektedir. İsteğe bağlı olarak 
 | İşlem | Sanal makine görüntüler. | Depolama hesabı geçirildiğinde bu diskleri arkasında VHD BLOB'ları geçirilen |
 | Ağ | Uç nokta ACL'lerini. | Uç nokta ACL'lerini kaldırın ve geçiş yeniden deneyin. |
 | Ağ | Application Gateway | Geçiş işlemine başlamadan önce uygulama ağ geçidi kaldırın ve geçiş tamamlandıktan sonra uygulama ağ geçidini yeniden oluşturun. |
-| Ağ | VNet eşlemesi kullanarak sanal ağlar. | Resource Manager sanal ağını geçirin, ardından eş. Daha fazla bilgi edinmek [VNet eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md). | 
+| Ağ | VNet eşlemesi kullanarak sanal ağlar. | Resource Manager sanal ağını geçirin, ardından eş. Daha fazla bilgi edinmek [VNet eşlemesi](../articles/virtual-network/virtual-network-peering-overview.md). |
 
 ### <a name="unsupported-configurations"></a>Desteklenmeyen yapılandırmalar
 Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
@@ -85,7 +85,7 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | Hizmet | Yapılandırma | Öneri |
 | --- | --- | --- |
 | Resource Manager |Rol tabanlı erişim denetimi (RBAC) Klasik kaynaklar için |Kaynakları URI'sini geçişten sonra değiştirdiğinden, geçişten sonra gerçekleşmesi gereken RBAC İlkesi güncelleştirmelerini plan yapmanız önerilir. |
-| İşlem |Bir VM ile ilişkili birden çok alt ağı |Yalnızca alt ağlar başvurmak için alt ağ yapılandırmasını güncelleştirin. |
+| İşlem |Bir VM ile ilişkili birden çok alt ağı |Yalnızca bir alt ağ başvurmak için alt ağ yapılandırmasını güncelleştirin. Bu sanal makineden (yani başka bir alt ağa başvuran) ikincil bir NIC kaldırın ve geçiş tamamlandıktan sonra yeniden gerektirebilir. |
 | İşlem |Bir sanal ağa ait olan ancak atanan açık bir alt ağ yoksa sanal makineler |İsteğe bağlı olarak VM silebilirsiniz. |
 | İşlem |Uyarılar, otomatik ölçeklendirme ilkeleri sanal makineler |Geçiş geçtiği ve bu ayarları bırakılır. Geçiş yapmadan önce ortamınızı değerlendirmek önerilir. Alternatif olarak, geçiş tamamlandıktan sonra uyarı ayarlarını yapılandırabilirsiniz. |
 | İşlem |XML VM Uzantıları (Bgınfo 1.*, Visual Studio hata ayıklayıcısı, Web dağıtımı ve uzaktan hata ayıklama) |Bu işlem desteklenmiyor. Bu uzantılar geçişe devam etmek için sanal makineden kaldırın veya geçiş işlemi sırasında otomatik olarak bırakılacak önerilir. |
@@ -97,7 +97,7 @@ Aşağıdaki yapılandırmalar şu anda desteklenmemektedir.
 | Ağ |Sanal makineler ve web/çalışan rolleri içeren sanal ağlar |Bu şu anda desteklenmiyor. Geçirmeden önce Web/çalışan rolleri, kendi sanal ağa taşıyın. Klasik sanal ağ geçirildikten sonra geçirilen Azure Resource Manager sanal ağı Klasik sanal benzer yapılandırmasını eskisi elde etmek için ağ ile eşlenemez.|
 | Ağ | Klasik Expressroute bağlantı hatları |Bu şu anda desteklenmiyor. Bu bağlantı hatları Azure Resource Manager Iaas geçiş işlemine başlamadan önce geçirilmesi gerekir. Bunu hakkında daha fazla bilgi edinmek için [Resource Manager dağıtım modeline taşıma ExpressRoute bağlantı hatları Klasik](../articles/expressroute/expressroute-move.md).|
 | Azure App Service |Uygulama hizmeti ortamları içeren sanal ağlar |Bu şu anda desteklenmiyor. |
-| Azure HDInsight |Hdınsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
+| Azure Hdınsight |Hdınsight hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Microsoft Dynamics yaşam döngüsü Hizmetleri |Dynamics yaşam döngüsü Hizmetleri tarafından yönetilen sanal makineleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure AD Domain Services |Azure AD etki alanı hizmetleri içeren sanal ağlar |Bu şu anda desteklenmiyor. |
 | Azure RemoteApp |Azure RemoteApp dağıtımlarını içeren sanal ağlar |Bu şu anda desteklenmiyor. |

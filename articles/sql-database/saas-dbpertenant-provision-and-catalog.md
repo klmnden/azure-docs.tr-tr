@@ -10,11 +10,11 @@ ms.custom: scale out apps
 ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 4ddb870d0513d6834aacf0964c240260f18df0fd
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3a4026b56522da6c6efede4b8b7a542efc8a776d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Yeni kiracılar sağlamak ve kataloğa kaydetme hakkında bilgi edinin
 
@@ -63,7 +63,7 @@ Veritabanı sağlama şema yönetimi stratejinizin parçası olması gerekir. Ye
 
 Adlı bir şablon veritabanı kopyalayarak yeni kiracılar Wingtip biletleri Kiracı başına veritabanı uygulama hazırlar _basetenantdb_, katalog sunucusunda dağıtılır. Sağlama bir kayıt deneyimi bir parçası olarak uygulamaya tümleştirilebilir. Bu da çevrimdışı komut dosyalarını kullanarak desteklenebilir. Bu öğretici, PowerShell kullanarak sağlama araştırır. 
 
-Komut dosyaları kopyalama sağlama _basetenantdb_ esnek havuzda yeni bir kiracı veritabanı oluşturmak için veritabanı. Komut dosyaları sonra Kiracı özgü bilgileri veritabanıyla başlatmak ve Katalog parça eşlemesinde kaydedin. Kiracı veritabanları verilen Kiracı adına göre adlardır. Bu adlandırma şeması düzeni önemli bir parçası değil. Herhangi bir adlandırma kuralı kullanılabilmesi için katalog için veritabanı adı, Kiracı anahtarınızı eşler. 
+Komut dosyaları kopyalama sağlama _basetenantdb_ esnek havuzda yeni bir kiracı veritabanı oluşturmak için veritabanı. Kiracı veritabanı eşlenmiş Kiracı sunucu oluşturulan _newtenant_ DNS diğer adı. Bu diğer ad yeni kiracılar sağlamak için kullanılan sunucu başvuru korur ve olağanüstü durum kurtarma eğitimlerine bir kurtarma Kiracı sunucuya işaret edecek şekilde güncelleştirilir ([georestore kullanarak DR](saas-dbpertenant-dr-geo-restore.md), [georeplicationkullanarakDR](saas-dbpertenant-dr-geo-replication.md)). Komut dosyaları sonra Kiracı özgü bilgileri veritabanıyla başlatmak ve Katalog parça eşlemesinde kaydedin. Kiracı veritabanları verilen Kiracı adına göre adlardır. Bu adlandırma şeması düzeni önemli bir parçası değil. Herhangi bir adlandırma kuralı kullanılabilmesi için katalog için veritabanı adı, Kiracı anahtarınızı eşler. 
 
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip biletleri SaaS Kiracı başına veritabanı uygulama komut dosyaları alma

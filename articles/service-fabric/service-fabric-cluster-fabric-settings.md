@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric kümesi ayarları değiştirme | Microsoft Docs"
-description: "Bu makalede, yapı ayarları ve özelleştirebileceğiniz doku yükseltme ilkeler açıklanır."
+title: Azure Service Fabric kümesi ayarları değiştirme | Microsoft Docs
+description: Bu makalede, yapı ayarları ve özelleştirebileceğiniz doku yükseltme ilkeler açıklanır.
 services: service-fabric
 documentationcenter: .net
-author: chackdan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7ced36bf-bd3f-474f-a03a-6ebdbc9677e2
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
-ms.author: chackdan
-ms.openlocfilehash: e55dbe4bd8fde8293c7fcd681bb18967dc4edad6
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.author: aljo
+ms.openlocfilehash: 7d32ebd54d501a2eb5d6e353d38834546200c813
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
@@ -30,7 +30,7 @@ Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service F
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak küme ayarlarını özelleştirme
 Aşağıdaki adımlar yeni bir ayar eklemek nasıl çalışılacağını *MaxDiskQuotaInMB* için *tanılama* bölümü.
 
-1. Https://resources.Azure.com için Git
+1. Şuraya gidin: https://resources.azure.com
 2. Aboneliğinize genişleterek gidin **abonelikleri** -> **\<bilgisayarınızı abonelik >** -> **resourceGroups**  ->   **\<Bilgisayarınızı kaynak grubu >** -> **sağlayıcıları** -> **Microsoft.ServiceFabric**  ->  **kümeleri** -> **\<küme adınız >**
 3. Sağ alt köşesinde üst seçin **okuma/yazma.**
 4. Seçin **Düzenle** ve güncelleştirme `fabricSettings` JSON öğesi ve yeni bir öğe ekleyin:
@@ -236,7 +236,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | MaxOutstandingNotificationsPerClient |Int, varsayılan 1000'dir |Dinamik|Bir istemci kaydı yapmadan önce bekleyen bildirimleri sayısı ağ geçidi tarafından zorla kapatıldı. |
 | MaxIndexedEmptyPartitions |Int, varsayılan 1000'dir |Dinamik|Yeniden bağlanan istemciler eşitlemek için bildirim önbelleğinde, dizine alınan kalacak boş bölümler maksimum sayısı. Bu sayı yukarıda boş bölümler, arama sürüm artan dizinden kaldırılır. İstemcileri yeniden bağlanmayı hala eşitlemek ve kaçırılan boş bölüm güncelleştirmeleri almak; ancak eşitleme protokolü daha pahalı hale gelir. |
 | GatewayServiceDescriptionCacheLimit |Int, varsayılan 0'dır |Statik|Giriş sayısı üst sınırı ağ geçidinde adlandırma (sınırsız için 0 olarak ayarlayın) LRU hizmet açıklaması önbellekte saklanır. |
-| PartitionCount |Int, varsayılan 3. |İzin Verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
+| bölüm sayısı |Int, varsayılan 3. |İzin Verilmiyor|Oluşturulacak bölüm adlandırma hizmetinin depolar. Her bölüm için dizinini karşılık gelen bir tek bölüm anahtarı sahibi; Bu bölüm anahtarlarını [0; Bölüm sayısı) yok. Adlandırma Hizmeti, herhangi bir yedekleme çoğaltma tarafından tutulan verileri ortalama miktarını azaltarak gerçekleştirebilirsiniz ölçek adlandırma hizmeti bölümleri artar sayısını artırmayı ayarlayın; kaynakların artan kullanımı maliyetle (PartitionCount itibaren * ReplicaSetSize hizmet çoğaltmaları saklanabilir).|
 
 ### <a name="section-name-runas"></a>Bölüm adı: RunAs
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
@@ -299,10 +299,10 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |GatewayX509CertificateFindValue | dize, varsayılan değer "" |Dinamik| Arama filtresi değeri http uygulama ağ geçidi sertifikası bulmak için kullanılır. Bu sertifika, https uç noktada yapılandırılır ve hizmetler tarafından gerekirse uygulama kimliğini doğrulamak için de kullanılabilir. FindValue ilk Aranan; ve yoksa; FindValueSecondary aranır. |
 |GatewayX509CertificateFindValueSecondary | dize, varsayılan değer "" |Dinamik|Arama filtresi değeri http uygulama ağ geçidi sertifikası bulmak için kullanılır. Bu sertifika, https uç noktada yapılandırılır ve hizmetler tarafından gerekirse uygulama kimliğini doğrulamak için de kullanılabilir. FindValue ilk Aranan; ve yoksa; FindValueSecondary aranır.|
 |HttpRequestConnectTimeout|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin.  Http uygulama ağ geçidi'nden gönderilen http isteklerini bağlantı zaman aşımı sağlar.  |
-|RemoveServiceResponseHeaders|Varsayılan L "tarih; dizesidir Sunucu"|Statik|Noktalı virgül / virgülle ayrılmış hizmet yanıttan; kaldırılacak yanıt üstbilgilerinin listesi istemciye iletmeden önce. Bu boş dize olarak ayarlanırsa; Hizmet olarak tarafından döndürülen tüm üstbilgileri geçirmek-değil. i.e Tarih ve sunucu üzerine yazma |
+|RemoveServiceResponseHeaders|Varsayılan L "tarih; dizesidir Sunucu"|Statik|Noktalı virgül / virgülle ayrılmış hizmet yanıttan; kaldırılacak yanıt üstbilgilerinin listesi istemciye iletmeden önce. Bu boş dize olarak ayarlanırsa; Hizmet olarak tarafından döndürülen tüm üstbilgileri geçirmek-değil. yani Tarih ve sunucu üzerine yazma |
 |ApplicationCertificateValidationPolicy|Varsayılan dizesidir L "Hiçbiri"|Statik| ApplicationCertificateValidationPolicy: None: sunucu sertifikası; doğrulamaz İstek başarılı. ServiceCertificateThumbprints: ters proxy güvenebileceği uzak sertifikaları parmak izlerini virgülle ayrılmış listesi için yapılandırma ServiceCertificateThumbprints bakın. ServiceCommonNameAndIssuer: ters proxy güvenebileceği uzak sertifikaları konu adı ve verenin parmak izi için yapılandırma ServiceCommonNameAndIssuer bakın. |
 |ServiceCertificateThumbprints|Varsayılan L dizesidir""|Dinamik| |
-|CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu |Dinamik| Uygulama/hizmet sertifika zinciri doğrulaması bayrakları; Örneğin CRL 0x10000000 denetleme CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY ayarını 0 devre dışı bırakır CRL denetimi tam desteklenen değerler listesi CertGetCertificateChain dwFlags tarafından belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx  |
+|CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu |Dinamik| Uygulama/hizmet sertifika zinciri doğrulaması bayrakları; Örneğin CRL 0x10000000 denetleme CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY ayarını 0 devre dışı bırakır CRL denetimi tam desteklenen değerler listesi CertGetCertificateChain dwFlags tarafından belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |IgnoreCrlOfflineError|bool, varsayılan true'dur.|Dinamik|Uygulama/hizmet sertifika doğrulama için CRL çevrimdışı hatayı yok sayıp görüntülenmeyeceğini belirtir. |
 |SecureOnlyMode|bool, varsayılan FALSE olur|Dinamik| SecureOnlyMode: true: Ters Proxy yalnızca güvenli uç noktalarını yayımlama hizmetleri iletin. false: Ters Proxy, güvenli/güvenli olmayan Uç noktalara isteklerini iletebileceği.  |
 |ForwardClientCertificate|bool, varsayılan FALSE olur|Dinamik| |
@@ -451,7 +451,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |ServerCertThumbprints|Varsayılan L dizesidir""|Dinamik|İstemciler için iletişim kurabilecek şekilde küme tarafından kullanılan sunucu sertifikaları parmak izlerini; istemciler bu küme kimlik doğrulaması yapmak için kullanın. Virgülle ayrılmış ad listesi verilmiştir. |
 |ClientCertThumbprints|Varsayılan L dizesidir""|Dinamik|Kümeye anlaşmak için istemcileri tarafından kullanılan sertifika parmak izlerini; Küme kullanan bu gelen bağlantıyı yetkilendirir. Virgülle ayrılmış ad listesi verilmiştir. |
 |AdminClientCertThumbprints|Varsayılan L dizesidir""|Dinamik|Yönetici rolü istemciler tarafından kullanılan sertifikalarının parmak izleri. Virgülle ayrılmış ad listesi verilmiştir. |
-|CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu|Dinamik|Varsayılan Sertifika zinciri doğrulama bayrağı; Bileşen özgü bayrağı tarafından geçersiz kılınmış olabilir; Örneğin Federasyon/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ Ayar 0 tam CRL denetimini devre dışı bırakır yalnızca desteklenen değerler listesi CertGetCertificateChain dwFlags tarafından belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078 (v=vs.85).aspx |
+|CrlCheckingFlag|uint, varsayılan 0x40000000 olduğu|Dinamik|Varsayılan Sertifika zinciri doğrulama bayrağı; Bileşen özgü bayrağı tarafından geçersiz kılınmış olabilir; Örneğin Federasyon/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ 0 devre dışı bırakır CRL denetimi tam desteklenen değerler listesi yalnızca ayarına CertGetCertificateChain dwFlags tarafından belgelenmiştir: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
 |IgnoreCrlOfflineError|bool, varsayılan FALSE olur|Dinamik|Sunucu tarafı gelen istemci sertifikalarını doğrularken CRL çevrimdışı hatayı yok sayıp verilip |
 |IgnoreSvrCrlOfflineError|bool, varsayılan true'dur.|Dinamik|İstemci tarafı gelen sunucu sertifikalarını doğrularken CRL çevrimdışı hatayı yok sayıp verilip verilmeyeceğini; Varsayılan true. İptal edilen sertifikaları saldırılarına DNS tehlikeye gerektirir; ile daha zor istemci sertifikalarını iptal etti. |
 |CrlDisablePeriod|TimeSpan, Common::TimeSpan::FromMinutes(15) varsayılandır|Dinamik|TimeSpan saniye cinsinden belirtin. Ne kadar süreyle CRL denetimi için belirli bir sertifika çevrimdışı hatayla karşılaşıyor sonra devre dışı bırakılır; CRL çevrimdışı hata göz ardı edilebilir değilse. |
@@ -608,7 +608,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | --- | --- | --- | --- |
 | ApplicationUpgradeMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. Uygulama yükseltme sırasında içinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre kapatın.|
 | ServiceApiHealthDuration | Zamanı saniye cinsinden, varsayılan değer 30 dakikadır |Dinamik| TimeSpan saniye cinsinden belirtin. Biz biz sağlıksız raporu önce çalıştırmak hizmeti API'si için ne kadar süreyle bekleme ServiceApiHealthDuration tanımlar. |
-| ServiceReconfigurationApiHealthDuration | Zamanı saniye cinsinden varsayılan 30'dur |Dinamik| TimeSpan saniye cinsinden belirtin. ServiceReconfigurationApiHealthDuration defines how long do we wait for a service API to run before we report unhealthy. Bu kullanılabilirlik etkisi API çağrıları için geçerlidir.|
+| ServiceReconfigurationApiHealthDuration | Zamanı saniye cinsinden varsayılan 30'dur |Dinamik| TimeSpan saniye cinsinden belirtin. Biz biz sağlıksız rapor önce çalıştırmak hizmeti API'si için ne kadar süreyle bekleme ServiceReconfigurationApiHealthDuration tanımlar. Bu kullanılabilirlik etkisi API çağrıları için geçerlidir.|
 | PeriodicApiSlowTraceInterval | Zamanı saniye cinsinden, varsayılan değer 5 dakikadır |Dinamik| TimeSpan saniye cinsinden belirtin. PeriodicApiSlowTraceInterval üzerinden yavaş API çağrıları API İzleyici tarafından yeniden taranma aralığı tanımlar. |
 | NodeDeactivationMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik|TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre düğümü devre dışı bırakma sırasında kapatın. |
 | FabricUpgradeMaxReplicaCloseDuration | Zamanı saniye cinsinden 900 varsayılandır |Dinamik| TimeSpan saniye cinsinden belirtin. İçinde takılmış çoğaltmaları olan hizmet ana bilgisayarlar sonlandırmadan önce sistemin bekleyeceği süre fabric yükseltmesi sırasında kapatın. |
@@ -631,7 +631,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |DetailedPartitionListLimit | Int, varsayılan değer 15 dakikadır. |Dinamik| Tanılama kesilmesi önce dahil etmek bir kısıtlama için tanı girdisi başına bölüm sayısını tanımlar. |
 |DetailedDiagnosticsInfoListLimit | Int, varsayılan değer 15 dakikadır. |Dinamik| Tanılama kesilmesi önce eklenecek kısıtlaması başına (ayrıntılı bilgilerle) tanı girdisi sayısını tanımlar.|
 |PLBRefreshGap | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. PLB durumu yeniden yeniler önce geçmesi gereken en düşük süreyi tanımlar. |
-|MinPlacementInterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık yerleştirme yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
+|Minplacementınterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık yerleştirme yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
 |MinConstraintCheckInterval | Zamanı saniye olarak varsayılan 1. |Dinamik| TimeSpan saniye cinsinden belirtin. Denetim iki ardışık kısıtlaması önce yuvarlar geçmesi gereken en düşük süreyi tanımlar. |
 |MinLoadBalancingInterval | Zamanı saniye cinsinden varsayılan 5'tir |Dinamik| TimeSpan saniye cinsinden belirtin. İki ardışık karşı yuvarlar önce geçmesi gereken en düşük süreyi tanımlar. |
 |BalancingDelayAfterNodeDown | Zamanı saniye cinsinden varsayılan 120'dir |Dinamik|TimeSpan saniye cinsinden belirtin. Bir düğüm aşağı olayını bu süre içinde etkinlikleri Dengeleme başlatmayın. |
@@ -707,7 +707,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 ### <a name="section-name-federation"></a>Bölüm adı: Federasyon
 | **Parametre** | **İzin verilen değerler** | **Yükseltme İlkesi** | **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
-| LeaseDuration |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Bir düğüm ile komşularına arasında bir kira süresi süresi. |
+| Kirasüresi |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Bir düğüm ile komşularına arasında bir kira süresi süresi. |
 | LeaseDurationAcrossFaultDomain |Zamanı saniye cinsinden varsayılan 30'dur |Dinamik|Hata etki alanlarında bir düğüm ile komşularına arasında bir kira süresi süresi. |
 
 ### <a name="section-name-clustermanager"></a>Bölüm adı: ClusterManager
@@ -757,7 +757,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, varsayılan FALSE olur|Statik| |
-|InstanceCount|int, varsayılan -1'dir|Statik|  |
+|Instancecount|int, varsayılan -1'dir|Statik|  |
 
 ### <a name="section-name-metricactivitythresholds"></a>Bölüm adı: MetricActivityThresholds
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi**| **Kılavuz veya kısa bir açıklama** |
@@ -789,7 +789,7 @@ Bir liste verilmiştir dokusu özelleştirebileceğiniz, ayarları bölümü tar
 |MaxSecondaryReplicationQueueMemorySize|Uint, varsayılan 0'dır|Statik|İkincil çoğaltma sırası bayt cinsinden en büyük değerini budur.|
 |QueueHealthMonitoringInterval|TimeSpan, Common::TimeSpan::FromSeconds(30) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Bu değer, çoğaltma işlemi sıralardaki uyarı/hata sistem durumu olaylarını izlemek için çoğaltıcı tarafından kullanılan süreyi belirler. '0' değeri, sistem durumu izleme devre dışı bırakır. |
 |QueueHealthWarningAtUsagePercent|uint, varsayılan 80'dir|Statik|Bu değer daha sonra size yüksek sıra kullanımı hakkında uyarı rapor çoğaltma kuyruğu kullanımı (yüzde) belirler. Biz bunu QueueHealthMonitoringInterval yetkisiz aralığından sonra yapın. Sıranın kullanım yetkisiz aralığa bu yüzdenin altında kalırsa|
-|RetryInterval|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Ne zaman bir işlem kaybolur veya bu Zamanlayıcı reddedilen işlemi gönderme çoğaltıcı ne sıklıkta deneyecek belirler.|
+|Retryınterval|TimeSpan, Common::TimeSpan::FromSeconds(5) varsayılandır|Statik|TimeSpan saniye cinsinden belirtin. Ne zaman bir işlem kaybolur veya bu Zamanlayıcı reddedilen işlemi gönderme çoğaltıcı ne sıklıkta deneyecek belirler.|
 
 ### <a name="section-name-transport"></a>Bölüm adı: taşıma
 | **Parametre** | **İzin verilen değerler** |**Yükseltme İlkesi** |**Kılavuz veya kısa bir açıklama** |

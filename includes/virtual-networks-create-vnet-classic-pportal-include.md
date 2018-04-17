@@ -1,8 +1,24 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-network
+author: genli
+ms.service: virtual-network
+ms.topic: include
+ms.date: 04/13/2018
+ms.author: genli
+ms.custom: include file
+ms.openlocfilehash: edfcd4d59eceada9e1c6014dad9afa7fe8ab3c8f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/16/2018
+---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Azure portalında klasik bir VNet oluşturma
 VNet üzerinde önceki senaryo tabanlı bir Klasik oluşturmak için aşağıdaki adımları izleyin.
 
-1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınıza giriş yapın.
-2. Tıklatın **kaynak oluşturma** > **ağ** > **sanal ağ**. Dikkat **dağıtım modeli seçin** listesinde zaten gösterir **Klasik**. 3. Tıklatın **oluşturma** aşağıdaki resimde gösterildiği gibi.
+1. Tarayıcıdan http://portal.azure.com adresine gidin ve gerekiyorsa Azure hesabınızla oturum açın.
+2. **Kaynak oluştur** > **Ağ** > **Sanal Ağ** seçeneğine tıklayın. Dikkat **dağıtım modeli seçin** listesinde zaten gösterir **Klasik**. 3. Tıklatın **oluşturma** aşağıdaki resimde gösterildiği gibi.
    
     ![Azure portalında VNet oluşturma](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
 4. Üzerinde **sanal ağ** bölmesi, türü **adı** VNet ve ardından **adres alanı**. VNet ve kendi ilk alt ağ, adres alanı ayarlarını yapılandırın ve ardından **Tamam**. Bizim senaryomuz için CIDR bloğu ayarları aşağıdaki şekilde gösterilmiştir.

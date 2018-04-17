@@ -28,7 +28,7 @@ VM'ler için bağlandığınızda, onlara oturum açmak için daha güvenli bir 
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 
-Kullanarak [rol tabanlı erişim denetimi (RBAC)](../articles/active-directory/role-based-access-control-what-is.md), ekibiniz içinde görevleri kurabilmeleri ve sadece erişim miktarını kullanıcıların işlerini yapmak için gereksinim duydukları, VM verin. Herkes vermek yerine izinleri Kısıtlanmamış VM, yalnızca belirli eylemleri izin verebilirsiniz. VM için erişim denetimini yapılandırmak [Azure portal](../articles/active-directory/role-based-access-control-configure.md)kullanarak [Azure CLI](https://docs.microsoft.com/cli/azure/role), veya[Azure PowerShell](../articles/active-directory/role-based-access-control-manage-access-powershell.md).
+Kullanarak [rol tabanlı erişim denetimi (RBAC)](../articles/role-based-access-control/overview.md), ekibiniz içinde görevleri kurabilmeleri ve sadece erişim miktarını kullanıcıların işlerini yapmak için gereksinim duydukları, VM verin. Herkes vermek yerine izinleri Kısıtlanmamış VM, yalnızca belirli eylemleri izin verebilirsiniz. VM için erişim denetimini yapılandırmak [Azure portal](../articles/role-based-access-control/role-assignments-portal.md)kullanarak [Azure CLI](https://docs.microsoft.com/cli/azure/role), veya[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

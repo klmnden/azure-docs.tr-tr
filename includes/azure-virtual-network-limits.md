@@ -26,12 +26,12 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Sanal ağ başına alt ağ sayısı |1000 |10000 |
 | Sanal ağ başına sanal ağ eşlemesi bulunabilir |10 |50 |
 | Sanal ağ başına DNS sunucusu sayısı |9 |25 |
-| Sanal ağ başına özel IP Adresi sayısı |4096 |8192 |
+| Sanal ağ başına özel IP Adresi sayısı |16384 ** |16384 |
 | Ağ arabirimi başına özel IP Adresleri |256 |1024 |
 | Bir sanal makine veya rol örneği NIC eşzamanlı TCP veya UDP akışlar |500K |500K |
-| Ağ Arabirimleri (NIC) |350 |20000 |
+| Ağ Arabirimleri (NIC) |24000 ** |24000 |
 | Ağ Güvenlik Grupları (NSG) |100 |5000 |
-| NSG başına NSG kuralları |200 |1000 |
+| NSG başına NSG kuralları |1000 ** |1000 |
 | IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |2000 |4000 |
 | Uygulama güvenliği grupları |200 |500 |
 | NIC başına IP yapılandırması başına uygulama güvenlik grupları |10 |20 |
@@ -39,10 +39,12 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Ağ güvenlik grubunun tüm güvenlik kuralları içinde belirtilen uygulama güvenlik grupları |50 |100 |
 | Kullanıcı tanımlı yol tabloları |100 |200 |
 | Yol tablosu başına kullanıcı tanımlı yol sayısı |100 |400 |
-| Genel IP adresleri - dinamik |(Basic) 60 |desteğe başvurun |
+| Genel IP adresleri - dinamik |(Temel) 60 |desteğe başvurun |
 | Genel IP adresleri - statik |(Temel) 20 |desteğe başvurun |
-| Genel IP adresleri - statik |(Standard) 20 |desteğe başvurun |
+| Genel IP adresleri - statik |(Standart) 20 |desteğe başvurun |
 | VPN Ağ Geçidi başına Noktadan Siteye Kök Sertifika Sayısı |20 |20 |
+
+** Daha önce desteğini artan bu sınırları uygulanmamış aboneliklere bu varsayılan sınırları Uygula
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
 

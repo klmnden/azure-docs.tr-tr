@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric kümesi güvenli | Microsoft Docs"
-description: "Azure Service Fabric kümesi ve bunları uygulamak için kullanabileceğiniz çeşitli teknolojileri için güvenlik senaryoları hakkında bilgi edinin."
+title: Azure Service Fabric kümesi güvenli | Microsoft Docs
+description: Azure Service Fabric kümesi ve bunları uygulamak için kullanabileceğiniz çeşitli teknolojileri için güvenlik senaryoları hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,18 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2017
-ms.author: chackdan
-<<<<<<< HEAD
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
-ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.author: aljo
+ms.openlocfilehash: f60b428ba7fe93713af68851a3e9d246a3b1641b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Azure Service Fabric kümesi sahip olduğunuz bir kaynaktır. Sizin sorumluluğunuzdadır kümelerinizi yetkisiz kullanıcıların kendilerine bağlanmasını önlemek için güvenli değil. Kümede üretim iş yükleri çalıştırırken güvenli küme özellikle önemlidir. Küme genel internet yönetim uç noktalarını kullanıma sunar, güvenli olmayan bir küme oluşturmak mümkün olmasına karşın, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümeler üretim iş yükleri için desteklenmez. 

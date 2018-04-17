@@ -1,11 +1,11 @@
 ---
-title: "SQL Data Warehouse verilerinizi geçirme | Microsoft Docs"
-description: "Çözümleri geliştirme için Azure SQL Data Warehouse verilerinizi geçirme ipuçları."
+title: SQL Data Warehouse verilerinizi geçirme | Microsoft Docs
+description: Çözümleri geliştirme için Azure SQL Data Warehouse verilerinizi geçirme ipuçları.
 services: sql-data-warehouse
 documentationcenter: NA
 author: sqlmojo
 manager: jhubbard
-editor: 
+editor: ''
 ms.assetid: d78f954a-f54c-4aa4-9040-919bc6414887
 ms.service: sql-data-warehouse
 ms.devlang: NA
@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbab223963989eab16cecea2facd9c15ba646d4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="migrate-your-data"></a>Verilerinizi geçirme
 Veri çeşitli araçları ile SQL veri ambarında farklı kaynaklardan yeniden taşınabilir.  ADF kopyalama, SSIS ve bcp tüm bu hedefe ulaşmak için kullanılabilir. Ancak, veri artar miktarda veri geçiş işlemi adımlara bölmek hakkında düşünmelisiniz. Bu, her adım performans ve esnekliği kesintisiz veri geçişini sağlamak için en iyi duruma getirme olanağı ortaya koymaktadır.
@@ -106,7 +106,7 @@ PolyBase sabit satır Sonlandırıcı \n ya da yeni satır olması zorunlu tutul
 
 PolyBase, dış tablosunda bir parçası olarak, dosyadaki her sütun tanımlamak gerekecektir. Dışarı aktarılan tüm sütunları gereklidir ve türleri gerekli standartlarına uygun emin olun.
 
-Lütfen geri bakın [şemanızı geçir] makale desteklenen veri türleri hakkında ayrıntılı bilgi için.
+Geri lütfen [şemanızı geçirmek] makale desteklenen veri türleri hakkında ayrıntılı bilgi için.
 
 ### <a name="location-of-data-files"></a>Veri dosyalarının konumu
 SQL veri ambarı PolyBase verileri Azure Blob depolama alanından özel olarak yüklemek için kullanır. Sonuç olarak, veriler ilk blob depolama alanına aktarıldı gerekir.
@@ -190,10 +190,11 @@ Daha fazla geliştirme ipuçları için bkz: [geliştirmeye genel bakış][devel
 [ADF samples]: ../data-factory/v1/data-factory-samples.md
 [ADF Copy examples]: ../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md
 [development overview]: sql-data-warehouse-overview-develop.md
+[şemanızı geçirmek]: sql-data-warehouse-migrate-schema.md
 [Migrate your solution to SQL Data Warehouse]: sql-data-warehouse-overview-migrate.md
 [SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
 [Use bcp to load data into SQL Data Warehouse]: sql-data-warehouse-load-with-bcp.md
-[Use PolyBase to load data into SQL Data Warehouse]: sql-data-warehouse-get-started-load-with-polybase.md
+[Use PolyBase to load data into SQL Data Warehouse]: load-data-wideworldimportersdw.md
 
 
 <!--MSDN references-->

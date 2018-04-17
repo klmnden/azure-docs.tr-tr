@@ -1,12 +1,12 @@
 ---
-title: "Azure güvenlik Teknik Özellikleri | Microsoft Docs"
-description: "Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin."
+title: Azure güvenlik Teknik Özellikleri | Microsoft Docs
+description: Geniş işlem örnekleri dahil bulut tabanlı bilgi işlem Hizmetleri & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri hakkında bilgi edinin.
 services: security
 documentationcenter: na
 author: UnifyCloud
 manager: swadhwa
 editor: TomSh
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 536745d869ea3bcd0beedad3712597b00e600796
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 489b2a66cadb77a338f9ae00443c072a4e19edfd
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure güvenlik Teknik Özellikleri
 
@@ -166,7 +166,7 @@ Azure erişim denetimi faturalandırma açısından başlatır. Ziyaret ederek e
 
 Abonelikler, bir dizin ile bir ilişkilendirme de vardır. Dizin, bir kullanıcı kümesini tanımlar. Bu iş veya Okul dizini oluşturulan kullanıcılardan veya dış kullanıcıların (yani, Microsoft Accounts) olabilir. Abonelikler, bir alt kümesini Hizmet Yöneticisi (SA) veya ortak yönetici (CA) olarak atanmış olan dizin kullanıcılar tarafından erişilebilir; eski nedeniyle, Microsoft Accounts (eskiden Windows Live kimliği) SA veya CA dizinde bulunduğundan olmadan atanabilir, yalnızca istisnadır.
 
-Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) yardımcı olur, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermek.
+Güvenlik odaklı şirketler çalışanlar gereksinim duydukları izinleri tam vermiş odaklanmanız gerekir. Çok fazla izinler saldırganlar bir hesaba getirebilir. Çok az izinleri çalışanlar verimli bir şekilde işlerini alınamıyor anlamına gelir. [Azure rol tabanlı erişim denetimi (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) yardımcı olur, Azure için ayrıntılı erişim yönetimi sunarak bu sorunu gidermek.
 
 ![Güvenli kaynak erişimi ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -190,7 +190,7 @@ Aşağıdaki tabloda ayrıntılı verileri şifrelemek için önerilen şifrelem
 
 | Şifreleme modeli |  |  |  |
 | ----------------  | ----------------- | ----------------- | --------------- |
-| Server Encryption | Server Encryption | Server Encryption | İstemci şifreleme
+| Sunucu şifreleme | Sunucu şifreleme | Sunucu şifreleme | İstemci şifreleme
 | Sunucu tarafı şifreleme hizmeti yönetilen anahtarları kullanma | Azure anahtar kasası Customer-Managed tuşlarını kullanarak sunucu tarafı şifreleme | Şirket içi müşteri kullanarak sunucu tarafı şifreleme anahtarları yönetilen |
 | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir <br> • Microsoft anahtarları yönetir <br>• Tam bulut işlevi | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir<br>• Müşteri anahtarları Azure anahtar kasası aracılığıyla denetler<br>• Tam bulut işlevi | • Azure kaynak sağlayıcıları şifreleme ve şifre çözme işlemi gerçekleştirir <br>• Müşteri anahtarları şirket içi denetler <br> • Tam bulut işlevi| • Azure Hizmetleri şifresi çözülmüş verileri göremezsiniz <br>• Müşterilerin anahtarlarını şirket içi tutun (veya diğer depoları güvenli). Anahtarları Azure hizmetlerine kullanılabilir değil <br>• Azaltılmış bulut işlevi|
 

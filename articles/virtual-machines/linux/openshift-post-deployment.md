@@ -1,32 +1,32 @@
 ---
-title: "Azure dağıtım sonrası görevleri OpenShift | Microsoft Docs"
-description: "Bir OpenShift küme dağıtıldıktan sonra ek görevleri için."
+title: Azure dağıtım sonrası görevleri OpenShift | Microsoft Docs
+description: Bir OpenShift küme dağıtıldıktan sonra ek görevleri için.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldw
 manager: najoshi
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 
+ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 77c4719b5cee7f5736d73ee10cf6abf12229ea11
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 1fe44f6d18199fe1a37db566f8b30eeaa4fbfab2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="post-deployment-tasks"></a>Dağıtım sonrası görevler
 
 OpenShift küme dağıttıktan sonra ek öğelere yapılandırabilirsiniz. Bu makalede aşağıdakileri kapsar:
 
 - Azure Active Directory (Azure AD) kullanarak çoklu oturum açmayı yapılandırma
-- Operations Management Suite OpenShift izlemek için yapılandırma
+- Günlük analizi OpenShift izlemek için yapılandırma
 - Ölçümleri ve günlük nasıl yapılandırılır?
 
 ## <a name="configure-single-sign-on-by-using-azure-active-directory"></a>Azure Active Directory kullanarak çoklu oturum açmayı yapılandırın
@@ -38,9 +38,9 @@ Azure Active Directory kimlik doğrulaması için kullanmak için önce bir Azur
 Uygulama kaydı ve izinleri ayarlamak için GUI (portal) oluşturmak için Azure CLI bu adımları kullanın. Uygulama kaydı oluşturmak için aşağıdaki beş parça bilgi gerekir:
 
 - Görünen ad: uygulama kayıt adı (örneğin, OCPAzureAD)
-- Giriş sayfası: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/Konsolu)
-- Tanımlayıcı URI: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/Konsolu)
-- Yanıt URL'si: Ana genel URL ve uygulama kayıt adı (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
+- Giriş sayfası: OpenShift konsol URL (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Tanımlayıcı URI: OpenShift Konsolu URL'si (örneğin, https://masterdns343khhde.westus.cloudapp.azure.com:8443/console)
+- Yanıt URL'si: genel URL ve uygulama kayıt adı (örneğin, ana https://masterdns343khhde.westus.cloudapp.azure.com:8443/oauth2callback/OCPAzureAD)
 - Parola: Güvenli parola (güçlü bir parola kullanın)
 
 Aşağıdaki örnek, önceki bilgileri kullanarak bir uygulama kaydı oluşturur:
@@ -145,7 +145,7 @@ oauthConfig:
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Aşağıdaki CLI komutu kullanarak Kiracı Kimliğini bulun:```az account show```
+Aşağıdaki CLI komutu kullanarak Kiracı Kimliğini bulun: ```az account show```
 
 Tüm ana düğümlerde OpenShift Yöneticisi hizmetlerini yeniden başlatın:
 
@@ -171,11 +171,11 @@ sudo systemctl restart atomic-openshift-master
 
 OpenShift konsolunda, artık kimlik doğrulaması için iki seçenek görürsünüz: htpasswd_auth ve [uygulama kayıt].
 
-## <a name="monitor-openshift-with-operations-management-suite"></a>Operations Management Suite ile İzleyici OpenShift
+## <a name="monitor-openshift-with-log-analytics"></a>Günlük analizi ile İzleyici OpenShift
 
-Operations Management Suite ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: VM konağı veya OMS kapsayıcı OMS Aracısı yükleme. Bu makalede OMS kapsayıcıyı dağıtmak için yönergeler sağlar.
+Günlük analizi ile OpenShift izlemek için iki seçenekten birini kullanabilirsiniz: VM konağı veya OMS kapsayıcı OMS Aracısı yükleme. Bu makalede OMS kapsayıcıyı dağıtmak için yönergeler sağlar.
 
-## <a name="create-an-openshift-project-for-operations-management-suite-and-set-user-access"></a>Operations Management Suite için bir OpenShift projesi oluşturun ve kullanıcı erişimini ayarlama
+## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Günlük analizi için bir OpenShift projesi oluşturun ve kullanıcı erişimini ayarlama
 
 ```bash
 oadm new-project omslogging --node-selector='zone=default'
@@ -244,7 +244,7 @@ spec:
 
 ## <a name="create-a-secret-yaml-file"></a>Gizli yaml dosyası oluşturma
 
-Gizli yaml dosyası oluşturmak için iki parça bilgi gerekir: OMS çalışma alanı kimliği ve paylaşılan OMS çalışma alanı anahtarı. 
+Gizli yaml dosyası oluşturmak için iki parça bilgi gerekir: günlük analizi çalışma alanı kimliği ve günlük analizi çalışma alanı paylaşılan anahtarı. 
 
 Bir örnek ocp-secret.yml dosyası aşağıdaki gibidir: 
 
@@ -258,7 +258,7 @@ data:
   KEY: key_data
 ```
 
-OMS çalışma alanı kimliği Değiştir wsid_data Base64 ile kodlanmış Ardından key_data Base64 ile kodlanmış OMS çalışma alanı paylaşılan anahtarı ile değiştirin.
+Günlük analizi çalışma alanı kimliği Değiştir wsid_data Base64 ile kodlanmış Ardından key_data Base64 ile kodlanmış günlük analizi çalışma alanı paylaşılan anahtarı ile değiştirin.
 
 ```bash
 wsid_data='11111111-abcd-1111-abcd-111111111111'

@@ -1,11 +1,11 @@
 ---
-title: Operations Management Suite - Azure Logic Apps B2B iletilerini izlemek | Microsoft Docs
-description: "B2B iletişimi tümleştirme hesabı ve mantığı uygulamalarınız için Azure günlük analizi ile Operations Management Suite (OMS) içinde izleme"
+title: B2B iletileri Azure günlük analizi - Azure Logic Apps ile İzle | Microsoft Docs
+description: B2B iletişimi için tümleştirme hesabı ve logic apps Azure günlük analizi ile izleme
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: d62be25678044ead469f65362b6f47c1a2df893b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 48523e1f1bc8d5b810cc7c9d1a7308f1aaadf8bb
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="track-b2b-communication-in-the-microsoft-operations-management-suite-oms"></a>İzleme B2B iletişimi Microsoft Operations Management Suite (OMS)
+# <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure günlük analizi ile B2B iletişim izleme
 
-İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerini veya tümleştirme hesabınızı aracılığıyla uygulamaları çalıştıran bu varlıkların birbirleriyle iletileri değiştirebilir. Bu iletiler doğru olarak işlenir, AS2, X12, izleyebilir ve EDIFACT iletileri ile olup olmadığını denetlemek için [Azure günlük analizi](../log-analytics/log-analytics-overview.md) içinde [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). Örneğin, iletileri izlemek için bu izleme web tabanlı özellikleri kullanabilirsiniz:
+İkisi arasındaki B2B iletişim kurduktan sonra iş süreçlerini veya tümleştirme hesabınızı aracılığıyla uygulamaları çalıştıran bu varlıkların birbirleriyle iletileri değiştirebilir. Bu iletiler doğru olarak işlenir, AS2, X12, izleyebilir ve EDIFACT iletileri ile olup olmadığını denetlemek için [Azure günlük analizi](../log-analytics/log-analytics-overview.md). Örneğin, iletileri izlemek için bu izleme web tabanlı özellikleri kullanabilirsiniz:
 
 * İleti sayısı ve durumu
 * İlgili kaynaklar durumu
@@ -36,30 +36,30 @@ ms.lasthandoff: 02/21/2018
 
 * İzleme ve günlük ile ayarlanan bir tümleştirme hesabı. Bilgi [tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izlemeyi ve o hesap için günlüğe kaydetmeyi nasıl ayarlanacağını](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Henüz yapmadıysanız [günlük analizi için tanılama veri yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) OMS içinde.
+* Henüz yapmadıysanız [günlük analizi için tanılama veri yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Önceki gereksinimlerini karşılamanızın sonra bir çalışma alanı olmalıdır [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). OMS, B2B iletişiminde izlemek için aynı OMS çalışma kullanmanız gerekir. 
+> Önceki gereksinimlerini karşılamanızın sonra günlük analizi çalışma olması gerekir. Günlük analizi, B2B iletişiminde izlemek için aynı çalışma alanı kullanmanız gerekir. 
 >  
-> Bir OMS çalışma alanı yoksa, bilgi [bir OMS çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-get-started.md).
+> Günlük analizi çalışma alanı yoksa, bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-the-operations-management-suite-oms"></a>Operations Management Suite (OMS) Logic Apps B2B çözümü ekleyin
+## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Logic Apps B2B çözümü için günlük analizi ekleyin
 
-OMS B2B iletileri mantıksal uygulamanızı izlemek için eklemelisiniz **Logic Apps B2B** OMS portalı çözüme. Daha fazla bilgi edinmek [çözümleri için OMS ekleme](../log-analytics/log-analytics-get-started.md).
+Günlük analizi B2B iletileri mantıksal uygulamanızı izlemek için eklemelisiniz **Logic Apps B2B** OMS portalı çözüme. Daha fazla bilgi edinmek [için günlük analizi çözümleri ekleme](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. İçinde [Azure portal](https://portal.azure.com), seçin **tüm hizmetleri**. "İçin günlük analizi" araması yapın ve ardından **günlük analizi** aşağıda gösterildiği gibi:
 
    ![Günlük analizi Bul](media/logic-apps-track-b2b-messages-omsportal/browseloganalytics.png)
 
-2. Altında **günlük analizi**, bulma ve OMS çalışma alanınızı seçin. 
+2. Altında **günlük analizi**, bulma ve günlük analizi çalışma alanınızı seçin. 
 
-   ![OMS çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
+   ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
 3. Altında **Yönetim**, seçin **OMS portalı**.
 
    ![OMS portalı seçin](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. OMS giriş sayfası açıldıktan sonra Seç **Çözümleri Galerisi**.    
+4. Giriş sayfası açıldıktan sonra Seç **Çözümleri Galerisi**.    
 
    ![Çözümleri Galerisi seçin](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
 
@@ -71,21 +71,21 @@ OMS B2B iletileri mantıksal uygulamanızı izlemek için eklemelisiniz **Logic 
 
    ![Seçin ekleme](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
 
-   Bölme için OMS giriş sayfasında **Logic Apps B2B iletileri** artık görünür. 
+   Bölme için giriş sayfasındaki **Logic Apps B2B iletileri** artık görünür. 
    B2B iletilerinizi işlendiğinde bu kutucuğu ileti sayısı güncelleştirir.
 
-   ![OMS giriş sayfası, Logic Apps B2B iletileri döşeme](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
+   ![Giriş sayfası, Logic Apps B2B iletileri döşeme](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
-## <a name="track-message-status-and-details-in-the-operations-management-suite"></a>İleti durumu ve Operations Management Suite ayrıntılarında izleme
+## <a name="track-message-status-and-details-in-log-analytics"></a>İleti durumu ve günlük analizi ayrıntılarında izleme
 
-1. B2B iletilerinizi işlendikten sonra durumu ve bu iletileri ayrıntılarını görüntüleyebilirsiniz. OMS giriş sayfasında, **Logic Apps B2B iletileri** döşeme.
+1. B2B iletilerinizi işlendikten sonra durumu ve bu iletileri ayrıntılarını görüntüleyebilirsiniz. Giriş sayfasında, **Logic Apps B2B iletileri** döşeme.
 
    ![Güncelleştirilmiş ileti sayısı](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
 
    > [!NOTE]
-   > Varsayılan olarak, **Logic Apps B2B iletileri** döşeme tek bir günde göre verileri gösterir. Farklı bir zaman aralığı için veri kapsamını değiştirmek için sayfanın üst kısmındaki OMS kapsam denetimi seçin:
+   > Varsayılan olarak, **Logic Apps B2B iletileri** döşeme tek bir günde göre verileri gösterir. Farklı bir zaman aralığı için veri kapsamını değiştirmek için sayfanın üst kısmındaki kapsam denetimi seçin:
    > 
    > ![Veri Kapsamı Değiştir](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
    >
@@ -240,7 +240,7 @@ Her indirilen EDIFACT ileti klasör ve dosya adı biçimler şunlardır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Operations Management Suite B2B iletiler için sorgu](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
+* [Günlük analizi B2B iletiler için sorgu](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
 * [AS2 izleme şemaları](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12 izleme şemaları](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
 * [Özel İzleme şemaları](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)

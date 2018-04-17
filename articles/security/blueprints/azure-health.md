@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: simorjay
-ms.openlocfilehash: 700378d23f869427fb50b9dee5bcf8448ac73404
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6bc2c63e75e9c750da852b77e4486666c3fc8561
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk şeması - HIPAA/HITRUST sistem durumu verileri ve AI
 
@@ -79,14 +79,14 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 ## <a name="roles"></a>Roller
 
 
-Şeması iki rolü yönetici kullanıcılara (Yöneticiler) ve kullanıcılar için üç rol Hastanenin yönetimi ve Hasta Bakım tanımlar. Altıncı rol, HIPAA ve diğer düzenlemelerle uyumluluğu değerlendirmek bir denetleyici için tanımlanır. Azure rol tabanlı erişim denetimi (RBAC) tam olarak bu çözüm yerleşik ve özel rolleri aracılığıyla her kullanıcı odaklı erişim yönetimi sağlar. Bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is) ve [Azure rol tabanlı erişim denetimi için yerleşik roller](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) RBAC, rolleri ve izinleri hakkında ayrıntılı bilgi için.
+Şeması iki rolü yönetici kullanıcılara (Yöneticiler) ve kullanıcılar için üç rol Hastanenin yönetimi ve Hasta Bakım tanımlar. Altıncı rol, HIPAA ve diğer düzenlemelerle uyumluluğu değerlendirmek bir denetleyici için tanımlanır. Azure rol tabanlı erişim denetimi (RBAC) tam olarak bu çözüm yerleşik ve özel rolleri aracılığıyla her kullanıcı odaklı erişim yönetimi sağlar. Bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](https://docs.microsoft.com/azure/role-based-access-control/overview) ve [Azure rol tabanlı erişim denetimi için yerleşik roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) RBAC, rolleri ve izinleri hakkında ayrıntılı bilgi için.
 
 ### <a name="site-administrator"></a>Site Yöneticisi
 
 
 Müşteri'nin Azure aboneliği için site yöneticisine sorumludur. Bütün olarak dağıtımını denetlemek, ancak hasta kayıtlara erişiminiz yok.
 
--   Varsayılan rol atamalarını: [sahibi](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#owner)
+-   Varsayılan rol atamalarını: [sahibi](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)
 
 -   Özel rol atamalarını: yok
 
@@ -97,7 +97,7 @@ Müşteri'nin Azure aboneliği için site yöneticisine sorumludur. Bütün olar
 Veritabanı Analisti SQL Server örneği ve veritabanı yönetir.
 Hiçbir hasta kayıtları erişimi.
 
--   Yerleşik rol atamalarını: [SQL DB Katılımcısı](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-db-contributor), [SQL Server katkıda bulunan](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#sql-server-contributor)
+-   Yerleşik rol atamalarını: [SQL DB Katılımcısı](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor), [SQL Server katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   Özel rol atamalarını: yok
 
@@ -108,7 +108,7 @@ Hiçbir hasta kayıtları erişimi.
 
 Veri Bilimcisi Azure Machine Learning hizmeti çalışır. Bunlar içeri aktarma, dışarı aktarabilir ve verileri yönetmek ve raporları çalıştırabilir. Veri Bilimcisi hasta veri erişimi olan ancak yönetici ayrıcalıklarına sahip değil.
 
--   Yerleşik rol atamalarını: [depolama hesabı katkıda bulunan](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#storage-account-contributor)
+-   Yerleşik rol atamalarını: [depolama hesabı katkıda bulunan](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
 -   Özel rol atamalarını: yok
 
@@ -138,7 +138,7 @@ Bu rol, hastaların durumlarının izlenmesini ve personelin hastalarının beli
 
 Denetçi çözüm uyumluluk için değerlendirilir. Bunlar doğrudan ağa erişiminiz yok.
 
--   Yerleşik rol atamalarını: [okuyucusu](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#reader)
+-   Yerleşik rol atamalarını: [okuyucusu](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   Özel rol atamalarını: yok
 
@@ -164,7 +164,7 @@ Bu şeması ile dahil örnek kullanım örneği, machine learning ve sistem duru
 
 Alex'ın iş yönetme bir şirket içi ağ yükünü azaltmak ve yönetim maliyetlerini azaltmak teknolojilerini değerlendirmek için kullanılır. Alex Azure süre için değerlendirme ancak kendisine bulutta Hasta verileri depolamak için HiTrust uyumluluk gereksinimlerini karşılamak için gereken hizmetleri yapılandırmak zorlandığınız. Alex HiTrust müşteri gereksinimlerini gereksinimlerini ele bir uyumluluk hazır durumu çözümü dağıtmak için Azure sistem durumu AI seçti.
 
-**Data Scientist -- Debra**
+**Veri Bilimcisi--Gamze**
 
 *E-posta: Gamze\_DataScientist*
 
@@ -222,7 +222,7 @@ Bu bölümde varsayılan yapılandırmaları ve güvenlik önlemleri için ana h
 
 -   [Azure Active Directory kimlik koruması](/azure/active-directory/active-directory-identityprotection) kuruluşunuzdaki kimlikleri etkileyen olası güvenlik açıklarını algılarsa, otomatik yanıtları, kuruluşunuzun kimlikleri, ilgili algılanan kuşkulu eylemler için yapılandırır ve Şüpheli olaylar araştırır ve bunları gidermek için uygun tedbiri alır.
 
--   [Azure rol tabanlı erişim denetimi (RBAC)](/azure/active-directory/role-based-access-control-configure) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve Azure anahtar kasası erişim için site yöneticisine sınırlıdır. Güçlü parolalar (en az bir büyük/küçük harf, sayı ve özel karakter ile en az 12 karakter) gereklidir.
+-   [Azure rol tabanlı erişim denetimi (RBAC)](/azure/role-based-access-control/role-assignments-portal) tam olarak Azure için odaklı erişim yönetimi sağlar. Abonelik erişim Abonelik Yöneticisi sınırlıdır ve Azure anahtar kasası erişim için site yöneticisine sınırlıdır. Güçlü parolalar (en az bir büyük/küçük harf, sayı ve özel karakter ile en az 12 karakter) gereklidir.
 
 -   Çok faktörlü kimlik doğrulaması - enableMFA anahtar dağıtımı sırasında etkin olduğunda desteklenir.
 
@@ -230,7 +230,7 @@ Bu bölümde varsayılan yapılandırmaları ve güvenlik önlemleri için ana h
 
 **Roller:**
 
--   Çözüm kullanır [yerleşik roller](/azure/active-directory/role-based-access-built-in-roles) kaynaklarına erişimi yönetmek için.
+-   Çözüm kullanır [yerleşik roller](/azure/role-based-access-control/built-in-roles) kaynaklarına erişimi yönetmek için.
 
 -   Tüm kullanıcıların belirli yerleşik roller varsayılan olarak atanır.
 
@@ -243,7 +243,7 @@ Bu bölümde varsayılan yapılandırmaları ve güvenlik önlemleri için ana h
     -   Hasta bağlantı dizesi
     -   Hasta veri tablosu adı
     -   Azure ML Web Hizmeti uç noktası
-    -   Azure ML Service API Key
+    -   Azure ML Service API anahtarı
 
 -   Gelişmiş erişim ilkeleri bir gereksinim temelinde yapılandırılır
 -   Anahtar kasası erişim ilkelerini anahtarları ve gizli anahtarları için gerekli minimum izinleri ile tanımlanır
@@ -350,7 +350,7 @@ Veri depolama elde etmek için ortak bir API şema hızlı sağlık birlikte ça
 
 -   Blob Depolama birimindeki veri bekleme sırasında şifrelenir.
 
-## <a name="analyze"></a>ANALYZE
+## <a name="analyze"></a>ÇÖZÜMLEME
 
 ### <a name="machine-learning"></a>Machine Learning
 

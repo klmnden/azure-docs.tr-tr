@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi şeması"
-description: "FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi"
+title: Azure güvenliği ve uyumluluğu - FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi şeması
+description: FedRAMP Web uygulamaları Otomasyon - yapılandırma yönetimi
 services: security
 documentationcenter: na
 author: jomolesk
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6566783769d37ee829df3894fdb5673b4edafd2c
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: 356eccac6af2780c02d1cd935d41891b5f89f1a2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-management-cm"></a>Yapılandırma Yönetimi (CM)
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-1** kuruluş geliştirir, belgeler ve için disseminates [atama: kuruluş tarafından tanımlanan personel ya da roller] adresleri amacı, kapsam, roller, sorumlulukları, yönetim taahhüt bir yapılandırma yönetim ilkesi Kurumsal varlıklar ve uyumluluk arasında koordinasyon; ve ilişkili yapılandırma yönetimi denetimleri ve yapılandırma yönetimi ilkesi uygulaması kolaylaştırmak için yordamlar; gözden geçirir ve geçerli yapılandırma yönetim ilkesi güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı]; ve yapılandırma yönetimi yordamları [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -45,7 +45,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2** kuruluş geliştirir, belgeler ve bilgi sisteminin geçerli bir taban çizgisi yapılandırmasını yapılandırma denetimi altında tutar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -59,7 +59,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) bir** kuruluş gözden geçirir ve bilgi sistem taban çizgisi yapılandırmasını güncelleştirir [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -73,7 +73,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) .b** kuruluş gözden geçirir ve [atama kuruluşunuz tarafından tanımlanan koşullar nedeniyle] gerektiğinde bilgileri sistem taban çizgisi yapılandırmasını güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -87,7 +87,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (1) .c** kuruluş gözden geçirir ve temel yapılandırma bilgileri sisteminin bilgileri sistem bileşeni yüklemeleri ve yükseltmeleri ayrılmaz bir parçası güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -101,7 +101,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (2)** kuruluş güncel, tam, doğru ve kullanıma hazır temel yapılandırma bilgileri sisteminin korumak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -115,7 +115,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (3)** kuruluş korur [atama: Temel yapılandırmalar bilgi sisteminin önceki sürümlerinde kuruluşunuz tarafından tanımlanan] geri alma desteklemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -129,7 +129,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-2 (7) bir** kuruluş sorunları [atama: kuruluş tarafından tanımlanan bilgileri sistemleri, sistem bileşenleri veya aygıt] ile [atama: kuruluş tanımlanan yapılandırmaları] konuma seyahat bireylere, kuruluş önemli riskini olarak kabul eder.
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -137,13 +137,13 @@ ms.lasthandoff: 02/11/2018
 | **Sağlayıcı (Microsoft Azure)** | Microsoft Azure müşteri içerik hiçbir zaman fiziksel olarak ABD'de continental içinde bulunduğu Microsoft Azure dışında depolanır. Microsoft Azure personel, Microsoft Azure stok içinde yer alan aygıtlarla seyahat değil. Bu nedenle, bu denetim Microsoft Azure için geçerli değildir. |
 
 
- ### <a name="nist-800-53-control-cm-2-7b"></a>NIST 800-53 Control CM-2 (7).b
+ ### <a name="nist-800-53-control-cm-2-7b"></a>NIST 800 53 CM-2 (7) .b denetleme
 
 #### <a name="baseline-configuration--configure-systems-components-or-devices-for-high-risk-areas"></a>Taban çizgisi yapılandırmasını | Sistemler, bileşenleri ya da aygıtları için yüksek riskli alanlar yapılandırın
 
 **CM-2 (7) .b** kuruluşun uyguladığı [atama: kuruluş tanımlanan güvenlik önlemlerinin] kişiler döndüğünüzde cihazlara.
 
-**Sorumlulukları:**`Not Applicable`
+**Sorumlulukları:** `Not Applicable`
 
 |||
 |---|---|
@@ -157,7 +157,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.a** Kuruluş yapılandırması denetimli değişiklik bilgileri sistem türlerini belirler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -171,7 +171,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.b** kuruluş önerilen yapılandırma denetimli sisteme yapılan değişiklikleri bilgileri gözden geçirir ve onaylar veya açık göz önünde bulundurarak güvenlik etkisi çözümlemesi için bu değişikliklerden disapproves.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -185,7 +185,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.c** kuruluş belgeleri yapılandırmasını değiştirme kararları bilgi sistemiyle ilişkilendirilmiş.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -199,7 +199,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.d** kuruluş bilgileri sistem onaylanan yapılandırma denetimli değişiklikleri uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -211,9 +211,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="configuration-change-control"></a>Yapılandırma değişikliği denetimi
 
-**CM-3.e** Kuruluş için bilgi sistemde yapılan değişiklikleri yapılandırma denetimli kayıtlarının korur [atama: kuruluş tanımlı süre].
+**CM 3.e** Kuruluş için bilgi sistemde yapılan değişiklikleri yapılandırma denetimli kayıtlarının korur [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -227,7 +227,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.f** kuruluş denetler ve bilgi sisteme yapılandırma denetimli değişikliklerle ilişkili etkinlikleri gözden geçirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -241,7 +241,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 3.g** kuruluş düzenler ve yapılandırma değişikliği denetim etkinlikleri gözetim sağlayan [atama: kuruluş tanımlı yapılandırma değişikliği denetim öğesi (örneğin, komitesi, Pano)] [seçimi (convenes bir veya daha fazla): [atama: kuruluş tarafından tanımlanan sıklığı]; [Atama: kuruluş tanımlı yapılandırma değişikliği koşullar]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -255,7 +255,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) bir** kuruluş bilgi sistemi için önerilen değişiklikleri belgelemek için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -269,7 +269,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .b** kuruluş bildirmek için otomatik mekanizmaları kullanan [atama: düzenlenmiş tanımlı onay yetkilileri] bilgileri önerilen değişikliklerin onay sistem ve istek değiştirin.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -283,7 +283,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .c** organizasyon onaylı edilmemiş veya tarafından onaysız bilgi sistemi önerilen değişikliklerin vurgulamak için otomatik mekanizmaları kullanır [atama: kuruluş tanımlı süre].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -297,7 +297,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .d** kuruluş belirlenen onayları alınana kadar bilgi sistemde yapılan değişiklikleri önlemek için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -309,9 +309,9 @@ ms.lasthandoff: 02/11/2018
 
 #### <a name="configuration-change-control--automated-document--notification--prohibition-of-changes"></a>Yapılandırma değişikliği denetimi | Belge otomatik / bildirim / Yasak değişiklikleri
 
-**CM-3 (1).e** Kuruluş bilgileri sistemde yapılan tüm değişiklikleri belgelemek için otomatik mekanizmaları kullanır.
+**CM-3 (1) .e** Kuruluş bilgileri sistemde yapılan tüm değişiklikleri belgelemek için otomatik mekanizmaları kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -325,7 +325,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (1) .f** kuruluş bildirmek için otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan personel] bilgi sistemi onaylı değişiklikler olduğunda tamamlanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -339,7 +339,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (2)** kuruluş testleri, doğrular ve bilgi sistemde yapılan değişiklikleri işletim sistemini değişiklikleri uygulamadan önce belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -353,7 +353,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (4)** kuruluşun bir üyesi olması için bir bilgi güvenlik temsilcinize gerektirir [atama: kuruluş tanımlı yapılandırma değişikliği denetim öğesi].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -367,7 +367,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-3 (6)** kuruluş sağlamak için kullanılan şifreleme mekanizmaları sağlar [atama: kuruluş tanımlanan güvenlik önlemlerinin] yapılandırma yönetimi altında.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -381,7 +381,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-4** kuruluş değişikliği uygulamadan önce olası güvenlik etkileri belirlemek için bilgi sistemde yapılan değişiklikleri analiz eder.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -395,7 +395,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-4 (1)** kuruluş için güvenlik etkileri açıkları, zayıf, uyumsuzluk nedeniyle ya da bilerek arayan bir işletimsel ortamında uygulamadan önce ayrı bir test ortamında bilgi sistemde yapılan değişiklikleri analiz eder malice.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -409,7 +409,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 5** kuruluş tanımlar, belgeler, onaylar ve bilgi sistemi yapılan değişikliklerle ilişkili fiziksel ve mantıksal erişim kısıtlamaları zorunlu kılar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -423,7 +423,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (1)** bilgi sistemi erişim kısıtlamaları zorunlu kılan ve zorlama eylemleri denetimi destekler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -437,7 +437,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (2)** kuruluş bilgileri sistem değişiklikleri incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] ve [atama: kuruluş tarafından tanımlanan koşullar] yetkisiz değişiklikler oluşmuş olup olmadığını belirlemek için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -451,7 +451,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (3)** bilgi sistemi yüklenmesini engeller [atama: kuruluş tarafından tanımlanan yazılımını ve bellenimini bileşenleri] doğrulaması olmadan tanınır bir sertifikayla imzalanmış bileşen imzalanıp ve kuruluş tarafından onaylanmış.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -465,7 +465,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (5) bir** kuruluş bilgileri sistem bileşenleri ve bir üretim veya işletimsel ortamı içindeki sistem ilgili bilgileri değiştirmek için ayrıcalıkları sınırlar.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -479,7 +479,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-5 (5) .b** kuruluş gözden geçirir ve ayrıcalıkları reevaluates [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -493,7 +493,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.a** kuruluş kurar ve bilgi teknolojisi ürünleri bilgileri kullanarak içinde değişiklik için yapılandırma ayarlarını belgeleri [atama: kuruluş tanımlanan güvenlik yapılandırma denetim listeleri], yansıtır işletimsel gereksinimleri ile tutarlı en kısıtlayıcı modu.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -507,7 +507,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.b** kuruluş yapılandırma ayarlarını uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -521,7 +521,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.c** kuruluş tanımlar, belgeler ve yerleşik yapılandırma ayarlarını sapmaları onaylar [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri] göre [atama: kuruluş tarafından tanımlanan işletimsel gereksinimlerini].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -535,7 +535,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 6.d** kuruluş izleyiciler ve denetimleri kuruluş ilkeleri ve yordamları uygun olarak yapılandırma ayarlarına yapılan değişiklikleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -549,7 +549,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6 (1)** kuruluşun merkezi olarak yönetmek, uygulamak ve yapılandırma ayarlarını doğrulamak için otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan bilgileri sistem bileşenleri].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -563,11 +563,11 @@ ms.lasthandoff: 02/11/2018
 
 **CM-6 (2)** kuruluş kullanır [atama: kuruluş tanımlanan güvenlik önlemlerinin] yetkisiz değişiklikler için yanıtlamaları [atama: kuruluş tanımlı yapılandırma ayarları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
-| **Müşteri** | Bu şeması Azure Otomasyonu DSC dağıtır. Bölümü Azure'nın Operations Management Suite (OMS), otomasyonu DSC bir uyarı oluşturmak için veya algılandığında yapılandırma hataları düzeltmek için yapılandırılabilir. |
+| **Müşteri** | Bu şeması Azure Otomasyonu DSC dağıtır. Automation DSC, bir uyarı oluşturmak veya algılandığında yapılandırma hataları gidermek için yapılandırılabilir. |
 | **Sağlayıcı (Microsoft Azure)** | Uygulanamaz |
 
 
@@ -577,7 +577,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 7.a** kuruluş yalnızca temel özellikleri sağlamak üzere bilgi sistemi yapılandırır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -591,7 +591,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 7.b** kuruluş yasaklar ya da aşağıdaki işlevleri, bağlantı noktaları, protokoller ve/veya Hizmetleri kullanımını kısıtlar: [atama: kuruluş tanımlı yasaklanmış veya kısıtlanmış İşlevler, bağlantı noktaları, protokoller ve/veya hizmetler].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -605,7 +605,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (1) bir** kuruluş bilgileri sistem incelemeleri [atama: kuruluş tarafından tanımlanan sıklığı] gereksiz ve/veya güvenli olmayan işlevler, bağlantı noktaları, protokolleri ve hizmetleri tanımlamak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -619,7 +619,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (1) .b** kuruluş devre dışı bırakır [atama: kuruluş tanımlı işlevler, bağlantı noktaları, protokoller ve gereksiz ve/veya güvenli olarak kabul bilgi sistemi içindeki Hizmetler].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -633,7 +633,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (2)** program yürütme ile uyumlu olarak bilgi sistemi engeller [seçimi (bir veya daha fazla): [atama: yazılım kuruluşunuz tarafından tanımlanan ilkelerine programı kullanım ve kısıtlamaları]; koşulları yetkilendirme kuralları ve koşullar yazılım programı kullanımının].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -647,7 +647,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) bir** kuruluş tanımlayan [atama: kuruluş tarafından tanımlanan yazılım programları yetkili bilgi sistemde yürütmesine].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -661,7 +661,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) .b** kuruluş yetkili yazılım programları yürütülmesi bilgi sistemde izin vermek için bir reddetme all, izin tarafından özel durum ilkesi kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -675,7 +675,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-7 (5) .c** kuruluş gözden geçirir ve yetkili yazılım programlarının listesini güncelleştirir [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -689,7 +689,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 8.a** kuruluş geliştirir ve doğru şekilde geçerli bilgi sistemi yansıtır; Information system yetkilendirme sınırları içinde tüm bileşenleri içerir; altındadır bilgi sistem bileşenleri envanterini belgeleri Ayrıntı düzeyi izleme ve raporlama için gerekli olarak kabul; ve içerir [atama: kuruluş tarafından tanımlanan bilgileri olarak kabul etkili bilgi sistem bileşeni sorumluluk elde etmek gerekli].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -703,7 +703,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 8.b** kuruluş gözden geçirir ve bilgi sistem bileşeni envanteri güncelleştirmeleri [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -717,7 +717,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (1)** kuruluş bilgileri sistem bileşenleri Envanter bileşeni yükleme, kaldırma işlemleri ve bilgi sistem güncelleştirmeleri ayrılmaz bir parçası güncelleştirir.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -731,7 +731,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (2)** kuruluş bilgileri sistem bileşenleri güncel, tam, doğru ve kullanıma hazır envanterini sağlanmasına yardımcı olmak için otomatik mekanizmaları uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -745,7 +745,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (3) bir** kuruluş otomatik mekanizmaları kullanan [atama: kuruluş tarafından tanımlanan sıklığı] bileşenlerinin yetkisiz donanım, yazılım ve bellenim bilgi sistemi içinde varolup olmadığını algılamak için.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -759,7 +759,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (3) .b** yetkisiz bileşenleri algılandığında kuruluş aşağıdaki eylemleri gerçekleştirir: [seçimi (bir veya daha fazla): ağ erişimi gibi bileşenleri tarafından devre dışı bırakır; bileşenleri yalıtır; bildirir [atama: kuruluş tarafından tanımlanan "personel veya rolleri]].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -773,7 +773,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (4)** kuruluş bilgileri sistem bileşeni Envanter bilgileri, tarafından tanımlamak için bir yol içerir [seçimi (bir veya daha fazla): ad, konum; rol], kişiler sorumlu/bu bileşenleri yönetmek için sorumlu .
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -787,7 +787,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-8 (5)** bilgi sisteminin yetkilendirme sınırları içinde tüm bileşenleri diğer bilgileri sistem bileşeni envanterleri içinde çoğaltılmaz kuruluş doğrular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -801,7 +801,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.a** kuruluş geliştirir, belgeler ve rolleri, sorumlulukları ve yapılandırma yönetimi işlemleri ve yordamları adresleri bilgileri sistem için bir yapılandırma yönetim planı uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -815,7 +815,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.b** kuruluş geliştirir, belgeler ve sistem geliştirme kullanım ömrü boyunca tanımlayıcı yapılandırma öğeleri geçiş için ve için bir işlem kurar bilgileri sistem için bir yapılandırma yönetim planı uygular yapılandırma öğeleri yapılandırmasını yönetme.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -829,7 +829,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.c** kuruluş geliştirir, belgeler ve yapılandırmasını tanımlayan bilgileri sistem öğeleri için bilgileri sistem ve yapılandırma öğeleri yapılandırma bölümünde yerleştirir için bir yapılandırma yönetim planı uygular yönetimi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -843,7 +843,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 9.d** kuruluş geliştirir, belgeler ve yapılandırma yönetimi planı yetkisiz olarak ifşa ve değişiklik korur bilgileri sistem için bir yapılandırma yönetim planı uygular.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -857,7 +857,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.a** kuruluş yazılımı ve ilişkili belgeleri sözleşme anlaşmalar ve telif hakkı yasaları uygun olarak kullanır.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -871,7 +871,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.b** kuruluş yazılım ve kopyalama ve dağıtım denetlemek için miktar lisansları tarafından korunan ilişkili belge kullanımını izler.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -885,7 +885,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 10.c** kuruluş denetler ve eşler arası dosya paylaşım Bu yetenek yetkisiz dağıtım, görüntü, performans veya telif haklı iş çoğaltılması için kullanılmaz emin olmak için teknolojisi kullanımını belgeleri.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -899,7 +899,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-10 (1)** kuruluş kullanma açık kaynak yazılımının aşağıdaki kısıtlamaları kurar: [atama: kuruluş tanımlı kısıtlamaları].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -913,7 +913,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.a** kuruluş kurar [atama: kuruluş tanımlanan ilkeleri] yöneten kullanıcılar tarafından yazılım yüklemesi.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -927,7 +927,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.b** kuruluş yazılım yükleme ilkeleri aracılığıyla zorlar [atama: kuruluş tarafından tanımlanan yöntemler].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -941,7 +941,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM 11.c** kuruluş ilkesi uyumluluk adresindeki izler [atama: kuruluş tarafından tanımlanan sıklığı].
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
@@ -955,7 +955,7 @@ ms.lasthandoff: 02/11/2018
 
 **CM-11 (1)** bilgileri sistem uyarıları [atama: kuruluş tarafından tanımlanan personel ya da roller] ne zaman yazılım yetkisiz yüklemesi algılandı.
 
-**Sorumlulukları:**`Customer Only`
+**Sorumlulukları:** `Customer Only`
 
 |||
 |---|---|
