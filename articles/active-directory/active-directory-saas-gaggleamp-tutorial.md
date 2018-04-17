@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile GaggleAMP | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile GaggleAMP arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile GaggleAMP | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile GaggleAMP arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 04/06/2018
 ms.author: jeedes
-ms.openlocfilehash: ffa6a3d6cc1377277591de63c7224b23796b53d8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7f68fdd84acd95ccd2a400e02303247f246d876b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Öğretici: Azure Active Directory Tümleştirme GaggleAMP ile
 
@@ -31,12 +31,12 @@ GaggleAMP Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme GaggleAMP ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir GaggleAMP çoklu oturum açma etkin abonelik
+- Bir GaggleAMP çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -44,7 +44,7 @@ Azure AD tümleştirme GaggleAMP ile yapılandırmak için aşağıdaki öğeler
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -106,44 +106,48 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_samlbase.png)
 
-3. Üzerinde **GaggleAMP etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **GaggleAMP etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url.png)
 
-     İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:`https://<subdomain>.gaggleamp.com`
+     İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://accounts.gaggleamp.com/auth/saml/callback`
 
-    > [!NOTE] 
-    > Değer gerçek değil. Değerin gerçek oturum açma URL'si ile güncelleştirin. Kişi [GaggleAMP istemci destek ekibi](mailto:sales@gaggleamp.com) değeri alınamıyor. 
+4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_url1.png)
+
+     İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://gaggleamp.com/i/<customerid>`
+
+    > [!NOTE]
+    > Oturum açma URL'si değeri gerçek değil. Bu değer gerçek oturum açma URL'si ile güncelleştirin. Kişi [GaggleAMP istemci destek ekibi](mailto:sales@gaggleamp.com) bu değeri alınamıyor.
  
-4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
+5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_certificate.png) 
 
-5. Tıklatın **kaydetmek** düğmesi.
+6. Tıklatın **kaydetmek** düğmesi.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **GaggleAMP yapılandırma** 'yi tıklatın **yapılandırma GaggleAMP** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+7. Üzerinde **GaggleAMP yapılandırma** 'yi tıklatın **yapılandırma GaggleAMP** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_configure.png) 
 
-7. Başka bir tarayıcı örneğinde Gaggle tarafınızdan takım desteklemek için oluşturulan SAML SSO sayfasına gidin (örneğin: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+8. Başka bir tarayıcı örneğinde Gaggle tarafınızdan takım desteklemek için oluşturulan SAML SSO sayfasına gidin (örneğin: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
 
-8. Üzerinde **SAML SSO** sayfasında, aşağıdaki adımları gerçekleştirin:  
+9. Üzerinde **SAML SSO** sayfasında, aşağıdaki adımları gerçekleştirin:  
    
-    ![GaggleAMP çoklu oturum açma](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png) 
- 
-    a. İçinde **kimlik sağlayıcısı veren** metin değerini yapıştırın **veren URL'si** Azure portalından kopyalanan. 
- 
-    b. İçinde **kimlik sağlayıcısı tek oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
+    ![GaggleAMP çoklu oturum açma](./media/active-directory-saas-gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-    c. Tıklatın **Kaydet**      
-
-    d. Gönderme **sertifika (Base64)** sertifika için [GaggleAMP destek ekibi](mailto:sales@gaggleamp.com).
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    a. Seçin **diğer** form **kimlik sağlayıcısı** açılır menüsünde.
+    
+    b. İçinde **kimlik sağlayıcısı veren** metin değerini yapıştırın **veren URL'si** Azure portalından kopyalanan.
+    
+    c. İçinde **kimlik sağlayıcısı tek oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
+    
+    d. İndirilen açmak **Certificate(Base64)** dosyasını Not Defteri'nde, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X.509 sertifikası** metin kutusu.
+    
+    e. **Kaydet**’e tıklayın.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -174,7 +178,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-gaggleamp-test-user"></a>GaggleAMP test kullanıcısı oluşturma
 
@@ -223,8 +227,6 @@ Erişim paneli GaggleAMP parçasında tıklattığınızda, otomatik olarak Gagg
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_01.png
@@ -238,4 +240,3 @@ Erişim paneli GaggleAMP parçasında tıklattığınızda, otomatik olarak Gagg
 [201]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gaggleamp-tutorial/tutorial_general_203.png
-

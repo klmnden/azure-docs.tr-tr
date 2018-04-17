@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services yönetme | Microsoft Docs"
-description: "Bir Analysis Services sunucusuna Azure yönetmeyi öğrenin."
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services yönetme | Microsoft Docs
+description: Bir Analysis Services sunucusuna Azure yönetmeyi öğrenin.
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 79491d0b-b00d-4e02-9ca7-adc99bc02fdb
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 11aa42fbe15dd68dfac128b707fd6bdbfd0b24d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.reviewer: minewiskan
+ms.openlocfilehash: 0cad50788eeb4a31d1e3f6f7e6c038ba2a8d4d9b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-analysis-services"></a>Çözümleme Hizmetleri yönetme
 Azure'da bir Analysis Services sunucusuna oluşturduktan sonra hemen veya süre yol gerçekleştirmeniz gereken bazı yönetim görevleri olabilir. Örneğin, sunucunuz modellerinde erişim veya sunucunuzun sistem durumu izleme kimin yenileme veri işlemeyi çalıştırın. Bazı yönetim görevleri, Azure portalında, diğerleri de SQL Server Management Studio (SSMS), yalnızca gerçekleştirilebilir ve bazı görevler ya da gerçekleştirilebilir.
@@ -47,13 +40,18 @@ Tüm almak için en son özellikleri ve Azure Analysis Services sunucusuna bağl
    
     ![Azure'da sunucu adını alma](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. SSMS içinde > **Object Explorer**, tıklatın **Bağlan** > **Analysis Services**.
-3. İçinde **sunucuya Bağlan** iletişim kutusu, sunucu adının, sonra da Yapıştır **kimlik doğrulaması**, aşağıdaki kimlik doğrulama türlerinden birini seçin:
-   
+3. İçinde **sunucuya Bağlan** iletişim kutusu, sunucu adının, sonra da Yapıştır **kimlik doğrulaması**, aşağıdaki kimlik doğrulama türlerinden birini seçin:   
+    > [!NOTE]
+    > Kimlik doğrulama türü **Active Directory - MFA desteğiyle Evrensel**, önerilir.
+
+    > [!NOTE]
+    > Bir Microsoft Account, Live ID, Yanoo, Gmail, vb. oturum açarsanız parola alanı boş bırakın. Bağlan'ı tıklattıktan sonra için bir parola istenir.
+
     **Windows kimlik doğrulaması** Windows etki alanı\kullanıcı adı ve parola bilgileriniz kullanılacak.
 
     **Active Directory parola kimlik doğrulaması** kurumsal bir hesap kullanmak için. Örneğin, ne zaman bir etki bağlanma bilgisayar katıldı.
 
-    **Active Directory Evrensel kimlik doğrulaması** kullanmak için [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory - Evrensel MFA desteğiyle** kullanmak için [etkileşimli olmayan veya çok faktörlü kimlik doğrulaması](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![SSMS bağlanma](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

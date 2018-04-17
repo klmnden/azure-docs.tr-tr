@@ -1,31 +1,26 @@
 ---
-title: "Azure SQL veri ambarı ile esnek sorgu kavramları | Microsoft Docs"
-description: "Azure SQL Data Warehouse esnek sorgu kavramları"
+title: Esnek sorgusu - Azure SQL Data Warehouse Azure SQL veritabanından access verilerini | Microsoft Docs
+description: Esnek sorgu Azure SQL veri ambarındaki verilere erişmek için Azure SQL veritabanından kullanarak en iyi yöntemleri öğrenin.
 services: sql-data-warehouse
-documentationcenter: NA
 author: hirokib
-manager: johnmac
-editor: 
-ms.assetid: e2dc8f3f-10e3-4589-a4e2-50c67dfcf67f
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: integrate
-ms.date: 09/18/2017
+ms.topic: conceptual
+ms.component: implement
+ms.date: 04/11/2018
 ms.author: elbutter
-ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.reviewer: jrj
+ms.openlocfilehash: 909271792b73b5fdc517847db7cfd6c8cf2092bc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>SQL veri ambarı ile esnek sorgu kullanma
+# <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarındaki verilere erişmek için Azure SQL veritabanı'nda esnek sorgu kullanmak için en iyi uygulamalar
+Azure SQL veritabanından Azure SQL veri ambarındaki verilere erişme esnek sorgu kullanmak için en iyi uygulamalar öğrenin. 
 
-
-
-Azure SQL veri ambarı ile esnek sorgu dış tablolara kullanımı ile Azure SQL Data Warehouse örneğine uzaktan gönderilen bir SQL veritabanında Transact-SQL yazmanızı sağlar. Bu özelliği kullanarak, maliyet tasarrufu ve senaryoya bağlı olarak daha fazla kullanıcı mimarileri sağlar.
+## <a name="what-is-an-elastic-query"></a>Esnek bir sorgu nedir?
+Esnek bir sorgu, bir Azure SQL veri ambarı'na uzaktan gönderilen bir Azure SQL veritabanındaki bir sorgu yazmak için T-SQL ve dış tablolara kullanmanıza olanak sağlar. Bu özelliği kullanarak, maliyet tasarrufu ve senaryoya bağlı olarak daha fazla kullanıcı mimarileri sağlar.
 
 Bu özellik iki birincil senaryolarına olanak sağlar:
 
@@ -46,10 +41,7 @@ Esnek sorgu kolayca SQL veri ambarı veri alt kümesi seçin ve bir SQL veritaba
 
 SQL veri ambarı örneği üzerinde uzaktan sorgu yürütme için esnek sorgu sağlar. Bir SQL database ve SQL veri ambarı en iyi sıcak ve soğuk verilerinizi iki veritabanı arasında ayırarak kullanabilirler. Kullanıcıların, raporları ve ortalama iş kullanıcıları çok sayıda kullanılabileceği bir SQL veritabanı içinde daha yeni veri kullanmaya devam edebilir. Ancak, daha fazla veri veya hesaplama gerekli olduğunda, bir kullanıcı, çok daha hızlı ve daha verimli bir şekilde büyük ölçekli toplamalar burada işlenebilen bir SQL veri ambarı örneği için sorgunun parçası boşaltabilir.
 
-
-
-## <a name="elastic-query-overview"></a>Esnek sorgu genel bakış
-
+## <a name="elastic-query-process"></a>Esnek sorgu işlemi
 Esnek bir sorgu, SQL veri içinde bulunan veri ambarı SQL veritabanı örnekleri kullanılabilir hale getirmek için kullanılabilir. Esnek sorgu tablolar uzak bir SQL veri ambarı örneği ile bir SQL veritabanı sorgularından bakın sağlar. 
 
 İlk adım, SQL veri ambarı içinde varolan kullanıcı kimlik bilgilerini kullanan SQL veri ambarı örneği başvurduğu bir dış veri kaynağı tanımını oluşturmaktır. Hiçbir değişiklik üzerinde uzak SQL veri ambarı örneği gereklidir. 
@@ -58,13 +50,12 @@ Esnek bir sorgu, SQL veri içinde bulunan veri ambarı SQL veritabanı örnekler
 > 
 > ALTER ANY dış veri KAYNAĞINA iznine sahip olması gerekir. Bu izin ALTER DATABASE izniyle dahil edilir. Uzak Veri kaynağına başvurmak için ALTER ANY dış veri kaynağı izinleri gereklidir.
 
-Sonraki uzak dış tablo tanımındaki bir uzak tablo SQL veri ambarı işaret eden bir SQL veritabanı örneğinde oluşturuyoruz. Bir dış tablo kullanan bir sorgu kullandığınızda, dış tabloya başvuran sorgu bölümünü işlenmek üzere SQL veri ambarı örneği için gönderilir. Sorgu tamamlandıktan sonra sonuç kümesi arama SQL veritabanı örneğine gönderilir. SQL veritabanı ile SQL veri ambarı arasında esnek bir sorgu ayarlama kısa öğretici için bkz [yapılandırma esnek sorgu SQL veri ambarı ile][Configure Elastic Query with SQL Data Warehouse].
+Ardından, bir uzak tablo SQL veri ambarı işaret eden bir SQL veritabanı örneğinde uzaktan dış tablo tanımı oluşturun. Sorguda bir dış tablo kullandığında, dış tabloya başvuran sorgu bölümünü işlenmek üzere SQL veri ambarı örneği için gönderilir. Sorgu tamamlandıktan sonra sonuç kümesi arama SQL veritabanı örneğine gönderilir. SQL veritabanı ile SQL veri ambarı arasında esnek bir sorgu ayarlama kısa öğretici için bkz [yapılandırma esnek sorgu SQL veri ambarı ile][Configure Elastic Query with SQL Data Warehouse].
 
 SQL Database esnek sorgu hakkında daha fazla bilgi için bkz: [Azure SQL Database esnek sorgu genel bakış][Azure SQL Database elastic query overview].
 
-
-
 ## <a name="best-practices"></a>En iyi uygulamalar
+Esnek sorgu etkili bir şekilde kullanmak için bu en iyi uygulamaları kullanın.
 
 ### <a name="general"></a>Genel
 
@@ -78,9 +69,9 @@ SQL Database esnek sorgu hakkında daha fazla bilgi için bkz: [Azure SQL Databa
 
 ### <a name="elastic-querying"></a>Esnek sorgulama
 
-- Çoğu durumda, bir tablonuz bir kısmı içinde SQL veritabanı performans ile SQL veri ambarında depolanan verileri geri kalanı için önbelleğe alınmış verileri olarak olduğu esnetilen tablo türü yönetmek isteyebilirsiniz. İki nesne SQL veritabanında sahip olmanız gerekir: bir dış tablo SQL veritabanındaki SQL veri ambarı ve tablo SQL veritabanı içinde "önbelleğe alınan" bölümünü içindeki temel tablo başvuruyor. Bir görünümü tablo ve dış tablo önbelleğe alınmış bölümünü üst hangi birleşimler oluşturma hem tablolar ve dış tablolara kullanıma sunulan SQL Database ve SQL Data Warehouse veri içinde gerçekleştirilip veri ayrı filtreleri geçerli göz önünde bulundurun.
+- Çoğu durumda, bir tablonuz bir kısmı içinde SQL veritabanı performans ile SQL veri ambarında depolanan verileri geri kalanı için önbelleğe alınmış verileri olarak olduğu esnetilen tablo türü yönetmek isteyebilirsiniz. İki nesne SQL veritabanında gerekir: bir dış tablo SQL veritabanındaki SQL veri ambarı ve tablo SQL veritabanı içinde "önbelleğe alınan" bölümünü içindeki temel tablo başvuruyor. Bir görünümü tablo ve dış tablo önbelleğe alınmış bölümünü üst hangi birleşimler oluşturma hem tablolar ve dış tablolara kullanıma sunulan SQL Database ve SQL Data Warehouse veri içinde gerçekleştirilip veri ayrı filtreleri geçerli göz önünde bulundurun.
 
-  SQL veritabanı örneğinde veri en son yıl tutmak isteriz düşünün. İki tablo sahibiz **dahili Siparişleri**, veri ambarı başvuran tablolar, sıralar ve **dbo. Siparişleri** en son SQL veritabanı örneğinde veri yıl eşitleyeceğini temsil eder. Bir tablo ya da başka bir sorgu karar vermek için kullanıcıların isteyen yerine bir görünüm bölüm noktasında en son yılın her iki tablonun üst üzerinden oluşturuyoruz.
+  SQL veritabanı örneğinde veri en son yıl tutmak istediğinizi varsayalım. **Dahili Siparişleri** tablo başvuruları veri ambarı tabloları sıralar. **Dbo. Siparişleri** en son SQL veritabanı örneğinde veri yıl eşitleyeceğini temsil eder. Bir tablo veya diğer sorgu karar vermek için kullanıcıların isteyen yerine, her iki tabloyu en son yılın bölüm noktasındaki üstündeki üzerinden bir görünüm oluşturun.
 
   ```sql
   CREATE VIEW dbo.Orders_Elastic AS
@@ -115,29 +106,27 @@ SQL Database esnek sorgu hakkında daha fazla bilgi için bkz: [Azure SQL Databa
 ### <a name="moving-data"></a>Veri taşıma 
 
 - Mümkünse, güncelleştirmelerin veri ambarı ve veritabanı örnekleri arasında kolayca sürdürülebilir şekilde veri yönetimi salt sonuna kaynak tabloları ile daha kolay tutun.
-- Veri ambarı düzeyi ve veritabanı örneği güncel tutmak için taşınabilir veri miktarını sorgu maliyetini en aza indirmek için temizleme ve dolgu semantiği ile bölüm düzeyinde verileri taşıyın. 
+- Bölüm düzeyiyle taşıma verilerini temizlemek ve veriler üzerinde sorgu maliyetini en aza indirmek için dolgu semantiği ambarı düzeyi ve veritabanı örneği güncel tutmak için taşınabilir veri miktarı. 
 
 ### <a name="when-to-choose-azure-analysis-services-vs-sql-database"></a>Ne zaman Azure Analysis Services vs SQL veritabanı seçin
 
-#### <a name="azure-analysis-services"></a>Azure Analysis Services
+Azure kullanmak Analiz Hizmetleri zaman:
 
 - Çok sayıda küçük sorguları gönderen bir BI aracıyla önbelleğiniz kullanmayı planladığınız
 - Sorgu gecikmesi subsecond
 - Yönetme/modelleri için analiz hizmetlerini geliştirmeye deneyiminiz 
 
-#### <a name="sql-database"></a>SQL Veritabanı
+Azure SQL kullanan ne zaman veritabanı:
 
 - Önbellek verilerinizle SQL sorgulamak istediğiniz
 - Bazı sorgular için uzaktan yürütme gerekir
 - Daha büyük önbellek gereksinimleri vardır
 
-
-
 ## <a name="faq"></a>SSS
 
 S: veritabanları esnek sorgu sahip bir esnek havuz içindeki kullanabilirim?
 
-Y: Evet. Esnek havuz içindeki SQL veritabanları, esnek sorgu kullanabilirsiniz. 
+C: Evet. Esnek havuz içindeki SQL veritabanları, esnek sorgu kullanabilirsiniz. 
 
 S: esnek sorgu için kullanabileceğim kaç veritabanları için bir sınır var mı?
 
@@ -161,19 +150,11 @@ A: varbinary(max) değerleri olarak SQL veri ambarı'nda, uzamsal türler saklay
 
 ![uzamsal türler](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 
-
-
-
-
-<!--Image references-->
-
 <!--Article references-->
 
-[SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop/
-[Configure Elastic Query with SQL Data Warehouse]: ./tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Configure Elastic Query with SQL Data Warehouse]: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
 [Feedback Page]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Database elastic query overview]: ../sql-database/sql-database-elastic-query-overview.md
 
-<!--MSDN references-->
 
-<!--Other Web references-->

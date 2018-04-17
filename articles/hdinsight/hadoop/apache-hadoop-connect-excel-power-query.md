@@ -1,8 +1,8 @@
 ---
-title: "Excel'i Power Query - Azure Hdınsight ile hadoop'a bağlama | Microsoft Docs"
-description: "Hdınsight'ta Hadoop depolanan verilere erişmek için Excel için Power Query kullanın ve business Intelligence bileşenleri yararlanabilir öğrenin."
+title: Excel'i Power Query - Azure Hdınsight ile hadoop'a bağlama | Microsoft Docs
+description: Hdınsight'ta Hadoop depolanan verilere erişmek için Excel için Power Query kullanın ve business Intelligence bileşenleri yararlanabilir öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -10,17 +10,15 @@ editor: cgronlun
 ms.assetid: 01ad2f90-7520-44d9-8c16-4d936faaff9b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 21dfaa9b4d2bb59cb2e84006ad58fcb6ce3f81b4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 0afb1259465189034a69ab7197cdea6fc0f517a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Excel için Hadoop Power Query kullanarak bağlan
 Bir anahtar Microsoft büyük veri çözüm Microsoft iş zekası (BI) bileşenleri Azure hdınsight'ta Hadoop kümeleri ile tümleştirilmesi özelliğidir. Excel için Excel eklenti Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabı bağlantı özelliği buna birincil bir örnektir. Bu makalede, ayarlayın ve Hdınsight ile yönetilen bir Hadoop kümesine ilişkilendirilmiş sorgu verileri için Power Query nasıl kullanılacağını açıklanmaktadır.
@@ -50,13 +48,13 @@ Excel için Power Query Eklentisi verilerini Hdınsight kümenize burada BI ara�
 
         - ' I tıklatın **veri** menüsünde tıklatın **Veri Al** gelen **Al & veri dönüştürme** Şerit'ye tıklayın **Azure**ve ardından**Azure HDInsight(HDFS) gelen**.
 
-        ![HDI.PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
+        ![HDI. PowerQuery.SelectHdiSource](./media/apache-hadoop-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
     - Excel 2013/2010
 
         - Tıklatın **Power Query** menüsünde tıklatın **Azure**ve ardından **Microsoft Azure Hdınsight'den**.
    
-        ![HDI.PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
+        ![HDI. PowerQuery.SelectHdiSource][image-hdi-powerquery-hdi-source]
        
         **Not:** görmüyorsanız **Power Query** menüsünde, Git **dosya** > **seçenekleri** > **eklentileri**seçip **COM eklentileri** açılan gelen **Yönet** sayfanın sonundaki kutusu. Seçin **Git...**  düğmesine tıklayın ve Excel eklentisi için Power Query için onay kutusunun seçili olduğunu doğrulayın.
        

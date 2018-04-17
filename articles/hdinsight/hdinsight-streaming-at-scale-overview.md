@@ -1,28 +1,26 @@
 ---
-title: "Azure hdınsight'ta ölçekte akış | Microsoft Docs"
-description: "Ölçeklenebilir Hdınsight kümeleri ile akış verileri kullanma"
+title: Azure hdınsight'ta ölçekte akış | Microsoft Docs
+description: Ölçeklenebilir Hdınsight kümeleri ile akış verileri kullanma
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: raghavmohan
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: ramoha
-ms.openlocfilehash: 46b5723805ab5d8bc1cf5b5183d9501cd3e4e3a2
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: 4f1a0873ccdffde7e3567d7e3c50336b20749116
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="streaming-at-scale-in-hdinsight"></a>Hdınsight'ta ölçekte akış
+# <a name="streaming-at-scale-in-hdinsight"></a>HDInsight’ta ölçeğe göre akış
 
 İçinde hareket halinde olan veriler üzerinde gerçek zamanlı büyük veri çözümleri davranır. Genellikle, bu veriler, Varış aynı anda en faydalıdır. Gelen veri akışının o anda işlenen büyük olursa, kaynakları kısıtlama gerekebilir. Alternatif olarak, Hdınsight kümesi isteğe bağlı düğüm ekleyerek akış çözümünüzü karşılamak üzere ölçeği artırabilirsiniz.
 

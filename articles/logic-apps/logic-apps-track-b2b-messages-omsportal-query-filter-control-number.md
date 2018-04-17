@@ -1,11 +1,11 @@
 ---
-title: "Operations Management Suite - Azure Logic Apps B2B iletiler için sorgu | Microsoft Docs"
-description: "Operations Management Suite izleme AS2, X 12 ve EDIFACT iletileri için sorgular oluşturun"
+title: Günlük analizi - Azure Logic Apps B2B iletiler için sorgu | Microsoft Docs
+description: Günlük analizi izleme AS2, X 12 ve EDIFACT iletileri için sorgular oluşturun
 author: padmavc
 manager: anneta
-editor: 
+editor: ''
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.service: logic-apps
 ms.workload: integration
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: bc1ea42c9fb81fe1e2a2594fda48500132cbb539
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 345857801035fb7f149a57a4f0d58e7668f35b81
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="query-for-as2-x12-and-edifact-messages-in-the-microsoft-operations-management-suite-oms"></a>Sorgu için AS2, X 12 ve EDIFACT iletileri Microsoft Operations Management Suite (OMS)
+# <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Sorgu için AS2, X 12 ve EDIFACT iletileri günlük analizi
 
-AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure günlük analizi](../log-analytics/log-analytics-overview.md) içinde [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md), belirli bir ölçüte dayalı Eylemler filtre sorgusu oluşturabilirsiniz. Örneğin, belirli Değişim Denetimi sayısına bağlı olarak iletileri bulabilirsiniz.
+AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure günlük analizi](../log-analytics/log-analytics-overview.md), belirli bir ölçüte dayalı Eylemler filtre sorgusu oluşturabilirsiniz. Örneğin, belirli Değişim Denetimi sayısına bağlı olarak iletileri bulabilirsiniz.
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -30,41 +30,41 @@ AS2 bulmak için X12 veya EDIFACT ile takip ettiğiniz iletileri [Azure günlük
 
 * İzleme ve günlük ile ayarlanan bir tümleştirme hesabı. Bilgi [tümleştirme hesap oluşturmak nasıl](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) ve [izlemeyi ve o hesap için günlüğe kaydetmeyi nasıl ayarlanacağını](../logic-apps/logic-apps-monitor-b2b-message.md).
 
-* Henüz yapmadıysanız [günlük analizi için tanılama veri yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [ileti OMS içinde izleme ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+* Henüz yapmadıysanız [günlük analizi için tanılama veri yayımlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) ve [günlük analizi izleme iletisi ayarlama](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
 > [!NOTE]
-> Önceki gereksinimlerini karşılamanızın sonra bir çalışma alanı olmalıdır [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md). OMS, B2B iletişiminde izlemek için aynı OMS çalışma kullanmanız gerekir. 
+> Önceki gereksinimlerini karşılamanızın sonra günlük analizi çalışma olması gerekir. Günlük analizi, B2B iletişiminde izlemek için aynı çalışma alanı kullanmanız gerekir. 
 >  
-> Bir OMS çalışma alanı yoksa, bilgi [bir OMS çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-get-started.md).
+> Günlük analizi çalışma alanı yoksa, bilgi [günlük analizi çalışma alanı oluşturmak nasıl](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="create-message-queries-with-filters-in-the-operations-management-suite-portal"></a>Operations Management Suite portalına filtreleri ile iletisi sorguları oluşturma
+## <a name="create-message-queries-with-filters-in-log-analytics"></a>Günlük analizi filtreleri ile iletisi sorguları oluşturma
 
 Bu örnek, değişim denetimi numarasına göre iletileri nasıl bulabilirsiniz gösterir.
 
 > [!TIP] 
-> OMS çalışma alanı adınız biliyorsanız, çalışma giriş sayfasına gidin (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve adım 4 olarak başlatın. Aksi takdirde, adım 1'den başlar.
+> Günlük analizi çalışma alanı adınız biliyorsanız, çalışma giriş sayfasına gidin (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve adım 4 olarak başlatın. Aksi takdirde, adım 1'den başlar.
 
 1. İçinde [Azure portal](https://portal.azure.com), seçin **tüm hizmetleri**. "İçin günlük analizi" araması yapın ve ardından **günlük analizi** aşağıda gösterildiği gibi:
 
    ![Günlük analizi Bul](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
 
-2. Altında **günlük analizi**, bulma ve OMS çalışma alanınızı seçin.
+2. Altında **günlük analizi**, bulma ve günlük analizi çalışma alanınızı seçin.
 
-   ![OMS çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
 3. Altında **Yönetim**, seçin **OMS portalı**.
 
    ![OMS portalı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
 
-4. OMS giriş sayfanızda seçin **günlük arama**.
+4. Giriş sayfanızda seçin **günlük arama**.
 
-   ![OMS giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -veya-
 
-   ![OMS menüsünde "Günlük arama" yi seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
-5. Arama kutusuna, bulmak ve basın istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, OMS olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
+5. Arama kutusuna, bulmak ve basın istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, günlük analizi olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
 
    Bu örnekte arama olan olaylar için **türü AzureDiagnostics =**.
 
@@ -106,15 +106,15 @@ Bu örnek, değişim denetimi numarasına göre iletileri nasıl bulabilirsiniz 
 
    ![Sorgunuz seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
 
-## <a name="find-and-run-saved-queries-in-the-operations-management-suite-portal"></a>Bulma ve Operations Management Suite Portalı'nda kayıtlı sorgu çalıştırma
+## <a name="find-and-run-saved-queries-in-log-analytics"></a>Bulma ve günlük analizi kaydedilmiş sorguları çalıştırma
 
-1. OMS çalışma giriş sayfanız açın (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve seçin **günlük arama**.
+1. Günlük analizi çalışma alanı giriş sayfanız açın (`https://{your-workspace-name}.portal.mms.microsoft.com`) ve seçin **günlük arama**.
 
-   ![OMS giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Günlük analizi giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
    -veya-
 
-   ![OMS menüsünde "Günlük arama" yi seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
 
 2. Üzerinde **günlük arama** giriş sayfasını, seçin **Sık Kullanılanlar**.
 

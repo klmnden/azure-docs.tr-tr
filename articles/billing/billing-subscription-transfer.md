@@ -1,12 +1,12 @@
 ---
-title: "Başka bir hesap için Azure aboneliği sahipliğini aktarma | Microsoft Docs"
-description: "Başka bir kullanıcı ve süreci hakkında bazı sık sorulan sorular (SSS) için bir Azure aboneliği aktarım açıklar"
-keywords: "Azure abonelik, azure aktarımı abonelik aktarımı, başka bir hesap, azure yeni abonelik sahibi azure aboneliği taşımak, azure aboneliği başka bir hesaba aktarın"
-services: 
-documentationcenter: 
+title: Başka bir hesap için Azure aboneliği sahipliğini aktarma | Microsoft Docs
+description: Başka bir kullanıcı ve süreci hakkında bazı sık sorulan sorular (SSS) için bir Azure aboneliği aktarım açıklar
+keywords: Azure abonelik, azure aktarımı abonelik aktarımı, başka bir hesap, azure yeni abonelik sahibi azure aboneliği taşımak, azure aboneliği başka bir hesaba aktarın
+services: ''
+documentationcenter: ''
 author: genlin
 manager: jlian
-editor: 
+editor: ''
 tags: billing,top-support-issue
 ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
@@ -17,11 +17,11 @@ ms.topic: troubleshooting
 ms.date: 12/13/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff694ee7c2ecf7f8ee5ea89902fa77efad3f501c
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 7e81037aeb3a8aee4f70eaf33280b1dc0d483332
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Başka bir hesap için bir Azure aboneliği sahipliğini aktarma
 
@@ -29,7 +29,7 @@ Aboneliğiniz Hesap Yöneticisi değiştirmek ve abonelik fatura sahipliğini el
 
 > [!IMPORTANT]
 > 
-> Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
+> Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Bir Azure aboneliği sahipliğini aktarma
 
@@ -51,7 +51,7 @@ Aboneliğiniz Hesap Yöneticisi değiştirmek ve abonelik fatura sahipliğini el
 
    > [!IMPORTANT]
    > 
-   > Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
+   > Yeni bir Azure AD aboneliği transfer ederseniz Kiracı, tüm rol atamalarını [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) kaynak kiracıdan kalıcı olarak silinir ve hedef Kiracı geçirilmez.
 
    ![Aktarım abonelik iletişim kutusu](./media/billing-subscription-transfer/image2.PNG)
 
@@ -93,7 +93,7 @@ Self Servis abonelik aktarımı teklifleri veya aşağıdaki tabloda listelenen 
 | [Microsoft iş ortağı ağı](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [MSDN platformları](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [Kullandıkça Öde](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
+| [Kullandıkça Öde geliştirme ve Test](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
 | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
 | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
 | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
@@ -115,7 +115,7 @@ Hesap Yöneticisi kaydolup veya Azure aboneliği satın kullanıcıdır. Bunlar 
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Her şeyi aktarım mu? Kaynak grupları, VM'ler, diskleri ve diğer çalışan hizmetleri de dahil olmak üzere?
 
-Tüm kaynaklarınıza VM'ler, diskler ve Web siteleri aktarımı için yeni sahibin ister. Ancak, tüm [yönetici rolleri](billing-add-change-azure-subscription-administrator.md) ve [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) ayarladığınız ilkeleri farklı dizinlerde aktarım değil. Ayrıca, [uygulama kayıtlar](../active-directory//develop/active-directory-integrating-applications.md) ve diğer Kiracı özgü hizmetler boyunca aktarım yok.
+Tüm kaynaklarınıza VM'ler, diskler ve Web siteleri aktarımı için yeni sahibin ister. Ancak, tüm [yönetici rolleri](billing-add-change-azure-subscription-administrator.md) ve [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) ayarladığınız ilkeleri farklı dizinlerde aktarım değil. Ayrıca, [uygulama kayıtlar](../active-directory//develop/active-directory-integrating-applications.md) ve diğer Kiracı özgü hizmetler boyunca aktarım yok.
 
 ### <a id="no-button"></a> Neden "abonelik aktarma" düğmesini görmüyorum?
 

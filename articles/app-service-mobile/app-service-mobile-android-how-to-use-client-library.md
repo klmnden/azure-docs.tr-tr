@@ -1,6 +1,6 @@
 ---
-title: "Android için Azure Mobile Apps SDK'sını kullanma | Microsoft Docs"
-description: "Android için Azure Mobile Apps SDK'sını kullanma"
+title: Android için Azure Mobile Apps SDK'sını kullanma | Microsoft Docs
+description: Android için Azure Mobile Apps SDK'sını kullanma
 services: app-service\mobile
 documentationcenter: android
 author: conceptdev
@@ -13,11 +13,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: crdun
-ms.openlocfilehash: f04f3fc7d2ff2e01baa78571b2ba267f8e4905c6
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 868ce171206fcd74ee0ecb099b67bf81970bc9ae
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android için Azure Mobile Apps SDK'sını kullanma
 
@@ -143,7 +143,7 @@ public class AzureServiceAdapter {
 
 Şimdi Ara `AzureServiceAdapter.Initialize(this);` içinde `onCreate()` ana etkinlik yöntemi.  İstemci erişim gerektiren herhangi bir yöntem `AzureServiceAdapter.getInstance();` hizmeti bağdaştırıcısı için bir başvuru elde edilir.
 
-## <a name="data-operations"></a>Veri İşlemleri
+## <a name="data-operations"></a>Veri işlemleri
 
 Azure Mobile Apps SDK'sı çekirdek mobil uygulama arka uç SQL Azure içinde depolanan verilere erişim sağlamaktır.  Kesin türü belirtilmiş sınıfları (tercih edilen) kullanarak bu verilere erişebilir veya türsüz sorgular (önerilmez).  Bu bölümde toplu kesin türü belirtilmiş sınıflarını kullanma ile ilgilidir.
 
@@ -224,8 +224,8 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
-    public DateTimeOffset getUpdatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    public DateTimeOffset getCreatedAt() { return mCreatedAt; }
+    protected DateTimeOffset setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
@@ -290,7 +290,7 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 Yan tümceler önceki sırayla sunulmalıdır.
 
-### <a name="filter"></a>Sonuçları filtreleme
+### <a name="filter"></a> Sonuçları filtreleme
 
 Genel sorgu şu şekildedir:
 
@@ -1098,7 +1098,7 @@ dependencies {
 
 1. Aşağıdaki değişiklik yapmadan uygulamanız için aşağıdaki kodu ekleyin:
 
-* Değiştir **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Https://login.microsoftonline.com/contoso.onmicrosoft.com biçiminde olmalıdır.
+* Değiştir **INSERT yetkilisi burada** uygulamanızı sağlanan Kiracı adı. Biçiminde olmalıdır https://login.microsoftonline.com/contoso.onmicrosoft.com.
 * Değiştir **Ekle-RESOURCE-kimliği-Buraya** , mobil uygulamanızın arka ucuna için istemci kimliği. İstemci kimliği elde edebilirsiniz **Gelişmiş** altında sekmesinde **Azure Active Directory ayarları** Portalı'nda.
 * Değiştir **Ekle-istemci-kimliği-Buraya** yerel istemci uygulamasından kopyaladığınız istemci kimliği.
 * Değiştir **Ekle-REDIRECT-URI-Buraya** sitenizin ile */.auth/login/done* uç noktasını, HTTPS şeması kullanarak. Bu değer benzer olmalıdır *https://contoso.azurewebsites.net/.auth/login/done*.

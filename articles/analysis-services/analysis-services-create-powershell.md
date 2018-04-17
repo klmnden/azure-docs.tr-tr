@@ -1,25 +1,18 @@
 ---
-title: "PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma | Microsoft Docs"
-description: "PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma hakkında bilgi edinin."
-services: analysis-services
-documentationcenter: 
+title: PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma | Microsoft Docs
+description: PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma hakkında bilgi edinin.
 author: minewiskan
 manager: kfile
-editor: 
-ms.assetid: 
 ms.service: analysis-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.custom: mvc
-ms.openlocfilehash: 083c5a9bb5c57f3287c259900e6a23d6f0a886de
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: cba5d5d6547421ed2d665fc78e35a654eda5fda6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>PowerShell kullanarak bir Azure Analysis Services sunucusu oluşturma
 

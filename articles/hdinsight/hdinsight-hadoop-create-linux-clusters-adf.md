@@ -1,8 +1,8 @@
 ---
-title: "Data Factory - Azure Hdınsight kullanarak isteğe bağlı Hadoop kümeleri oluşturma | Microsoft Docs"
-description: "Azure Data Factory kullanarak Hdınsight'ta isteğe bağlı Hadoop kümeleri oluşturmayı öğrenin."
+title: Data Factory - Azure Hdınsight kullanarak isteğe bağlı Hadoop kümeleri oluşturma | Microsoft Docs
+description: Azure Data Factory kullanarak Hdınsight'ta isteğe bağlı Hadoop kümeleri oluşturmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: spelluru
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 1f3b3a78-4d16-4d99-ba6e-06f7bb185d6a
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.openlocfilehash: b9b73f6691af957e42236ef9a223411a0296f96f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 213f1122dc9f616474005070ae3aefa45641fecc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Azure Data Factory kullanarak Hdınsight'ta isteğe bağlı Hadoop kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -66,7 +64,7 @@ Data Factory veri dönüştürme etkinlikleri Hive etkinliği yanı sıra bir li
 > [!NOTE]
 > Şu anda, Azure veri fabrikası'ndan yalnızca Hdınsight kümesi sürüm 3.2 oluşturabilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaledeki yönergeleri başlamadan önce aşağıdaki öğeleri sahip olmanız gerekir:
 
 * [Azure aboneliği](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -85,11 +83,11 @@ Bu senaryoda, en çok üç depolama hesaplarını kullanabilirsiniz:
 
 1. Azure'da oturum açın.
 2. Bir Azure kaynak grubu oluşturun.
-3. Bir Azure depolama hesabı oluşturun.
+3. Bir Azure Depolama hesabı oluşturun.
 4. Depolama hesabında Blob kapsayıcısı oluşturma
 5. Aşağıdaki iki dosyaları Blob kapsayıcısına kopyalayın:
 
-   * Giriş veri dosyasını: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
+   * Giriş veri dosyası: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/inputdata/input.log)
    * HiveQL betiğini: [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql)
 
      Her iki dosyaları bir ortak Blob kapsayıcısında depolanır.
@@ -189,7 +187,7 @@ PowerShell Betiği yardıma gereksinim duyarsanız, bkz: [Azure Storage ile Azur
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>Resource Manager şablonu kullanarak bir veri fabrikası oluşturun
 Depolama hesabı, girdi verileri ve hazırlanan HiveQL betiğini ile bir Azure data factory oluşturmak hazır olursunuz. Veri Fabrikası oluşturmaya yönelik birkaç yöntem vardır. Bu öğreticide, Azure portalını kullanarak bir Azure Resource Manager şablonu dağıtarak veri fabrikası oluşturun. Kullanarak bir Resource Manager şablonu dağıtabilirsiniz [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) ve [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template). Diğer veri fabrikası oluşturma yöntemleri için bkz: [Öğreticisi: ilk data factory'nizi derleme](../data-factory/quickstart-create-data-factory-dot-net.md).
 
-1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure portalında Resource Manager şablonunu açın. Şablon https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json bulunur. Bkz: [Data Factory varlıklarını şablondaki](#data-factory-entities-in-the-template) şablonda tanımlı varlıklar hakkında ayrıntılı bilgi için bölüm. 
+1. Aşağıdaki resme tıklayarak Azure'da oturum açın ve Azure portalında Resource Manager şablonunu açın. Şablonunda konumdadır: https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json. Bkz: [Data Factory varlıklarını şablondaki](#data-factory-entities-in-the-template) şablonda tanımlı varlıklar hakkında ayrıntılı bilgi için bölüm. 
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fadfhiveactivity%2Fdata-factory-hdinsight-on-demand.json" target="_blank"><img src="./media/hdinsight-hadoop-create-linux-clusters-adf/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Seçin **kullanım varolan** seçenek için **kaynak grubu** ayarlama ve (PowerShell Betiği kullanılarak) önceki adımda oluşturduğunuz kaynak grubunun adını seçin.

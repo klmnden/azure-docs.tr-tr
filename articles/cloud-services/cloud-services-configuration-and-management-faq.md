@@ -1,11 +1,11 @@
 ---
-title: "Yapılandırması ve yönetimi sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs"
-description: "Bu makalede, yapılandırması ve yönetimi için Microsoft Azure bulut hizmetleri hakkında sık sorulan sorular listelenmektedir."
+title: Yapılandırması ve yönetimi sorunları için Microsoft Azure bulut Hizmetleri ile ilgili SSS | Microsoft Docs
+description: Bu makalede, yapılandırması ve yönetimi için Microsoft Azure bulut hizmetleri hakkında sık sorulan sorular listelenmektedir.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
 ms.service: cloud-services
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: genli
-ms.openlocfilehash: 916fbb436806c64ded9ebf9fdd9c57c42d0809f0
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: cc43d1a0e07eac78a47e6f183c2fd066a489f4f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure bulut Hizmetleri için yapılandırma ve yönetme sorununu: sık sorulan sorular (SSS)
 
@@ -201,7 +201,7 @@ Daha fazla bilgi için bkz: [HTTP/2 IIS'de](https://blogs.iis.net/davidso/http2)
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Nasıl ı bulut Hizmetleri için rol tabanlı erişim uygulayabilirsiniz?
 Bulut Hizmetleri bir Azure Resource Manager temelli hizmeti olmadığından rol tabanlı erişim denetimi (RBAC) modelini desteklemez.
 
-Bkz: [Klasik abonelik yöneticileri ve Azure RBAC](../active-directory/role-based-access-control-what-is.md#azure-rbac-vs-classic-subscription-administrators).
+Bkz: [Klasik abonelik yöneticileri ve Azure RBAC](../role-based-access-control/overview.md#azure-rbac-vs-classic-subscription-administrators).
 
 ## <a name="remote-desktop"></a>Uzak masaüstü
 

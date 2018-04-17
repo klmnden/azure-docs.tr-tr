@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services'a bağlanmak için gereken istemci kitaplığı | Microsoft Docs"
-description: "Azure Analysis Services bağlanmak istemci uygulamaları ve araçları için gerekli istemci kitaplıkları açıklar"
-services: analysis-services
-documentationcenter: 
+title: Azure Analysis Services'a bağlanmak için gereken istemci kitaplığı | Microsoft Docs
+description: Azure Analysis Services bağlanmak istemci uygulamaları ve araçları için gerekli istemci kitaplıkları açıklar
 author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5c847f5cd02503b708db8a0a0211b5d403df0943
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.reviewer: minewiskan
+ms.openlocfilehash: 66818fd0d6618abe83903df8723e3e17920a4a2e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services'a bağlanmak için istemci kitaplıkları
 
@@ -72,14 +65,14 @@ Microsoft Power BI Desktop ve Excel gibi istemci uygulamaları, tüm üç istemc
 
  ADOMD.NET Analysis Services veri sorgulama için kullanılan bir yönetilen veri istemci kitaplıktır. Yüklü ve araçları ve istemci uygulamaları tarafından kullanılan. 
   
- Bir veritabanına bağlanırken, tüm üç kitaplıkları için bağlantı dizesi özellikleri benzerdir. Tanımladığınız için ADOMD.NET kullanarak neredeyse her bağlantı dizesi [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) AMO ve Analysis Services OLE DB sağlayıcısı (MSOLAP) için de çalışır. Daha fazla bilgi için bkz: [bağlantı dizesi özellikleri &#40; Analysis Services &#41; ](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
+ Bir veritabanına bağlanırken, tüm üç kitaplıkları için bağlantı dizesi özellikleri benzerdir. Tanımladığınız için ADOMD.NET kullanarak neredeyse her bağlantı dizesi [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) AMO ve Analysis Services OLE DB sağlayıcısı (MSOLAP) için de çalışır. Daha fazla bilgi için bkz: [bağlantı dizesi özellikleri &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services).  
 
   
 ##  <a name="bkmk_LibUpdate"></a> İstemci kitaplığı sürümü belirleme   
   
 ### <a name="oleddb-msolap"></a>OLEDDB (MSOLAP)  
   
-1.  Go to `C:\Program Files\Microsoft Analysis Services\AS OLEDB\. Birden fazla klasör varsa, en yüksek sayıyı seçin.
+1.  Git ' C:\Program Files\Microsoft Analysis Services\AS OLEDB\. Birden fazla klasör varsa, en yüksek sayıyı seçin.
   
 2.  Sağ **msolap.dll** > **özellikleri** > **ayrıntıları**. Dosya adı msolap140.dll ise, eski en son sürüme ve yükseltilmelidir.
     

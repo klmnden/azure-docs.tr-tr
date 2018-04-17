@@ -1,36 +1,32 @@
 ---
-title: "Uygulama hizmeti ve Azure işlevleri hizmet kimliği yönetilen | Microsoft Docs"
-description: "Azure App Service ve Azure işlevleri yönetilen hizmet kimliği desteği için kavramsal başvurusu ve Kurulum Kılavuzu"
+title: Uygulama hizmeti ve Azure işlevleri hizmet kimliği yönetilen | Microsoft Docs
+description: Azure App Service ve Azure işlevleri yönetilen hizmet kimliği desteği için kavramsal başvurusu ve Kurulum Kılavuzu
 services: app-service
 author: mattchenderson
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 04/12/2018
 ms.author: mahender
-ms.openlocfilehash: 09e848abaf09811ff3f2b8ad009cd23dedb6645d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a2aacc28a70a5150c1903a60c7a697409e2bbbe7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Azure yönetilen hizmet kimliği (genel Önizleme) uygulama hizmeti ve Azure işlevleri kullanma
 
 > [!NOTE] 
-> Uygulama hizmeti ve Azure işlevleri için Yönetilen hizmet kimliği şu anda önizlemede değil.
+> Uygulama hizmeti ve Azure işlevleri için Yönetilen hizmet kimliği şu anda önizlemede değil. Linux ve Web uygulaması kapsayıcıları için uygulama hizmeti şu anda desteklenmemektedir.
 
 Bu konuda, uygulama hizmeti ve Azure işlevleri uygulamaları için bir yönetilen uygulama kimliği oluşturma ve diğer kaynaklarına erişmek için kullandıkları gösterir. Yönetilen hizmet kimliği Azure Active Directory'den kolayca Azure anahtar kasası gibi diğer AAD korumalı kaynaklara erişmek uygulamanızı sağlar. Kimlik ve Azure platformu tarafından yönetilir ve sağlamak veya tüm gizli döndürmek gerektirmez. Yönetilen hizmet kimliği hakkında daha fazla bilgi için bkz: [yönetilen hizmet Kimliği'ne genel bakış](../active-directory/managed-service-identity/overview.md).
 
 ## <a name="creating-an-app-with-an-identity"></a>Bir kimliği ile bir uygulama oluşturma
 
 Bir uygulama bir kimlikle oluşturma uygulamanın ayarlanması için ek bir özelliği gerektirir.
-
-> [!NOTE] 
-> Bir site için yalnızca birincil yuva kimliği alır. Yönetilen hizmet kimlikleri için dağıtım yuvası henüz desteklenmiyor.
-
 
 ### <a name="using-the-azure-portal"></a>Azure portalını kullanma
 
@@ -48,11 +44,11 @@ Bir yönetilen hizmet kimliği portalında ayarlamak için önce bir uygulamayı
 
 ### <a name="using-the-azure-cli"></a>Azure CLI kullanma
 
-Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp assign-identity` varolan bir uygulamaya göre komutu. Bu bölümde örnekleri çalıştırmak için üç seçeneğiniz vardır:
+Azure CLI kullanarak bir yönetilen hizmet kimliği ayarlamak için kullanmanız gerekecektir `az webapp identity assign` varolan bir uygulamaya göre komutu. Bu bölümde örnekleri çalıştırmak için üç seçeneğiniz vardır:
 
 - Kullanım [Azure bulut Kabuk](../cloud-shell/overview.md) Azure portalından.
 - Her kod bloğunun sağ üst köşesinde yer alan "deneyin" düğmesini, aracılığıyla katıştırılmış Azure bulut kabuğunu kullanın.
-- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.21 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. 
+- [CLI 2.0'ın en son sürümünü yüklemek](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.31 veya sonrası) yerel CLI konsol kullanmayı tercih ederseniz. 
 
 Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimlik atama size yol gösterir:
 
@@ -65,14 +61,14 @@ Aşağıdaki adımlar bir web uygulaması oluşturma ve CLI kullanarak bir kimli
 
     ```azurecli-interactive
     az group create --name myResourceGroup --location westus
-    az appservice plan create --name myplan --resource-group myResourceGroup --sku S1
-    az webapp create --name myapp --resource-group myResourceGroup --plan myplan
+    az appservice plan create --name myPlan --resource-group myResourceGroup --sku S1
+    az webapp create --name myApp --resource-group myResourceGroup --plan myPlan
     ```
 
-3. Çalıştırma `assign-identity` komutu bu uygulama için kimlik oluşturmak için:
+3. Çalıştırma `identity assign` komutu bu uygulama için kimlik oluşturmak için:
 
     ```azurecli-interactive
-    az webapp assign-identity --name myApp --resource-group myResourceGroup
+    az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
 ### <a name="using-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu kullanarak

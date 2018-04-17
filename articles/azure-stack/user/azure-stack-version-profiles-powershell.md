@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 04/12/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 890237ff40f9c9893c57f49c96e6ddc99849c2bd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b09799fe102522e1ad91f4983cf4f5fa8122b2c1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>PowerShell Azure yığınında için API sürümü profillerini kullanma
 
@@ -34,15 +34,10 @@ API sürümü profilleri sürüm farklarını Azure ve Azure yığın yönetmek 
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-AzureRM.Bootstrapper modülü önizlemede değil; Ayrıntılar ve işlevsellik değiştirilebilir. PowerShell Galerisi'nden bu modül en son sürümünü yükleyip karşıdan yüklemek için aşağıdaki cmdlet'i çalıştırın:
-
-```PowerShell
-Update-Module -Name "AzureRm.BootStrapper"
-```
 
 ## <a name="install-a-profile"></a>Profil yükleyin
 
-Kullanım **yükleme AzureRmProfile** cmdlet'iyle **2017-03-09-profili** Azure yığını tarafından gerekli AzureRM modüllerini yüklemek için API sürümü profili. Bu API sürümü profiliyle Azure yığın işleci modülleri yüklenmemiş ve bunlar ayrı olarak belirtildiği gibi adım 3'te yüklenmesi gerektiğini unutmayın [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md) makalesi.
+Kullanım **yükleme AzureRmProfile** cmdlet'iyle **2017-03-09-profili** Azure yığını tarafından gerekli AzureRM modüllerini yüklemek için API sürümü profili. Bu API sürümü profiliyle Azure yığın işleci modülleri yüklü değil. Ayrı ayrı belirtildiği gibi adım 3'te yüklenmeleri gerekir [Azure yığını için PowerShell yükleme](azure-stack-powershell-install.md) makalesi.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile

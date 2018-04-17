@@ -1,27 +1,25 @@
 ---
 title: Hadoop - Microsoft Avro Library - Azure veri seri hale | Microsoft Docs
-description: "Seri hale getirmek ve bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak hdınsight'ta Hadoop verileri seri durumdan öğrenin."
+description: Seri hale getirmek ve bellek, veritabanı veya dosya kalıcı hale getirmek için Microsoft Avro Library kullanarak hdınsight'ta Hadoop verileri seri durumdan öğrenin.
 keywords: Avro, hadoop avro
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: c78dc20d-5d8d-4366-94ac-abbe89aaac58
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5bb2ee2b9b838cc9feca60eca6b2c721ca58ed45
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 9b4bd615a8a64070a9b246cb8fe8635cc89108cf
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>Microsoft Avro Library Hadoop'ta verileri seri hale
 
@@ -1384,7 +1382,7 @@ Ayrıca, örnek önce ve sonra ana işlemlerini gerçekleştirme temizleme yorda
 * Örnek kök dizininde app.config dosyasını düzenleyin ve örnek oluşturma
 * İlk örneği oluşturmak ve ardından AvroHDISample.exe.config yapı dizininde düzenleyin
 
-Her iki durumda da, tüm düzenlemeleri yapılmalıdır '  **<appSettings>**  ayarları bölümü. Dosya açıklamaları izleyin.
+Her iki durumda da, tüm düzenlemeleri yapılmalıdır ' **<appSettings>** ayarları bölümü. Dosya açıklamaları izleyin.
 Örnek komut satırından şu komutu yürüterek çalıştırın (burada örnekle .zip dosyası için C:\AvroHDISample; ayıklanacak kabul Aksi halde, ilgili dosya yolunu kullan):
 
     AvroHDISample run C:\AvroHDISample\Data

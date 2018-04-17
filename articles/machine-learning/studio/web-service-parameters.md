@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 520427b99c05fcbc8125bdbde7d8eb56e7487292
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3eb6f08d89daec063841eeb5fff8479c9f2f41fe
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-machine-learning-web-service-parameters"></a>Azure Machine Learning Web Hizmeti Parametrelerini kullanma
 Bir Azure Machine Learning web hizmetini yapılandırılabilir parametrelerle modülleri içeren bir denemeyi yayımlayarak oluşturulur. Bazı durumlarda, web hizmetinin çalıştığı sırada modülü davranışı değiştirmek isteyebilirsiniz. *Web hizmeti parametreleri* bu görevi yapmanıza olanak sağlar. 
@@ -52,7 +52,7 @@ Bir örnek, bir deneme ile sahibiz varsayalım bir [verileri dışa aktar] [ wri
    * Altında **Lütfen verileri hedef belirtin**, "Azure Blob Storage" seçin.
    * Altında **Lütfen kimlik doğrulama türünü belirtin**, "Hesap" seçin.
    * Azure blob depolama hesabı bilgilerini girin. 
-     <p />
+
 3. Simgesine sağ tarafındaki **kapsayıcı parametresi ile başlayan blob yolu**. Şöyle görünür:
    
    ![Web hizmeti parametresi simgesi][icon]

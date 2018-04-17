@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs"
-description: "Desteklenen ayarlar genel bir bakış Azure Active Directory koşullu erişim ilkesinde alın."
+title: Azure Active Directory koşullu erişim ayarları başvurusu | Microsoft Docs
+description: Desteklenen ayarlar genel bir bakış Azure Active Directory koşullu erişim ilkesinde alın.
 services: active-directory.
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2018
+ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 3e65371396b91c1dc97f504bac8b969093f5c518
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 300367ee4e4bdb412bf4e5f25ba6cea067e18ed3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -123,7 +123,7 @@ Bu ayarı tüm tarayıcılarla çalışır. Ancak, bir uyumlu aygıt gereksinim 
 
 | İşletim Sistemi                     | Tarayıcılar                            | Destek     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, Edge, Chrome     | ![İşaretli][1] |
+| Windows 10             | Internet Explorer, kenar, Chrome     | ![İşaretli][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![İşaretli][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![İşaretli][1] |
 | iOS                    | Safari, Intune yönetilen tarayıcı      | ![İşaretli][1] |
@@ -147,7 +147,7 @@ Chrome için destek **7 ve Windows 8.1**, aşağıdaki kayıt defteri anahtarı 
 |--- | ---|
 |Yol | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Ad | 1 |
-|Tür | REG_SZ (String) |
+|Tür | REG_SZ (dize) |
 |Veriler | {"düzeni": "https://device.login.microsoftonline.comfiltre" ",": {"Veren": {"CN =": "MS Kuruluş erişim"}}}|
 
 Bu tarayıcılar tanımlanması ve bir ilke karşı doğrulanmış olanak tanır cihaz kimlik doğrulamasını destekler. Tarayıcı özel modda çalışıyorsa, aygıt denetimi başarısız olur. 
@@ -164,24 +164,24 @@ Koşullu erişim ilkenizi seçtiğiniz **mobil uygulamalar ve Masaüstü istemci
 Bu ayar aşağıdaki mobil uygulamalar ve Masaüstü istemcileri yapılan erişim denemesi üzerinde bir etkisi vardır: 
 
 
-| İstemci uygulamaları| Hedef hizmet| Platform |
-| --- | --- | --- |
-| Azure RemoteApp| Azure uzak uygulama hizmeti| Windows 10, Windows 8.1, Windows 7, iOS, Android, and Mac OS X|
-| Dynamics CRM uygulaması| Dynamics CRM| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
-| Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013| Office 365 Exchange Online| Windows 10|
-| MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez.| Herhangi bir My uygulamaları uygulama hizmeti| Android ve iOS|
-| Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler| Microsoft Teams| Windows 10, Windows 8.1, Windows 7, iOS, Android and macOS|
-| Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1, Windows 7|
-| Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan| Office 365 SharePoint Online| Windows 10|
-| MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan| Office 365 SharePoint Online| Mac OS X|
-| Office mobil uygulamaları| Office 365 SharePoint Online| Android, iOS|
-| Office Yammer uygulaması| Office 365 Yammer| Windows 10, iOS, Android|
-| Outlook 2016 (Office macOS için)| Office 365 Exchange Online| Mac OS X|
-| Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)| Office 365 Exchange Online| Windows 8.1, Windows 7|
-| Outlook mobil uygulama| Office 365 Exchange Online| Android, iOS|
-| Power BI uygulaması| Powerbı hizmeti| Windows 10, Windows 8.1, Windows 7, Android ve iOS|
-| Skype Kurumsal| Office 365 Exchange Online| Android, IOS|
-| Visual Studio Team Services uygulama| Visual Studio Team Services| Windows 10, Windows 8.1, Windows 7, iOS ve Android|
+|İstemci uygulamaları|Hedef hizmet|Platform|
+|---|---|---|
+|Azure RemoteApp|Azure uzak uygulama hizmeti|Windows 10, Windows 8.1, Windows 7, iOS, Android ve Mac OS X|
+|Dynamics CRM uygulaması|Dynamics CRM|Windows 10, Windows 8.1, iOS ve Android|
+|Takvim/posta/kişiler uygulama, Outlook 2016 (modern kimlik doğrulaması ile) Outlook 2013|Office 365 Exchange Online|Windows 10|
+|MFA ve konum İlkesi uygulamalar için. Cihaz tabanlı ilkeleri desteklenmez. |Herhangi bir My uygulamaları uygulama hizmeti|Android ve iOS|
+|Microsoft ekipleri Hizmetleri - bu Microsoft Teams ve tüm alt istemci uygulamaları - Windows Masaüstü, iOS, Android, WP ve web istemcisi destekleyen tüm hizmetleri denetler|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android ve macOS |
+|Office 2016 uygulamaları, Office 2013 (modern kimlik doğrulaması ile) OneDrive eşitleme istemci (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Office 2016 uygulamalar, Evrensel Office uygulamaları, Office 2013 (modern kimlik doğrulaması ile), OneDrive eşitleme istemcisi (bkz [notları](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office grupları destek gelecek için planlanan, SharePoint uygulama destek gelecek için planlanan|Office 365 SharePoint Online|Windows 10|
+|MacOS (Word, Excel, PowerPoint, yalnızca OneNote) için Office 2016. OneDrive iş desteğine gelecek için planlanan|Office 365 SharePoint Online|Mac OS X|
+|Office mobil uygulamaları|Office 365 SharePoint Online|Android, iOS|
+|Office Yammer uygulaması|Office 365 Yammer|Windows 10, iOS, Android|
+|Outlook 2016 (Office macOS için)|Office 365 Exchange Online|Mac OS X|
+|Outlook 2016, Outlook 2013 (modern kimlik doğrulaması ile) Skype Kurumsal (modern kimlik doğrulaması)|Office 365 Exchange Online|Windows 8.1, Windows 7|
+|Outlook mobil uygulama|Office 365 Exchange Online|Android, iOS|
+|Power BI uygulaması|Powerbı hizmeti|Windows 10, Windows 8.1, Windows 7, Android ve iOS|
+|Skype Kurumsal|Office 365 Exchange Online|Android, IOS |
+|Visual Studio Team Services uygulama|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS ve Android|
 
 
 
@@ -197,14 +197,14 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 - Microsoft Intune yönetilen tarayıcı
 - Microsoft PowerBI
 - Microsoft faturalama
-- Microsoft Launcher
+- Microsoft Başlatıcısı
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook
-- Microsoft Planner
+- Microsoft Planlayıcısı
 - Microsoft PowerPoint
 - Microsoft SharePoint
 - Microsoft Skype Kurumsal

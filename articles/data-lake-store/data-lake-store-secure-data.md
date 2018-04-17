@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 4d926ee08da593e590aa77a2ca09d8d1e1f6bb46
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5d91d8d00a37422dcead195354447d602b801f9e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama
 Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yaklaşımdır.  Her ikisi de rol tabanlı erişim denetimi (RBAC) ve tam olarak kullanıcılar ve güvenlik grupları için veri erişimini etkinleştirmek için erişim denetim listelerini (ACL'ler) ayarlamanız gerekir.
 
-1. Azure Active Directory (AAD içinde) güvenlik grupları oluşturarak başlayın. Bu güvenlik grupları, Azure portalında rol tabanlı erişim denetimi (RBAC) uygulamak için kullanılır. Daha fazla bilgi için bkz: [Microsoft Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+1. Azure Active Directory (AAD içinde) güvenlik grupları oluşturarak başlayın. Bu güvenlik grupları, Azure portalında rol tabanlı erişim denetimi (RBAC) uygulamak için kullanılır. Daha fazla bilgi için bkz: [Microsoft Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 2. AAD güvenlik gruplarının Azure Data Lake Store hesabına atayın. Bu erişim denetimleri Data Lake Store hesabından portalı veya API'ler portal ve yönetim işlemleri için.
 3. AAD güvenlik gruplarının Data Lake Store dosya sistemi üzerinde denetim listeleri (ACL) erişimi atayın.
 4. Ayrıca, Data Lake Store'da verilere erişebilir istemciler için bir IP adresi aralığı ayarlayabilirsiniz.

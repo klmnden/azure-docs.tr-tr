@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 990c3ed8c6fd79430b27c7c96673f7845e54b26f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: bd11ec7c8a32792853e60b4bb14d4ed52f53f4a3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Kaynakları eylemlerini denetlemek için etkinlik günlüklerini görüntüle
 
@@ -30,7 +30,7 @@ Etkinlik günlükleri, belirleyebilirsiniz:
 * İşlem durumu
 * İşlemi yardımcı olabilecek diğer özelliklerin değerlerine araştırma
 
-Etkinlik günlüğü kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Okuma işlemleri (GET) içermez. Kaynak eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../active-directory/role-based-access-control-resource-provider-operations.md). Denetim günlüklerini hata sorunlarını giderirken bulmak için veya bir kullanıcı, kuruluşunuzdaki bir kaynak nasıl değişiklik izlemek için kullanabilirsiniz.
+Etkinlik günlüğü kaynaklarınız üzerinde gerçekleştirilen tüm yazma işlemlerini (PUT, POST, DELETE) içerir. Okuma işlemleri (GET) içermez. Kaynak eylemler listesi için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md). Denetim günlüklerini hata sorunlarını giderirken bulmak için veya bir kullanıcı, kuruluşunuzdaki bir kaynak nasıl değişiklik izlemek için kullanabilirsiniz.
 
 Etkinlik günlükleri 90 gün boyunca saklanır. Başlangıç tarihi geçmiş 90 günden fazla değil sürece herhangi bir tarih aralığı için sorgulayabilirsiniz.
 
@@ -154,8 +154,8 @@ Etkinlik günlüğü ile çalışmaya yönelik REST işlemlerini parçası olan 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Power BI ile Azure etkinlik günlükleri aboneliğinizde eylemler hakkında daha fazla öngörü elde etmek için kullanılır. Bkz: [Görünüm ve Power BI ve daha fazla Azure etkinlik günlüklerini analiz edin](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
-* Güvenlik ilkelerini ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+* Güvenlik ilkelerini ayarlama bilgi edinmek için [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 * Dağıtım işlemlerini görüntülemek için komutları hakkında bilgi edinmek için [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).
 * Tüm kullanıcılar için bir kaynakta Silmeleri Engelle öğrenmek için bkz: [Azure Resource Manager ile kaynakları kilitleme](resource-group-lock-resources.md).
-* Her bir Microsoft Azure Resource Manager sağlayıcısı için kullanılabilir işlemleri listesini görmek için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
+* Her bir Microsoft Azure Resource Manager sağlayıcısı için kullanılabilir işlemleri listesini görmek için bkz: [Azure Resource Manager kaynak sağlayıcısı işlemleri](../role-based-access-control/resource-provider-operations.md)
 

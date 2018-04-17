@@ -1,25 +1,25 @@
 ---
-title: "Azure bağlantısı kesilmiş dağıtım kararları Azure yığınının tümleşik sistemleri | Microsoft Docs"
-description: "Dağıtım Planlama Azure yığın Azure bağlı çok düğümlü dağıtımlar için kararları belirleyin."
+title: Azure bağlantısı kesilmiş dağıtım kararları Azure yığınının tümleşik sistemleri | Microsoft Docs
+description: Dağıtım Planlama Azure yığın Azure bağlı çok düğümlü dağıtımlar için kararları belirleyin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 04/09/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e697dec0f3d104af073fd61bac81a00e182524e1
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 8fbc489bacb3c8592ee99fc5a4486fd864f498ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Planlama kararları Azure yığınının azure bağlantısı kesilmiş dağıtım sistemleri tümleşik
 Karar verdim sonra [nasıl karma bulut ortamınıza Azure yığın tümleştirecek](azure-stack-connection-models.md), ardından Azure yığın dağıtım kararlarınızı sonlandır.
@@ -45,7 +45,7 @@ Azure yığın bazı özellikleri ve işlevleri engelli ya da bağlantısı kesi
 |Docker komutları çalıştırmak için Docker uzantılı VM dağıtımı|Engelli – Docker Internet en son sürümü için kontrol eder ve bu denetimi başarısız olur.|
 |Azure yığın portalındaki belgelere bağlantılar|Kullanılamıyor – görüş, Yardım, hızlı başlangıç, vb. bir Internet URL'si çalışmaz kullanan gibi bağlantılar.|
 |Uyarı düzeltme/çevrimiçi düzeltme kılavuzda başvuran azaltma|Kullanılamaz – bir Internet URL'si çalışmaz kullanan herhangi bir uyarı düzeltme bağlar.|
-|Market dağıtım – seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleme olanağı|Kullanılamaz – bu özellik, Azure ve Azure Active Directory hesabına bağlantısı gerektirir.|
+|Market dağıtım – seçin ve doğrudan Azure Marketi'nden galeri paketleri ekleme olanağı|Engelli – bağlantısız modda (olmadan, herhangi bir internet bağlantısı) Azure yığın dağıttığınızda, Azure yığın portalını kullanarak Market öğesi yükleyemiyor. Ancak, kullanabileceğiniz [Market dağıtım aracı](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) Market öğeleri Internet bağlantısına sahip bir makineye yüklemek ve ardından bunları Azure yığın ortamınıza aktarmak için.|
 |Bir Azure yığın dağıtımını yönetmek için Azure Active Directory Federasyon hesaplarını kullanma|Kullanılamıyor – bu özellik Azure bağlantısı gerektirir. AD FS yerel Active Directory örneği ile bunun yerine kullanılmalıdır.|
 |WebApps ve SQL gibi kaynak sağlayıcıları|Kullanılamıyor - kaynak sağlayıcıları WebApps ve SQL gibi içerik için Internet erişimi gerektirir.|
 |Komut Satırı Arabirimi (CLI)|Engelli – CLI kimlik doğrulaması ve hizmet ilkeleri sağlama açısından işlevselliği düşürdü.|
@@ -53,7 +53,7 @@ Azure yığın bazı özellikleri ve işlevleri engelli ya da bağlantısı kesi
 |Visual Studio – AD FS|Visual Studio Enterprise AD FS'nin desteklediği yalnızca – engelli.
 Telemetri|Kullanılamıyor – Azure yığınının Telemetri verilerini ilişkin telemetri verilerini bağımlı iyi gibi tüm üçüncü taraf galeri paketler.|
 |Sertifikalar|Sertifika iptal listesi (CRL) ve çevrimiçi sertifika durumu Protokolü (OSCP) hizmeti HTTPS bağlamında kullanılamıyor – Internet bağlantısı gereklidir.|
-|Key-Vault|Engelli – genel bir kullanım örneği anahtar kasası için çalışma zamanında gizli anahtarları okumak bir uygulama olmalıdır. Bu uygulamanın bir hizmet sorumlusu dizininde gerekir. Azure Active Directory'de normal kullanıcıların (Yönetici olmayanlar) hizmet asıl adı eklemek için izin verilen varsayılan olarak gelir. (ADFS kullanarak) AD içinde değiller. Bir her zaman herhangi bir uygulama eklemek için dizin Yöneticisi gitmeniz gerekir çünkü bu bir hurdle uçtan uca deneyimi yerleştirir.| 
+|Anahtar kasası|Engelli – genel bir kullanım örneği anahtar kasası için çalışma zamanında gizli anahtarları okumak bir uygulama olmalıdır. Bu uygulamanın bir hizmet sorumlusu dizininde gerekir. Azure Active Directory'de normal kullanıcıların (Yönetici olmayanlar) hizmet asıl adı eklemek için izin verilen varsayılan olarak gelir. (ADFS kullanarak) AD içinde değiller. Bir her zaman herhangi bir uygulama eklemek için dizin Yöneticisi gitmeniz gerekir çünkü bu bir hurdle uçtan uca deneyimi yerleştirir.| 
 
 ## <a name="learn-more"></a>Daha fazla bilgi edinin
 - Kullanım örnekleri, satın alma, iş ortakları ve OEM donanım satıcıları hakkında daha fazla bilgi için bkz: [Azure yığın](https://azure.microsoft.com/overview/azure-stack/) ürün sayfası.

@@ -1,11 +1,11 @@
 ---
-title: "Azure faturalama rollerini kullanarak erişimi yönetme | Microsoft Docs"
-description: 
-services: 
-documentationcenter: 
+title: Azure faturalama rollerini kullanarak erişimi yönetme | Microsoft Docs
+description: ''
+services: ''
+documentationcenter: ''
 author: vikramdesai01
 manager: vikdesai
-editor: 
+editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
 ms.service: billing
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ded7904c6cb855994d92e68c4a1af64ccdb2c3a0
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Rol tabanlı erişim denetimini kullanarak Azure için faturalama bilgilerini erişimi yönetme
 
-Aşağıdaki kullanıcı rollerinden birini aboneliğinize atayarak ekibinizin üyeleri için Azure faturalama bilgilerini erişim verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve fatura okuyucu. Faturalama bilgileri erişime sahip [Azure portal](https://portal.azure.com/), ve kullanabileceklerini [fatura API'leri](billing-usage-rate-card-overview.md) programlı olarak (bir kez seçti-gelen) faturaları ve kullanım ayrıntıları almak için. Hakkında daha fazla bilgi için kimin verin rollerini ve hangi rollerin ne, bkz: [Azure RBAC rollerinde](../active-directory/role-based-access-built-in-roles.md).
+Aşağıdaki kullanıcı rollerinden birini aboneliğinize atayarak ekibinizin üyeleri için Azure faturalama bilgilerini erişim verebilirsiniz: Hesap Yöneticisi, Hizmet Yöneticisi, ortak yönetici, sahibi, katkıda bulunan, okuyucu ve fatura okuyucu. Faturalama bilgileri erişime sahip [Azure portal](https://portal.azure.com/), ve kullanabileceklerini [fatura API'leri](billing-usage-rate-card-overview.md) programlı olarak (bir kez seçti-gelen) faturaları ve kullanım ayrıntıları almak için. Hakkında daha fazla bilgi için kimin verin rollerini ve hangi rollerin ne, bkz: [Azure RBAC rollerinde](../role-based-access-control/built-in-roles.md).
 
-## <a name="opt-in"></a>Ek kullanıcıların faturaları erişmesine izin verme
+## <a name="opt-in"></a> Ek kullanıcıların faturaları erişmesine izin verme
 
 Hesap Yöneticisi kullanarak opt gerekir [Azure portal](https://portal.azure.com/) diğer kullanıcılar için ve API aracılığıyla faturalar erişmesine izin vermek.
 

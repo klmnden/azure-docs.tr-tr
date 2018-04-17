@@ -1,8 +1,8 @@
 ---
-title: "Azure Hdınsight ile ScaleR ve SparkR kullanma | Microsoft Docs"
-description: "R Server ve Hdınsight ile ScaleR ve SparkR kullanma"
+title: Azure Hdınsight ile ScaleR ve SparkR kullanma | Microsoft Docs
+description: R Server ve Hdınsight ile ScaleR ve SparkR kullanma
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -10,37 +10,37 @@ tags: azure-portal
 ms.assetid: 5a76f897-02e8-4437-8f2b-4fb12225854a
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: b84c365defbaadbc83c86e6e387c15a63e0f17ce
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve hdınsight'ta SparkR birleştirin
 
-Bu makalede, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** uçuş gecikmeleri ve hava durumu verileri Lojistik regresyon modelinden birleştirilmiş ile **SparkR**. Bu senaryo ScaleR yetenekleri analizi için Microsoft R Server ile birlikte kullanılan Spark üzerinde veri işleme için gösterir. Bu teknolojiler birleşimi, en yeni özelliklere dağıtılmış işlem uygulamanızı sağlar.
+Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** Lojistik regresyon modeli. Örnek kullanan katılmış uçuş gecikmesi ve hava durumu verilerini kullanan **SparkR**.
 
 Her iki paket Hadoop'ın Spark yürütme altyapısı üzerinde çalışsa da bunlar her kendi ilgili Spark oturumları gerektiği paylaşımı bellek içi verilerden engellenir. R Server gelecek bir sürümünde bu sorun giderilinceye kadar geçici bir çözüm çakışmayan Spark oturumlar kullanan ve Ara dosyalar ile veri değişimi için değildir. Buradaki yönergeleri Bu gereksinimleri elde etmek kolay olduğunu gösterir.
 
-Burada başlangıçta Strata 2016 konumundaki konuşma Mario Inchiosa ve aynı zamanda Web Semineri kullanılabilir olan Roni Burd tarafından paylaşılan örnek kullanırız [R ölçeklenebilir bir veri bilimi platformuyla derleme](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio). Örnek SparkR ayrılma ve varış havaalanları hava durumu verileri iyi bilinen airlines varış gecikme veri kümesiyle birleştirmek için kullanır. Birleştirilmiş veri sonra ScaleR Lojistik regresyon modeli giriş olarak uçuş varış gecikme etmede kullanılır.
+Bu örnek başlangıçta Strata 2016 konumundaki konuşma içinde Mario Inchiosa ve Roni Burd tarafından paylaşıldı. Bu konuşma konumunda bulabilirsiniz [R ölçeklenebilir bir veri bilimi platformuyla derleme](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Kod biz izlenecek yol başlangıçta yazıldığı için R Server Spark Azure Hdınsight kümesinde çalışıyor. Ancak, bir komut dosyası kullanımda SparkR ve ScaleR karıştırma ayrıca şirket içi ortamları bağlamında geçerli kavramdır. Aşağıda, biz Ara bir R ve misiniz bilgisi düzeyini varsayın [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) R Server kitaplığı. Biz de kullanımını tanıtmak [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryo taramasını oluştu.
+Kodu, Spark Azure Hdınsight kümesinde çalışan R Server için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda SparkR ve ScaleR karıştırma ayrıca şirket içi ortamları bağlamında geçerli kavramdır. 
+
+Bu belgede yer alan adımlar bir ara R ve misiniz bilgisi düzeyini sahip olduğunuzu varsaymaktadır [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) R Server kitaplığı. İçin sunulan [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryo taramasını oluştu.
 
 ## <a name="the-airline-and-weather-datasets"></a>Uçak ve hava durumu veri kümeleri
 
-**AirOnTime08to12CSV** airlines ortak veri kümesi için Ekim 1987 aralık 2012'den ABD içindeki tüm ticari uçuşları uçuş varış ve ayrılma ayrıntıları hakkında bilgi içerir. Bu büyük bir veri kümesidir: toplam neredeyse 150 milyon kayıtları vardır. Bunu açılmış yalnızca altında 4 GB'tır. Kullanılabilir [ABD hükümeti arşivler](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Daha rahat 303 ayrı aylık CSV dosyalarından kümesini içeren bir zip dosyası (AirOnTimeCSV.zip) olarak kullanılabilir [Revolution Analytics veri deposu](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/)
+Uçuş veri kullanılabilir [ABD hükümeti arşivler](http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236). Posta olarak kullanılabilir [AirOnTimeCSV.zip](http://packages.revolutionanalytics.com/datasets/AirOnTime87to12/AirOnTimeCSV.zip).
 
-Uçuş gecikmeler üzerinde hava durumu etkilerini görmek için ayrıca her havaalanları hava veri ihtiyacımız. Bu verileri ham formunda, ZIP dosyaları olarak aya göre yüklenebilir [National Oceanic ve hava yönetim deposu](http://www.ncdc.noaa.gov/orders/qclcd/). Bu örneğin amacı, hava durumu veri Mayıs 2007'den – Kasım 2012 çekmek ve saatlik veri dosyaları her 68 aylık zips içinde kullanılan. Aylık ZIP dosyaları hava durumu İstasyon Kimliği (WBAN), (CallSign) ile ilişkili olan ve Havaalanı'nın saat dilimi UTC (saat dilimi) uzaklığı havaalanı arasında bir eşleme (YYYYMMstation.txt) de içerir. Bu bilgilerin tümünü uçak gecikmesi ve hava durumu verilerle katılırken gereklidir.
+Hava durumu verileri ham formunda, ZIP dosyaları olarak aya göre yüklenebilir [National Oceanic ve hava yönetim deposu](http://www.ncdc.noaa.gov/orders/qclcd/). Bu örnekte, veri Mayıs 2007 – Kasım 2012 indirin. Saatlik veri dosyalarını kullanmak ve `YYYYMMMstation.txt` her zips dosyasında. 
 
 ## <a name="setting-up-the-spark-environment"></a>Spark ortamını ayarlama
 
-Spark ortamını ayarlamak için ilk adımdır bakın. Bizim giriş veri dizinlerini içeren dizine işaret eden, Spark işlem bağlamı oluşturma ve günlüğe kaydetme işlevi için konsola bilgilendirici günlük oluşturarak başlayın:
+Spark ortamını ayarlamak için aşağıdaki kodu kullanın:
 
 ```
 workDir        <- '~'  
@@ -85,7 +85,7 @@ logmsg('Start')
 logmsg(paste('Number of task nodes=',length(trackers)))
 ```
 
-Böylece biz SparkR kullanın ve SparkR oturum başlatma sonraki biz "Spark_Home" R paketleri için arama yolu ekleyin:
+Ardından, eklemek `Spark_Home` R paketleri arama yolu. Arama yolu ekleme SparkR kullanın ve SparkR oturum başlatma sağlar:
 
 ```
 #..setup for use of SparkR  
@@ -108,7 +108,7 @@ sqlContext <- sparkRSQL.init(sc)
 
 ## <a name="preparing-the-weather-data"></a>Hava durumu verileri hazırlama
 
-Hava durumu verileri hazırlamak için biz modelleme için sütunları gerekli alt: 
+Hava durumu verileri hazırlamak için alt sütunlara modelleme için gerekli: 
 
 - "Görünürlük"
 - "DryBulbCelsius"
@@ -117,17 +117,9 @@ Hava durumu verileri hazırlamak için biz modelleme için sütunları gerekli a
 - "WindSpeed"
 - "Altimeter"
 
-Daha sonra hava durumu istasyonla ilişkilendirilmiş bir havaalanındaki kodu ekleyin ve ölçüleri yerel saatten UTC'ye dönüştürmek.
+Ardından hava durumu istasyonla ilişkilendirilmiş bir havaalanındaki kodu ekleyin ve ölçüleri yerel saatten UTC'ye dönüştürmek.
 
-Bir havaalanındaki kodu hava durumu istasyon (WBAN) bilgisi eşlemek için bir dosya oluşturarak başlayın. Hava durumu verilerle dahil eşleme dosyasından Biz bu bağıntı alabilirsiniz. Eşleme tarafından *CallSign* (örneğin, LAX) hava durumu veri dosyasına alanındaki *kaynak* hava yolu veri. Ancak, biz yalnızca başka bir yandan eşleyen eşleme sahip oldu *WBAN* için *AirportID* (örneğin, 12892 LAX için) ve içerir *saat dilimi* "wban-için-havaalanı-kimliği-tz. adlı bir CSV dosyasına kaydedildi CSV"biz kullanabilirsiniz. Örneğin:
-
-| AirportID | WBAN | saat dilimi
-|-----------|------|---------
-| 10685 | 54831 | -6
-| 14871 | 24232 | -8
-| .. | .. | ..
-
-Aşağıdaki kodu her alt kümelerini biz gerekir, hava durumu istasyon eşleme dosyası birleştirir, ölçümleri UTC tarihi sürelerinin ayarlar ve dosyanın yeni bir sürümünü yazar sütunlara saatlik ham hava veri dosyalarının okur:
+Bir havaalanındaki kodu hava durumu istasyon (WBAN) bilgisi eşlemek için bir dosya oluşturarak başlayın. Aşağıdaki kodu her alt kümelerini biz gerekir, hava durumu istasyon eşleme dosyası birleştirir, ölçümleri UTC tarihi sürelerinin ayarlar ve dosyanın yeni bir sürümünü yazar sütunlara saatlik ham hava veri dosyalarının okur:
 
 ```
 # Look up AirportID and Timezone for WBAN (weather station ID) and adjust time

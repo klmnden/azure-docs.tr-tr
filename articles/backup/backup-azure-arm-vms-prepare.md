@@ -1,11 +1,11 @@
 ---
-title: "Azure yedekleme: sanal makineleri yedeklemek hazırlama | Microsoft Docs"
-description: "Azure sanal makineleri yedeklemek için ortamınızı hazır olduğundan emin olun."
+title: 'Azure yedekleme: sanal makineleri yedeklemek hazırlama | Microsoft Docs'
+description: Azure sanal makineleri yedeklemek için ortamınızı hazır olduğundan emin olun.
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
+editor: ''
 keywords: yedeklemeleri; Yedekleme;
 ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/1/2018
 ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: cd8274ab6b50eee83bc3e41ea543930aa309e790
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 70c1553c166cc334f9db03c78139181c6f5c0553
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -55,7 +55,7 @@ Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 * Yedekleme verilerini bir VM'ye bağlı takılı ağ sürücülerini içermez.
 * Geri yükleme sırasında mevcut bir sanal makinenin değiştirilmesi desteklenmez. VM VM mevcut olduğunda geri yüklemeye geri yükleme işlemi başarısız olur.
 * Çapraz bölge yedeklemek ve geri yükleme desteklenmez.
-* Yedekleme ve geri yükleme yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri, desteklenmiyor. 
+* Yedekleme ve geri yükleme yönetilmeyen diskleri depolama hesaplarında uygulanan ağ kurallarıyla kullanarak sanal makineleri, eski VM yedekleme yığını müşteriler için desteklenmiyor. 
 * Yukarı geri yapılandırırken, emin **güvenlik duvarları ve sanal ağlar** depolama hesabı ayarlarını tüm ağlardan erişim izni.
 * Tüm ortak bölgelerde Azure sanal makineleri yedekleyebilirsiniz. (Bkz [denetim listesi](https://azure.microsoft.com/regions/#services) desteklenen bölgeler.) Aradığınız bölge bugün desteklenmiyorsa, kasa oluşturma sırasında aşağı açılan listede görünmez.
 * Bir etki alanı denetleyicisini geri multi-DC yapılandırmasının bir parçası olan (DC) VM yalnızca PowerShell aracılığıyla desteklenir. Daha fazla bilgi için bkz: [multi-DC etki alanı denetleyicisini geri](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
@@ -244,7 +244,7 @@ Bu yordamı yerel sistem hesabı için proxy sunucusu yapılandırmasını ayarl
 
 3. Internet Explorer'da Git **Araçları** > **Internet Seçenekleri** > **bağlantıları** > **LAN Ayarları**.
 4. Sistem hesabı için proxy ayarlarını doğrulayın. Proxy IP ve bağlantı noktası ayarlayın.
-5. Close Internet Explorer.
+5. Internet Explorer'ı kapatın.
 
 Aşağıdaki komut dosyasını bir makine genelinde proxy yapılandırmasını ayarlar ve tüm giden HTTP veya HTTPS trafiği için kullanır. Geçerli bir kullanıcı hesabı (yerel sistem hesabı değil) proxy sunucusunda ayarladıysanız için SYSTEMACCOUNT uygulamak için bu komut dosyasını kullanın.
 

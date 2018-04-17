@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 04/05/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: c9a546f82d3300b37f861fff53421ebbf9fe3804
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2c54435d893753306e903c0851e319fc3d1621b1
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -51,7 +51,7 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesini gösterir
 |İşletim Sistemi  |Notlar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Yalnızca destekler değerlendirmeleri güncelleştir         |
-|Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5 ve WMF 5.0 veya daha yeni Windows Server 2008 R2 SP1 için gereklidir        |
+|Windows Server 2008 R2 SP1 ve üzeri     |Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).<br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
@@ -206,13 +206,13 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; project Computer, Title, KBID, Classification, PublishedDate |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124; project Computer, Title, KBID, Product, PublishedDate |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+|Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType "Linux" == |
+| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==<br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
 | Olay<br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false <br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124; distinct Title |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
-| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124; summarize AggregatedValue = count() by Computer, Title, UpdateRunName |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType == "Linux" |
-| Güncelleştirme<br>&#124; where OSType == "Linux"<br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124; summarize AggregatedValue = count() by Computer |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
-| UpdateRunProgress<br>&#124;Burada UpdateRunName "DeploymentName" ==<br>&#124; summarize AggregatedValue = count() by Computer|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
+| Güncelleştirme<br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false<br>&#124;ayrı başlığı |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
+| UpdateRunProgress<br>&#124;Burada InstallationStatus "başarısız" == <br>&#124;AggregatedValue özetlemek bilgisayar, başlık, UpdateRunName tarafından count() = |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar<br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:<br>OSType = "Windows"<br>OSType "Linux" == |
+| Güncelleştirme<br>&#124;Burada OSType "Linux" ==<br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)<br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi | 
+| UpdateRunProgress<br>&#124;Burada UpdateRunName "DeploymentName" ==<br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() =|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) | 
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
 
@@ -252,7 +252,7 @@ Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları giderme
 | Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br>System.Net.WebException: Temel alınan bağlantı<br>kapatıldı: Alma işlemi sırasında<br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br>İstemci ve sunucu iletişim kuramıyor,<br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
 | Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
 | <wsid>.oms.opinsights.azure.com hizmeti tarafından sunulan sertifika<br>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br>tarafından verilmemiş. İletişim<br>ağ yöneticinize başvurarak<br>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-offering-get-started.md#network-planning)|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA**|
+| Yama Yönetimi için Makine Kaydedilemiyor,<br>Kayıt Özel Durumla Başarısız Oldu<br>AgentService.HybridRegistration.<br>PowerShell.Certificates.CertificateCreationException:<br>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası | Sistem hesabının<br>klasöre okuma erişiminin olduğunu doğrulayın:<br>**C:\ProgramData\Microsoft\**<br>**Crypto\RSA **|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,25 +1,25 @@
 ---
 title: Azure Backup ile ilgili SSS | Microsoft Belgeleri
-description: "Kurtarma Hizmetleri kasaları, neleri yedekleyebilir, nasıl çalışır, şifreleme ve limitlerin dahil olduğu Azure Backup özellikleriyle ilgili yaygın soruların yanıtları. "
+description: 'Kurtarma Hizmetleri kasaları, neleri yedekleyebilir, nasıl çalışır, şifreleme ve limitlerin dahil olduğu Azure Backup özellikleriyle ilgili yaygın soruların yanıtları. '
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-keywords: "yedekleme ve olağanüstü durum kurtarma; backup hizmeti"
+editor: ''
+keywords: yedekleme ve olağanüstü durum kurtarma; backup hizmeti
 ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 4/11/2018
 ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: 39e7c95f236f53d7b7c4de0e5b792debe5c0c6f6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 9226bef986a0fd2b6e8454cbd78b659feda401b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup hizmetiyle ilgili sorular
 Bu makalede, Azure Backup bileşenleri hakkında sık sorulan sorular yanıtlanmaktadır. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. **Yorumlar**’a (sağda) tıklayarak Azure Backup hakkında soru sorabilirsiniz. Yorumlar bu makalenin altında görünür. Yorum yapmak için bir Livefyre hesabı gerekir. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -81,13 +81,13 @@ Hayır. Yedekleme işi iptal edilmeden önce kasaya aktarılan tüm veriler kasa
 Bir Azure VM’ye yönelik bir yedekleme işini iptal ederseniz aktarılan tüm veriler yoksayılır. Bir sonraki yedekleme işi, son başarılı yedekleme işinden artımlı verileri aktarır.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Bir yedekleme işinin ne zaman veya kaç kez zamanlanabileceğine yönelik sınırlar var mıdır?<br/>
-Evet. Yedekleme işlerini Windows Server veya Windows iş istasyonları üzerinde günde en fazla üç kez çalıştırabilirsiniz. Yedekleme işlerini System Center DPM üzerinde günde en fazla iki kez çalıştırabilirsiniz. Bir yedekleme işini IaaS VM'ler için günde bir kez çalıştırabilirsiniz. Windows Server veya Windows iş istasyonu için zamanlama ilkesini, günlük veya haftalık zamanlamalar belirtmek üzere kullanabilirsiniz. System Center DPM'yi kullanarak günlük, haftalık, aylık ve yıllık zamanlamalar belirtebilirsiniz.
+Evet. Yedekleme işlerini Windows Server veya Windows iş istasyonları üzerinde günde en fazla üç kez çalıştırabilirsiniz. Yedekleme işlerini System Center DPM üzerinde en fazla günde iki kez çalıştırabilirsiniz. Bir yedekleme işini IaaS VM'ler için günde bir kez çalıştırabilirsiniz. Windows Server veya Windows iş istasyonu için zamanlama ilkesini günlük veya haftalık zamanlama belirtmek için kullanın. System Center DPM ile günlük, haftalık, aylık ve yıllık zamanlamalar belirtebilirsiniz.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Kurtarma Hizmetleri kasasına aktarılan verilerin büyüklüğü neden yedeklediğim verilerden daha küçük?<br/>
  Azure Backup Aracısı veya SCDPM ya da Azure Backup Sunucusundan yedeklenen tüm veriler aktarılmadan önce sıkıştırılır ve şifrelenir. Sıkıştırma ve şifreleme uygulandıktan sonra kurtarma Hizmetleri kasası veriler % 30-40 daha küçük bağlıdır.
 
 ## <a name="what-can-i-back-up"></a>Neleri yedekleyebilirim?
-### <a name="which-operating-systems-do-azure-backup-support-br"></a>Azure Backup hangi işletim sistemlerini destekler? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Hangi işletim sistemleri Azure Backup destekliyor mu? <br/>
 Azure Backup, Azure Backup Sunucusu ve System Center Data Protection Manager (DPM) kullanılarak korunan dosya ve klasörlerin yanı sıra iş yükü uygulamalarının yedeklenmesi için aşağıdaki listede yer alan işletim sistemlerini destekler.
 
 | İşletim Sistemi | Platform | SKU |
@@ -112,7 +112,7 @@ Azure Backup, Azure Backup Sunucusu ve System Center Data Protection Manager (DP
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Yedeklenmekte olan her veri kaynağının boyutuna yönelik bir sınır var mıdır? <br/>
-Bir kasaya yedekleyebileceğiniz veri miktarı konusunda sınır yoktur. Azure Backup, veri kaynağı için en fazla boyut kısıtlaması uygular ancak limitler yüksektir. Ağustos 2015 itibarıyla, desteklenen işletim sistemlerinde veri kaynağı için boyut üst sınırı şu şekildedir:
+Azure yedekleme bir veri kaynağı için en büyük boyut zorlar, ancak kaynak sınırlarını büyük. Ağustos 2015 itibarıyla, desteklenen işletim sistemlerinde veri kaynağı için boyut üst sınırı şu şekildedir:
 
 | S.No | İşletim sistemi | En büyük veri kaynağı boyutu |
 |:---:|:--- |:--- |
@@ -132,13 +132,16 @@ Aşağıdaki tabloda, her bir veri kaynağı boyutunun nasıl belirlendiği aç�
 | Microsoft Exchange |Yedeklenmekte olan bir Exchange sunucusundaki tüm Exchange veritabanlarının toplamı |
 | BMR/Sistem Durumu |Yedeklenmekte olan makinenin BMR'sinin veya sistem durumunun her ayrı kopyası |
 
-Azure VM yedekleme için her bir VM boyutu 4095 GB veya daha az olan her veri diski ile en fazla 16 veri diski olabilir. <br>
+Azure Iaas sanal yedekleme için en fazla 16 veri disklerinin her VM olabilir ve her veri diski 4095 GB'a kadar olabilir.
+
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasına tutulan veri miktarına bir sınır var mıdır?
+Bir kurtarma Hizmetleri kadar kasa veri miktarına bir sınır yoktur.
 
 ## <a name="retention-policy-and-recovery-points"></a>Bekletme ilkesi ve kurtarma noktaları
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>DPM ve Windows Server'a/istemcisine yönelik bekletme ilkesi (DPM olmadan Windows Server'da) arasında bir fark var mıdır?<br/>
 Hayır, hem DPM hem de Windows Server/istemcisi günlük, haftalık, aylık ve yıllık bekletme ilkelerine sahiptir.
 
-### <a name="can-i-configure-my-retention-policies-selectively--ie-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Bekletme ilkelerimi seçerek yapılandırabilir miyim? Başka bir deyişle, haftalık ve günlük yapılandırmaya olanak tanırken yıllık ve aylık yapılandırmayı engelleyebilir miyim?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Miyim my bekletme ilkeleri seçerek diğer bir deyişle yapılandırmak, haftalık ve günlük ancak değil yıllık ve aylık yapılandırmak?<br/>
 Evet, Azure Backup bekletme yapısı gereksinimlerinizi karşılayan bekletme ilkesini tanımlama konusunda tam esnekliğe sahip olmanızı sağlar.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Saat 18:00 için “bir yedekleme zamanlayıp” farklı bir saat için de "bekletme ilkeleri" belirtebilir miyim?<br/>

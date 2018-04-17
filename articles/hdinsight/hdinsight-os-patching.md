@@ -1,25 +1,23 @@
 ---
-title: "Linux tabanlı Hdınsight kümeleri - Azure zamanlama düzeltme eki uygulama işletim sistemi yapılandırma | Microsoft Docs"
-description: "Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma konusunda bilgi edinin."
+title: Linux tabanlı Hdınsight kümeleri - Azure zamanlama düzeltme eki uygulama işletim sistemi yapılandırma | Microsoft Docs
+description: Linux tabanlı Hdınsight kümeleri için zamanlama düzeltme eki uygulama işletim sistemi yapılandırma konusunda bilgi edinin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bprakash
 manager: asadk
 editor: bprakash
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: bhanupr
-ms.openlocfilehash: af3c5a19ae8e2e606e4b0506f9f6dddb41192e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42771b9ff0f177b6b31f626d1dd2d07046a53965
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="os-patching-for-hdinsight"></a>İşletim sistemi Hdınsight için düzeltme eki uygulama 
 Yönetilen bir Hadoop hizmet olarak Hdınsight Hdınsight kümeleri tarafından kullanılan temel VM'ler OS düzeltme eki uygulama mvc'deki. 1 Ağustos 2016 itibariyle biz Linux tabanlı Hdınsight kümeleri (sürüm 3.4 veya büyük) için konuk işletim sistemi düzeltme eki uygulama ilkesi değişti. Düzeltme eki uygulama nedeniyle yeniden başlatma sayısını önemli ölçüde azaltmak için yeni ilke belirtilir. Yeni ilke düzeltme eki sanal makineleri (VM'ler) Linux kümeleri her Pazartesi ya da verilmiş bir küme düğümleri arasında 00: 00 UTC aşamalı bir şekilde başlayarak Perşembe devam eder. Ancak, belirli bir VM yalnızca en fazla 30 konuk işletim sistemi düzeltme eki uygulama nedeniyle günde bir kez yeniden başlatılır. Ayrıca, ilk yeniden başlatma yeni oluşturulan bir küme için küme oluşturma tarihten itibaren 30 gün daha erken yapılmaz. Sanal makineleri yeniden sonra düzeltme eklerini etkili olacaktır.

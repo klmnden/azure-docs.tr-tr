@@ -1,11 +1,10 @@
 ---
-title: ".NET kullanarak Azure Tablo Depolama’yı kullanmaya başlama | Microsoft Belgeleri"
-description: "Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın."
+title: .NET kullanarak Azure Tablo Depolama’yı kullanmaya başlama | Microsoft Belgeleri
+description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: mimig
-ms.openlocfilehash: d31dd1c267bcc63106616b191b6b79d5800e31e9
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: ff26ab122e920d6ca8dbf837a2229f8728a471ce
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-azure-table-storage-using-net"></a>.NET kullanarak Azure Table Storage’ı kullanmaya başlayın
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -49,11 +48,8 @@ Bu öğreticiyi başarıyla tamamlamak için aşağıdakiler gerekir:
 ### <a name="more-samples"></a>Daha fazla örnek
 Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
-
 ## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
-
-Azure Table storage veya Azure Cosmos DB kullanarak tabloları ile çalışabilirsiniz. Okuyarak Hizmetleri arasındaki farklar hakkında daha fazla bilgiyi [tablo teklifleri](table-introduction.md#table-offerings). Hizmeti için kullanacağınız bir hesap oluşturmanız gerekir. 
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 İlk Azure depolama hesabınızı oluşturmanın en kolay yolu [Azure Portalı](https://portal.azure.com)’nı kullanmaktır. Daha fazla bilgi için bkz. [Depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account).
@@ -63,8 +59,7 @@ Azure Table storage veya Azure Cosmos DB kullanarak tabloları ile çalışabili
 Şu anda bir depolama hesabı oluşturmayı tercih ediyorsanız, yerel bir ortamda kodunuzu çalıştırıp sınamak için Azure Storage öykünücüsü de kullanabilirsiniz. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Storage Öykünücüsünü Kullanma](../storage/common/storage-use-emulator.md).
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
-
-Bir Azure Cosmos DB tablo API hesap oluşturma ile ilgili yönergeler için bkz: [tablo API hesabı oluşturma](create-table-dotnet.md#create-a-database-account).
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
 Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu kılavuzdaki kod örneklerini denemeye hazır olursunuz.

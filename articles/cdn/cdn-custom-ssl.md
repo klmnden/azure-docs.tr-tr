@@ -1,6 +1,6 @@
 ---
-title: Bir Azure içerik teslim ağı özel etki alanında HTTPS yapılandırma | Microsoft Docs
-description: Etkinleştirme veya HTTPS ile özel bir etki alanı Azure CDN uç noktanız devre dışı bırakma hakkında bilgi edinin.
+title: Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma | Microsoft Docs
+description: Etkinleştirmek veya devre dışı, Azure CDN uç noktası özel etki alanınızda HTTPS öğrenin.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2018
 ms.author: rli; v-deasim
-ms.openlocfilehash: 554ae4c19d1a3d35075ad174549a62a20329e5fa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ca3dad18973197f63e69e6568b8ea5988b279e01
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="configure-https-on-an-azure-content-delivery-network-custom-domain"></a>Bir Azure içerik teslim ağı özel etki alanında HTTPS yapılandırma
+# <a name="configure-https-on-an-azure-cdn-custom-domain"></a>Bir Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
 
-Microsoft, özel etki alanları için Azure içerik teslim ağı (CDN) üzerindeki HTTPS protokolünü destekler. HTTPS özel etki alanı desteği, aktarım sırasında veri güvenliğini artırmak için kendi etki alanı adınızı kullanarak SSL üzerinden güvenli içerik sunabilir. Özel etki alanınız için HTTPS'yi etkinleştirmek için iş akışı tek tıklatmayla etkinleştirme ve eksiksiz bir sertifika yönetimi, tüm ek ücret ödemeden ile aracılığıyla basitleştirilmiştir.
+Azure içerik teslim ağı (CDN), özel bir etki alanı üzerinde bir CDN uç noktası için HTTPS protokolünü destekler. Özel etki alanınızda HTTPS protokolünü kullanarak Internet üzerinden gönderildiğinde hassas verilerinizi SSL şifreleme güvenli bir şekilde teslim emin olun. HTTPS sağlar güven, kimlik doğrulaması ve web uygulamalarınızın saldırılara karşı korur. Ayrıca, kendi etki alanı adını kullanarak güvenli içerik teslim (örneğin, https:\//www.contoso.com). İş akışının HTTPS'yi etkinleştirmek için tek tıklamayla etkinleştirme ve eksiksiz bir sertifika yönetimi, tüm ek ücret ödemeden ile aracılığıyla basitleştirilmiştir.
 
-Yoldaki olsa gizlilik ve web uygulamanızın hassas verilerin veri bütünlüğünü sağlamak için önemlidir. HTTPS protokolünü kullanarak önemli verilerinizi Internet üzerinden gönderildiğinde şifrelendiğinden emin olun. Sağladığı güven, kimlik doğrulaması ve web uygulamalarınızın saldırılara karşı korur. Varsayılan olarak, Azure CDN bir CDN uç noktası HTTPS destekler. Örneğin, Azure CDN bir CDN uç noktası oluşturmak istiyorsanız (https gibi:\//contoso.azureedge.net), HTTPS otomatik olarak etkinleştirilir. Ayrıca, özel etki alanı HTTPS desteği, özel bir etki alanı için güvenli teslimat etkinleştirebilirsiniz (örneğin, https:\//www.contoso.com). 
+Azure CDN CDN uç noktası ana bilgisayar adına, HTTPS varsayılan olarak da destekler. Örneğin, bir CDN uç noktası oluşturmak istiyorsanız (https gibi:\//contoso.azureedge.net), HTTPS otomatik olarak etkinleştirilir.  
 
 HTTPS özelliğinin en önemli özelliklerinden bazıları şunlardır:
 
@@ -77,6 +77,8 @@ CNAME kayıtları hakkında daha fazla bilgi için bkz: [CNAME DNS kaydı oluşt
 
 CNAME kaydı doğru biçimde ise, DigiCert otomatik olarak özel etki alanı adınızı doğrular ve konu alternatif adları (SAN) sertifika ekler. DigitCert bir doğrulama e-postası göndermeyecek ve isteğinizi onaylamanız gerekmez. Sertifika bir yıl için geçerlidir ve otomatik-sona ermeden önce yenilenmesi. İle devam [adım 3: yayması bekleyin](#step-3-wait-for-propagation). 
 
+Otomatik doğrulama genellikle birkaç dakika sürer. Bir saat içinde doğrulanmış etki alanınız görmüyorsanız, bir destek bileti açın.
+
 #### <a name="cname-record-is-not-mapped-to-cdn-endpoint"></a>CNAME kaydı CDN uç noktasına eşlenmedi
 
 Uç noktanız için CNAME kaydı girişi artık yok veya cdnverify alt etki alanı içeriyorsa, kalan Bu adımda yönergeleri izleyin.
@@ -87,11 +89,11 @@ Uç noktanız için CNAME kaydı girişi artık yok veya cdnverify alt etki alan
 
 DigiCert ayrıca ek e-posta adreslerine bir doğrulama e-posta gönderir. WHOIS registrant bilgi özel ise, doğrudan aşağıdaki adresleri birinden onaylayabilirsiniz doğrulayın:
 
-admin@&lt;your-domain-name.com&gt;  
-administrator@&lt;your-domain-name.com&gt;  
-webmaster@&lt;your-domain-name.com&gt;  
-hostmaster@&lt;your-domain-name.com&gt;  
-postmaster@&lt;your-domain-name.com&gt;  
+Yönetici @&lt;etki alanı name.com bilgisayarınızı&gt;  
+Yönetici @&lt;etki alanı name.com bilgisayarınızı&gt;  
+@ yayımlanması&lt;etki alanı name.com bilgisayarınızı&gt;  
+@ hostmaster&lt;etki alanı name.com bilgisayarınızı&gt;  
+@ Yöneticisi&lt;etki alanı name.com bilgisayarınızı&gt;  
 
 Sizden isteği onaylamak için birkaç dakika cinsinden aşağıdaki örneğe benzer bir e-posta alacaksınız. İstenmeyen posta Filtresi kullanıyorsanız, ekleyin admin@digicert.com kendi güvenilir listeye. 24 saat içinde bir e-posta almazsanız, Microsoft Destek'e başvurun.
     
@@ -124,7 +126,7 @@ Aşağıdaki tabloda, HTTPS etkinleştirdiğinizde oluşan işlemi ilerleme duru
 | 1 gönderme isteği | İstek gönderiliyor |
 | | HTTPS isteğiniz gönderiliyor. |
 | | HTTPS isteğiniz başarıyla gönderildi. |
-| 2 etki alanı doğrulama | Etki alanı sahipliği doğrulamak için isteyen bir e-posta gönderdik. Onayınız bekleniyor. ** |
+| 2 etki alanı doğrulama | CDN uç noktası için eşlenen CNAME ise, etki alanı otomatik olarak onaylanır. Aksi takdirde, etki alanınızın kaydolma kaydı (WHOIS registrant) listelenen e-posta doğrulama isteği gönderilir. Lütfen etki alanını olabildiğince çabuk doğrulayın. |
 | | Etki alanı sahipliğiniz başarıyla doğrulandı. |
 | | Etki alanı sahipliği doğrulama isteğinin süresi doldu (büyük olasılıkla müşteri kaydetmedi yanıt 6 gün içinde). HTTPS, etki alanınızda etkin değil. * |
 | | Etki alanı sahipliği doğrulama isteği müşteri tarafından reddedildi. HTTPS, etki alanınızda etkin değil. * |
@@ -135,7 +137,6 @@ Aşağıdaki tabloda, HTTPS etkinleştirdiğinizde oluşan işlemi ilerleme duru
 
 \* Bir hata oluştu sürece bu ileti görüntülenmez. 
 
-\** Doğrudan, CDN uç noktası konak adına işaret eden özel etki alanınız için bir CNAME giriş varsa bu ileti görüntülenmez.
 
 İstek gönderilmeden önce bir hata oluşursa, aşağıdaki hata iletisi görüntülenir:
 
@@ -189,7 +190,7 @@ Aşağıdaki tabloda, HTTPS devre dışı bıraktığınızda oluşan işlem ile
 
 3. *DigiCert ne etki alanı doğrulama e-posta alıyorum mu?*
 
-    24 saat içinde bir e-posta almazsanız, Microsoft Destek'e başvurun. Doğrudan uç noktası ana bilgisayar için işaret özel etki alanınız için bir CNAME girişine sahip (ve cdnverify alt etki alanı adı kullanmıyorsanız varsa), bir etki alanı doğrulama e-posta almazsınız. Doğrulama otomatik olarak gerçekleşir.
+    Doğrudan uç noktası ana bilgisayar için işaret özel etki alanınız için bir CNAME girişine sahip (ve cdnverify alt etki alanı adı kullanmıyorsanız varsa), bir etki alanı doğrulama e-posta almazsınız. Doğrulama otomatik olarak gerçekleşir. Aksi halde, bir CNAME girdisi yok ve 24 saat içinde bir e-posta almadım, Microsoft Destek'e başvurun.
 
 4. *Ayrılmış bir sertifika az güvenli bir SAN sertifikası kullanıyor?*
     

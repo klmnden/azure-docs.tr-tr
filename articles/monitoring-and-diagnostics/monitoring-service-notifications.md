@@ -1,8 +1,8 @@
 ---
 title: Azure hizmet durumu bildirimlerine nelerdir? | Microsoft Docs
 description: Hizmet durumu bildirimlerine, Microsoft Azure tarafından yayınlanan hizmet sistem durumu iletileri görüntülemenize olanak sağlar.
-author: anirudhcavale
-manager: orenr
+author: dkamstra
+manager: chrad
 editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
-ms.author: ancav
-ms.openlocfilehash: 4a95e9882515e6a2861292829a44847e11f39063
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 4/12/2017
+ms.author: dukek
+ms.openlocfilehash: 6821828d3e39a87b8c93f74e7e0583bf9fe1fe4a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure portalını kullanarak hizmet durumu bildirimlerine görüntüleme
 
@@ -41,9 +41,9 @@ kanallar | Aşağıdaki değerlerden birini: **yönetici** veya **işlemi**.
 correlationId | Genellikle bir GUID dize biçiminde. Aynı işlemi genellikle ait olayları aynı correlationıd değeri paylaşır.
 eventDataId | Bir olay benzersiz tanımlayıcısı.
 EventName | Bir olay başlığı.
-düzey | Bir olay düzeyi. Aşağıdaki değerlerden birini: **kritik**, **hata**, **uyarı** veya **bilgilendirici**.
+düzey | Bir olay düzeyi
 resourceProviderName | Etkilenen kaynak için kaynak sağlayıcı adı.
-resourceType| Etkilenen kaynağın kaynak türü.
+Kaynak türü| Etkilenen kaynağın kaynak türü.
 alt durum | Genellikle HTTP durum kodu karşılık gelen REST çağrısı, ancak alt açıklayan diğer dizeleri de içerir. Örneğin: Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu Hata (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu: 504).
 eventTimestamp | Olay işleme olaya karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası.
 submissionTimestamp | Olay sorgulama için kullanılabilir duruma zaman damgası.
@@ -52,16 +52,54 @@ durum | İşlemin durumunu açıklayan dize. Bazı genel değerler şunlardır: 
 operationName | İşlemin adı.
 category | Bu özellik her zaman olduğu **ServiceHealth**.
 resourceId | Etkilenen kaynağının kaynak kimliği.
-Properties.title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılandır.
-Properties.communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
-Properties.incidentType | Aşağıdaki değerlerden birini: **AssistedRecovery**, **ActionRequired**, **bilgi**, **olay**,  **Bakım**, veya **güvenlik**.
+Properties.Title | Bu iletişim için yerelleştirilmiş başlık. İngilizce varsayılandır.
+Properties.Communication | HTML biçimlendirmesi iletişimi yerelleştirilmiş ayrıntıları. İngilizce varsayılandır.
+Properties.incidentType | Aşağıdaki değerlerden birini: **ActionRequired**, **bilgi**, **olay**, **Bakım**, veya **güvenlik**.
 Properties.trackingId | Bu olay ilişkili olduğu olay. Bir olaya ilgili olayları ilişkilendirmek için bunu kullanın.
 Properties.impactedServices | Hizmetlerin ve olaydan etkilenen bölgeler açıklar kaçış karakterli bir JSON blobu. Özelliği Hizmetleri, her biri listesini içeren bir **ServiceName**ve her biri etkilenen bölgelerin bir listesi bir **RegionName**.
 Properties.defaultLanguageTitle | İngilizce dilinde iletişim.
 Properties.defaultLanguageContent | HTML biçimlendirmesi veya düz metin olarak İngilizce dilinde iletişim.
-Properties.Stage | Olası değerler için **AssistedRecovery**, **ActionRequired**, **bilgi**, **olay**, ve **güvenlik**  olan **etkin** veya **çözümlenmiş**. İçin **Bakım**, bunlar: **etkin**, **planlanan**, **devam ediyor**, **iptal edildi**, **Yeniden**, **çözülmüş**, veya **tam**.
+Properties.Stage | Olası değerler için **olay**, ve **güvenlik** olan **etkin** **çözümlenmiş** veya **RCA**. İçin **ActionRequired** veya **bilgi** tek değer: **etkin.** İçin **Bakım** oldukları: **etkin**, **planlanan**, **devam ediyor**, **iptal edildi**, **Yeniden**, **çözülmüş**, veya **tam**.
 Properties.communicationId | Bu olay ilişkilendirildiği iletişim.
 
+### <a name="details-on-service-health-level-information"></a>Hizmet durumu düzeyi bilgileri ayrıntıları
+  <ul>
+    <li><b>Eylem gerekli</b> (properties.incidentType ActionRequired ==) <dl>
+            <dt>Bilgilendirme</dt>
+            <dd>Mevcut hizmetlere etkilenmesini önlemek için gereken yönetici eylemi</dd>
+        </dl>
+    </li>
+    <li><b>Bakım</b> (properties.incidentType bakım ==) <dl>
+            <dt>Uyarı</dt>
+            <dd>Acil Durum bakım<dd>
+            <dt>Bilgilendirme</dt>
+            <dd>Standart planlı bakım</dd>
+        </dl>
+    </li>
+    <li><b>Bilgi</b> (properties.incidentType bilgi ==) <dl>
+            <dt>Bilgilendirme</dt>
+            <dd>Yönetici, mevcut hizmetlere etkilenmesini önlemek için gerekli</dd>
+        </dl>
+    </li>
+    <li><b>Güvenlik</b> (properties.incidentType güvenlik ==) <dl>
+            <dt>Hata</dt>
+            <dd>Müşteriler çok sayıda birden çok bölgeler arasında birden fazla hizmet erişiminde yaygın sorun etkilediğini.</dd>
+            <dt>Uyarı</dt>
+            <dd>Bir alt kümesini müşterilerin belirli hizmetlere ve/veya özel bölgeler erişiminde sorun etkilediğini.</dd>
+            <dt>Bilgilendirme</dt>
+            <dd>Yönetim işlemlerini ve/veya gecikme, hizmet kullanılabilirliğini etkileyen değil etkileyen sorunları.</dd>
+        </dl>
+    </li>
+    <li><b>Hizmet sorunları</b> (properties.incidentType olay ==) <dl>
+            <dt>Hata</dt>
+            <dd>Müşteriler çok sayıda birden çok bölgeler arasında birden fazla hizmet erişiminde yaygın sorun etkilediğini.</dd>
+            <dt>Uyarı</dt>
+            <dd>Bir alt kümesini müşterilerin belirli hizmetlere ve/veya özel bölgeler erişiminde sorun etkilediğini.</dd>
+            <dt>Bilgilendirme</dt>
+            <dd>Yönetim işlemlerini ve/veya gecikme, hizmet kullanılabilirliğini etkileyen değil etkileyen sorunları.</dd>
+        </dl>
+    </li>
+  </ul>
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>Hizmet durumu bildirimlerine Azure portalında görüntüleyin
 1.  İçinde [Azure portal](https://portal.azure.com)seçin **İzleyici**.

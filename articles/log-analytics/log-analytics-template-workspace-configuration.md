@@ -1,30 +1,30 @@
 ---
-title: "Azure Resource Manager şablonları oluşturma ve bir günlük analizi çalışma alanı yapılandırılacağı | Microsoft Docs"
-description: "Azure Resource Manager şablonları oluşturmak ve günlük analizi çalışma alanları yapılandırmak için kullanabilirsiniz."
+title: Azure Resource Manager şablonları oluşturma ve bir günlük analizi çalışma alanı yapılandırılacağı | Microsoft Docs
+description: Azure Resource Manager şablonları oluşturmak ve günlük analizi çalışma alanları yapılandırmak için kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: richrundmsft
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: d21ca1b0-847d-4716-bb30-2a8c02a606aa
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 04/11/2018
 ms.author: richrund
-ms.openlocfilehash: db9b941e84c018a3a56dd683c118e47ee808259d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: e51dab1543c9c5c1c762134b3e73d608bcd523ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Günlük analizi Azure Resource Manager şablonları kullanarak yönetme
 Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-manager/resource-group-authoring-templates.md) oluşturmak ve günlük analizi çalışma alanları yapılandırmak için. Şablonları ile gerçekleştirebileceğiniz görevler örnekleri şunlardır:
 
-* Çalışma alanı oluşturma
-* Bir çözüm Ekle
+* Ayar fiyatlandırma katmanı da dahil olmak üzere çalışma alanı oluşturma 
+* Çözüm ekleme
 * Kaydedilen Aramalar oluşturun
 * Bir bilgisayar grubu oluşturun
 * Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
@@ -34,32 +34,108 @@ Kullanabileceğiniz [Azure Resource Manager şablonları](../azure-resource-mana
 * Bir Azure sanal makinesi için günlük analizi Aracısı Ekle
 * Azure Tanılama'yı kullanarak toplanan dizin verileri için günlük analizi yapılandırın
 
-Bu makalede bir şablon bazı şablonlardan gerçekleştirebileceğiniz yapılandırmasının göstermek örnekleri sağlar.
+Bu makale, bazı şablonları ile gerçekleştirebileceğiniz yapılandırmasının göstermek şablon örnekleri sağlar.
 
-## <a name="api-versions"></a>API sürümleri
-Bu makaledeki örnek içindir bir [günlük analizi çalışma alanı yükseltilmiş](log-analytics-log-search-upgrade.md).  Eski çalışma kullanmak için sözdizimi sorgular, eski dili ve her kaynak için API sürümü değiştirmek gerekir.  Bu örnekte kullanılan kaynaklar için API sürümü aşağıdaki tabloda listelenmektedir.
+## <a name="create-a-log-analytics-workspace"></a>Günlük analizi çalışma alanı oluşturma
+Aşağıdaki örnek, yerel makinenize şablonu kullanarak bir çalışma alanı oluşturur. JSON şablonunu çalışma alanı adı için yalnızca istemek için yapılandırılmış ve büyük olasılıkla ortamınızdaki standart bir yapılandırma olarak kullanılacak bir parametre için varsayılan bir değer belirtir.  
 
-| Kaynak | Kaynak türü | Eski API sürümü | Yükseltilen API sürümü |
-|:---|:---|:---|:---|
-| Çalışma alanı   | Çalışma alanları    | 2015-11-01-Önizleme | 2017-03-15-Önizleme |
-| Arama      | savedSearches | 2015-11-01-Önizleme | 2017-03-15-Önizleme |
-| Veri kaynağı | veri kaynakları   | 2015-11-01-Önizleme | 2015-11-01-Önizleme |
-| Çözüm    | çözümler     | 2015-11-01-Önizleme | 2015-11-01-Önizleme |
+Aşağıdaki parametreler varsayılan bir değer ayarlayın:
 
+* Konumu - Doğu ABD varsayılanlara
+* SKU - varsayılan olarak Nisan 2018 serbest yeni GB başına fiyatlandırma katmanına fiyatlandırma modeli
+
+>[!WARNING]
+>Oluşturma veya günlük analizi çalışma alanındaki fiyatlandırma modeli yeni Nisan 2018 seçti bir abonelik yapılandırma, fiyatlandırma katmanı yalnızca geçerli günlük analizi ise **PerGB2018**. 
+>
+
+### <a name="create-and-deploy-template"></a>Oluşturma ve şablon dağıtma
+
+1. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
+
+    ```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "String",
+            "metadata": {
+              "description": "Specifies the name of the workspace."
+            }
+        },
+        "location": {
+            "type": "String",
+            "allowedValues": [
+              "eastus",
+              "westus"
+            ],
+            "defaultValue": "eastus",
+            "metadata": {
+              "description": "Specifies the location in which to create the workspace."
+            }
+        },
+        "sku": {
+            "type": "String",
+            "allowedValues": [
+              "Standalone",
+              "PerNode",
+              "PerGB2018"
+            ],
+            "defaultValue": "PerGB2018",
+            "metadata": {
+            "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
+        }
+          },
+    },
+    "resources": [
+        {
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "name": "[parameters('workspaceName')]",
+            "apiVersion": "2017-03-15-preview",
+            "location": "[parameters('location')]",
+            "properties": {
+                "sku": {
+                    "Name": "[parameters('sku')]"
+                },
+                "features": {
+                    "searchVersion": 1
+                }
+            }
+          }
+       ]
+    }
+    ```
+2. Gereksinimlerinizi karşılayacak şekilde şablonunu düzenleyin.  Gözden geçirme [Microsoft.OperationalInsights/workspaces şablonu](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) hangi özellikleri ve değerleri desteklenen öğrenmek için başvuru. 
+3. Bu dosya olarak kaydetmek **deploylaworkspacetemplate.json** bir yerel klasöre.
+4. Bu şablonu dağıtmaya hazırsınız. PowerShell veya komut satırı cretae çalışma alanı için kullanın.
+
+   * PowerShell için şablonu içeren klasöründen aşağıdaki komutları kullanın:
+   
+        ```powershell
+        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        ```
+
+   * Komut satırı için şablonu içeren klasöründen aşağıdaki komutları kullanın:
+
+        ```cmd
+        azure config mode arm
+        azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile deploylaworkspacetemplate.json
+        ```
+
+Dağıtımın tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti görürsünüz:<br><br> ![Dağıtım tamamlandığında, örnek sonuç](./media/log-analytics-template-workspace-configuration/template-output-01.png)
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Oluşturma ve yapılandırma günlük analizi çalışma alanı
 Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
 
-1. Ayar veri saklama dahil olmak üzere bir çalışma alanı oluşturma
-2. Çalışma Alanı'na çözümleri Ekle
-3. Kaydedilen Aramalar oluşturun
-4. Bir bilgisayar grubu oluşturun
-5. Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
-6. Mantıksal Disk performans sayaçlarını Linux bilgisayarından toplar (% kullanılan Inode; Boş megabayt; % Kullanılan alan; Disk aktarımı/sn; Disk Okuma/sn; Disk Yazma/sn)
-7. Linux bilgisayarlardan Syslog olaylarını Topla
-8. Uygulama olay günlüğü'ndeki Windows bilgisayarlardan hata ve uyarı olaylarını Topla
-9. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
-11. IIS ve Windows olay günlükleri Azure altyapınıza bir depolama hesabına yazılan Topla
+1. Çalışma Alanı'na çözümleri Ekle
+2. Kaydedilen Aramalar oluşturun
+3. Bir bilgisayar grubu oluşturun
+4. Windows aracısının yüklü olduğu IIS günlüklerinin bilgisayarlardan toplamayı etkinleştir
+5. Mantıksal Disk performans sayaçlarını Linux bilgisayarından toplar (% kullanılan Inode; Boş megabayt; % Kullanılan alan; Disk aktarımı/sn; Disk Okuma/sn; Disk Yazma/sn)
+6. Linux bilgisayarlardan Syslog olaylarını Topla
+7. Uygulama olay günlüğü'ndeki Windows bilgisayarlardan hata ve uyarı olaylarını Topla
+8. Windows bilgisayarlardan bellek kullanılabilir MBayt performans sayacı Topla
+9. IIS ve Windows olay günlükleri Azure altyapınıza bir depolama hesabına yazılan Topla
 
 ```json
 {
@@ -77,10 +153,11 @@ Aşağıdaki şablonu örnek göstermektedir nasıl yapılır:
       "allowedValues": [
         "Free",
         "Standalone",
-        "PerNode"
+        "PerNode",
+        "PerGB2018"
       ],
       "metadata": {
-        "description": "Service Tier: Free, Standalone, or PerNode"
+        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
     }
       },
     "dataRetention": {
@@ -421,7 +498,6 @@ New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <r
 azure config mode arm
 azure group deployment create <my-resource-group> <my-deployment-name> --TemplateFile azuredeploy.json
 ```
-
 
 ## <a name="example-resource-manager-templates"></a>Örnek Resource Manager şablonları
 Azure hızlı başlangıç Şablon Galerisi dahil olmak üzere günlük analizi için çeşitli şablonlar içerir:

@@ -1,25 +1,23 @@
 ---
-title: "Hdınsight küme oluşturma işlemi sırasında - Azure Hıve kitaplıkları ekleme | Microsoft Docs"
-description: "Hive kitaplıkları (jar dosyaları) eklemek bir Hdınsight kümesine küme oluşturma sırasında öğrenin."
+title: Hdınsight küme oluşturma işlemi sırasında - Azure Hıve kitaplıkları ekleme | Microsoft Docs
+description: Hive kitaplıkları (jar dosyaları) eklemek bir Hdınsight kümesine küme oluşturma sırasında öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 434c7d24f55c20cc763df3b83429e039bb5e8541
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Özel Hıve kitaplıkları, Hdınsight kümesi oluştururken ekleme
 
@@ -56,7 +54,7 @@ Küme oluşturma sırasında komut dosyaları sıralar, kopyalar `/usr/lib/custo
 
 * Kitaplığın adı jar dosyalarını içeren depolama hesabı **gerekir** oluşturma sırasında bağlı Hdınsight kümesi. Ya da varsayılan depolama hesabı olması gerekir ya da bir hesap üzerinden eklenen __isteğe bağlı yapılandırma__.
 
-* Kapsayıcı WASB yoluna betik eylemi parametresi olarak belirtilmelidir. Örneğin Kavanoz adlı bir kapsayıcıda depolanır, **kitaplıklar** bir depolama hesabında adlı **mystorage**, parametre olacaktır  **wasb://libs@mystorage.blob.core.windows.net/** .
+* Kapsayıcı WASB yoluna betik eylemi parametresi olarak belirtilmelidir. Örneğin Kavanoz adlı bir kapsayıcıda depolanır, **kitaplıklar** bir depolama hesabında adlı **mystorage**, parametre olacaktır **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
   > Bu belgede zaten oluşturulmuş bir depolama hesabı, blob kapsayıcısı ve kendisine karşıya yüklenen dosyaların olduğunu varsayar.
@@ -76,7 +74,7 @@ Küme oluşturma sırasında komut dosyaları sıralar, kopyalar `/usr/lib/custo
 
    * **AD**: betik eylemi için kolay bir ad girin.
 
-   * **BETİK URI'si**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
+   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
    * **HEAD**: Bu seçeneği işaretleyin.
 
@@ -84,7 +82,7 @@ Küme oluşturma sırasında komut dosyaları sıralar, kopyalar `/usr/lib/custo
 
    * **ZOOKEEPER**: Bu alanı boş bırakın.
 
-   * **PARAMETRELERİ**: Kavanoz içeren kapsayıcı ve depolama hesabına WASB adresini girin. Örneğin,  **wasb://libs@mystorage.blob.core.windows.net/** .
+   * **PARAMETRELERİ**: Kavanoz içeren kapsayıcı ve depolama hesabına WASB adresini girin. Örneğin, **wasb://libs@mystorage.blob.core.windows.net/**.
 
 3. Ekranın alt kısmındaki **betik eylemleri**, kullanın **seçin** yapılandırmayı kaydetmek için düğmesi.
 

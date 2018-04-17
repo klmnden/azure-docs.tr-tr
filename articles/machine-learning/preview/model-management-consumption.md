@@ -1,6 +1,6 @@
 ---
-title: "Azure Machine Learning modeli Yönetim web hizmeti tüketim | Microsoft Docs"
-description: "Bu belgede adımları ve kavramları açıklamaktadır Azure Machine Learning modeli Yönetimi'ni kullanarak dağıtılan web hizmetlerini tüketen söz konusu."
+title: Azure Machine Learning modeli Yönetim web hizmeti tüketim | Microsoft Docs
+description: Bu belgede adımları ve kavramları açıklamaktadır Azure Machine Learning modeli Yönetimi'ni kullanarak dağıtılan web hizmetlerini tüketen söz konusu.
 services: machine-learning
 author: raymondlaghaeian
 ms.author: raymondl
@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 4d388af3175bce5df6108ff0fd836707cca5040a
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0976e2dca909781ade76c742cc99746e1123307d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="consuming-web-services"></a>Web Hizmetleri kullanma
 Model bir gerçek zamanlı web hizmeti olarak dağıtma sonra veri göndermek ve çeşitli platformlar ve uygulamaları Öngörüler alın. Gerçek zamanlı web hizmetini Öngörüler almak için bir REST API gösterir. Web hizmeti aynı anda bir veya daha fazla Öngörüler almak için tek veya birden çok satır biçiminde veri gönderebilir.
@@ -162,6 +162,6 @@ url = 'http://<service ip address>:80/api/v1/service/<service name>/score'
 api_key = 'your service key' 
 headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
 
-resp = requests.post(url, data, headers=headers)
+resp = requests.post(url, body, headers=headers)
 resp.text
 ```

@@ -1,24 +1,23 @@
 ---
 title: Azure Table Storage ve Azure Cosmos DB C++ ile kullanma | Microsoft Docs
-description: "Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın."
+description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
 services: cosmos-db
 documentationcenter: .net
-author: mimig1
-manager: jahogg
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
-ms.author: mimig
-ms.openlocfilehash: 69d56c79320931419ff8d71373ec578af2dec921
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 60c419a45e795d5968b58fbb6b469d06750a0679
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Table depolama ve Azure Cosmos DB tablo API C++ ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -30,11 +29,15 @@ Bu kılavuz Azure Table depolama hizmeti veya Azure Cosmos DB tablo API kullanar
 > [!NOTE]
 > Bu kılavuz, c++ sürümü 1.0.0 ve yukarıda Azure Storage istemci kitaplığı hedefler. Aracılığıyla kullanılabilir olan depolama istemci kitaplığı 2.2.0, önerilen sürümüdür [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp/).
 > 
-> 
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>C++ uygulaması oluşturma
 Bu kılavuzda, C++ uygulamasında çalıştırılabilir depolama özelliklerini kullanır. Bunu yapmak için Azure Storage istemci kitaplığı C++ için yükleme ve Azure aboneliğinizde bir Azure depolama hesabı oluşturmanız gerekir.  
@@ -65,7 +68,7 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 ```
 
 ## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Bir Azure Cosmos DB bağlantı dizesi ayarlama
-Azure Cosmos DB hesabınızı, birincil anahtar ve uç nokta listelenen adını kullanmak [Azure Portal](https://portal.azure.com) için *hesap adı*, *birincil anahtar*, ve  *Uç nokta* değerleri. Bu örnek, nasıl Azure Cosmos DB bağlantı dizesi tutmak için statik bir alana bildirebilir gösterir:
+Azure Cosmos DB hesabınızı, birincil anahtar ve uç nokta listelenen adını kullanmak [Azure Portal](https://portal.azure.com) için *hesap adı*, *birincil anahtar*, ve * Uç nokta* değerleri. Bu örnek, nasıl Azure Cosmos DB bağlantı dizesi tutmak için statik bir alana bildirebilir gösterir:
 
 ```cpp
 // Define the Azure Cosmos DB connection string with your values.

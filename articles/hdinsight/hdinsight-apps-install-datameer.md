@@ -1,26 +1,24 @@
 ---
-title: "Yükleme yayımlanan uygulama - Datameer - Azure Hdınsight | Microsoft Docs"
-description: "Yükleyin ve Datameer üçüncü taraf Hadoop uygulama kullanın."
+title: Yükleme yayımlanan uygulama - Datameer - Azure Hdınsight | Microsoft Docs
+description: Yükleyin ve Datameer üçüncü taraf Hadoop uygulama kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 8a898b4f82cf2d7e05e8c3895e5eddd8cf02b173
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 5008056ae2274d058706649f286b91b71feadc27
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---datameer"></a>Yayımlanan uygulama - Datameer yükleyin
 
@@ -62,7 +60,7 @@ Aşağıdaki adımlar, "Hello World" Tanıtımı gösterir.
 
 1. [Örnek CSV Yükle](https://datameer.box.com/s/wzzw27za3agic4yjj8zrn6vfrph0ppnf).
 
-2. Tıklatın  **+**  oturum üstünde Datameer Pano ve tıklatın **dosyayı karşıya yüklemeyi**.
+2. Tıklatın **+** oturum üstünde Datameer Pano ve tıklatın **dosyayı karşıya yüklemeyi**.
 
     ![Karşıya Dosya Yükleme](./media/hdinsight-apps-install-datameer/upload.png)
 
@@ -74,7 +72,7 @@ Aşağıdaki adımlar, "Hello World" Tanıtımı gösterir.
 
     ![Kaydet](./media/hdinsight-apps-install-datameer/save.png)
 
-5. Tıklatın  **+**  seçin ve bir kez daha imzalamak **çalışma kitabı** verileri için yeni bir çalışma kitabı oluşturulamadı.
+5. Tıklatın **+** seçin ve bir kez daha imzalamak **çalışma kitabı** verileri için yeni bir çalışma kitabı oluşturulamadı.
 
     ![Çalışma kitabı ekleme](./media/hdinsight-apps-install-datameer/add-workbook.png)
 
@@ -96,7 +94,7 @@ Aşağıdaki adımlar, "Hello World" Tanıtımı gösterir.
 
     ![Çalışma kitabını kaydedin](./media/hdinsight-apps-install-datameer/save-workbook.png)
 
-11. Datameer güçlü görsel araçlar sağlar. Verileri görüntülemek için bir bilgi grafiği oluşturun. Seçin  **+**  oturum üzerinde panonun sonra seçin **bilgi grafiği**.
+11. Datameer güçlü görsel araçlar sağlar. Verileri görüntülemek için bir bilgi grafiği oluşturun. Seçin **+** oturum üzerinde panonun sonra seçin **bilgi grafiği**.
 
     ![Bilgi grafiği ekleyin](./media/hdinsight-apps-install-datameer/infographic-button.png)
 

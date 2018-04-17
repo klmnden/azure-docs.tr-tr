@@ -1,11 +1,11 @@
 ---
-title: "Kurtarma Hizmetleri kasasına Azure Yedekleme'nin yükseltme yedekleme kasası | Microsoft Docs"
-description: "Kaynak Yöneticisi Vm'leri, Gelişmiş güvenlik, VMware VM yedekleme ve sistem durumu yedeklemesi Windows sunucuları için yedekleme gibi yeni özellikler almak için kurtarma Hizmetleri kasasına yükseltme yedekleme kasası"
+title: Kurtarma Hizmetleri kasasına Azure Yedekleme'nin yükseltme yedekleme kasası | Microsoft Docs
+description: Kaynak Yöneticisi Vm'leri, Gelişmiş güvenlik, VMware VM yedekleme ve sistem durumu yedeklemesi Windows sunucuları için yedekleme gibi yeni özellikler almak için kurtarma Hizmetleri kasasına yükseltme yedekleme kasası
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: trinadhk
 manager: vijayts
-editor: 
+editor: ''
 keyword: backup vault; upgrade vault; recovery services vault
 ms.assetid: d037a8bf-49f2-4578-974a-3471d87ca278
 ms.service: backup
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: trinadhk, sogup
-ms.openlocfilehash: 708983fc2c5264d1213bdb32b665dcccc5ca9df9
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 7c340f60bc648909d073821f1987036da9633458
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-vault-upgraded-to-recovery-services-vault"></a>Yedekleme kasasının kurtarma Hizmetleri Kasası'na yükseltme
 Kurtarma Hizmetleri kasası ve yükseltme sonrası adımlarını var olan bir yedek yükseltme hakkında sık sorulan sorular kasa, bu makalede hangi kurtarma Hizmetleri kasası sağlar genel bir bakış sağlar. Kurtarma Hizmetleri kasası, yedekleme verilerinizi barındıran bir yedekleme kasası Azure Resource Manager eşdeğerdir. Verileri genellikle veri ya da sanal makineleri (VM'ler), iş yükleri, sunucular ve iş istasyonları için yapılandırma bilgilerini kopyalarını olup şirket içi veya azure'de.
@@ -32,9 +32,9 @@ Kurtarma Hizmetleri kasaları, yedekleme kasaları Azure Service Manager modelin
 
 - **Gelişmiş Güvenlik yedekleme verileri yardımcı olmak için özellikleri**: ile kurtarma Hizmetleri kasaları, Azure Backup bulut yedekleme korumak için güvenlik özellikleri sağlar. Bu güvenlik özellikleri Yedeklemelerinizin güvenli ve güvenli bir şekilde üretim ve yedekleme sunucuları tehlikeye olsa bile bulut yedeklemelerden veri kurtarmak emin olun. [Daha fazla bilgi](backup-azure-security-feature.md)
 
-- **Karma BT ortamında Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [içi varlıklar](backup-azure-manage-windows-server.md#manage-backup-items) merkezi bir gelen Portal. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
+- **Karma BT ortamında Merkezi İzleme**: ile kurtarma Hizmetleri kasaları, izleyebilirsiniz yalnızca, [Azure Iaas Vm'leri](backup-azure-manage-vms.md) aynı zamanda, [içi varlıklar](backup-azure-manage-windows-server.md#manage-backup-items) merkezi portalından. [Daha fazla bilgi](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
-- **Rol tabanlı erişim denetimi (RBAC)**: RBAC Azure ayrıntılı erişim yönetimi denetim sağlar. [Azure sağlayan çeşitli yerleşik roller](../active-directory/role-based-access-built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları yedekleme kısıtlayan RBAC ile uyumludur ve kullanıcı rolleri tanımlı kümesine erişim geri yükleyin. [Daha fazla bilgi](backup-rbac-rs-vault.md)
+- **Rol tabanlı erişim denetimi (RBAC)**: RBAC Azure ayrıntılı erişim yönetimi denetim sağlar. [Azure sağlayan çeşitli yerleşik roller](../role-based-access-control/built-in-roles.md), ve Azure Backup sahip üç [kurtarma noktaları yönetmek için yerleşik roller](backup-rbac-rs-vault.md). Kurtarma Hizmetleri kasaları yedekleme kısıtlayan RBAC ile uyumludur ve kullanıcı rolleri tanımlı kümesine erişim geri yükleyin. [Daha fazla bilgi](backup-rbac-rs-vault.md)
 
 - **Tüm yapılandırmaları Azure sanal makinelerin korunmasına**: Kurtarma Hizmetleri kasaları şunları korur Resource Manager tabanlı VM'ler Premium diskler, yönetilen diskleri ve şifrelenmiş VM'ler dahil olmak üzere. Bir Backup kasasının kurtarma Hizmetleri Kasası'na yükseltme Resource Manager tabanlı VM'ler için Service Manager tabanlı VM'ler yükseltme olanağı sağlar. Kasa yükseltirken, Service Manager tabanlı VM kurtarma noktalarını korumak ve yükseltilen (Resource Manager etkin) VM'ler için korumayı yapılandırın. [Daha fazla bilgi](http://azure.microsoft.com/blog/azure-backup-recovery-services-vault-ga)
 

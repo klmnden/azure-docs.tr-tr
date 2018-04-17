@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 01d5150bff8642a1a3fe9b7ac063923916f191c0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 78449a527f5ee1410530ded18a11cb8c6a5dded5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 03/28/2018
 12.  Aşağıdaki ileti alırsanız: "1), NSG çözümleme akış günlükleri ilk kez. Bu işlemin tamamlanması 20-30 dakika sürebilir. Bir süre sonra yeniden denetleyin. 2) yukarıdaki adım çalışmaz ve çalışma alanınızı ücretsiz SKU ardından bir kotanın üzerinde doğrulamak için çalışma alanı kullanımınızı denetleyin, aksi takdirde sık sorulan sorular için daha fazla bilgi için başvurun", nasıl onu giderebilirim?
 
         Aşağıdaki nedenlerle hata iletisini alabilirsiniz:
-        - Trafiği analytics son etkinleştirilmiş ve bu herhangi bir raporu oluşturulmadan önce anlamlı bilgiler çıkarmaya için yeterli veri toplama. Bu durumda, 30 dakika sonra yeniden deneyin
+        - Trafiğini analiz son etkinleştirilmiş ve henüz yeterli daha anlamlı bilgiler çıkarmaya toplanmış verilerine değil.
         - Ücretsiz SKU OMS çalışma alanınız olduğundan ve kota sınırlarının ihlal. Bu durumda, bir çalışma alanında bir SKU daha büyük kapasitede kullanmanız gerekebilir.
     
         Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).

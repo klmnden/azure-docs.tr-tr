@@ -1,26 +1,24 @@
 ---
-title: "Hive hdınsight'ta - Azure ile uçuş gecikme veri çözümleme | Microsoft Docs"
-description: "Hive Linux tabanlı Hdınsight üzerinde uçuş verileri çözümlemek ve Sqoop kullanarak bu verileri SQL veritabanına vermek için nasıl kullanılacağını öğrenin."
+title: Hive hdınsight'ta - Azure ile uçuş gecikme veri çözümleme | Microsoft Docs
+description: Hive Linux tabanlı Hdınsight üzerinde uçuş verileri çözümlemek ve Sqoop kullanarak bu verileri SQL veritabanına vermek için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: 0c23a079-981a-4079-b3f7-ad147b4609e5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b2eca1ab7eff006311269c78b1e507cb1417fcc6
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: cc5d48b881ba59679c19baa3506c3c14c0db8048
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>Linux tabanlı Hdınsight'ta Hive kullanarak uçuş gecikme verilerini çözümleme
 

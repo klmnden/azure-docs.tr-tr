@@ -16,11 +16,11 @@ ms.date: 03/30/2018
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: a4ed9ddabe19406fa694992f29cf529b491438c0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 25b3e47b013cbcd99a39d128cca733709b7a1bb9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
@@ -86,7 +86,7 @@ Aşağıdaki tabloda, Gelişmiş kural gövdesindeki kullanılacak tüm destekle
 | Contains |-içerir |
 | Eşleşmiyor |-notMatch |
 | eşleşme |-eşleşmesi |
-| İçinde | -in |
+| İçinde | -içinde |
 | İçinde değil | -notIn |
 
 ## <a name="operator-precedence"></a>İşleç önceliği
@@ -124,7 +124,7 @@ Aşağıdaki tabloda yaygın hatalar ve bunların nasıl düzeltileceği listele
 | --- | --- | --- |
 | Hata: özniteliği desteklenmiyor. |(user.invalidProperty - eq "Value") |(user.department - eq "value")<br/><br/>Öznitelik olduğundan emin olun üzerinde [özellikleri listesi desteklenen](#supported-properties). |
 | Hata: Öznitelikte işleci desteklenmiyor. |(user.accountEnabled-true içerir) |(user.accountEnabled - eq true)<br/><br/>Özellik türü için kullanılan işleci desteklenmiyor (Bu örnekte,-içeren kullanılamaz boolean türü). Doğru işleçler özellik türü için kullanın. |
-| Hata: Sorgu derleme hatası oluştu. |1. (user.department - eq "Satış") (user.department - eq "Pazarlama")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. İşleç eksik. Kullanın - veya - veya iki koşulları katılın<br/><br/>(user.department - eq "Satış")- veya (user.department - eq "Pazarlama")<br/><br/>2. hata - kullanılan normal ifade ile eşleşir<br/><br/>(user.userPrincipalName -match ".*@domain.ext"), alternatively: (user.userPrincipalName -match "@domain.ext$")|
+| Hata: Sorgu derleme hatası oluştu. |1. (user.department - eq "Satış") (user.department - eq "Pazarlama")<br/><br/>2. (user.userPrincipalName-eşleşen "*@domain.ext") |1. İşleç eksik. Kullanın - veya - veya iki koşulları katılın<br/><br/>(user.department - eq "Satış")- veya (user.department - eq "Pazarlama")<br/><br/>2. hata - kullanılan normal ifade ile eşleşir<br/><br/>(user.userPrincipalName-eşleşen ". *@domain.ext"), bunun yerine: (user.userPrincipalName-eşleşen "@domain.ext$")|
 
 ## <a name="supported-properties"></a>Desteklenen özellikler
 Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlardır:
@@ -151,7 +151,7 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 * -notContains
 * -eşleşmesi
 * -notMatch
-* -in
+* -içinde
 * -notIn
 
 | Özellikler | İzin verilen değerler | Kullanım |
@@ -160,28 +160,28 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 | Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
 | Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
 | Bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
-| displayName |Herhangi bir dize değeri |(user.displayName -eq "value") |
-| employeeId |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
+| Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
+| EmployeeID |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Herhangi bir dize değeri veya *null* |(user.givenName - eq "value") |
 | İş Unvanı |Herhangi bir dize değeri veya *null* |(user.jobTitle - eq "value") |
 | Posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
 | mailNickName |Herhangi bir dize değeri (kullanıcı diğer adı posta) |(user.mailNickName - eq "value") |
 | Mobil |Herhangi bir dize değeri veya *null* |(user.mobile - eq "value") |
-| objectId |Kullanıcı nesnesinin GUID |(user.objectId - eq "1111111-1111-1111-1111-111111111111") |
+| objectId |Kullanıcı nesnesinin GUID |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Güvenlik tanımlayıcısı (SID) şirket içi buluta eşitlenmiş olan kullanıcılar için şirket içi. |(user.onPremisesSecurityIdentifier - eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
 | passwordPolicies |Hiçbiri DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq "DisableStrongPassword") |
 | physicalDeliveryOfficeName |Herhangi bir dize değeri veya *null* |(user.physicalDeliveryOfficeName - eq "value") |
 | posta kodu |Herhangi bir dize değeri veya *null* |(user.postalCode - eq "value") |
 | preferredLanguage |ISO 639-1 kodu |(user.preferredLanguage - eq "en-US") |
-| sipProxyAddress |Herhangi bir dize değeri veya *null* |(user.sipProxyAddress -eq "value") |
+| sipProxyAddress |Herhangi bir dize değeri veya *null* |(user.sipProxyAddress - eq "value") |
 | durum |Herhangi bir dize değeri veya *null* |(user.state - eq "value") |
-| streetAddress |Herhangi bir dize değeri veya *null* |(user.streetAddress - eq "value") |
+| StreetAddress |Herhangi bir dize değeri veya *null* |(user.streetAddress - eq "value") |
 | Soyadı |Herhangi bir dize değeri veya *null* |(user.surname - eq "value") |
 | telephoneNumber |Herhangi bir dize değeri veya *null* |(user.telephoneNumber - eq "value") |
 | usageLocation |İki harflerin ülke kodu |(user.usageLocation - eq "ABD") |
-| userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName -eq "alias@domain") |
-| userType |üye Konuk *null* |(user.userType - eq "Üye") |
+| userPrincipalName |Herhangi bir dize değeri |(user.userPrincipalName - eq "alias@domain") |
+| UserType |üye Konuk *null* |(user.userType - eq "Üye") |
 
 ### <a name="properties-of-type-string-collection"></a>Türü dize koleksiyonunun özellikleri
 İzin verilen işleçleri
@@ -192,7 +192,7 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 | Özellikler | İzin verilen değerler | Kullanım |
 | --- | --- | --- |
 | otherMails |Herhangi bir dize değeri |(user.otherMails-içeren "alias@domain") |
-| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
+| proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-içeren "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Birden çok değerli özellikleri
 İzin verilen işleçleri
@@ -272,19 +272,19 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
  Cihaz özniteliği  | Değerler | Örnek
  ----- | ----- | ----------------
  accountEnabled | doğru false | (device.accountEnabled - eq true)
- displayName | Herhangi bir dize değeri |(device.displayName - eq "Ramiz Iphone")
+ Görünen adı | Herhangi bir dize değeri |(device.displayName - eq "Ramiz Iphone")
  deviceOSType | Herhangi bir dize değeri | (device.deviceOSType - eq "iPad")- veya (device.deviceOSType - eq "iPhone")
- deviceOSVersion | Herhangi bir dize değeri | (cihazı. OSVersion - eq "9.1")
+ DeviceOSVersion | Herhangi bir dize değeri | (cihazı. OSVersion - eq "9.1")
  deviceCategory | Geçerli bir aygıt kategori adı | (device.deviceCategory - eq "KCG")
  DeviceManufacturer | Herhangi bir dize değeri | (device.deviceManufacturer - eq "Samsung")
- deviceModel | Herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
+ DeviceModel | Herhangi bir dize değeri | (device.deviceModel - eq "iPad hava")
  deviceOwnership | Kişisel, şirket, bilinmiyor | (device.deviceOwnership - eq "Şirket")
  domainName | Herhangi bir dize değeri | (device.domainName - eq "contoso.com")
  enrollmentProfileName | Apple cihaz kayıt profilinin adı | (device.enrollmentProfileName - eq "DEP iPhone")
  isRooted | doğru false | (device.isRooted - eq true)
  managementType | MDM (için mobil cihazlar)<br>PC (Intune bilgisayar aracı tarafından yönetilen bilgisayarlar için) | (device.managementType - eq "MDM")
  Kuruluş birimi | bir şirket içi Active Directory tarafından ayarlanmış kuruluş biriminin adı ile eşleşen herhangi bir dize değeri | (device.organizationalUnit - eq "ABD PC'ler")
- deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ deviceId | Geçerli bir Azure AD cihaz kimliği | (device.deviceId - eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Geçerli bir Azure AD nesne kimliği |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 

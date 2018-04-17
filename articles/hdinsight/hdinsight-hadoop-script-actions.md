@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 836d68a8-8b21-4d69-8b61-281a7fe67f21
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac2a087bb0a9d8cac15dfea2448a9c42cee4a1f4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 98040f10eb15245f36eb0b365dcdf0f5ba7f107a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Hdınsight Windows tabanlı kümeler için betik eylemi betikleri geliştirme
 Hdınsight için betik eylemi betikler yazma hakkında bilgi edinin. Betik eylemi komut dosyalarını kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı Hdınsight kümeleri için yazılmış aynı makale için bkz: [Hdınsight betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
@@ -140,10 +138,10 @@ Bu komut dosyası tarafından sağlanan yardımcı yöntemler şunlardır:
 
 | Yardımcı yöntemi | Açıklama |
 | --- | --- |
-| **Save-HDIFile** |Bir dosya belirtilen Tekdüzen Kaynak Tanımlayıcısı (URI) gelen kümeye atanan Azure VM düğümle ilişkilendirilen yerel diskteki bir konuma indirin. |
-| **Expand-HDIZippedFile** |Sıkıştırılmış bir dosya sıkıştırmasını açın. |
-| **Invoke-HDICmdScript** |Bir komut dosyası cmd.exe çalıştırın. |
-| **Write-HDILog** |Bir komut dosyası eylemi için kullanılan özel komut dosyasından çıkış yazma. |
+| **Kaydet-HDIFile** |Bir dosya belirtilen Tekdüzen Kaynak Tanımlayıcısı (URI) gelen kümeye atanan Azure VM düğümle ilişkilendirilen yerel diskteki bir konuma indirin. |
+| **Genişletme HDIZippedFile** |Sıkıştırılmış bir dosya sıkıştırmasını açın. |
+| **Çağırma HDICmdScript** |Bir komut dosyası cmd.exe çalıştırın. |
+| **Yazma HDILog** |Bir komut dosyası eylemi için kullanılan özel komut dosyasından çıkış yazma. |
 | **Get-Services** |Burada betiği yürüten makinede çalışan hizmetlerin listesini alın. |
 | **Get-Service** |Giriş olarak belirli hizmet adı ile belirli bir hizmet için ayrıntılı bilgi almak (hizmet adı, işlem kimliği, durum, vb.) burada betiği yürüten makinede. |
 | **Get-HDIServices** |Burada betiği yürüten bilgisayarda çalışan Hdınsight hizmetlerin listesini alın. |
@@ -156,7 +154,7 @@ Bu komut dosyası tarafından sağlanan yardımcı yöntemler şunlardır:
 | **Test-IsHDIHeadNode** |Burada betiği yürüten bilgisayar bir baş düğüm olup olmadığını denetleyin. |
 | **Test-IsActiveHDIHeadNode** |Burada betiği yürüten bilgisayar etkin bir baş düğüm olup olmadığını denetleyin. |
 | **Test-IsHDIDataNode** |Burada betiği yürüten bilgisayar veri düğümü olup olmadığını denetleyin. |
-| **Edit-HDIConfigFile** |Yapılandırma dosyaları hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml veya yarn-site.xml düzenleyin. |
+| **Düzen HDIConfigFile** |Yapılandırma dosyaları hive-site.xml, core-site.xml, hdfs-site.xml, mapred-site.xml veya yarn-site.xml düzenleyin. |
 
 ## <a name="best-practices-for-script-development"></a>Komut dosyası geliştirme için en iyi yöntemler
 Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınması gereken birkaç en iyi yöntemler vardır:
@@ -178,7 +176,7 @@ Hdınsight kümesi için özel bir komut dosyası geliştirirken dikkate alınma
 
     Hdınsight bir baş düğüm (Hdınsight Hizmetleri çalıştırdığınız) etkin modda bir baş düğüm olup (hangi Hdınsight'ta Hizmetleri çalışmıyor) bekleme modunda olduğundan, yüksek kullanılabilirlik için bir Aktif-Pasif mimarisi vardır. Hdınsight Hizmetleri kesilirse düğümleri etkin ve Pasif modları. Yüksek kullanılabilirlik için her iki baş düğümünde hizmetlerini yüklemek için bir betik eylemi kullandıysanız, Hdınsight yük devretme mekanizması otomatik olarak bu kullanıcı tarafından yüklenen hizmetleri başarısız mümkün olmadığını unutmayın. Bu nedenle kullanıcı yüklü hizmetler yüksek oranda kullanılabilir olması beklenen Hdınsight baş düğümler üzerinde kendi Aktif-Pasif modu, yük devretme yönteminde sahip veya etkin-etkin modunda olması.
 
-    Baş düğüm rolünü bir değer olarak belirtildiğinde bir Hdınsight betik eylemi komutu her iki baş düğümler üzerinde çalışır *ClusterRoleCollection* parametresi. Bu nedenle özel bir komut dosyası tasarlarken, kodunuzu bu kurulumu farkında olduğundan emin olun. Burada aynı hizmetleri yüklenir ve her iki baş düğümü üzerinde başlatıldı ve birbirleri ile rekabet bitiş sorunlar çalışmamalıdır. Betik eylemi yüklenen yazılım bu tür olayların dayanıklı olması gerekir böylece Ayrıca, yeniden görüntüleme sırasında veri kaybı olmamasına dikkat edin. Uygulamalar birçok düğümüne dağıtılmış yüksek oranda kullanılabilir verilerle çalışmak için tasarlanmış. Aynı anda kadar 1/5 kümedeki düğümlerin yeniden olduğunu unutmayın.
+    Baş düğüm rolünü bir değer olarak belirtildiğinde bir Hdınsight betik eylemi komutu her iki baş düğümler üzerinde çalışır *ClusterRoleCollection* parametresi. Bu nedenle özel bir komut dosyası tasarlarken, kodunuzu bu kurulumu farkında olduğundan emin olun. Burada aynı hizmetleri yüklenir ve her iki baş düğümü üzerinde başlatıldı ve birbirleri ile rekabet bitiş sorunlar çalışmamalıdır. Betik eylemi yüklenen yazılım bu tür olayların dayanıklı olması gerekir böylece Ayrıca, yeniden görüntüleme sırasında veri kaybı olmamasına dikkat edin. Uygulamalar birçok düğümüne dağıtılmış yüksek oranda kullanılabilir verilerle çalışmak için tasarlanmış. Kadar 1/5 kümedeki düğümler, aynı anda yeniden.
 * Azure Blob storage kullanma özel bileşenlerini yapılandırma
 
     Küme düğümlerine yükleyin özel bileşenler Hadoop dağıtılmış dosya sistemi (HDFS) depolama kullanmak için bir varsayılan yapılandırmaya sahip olabilir. Azure Blob storage kullanmayı yapılandırmasını değiştirmeniz gerekir. Bir küme yeniden görüntü oluşturma, HDFS dosya sistemi ile biçimlendirilmiş ve orada depolanan tüm verileri kaybedersiniz. Azure Blob storage kullanarak, bunun yerine, verilerinizi tutulur sağlar.
@@ -192,14 +190,14 @@ Genellikle betik eylemi geliştirme ortam değişkenlerini ayarlama gerek düş�
     Write-HDILog "Starting environment variable setting at: $(Get-Date)";
     [Environment]::SetEnvironmentVariable('MDS_RUNNER_CUSTOM_CLUSTER', 'true', 'Machine');
 
-Bu bildirimi ortam değişkenini ayarlar **MDS_RUNNER_CUSTOM_CLUSTER** makine genelinde olması için bu değişkenin kapsamını 'true' hem de değerine ayarlar. Zaman zaman ortam değişkenleri uygun kapsamda – makine ya da kullanıcı ayarlanır önemlidir. Başvuru [burada] [ 1] ortam değişkenlerini ayarlama hakkında daha fazla bilgi.
+Bu bildirimi ortam değişkenini ayarlar **MDS_RUNNER_CUSTOM_CLUSTER** makine genelinde olması için bu değişkenin kapsamını 'true' hem de değerine ayarlar. Ortam değişkenleri uygun kapsamda – makine ya da kullanıcı ayarlanır önemlidir. Başvuru [burada] [ 1] ortam değişkenlerini ayarlama hakkında daha fazla bilgi.
 
 ### <a name="access-to-locations-where-the-custom-scripts-are-stored"></a>Özel komut dosyaları depolandığı konumuna erişim
-Bir küme özelleştirmek için kullanılan komut ya da küme için varsayılan depolama hesabı veya başka bir depolama hesabı üzerinde genel bir salt okunur kapsayıcı olması. Kodunuzu başka bir yerde bulunan kaynaklara erişirse bunlar bir ortak olarak erişilebilen olmanız gerekir (en az genel salt okunur). Örneğin bir dosyaya erişmek ve SaveFile HDI komutunu kullanarak kaydetmek isteyebilirsiniz.
+Bir küme özelleştirmek için kullanılan komut ya da küme için varsayılan depolama hesabı veya başka bir depolama hesabı üzerinde genel bir salt okunur kapsayıcı olması. Kodunuzu başka bir yerde bulunan kaynaklara eriştiği kaynaklara herkese açık şekilde okunabilir olması gerekir. Örneğin, bir dosyaya erişmek ve SaveFile HDI komutunu kullanarak kaydetmek isteyebilirsiniz.
 
     Save-HDIFile -SrcUri 'https://somestorageaccount.blob.core.windows.net/somecontainer/some-file.jar' -DestFile 'C:\apps\dist\hadoop-2.4.0.2.1.9.0-2196\share\hadoop\mapreduce\some-file.jar'
 
-Bu örnekte 'somestorageaccount' depolama hesabındaki ' somecontainer' kapsayıcı genel olarak erişilebilir olduğundan emin olmalısınız. Aksi takdirde, komut dosyası 'Bulunamadı' bir özel durum oluşturur ve başarısız.
+Bu örnekte, kapsayıcı emin olmalısınız `somecontainer` depolama hesabındaki `somestorageaccount` genel olarak erişilebilir. Aksi takdirde, komut dosyası 'Bulunamadı' bir özel durum oluşturur ve başarısız.
 
 ### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Add-AzureRmHDInsightScriptAction cmdlet parametreleri
 Birden çok parametre Ekle AzureRmHDInsightScriptAction cmdlet'e için komut dosyası için tüm parametreleri içeren dize değeri biçimlendirmeniz gerekir. Örneğin:
@@ -238,9 +236,9 @@ Biz bu komut dosyaları dağıtmak hazırlarken sürdü adımlar şunlardır:
 
 1. Dağıtım sırasında küme düğümleri tarafından erişilebilen bir yerde özel komut dosyaları içeren dosyaları yerleştirin. Bu varsayılan veya Küme dağıtımı ya da başka bir genel olarak erişilebilir depolama kapsayıcısı sırada belirtilen ek depolama hesapları olabilir.
 2. Komut dosyası birden çok kez aynı düğümde yürütülebilir. böylece idempotently, yürütme emin olmak için betikler içine ekleyin.
-3. Kullanım **Write-Output** STDERR yanı sıra STDOUT yazdırmak için Azure PowerShell cmdlet'i. Kullanmayın **Write-Host**.
-4. $Env gibi bir geçici dosya klasörünü kullanabilirsiniz: betikler tarafından kullanılan indirilen dosya korumak ve komut dosyaları çalıştırdıktan sonra sonra bunları temizlemek için TEMP.
-5. Özel yazılım D:\ veya C:\apps yalnızca yükleyin. Ayrılmış olarak C: sürücüsündeki diğer konumlarda kullanılmamalıdır. C:\apps klasörü dışında C: sürücüsündeki dosyaları yükleme kurulum hataları sırasında düğümün reimages neden olabileceğini unutmayın.
+3. Kullanım `Write-Output` STDERR yanı sıra STDOUT yazdırmak için Azure PowerShell cmdlet'i. Kullanmayın `Write-Host`.
+4. Bir geçici dosya klasörü gibi kullandığınız `$env:TEMP`, komut dosyaları tarafından kullanılan indirilen dosya korumak ve komut dosyaları çalıştırdıktan sonra sonra bunları Temizle.
+5. Özel yazılım D:\ veya C:\apps yalnızca yükleyin. Ayrılmış olarak C: sürücüsündeki diğer konumlarda kullanılmamalıdır. C:\apps klasörü dışında C: sürücüsündeki dosyaları yükleme düğüm reimages sırasında Kurulum hatalarına neden.
 6. İşletim sistemi düzeyinde ayarları veya Hadoop hizmeti yapılandırma dosyaları değiştirilmiş gelmesi durumunda, böylece ortam değişkenleri komut kümesini gibi herhangi bir işletim sistemi düzeyinde ayarlarını seçebilirsiniz Hdınsight hizmetlerini yeniden isteyebilirsiniz.
 
 ## <a name="debug-custom-scripts"></a>Özel komut dosyaları hata ayıklama

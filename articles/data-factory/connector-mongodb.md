@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 04/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c1e5dbf60c247399b620a437da92a166990087e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4d20ed753c2e53d6a7c117e0c00671ab05036b03
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory kullanarak MongoDB verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Tüm desteklenen havuz veri deposuna MongoDB veritabanından veri kopyalayabilir
 
 Özellikle, bu MongoDB bağlayıcı destekler:
 
-- MongoDB **sürümleri 2.4, 2.6, 3.0 ve 3.2**.
+- MongoDB **sürümleri 2.4, 2.6, 3.0, 3.2, 3.4 ve 3.6**.
 - Verileri kullanarak kopyalama **temel** veya **anonim** kimlik doğrulaması.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -63,6 +63,8 @@ Aşağıdaki özellikler MongoDB bağlantılı hizmeti için desteklenir:
 | kullanıcı adı |MongoDB erişmek için kullanıcı hesabı. |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | password |Kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet (Temel kimlik doğrulaması kullanılıyorsa). |
 | authSource |Kimlik doğrulaması için kimlik bilgilerinizi denetlemek için kullanmak istediğiniz MongoDB veritabanı adı. |Hayır. Temel kimlik doğrulaması için varsayılan yönetici hesabı ve databaseName özelliği kullanılarak belirtilen veritabanı kullanmaktır. |
+| enableSsl | Sunucusuna bağlantılarda SSL kullanılarak şifrelenir olup olmadığını belirtir. Varsayılan değer false.  | Hayır |
+| allowSelfSignedServerCert | Otomatik olarak imzalanan sertifikalar sunucudan izin verilip verilmeyeceğini belirtir. Varsayılan değer false.  | Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
 **Örnek:**
@@ -116,7 +118,7 @@ Adresinden verileri kopyalamak için kümesine tür özelliği ayarlamak **Mongo
             "collectionName": "<Collection name>"
         }
     }
-
+}
 ```
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
@@ -208,7 +210,7 @@ Sanal tablolar Normalleştirilmemiş verilere erişmek sürücüyü etkinleştir
 
 | _ıd | Müşteri adı | Faturalar | Hizmet Düzeyi | Derecelendirme |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Gümüş |[5,6] |
+| 1111 |ABC |[{invoice_id: "123" öğesi: "toaster", fiyat: "456", indirim: "0.2"}, {invoice_id: "124" öğesi: "fırın", fiyat: "1235" indirim: "0.2"}] |Gümüş |[5,6] |
 | 2222 |XYZ |[{invoice_id: "135" öğesi: "fridge", fiyat: "12543", indirim: "0,0"}] |Altın |[1,2] |
 
 Sürücü bu tek tablo göstermek için birden çok sanal tablo oluşturur. İlk sanal "örnekte gösterilen ExampleTable" adlı temel tablo tablodur. Temel tablo özgün tablonun tüm verileri içerir, ancak diziler verilerden çıkarıldı ve sanal tablolarda genişletilir.

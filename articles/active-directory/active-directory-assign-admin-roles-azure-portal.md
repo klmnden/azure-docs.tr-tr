@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory'de yönetici rolleri atama | Microsoft Docs"
-description: "Yönetici rolü kullanıcı ekleme, yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı, kuruluşunuzun abone olduğu tüm bulut hizmetleri arasında aynı izinleri vardır."
+title: Azure Active Directory'de yönetici rolleri atama | Microsoft Docs
+description: Yönetici rolü kullanıcı ekleme, yönetici rolleri atamak, kullanıcı parolalarını sıfırlama, kullanıcı lisanslarını yönetme veya etki alanlarını yönetme. Yönetici rolü atanan bir kullanıcı, kuruluşunuzun abone olduğu tüm bulut hizmetleri arasında aynı izinleri vardır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8ba4787852902f194deb3eee27ff9f0fc28fa5aa
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 88cd8fd99b61a8332d443e4969e30eac39916d66
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -189,7 +189,7 @@ Aşağıdaki roller kullanılmamalıdır. Bunlar edilmiş kullanım ve gelecekte
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing-add-change-azure-subscription-administrator.md)
-* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](active-directory-understanding-resource-access.md)
+* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure Active Directory Azure aboneliğinize ilişkilendirilme şekli ile ilgili daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](active-directory-how-subscriptions-associated-directory.md)
 * [Kullanıcıları yönetme](active-directory-create-users.md)
 * [Parolaları yönetme](active-directory-manage-passwords.md)

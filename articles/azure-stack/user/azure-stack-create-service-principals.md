@@ -1,6 +1,6 @@
 ---
-title: "Azure yığını için bir hizmet sorumlusu oluşturma | Microsoft Docs"
-description: "Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilecek yeni bir hizmet sorumlusu oluşturmak açıklar."
+title: Azure yığını için bir hizmet sorumlusu oluşturma | Microsoft Docs
+description: Azure Kaynak Yöneticisi'nde rol tabanlı erişim denetimi ile kaynaklara erişimi yönetmek için kullanılabilecek yeni bir hizmet sorumlusu oluşturmak açıklar.
 services: azure-resource-manager
 documentationcenter: na
 author: mattbriggs
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3a22efa4ace8b779f51ca5036b7df536b8c39313
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 00bd606fc1b0d2c075789addd1b601becf7a011b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure yığın uygulama erişim sağlamak
 
@@ -46,7 +46,7 @@ Bu bölümde, uygulamanızın temsil edecek Azure AD'de uygulama (hizmet sorumlu
 
 1. Oturum açtığınızda Azure hesabınız üzerinden [Azure portal](https://portal.azure.com).
 2. Seçin **Azure Active Directory** > **uygulama kayıtlar** > **Ekle**   
-3. Uygulama için bir ad ve URL belirtin. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü için. Değerleri ayarladıktan sonra Seç **oluşturma**.
+3. Uygulama için bir ad ve URL sağlayın. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü için. Değerleri ayarladıktan sonra Seç **oluşturma**.
 
 Uygulamanız için bir hizmet sorumlusu oluşturdunuz.
 
@@ -55,16 +55,16 @@ Program aracılığıyla oturum açarken uygulamanız ve bir kimlik doğrulama a
 
 1. Gelen **uygulama kayıtlar** Active Directory'de uygulamanızı seçin.
 
-2. Kopya **uygulama kimliği** ve uygulama kodunuzda saklayın. Uygulamalarda [örnek uygulamaları](#sample-applications) istemci kimliği olarak bu değer için bölümüne bakın.
+2. **Uygulama kimliği**'ni kopyalayın ve bunu uygulama kodunuzda depolayın. Uygulamalarda [örnek uygulamaları](#sample-applications) istemci kimliği olarak bu değer için bölümüne bakın.
 
      ![istemci kimliği](./media/azure-stack-create-service-principal/image12.png)
-3. Bir kimlik doğrulama anahtarı oluşturmak için seçin **anahtarları**.
+3. Kimlik doğrulama anahtarını oluşturmak için **Anahtarlar**'ı seçin.
 
-4. Anahtar ve bir süre anahtarı için bir açıklama belirtin. İşiniz bittiğinde, seçin **kaydetmek**.
+4. Anahtar için bir açıklama ve süre sağlayın. İşiniz bittiğinde **Kaydet**’i seçin.
 
-Anahtar kaydedildikten sonra anahtar değeri görüntülenir. Daha sonra anahtar almak mümkün olmadığı için bu değeri kopyalayın. Uygulama kimliği ile uygulama olarak imzalamak için anahtar değeri sağlayın. Burada, uygulamanızın alabildiği anahtar değer deposu.
+Anahtar kaydedildikten sonra, anahtarın değeri görüntülenir. Bu değeri kopyalayın çünkü daha sonra anahtarı alamazsınız. Uygulama kimliği ile uygulama olarak imzalamak için anahtar değeri sağlayın. Anahtarı, uygulamanızın alabileceği bir konumda depolayın.
 
-![anahtar kaydedildi](./media/azure-stack-create-service-principal/image15.png)
+![kaydedilen anahtar](./media/azure-stack-create-service-principal/image15.png)
 
 
 Tamamlandıktan sonra devam [uygulamanızı rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
@@ -113,7 +113,7 @@ Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
 ```
 
 ## <a name="assign-role-to-service-principal"></a>Hizmet sorumlusuna rolü atama
-Aboneliğinizde kaynaklara erişmek için bir rol uygulamaya atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir rolleri hakkında bilgi edinmek için [RBAC: yerleşik roller](../../active-directory/role-based-access-built-in-roles.md).
+Aboneliğinizde kaynaklara erişmek için bir rol uygulamaya atamanız gerekir. Uygulama için doğru izinlere rolünü karar verin. Kullanılabilir rolleri hakkında bilgi edinmek için [RBAC: yerleşik roller](../../role-based-access-control/built-in-roles.md).
 
 Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme kaynak grubu ve içerdiği tüm kaynaklar okuyabilir anlamına gelir.
 

@@ -1,23 +1,21 @@
 ---
-title: "Hdınsight, şirket içi ağınıza - Azure Hdınsight bağlanmak | Microsoft Docs"
-description: "Bir Azure sanal ağında Hdınsight kümesi oluşturmak ve şirket içi ağınıza bağlayın öğrenin. Özel bir DNS sunucusu kullanarak Hdınsight ile şirket içi ağınız arasında ad çözümleme yapılandırmayı öğrenin."
-documentationcenter: 
+title: Hdınsight, şirket içi ağınıza - Azure Hdınsight bağlanmak | Microsoft Docs
+description: Bir Azure sanal ağında Hdınsight kümesi oluşturmak ve şirket içi ağınıza bağlayın öğrenin. Özel bir DNS sunucusu kullanarak Hdınsight ile şirket içi ağınız arasında ad çözümleme yapılandırmayı öğrenin.
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: larryfr
-ms.openlocfilehash: 9470e052b4f57e52fa140b53fa7c32d199c58e1e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: ea793af7fc4565c054675af7cbf88b74722690f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-hdinsight-to-your-on-premise-network"></a>Hdınsight, şirket içi ağınıza bağlanmak
 
@@ -74,7 +72,7 @@ Kullanan bir Linux VM oluşturmak için [bağlamak](https://www.isc.org/download
 > * [VM Oluşturma - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
 > * [Azure PowerShell VM - oluşturma](../virtual-machines/linux/quick-create-portal.md)
 
-1. Gelen [Azure portal](https://portal.azure.com)seçin  __+__ , __işlem__, ve __Ubuntu Server 16.04 LTS__.
+1. Gelen [Azure portal](https://portal.azure.com)seçin __+__, __işlem__, ve __Ubuntu Server 16.04 LTS__.
 
     ![Ubuntu sanal makine oluşturma](./media/connect-on-premises-network/create-ubuntu-vm.png)
 
@@ -125,8 +123,8 @@ Kullanan bir Linux VM oluşturmak için [bağlamak](https://www.isc.org/download
     >
     > * [Azure bulut Kabuğu](../cloud-shell/quickstart.md)
     > * [Windows 10 Ubuntu bash](https://msdn.microsoft.com/commandline/wsl/about)
-    > * [Git (https://git-scm.com/)](https://git-scm.com/)
-    > * [OpenSSH (https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
+    > * [Git)https://git-scm.com/)](https://git-scm.com/)
+    > * [OpenSSH)https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)](https://github.com/PowerShell/Win32-OpenSSH/wiki/Install-Win32-OpenSSH)
 
 2. Bağ yüklemek için SSH oturumundan aşağıdaki komutları kullanın:
 
@@ -297,7 +295,7 @@ Nsg'ler oluşturmak için Azure PowerShell veya Azure CLI kullanma örneği içi
 
 ## <a name="connecting-to-hdinsight"></a>Hdınsight'a bağlanma
 
-Hdınsight üzerinde çoğu belgeleri Internet üzerinden kümesine erişimi olduğunu varsayar. Https://CLUSTERNAME.azurehdinsight.net konumundaki küme bağlanabileceği bir örnek için. Bu adres Nsg'ler veya Udr'ler kullandıysanız internet'ten erişimi kısıtlamak için kullanılabilir olmayan ortak ağ geçidi, kullanır.
+Hdınsight üzerinde çoğu belgeleri Internet üzerinden kümesine erişimi olduğunu varsayar. Örneğin, https://CLUSTERNAME.azurehdinsight.net konumundaki kümeye bağlanabildiğiniz kabul edilir. Bu adres Nsg'ler veya Udr'ler kullandıysanız internet'ten erişimi kısıtlamak için kullanılabilir olmayan ortak ağ geçidi, kullanır.
 
 Ayrıca bazı belgelerde başvuran `headnodehost` kümeye bir SSH oturumunda bağlanırken. Bu adres yalnızca bir küme içindeki düğümler edinilebilir ve sanal ağ üzerinden bağlı istemciler üzerinde kullanılabilir değil.
 

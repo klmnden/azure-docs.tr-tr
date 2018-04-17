@@ -12,15 +12,13 @@ ms.assetid: ''
 ms.service: HDInsight
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 8c976e5508c928943e2a5e4820f72520554f9b5d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0074486d3d7fb58bc6e3adcbe4245ec53e7e4cde
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure Hdınsight araçları Visual Studio kodunu kullanın
 
@@ -41,7 +39,7 @@ Aşağıdaki öğeler, bu makaledeki adımları tamamlamak için gereklidir:
 
 **Yükleme Azure Hdınsight araçları**
 
-1. Visual Studio Code'da açın.
+1. Visual Studio Code'u açın.
 
 2. Sol bölmede seçin **uzantıları**. Arama kutusuna **Hdınsight**.
 
@@ -170,7 +168,7 @@ VS Code'da için Hdınsight araçları ile etkileşimli Hive sorguları Hdınsig
     ```
 3. Kod Düzenleyicisi'ni sağ tıklatın ve ardından **Hdınsight: Hive etkileşimli** sorgu. Araçları, bağlam menüsünü kullanarak tüm komut dosyası yerine kod bloğunu göndermenize olanak sağlar. Kısa süre içinde sorgu sonuçları yeni bir sekmede görüntülenir.
 
-   ![Interactive Hive result](./media/hdinsight-for-vscode/interactive-hive-result.png)
+   ![Etkileşimli Hive sonucu](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
     - **Sonuçları** paneli: tüm sonucu yerel yol CSV, JSON veya Excel dosyası olarak kaydetmek veya yalnızca birden fazla satır seçin.
 

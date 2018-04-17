@@ -9,18 +9,16 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0b34f861b306dc62cbdbf97378a1c370494bbb20
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Windows tabanlı Hadoop kümeleri hdınsight'ta yönetme
 
@@ -179,7 +177,7 @@ Her tür Hdınsight tarafından desteklenen küme için veri düğüm sayısın�
 
     İki yolla yeniden dengelenmesi gerçekleştirilebilir:
 
-  * Storm web UI
+  * Storm web kullanıcı Arabirimi
   * Komut satırı arabirimi (CLI) aracı
 
     Lütfen [Apache Storm belgelerine](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) daha fazla ayrıntı için.
@@ -315,7 +313,7 @@ Aynı zamanda **dosya sistemi Gözat** yardımcı programı'ndan **Hadoop UI** H
 ## <a name="open-hadoop-ui"></a>Hadoop kullanıcı arabirimini açın
 Kümeyi izlemek için dosya sistemi göz atın ve günlükleri denetleyin, tıklatın **Hadoop UI** Hdınsight sorgu konsolunda. Bkz: [açık Hdınsight sorgu konsol](#open-hdinsight-query-console).
 
-## <a name="open-yarn-ui"></a>Open Yarn UI
+## <a name="open-yarn-ui"></a>Yarn kullanıcı arabirimini açın
 Yarn kullanıcı arabirimi kullanmak için tıklatın **Yarn kullanıcı Arabiriminde** Hdınsight sorgu konsolunda. Bkz: [açık Hdınsight sorgu konsol](#open-hdinsight-query-console).
 
 ## <a name="connect-to-clusters-using-rdp"></a>RDP kullanarak kümelerine bağlanmak

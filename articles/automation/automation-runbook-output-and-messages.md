@@ -8,11 +8,11 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: d4b8d485906701b4f05e057996bc31232a29e620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d4931c710bebc5e6c3ee23fb58e1432bb86da4a5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook çıkışı ve iletileri Azure Automation
 Çoğu Azure Automation runbook kullanıcıya bir hata iletisi gibi bir çıkış sahiptir veya karmaşık bir nesne başka bir iş akışı tarafından kullanılması amaçlanan. Windows PowerShell sağlar [birden çok akış](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) bir komut dosyası veya iş akışı çıkış göndermek için. Azure Otomasyonu her bu akışları farklı şekilde çalışır ve bir runbook oluştururken her kullanımı için en iyi uygulamaları izlemelisiniz.
@@ -33,29 +33,32 @@ Aşağıdaki tabloda hem yayımlanan bir runbook çalıştırılırken hem de he
 
 Çıkış akışı kullanan veri yazabilirsiniz [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) veya nesneyi runbook'ta kendi satırına koyarak kullanılabilir.
 
-    #The following lines both write an object to the output stream.
-    Write-Output –InputObject $object
-    $object
+```PowerShell
+#The following lines both write an object to the output stream.
+Write-Output –InputObject $object
+$object
+```
 
 ### <a name="output-from-a-function"></a>Bir işlevden çıkış
 Runbook'unuza dahil edilen bir işlevde çıkış akışına yazdığınızda, çıkış runbook'a geri gönderilir. Ardından runbook bu çıkışı bir değişkene atarsa, çıkış akışına yazılmaz. Diğer akışlara işlevi içinde yazmak runbook için buna karşılık gelen akışa yazar.
 
 Aşağıdaki örnek runbook'u göz önünde bulundurun:
 
-    Workflow Test-Runbook
-    {
-        Write-Verbose "Verbose outside of function" -Verbose
-        Write-Output "Output outside of function"
-        $functionOutput = Test-Function
-        $functionOutput
+```PowerShell
+Workflow Test-Runbook
+{
+  Write-Verbose "Verbose outside of function" -Verbose
+  Write-Output "Output outside of function"
+  $functionOutput = Test-Function
+  $functionOutput
 
-    Function Test-Function
-     {
-        Write-Verbose "Verbose inside of function" -Verbose
-        Write-Output "Output inside of function"
-      }
-    }
-
+  Function Test-Function
+  {
+    Write-Verbose "Verbose inside of function" -Verbose
+    Write-Output "Output inside of function"
+  }
+}
+```
 
 Runbook işi için çıkış akışı olacaktır:
 
@@ -81,13 +84,15 @@ Bir iş akışı kullanarak çıkışının veri türünü belirtebilirsiniz [Ou
 
 Aşağıdaki örnek runbook bir dize nesnesi çıkışı yapar ve çıkış türü bildirimini içerir. Ardından runbook'unuz belirli bir türde dizi çıkışı yapıyorsa türün bir dizi aksine türü belirtmelisiniz.
 
-    Workflow Test-Runbook
-    {
-       [OutputType([string])]
+```PowerShell
+Workflow Test-Runbook
+{
+  [OutputType([string])]
 
-       $output = "This is some string output."
-       Write-Output $output
-    }
+  $output = "This is some string output."
+  Write-Output $output
+}
+ ```
 
 Grafik veya grafik PowerShell iş akışı runbook'ları bir çıktı türünün bildirmek için seçebileceğiniz **giriş ve çıkış** menü seçeneğini ve çıkış türü adını yazın. Kolayca tanımlanabilen bir üst runbook'tan başvururken yapmak için tam .NET sınıf adı kullanmanız önerilir. Bu runbook'taki veri yolu o sınıfın tüm özelliklerini gösterir ve bunları günlüğe kaydetme ve runbook'taki diğer etkinlikler için değerler olarak başvuran koşullu mantık için kullanırken çok esneklik sağlar.<br> ![Runbook giriş ve çıkış seçeneği](media/automation-runbook-output-and-messages/runbook-menu-input-and-output-option.png)
 
@@ -115,11 +120,13 @@ Uyarı ve hata akışlarının bir runbook'ta oluşan sorunları günlüğe kayd
 
 Bir uyarı veya hata iletisini kullanarak oluşturma [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) veya [yazma hatası](http://technet.microsoft.com/library/hh849962.aspx) cmdlet'i. Etkinlikler de bu akışlara yazabilir.
 
-    #The following lines create a warning message and then an error message that will suspend the runbook.
+```PowerShell
+#The following lines create a warning message and then an error message that will suspend the runbook.
 
-    $ErrorActionPreference = "Stop"
-    Write-Warning –Message "This is a warning message."
-    Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+$ErrorActionPreference = "Stop"
+Write-Warning –Message "This is a warning message."
+Write-Error –Message "This is an error message that will stop the runbook because of the preference variable."
+```
 
 ### <a name="verbose-stream"></a>Ayrıntılı akış
 Ayrıntılı ileti akışı runbook işlemi hakkında genel bilgi içindir. Bu yana [hata ayıklama akışı](#Debug) kullanılabilir olmayan bir runbook'ta ayrıntılı iletiler için hata ayıklama bilgileri kullanılmalıdır. Varsayılan olarak, yayımlanan runbook'lardan ayrıntılı iletiler iş geçmişinde depolanmaz. Ayrıntılı iletileri depolamak için Azure Portalı'nda runbook'un yapılandırma sekmesinde ayrıntılı kayıtları günlüğe yayımlanan runbook'ları yapılandırın. Çoğu durumda, performans nedenleriyle runbook için ayrıntılı kayıtları günlüğe kaydetme değil, varsayılan ayarını korumalısınız. Yalnızca sorun gidermek veya bir runbook'ta hata ayıklamak için bu seçeneği etkinleştirin.
@@ -128,9 +135,11 @@ Zaman [bir runbook'u test](automation-testing-runbook.md), runbook ayrıntılı 
 
 Kullanarak bir ayrıntılı ileti oluşturun [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) cmdlet'i.
 
-    #The following line creates a verbose message.
+```PowerShell
+#The following line creates a verbose message.
 
-    Write-Verbose –Message "This is a verbose message."
+Write-Verbose –Message "This is a verbose message."
+```
 
 ### <a name="debug-stream"></a>Hata ayıklama akışı
 Hata ayıklama akışının etkileşimli kullanıcı kullanılması amaçlanmıştır ve runbook'larda kullanılmamalıdır.
@@ -168,24 +177,25 @@ Windows PowerShell'de, çıkışı ve iletileri kullanarak bir runbook'tan alabi
 
 Aşağıdaki örnek, örnek bir runbook başlatır ve tamamlanmasını bekler. Tamamlandığında, çıkış akışı işten toplanır.
 
-    $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
+```PowerShell
+$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
-    $doLoop = $true
-    While ($doLoop) {
-       $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
-       –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
-       $status = $job.Status
-       $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
-    }
+$doLoop = $true
+While ($doLoop) {
+  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
+  $status = $job.Status
+  $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
+}
 
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
-    
-    # For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
-    
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
+
+# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
+Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+``` 
 
 ### <a name="graphical-authoring"></a>Grafik yazma
 Grafik runbook'lar için fazladan günlüğü etkinlik düzeyi izleme formunda kullanılabilir. İzleme iki düzeyi vardır: temel ve ayrıntılı. Temel izleme başlangıç görebilirsiniz ve runbook yanı sıra tüm etkinlik yeniden deneme sayısı gibi ilgili bilgileri her etkinliğin bitiş saati çalışır ve Etkinliğin başlangıç. Ayrıntılı izleme, her etkinlik için temel izleme artı girdi ve çıktı veri alın. Şu anda izleme kayıtları izlemeyi etkinleştirdiğinizde, ayrıntılı günlük etkinleştirmeniz gerekir böylece ayrıntılı akış kullanılarak yazılır. İzlemenin etkin ile grafik runbook'lar için temel izleme aynı amaca hizmet eder ve daha bilgilendirici olduğu için ilerleme durumu kayıtlarını günlüğe kaydetmek için gerek yoktur.

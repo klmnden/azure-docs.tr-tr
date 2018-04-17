@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 04/09/2018
 ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: f87705ebbdd14b1bbf7cade481a7dbe7dd3d5131
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ce295c449b01de4fa99df9198805a6b0727c0d18
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
 
@@ -61,12 +61,16 @@ Burada ölçümler – yeni fiyatlandırma modeli karşılık gelen ölçümler 
 3. Uygulama Insights\Basic fazla kullanım verileri
 4. Uygulama Insights\Included verileri
 
-adlı bir yeni ortak veri alım ölçer birleştirilir **paylaşılan Services\Data alım** yeni fiyatlandırma modeli düğümü tabanlı dahil edilen veri ayırma olmadığından.
+adlı bir yeni ortak veri alım ölçer birleştirilir **paylaşılan Services\Data alım** yeni fiyatlandırma modeli düğüm başına dahil edilen veri yetkilendirmeler olmadığından.
 
 Günlük analizi alınan verilerin görürsünüz: başka bir değişiklik olduğunu veya Application Insights daha yüksek maliyetleri bölgelerde düzgün Bu, örneğin yansıtacak şekilde yeni bölgesel ölçümler ile gösterilecek **"veri alımı (ABD Batı Orta)**.
 
 > [!NOTE]
-> Bir Operations Management Suite (OMS) aboneliğiniz varsa, satın aldığınız her düğüm için günlük analizi ve Application Insights veri alım ayırmaları alırsınız. Bu hesap düzeyinde (değil, abonelik) uygulanır olduğundan, bu tahmin Bu ayırmaları etkisini gösterilemiyor. Lütfen bu durumda yeni fiyatlandırma modeli daha ayrıntılı bir tartışma için hesabı temsilcinize başvurun.
+> Abonelik başına tahmini maliyetleri Operations Management Suite (OMS) abonelik hesabı düzey düğüm başına yetkilendirmeler öğeli değil. Lütfen bu durumda yeni fiyatlandırma modeli daha ayrıntılı bir tartışma için hesabı temsilcinize başvurun.
+
+## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>Yeni fiyatlandırma modeli ve Operations Management Suite aboneliği yetkilendirmeler
+
+Microsoft Operations Management Suite E1 ve E2 satın alan müşteriler için düğüm başına veri alım yetkilendirmeleri uygun [günlük analizi](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite) ve [Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-pricing#the-price-plans). Günlük analizi için bu yetkilendirmeleri almak için çalışma alanları veya Application Insights kaynaklar abonelik fiyatlandırma modeli belirli bir aboneliğe gerekir kalır öncesi Nisan 2018 fiyatlandırma where günlük analizi "fiyatlandırma katmanı düğüm başına (OMS)" model ve Plan fiyatlandırması application Insights "Kurumsal" kullanılabilir. Kuruluşunuzun satın aldığı, paketi düğümlerinin sayısına bağlı olarak bazı taşımayı yeni fiyatlandırma modeli abonelikleri hala yararlı olabilir, ancak bu dikkat gerektirir. 
 
 ## <a name="changes-when-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşırken değişiklikleri
 

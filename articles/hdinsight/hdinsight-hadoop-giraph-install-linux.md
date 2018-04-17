@@ -1,8 +1,8 @@
 ---
-title: "Yükleme ve Hdınsight (Hadoop) - Azure Giraph kullanma | Microsoft Docs"
-description: "Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerinde Giraph yüklemeyi öğrenin. Betik eylemleri küme oluşturma sırasında küme yapılandırmasını değiştirme veya hizmetleri ve yardımcı programları yükleme özelleştirmenizi sağlar."
+title: Yükleme ve Hdınsight (Hadoop) - Azure Giraph kullanma | Microsoft Docs
+description: Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerinde Giraph yüklemeyi öğrenin. Betik eylemleri küme oluşturma sırasında küme yapılandırmasını değiştirme veya hizmetleri ve yardımcı programları yükleme özelleştirmenizi sağlar.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 9fcac906-8f06-4002-9fe8-473e42f8fd0f
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 1f2ee45d5d3a4dbb53faf43f67989ea92488b92a
-ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
+ms.openlocfilehash: dcfd37a40ce16a1574c21e3a6e9520cb2e773166
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>Giraph Hdınsight Hadoop kümelerine yükleme ve büyük ölçekli grafikleri işlemek için Giraph kullanma
 
@@ -42,16 +40,16 @@ Apache Giraph bir Hdınsight kümesine yüklemek öğrenin. Hdınsight betik eyl
 > [!WARNING]
 > Hdınsight kümesi ile sağlanan bileşenler tam olarak desteklenen - yalıtmak ve bu bileşenleri ilgili sorunları gidermek için Microsoft Support yardımcı olur.
 >
-> Giraph gibi özel bileşenleri daha fazla sorunu gidermeye yardımcı olmak üzere ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Microsoft Support sorunu çözmek için mümkün olabilir. Aksi durumda, bu teknoloji derin uzmanlık bulunduğu açık kaynak toplulukları başvurmanız gerekir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [http://stackoverflow.com](http://stackoverflow.com). Apache projeleri proje siteleri de [http://apache.org](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
+> Giraph gibi özel bileşenleri daha fazla sorunu gidermeye yardımcı olmak üzere ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Microsoft Support sorunu çözmek için mümkün olabilir. Aksi durumda, bu teknoloji derin uzmanlık bulunduğu açık kaynak toplulukları başvurmanız gerekir. Örneğin, olduğu gibi kullanılabilecek birçok topluluk siteleri vardır: [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight), [ http://stackoverflow.com ](http://stackoverflow.com). Apache projeleri proje siteleri de [ http://apache.org ](http://apache.org), örneğin: [Hadoop](http://hadoop.apache.org/).
 
 
 ## <a name="what-the-script-does"></a>Betiğin yaptığı
 
 Bu komut dosyası, aşağıdaki eylemleri gerçekleştirir:
 
-* Giraph için yükler`/usr/hdp/current/giraph`
+* Giraph için yükler `/usr/hdp/current/giraph`
 
-* Kopya `giraph-examples.jar` varsayılan storage (WASB) dosyasına kümeniz için:`/example/jars/giraph-examples.jar`
+* Kopya `giraph-examples.jar` varsayılan storage (WASB) dosyasına kümeniz için: `/example/jars/giraph-examples.jar`
 
 ## <a name="install"></a>Betik eylemleri kullanılarak Giraph yükleyin
 
@@ -76,7 +74,7 @@ Bu bölümde Azure Portalı'nı kullanarak küme oluşturulurken örnek komut do
 
    * **AD**: betik eylemi için kolay bir ad girin.
 
-   * **BETİK URI'si**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
+   * **BETİK URI'Sİ**: https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
    * **HEAD**: Bu girişi denetleyin
 

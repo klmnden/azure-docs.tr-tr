@@ -1,25 +1,18 @@
 ---
-title: "Azure Analysis Services öğreticisi 11. ders: Rol oluşturma | Microsoft Docs"
-description: "Azure Analysis Services öğretici projesinde rollerin nasıl oluşturulacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services öğreticisi 11. ders: Rol oluşturma | Microsoft Docs'
+description: Azure Analysis Services öğretici projesinde rollerin nasıl oluşturulacağını açıklar.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 5fb0e2dd56e373ecf723a3672d9538bcc6dc68e3
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 7a34884482a53a9b96dac87dc30803be08fdc806
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-roles"></a>Rol oluşturma
 

@@ -12,13 +12,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 40e79ba584843787ad7744f91e14907deb99ccaa
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3f5ad64a73bddbb64556ae7a329f91f93b99b016
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -89,8 +89,8 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
 
 4. Kaynakları taşıma hesabı en az aşağıdaki izinlere sahip olmalıdır:
 
-   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** on the source resource group.
-   * **Microsoft.Resources/subscriptions/resourceGroups/write** on the destination resource group.
+   * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** kaynak kaynak grubu üzerinde.
+   * **Microsoft.Resources/subscriptions/resourceGroups/write** hedef kaynak grubu üzerinde.
 
 ## <a name="when-to-call-support"></a>Destek çağrısı yapıldığında
 
@@ -135,7 +135,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 * Media Services
 * Mobile Engagement
 * Notification Hubs
-* Operasyonel Öngörüler
+* Operasyonel İçgörüler
 * Operations Management
 * Power BI
 * Genel IP - bkz [genel IP kısıtlamaları](#pip-limitations)
@@ -160,7 +160,7 @@ Bir yeni kaynak grubu ve abonelik için taşıma etkinleştirmek hizmetler şunl
 
 Şu anda bir kaynak taşıma etkinleştirmeyin hizmetler şunlardır:
 
-* AD Domain Services
+* AD etki alanı Hizmetleri
 * AD karma sistem durumu hizmeti
 * Application Gateway
 * BizTalk Services
@@ -192,6 +192,8 @@ Market kaynaklardan bağlı planları ile oluşturulan sanal makineler, kaynak g
 Sanal makineler anahtar kasasında depolanan sertifika ile aynı abonelikte ancak abonelikleri boyunca değil yeni bir kaynak grubu için taşınabilir.
 
 ## <a name="virtual-networks-limitations"></a>Sanal ağlar sınırlamaları
+
+Bir sanal ağ taşırken, bağımlı kaynaklarını taşımanız gerekir. Örneğin, ağ geçitleri sanal ağ ile taşımanız gerekir.
 
 Eşlenmiş bir sanal ağ taşımak için öncelikle sanal ağ eşlemesi devre dışı bırakmalısınız. Devre dışı sonra sanal ağ taşıyabilirsiniz. Taşıma sonrasında sanal ağ eşlemesi yeniden etkinleştirin.
 

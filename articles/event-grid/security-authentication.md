@@ -1,6 +1,6 @@
 ---
-title: "Azure olay kılavuz güvenlik ve kimlik doğrulama"
-description: "Azure olay kılavuz ve onun kavramlarını açıklar."
+title: Azure olay kılavuz güvenlik ve kimlik doğrulama
+description: Azure olay kılavuz ve onun kavramlarını açıklar.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,11 +8,11 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: babanisa
-ms.openlocfilehash: 0b7ef71cf940f82f46a7f053e5c9f7ef64342b6e
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f97de4e93c9330206ed22c071d8ade0821bf6691
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="event-grid-security-and-authentication"></a>Olay kılavuz güvenlik ve kimlik doğrulama 
 
@@ -154,7 +154,7 @@ Azure olay kılavuz, aşağıdaki eylemleri destekler:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Son üç işlemi normal okuma işlemleri dışında filtre potansiyel olarak gizli bilgileri döndürün. Bu, bu işlemler için erişimi kısıtlamak en iyi uygulamadır. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](../active-directory/role-based-access-control-manage-access-powershell.md), [Azure komut satırı arabirimi (CLI)](../active-directory/role-based-access-control-manage-access-azure-cli.md)ve [REST API](../active-directory/role-based-access-control-manage-access-rest.md).
+Son üç işlemi normal okuma işlemleri dışında filtre potansiyel olarak gizli bilgileri döndürün. Bu, bu işlemler için erişimi kısıtlamak en iyi uygulamadır. Özel roller kullanılarak oluşturulabilir [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure komut satırı arabirimi (CLI)](../role-based-access-control/role-assignments-cli.md)ve [REST API](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Rol uygulamaya dayalı erişim denetimi (RBAC)
 
@@ -183,7 +183,7 @@ Kullanıcıların farklı eylemler gerçekleştirmesine olanak sağlayan örnek 
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Allow restricted post actions but disallow delete actions.
+**EventGridNoDeleteListKeysRole.json**: kısıtlı sonrası eylemler ancak silme işlemlerinin izin vermeyecek izin.
 
 ```json
 {
@@ -206,7 +206,7 @@ Kullanıcıların farklı eylemler gerçekleştirmesine olanak sağlayan örnek 
 }
 ```
 
-**EventGridContributorRole.json**: Allows all event grid actions.
+**EventGridContributorRole.json**: tüm olay kılavuz eylemleri sağlar.
 
 ```json
 {

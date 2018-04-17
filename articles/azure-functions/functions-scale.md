@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri ölçek ve barındırma | Microsoft Docs"
-description: "Azure işlevleri tüketim planı ve uygulama hizmeti planı arasında seçim yapma hakkında bilgi edinin."
+title: Azure işlevleri ölçek ve barındırma | Microsoft Docs
+description: Azure işlevleri tüketim planı ve uygulama hizmeti planı arasında seçim yapma hakkında bilgi edinin.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, tüketimi planı, uygulama hizmeti planı, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, tüketimi planı, uygulama hizmeti planı, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: functions
 ms.devlang: multiple
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5be2fe57287f816434b6d6fdf40dbbcb0dd435f4
-ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
+ms.openlocfilehash: a4c43477a28efe01fd197a0c09afadb338638036
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
@@ -74,7 +74,7 @@ Bir uygulama hizmeti planı JavaScript işlevleri çalıştırmayı planlıyorsa
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
-###Her zaman açık
+### Her zaman açık
 
 Bir uygulama hizmeti planı çalıştırırsanız, etkinleştirmelisiniz **her zaman açık** işlevi uygulamanızın düzgün çalıştığını ayarını. Bir uygulama hizmeti planı yalnızca HTTP Tetikleyicileri "işlevlerinizi uyandırmak şekilde" işlevleri çalışma zamanı boşta kalma birkaç dakika sonra geçer. Bu, nasıl Web işleri her zaman etkin olması gerekir için benzer. 
 
@@ -86,7 +86,7 @@ Ya tüketimini planı ya da bir uygulama hizmeti planı, bir işlev uygulaması 
 
 <!-- JH: Does using a PRemium Storage account improve perf? -->
 
-Depolama hesabı türleri hakkında daha fazla bilgi için bkz: [Azure Storage hizmetlerine giriş](../storage/common/storage-introduction.md#introducing-the-azure-storage-services).
+Depolama hesabı türleri hakkında daha fazla bilgi için bkz: [Azure Storage hizmetlerine giriş](../storage/common/storage-introduction.md#azure-storage-services).
 
 ## <a name="how-the-consumption-plan-works"></a>Tüketim planı nasıl çalışır?
 

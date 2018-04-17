@@ -1,8 +1,8 @@
 ---
-title: "Daha yeni bir sürüme yükseltme Hdınsight küme-Azure | Microsoft Docs"
-description: "Bilgi daha yeni bir sürüme yükseltme Hdınsight kümesi nasıl."
+title: Daha yeni bir sürüme yükseltme Hdınsight küme-Azure | Microsoft Docs
+description: Bilgi daha yeni bir sürüme yükseltme Hdınsight kümesi nasıl.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: bhanupr
 manager: asadk
 editor: bhanupr
@@ -11,15 +11,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/04/2017
 ms.author: bhanupr
-ms.openlocfilehash: fa2e37bd922690322ccc3d8f68128180d013b701
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d6cd0dd8b326f5340e5014bba4babc6dd945744d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Hdınsight kümesi daha yeni bir sürüme yükseltin
 En son Hdınsight özelliklerden yararlanmak için Hdınsight kümeleri en son sürümüne yükseltilmesi önerilir. İzleyin, Hdınsight yükseltmek için yönergeleri sürümleri küme.

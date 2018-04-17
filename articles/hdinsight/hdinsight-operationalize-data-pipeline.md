@@ -1,27 +1,25 @@
 ---
-title: "Azure veri analizi ardışık - faaliyete | Microsoft Docs"
-description: "Ayarlama ve yeni veri tarafından tetiklenen kısa sonuçları üreten bir örnek veri ardışık düzeni ve çalıştırın."
+title: Azure veri analizi ardışık - faaliyete | Microsoft Docs
+description: Ayarlama ve yeni veri tarafından tetiklenen kısa sonuçları üreten bir örnek veri ardışık düzeni ve çalıştırın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 7a439c9d25a470a2474b427f6b20addb6ff3b0c7
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 7ac1ed0db15d91ef8af009c879c3634148826286
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi ardışık faaliyete
+# <a name="operationalize-a-data-analytics-pipeline"></a>Veri analizi işlem hattını kullanıma hazır hale getirme
 
 *Veri ardışık* underly birçok veri analizi çözümleri. Adı da anlaşılacağı gibi veri ardışık ham verileri alır, temizler ve gerektiği gibi yeniden şekillendirir ve ardından genellikle hesaplamalar veya toplamalar işlenen veri depolamadan önce gerçekleştirir. İşlenen verilerin istemcileri, raporları veya API'ler tarafından kullanılır. Veri ardışık olup olmadığını bir zamanlamaya göre veya yeni verilerle tetiklendiğinde tekrarlanabilir sonuçlar sağlamanız gerekir.
 
@@ -32,7 +30,7 @@ Aşağıdaki senaryoda, girdi verileri bir ay süreyle uçuş veri içeren bir d
 | YIL | AY | DAY_OF_MONTH | TAŞIYICI |AVG_DEP_DELAY | AVG_ARR_DELAY |TOTAL_DISTANCE |
 | --- | --- | --- | --- | --- | --- | --- |
 | 2017 | 1 | 3 | AA | 10.142229 | 7.862926 | 2644539 |
-| 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
+| 2017 | 1 | 3 | OLARAK | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
 Örnek potansiyel bir yeni süre 's uçuş veri ulaştığında, ardından Hive veri ambarınıza yönelik uzun vadeli çözümlemeler ayrıntılı uçuş bilgileri depolar bekler. Ardışık Düzen da yalnızca günlük uçuş verileri özetleyen bir çok daha küçük veri kümesi oluşturur. Bu günlük uçuş özet verileri için bir Web sitesi gibi raporlar sağlamak için bir SQL veritabanına gönderilir.
@@ -137,7 +135,7 @@ Azure SQL veritabanınızı artık hazırdır.
 
        ![Hdınsight meta depo ayarları](./media/hdinsight-operationalize-data-pipeline/hdi-metastore-settings.png)
 
-12. Seçin **sonraki**.
+12. **İleri**’yi seçin.
 13. Üzerinde **Özet** bölmesinde, **oluşturma** kümenizi dağıtmak için.
 
 ### <a name="verify-ssh-tunneling-setup"></a>Kurulum tünel SSH doğrulayın
@@ -181,7 +179,7 @@ Düzenleyici ve iş akışı örnekleri durumunu görüntülemek için Oozie Web
 
 Örnek verileri kullanıma sunulmuştur. Ancak, ardışık düzen işleme, bir gelen veriler için iki Hive tablolarını gerektirir (`rawFlights`) özetlenen veriler için bir tane (`flights`). Bu tablolar Ambari içinde aşağıdaki gibi oluşturun.
 
-1. Ambarı'na giderek oturum açma [http://headnodehost:8080](http://headnodehost:8080).
+1. Ambarı'na giderek oturum açma [ http://headnodehost:8080 ](http://headnodehost:8080).
 2. Hizmetler listesinden seçin **Hive**.
 
     ![İçinde Ambari Hive seçme](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)
@@ -419,8 +417,8 @@ Aşağıdaki tabloda her özellikleri özetler ve kendi ortamınız için değer
 
 | Özellik | Değer kaynağı |
 | --- | --- |
-| nameNode | Azure depolama kapsayıcısı için tam yolu Hdınsight kümenize bağlı. |
-| jobTracker | Etkin kümenizin YARN için iç hostname baş düğüm. Ambari giriş sayfasında YARN hizmetler listesinden seçin, sonra etkin Kaynak Yöneticisi'ni seçin. Ana bilgisayar adının URI, sayfanın en üstünde görüntülenir. Bağlantı noktası 8050 ekleyin. |
+| İş | Azure depolama kapsayıcısı için tam yolu Hdınsight kümenize bağlı. |
+| Jobtracker'a | Etkin kümenizin YARN için iç hostname baş düğüm. Ambari giriş sayfasında YARN hizmetler listesinden seçin, sonra etkin Kaynak Yöneticisi'ni seçin. Ana bilgisayar adının URI, sayfanın en üstünde görüntülenir. Bağlantı noktası 8050 ekleyin. |
 | queueName | Hive Eylemler zamanlarken kullanılan YARN sırasının adı. Varsayılan olarak bırakın. |
 | oozie.use.system.libpath | True olarak bırakın. |
 | Uygulama tabanının | Azure depolama burada Oozie iş akışı ve Destek dosyalarını dağıtmak alt klasör yolu. |
@@ -656,6 +654,6 @@ Bu konuda sunulan yalnızca yeni özellikler `job.properties` dosyası:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Apache Oozie Documentation](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie belgeleri](http://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

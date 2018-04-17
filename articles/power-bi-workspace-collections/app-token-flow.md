@@ -1,12 +1,12 @@
 ---
-title: "Kimlik doğrulama ve yetkilendirme Power BI çalışma koleksiyonlarla | Microsoft Docs"
-description: "Kimlik doğrulaması ve yetkilendirme Power BI çalışma koleksiyonlarla."
+title: Kimlik doğrulama ve yetkilendirme Power BI çalışma koleksiyonlarla | Microsoft Docs
+description: Kimlik doğrulaması ve yetkilendirme Power BI çalışma koleksiyonlarla.
 services: power-bi-embedded
-documentationcenter: 
-author: guyinacube
-manager: erikre
-editor: 
-tags: 
+documentationcenter: ''
+author: markingmyname
+manager: kfile
+editor: ''
+tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
 ms.service: power-bi-embedded
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: asaxton
-ms.openlocfilehash: ae9627c6bb5e7bb099598acaa2eb29375c35593e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maghan
+ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Kimlik doğrulaması ve Power BI çalışma koleksiyonlarla yetkisi verme
 
@@ -48,7 +48,7 @@ Uygulama belirteci aşağıdaki talep içerebilir:
 | **ver** |Uygulama belirteci sürümü. 0.2.0 geçerli sürümdür. |
 | **aud** |Belirtecin hedeflenen alıcı. Power BI çalışma koleksiyonları kullanın: "https://analysis.windows.net/powerbi/api." |
 | **ISS** |Belirtecin uygulama gösteren bir dize. |
-| **türü** |Oluşturulan uygulama Belirtecin türü. Geçerli tek desteklenen türüdür **katıştırmak**. |
+| **type** |Oluşturulan uygulama Belirtecin türü. Geçerli tek desteklenen türüdür **katıştırmak**. |
 | **WCN** |Çalışma alanı koleksiyonu adı belirteci için yayımlanmaktadır. |
 | **WID** |Çalışma alanı kimliği belirteci için yayımlanmaktadır. |
 | **RID** |Rapor Kimliği belirteci için yayımlanmaktadır. |
@@ -93,7 +93,7 @@ Uygulama belirteçleri oluşturulmasını kolaylaştırmak SDK içinde kullanıl
 
 .NET SDK için başvurabilirsiniz [kapsamları](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
-## <a name="scopes"></a>Kapsamları
+## <a name="scopes"></a>Kapsamlar
 
 Embed belirteçleri kullanırken, erişim hakkı vermek kaynak kullanımını kısıtlamak istediğinizi düşünelim. Bu nedenle, kapsamlı izinlere sahip bir belirteç oluşturabilirsiniz.
 

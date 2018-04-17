@@ -1,6 +1,6 @@
 ---
-title: "Azure yığınında bir doğrulama sınamasını çalıştırmanızı | Microsoft Docs"
-description: "Azure yığınında tanılama günlük dosyaları toplamak nasıl"
+title: Azure yığınında bir doğrulama sınamasını çalıştırmanızı | Microsoft Docs
+description: Azure yığınında tanılama günlük dosyaları toplamak nasıl
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -11,13 +11,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 04/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4f86397d4db5a0e67b294befd92087166d6b8109
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: c28216ced2a7cd2995c55a9faacb93cf27e60c65
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure yığını için bir doğrulama testi çalıştırma
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 03/08/2018
  
 Azure yığın durumunu doğrulayabilirsiniz. Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin. Destek, Test AzureStack yönetim düğümden çalıştırmak ister. Doğrulama testi başarısız yalıtır. Destek sonra ayrıntılı günlüklerini analiz edin, odak hatanın oluştuğu alanı ve çalışma size sorunu çözme.
 
-## <a name="run-test-azurestack"></a>Run Test-AzureStack
+## <a name="run-test-azurestack"></a>Test AzureStack çalıştırma
 
 Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin ve ardından çalıştırın **çalıştırmak Test AzureStack**.
 
@@ -33,7 +33,8 @@ Bir sorun varsa, Microsoft Müşteri Hizmetleri desteği ile iletişime geçin v
 2. Kişi Microsoft Müşteri Destek Hizmetleri.
 3. Çalıştırma **Test AzureStack** ayrıcalıklı uç noktasından.
     1. Ayrıcalıklı uç noktasına erişmek. Yönergeler için bkz: [Azure yığınında kullanan ayrıcalıklı uç noktasını](azure-stack-privileged-endpoint.md). 
-    2. Olarak oturum **AzureStack\CloudAdmin** yönetim konaktaki.
+    2. Yönetim ana bilgisayarı olarak ASDK üzerinde oturum **AzureStack\CloudAdmin**.  
+    Tümleşik bir sistemde ayrıcalıklı-end-noktası için size OEM donanım satıcınız tarafından sağlanan yönetim IP adresini kullanmanız gerekecektir.
     3. PowerShell'i yönetici olarak açın.
     4. Çalıştırın: `Enter-PSSession -ComputerName <ERCS VM name> -ConfigurationName PrivilegedEndpoint`
     5. Çalıştırın: `Test-AzureStack`

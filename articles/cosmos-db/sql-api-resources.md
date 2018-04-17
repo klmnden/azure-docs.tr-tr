@@ -5,7 +5,7 @@ keywords: Hiyerarşik modeli, cosmosdb, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: ''
 author: rafats
-manager: jhubbard
+manager: kfile
 ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948fc84db2fd2d6f2059f9807b84194ebac59472
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f0fc8a977a172a859d6691a5b587135caf14e03f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB hiyerarşik kaynak modeli ve temel kavramları
 
@@ -117,15 +117,15 @@ URI adreslenebilir tüm kaynaklardır. Değeri **_self** kaynak özelliği, kayn
 | _Self değeri | Açıklama |
 | --- | --- |
 | /dbs |Bir veritabanı hesabı altında veritabanlarının besleme |
-| /dbs/{dbName} |{DbName} değerle eşleşen bir kimliğe sahip veritabanı |
-| /dbs/{dbName}/colls/ |Bir veritabanı altında koleksiyonların besleme |
-| /dbs/{dbName}/colls/{collName} |{CollName} değerle eşleşen bir kimliğe sahip koleksiyonu |
-| /dbs/{dbName}/colls/{collName}/docs |Bir koleksiyon altında belgelerin besleme |
+| /dbs/ {dbName} |{DbName} değerle eşleşen bir kimliğe sahip veritabanı |
+| /dbs/ {dbName} /colls/ |Bir veritabanı altında koleksiyonların besleme |
+| /dbs/ {dbName} /colls/ {collName} |{CollName} değerle eşleşen bir kimliğe sahip koleksiyonu |
+| /dbs/ {dbName} /colls/ {collName} / docs |Bir koleksiyon altında belgelerin besleme |
 | /dbs/{dbName}/colls/{collName}/docs/{docId} |{Doc} değerle eşleşen bir kimliğiyle belge |
-| /dbs/{dbName}/users/ |Kullanıcıların bir veritabanı altında besleme |
+| /dbs/ {dbName} /users/ |Kullanıcıların bir veritabanı altında besleme |
 | /dbs/{dbName}/users/{userId} |{Kullanıcısı} değerle eşleşen bir kimliğe sahip kullanıcı |
-| /dbs/{dbName}/users/{userId}/permissions |Akış kapsamındaki bir kullanıcı izinleri |
-| /dbs/{dbName}/users/{userId}/permissions/{permissionId} |{İzni} değerle eşleşen bir kimliğe sahip izni |
+| /dbs/ {dbName} /users/ {UserID} / izinleri |Akış kapsamındaki bir kullanıcı izinleri |
+| /dbs/ {dbName} /users/ {UserID} /permissions/ {permissionId} |{İzni} değerle eşleşen bir kimliğe sahip izni |
 
 Her kaynak kimliği özelliği aracılığıyla kullanıma sunulan benzersiz bir kullanıcı tanımlı adı vardır. Not: kullanıcı bir kimlik belirlemezse belgeler için SDK'ları otomatik olarak belge için benzersiz bir kimliği oluşturur. Bir özel üst kaynak bağlamı içinde benzersizdir en fazla 256 karakterden oluşan kullanıcı tanımlı bir dize kimliğidir. 
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory kimlik doğrulaması ile Azure Media Services API erişim | Microsoft Docs"
-description: "Kavramları ve Azure Media Services API erişimini doğrulamak için Azure Active Directory (Azure AD) kullanmak için uygulanacak adımlar hakkında bilgi edinin."
+title: Azure Active Directory kimlik doğrulaması ile Azure Media Services API erişim | Microsoft Docs
+description: Kavramları ve Azure Media Services API erişimini doğrulamak için Azure Active Directory (Azure AD) kullanmak için uygulanacak adımlar hakkında bilgi edinin.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 0e1217afb0a37353793c64ae927b741d9fee4954
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 57f2680d6b3f06a88a13a09018e7d72afcb710a6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Azure AD kimlik doğrulaması ile Azure Media Services API erişimi
  
 Azure Media Services API bir RESTful API'sidir. REST API kullanarak veya kullanılabilir istemci SDK'ları kullanarak medya kaynaklar üzerinde işlem gerçekleştirmek için kullanabilirsiniz. Azure Media Services, Microsoft .NET için Media Services istemci SDK sunar. Media Services kaynaklarına ve Media Services API erişmek için yetki verilmesi için önce kimliğinin doğrulanması gerekir. 
 
-Media Services destekler [Azure Active Directory (Azure AD)-tabanlı kimlik doğrulaması](../active-directory/active-directory-whatis.md). Azure Media REST hizmeti gerektiren kullanıcı veya REST API yapan uygulamada ya da sahip istek **katkıda bulunan** veya **sahibi** kaynaklara erişmek için rol. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../active-directory/role-based-access-control-what-is.md).  
+Media Services destekler [Azure Active Directory (Azure AD)-tabanlı kimlik doğrulaması](../active-directory/active-directory-whatis.md). Azure Media REST hizmeti gerektiren kullanıcı veya REST API yapan uygulamada ya da sahip istek **katkıda bulunan** veya **sahibi** kaynaklara erişmek için rol. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).  
 
 > [!IMPORTANT]
-> Şu anda, Media Services, Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, erişim denetimi yetkilendirme 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulama modeline mümkün olan en kısa sürede geçirmek öneririz.
+> Şu anda, Media Services, Azure erişim denetimi hizmeti kimlik doğrulama modelini destekler. Ancak, erişim denetimi yetkilendirme 1 Haziran 2018 kullanım dışı kalacaktır. Azure AD kimlik doğrulaması modeline mümkün olan en kısa sürede geçiş yapmanız önerilir.
 
 Bu belge, Media Services API REST veya .NET API'lerini kullanarak erişmek nasıl bir genel bakış sağlar.
 
@@ -75,13 +75,13 @@ Aşağıdaki diyagram tipik etkileşimli uygulama kimlik doğrulama akışı gö
         Kiracı bilgileri Azure portalından alınabilir. İmleç üzerinden üst oturum açmış kullanıcının adını sağ alt köşesinde yerleştirin.
     * Media Services kaynak URI'si. 
 
-        Bu URI aynı Azure ortamında (örneğin, https://rest.media.azure.net) Media Services hesapları için aynıdır.
+        Bu URI aynı Azure ortamında Media Services hesapları aynı olduğundan (örneğin, https://rest.media.azure.net).
 
     * Media Services (yerel) uygulama istemci kimliği
     * Media Services (yerel) uygulama yeniden yönlendirme URI'si.
     * Kaynak URI'si REST Media Services için.
         
-        URI REST API uç noktası (örneğin, https://test03.restv2.westus.media.azure.net/api/) temsil eder.
+        URI REST API uç noktasını temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
 
     Bu parametrelerin değerlerini almak için bkz: [Azure AD kimlik doğrulama ayarlarına erişmek için Azure portal'ı kullanmanızı](media-services-portal-get-started-with-aad.md) kullanarak kullanıcı kimlik doğrulaması seçeneği.
 
@@ -105,7 +105,7 @@ Bu yöntemi kullanmak için bir Azure AD uygulaması ve hizmeti, kendi Kiracı s
 
 Azure AD uygulaması oluşturduktan sonra aşağıdaki ayarları için değerleri alır. Kimlik doğrulaması için bu değerleri gerekir:
 
-- İstemci kimliği 
+- İstemci Kimliği 
 - Gizli anahtar 
 
 Yukarıdaki şekilde, istekleri kronolojik sırada akışını sayıları temsil eder:
@@ -117,11 +117,11 @@ Yukarıdaki şekilde, istekleri kronolojik sırada akışını sayıları temsil
         Kiracı bilgileri Azure portalından alınabilir. İmleç üzerinden üst oturum açmış kullanıcının adını sağ alt köşesinde yerleştirin.
     * Media Services kaynak URI'si. 
 
-        Bu URI aynı Azure ortamında (örneğin, https://rest.media.azure.net) bulunan Media Services hesapları için aynıdır.
+        Bu URI aynı Azure ortamında bulunan Media Services hesapları aynı olduğundan (örneğin, https://rest.media.azure.net).
 
     * Kaynak URI'si REST Media Services için.
 
-        URI REST API uç noktası (örneğin, https://test03.restv2.westus.media.azure.net/api/) temsil eder.
+        URI REST API uç noktasını temsil eder (örneğin, https://test03.restv2.westus.media.azure.net/api/).
 
     * Azure AD uygulama değerleri: istemci Kimliğini ve istemci gizli anahtarı.
     
@@ -147,7 +147,7 @@ Aşağıdaki makaleler Azure AD kimlik doğrulaması kavramlarını genel bakı�
 
 - [Azure AD tarafından ele alınan kimlik doğrulama senaryoları](../active-directory/develop/active-directory-authentication-scenarios.md#basics-of-authentication-in-azure-ad)
 - [Ekleme, güncelleştirme veya Azure AD'de uygulama kaldırma](../active-directory/develop/active-directory-integrating-applications.md)
-- [Yapılandırma ve rol tabanlı erişim denetimi PowerShell kullanarak yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
+- [Yapılandırma ve rol tabanlı erişim denetimi PowerShell kullanarak yönetme](../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

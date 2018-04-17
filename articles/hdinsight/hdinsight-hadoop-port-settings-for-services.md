@@ -1,8 +1,8 @@
 ---
-title: "Hdınsight'ta - Azure Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları | Microsoft Docs"
-description: "Hdınsight üzerinde çalışan Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları listesi."
+title: Hdınsight'ta - Azure Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları | Microsoft Docs
+description: Hdınsight üzerinde çalışan Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları listesi.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +10,14 @@ ms.assetid: dd14aed9-ec25-4bb3-a20c-e29562735a7d
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: larryfr
-ms.openlocfilehash: 70bb69c78a23c9ffe012c0b775c98355da7cbce6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b6510024d1644f1e0b357126e2b971c66eb95dbc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>Hdınsight'ta Hadoop Hizmetleri tarafından kullanılan bağlantı noktaları
 
@@ -46,7 +44,7 @@ Bir Hdınsight kümesindeki tüm düğümlere bir Azure sanal ağında bulunan v
 | sshd |22 |SSH |İstemciler üzerinde birincil headnode sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |İstemciler sınır düğümde sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |23 |SSH |İstemciler ikincil headnode üzerinde sshd bağlanır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md). |
-| Ambari |443 |HTTPS |Ambari web UI. Bkz: [Ambari Web kullanıcı arabirimini kullanarak Hdınsight yönetme](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari web kullanıcı Arabirimi. Bkz: [Ambari Web kullanıcı arabirimini kullanarak Hdınsight yönetme](hdinsight-hadoop-manage-ambari.md) |
 | Ambari |443 |HTTPS |Ambari REST API. Bkz: [Ambari REST API kullanarak Hdınsight'ta yönetme](hdinsight-hadoop-manage-ambari-rest-api.md) |
 | WebHCat |443 |HTTPS |HCatalog REST API. Bkz: [Curl ile Hive kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile Pig kullanma](hadoop/apache-hadoop-use-pig-curl.md), [Curl ile MapReduce kullanma](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |ODBC kullanarak Hive bağlanır. Bkz: [Hdınsight için Microsoft ODBC sürücüsü ile bağlanma Excel'e](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md). |
@@ -58,7 +56,7 @@ Aşağıdakiler için belirli küme türleri kullanılabilir:
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |HBase REST API. Bkz: [HBase kullanmaya başlama](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |Spark REST API. Bkz: [uzaktan Livy kullanarak Spark gönderme işleri](spark/apache-spark-livy-rest-interface.md) |
-| Storm |443 |HTTPS |Storm |Storm web UI. Bkz: [dağıtma ve Hdınsight üzerinde Storm topolojilerini yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Storm |443 |HTTPS |Storm |Storm web kullanıcı Arabirimi. Bkz: [dağıtma ve Hdınsight üzerinde Storm topolojilerini yönetme](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>Kimlik Doğrulaması
 
@@ -81,8 +79,8 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 | Hizmet | Düğümler | Bağlantı noktası | URL yolu | Protokol | 
 | --- | --- | --- | --- | --- |
-| Ambari web UI | Baş düğümler | 8080 | / | HTTP |
-| Ambari REST API | Baş düğümler | 8080 | /api/v1 | HTTP |
+| Ambari web kullanıcı Arabirimi | Baş düğümler | 8080 | / | HTTP |
+| Ambari REST API | Baş düğümler | 8080 | / api/v1 | HTTP |
 
 Örnekler:
 
@@ -92,7 +90,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
-| NameNode web UI |Baş düğümler |30070 |HTTPS |Web durumunu görüntülemek için kullanıcı Arabirimi |
+| İş web kullanıcı Arabirimi |Baş düğümler |30070 |HTTPS |Web durumunu görüntülemek için kullanıcı Arabirimi |
 | İş meta veri hizmeti |Baş düğümler |8020 |IPC |Dosya sistemi meta verileri |
 | DataNode |Tüm çalışan düğümleri |30075 |HTTPS |Görünüm durumu, günlükleri, vb. için Web kullanıcı Arabirimi. |
 | DataNode |Tüm çalışan düğümleri |30010 |&nbsp; |Veri aktarımı |
@@ -130,7 +128,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
-| Kaynak |Baş düğümler |19888 |HTTP |MapReduce JobHistory web UI |
+| Kaynak |Baş düğümler |19888 |HTTP |MapReduce kaynak web kullanıcı Arabirimi |
 | Kaynak |Baş düğümler |10020 |&nbsp; |MapReduce kaynak sunucusu |
 | ShuffleHandler |&nbsp; |13562 |&nbsp; |Reducers isteyen için aktarımları Ara harita çıkarır |
 
@@ -153,7 +151,7 @@ Genel olarak internet'te kullanıma sunulan tüm hizmetlerin kimliğinin doğrul
 | Hizmet | Düğümler | Bağlantı noktası | Protokol | Açıklama |
 | --- | --- | --- | --- | --- |
 | HMaster |Baş düğümler |16000 |&nbsp; |&nbsp; |
-| HMaster info Web UI |Baş düğümler |16010 |HTTP |HBase ana web kullanıcı Arabirimi için bağlantı noktası |
+| HMaster bilgisi Web kullanıcı Arabirimi |Baş düğümler |16010 |HTTP |HBase ana web kullanıcı Arabirimi için bağlantı noktası |
 | Bölge sunucu |Tüm çalışan düğümleri |16020 |&nbsp; |&nbsp; |
 | &nbsp; |&nbsp; |2181 |&nbsp; |İstemciler için ZooKeeper bağlanmak için kullandığınız bağlantı noktası |
 

@@ -1,11 +1,11 @@
 ---
 title: Azure DevTest Labs SSS | Microsoft Docs
-description: "Azure DevTest Labs ilgili sık sorulan soruların yanıtlarını bulun."
+description: Azure DevTest Labs ilgili sık sorulan soruların yanıtlarını bulun.
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: afe83109-b89f-4f18-bddd-b8b4a30f11b4
 ms.service: devtest-lab
 ms.workload: na
@@ -13,19 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2017
-<<<<<<< HEAD
-ms.author: tarcher
-ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
 ms.author: v-craic
-ms.openlocfilehash: 24a3220a21280684a34405ac4c3d9f9eab9e3683
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 133a2978ce2b359366d3c5d0639b613977a723fc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs SSS
 Bazı Azure DevTest Labs ilgili en sık sorulan soruların yanıtlarını alın.
@@ -62,7 +55,7 @@ DevTest Labs ücretsiz bir hizmettir. Labs oluşturma ve ilkeleri, şablonları 
 
 **Güvenlik**
 ## <a name="what-are-the-different-security-levels-in-devtest-labs"></a>DevTest Labs içinde farklı güvenlik düzeylerine nelerdir?
-Güvenlik erişimi belirlenir [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-built-in-roles.md). Erişim nasıl çalıştığını öğrenin izin, bir rolü ve bir kapsam arasındaki farklar öğrenmek için RBAC tarafından tanımlanan yardımcı olabilir.
+Güvenlik erişimi belirlenir [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/built-in-roles.md). Erişim nasıl çalıştığını öğrenin izin, bir rolü ve bir kapsam arasındaki farklar öğrenmek için RBAC tarafından tanımlanan yardımcı olabilir.
 
 * **İzni**: belirli bir eylemi için tanımlanmış bir erişim bir izni yok. Örneğin, bir izin tüm VM'ler için okuma erişimi olabilir.
 * **Rol**: gruplandırılır ve bir kullanıcıya atanmış izinleri rolüdür. Örneğin, bir abonelik sahibi rolüne sahip bir kullanıcı bir abonelik içindeki tüm kaynaklara erişebilir.

@@ -1,26 +1,24 @@
 ---
-title: "Yükleme yayımlanan uygulama - Dataiku DDS - Azure Hdınsight | Microsoft Docs"
-description: "Yükleyin ve Dataiku DDS üçüncü taraf Hadoop uygulama kullanın."
+title: Yükleme yayımlanan uygulama - Dataiku DDS - Azure Hdınsight | Microsoft Docs
+description: Yükleyin ve Dataiku DDS üçüncü taraf Hadoop uygulama kullanın.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 835f433e0bf79e8bc4d9b30963196f65bc53cd0e
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: facee9187528fa0c6a74f71ee73636dc23ca35ba
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="install-published-application---dataiku-dds"></a>Yayımlanan uygulama - Dataiku DDS yükleyin
 
@@ -64,7 +62,7 @@ Aşağıdaki adımlar, basit bir örnek sağlar.
 
 1. [Örnek siparişleri CSV Yükle](https://doc.dataiku.com/tutorials/data/101/haiku_shirt_sales.csv).
 
-2. DSS panodan seçin  **+**  (Yeni Proje) yeni bir proje oluşturmak üzere sol menüdeki bağlantısında.
+2. DSS panodan seçin **+** (Yeni Proje) yeni bir proje oluşturmak üzere sol menüdeki bağlantısında.
 
     ![Yeni proje bağlantısı](./media/hdinsight-apps-install-dataiku/new-project.png)
 

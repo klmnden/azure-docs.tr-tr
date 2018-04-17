@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: acdd829785c44f6683c356c135587be183cce392
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d394c856b2f27446ab28c44fe4fed2dfd59ae62f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Azure Data Lake Store ve Azure Blob Depolama karşılaştırma
 Bu makalede tabloda büyük veri işleme anahtar bazı yönlerini boyunca Azure Data Lake Store ile Azure Blob Storage arasındaki farklar özetlenmektedir. Azure Blob Depolama genel amaçlı, çok çeşitli depolama senaryoları için tasarlanan ölçeklenebilir nesne deposu değil. Azure Data Lake Store, büyük veri analitik iş yükleri için en iyi duruma getirilmiş hiper ölçekli bir depodur.
@@ -37,8 +37,8 @@ Bu makalede tabloda büyük veri işleme anahtar bazı yönlerini boyunca Azure 
 | Veri işlemleri - yetkilendirme |POSIX erişim denetim listeleri (ACL'ler).  Azure Active Directory kimliği temel ACL'leri dosya ve klasör düzeyinde ayarlanabilir. |Hesap düzeyinde yetkilendirme için – kullanmak [hesap erişim tuşları](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Hesap, kapsayıcısı veya blob yetkilendirme - kullanın [paylaşılan erişim imzası anahtarlar](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Veri işlemleri - denetleme |Kullanılabilir. Bkz: [burada](data-lake-store-diagnostic-logs.md) bilgi. |Kullanılabilir |
 | Rest verileri şifreleme |<ul><li>Saydam sunucu tarafı</li> <ul><li>Hizmet tarafından yönetilen anahtarlarla</li><li>Müşteri tarafından yönetilen anahtarlarla Azure KeyVault içinde</li></ul></ul> |<ul><li>Saydam sunucu tarafı</li> <ul><li>Hizmet tarafından yönetilen anahtarlarla</li><li>Müşteri tarafından yönetilen anahtarlarında ile Azure KeyVault (Önizleme)</li></ul><li>İstemci Tarafında Şifreleme</li></ul> |
-| Yönetim işlemlerini (örneğin hesabı oluşturun) |[Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan |[Rol tabanlı erişim denetimi](../active-directory/role-based-access-control-what-is.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan |
-| Geliştirici SDK'ları |.NET, Java, Python, Node.js |.Net, Java, Python, Node.js, C++, Ruby, PHP, Go, Android, iOS |
+| Yönetim işlemlerini (örneğin hesabı oluşturun) |[Rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan |[Rol tabanlı erişim denetimi](../role-based-access-control/overview.md) (RBAC) hesap yönetimi için Azure tarafından sağlanan |
+| Geliştirici SDK'ları |.NET, Java, Python, Node.js |.NET, Java, Python, Node.js, C++, Ruby, PHP, Git, Android, iOS |
 | Analytics iş yükü performansı |Paralel analytics iş yükleri için en iyi duruma getirilmiş performans. Yüksek verimlilik ve IOPS. |Paralel analytics iş yükleri için en iyi duruma getirilmiş performans. |
 | Boyutu sınırları |Hesap boyutları, dosya boyutları veya dosya sayısı sınırı |Belgelenen belirli sınırları [burada](../storage/common/storage-scalability-targets.md). Büyük hesap sınırlar kullanılabilir başvurarak [Azure desteği](https://azure.microsoft.com/support/faq/) |
 | Coğrafi artıklık |Yerel olarak yedekli (bir Azure bölgesindeki verilerin birden çok kopya) |Yerel olarak yedekli (LRS), bölge olarak yedekli (ZRS), genel olarak yedekli (GRS), okuma erişimi genel yedekli (RA-GRS). Bkz: [burada](../storage/common/storage-redundancy.md) daha fazla bilgi için |

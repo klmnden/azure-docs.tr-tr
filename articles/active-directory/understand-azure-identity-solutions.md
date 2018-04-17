@@ -1,23 +1,23 @@
 ---
 title: Azure kimlik anlama | Microsoft Docs
-description: "Microsoft Azure kimlik çözümü koşulları, kavramlar ve öneriler, kuruluşunuz için en iyi Kimlik Yönetimi karar vermeniz temel bir anlayış alın."
-keywords: 
+description: Microsoft Azure kimlik çözümü koşulları, kavramlar ve öneriler, kuruluşunuz için en iyi Kimlik Yönetimi karar vermeniz temel bir anlayış alın.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: jeffgilb
 ms.date: 7/17/2017
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 4438917db93c37ddbba3e7ee692b2e3c065d2beb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e5f76bd5da8ff040ea184544b96eb245c42d4dc2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure kimlik çözümleri anlama
 Microsoft Azure Active Directory (Azure AD) dizin hizmetleri, kimlik yönetimi ve uygulamaya erişim yönetimi sağlayan bir kimlik ve erişim yönetimi bulut çözümüdür. Azure AD hızla [çoklu oturum açma (SSO) etkinleştirir](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) 000 1, kullanıcının önceden tümleştirilmiş ticari ve özel uygulamalar [Azure AD uygulama galerisinde](https://azure.microsoft.com/marketplace/active-directory/all/). Çoğu bu uygulamaların, büyük olasılıkla zaten Office 365, Salesforce.com, kutusunu, ServiceNow ve Workday gibi kullanın.
@@ -37,12 +37,12 @@ Kuruluşunuz için Azure kimlik çözümünü karar verebilirsiniz önce Azure k
 |Azure aboneliği |Abonelikleri Azure bulut Hizmetleri için ödeme yapmak için kullanılır ve genellikle bir kredi kartına bağlı. Birden fazla abonelik olabilir, ancak kaynakları abonelikler arasında paylaşmak zor olabilir.|
 |Azure Kiracı | Azure AD kiracısı tek bir kuruluşun temsilcisidir. Kuruluş Azure, Intune veya Office 365 gibi Microsoft bulut hizmeti aboneliği kaydolduğunda, otomatik olarak oluşturulan Azure AD ayrılmış, güvenilen bir örneği değil. Kiracılar ya da bir ortamda ayrılmış (tek kiracılı) veya diğer kuruluşlarla (çok kullanıcılı) paylaşılan bir ortamda hizmetlerine erişebilir.|
 |Azure AD dizini | Her bir Azure Kiracı ayrılmış, güvenilen bir Azure sahip kiracının kullanıcılar, gruplar ve uygulamalar içeren AD dizini. Kimlik gerçekleştirmek ve yönetim işlevleri için Kiracı kaynaklarına erişmek için kullanılır. Çünkü benzersiz bir Azure AD dizini, Azure, Microsoft Intune veya Office 365 gibi Microsoft bulut hizmeti için kaydolduğunuzda, kuruluşunuz temsil etmek için sağlanan otomatik olarak, koşulları bazen göreceğiniz *Kiracı*, *Azure AD*, ve *Azure AD dizini* birbirinin yerine kullanılır. |
-|Özel etki alanı | Önce bir Microsoft bulut hizmeti aboneliği için kaydolduğunuzda, kiracınız (kuruluş) kullanan bir *. onmicrosoft.com* etki alanı adı. Bununla birlikte, çoğu kuruluş bir veya şirket kaynaklarına erişmek için iş ve son kullanıcıların yapmak için kullanılan daha fazla etki alanı adları kullanın. Böylece etki alanı adı gibi kullanıcılarınız için tanıdık, özel etki alanı adınızı Azure AD'ye ekleyebilirsiniz  *alice@contoso.com*  yerine  *alice@contoso.onmicrosoft.com* . |
+|Özel etki alanı | Önce bir Microsoft bulut hizmeti aboneliği için kaydolduğunuzda, kiracınız (kuruluş) kullanan bir *. onmicrosoft.com* etki alanı adı. Bununla birlikte, çoğu kuruluş bir veya şirket kaynaklarına erişmek için iş ve son kullanıcıların yapmak için kullanılan daha fazla etki alanı adları kullanın. Böylece etki alanı adı gibi kullanıcılarınız için tanıdık, özel etki alanı adınızı Azure AD'ye ekleyebilirsiniz *alice@contoso.com* yerine *alice@contoso.onmicrosoft.com*. |
 |Azure AD hesabı | Azure AD kullanarak oluşturulan kimlikleri bunlar veya Office 365 gibi başka bir Microsoft bulut hizmeti. Bunlar, Azure AD'de depolanan ve herhangi bir kuruluşun bulut hizmeti aboneliklerinizde erişilebilir. |
 |Azure Abonelik Yöneticisi| Hesap Yöneticisi kaydolup veya Azure aboneliği satın kullanıcıdır. Kullanabileceklerini [hesap Merkezi'nde](https://account.azure.com/Subscriptions) abonelikleri oluşturma gibi çeşitli yönetim görevlerini gerçekleştirmek için aboneliklerinizi iptal edin, bir abonelik için faturalama değiştirme veya Hizmet Yöneticisi değiştirin. |
 |Azure AD genel yönetici | Azure AD genel yöneticilerin tüm Azure AD yönetim özelliklerine tam erişimi vardır. Bir Microsoft bulut hizmeti aboneliği için otomatik olarak kaydolduğunda kişiye varsayılan olarak genel yönetici olur. Birden çok genel yönetici olabilir, ancak yalnızca genel Yöneticiler herhangi birini atayabilirsiniz [diğer yönetici rollerini](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) kullanıcılara. |
 |Microsoft hesabı | Microsoft hesapları (tarafından kişisel kullanım için oluşturduğunuz) tüketiciye yönelik Microsoft ürünleri için erişim sağlamak ve Outlook (Hotmail), OneDrive, Xbox LIVE veya Office 365 gibi hizmetler bulut. Bu kimlikleri oluşturulur ve Microsoft tarafından çalıştırılan Microsoft tüketici kimlik hesap sistemi depolanır.|
-|İş veya Okul hesapları | İş veya Okul hesapları (iş/akademik kullanmak için bir yönetici tarafından verilen), iş düzeyi gibi Microsoft bulut Hizmetleri, Azure, Intune veya Office 365 Kurumsal erişim sağlar.|
+|İş veya okul hesapları | İş veya Okul hesapları (iş/akademik kullanmak için bir yönetici tarafından verilen), iş düzeyi gibi Microsoft bulut Hizmetleri, Azure, Intune veya Office 365 Kurumsal erişim sağlar.|
 
 
 ## <a name="concepts-to-understand"></a>Anlamak için kavramları
@@ -53,7 +53,7 @@ Temel Azure kimlik koşulları bildiğinize göre bunlar hakkında daha fazla bi
 |-----|-----|
 |[Azure aboneliklerinin Azure Active Directory ile ilişkisi](https://docs.microsoft.com/azure/active-directory/active-directory-how-subscriptions-associated-directory) |Her Azure aboneliği kullanıcıların, hizmetleri ve aygıtların kimliğini doğrulamak için Azure AD dizini bir güven ilişkisi yok. *Birden çok abonelik aynı Azure AD dizini güvenebilir ancak bir abonelik yalnızca tek bir güvenecek Azure AD dizini*. Bu güven ilişkisi, daha fazla abonelik alt kaynakları gibi diğer Azure kaynaklarının (Web siteleri, veritabanları ve benzeri) sahip bir aboneliğe sahip ilişki benzemez. Bir aboneliğin süresi dolarsa Azure AD dışında aboneliğiyle ilişkili kaynaklara erişim de durdurulur. Ancak, siz de başka bir aboneliği bu dizinle ilişkilendirebilir ve Kiracı kaynaklarını yönetmeye devam Azure AD dizini Azure içinde kalır.|
 |[Works lisanslama nasıl Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-get-started-azure-portal) | Satın alma veya Enterprise Mobility Suite, Azure AD Premium veya Azure AD temel etkinleştirme, dizininize abonelik geçerlilik süresi ve ön ödemeli lisansları dahil, güncelleştirilir. Abonelik etkinleştirildikten sonra hizmet Azure AD genel yönetici tarafından yönetilen ve lisanslı kullanıcılar tarafından kullanılır. Atanan veya kullanılabilir lisans sayısı gibi abonelik bilgilerinizi Azure Portalı'nda kullanılabilir **Azure Active Directory** > **lisansları** dikey. Bu ayrıca, lisans anlaşmalarını yönetmek için en iyi yerdir.|
-|[Azure portalında rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/active-directory/role-based-access-control-what-is)|Azure rol tabanlı erişim denetimi (RBAC) Azure kaynakları için ayrıntılı erişim yönetimini sağlamaya yardımcı olur. Çok fazla izinler, kullanıma ve saldırganlar için hesap. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. RBAC kullanarak, tüm kaynak gruplarına uygulanan üç temel rol göre ihtiyaç duydukları izinleri tam çalışanlar verebilirsiniz: sahibi, katkıda bulunan, okuyucu. En fazla 2.000 kendi oluşturabilirsiniz [özel RBAC rolleri](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles) belirli ihtiyaçlarınızı karşılaması için. |
+|[Azure portalında rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/overview)|Azure rol tabanlı erişim denetimi (RBAC) Azure kaynakları için ayrıntılı erişim yönetimini sağlamaya yardımcı olur. Çok fazla izinler, kullanıma ve saldırganlar için hesap. Çok az izinleri anlamına gelir çalışanlar verimli bir şekilde işlerini alınamıyor. RBAC kullanarak, tüm kaynak gruplarına uygulanan üç temel rol göre ihtiyaç duydukları izinleri tam çalışanlar verebilirsiniz: sahibi, katkıda bulunan, okuyucu. En fazla 2.000 kendi oluşturabilirsiniz [özel RBAC rolleri](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) belirli ihtiyaçlarınızı karşılaması için. |
 |[Karma kimlik](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)|Karma kimlik elde edilir, şirket içi Windows Server Active Directory (AD DS) ile tümleştirerek Azure AD kullanarak [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect). Bu, Office 365, Azure ve şirket içi uygulamalar veya Azure AD ile tümleşik SaaS uygulamaları için kullanıcılarınız için ortak bir kimlik sağlamanıza olanak verir. Karma kimlik ile şirket içi ortamınıza bulut kimlik ve erişim için etkili bir şekilde genişletir.|
 
 ### <a name="the-difference-between-windows-server-ad-ds-and-azure-ad"></a>Windows Server AD DS ve Azure AD arasındaki fark

@@ -1,23 +1,23 @@
 ---
 title: Azure SQL Data Warehouse yedekleme ve geri yükleme - anlık görüntüler, coğrafi olarak yedekli | Microsoft Docs
-description: Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın veya farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanın.
+description: Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın.
 services: sql-data-warehouse
 author: ronortloff
-manager: jhubbard
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f540bca0d2eb2c9009a386bd14a5beda2912014
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 21708f51d09d640721af196d2ffa91aede97ffb3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
-Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın veya farklı bir coğrafi bölgeye geri yüklemek için coğrafi olarak yedekli yedeklemeleri kullanın. 
+Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın. 
 
 ## <a name="what-is-backup-and-restore"></a>Yedekleme ve geri yükleme nedir?
 A *veri ambarı yedekleme* kopyasıdır veritabanınızın bir veri ambarı geri yüklemek için kullanabilirsiniz.  SQL veri ambarı dağıtılmış bir sistemde olduğundan, bir veri ambarı yedekleme Azure depolama alanında bulunan çok sayıda dosya oluşur. Veri ambarı yedekleme, hem yerel veritabanı anlık görüntüleri hem de coğrafi yedeklemeleri tüm veritabanlarını ve veri ambarı ile ilişkili olan dosyaları içerir. 

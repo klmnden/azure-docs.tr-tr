@@ -1,6 +1,6 @@
 ---
 title: Azure tümleşik yığını systems dağıtımı Azure yığın ortak anahtar altyapısı sertifikalarını doğrulamak | Microsoft Docs
-description: Azure tümleşik yığını sistemleri Azure yığın PKI sertifikalarını doğrulamak açıklar.
+description: Azure tümleşik yığını sistemleri Azure yığın PKI sertifikalarını doğrulamak açıklar. Azure yığın sertifika Denetleyicisi aracı kullanmayı ele alır.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,171 +11,164 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 0bdadadb1f4ee5f76cde9d05b11e8d57b99ac191
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: cd917165804314f6ee4ee006e3f29263d8d4b4c5
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure yığın PKI sertifikaları doğrula
 
-Bu makalede açıklanan Azure yığın sertifika Denetleyicisi aracı doğrulamak için deploymentdata.json dosyasına dahil OEM tarafından sağlanan [PKI sertifikaları oluşturulan](azure-stack-get-pki-certs.md) dağıtım öncesi uygundur. Sertifikaları test edin ve gerekirse yeniden sertifikaları almak için yeterli süre doğrulanmalıdır.
+Bu makalede açıklanan Azure yığın hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'nden](https://aka.ms/AzsReadinessChecker). Aracı doğrulamak için kullanabileceğiniz [PKI sertifikaları oluşturulan](azure-stack-get-pki-certs.md) dağıtım öncesi uygundur. Sertifikaları test edin ve gerekirse sertifikaları yeniden için yeterli süre bırakarak doğrulamalıdır.
 
-Sertifika Denetleyicisi aracını (Certchecker) aşağıdaki denetimleri gerçekleştirir:
+Hazırlık Denetleyicisi aracını aşağıdaki sertifika doğrulama gerçekleştirir:
 
-- **PFX okuma**. Doğru parolayı geçerli PFX dosyası için denetler ve ortak bilgi parola ile korunmuyor durumunda sizi uyarır. 
-- **İmza algoritması**. İmza algoritması SHA1 denetler.
-- **Özel anahtar**. Özel anahtarı mevcut olduğundan ve yerel makine özniteliğiyle dışarı denetler. 
-- **Sertifika zinciri**. Sertifika zinciri olduğu gibi için otomatik olarak imzalanan sertifikalar dahil olmak üzere denetler. 
-- **DNS adları**. SAN her bitiş noktasıyla ilgili DNS adlarını içeriyor veya bir destekleniyorsa joker mevcut denetler. 
-- **Anahtar kullanımı**. Anahtar kullanımı dijital imza ve anahtar şifreleme ve sunucu kimlik doğrulaması ve istemci kimlik doğrulaması Gelişmiş anahtar kullanımı içerir denetler.
-- **Anahtar boyutu**. Anahtar boyutu 2048 veya daha büyük denetler.
-- **Zincir sipariş**. Doğru zinciri yapmadan diğer sertifikaları sırasını denetler.
-- **Diğer sertifikaları**. Diğer Sertifika PFX içinde ilgili Yaprak sertifikası ve kendi zincirinin dışında paketlenmiş olun.
-- **Profil yok**. Yeni bir kullanıcı PFX verileri yüklenmiş bir kullanıcı profili olmadan sertifika bakım sırasında gMSA hesapları davranışını mimicking yükleyebilirsiniz denetler.
+- **PFX okuma**  
+    Doğru parolayı geçerli PFX dosyası için denetler ve ortak bilgi parola ile korunmuyor durumunda sizi uyarır. 
+- **İmza algoritması**  
+    İmza algoritması SHA1 olmadığını denetler.
+- **Özel anahtar**  
+    Özel anahtarı mevcut olduğundan ve yerel makine özniteliğiyle dışarı denetler. 
+- **Sertifika zinciri**  
+    Denetimleri sertifika zinciri otomatik olarak imzalanan sertifikalar için bir denetimi dahil olmak üzere kalır.
+- **DNS adları**  
+    SAN her bitiş noktasıyla ilgili DNS adlarını içeriyor veya bir destekleniyorsa joker mevcut denetler.
+- **Anahtar kullanımı**  
+    Dijital imza ve anahtar şifreleme anahtar kullanımı içerir ve sunucu kimlik doğrulaması ve istemci kimlik doğrulaması Gelişmiş anahtar kullanımı içeren denetler.
+- **Anahtar boyutu**  
+    Anahtar boyutu 2048 veya daha büyük olup olmadığını denetler.
+- **Zincir sırası**  
+    Sipariş doğru olduğunu doğrulama diğer sertifikaları sırasını denetler.
+- **Diğer sertifikaları**  
+    Diğer Sertifika PFX içinde ilgili Yaprak sertifikası ve kendi zincirinin dışında paketlenmiş olun.
 
 > [!IMPORTANT]  
-> PKI sertifika PFX dosyasını ve parola hassas bilgileri olarak değerlendirilmelidir.
+> PKI sertifikasını bir PFX dosyası olduğunu ve parola hassas bilgileri olarak değerlendirilmelidir.
 
 ## <a name="prerequisites"></a>Önkoşullar
-Sisteminizi Azure yığın dağıtım için PKI sertifikaları doğrulamadan önce aşağıdaki gereksinimleri karşılamalıdır:
-- CertChecker (içinde **PartnerToolKit** altında **\utils\certchecker**)
+
+Sisteminizin bir Azure yığın dağıtımı için PKI sertifikaları doğrulamadan önce aşağıdaki önkoşulları karşılamalıdır:
+
+- Microsoft Azure yığın hazırlık denetleyicisi
 - SSL dışarı aşağıdaki sertifikaları [hazırlık yönergeleri](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 veya Windows Server 2016
 
 ## <a name="perform-certificate-validation"></a>Sertifika doğrulaması gerçekleştirme
 
-Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
+Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın:
 
-1. İçeriği Ayıkla <partnerToolkit>yeni bir dizin, örneğin, \utils\certchecker **c:\certchecker**.
+1. AzsReadinessChecker bir PowerShell isteminde (5.1 veya üstü), aşağıdaki cmdlet'i çalıştırarak yükleyin:
 
-2. Yönetici olarak PowerShell'i açın ve certchecker klasörüne dizini değiştirin:
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker 
+    ````
 
-  ```powershell
-  cd c:\certchecker
-  ```
- 
-3. Aşağıdaki PowerShell komutlarını çalıştırarak sertifikalar için bir dizin yapısını oluşturun:
+2. Sertifika dizin yapısını oluşturun. Aşağıdaki örnekte değiştirebileceğiniz `<c:\certificates>` için tercih ettiğiniz yeni bir dizin yolu.
 
-  ```powershell 
-  $directories = "ACS","ADFS","Admin Portal","ARM Admin","ARM Public","Graph","KeyVault","KeyVaultInternal","Public Portal" 
-  $destination = '.\certs' 
-  $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
-  ```
+    ````PowerShell  
+    New-Item C:\Certificates -ItemType Directory
 
-  >  [!NOTE]
-  >  Kimlik sağlayıcısı Azure yığın dağıtımı için Azure AD, kullanılmıyorsa **ADFS** ve **grafik** dizinleri. 
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal' 
 
-4. Örneğin önceki adımda oluşturduğunuz uygun dizinlerde sertifikalarınız koyun: 
-  - c:\certchecker\Certs\ACS\CustomerCertificate.pfx,  
-  - c:\certchecker\Certs\Admin Portal\CustomerCertificate.pfx  
-  - c:\certchecker\Certs\ARM Admin\CustomerCertificate.pfx  
-  - ve dahası... 
+    $destination = 'c:\certificates' 
 
-5. Kopya **deploymentdata.json** içine **c:\certchecker** dizini.
+    $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}  
+    ````
 
-6. PowerShell penceresinde aşağıdaki komutları çalıştırın: 
+ - Önceki adımda oluşturduğunuz uygun dizinlerde sertifikalarınız yerleştirin. Örneğin:  
+    - c:\certificates\ACSBlob\CustomerCertificate.pfx 
+    - c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx 
+    - c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx 
+    - ve dahası... 
 
-  ```powershell
-  $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-  .\CertChecker.ps1 -CertificatePath .\Certs\ -pfxPassword $password -deploymentDataJSONPath .\DeploymentData.json  
-  ```
+3. Çalıştırma PowerShell penceresinde:
 
-7. Çıktı Tamam tüm sertifikaların ve kullanıma tüm öznitelikleri için içermelidir: 
+    ````PowerShell  
+    $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 
-  ```powershell
-  Starting Azure Stack Certificate Validation 1.1802.221.1
-  Testing: ADFS\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: KeyVaultInternal\ContosoSSL.pfx
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Testing: ACS\ContosoSSL.pfx
-  WARNING: Pre-1803 certificate structure. The folder structure for Azure Stack 1803 and above is: ACSBlob, ACSQueue, ACSTable instead of ACS folder. Refer to deployment documentation for further informat
-  ion.
-    Read PFX: OK
-    Signature Algorithm: OK
-    Private Key: OK
-    Cert Chain: OK
-    DNS Names: OK
-    Key Usage: OK
-    Key Size: OK
-    Chain Order: OK
-    Other Certificates: OK
-    No Profile: OK
-  Detailed log can be found C:\CertChecker\CertChecker.log 
-  ```
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
+    ````
 
-### <a name="known-issues"></a>Bilinen sorunlar 
-**Belirti**: Certchecker çıkar erken ve şu hatayı alıyorsunuz: 
-> Başarısız
+4. Tüm sertifikaları testlerini geçtiğini doğrulamak için çıktıyı inceleyin. Örneğin:
 
-> Ayrıntı: Bu komut hata nedeniyle çalıştırılamaz: dizin adı geçersiz. 
+    ````PowerShell
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Validation
 
-**Neden**: certchecker.ps1 çalıştıran kısıtlayıcı klasörden, örneğin, c:\temp veya % temp % 
+    Starting Azure Stack Certificate Validation 1.1803.405.3
+    Testing: ARM Public\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ACSBlob\ssl.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-**Çözümleme**: yeni dizine, örneğin, C:\CertChecker certchecker aracı Taşı 
+    Finished Certificate Validation
 
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessReport.json
+    AzsReadinessChecker Completed
+    ````
 
-**Belirti**: Certchecker (örnektekiyle adım 7) öncesi 1803 kullanma hakkında bir uyarı verir:
-
-> [!WARNING]
-> Öncesi 1803 sertifika yapısı. Klasör yapısı için Azure yığın 1803 ve yukarıdaki: ACS klasörü yerine ACSBlob, ACSQueue, ACSTable. Daha fazla bilgi için dağıtım belgelerine bakın.
-
-**Neden**: CertChecker 1803 önce bu dağıtımlar için doğru ise tek bir ACS klasör kullanımı algılandı. Azure yığın sürüm 1803 ve dağıtımları yukarıda ACSTable, ACSQueue, ACSBlob klasör yapısını değiştirir. Certchecker zaten olması bu işlevleri destekleyen şekilde güncelleştirildi.
-
-**Çözümleme**: 1802 dağıtma, hiçbir eylem gerekli değildir. 1803 dağıtma ve ACS ACSTable, ACSQueue, ACSBlob ile değiştirin ve ACS sertifikaları bu klasörlerine kopyalayın.
+### <a name="known-issues"></a>Bilinen sorunlar
 
 **Belirti**: testleri atlanır
 
-**Neden**: CertChecker atlar belirli testleri bir bağımlılık karşılanır değil ise:
-- Sertifika zinciri başarısız olursa, diğer sertifikaları atlanır.
-- Profil yok atlanır:
-  - Bir güvenlik ilkesi geçici bir kullanıcı oluşturun ve bu kullanıcı olarak powershell çalıştırma yeteneğini kısıtlama yoktur.
-  - Özel anahtar denetimi başarısız olur.
+**Neden**: AzsReadinessChecker atlar belirli testleri bir bağımlılık karşılanır değil ise:
 
-**Çözümleme**: Test kümesinin her sertifikanın Ayrıntılar bölümünde yer alan araçları yönergeleri izleyin.
+ - Sertifika zinciri başarısız olursa, diğer sertifikaları atlanır.
 
+    ````PowerShell  
+    Testing: ACSBlob\singlewildcard.pfx
+        Read PFX: OK
+        Signature Algorithm: OK
+        Private Key: OK
+        Cert Chain: OK
+        DNS Names: Fail
+        Key Usage: OK
+        Key Size: OK
+        Chain Order: OK
+        Other Certificates: Skipped
+    Details:
+    The certificate records '*.east.azurestack.contoso.com' do not contain a record that is valid for '*.blob.east.azurestack.contoso.com'. Please refer to the documentation for how to create the required certificate file.
+    The Other Certificates check was skipped because Cert Chain and/or DNS Names failed. Follow the guidance to remediate those issues and recheck. 
+    Detailed log can be found C:\AzsReadinessChecker\CertificateValidation\CertChecker.log
 
-## <a name="prepare-deployment-script-certificates"></a>Dağıtım betiği sertifikalar hazırlama 
-Son adım olarak, hazır tüm sertifikaları dağıtımı konakta uygun dizinlerde yerleştirilmesi gerekir. Dağıtım konakta adlı bir klasör oluşturun. Sertifikaları ** ve Yerleştir, dışarı aktarılan sertifika dosyaları belirtilen karşılık gelen alt klasörlerdeki [zorunlu sertifikaları](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates) bölümü:
+    Finished Certificate Validation
 
-```
-\Certificates
-\ACS\ssl.pfx
-\Admin Portal\ssl.pfx
-\ARM Admin\ssl.pfx
-\ARM Public\ssl.pfx
-\KeyVault\ssl.pfx
-\KeyVaultInternal\ssl.pfx
-\Public Portal\ssl.pfx
-\ADFS\ssl.pfx*
-\Graph\ssl.pfx*
-```
+    AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
 
-<sup>*</sup> Sertifikaları yıldızla işaretlenmiş * AD FS kimlik deposu olarak kullanıldığında, yalnızca gerekli.
+**Çözümleme**: her her sertifika için testleri kümesi altındaki ayrıntılar bölümünde aracın yönergeleri izleyin.
 
+## <a name="using-validated-certificates"></a>Doğrulanmış sertifikaları kullanma
+
+Sertifikalarınızı AzsReadinessChecker tarafından doğrulandıktan sonra Azure yığın dağıtımınızdaki veya Azure yığın gizli döndürme için kullanıma hazır. 
+
+ - Böylece bunlar bunları belirtildiği gibi dağıtım ana bilgisayar üzerine kopyalayabilirsiniz dağıtımı için dağıtım mühendisinize sertifikalarınızı güvenli bir şekilde aktarım. [Azure yığın PKI gereksinimleri belgelerine](azure-stack-pki-certs.md).
+ - Gizli dönüş izleyerek Azure yığın ortamı ortak altyapısı uç noktalar için eski sertifikalar güncelleştirmek için sertifikaları kullanabilirsiniz [Azure yığın gizli döndürme belgelerine](azure-stack-rotate-secrets.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Veri merkezi kimlik tümleştirme](azure-stack-integrate-identity.md)

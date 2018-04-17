@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure küme kaynaklarını silip | Microsoft Docs"
-description: "Tamamen silmek için Service Fabric küme nasıl küme içeren kaynak grubunu silme veya kaynakları seçmeli silme tarafından öğrenin."
+title: Bir Azure küme kaynaklarını silip | Microsoft Docs
+description: Tamamen silmek için Service Fabric küme nasıl küme içeren kaynak grubunu silme veya kaynakları seçmeli silme tarafından öğrenin.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: de422950-2d22-4ddb-ac47-dd663a946a7e
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/24/2017
-ms.author: chackdan
-ms.openlocfilehash: 7672aa12421fbe4ad86e7315d6a7a06c2ff5124d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: aljo
+ms.openlocfilehash: 7da2277fef224ff7859cac1ad5a2290c9dc56a85
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="delete-a-service-fabric-cluster-on-azure-and-the-resources-it-uses"></a>Azure ve kaynaklarını Service Fabric kümesini Sil
 Service Fabric kümesi, diğer Azure birçok kaynakları küme kaynağı yanı sıra oluşur. Bu nedenle, bir Service Fabric kümesini tamamen silmek için onu oluşturan tüm kaynakları da silmeniz gerekir.
@@ -43,10 +43,10 @@ Login-AzureRmAccount
 Remove-AzureRmResourceGroup -Name <name of ResouceGroup> -Force
 ```
 
-Kullanmadıysanız, silme işlemini onaylamak için bir istem alırsınız *-Force* seçeneği. Onay RG ve içerdiği tüm kaynaklar silinir.
+Kullanmadıysanız, silme işlemini onaylamak için bir istem alırsınız *-Force* seçeneği. Onay üzerinde RG ve içerdiği tüm kaynaklar silinir.
 
 ### <a name="delete-a-resource-group-in-the-azure-portal"></a>Azure portalında bir kaynak grubu Sil
-1. Oturum açma [Azure portal](https://portal.azure.com).
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Silmek istediğiniz Service Fabric kümesine gidin.
 3. Küme essentials sayfasında kaynak grubu adını tıklatın.
 4. Bu işlem sonrasında **kaynak grubu Essentials** sayfası.
@@ -65,7 +65,7 @@ Portalı kullanarak veya Şablon Galerisi'nden Service Fabric Resource Manager �
 ***#2 etiketi:*** anahtarı KaynakAdı, değer = ServiceFabric =
 
 ### <a name="delete-specific-resources-in-the-azure-portal"></a>Azure Portalı'ndaki belirli kaynakları silin
-1. Oturum açma [Azure portal](https://portal.azure.com).
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Silmek istediğiniz Service Fabric kümesine gidin.
 3. Git **tüm ayarları** essentials dikey.
 4. Tıklayın **etiketleri** altında **kaynak yönetimi** ayarlar dikey penceresinde.
@@ -84,13 +84,13 @@ Bir PowerShell penceresi açın ve aşağıdaki PS cmdlet'leri çalıştırın:
 ```powershell
 Login-AzureRmAccount
 ```
-Her bir kaynağın silmek şu komutu çalıştırın istediğiniz:
+Her silmek istediğiniz kaynaklar için aşağıdaki komut dosyasını çalıştırın:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName "<name of the resource group>" -Force
 ```
 
-Küme kaynağı silmek için şu komutu çalıştırın:
+Küme kaynağı silmek için aşağıdaki betiği çalıştırın:
 
 ```powershell
 Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName "<name of the resource group>" -Force

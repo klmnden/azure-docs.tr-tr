@@ -9,21 +9,21 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 78f447c96afe7955f115de4bbd28015cd231bb53
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ab118cd43f1e3e57627d940072e50405cd85ca58
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
-Kalıcı bir birim Kubernetes kümesinde kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Bu belgede bir AKS kümesindeki Kubernetes kalıcı birim olarak dinamik bir Azure dosya paylaşımı sağlama ayrıntıları verilmektedir. 
+Kalıcı bir birim Kubernetes kümesinde kullanmak için sağlanan depolama parçasını temsil eder. Kalıcı bir birim bir veya daha çok pod'ları tarafından kullanılabilir ve dinamik veya statik olarak sağlanabilir. Bu belgede bir AKS kümesindeki Kubernetes kalıcı birim olarak dinamik bir Azure dosya paylaşımı sağlama ayrıntıları verilmektedir.
 
 Kubernetes kalıcı birimler hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birimler][kubernetes-volumes].
 
 ## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
-AKS kümesi ile aynı kaynak grubunda bulunan sürece Kubernetes birimi olarak Azure dosya paylaşımının dinamik olarak sağlanırken, herhangi bir depolama hesabı kullanılabilir. Gerekirse, AKS kümesi ile aynı kaynak grubunda bir depolama hesabı oluşturun. 
+AKS kümesi ile aynı kaynak grubunda bulunan sürece Kubernetes birimi olarak Azure dosya paylaşımının dinamik olarak sağlanırken, herhangi bir depolama hesabı kullanılabilir. Gerekirse, AKS kümesi ile aynı kaynak grubunda bir depolama hesabı oluşturun.
 
 Doğru kaynak grubunu tanımlamak için kullanmak [az grup listesi] [ az-group-list] komutu.
 
@@ -40,7 +40,7 @@ MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
 myAKSCluster                         eastus      Succeeded
 ```
 
-Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabını oluşturmak için komutu. 
+Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabını oluşturmak için komutu.
 
 Bu örneği kullanarak, güncelleştirme `--resource-group` kaynak grubu adını ve `--name` için tercih ettiğiniz bir ad.
 
@@ -74,7 +74,7 @@ kubectl create -f azure-file-sc.yaml
 
 ## <a name="create-persistent-volume-claim"></a>Kalıcı birim oluşturma
 
-Kalıcı birim talep (PVC) depolama sınıf nesnesi Azure dosya paylaşımının dinamik olarak sağlamak için kullanır. 
+Kalıcı birim talep (PVC) depolama sınıf nesnesi Azure dosya paylaşımının dinamik olarak sağlamak için kullanır.
 
 Aşağıdaki bildirim kalıcı birim talep oluşturmak için kullanılan `5GB` boyutta `ReadWriteOnce` erişim.
 
@@ -132,22 +132,22 @@ spec:
 kubectl create -f azure-pvc-files.yaml
 ```
 
-Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Birimi, pod aracılığıyla incelerken bağlama görebilirsiniz `kubectl describe pod mypod`.
+Şimdi takılabilir diskinizin Azure ile çalışan bir pod sahip `/mnt/azure` dizin. Bu yapılandırma, pod aracılığıyla incelerken görülebilir `kubectl describe pod mypod`.
 
 ## <a name="mount-options"></a>Bağlama seçenekleri
- 
+
 Varsayılan fileMode ve dirMode değerler aşağıdaki tabloda açıklandığı gibi Kubernetes sürümleri arasında farklılık gösterir.
- 
+
 | sürüm | değer |
 | ---- | ---- |
 | v1.6.x, v1.7.x | 0777 |
 | v1.8.0-v1.8.5 | 0700 |
 | V1.8.6 veya üstü | 0755 |
-| v1.9.0 | 0700 |
+| V1.9.0 | 0700 |
 | V1.9.1 veya üstü | 0755 |
- 
+
 Sürüm 1.8.5 oluşan bir küme kullanıyorsanız veya büyük, bağlama seçenekleri depolama sınıfı nesnesinde belirtilebilir. Aşağıdaki örnek kümeleri `0777`.
- 
+
 ```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
@@ -162,7 +162,7 @@ mountOptions:
 parameters:
   skuName: Standard_LRS
 ```
- 
+
 Sürüm 1.8.0 - 1.8.4, oluşan bir küme kullanıyorsanız, bir güvenlik bağlamı ile belirtilebilir `runAsUser` değerine `0`. Pod güvenlik bağlamı ile ilgili daha fazla bilgi için bkz: [bir güvenlik bağlamı yapılandırma][kubernetes-security-context].
 
 ## <a name="next-steps"></a>Sonraki adımlar

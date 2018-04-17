@@ -1,11 +1,11 @@
 ---
-title: "Azure mantıksal uygulamaları için Azure Service Bus Mesajlaşma yukarı ayarlama | Microsoft Docs"
-description: "İleti gönderme ve logic apps ile Azure Service Bus kullanarak alma"
+title: Azure mantıksal uygulamaları için Azure Service Bus Mesajlaşma yukarı ayarlama | Microsoft Docs
+description: İleti gönderme ve logic apps ile Azure Service Bus kullanarak alma
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
 manager: anneta
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.service: logic-apps
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 02/06/2018
 ms.author: ladocs
-ms.openlocfilehash: e81580db17610adc6be534c9801881f9b68b14fd
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: d5a4760e1e0f38fd81fd779786985f5753d77eab
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="send-and-receive-messages-with-the-azure-service-bus-connector"></a>Azure Service Bus Bağlayıcısı ile ileti gönderme ve alma
 
@@ -65,12 +65,17 @@ A [ *tetikleyici* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) man
 
    ![Hizmet veri yolu Tetikleyici seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-trigger.png)
 
+   > [!NOTE]
+   > Bazı tetikler dönüş biri veya iletileri gibi *Service Bus - bir veya daha fazla ileti (Otomatik Tamamlama) kuyrukta geldiğinde* tetikleyici.
+   > Bu tetikleyicileri tetiklendiğinde biri ve tetikleyici tarafından belirtilen ileti sayısı arasında döndürmeleri **en fazla ileti sayısı** özelliği.
+
    1. Hizmet veri yolu ad alanınıza bağlantı sahip değilseniz, bu bağlantı artık oluşturmanız istenir. Bağlantınızı bir ad verin ve kullanmak istediğiniz hizmet veri yolu ad alanını seçin.
 
       ![Hizmet veri yolu bağlantı oluşturma](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-1.png)
 
       Veya el ile bağlantı dizesini girmek için seçin **bağlantı bilgilerini el ile girebilirsiniz**. 
       Bilgi [bağlantı dizenizi bulmak nasıl](#permissions-connection-string).
+      
 
    2. Şimdi kullanın ve seçmek için Service Bus ilkesini seçin **oluşturma**.
 
@@ -79,6 +84,11 @@ A [ *tetikleyici* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) man
 4. Kullanın ve aralığı ve sıra denetlemek ne zaman sıklığını ayarlamak için hizmet veri yolu kuyruğu seçin.
 
    ![Hizmet veri yolu kuyruğu seçin, yoklama aralığını ayarlayın](./media/connectors-create-api-azure-service-bus/select-service-bus-queue.png)
+
+   > [!NOTE]
+   > Tüm Service Bus Tetikleyiciler **uzun yoklama** tetikleyici başlatıldığında tetikleyici tüm iletileri işlediğinden kuyruk veya konu başlığı aboneliğinde görünmesi daha fazla ileti 30 saniye bekler anlamına gelir ve tetikler.
+   > Hiçbir ileti 30 saniye içinde aldıysanız, tetikleyici Çalıştır atlanır. Aksi takdirde, tetikleyici, kuyruk veya konu başlığı aboneliği boş olana kadar iletileri okumak devam eder.
+   > Sonraki tetikleyici yoklama tetikleyici özelliklerinde belirtilen yinelenme aralığını temel alır.
 
 5. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin.
 
@@ -96,7 +106,7 @@ A [ *tetikleyici* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) man
 
 3. Bu eylem seçin: **Service Bus - ileti gönderir**
 
-   ![Select "Service Bus - Send message"](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
+   !["Service Bus - ileti gönder" seçin](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png)
 
 4. İletiyi göndermek nereye için kuyruk veya konu adı Mesajlaşma varlığı seçin. Ardından, ileti içeriği ve başka ayrıntılar girin.
 

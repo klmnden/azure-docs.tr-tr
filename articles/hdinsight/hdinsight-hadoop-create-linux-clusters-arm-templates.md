@@ -1,8 +1,8 @@
 ---
-title: "Şablonları - Azure Hdınsight kullanarak Hadoop kümeleri oluşturma | Microsoft Docs"
-description: "Resource Manager şablonları kullanarak için Hdınsight kümeleri oluşturma hakkında bilgi edinin"
+title: Şablonları - Azure Hdınsight kullanarak Hadoop kümeleri oluşturma | Microsoft Docs
+description: Resource Manager şablonları kullanarak için Hdınsight kümeleri oluşturma hakkında bilgi edinin
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -11,16 +11,14 @@ ms.assetid: 00a80dea-011f-44f0-92a4-25d09db9d996
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: 15edd860a86f5d865a6bcb52700b43eaca4ff5c6
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: 1c50c3fbef5495171693b64e410f858af6176147
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak Hdınsight'ta Hadoop kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: ab4bc4024248675c6325159b5507add1274addc9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
@@ -34,16 +34,16 @@ Açık API belgenizi alma hata alıyorsanız, doğrulandı, - ya da Tasarımcıs
 * Özel uzantılar içeri aktarma işlemi sırasında yok sayılır ve kaydedilmez veya dışarı aktarma için korunur.
 
 > [!IMPORTANT]
-> Bu bkz [belge](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) önemli bilgiler ve OpenAPI alınacak ilgili ipuçları için.
+> OpenAPI içeri aktarma ile ilgili önemli bilgiler ve ipuçları için bu [belgeye](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/) bakın.
 
 ## <a name="wsdl"> </a>WSDL
 WSDL dosyaları veya bir SOAP ve REST API'si arka ucu olarak hizmet SOAP doğrudan API'ları oluşturmak için kullanılır.
-
-* **WSDL: import** -şu anda APIM bu özniteliği kullanılarak API'leri desteklemez. Müşteriler, bir belgeye alınan öğeleri birleştirmeniz gerekir.
-* **Birden çok bölümü olan iletiler** şu anda, bu tür iletilerin APIM desteklemiyor.
-* **WCF wsHttpBinding** Windows Communication Foundation ile oluşturulan SOAP Hizmetleri basicHttpBinding kullanması gereken - wsHttpBinding desteklenmiyor.
-* **MTOM** MTOM kullanan hizmetler <em>olabilir</em> çalışır. Resmi desteği şu anda önerilmez.
-* **Özyineleme** türlerini tanımlanan yinelemeli olarak (örneğin, bir dizi kendileri için bakın) APIM tarafından desteklenmez.
+* **SOAP bağlamaları** -stil "belgesi" ve "hazır" kodlaması yalnızca SOAP bağlamaları desteklenir. "Rpc" stili veya SOAP kodlama için desteği yoktur.
+* **WSDL: import** -bu öznitelik desteklenmiyor. Müşteriler, bir belgeye içeri aktarmalar birleştirmeniz gerekir.
+* **Birden çok bölümü olan iletiler** -bu tür iletilerin desteklenmez.
+* **WCF wsHttpBinding** -Windows Communication Foundation ile oluşturulan SOAP Hizmetleri basicHttpBinding kullanması gereken - wsHttpBinding desteklenmiyor.
+* **MTOM** - MTOM kullanarak Hizmetleri <em>olabilir</em> çalışır. Resmi desteği şu anda önerilmez.
+* **Özyineleme** -türlerini tanımlanan yinelemeli olarak (örneğin, bir dizi kendileri için bakın) APIM tarafından desteklenmez.
 
 ## <a name="wadl"> </a>WADL
 Şu anda hiçbir bilinen WADL alma sorunları vardır.

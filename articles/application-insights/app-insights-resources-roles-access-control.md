@@ -1,8 +1,8 @@
 ---
-title: "Kaynaklar, rolleri ve erişim denetim Azure Application Insights'ta | Microsoft Docs"
-description: "Sahipleri, Katkıda Bulunanlar ve okuyucular, kuruluşunuzun Öngörüler."
+title: Kaynaklar, rolleri ve erişim denetim Azure Application Insights'ta | Microsoft Docs
+description: Sahipleri, Katkıda Bulunanlar ve okuyucular, kuruluşunuzun Öngörüler.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6e811c9b427469fa781cf1f5b7c7deff3a8e6eb3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5bb6c33c083e1be690b70b63ca087c923d43f3ee
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Kaynaklar, rolleri ve erişim denetimi Application Insights
-Kim okuma ve güncelleştirme erişimine Azure verilerinize denetleyebilirsiniz [Application Insights][start], kullanarak [Microsoft Azure rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+Kim okuma ve güncelleştirme erişimine Azure verilerinize denetleyebilirsiniz [Application Insights][start], kullanarak [Microsoft Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 
 > [!IMPORTANT]
 > Kullanıcılara erişim atamak **kaynak grubuna veya aboneliğe** uygulama kaynağınızı - kaynak kendisini değil ait olduğu. Ata **Application Insights bileşen katkıda bulunan** rol. Bu web testleri ve uygulama kaynağınızı birlikte uyarıları erişim Tekdüzen denetim sağlar. [Daha fazla bilgi edinin](#access).
@@ -45,7 +45,7 @@ Kim okuma ve güncelleştirme erişimine Azure verilerinize denetleyebilirsiniz 
 * [**Abonelik** ](https://portal.azure.com) - bir Azure aboneliğine oturum Application Insights veya diğer Azure kaynaklarını kullanmak için. Her kaynak grubu, fiyat paketi seçin ve burada, bir kuruluşun abonelik ise üyeleri ve bunların erişim izinlerini seçin Azure aboneliğiniz için aittir.
 * [**Microsoft hesabı** ] [ account] -kullanıcı adı ve Microsoft Azure Abonelikleri, XBox Live, Outlook.com ve diğer Microsoft Hizmetleri için oturum açmak için kullandığınız parola.
 
-## <a name="access"></a>Kaynak grubundaki erişimi denetleme
+## <a name="access"></a> Kaynak grubundaki erişimi denetleme
 Uygulamanız için oluşturduğunuz kaynak yanı sıra olduğunu da uyarıları ve web testleri için ayrı gizli kaynaklar anlamak önemlidir. Aynı eklenen [kaynak grubu](#resource-group) uygulamanız. Ayrıca diğer Azure hizmetleriyle gibi Web sitesi ya da depolama burada konumuna.
 
 ![Application Insights kaynakları](./media/app-insights-resources-roles-access-control/00-resources.png)
@@ -91,7 +91,7 @@ Veya başka düzeyi gidin ve aboneliğe kullanıcı eklemek.
 
 ## <a name="related-content"></a>İlgili içerik
 
-* [Rol tabanlı erişim denetimi Azure](../active-directory/role-based-access-control-configure.md)
+* [Rol tabanlı erişim denetimi Azure](../role-based-access-control/role-assignments-portal.md)
 
 <!--Link references-->
 

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 16f5c515231f486e3576b95a0d103d2fa34842ff
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: cd11ea68f298395236abf83295b939462ba00964
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak bir yönetilmeyen dizin üzerinde gerçekleştirin
 Bu makalede, Azure Active Directory (Azure AD) yönetilmeyen bir dizinde bir DNS etki alanı adı öncelikli iki yolu açıklanmaktadır. Azure AD kullanan bir bulut hizmeti için bir Self Servis kullanıcı kaydolduğunda yönetilmeyen bir Azure eklenen AD directory tabanlı kendi e-posta etki alanı üzerinde. Self Servis ya da "viral" için bir hizmet hakkında daha fazla bilgi için bkz: [Azure Active Directory için Self Servis kaydolma nedir?]()
@@ -83,14 +83,12 @@ Etki alanı adı sahipliğini doğruladığınızda Azure AD etki alanı adı y�
 - Kullanıcılar
 - Abonelikler
 - Lisans atama
- 
-[ **ForceTakeover** seçeneği](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) etki alanı adı dış yönetici için yalnızca iki hizmetler için Power BI ve Azure RMS devralma desteklenir.
 
 ### <a name="support-for-external-admin-takeover"></a>Dış yönetim devralma desteği
 Dış yönetim devralma aşağıdaki çevrimiçi hizmetler tarafından desteklenir:
 
 - Power BI
-- Azure Hak Yönetimi Hizmeti (RMS)
+- Azure Rights Management
 - Exchange Online
 
 Desteklenen hizmet planları şunları içerir:
@@ -99,12 +97,19 @@ Desteklenen hizmet planları şunları içerir:
 - Power BI Pro
 - PowerApps boş
 - PowerFlow boş
-- Azure hak yönetimi hizmeti temel (RMS)
-- Azure Rights Management hizmeti Enterprise (RMS)
+- Kişiler için RMS
 - Microsoft Stream
 - Dynamics 365 ücretsiz deneme sürümü
 
-Exernal yönetici devralma hizmet planları, SharePoint, OneDrive veya Skype için iş dahil olan tüm hizmetler için desteklenmiyor; Örneğin, bir Office ücretsiz abonelik veya Office temel SKU.
+Dış yönetim devralma hizmet planları, SharePoint, OneDrive veya Skype için iş dahil olan tüm hizmetler için desteklenmiyor; Örneğin, bir Office ücretsiz abonelik veya Office temel SKU. İsteğe bağlı olarak kullanabileceğiniz [ **ForceTakeover** seçeneği](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) etki alanı adı yönetilmeyen kiracıdan kaldırma ve istenen Kiracı'doğrulanıyor. Bu ForceTakeover seçeneği değil içindeki kullanıcı taşımak veya aboneliğe erişimi korur. Bunun yerine, bu seçenek, yalnızca etki alanı adını taşır. 
+
+#### <a name="more-information-about-rms-for-individuals"></a>Kişiler için RMS hakkında daha fazla bilgi
+
+İçin [kişiler için RMS](/information-protection/understand-explore/rms-for-individuals), yönetilmeyen Kiracı Kiracı ile aynı bölgede size ait olduğunu, otomatik olarak oluşturulan olduğunda [Azure Information Protection Kiracı anahtarını](/information-protection/plan-design/plan-implement-tenant-key) ve [varsayılan koruma şablonları](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) etki alanı adıyla ayrıca taşındığını. 
+
+Yönetilmeyen Kiracı farklı bir bölgede olduğunda anahtar ve şablonları taşınmaz. Örneğin, Avrupa ve Kuzey Amerika olan kendi Kiracı yönetilmeyen Kiracı kullanılıyor. 
+
+Kişiler için RMS korumalı içeriği açmak için Azure AD kimlik doğrulamayı destekleyecek şekilde tasarlanmış olsa da, kullanıcıların içeriği de koruma engellemez. Kullanıcıların kişiler için RMS aboneliği içerikle koruma sağlamaz ve anahtar ve şablonları taşınmadı, o içeriği sonra etki alanı devralma erişilemeyecek.    
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>ForceTakeover seçeneği için Azure AD PowerShell cmdlet'leri
 Kullanılan Bu cmdlet görebilirsiniz [PowerShell örnek](#powershell-example).
@@ -118,7 +123,7 @@ cmdlet'i | Kullanım
 `get-msoldomain` | Etki alanı adı, yönetilen bir kiracı ile ilişkili etki alanı adlarının listesini artık dahil, ancak olarak listelenen **Unverified**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Etki alanı için yeni bir DNS TXT kayıt yerleştirin için bilgiler sağlar (MS xxxxx =). Doğrulama durum hemen yaymak TXT kaydı için biraz zaman alır çünkü böylece beklememek dikkate önce birkaç dakika **- ForceTakeover** seçeneği. 
 `confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Etki alanı adınızı hala doğrulanamazsa, devam edebilmeniz **- ForceTakeover** seçeneği. TXT kaydı oluşturuldu ve devralma işlem başlatır doğrular.<li>**- ForceTakeover** seçeneği eklenmesi cmdlet'e yalnızca yönetilmeyen Kiracı devralma engelleme Office 365 hizmetlerine olduğunda gibi bir dış yönetici devralma zorlama olduğunda.
-`get-msoldomain` | Etki alanı listesi şimdi gösterir etki alanı adı olarak **doğrulandı**.
+`get-msoldomain` | Etki alanı listesi şimdi etki alanı adı olarak görünür **doğrulandı**.
 
 ### <a name="powershell-example"></a>PowerShell örneği
 

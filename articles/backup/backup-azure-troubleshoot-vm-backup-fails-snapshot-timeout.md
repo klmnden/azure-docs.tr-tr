@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
 ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 81678f6a8659ffb763ebfe418098e510c73f6ae0
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 194b8237ce1bff6ac18878bc7eca6e0d3891aa33
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -29,7 +29,8 @@ Bu makale, yardımcı olabilecek sorun giderme adımlarını uzantısı ve VM Ar
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>VM Aracısı Azure yedekleme ile iletişim kuramıyor
 
-Hata iletisi: "VM Aracısı Azure yedekleme ile iletişim kuramıyor"
+Hata iletisi: "VM Aracısı Azure yedekleme ile iletişim kuramıyor"<br>
+Hata kodu: "UserErrorGuestAgentStatusUnavailable"
 
 Kaydolun ve yedekleme hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık almak için VM Aracısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Bir anlık görüntü değil tetiklendiğinde yedekleme başarısız olabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:
 
@@ -41,7 +42,8 @@ Kaydolun ve yedekleme hizmeti için bir VM zamanlama sonra yedekleme işi zaman 
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Sanal makine ağa bağlı değil anlık görüntü işlemi başarısız olur
 
-Hata iletisi: "anlık görüntü işlemi sanal makinedeki ağ bağlantısı nedeniyle başarısız oldu"
+Hata iletisi: "anlık görüntü işlemi sanal makinedeki ağ bağlantısı nedeniyle başarısız oldu"<br>
+Hata kodu: "ExtensionSnapshotFailedNoNetwork"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:    
 **1. neden: [VM Internet erişimi yok](#the-vm-has-no-internet-access)**  
@@ -50,7 +52,8 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 
 ## <a name="vmsnapshot-extension-operation-failed"></a>VMSnapshot uzantısı işlemi başarısız
 
-Hata iletisi: "VMSnapshot uzantısı işlemi başarısız oldu"
+Hata iletisi: "VMSnapshot uzantısı işlemi başarısız oldu"<br>
+Hata kodu: "ExtentionOperationFailed"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
 **1. neden: [anlık görüntü durumu alınamıyor olabilir ya da bir anlık görüntü alınamaz](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
@@ -60,7 +63,7 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor yedekleme başarısız olur
 
-Hata messagae: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor"
+Hata iletisi: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
 **1. neden: [aracı VM, ancak, yanıt vermeyen (Windows VM'ler için) yüklendi](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
@@ -142,9 +145,9 @@ Aracı veya uzantı ilgili hataları Linux VM'ler için en güncel olmayan bir V
 3. [Otomatik yeniden başlatma Aracısı'nı yapılandırma](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 4. Yeni bir test yedekleme çalıştırın. Hata devam ederse aşağıdaki günlüklerini sanal makineden toplayın:
 
-   * /var/lib/waagent/*.xml
+   * /var/lib/waagent/*.XML
    * /var/log/waagent.log
-   * /var/log/azure/*
+   * / var/oturum/azure / *
 
 Ayrıntılı günlük kaydı için waagent gerekiyorsa, şu adımları izleyin:
 
@@ -177,6 +180,8 @@ Uzantıyı kaldırmak için:
 3. Seçin **uzantıları**.
 4. Seçin **Vmsnapshot uzantısı**.
 5. Seçin **kaldırma**.
+
+Linux VMSnapshot uzantısını Azure Portal'da görünmüyorsa VM için [Azure Linux Aracısı güncelleştirme](../virtual-machines/linux/update-agent.md), ve ardından yedekleme çalıştırın. 
 
 Bu adımları tamamladıktan sonraki yedekleme sırasında yüklenmesi uzantısı neden olur.
 

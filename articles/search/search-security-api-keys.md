@@ -15,11 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: ab04214dc02f337afdf8268b7d05b5e0896efc73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2718a0b2e97c5af8ee25a96100c3d8cb0dbfe9fa
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Oluşturma ve Azure Search hizmeti için API anahtarları Yönet
 
@@ -65,7 +65,7 @@ Anahtar güvenlik portal ya da Resource Manager arabirimleri (PowerShell veya ko
 
 + Hizmet panosunda tıklatın **erişim denetimi (IAM)** hizmetiniz için rol atamalarını görüntülemek için.
 
-Aşağıdaki rolleri üyeleri görüntülemek ve yeniden anahtarları: sahibi, katkıda bulunan, [arama hizmeti Katkıda Bulunanlar](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#search-service-contributor)
+Aşağıdaki rolleri üyeleri görüntülemek ve yeniden anahtarları: sahibi, katkıda bulunan, [arama hizmeti Katkıda Bulunanlar](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Kimlik tabanlı arama sonuçları üzerinden erişim için istek sahibinin erişim olmamalıdır Belgeler kaldırılıyor sonuçları kimliği tarafından kırpma için güvenlik filtreler oluşturabilirsiniz. Daha fazla bilgi için bkz: [güvenlik filtreleri](search-security-trimming-for-azure-search.md) ve [güvenli Active Directory ile](search-security-trimming-for-azure-search-with-aad.md).

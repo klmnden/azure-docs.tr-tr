@@ -5,19 +5,19 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
-editor: cgronlun
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 4c911937226591124404c95b73b82b78e76649ea
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 76149ce3864811cf2b5648f8dc0aa214e5820d9f
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Azure üzerinde sanal makine öğrenme derin sağlama 
 
@@ -58,7 +58,7 @@ DLVM AI Microsoft Bilişsel araç seti, TensorFlow, Keras, Caffe2, bağlayıcı 
 
 ## <a name="how-to-access-the-deep-learning-virtual-machine"></a>Derin öğrenme sanal makine erişme
 
-### <a name="windows-edition"></a>Windows Edition
+### <a name="windows-edition"></a>Windows sürümü
 VM oluşturulduktan sonra Uzak Masaüstü önceki yapılandırdığınız yönetici hesabı kimlik bilgilerini kullanarak içine yapabilecekleriniz **Temelleri** bölümü. 
 
 ### <a name="linux-edition"></a>Linux sürümü

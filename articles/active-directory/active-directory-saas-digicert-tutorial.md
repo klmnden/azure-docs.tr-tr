@@ -1,23 +1,23 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile DigiCert | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile DigiCert arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile DigiCert | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile DigiCert arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2017
+ms.date: 04/09/2018
 ms.author: jeedes
-ms.openlocfilehash: 1eb3f6eda8603174fa5be5c76e16f7c2e3e58b2a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f291b69f084913808f4494c7379a0f753254e3f3
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Öğretici: Azure Active Directory Tümleştirme DigiCert ile
 
@@ -31,7 +31,7 @@ DigiCert Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Azure AD tümleştirme DigiCert ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
@@ -106,9 +106,11 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
  
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_samlbase.png)
 
-3. Üzerinde **DigiCert etki alanı ve URL'leri** bölümü, kullanıcı gerekmez uygulama zaten Azure ile önceden tümleştirilmiş gibi tüm adımları gerçekleştirin.
+3. Üzerinde **DigiCert etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-digicert-tutorial/tutorial_digicert_url.png)
+    
+    İçinde **tanımlayıcısı** metin kutusuna, URL'yi yazın: `https://www.digicert.com/sso`
 
 4. DigiCert uygulaması SAML onaylar belirli bir biçimde bekliyor. Bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz "**kullanıcı öznitelikleri**" uygulama tümleştirmesi sayfasında bölüm. Aşağıdaki ekran görüntüsünde, bu yapılandırma için bir örneği gösterir. 
 
@@ -146,9 +148,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 8. Çoklu oturum açma yapılandırmak için **DigiCert** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [DigiCert destek ekibi](mailto:support@digicert.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
@@ -178,7 +177,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**'a tıklayın.
+    d. **Oluştur**’a tıklayın.
  
 ### <a name="creating-a-digicert-test-user"></a>DigiCert test kullanıcısı oluşturma
 

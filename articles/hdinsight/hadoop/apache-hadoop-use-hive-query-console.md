@@ -1,8 +1,8 @@
 ---
-title: "Sorgu konsolunda hdınsight'ta - Azure Hadoop Hive kullanma | Microsoft Docs"
-description: "Web tabanlı sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğrenin."
+title: Sorgu konsolunda hdınsight'ta - Azure Hadoop Hive kullanma | Microsoft Docs
+description: Web tabanlı sorgu konsol tarayıcınızdan bir Hdınsight Hadoop kümesindeki Hive sorguları çalıştırmak için nasıl kullanılacağını öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: 5ae074b0-f55e-472d-94a7-005b0e79f779
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: d6032b8a1e3d338b046c958804102aeb9efcf4ab
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04a6ad67fec4145d8f9164743b08f9e105778091
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Sorgu konsolunu kullanarak Hive sorguları çalıştırma
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -38,7 +36,7 @@ Bu makaledeki adımları tamamlamak için aşağıdakiler gerekir.
 * Windows tabanlı Hdınsight Hadoop kümesi
 * Modern bir web tarayıcısı
 
-## <a id="run"></a>Sorgu konsolunu kullanarak Hive sorguları çalıştırma
+## <a id="run"></a> Sorgu konsolunu kullanarak Hive sorguları çalıştırma
 1. Bir web tarayıcısı açın ve gidin **https://CLUSTERNAME.azurehdinsight.net**, burada **CLUSTERNAME** Hdınsight kümenizin adıdır. İstenirse, kullanıcı adını ve küme oluştururken kullandığınız parolayı girin.
 2. Sayfanın üstündeki bağlantılardan birini seçin **Hive Düzenleyicisi**. Bu, Hdınsight kümesinde çalıştırmak istediğiniz HiveQL ifadelerini girmek için kullanılan bir form görüntüler.
 

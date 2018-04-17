@@ -1,27 +1,20 @@
 ---
-title: "Azure Analysis Services öğreticisi 4. Ders: İlişki oluşturma | Microsoft Docs"
-description: "Azure Analysis Services öğretici projesinde ilişkilerin nasıl oluşturulacağını açıklar."
-services: analysis-services
-documentationcenter: 
-author: Minewiskan
+title: 'Azure Analysis Services öğreticisi 4. Ders: İlişki oluşturma | Microsoft Docs'
+description: Azure Analysis Services öğretici projesinde ilişkilerin nasıl oluşturulacağını açıklar.
+author: minewiskan
 manager: kfile
-editor: 
-tags: 
-ms.assetid: 
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 57b3a172445047291f0aea5b1616b9dcbf6bf745
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: HT
+ms.reviewer: minewiskan
+ms.openlocfilehash: 694043454ba2564900416135e1f143bdeb63c202
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="create-relationships"></a>İlişki oluştur
+# <a name="create-relationships"></a>İlişkiler oluşturma
 
 Bu derste, verileri içeri aktarıp farklı tablolar arasında yeni ilişkiler oluşturduğunuzda otomatik olarak oluşturulan ilişkileri doğrularsınız. İlişki, iki tablo arasında kurulan ve bu tablolardaki verilerin nasıl bağıntılı olması gerektiğini belirleyen bir bağlantıdır. Örneğin, DimProduct tablosu ile DimProductSubcategory tablosu arasında, her ürünün bir alt kategoriye ait olması temelinde bir ilişki mevcuttur. Daha fazla bilgi edinmek için bkz. [İlişkiler](https://docs.microsoft.com/sql/analysis-services/tabular-models/relationships-ssas-tabular).
   

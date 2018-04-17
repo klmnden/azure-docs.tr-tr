@@ -1,26 +1,24 @@
 ---
-title: "Hdınsight'ta - Azure Hadoop kümeleri üzerinde boş kenar düğümünü kullanmak | Microsoft Docs"
-description: "Nasıl bir istemci olarak kullanılabilir ve ardından test/ana Hdınsight uygulamalarınızı Hdınsight kümesi için bir boş kenar düğümüne eklenir."
+title: Hdınsight'ta - Azure Hadoop kümeleri üzerinde boş kenar düğümünü kullanmak | Microsoft Docs
+description: Nasıl bir istemci olarak kullanılabilir ve ardından test/ana Hdınsight uygulamalarınızı Hdınsight kümesi için bir boş kenar düğümüne eklenir.
 services: hdinsight
 editor: cgronlun
 manager: jhubbard
 author: mumian
 tags: azure-portal
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: jgao
-ms.openlocfilehash: 7c09b2aefac1248a0bad06b913a8da56e73c0e4d
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0e5e05a1a5c084854cd911188777dedf40817227
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Hdınsight'ta Hadoop kümeleri üzerinde boş kenar düğümleri kullanın
 
@@ -67,12 +65,12 @@ Bir edge düğümünü oluşturduktan sonra SSH kullanarak kenar düğümüne ba
 > Kenar düğümüne yüklenir özel bileşenler Microsoft ticari koşulların elverdiği oranda makul desteği alabilirsiniz. Bu, karşılaştığınız sorunları çözme konusunda neden olabilir. Veya daha fazla yardım almak için topluluk kaynaklarına adlandırılabilir. En etkin topluluktan Yardım almak için sitelere bazıları şunlardır:
 >
 > * [Hdınsight için MSDN Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
-> * [http://StackOverflow.com](http://stackoverflow.com).
+> * [http://stackoverflow.com](http://stackoverflow.com).
 >
-> Bir Apache teknolojisi kullanıyorsanız, Apache yardımla üzerinde proje siteleri bulamıyor olabilir [http://apache.org](http://apache.org), gibi [Hadoop](http://hadoop.apache.org/) site.
+> Bir Apache teknolojisi kullanıyorsanız, Apache yardımla üzerinde proje siteleri bulamıyor olabilir [ http://apache.org ](http://apache.org), gibi [Hadoop](http://hadoop.apache.org/) site.
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Varolan bir kümeye bir kenar düğümüne ekleyin
-Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için bir Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh bulunan bir betik eylemi çağırır. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
+Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için bir Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [GitHub](https://azure.microsoft.com/en-us/resources/templates/101-hdinsight-linux-add-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
 
 **Bir boş kenar düğümüne varolan bir kümeye eklemek için**
 
@@ -95,7 +93,7 @@ Bu bölümde, bir kenar düğümü olan bir Hdınsight kümesine eklemek için b
 > Azure kaynak grubu için var olan Hdınsight kümesi seçtiğinizden emin olun.  Aksi takdirde, "iç içe kaynak üzerinde istenen işlem gerçekleştirilemiyor. hata iletisi alıyorum Üst kaynak '&lt;ClusterName >' bulunamadı. "
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Bir küme oluştururken bir kenar düğümüne ekleyin
-Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager şablonu https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh bulunan bir betik eylemi çağırır. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
+Bu bölümde, bir kenar düğümüne ile Hdınsight kümesi oluşturmak için Resource Manager şablonunu kullanın.  Resource Manager şablonu bulunabilir [Azure hızlı başlangıç Şablon Galerisi](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Resource Manager şablonu konumunda bulunan bir betik eylemi çağırır https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Betik herhangi bir eylem gerçekleştirmez.  Bu arama betik eylemi bir Resource Manager şablonunda göstermektir.
 
 **Bir boş kenar düğümüne varolan bir kümeye eklemek için**
 

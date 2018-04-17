@@ -3,9 +3,8 @@ title: 'Azure Table storage: bir Node.js web uygulaması oluşturma | Microsoft 
 description: Azure Storage Hizmetleri ve Azure modülü ekleyerek Express öğretici Web uygulamasıyla derlemeler Öğreticisi.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: mimig
-ms.openlocfilehash: 3708c4a1bae93682f81d8aad0f3649f6b2381ff5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: sngun
+ms.openlocfilehash: 6608c9a40c017709be4a482c7825729f8d292715
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-table-storage-nodejs-web-application"></a>Azure Table storage: Node.js Web uygulaması
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -38,6 +37,15 @@ Aşağıdaki bilgileri içerir:
 Aşağıdaki ekran görüntüsünde tamamlanan uygulama gösterilir:
 
 ![Internet Explorer'da tamamlanan web sayfası](./media/table-storage-cloud-service-nodejs/getting-started-1.png)
+
+## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="setting-storage-credentials-in-webconfig"></a>Web.Config dosyasında depolama kimlik bilgilerini ayarlama
 Azure Storage veya Azure Cosmos DB erişmek için depolama kimlik bilgilerini geçmesi gerekir. Bu, web.config uygulama ayarları yararlanarak gerçekleştirilir.

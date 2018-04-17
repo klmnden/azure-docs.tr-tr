@@ -3,8 +3,7 @@ title: 'Azure Cosmos DB: SQL söz dizimi sorgu başvurusu | Microsoft Docs'
 description: Azure Cosmos DB SQL sorgu dili için başvuru belgeleri.
 services: cosmos-db
 author: LalithaMV
-manager: jhubbard
-editor: mimig
+manager: kfile
 documentationcenter: ''
 ms.assetid: ''
 ms.service: cosmos-db
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 012fa27fdebebf1c86a324c49c53d665a15a91c2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos veritabanı SQL söz dizimi başvurusu
 
@@ -171,7 +170,7 @@ Bir veri kaynağı olan veya olmayan bir diğer ad belirtir. Diğer ad belirtilm
   
 -   İfade ise `<collection_expression>`, property_name sonra property_name bir diğer ad olarak kullanılır. İfade bir toplama_adı ise, toplama_adı bir diğer ad olarak kullanılır.  
   
-AS `input_alias`  
+OLARAK `input_alias`  
   
 Belirleyen `input_alias` temel Toplama ifadesi tarafından döndürülen değerler kümesidir.  
  
@@ -308,7 +307,7 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     (`input_alias1, input_alias2, input_alias3`):  
   
-    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200),  (C, 4, 300) ,  (C, 5, 300)  
+    (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), (C, 4, 300) (C, 5, 300)  
   
 > [!NOTE]
 > Bu arasında çapraz ürün ile sonuçlandı `<from_source2>` ve `<from_source3>` her ikisi de aynı kapsamındaki çünkü `<from_source1>`.  Bu 4 (2 x 2) sonuçlandı diziler değerini 0 diziler B (1 x 0) değeri sahip olması ve 2 (2 x 1) değeri C. diziler  
@@ -490,7 +489,7 @@ ORDER BY <sort_specification>
   
  **Birli işleçleri:**  
   
-|**Ad**|**Operator**|**Ayrıntılar**|  
+|**Ad**|**işleci**|**Ayrıntılar**|  
 |-|-|-|  
 |**Aritmetik**|+<br /><br /> -|Sayı değeri döndürür.<br /><br /> Bit tabanlı değil işlecini. Sayı değeri tasarruflarını döndürür.|  
 |**Bit düzeyinde**|~|Olanları tamamlama. Tamamlama sayı değeri döndürür.|  
@@ -498,11 +497,11 @@ ORDER BY <sort_specification>
   
  **İkili işleçler:**  
   
-|**Ad**|**Operator**|**Ayrıntılar**|  
+|**Ad**|**işleci**|**Ayrıntılar**|  
 |-|-|-|  
 |**Aritmetik**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Ayrıca.<br /><br /> Çıkarma.<br /><br /> Çarpma.<br /><br /> Bölme.<br /><br /> Modülasyon.|  
 |**Bit düzeyinde**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Bit düzeyinde OR.<br /><br /> Bit düzeyinde and<br /><br /> Bit düzeyinde XOR.<br /><br /> Sola kaydırma.<br /><br /> Sağa kaydırma.<br /><br /> Sıfır dolgu sağa kaydırma.|  
-|**Mantıksal**|**VE**<br /><br /> **OR**|Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.|  
+|**Mantıksal**|**VE**<br /><br /> **VEYA**|Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.<br /><br /> Mantıksal ve işlecini. Döndürür **true** iki bağımsız değişkenler ise **true**, döndürür **false** Aksi takdirde.|  
 |**Karşılaştırma**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Eşittir. Döndürür **true** bağımsız değişkenleri eşit olup olmadığını döndürür **false** Aksi takdirde.<br /><br /> Eşit değil. Döndürür **true** bağımsız değişkenleri eşit değilse döndürür **false** Aksi takdirde.<br /><br /> Büyüktür. Döndürür **true** ilk bağımsız değişken ikinci sürümden daha büyükse, dönüş **false** Aksi takdirde.<br /><br /> Büyüktür veya eşittir. Döndürür **true** ilk bağımsız değişkeni sıfırdan büyük veya eşit ikincisi ise, döndürür **false** Aksi takdirde.<br /><br /> Küçüktür. Döndürür **true** ilk bağımsız değişken düşükse ikinci bir dönüş daha **false** Aksi takdirde.<br /><br /> Küçük veya eşittir. Döndürür **true** ilk bağımsız değişken ikinci eşit veya daha az ise, döndürür **false** Aksi takdirde.<br /><br /> Birleşim. İlk bağımsız değişkeni ise, ikinci bağımsız değişkeni döndürür bir **tanımsız** değeri.|  
 |**Dize**|**&#124;&#124;**|Birleştirme. Her iki değişken birleşimini döndürür.|  
   
@@ -520,7 +519,7 @@ ORDER BY <sort_specification>
 |**Sayı**|Doğal bir gerçek sayı.<br /><br /> Negatif sonsuz değerle diğer sayı değeri küçüktür.<br /><br /> Pozitif sonsuz değerle diğer numara değerden daha büyük. **NaN** değeri karşılaştırılabilir değil. İle karşılaştırma **NaN** sonuçlanır **tanımsız** değeri.|  
 |**Dize**|Lexicographical sırası.|  
 |**Dizi**|Yoktur, ancak Tarafsız sıralaması.|  
-|**Object**|Yoktur, ancak Tarafsız sıralaması.|  
+|**Nesne**|Yoktur, ancak Tarafsız sıralaması.|  
   
  **Açıklamalar**  
   
@@ -549,7 +548,7 @@ ORDER BY <sort_specification>
 |**Sayı**|Çift duyarlıklı kayan noktalı sayı, standart IEEE 754.|  
 |**Dize**|Sıfır veya daha fazla Unicode karakter dizisi. Dizeleri tek veya çift tırnak içine alınmalıdır.|  
 |**Dizi**|Sıfır veya daha fazla öğeleri dizisi. Her öğe tanımlanmamış dışında herhangi bir skaler veri türü değeri olabilir.|  
-|**Object**|Sırasız bir sıfır veya daha fazla ad/değer çiftleri kümesi. Adı bir UNICODE dizesi, değeri dışında herhangi bir skaler veri türde olabilir **tanımlanmamış**.|  
+|**Nesne**|Sırasız bir sıfır veya daha fazla ad/değer çiftleri kümesi. Adı bir UNICODE dizesi, değeri dışında herhangi bir skaler veri türde olabilir **tanımlanmamış**.|  
   
  **Sözdizimi**  
   
@@ -625,18 +624,18 @@ ORDER BY <sort_specification>
   
  Aşağıdaki kaçış sıralarına izin vermesi:  
   
-|**Kaçış sırası**|**Açıklama**|**Unicode character**|  
+|**Kaçış sırası**|**Açıklama**|**Unicode karakter**|  
 |-|-|-|  
-|\\'|kesme işareti (')|U+0027|  
-|\\"|tırnak işareti (")|U+0022|  
-|\\\|Ters solidus (\\)|U+005C|  
+|\\'|kesme işareti (')|U + 0027|  
+|\\"|tırnak işareti (")|U + 0022|  
+|\\\|Ters solidus (\\)|U + 005C|  
 |\\/|solidus (/)|U + 002F|  
-|\b|Geri Al|U+0008|  
-|\f|sonraki sayfaya geçme|U+000C|  
-|\n|satır besleme|U+000A|  
+|\b|Geri Al|U + 0008|  
+|\f|sonraki sayfaya geçme|U + 000C|  
+|\n|satır besleme|U + 000A|  
 |\r|satır başı|U + 000D|  
 |\t|sekme|U + 0009|  
-|\uXXXX|4 onaltılık basamak tarafından tanımlanan bir Unicode karakter.|U+XXXX|  
+|\uXXXX|4 onaltılık basamak tarafından tanımlanan bir Unicode karakter.|U + XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Sorgu performans kuralları  
  Büyük bir koleksiyon için verimli bir şekilde yürütülmek üzere bir sorgu için sırasıyla bir veya daha fazla dizinleri sunulan filtreleri kullanmanız gerekir.  
@@ -699,10 +698,10 @@ ORDER BY <sort_specification>
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[TAVAN](#bk_ceiling)|  
 |[COS](#bk_cos)|[COT](#bk_cot)|[DERECE](#bk_degrees)|  
-|[EXP](#bk_exp)|[KAT](#bk_floor)|[LOG](#bk_log)|  
-|[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANS](#bk_radians)|[YUVARLAK](#bk_round)|[SIN](#bk_sin)|  
-|[SQRT](#bk_sqrt)|[KARE](#bk_square)|[SIGN](#bk_sign)|  
+|[EXP](#bk_exp)|[KAT](#bk_floor)|[GÜNLÜK](#bk_log)|  
+|[LOG10](#bk_log10)|[PI](#bk_pi)|[GÜÇ](#bk_power)|  
+|[RADYAN CİNSİNDEN](#bk_radians)|[YUVARLAK](#bk_round)|[SIN](#bk_sin)|  
+|[SQRT](#bk_sqrt)|[KARE](#bk_square)|[OTURUM](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
 ####  <a name="bk_abs"></a> ABS  
@@ -1853,9 +1852,9 @@ SELECT
 ||||  
 |-|-|-|  
 |[CONCAT](#bk_concat)|[İÇERİR](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[UZUNLUĞU](#bk_length)|  
+|[INDEX_OF](#bk_index_of)|[SOL](#bk_left)|[UZUNLUĞU](#bk_length)|  
 |[DAHA DÜŞÜK](#bk_lower)|[LTRIM](#bk_ltrim)|[DEĞİŞTİR](#bk_replace)|  
-|[ÇOĞALTILAN](#bk_replicate)|[TERS ÇEVİR](#bk_reverse)|[RIGHT](#bk_right)|  
+|[ÇOĞALTILAN](#bk_replicate)|[TERS ÇEVİR](#bk_reverse)|[SAĞ](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[SUBSTRING](#bk_substring)|  
 |[ÜST](#bk_upper)|||  
   

@@ -1,11 +1,11 @@
 ---
-title: "Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme | Microsoft Docs"
-description: "Azure portal veya PowerShell kullanarak Azure DevTest Labs içinde sahipleri ve kullanıcılar ekleme"
+title: Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme | Microsoft Docs
+description: Azure portal veya PowerShell kullanarak Azure DevTest Labs içinde sahipleri ve kullanıcılar ekleme
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: craigcaseyMSFT
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
 ms.service: devtest-lab
 ms.workload: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-craic
-ms.openlocfilehash: 348952626e13b9ac73ca2ec8e101bf02e416dc9b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: d0fdd8441143e2d2eb49399a10dc12d38fbf6823
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
 > 
 > 
 
-Azure DevTest Labs Access'te tarafından denetlenir [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-what-is.md). RBAC kullanarak, ekibiniz içinde içinde görevlerini ayırabilirsiniz *rolleri* vermek burada yalnızca kullanıcıların işlerini gerçekleştirmek için gerekli erişim miktarı. Üç RBAC rolde olan *sahibi*, *DevTest Labs kullanıcı*, ve *katkıda bulunan*. Bu makalede, hangi eylemlerin her üç ana RBAC rolü gerçekleştirilebilir öğrenin. Buradan, laboratuvara - Portalı aracılığıyla hem bir PowerShell komut dosyası aracılığıyla kullanıcı ekleme ve abonelik düzeyinde kullanıcı ekleme öğrenin.
+Azure DevTest Labs Access'te tarafından denetlenir [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md). RBAC kullanarak, ekibiniz içinde içinde görevlerini ayırabilirsiniz *rolleri* vermek burada yalnızca kullanıcıların işlerini gerçekleştirmek için gerekli erişim miktarı. Üç RBAC rolde olan *sahibi*, *DevTest Labs kullanıcı*, ve *katkıda bulunan*. Bu makalede, hangi eylemlerin her üç ana RBAC rolü gerçekleştirilebilir öğrenin. Buradan, laboratuvara - Portalı aracılığıyla hem bir PowerShell komut dosyası aracılığıyla kullanıcı ekleme ve abonelik düzeyinde kullanıcı ekleme öğrenin.
 
 ## <a name="actions-that-can-be-performed-in-each-role"></a>Her rol gerçekleştirilen eylemler
 Bir kullanıcı atayabilirsiniz üç ana rol vardır:

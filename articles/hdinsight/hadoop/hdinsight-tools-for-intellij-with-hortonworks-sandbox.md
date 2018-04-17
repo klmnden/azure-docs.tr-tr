@@ -1,9 +1,9 @@
 ---
-title: "Intellij Hortonworks Sandbox ile için Azure araç kullanma | Microsoft Docs"
-description: "Korumalı alan Hortonworks ile Intellij için Hdınsight araçları Azure araç setindeki kullanmayı öğrenin."
-keywords: "hadoop araçları hive sorgusu, ıntellij, hortonworks korumalı alan, ıntellij için azure Araç Seti"
+title: Intellij Hortonworks Sandbox ile için Azure araç kullanma | Microsoft Docs
+description: Korumalı alan Hortonworks ile Intellij için Hdınsight araçları Azure araç setindeki kullanmayı öğrenin.
+keywords: hadoop araçları hive sorgusu, ıntellij, hortonworks korumalı alan, ıntellij için azure Araç Seti
 services: HDInsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
@@ -12,16 +12,14 @@ ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 6bb29dc4e231bc859be620e56a606fbbfade102b
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+ms.openlocfilehash: c72fb17a53b9d373bbd141f76f01e6b029d1e8f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Korumalı alan Hortonworks ile Intellij için Hdınsight araçları kullanma
 
@@ -64,7 +62,7 @@ Bu bölümde, Intellij Idea kullanarak bir örnek Scala projesi oluşturun. Proj
 
    ![Yeni Proje iletişim kutusu](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 
-2. Seçin **sonraki**.
+2. **İleri**’yi seçin.
 3. Sonraki **yeni proje** iletişim kutusunda, aşağıdaki adımları tamamlayın:
 
     1. İçinde **proje adı** kutusunda, bir proje adı girin.
@@ -79,7 +77,7 @@ Bu bölümde, Intellij Idea kullanarak bir örnek Scala projesi oluşturun. Proj
 5. Varsa **proje** görünüm zaten açık, basın **Alt + 1** açın.
 6. İçinde **Proje Gezgini**projenizi genişletin ve ardından **src**.
 7. Sağ **src**, işaret **yeni**ve ardından **Scala sınıfı**.
-8. İçinde **adı** kutusunda, bir ad girin. İçinde **türü** kutusunda **nesne**. Ardından, seçin **Tamam**.
+8. İçinde **adı** kutusunda, bir ad girin. İçinde **türü** kutusunda **nesne**. Sonra **Tamam**’ı seçin.
 
     ![Yeni Scala Sınıf Oluştur iletişim kutusu](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-new-scala-class.png)
 
@@ -131,7 +129,7 @@ Bir öykünücü bağlantı oluşturmak için:
 1. Proje içinde Intellij açın.
 2. Üzerinde **Görünüm** menüsünde, select **Windows Araçları**ve ardından **Azure Gezgini**.
 3. Genişletme **Azure**, sağ **Hdınsight**ve ardından **bir öykünücü bağlantı**.
-4. İçinde **bağlantı A yeni öykünücü** iletişim kutusunda, Hortonworks Sandbox kök hesabı için ayarladığınız parolayı girin. Ardından, aşağıdaki ekran görüntüsünde kullanılan benzer değerleri girin. Ardından, seçin **Tamam**. 
+4. İçinde **bağlantı A yeni öykünücü** iletişim kutusunda, Hortonworks Sandbox kök hesabı için ayarladığınız parolayı girin. Ardından, aşağıdaki ekran görüntüsünde kullanılan benzer değerleri girin. Sonra **Tamam**’ı seçin. 
 
    ![Bağlantı bir yeni öykünücü iletişim kutusu](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-link-an-emulator.png)
 

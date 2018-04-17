@@ -1,25 +1,25 @@
 ---
-title: "Sanal ağları - Azure Hdınsight kullanarak Kafka bağlanma | Microsoft Docs"
-description: "Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Kafka için bir VPN ağ geçidi kullanarak geliştirme istemcileri veya istemciler, şirket içi ağınıza bir VPN ağ geçidi aygıtı kullanarak nasıl bağlayacağınızı öğrenin."
+title: Sanal ağları - Azure Hdınsight kullanarak Kafka bağlanma | Microsoft Docs
+description: Bir Azure sanal ağı üzerinden hdınsight'ta Kafka doğrudan bağlanmak öğrenin. Kafka için bir VPN ağ geçidi kullanarak geliştirme istemcileri veya istemciler, şirket içi ağınıza bir VPN ağ geçidi aygıtı kullanarak nasıl bağlayacağınızı öğrenin.
 services: hdinsight
-documentationCenter: 
+documentationCenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
-ms.devlang: 
+ms.devlang: ''
 ms.custom: hdinsightactive
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/05/2018
 ms.author: larryfr
-ms.openlocfilehash: c82629c0f3d3b32314d22467164a06a4c7bcabfe
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 53502257d85c88195a40b7bda033483bd97ff3f4
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Bir Azure sanal ağı üzerinden hdınsight'ta Kafka bağlanma
 
@@ -62,7 +62,7 @@ Hdınsight genel internet üzerinden doğrudan bağlantı Kafka izin vermiyor. B
 
 Sanal bir ağa Hdınsight kullanma hakkında daha fazla bilgi için bkz: [genişletmek Azure sanal ağları kullanarak Hdınsight](../hdinsight-extend-hadoop-virtual-network.md).
 
-## <a id="on-premises"></a>Kafka için bir şirket içi ağ üzerinden bağlanma
+## <a id="on-premises"></a> Kafka için bir şirket içi ağ üzerinden bağlanma
 
 Şirket içi ağınız ile iletişim kuran Kafka küme oluşturmak için adımları [şirket içi ağınıza bağlanmak Hdınsight](./../connect-on-premises-network.md) belge.
 
@@ -78,7 +78,7 @@ Aşağıdaki yapılandırma adımları oluşturun:
 
 Şirket içi Kafka istemci kümeye bağlanabildiğini doğrulamak için içindeki adımları kullanın [örnek: Python istemci](#python-client) bölümü.
 
-## <a id="vpnclient"></a>Bir VPN istemcisi için Kafka Bağlan
+## <a id="vpnclient"></a> Bir VPN istemcisi için Kafka Bağlan
 
 Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanın:
 
@@ -244,7 +244,7 @@ Aşağıdaki yapılandırma oluşturmak için bu bölümdeki adımları kullanı
 
 Varsayılan olarak, Zookeeper istemcilere Kafka aracıların etki alanı adını döndürür. Bu yapılandırma tarafından ad çözümlemesi sanal ağ içindeki varlıklar için kullanılamaz olarak VPN yazılımı istemcisi ile çalışmaz. Bu yapılandırma için IP adresleri etki alanı adları yerine tanıtmak için Kafka yapılandırmak için aşağıdaki adımları kullanın:
 
-1. Bir web tarayıcısı kullanarak https://CLUSTERNAME.azurehdinsight.net için gidin. Değiştir __CLUSTERNAME__ Hdınsight kümesinde Kafka adı.
+1. Bir web tarayıcısı kullanarak Git https://CLUSTERNAME.azurehdinsight.net. Değiştir __CLUSTERNAME__ Hdınsight kümesinde Kafka adı.
 
     İstendiğinde, küme için HTTPS kullanıcı adı ve parola kullanın. Küme için Ambari Web kullanıcı Arabirimi görüntülenir.
 
@@ -292,7 +292,7 @@ Varsayılan olarak, Zookeeper istemcilere Kafka aracıların etki alanı adını
 
 VPN ağ geçidine bağlanmak için __Azure Bağlan__ bölümünü [noktadan siteye bağlantı yapılandırma](../../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#connect) belge.
 
-## <a id="python-client"></a>Örnek: Python istemci
+## <a id="python-client"></a> Örnek: Python istemci
 
 Kafka bağlantısını doğrulamak için oluşturmak ve Python üretici ve tüketici çalıştırmak için aşağıdaki adımları kullanın:
 

@@ -1,24 +1,24 @@
 ---
-title: "Varsayılan kullanıcı izinlerini Azure Active Directory'de karşılaştırma | Microsoft Docs"
-description: "Üye, konuk, uygulama sahibi ve Grup sahibi izinleri karşılaştırma"
+title: Varsayılan kullanıcı izinlerini Azure Active Directory'de karşılaştırma | Microsoft Docs
+description: Üye, konuk, uygulama sahibi ve Grup sahibi izinleri karşılaştırma
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: curtand
 ms.reviewer: vincesm
-ms.openlocfilehash: 880eaedcba2c0cdfe057ddb2460cf6a19bf8298e
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 7465486109af773403c61f6b4505d932949009df
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="default-user-permissions-in-azure-active-directory"></a>Azure Active Directory'de varsayılan kullanıcı izinleri
 
@@ -77,6 +77,6 @@ Bir kullanıcı bir grup oluşturduğunda, bunlar otomatik olarak o grubun sahib
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing-add-change-azure-subscription-administrator.md)
-* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](active-directory-understanding-resource-access.md)
+* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure Active Directory Azure aboneliğinize ilişkilendirilme şekli ile ilgili daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](active-directory-how-subscriptions-associated-directory.md)
 * [Kullanıcıları yönetme](active-directory-create-users.md)

@@ -11,11 +11,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 98665ab215c98ea60273ce3aae2757cf20817a90
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 09ee56627f6c254362d9fbc3c665494418efb1dc
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -154,9 +154,9 @@ Zaten yapmadıysanız, kullanıcıların bunlar istemeden e-posta açın veya y�
 
 Tüm kullanıcıların ve yönetici hesaplarını imzalı parolalarını en az bir kez Son 90 gün içinde değiştirilen emin olun. Ayrıca, tüm paylaşılan hangi birden çok kullanıcı hesaplarında parolayı bilmeniz en son değiştirilen parolalarını beklendiğinden emin olun.
 
-#### <a name="turn-on-password-synchronization"></a>Parola Eşitleme Aç
+#### <a name="turn-on-password-hash-synchronization"></a>Parola karma eşitlemesini Aç
 
-Parola Eşitleme, bulut tabanlı bir Azure için şirket içi Active Directory örneğinden kullanıcı parola karmaları karmalarını eşitlemek için kullanılan bir özelliğidir AD örneği. Active Directory Federasyon Hizmetleri (AD FS) veya diğer kimlik sağlayıcılardan ile Federasyon kullanmaya karar verirseniz, isteğe bağlı olarak yapabileceğiniz bile parola eşitlemesi yedek olarak durumda AD gibi şirket içi altyapınızı ayarlama veya ADFS sunucuları başarısız veya olur geçici olarak kullanılamıyor. Bu hizmete kendi şirket içi oturum açmak için kullandıkları aynı parolayı kullanarak oturum açmalarını sağlar AD örneği. Ayrıca, bir kullanıcı, aynı e-posta adresini ve parolasını Azure AD ile bağlı değil diğer hizmetlerdeki işlevden değilse tehlikeye, bilinen parolalarla bu parola karmaları karşılaştırarak güvenliği aşılmış kimlik bilgileri algılamak kimlik koruması sağlar.  Daha fazla bilgi için bkz: [parola karma eşitlemesi ile Azure AD Connect eşitleme uygulama](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Parola karma eşitlemesini, bulut tabanlı bir Azure için şirket içi Active Directory örneğinden kullanıcı parola karmaları karmalarını eşitlemek için kullanılan bir özelliğidir AD örneği. Bile Active Directory Federasyon Hizmetleri (AD FS) veya diğer kimlik sağlayıcılardan ile Federasyon kullanmaya karar verirseniz, isteğe bağlı olarak yapabileceğiniz parola karma eşitlemesi yedek olarak durumda AD gibi şirket içi altyapınızı ayarlama ya da ADFS sunucuları başarısız olur geçici olarak kullanılamıyor. Bu hizmete kendi şirket içi oturum açmak için kullandıkları aynı parolayı kullanarak oturum açmalarını sağlar AD örneği. Ayrıca, bir kullanıcı, aynı e-posta adresini ve parolasını Azure AD ile bağlı değil diğer hizmetlerdeki işlevden değilse tehlikeye, bilinen parolalarla bu parola karmaları karşılaştırarak güvenliği aşılmış kimlik bilgileri algılamak kimlik koruması sağlar.  Daha fazla bilgi için bkz: [parola karma eşitlemesi ile Azure AD Connect eşitleme uygulama](./connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Sunulan kullanıcıların yanı sıra tüm ayrıcalıklı rolleri için çok faktörlü kimlik doğrulaması (MFA) gerektirir
 
@@ -282,11 +282,11 @@ Azure Active Directory'yi şirket içi Active Directory'ye bağlıysa, yer alan 
 
 #### <a name="inventory-your-privileged-accounts-within-hosted-virtual-machines"></a>Ayrıcalıklı hesaplarınızdaki barındırılan sanal makinelerin içinde stok
 
-Çoğu durumda, tüm Azure abonelikleri veya kaynaklar için kullanıcıların sınırsız izinleri vermeniz gerekmez. Azure AD yönetim rolleri, kuruluşunuz içinde görevlerini kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken kullanıcılar için sadece erişim miktarını verebilirsiniz için kullanabilirsiniz. Örneğin, bir yönetici başka bir SQL veritabanları aynı abonelik içindeki yönetebilir ancak yalnızca bir Abonelikteki sanal makineleri yönetmek olanak tanımak için Azure AD yönetici rolleri kullanın. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](role-based-access-control-what-is.md).
+Çoğu durumda, tüm Azure abonelikleri veya kaynaklar için kullanıcıların sınırsız izinleri vermeniz gerekmez. Azure AD yönetim rolleri, kuruluşunuz içinde görevlerini kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken kullanıcılar için sadece erişim miktarını verebilirsiniz için kullanabilirsiniz. Örneğin, bir yönetici başka bir SQL veritabanları aynı abonelik içindeki yönetebilir ancak yalnızca bir Abonelikteki sanal makineleri yönetmek olanak tanımak için Azure AD yönetici rolleri kullanın. Daha fazla bilgi için bkz: [Azure portalında rol tabanlı erişim denetimi ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 #### <a name="implement-pim-for-azure-ad-administrator-roles"></a>Yönetici rolleri için Azure AD PIM uygulama
 
-Privileged Identity Management ile Azure AD yönetici rolleri yönetin, denetleyin ve Azure kaynaklarına erişimi izlemek için kullanın. Ayrıcalıklı hesapların PIM kullanarak ayrıcalıkları Etkilenme süresini azaltarak ve kullanımlarını raporları ve Uyarıları aracılığıyla, görünürlük artırma tarafından siber saldırılara karşı korur. Daha fazla bilgi için bkz: [Privileged Identity Management ile Azure kaynaklarına RBAC yönetme erişimi](pim-azure-resource.md).
+Privileged Identity Management ile Azure AD yönetici rolleri yönetin, denetleyin ve Azure kaynaklarına erişimi izlemek için kullanın. Ayrıcalıklı hesapların PIM kullanarak ayrıcalıkları Etkilenme süresini azaltarak ve kullanımlarını raporları ve Uyarıları aracılığıyla, görünürlük artırma tarafından siber saldırılara karşı korur. Daha fazla bilgi için bkz: [Privileged Identity Management ile Azure kaynaklarına RBAC yönetme erişimi](../role-based-access-control/pim-azure-resource.md).
 
 #### <a name="use-azure-log-integrations-to-send-relevant-azure-logs-to-your-siem-systems"></a>İlgili göndermek için Azure günlük tümleştirmeler kullanmak Azure günlüklerinin SIEM sistemlerinizi 
 

@@ -1,29 +1,27 @@
 ---
-title: "Visual Studio - Azure Hdınsight R araçları işlerden gönderme | Microsoft Docs"
-description: "Hdınsight kümesi için yerel Visual Studio makinenizden R işleri gönderin."
+title: Visual Studio - Azure Hdınsight R araçları işlerden gönderme | Microsoft Docs
+description: Hdınsight kümesi için yerel Visual Studio makinenizden R işleri gönderin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: maxluk
-ms.openlocfilehash: 1a82ba7790f739768156a8bee33a74d7130e24e1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R araçları işlerden gönderme
+# <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
-[Visual Studio için R Araçları](https://www.visualstudio.com/vs/rtvs/) (RTVS) Community (ücretsiz) için ücretsiz, açık kaynaklı bir uzantısı olduğundan Professional ve Enterprise sürümleri hem [Visual Studio 2017](https://www.visualstudio.com/downloads/), ve [Visual Studio 2015 güncelleştirme 3](http://go.microsoft.com/fwlink/?LinkId=691129) ya da daha yüksek.
+[Visual Studio için R Araçları](https://www.visualstudio.com/vs/rtvs/) (RTVS) Community (ücretsiz) için ücretsiz, açık kaynaklı bir uzantısı olduğundan Professional ve Enterprise sürümleri hem [Visual Studio 2017](https://www.visualstudio.com/downloads/), ve [Visual Studio 2015 güncelleştirme 3](http://go.microsoft.com/fwlink/?LinkId=691129)ya da daha yüksek.
 
 RTVS araçları gibi sunarak R akışınızı geliştirir [R etkileşimli pencere](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL) IntelliSense (kod tamamlama) [çizim görselleştirme](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) ggplot2 ve ggviz, gibiRkitaplıklarıaracılığıyla[R kodda hata ayıklama](https://docs.microsoft.com/visualstudio/rtvs/debugging)ve daha fazlası.
 

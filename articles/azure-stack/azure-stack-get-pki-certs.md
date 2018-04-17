@@ -1,6 +1,6 @@
 ---
 title: Azure tümleşik yığını systems dağıtımı Azure yığın ortak anahtar altyapısı sertifikalarını oluşturmak | Microsoft Docs
-description: Azure yığın PKI sertifika dağıtım durumlu işlem Azure tümleşik yığını sistemlerini açıklar.
+description: Azure tümleşik yığını sistemler için Azure yığın PKI sertifika dağıtım işlemini açıklar.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,67 +12,104 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 04/11/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: fc2ec96113310f54d32a67ea5fa31725600046c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: fbf3c66979730a9162c56e8583f0a32977a0310d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="generate-pki-certificates-for-azure-stack-deployment"></a>Azure yığın dağıtımı için PKI sertifikaları oluşturun
-Artık bildiğinize göre [PKI sertifikası gereksinimleri](azure-stack-pki-certs.md) Azure yığın dağıtımları için sertifika yetkilisi (CA) tercih ettiğiniz bu sertifikaları almak gerekir. 
+# <a name="azure-stack-certificates-signing-request-generation"></a>Azure yığın sertifika imzalama isteği oluşturma
 
-## <a name="request-certificates-using-an-inf-file"></a>Bir INF dosyası kullanarak sertifika isteme
-Bir sertifika istemek için bir ortak CA veya bir iç CA bir INF dosyası kullanarak yoludur. Windows yerleşik certreq.exe yardımcı programı, bu bölümde açıklandığı gibi bir istek dosyası oluşturmak için sertifika ayrıntı belirten bir INF dosyası kullanabilirsiniz. 
+Bu makalede açıklanan Azure yığın hazırlık Denetleyicisi aracı kullanılabilir [PowerShell Galerisi'nden](https://aka.ms/AzsReadinessChecker). Araç sertifika imzalama isteği (CSR) bir Azure yığın dağıtımına uygun olarak oluşturur. Sertifikaları istenen, oluşturulan ve dağıtımından önce test etmek için yeterli süre ile doğrulanması gerekir. 
 
-### <a name="sample-inf-file"></a>Örnek INF dosyası 
-Örnek sertifika isteği INF dosyasını (dahili veya genel) göndermelerini bir CA'ya bir çevrimdışı sertifika isteği dosyasını oluşturmak için kullanılabilir. INF (isteğe bağlı PaaS hizmetler dahil) gerekli bitiş noktalarının tümü tek bir joker karakter sertifikada kapsar. 
+Azure yığın hazırlık Denetleyicisi aracını (AzsReadinessChecker) aşağıdaki sertifika isteklerini gerçekleştirir:
 
-Örnek INF dosyası bu bölge eşit olduğunu varsayar **sea** ve dış FQDN değeri **sea&#46;contoso&#46;com**. Oluşturmadan önce ortamınızı eşleştirmek için bu değerleri değiştirmek bir. Dağıtımınız için INF dosyası. 
+ - **Standart sertifika istekleri**  
+    Göre isteği [Azure yığın dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md). 
+ - **İstek türü**  
+    Birden fazla joker SAN, birden çok etki alanı sertifikaları, tek bir joker karakter sertifika istekleri isteyin.
+ - **Hizmet olarak Platform**  
+    İsteğe bağlı olarak hizmet olarak platform (PaaS) adlarını belirtildiği şekilde sertifikalarla isteği [Azure yığın ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
 
-    
-    [Version] 
-    Signature="$Windows NT$"
+## <a name="prerequisites"></a>Önkoşullar
 
-    [NewRequest] 
-    Subject = "C=US, O=Microsoft, L=Redmond, ST=Washington, CN=portal.sea.contoso.com"
+Sisteminizi Azure yığın dağıtımı için PKI sertifikaları için CSR(s) oluşturmadan önce aşağıdaki önkoşulları yerine getirmeniz:
 
-    Exportable = TRUE                   ; Private key is not exportable 
-    KeyLength = 2048                    ; Common key sizes: 512, 1024, 2048, 4096, 8192, 16384 
-    KeySpec = 1                         ; AT_KEYEXCHANGE 
-    KeyUsage = 0xA0                     ; Digital Signature, Key Encipherment 
-    MachineKeySet = True                ; The key belongs to the local computer account 
-    ProviderName = "Microsoft RSA SChannel Cryptographic Provider" 
-    ProviderType = 12 
-    SMIME = FALSE 
-    RequestType = PKCS10
-    HashAlgorithm = SHA256
+ - Microsoft Azure yığın hazırlık denetleyicisi
+ - Sertifika öznitelikleri:
+    - Bölge adı
+    - Dış tam etki alanı adı (FQDN)
+    - Konu
+ - Windows 10 veya Windows Server 2016
 
-    ; At least certreq.exe shipping with Windows Vista/Server 2008 is required to interpret the [Strings] and [Extensions] sections below
+## <a name="generate-certificate-signing-requests"></a>İsteklere imzalama sertifikası oluştur
 
-    [Strings] 
-    szOID_SUBJECT_ALT_NAME2 = "2.5.29.17" 
-    szOID_ENHANCED_KEY_USAGE = "2.5.29.37" 
-    szOID_PKIX_KP_SERVER_AUTH = "1.3.6.1.5.5.7.3.1" 
-    szOID_PKIX_KP_CLIENT_AUTH = "1.3.6.1.5.5.7.3.2"
+Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdaki adımları kullanın: 
 
-    [Extensions] 
-    %szOID_SUBJECT_ALT_NAME2% = "{text}dns=*.sea.contoso.com&dns=*.blob.sea.contoso.com&dns=*.queue.sea.contoso.com&dns=*.table.sea.contoso.com&dns=*.vault.sea.contoso.com&dns=*.adminvault.sea.contoso.com&dns=*.dbadapter.sea.contoso.com&dns=*.appservice.sea.contoso.com&dns=*.scm.appservice.sea.contoso.com&dns=api.appservice.sea.contoso.com&dns=ftp.appservice.sea.contoso.com&dns=sso.appservice.sea.contoso.com&dns=adminportal.sea.contoso.com&dns=management.sea.contoso.com&dns=adminmanagement.sea.contoso.com" 
-    %szOID_ENHANCED_KEY_USAGE% = "{text}%szOID_PKIX_KP_SERVER_AUTH%,%szOID_PKIX_KP_CLIENT_AUTH%"
+1.  AzsReadinessChecker bir PowerShell isteminde (5.1 veya üstü), aşağıdaki cmdlet'i çalıştırarak yükleyin:
 
-    [RequestAttributes]
-    
+    ````PowerShell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ````
 
-## <a name="generate-and-submit-request-to-the-ca"></a>Oluşturma ve CA isteği gönderin
-Aşağıdaki iş akışını özelleştirme ve bir CA'dan sertifika istemek için daha önce oluşturulan örnek INF dosyasını kullanmak nasıl açıklanmaktadır:
+2.  Bildirme **konu** sıralı bir sözlük olarak. Örneğin: 
 
-1. **Düzenle ve INF dosyasını kaydedin**. Örnek sağlanan kopyalayıp yeni bir metin dosyasına kaydedin. Dosyayı kaydedin ve dağıtımınız eşleşmiyor değerleri dış FQDN ve konu adı yerine bir. INF dosyası.
-2. **CertReq kullanarak istek oluşturmak**. Bir Windows bilgisayar kullanarak, yönetici olarak bir komut istemi başlatın ve bir istek (.req) dosyası oluşturmak için aşağıdaki komutu çalıştırın: `certreq -new <yourinffile>.inf <yourreqfilename>.req`.
-3. **CA'ya göndermek**. Gönderme. (Dahili veya genel olabilir) Yetkiliniz oluşturulan isteği dosyası.
-4. **İçeri aktarın. CER**. CA döndürür bir. CER dosyasını. İstek dosyası ürettiğiniz aynı Windows bilgisayar kullanarak, içe aktarma. CER dosyasını bilgisayar/kişisel deposuna döndürdü. 
-5. **Dışarı aktarma ve kopyalayın. PFX için dağıtım klasörleri**. (Özel anahtar dahil) sertifikayı Dışarı Aktar bir. PFX dosyası ve kopyalayın. PFX dosyası açıklanan dağıtım klasörleri için [Azure yığın dağıtım PKI gereksinimleri](azure-stack-pki-certs.md).
+    ````PowerShell  
+    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"} 
+    ````
+    > [!note]  
+    > Ortak ad (CN) belirtilirse bu sertifika isteğini ilk DNS adı tarafından üzerine yazılır.
+
+3.  Zaten bir çıkış dizini bildirin:
+
+    ````PowerShell  
+    $outputDirectory = "$ENV:USERNAME\Documents\AzureStackCSR" 
+    ````
+
+4. Bildirme **bölge adı** ve bir **dış FQDN** Azure yığın dağıtım için hedeflenen.
+
+    ```PowerShell  
+    $regionName = 'east'
+    $externalFQDN = 'azurestack.contoso.com'
+    ````
+
+    > [!note]  
+    > `<regionName>.<externalFQDN>` üzerinde Azure yığınında tüm dış DNS adlarını oluşturulur, bu örnekte temelini oluşturur, portal olacaktır `portal.east.azurestack.contoso.com`.
+
+5. PaaS Hizmetleri için gereken dahil olmak üzere birden fazla konu alternatif adı ile tek bir sertifika isteği oluşturmak için:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleSAN -OutputRequestPath $OutputDirectory -IncludePaaS
+    ````
+
+6. İmzalama istekleri PaaS Hizmetleri olmadan her bir DNS adı için tek tek sertifikasını oluşturmak için:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleSAN -OutputRequestPath $OutputDirectory
+    ````
+
+7. Çıktıyı gözden geçirin:
+
+    ````PowerShell  
+    AzsReadinessChecker v1.1803.405.3 started
+    Starting Certificate Request Generation
+
+    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
+    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
+    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    Certreq.exe output: CertReq: Request Created
+
+    Finished Certificate Request Generation
+
+    AzsReadinessChecker Log location: C:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\1.1803.405.3\AzsReadinessChecker.log
+    AzsReadinessChecker Completed
+    ````
+
+8.  Gönderme **. İSTEĞİ** (dahili veya genel) CA için oluşturulan dosya.  Çıktı dizini **başlangıç AzsReadinessChecker** bir sertifika yetkilisine göndermek için gereken CSR(s) içerir.  Ayrıca, bir başvuru olarak sertifika isteği oluşturma sırasında kullanılan INF dosyaları içeren bir alt dizini içerir. CA'nız karşılayan oluşturulan isteğiniz kullanarak sertifikaları oluşturur mutlaka [Azure yığın PKI gereksinimleri](azure-stack-pki-certs.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure yığın PKI sertifikaları hazırlama](azure-stack-prepare-pki-certs.md)

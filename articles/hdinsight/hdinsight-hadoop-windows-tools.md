@@ -7,14 +7,14 @@ author: cjgronlund
 manager: jhubbard
 ms.author: cgronlun
 ms.date: 05/17/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: c9e4476334db95c66650f663dc3d8d13df2c5b52
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2067e36c931e62e25d0c8dca69a6a81b2afe3f87
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Bir Windows PC hdınsight'ta Hadoop ekosistemi ile çalışma
 
@@ -35,8 +35,8 @@ Adımlarını izleyin [Azure PowerShell'i yükleme ve yapılandırma](https://do
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>Bir tarayıcıda çalıştırmak yardımcı programları
 Aşağıdaki yardımcı programlar bir web tarayıcıda çalışan kullanıcı Arabirimi vardır:
-* **[Azure bulut Kabuğu (Önizleme)](https://docs.microsoft.com/azure/cloud-shell/quickstart)**  tarayıcınızda ve içinden çalışır bir etkileşimli, komut satırı kabuğu olan Azure portalı.
-* **[Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md)**  bir yönetim ve izleme yardımcı programı işleri, farklı türde gibi yönetmek için kullanılan Azure portalında kullanılabilir:
+* **[Azure bulut Kabuğu (Önizleme)](https://docs.microsoft.com/azure/cloud-shell/quickstart) ** tarayıcınızda ve içinden çalışır bir etkileşimli, komut satırı kabuğu olan Azure portalı.
+* **[Ambari Web kullanıcı arabirimini](hdinsight-hadoop-manage-ambari.md) ** bir yönetim ve izleme yardımcı programı işleri, farklı türde gibi yönetmek için kullanılan Azure portalında kullanılabilir:
     * [Ambari REST API ile kullanma](hdinsight-hadoop-manage-ambari-rest-api.md)
     * [Ambari Hive görünümünü](hadoop/apache-hadoop-use-hive-ambari-view.md)
     * [Ambari Tez görünümünde](hdinsight-debug-ambari-tez-view.md)
@@ -85,7 +85,7 @@ Burada bir araç veya yalnızca Linux üzerinde kullanılabilir teknolojisi kull
 
 * **Windows 10 (beta) bash** Windows'da Linux alt sistemi sağlar. Bash doğrudan adanmış bir Linux yüklemesi bakımını yapmak zorunda kalmadan Linux yardımcı programları çalıştırmanıza olanak sağlar. [Yükleyin ve Windows 10 Bash beta çalıştırın](https://msdn.microsoft.com/commandline/wsl/install_guide)
 * **Windows için docker** birçok Linux tabanlı araçlar erişim sağlar ve doğrudan Windows çalıştırabilirsiniz. Örneğin, doğrudan Windows Hive Beeline istemci çalıştırmak için Docker kullanabilirsiniz. Hdınsight'ta Spark uzaktan bağlanmak ve ayrıca yerel bir Jupyter not defteri çalıştırmak için Docker kullanın. [Docker için Windows ile çalışmaya başlama](https://docs.docker.com/docker-for-windows/)
-* **[MobaXTerm](http://mobaxterm.mobatek.net/)**  grafiksel bir SSH bağlantısı üzerinden küme dosya sistemi göz atmanızı sağlar.
+* **[MobaXTerm](http://mobaxterm.mobatek.net/) ** grafiksel bir SSH bağlantısı üzerinden küme dosya sistemi göz atmanızı sağlar.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Linux tabanlı kümelerde çalışmaya yeniyseniz, izleme makalelere bakın:

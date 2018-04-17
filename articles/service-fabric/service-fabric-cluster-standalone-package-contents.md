@@ -1,23 +1,23 @@
 ---
-title: "Windows Server için Azure Service Fabric tek başına paketi | Microsoft Docs"
-description: "Açıklama ve Windows Server için Azure Service Fabric tek başına yükleme paketinin içeriğini."
+title: Windows Server için Azure Service Fabric tek başına paketi | Microsoft Docs
+description: Açıklama ve Windows Server için Azure Service Fabric tek başına yükleme paketinin içeriğini.
 services: service-fabric
 documentationcenter: .net
 author: maburlik
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
-ms.author: chackdan;maburlik
-ms.openlocfilehash: 6a6bacedde04419449a061554d5ce9ad37259a2f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maburlik;aljo
+ms.openlocfilehash: 37425f8a076be2579726e5a83bec3da8c6eb5fff
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server için Service Fabric tek başına paketinin içeriği
 İçinde [indirilen](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric tek başına paket, aşağıdaki dosyaları bulacaksınız:

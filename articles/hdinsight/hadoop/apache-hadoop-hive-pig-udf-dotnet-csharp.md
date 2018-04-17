@@ -1,8 +1,8 @@
 ---
-title: "C# Hive veya Pig hadoop'ta hdınsight'ta - Azure ile kullanma | Microsoft Docs"
-description: "Hive veya Pig Azure Hdınsight'ta akış ile C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin."
+title: C# Hive veya Pig hadoop'ta hdınsight'ta - Azure ile kullanma | Microsoft Docs
+description: Hive veya Pig Azure Hdınsight'ta akış ile C# kullanıcı tanımlı işlevler (UDF) kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: d83def76-12ad-4538-bb8e-3ba3542b7211
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 8455a45f1c39c5cb04f742d57a16a81776f850e0
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b776b214b9d46293a3ab97ad226dffd3107f3430
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# kullanıcı tanımlı işlevler Hive veya Pig hdınsight'ta Hadoop akış ile kullanma
 
@@ -49,7 +47,7 @@ Her ikisi de Hive ve Pig işleme için dış uygulamalara veri geçirebilirsiniz
 
 ## <a name="net-on-hdinsight"></a>Hdınsight üzerinde .NET
 
-* __Linux tabanlı Hdınsight__ kullanarak kümeleri [Mono (https://mono-project.com)](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir.
+* __Linux tabanlı Hdınsight__ kullanarak kümeleri [Mono (https://mono-project.com) ](https://mono-project.com) .NET uygulamalarını çalıştırmak için. Mono sürüm 4.2.1 sürüm 3.6 Hdınsight ile dahil edilir.
 
     .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).
 

@@ -3,9 +3,8 @@ title: Xamarin ve Azure Cosmos DB mobil uygulamalar | Microsoft Docs
 description: Xamarin iOS, Android veya formlar oluşturan bir Öğreticisi Azure Cosmos DB kullanarak uygulama. Azure Cosmos DB hızlı, planet ölçek, mobil uygulamaları için bulut veritabanı değil.
 services: cosmos-db
 documentationcenter: .net
-author: arramac
-manager: monicar
-editor: ''
+author: SnehaGunda
+manager: kfile
 ms.assetid: ff97881a-b41a-499d-b7ab-4f394df0e153
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: arramac
-ms.openlocfilehash: 0cbe9a8463e8b471e3e4b0b4403c3a5d01ed59a0
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: sngun
+ms.openlocfilehash: d81343ed894185cb60340f3eccdf2bff2d7ca1e2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin ve Azure Cosmos DB mobil uygulamaları derleme
 

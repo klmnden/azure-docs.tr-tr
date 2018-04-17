@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs"
-description: "API Management'te Azure Active Directory kullanarak kullanıcıları yetkilendirmek öğrenin."
+title: Azure Active Directory - Azure API Management kullanarak Geliştirici hesaplarını yetkilendirmede | Microsoft Docs
+description: API Management'te Azure Active Directory kullanarak kullanıcıları yetkilendirmek öğrenin.
 services: api-management
 documentationcenter: API Management
-author: juliako
+author: miaojiang
 manager: cfowler
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d89257cba70fb82d56fb1beef8a8efe66a8af02d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 9f3669d205ab4bd24ccba53ffb532fe1d88131ac
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management'te Azure Active Directory kullanarak Geliştirici hesaplarını yetkilendirmede
 
@@ -53,16 +53,16 @@ Bu makalede Azure Active Directory (Azure AD) kullanıcılar için Geliştirici 
 11. [Azure Portal](https://portal.azure.com) gidin.
 12. Şunu seçin: ![oku seçin](./media/api-management-howto-aad/arrow.png).
 13. Tür **etkin**. **Azure Active Directory** bölmesinde görünür.
-14. Seçin **Azure Active Directory**.
+14. **Azure Active Directory**'yi seçin.
 15. Altında **Yönet**seçin **uygulama kayıtlar**.
-16. Seçin **yeni uygulama kaydı**.
+16. **Yeni uygulama kaydı**’nı seçin.
 
     ![Yeni bir uygulama kaydı oluşturmak için seçimleri](./media/api-management-howto-aad/api-management-with-aad002.png)
 
     **Oluşturma** bölmesi sağ tarafta görüntülenir. Azure AD uygulama ilgili bilgileri girdiğiniz olmasıdır.
 17. Uygulama için bir ad girin.
 18. Uygulama türü için **Web app/API**.
-19. Oturum açma URL'sini, Geliştirici Portalı oturum açma URL'sini girin. Bu örnekte, oturum açma https://apimwithaad.portal.azure-api.net/signin URL'dir.
+19. Oturum açma URL'sini, Geliştirici Portalı oturum açma URL'sini girin. Bu örnekte, oturum açma URL'dir https://apimwithaad.portal.azure-api.net/signin.
 20. Seçin **oluşturma** uygulaması oluşturmak için.
 21. Uygulamanızı bulmak için seçin **uygulama kayıtlar** ve adına göre arama.
 

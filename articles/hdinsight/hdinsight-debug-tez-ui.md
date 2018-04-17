@@ -1,33 +1,31 @@
 ---
-title: "Tez UI Windows tabanlı Hdınsight ile - Azure kullanma | Microsoft Docs"
-description: "Windows tabanlı Hdınsight hdınsight'ta Tez işlerinde hata ayıklamak için Tez UI kullanmayı öğrenin."
+title: Tez UI Windows tabanlı Hdınsight ile - Azure kullanma | Microsoft Docs
+description: Windows tabanlı Hdınsight hdınsight'ta Tez işlerinde hata ayıklamak için Tez UI kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a55bccb9-7c32-4ff2-b654-213a2354bd5c
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32f6a12544c05dbf4ac65dd386cd9dea18ca79b3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4201fb76ef9b0e711fd48972db86c356d72e6671
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı Hdınsight üzerinde Tez işlerinde hata ayıklamak için Tez kullanıcı arabirimini kullanma
-Tez UI anlamak ve Tez yürütme altyapısı Windows tabanlı Hdınsight kümelerinde olarak kullanan işleri hata ayıklamak için kullanılan bir web sayfasıdır. Tez kullanıcı Arabirimi iş bağlı öğelerinin bir grafik olarak görselleştirme, her öğenin ayrıntısına ve istatistikler ve günlük bilgileri almasını sağlar.
+Tez UI Tez yürütme altyapısı olarak kullanan Hive işleri hata ayıklamak için kullanılabilir. Bir grafik bağlı öğelerinin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini almak Tez kullanıcı Arabirimi iş visualizes.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar Windows kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * Bir Windows tabanlı Hdınsight kümesi. Yeni küme oluşturma adımları için bkz: [Windows tabanlı Hdınsight kullanmaya başlama](hdinsight-hadoop-tutorial-get-started-windows.md).
 
   > [!IMPORTANT]
@@ -37,25 +35,25 @@ Tez UI anlamak ve Tez yürütme altyapısı Windows tabanlı Hdınsight kümeler
 * Bir Windows tabanlı uzak masaüstü istemcisi.
 
 ## <a name="understanding-tez"></a>Tez anlama
-Tez geleneksel MapReduce işleme büyük hızlarından sağlayan hadoop'ta veri işleme için genişletilebilir bir çerçevedir. Windows tabanlı Hdınsight kümeleri için Hive sorgunuzu bir parçası olarak aşağıdaki komutu kullanarak Hive için etkinleştirebilirsiniz bir isteğe bağlı altyapısıdır:
+Tez Hadoop verileri işlemek için genişletilebilir bir çerçeve ve geleneksel MapReduce işleme büyük hızlarından sağlar. Tez Hive sorgusu bir parçası olarak aşağıdaki metni dahil olmak üzere etkinleştirebilirsiniz:
 
     set hive.execution.engine=tez;
 
-İş için Tez gönderildiğinde, yönlendirilmiş Çevrimsiz grafik (yürütme iş tarafından gereken eylemlerin sırasını açıklayan DAG) oluşturur. Tek tek Eylemler köşeleri olarak adlandırılır ve genel iş parçası yürütün. Gerçek yürütme köşe tarafından açıklanan iş bir görev çağrılır ve kümedeki birden çok düğüm arasında dağıtılmış.
+Tez yönlendirilmiş Çevrimsiz grafik (yürütme iş tarafından gereken eylemlerin sırasını açıklayan DAG) oluşturur. Tek tek Eylemler köşeleri olarak adlandırılır ve genel iş parçası yürütün. Gerçek yürütme köşe tarafından açıklanan iş bir görev çağrılır ve kümedeki birden çok düğüm arasında dağıtılmış.
 
 ### <a name="understanding-the-tez-ui"></a>Tez UI anlama
-Tez kullanıcı Arabirimi, bir web sayfası, çalıştırılan veya olan işlemler hakkında bilgi, daha önce Tez kullanılarak çalıştırıldı sağlar ' dir. Tez tarafından oluşturulan DAG görüntülemenize izin verir kümeler arasında nasıl dağıtıldığını sayaçları görevleri ve köşeleri ve hata bilgilerini tarafından kullanılan bellek gibi. Aşağıdaki senaryolarda yararlı bilgiler teklif edebilir:
+Tez kullanıcı Arabirimi, bir web sayfası Tez kullanan işlemler hakkında bilgi sağlar ' dir. Aşağıdaki senaryolarda yararlı bilgiler teklif edebilir:
 
 * Uzun süre çalışan izleme harita ilerlemesini görüntüleme, işler ve görevler azaltır.
 * İşleme nasıl geliştirilmiş veya neden başarısız öğrenmek başarılı veya başarısız işlemler için geçmiş verileri analiz etme.
 
 ## <a name="generate-a-dag"></a>Bir DAG oluştur
-Tez UI geçmişte Tez Altyapısı şu anda çalışıyor ya da bırakıldı kullanan çalışan bir iş, yalnızca veri içermez. Basit Hive sorguları genellikle Tez, yapan filtreleme, gruplama, sıralama, birleşimler, vb. Tez genellikle gerektirir ancak daha karmaşık sorgular kullanmadan çözülebilir.
+Tez UI geçmişte Tez Altyapısı şu anda çalışıyor ya da bırakıldı kullanan çalışan bir iş, verileri içerir. Basit Hive sorguları genellikle Tez kullanmadan çözülebilir. Filtreleme yapan daha karmaşık sorgular gruplandırma, sıralama, birleşimler, vb. Tez gerektirir.
 
-Tez kullanma yürütecek bir Hive sorgusu çalıştırmak için aşağıdaki adımları kullanın.
+Tez kullanan bir Hive sorgusu çalıştırmak için aşağıdaki adımları kullanın.
 
-1. Bir web tarayıcısında https://CLUSTERNAME.azurehdinsight.net için gidin nerede **CLUSTERNAME** Hdınsight kümenizin adıdır.
-2. Sayfanın üstündeki menüsünden seçin **Hive Düzenleyicisi**. Bu, aşağıdaki örnek sorgu içeren bir sayfa görüntülenir.
+1. Bir web tarayıcısında gidin https://CLUSTERNAME.azurehdinsight.net, burada **CLUSTERNAME** Hdınsight kümenizin adıdır.
+2. Sayfanın üstündeki menüsünden seçin **Hive Düzenleyicisi**. Aşağıdaki örnek sorgu içeren bir sayfa görüntülenir.
 
         Select * from hivesampletable
 
@@ -75,7 +73,7 @@ Tez kullanma yürütecek bir Hive sorgusu çalıştırmak için aşağıdaki ad�
 >
 >
 
-1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümenize seçin. Hdınsight dikey üstten seçin **Uzak Masaüstü** simgesi. Bu Uzak Masaüstü dikey penceresinde görüntülenir
+1. Gelen [Azure portal](https://portal.azure.com), Hdınsight kümenize seçin. Hdınsight dikey üstten seçin **Uzak Masaüstü** simgesi. Bu bağlantı Uzak Masaüstü dikey penceresinde görüntüler
 
     ![Uzak Masaüstü simgesi](./media/hdinsight-debug-tez-ui/remotedesktopicon.png)
 2. Uzak Masaüstü dikey penceresinden seçin **Bağlan** küme baş düğümüne bağlanmak için. İstendiğinde, bağlantı kimliğini doğrulamak için küme Uzak Masaüstü kullanıcı adı ve parola kullanın.
@@ -88,14 +86,14 @@ Tez kullanma yürütecek bir Hive sorgusu çalıştırmak için aşağıdaki ad�
    >
 3. Bağlantı kurulduktan sonra Internet Explorer'ı Uzak Masaüstü'nü açın, sağ üst tarafındaki tarayıcı içinde dişli simgesini seçin ve ardından **Uyumluluk Görünümü Ayarları**.
 4. Aşağıdan **Uyumluluk Görünümü Ayarları**, onay kutusunu temizleyin **görüntüleme intranet sitelerini Uyumluluk Görünümü'nde** ve **kullanım Microsoft Uyumluluk listeleri**ve ardından **Kapat**.
-5. Internet Explorer'da tezui/http://headnodehost:8188 / # Gözat /. Bu Tez kullanıcı arabirimini görüntüler
+5. Internet Explorer'da göz http://headnodehost:8188/tezui/#/. Tez UI görüntüler.
 
     ![Tez kullanıcı Arabirimi](./media/hdinsight-debug-tez-ui/tezui.png)
 
-    Tez UI yüklediğinde, çalışmakta olan ya da silinmiş Dag'leri listesini küme üzerinde çalışan görürsünüz. Varsayılan görünüm Dag adı, kimliği, gönderen, durumu, başlangıç saati, bitiş zamanı, süresi, uygulama kimliği ve kuyruk içerir. Daha fazla sütun, sayfanın sağ taraftaki dişli simgesini kullanarak eklenebilir.
+    Tez UI yüklediğinde, çalışmakta olan ya da silinmiş Dag'leri listesini küme üzerinde çalışan bakın. Varsayılan görünüm DAG adı, kimliği, gönderen, durumu, başlangıç saati, bitiş zamanı, süresi, uygulama kimliği ve kuyruk içerir. Daha fazla sütun, sayfanın sağ taraftaki dişli simgesini kullanarak eklenebilir.
 
-    Yalnızca bir giriş varsa, önceki bölümde çalıştırdığınız bir sorgu için olacaktır. Birden çok girdi varsa, Dag'leri yukarıda alanlarında arama ölçütü girerek arayın, ardından isabet **Enter**.
-6. Seçin **Dag adı** en son DAG girişi. Bu, DAG hakkında bilgi içeren JSON dosyaları zip yükleme seçeneği yanı sıra DAG hakkında bilgi görüntüler.
+    Yalnızca bir giriş varsa, önceki bölümde çalıştırdığınız sorgu içindir. Birden çok girdi varsa, Dag'leri yukarıda alanlarında arama ölçütü girerek arayın, ardından isabet **Enter**.
+6. Seçin **Dag adı** en son DAG girişi. Bu bağlantı, DAG hakkında bilgi içeren JSON dosyaları zip yükleme seçeneği yanı sıra DAG hakkında bilgi görüntüler.
 
     ![DAG ayrıntıları](./media/hdinsight-debug-tez-ui/dagdetails.png)
 7. Yukarıdaki **DAG ayrıntıları** DAG hakkındaki bilgileri görüntülemek için kullanılan birkaç bağlantılardır.
@@ -111,7 +109,7 @@ Tez kullanma yürütecek bir Hive sorgusu çalıştırmak için aşağıdaki ad�
      >
      >
 
-     İşi ile hatası varsa, DAG ayrıntıları durumunu başarısız oldu, başarısız görev hakkında bilgi için bağlantılar ile birlikte görüntüler. Tanılama bilgileri DAG Ayrıntılar altında görüntülenir.
+     İşi ile hatası varsa, DAG ayrıntıları durumunu başarısız oldu, başarısız görev hakkında bilgi için bağlantılar ile birlikte görüntüler. Tanılama bilgileri olması görüntülenir DAG ayrıntıları.
 8. Seçin **grafik görünümü**. Bu grafik gösterimi DAG görüntüler. Her köşe ilgili bilgileri görüntülemek için görünümünde üzerinden fare yerleştirebilirsiniz.
 
     ![Grafik görünümü](./media/hdinsight-debug-tez-ui/dagdiagram.png)
@@ -134,9 +132,9 @@ Tez kullanma yürütecek bir Hive sorgusu çalıştırmak için aşağıdaki ad�
       > Olarak önceki menüsüyle, görevler, görev denemeleri ve kaynakları & Sinks__ her öğe için daha fazla bilgi için bağlantılar görüntülenecek sütun görüntü gezinebilirsiniz.
       >
       >
-11. Seçin **görevleri**ve ardından adlı bir öğe seçin **00_000000**. Bu görüntüler **görev ayrıntıları** bu görev için. Bu ekranda görüntüleyebileceğiniz **görev sayaçları** ve **görev denemeleri**.
+11. Seçin **görevleri**ve ardından adlı bir öğe seçin **00_000000**. Bu bağlantı görüntüler **görev ayrıntıları** bu görev için. Bu ekranda görüntüleyebileceğiniz **görev sayaçları** ve **görev denemeleri**.
 
-    ![Görev Ayrıntıları](./media/hdinsight-debug-tez-ui/taskdetails.png)
+    ![Görev ayrıntıları](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 Tez görünümü kullanmak öğrendiniz, daha fazla bilgi edinmek [hdınsight'ta Hive kullanarak](hadoop/hdinsight-use-hive.md).

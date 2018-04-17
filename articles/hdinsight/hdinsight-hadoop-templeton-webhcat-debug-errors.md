@@ -1,8 +1,8 @@
 ---
-title: "Anlama ve Hdınsight - Azure WebHCat hatalarını | Microsoft Docs"
-description: "Nasıl üzere ortak tarafından WebHCat Hdınsight'ta döndürülen hataları ve bunların nasıl çözüleceği öğrenin."
+title: Anlama ve Hdınsight - Azure WebHCat hatalarını | Microsoft Docs
+description: Nasıl üzere ortak tarafından WebHCat Hdınsight'ta döndürülen hataları ve bunların nasıl çözüleceği öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -11,16 +11,14 @@ ms.assetid: 1b3d94b1-207d-4550-aece-21dc45485549
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: larryfr
-ms.openlocfilehash: 9f733ee6c193a695dacaf7c390402e12407e198d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 03805086bf1cff3f6d2a27a46960d736538bf57b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Anlama ve hdınsight'ta WebHCat gelen karşılaşılan hataları çözme
 
@@ -49,7 +47,7 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | Ayar | Ne yapar? | Varsayılan değer |
 | --- | --- | --- |
 | [yarn.scheduler.capacity.maximum-applications][maximum-applications] |Maksimum sayıda eş zamanlı olarak etkin olabilir işi (Beklemede veya çalışan) |10,000 |
-| [templeton.exec.max-procs][max-procs] |Eşzamanlı olarak hizmet isteklerinin sayısı |20 |
+| [templeton.Exec.max yakalar][max-procs] |Eşzamanlı olarak hizmet isteklerinin sayısı |20 |
 | [mapreduce.jobhistory.max-age-ms][max-age-ms] |İş Geçmişi gün sayısını korunur |7 gün |
 
 ## <a name="too-many-requests"></a>Çok fazla istek var

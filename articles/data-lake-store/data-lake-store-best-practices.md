@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/02/2018
 ms.author: sachins
-ms.openlocfilehash: daa6a0fd6927a166ee4809dc1dc5df612765403a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 7493c10407bfe83bdc7277c49dae1a7e9d7c39f2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store kullanmak için en iyi uygulamalar
 Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları hakkında bilgi edinin. Bu makale, güvenlik, performans, dayanıklılık ve Data Lake Store için izleme bilgileri sağlar. Data Lake Store önce Azure Hdınsight gibi hizmetler gerçekten büyük verilerle çalışmak karmaşıktı. Böylece Petabayt depolama ve bu ölçekte en iyi performansı elde edilebilir birden çok Blob Depolama hesapları arasında parça veri içeriyor. Data Lake Store ile boyutu ve performans için sabit sınırları çoğunu kaldırılır. Ancak, yine bu makalede yer almaktadır ve böylece Data Lake Store ile en iyi performansı elde edebilirsiniz bazı noktalar vardır. 
@@ -26,11 +26,13 @@ Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları
 
 Azure Data Lake Store POSIX erişim denetimleri ve Azure Active Directory (Azure AD) kullanıcıları, grupları ve hizmet asıl adı için Denetim ayrıntılı sunar. Bu erişim denetimlerini, varolan dosya ve klasörler için ayarlanabilir. Erişim denetimlerini, yeni dosyalar veya klasörler için uygulanabilir Varsayılanları oluşturmak için de kullanılabilir. İzinler mevcut klasörleri ve alt nesneleri için ayarladığınızda, izinleri her nesneyi yayılan yinelemeli olmanız gerekir. Çok sayıda dosya izinleri yayılıyor, uzun bir zaman var. alabilir Geçen süre, saniye başına işlenen 30-50 nesneler arasında değişebilir. Bu nedenle, klasör yapısı ve kullanıcı grupları uygun şekilde planlayın. Verilerinizle çalışırken Aksi takdirde, beklenmeyen gecikmeler ve sorunları neden olabilir. 
 
-100.000 alt nesneleri içeren bir klasör olduğunu varsayın. Tüm klasör izinlerini güncelleştirmek için saniye başına işlenen 30 nesnelerin alt sınır izlerseniz, bir saat sürebilir. Veri Gölü deposu ACL'ler hakkında daha fazla ayrıntı bulunabilir [erişim denetimi Azure Data Lake Store'da](data-lake-store-access-control.md). ACL'ler yinelemeli atama iyileştirilmiş performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı birden çok iş parçacığı ve hızla milyonlarca dosya için ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Linux ve Windows için kullanılabilir bir araçtır ve [belgelerine](https://github.com/Azure/data-lake-adlstool) ve [indirmeleri](http://aka.ms/adlstool-download) bu araç, GitHub üzerinde bulunabilir.
+100.000 alt nesneleri içeren bir klasör olduğunu varsayın. Tüm klasör izinlerini güncelleştirmek için saniye başına işlenen 30 nesnelerin alt sınır izlerseniz, bir saat sürebilir. Veri Gölü deposu ACL'ler hakkında daha fazla ayrıntı bulunabilir [erişim denetimi Azure Data Lake Store'da](data-lake-store-access-control.md). ACL'ler yinelemeli atama iyileştirilmiş performans için Azure Data Lake komut satırı aracını kullanabilirsiniz. Aracı birden çok iş parçacığı ve hızla milyonlarca dosya için ACL uygulamak için özyinelemeli Gezinti mantığı oluşturur. Linux ve Windows için kullanılabilir bir araçtır ve [belgelerine](https://github.com/Azure/data-lake-adlstool) ve [indirmeleri](http://aka.ms/adlstool-download) bu araç, GitHub üzerinde bulunabilir. Bu aynı performans iyileştirmeleri, Data Lake Store ile yazılmış kendi araçları tarafından etkinleştirilebilir [.NET](data-lake-store-data-operations-net-sdk.md) ve [Java](data-lake-store-get-started-java-sdk.md) SDK'ları.
 
 ### <a name="use-security-groups-versus-individual-users"></a>Tek tek kullanıcılar yerine güvenlik grupları kullanın 
 
-Olasılıkla büyük veri Data Lake Store'da ile çalışırken, bir hizmet sorumlusu verilerle çalışmak için Azure Hdınsight gibi hizmetleri izin vermek için kullanılır. Ancak, burada bireysel kullanıcılar verileri de erişmesi gereken durumlar olabilir. Böyle durumlarda, dosya ve klasörleri için tek tek kullanıcılara atamak yerine, Azure Active Directory güvenlik gruplarını kullanmanız gerekir. Bir güvenlik grubu izinleri atandığında, kullanıcı ekleme veya gruptan kaldırma Data Lake Store herhangi bir güncelleştirme gerektirmez. 
+Olasılıkla büyük veri Data Lake Store'da ile çalışırken, bir hizmet sorumlusu verilerle çalışmak için Azure Hdınsight gibi hizmetleri izin vermek için kullanılır. Ancak, burada bireysel kullanıcılar verileri de erişmesi gereken durumlar olabilir. Böyle durumlarda, Azure Active Directory kullanmalısınız [güvenlik grupları](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) klasörleri ve dosyaları için tek tek kullanıcılara atamak yerine. 
+
+Bir güvenlik grubu izinleri atandığında, kullanıcı ekleme veya gruptan kaldırma Data Lake Store herhangi bir güncelleştirme gerektirmez. Bu ayrıca sınırını aşan yok sağlamaya yardımcı olur [32 erişim ve varsayılan ACL'leri](../azure-subscription-service-limits.md#data-lake-store-limits) (Bu her zaman her dosya ve klasör ile ilişkili olan dört POSIX tipi ACL'leri içerir: [sahibi olan kullanıcı](data-lake-store-access-control.md#the-owning-user), [sahibi olan grup](data-lake-store-access-control.md#the-owning-group), [maskesi](data-lake-store-access-control.md#the-mask-and-effective-permissions)ve diğer).
 
 ### <a name="security-for-groups"></a>Güvenlik grupları 
 

@@ -1,10 +1,10 @@
 ---
-title: "Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri | Microsoft Docs"
-description: "Bilgi nasıl Azure Cosmos DB tablo API ile kullanmak için veri alabilirsiniz."
+title: Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri | Microsoft Docs
+description: Bilgi nasıl Azure Cosmos DB tablo API ile kullanmak için veri alabilirsiniz.
 services: cosmos-db
-author: mimig1
-manager: jhubbard
-documentationcenter: 
+author: SnehaGunda
+manager: kfile
+documentationcenter: ''
 ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
 ms.workload: data-services
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: mimig
-ms.openlocfilehash: 1c53be736ad65a53767626033be27f0891de06ba
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.author: sngun
+ms.openlocfilehash: 7a8eaaaaa8bbfa8cf9397ce52dfa93d71b0df30c
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile kullanmak için veri alma
 
 Bu öğretici Azure Cosmos DB ile kullanmak için veri alma hakkında yönergeler sağlar. [tablo API](table-introduction.md). Azure Table depolama alanında depolanan verileri varsa, verilerinizi almak için veri geçiş aracı veya AzCopy kullanabilirsiniz. Bir Azure Cosmos DB tablo API (Önizleme) hesabında depolanan verileriniz varsa, verileri geçirmek için veri geçiş aracı kullanmanız gerekir. Verilerinizi alındıktan sonra anahtar teslimi genel dağıtım, ayrılmış işleme, en yüksek oranda kullanılabilirlik garanti 99 tek basamaklı milisaniyelik gecikme gibi Azure Cosmos DB teklifleri premium özelliklerinden yararlanmak kullanabileceksiniz, ve otomatik ikincil dizin oluşturma.
 
-Bu öğretici, aşağıdaki görevleri içerir:
+Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
 > * Veri Geçiş Aracı ile veri alma

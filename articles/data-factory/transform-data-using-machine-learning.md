@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: shengc
-ms.openlocfilehash: bd72fd957948e77df6ffb0b310c590132c663235
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8d87facdf1724ddbcb3bb6d7c189d8ff41d44973
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı ardışık düzen oluşturun
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 03/23/2018
 
 1. **Eğitim denemenizi oluşturma**. Azure ML Studio kullanarak bu adımı uygulayın. ML studio eğitmek ve eğitim verileri kullanarak bir Tahmine dayalı bir analiz modeli test etmek için kullandığınız bir görsel işbirlikçi geliştirme ortamıdır.
 2. **Tahmine dayalı bir deneme Dönüştür**. Modelinizi var olan verilerle eğitilmiş ve yeni verilerinizi puanlamada için kullanıma hazır sonra hazırlamak ve puanlama için denemenizi kolaylaştırır.
-3. **Web hizmeti olarak dağıtabilir**. Puanlama denemenizi bir Azure web hizmeti olarak yayımlayabilirsiniz. Bu web hizmeti uç noktası aracılığıyla modelde veri gönderebilir ve sonuç tahminleri model Excel'den alabilirsiniz.  
+3. **Web hizmeti olarak dağıtabilir**. Puanlama denemenizi bir Azure web hizmeti olarak yayımlayabilirsiniz. Bu web hizmeti uç noktası aracılığıyla modelde veri gönderebilir ve sonuç tahminleri modelden alabilirsiniz.  
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [makine öğrenme toplu iş yürütme etkinliği V1](v1/data-factory-azure-ml-batch-execution-activity.md).
@@ -51,7 +51,9 @@ Oluşturduğunuz bir **Azure Machine Learning** bağlantılı hizmeti bir Azure 
 
 ```JSON
 {
+    "type" : "linkedServices",
     "name": "AzureMLLinkedService",
+    "apiVersion" : "2017-09-01-preview",
     "properties": {
         "type": "AzureML",
         "typeProperties": {
@@ -233,7 +235,7 @@ Diğer yollarla verileri dönüştürmek açıklanmaktadır aşağıdaki makalel
 * [U-SQL etkinliği](transform-data-using-data-lake-analytics.md)
 * [Hive etkinliği](transform-data-using-hadoop-hive.md)
 * [Pig etkinliği](transform-data-using-hadoop-pig.md)
-* [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
+* [MapReduce etkinliği](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop akış etkinliği](transform-data-using-hadoop-streaming.md)
 * [Spark etkinliği](transform-data-using-spark.md)
 * [.NET özel etkinliği](transform-data-using-dotnet-custom-activity.md)

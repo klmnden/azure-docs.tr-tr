@@ -1,28 +1,26 @@
 ---
-title: "Hdınsight kümesi - Azure Hdınsight için günlüklerini yönetme | Microsoft Docs"
-description: "Türleri, boyutlar ve Hdınsight etkinliği günlük dosyaları için bekletme ilkeleri belirleyin."
+title: Hdınsight kümesi - Azure Hdınsight için günlüklerini yönetme | Microsoft Docs
+description: Türleri, boyutlar ve Hdınsight etkinliği günlük dosyaları için bekletme ilkeleri belirleyin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: a161a5c639ff02e1e8a2ea987d9f913ff41c5618
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 165464bd6851bf5fa76632731455722c393060c6
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="manage-logs-for-an-hdinsight-cluster"></a>Hdınsight kümesi için günlüklerini yönetme
+# <a name="manage-logs-for-an-hdinsight-cluster"></a>HDInsight kümesi için günlükleri yönetme
 
 Hdınsight kümesi çeşitli günlük dosyalarını oluşturur. Örneğin, Apache Hadoop ve Apache Spark gibi ilgili hizmetler ayrıntılı iş yürütme günlüklerini oluşturur. Günlük dosyası yönetimi, sağlıklı bir Hdınsight kümesi sürdürme parçasıdır. Günlük arşivlemek için yasal gereksinimleri olabilir.  Sayısı ve günlük dosyalarının boyutunu nedeniyle günlük depolama en iyi duruma getirme ve yardımcı olan arşivleme maliyet yönetim hizmeti.
 
@@ -179,8 +177,8 @@ Hdınsight kümesi için verilerini tutan Azure depolama için oluşturulan gün
 
 Korunur günlük dosyalarının sayısı ve boyutu denetlemek için aşağıdaki özellik kümesinin `RollingFileAppender`:
 
-* `maxFileSize`Kritik üzerinde dosya alınıyor dosya boyutudur. Varsayılan değer 10 MB'tır.
-* `maxBackupIndex`oluşturulmuş olması için varsayılan 1 yedekleme dosyalarının sayısını belirtir.
+* `maxFileSize` Kritik üzerinde dosya alınıyor dosya boyutudur. Varsayılan değer 10 MB'tır.
+* `maxBackupIndex` oluşturulmuş olması için varsayılan 1 yedekleme dosyalarının sayısını belirtir.
 
 ### <a name="other-log-management-techniques"></a>Diğer günlük yönetim teknikleri
 

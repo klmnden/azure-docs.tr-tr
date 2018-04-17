@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 3784cb6f713c5ce476ab980122ee6ec9fa3ebc59
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="performance-metrics"></a>Performans ölçümleri
 
@@ -75,7 +75,7 @@ Service Fabric özel performans sayaçları önemli miktarda oluşturur. SDK yü
 
 Uygulamalarda Reliable Actors kullanıyorsanız, kümeniz için dağıtıyorsanız, gelen countes ekleme `Service Fabric Actor` ve `Service Fabric Actor Method` kategorileri (bkz [Service Fabric güvenilir aktörler tanılama](service-fabric-reliable-actors-diagnostics.md)).
 
-Güvenilir hizmetlerini kullanıyorsanız, benzer şekilde sahibiz `Service Fabric Service` ve `Service Fabric Service Method` toplamanız gerekir sayacı kategorileri sayaçları. 
+Hizmet Remoting kullanıyorsanız benzer şekilde sahibiz `Service Fabric Service` ve `Service Fabric Service Method` toplamanız gerekir sayacı kategorileri sayaçları. 
 
 Güvenilir koleksiyonları kullanırsanız, eklemenizi öneririz `Avg. Transaction ms/Commit` gelen `Service Fabric Transactional Replicator` işlem ölçüm başına ortalama yürütme gecikmesi toplanacak.
 

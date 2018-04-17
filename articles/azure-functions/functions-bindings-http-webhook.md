@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
-ms.openlocfilehash: 94a039ab1973cbd4112ddd0cd7548baa69924d26
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3ee70c3784205a70f455bd7ef147467e4547d167
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure işlevleri HTTP ve Web kancası bağlamaları
 
@@ -48,7 +48,7 @@ Varsayılan olarak, bir HTTP tetikleyicisi bir HTTP 200 Tamam durum kodu ve boş
 Dile özgü örneğe bakın:
 
 * [C#](#trigger---c-example)
-* [C# script (.csx)](#trigger---c-script-example)
+* [C# betik (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
 
@@ -138,7 +138,6 @@ public static string Run(CustomObject req, TraceWriter log)
 
 public class CustomObject {
      public String name {get; set;}
-}
 }
 ```
 
@@ -242,7 +241,7 @@ module.exports = function(context, req) {
 Dile özgü örneğe bakın:
 
 * [C#](#webhook---c-example)
-* [C# script (.csx)](#webhook---c-script-example)
+* [C# betik (.csx)](#webhook---c-script-example)
 * [F#](#webhook---f-example)
 * [JavaScript](#webhook---javascript-example)
 
@@ -389,12 +388,12 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Function.JSON özelliği | Öznitelik özelliği |Açıklama|
 |---------|---------|----------------------|
-| **Türü** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
-| **Yönü** | yok| Gerekli - kümesine olmalıdır `in`. |
+| **type** | yok| Gerekli - kümesine olmalıdır `httpTrigger`. |
+| **direction** | yok| Gerekli - kümesine olmalıdır `in`. |
 | **Adı** | yok| Gerekli - istek veya istek gövdesi için işlevi kod içinde kullanılan değişken adı. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Anahtarlar, varsa, işlevin çalıştırılabilmesi için istekte bulunması gerekenleri belirler. Yetki düzeyini aşağıdaki değerlerden biri olabilir: <ul><li><code>anonymous</code>&mdash;API anahtarı gereklidir.</li><li><code>function</code>&mdash;Bir işlev özgü API anahtarı gereklidir. Bu, hiçbiri sağlanmazsa varsayılan değerdir.</li><li><code>admin</code>&mdash;Ana anahtar gereklidir.</li></ul> Daha fazla bilgi için, bkz [yetkilendirme anahtarları](#authorization-keys). |
-| **Yöntemleri** |**Yöntemleri** | İşlev yanıt vereceği HTTP yöntemlerinin dizisi. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktası özelleştirme](#trigger---customize-the-http-endpoint). |
-| **route** | **Rota** | İçin işlevinizin yanıt URL'leri isteği denetlemek için rota şablonu tanımlar. Varsayılan değer hiçbiri sağlanmazsa `<functionname>`. Daha fazla bilgi için bkz: [http uç noktası özelleştirme](#customize-the-http-endpoint). |
+| **Yöntemleri** |**Yöntemleri** | İşlev yanıt vereceği HTTP yöntemlerinin dizisi. Belirtilmezse, işlev tüm HTTP yöntemlerine yanıt verir. Bkz: [http uç noktası özelleştirme](#customize-the-http-endpoint). |
+| **Rota** | **Rota** | İçin işlevinizin yanıt URL'leri isteği denetlemek için rota şablonu tanımlar. Varsayılan değer hiçbiri sağlanmazsa `<functionname>`. Daha fazla bilgi için bkz: [http uç noktası özelleştirme](#customize-the-http-endpoint). |
 | **webHookType** | **WebHookType** |HTTP tetikleyici olarak görev yapması için yapılandırır bir [Web kancası](https://en.wikipedia.org/wiki/Webhook) belirtilen sağlayıcı için alıcı. Ayarlamazsanız `methods` bu özelliği ayarlarsanız özelliği. Web kancası türü aşağıdaki değerlerden biri olabilir:<ul><li><code>genericJson</code>&mdash;Genel amaçlı Web kancası uç noktası için belirli bir sağlayıcıyı mantığı olmadan. Bu ayar, yalnızca HTTP POST ve ile kullanmak için istekleri sınırlar `application/json` içerik türü.</li><li><code>github</code>&mdash;İşlev yanıtlar [GitHub Web kancası](https://developer.github.com/webhooks/). Kullanmayın _authLevel_ GitHub Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde GitHub Web kancası bölümüne bakın.</li><li><code>slack</code>&mdash;İşlev yanıtlar [Slack kancalarını](https://api.slack.com/outgoing-webhooks). Kullanmayın _authLevel_ Slack Web kancası özellik. Daha fazla bilgi için bu makalenin sonraki bölümlerinde Slack Web kancalarını bölümüne bakın.</li></ul>|
 
 ## <a name="trigger---usage"></a>Tetikleyici - kullanım
@@ -540,7 +539,7 @@ HTTP istek uzunluğu 100 MB (104,857,600 bayt) sınırlıdır ve URL uzunluğu (
 
 Kullanan bir işlev, HTTP tetikleyicisini değil yaklaşık 2,5 dakika içinde ağ geçidi zaman aşımı tamamlayın ve HTTP 502 hata döndürür. İşlev çalışmaya devam eder ancak bir HTTP yanıtı döndüremedi görüntülenir. Uzun süre çalışan işlevleri için zaman uyumsuz desenleri izleyin ve isteğin durumunu burada ping bir konum döndürür öneririz. Bir işlev ne kadar çalıştırabilirsiniz hakkında daha fazla bilgi için bkz: [ölçek ve barındırma - tüketim planlama](functions-scale.md#consumption-plan). 
 
-## <a name="trigger---hostjson-properties"></a>Trigger - host.json properties
+## <a name="trigger---hostjson-properties"></a>Tetikleyici - host.json özellikleri
 
 [Host.json](functions-host-json.md) dosyası HTTP tetikleyicisi davranışını denetleyen ayarları içerir.
 
@@ -568,8 +567,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 |Özellik  |Açıklama  |
 |---------|---------|
-| **Türü** |ayarlanmalıdır `http`. |
-| **Yönü** | ayarlanmalıdır `out`. |
+| **type** |ayarlanmalıdır `http`. |
+| **direction** | ayarlanmalıdır `out`. |
 |**Adı** | Yanıt için işlevi kod içinde kullanılan değişken adı. |
 
 ## <a name="output---usage"></a>Çıktı - kullanım

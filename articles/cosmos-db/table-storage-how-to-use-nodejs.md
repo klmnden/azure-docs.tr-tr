@@ -3,36 +3,43 @@ title: Azure Table storage veya Azure Cosmos Node.js DB'den nasıl kullanılaca�
 description: Azure Table storage veya Azure Cosmos DB kullanarak bulutta yapılandırılmış veri depolayın.
 services: cosmos-db
 documentationcenter: nodejs
-author: mimig1
-manager: jhubbard
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: fc2e33d2-c5da-4861-8503-53fdc25750de
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: mimig
-ms.openlocfilehash: fc6e3ca079b4d1edefa82e06dbe63b393ab2fbb3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 04/05/2018
+ms.author: sngun
+ms.openlocfilehash: 3f1908a6c2d129da44e0719b2cf69cf09baef356
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-use-azure-table-storage-from-nodejs"></a>Node.js'den Azure Table storage kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu makalede, Azure depolama tablo hizmeti ya da Azure Comsos DB bir Node.js uygulaması kullanarak genel senaryolar gerçekleştirme gösterilmektedir.
+Bu makalede, Azure depolama tablo hizmeti ya da Azure Cosmos DB bir Node.js uygulaması kullanarak genel senaryolar gerçekleştirme gösterilmektedir.
 
-[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
 
-[!INCLUDE [storage-create-account-include](../../includes/storage-create-account-include.md)]
+[!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
+
+### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
+
+[!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
+
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+
+[!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="configure-your-application-to-access-azure-storage"></a>Azure depolama alanına erişmek için uygulamanızı yapılandırın
-Azure Storage kullanmak için bir dizi depolama REST Hizmetleri ile iletişim kolaylık kitaplıkları içerir Node.js için Azure depolama SDK'sı gerekir.
+Azure Storage veya Azure Cosmos DB kullanmak için bir dizi depolama REST Hizmetleri ile iletişim kolaylık kitaplıkları içerir Node.js için Azure depolama SDK'sı gerekir.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Paketi yüklemek için düğüm paketi Yöneticisi (NPM) kullanın
 1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows) **Terminal** (Mac) veya **Bash** (UNIX) ve uygulamanızı oluşturduğunuz klasöre gidin.

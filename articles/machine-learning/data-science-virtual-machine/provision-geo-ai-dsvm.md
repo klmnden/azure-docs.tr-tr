@@ -1,24 +1,25 @@
 ---
-title: "Azure - bir coğrafi yapay zeka sanal makinede sağlamak Azure | Microsoft Docs"
-description: "Azure coğrafi AI sanal makinede sağlamasını yapma."
-keywords: "derin öğrenme, AI, veri bilimi araçları, veri bilimi sanal makine, Jeo-uzamsal analizi"
+title: Azure - bir coğrafi yapay zeka sanal makinede sağlamak Azure | Microsoft Docs
+description: Azure coğrafi AI sanal makinede sağlamasını yapma.
+keywords: derin öğrenme, AI, veri bilimi araçları, veri bilimi sanal makine, Jeo-uzamsal analizi
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: gopitk
 manager: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2994ef858e960640d98ab2f7d02a401b11aa9e8f
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Azure üzerinde bir coğrafi yapay zeka sanal makine sağlama 
 
@@ -78,11 +79,11 @@ VM oluşturulduktan sonra üzerinde yüklü ve önceden yapılandırılmış ara
 
 Coğrafi DSVM ArcGIS Pro Masaüstü önceden yüklenmiş ve DSVM tüm araçlar çalışmak için önceden yapılandırılmış ortam zaten içeriyor. ArcGIS başlattığınızda oturum açma ArcGIS hesabınıza ister. Zaten bir ArcGIS hesabı varsa ve yazılım lisansları, var olan kimlik bilgilerinizi kullanabilirsiniz.  
 
-![Arc-GIS-Logon](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
+![Yay CBS oturum](./media/provision-geo-ai-dsvm/ArcGISLogon.png)
 
 Aksi takdirde, yeni ArcGIS hesabı ve lisans için kaydolun veya alın bir [ücretsiz deneme sürümü](https://www.arcgis.com/features/free-trial.html). 
 
-![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
+![ArcGIS ücretsiz deneme](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
 Kaydolma bir ya da için ücretli veya ücretsiz bir deneme ArcGIS hesabı bulduktan sonra siz ArcGIS Pro hesabınız için yönergeleri takip ederek yetkilendirebilir [ArcGIS Uzmanı Belgeleri ile çalışmaya başlama](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 

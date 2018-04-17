@@ -1,25 +1,18 @@
 ---
 title: Azure Analysis Services içinde desteklenen veri kaynakları | Microsoft Docs
 description: Azure Analysis Services veri modelleri için desteklenen veri kaynakları açıklar.
-services: analysis-services
-documentationcenter: ''
 author: minewiskan
 manager: kfile
-editor: ''
-tags: ''
-ms.assetid: 6ec63319-ff9b-4b01-a1cd-274481dc8995
 ms.service: analysis-services
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: na
-ms.date: 04/05/2018
+ms.topic: conceptual
+ms.date: 04/12/2018
 ms.author: owend
-ms.openlocfilehash: 16bf333fe18c912db7cb81e74fce29960b0728d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.reviewer: minewiskan
+ms.openlocfilehash: 3b60a5b96d7b8a0c48aacc916b1ba933dcd83705
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services içinde desteklenen veri kaynakları
 
@@ -33,8 +26,8 @@ Veri kaynakları ve Veri Al veya Visual Studio'da İçeri Aktarma Sihirbazı'nda
 |Azure SQL Veri Ambarı     |   Evet      |   Evet       |
 |Azure Blob Depolama *     |   Evet       |    Hayır      |
 |Azure tablo depolama *    |   Evet       |    Hayır      |
-|Azure Cosmos DB*     |  Evet        |  Hayır        |
-|Azure Data Lake Store*     |   Evet       |    Hayır      |
+|Azure Cosmos DB *     |  Evet        |  Hayır        |
+|Azure Data Lake deposu *     |   Evet       |    Hayır      |
 |Azure Hdınsight HDFS *     |     Evet     |   Hayır       |
 |Azure Hdınsight Spark *     |   Evet       |   Hayır       |
 ||||
@@ -50,7 +43,7 @@ Bağlanan veri kaynaklarından ve Azure AS server bir şirket içi ağ geçidi g
 
 ### <a name="in-memory-and-directquery"></a>Bellek içi ve DirectQuery
 
-|Veri kaynağı | Bellek içi sağlayıcısı | DirectQuery provider |
+|Veri kaynağı | Bellek içi sağlayıcısı | DirectQuery sağlayıcısı |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
 | SQL Server veri ambarı |SQL Server Native Client 11.0, SQL Server için Microsoft OLE DB sağlayıcısı, SQL Server için .NET Framework veri sağlayıcısı | SQL Server için .NET framework veri sağlayıcısı |
@@ -63,12 +56,12 @@ Bağlanan veri kaynaklarından ve Azure AS server bir şirket içi ağ geçidi g
 |Veri kaynağı  |  
 |---------|---------|
 |Access veritabanı     |  
-|Active Directory*     |  
+|Active Directory *     |  
 |Analysis Services     |  
 |Analiz platformu sistemi     |  
-|Dynamics CRM*     |  
+|Dynamics CRM *     |  
 |Excel çalışma kitabı     |  
-|Exchange*     |  
+|Exchange *     |  
 |Klasör *     | 
 |JSON belgesini *     |  
 |Satırlarından ikili *     | 
@@ -77,9 +70,9 @@ Bağlanan veri kaynaklarından ve Azure AS server bir şirket içi ağ geçidi g
 |ODBC sorgu     | 
 |OLE DB     |   
 |Postgre SQL veritabanı *    | 
-|SAP HANA*    |  
+|SAP HANA *    |  
 |SAP Business Warehouse *    |  
-|SharePoint*     |   
+|SharePoint *     |   
 |Sybase Veritabanı     |  
 |XML tablo *    |  
 |||

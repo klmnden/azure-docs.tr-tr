@@ -1,11 +1,10 @@
 ---
-title: "Azure depolama tablo Tasarım Kılavuzu | Microsoft Docs"
-description: "Tasarım ölçeklenebilir ve kullanıcı tablolarında Azure tablo depolaması"
+title: Azure depolama tablo Tasarım Kılavuzu | Microsoft Docs
+description: Tasarım ölçeklenebilir ve kullanıcı tablolarında Azure tablo depolaması
 services: cosmos-db
 documentationcenter: na
-author: mimig1
-manager: tadb
-editor: tysonn
+author: SnehaGunda
+manager: kfile
 ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
 ms.devlang: na
@@ -13,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/03/2017
-ms.author: mimig
-ms.openlocfilehash: fadb81e16a6c641ca15efb4f910a51de4fe7c997
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.author: sngun
+ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama tablo Tasarım Kılavuzu: Ölçeklenebilir tasarlama ve kullanıcı tabloları
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -54,7 +53,7 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Tan</td>
@@ -74,11 +73,11 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Haz</td>
-<td>Cao</td>
+<td>CAO</td>
 <td>47</td>
 <td>junc@contoso.com</td>
 </tr>
@@ -111,7 +110,7 @@ Aşağıdaki örnek, çalışan ve departman varlıkları depolamak için bir ba
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Ken</td>
@@ -225,7 +224,7 @@ Verimli sorgularını yürütmek için depolama istemci kitaplığı kullanan is
 
 * [Depolama istemci kitaplığı kullanılarak noktası sorgusu yürütme](#executing-a-point-query-using-the-storage-client-library)
 * [LINQ kullanarak birden çok varlık alma](#retrieving-multiple-entities-using-linq)
-* [Server-side projection](#server-side-projection)  
+* [Sunucu tarafı projeksiyonu](#server-side-projection)  
 
 Birden çok varlık türleri aynı tabloda depolanan işleyebilir istemci-tarafı kod örnekleri için bkz:  
 
@@ -1061,7 +1060,7 @@ Aşağıdaki C# kod içinde bir kesim döndürülen varlıkların sayısını de
 employeeQuery.TakeCount = 50;  
 ```
 
-#### <a name="server-side-projection"></a>Server-side projection
+#### <a name="server-side-projection"></a>Sunucu tarafı projeksiyonu
 Tek bir varlık, en fazla 255 özelliklere sahip ve en çok 1 MB boyutunda olmalıdır. Tabloyu sorgulamak ve varlıkları almak, tüm özellikler gerekli değildir ve gereksiz yere (gecikme süresi ve maliyetini azaltmaya yardımcı olmak üzere) veri aktarımı önleyebilirsiniz. Sunucu tarafı projeksiyon gereksinim özellikleri aktarmak için kullanabilirsiniz. Aşağıdaki örnek alır olduğundan yalnızca **e-posta** özelliği (ile birlikte **PartitionKey**, **RowKey**, **zaman damgası**, ve **ETag**) sorgu tarafından seçilen gelen.  
 
 ```csharp
@@ -1087,7 +1086,7 @@ Depolama istemcisi kitaplığı bir EGT genellikle yürüttüğünde oluşturula
 
 İstemci uygulamanızı eşzamanlılık ve güncelleştirme işlemlerinin nasıl işlediğini tasarımınızı nasıl etkileyeceğini de dikkate almalısınız.  
 
-#### <a name="managing-concurrency"></a>Eşzamanlılık yönetme
+#### <a name="managing-concurrency"></a>Eşzamanlılığı yönetme
 Varsayılan olarak tablo hizmeti iyimser eşzamanlılık denetler ayrı varlıklar için düzeyinde uygulayan **Ekle**, **birleştirme**, ve **silmek** işlemleri, bir istemci bu denetimleri atlamak için tablo hizmeti zorlamak mümkün olsa. Tablo hizmeti eşzamanlılık nasıl yönettiği hakkında daha fazla bilgi için bkz: [yönetme eşzamanlılık Microsoft Azure depolama alanında](../storage/common/storage-concurrency.md).  
 
 #### <a name="merge-or-replace"></a>Birleştirme ya da değiştirme
@@ -1120,7 +1119,7 @@ Tablo hizmeti bir *şema daha az* tasarımınızda büyük esneklik sağlayan bi
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1140,7 +1139,7 @@ Tablo hizmeti bir *şema daha az* tasarımınızda büyük esneklik sağlayan bi
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1177,7 +1176,7 @@ Tablo hizmeti bir *şema daha az* tasarımınızda büyük esneklik sağlayan bi
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -1213,7 +1212,7 @@ Her varlığın hala olmalıdır Not **PartitionKey**, **RowKey**, ve **zaman da
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Çalışan</td>
@@ -1235,7 +1234,7 @@ Her varlığın hala olmalıdır Not **PartitionKey**, **RowKey**, ve **zaman da
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Çalışan</td>
@@ -1276,7 +1275,7 @@ Her varlığın hala olmalıdır Not **PartitionKey**, **RowKey**, ve **zaman da
 <th>FirstName</th>
 <th>Soyadı</th>
 <th>Yaş</th>
-<th>E-posta</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Çalışan</td>

@@ -1,8 +1,8 @@
 ---
-title: "Uygulamaları Azure Active Directory ile tümleştirme"
-description: "Ekle, Güncelleştir veya Azure Active Directory (Azure AD) bir uygulamayı kaldırmak nasıl."
+title: Uygulamaları Azure Active Directory ile tümleştirme
+description: Ekle, Güncelleştir veya Azure Active Directory (Azure AD) bir uygulamayı kaldırmak nasıl.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: PatAltimore
 manager: mtillman
 editor: mbaldwin
@@ -15,11 +15,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: f08e7327e266c342fe7f869f0b7a6a251792a071
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 472a1746a338857d457a7b8d5e7fec3ddbf65895
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/29/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Uygulamaları Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -47,7 +47,7 @@ Azure AD özelliklerini kullanmak istediği herhangi bir uygulama ilk Azure AD k
     - "Yerel" seçin [istemci uygulamaları](active-directory-dev-glossary.md#client-application) yüklenen yerel olarak bir cihaz üzerinde. Bu ayar için OAuth ortak kullanılır [yerel istemci](active-directory-dev-glossary.md#native-client).
     - Seçin "Web uygulaması / API" için [istemci uygulamaları](active-directory-dev-glossary.md#client-application) ve [kaynak/API uygulamaları](active-directory-dev-glossary.md#resource-server) güvenli bir sunucu üzerinde yüklü. Bu ayar OAuth gizli kullanılır [web istemcileri](active-directory-dev-glossary.md#web-client) ve ortak [kullanıcı aracısı tabanlı istemciler](active-directory-dev-glossary.md#user-agent-based-client). Aynı uygulama aynı zamanda hem istemci hem de kaynak/API getirebilir.
   - **Oturum açma URL'si:** için "Web uygulaması / API" uygulamaları, uygulamanızı temel URL'sini sağlayın. Örneğin, `http://localhost:31544` yerel makine üzerinde çalışan bir web uygulaması URL'si olabilir. Kullanıcıların web istemci uygulaması için oturum açmak için bu URL'yi kullanırsınız. 
-  - **Yeniden yönlendirme URİ'si:** "Yerel" uygulamalar için belirteç yanıtları döndürmek için Azure AD tarafından kullanılan URI sağlayın. Uygulamanız için belirli bir değer girin, örneğin`http://MyFirstAADApp`
+  - **Yeniden yönlendirme URİ'si:** "Yerel" uygulamalar için belirteç yanıtları döndürmek için Azure AD tarafından kullanılan URI sağlayın. Uygulamanız için belirli bir değer girin, örneğin `http://MyFirstAADApp`
 
    ![Yeni bir uygulama register - oluşturun](./media/active-directory-integrating-applications/add-app-registration-create.png)
 
@@ -101,7 +101,7 @@ Aşağıdaki adımlar nasıl onayı deneyimi uygulama geliştiricisi ve kullanı
   > Açık verme onayı kullanarak **izinler** düğmesini ADAL.js kullanan tek sayfa uygulamaları için (SPA) şu anda gerekli. Erişim belirteci istendiğinde, aksi takdirde uygulama başarısız olur.   
 
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Web API'leri erişmek için bir istemci uygulaması yapılandırın
-Kimlik doğrulaması gerektiren bir yetkilendirme grant akışı katılmak (ve bir erişim belirteci almak üzere) kullanabilmek için web/gizli bir istemci uygulaması için sırayla güvenli kimlik bilgileri oluşturmanız gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulama yöntemidir istemci kimliği + gizli anahtarı. Bu bölüm, gizli anahtar, istemcinin kimlik bilgilerini sağlamak için gerekli yapılandırma adımları kapsar.
+Kimlik doğrulaması gerektiren bir yetkilendirme grant akışı katılmak (ve bir erişim belirteci almak üzere) kullanabilmek için web/gizli bir istemci uygulaması için sırayla güvenli kimlik bilgileri oluşturmanız gerekir. Azure portal tarafından desteklenen varsayılan kimlik doğrulama yöntemidir istemci kimliği + gizli anahtarı. Bu bölüm, istemcinin kimlik bilgileriyle gizli anahtar sağlamak için gerekli yapılandırma adımları kapsar.
 
 Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafından sunulan erişebilmeniz için önce ek olarak, onay framework istemci alır gereken izin verme sağlar istenen izinlerine göre. Varsayılan olarak, tüm uygulamaları izinleri "Windows Azure Active Directory" (grafik API'si) ve "Windows Azure Hizmet Yönetimi API'si." seçebilirsiniz [Grafik API'si "oturum açma ve okuma kullanıcı profili" izni](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) de varsayılan olarak seçilidir. İstemci Office 365'e abone hesaplarına sahip bir kiracı kaydedilmekte olan, Web API'ları ve SharePoint ve Exchange Online için izinleri seçilebilir. Aralarından seçim yapabileceğiniz [iki tür izin](active-directory-dev-glossary.md#permissions) her web API istenen için:
 
@@ -129,7 +129,7 @@ Bir istemci bir web API kaynak uygulama (örneğin, Microsoft Graph API) tarafı
 
 5. Kaynak API'leri istemcinizden erişmek için işlemlerinizi eklemek için
   - Tıklatın **gerekli izinler** bölümünde **ayarları** sayfası. 
-  - Tıklatın **Ekle** düğmesi.
+  - **Ekle** düğmesine tıklayın.
   - Tıklatın **bir API seçin** seçim istediğiniz kaynak türünü seçin.
   - Kullanılabilir API'ler listesini gözden geçirmek veya web API'si ortaya kullanılabilir kaynak uygulamalardan dizininizde seçmek için arama kutusunu kullanın. İlgilendiğiniz, ardından tıklatın kaynağa tıklayın **seçin**.
   - İçin geçen **erişimi etkinleştir** sayfası. Uygulama izinlerini seçin ve/veya API erişirken izinlere temsilci uygulamanız gerekir.
@@ -162,7 +162,7 @@ Aşağıdaki bölümde kaynak uygulama bildirimi değiştirerek erişim kapsamla
 
 4. Açılan uygulamanın ana kayıt sayfasına yönlendirilirsiniz **ayarları** uygulama için sayfa. Geçiş **düzenleme bildirimi** tıklatarak sayfa **bildirim** uygulamanın kayıt sayfasından. Olanak tanıyan web tabanlı bir bildirim Düzenleyicisi açılır **Düzenle** portalındaki bildirimi. İsteğe bağlı olarak, tıklayabilirsiniz **karşıdan** ve yerel olarak düzenleyin, sonra kullanın **karşıya** uygulamanızı yeniden uygulamak için.
 
-5. Bu örnekte, biz adlı yeni bir kapsam açığa çıkarır `Employees.Read.All` bizim kaynak/aşağıdaki JSON öğesine ekleyerek API üzerinde `oauth2Permissions` koleksiyonu. Varolan `user_impersonation` kapsam, kayıt sırasında varsayılan olarak sağlanır. `user_impersonation`oturum açmış kullanıcının kimliğini altında kaynağa erişim izni istemek bir istemci uygulaması sağlar. Varolan sonra virgül eklediğinizden emin olun `user_impersonation` kapsam öğesi ve özellik değerlerini, kaynağın gereksinimlerinize uyacak şekilde değiştirin. 
+5. Bu örnekte, biz adlı yeni bir kapsam açığa çıkarır `Employees.Read.All` bizim kaynak/aşağıdaki JSON öğesine ekleyerek API üzerinde `oauth2Permissions` koleksiyonu. Varolan `user_impersonation` kapsam, kayıt sırasında varsayılan olarak sağlanır. `user_impersonation` oturum açmış kullanıcının kimliğini altında kaynağa erişim izni istemek bir istemci uygulaması sağlar. Varolan sonra virgül eklediğinizden emin olun `user_impersonation` kapsam öğesi ve özellik değerlerini, kaynağın gereksinimlerinize uyacak şekilde değiştirin. 
 
   ```json
   {
@@ -233,7 +233,7 @@ Bir uygulama çok kiracılı yapmadan hem uygulama kayıt yapılmasını yanı w
 Müşterilerinizi ve iş ortakları, kuruluşunuz dışında için kullanılabilir hale getirmek istediğiniz bir uygulama yazıyorsanız, Azure portalında uygulama tanımı güncelleştirmeniz gerekir.
 
 > [!IMPORTANT]
-> Azure AD uygulama kimliği URI'si çok kiracılı uygulamaların genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si uygulama protokolü iletilerinde tanımlanan yollardan biridir. Tek kiracılı uygulama için Kiracı içinde benzersiz olması uygulama kimliği URI'si için yeterli olur. Azure AD uygulama tüm kiracılar bulabilmek için çok kiracılı uygulama için genel olarak benzersiz olmalıdır. Genel benzersizlik Azure AD kiracısı doğrulanmış bir etki alanı ile eşleşen bir ana bilgisayar adı uygulama kimliği URI'si gerektirerek zorlanır. Örneğin, Kiracı adı contoso.onmicrosoft.com ise geçerli bir uygulama kimliği URI https://contoso.onmicrosoft.com/myapp olur. Doğrulanmış bir etki alanı contoso.com kiracınız varsa, geçerli bir uygulama kimliği URI'sini de https://contoso.com/myapp olacaktır. Çok kiracılı başarısız olarak bir uygulama ayarı, uygulama kimliği URI'si bu deseni izlemenizi değil
+> Azure AD uygulama kimliği URI'si çok kiracılı uygulamaların genel olarak benzersiz olması gerekir. Uygulama Kimliği URI'si uygulama protokolü iletilerinde tanımlanan yollardan biridir. Tek kiracılı uygulama için Kiracı içinde benzersiz olması uygulama kimliği URI'si için yeterli olur. Azure AD uygulama tüm kiracılar bulabilmek için çok kiracılı uygulama için genel olarak benzersiz olmalıdır. Genel benzersizlik Azure AD kiracısı doğrulanmış bir etki alanı ile eşleşen bir ana bilgisayar adı uygulama kimliği URI'si gerektirerek zorlanır. Örneğin, Kiracı adı contoso.onmicrosoft.com geçerli bir ise uygulama kimliği URI'si olması https://contoso.onmicrosoft.com/myapp. Kiracı doğrulanmış bir etki alanı contoso.com olan sonra geçerli bir uygulama kimliği URI'sini de https://contoso.com/myapp. Çok kiracılı başarısız olarak bir uygulama ayarı, uygulama kimliği URI'si bu deseni izlemenizi değil
 > 
 
 Dış kullanıcılar, uygulama erişim vermek için: 

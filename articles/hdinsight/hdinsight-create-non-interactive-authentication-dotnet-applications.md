@@ -1,26 +1,24 @@
 ---
-title: "Etkileşimli olmayan kimlik doğrulama .NET uygulamalarını Azure Hdınsight'ta oluşturun. | Microsoft Docs"
-description: "Etkileşimli olmayan kimlik doğrulaması Azure Hdınsight'ta Microsoft .NET uygulamaları oluşturmayı öğrenin."
+title: Etkileşimli olmayan kimlik doğrulama .NET uygulamalarını Azure Hdınsight'ta oluşturun. | Microsoft Docs
+description: Etkileşimli olmayan kimlik doğrulaması Azure Hdınsight'ta Microsoft .NET uygulamaları oluşturmayı öğrenin.
 editor: cgronlun
 manager: jhubbard
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 ms.assetid: 8e32430f-6404-498a-9fcd-f20338d964af
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b2b24747ce4ea8499c999c693f00fb09178d52b0
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 5672dae5600634b53cfbc8d677f6e1b8e3fa327d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulaması oluşturma
 Microsoft .NET Azure Hdınsight uygulamanızı ya da uygulamanın kendi kimliğini (etkileşimli olmayan) (etkileşimli) uygulamasının oturum açmış kullanıcının kimliğini altında ya da çalıştırabilirsiniz. Bu makalede etkileşimli olmayan kimlik doğrulaması için Azure bağlanmak ve Hdınsight yönetmek için .NET uygulaması oluşturulacağını gösterir. Etkileşimli bir uygulamanın bir örnek için bkz: [Azure Hdınsight Bağlan](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -35,7 +33,7 @@ Etkileşimli olmayan .NET uygulamanızdan, aşağıdakiler gerekir:
 * Hdınsight kümesi. Bkz: [başlama Öğreticisi](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Azure AD uygulaması rol atama
-Azure AD uygulama atama bir [rol](../active-directory/role-based-access-built-in-roles.md), eylemleri gerçekleştirmek için izinleri vermek için. Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. (Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme uygulama kaynak grubunu ve tüm kaynaklarında okuyabileceği anlamına gelir.) Bu öğreticide kaynak grubu düzeyinde kapsamı ayarlayın. Daha fazla bilgi için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../active-directory/role-based-access-control-configure.md).
+Azure AD uygulama atama bir [rol](../role-based-access-control/built-in-roles.md), eylemleri gerçekleştirmek için izinleri vermek için. Abonelik, kaynak grubu ya da kaynak düzeyinde kapsamı ayarlayabilirsiniz. Daha düşük düzeyde kapsam devralınan izinleri. (Örneğin, bir kaynak grubu için okuyucu rolüne uygulamaya ekleme uygulama kaynak grubunu ve tüm kaynaklarında okuyabileceği anlamına gelir.) Bu öğreticide kaynak grubu düzeyinde kapsamı ayarlayın. Daha fazla bilgi için bkz: [Azure aboneliği kaynaklarınıza erişimi yönetmek için rol atamalarını kullanın](../role-based-access-control/role-assignments-portal.md).
 
 **Azure AD uygulama sahip rolünü eklemek için**
 
@@ -127,4 +125,4 @@ Azure AD uygulama atama bir [rol](../active-directory/role-based-access-built-in
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Bir Azure Active Directory, Azure portalında uygulama ve hizmet sorumlusu oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Bilgi edinmek için nasıl [bir hizmet sorumlusu Azure Resource Manager ile kimlik doğrulaması](../azure-resource-manager/resource-group-authenticate-service-principal.md).
-* Hakkında bilgi edinin [Azure rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md).
+* Hakkında bilgi edinin [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md).

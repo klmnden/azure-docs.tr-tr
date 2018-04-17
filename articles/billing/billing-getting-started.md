@@ -1,11 +1,11 @@
 ---
-title: "Beklenmeyen maliyetleri önlemek için faturalama - Azure yönetme | Microsoft Docs"
-description: "Azure faturasını üzerinde beklenmeyen ücretlerden kaçınmak öğrenin. Microsoft Azure aboneliği için maliyet izleme ve yönetim özelliklerini kullanabilirsiniz."
-services: 
-documentationcenter: 
+title: Beklenmeyen maliyetleri önlemek için faturalama - Azure yönetme | Microsoft Docs
+description: Azure faturasını üzerinde beklenmeyen ücretlerden kaçınmak öğrenin. Microsoft Azure aboneliği için maliyet izleme ve yönetim özelliklerini kullanabilirsiniz.
+services: ''
+documentationcenter: ''
 author: tonguyen10
 manager: tonguyen
-editor: 
+editor: ''
 tags: billing
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 885dcbc0e0d3d9490d745a07ade5d9dece7ff3d6
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: a13552e36b4c74b6d3165168c727dbcc8a00704e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure faturalama ve maliyet yönetimi ile beklenmeyen ücret oluşmasını önlemek
 
@@ -62,7 +62,7 @@ Kullanım maliyetleriniz belirttiğiniz bir miktar aştıklarında e-postaları 
 
 Fiyatlandırma hesaplayıcısı gelen maliyetini tahmin ilk uyarı için bir kılavuz olarak kullanmak isteyebilirsiniz.
 
-### <a name="spending-limit"></a>Bir harcama sınırına sahip olmadığını denetleyin
+### <a name="spending-limit"></a> Bir harcama sınırına sahip olmadığını denetleyin
 
 Krediler kullanan bir aboneliğiniz varsa, ardından harcama sınırını sizin için varsayılan olarak açıktır. Tüm kredinizi, harcadığı zaman bu şekilde, kredi kartınızdan ücret değil. Bkz: [Azure teklifleri harcama sınırı, kullanılabilirlik ve tam listesi](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -76,7 +76,7 @@ Başlık tıklayın ve harcama sınırını kaldırmak için istemleri izleyin. 
 
 ## <a name="ways-to-monitor-your-costs-when-using-azure-services"></a>Azure hizmetlerini kullanırken maliyetleriniz izlemek için yollar
 
-### <a name="tags"></a>Faturalama verileriniz gruplandırmak için kaynaklarınıza etiketler ekleme
+### <a name="tags"></a> Faturalama verileriniz gruplandırmak için kaynaklarınıza etiketler ekleme
 
 Desteklenen hizmetler için fatura verileri gruplandırmak için etiketleri kullanabilirsiniz. Birkaç VM'ler farklı ekipler için çalıştırırsanız, örneğin, daha sonra etiketleri maliyetleri maliyet merkezi (HR, pazarlama, Finans) ya da ortam (üretim, üretim öncesi test) tarafından kategorilere ayırmak için kullanabilirsiniz. 
 
@@ -86,7 +86,7 @@ Görünümleri raporlama farklı maliyet etiketler gösterilir. Örneğin, gör�
 
 Daha fazla bilgi için bkz: [etiketleri kullanarak Azure kaynaklarınızı düzenleme](../azure-resource-manager/resource-group-using-tags.md).
 
-### <a name="costs"></a>Düzenli olarak Maliyet Dökümü portal denetleyin ve yazma oranı
+### <a name="costs"></a> Düzenli olarak Maliyet Dökümü portal denetleyin ve yazma oranı
 
 Çalışan hizmetlerinizi aldıktan sonra ne kadar bunlar, maliyetlendirme düzenli olarak denetleyin. Geçerli harcama görebilir ve Azure Portal'da yazma oranı. 
 
@@ -138,7 +138,7 @@ Fatura döneminin sonunda faturanızı kullanılabilir hale gelir. Ayrıca [indi
 
 Program aracılığıyla kullanım verilerini almak için fatura API'mize kullanın. RateCard API ve kullanım API'si Faturalanan kullanımınızı almak için birlikte kullanın. Daha fazla bilgi için bkz: [Microsoft Azure kaynak tüketimini Öngörüler elde](billing-usage-rate-card-overview.md).
 
-## <a name="other-offers"></a>Ek kaynaklar ve özel durumlar
+## <a name="other-offers"></a> Ek kaynaklar ve özel durumlar
 
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA, CSP ve sponsorluk müşterileri
 Başlamak için Hesap Yöneticisi'ni veya Azure iş ortağı konuşun.
@@ -151,7 +151,7 @@ Başlamak için Hesap Yöneticisi'ni veya Azure iş ortağı konuşun.
 
 Siz yönetiyorsanız BT büyük bir kuruluş için okuma öneririz [Azure enterprise iskele](../azure-resource-manager/resource-manager-subscription-governance.md) ve [kurumsal BT incelemeyi](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf indirme, yalnızca İngilizce).
 
-#### <a name="EA"></a>Azure portalındaki görünümleri Önizleme Kurumsal Anlaşma maliyet 
+#### <a name="EA"></a> Azure portalındaki görünümleri Önizleme Kurumsal Anlaşma maliyet 
 
 Kurumsal Maliyet görünümleri şu anda genel önizlemede. Dikkate alınacaklar:
 - Abonelik maliyetleri kullanıma dayalı ve ön ödemeli tutarların, fazlalığı, dahil edilen miktarlar, değişiklikler ve vergileri hesabı değil. Gerçek ücret kayıt düzeyinde hesaplanır. 
@@ -172,7 +172,7 @@ Hesap Yöneticisi olup olmadığınızı görmek için Git [Azure portalında ab
 
 ![Azure portalında abonelikleri görünümünde rolünüze ekran görüntüsü](./media/billing-getting-started/sub-blade-view.PNG)
 
-Hesap Yöneticisi değilseniz sonra birisi aracılığıyla kısmi erişim büyük olasılıkla verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md) (RBAC). Abonelikler ve değişiklik bilgileri, fatura yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa) ve görevleri gerçekleştirmesini isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
+Hesap Yöneticisi değilseniz sonra birisi aracılığıyla kısmi erişim büyük olasılıkla verdiğiniz [Azure Active Directory rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md) (RBAC). Abonelikler ve değişiklik bilgileri, fatura yönetmek için [Hesap Yöneticisi Bul](billing-subscription-transfer.md#whoisaa) ve görevleri gerçekleştirmesini isteyin veya [abonelik için aktarım](billing-subscription-transfer.md).
 
 Hesap yöneticiniz artık, kuruluşunuz ve fatura, yönetmeniz gereken [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun

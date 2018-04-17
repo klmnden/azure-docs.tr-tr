@@ -1,6 +1,6 @@
 ---
 title: Azure CDN kuralları altyapısı özellikleri | Microsoft Docs
-description: Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları.
+description: Azure CDN başvuru belgelerine altyapısı özellikleri kuralları.
 services: cdn
 documentationcenter: ''
 author: Lichard
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 04/10/2018
 ms.author: rli
-ms.openlocfilehash: 748cecbdf4c59469c9a56da03631dd04a819043b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fd670e3b01812b7fa8fc708a02d02210b598ac6a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Azure CDN kuralları özellikleri altyapısı
 Kullanılabilir özelliklerin ayrıntılı açıklamaları Azure içerik teslim ağı (CDN) için bu makalede listelenmektedir [kurallar altyapısı](cdn-rules-engine.md).
@@ -171,7 +171,7 @@ Bu özellikleri yeniden yönlendirilen veya farklı bir URL'ye yeniden yazılmı
 Ad | Amaç
 -----|--------
 [Yeniden yönlendirmeleri izleyin](#follow-redirects) | İstekleri bir müşteri kaynak sunucu tarafından döndürülen konum üstbilgisi içinde tanımlı ana bilgisayar adı için yeniden yönlendirilen olup olmadığını belirler.
-[URL Redirect](#url-redirect) | Konum üstbilgisi keşfi yönlendirir.
+[URL yeniden yönlendirme](#url-redirect) | Konum üstbilgisi keşfi yönlendirir.
 [URL yeniden yazma](#url-rewrite)  | İstek URL'sini yeniden yazar.
 
 
@@ -428,14 +428,32 @@ Kısmi önbellek isabetsizliği genellikle bir kullanıcı bir indirme durdurur 
 
 Çünkü müşteri kaynak sunucu üzerindeki yükü azaltır ve hangi müşterilerin içeriğinizi karşıdan yükle hızını artırır HTTP büyük bir platform için varsayılan yapılandırmayı tutun.
 
-Hangi önbelleğinde ayarları izlenir şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: kenar Cname, üstbilgi değişmez değer isteği, istek üstbilgisi joker, URL sorgu değişmez değer ve URL sorgu joker karakter.
-
 Değer|Sonuç
 --|--
 Etkin|Varsayılan davranışını geri yükler. Varlık kaynak sunucusundan bir arka planda getirmeye başlatmak için POP zorlamak için varsayılan davranıştır. Sonrasında, varlık POP'ın yerel önbellekteki olacaktır.
 Devre dışı|POP varlık için bir arka planda getirmeye gerçekleştirmesini engeller. Sonuç, bu bölgedeki bu varlık için bir sonraki istekte müşteri kaynak sunucudan istemek POP neden olur.
 
 **Varsayılan davranış:** etkin.
+
+#### <a name="compatibility"></a>Uyumluluk
+Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
+- Sayı olarak
+- İstemci IP Adresi
+- Tanımlama bilgisi parametresi
+- Tanımlama bilgisi parametresi Regex
+- Ülke
+- Cihaz
+- Edge Cname
+- Başvuran etki alanı
+- İstek üstbilgisi değişmez değeri
+- İstek üstbilgisi Regex
+- İstek üstbilgisi joker karakter
+- İstek yöntemi
+- İstek düzeni
+- URL sorgu değişmez değeri
+- URL sorgu Regex
+- URL sorgu joker karakter
+- URL sorgu parametresi
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -452,7 +470,7 @@ Internet medya türü|Açıklama
 Metin/düz|Düz metin dosyaları
 metin/html| HTML dosyaları
 metin/css|Geçişli stil sayfaları (CSS)
-application/x-javascript|Javascript
+Uygulama/x-javascript|Javascript
 Uygulama/javascript|Javascript
 Anahtar bilgileri:
 
@@ -476,10 +494,10 @@ Varsayılan olarak, özel günlük alan "x-ec_custom-1." olarak adlandırılır 
 
 İstek ve yanıt üst bilgileri belirtmek için biçim şu şekilde tanımlanır:
 
-Üstbilgi türü|Biçim|Örnekler
+Üstbilgi türü|Biçimlendir|Örnekler
 -|-|-
-İstek üstbilgisi|%{[RequestHeader]()}[t]() | %{Accept-Encoding}i <br/> {Başvuran} t <br/> % {Yetkilendirme} i
-Yanıt Üst Bilgisi|%{[ResponseHeader]()}[o]()| % {Yaş} o <br/> %{Content-Type}o <br/> %{Cookie}o
+İstek üstbilgisi|%{[RequestHeader]()}[t]() | % {Kabul-Encoding} t <br/> {Başvuran} t <br/> % {Yetkilendirme} i
+Yanıt Üst Bilgisi|%{[ResponseHeader]()}[o]()| % {Yaş} o <br/> % {Content-Type} o <br/> % {Tanımlama bilgisi} o
 
 Anahtar bilgileri:
 
@@ -510,7 +528,7 @@ X-EC-Debug: _Directive1_,_Directive2_,_DirectiveN_
 
 **Örnek:**
 
-X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
+X EC Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
 Değer|Sonuç
 -|-
@@ -538,16 +556,28 @@ Anahtar bilgileri:
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer varsayılan iç max-age aralığı tanımlar.
 
 - Zaman birimi "Off" ayarını bir varsayılan iç max-age aralığı 7 gün istekleri için bir Maksimum yaş göstergesi atanan değil atamak kendi `Cache-Control` veya `Expires` üstbilgi.
-- Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
-    - Edge 
-    - CNAME
-    - İstek üstbilgisi değişmez değeri
-    - İstek üstbilgisi joker karakter
-    - İstek yöntemi
-    - URL sorgu değişmez değeri
-    - URL sorgu joker karakter
 
 **Varsayılan değer:** 7 gün
+
+#### <a name="compatibility"></a>Uyumluluk
+Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
+- Sayı olarak
+- İstemci IP Adresi
+- Tanımlama bilgisi parametresi
+- Tanımlama bilgisi parametresi Regex
+- Ülke
+- Cihaz
+- Edge Cname
+- Başvuran etki alanı
+- İstek üstbilgisi değişmez değeri
+- İstek üstbilgisi Regex
+- İstek üstbilgisi joker karakter
+- İstek yöntemi
+- İstek düzeni
+- URL sorgu değişmez değeri
+- URL sorgu Regex
+- URL sorgu joker karakter
+- URL sorgu parametresi
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -642,16 +672,28 @@ Anahtar bilgileri:
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer isteğin, max-age aralığı tanımlar.
 
 - Zaman birimi "Off" ayarı bu özelliği devre dışı bırakır. Bir iç max-age aralık istenilen varlıkların atanmamış. Özgün üstbilgisi önbelleğe alma yönergeleri içermiyorsa, ardından varlık varsayılan iç Max-Age özelliği etkin ayarına göre önbelleğe alınır.
-- Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
-    - Edge 
-    - CNAME
-    - İstek üstbilgisi değişmez değeri
-    - İstek üstbilgisi joker karakter
-    - İstek yöntemi
-    - URL sorgu değişmez değeri
-    - URL sorgu joker karakter
 
 **Varsayılan davranış:** devre dışı
+
+#### <a name="compatibility"></a>Uyumluluk
+Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
+- Sayı olarak
+- İstemci IP Adresi
+- Tanımlama bilgisi parametresi
+- Tanımlama bilgisi parametresi Regex
+- Ülke
+- Cihaz
+- Edge Cname
+- Başvuran etki alanı
+- İstek üstbilgisi değişmez değeri
+- İstek üstbilgisi Regex
+- İstek üstbilgisi joker karakter
+- İstek yöntemi
+- İstek düzeni
+- URL sorgu değişmez değeri
+- URL sorgu Regex
+- URL sorgu joker karakter
+- URL sorgu parametresi
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -707,16 +749,28 @@ Anahtar bilgileri:
 - Bu özellik, yukarıdaki yönergeleri yoksayılacak durum kodları boşlukla ayrılmış bir listesi tanımlayarak yapılandırın.
 - Bu özellik için geçerli durum kodları kümesidir: 200, 203, 300, 301, 302, 305, 307, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504 ve 505.
 - Bu özellik boş bir değerine ayarlayarak devre dışı bırakın.
-- Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
-    - Edge 
-    - CNAME
-    - İstek üstbilgisi değişmez değeri
-    - İstek üstbilgisi joker karakter
-    - İstek yöntemi
-    - URL sorgu değişmez değeri
-    - URL sorgu joker karakter
 
 **Varsayılan davranış:** varsayılan davranış, yukarıdaki yönergeleri dikkate almaktır.
+
+#### <a name="compatibility"></a>Uyumluluk
+Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
+- Sayı olarak
+- İstemci IP Adresi
+- Tanımlama bilgisi parametresi
+- Tanımlama bilgisi parametresi Regex
+- Ülke
+- Cihaz
+- Edge Cname
+- Başvuran etki alanı
+- İstek üstbilgisi değişmez değeri
+- İstek üstbilgisi Regex
+- İstek üstbilgisi joker karakter
+- İstek yöntemi
+- İstek düzeni
+- URL sorgu değişmez değeri
+- URL sorgu Regex
+- URL sorgu joker karakter
+- URL sorgu parametresi
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -758,16 +812,28 @@ Anahtar bilgileri:
     - Bir tamsayı değeri belirtme ve istediğiniz zaman birimi (örneğin, saniye, dakika, saat, vb.) seçme. Bu değer iç max-uygulanacak olan eski tanımlar.
 
 - Zaman birimi "Off" ayarı, bu özellik devre dışı bırakır. Önbelleğe alınan bir varlık, kendi normal sona erme zamanı sunulmayacak.
-- Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
-    - Edge 
-    - CNAME
-    - İstek üstbilgisi değişmez değeri
-    - İstek üstbilgisi joker karakter
-    - İstek yöntemi
-    - URL sorgu değişmez değeri
-    - URL sorgu joker karakter
 
 **Varsayılan davranış:** iki dakika
+
+#### <a name="compatibility"></a>Uyumluluk
+Hangi önbelleğinde ayarları izlenen şekilde nedeniyle, bu özellik aşağıdaki eşleşme koşullarla ilişkili olamaz: 
+- Sayı olarak
+- İstemci IP Adresi
+- Tanımlama bilgisi parametresi
+- Tanımlama bilgisi parametresi Regex
+- Ülke
+- Cihaz
+- Edge Cname
+- Başvuran etki alanı
+- İstek üstbilgisi değişmez değeri
+- İstek üstbilgisi Regex
+- İstek üstbilgisi joker karakter
+- İstek yöntemi
+- İstek düzeni
+- URL sorgu değişmez değeri
+- URL sorgu Regex
+- URL sorgu joker karakter
+- URL sorgu parametresi
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -826,7 +892,7 @@ Anahtar bilgileri:
 
 - Adı seçeneğinde belirtilen değeri istenen istek üstbilgisi için tam bir eşleşme olduğundan emin olun.
 - Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Aşağıdaki değişkenleri, örneğin, birini `Cache-Control` üstbilgi adı tanımlamak için kullanılabilir:
-    - cache-control
+    - ön bellek denetimi
     - CACHE-CONTROL
     - cachE-Control
 - Bir üstbilgi adı belirtirken, yalnızca alfasayısal karakterler, tire ve alt çizgiler kullanın.
@@ -836,7 +902,7 @@ Anahtar bilgileri:
     - konak
     - aracılığıyla
     - uyarı
-    - x-forwarded-for
+    - x-iletilen-için
     - "X-AB" ile başlayan tüm başlığı adları ayrılmıştır.
 
 [Başa dön](#azure-cdn-rules-engine-features)
@@ -864,21 +930,21 @@ Anahtar bilgileri:
 
 - Adı seçeneğinde belirtilen değeri istenen yanıt üst bilgisi için tam bir eşleşme olduğundan emin olun. 
 - Servis talebi üstbilgi tanımlamak amacıyla dikkate alınmaz. Aşağıdaki değişkenleri, örneğin, birini `Cache-Control` üstbilgi adı tanımlamak için kullanılabilir:
-    - cache-control
+    - ön bellek denetimi
     - CACHE-CONTROL
     - cachE-Control
 - Üstbilgi silinmesi, bu istemciye iletilen önler.
 - Aşağıdaki üst bilgiler ayrılmış ve bu özellik tarafından değiştirilemez:
-    - accept-encoding
+    - kabul kodlama
     - geçerlilik süresi
     - bağlantı
-    - content-encoding
+    - İçerik kodlama
     - içerik uzunluğu
     - İçerik aralığı
     - tarih
     - sunucu
     - toplamı
-    - transfer-encoding
+    - Transfer-encoding
     - Yükseltme
     - değişir
     - aracılığıyla
@@ -989,12 +1055,12 @@ Belirtilen üstbilgi adı aşağıdaki adlarının herhangi biri eşleşmediğin
 
 - Standart istek üstbilgisi adları. Standart üstbilgi adlarının bir listesini bulunabilir [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 - Ayrılmış üstbilgi adları:
-    - forwarded-for
+    - iletilen için
     - konak
     - değişir
     - aracılığıyla
     - uyarı
-    - x-forwarded-for
+    - x-iletilen-için
     - "X-AB" ile başlayan tüm başlığı adları ayrılmıştır.
 
 [Başa dön](#azure-cdn-rules-engine-features)
@@ -1041,12 +1107,17 @@ Belirteç tabanlı kimlik doğrulaması etkinleştirilirse, şifrelenmiş bir si
 
 Şifrelemek ve simge değerlerini şifresini çözmek için kullanılan şifreleme anahtarını birincil anahtar ve belirteç kimlik doğrulama sayfasında yedekleme anahtar seçenekleri tarafından belirlenir. Şifreleme anahtarları platforma özgü göz önünde bulundurun.
 
+**Varsayılan davranış:** devre dışı bırakılmış.
+
+Bu özellik URL yeniden yazma özelliği hariç olmak üzere çoğu özellikleri daha önceliklidir.
+
 Değer | Sonuç
 ------|---------
 Etkin | İstenen içerik belirteç tabanlı kimlik doğrulaması ile korur. Yalnızca geçerli bir belirteci sağlayan ve kendi gereksinimlerine istemcilerinden gelen istekleri kullanılacaktır. FTP hareketler belirteç tabanlı kimlik doğrulamasını bırakılır.
 Devre dışı| Varsayılan davranışını geri yükler. Bir isteğin güvenli olup olmadığını belirlemek belirteç tabanlı kimlik doğrulaması yapılandırmanıza izin vermek için varsayılan davranıştır.
 
-**Varsayılan davranış:** devre dışı bırakılmış.
+#### <a name="compatibility"></a>Uyumluluk
+Belirteç kimlik doğrulama her zaman eşleştirme koşulla birlikte kullanmayın. 
 
 [Başa dön](#azure-cdn-rules-engine-features)
 
@@ -1056,8 +1127,6 @@ Devre dışı| Varsayılan davranışını geri yükler. Bir isteğin güvenli o
 ### <a name="token-auth-denial-code"></a>Belirteç kimlik doğrulama reddi kodu
 **Amaç:** belirteç tabanlı kimlik doğrulaması nedeniyle bir istek reddedildiğinde kullanıcıya döndürülecek yanıt türünü belirler.
 
-Belirteç kimlik doğrulama reddi kodu her zaman eşleştirme koşulla birlikte kullanılamaz. Bunun yerine, kullanın **reddi özel işleme** bölümüne **belirteci Auth** sayfasında **Yönet** portal. Daha fazla bilgi için bkz: [belirteci kimlik doğrulaması ile güvenli hale getirme Azure CDN varlıklar](cdn-token-auth.md).
-
 Kullanılabilir yanıt kodları aşağıdaki tabloda listelenmiştir.
 
 Yanıt Kodu|Yanıt adı|Açıklama
@@ -1066,8 +1135,11 @@ Yanıt Kodu|Yanıt adı|Açıklama
 302|Bulundu|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir. Bu durum kodu, bir yeniden yönlendirme gerçekleştiren endüstri standart yöntemidir.
 307|Geçici yeniden yönlendirme|Bu durum kodu yetkisiz kullanıcıların konumu üstbilgisinde belirtilen URL'ye yeniden yönlendirir.
 401|Yetkilendirilmemiş|Bu durum kodu ile WWW-Authenticate yanıt üstbilgisi birleştirme, bir kullanıcıdan kimlik doğrulaması için olanak sağlar.
-403|Yasak|Yetkisiz bir kullanıcının korumalı içeriği erişmeye çalışırken göreceği standart 403 Yasak durum iletisi budur.
+403|Yasak|Bu ileti, yetkisiz bir kullanıcının korumalı içeriği erişmeye çalışırken göreceği standart 403 Yasak durum iletisi içindir.
 404|Dosya Bulunamadı|Bu durum kodu HTTP istemcisi sunucuyla iletişim kuramıyor, ancak istenen içerik bulunamadı gösterir.
+
+#### <a name="compatibility"></a>Uyumluluk
+Belirteç kimlik doğrulama reddi kodu bir her zaman eşleştirme koşulunu kullanmayın. Bunun yerine, kullanın **reddi özel işleme** bölümüne **belirteci Auth** sayfasında **Yönet** portal. Daha fazla bilgi için bkz: [belirteci kimlik doğrulaması ile güvenli hale getirme Azure CDN varlıklar](cdn-token-auth.md).
 
 #### <a name="url-redirection"></a>URL yeniden yönlendirme
 
@@ -1152,7 +1224,7 @@ Bu özellik yapılandırması, aşağıdaki seçenekleri ayarlama gerektirir:
 Seçenek|Açıklama
 -|-
 Kod|İstemciye döndürülecek yanıt kodu seçin.
-Kaynak & düzeni| Bu ayarları yeniden yönlendirilen istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yönlendirilir: <br/> <br/> **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. "/XXXX/" bölümü ve uç nokta adınız budur. <br/> **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> -Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlı hiçbir eşleşme koşullarla emin olun. <br/> -Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir.
+Kaynak & düzeni| Bu ayarları yeniden yönlendirilen istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yönlendirilir: <br/> <br/> **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/> **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> -Daha önce tanımlanan istek URI ölçütlerini (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlı hiçbir eşleşme koşullarla emin olun. <br/> -Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir.
 Hedef| Yukarıdaki istekleri yönlendirilecek URL tanımlayın. <br/> Dinamik olarak bu URL'yi kullanarak oluşturun: <br/> -Bir normal ifade deseni <br/>-HTTP değişkenleri <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. <br/> 
 Mutlak bir URL kullanmak için önerilir. Göreli bir URL kullanımı için geçersiz bir yol CDN URL'leri yönlendirmek.
 
@@ -1177,7 +1249,7 @@ Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./m
     - Örnek Senaryo #3: 
         - Örnek istek (Kenar CNAME URL): http://brochures.mydomain.com/campaignA/final/productC.ppt 
         - İstek URL'si (sonra yeniden yönlendirme): http://cdn.mydomain.com/resources/campaignA/final/productC.ppt  
-- İstek düzeni (% {Şeması}) değişkeni hedef seçeneğinde de. Bu isteğin düzenini yeniden yönlendirmeden sonra değişmeden kalmasını sağlar.
+- İsteğin düzenini yeniden yönlendirmeden sonra değişmeden kalmasını sağlar hedef seçeneğinde istek düzeni (% {Şeması}) değişkeni yararlanır.
 - İstekten yakalanan URL kesimleri "$1." aracılığıyla yeni bir URL'ye eklenir
 
 [Başa dön](#azure-cdn-rules-engine-features)
@@ -1194,9 +1266,9 @@ Anahtar bilgileri:
 
 Seçenek|Açıklama
 -|-
- Kaynak & düzeni | Bu ayarları yeniden yazılmıştır istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/>     - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. "/XXXX/" bölümü ve uç nokta adınız budur. <br/> - **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> Önceden tanımlanmış istek URI ölçütleri (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
+ Kaynak & düzeni | Bu ayarları yeniden yazılmıştır istekleri türünü tanımlayan bir istek URI düzeni tanımlayın. Yalnızca istek URL'si hem de aşağıdaki ölçütleri karşılayan yazılacaktır: <br/>     - **Kaynak (veya içerik erişim noktası):** bir kaynak sunucuyu tanımlar göreli bir yol seçin. Bu yol _/XXXX/_ bölümü ve uç nokta adınız. <br/> - **Kaynak (desen):** göreli yolu tarafından istekleri tanımlayan bir desen tanımlanması gerekir. Bu normal ifade deseni doğrudan başlatır (yukarıya bakın) sonra daha önce seçilen içerik erişim noktası bir yolu tanımlamanız gerekir. <br/> Önceden tanımlanmış istek URI ölçütleri (diğer bir deyişle, kaynak & düzeni) çakışmadığını, bu özellik için tanımlanan eşleşme koşullardan herhangi biri ile doğrulayın. Bir desen belirtin; boş bir değer deseni olarak kullanırsanız, tüm dizeleri eşleştirilir. 
  Hedef  |Yukarıdaki istekleri için tarafından yazılacak göreli URL tanımlayın: <br/>    1. Kaynak sunucu tanımlayan bir içerik erişim noktası seçme. <br/>    2. Göreli yolu kullanarak tanımlama: <br/>        -Bir normal ifade deseni <br/>        -HTTP değişkenleri <br/> <br/> Kaynak desende kullanarak $ hedef modele yakalanmış değerlerinizi yerleştirin_n_ nerede _n_ bu yakalanan sıraya göre bir değer tanımlar. Örneğin, $1 $2 ikinci değer temsil ederken, kaynak desende yakalanan ilk değerini temsil eder. 
- Bu özellik, geleneksel bir yeniden yönlendirme yapmadan URL yeniden yazma POP sağlar. Başka bir deyişle, yeniden URL istenen sanki istek sahibinin aynı yanıt kodu alırsınız.
+ Bu özellik, geleneksel bir yeniden yönlendirme yapmadan URL yeniden yazma POP sağlar. Diğer bir deyişle, istek sahibinin yeniden URL istenen gibi aynı yanıt kodu alır.
 
 **Örnek Senaryo 1**
 
@@ -1220,7 +1292,6 @@ Bu URL yeniden yönlendirme aşağıdaki yapılandırma elde edilebilir: ![](./m
 - İstekten yakalanan URL kesimleri "$1." aracılığıyla yeni bir URL'ye eklenir
 
 #### <a name="compatibility"></a>Uyumluluk
-
 Bu özellik için bir istek uygulanmadan önce karşılanması gereken ölçütlerle eşleşen içerir. Çakışan eşleşme ölçütlerini ayarlama önlemek için bu özellik aşağıdaki eşleşme koşullar ile uyumlu değil:
 
 - Sayı olarak
@@ -1233,7 +1304,7 @@ Bu özellik için bir istek uygulanmadan önce karşılanması gereken ölçütl
 - URL yolu dosya
 - URL yolu değişmez değeri
 - URL yolu Regex
-- URL Path Wildcard
+- URL yolu joker karakter
 - URL sorgu değişmez değeri
 - URL sorgu parametresi
 - URL sorgu Regex

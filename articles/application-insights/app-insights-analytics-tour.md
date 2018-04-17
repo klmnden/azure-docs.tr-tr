@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights Analytics üzerinden bir tur | Microsoft Docs"
-description: "Tüm ana sorgularda Analytics, Application Insights güçlü arama aracının kısa örnekleri."
+title: Azure Application Insights Analytics üzerinden bir tur | Microsoft Docs
+description: Tüm ana sorgularda Analytics, Application Insights güçlü arama aracının kısa örnekleri.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 271ccc126eeb9411646b68b32fd30ce32b5eef5c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 4f82e436e25d01bbfa09ec1e8a2efcdf0be8c006
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application ınsights'ta Analytics turu
 [Analytics](app-insights-analytics.md) güçlü arama özelliğidir [Application Insights](app-insights-overview.md). Bu sayfaları günlük analizi sorgu dili açıklanmaktadır.
@@ -69,7 +69,7 @@ Birden çok Application Insights uygulamalardan veri birleştirmek istiyorsanız
 ```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Üst](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) ve [sıralama](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
-`take`hızlı bir örnek bir sonuç almak kullanışlıdır ancak belirli bir sırada satırları tablodan gösterir. Sıralı bir görünüm elde etmek için kullanın `top` (için bir örnek) veya `sort` (üzerinden tüm tablo).
+`take` hızlı bir örnek bir sonuç almak kullanışlıdır ancak belirli bir sırada satırları tablodan gösterir. Sıralı bir görünüm elde etmek için kullanın `top` (için bir örnek) veya `sort` (üzerinden tüm tablo).
 
 Belirli bir sütuna göre sıralanmış ilk n satırları göster:
 
@@ -79,11 +79,11 @@ Belirli bir sütuna göre sıralanmış ilk n satırları göster:
 ```
 
 * *Sözdizimi:* çoğu işleçleri gibi anahtar sözcüğü parametrelere sahip `by`.
-* `desc`azalan düzende = `asc` artan =.
+* `desc` azalan düzende = `asc` artan =.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...`Daha fazla kullanıcı bildiren yoludur `sort ... | take...`. Biz yazılı:
+`top...` Daha fazla kullanıcı bildiren yoludur `sort ... | take...`. Biz yazılı:
 
 ```AIQL
 
@@ -146,7 +146,7 @@ Varsayılan olarak, sorgularınızı son 24 saat kısıtlanır. Ancak bu aralı�
 
 Zaman aralığı özelliği, 'kaynak tabloları birinin her Bahsetme sonra eklenen where' yan tümcesi eşdeğerdir.
 
-`ago(3d)`'üç gün önce' anlamına gelir. Diğer birimleri süreyi saat dahil et (`2h`, `2.5h`), dakika (`25m`) ve saniye (`10s`).
+`ago(3d)` 'üç gün önce' anlamına gelir. Diğer birimleri süreyi saat dahil et (`2h`, `2.5h`), dakika (`25m`) ve saniye (`10s`).
 
 Diğer örnekler:
 
@@ -170,7 +170,7 @@ Diğer örnekler:
 
 ```
 
-[Tarihler ve saatlere başvuru](https://docs.loganalytics.io/concepts/concepts_datatypes_datetime.html).
+[Tarihler ve saatlere başvuru](https://docs.loganalytics.io/docs/Language-Reference/Data-types/datetime).
 
 
 ## <a name="projecthttpsdocsloganalyticsioquerylanguagequerylanguageprojectoperatorhtml-select-rename-and-compute-columns"></a>[Proje](https://docs.loganalytics.io/queryLanguage/query_language_projectoperator.html): sütunları işlem seçin ve yeniden adlandırma
@@ -199,10 +199,10 @@ Sütunları yeniden adlandırın ve yenilerini tanımlayın:
 
 ![Sonuç](./media/app-insights-analytics-tour/270.png)
 
-* Sütun adları, boşluk içerebilir veya bunlar köşeli parantez içindeki, simgeler şöyle: `['...']` veya`["..."]`
-* `%`normal mod işleci olur.
-* `1d`(bir basamak biri olan sonra bir 'D ') bir timespan değişmez değer bir gün anlamına gelir. Daha fazla bazı timespan değişmez değerler şunlardır: `12h`, `30m`, `10s`, `0.01s`.
-* `floor`(diğer ad `bin`) değeri sağladığınız taban değeri en yakın katına aşağı yuvarlar. Bu nedenle `floor(aTime, 1s)` aşağıya doğru en yakın ikinci bir saat yuvarlar.
+* Sütun adları, boşluk içerebilir veya bunlar köşeli parantez içindeki, simgeler şöyle: `['...']` veya `["..."]`
+* `%` normal mod işleci olur.
+* `1d` (bir basamak biri olan sonra bir 'D ') bir timespan değişmez değer bir gün anlamına gelir. Daha fazla bazı timespan değişmez değerler şunlardır: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (diğer ad `bin`) değeri sağladığınız taban değeri en yakın katına aşağı yuvarlar. Bu nedenle `floor(aTime, 1s)` aşağıya doğru en yakın ikinci bir saat yuvarlar.
 
 İfadeleri, normal işleçleri içerebilir (`+`, `-`,...), ve bir dizi kullanışlı işlevi yoktur.
 
@@ -231,7 +231,7 @@ Zaman damgaları her zaman UTC biçimindedir. Bu nedenle BİZE Pasifik Yakası o
 
 
 ## <a name="summarizehttpsdocsloganalyticsioquerylanguagequerylanguagesummarizeoperatorhtml-aggregate-groups-of-rows"></a>[Özetlemek](https://docs.loganalytics.io/queryLanguage/query_language_summarizeoperator.html): toplam satır grupları
-`Summarize`Belirtilen bir geçerlidir *toplama işlevi* satır grupları üzerinden.
+`Summarize` Belirtilen bir geçerlidir *toplama işlevi* satır grupları üzerinden.
 
 Örneğin, web uygulamanız için bir istek yanıt süresini alanında bildirilir `duration`. Tüm istekleri için ortalama yanıt süresi görelim:
 
@@ -241,13 +241,13 @@ Veya biz sonucu farklı adlar istekleri ayrı:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize`Akış veri noktaları gruplar halinde kendisi için toplar `by` yan tümcesi eşit olarak değerlendirir. Her değer `by` ifade - yukarıdaki örnekte her benzersiz işlem adı - sonuç tablosunda bir satırı sonuçlanıyor.
+`Summarize` Akış veri noktaları gruplar halinde kendisi için toplar `by` yan tümcesi eşit olarak değerlendirir. Her değer `by` ifade - yukarıdaki örnekte her benzersiz işlem adı - sonuç tablosunda bir satırı sonuçlanıyor.
 
 Veya sonuçları günün saatini göre gruplandırabilirsiniz:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-Biz nasıl kullanıyorsanız fark `bin` işlevi (diğer adıyla `floor`). Yalnızca kullansaydık `by timestamp`, kendi az grubunda her giriş satır yapmış olursunuz. Süreleri gibi sürekli tüm skaler için veya numaraları, biz sahip yönetilebilir bir ayrık değerler numarada sürekli aralık ayırmak. `bin`-yalnızca bilinen yuvarlama aşağı olduğu `floor` işlev - bunu yapmanın en kolay yoludur.
+Biz nasıl kullanıyorsanız fark `bin` işlevi (diğer adıyla `floor`). Yalnızca kullansaydık `by timestamp`, kendi az grubunda her giriş satır yapmış olursunuz. Süreleri gibi sürekli tüm skaler için veya numaraları, biz sahip yönetilebilir bir ayrık değerler numarada sürekli aralık ayırmak. `bin` -yalnızca bilinen yuvarlama aşağı olduğu `floor` işlev - bunu yapmanın en kolay yoludur.
 
 Dizeleri aralıklarına azaltmak için size aynı yöntemi kullanabilirsiniz:
 
@@ -256,7 +256,7 @@ Dizeleri aralıklarına azaltmak için size aynı yöntemi kullanabilirsiniz:
 Kullanabileceğiniz bildirimi `name=` toplama ifadeleri veya tümcesi tarafından bir sonuç sütunu adını ayarlamak için.
 
 ## <a name="counting-sampled-data"></a>Sayım örneklenen verileri
-`sum(itemCount)`olayları saymak için önerilen toplama var. Çoğu durumda, ItemCount işlevi yalnızca yukarı grubundaki satır sayısını sayar şekilde == 1. Ancak zaman [örnekleme](app-insights-sampling.md) olan işleminde, yalnızca özgün olayların kesir korunur Application ınsights'ta veri noktaları olarak gördüğünüz her veri noktası için vardır; böylece `itemCount` olaylar.
+`sum(itemCount)` olayları saymak için önerilen toplama var. Çoğu durumda, ItemCount işlevi yalnızca yukarı grubundaki satır sayısını sayar şekilde == 1. Ancak zaman [örnekleme](app-insights-sampling.md) olan işleminde, yalnızca özgün olayların kesir korunur Application ınsights'ta veri noktaları olarak gördüğünüz her veri noktası için vardır; böylece `itemCount` olaylar.
 
 Örnekleme %75 özgün olayları, daha sonra ItemCount atar, örneğin, == 4 tutulan kayıtlarında - diğer bir deyişle, korunan her kayıt için vardı dört özgün kaydeder.
 
@@ -661,7 +661,7 @@ Gibi diğer telemetri **performanceCounters** de bir sütuna sahip `cloud_RoleIn
 ![Özel durumlar isteklerle operation_Id üzerinde katılma](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Tarayıcı zamanlamaları tablosu
-`browserTimings`Kullanıcılarınızın tarayıcılarda toplanan sayfa yükleme verileri gösterir.
+`browserTimings` Kullanıcılarınızın tarayıcılarda toplanan sayfa yükleme verileri gösterir.
 
 [İstemci tarafı telemetri için uygulamanızı ayarlayın](app-insights-javascript.md) Bu ölçümler görmek için.
 
@@ -672,7 +672,7 @@ Farklı sayfalara popularities Göster ve her bir sayfa için zamanları yük:
 ![Sayfa yükleme sürelerinin analytics'te](./media/app-insights-analytics-tour/analytics-page-load.png)
 
 ### <a name="availability-results-table"></a>Kullanılabilirlik sonuçları tablosu
-`availabilityResults`sonuçlarını gösterir, [web testleri](app-insights-monitor-web-app-availability.md). Her çalışma testlerinizin her test konumdan ayrı olarak bildirilir.
+`availabilityResults` sonuçlarını gösterir, [web testleri](app-insights-monitor-web-app-availability.md). Her çalışma testlerinizin her test konumdan ayrı olarak bildirilir.
 
 ![Sayfa yükleme sürelerinin analytics'te](./media/app-insights-analytics-tour/analytics-availability.png)
 

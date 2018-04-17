@@ -1,8 +1,8 @@
 ---
-title: "Hadoop Pig hdınsight'ta - Azure Uzak Masaüstü ile kullanma | Microsoft Docs"
-description: "Hdınsight'ta bir Windows tabanlı Hadoop kümesine bir Uzak Masaüstü bağlantısı üzerinden Pig Latin deyimleri çalıştırmak için Pig komutu kullanmayı öğrenin."
+title: Hadoop Pig hdınsight'ta - Azure Uzak Masaüstü ile kullanma | Microsoft Docs
+description: Hdınsight'ta bir Windows tabanlı Hadoop kümesine bir Uzak Masaüstü bağlantısı üzerinden Pig Latin deyimleri çalıştırmak için Pig komutu kullanmayı öğrenin.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
@@ -10,17 +10,15 @@ tags: azure-portal
 ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
 ms.service: hdinsight
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8b5e8e7f400a4494549c997e969a46ca90eb0ba5
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: f8d403e46f7460dff92cc418b829cc5510efd982
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı üzerinden pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -64,7 +62,7 @@ Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin ve ardından yönerg
 
     <table>
     <tr>
-    <th>Deyimi</th><th>Neler yapar?</th>
+    <th>Bildirim</th><th>Ne yapar?</th>
     </tr>
     <tr>
     <td>FILTEREDLEVELS = LOGLEVEL FİLTRE DÜZEYLERİYLE null; değil</td><td>Günlük düzeyini null değerini içeren satırları kaldırır ve sonuçları FILTEREDLEVELS depolar.</td>
@@ -79,7 +77,7 @@ Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin ve ardından yönerg
     <td>Sonuç order SIKLIĞI sayısı desc tarafından; =</td><td>Günlük düzeyleri (Azalan) sayısına göre sıralar ve sonucu depolar</td>
     </tr>
     </table>
-6.Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki kaydeder komut `RESULT` için **/example/data/pigout** kümeniz için varsayılan depolama kapsayıcısında dizin:
+6. Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki kaydeder komut `RESULT` için **/example/data/pigout** kümeniz için varsayılan depolama kapsayıcısında dizin:
 
         STORE RESULT into 'wasb:///example/data/pigout'
 

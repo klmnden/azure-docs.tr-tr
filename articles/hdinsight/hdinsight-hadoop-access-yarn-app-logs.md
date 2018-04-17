@@ -1,36 +1,34 @@
 ---
-title: "Erişim Hadoop YARN uygulama günlüklerini program aracılığıyla - Azure | Microsoft Docs"
-description: "Access uygulaması Hdınsight Hadoop kümesinde programlı olarak günlüğe kaydeder."
+title: Erişim Hadoop YARN uygulama günlüklerini program aracılığıyla - Azure | Microsoft Docs
+description: Access uygulaması Hdınsight Hadoop kümesinde programlı olarak günlüğe kaydeder.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 tags: azure-portal
 author: mumian
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 0198d6c9-7767-4682-bd34-42838cf48fc5
 ms.service: hdinsight
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: 90323af4a1f4526ab9b26811c8679337076112d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aab7865548c034cb550874c31977b05936dc45b9
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Windows tabanlı Hdınsight üzerinde erişim YARN uygulama günlükleri
-Bu konuda, Azure hdınsight'ta Hadoop Windows tabanlı kümede bitirdikten YARN (henüz başka bir kaynak Uzlaştırıcı) uygulamaları için günlüklere erişmek açıklanmaktadır
+Bu belgede Azure hdınsight'ta Hadoop Windows tabanlı kümede bitirdikten YARN uygulamalar için günlüklere erişmek nasıl açıklanmaktadır
 
 > [!IMPORTANT]
 > Bu belgedeki bilgiler yalnızca Windows tabanlı Hdınsight kümeleri için geçerlidir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement). Linux tabanlı Hdınsight kümelerinde YARN erişme hakkında bilgi günlükleri için bkz: [erişim YARN uygulama günlüklerini hdınsight'ta Linux tabanlı Hadoop üzerinde](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Bir Windows tabanlı Hdınsight kümesi.  Bkz: [Hdınsight oluşturma Windows tabanlı Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="yarn-timeline-server"></a>YARN zaman çizelgesi sunucu
@@ -46,17 +44,22 @@ Uygulamalar hakkında genel bilgiler aşağıdaki sıralar veri içerir:
 * Uygulama tamamlamak için yapılan deneme hakkında bilgi
 * Belirtilen uygulama girişimleri tarafından kullanılan kapsayıcıları
 
-Hdınsight kümelerinde bu bilgileri varsayılan Azure depolama hesabınızın varsayılan kapsayıcı geçmişi deposunda için Azure Resource Manager tarafından depolanır. Bu genel veriler tamamlanmış uygulamalar üzerinde bir REST API'si alınabilir:
+Bu bilgileri, Hdınsight kümelerinde Azure kaynak yöneticisi tarafından depolanır. Bilgiler varsayılan depolama kümesi için geçmiş deposuna kaydedilir. Bu genel veriler tamamlanmış uygulamalar üzerinde bir REST API'si alınabilir:
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
 
 ## <a name="yarn-applications-and-logs"></a>YARN uygulamalar ve günlükleri
-YARN kaynak Yönetimi'nden uygulama zamanlama/izleme ayrıştırarak birden fazla programlama modeli (bunlardan biri olan MapReduce) destekler. Bu genel yapılır *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynakları (CPU, bellek, disk, ağ) anlaşır. RM olarak verilen bu kaynaklara erişim izni NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulama, uygulama doğasına bağlı olarak çok sayıda kapsayıcı gerektirebilir.
+YARN kaynak Yönetimi'nden uygulama zamanlama/izleme ayrıştırarak birden fazla programlama modeli destekler. YARN kullanan bir genel *ResourceManager* (RM) çalışan-düğüm başına *NodeManagers* (NMs) ve uygulama başına *ApplicationMasters* (AMs). Uygulama başına AM RM ile uygulamanızı çalıştırmak için kaynakları (CPU, bellek, disk, ağ) anlaşır. RM olarak verilen bu kaynaklara erişim izni NMs çalışır *kapsayıcıları*. AM RM tarafından atanmış kapsayıcıları ilerlemesini izlemek için sorumludur Bir uygulama, uygulama doğasına bağlı olarak çok sayıda kapsayıcı gerektirebilir.
 
-Ayrıca, her uygulama katları oluşabilir *uygulama denemeleri* kilitlenme varlığında veya bir AM arasındaki iletişimi kaybı nedeniyle tamamlamak için ve bir RM Bu nedenle, kapsayıcıları belirli bir uygulama girişimi verilir. Bir fikir bağlam YARN uygulama tarafından gerçekleştirilen çalışmanın temel birim için bir kapsayıcı sağlar ve bir kapsayıcı bağlamı içinde yapılan tüm iş kapsayıcı ayrılmış olan tek çalışan düğümünde gerçekleştirilir. Bkz: [YARN kavramları] [ YARN-concepts] daha ayrıntılı başvuru.
+* Her uygulama katları oluşabilir *uygulama denemeleri*. 
+* Kapsayıcılar, belirli bir uygulama girişimi verilir. 
+* Bir kapsayıcı, iş için bir temel birimi bağlamı sağlar. 
+* Bir kapsayıcı bağlamında yapılır iş kapsayıcı ayrılmış olan tek alt düğüm üzerinde gerçekleştirilir. 
 
-Uygulama (ve ilişkili kapsayıcı günlükleri) sorunlu Hadoop uygulamalarında hata ayıklama de önemlidir. YARN toplama, toplama ve uygulama günlükleri ile depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özellik bir çalışan düğümdeki tüm kapsayıcıları arasında günlükleri toplar ve bir uygulama bittikten sonra bir toplu günlük dosyası olarak çalışan düğümü başına varsayılan dosya sistemi üzerinde saklar gibi erişen uygulama günlüklerini daha belirleyici hale getirir. Uygulamanızın yüzlerce veya binlerce kapsayıcıların kullanabilir, ancak günlükleri tek alt düğüm üzerinde çalışan tüm kapsayıcıları için her zaman tek uygulamanız tarafından kullanılan çalışan düğümü başına bir günlük dosyasında oluşan bir dosyaya toplanacak. Günlük toplama Hdınsight kümelerinde varsayılan olarak etkinleştirilmiştir (sürüm 3.0 ve üstü), ve toplanan günlükleri varsayılan kapsayıcı kümenizin şu konumda bulunabilir:
+Daha fazla bilgi için bkz: [YARN kavramları][YARN-concepts].
+
+Uygulama (ve ilişkili kapsayıcı günlükleri) sorunlu Hadoop uygulamalarında hata ayıklama de önemlidir. YARN toplama, toplama ve uygulama günlükleri ile depolamak için iyi bir çerçeve sağlar [günlük toplama] [ log-aggregation] özelliği. Günlük toplama özellik bir çalışan düğümdeki tüm kapsayıcıları arasında günlükleri toplar ve bir uygulama bittikten sonra bir toplu günlük dosyası olarak çalışan düğümü başına varsayılan dosya sistemi üzerinde saklar gibi erişen uygulama günlüklerini daha belirleyici hale getirir. Uygulamanızın yüzlerce veya binlerce kapsayıcıların kullanabilir, ancak tek alt düğüm üzerinde çalışan tüm kapsayıcıları için günlüklerini tek uygulamanız tarafından kullanılan çalışan düğümü başına bir dosyayı sonuçta bir dosyaya toplanır. Günlük toplama Hdınsight kümelerinde varsayılan olarak etkinleştirilmiştir (sürüm 3.0 ve üstü), ve toplanan günlükleri varsayılan kapsayıcı kümenizin şu konumda bulunabilir:
 
     wasb:///app-logs/<user>/logs/<applicationId>
 

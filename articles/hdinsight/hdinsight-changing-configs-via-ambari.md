@@ -1,24 +1,22 @@
 ---
-title: "Ambari - Azure Hdınsight küme yapılandırmaları en iyi duruma getirme | Microsoft Docs"
-description: "Hdınsight kümeleri en iyi duruma getirme ve yapılandırmak için Ambari web kullanıcı arabirimini kullanın."
-documentationcenter: 
+title: Ambari - Azure Hdınsight küme yapılandırmaları en iyi duruma getirme | Microsoft Docs
+description: Hdınsight kümeleri en iyi duruma getirme ve yapılandırmak için Ambari web kullanıcı arabirimini kullanın.
+documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: 
+ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 01/09/2018
 ms.author: ashish
-ms.openlocfilehash: 74c1b3298cd7b6ffd5b4a60e2fa78ed733232f92
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Hdınsight küme yapılandırmaları en iyi duruma getirmek için Ambari kullanın
 
@@ -181,7 +179,7 @@ Hadoop işlerini genellikle nedeniyle düşük performansa g/ç ' dir. Verileri 
 
 Kullanılabilir sıkıştırma türleri şunlardır:
 
-| Biçim | Aracı | Algoritması | Dosya uzantısı | Bölümlenebilir? |
+| Biçimlendir | Aracı | Algoritması | Dosya uzantısı | Bölümlenebilir? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | SÖNDÜR | .gz | Hayır |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | Evet |
@@ -286,7 +284,7 @@ Hive yürütme altyapısı en iyi duruma getirmek için ek öneriler:
 
 | Ayar | Önerilen | Hdınsight varsayılan |
 | -- | -- | -- |
-| `hive.mapjoin.hybridgrace.hashtable` | Doğru = daha güvenli, daha yavaş; yanlış daha hızlı = | yanlış |
+| `hive.mapjoin.hybridgrace.hashtable` | Doğru = daha güvenli, daha yavaş; yanlış daha hızlı = | false |
 | `tez.am.resource.memory.mb` | Çoğu için 4 GB üst sınırı | Otomatik olarak ayarlanmış |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |

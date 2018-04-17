@@ -13,43 +13,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e7591ccf0f21099474a08dda088422c377135f6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6df013506e4541fee7850850776d26e5c69a799d
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="enterprise-plan-details"></a>Kurumsal plan ayrıntıları
 
-Application Insights iki fiyatlandırma planı vardır. Varsayılan plan adlı [temel](app-insights-pricing.md), tüm kurumsal planda hiçbir ek maliyet ve faturalar öncelikle alınan verilerin hacmi aynı özellikleri içerir. Operations Management Suite kullanıyorsanız, bir düğüm başına sahip plan günlük veri kesintileri birlikte gider ve ardından dahil indirimi alınan veriler için ücretinin kuruluş için tercih.
+Azure Application Insights sahip iki fiyatlandırma planı: Basic ve Enterprise. [Temel](app-insights-pricing.md) planı fiyatlandırma olan varsayılan planı. Hiçbir ek ücret ödemeden tüm kurumsal plan özellikleri içerir. Temel plan faturaları alınan veri biriminde öncelikle. 
 
-Bkz: [Application Insights fiyatlandırma sayfası](http://azure.microsoft.com/pricing/details/application-insights/) geçerli fiyatlar para birimi ve bölge için.
+Bir düğüm başına ücret Kurumsal planına sahip ve her düğüm bir günlük veri indirimi alır. Kuruluşta planı, fiyatlandırma, dahil indirimi alınan veriler için sizden ücret kesilir. Operations Management Suite kullanıyorsanız, Kurumsal plan seçmeniz gerekir. 
 
-## <a name="heres-how-the-enterprise-plan-works"></a>İşte Kurumsal planı nasıl çalışır?
+Para birimi ve bölge geçerli fiyatlar için bkz: [Application Insights fiyatlandırma](http://azure.microsoft.com/pricing/details/application-insights/).
 
-* Telemetri tüm uygulamaların Kurumsal planda gönderiyor düğüm başına ücret ödersiniz.
- * A *düğüm* bir fiziksel veya sanal sunucu makinesi ya da uygulamanızı barındıran bir hizmet olarak Platform rol örneği.
+## <a name="how-the-enterprise-plan-works"></a>Kurumsal planı nasıl çalışır?
+
+* Kurumsal planda tüm uygulamalar için telemetri gönderen her düğüm için ücret ödersiniz.
+ * A *düğüm* bir fiziksel veya sanal sunucu makinesi ya da uygulamanızı barındıran bir hizmet olarak platform rol örneği.
  * Geliştirme makineler, istemci tarayıcıları ve mobil cihazları düğümleri olarak sayılmaz.
- * Uygulamanızı bir web hizmeti ve arka uç çalışan gibi telemetri göndermesine çeşitli bileşenleri varsa bunlar ayrı olarak sayılır.
- * [Canlı ölçümleri akış](app-insights-live-stream.md) veri yok sayılan yaratılır abonelik üzerinden fiyatlandırma için uygulama başına düğüm başına ücretlerinizi. 12 telemetri göndermesini beş düğümleriniz varsa uygulamalar ücret olduğundan için beş düğüm.
-* Aylık ücret tırnak içine rağmen yalnızca içinde ve bir düğüm telemetri bir uygulamadan gönderir her saat için ücret ödersiniz. Tırnak işaretli aylık ücret saatlik ücret olduğu / 744 (saat cinsinden 31 gün ay sayısı).
-* 200 MB günde bir veri birimi ayırma (saatlik ayrıntı) algılanan her düğüm için verilir. Kullanılmayan veri ayırma bir günden sonraki devredilir değil.
- * Kurumsal fiyatlandırma seçeneği belirlerseniz, her abonelik bir günlük indirimi veri aboneliğin Application Insights kaynaklarına telemetri göndermesini düğüm sayısını temel alır. Bu nedenle tüm günlük verileri gönderme 5 düğümleriniz varsa, bu Abonelikteki tüm Application Insights kaynaklarına uygulanan 1 GB havuza alınmış bir indirimi gerekir. Dahil edilen veri tüm düğümleri arasında paylaşıldığından belirli düğümler diğer düğümlere daha fazla veri gönderiyorsanız önemli değildir. Belirli bir tarihteki Application Insights kaynakları Bu abonelik için günlük veri ayırma dahil daha fazla veri almaya devam ederseniz, GB başına fazla kullanım veri ücretleri uygulanır. 
- * Günlük verileri indirimi saat (UTC kullanarak) gün cinsinden sayı olarak hesaplanır her düğüm tarafından 24 kez 200 MB bölünmüş telemetri gönderiyor. 15 gün içinde 24 saatlik sırasında telemetri göndermesini 4 düğüm varsa, o gün için dahil edilen veri olacak şekilde ((4 x 15) / 24) 200 MB = 500 MB x. Düğümleri o gün 1 GB veri gönderirseniz veri fazlalık için fiyat GB başına 2.30 ABD Doları, ücret 1,15 ABD Doları olacaktır.
- * Planın günlük indirimi için temel seçenek ve kullanılmayan indirimi seçtiniz uygulamalarla paylaşılmayan Kurumsal gelen günlük devredilir değil. 
+ * Uygulamanızı bir web hizmeti ve arka uç çalışan gibi telemetri göndermesine çeşitli bileşenleri varsa bileşenleri ayrı olarak sayılır.
+ * [Canlı ölçümleri akış](app-insights-live-stream.md) veri yok sayılan amacıyla fiyatlandırma için. Bir abonelikte, uygulama başına düğüm başına ücretlerinizi şunlardır. 12 telemetri göndermesine beş düğüm varsa uygulamalar, ücret olduğu için beş düğüm.
+* Aylık ücret tırnak içine rağmen yalnızca içinde ve bir düğüm telemetri bir uygulamadan gönderir her saat için ücret ödersiniz. Saatlik ücret 744 (saat cinsinden 31 gün ay sayısı) bölü tırnak işaretli aylık ücret ' dir.
+* 200 MB günde bir veri birimi ayırma (saatlik ayrıntı) algılanan her bir düğüm için verilir. Kullanılmayan veri ayırma bir günden sonraki devreden değil.
+ * Planı fiyatlandırma Kurumsal seçerseniz, her abonelik bir günlük indirimi veri aboneliğin Application Insights kaynaklarına telemetri göndermesine düğüm sayısını temel alır. Bu nedenle, tüm gün verileri gönder beş düğüm varsa, bu Abonelikteki tüm Application Insights kaynaklarına uygulanan 1 GB havuza alınmış bir indirimi sahip olacaksınız. Dahil edilen veri tüm düğümleri arasında paylaşıldığından belirli düğümler diğer düğümlere daha fazla veri gönderirseniz, önemli değildir. Belirli bir tarihteki Application Insights kaynakları Bu abonelik için günlük veri ayırma dahil daha fazla veri almaya devam ederseniz, GB başına fazla kullanım veri ücretleri uygulanır. 
+ * Günlük verileri indirimi saat (UTC kullanarak) gün cinsinden sayı olarak hesaplanır her düğüm tarafından 200 MB çarpılan 24 bölü telemetri gönderir. Bu nedenle, günün 24 saatlik 15 sırasında telemetri göndermesine dört düğüm varsa, o gün için dahil edilen veri olması ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB. Düğümleri o gün 1 GB veri gönderirseniz veri fazlalık için fiyat GB başına 2.30 ABD Doları, ücret 1,15 ABD Doları olacaktır.
+ * Kurumsal plan günlük indirimi temel plan seçtiğiniz uygulamalarla paylaşılmaz. Kullanılmayan indirimi gelen günlük devreden değil. 
 
-## <a name="here-are-some-examples-of-determining-distinct-node-count"></a>İşte bazı örnekler ayrı düğüm sayısını belirleme
+## <a name="examples-of-how-to-determine-distinct-node-count"></a>Ayrı düğüm sayısını belirlemek nasıl örnekleri
 
 | Senaryo                               | Günlük toplam düğüm sayısı |
 |:---------------------------------------|:----------------:|
 | 1 uygulama 3 Azure uygulama hizmeti örnekleri ve 1 sanal sunucu kullanma | 4 |
-| aynı abonelikte ve kurumsal planındaki 2 VM ve bu uygulamalar için Application Insights kaynaklar üzerinde çalışan 3 uygulamaları geçerlidir | 2 | 
-| 4 uygulamalar aynı abonelikte, uygulamaları Öngörüler kaynaklardır. Her uygulama 16 saatlerde 2 örnekleri ve 4 örnekleri 8 yoğun saatlerde çalışır. | 13.33 | 
+| 2 VM'ler üzerinde çalıştırılan 3 uygulamaları; Bu uygulamalar için Application Insights kaynak aynı abonelikte ve kurumsal planı yok | 2 | 
+| 4 uygulamaları aynı abonelikte, uygulamaları Öngörüler kaynaklardır; 16 saatlerde 2 örnekleri ve 8 yoğun saatlerde 4 örneği çalıştıran her bir uygulama | 13.33 | 
 | 1 çalışan rolü ve her 2 örneklerini çalıştıran 1 Web rolü ile birlikte bulut Hizmetleri | 4 | 
-| 3 örneği çalıştıran her mikro hizmet 50 mikro services çalıştıran 5-node Service Fabric kümesi | 5|
+| 50 mikro çalıştıran 5 düğümlü Azure Service Fabric kümesi; 3 örneği çalıştıran her mikro hizmet | 5|
 
-* Application Insights SDK'sı, uygulamanızın kullandığı davranışı sayım kesin düğümü bağlıdır. 
-  * SDK sürümlerinde 2.2 ve sonraki sürümlerde, Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) veya [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) rapor her uygulama düğümü, örneğin fiziksel sunucu ve VM ana bilgisayar adı olarak barındıracak veya Bulut Hizmetleri söz konusu olduğunda örnek adı.  Tek özel durum uygulamaları kullanarak yalnızca: [.NET Core](https://dotnet.github.io/) ve Application Insights çekirdek, servis talebi yalnızca bir düğüm bildirilir tüm ana bilgisayarlar için ana bilgisayar adı kullanılabilir olmadığından SDK. 
-  * SDK ' nın önceki sürümler için [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) yalnızca daha yeni SDK sürümlerini davranır ancak [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) gerçek uygulama konakları sayısından bağımsız olarak yalnızca tek bir düğüme rapor eder. 
-  * Uygulamanız, roleInstance özel bir değere ayarlamak için SDK'sı kullanıyorsa, varsayılan olarak aynı değeri düğüm sayısını belirlemek üzere kullanılır. 
-  * İstemci makineler veya mobil cihazlardan çalışan bir uygulama ile yeni bir SDK sürümünü kullanıyorsanız, düğüm sayısı (çok sayıda istemci makineleri veya mobil cihazlar) çok büyük bir sayı döndürebilir mümkündür. 
+* Sayım kesin düğümü, uygulamanızın hangi Application Insights SDK kullanarak bağlıdır. 
+  * SDK sürüm 2.2 ve daha sonra Application Insights [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) ve [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) her uygulama ana bilgisayarı bir düğüm olarak bildirin. Örnek fiziksel sunucu ve VM ana bilgisayar adı veya örnek adı bulut Hizmetleri için verilebilir.  Tek özel durum yalnızca kullanan bir uygulama olan [.NET Core](https://dotnet.github.io/) ve Application Insights çekirdek SDK'sı. Bu durumda, ana bilgisayar adı kullanılamadığı için yalnızca bir düğüm tüm ana bilgisayarlar için bildirilir. 
+  * SDK ' nın önceki sürümler için [Web SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) yeni SDK sürümleri gibi davranır ancak [Core SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) uygulama konakları sayısından bağımsız olarak yalnızca tek bir düğüme bildirir. 
+  * Uygulamanız ayarlamak için SDK'sı kullanıyorsa **roleInstance** özel bir değer, düğüm sayısını belirlemek için aynı değeri varsayılan olarak kullanılır. 
+  * İstemci makineler veya mobil cihazlardan çalışan bir uygulama ile yeni bir SDK sürümünü kullanıyorsanız, düğüm sayısı (çok sayıda istemci makineleri veya mobil cihazlar nedeniyle) çok büyük bir sayı döndürebilir. 

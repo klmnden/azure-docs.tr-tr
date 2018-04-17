@@ -1,6 +1,6 @@
 ---
-title: "Anahtar kasası gizli Azure Resource Manager şablonu ile | Microsoft Docs"
-description: "Gizli bir anahtar Kasası'nı dağıtım sırasında parametre olarak geçirmek nasıl gösterir."
+title: Anahtar kasası gizli Azure Resource Manager şablonu ile | Microsoft Docs
+description: Gizli bir anahtar Kasası'nı dağıtım sırasında parametre olarak geçirmek nasıl gösterir.
 services: azure-resource-manager,key-vault
 documentationcenter: na
 author: tfitzmac
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 04/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7e02bd9c6130ef8b120282fafa9f0ee517890d0d
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 2643f79bb1e5e2603b1bd50b04c8ee3e7496f1f7
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure anahtar kasası dağıtım sırasında güvenli parametre değeri geçirmek için kullanın
 
 Güvenli bir değerle (örneğin, parola), dağıtım sırasında parametre olarak geçirmek gerektiğinde değerini alabilir bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Anahtar kasasını ve gizli parametre dosyanıza başvurarak değerini alır. Anahtar kasası kimliğini yalnızca başvuru olduğundan değeri hiçbir zaman kullanıma Değeri için gizli anahtar kaynakları dağıttığınız her zaman el ile girmeniz gerekmez. Anahtar kasası dağıttığınız kaynak grubunu değerinden farklı bir abonelik var olabilir. Anahtar kasası başvururken abonelik kimliğini içerir
 
-Anahtar kasası oluştururken ayarlama *enabledForTemplateDeployment* özelliğine *doğru*. Bu değeri true olarak ayarlayarak, Resource Manager şablonlarını dağıtımı sırasında erişimine.
+Anahtar kasası oluştururken ayarlama *enabledForTemplateDeployment* özelliğine *doğru*. Bu değeri true olarak ayarlayarak, Resource Manager şablonları dağıtımı sırasında izni.
 
 ## <a name="deploy-a-key-vault-and-secret"></a>Bir anahtar kasası ve gizli dağıtma
 
@@ -62,7 +62,7 @@ Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue
 
 ## <a name="enable-access-to-the-secret"></a>Gizli erişimi etkinleştir
 
-Yeni bir anahtar kasası veya varolan bir kullanıp kullanmadığınızı şablon dağıtma kullanıcı gizliliği erişebildiğinden emin olun. Gizli başvuruda bulunan bir şablonu dağıtmayı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` anahtar kasası için izni. [Sahibi](../active-directory/role-based-access-built-in-roles.md#owner) ve [katkıda bulunan](../active-directory/role-based-access-built-in-roles.md#contributor) rolleri hem bu erişimi verin.
+Yeni bir anahtar kasası veya varolan bir kullanıp kullanmadığınızı şablon dağıtma kullanıcı gizliliği erişebildiğinden emin olun. Gizli başvuruda bulunan bir şablonu dağıtmayı kullanıcının olmalıdır `Microsoft.KeyVault/vaults/deploy/action` anahtar kasası için izni. [Sahibi](../role-based-access-control/built-in-roles.md#owner) ve [katkıda bulunan](../role-based-access-control/built-in-roles.md#contributor) rolleri hem bu erişimi verin.
 
 ## <a name="reference-a-secret-with-static-id"></a>Statik Kimliğine sahip bir gizlilik başvurusu
 
@@ -131,6 +131,13 @@ Bir anahtar kasası gizli alan için herhangi bir şablonu gibi şablonudur. Ç�
 }
 ```
 
+Geçerli sürüm dışında gizli bir sürümünü kullanmanız gerekiyorsa, kullanın `secretVersion` özelliği.
+
+```json
+"secretName": "examplesecret",
+"secretVersion": "cd91b2b7e10e492ebb870a6ee0591b68"
+```
+
 Şimdi, şablonu dağıtmak ve parametre dosyası geçirin. Örnek şablonunu github'dan kullanabilirsiniz, ancak yerel parametre dosyası, ortamınız için ayarlanan değerleri ile kullanmanız gerekir.
 
 Azure CLI için şunu kullanın:
@@ -157,7 +164,7 @@ New-AzureRmResourceGroupDeployment `
 
 ## <a name="reference-a-secret-with-dynamic-id"></a>Dinamik Kimliğine sahip bir gizlilik başvurusu
 
-Önceki bölümde anahtar kasasına gizli anahtarı için bir statik kaynak kimliği geçirmek nasıl oluşturulacağını gösterir. Ancak, bazı senaryolarda, geçerli dağıtımı göre değişen bir anahtar kasası gizlilik başvuru gerekir. Bu durumda, sabit kodlu Parametreler dosyasında kaynak kimliği olamaz. Ne yazık ki, şablon ifadeleri Parametreler dosyasında izin verilmiyor çünkü parametreleri dosyasında kaynak kimliği dinamik olarak oluşturulamıyor.
+Önceki bölümde anahtar kasasına gizli anahtarı için bir statik kaynak kimliği geçirmek nasıl oluşturulacağını gösterir. Ancak, bazı senaryolarda, geçerli dağıtımı göre değişen bir anahtar kasası gizlilik başvuru gerekir. Bu durumda sabit kodlu Parametreler dosyasında kaynak kimliği yapılamıyor. Ne yazık ki, şablon ifadeleri Parametreler dosyasında izin verilmediğinden Parametreler dosyasında kaynak kimliği dinamik olarak oluşturulamıyor.
 
 Kaynak kimliği için bir anahtar kasası gizlilik dinamik olarak oluşturmak için bağlantılı bir şablona gizli anahtar gerekiyor kaynak taşımanız gerekir. Üst şablonunuzda bağlantılı şablonuna ekleme ve dinamik olarak üretilen kaynak kimliği içeren bir parametre geçirin Aşağıdaki resimde, bağlantılı şablonu içindeki bir parametre gizli nasıl başvuruyor gösterir.
 

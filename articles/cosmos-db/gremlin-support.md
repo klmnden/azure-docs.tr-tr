@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: b13e31be58502d670b11dace1f646b0632a2f039
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
 Azure Cosmos DB destekleyen [Apache Tinkerpop'ın](http://tinkerpop.apache.org) grafik geçişi dil [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), grafik varlıkları oluşturma ve grafik sorgu işlemleri gerçekleştirmek için bir grafik API'si olan. Grafik varlıkları (köşeleri ve kenarları) oluşturmak, bu varlıkların içinde özelliklerini değiştirmek, sorgular ve çapraz geçişlerine gerçekleştirmek ve varlıkları silmek için Gremlin dil kullanabilirsiniz. 
@@ -154,18 +154,12 @@ Her bir özellik, bir dizi birden çok değer depolayabilirsiniz.
 | --- | --- |
 | değer | Özelliğinin değeri
 
-## <a name="gremlin-partitioning"></a>Gremlin bölümlendirme
-
-Azure Cosmos DB'de grafikleri ölçeklendirebilirsiniz kapsayıcılara depolanan bağımsız olarak bakımından depolama üretilen işi (normalleştirilmiş istekleri / saniye cinsinden). Her kapsayıcı isteğe bağlı bir tanımlamanız gerekir, ancak ilgili veriler için bir mantıksal bölüm sınır belirler bölüm anahtar özelliği önerilir. Her köşe/kenar olmalıdır bir `id` Bu bölüm anahtarı değerini varlıkları için benzersizdir özelliği. Ayrıntıları ele alınmaktadır [Azure Cosmos DB'de bölümleme](partition-data.md).
-
-Gremlin işlemleri Azure Cosmos DB birden çok bölüm span grafik verileri arasında sorunsuz çalışır. Ancak, bir filtre sorgularında, birçok farklı değerleri, ve benzer sıklığını erişimine sahip bu değerleri gibi sık kullanılan bir bölüm anahtarı, grafiklerde seçmek için önerilir. 
-
 ## <a name="gremlin-steps"></a>Gremlin adımları
 Artık Azure Cosmos DB tarafından desteklenen Gremlin adımları bakalım. Gremlin üzerinde tam bir başvuru için bkz: [TinkerPop başvuru](http://tinkerpop.apache.org/docs/current/reference).
 
 | Adım | Açıklama | TinkerPop 3.2 belgeleri |
 | --- | --- | --- |
-| `addE` | İki köşeleri arasında kenar ekler | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addE` | İki köşeleri arasında kenar ekler | [addE adım](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Grafiğe bir köşe ekler | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | Tüm çapraz geçişlerine bir değer döndürmesi sağlar | [ve adım](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | Bir adım için bir değişken atamak için bir adım modülatörü | [adım olarak](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
@@ -187,7 +181,7 @@ Artık Azure Cosmos DB tarafından desteklenen Gremlin adımları bakalım. Grem
 | `or` | Çapraz geçişlerine en az biri bir değer döndürür sağlar | [veya adımı](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
 | `order` | Belirtilen sıralama düzeni sonuçlarında döndürür | [Sipariş adım](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
 | `path` | Geçişi tam yolunu döndürür | [yol adım](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Bir eşleme özelliklerini projeleri | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `project` | Bir eşleme özelliklerini projeleri | [Proje adım](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
 | `properties` | Belirtilen etiket için özellikleri döndürür | [özellikleri adım](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
 | `range` | Belirtilen değer aralığı için filtreleri| [Aralık adım](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Adım belirtilen sayıda için yineler. Döngü için kullanılan | [adımı yineleyin](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
@@ -197,7 +191,7 @@ Artık Azure Cosmos DB tarafından desteklenen Gremlin adımları bakalım. Grem
 | `tree` | Bir ağaç içine köşe toplama yolları | [Ağaç adım](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Yineleyici bir adım olarak unroll| [Adım unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
 | `union` | Birden çok çapraz geçişlerine sonuçlarından birleştirme| [birleşim adım](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Köşeleri ve kenarları arasında çapraz geçişlerine için gerekli olan adımları içerir `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV` , `bothV`, ve `otherV` için | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `V` | Köşeleri ve kenarları arasında çapraz geçişlerine için gerekli olan adımları içerir `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV` , `bothV`, ve `otherV` için | [Köşe adımları](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
 | `where` | Geçişi sonuçlarını filtrelemek için kullanılır. Destekler `eq`, `neq`, `lt`, `lte`, `gt`, `gte`, ve `between` işleçleri  | [Burada adım](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
 Azure Cosmos DB tarafından sağlanan yazma iyileştirilmiş altyapısı otomatik köşeleri ve kenarları içindeki tüm özelliklerinin varsayılan dizin oluşturmayı destekler. Bu nedenle, sorgular filtreleriyle, sorguları, sıralama, aralık veya herhangi bir özellikte toplamalar dizinden işlenir ve verimli bir şekilde hizmet. Üzerinde şu incelemeyi Azure Cosmos veritabanı dizin oluşturma nasıl çalıştığıyla ilgili daha fazla bilgi için bkz [şema belirsiz dizin](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
