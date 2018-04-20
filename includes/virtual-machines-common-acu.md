@@ -9,10 +9,10 @@ ms.date: 03/09/2018
 ms.author: cynthn;davberg
 ms.custom: include file
 ms.openlocfilehash: fde43e40a7a5bb87b9e63af47ae795616fac8b3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/20/2018
 ---
 Azure işlem birim'nı (ACU) kavramı Azure SKU'ları üzerinde işlem (CPU) performans karşılaştırma bir yolunu sunar. Bu birim, performans ihtiyaçlarınızı karşılayabilecek SKU'yu kolayca belirlemenize yardımcı olacak.  ACU şu anda Küçük (Standard_A1) VM'de 100 olarak standart haline getirilmiş ve diğer tüm SKU'lar, standart bir karşılaştırmalı testte sunabilecekleri yaklaşık hıza göre derecelendirilmiştir. 
 
@@ -23,7 +23,7 @@ Azure işlem birim'nı (ACU) kavramı Azure SKU'ları üzerinde işlem (CPU) per
 
 <br>
 
-| SKU Ailesi | ACU \ vCPU | vCPU: Core |
+| SKU Ailesi | ACU \ vCPU | vCPU: çekirdek |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1-A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |

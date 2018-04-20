@@ -1,8 +1,8 @@
 ---
-title: "Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma | Microsoft Docs"
-description: "Bulutta içi veritabanları arasında verileri günlük olarak birlikte taşımak iki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlayın."
+title: Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma | Microsoft Docs
+description: Bulutta içi veritabanları arasında verileri günlük olarak birlikte taşımak iki veri taşıma etkinlikleri oluşturur bir ADF ardışık ayarlayın.
 services: machine-learning
-documentationcenter: 
+documentationcenter: ''
 author: bradsev
 manager: jhubbard
 editor: cgronlun
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: bradsev
 ms.openlocfilehash: 05884fd39db284e268f31987e5ad7a47b9f87ebf
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory ile SQL Azure için bir şirket içi SQL Server'dan veri taşıma
 Bu konu, Azure veri fabrikası (ADF) kullanarak verileri bir şirket içi SQL Server veritabanından bir SQL Azure veritabanına Azure Blob Storage nasıl taşınacağı gösterir.
@@ -51,7 +51,7 @@ ADF zamanlama ve işleri düzenli aralıklarla veri hareketini yönetmek basit J
 ## <a name="prereqs"></a>Önkoşullar
 Bu öğretici, sahip olduğunuz varsayılmaktadır:
 
-* Bir **Azure aboneliği**. Bir aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
+* Bir **Azure aboneliği**. Aboneliğiniz yoksa [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/) için kaydolabilirsiniz.
 * Bir **Azure depolama hesabı**. Bu öğreticide verileri depolamak için bir Azure depolama hesabı kullanın. Azure depolama hesabınız yoksa [Depolama hesabı oluşturma](../../storage/common/storage-create-storage-account.md#create-a-storage-account) makalesine bakın. Depolama hesabını oluşturduktan sonra, depolamaya erişmek için kullanılan hesap anahtarını edinmeniz gerekir. Bkz: [depolama erişim tuşlarınızı yönetme](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
 * Erişim bir **Azure SQL veritabanı**. Bir Azure SQL veritabanı, konu ayarlanması varsa [Microsoft Azure SQL veritabanı ile çalışmaya başlama ](../../sql-database/sql-database-get-started.md) bir Azure SQL veritabanına yeni bir örneğini sağlayacak bilgiler verilmektedir.
 * Yüklenmiş ve yapılandırılmış **Azure PowerShell** yerel olarak. Yönergeler için bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview).
@@ -113,7 +113,7 @@ Tablolar JSON tabanlı tanımlarında aşağıdaki adları kullanın:
 >
 >
 
-### <a name="adf-table-onprem-sql">SQL şirket içi tablosu</a>
+### <a name="adf-table-onprem-sql"></a>SQL şirket içi tablosu
 Şirket içi SQL Server için tablo tanımı aşağıdaki JSON dosyasında belirtilir:
 
         {
@@ -148,7 +148,7 @@ Tablosunun JSON tanımını bir dosyaya adlı kopya *onpremtabledef.json* dosya 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
-### <a name="adf-table-blob-store">BLOB tablosu </a>
+### <a name="adf-table-blob-store"></a>BLOB tablosu
 Tablosu için çıkış blob konumu tanımıdır (Bu eşler şirket içi Azure blob alınan verileri) aşağıdaki:
 
         {
@@ -178,7 +178,7 @@ Tablosunun JSON tanımını bir dosyaya adlı kopya *bloboutputtabledef.json* do
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
-### <a name="adf-table-azure-sql">SQL Azure tablo</a>
+### <a name="adf-table-azure-sql"></a>SQL Azure tablo
 SQL Azure tablo tanımı çıkış (Bu şemayı eşlemeleri blobundan gelen veriler) aşağıdaki:
 
     {

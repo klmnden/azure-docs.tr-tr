@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri proxy'leri ile çalışırsınız | Microsoft Docs"
-description: "Azure işlevleri proxy'leri kullanma genel bakış"
+title: Azure işlevleri proxy'leri ile çalışırsınız | Microsoft Docs
+description: Azure işlevleri proxy'leri kullanma genel bakış
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: alexkarcher-msft
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/22/2018
 ms.author: alkarche
 ms.openlocfilehash: 0e7fe474c3b247baa6550770c661af62e83b3737
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure işlevleri proxy ile çalışma
 
@@ -84,8 +84,8 @@ Rota şablonda kullanılan parametreleri adıyla başvurulması kullanılabilir.
 Rota şablonu parametrelerine ek olarak, aşağıdaki değerleri yapılandırma değerleri kullanılabilir:
 
 * **{request.method}** : Özgün istekte kullanılan HTTP yöntemi.
-* **{request.headers. \<HeaderName\>}**: özgün istekteki veriye okunabilir bir üstbilgi. Değiştir  *\<HeaderName\>*  okumak istediğiniz üstbilgi adı. Üstbilgi isteğinde bulunmuyorsa, değer boş dize olacaktır.
-* **{request.querystring.\<ParameterName\>}**: A query string parameter that can be read from the original request. Değiştir  *\<ParameterName\>*  okumak istediğiniz parametre adı. Parametre isteğinde bulunmuyorsa, değer boş dize olacaktır.
+* **{request.headers. \<HeaderName\>}**: özgün istekteki veriye okunabilir bir üstbilgi. Değiştir *\<HeaderName\>* okumak istediğiniz üstbilgi adı. Üstbilgi isteğinde bulunmuyorsa, değer boş dize olacaktır.
+* **{request.querystring. \<ParameterName\>}**: özgün istekteki veriye okunabilir bir sorgu dizesi parametresi. Değiştir *\<ParameterName\>* okumak istediğiniz parametre adı. Parametre isteğinde bulunmuyorsa, değer boş dize olacaktır.
 
 ### <a name="response-parameters"></a>Başvuru arka uç yanıt parametreleri
 
@@ -93,7 +93,7 @@ Yanıt parametrelerinin istemciye yanıtına değiştirerek bir parçası olarak
 
 * **{backend.response.statusCode}** : Arka uç yanıtta döndürülen HTTP durum kodu.
 * **{backend.response.statusReason}** : Arka uç yanıtta döndürülen HTTP neden ifadesini.
-* **{backend.response.headers. \<HeaderName\>}**: arka uç yanıttan okunabilir bir üstbilgi. Değiştir  *\<HeaderName\>*  okumak istediğiniz üstbilgi adı. Üstbilgi yanıtta dahil edilmezse, değer boş dize olacaktır.
+* **{backend.response.headers. \<HeaderName\>}**: arka uç yanıttan okunabilir bir üstbilgi. Değiştir *\<HeaderName\>* okumak istediğiniz üstbilgi adı. Üstbilgi yanıtta dahil edilmezse, değer boş dize olacaktır.
 
 ### <a name="use-appsettings"></a>Başvuru uygulama ayarları
 
@@ -175,8 +175,8 @@ Ekleyerek tek tek proxy'leri devre dışı bırakabilirsiniz `"disabled": true` 
 RequestOverrides nesnesi isteği arka uç kaynak çağrıldığında yapılan değişiklikleri tanımlar. Nesne aşağıdaki özellikleri tarafından tanımlanır:
 
 * **backend.Request.Method**: arka uç çağırmak için kullanılan HTTP yöntemi.
-* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Değiştir  *\<ParameterName\>*  ayarlamak istediğiniz parametre adı. Boş dize sağlanırsa, parametre arka uç isteği dahil edilmez.
-* **backend.request.headers.\<HeaderName\>**: A header that can be set for the call to the back-end. Değiştir  *\<HeaderName\>*  ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi arka uç isteği dahil edilmez.
+* **backend.request.querystring.\<ParameterName\>**: A query string parameter that can be set for the call to the back-end. Değiştir *\<ParameterName\>* ayarlamak istediğiniz parametre adı. Boş dize sağlanırsa, parametre arka uç isteği dahil edilmez.
+* **backend.Request.Headers. \<HeaderName\>**: çağrısı arka uç için ayarlanabilecek üstbilgi. Değiştir *\<HeaderName\>* ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi arka uç isteği dahil edilmez.
 
 Uygulama ayarları ve parametreleri değerleri özgün istemci istekten başvuruda bulunabilir.
 
@@ -208,7 +208,7 @@ RequestOverrides nesnesi istemciye geçirilen yanıta yapılan değişiklikleri 
 * **response.statusCode**: istemciye döndürülecek HTTP durum kodu.
 * **response.statusReason**: istemciye döndürülecek HTTP neden ifadesini.
 * **Response.body**: istemciye döndürülecek gövde dize gösterimi.
-* **Response.Headers. \<HeaderName\>**: istemci yanıtı için ayarlanan üstbilgi. Değiştir  *\<HeaderName\>*  ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi yanıtta dahil edilmez.
+* **Response.Headers. \<HeaderName\>**: istemci yanıtı için ayarlanan üstbilgi. Değiştir *\<HeaderName\>* ayarlamak istediğiniz üstbilgi adı. Boş dize sağlarsanız, üstbilgi yanıtta dahil edilmez.
 
 Uygulama ayarları, özgün istemci İstek parametreleri ve parametreleri değerleri arka uç yanıttan başvuruda bulunabilir.
 

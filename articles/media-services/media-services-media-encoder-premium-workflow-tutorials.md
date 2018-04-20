@@ -1,11 +1,11 @@
 ---
-title: "Avanced Medya Kodlayıcısı Premium iş akışı öğreticileri"
-description: "Bu belge Medya Kodlayıcısı Premium akışıyla Gelişmiş görevlerin nasıl gerçekleştirileceği ve ayrıca iş akışı Tasarımcısı ile karmaşık iş akışları oluşturmak nasıl gösteren izlenecek yollar içeriyor."
+title: Avanced Medya Kodlayıcısı Premium iş akışı öğreticileri
+description: Bu belge Medya Kodlayıcısı Premium akışıyla Gelişmiş görevlerin nasıl gerçekleştirileceği ve ayrıca iş akışı Tasarımcısı ile karmaşık iş akışları oluşturmak nasıl gösteren izlenecek yollar içeriyor.
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: xstof
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
 ms.workload: media
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
 ms.openlocfilehash: 8b714fcf001a6830cffe4df8c152dab40834c7c4
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Gelişmiş Medya Kodlayıcısı Premium iş akışı öğreticileri
 ## <a name="overview"></a>Genel Bakış
 Bu belge iş akışlarıyla özelleştirmeyi Göster izlenecek yollar içeriyor **iş akışı Tasarımcısı**. Gerçek iş akışı dosyalarını bulabilirsiniz [burada](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
-## <a name="toc"></a>TOC
+## <a name="toc"></a>İÇİNDEKİLER
 Aşağıdaki konular ele alınmaktadır:
 
 * [Tek bit hızlı MP4 MXF kodlama](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)
@@ -66,10 +66,10 @@ Aşağıdaki konular ele alınmaktadır:
   * [Komut dosyası bir bileşenin küçük listesini değiştirme](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_modify_clip_list)
   * [ClippingEnabled kolaylık özellik ekleme](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim_clippingenabled_prop)
 
-## <a id="MXF_to_MP4">Tek bit hızlı MP4 MXF kodlama</a>
+## <a id="MXF_to_MP4"></a>Tek bit hızlı MP4 MXF kodlama
 Bu bölüm, tek bit hızlı oluşturulacağını gösterir. MP4 dosyası AAC-HE ile kodlanmış ses öğesinden bir. MXF giriş dosyası.
 
-### <a id="MXF_to_MP4_start_new">Yeni bir iş akışı başlatma</a>
+### <a id="MXF_to_MP4_start_new"></a>Yeni bir iş akışı başlatma
 İş Akışı Tasarımcısı'ni açın ve dosyayı seçin > Yeni bir çalışma alanı > kodlamasını şeması
 
 Yeni bir iş akışı üç öğeleri gösterir:
@@ -80,44 +80,44 @@ Yeni bir iş akışı üç öğeleri gösterir:
 
 ![Yeni bir kodlama iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-transcode-blueprint.png)
 
-Yeni bir kodlama iş akışı
+*Yeni bir kodlama iş akışı*
 
-### <a id="MXF_to_MP4_with_file_input">Medya dosyası girişi kullanma</a>
+### <a id="MXF_to_MP4_with_file_input"></a>Medya dosyası girişi kullanma
 Giriş medya dosyası kabul etmek için bir medya dosyası giriş bileşeni ekleme ile başlar. Bir bileşenin iş akışına eklemek için deposu arama kutusuna aramanız ve istenen girişi Tasarımcı bölmesine sürükleyin. Eylem medya dosyası giriş için yineleyin ve birincil kaynak dosya bileşen Filename giriş PIN medya dosyası giriş bağlanın.
 
 ![Bağlı ortam giriş dosyası](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-input.png)
 
-Bağlı ortam giriş dosyası
+*Bağlı ortam giriş dosyası*
 
 Başlangıçta, özel bir iş akışında tasarlarken kullanılacak uygun örnek dosyasını tanımlayın. Bunu yapmak için tasarımcı bölmesinde arka plan tıklayın ve sağ taraftaki özellik bölmesinde birincil kaynak dosya özellikte arayın. Klasör simgesine tıklayın ve iş akışı test etmek istediğiniz dosyayı seçin. Medya dosyası giriş bileşen dosya inceler ve bu Denetlenmekte örnek dosyası ayrıntılarını yansıtacak şekilde kendi çıktı pini doldurur.
 
 ![Doldurulan ortam giriş dosyası](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-populated-media-file-input.png)
 
-Doldurulan ortam giriş dosyası
+*Doldurulan ortam giriş dosyası*
 
 Giriş doldurulur, sonraki adıma kodlama ayarları çıkış ayarlamaktır. Benzer şekilde nasıl birincil kaynak dosyası yapılandırıldı, hemen altındaki çıkış klasörü değişken özelliği şimdi yapılandırın.
 
 ![Yapılandırılan giriş ve çıkış özellikleri](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configured-io-properties.png)
 
-Yapılandırılan giriş ve çıkış özellikleri
+*Yapılandırılan giriş ve çıkış özellikleri*
 
-### <a id="MXF_to_MP4_streams">Medya akışlarının inceleniyor</a>
+### <a id="MXF_to_MP4_streams"></a>Medya akışlarının inceleniyor
 Genellikle akışı akıp nasıl akış benzer bilmeniz istenen. İş akışı içinde herhangi bir noktada bir akış incelemek için yalnızca bir çıkış veya giriş PIN bileşenleri hiçbirinde tıklatın. Bu durumda, ortam dosyası girdisinden sıkıştırılmamış Video Çıkış PIN tıklayarak deneyin. Giden video incelemek için veren açılan bir iletişim kutusu.
 
 ![Sıkıştırılmamış Video Çıkış PIN inceleniyor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-inspecting-uncompressed-video-output.png)
 
-Sıkıştırılmamış Video Çıkış PIN inceleniyor
+*Sıkıştırılmamış Video Çıkış PIN inceleniyor*
 
 Bu durumda, video 24 çerçeveler saniyede 4 konumundaki 1920 x 1080 giriş içerdiğini gösterir: 2:2 örnekleme neredeyse 2 dakikalık video.
 
-### <a id="MXF_to_MP4_file_generation">Bir video Kodlayıcısı için ekleniyor. MP4 dosyası oluşturma</a>
+### <a id="MXF_to_MP4_file_generation"></a>Bir video Kodlayıcısı için ekleniyor. MP4 dosyası oluşturma
 Şimdi, sıkıştırılmamış bir Video ve PIN'ler için kullanılabilen birden çok sıkıştırılmamış ses çıkış medya dosyası giriş, kullanın. Gelen videoyu kodlamak için bir kodlama bileşen iş akışı için - bu durumda oluşturmak için eklenmesi gerekir. Mp4 dosyaları.
 
 H.264 video akışına kodlayın Tasarımcı yüzeyine AVC Video Kodlayıcısı bileşen ekleyin. Bu bileşen uncompress video akışına giriş olarak alır ve bir AVC sıkıştırılmış video akışı kendi çıktı PIN sunar.
 
 ![Bağlantısız AVC kodlayıcı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
-Bağlantısız AVC kodlayıcı
+*Bağlantısız AVC kodlayıcı*
 
 Özellikleri tam olarak kodlama nasıl gerçekleştiğini belirleyin. Şimdi daha önemli ayarlardan bazıları bakma vardır:
 
@@ -136,7 +136,7 @@ AVC Kodlayıcı akış için medya dosyası giriş bileşeninden sıkıştırıl
 
 *Bağlı AVC ana kodlayıcı*
 
-### <a id="MXF_to_MP4_audio">Ses akışı kodlama</a>
+### <a id="MXF_to_MP4_audio"></a>Ses akışı kodlama
 Bu noktada, özgün sıkıştırılmamış ses akışı hala sıkıştırılmış gerekir. Ses akışı Sıkıştırma akışına AAC Kodlayıcı (Dolby) bileşeni ekleyin.
 
 ![Bağlantısız AVC kodlayıcı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
@@ -149,31 +149,31 @@ Bir uyumsuzluk şimdi: büyük olasılıkla medya dosyası giriş iki farklı s�
 
 ![Ses akışı ayırıcı bağlı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-audio-stream-interleaver.png)
 
-Ses akışı ayırıcı bağlı
+*Ses akışı ayırıcı bağlı*
 
 Bir araya eklemeli ses akışını sahibiz, biz hala sola veya sağa Konuşmacı konumlara atamak istediğiniz yeri belirtin alamadık. Bu belirtmek için Konuşmacı konumu Assigner yararlanabilirsiniz.
 
 ![Konuşmacı konumu Assigner ekleme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-speaker-position-assigner.png)
 
-Konuşmacı konumu Assigner ekleme
+*Konuşmacı konumu Assigner ekleme*
 
 Konuşmacı konumu Assigner kullanmak için olan stereo giriş akış bir kodlayıcı önceden filtresinden "Özel" ve "2.0 (M, R)." adlı kanal önceden yapılandırın. (Bu 1 kanal için sol Konuşmacı konumu ve sağ Konuşmacı konumu kanalına 2 atar.)
 
 Konuşmacı konumu Assigner çıkışına AAC Kodlayıcı girişine bağlayın. Ardından, bir "2.0 ile (M, R)" çalışacak biçimde AAC Kodlayıcı söyleyin kanal stereo ses giriş olarak çalışılabilecek bilmesi için hazır.
 
-### <a id="MXF_to_MP4_audio_and_fideo">Ses ve Video akışları bir MP4 kapsayıcıya çoğullama</a>
+### <a id="MXF_to_MP4_audio_and_fideo"></a>Ses ve Video akışları bir MP4 kapsayıcıya çoğullama
 Bizim AVC belirli bir ses akışını kodlanmış video akışına ve bizim AAC kodlanmış, biz içine yakalamak için bir. MP4 kapsayıcı. Farklı akışları tek bir karıştırma işleminin "çoğullama" (veya "muxing") adı verilir. Bu durumda, biz ses ve video akışları tek bir tutarlı Interleaving. MP4 paketi. Bu düzenler bileşen bir. MP4 kapsayıcı ISO MPEG-4 çoğaltıcı adı verilir. Tasarımcı yüzeyine ekleyin ve AVC Video Kodlayıcısı ve AAC Kodlayıcı girdilerinden için bağlanın.
 
 ![Bağlı MPEG4 çoğaltıcı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-mpeg4-multiplexer.png)
 
-Bağlı MPEG4 çoğaltıcı
+*Bağlı MPEG4 çoğaltıcı*
 
-### <a id="MXF_to_MP4_writing_mp4">MP4 dosyası yazılıyor</a>
+### <a id="MXF_to_MP4_writing_mp4"></a>MP4 dosyası yazılıyor
 Dosya çıktısı bileşeni bir çıktı dosyası yazılırken kullanılır. Çıktısını yazılmış Biz bu ISO MPEG-4 çoğaltıcı çıkışına bağlanabileceği diske. Bunu yapmak için yazma giriş PIN dosya çıktısı için kapsayıcı (MPEG-4) çıkış PIN bağlayın.
 
 ![Dosya çıktısı bağlı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-file-output.png)
 
-Dosya çıktısı bağlı
+*Dosya çıktısı bağlı*
 
 Kullanılan dosya adı dosya özelliği tarafından belirlenir. Bu özellik sabit kodlanmış belirli bir değere olabilirler, ancak bunun yerine bir ifade yoluyla ayarlamak büyük olasılıkla bir istemektedir.
 
@@ -181,7 +181,7 @@ Kullanılan dosya adı dosya özelliği tarafından belirlenir. Bu özellik sabi
 
 ![Boş ifade Düzenleyicisi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-empty-expression-editor.png)
 
-Boş ifade Düzenleyicisi
+*Boş ifade Düzenleyicisi*
 
 İfade Düzenleyicisi, bir veya daha fazla değişken ile karma herhangi bir değişmez değer girmenizi sağlar. Değişkenleri dolar işareti başlatın. $ Anahtar isabet gibi Düzenleyici bir seçenek kullanılabilir değişkenlere sahip bir açılan kutu gösterir. Çıktı dizini değişken ve temel giriş dosyası adı değişkeni bileşimini örneğimizde kullanacağız:
 
@@ -189,7 +189,7 @@ Boş ifade Düzenleyicisi
 
 ![İfade Düzenleyicisi çıkışı dolu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-expression-editor.png)
 
-İfade Düzenleyicisi çıkışı dolu
+*İfade Düzenleyicisi çıkışı dolu*
 
 > [!NOTE]
 > Kodlama işinin azure'da bir çıkış dosyasını görmek için bir değer ifadesi düzenleyicisinde sağlamanız gerekir.
@@ -200,9 +200,9 @@ Tamam basarsa tarafından ifade onayladığınızda özellik penceresi hangi dos
 
 ![Çıktı dizini dosyası ifadesini çözümler](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-file-expression-resolves-output-dir.png)
 
-Çıktı dizini dosyası ifadesini çözümler
+*Çıktı dizini dosyası ifadesini çözümler*
 
-### <a id="MXF_to_MP4_asset_from_output">Çıktı dosyasından bir Media Services varlık oluşturma</a>
+### <a id="MXF_to_MP4_asset_from_output"></a>Çıktı dosyasından bir Media Services varlık oluşturma
 Biz bir MP4 çıktı dosyası yazılmış olsa da, biz yine bu dosyaların hangi media services oluşturur bu iş akışı yürütmenin sonucu olarak çıkış varlığına ait belirtmeniz gerekir. Bu amaçla, iş akışı tuval üzerinde çıktı dosyası/varlık düğümü kullanılır. Bu düğüm tüm gelen dosyalarıyla sonuç Azure Media Services varlık parçası olun.
 
 Dosya çıktısı bileşen iş akışı tamamlamak için çıktı dosyası/varlık bileşenine bağlayın.
@@ -211,7 +211,7 @@ Dosya çıktısı bileşen iş akışı tamamlamak için çıktı dosyası/varl�
 
 *Tamamlanmış iş akışı*
 
-### <a id="MXF_to_MP4_test">Tamamlanmış iş akışı yerel olarak test etme</a>
+### <a id="MXF_to_MP4_test"></a>Tamamlanmış iş akışı yerel olarak test etme
 İş akışı yerel olarak test etmek için üst araç çubuğunda YÜRÜT düğmesine basın. İş akışı yürütme tamamlandığında, yapılandırılan çıkış klasöründe oluşturulan çıktıyı inceleyin. MXF giriş kaynağı dosyasından kodlanan tamamlanmış MP4 çıktı dosyası görürsünüz.
 
 ## <a id="MXF_to_MP4_with_dyn_packaging"></a>Dinamik paketleme etkin MP4 - multibitrate MXF kodlama
@@ -221,16 +221,16 @@ Ne zaman Çoklu bit hızlı varlık çıkış birlikte kullanmak için Azure Med
 
 ![İş akışı başlatma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow.png)
 
-İş akışı başlatma
+*İş akışı başlatma*
 
-### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs">Bir veya daha fazla ek MP4 çıktı ekleme</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_more_outputs"></a>Bir veya daha fazla ek MP4 çıktı ekleme
 Sonuçta elde edilen bizim Azure Media Services varlık her MP4 dosyasında farklı bit hızı ve çözüm destekler. Bir veya daha fazla MP4 çıktı dosyaları akışına ekleyelim.
 
 Aynı ayarlarla oluşturulan tüm bizim video Kodlayıcıları sahibiz emin olmak için zaten varolan AVC Video Kodlayıcısı yinelenen ve başka bir birleşimi çözünürlük ve bit hızı (960 x 540 birini 2.5 MB/sn, saniye başına 25 çerçeveler adresindeki ekleyelim yapılandırmak en uygun ). Var olan Kodlayıcı çoğaltmak için kopyalama yapıştırın, Tasarımcı yüzeyine.
 
 Medya dosyası giriş sıkıştırılmamış Video Çıkış PIN bizim yeni AVC bileşen halinde bağlayın.
 
-![Second AVC encoder connected](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
+![Bağlı ikinci AVC kodlayıcı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-avc-encoder-connected.png)
 
 *Bağlı ikinci AVC kodlayıcı*
 
@@ -248,17 +248,17 @@ Bu iş akışını anlamak daha kolay hale getirmek için ilk AVC kodlayıcıya 
 
 ![Bağlı ikinci Karıştırıcı ve dosya çıktısı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-second-muxer-file-output-connected.png)
 
-Bağlı ikinci Karıştırıcı ve dosya çıktısı
+*Bağlı ikinci Karıştırıcı ve dosya çıktısı*
 
 Azure Media Services dinamik paketleme ile uyumluluk için GOP sayısı veya süresi çoğaltıcı 's öbek modunu yapılandırmak ve GOPs öbek başına 1 olarak ayarlayın. (Bu varsayılan olmalıdır.)
 
 ![Karıştırıcı öbek modları](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-muxer-chunk-modes.png)
 
-Karıştırıcı öbek modları
+*Karıştırıcı öbek modları*
 
 Not: Varlık çıktı eklemek istediğiniz diğer bit hızı ve çözüm birleşimleri için bu işlemi tekrarlayın isteyebilirsiniz.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names">Dosya çıkış adları yapılandırma</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_conf_output_names"></a>Dosya çıkış adları yapılandırma
 Birden fazla tek çıkış varlığına eklenen dosya sahibiz. Bu, her ve çıkış dosyalarının dosya adları birbirinden farklı olduğundan emin olun ve belki de ile ilgilenen dosya adından açık olacak şekilde bile dosya adlandırma kuralını uygula gerek sağlar.
 
 Çıkış dosya adlandırma Tasarımcısı'nda ifadeler ile denetlenebilir. Dosya çıktısı bileşenlerden biri için özellik bölmesini açın ve dosya özelliği için ifade Düzenleyicisi'ni açın. Bizim ilk çıkış dosyası ifadesini yapılandırılmış (gelen gitmek için öğretici bkz [tek bit hızlı MP4 çıktı MXF](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4)):
@@ -276,12 +276,12 @@ Her iki bizim çıktı dosyalarını adlandırma tutarlı çıkış vermek için
 
 Her iki MP4 çıktı dosyaları düzgün şekilde oluşturulan emin olmak için bir ara testi yürütün.
 
-### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks">Ayrı bir ses izi ekleme</a>
+### <a id="MXF_to_MP4_with_dyn_packaging_audio_tracks"></a>Ayrı bir ses izi ekleme
 Biz bizim MP4 çıktı dosyalarıyla gitmek için bir .ism dosyası oluştururken daha sonra anlatıldığı gibi biz de bir salt ses MP4 dosyası ses parçası bizim Uyarlamalı akış için gerektirir. Bu dosyayı oluşturmak için ek Karıştırıcı (ISO-MPEG-4 çoğaltıcı) eklemeniz ve AAC Kodlayıcı'nın çıkış PIN izleme 1 için kendi giriş PIN ile bağlanın.
 
 ![Ses karıştırıcı eklendi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-added.png)
 
-Ses karıştırıcı eklendi
+*Ses karıştırıcı eklendi*
 
 Üçüncü Karıştırıcı giden akış çıkışı ve dosya ifade olarak adlandırma yapılandırma dosyası çıkış bileşeni oluşturun:
 
@@ -289,7 +289,7 @@ Ses karıştırıcı eklendi
 
 ![Ses karıştırıcı dosya çıktısı oluşturma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-audio-muxer-creating-file-output.png)
 
-Ses karıştırıcı dosya çıktısı oluşturma
+*Ses karıştırıcı dosya çıktısı oluşturma*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Ekleme. ISM SMIL dosyası
 Dinamik paketleme hem MP4 dosyaları (ve yalnızca ses MP4) bizim Media Services varlık ile birlikte çalışmak de bir bildirim dosyası ihtiyacımız ("SMIL" dosyası olarak da bilinir: eşitlenmiş multimedya tümleştirme dil). Bu dosya için Azure Media Services dinamik paketleme ve bu ses akış için dikkate alınması gereken hangi MP4 dosyaları kullanılabilir gösterir. Kümesiyle tek bir ses akışını MP4'ın için tipik bir bildirim dosyası şuna benzer:
@@ -323,19 +323,19 @@ Bizim tamamlanmış iş akışı benzer altında:
 
 ![Tamamlanmış MXF multibitrate MP4 akışına](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-mxf-to-multibitrate-mp4-workflow.png)
 
-Tamamlanmış MXF multibitrate MP4 akışına
+*Tamamlanmış MXF multibitrate MP4 akışına*
 
-## <a id="MXF_to__multibitrate_MP4">MP4 - Gelişmiş şeması multibitrate MXF kodlama</a>
+## <a id="MXF_to__multibitrate_MP4"></a>MP4 - Gelişmiş şeması multibitrate MXF kodlama
 İçinde [önceki iş akışı Kılavuzu](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging) nasıl tek bir MXF giriş varlık bir çıktı varlığa Çoklu bit hızlı MP4 dosyaları, bir yalnızca ses MP4 dosyası ve Azure medya ile birlikte kullanmak için bir bildirim dosyası ile dönüştürülebilir gördük Dinamik paketleme Hizmetleri.
 
 Bu kılavuzda nasıl bazı yönleri geliştirilebilen ve daha kullanışlı hale gösterir.
 
-### <a id="MXF_to_multibitrate_MP4_overview">Geliştirmek için iş akışı genel bakış</a>
+### <a id="MXF_to_multibitrate_MP4_overview"></a>Geliştirmek için iş akışı genel bakış
 ![Geliştirmek için Multibitrate MP4 iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-enhance.png)
 
-Geliştirmek için Multibitrate MP4 iş akışı
+*Geliştirmek için Multibitrate MP4 iş akışı*
 
-### <a id="MXF_to__multibitrate_MP4_file_naming">Dosya adlandırma kuralları</a>
+### <a id="MXF_to__multibitrate_MP4_file_naming"></a>Dosya adlandırma kuralları
 Önceki iş akışında, çıktı dosyası adları oluşturmak için temel olarak basit bir ifade belirtildi. Bazı çoğaltma yine de sunuyoruz: tek tek çıktı dosyası bileşenlerinin tümünü böyle ifade belirtilmiş.
 
 Örneğin, bizim dosya çıktı bileşen ilk video dosyası için bu ifade ile yapılandırılır:
@@ -350,12 +350,12 @@ Biz bu çoğaltma bazılarını kaldırın ve şeyleri daha yapılandırılabili
 
 Biz filename yapılandırma tek tek MP4 dosyaları bit sürücü varsayalım. Bu bit biz bir merkezi bir yerde (kökü verdiğimiz grafiğinin), burada yapılandırmak için erişmeleri ve sürücü dosya adı oluşturma yapılandırmak için hedeflenir. AVC kodlayıcılar uğradıysa hem kökünden de erişilebilir hale Bunu yapmak için şu iki AVC kodlayıcılar bit hızı özelliğinden bizim iş akışı kökünde yayımlayarak başlatın. (İki farklı noktayı kaçırmadığınızdan görüntülenen olsa bile, yalnızca bir temel alınan değer yoktur.)
 
-### <a id="MXF_to__multibitrate_MP4_publishing">İş akışı kök üzerine yayımlama bileşeni özellikleri</a>
+### <a id="MXF_to__multibitrate_MP4_publishing"></a>İş akışı kök üzerine yayımlama bileşeni özellikleri
 İlk AVC Kodlayıcı açın, bit hızı (kbps) özelliğine gidin ve yayımlama aşağı açılır listeden seçin.
 
 ![Bit hızı özelliği yayımlama](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-bitrate-property.png)
 
-Bit hızı özelliği yayımlama
+*Bit hızı özelliği yayımlama*
 
 Bizim iş akışı grafik kökünde yayımlamak için Yayımla iletişim yayımlanan adını "video1bitrate" ve "Video 1 bit hızı" okunabilir görünen adını yapılandırın. Özel bir yapılandırma grup adı "Bit akış" olarak adlandırılan ve yayımlama basın.
 
@@ -378,15 +378,15 @@ Biz kodu veya bir ifade bu özelliklere erişmek istediğiniz zaman, biz bunu ş
 
 ![Ses bit hızı için yayımlama iletişim kutusu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publishing-dialog-for-audio-bitrate.png)
 
-Ses bit hızı için yayımlama iletişim kutusu
+*Ses bit hızı için yayımlama iletişim kutusu*
 
 ![Sonuçta elde edilen video ve ses özellik kök](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-resulting-video-and-audio-props-on-root.png)
 
-Sonuçta elde edilen video ve ses özellik kök
+*Sonuçta elde edilen video ve ses özellik kök*
 
 Ayrıca değerleri yeniden yapılandırır ve bunlar bağlı ile ilgili bileşenler değerlerine değiştirir herhangi birine değiştirme (ve bir yayımlandığı yerlerde).
 
-### <a id="MXF_to__multibitrate_MP4_output_files">Çıktı dosyası adları yayımlanan özellik değerlerine dayanan oluşturulmasını</a>
+### <a id="MXF_to__multibitrate_MP4_output_files"></a>Çıktı dosyası adları yayımlanan özellik değerlerine dayanan oluşturulmasını
 Cmdlet'e kod yerine bizim oluşturulan dosya adları, biz şimdi biz grafik kök yayımlanan bit hızı özellikleri güvenemeyeceklerini dosya çıktısı bileşenlerinden her biri üzerinde bizim filename ifade değiştirebilirsiniz. Bizim ilk dosya çıktı ile başlayarak, dosya özelliği bulun ve bu gibi ifadeyi düzenleyin:
 
     ${ROOT_outputWriteDirectory}\${ROOT_sourceFileBaseName}_${ROOT_video1bitrate}kbps.MP4
@@ -395,7 +395,7 @@ Bu ifadede farklı parametreler erişilen ve ifade penceresinde klavyedeki dolar
 
 ![Bir ifade içinde Parametreler erişme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-accessing-parameters-within-an-expression.png)
 
-Bir ifade içinde Parametreler erişme
+*Bir ifade içinde Parametreler erişme*
 
 Bizim ikinci video dosyası çıktısı için aynı işlemi yapın:
 
@@ -407,18 +407,18 @@ ve yalnızca ses dosyası çıktısı için:
 
 Biz artık herhangi bir ses veya video dosyaları için bit hızı değiştirirseniz, ilgili kodlayıcıyı yeniden yapılandırılması ve bit hızı tabanlı bir dosya adı kuralı tüm otomatik olarak kullanılacaktır.
 
-## <a id="thumbnails_to__multibitrate_MP4">Küçük resimleri multibitrate MP4 çıktı ekleme</a>
+## <a id="thumbnails_to__multibitrate_MP4"></a>Küçük resimleri multibitrate MP4 çıktı ekleme
 Üreten bir iş akışından başlangıç [giriş MXF multibitrate MP4 çıktısını](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), biz şimdi küçük resimleri çıktıya ekleyerek içine arayacaktır.
 
-### <a id="thumbnails_to__multibitrate_MP4_overview">Küçük resim eklemek için iş akışı genel bakış</a>
+### <a id="thumbnails_to__multibitrate_MP4_overview"></a>Küçük resim eklemek için iş akışı genel bakış
 ![Başlangıç için Multibitrate MP4 iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-multibitrate-mp4-workflow-to-start-from.png)
 
-Başlangıç için Multibitrate MP4 iş akışı
+*Başlangıç için Multibitrate MP4 iş akışı*
 
-### <a id="thumbnails_to__multibitrate_MP4__with_jpg">JPG kodlama ekleme</a>
+### <a id="thumbnails_to__multibitrate_MP4__with_jpg"></a>JPG kodlama ekleme
 Bizim küçük resim oluşturma Kalp çıkış JPG dosyaları mümkün JPG Kodlayıcı bileşen olacaktır.
 
-![JPG Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
+![JPG kodlayıcı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
 *JPG Encoder*
 
@@ -426,22 +426,22 @@ Ancak doğrudan sunduğumuz sıkıştırılmamış Video akışı medya dosyası
 
 ![Bir çerçeve kapısı JPG kodlayıcıya bağlanma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-frame-gate-to-jpg-encoder.png)
 
-Bir çerçeve kapısı JPG kodlayıcıya bağlanma
+*Bir çerçeve kapısı JPG kodlayıcıya bağlanma*
 
 Çerçeve ağ geçidi çok fazla sayıda saniyede veya çerçeveler geçirmek video bir çerçeve sağlar. Aralık ve hangi böyle ile uzaklığı saat özelliklerinde yapılandırılabilir.
 
 ![Video çerçeve kapısı özellikleri](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-video-frame-gate-properties.png)
 
-Video çerçeve kapısı özellikleri
+*Video çerçeve kapısı özellikleri*
 
 Küçük resim dakikada modu süresi (saniye) ve aralığı 60 ayarlanarak oluşturalım.
 
-### <a id="thumbnails_to__multibitrate_MP4_color_space">Renk alanını dönüştürme postalarla</a>
+### <a id="thumbnails_to__multibitrate_MP4_color_space"></a>Renk alanını dönüştürme postalarla
 Her iki sıkıştırılmamış Video PIN'ler çerçeve kapısı ve ortam dosyası girişi şimdi bağlanabilir mantıksal görünüyor, ancak biz bunu yapmayı tercih ediyorsanız size bir uyarı alır.
 
 ![Giriş rengi alan hatası](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-input-color-space-error.png)
 
-Giriş rengi alan hatası
+*Giriş rengi alan hatası*
 
 Hangi renkte bilgileri bizim özgün ham sıkıştırılmamış video akışında, bizim MXF gelen temsil edilen şekilde JPG Kodlayıcı bekleniyor öğesinden farklı olmasıdır. Daha açık belirtmek gerekirse bir sözde "renk aralığı" "RGB" veya "Gri" içinde akış beklenir. Bu, Video çerçeve ağ geçidi'nin gelen video akışına kendi renk alanını önce uygulanan bir dönüştürme sahip olması gerektiğini anlamına gelir.
 
@@ -449,16 +449,16 @@ Hangi renkte bilgileri bizim özgün ham sıkıştırılmamış video akışınd
 
 ![Bir renk alanı Dönüştürücüsü bağlanma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connect-color-space-convertor.png)
 
-Bir renk alanı Dönüştürücüsü bağlanma
+*Bir renk alanı Dönüştürücüsü bağlanma*
 
 Özellikler penceresinde önceden ayarlanmış listeden BGR 24 girişi seçin.
 
-### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails">Küçük resimlerin yazma</a>
+### <a id="thumbnails_to__multibitrate_MP4_writing_thumbnails"></a>Küçük resimlerin yazma
 Bizim MP4 video farklıdır, birden fazla dosya JPG Kodlayıcı bileşen çıkarır. Bu işlem için bir Sahne arama JPG dosya yazıcısı bileşeni kullanılabilir: gelen JPG küçük resimleri alır ve bunları çıkışı, farklı bir sayı sonekine her dosya yazar. (Genellikle gelen küçük çizilmiş akış saniye/birim sayısını belirten sayı.)
 
 ![Sahne arama JPG dosyası yazan Tanıtımı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer.png)
 
-Sahne arama JPG dosyası yazan Tanıtımı
+*Sahne arama JPG dosyası yazan Tanıtımı*
 
 Çıkış klasörü yolu özelliğini ifade ile yapılandırma: ${ROOT_outputWriteDirectory}
 
@@ -470,22 +470,22 @@ ve dosya adı önekini özelliğiyle:
 
 ![Sahne arama JPG dosya yazıcı özellikleri](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scene-search-jpg-file-writer-properties.png)
 
-Sahne arama JPG dosya yazıcı özellikleri
+*Sahne arama JPG dosya yazıcı özellikleri*
 
 Sahne arama JPG dosyası yazan çıktı dosyası/varlık düğüme bağlayın.
 
-### <a id="thumbnails_to__multibitrate_MP4_errors">Bir iş akışında hataları algılama</a>
+### <a id="thumbnails_to__multibitrate_MP4_errors"></a>Bir iş akışında hataları algılama
 Renk alanı dönüştürücü giriş sıkıştırılmamış bir ham video çıkışına bağlayın. Şimdi iş akışı için yerel testi gerçekleştirin. İş akışı aniden yürütme durdurun ve bir hata ile karşılaştı bileşen kırmızı çerçevesinde belirtmek iyi bir fırsat vardır:
 
 ![Renk alanı dönüştürücü hatası](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error.png)
 
-Renk alanı dönüştürücü hatası
+*Renk alanı dönüştürücü hatası*
 
 Kodlama girişimi neden yenilikleri görmek için renk alanını dönüştürücü bileşeninin köşe başarısız sağ üst küçük kırmızı "E" simgesine tıklayın.
 
 ![Renk alanı dönüştürücü hata iletişim kutusu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-color-space-converter-error-dialog.png)
 
-Renk alanı dönüştürücü hata iletişim kutusu
+*Renk alanı dönüştürücü hata iletişim kutusu*
 
 Gördüğünüz gibi için renk alanını dönüştürücü standart gelen renk alanını istenen bizim YUV dönüştürme RGB için rec601 olmak zorundadır çıkışı, etkinleştirir. Görünüşe göre bizim akışı kendi rec601 göstermez. (Rec 601 aralıklı analog video sinyalleri dijital video formunda kodlama standardıdır. 720 aydınlatma örnekleri ve her satırda 360 chrominance örnekleri kapsayan etkin bir bölge belirtir. Sistem kodlama renk YCbCr 4 bilinir: 2:2.)
 
@@ -493,35 +493,35 @@ Bu sorunu gidermek için şu rec601 içerikle ilgilenme bizim akışın meta ver
 
 ![Veri türü güncelleştirici renk alanı standardına güncelleştiriliyor](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-update-color-space-standard-on-data-type.png)
 
-Veri türü güncelleştirici renk alanı standardına güncelleştiriliyor
+*Veri türü güncelleştirici renk alanı standardına güncelleştiriliyor*
 
-### <a id="thumbnails_to__multibitrate_MP4_finish">Tamamlanmış iş akışı</a>
+### <a id="thumbnails_to__multibitrate_MP4_finish"></a>Tamamlanmış iş akışı
 Bizim iş akışı tamamlandı, başka bir test yapmak bunu geçirir görmek için çalıştırın.
 
 ![Küçük resimler ile çoklu mp4 çıktı için tamamlanmış iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-for-multi-mp4-thumbnails.png)
 
-Küçük resimler ile çoklu mp4 çıktı için tamamlanmış iş akışı
+*Küçük resimler ile çoklu mp4 çıktı için tamamlanmış iş akışı*
 
-## <a id="time_based_trim">Zamana bağlı kırpma multibitrate MP4 çıktı</a>
+## <a id="time_based_trim"></a>Zamana bağlı kırpma multibitrate MP4 çıktı
 Üreten bir iş akışından başlangıç [giriş MXF multibitrate MP4 çıktısını](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), biz artık kaynak videonun zaman damgalarını kırpma içine arayacaktır.
 
-### <a id="time_based_trim_start">Kırpma için eklemeye başlamak için iş akışı genel bakış</a>
+### <a id="time_based_trim_start"></a>Kırpma için eklemeye başlamak için iş akışı genel bakış
 ![Kırpma için eklemek için iş akışı başlatma](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-starting-workflow-to-add-trimming.png)
 
-Kırpma için eklemek için iş akışı başlatma
+*Kırpma için eklemek için iş akışı başlatma*
 
-### <a id="time_based_trim_use_stream_trimmer">Akış Kırpıcıyı kullanma</a>
+### <a id="time_based_trim_use_stream_trimmer"></a>Akış Kırpıcıyı kullanma
 Akış Kırpıcıyı bileşeni, başlangıç ve bitiş bilgilerini (saniye, dakika,...) zamanlama temel bir giriş akışının kırpma olanak sağlar. Kırpıcıyı tabanlı çerçeve kırpma desteklemez.
 
 ![Akış Ayarlayıcısı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
-Akış Ayarlayıcısı
+*Akış Ayarlayıcısı*
 
 AVC Kodlayıcıları ve Konuşmacı konumu assigner medya dosyası girdisi doğrudan bağlama yerine, biz bu Between akış Kırpıcıyı put. (Bir video sinyali ve bir araya eklemeli ses sinyal.)
 
 ![Akış Kırpıcıyı arasında yerleştirme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-put-stream-trimmer-in-between.png)
 
-Akış Kırpıcıyı arasında yerleştirme
+*Akış Kırpıcıyı arasında yerleştirme*
 
 Şimdi biz yalnızca video ve ses ve video 60 saniye 15 saniye arasında işleyecek şekilde Kırpıcıyı yapılandırın.
 
@@ -529,21 +529,21 @@ Video akışı Kırpıcıyı özelliklerine gidin ve her iki başlangıç saati 
 
 ![Başlangıç saati akış Kırpıcıyı özelliğinden yayımlama](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-start-time-from-stream-trimmer.png)
 
-Başlangıç saati akış Kırpıcıyı özelliğinden yayımlama
+*Başlangıç saati akış Kırpıcıyı özelliğinden yayımlama*
 
 ![Yayımlama özelliği iletişim kutusu için başlangıç saati](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-start-time.png)
 
-Yayımlama özelliği iletişim kutusu için başlangıç saati
+*Yayımlama özelliği iletişim kutusu için başlangıç saati*
 
 ![Bitiş saati Yayımlama özelliği iletişim kutusu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-publish-dialog-for-end-time.png)
 
-Bitiş saati Yayımlama özelliği iletişim kutusu
+*Bitiş saati Yayımlama özelliği iletişim kutusu*
 
 Biz şimdi bizim iş akışı kökündeki inceleyin, her iki özellik buradan düzgün görüntülenen ve yapılandırılabilir.
 
 ![Kök kullanılabilen yayımlanan Özellikler](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-published-properties-available-on-root.png)
 
-Kök kullanılabilen yayımlanan Özellikler
+*Kök kullanılabilen yayımlanan Özellikler*
 
 Şimdi ses Kırpıcıyı kırpma Özellikleri'ni açın ve bizim iş akışı kökünde yayımlanan özelliklerine başvuran bir ifade ile başlangıç ve bitiş zamanları yapılandırın.
 
@@ -555,12 +555,12 @@ ve bitiş saati:
 
     ${ROOT_TrimmingEndTime}
 
-### <a id="time_based_trim_finish">Tamamlanmış iş akışı</a>
+### <a id="time_based_trim_finish"></a>Tamamlanmış iş akışı
 ![Tamamlanmış iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-finished-workflow-time-base-trimming.png)
 
 *Tamamlanmış iş akışı*
 
-## <a id="scripting">Komut dosyalı bileşen Tanıtımı</a>
+## <a id="scripting"></a>Komut dosyalı bileşen Tanıtımı
 Komut dosyası bileşenleri bizim iş akışı yürütme aşamalarında rasgele komut dosyaları yürütebilir. Çalıştırılabilir, dört farklı betikleri vardır her birinin belirli özelliklere ve iş akışı yaşam döngüsü kendi yerinde:
 
 * **commandScript**
@@ -570,18 +570,18 @@ Komut dosyası bileşenleri bizim iş akışı yürütme aşamalarında rasgele 
 
 Komut dosyası bileşen belgeleri daha ayrıntılı olarak her Yukarıdakilerin gider. İçinde [aşağıdaki bölümde](media-services-media-encoder-premium-workflow-tutorials.md#frame_based_trim), **realizeScript** komut dosyası bileşen iş akışı başlatıldığında cliplist xml kolay bir şekilde oluşturmak için kullanılır. Bu komut dosyası, yalnızca bir kez yaşam çevriminin olur Bileşen Kurulumu sırasında çağrılır.
 
-### <a id="scripting_hello_world">Bir iş akışı içinde komut dosyası: Merhaba Dünya</a>
+### <a id="scripting_hello_world"></a>Bir iş akışı içinde komut dosyası: Merhaba Dünya
 Bir komut dosyasıyla bileşenini Tasarımcı yüzeyine sürükleyin ve bunu (örneğin, "SetClipListXML") yeniden adlandırın.
 
 ![Bir komut dosyası bileşeni ekleme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-Bir komut dosyası bileşeni ekleme
+*Bir komut dosyası bileşeni ekleme*
 
 Komut dosyası bileşen özelliklerini incelediğinizde, dört farklı komut türlerine gösterilen, farklı bir komut dosyası her yapılandırılabilir olacaktır.
 
 ![Komut dosyası bileşeni özellikleri](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-Komut dosyası bileşeni özellikleri
+*Komut dosyası bileşeni özellikleri*
 
 ProcessInputScript temizleyin ve realizeScript Düzenleyicisi'ni açın. Şimdi biz yukarı ve komut dosyası başlamaya hazırsınız.
 
@@ -595,7 +595,7 @@ Basit hello world Modaya uygun betik bizim realizeScript bağlamında yazalım. 
 
 ![Hello world günlük çıktısı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output.png)
 
-Hello world günlük çıktısı
+*Hello world günlük çıktısı*
 
 Biz içindeki komut dosyası bileşeni ya da geçerli bizim "düğümün", günlük yöntemi diyoruz düğüm nesnesi başvurur. Her bileşen, bu nedenle çıktı günlüğü verileri, sistem sekmesi üzerinden kullanılabilir özelliğine sahiptir. Bu durumda, biz "hello world." değişmez dize değeri çıktı İşte bu komut gerçekte yaptıklarını üzerinde Insight ile sağlayan çok hata ayıklama aracı olarak kanıtlayabilirsiniz anlamak önemlidir.
 
@@ -621,42 +621,42 @@ Bizim Günlüğü penceresi bize aşağıda gösterilmiştir:
 
 ![Düğüm yollarını erişmek için bir günlük çıktısı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-output2.png)
 
-Düğüm yollarını erişmek için bir günlük çıktısı
+*Düğüm yollarını erişmek için bir günlük çıktısı*
 
-## <a id="frame_based_trim">Çerçeve tabanlı kırpma multibitrate MP4 çıktı</a>
+## <a id="frame_based_trim"></a>Çerçeve tabanlı kırpma multibitrate MP4 çıktı
 Üreten bir iş akışından başlangıç [giriş MXF multibitrate MP4 çıktısını](media-services-media-encoder-premium-workflow-tutorials.md#MXF_to_MP4_with_dyn_packaging), biz artık kaynak videonun çerçeve sayar kırpma içine arayacaktır.
 
-### <a id="frame_based_trim_start">Kırpma için eklemeye başlamak için ayrıntılı genel bakış</a>
+### <a id="frame_based_trim_start"></a>Kırpma için eklemeye başlamak için ayrıntılı genel bakış
 ![Kırpma için eklemeye başlamak için iş akışı](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-workflow-start-adding-trimming-to.png)
 
-Kırpma için eklemeye başlamak için iş akışı
+*Kırpma için eklemeye başlamak için iş akışı*
 
-### <a id="frame_based_trim_clip_list">XML küçük resim listesi kullanma</a>
+### <a id="frame_based_trim_clip_list"></a>XML küçük resim listesi kullanma
 Tüm önceki iş akışı eğitimlerine bizim video giriş kaynağı olarak medya dosyası giriş bileşen kullandık. Bu belirli bir senaryo için yine de biz küçük listesi kaynak bileşen yerine kullanırsınız. Bu, tercih edilen yol çalışma olmamalıdır; Bunu yapmak için gerçek bir neden olduğunda kaynak küçük listesi yalnızca kullanın (burada yapmadan aşağıdaki durumda ister küçük listesi kırpma özelliklerinin kullanılmasına).
 
 Bizim ortam dosyası girişi küçük listesi kaynağına geçmek için küçük liste kaynak bileşen tasarım yüzeyine sürükleyin ve iş akışı Tasarımcısı'nın küçük listesi XML düğümü küçük liste XML PIN bağlayın. Bu bizim giriş video göre çıkış PIN'ler, küçük resim listesi kaynağıyla doldurur. Şimdi sıkıştırılmamış Video ve sıkıştırılmamış ses PIN, ilgili AVC kodlayıcılar ve ses akışı ayırıcı küçük listesi kaynağından bağlanın. Şimdi ortam dosyası girişi kaldırın.
 
 ![Ortam dosyası girişi ile kaynak küçük listesi değiştirildi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-replaced-media-file-with-clip-source.png)
 
-Ortam dosyası girişi ile kaynak küçük listesi değiştirildi
+*Ortam dosyası girişi ile kaynak küçük listesi değiştirildi*
 
 Küçük resim listesi kaynak bileşen kendi giriş "küçük liste XML." alır Yerel olarak test etmek için kaynak dosyası seçerken bu küçük resim listesi xml otomatik-sizin için doldurulur.
 
 ![Otomatik olarak doldurulmuş küçük listesi XML özelliği](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-auto-populated-clip-list-xml-property.png)
 
-Otomatik olarak doldurulmuş küçük listesi XML özelliği
+*Otomatik olarak doldurulmuş küçük listesi XML özelliği*
 
 Xml için biraz daha yakından bakarak bu nasıl gibi görünüyor.
 
 ![Küçük resim listesi iletişim kutusunda Düzenle](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-edit-clip-list-dialog.png)
 
-Küçük resim listesi iletişim kutusunda Düzenle
+*Küçük resim listesi iletişim kutusunda Düzenle*
 
 Bu küçük resim listesi xml yeteneklerini ancak yansıtmaz. Her iki video ve ses kaynak altında böyle bir "Kırpma" öğesi eklemek için sahip olduğumuz bir seçenek verilmiştir:
 
 ![Kırpma öğesi küçük listesine ekleme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-adding-trim-element-to-clip-list.png)
 
-Kırpma öğesi küçük listesine ekleme
+*Kırpma öğesi küçük listesine ekleme*
 
 Bu gibi küçük liste xml değiştirin ve yerel testi gerçekleştirmek, video görürsünüz doğru edilmiş videoda 10 ile 20 saniye arasında kırpılır.
 
@@ -668,15 +668,15 @@ Bir komut dosyasıyla bileşenini Tasarımcı yüzeyine sürükleyin ve "SetClip
 
 ![Bir komut dosyası bileşeni ekleme](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-scripted-comp.png)
 
-Bir komut dosyası bileşeni ekleme
+*Bir komut dosyası bileşeni ekleme*
 
 Komut dosyası bileşen özelliklerini incelediğinizde, dört farklı komut türlerine gösterilen, farklı bir komut dosyası her yapılandırılabilir.
 
 ![Komut dosyası bileşeni özellikleri](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-scripted-comp-properties.png)
 
-Komut dosyası bileşeni özellikleri
+*Komut dosyası bileşeni özellikleri*
 
-### <a id="frame_based_trim_modify_clip_list">Komut dosyası bir bileşenin küçük listesini değiştirme</a>
+### <a id="frame_based_trim_modify_clip_list"></a>Komut dosyası bir bileşenin küçük listesini değiştirme
 İş akışı başlatma sırasında oluşturulan cliplist xml yeniden yazana önce biz cliplist xml özellik ve içeriğini erişiminiz olması gerekir. Biz bunu şu şekilde yapabilirsiniz:
 
 ```java
@@ -687,7 +687,7 @@ Komut dosyası bileşeni özellikleri
 
 ![Günlüğe kaydedilmesini gelen küçük resim listesi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-incoming-clip-list-logged.png)
 
-Günlüğe kaydedilmesini gelen küçük resim listesi
+*Günlüğe kaydedilmesini gelen küçük resim listesi*
 
 Öncelikle hangi noktasından video kırpma istiyoruz; bu noktaya kadar belirlemek için bir yol gerekir. Bu iş akışının daha az teknik kullanıcıya kullanışlı hale getirmek grafik alanının kök dizinine iki özellik yayımlayın. Bunu yapmak için tasarımcı yüzeyine sağ tıklayın ve "Özellik Ekle" seçin:
 
@@ -696,17 +696,17 @@ Günlüğe kaydedilmesini gelen küçük resim listesi
 
 ![Özellik iletişim için kırpma başlangıç saati ekleyin](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 
-Özellik iletişim için kırpma başlangıç saati ekleyin
+*Özellik iletişim için kırpma başlangıç saati ekleyin*
 
 ![İş akışı kökünde zaman özellik kırpma yayımlanan](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-time-props.png)
 
-İş akışı kökünde zaman özellik kırpma yayımlanan
+*İş akışı kökünde zaman özellik kırpma yayımlanan*
 
 Her iki özellik için uygun bir değere yapılandırın:
 
 ![Kırpma Başlangıç yapılandırmak ve Özellikler bitiş](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-configure-clip-start-end-prop.png)
 
-Kırpma Başlangıç yapılandırmak ve Özellikler bitiş
+*Kırpma Başlangıç yapılandırmak ve Özellikler bitiş*
 
 Şimdi, bizim komut dosyası içinden Biz bu gibi her iki özellik erişebilirsiniz:
 
@@ -721,7 +721,7 @@ Kırpma Başlangıç yapılandırmak ve Özellikler bitiş
 
 ![Başlangıç ve bitiş kırpma, gösteren Günlüğü penceresi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-show-start-end-clip.png)
 
-Başlangıç ve bitiş kırpma, gösteren Günlüğü penceresi
+*Başlangıç ve bitiş kırpma, gösteren Günlüğü penceresi*
 
 Şimdi zaman kodu dizeleri daha kullanışlı form, basit bir normal ifade kullanarak kullanılacak ayrıştırılamıyor:
 
@@ -745,19 +745,19 @@ Başlangıç ve bitiş kırpma, gösteren Günlüğü penceresi
 
 ![Ayrıştırılmış zaman kodu çıkış Günlüğü penceresi](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-output-parsed-timecode.png)
 
-Ayrıştırılmış zaman kodu çıkış Günlüğü penceresi
+*Ayrıştırılmış zaman kodu çıkış Günlüğü penceresi*
 
 Bu bilgilerle elinizdeki, biz şimdi cliplist xml film istenen çerçeve doğru kırpma için başlangıç ve bitiş zamanları yansıtacak şekilde değiştirebilirsiniz.
 
 ![Kırpma öğeler eklemek için komut dosyası kodu](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-add-trim-elements.png)
 
-Kırpma öğeler eklemek için komut dosyası kodu
+*Kırpma öğeler eklemek için komut dosyası kodu*
 
 Bu normal dize düzenleme işlemleri gerçekleştirilir. Sonuçta elde edilen değiştirilmiş küçük listesi xml geri clipListXML özelliğine iş akışı kökünde "setProperty" yöntemle yazılır. Başka bir test çalıştırdıktan sonra Günlüğü penceresi bize göstermeniz:
 
 ![Sonuçta elde edilen küçük listesi günlüğü](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-log-result-clip-list.png)
 
-Sonuçta elde edilen küçük listesi günlüğü
+*Sonuçta elde edilen küçük listesi günlüğü*
 
 Nasıl video ve ses akışları kırpılmış görmek için bir test çalıştırması yapın. Kesme noktaları için farklı değerlere sahip birden fazla test çalıştırması gerçekleştirirsiniz gibi bu hesaba ancak alınmayacak olduğunu fark edeceksiniz! Bunun nedeni, Azure çalışma zamanı aksine Tasarımcı her çalıştırılışında cliplist xml kılmaz ' dir. İlk kez ve çıkış noktaları, ayarladığınız yalnızca, tüm diğer durumlarda, bizim koruma yan tümcesi dönüştürmek xml neden olacak bu anlamına gelir (varsa (clipListXML.indexOf ("<trim>") -1 ==)) iş akışı olduğunda başka bir kesim öğe ekleme engeller zaten bir tane mevcut.
 
@@ -823,7 +823,7 @@ Bu noktada, biz çalıştırabilir ve her zamankinden uygulanan değişiklikler 
 
 ![Kırpma etkinleştirmek için bir özellik yayımlanan](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-enable-clip.png)
 
-Kırpma etkinleştirmek için bir özellik yayımlanan
+*Kırpma etkinleştirmek için bir özellik yayımlanan*
 
 İle basit koruma yan tümcesi biz kırpma gerekiyorsa denetleyebilir ve bizim küçük listesi şekilde veya değiştirilmesi gerekip gerekmediğine karar verebilirsiniz.
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: f3ddebdd02d4766b83f0834979a54552f88179cb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4715384a0c6eb24a6a4208ca387b8c4a9871d5c7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Linux (Ubuntu) için veri bilimi sanal makine sağlama
 
-Linux için veri bilimi sanal makine, Azure üzerinde derin öğrenme kullanmaya başlama kolaylaştıran bir Ubuntu tabanlı sanal makine görüntüdür. Derin öğrenme araçlar şunlardır:
+Veri bilimi sanal makine için Linux Azure üzerinde derin öğrenme dahil olmak üzere, machine learning ile çalışmaya başlamak kolaylaştıran bir Ubuntu tabanlı sanal makine görüntüdür. Derin öğrenme araçlar şunlardır:
 
   * [Caffe](http://caffe.berkeleyvision.org/): hızı, expressivity ve modülerlik için yerleşik bir derin öğrenme çerçevesi
   * [Caffe2](https://github.com/caffe2/caffe2): Caffe platformlar arası sürümü
@@ -31,6 +31,7 @@ Linux için veri bilimi sanal makine, Azure üzerinde derin öğrenme kullanmaya
   * [Keras](https://keras.io/): Python Theano ve TensorFlow için üst düzey sinir ağı API
   * [MXNet](http://mxnet.io/): birçok dil bağlamalarla esnek ve verimli derin learning kitaplığı
   * [NVIDIA basamak](https://developer.nvidia.com/digits): ortak derin öğrenimi görevlerini basitleştirir grafik bir sistem
+  * [PyTorch](http://pytorch.org/): dinamik ağları için destek ile üst düzey bir Python kitaplığı
   * [TensorFlow](https://www.tensorflow.org/): Google makine zekasından için bir açık kaynak kitaplığı
   * [Theano](http://deeplearning.net/software/theano/): tanımlama, en iyi duruma getirme ve çok boyutlu diziler içeren matematiksel ifadeler verimli bir şekilde değerlendirmek için bir Python kitaplığı
   * [Torch](http://torch.ch/): machine learning algoritmaları için Uluslararası Destek bilimsel hesaplama çerçevesiyle
@@ -113,6 +114,14 @@ Linux için örnek veri bilimi sanal makine oluşturmak için adımlar şunlard�
 Sağlama yaklaşık 5-10 dakika sürer. Sağlama durumu Azure portalda görüntülenir.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Linux için veri bilimi sanal makine ulaşma
+
+Ubuntu üç yöntemi kullanarak DSVM erişebilirsiniz:
+1. Terminal oturumları için SSH
+2. Grafik oturumları için X2Go
+3. JupyterHub ve JupyterLab Jupyter not defterleri için
+
+### <a name="ssh"></a>SSH
+
 VM oluşturulduktan sonra kendisine SSH kullanarak oturum açabilirsiniz. Oluşturduğunuz hesap kimlik bilgilerini kullanan **Temelleri** adım 3 metin kabuk arabirimi için bölüm. Windows, bir SSH istemcisi aracı gibi indirebilirsiniz [Putty](http://www.putty.org). Grafik Masaüstü (X Windows sistemi) tercih ederseniz, Putty iletme X11 kullanın veya X2Go istemcisi yükleyin.
 
 > [!NOTE]
@@ -120,7 +129,7 @@ VM oluşturulduktan sonra kendisine SSH kullanarak oturum açabilirsiniz. Oluşt
 > 
 > 
 
-## <a name="installing-and-configuring-x2go-client"></a>Yükleme ve X2Go istemci yapılandırma
+### <a name="x2go"></a>X2Go
 Linux VM X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye hazır zaten var. Linux VM grafik masaüstüne bağlanmak için istemci aşağıdaki yordamı tamamlayın:
 
 1. İstemci platformunuzu X2Go istemci yükleyip [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
@@ -134,6 +143,14 @@ Linux VM X2Go sunucusu ile sağlanan ve istemci bağlantılarını kabul etmeye 
    * **Paylaşılan Klasörler**: Linux VM'de bağlı istemci makinelerden dizinleri istiyorsanız bu sekmedeki VM paylaşmak istediğiniz istemci makine dizinleri ekleyin.
 
 VM SSH istemcisi veya XFCE grafik Masaüstü X2Go istemcisinden kullanarak oturum açtıktan sonra yüklenmiş ve yapılandırılmış VM Araçları'nı kullanmaya başlamak hazırsınız. XFCE üzerinde uygulamaları menüsü kısayolları ve masaüstü simgelerini araçları çoğunu görebilirsiniz.
+
+### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub ve JupyterLab
+
+Ubuntu DSVM çalıştıran [JupyterHub](https://github.com/jupyterhub/jupyterhub), çok kullanıcılı Jupyter sunucu. Bağlanmak için Gözat https://your-vm-ip:8000 dizüstü bilgisayar veya Masaüstü üzerinde VM oluşturmak ve oturum açmak için kullanılan parola ve kullanıcı adı girin. Birçok örnek not defterlerini göz atın ve denemek için kullanılabilir.
+
+JupyterLab, Jupyter not defterlerini ve JupyterHub, gelecek nesil da mevcuttur. Erişim için JupyterHub için oturum açtıktan sonra URL'sine gidin https://your-vm-ip:8000/lab. /Etc/jupyterhub/jupyterhub_config.py için bu satırı ekleyerek JupyterLab varsayılan not defteri sunucu olarak ayarlayabilirsiniz:
+
+    c.Spawner.default_url = '/lab'
 
 ## <a name="tools-installed-on-the-data-science-virtual-machine-for-linux"></a>Linux için veri bilimi sanal makinede yüklü araçları
 ### <a name="deep-learning-libraries"></a>Derin öğrenme kitaplıkları
@@ -193,30 +210,32 @@ Başlatma R konsolu, yalnızca yazın **R** Kabuğu'nda. Bu sizi, etkileşimli b
 Ayrıca bir R betiği yüklemeniz için olan [üst 20 R paketleri](http://www.kdnuggets.com/2015/06/top-20-r-packages.html) istiyorsanız. (Belirtildiği gibi) yazarak girilebilir R etkileşimli arabiriminde olduktan sonra bu komut dosyasının çalıştırılması **R** Kabuğu'nda.  
 
 ### <a name="python"></a>Python
-Python kullanarak geliştirme için Anaconda Python 2.7 ve 3.5 dağıtım yüklendi. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. Varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Spyder gereken bir grafik Masaüstü veya X11 iletme. Spyder kısayol grafik Desktop'ta sağlanır.
+Anaconda Python Python 2.7 ve 3.5 ortamları ile birlikte yüklenir. 2.7 ortamı adlı _kök_, 3.5 ortam adı verilen ve _py35_. Bu dağıtım yaklaşık 300 en popüler matematik, mühendislik ve veri analizi paketlerinin yanı sıra temel Python içerir. 
 
-Biz, Python 2.7 ve 3.5 sahip olduğundan, özellikle geçerli oturumdaki çalışmak istediğiniz istediğiniz Python sürümü (conda ortamı) etkinleştirmeniz gerekir. Etkinleştirme işlemi, Python'un istenen sürümüyle yolu değişkenini ayarlar.
+Varsayılan py35 ortamıdır. Kök (2.7) ortamında etkinleştirmek için:
 
-Python 2.7 conda ortamı etkinleştirmek için Kabuğu'ndan aşağıdaki komutu çalıştırın:
+    source activate root
 
-    source /anaconda/bin/activate root
+Py35 ortamını yeniden etkinleştirmek için:
 
-Python 2.7 adresindeki yüklü */anaconda/bin*.
+    source activate py35
 
-Python 3.5 conda ortamı etkinleştirmek için Kabuğu'ndan aşağıdaki komutu çalıştırın:
+Yalnızca bir Python etkileşimli oturum başlatmak için şunu yazın **python** Kabuğu'nda. 
 
-    source /anaconda/bin/activate py35
+Kullanarak ek Python kitaplıkları yükleme ```conda``` veya ````pip```` . Varsayılan istemiyorsanız PIP için doğru ortamı ilk etkinleştir:
 
+    source activate root
+    pip install <package>
 
-Python 3.5 yüklü adresindeki */anaconda/envs/py35/bin*.
+Veya PIP için tam yolu belirtin:
 
-Yalnızca bir Python etkileşimli oturum başlatmak için şunu yazın **python** Kabuğu'nda. Bir grafik arabiriminde olan veya yedekleme kümesi iletme X11 varsa, yazabilirsiniz **pycharm** PyCharm Python IDE başlatmak için.
+    /anaconda/bin/pip install <package>
+    
+Conda için her zaman ortam adı belirtmeniz gerekir (_py35_ veya _kök_):
 
-Ek Python kitaplıkları yükleme için çalıştırmanız gerekir ```conda``` veya ````pip```` komut sudo altında ve Python Paket Yöneticisi (conda veya PIP) doğru Python ortamı yüklemek için tam yolunu girin. Örneğin:
+    conda install <package> -n py35
 
-    sudo /anaconda/bin/pip install -n <package> #for Python 2.7 environment
-    sudo /anaconda/envs/py35/bin/pip install -n <package> # for Python 3.5 environment
-
+Bir grafik arabiriminde olan veya yedekleme kümesi iletme X11 varsa, yazabilirsiniz **pycharm** PyCharm Python IDE başlatmak için. Varsayılan metin düzenleyicisi kullanabilirsiniz. Ayrıca, Spyder, Anaconda Python dağıtımları ile birlikte bir Python IDE kullanabilirsiniz. Spyder gereken bir grafik Masaüstü veya X11 iletme. Spyder kısayol grafik desktop.s sağlanır
 
 ### <a name="jupyter-notebook"></a>Jupyter not defteri
 Anaconda dağıtım ayrıca bir Jupyter not defteri ile kod ve analiz paylaşmak için bir ortamı bulunur. Jupyter not defteri JupyterHub erişilir. Yerel Linux kullanıcı adı ve parola kullanarak oturum açın.

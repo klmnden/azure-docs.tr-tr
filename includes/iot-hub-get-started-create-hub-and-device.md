@@ -19,8 +19,8 @@ Bu kurulum öğreticisinde bu iothubowner bağlantı dizesi gerekli değildir. A
 
 1. [Azure portalında](https://portal.azure.com/) IoT hub'ınızı açın.
 
-2. **Device Explorer**’a tıklayın.
-3. Device Explorer bölmesinde **Ekle**’ye tıklayarak IoT hub’ınıza bir cihaz ekleyin. Ardından şunları yapın:
+2. Tıklatın **IOT cihazları**.
+3. IOT cihazları bölmesinde **Ekle** bir cihaz IOT hub'ınıza eklemek için. Ardından şunları yapın:
 
    **Cihaz Kimliği**: Yeni cihazın kimliğini girin. Cihaz Kimlikleri büyük/küçük harfe duyarlıdır.
 
@@ -30,12 +30,15 @@ Bu kurulum öğreticisinde bu iothubowner bağlantı dizesi gerekli değildir. A
 
    **Cihazı IoT Hub'a bağla**: **Etkinleştir**’e tıklayın.
 
-   ![IoT hub’ınızın Device Explorer menüsünde cihaz ekleme](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-device-explorer-portal.png)
+   ![Bir cihaz IOT hub'ınızın IOT cihazları ekleme](../articles/iot-hub/media/iot-hub-create-hub-and-device/6_add-device-in-azure-iot-hub-iot-devices-portal.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-4. **Kaydet** düğmesine tıklayın.
-5. Cihaz oluşturulduktan sonra cihazı **Device Explorer** bölmesinde açın.
+4. **Kaydet**’e tıklayın.
+5. Cihaz oluşturulduktan sonra aygıtı açmak **IOT cihazları** bölmesi.
+
+   ![IOT Hub'ındaki IOT cihaz listesi](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_device-list-in-iot-devices-portal.png)
+
 6. Bağlantı dizesinin birincil anahtarını not edin.
 
-   ![Cihaz bağlantı dizesini alma](../articles/iot-hub/media/iot-hub-create-hub-and-device/7_get-device-connection-string-in-device-explorer-portal.png)
+   ![Cihaz bağlantı dizesini alma](../articles/iot-hub/media/iot-hub-create-hub-and-device/8_get-device-connection-string-in-iot-devices-portal.png)

@@ -1,11 +1,11 @@
 ---
-title: "Karma yapılandırmak için Azure Active Directory'ye katılmış cihazlarda nasıl | Microsoft Docs"
-description: "Karma Azure Active Directory'ye katılmış cihazları yapılandırmayı öğrenin."
+title: Karma yapılandırmak için Azure Active Directory'ye katılmış cihazlarda nasıl | Microsoft Docs
+description: Karma Azure Active Directory'ye katılmış cihazları yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.workload: identity
@@ -16,10 +16,10 @@ ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 34d1ba2e1e84c268442d47d8865d3e3bebb53e53
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
@@ -526,7 +526,7 @@ AD FS'de kimlik doğrulama yöntemini geçişleri üzerinden bir verme dönüşt
 
     `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-8. Değiştirildikten sonra Federasyon sunucunuzda aşağıdaki PowerShell komutunu yazın  **\<RPObjectName\>**  adıyla bağlı olan taraf nesnesi, Azure AD bağlı olan taraf güven nesnesi. Bu nesne genellikle adlı **Microsoft Office 365 kimlik Platformu'na**.
+8. Değiştirildikten sonra Federasyon sunucunuzda aşağıdaki PowerShell komutunu yazın **\<RPObjectName\>** adıyla bağlı olan taraf nesnesi, Azure AD bağlı olan taraf güven nesnesi. Bu nesne genellikle adlı **Microsoft Office 365 kimlik Platformu'na**.
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

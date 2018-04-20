@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 517ebbf739c64c0364dc21386fee86ebc740e997
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 Bir istemci sertifikası oluşturduğunuzda, onu oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. İstemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, oluşturulan istemci sertifikasını dışarı aktarmanız gerekmez.
 

@@ -1,11 +1,11 @@
 ---
-title: "S2S VPN veya VNet-VNet bağlantıları için IPSec/IKE ilkesi yapılandırın: Azure Resource Manager: PowerShell | Microsoft Docs"
-description: "Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateway'ler ile IPSec/IKE İlkesi S2S veya VNet-VNet bağlantıları için yapılandırın."
+title: 'S2S VPN veya VNet-VNet bağlantıları için IPSec/IKE ilkesi yapılandırın: Azure Resource Manager: PowerShell | Microsoft Docs'
+description: Azure Resource Manager ve PowerShell kullanarak Azure VPN Gateway'ler ile IPSec/IKE İlkesi S2S veya VNet-VNet bağlantıları için yapılandırın.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 238cd9b3-f1ce-4341-b18e-7390935604fa
 ms.service: vpn-gateway
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: 19233ccd306f507ef2e36bee878aa9705c115780
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: fa1aed76f63e500a6c2849fb9b62a918e85c9fb0
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>S2S VPN veya VNet-VNet bağlantıları için IPSec/IKE ilkesi yapılandırma
 
@@ -54,7 +54,7 @@ Bu bölümde oluşturmak ve bir S2S VPN veya VNet-VNet bağlantısı IPSec/IKE �
 
 Bu makaledeki yönergeleri ayarlayın ve aşağıdaki çizimde gösterildiği gibi IPSec/IKE ilkelerini yapılandırmanıza yardımcı olur:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![IPSec IKE İlkesi](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>Desteklenen bölüm 2 - şifreleme algoritmaları ve anahtar gücü
 
@@ -64,7 +64,7 @@ Aşağıdaki tabloda, desteklenen şifreleme algoritmaları ve anahtar gücü ya
 | ---  | --- 
 | IKEv2 Şifrelemesi | AES256, AES192, AES128, DES3, DES  
 | IKEv2 Bütünlüğü  | SHA384, SHA256, SHA1, MD5  |
-| DH Grubu         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, None |
+| DH Grubu         | DHGroup24, ECP384, ECP256, DHGroup14, DHGroup2048, DHGroup2, DHGroup1, yok |
 | IPsec Şifrelemesi | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, None    |
 | IPsec Bütünlüğü  | GCMASE256, GCMAES192, GCMAES128, SHA256, SHA1, MD5 |
 | PFS Grubu        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Hiçbiri 
@@ -162,7 +162,7 @@ Resource Manager cmdlet’lerini kullanmak için PowerShell moduna geçtiğinizd
 PowerShell konsolunuzu açın ve hesabınıza bağlanın. Bağlanmanıza yardımcı olması için aşağıdaki örneği kullanın:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 Select-AzureRmSubscription -SubscriptionName $Sub1
 New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
@@ -194,7 +194,7 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 
 Aşağıdaki örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip bir IPSec/IKE ilkesi oluşturur:
 
-* IKEv2: AES256, SHA384, DHGroup24
+* Ikev2: AES256, SHA384 DHGroup24
 * IPSec: AES256, SHA256, PFS hiçbiri, SA ömrü 14400 saniye ve 102400000KB
 
 ```powershell
@@ -280,8 +280,8 @@ S2S VPN bağlantısı için benzer bir IPSec/IKE ilkesi oluşturun sonra yeni bi
 #### <a name="1-create-an-ipsecike-policy"></a>1. Bir IPSec/IKE ilkesi oluşturun
 
 Aşağıdaki örnek komut dosyası için aşağıdaki algoritmaları ve parametrelerine sahip başka bir IPSec/IKE ilke oluşturur:
-* IKEv2: AES128, SHA1, DHGroup14
-* IPsec: GCMAES128, GCMAES128, PFS14, SA Lifetime 14400 seconds & 102400000KB
+* Ikev2: AES128, SHA1, DHGroup14
+* IPSec: GCMAES128, GCMAES128, PFS14, SA ömrü 14400 saniye & 102400000KB
 
 ```powershell
 $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption GCMAES128 -IpsecIntegrity GCMAES128 -PfsGroup PFS14 -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
@@ -305,7 +305,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 Bu adımları tamamladıktan sonra birkaç dakika içerisinde bağlantı kurulur ve ' den itibaren gösterildiği gibi aşağıdaki ağ topolojisi gerekir:
 
-![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
+![IPSec IKE İlkesi](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 
 ## <a name ="managepolicy"></a>Bölüm 5 - bir bağlantı için güncelleştirme IPSec/IKE İlkesi

@@ -1,11 +1,11 @@
 ---
-title: "Azure, sanal makine görüntüsünü yönetme | Microsoft Docs"
-description: "Azure, sanal makine görüntüsünü sonra ilk yayını yönetme hakkında ayrıntılı kılavuz"
+title: Azure, sanal makine görüntüsünü yönetme | Microsoft Docs
+description: Azure, sanal makine görüntüsünü sonra ilk yayını yönetme hakkında ayrıntılı kılavuz
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: cc8648d4-59c2-4678-b47d-992300677537
 ms.service: marketplace
 ms.devlang: na
@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/03/2016
 ms.author: mbaldwin;
 ms.openlocfilehash: 19f60de4a6c651885da7ff1fb7612a77f3d0c8f1
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Sanal makine teklifleri için Azure markette sonrası üretim Kılavuzu
 Bu makalede, Azure Marketi dinamik sanal makine teklifte nasıl güncelleştirebileceğinizi açıklanmaktadır. Bu, bir veya daha fazla yeni SKU'ları için mevcut bir teklif ekleme işlemini kılavuzluk eder. Bu da dinamik sanal makine teklif veya SKU marketten kaldırmanın sürecinde size kılavuzluk.
@@ -47,7 +47,7 @@ Teklifiniz yeniden yayımlamanız ve yeni bir sürümü için listelenen SKU ekl
 2. Git **sanal makineleri** sekmesini tıklatın ve teklifiniz seçin.
 3. Soldaki menüde tıklatın **VM GÖRÜNTÜLERİ** sekmesi.
 4. İçinde **SKU'ları** bölümünde, güncelleştirmek istediğiniz SKU bulun.
-5. SKU için yeni bir sürüm numarası ekleyin ve  **+**  düğmesi. Yeni sürüm X, Y ve Z tamsayılar olduğu bir X.Y.Z biçiminde olmalıdır. Sürüm değişikliklerini yalnızca artımlı olmalıdır.
+5. SKU için yeni bir sürüm numarası ekleyin ve **+** düğmesi. Yeni sürüm X, Y ve Z tamsayılar olduğu bir X.Y.Z biçiminde olmalıdır. Sürüm değişikliklerini yalnızca artımlı olmalıdır.
 6. İçinde **OS VHD URL'si** kutusunda, işletim sistemi VHD için oluşturulan URI paylaşılan erişim imzası girin ve değişiklikleri kaydedin.
 
    > [!IMPORTANT]

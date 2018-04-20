@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: bradsev
 ms.openlocfilehash: 3c39ae865ec26567f70706b042dab2aa8e4939d3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="group-manager-tasks"></a>Grup yöneticisi görevleri
 
@@ -101,7 +101,7 @@ Oluşturmak istediğiniz VSTS sunucu bilgileri doldurun **hesabınızı oluştur
 
 Tıklatın **devam**. 
 
-## <a name="2-groupcommon-team-project"></a>2. GroupCommon Team Project
+## <a name="2-groupcommon-team-project"></a>2. GroupCommon takım projesi
 
 **GroupCommon** sayfa (*https://\<servername\>.visualstudio.com/GroupCommon*) VSTS sunucunuz oluşturulduktan sonra açılır.
                             
@@ -188,8 +188,8 @@ Bu adımda, takım veri bilimi işlem (TDSP) ProjectTemplate depo (G1) ve yardı
 ![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
 
 - Bizim kısaltılmış deposu adlarını kullanarak, bu komut dosyalarını elde ettikleri şudur: 
-    - G1 - cloned into -> LG1
-    - G2 - cloned into -> LG2
+    - İçine klonlanmış G1 - LG1 ->
+    - İçine klonlanmış G2 - LG2 ->
 - Kopyalama tamamlandıktan sonra iki dizini görüyor olmalısınız _ProjectTemplate_ ve _yardımcı programları_altında **GitRepos\TDSPCommon** dizini. 
 
 ### <a name="clone-r1--r2-repositories-to-your-local-dsvm"></a>Yerel DSVM için kopya R1 ve R2 depoları

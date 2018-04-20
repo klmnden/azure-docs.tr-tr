@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/16/2018
 ms.author: jingwang
 ms.openlocfilehash: 3b92aed83e01d223b33f269f0202355836f806c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
@@ -136,9 +136,9 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | Girişleri | Kaynak verileri için hangi noktaları oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir giriş destekler. | Evet |
 | çıkışlar | Hangi havuz veri noktalarına oluşturulan veri kümesi belirtin. Kopyalama etkinliği yalnızca tek bir çıktı destekler. | Evet |
 | typeProperties | Kopyalama etkinliği yapılandırmak için özellikler grubu. | Evet |
-| kaynak | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
+| source | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Havuz | Kopya Havuz türü ve karşılık gelen özelliklere veri yazma nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
-| translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
+| Translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
 | cloudDataMovementUnits | Powerfulness belirtin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri kopyalama güçlendirmeniz.<br/><br/>Ayrıntıları öğrenmek [bulut veri taşıma birimleri](copy-activity-performance.md). | Hayır |
 | parallelCopies | Havuz için veri kaynağı ve veri yazma ait okurken kullanılacak kopyalama etkinliği istediğiniz paralellik belirtin.<br/><br/>Ayrıntıları öğrenmek [paralel kopyalama](copy-activity-performance.md#parallel-copy). | Hayır |
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan kopyalama veri havuzu kaynağından yerine aa blob storage'da hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama hazırlanan](copy-activity-performance.md#staged-copy). | Hayır |
@@ -173,7 +173,7 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndür
 | Özellik adı  | Açıklama | Birim |
 |:--- |:--- |:--- |
 | DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
-| dataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
+| DataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
 | filesRead | Dosya depolama biriminden veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | rowsCopied | (İkili kopyası için geçerli değil) kopyalanmasını satır sayısını belirtir. | Int64 değeri (birim) |

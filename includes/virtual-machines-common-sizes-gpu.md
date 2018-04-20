@@ -9,10 +9,10 @@ ms.date: 03/30/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
 ms.openlocfilehash: 5457ac8bd229889ed2b96354c44066959c00c64f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 GPU en iyi duruma getirilmiş VM ile tek veya birden çok NVIDIA GPU kullanılabilir özelleştirilmiş sanal makineler boyutlarıdır. Bu boyutlar işlem yoğunluklu, grafik yoğun ve görselleştirme iş yükleri için tasarlanmıştır. Bu makale numarası ve gpu, Vcpu, veri diskleri ve NIC yanı sıra depolama üretilen iş ve ağ bant genişliğini her boyutu Bu gruplandırma türü hakkında bilgi sağlar. 
 

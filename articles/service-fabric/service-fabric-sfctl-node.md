@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Fabric CLI sfctl düğümlü | Microsoft Docs"
-description: "Service Fabric CLI sfctl düğümü komutlarını açıklar."
+title: Azure Service Fabric CLI sfctl düğümlü | Microsoft Docs
+description: Service Fabric CLI sfctl düğümü komutlarını açıklar.
 services: service-fabric
 documentationcenter: na
 author: rwike77
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: cli
 ms.topic: reference
@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 02/22/2018
 ms.author: ryanwi
 ms.openlocfilehash: 50c7fe38d8bf7b14adf437f85c758e465e7d231d
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="sfctl-node"></a>sfctl node
 Bir küme düğümleri yönetin.
@@ -50,18 +50,18 @@ Belirtilen devre dışı bırakma hedefine olan bir Service Fabric küme düğü
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --düğüm adı [gerekli]| Düğümün adı.|
-| --deactivation-intent | Hedefi veya düğüm devre dışı bırakma nedeni açıklanmaktadır. |
+| --devre dışı bırakma hedefi | Hedefi veya düğüm devre dışı bırakma nedeni açıklanmaktadır. |
 | --zaman aşımı -t       | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h          | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım          | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı        | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-enable"></a>sfctl düğüm etkinleştir
 Şu anda devre dışı bir Service Fabric küme düğümü etkinleştirin.
@@ -79,11 +79,11 @@ Belirtilen devre dışı bırakma hedefine olan bir Service Fabric küme düğü
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h          | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım          | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı        | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-health"></a>sfctl düğüm durumu
 Service Fabric düğümü durumunu alır.
@@ -95,18 +95,18 @@ Service Fabric düğümü durumunu alır. Sistem durumu olayları sistem durumun
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --düğüm adı [gerekli]| Düğümün adı.|
-| --events-health-state-filter| Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
+| --Sağlık Durumu Filtresi olayları| Döndürülen HealthEvent nesnelerin sistem durumuna bağlıdır koleksiyonu filtrelemeye izin verir. Bu parametre için olası değerler aşağıdaki sistem durumlarının bir tamsayı değeri içerir. Filtreyle eşleşen olaylar döndürülür. Tüm olayları toplanmış sistem durumunu değerlendirmek için kullanılır. Belirtilmezse, tüm girişleri döndürülür. Durum değerleri bayrağı tabanlı numaralandırma olduğundan, değer, bu değerlerin Bitsel 'Veya' işleci kullanılarak edinilen bir bileşimi olabilir. Sağlanan değer 6 ise, örneğin, ardından tüm olaylar Tamam (2) ve uyarı (4), HealthState değeriyle döndürülür. -Varsayılan - varsayılan değer. Tüm HealthState eşleşir. Değer sıfır olur. -Hiçbiri - herhangi bir HealthState değer eşleşmeyen filtreleyin. Sonuç durumları belirli bir koleksiyon döndürmek için kullanılır. Değer 1'dir. -Tamam - eşleşmeleri HealthState değerle Tamam giriş filtreleyin. Değer 2'dir. -Uyarı - filtre HealthState eşleşme girişle uyarı değer. Değer 4'tür. -Hata - Giriş hata HealthState değeriyle eşleşen Filtresi. Değer 8'dir. -Tüm - giriş herhangi bir HealthState değeri ile eşleşen filtre. Değer, 65535 ' dir.|
 | --zaman aşımı -t             | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug                  | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h                | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama                  | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım                | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı              | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu                  | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
-| --verbose                | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu                  | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
+| --ayrıntılı                | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-info"></a>sfctl düğüm bilgisi
 Service Fabric kümesi içinde belirli bir düğüme hakkındaki bilgileri alır.
@@ -124,11 +124,11 @@ Bilgi alır yanıt Service Fabric Cluster.The belirli bir düğümünde hakkınd
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h          | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım          | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı        | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-list"></a>sfctl düğüm listesi
 Service Fabric kümedeki düğümlerin listesini alır.
@@ -140,18 +140,18 @@ Service Fabric kümedeki düğümlerin listesini alır. Yanıt adı, durumu, kim
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --devamlılık belirteci| Devamlılık belirteci parametresi, bir sonraki sonuç kümesi elde etmek için kullanılır. Sistem sonuçlarından tek bir yanıtta uymayan bir devamlılık belirteci boş olmayan bir değere sahip API yanıt olarak dahil edilir.      Bu değer geçirilen zaman sonraki API çağrısı API sonraki sonuç kümesi döndürür. Daha fazla sonuç varsa, devamlılık belirteci bir değer içermiyor. Bu parametrenin değeri, URL kodlanmış olmamalıdır.|
-| --düğüm Durumu Filtresi| Üzerinde NodeStatus bağlı düğümler filtrelemeye izin verir. Yalnızca belirtilen filtre değeri eşleşen düğümleri döndürülür. Filtre değeri aşağıdakilerden biri olabilir. Default: default.|
+| --düğüm Durumu Filtresi| Üzerinde NodeStatus bağlı düğümler filtrelemeye izin verir. Yalnızca belirtilen filtre değeri eşleşen düğümleri döndürülür. Filtre değeri aşağıdakilerden biri olabilir. Varsayılan: varsayılan.|
 | --zaman aşımı -t     | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug          | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h        | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama          | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım        | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı      | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu          | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose        | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu          | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı        | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-load"></a>sfctl düğümü yükleme
 Service Fabric düğümü yük bilgilerini alır.
@@ -169,11 +169,11 @@ Yük ya da tanımlanmış kapasite sahip tüm ölçümler için Service Fabric d
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h          | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım          | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı        | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-restart"></a>sfctl düğümü yeniden başlatma
 Service Fabric küme düğümü yeniden başlatır.
@@ -185,19 +185,19 @@ Zaten başlatılmış bir Service Fabric küme düğümü yeniden başlatır.
 |Bağımsız değişken|Açıklama|
 | --- | --- |
 | --düğüm adı [gerekli]| Düğümün adı.|
-| --create-fabric-dump  | Fabric düğümü işleminin döküm oluşturmak için true değerini belirtin. Büyük küçük harfe duyarlı budur.  Varsayılan: False.|
-| --node-instance-id | Hedef düğüm örnek kimliği. Örnek kimliği yalnızca düğüm geçerli örnekle eşleşmesi durumunda düğüm yeniden belirtilir. Varsayılan değer "0" herhangi bir örnek kimliği eşleşir Örnek kimliği get düğümü sorgusu kullanılarak edinilebilir.  Varsayılan: 0.|
+| --oluşturma-doku-dökümü  | Fabric düğümü işleminin döküm oluşturmak için true değerini belirtin. Büyük küçük harfe duyarlı budur.  Varsayılan: False.|
+| --düğümü örnek kimliği | Hedef düğüm örnek kimliği. Örnek kimliği yalnızca düğüm geçerli örnekle eşleşmesi durumunda düğüm yeniden belirtilir. Varsayılan değer "0" herhangi bir örnek kimliği eşleşir Örnek kimliği get düğümü sorgusu kullanılarak edinilebilir.  Varsayılan: 0.|
 | --zaman aşımı -t       | Sunucu zaman aşımı saniye cinsinden.  Varsayılan: 60.|
 
 ### <a name="global-arguments"></a>Genel bağımsız değişkenler
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h          | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama            | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım          | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı        | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.  Varsayılan: json.|
-| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için http://jmespath.org/ bakın.|
-| --verbose          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu            | JMESPath sorgu dizesi. Daha fazla bilgi ve örnekler için bkz: http://jmespath.org/.|
+| --ayrıntılı          | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="sfctl-node-transition"></a>sfctl düğüm geçiş
 Başlatır veya bir küme düğümü durdurur.
@@ -220,11 +220,11 @@ Bir düğüm başlatmak için NodeTransitionType parametresi için "Başlangıç
 
 |Bağımsız değişken|Açıklama|
 | --- | --- |
-| --debug                           | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
-| --help -h                         | Bu yardım iletisini ve çıkış gösterir.|
+| --hata ayıklama                           | Günlük ayrıntı tüm hata ayıklama günlüklerini göster artırın.|
+| ---h Yardım                         | Bu yardım iletisini ve çıkış gösterir.|
 | ---o çıktı                       | Çıktı biçimi.  İzin verilen değerler: json, jsonc, tablo, tsv.                       Varsayılan: json.|
-| --Sorgu                           | JMESPath sorgu dizesi. Http://jmespath.org/ daha fazla bilgi ve örnekler için bkz.|
-| --verbose                         | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
+| --Sorgu                           | JMESPath sorgu dizesi. Bkz: http://jmespath.org/ daha fazla bilgi ve örnekler.|
+| --ayrıntılı                         | Günlüğün ayrıntı düzeyini artırın. Kullanımı--tam hata ayıklama günlükleri için hata ayıklama.|
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Kurulum](service-fabric-cli.md) Service Fabric CLI.

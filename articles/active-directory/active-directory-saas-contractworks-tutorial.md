@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme ile ContractWorks | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ile ContractWorks arasında yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme ile ContractWorks | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ile ContractWorks arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e5ad805bbb25d2431944e2ede1f22630956356
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 3c986810f3d994b956d4c81fd80b38d9dfee4f50
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Öğretici: Azure Active Directory Tümleştirme ContractWorks ile
 
@@ -99,7 +99,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_samlbase.png)
 
 3. Üzerinde **ContractWorks etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
@@ -121,9 +121,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, yukarıdaki resimde gösterildiği gibi SAML belirteci özniteliği yapılandırın ve aşağıdaki adımları gerçekleştirin:
     
     | Öznitelik Adı | Öznitelik Değeri |
-    | ---------------| --------------- |    
-    | Posta | user.mail |
-    | displayName | user.displayname |
+    | ---------------| --------------- |
+    | Posta | User.Mail |
+    | Görünen adı | user.displayname |
 
     a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
 
@@ -139,34 +139,15 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     d. Tıklatın **Tamam**
 
-7. Tıklatın **kaydetmek** düğmesi.
+7. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalamak için Kopyala düğmesini tıklatın **uygulama Federasyon meta veri URL'sini** ve Not Defteri'ne yapıştırın.
+    
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_metadataurl.png)
+     
+8. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_general_400.png)
 
-8. Oluşturulacak **meta veri URL'sini**, aşağıdaki adımları gerçekleştirin:
-
-    a. Tıklatın **uygulama kayıtlar**.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appregistrations.png)
-   
-    b. Tıklatın **uç noktaları** açmak için **uç noktaları** iletişim kutusu.  
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpointicon.png)
-
-    c. Kopyalamak için Kopyala düğmesini tıklatın **FEDERASYON meta veri belgesi** URL'yi kopyalayıp Not Defteri'ne yapıştırın.
-    
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_endpoint.png)
-     
-    d. Şimdi özellik sayfasına gidin **contractworks** ve kopyalama **uygulama kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-contractworks-tutorial/tutorial_contractworks_appid.png)
-
-    e. Oluştur **meta veri URL'sini** şu biçimi kullanarak: `<FEDERATION METADATA DOCUMENT url>?appid=<application id>`
-
-9. Çoklu oturum açma yapılandırmak için **ContractWorks** yan, oluşturulan göndermek için ihtiyacınız **meta veri URL'sini** için [ContractWorks destek ekibi](mailto:support@contractworks.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+9. Çoklu oturum açma yapılandırmak için **ContractWorks** yan, oluşturulan göndermek için ihtiyacınız **uygulama Federasyon meta veri URL'sini** için [ContractWorks destek ekibi](mailto:support@contractworks.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 

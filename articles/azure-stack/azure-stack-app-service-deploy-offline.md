@@ -1,12 +1,12 @@
 ---
-title: "Çevrimdışı bir ortamda Azure yığın uygulama hizmeti dağıtma | Microsoft Docs"
-description: "AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortamında uygulama hizmeti dağıtma hakkında ayrıntılı yönergeler."
+title: Çevrimdışı bir ortamda Azure yığın uygulama hizmeti dağıtma | Microsoft Docs
+description: AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortamında uygulama hizmeti dağıtma hakkında ayrıntılı yönergeler.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 7a44c5d182aa3c66c07c3dad8c82e171429f2ee4
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 7907056635049ce90a2653b0d58ef6299b77c71e
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortam için bir uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -184,6 +184,19 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 2. Durumu altında genel bakışta, denetleyin **durum** gösterir **tüm rolleri hazır**.
 
     ![Uygulama Hizmeti Yönetimi](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Varolan bir sanal ağı ve bir iç IP adresine, DosyaSunucusu conenct dağıtmak isterseniz, SMB trafiğini çalışan alt ağı ve DosyaSunucusu arasında etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için yönetim portalında WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+> * Kaynak: tüm
+> * Kaynak bağlantı noktası aralığı: *
+> * Hedef: IP adresleri
+> * Hedef IP adresi aralığı:, DosyaSunucusu için IP aralığı
+> * Hedef bağlantı noktası aralığı: 445
+> * Protokol: TCP
+> * Eylem: izin ver
+> * Öncelik: 700
+> * Ad: Outbound_Allow_SMB445
+>
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti sürücüsünde test
 
@@ -214,9 +227,9 @@ Dağıtma ve uygulama hizmeti kaynak sağlayıcısı kaydetme sonra kullanıcıl
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Bir WordPress, DNN ya da Django Web sitesi (isteğe bağlı) dağıtma
 
-1. Azure yığın Kiracı Portalı'nda tıklatın  **+** Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
+1. Azure yığın Kiracı Portalı'nda tıklatın **+**Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
 
-2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin  *User1@Server1* , tercih ettiğiniz sunucu adını ve kullanıcı adı.
+2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin *User1@Server1*, tercih ettiğiniz sunucu adını ve kullanıcı adı.
 
 3. Ayrıca bir SQL Server Kaynak sağlayıcısı dağıttıysanız, DNN Web sitesi marketten dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kaynak sağlayıcısına bağlı SQL Server çalıştıran bilgisayarda bir veritabanı seçin.
 

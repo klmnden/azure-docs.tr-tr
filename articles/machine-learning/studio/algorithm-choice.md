@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
 ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning için algoritma seçme
 "Ne makine öğrenme algoritmasının kullanmalıyım?" sorusunun yanıtını her zaman "Bu bağlıdır." olur Boyut, kalite ve veri yapısını bağlıdır. Bu Yanıtla yapmak istediğiniz yere bağlıdır. Bu, nasıl algoritma matematik yönergeler için kullanmakta olduğunuz bilgisayar içine çevrilmiştir üzerinde bağlıdır. Ve bağlı olduğu üzerinde ne kadar süre sahip. Hatta çoğu deneyimli veri bilimcilerine algoritmayı en iyi denemeden önce gerçekleştirecek bildiremez.

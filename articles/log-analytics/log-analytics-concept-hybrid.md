@@ -1,12 +1,12 @@
 ---
-title: "Ortamınızı Azure günlük analizi ile veri toplamak | Microsoft Docs"
-description: "Bu konu, veri toplamak ve şirket içi veya başka bir bulut ortamında günlük analizi ile barındırılan bilgisayarları izlemek nasıl anlamanıza yardımcı olur."
+title: Ortamınızı Azure günlük analizi ile veri toplamak | Microsoft Docs
+description: Bu konu, veri toplamak ve şirket içi veya başka bir bulut ortamında günlük analizi ile barındırılan bilgisayarları izlemek nasıl anlamanıza yardımcı olur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/14/2018
 ms.author: magoedte
 ms.openlocfilehash: 9346e9a9ad310a21c6d6ce388b76ce491041289c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -32,7 +32,7 @@ Ortamınızda bulunan bilgisayarlar doğrudan bağlanması için günlük analiz
 
 ## <a name="overview"></a>Genel Bakış
 
-![log-analytics-agent-direct-connect-diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
+![log-Analytics-Agent-Direct-Connect-Diagram](media/log-analytics-concept-hybrid/log-analytics-on-prem-comms.png)
 
 Çözümleme ve toplanan verileri üzerinde hareket önce ilk yükleme ve aracılar için günlük analizi hizmetine veri göndermek istediğiniz tüm bilgisayarların bağlanmak gerekir. Kurulum, komut satırı kullanılarak, şirket içi bilgisayarları veya ile istenen durum yapılandırması (DSC) Azure Automation aracıları yükleyebilirsiniz. 
 

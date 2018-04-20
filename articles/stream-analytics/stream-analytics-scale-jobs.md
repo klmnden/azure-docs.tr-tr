@@ -10,10 +10,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.openlocfilehash: 1438ffa34652268572fe89dc63583cc25607d722
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Bir Azure akış analizi işi verimliliğini artırmak için ölçeklendirme
 Bu makalede akış analizi işleri verimliliğini artırmak için bir akış analizi sorgu ince ayar gösterilmektedir. İşinizi daha yüksek yükü işlemek ve daha fazla sistem kaynakları (örneğin, daha fazla bant genişliği, daha fazla CPU kaynaklarını, daha fazla bellek) yararlanmak için ölçeklendirmek için aşağıdaki kılavuzu kullanın.
@@ -122,7 +122,7 @@ Aşağıdaki tabloda, biz akış birim sayısını artar ve karşılık gelen b�
 <tr><td>192</td>
 <td>192</td>
 <td>192</td>
-<td>172.67 MB/s</td>
+<td>172.67 MB/sn</td>
 </tr>
 
 <tr><td>480</td>

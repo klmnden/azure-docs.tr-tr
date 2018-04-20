@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulama hizmeti mobil uygulamaya Mobile Services geçirme"
-description: "Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca geçirmeyi öğrenme"
+title: Bir uygulama hizmeti mobil uygulamaya Mobile Services geçirme
+description: Bir mobil uygulama hizmeti Mobile Services uygulamanıza kolayca geçirmeyi öğrenme
 services: app-service\mobile
-documentationcenter: 
+documentationcenter: ''
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 07507ea2-690f-4f79-8776-3375e2adeb9e
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: e94f08b9b9dad20c6f47367c47eb49aea59f4bd8
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="article-top"></a>Mevcut Azure mobil hizmetiniz Azure App Service'e geçirme
 İle [Azure uygulama hizmeti genel kullanılabilirliğini], Azure Mobile Services siteleri kolayca geçiş yapabilir yerinde Azure App Service'in tüm özelliklerden yararlanmak için.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.
@@ -68,7 +68,7 @@ Mobil istemci geçiş işleminin sonunda sitenizden sınamayı planlayın.  Mobi
 ### <a name="update-app-service-tier"></a>Uygun bir uygulama hizmeti fiyatlandırma katmanı seçin
 Azure App Service'e geçirdikten sonra fiyatlandırma daha fazla esneklik bulunur.
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **App Service planı** Ayarlar menüsünden.
@@ -94,7 +94,7 @@ Fiyatlandırma katmanı, uygulamanız için sağ seçerken büyük oranda esnekl
 Zamanlayıcı işlerinin geçişten sonra yaklaşık 30 dakika kadar görünür olmaz.  Zamanlanan işler arka planda çalışmaya devam eder.
 Zamanlanan işleriniz yeniden görünür sonra görüntülemek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **Gözat >**, girin **zamanlama** içinde *filtre* kutusuna ve ardından **Zamanlayıcı koleksiyonları**.
 
 Ücretsiz zamanlayıcı işleri kullanılabilir geçiş sonrası sınırlı sayıda vardır.  Kullanımınızı gözden geçirin ve [Azure Zamanlayıcı planları].
@@ -104,7 +104,7 @@ Zamanlanan işleriniz yeniden görünür sonra görüntülemek için:
 
 Geçirilen CORS ayarlarınızı kullanılabilir olarak **MS_CrossDomainWhitelist** uygulama ayarı.  Siteniz için App Service CORS tesis geçirmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **CORS** API menüsünde.
@@ -119,7 +119,7 @@ Geçirilen CORS ayarlarınızı kullanılabilir olarak **MS_CrossDomainWhitelist
 ### <a name="download-publish-profile"></a>Yeni bir yayımlama profili indirin
 Yayımlama profili, sitenizin Azure App Service'e geçirilirken değiştirilir.  Sitenizden Visual Studio'dan yayımlamak isterseniz, yeni bir yayımlama profili gerekir.  Yeni Yayımlama profilini indirmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Tıklatın **Get yayımlama profili**.
 
@@ -133,12 +133,12 @@ PublishSettings dosyasını bilgisayarınıza yüklenir.  Normalde adlı *sitena
 6. Tıklatın **Yayımla** sitenizi yayımlamak için.
 
 ## <a name="working-with-your-site"></a>Site geçiş sonrası ile çalışma
-Yeni uygulama hizmetiniz ile çalışmaya başlamak [Azure Portal] geçiş sonrası.  Bazı notlar gerçekleştirmek için kullanılan belirli işlemler şunlardır [Klasik Azure portalı], kendi uygulama hizmeti eşdeğer birlikte.
+Yeni uygulama hizmetiniz ile çalışmaya başlamak [Azure portal] geçiş sonrası.  Bazı notlar gerçekleştirmek için kullanılan belirli işlemler şunlardır [Klasik Azure portalı], kendi uygulama hizmeti eşdeğer birlikte.
 
 ### <a name="publishing-your-site"></a>İndirme ve geçirilen sitenizi yayımlama
 Sitenizin git veya ftp aracılığıyla kullanılabilir ve WebDeploy, TFS, Mercurial, GitHub ve FTP dahil olmak üzere çeşitli farklı mekanizmaları ile yeniden.  Dağıtım kimlik bilgileri, sitenin geri kalanını ile geçirilir.  Dağıtım kimlik bilgilerinizi ayarlamamış veya bunları hatırlamıyorsanız, bunları sıfırlayabilirsiniz:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **dağıtım kimlik bilgileri** yayımlama menüsü.
@@ -147,10 +147,10 @@ Sitenizin git veya ftp aracılığıyla kullanılabilir ve WebDeploy, TFS, Mercu
 Git ile site kopyalama veya GitHub, TFS veya Mercurial otomatik dağıtımları ayarlamak için bu kimlik bilgileri kullanabilirsiniz.  Daha fazla bilgi için [Azure uygulama hizmeti dağıtım belgeleri] bakın.
 
 ### <a name="appsettings"></a>Uygulama ayarları
-Geçirilen bir mobil hizmet için çoğu ayarları aracılığıyla uygulama ayarlarını kullanılabilir.  Uygulama ayarlarından listesini almak [Azure Portal].
+Geçirilen bir mobil hizmet için çoğu ayarları aracılığıyla uygulama ayarlarını kullanılabilir.  Uygulama ayarlarından listesini almak [Azure portal].
 Uygulama ayarlarını görüntülemek veya değiştirmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **uygulama ayarları** genel menüsünde.
@@ -187,7 +187,7 @@ Not: **MS\_AadTenants** Kiracı etki alanı ("İzin verilen kiracılar" alanlar�
 ### <a name="easytables"></a>Veri
 *Veri* Mobile Services sekmesinde tarafından değiştirildi *kolay tabloları* Azure portalı içinde.  Kolay tabloları erişmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **kolay tabloları** mobil menüsünde.
@@ -204,7 +204,7 @@ Bir tablo tıklayarak ekleyebilirsiniz **Ekle** düğmesini veya bir tablo adı 
 ### <a name="easyapis"></a>API
 *API* Mobile Services sekmesinde tarafından değiştirildi *kolay API'leri* Azure portalı içinde.  Kolay API'leri erişmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Tıklatın **kolay API'leri** mobil menüsünde.
@@ -215,7 +215,7 @@ Yeni dikey penceresinden izinleri ayarlama ve komut dosyaları için API düzenl
 ### <a name="on-demand-jobs"></a>Zamanlayıcı işleri
 Tüm zamanlayıcı işlerinin Zamanlayıcı İş koleksiyonları bölümü kullanılabilir.  Zamanlayıcı işlerinin erişmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **Gözat >**, girin **zamanlama** içinde *filtre* kutusuna ve ardından **Zamanlayıcı koleksiyonları**.
 3. Siteniz için iş koleksiyonu seçin.  Bu adlı *sitename*-işler.
 4. Tıklatın **ayarları**.
@@ -230,7 +230,7 @@ Zamanlanan işler geçişten önce belirtilen sıklığı birlikte listelenmişt
 
 İsteğe bağlı işleriniz bulunan `App_Data/config/scripts/scheduler post-migration`.  Tüm isteğe bağlı işleri [WebJobs] için dönüştürme öneririz veya [işlevler].  Yeni zamanlayıcı işlerinin [WebJobs] olarak yazma veya [işlevler].
 
-### <a name="notification-hubs"></a>Notification Hubs
+### <a name="notification-hubs"></a>Bildirim hub'ları
 Mobile Services anında iletme bildirimleri için Notification Hubs'ı kullanır.  Aşağıdaki uygulama ayarları, bildirim hub'ı geçişten sonra mobil hizmetinize bağlamak için kullanılır:
 
 | Uygulama ayarı | Açıklama |
@@ -240,21 +240,21 @@ Mobile Services anında iletme bildirimleri için Notification Hubs'ı kullanır
 | **MS\_NotificationHubConnectionString** |Bildirim hub'ı bağlantı dizesi |
 | **MS\_NamespaceName** |MS_PushEntityNamespace için diğer ad |
 
-Bildirim Hub'ınız aracılığıyla yönetilen [Azure Portal].  (Bu uygulama ayarlarını kullanarak bulabilirsiniz) bildirim hub'ı adını not edin:
+Bildirim Hub'ınız aracılığıyla yönetilen [Azure portal].  (Bu uygulama ayarlarını kullanarak bulabilirsiniz) bildirim hub'ı adını not edin:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **Gözat**> seçeneğini belirleyip **bildirim hub'ları**
 3. Mobil hizmetle ilişkili bildirim hub'ı adına tıklayın.
 
 > [!NOTE]
-> Bildirim HUb'ınızı "Karma" türü ise, görünür değil.  Bildirim hub'ları bildirim hub'ları ve eski Service Bus özelliklerini kullanma "Karma" yazın.  [Karma alanlarınızın Dönüştür] devam etmeden önce.  Dönüştürme işlemi tamamlandıktan sonra bildirim hub'ınızı görünür [Azure Portal].
+> Bildirim HUb'ınızı "Karma" türü ise, görünür değil.  Bildirim hub'ları bildirim hub'ları ve eski Service Bus özelliklerini kullanma "Karma" yazın.  [Karma alanlarınızın Dönüştür] devam etmeden önce.  Dönüştürme işlemi tamamlandıktan sonra bildirim hub'ınızı görünür [Azure portal].
 >
 >
 
 Daha fazla bilgi için gözden [bildirim hub'ları] belgeleri.
 
 > [!TIP]
-> Bildirim hub'ları yönetimi özellikleri [Azure Portal] olan hala önizlemede.  [Klasik Azure portalı] tüm bildirim hub'ı yönetmek için kullanılabilir durumda kalır.
+> Bildirim hub'ları yönetimi özellikleri [Azure portal] olan hala önizlemede.  [Klasik Azure portalı] tüm bildirim hub'ı yönetmek için kullanılabilir durumda kalır.
 >
 >
 
@@ -269,7 +269,7 @@ Aşağıdaki ek uygulama ayarları, mobil hizmetinizden geçirilen ve altında k
 | Uygulama ayarı | Açıklama |
 |:--- |:--- |
 | **MS\_MobileServiceName** |Uygulama adı |
-| **MS\_MobileServiceDomainSuffix** |Etki alanı öneki. i.e azure-mobile.net |
+| **MS\_MobileServiceDomainSuffix** |Etki alanı öneki. yani azure-mobile.net |
 | **MS\_ApplicationKey** |Uygulama anahtarı |
 | **MS\_MasterKey** |Uygulama ana anahtarı |
 
@@ -305,17 +305,17 @@ Dosyaları düzenleyebilir ve sitenizi ftp veya git üzerinden yayımlayın.
 ### <a name="diagnostics"></a>Tanılama ve günlüğe kaydetme
 Tanılama günlük normalde bir Azure App Service'te devre dışıdır.  Tanılama günlük kaydını etkinleştirmek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Varsayılan ayarlar dikey penceresi açılır.
 4. Seçin **tanılama günlüklerini** Özellikler menüsü altında.
 5. Tıklatın **ON** günlükleri için: **uygulama günlüğü (dosya sistemi)**, **ayrıntılı hata iletileri**, ve **başarısız istek izleme**
 6. Tıklatın **dosya sistemi** için Web sunucusu günlüğü
-7. Tıklatın **Kaydet**
+7. **Kaydet**’e tıklayın
 
 Günlükleri görüntülemek için:
 
-1. [Azure Portal]’da oturum açın.
+1. [Azure portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri** geçirilen mobil hizmetiniz adına tıklayın.
 3. Tıklatın **Araçları** düğmesi
 4. Seçin **günlük akışı** GÖZLEMLE menüsünün altında.
@@ -377,7 +377,7 @@ Uygulamanızı App Service'e geçirilir, kullanabileceğiniz daha da fazla özel
 [Otomatik ölçek]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
 [Klasik Azure portalı]: https://manage.windowsazure.com
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure Zamanlayıcı planları]: ../scheduler/scheduler-plans-billing.md
 [sürekli olarak dağıtma]: ../app-service/app-service-continuous-deployment.md

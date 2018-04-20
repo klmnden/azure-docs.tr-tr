@@ -1,25 +1,25 @@
 ---
-title: "Azure Active Directory için hizmet kimliği (MSI) yönetilen"
-description: "Yönetilen hizmet kimliği genel bakış Azure kaynakları için."
+title: Azure Active Directory için hizmet kimliği (MSI) yönetilen
+description: Yönetilen hizmet kimliği genel bakış Azure kaynakları için.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
-ms.devlang: 
+ms.devlang: ''
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/15/2017
 ms.author: daveba
 ms.reviewer: skwan
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 95980c082b09ad959ab8bbaae0250b40ac08d2c8
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 04/20/2018
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Yönetilen hizmet kimliği (MSI) için Azure kaynakları
 
@@ -47,7 +47,7 @@ Sistem tarafından atanan bir MSI Azure sanal makineler ile nasıl çalıştığ
 2. Azure Resource Manager VM kimliğini temsil etmek için Azure AD içinde bir hizmet sorumlusu oluşturur. Hizmet sorumlusu Bu abonelik tarafından güvenilen Azure AD kiracısı oluşturulur.
 3. Azure Resource Manager hizmet sorumlusu ayrıntıları MSI VM uzantısı'nda VM yapılandırır. Bu adım, istemci kimliği ve Azure AD erişim belirteçleri almak için uzantı tarafından kullanılan sertifika yapılandırmayı içerir.
 4. VM hizmet sorumlusu kimliğini bilinen, Azure kaynaklarına erişimi verilebilir. Kodunuzu Azure Resource Manager çağırmak gerekirse, örneğin, daha sonra VM'ın hizmet sorumlusu Azure AD'de rol tabanlı erişim denetimi (RBAC) kullanarak uygun rol atamanız gerekir.  Daha sonra kodunuzu anahtar kasası çağırmak gerekirse, belirli gizli veya anahtar kasası anahtarında, kodu erişim verin.
-5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/belirteci. Kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız https://management.azure.com/ =.
+5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/token. Kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız =https://management.azure.com/.
 6. MSI VM uzantısı, Azure AD'den bir erişim belirteci istemek için yapılandırılmış istemci kimliği ve sertifika kullanır.  Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuzu Azure AD kimlik doğrulamasını destekleyen bir hizmetine yapılan bir çağrı erişim belirteci gönderir.
 
@@ -59,7 +59,7 @@ Aynı diyagramın, burada örnek bir kullanıcı tarafından atanan MSI Azure sa
 2. Azure Resource Manager MSI kimliğini temsil etmek için Azure AD içinde bir hizmet sorumlusu oluşturur. Hizmet sorumlusu Bu abonelik tarafından güvenilen Azure AD kiracısı oluşturulur.
 3. Azure Kaynak Yöneticisi bir VM MSI VM uzantısında hizmet sorumlusu ayrıntıları yapılandırmak için bir ileti alır. Bu adım, istemci kimliği ve Azure AD erişim belirteçleri almak için uzantı tarafından kullanılan sertifika yapılandırmayı içerir.
 4. MSI hizmet sorumlusu kimliğini bilinen, Azure kaynaklarına erişimi verilebilir. Kodunuzu Azure Resource Manager çağırmak gerekirse, örneğin, daha sonra MSI hizmet sorumlusu Azure AD'de rol tabanlı erişim denetimi (RBAC) kullanarak uygun rol atamanız gerekir. Daha sonra kodunuzu anahtar kasası çağırmak gerekirse, belirli gizli veya anahtar kasası anahtarında, kodu erişim verin. Not: 3. adım adımı tamamlamak için 4 gerekli değildir. Bir MSI var olduğunda, bir VM'de veya yapılandırılmakta bağımsız olarak kaynaklarına erişimi verilebilir.
-5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/belirteci. İstemci kimliği parametresi kullanılacak MSI kimliği adını belirtir. Ayrıca, kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız https://management.azure.com/ =.
+5. MSI VM uzantısı tarafından barındırılan bir yerel uç noktasından belirteç VM'de çalıştırılan kodunuzu istekleri: http://localhost:50342/oauth2/token. İstemci kimliği parametresi kullanılacak MSI kimliği adını belirtir. Ayrıca, kaynak parametresi belirteç gönderildiği hizmeti belirtir. Örneğin, Azure Resource Manager kimliğini doğrulamak için kodunuzu istiyorsanız, kaynak kullanırsınız =https://management.azure.com/.
 6. MSI VM uzantısı istenen istemci Kimliğine ilişkin sertifika yapılandırılmış ve bir erişim belirteci Azure AD'den istekleri olmadığını denetler. Azure AD bir JSON Web Token (JWT) erişim belirteci döndürür.
 7. Kodunuzu Azure AD kimlik doğrulamasını destekleyen bir hizmetine yapılan bir çağrı erişim belirteci gönderir.
 

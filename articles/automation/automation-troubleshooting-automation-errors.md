@@ -10,18 +10,18 @@ ms.topic: article
 manager: carmonm
 tags: top-support-issue
 keywords: sorun giderme, Otomasyon hatası, sorunu
-ms.openlocfilehash: 9764068dd7a1a499c61695f39bff726a8ea3aac9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 44200ae9deb1a5c11c81550173b3f6f90b5d62ab
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation sık karşılaşılan sorunları giderme 
 Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir ortak hatalarında sorun giderme yardım sağlar.
 
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>Azure Otomasyon çalışma kitabı ile çalışırken, kimlik doğrulama hataları
 ### <a name="scenario-sign-in-to-azure-account-failed"></a>Senaryo: Başarısız Azure hesabınızda oturum açın
-**Hata:** Add-AzureAccount veya Login-AzureRmAccount cmdlet ile birlikte çalışırken "Unknown_user_type: Bilinmeyen kullanıcı türü" hatası alıyorsunuz.
+**Hata:** Add-AzureAccount veya Connect-AzureRmAccount cmdlet ile birlikte çalışırken "Unknown_user_type: Bilinmeyen kullanıcı türü" hatası alıyorsunuz.
 
 **Hatanın nedeni:** kimlik bilgisi varlığı adı geçerli değil veya kullanıcı adı ve Otomasyonu kimlik bilgisi varlığı ayarlamak için kullanılan parola geçerli değilse bu hata oluşur.
 
@@ -34,7 +34,7 @@ Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek iç
         #Using Azure Service Management   
         Add-AzureAccount –Credential $Cred  
         #Using Azure Resource Manager  
-        Login-AzureRmAccount –Credential $Cred
+        Connect-AzureRmAccount –Credential $Cred
 3. Yerel olarak, kimlik doğrulama başarısız olursa, bu Azure Active Directory bilgilerinizi düzgün ayarlamadıysanız anlamına gelir. Başvurmak [Azure Active Directory'yi kullanarak Azure için kimlik doğrulama](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) doğru şekilde ayarlanan Azure Active Directory hesap almak için blog postası.  
 
 ### <a name="scenario-unable-to-find-the-azure-subscription"></a>Senaryo: Azure aboneliği bulunamıyor
