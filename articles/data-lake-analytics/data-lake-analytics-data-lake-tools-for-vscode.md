@@ -1,10 +1,10 @@
 ---
-title: "Azure Data Lake araçları: Kullanım Azure Data Lake araçları Visual Studio kodunu | Microsoft Docs"
-description: "Visual Studio Code için Azure Data Lake araçları oluşturun, test ve U-SQL betikleri çalıştırmak için nasıl kullanılacağını öğrenin. "
+title: 'Azure Data Lake araçları: Kullanım Azure Data Lake araçları Visual Studio kodunu | Microsoft Docs'
+description: 'Visual Studio Code için Azure Data Lake araçları oluşturun, test ve U-SQL betikleri çalıştırmak için nasıl kullanılacağını öğrenin. '
 Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview file,upload to storage path,download,upload
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
+documentationcenter: ''
+author: Jejiang
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/09/2018
 ms.author: jejiang
-ms.openlocfilehash: 7e1e2c0a5481a81e9267bcf87076076b377a1496
-ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
+ms.openlocfilehash: fcd821c91a8c94792eeed83940abe1c72d0b2fb8
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/11/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake araçları Visual Studio kodunu kullanın
 
@@ -35,16 +35,16 @@ VSCode için Azure Data Lake araçları, Windows, Linux ve MacOS destekler.
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx).
 
 MacOS ve Linux için:
-- [.NET Core SDK 2.0](https://www.microsoft.com/net/download/core). 
+- [.NET core SDK 2.0](https://www.microsoft.com/net/download/core). 
 - [Mono 5.2.x](http://www.mono-project.com/download/).
 
-## <a name="install-data-lake-tools"></a>Data Lake araçları yükleme
+## <a name="install-data-lake-tools"></a>Data Lake Araçları’nı yükleme
 
 Önkoşulları yüklendikten sonra VS Code için Data Lake araçları yükleyebilirsiniz.
 
 **Data Lake araçları yüklemek için**
 
-1. Visual Studio Code'da açın.
+1. Visual Studio Code'u açın.
 2. Tıklatın **uzantıları** sol bölmede. Girin **Azure Data Lake** arama kutusuna.
 3. Tıklatın **yükleme** yanına **Azure Data Lake Araçları**. Birkaç saniye sonra **yükleme** düğmesi değiştirilecek **yeniden**.
 4. Tıklatın **yeniden** etkinleştirmek için **Azure Data Lake Araçları** uzantısı.
@@ -356,13 +356,13 @@ Aynı zamanda, izlediğiniz [karşıdan yükleme durumu](#check-storage-tasks-st
 
 **Azure tümleştirme** 
 
-- Her zaman genişletebilirsiniz önce Azure oturum açma, **DATALAKE EXPLORER**, ardından **Azur için oturum** Azure oturum açma. Oturum açtıktan sonra Azure hesabınız altındaki tüm abonelikleri sol panelinde listelendiğini göreceksiniz **DATALAKE EXPLORER**. 
+- Azure oturum açma önce her zaman genişletebilirsiniz **AZURE DATALAKE**, ardından **Azure'da oturum aç** için Azure'da oturum aç. Oturum açtıktan sonra Azure hesabınız altındaki tüm abonelikleri sol panelinde listelendiğini göreceksiniz **AZURE DATALAKE**. 
 
    ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/sign-in-datalake-explorer.png)
 
    ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/datalake-explorer.png)
 
-**ADLA meta veri gezinme** 
+**ADLA meta veri gezinme**
 
 - Azure aboneliğiniz genişletin, U-SQL veritabanınızı gidebilirsiniz Görünüm **şemaları**, **kimlik bilgileri**, **derlemeleri**, **tablo**, **Dizin**ve benzeri U-SQL veritabanları düğümü altında.
 
@@ -382,11 +382,31 @@ Aynı zamanda, izlediğiniz [karşıdan yükleme durumu](#check-storage-tasks-st
 
 **ADLS tümleştirme** 
 
- - Gidin **depolama hesabı**, yapabilecekleriniz **Önizleme**, **karşıdan**, **silmek**, **kopyalama göreli yol**, **Tam yol Kopyala** dosya düğümü bağlam menüsünde tarafından. Yapabilecekleriniz **yenileme**, **karşıya**, **karşıya yükleme klasörü**, **silmek** klasörü düğümü bağlam menüsünde sağ tıklanarak.
+Gidin **veri Gölü deposu**
+
+ - Klasör düğümde şunları yapabilirsiniz **yenileme**, **silmek**, **karşıya**, **karşıya yükleme klasörü**, **kopyalama göreli yol**, **Tam yol Kopyala** sağ bağlam menüsünde.
 
    ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-folder-menu.png)
 
+ - Dosya düğümde yapabilecekleriniz **indirin**, **Önizleme**, **silmek**, **göreli yol Kopyala**, **tam yol Kopyala**sağ bağlam menüsünde. 
+
    ![DataLake Gezgini](./media/data-lake-analytics-data-lake-tools-for-vscode/storage-account-download-preview-file.png)
+
+**WASB tümleştirme**
+
+Gidin **Blob Depolama**
+
+- Blob kapsayıcı düğümde yapabilecekleriniz **yenileme**, **Blob kapsayıcısını silmek**, **karşıya Blob** sağ bağlam menüsünden.
+
+    ![BLOB Depolama blob kapsayıcısını düğümü](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-blob-container-node.png)
+
+- Klasör düğümde yapabilecekleriniz **yenileme**, **Blob karşıya** sağ bağlam menüsünden.
+
+    ![BLOB Depolama klasörü düğümü](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-folder-node.png)
+
+- Dosya düğümde şunları yapabilirsiniz **Önizleme/Düzenle**, **karşıdan**, **silmek**, **göreli yol Kopyala**, **tam yolKopyala** sağ bağlam menüsünde.
+
+    ![BLOB Depolama dosya düğümü](./media/data-lake-analytics-data-lake-tools-for-vscode/blob-storage-file-node.png)
 
 ## <a name="open-adl-storage-explorer-in-portal"></a>Portalı'nda Aç ADL Depolama Gezgini
 1. Komut paletini açmak için Ctrl + Shift + P seçin.

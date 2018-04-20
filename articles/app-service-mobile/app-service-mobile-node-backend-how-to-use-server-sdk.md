@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -83,8 +83,8 @@ Bu uygulama bir mobil iyileştirilmiş Web API ile tek bir uç noktası oluştur
 * [Apache Cordova istemci hızlı başlangıç]
 * [iOS istemci hızlı başlangıç]
 * [Windows mağazası istemci hızlı başlangıç]
-* [Xamarin.iOS client quickstart]
-* [Xamarin.Android client quickstart]
+* [Xamarin.iOS istemcisi hızlı başlangıç]
+* [Xamarin.Android istemcisi hızlı başlangıç]
 * [Xamarin.Forms istemci hızlı başlangıç]
 
 Bu temel uygulamada kodu bulabilirsiniz [basicapp örnek github'da].
@@ -334,10 +334,10 @@ AzureMobile.js .gitignore dosyanıza ekleyin öneririz (veya diğer kaynak kodu 
 ### <a name="howto-appsettings"></a>Mobil uygulamanız için uygulama ayarlarını yapılandırın
 Bir eşdeğer uygulama ayarı azureMobile.js dosyasındaki çoğu ayarları sahip [Azure portal]. Uygulamanızı yapılandırmak için aşağıdaki listeyi kullanın **uygulama ayarları**:
 
-| Uygulama ayarı | azureMobile.js setting | Açıklama | Geçerli değerler |
+| Uygulama ayarı | azureMobile.js ayarı | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |ad |Uygulama adı |string |
-| **MS_MobileLoggingLevel** |logging.level |En küçük günlük düzeyi günlüğe kaydedilecek ileti sayısı |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
+| **MS_MobileLoggingLevel** |Logging.level |En küçük günlük düzeyi günlüğe kaydedilecek ileti sayısı |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
 | **MS_DebugMode** |hata Ayıkla |Etkinleştirir ya da hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_TableSchema** |Data.Schema |SQL tablolarının varsayılan şema adı |dize (varsayılan: dbo) |
 | **MS_DynamicSchema** |data.dynamicSchema |Etkinleştirir ya da hata ayıklama modunu devre dışı bırakır |TRUE, false |
@@ -871,8 +871,8 @@ Azure Portalı'nı kullanarak, yerel bilgisayarınıza projeye yüklemeye gerek 
 [Android istemci hızlı başlangıç]: app-service-mobile-android-get-started.md
 [Apache Cordova istemci hızlı başlangıç]: app-service-mobile-cordova-get-started.md
 [iOS istemci hızlı başlangıç]: app-service-mobile-ios-get-started.md
-[Xamarin.iOS Client quickstart]: app-service-mobile-xamarin-ios-get-started.md
-[Xamarin.Android Client quickstart]: app-service-mobile-xamarin-android-get-started.md
+[Xamarin.iOS istemcisi hızlı başlangıç]: app-service-mobile-xamarin-ios-get-started.md
+[Xamarin.Android istemcisi hızlı başlangıç]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms istemci hızlı başlangıç]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store istemcisi hızlı başlangıç]: app-service-mobile-windows-store-dotnet-get-started.md
 [çevrimdışı veri eşitlemeye]: app-service-mobile-offline-data-sync.md

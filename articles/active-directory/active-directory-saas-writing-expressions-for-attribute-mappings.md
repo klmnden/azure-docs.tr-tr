@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory'de özellik eşlemeleri için ifade yazma | Microsoft Docs"
-description: "Otomatik Azure Active Directory'de SaaS uygulama nesnelerinin sağlama sırasında öznitelik değerleri kabul edilebilir bir biçime dönüştürmek için ifade eşlemeleri kullanmayı öğrenin."
+title: Azure Active Directory'de özellik eşlemeleri için ifade yazma | Microsoft Docs
+description: Otomatik Azure Active Directory'de SaaS uygulama nesnelerinin sağlama sırasında öznitelik değerleri kabul edilebilir bir biçime dönüştürmek için ifade eşlemeleri kullanmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: b13c51cd-1bea-4e5e-9791-5d951a518943
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -27,7 +27,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 
 * Tüm ifadesi parantez içinde bağımsız değişken adından sonra oluşur işlevleri bakımından tanımlanmış olması gerekir: <br>
   *FunctionName (<< bağımsız değişkeni 1 >>, <<argument N>>)*
-* Birbirine içinde işlevleri iç içe. Örneğin: <br> *FunctionOne(FunctionTwo(<<argument1>>))*
+* Birbirine içinde işlevleri iç içe. Örneğin: <br> *FunctionOne (FunctionTwo (<<argument1>>))*
 * Bağımsız değişkenler üç farklı türde işlevlerini geçirebilirsiniz:
   
   1. Öznitelikleri kare köşeli parantez içine alınmalıdır. Örneğin: [attributeName]
@@ -91,8 +91,8 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle özniteliğinin adı. |
-| **start** |Gerekli |tamsayı |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
-| **uzunluğu** |Gerekli |tamsayı |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
+| **start** |Gerekli |integer |İçinde dizin **kaynak** dize substring burada başlamalıdır. Dizedeki ilk karakter dizini 1 olacaktır, ikinci karakter dizin 2 sahip ve benzeri. |
+| **uzunluğu** |Gerekli |integer |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
 
 - - -
 ### <a name="not"></a>değil
@@ -119,10 +119,10 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 * Zaman **oldValue** ve **şablonu** sağlanır:
   
   * Tüm oluşumlarını değiştirir **oldValue** içinde **şablonu** ile **kaynak** değeri
-* When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
+* Zaman **regexPattern**, **regexGroupName**, **replacementValue** sağlanır:
   
   * Kaynak dizesi replacementValue ile oldValueRegexPattern eşleşen tüm değerleri değiştirir
-* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
+* Zaman **regexPattern**, **regexGroupName**, **replacementPropertyName** sağlanır:
   
   * Varsa **kaynak** herhangi bir değer olan **kaynak** döndürülür
   * Varsa **kaynak** değerine sahip, kullanan **regexPattern** ve **regexGroupName** özelliğiyle değiştirme değeri ayıklamak için **replacementPropertyName** . Sonuç olarak değiştirme değeri döndürülür
@@ -175,8 +175,8 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 | **defaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
-| **key** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
-| **Değer** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
+| **Anahtarı** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
+| **value** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
 
 ## <a name="examples"></a>Örnekler
 ### <a name="strip-known-domain-name"></a>Şerit bilinen etki alanı adı
@@ -189,7 +189,7 @@ Bir kullanıcı adı almak için bir kullanıcının e-posta bilinen etki alanı
 **Giriş / Çıkış örneği:** <br>
 
 * **Giriş** (posta): "john.doe@contoso.com"
-* **OUTPUT**:  "john.doe"
+* **Çıktı**: "john.doe"
 
 ### <a name="append-constant-suffix-to-user-name"></a>Kullanıcı adı için sabit soneki ekleme
 Salesforce korumalı alan kullanıyorsanız, ek bir sonek eşitlemeden önce tüm kullanıcı adları eklemek gerekebilir.
@@ -200,7 +200,7 @@ Salesforce korumalı alan kullanıyorsanız, ek bir sonek eşitlemeden önce tü
 **Giriş/Çıkış örneği:** <br>
 
 * **Giriş**: (userPrincipalName): "John.Doe@contoso.com"
-* **OUTPUT**:  "John.Doe@contoso.com.test"
+* **ÇIKTI**: "John.Doe@contoso.com.test"
 
 ### <a name="generate-user-alias-by-concatenating-parts-of-first-and-last-name"></a>Birleştirme bölümleri adı ve Soyadı tarafından kullanıcı diğer adı oluştur
 Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harfini gerçekleştirerek kullanıcı diğer adı oluşturmak gerekir.
@@ -212,7 +212,7 @@ Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harf
 
 * **Giriş** (givenName): "John"
 * **Giriş** (Soyadı): "Doe"
-* **OUTPUT**:  "JohDoe"
+* **Çıktı**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Bir dizeden Aksan kaldırın ve küçük harfe Dönüştür
 Bir dizeden özel karakterleri kaldırın ve büyük harfler küçük harfe dönüştürmek gerekir.
@@ -236,7 +236,7 @@ Belirli bir biçimde SaaS uygulamasına tarihleri göndermek istiyor. <br>
 **Giriş/Çıkış örneği:**
 
 * **Giriş** (extensionAttribute1): "20150123105347.1Z"
-* **OUTPUT**:  "2015-01-23"
+* **ÇIKTI**: "2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Önceden tanımlanmış seçenekleri kümesini temel alan bir değer değiştirin
 Azure AD'de depolanan durum kodunu göre kullanıcının saat dilimi tanımlamanız gerekir. <br>
@@ -248,7 +248,7 @@ Durum kodu önceden tanımlanmış seçeneklerinden herhangi birini eşleşmiyor
 
 **Giriş/Çıkış örneği:**
 
-* **INPUT** (state): "QLD"
+* **Giriş** (durum): "QLD"
 * **Çıktı**: "Avustralya/Brisbane"
 
 ## <a name="related-articles"></a>İlgili Makaleler

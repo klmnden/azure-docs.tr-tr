@@ -1,11 +1,11 @@
 ---
-title: "Media Services sürüm notları | Microsoft Docs"
-description: "Media Services sürüm notları"
+title: Media Services sürüm notları | Microsoft Docs
+description: Media Services sürüm notları
 services: media-services
-documentationcenter: 
+documentationcenter: ''
 author: Juliako
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 919851db455e1ac727d8c98346d13e45d4336bc7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 20a24aa19989370c6ce82a738193a78f24b0eba9
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümlerden ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -47,7 +47,7 @@ Media Services REST API sürümü geçmişi hakkında daha fazla bilgi için bkz
 
 ## <a name="october-2017-release"></a>Ekim 2017 sürüm
 > [!IMPORTANT] 
-> Media Services, Azure erişim denetimi hizmeti kimlik doğrulama anahtarları desteği kaldırmaktadır. 1 Haziran 2018 üzerinde artık kod aracılığıyla Media Services arka ucu ile erişim denetimi hizmeti anahtarları kullanılarak doğrulanabilir. Her Azure Active Directory (Azure AD) kullanmak için kodunuzu güncelleştirin [Azure AD tabanlı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md). Bu değişikliği Azure portalında ilgili uyarılara dikkat edin.
+> Media Services, Azure erişim denetimi hizmeti kimlik doğrulama anahtarları desteği kaldırmaktadır. 22 Haziran 2018 üzerinde artık kod aracılığıyla Media Services arka ucu ile erişim denetimi hizmeti anahtarları kullanılarak doğrulanabilir. Her Azure Active Directory (Azure AD) kullanmak için kodunuzu güncelleştirin [Azure AD tabanlı kimlik doğrulaması](media-services-use-aad-auth-to-access-ams-api.md). Bu değişikliği Azure portalında ilgili uyarılara dikkat edin.
 
 ### <a name="updates-for-october-2017"></a>Ekim 2017 güncelleştirmeleri
 #### <a name="sdks"></a>SDK’lar
@@ -95,7 +95,7 @@ Artık Medya Kodlayıcısı standart veya Medya Kodlayıcısı Premium akışın
 
 Media Services'de, içerik doğrudan bir istemci oynatıcı uygulaması veya başkalarına dağıtım için bir içerik teslim ağı (CDN) teslim akış bir hizmet bir akış uç temsil eder. Media Services, aynı zamanda sorunsuz Azure içerik teslim ağı tümleştirme sağlar. Giden akış StreamingEndpoint hizmetinden bir canlı akış, isteğe bağlı video veya aşamalı indirme Media Services hesabınızı, bir varlığın olabilir. Her Media Services hesabı bir varsayılan akış uç noktası içerir. Ek akış uç noktalarını hesabı altında oluşturulabilir. 
 
-Akış uç noktaları, iki sürümü vardır 1.0 ve 2. 0. 10 Ocak 2017 başlangıç sürüm 2.0 varsayılan akış uç herhangi yeni oluşturulan bir Media Services hesabı ekleyin. Bu hesaba eklediğiniz ek akış uç noktalarını ayrıca sürüm 2.0 değildir. Bu değişiklik, var olan hesapları etkilemez. Varolan akış uç noktalarını sürümü 1.0 ve 2.0 sürümüne yükseltilebilir. Davranış, faturalama ve bu değişikliği özellik değişiklikleri vardır. Daha fazla bilgi için bkz: [akış uç noktaları genel bakış](media-services-streaming-endpoints-overview.md).
+Akış uç noktaları, iki sürümü vardır 1.0 ve 2. 0. 10 Ocak 2017 başlangıç sürüm 2.0 varsayılan akış uç herhangi yeni oluşturulan bir Media Services hesabı ekleyin. Bu hesaba eklediğiniz ek akış uç noktalarını ayrıca sürüm 2.0 değildir. Bu değişiklik, var olan hesapları etkilemez. Varolan akış uç noktalarını sürümü 1.0 ve 2.0 sürümüne yükseltilebilir. Davranış, faturalama ve bu değişikliği özellik değişiklikleri vardır. Daha fazla bilgi için bkz. [Akış uç noktalarına genel bakış](media-services-streaming-endpoints-overview.md).
 
 2,15 sürümünden başlayarak, Media Services akış uç noktası varlığa şu özellikleri ekledi:
 
@@ -475,7 +475,7 @@ Aşağıdaki değişiklikler dahil edilen Haziran 2013'te Media Services SDK'sı
 ## <a id="december_changes_12"></a>Kasım 2012 sürüm
 ### <a name="dec_12_dotnet_changes"></a>Media Services .NET SDK'sı değişiklikleri
 * IntelliSense: Birçok türü için IntelliSense belgeleri eksik eklendi.
-* Microsoft.Practices.TransientFaultHandling.Core: An issue was fixed where the SDK still had a dependency to an old version of this assembly. SDK'sı, artık bu derleme sürümüne 5.1.1209.1 başvuruyor.
+* Microsoft.Practices.TransientFaultHandling.Core: Burada SDK bu derleme eski bir sürümü için bir bağımlılık hala sahip bir sorun giderilmiştir. SDK'sı, artık bu derleme sürümüne 5.1.1209.1 başvuruyor.
 
 Kasım 2012'de SDK bulunan sorunları giderir:
 
@@ -489,7 +489,7 @@ Kasım 2012'de SDK bulunan sorunları giderir:
 * IAssetFile.DownloadAsync: Beş dosyalara dosyaların eş zamanlı indirme sınırlı bir sorun giderilmiştir.
 * IAssetFile.Delete(): Hiçbir dosya için IAssetFile karşıya yüklediyseniz arama silme bir özel durum burada throw bir sorun giderilmiştir.
 * İşlerini: Burada bir proje şablonu kullanarak bir "MP4 kesintisiz akışlara görev için" "PlayReady koruma görevini" ile zincirleme herhangi bir görevi hiç oluşturmamışsınızdır bir sorun giderilmiştir.
-* EncryptionUtils.GetCertificateFromStore(): This method no longer throws a null reference exception due to a failure in finding the certificate based on certificate configuration issues.
+* EncryptionUtils.GetCertificateFromStore(): Bu yöntem artık sertifika yapılandırma sorunlarını göre sertifikayı bulma hatası nedeniyle bir null başvuru özel durumu oluşturur.
 
 ## <a id="november_changes_12"></a>Kasım 2012 sürüm
 Bu bölümde belirtilen değişiklikleri Kasım 2012'de (sürüm 2.0.0.0) bulunan güncelleştirmeleri olan SDK. Bu değişiklikler SDK sürüm yeniden yazılmıştır veya değiştirilecek Haziran 2012 Önizleme için yazılmış herhangi bir kod gerektirebilir.
@@ -507,7 +507,7 @@ Bu bölümde belirtilen değişiklikleri Kasım 2012'de (sürüm 2.0.0.0) buluna
     * IAssetFile FileInfo değiştirir ve farklı bir davranışı vardır. Kullanmak için ya da Media Services SDK'sı veya depolama SDK'sını kullanarak bir dosyayı karşıya yükleyin ve ardından IAssetFiles nesne örneği oluşturur. Aşağıdaki IAssetFile.Upload aşırı kullanılabilir:
   
         * IAssetFile.Upload(filePath): İş parçacığı bu zaman uyumlu yöntemi engeller ve yalnızca tek bir dosyayı karşıya yüklediğinizde bu önerilir.
-        * IAssetFile.UploadAsync(filePath, blobTransferClient, locator, cancellationToken): This asynchronous method is the preferred upload mechanism. 
+        * IAssetFile.UploadAsync (filePath, blobTransferClient, Bulucu, cancellationToken): Bu zaman uyumsuz yöntem tercih edilen karşıya yükleme mekanizmadır. 
     
             Bilinen hata: iptal belirteci kullanırsanız, karşıya yükleme iptal edildi. Görevleri birçok iptal durumlar olabilir. Düzgün catch ve özel durumları işleme gerekir.
 * Bulucular

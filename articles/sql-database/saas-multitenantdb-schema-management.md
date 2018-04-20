@@ -1,7 +1,7 @@
 ---
-title: "Çok kiracılı bir uygulamada Azure SQL Veritabanı şemasını yönetme | Microsoft Docs"
-description: "Azure SQL Veritabanı’nı kullanan çok kiracılı bir uygulamada birden fazla kiracı için Şemayı yönetme"
-keywords: "sql veritabanı öğreticisi"
+title: Çok kiracılı bir uygulamada Azure SQL Veritabanı şemasını yönetme | Microsoft Docs
+description: Azure SQL Veritabanı’nı kullanan çok kiracılı bir uygulamada birden fazla kiracı için Şemayı yönetme
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: MightyPen
 manager: craigg
@@ -12,10 +12,10 @@ ms.date: 01/03/2018
 ms.reviewers: billgib
 ms.author: genemi
 ms.openlocfilehash: 474b7842c8295be0dd30c2c03b92dc68ce40630d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Parçalı çok Kiracı SQL veritabanı kullanan bir SaaS uygulaması şemada yönetme
 
@@ -51,7 +51,7 @@ Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 - Azure PowerShell yüklenmelidir. Ayrıntılar için bkz [Azure PowerShell ile çalışmaya başlama](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 > [!NOTE]
-> Bu öğretici sınırlı önizlemede Azure SQL veritabanı hizmetinin özelliklerini kullanır ([esnek veritabanı işleri](sql-database-elastic-database-client-library.md)). Bu öğretici yapmak isterseniz, abonelik Kimliğinizi sağlamak  *SaaSFeedback@microsoft.com*  esnek işleri Önizleme konuyla =. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun  *SaaSFeedback@microsoft.com*  ile ilgili sorular veya destek.
+> Bu öğretici sınırlı önizlemede Azure SQL veritabanı hizmetinin özelliklerini kullanır ([esnek veritabanı işleri](sql-database-elastic-database-client-library.md)). Bu öğretici yapmak isterseniz, abonelik Kimliğinizi sağlamak *SaaSFeedback@microsoft.com* esnek işleri Önizleme konuyla =. Aboneliğinizin etkinleştirildiğini belirten onayı aldıktan sonra, [en son ön sürüm işleri cmdlet’lerini indirip yükleyin](https://github.com/jaredmoo/azure-powershell/releases). Bu önizleme sınırlıdır, bu nedenle başvurun *SaaSFeedback@microsoft.com* ile ilgili sorular veya destek.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS şema yönetimi desenleri giriş
 

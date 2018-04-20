@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
 ms.openlocfilehash: bd2bb0d05029237242b42225a2c846c78a7c6de9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
-# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Bir hizmet başlangıç komut dosyası bir yerel kullanıcı veya sistem farklı çalıştır hesabı
+# <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Yerel kullanıcı veya sistem hesabı olarak bir hizmet başlangıcı komut dosyası çalıştırma
 Service Fabric hizmeti yürütülebilir dosyası başlatıldığında önce bazı yapılandırma ya da kurulum iş çalıştırmak gerekli olabilir.  Örneğin, ortam değişkenleri yapılandırılıyor. Hizmeti için hizmet bildiriminde yürütülebilir hizmeti başlar önce çalıştırılacak bir komut dosyası belirtebilirsiniz. Hangi hesabı değiştirebilirsiniz hizmet Kurulum giriş noktası için bir RunAs ilkesini yapılandırarak yürütülebilir Kurulum altında çalışır.  Ayrı Kurulum giriş noktası hizmeti ana bilgisayarı yürütülebilir yüksek ayrıcalıklara sahip uzun süre için çalıştırmanız gerekmez için kısa bir süre için yüksek privilged yapılandırma çalıştırmanıza olanak sağlar.
 
 Kurulum giriş noktası (**SetupEntryPoint** içinde [hizmet bildirimi](service-fabric-application-and-service-manifests.md)) çalıştırılan varsayılan Service Fabric kimlik bilgileriyle bir ayrıcalıklı giriş noktasıdır (genellikle  *NetworkService* hesabı) önce başka bir giriş noktası. Tarafından belirtilen yürütülebilir dosya **EntryPoint** genellikle uzun süre çalışan hizmet yöneticisidir. **EntryPoint** yürütülebilir dosyayı çalıştırmak **SetupEntryPoint** yürütülebilir başarıyla çıkar. Sonuçta elde edilen işlem izlenen ve yeniden başlatılabilir ve yeniden ile başlayan **SetupEntryPoint** hiç sonlandırır veya çöküyor. 

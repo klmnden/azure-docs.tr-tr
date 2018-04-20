@@ -1,11 +1,11 @@
 ---
-title: "İş akışı tetikleyiciler ve Eylemler - Azure Logic Apps | Microsoft Docs"
-description: "Tetikleyiciler ve logic apps ile otomatik iş akışları ve işlemleri oluşturmak için Eylemler hakkında bilgi edinin"
+title: İş akışı tetikleyiciler ve Eylemler - Azure Logic Apps | Microsoft Docs
+description: Tetikleyiciler ve logic apps ile otomatik iş akışları ve işlemleri oluşturmak için Eylemler hakkında bilgi edinin
 services: logic-apps
 author: divyaswarnkar
 manager: anneta
-editor: 
-documentationcenter: 
+editor: ''
+documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
 ms.service: logic-apps
 ms.workload: integration
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/13/2017
 ms.author: klam; LADocs
 ms.openlocfilehash: 28d28888ce66c354da39dc636579655aadbb9e51
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Tetikleyiciler ve Eylemler mantığı uygulama iş akışları için
 
@@ -192,7 +192,7 @@ Bu tetikleyici belirtilen uç nokta yoklar ve iş akışı veya çalıştırılm
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -268,7 +268,7 @@ Temel işlevleri, bu tetikleyici HTTP tetikleyicisini gibi çalışır. Bununla 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
 | konak | Evet | Nesne | Barındırılan ağ geçidi ve API uygulaması için kimliği | 
-| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 
@@ -546,7 +546,7 @@ Burada, `inputs` nesnesini bir HTTP çağrısıyla oluşturmak için gereken bu 
 
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
-| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | uri | Evet| Dize | Tetikleyici denetleyen HTTP veya HTTPs uç noktası. Maksimum dize boyutu: 2 KB | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -650,7 +650,7 @@ Bu eylem geçerli bir bağlantı ve API ve parametreleri hakkında bilgi için b
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- | 
 | konak | Evet | Nesne | Bağlayıcı bilgisi gibi temsil eden `runtimeUrl` ve bağlantı nesnesine başvuru alınamıyor. | 
-| yöntem | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
+| method | Evet | Dize | Bu HTTP yöntemlerinin birini kullanır: "GET", "POST", "PUT", "DELETE", "Düzeltme Eki" veya "HEAD" | 
 | yol | Evet | Dize | API işlem için yolu | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
@@ -793,7 +793,7 @@ Bu eylemi temsil eder ve çağrı sağlayan bir [Azure işlevi](../azure-functio
 | Öğe adı | Gerekli | Tür | Açıklama | 
 | ------------ | -------- | ---- | ----------- |  
 | İşlev kimliği | Evet | Dize | Aramak istediğiniz Azure işlevi için kaynak kimliği. | 
-| yöntem | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
+| method | Hayır | Dize | Bir işlevi çağırmak için kullanılan HTTP yöntemi. Belirtilmezse, "POST" varsayılan yöntemdir. | 
 | Sorguları | Hayır | Nesne | URL'de dahil edilmesini istediğiniz herhangi bir sorgu parametre temsil eder. <p>Örneğin, `"queries": { "api-version": "2015-02-01" }` ekler `?api-version=2015-02-01` URL. | 
 | headers | Hayır | Nesne | İstekte gönderilen her bir başlığı temsil eder. <p>Örneğin, dilini ayarlamak ve bir istek yazmak için şunu yazın: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Hayır | Nesne | Uç noktasına gönderilen yükünü temsil eder. | 

@@ -1,12 +1,12 @@
 ---
-title: "Uygulama Hizmetleri dağıtma: Azure yığın | Microsoft Docs"
-description: "Azure yığın uygulama hizmeti dağıtma hakkında ayrıntılı kılavuz"
+title: 'Uygulama Hizmetleri dağıtma: Azure yığın | Microsoft Docs'
+description: Azure yığın uygulama hizmeti dağıtma hakkında ayrıntılı kılavuz
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: anwestg
-ms.openlocfilehash: 2d26aedf37727a4e3d687cdc6c748268d546f60f
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 330b8015bdddbbcf27e4325b97e8b734c4d98d12
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Azure yığın uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -168,6 +168,18 @@ Uygulama hizmeti kaynak sağlayıcısı dağıtmak için aşağıdaki adımları
 2. Durumu altında genel bakışta, denetleyin **durum** gösterir **tüm rolleri hazır**.
 
     ![Uygulama Hizmeti Yönetimi](media/azure-stack-app-service-deploy/image12.png)
+    
+> [!NOTE]
+> Varolan bir sanal ağı ve bir iç IP adresine, DosyaSunucusu conenct dağıtmak isterseniz, SMB trafiğini çalışan alt ağı ve DosyaSunucusu arasında etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir.  Bunu yapmak için yönetim portalında WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+> * Kaynak: tüm
+> * Kaynak bağlantı noktası aralığı: *
+> * Hedef: IP adresleri
+> * Hedef IP adresi aralığı:, DosyaSunucusu için IP aralığı
+> * Hedef bağlantı noktası aralığı: 445
+> * Protokol: TCP
+> * Eylem: izin ver
+> * Öncelik: 700
+> * Ad: Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>Azure yığın uygulama hizmeti sürücüsünde test
 
@@ -198,9 +210,9 @@ Web API ve Azure oluşturmak için uygulamaları İşlevler, Kiracı Portalı'n�
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Bir WordPress, DNN ya da Django Web sitesi (isteğe bağlı) dağıtma
 
-1. Azure yığın Kiracı Portalı'nda tıklatın  **+** Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
+1. Azure yığın Kiracı Portalı'nda tıklatın **+**Azure Marketi gidin, Django Web dağıtmak ve başarılı tamamlanmasını bekleyin. Django web platformu dosya sistemi tabanlı bir veritabanı kullanır. SQL veya MySQL gibi herhangi bir ek kaynak sağlayıcıları gerektirmez.
 
-2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin  *User1@Server1* , tercih ettiğiniz sunucu adını ve kullanıcı adı.
+2. Bir MySQL kaynak sağlayıcısı ayrıca dağıttıysanız Marketi'nden bir WordPress Web sitesi dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kullanıcı adı olarak girin *User1@Server1*, tercih ettiğiniz sunucu adını ve kullanıcı adı.
 
 3. Ayrıca bir SQL Server Kaynak sağlayıcısı dağıttıysanız, DNN Web sitesi marketten dağıtabilirsiniz. Veritabanı parametreleri için istendiğinde, kaynak sağlayıcısına bağlı SQL Server çalıştıran bilgisayarda bir veritabanı seçin.
 

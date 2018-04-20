@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
 ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 Azure Resource Manager birçok şaşırtıcı özellik sunarken, sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır. 
@@ -69,7 +69,7 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
 - Olası uygulama kesinti son kullanıcılar için planlama değil.  Son kullanıcılar olası kullanılamaz uygulama süre yeterli uyarmak için yeterli arabellek planlayın.
 
 
-## <a name="lab-test"></a>Lab Test 
+## <a name="lab-test"></a>Laboratuvar Test 
 
 **Enviornment çoğaltabilir ve bir test geçişi yapın**
   > [!NOTE]

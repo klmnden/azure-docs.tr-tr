@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: b15b3c7f50c23a1c11b2467bfdd2794d52b451ac
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -129,8 +129,8 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 
 - Sanal ağ kuralları yalnızca Azure Resource Manager sanal ağlar için geçerlidir; ve değil [Klasik dağıtım modeli] [ arm-deployment-model-568f] ağlar.
 
-- Azure SQL veritabanı kapatma ON sanal ağ hizmet uç noktaları ayrıca MySQL ve PostGres Azure Hizmetleri için uç noktaları sağlar. Ancak, uç noktaları ON ile MySQL veya Postgres örneklerine uç noktalarından bağlanma girişimi başarısız olur.
-    - Bu MySQL temel nedeni ve PostGres başarısız şu anda desteklemiyor.
+- Azure SQL veritabanı kapatma ON sanal ağ hizmet uç noktaları ayrıca MySQL ve PostgreSQL Azure Hizmetleri için uç noktaları sağlar. Ancak, uç noktaları ON ile MySQL veya PostgreSQL örneklerine uç noktalarından bağlanma girişimi başarısız olur.
+    - Temel nedeni, MySQL ve PostgreSQL şu anda başarısız desteklemiyor olmasıdır.
 
 - Güvenlik Duvarı'nda, IP adres aralıklarını aşağıdaki ağ öğelere uygulanır, ancak sanal ağ kuralları yapın:
     - [Siteden siteye (S2S) sanal özel ağ (VPN)][vpn-gateway-indexmd-608y]
@@ -225,6 +225,10 @@ Birkaç SQL veritabanı hata iletilerinin listesini belgelenen [burada][sql-data
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal bir sanal ağ kuralı oluşturabilirsiniz
 
 Bu bölümde nasıl kullanabileceğinizi gösteren [Azure portal] [ http-azure-portal-link-ref-477t] oluşturmak için bir *sanal ağ kuralı* Azure SQL veritabanınızda. Kural olarak etiketlenmiş belirli bir alt ağ gelen iletişimi kabul etmek için SQL veritabanı söyler bir *sanal ağ hizmeti uç noktası*.
+
+> [!NOTE]
+> Lütfen bu hizmet uç noktaları sanal ağ güvenlik duvarı kuralları sunucunuzun eklemeyi düşündüğünüz VNET/alt ağ için açık olduğundan emin olun.
+> Hizmet uç noktaları, bunları etkinleştirmek için lütfen tıklayın portalında istenir VNET/alt ağ için etkin olmayan, kural eklemek dikey penceresinde etkinleştirin.
 
 #### <a name="powershell-alternative"></a>PowerShell alternatif
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 538d31f5b50ee22c06ba22c78e1aa92281a3b212
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9391072159f26ae8c7d3eba9f023a8e7d62a4e26
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Uygulama hizmeti Azure yığın güncelleştirme 1 sürüm notları
 
@@ -39,7 +39,7 @@ Uygulama hizmeti Azure yığın güncelleştirme 1 yapı numarası olduğu **69.
 ### <a name="prerequisites"></a>Önkoşullar
 
 > [!IMPORTANT]
-> Azure uygulama hizmeti Azure yığında yeni dağıtımı şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle.  Yeni konu ** *. sso.appservice.<region>. <domainname>.<extension>**
+> Azure uygulama hizmeti Azure yığında yeni dağıtımı şimdi gerektiren bir [üç konulu bir joker sertifika](azure-stack-app-service-before-you-get-started.md#get-certificates) içinde SSO Kudu için şimdi işlenir Azure App Service'te şekilde geliştirmeleri nedeniyle. Yeni konu ** *.sso.appservice.<region>.<domainname>.<extension>**
 >
 >
 
@@ -49,11 +49,11 @@ Başvurmak [önce Get Started belgelerine](azure-stack-app-service-before-you-ge
 
 Azure uygulama hizmeti Azure yığın güncelleştirme 1 aşağıdaki geliştirmeleri ve düzeltmeler içerir:
 
-- **Yüksek kullanılabilirlik, Azure App Service** -arasında dağıtılacak şekilde Azure yığın 1802 etkin güncelleştirme iş yükleri hata etki alanları.  Bu nedenle uygulama hizmeti hata etki alanlarında dağıtılacak hataya dayanıklı olması mümkün altyapısıdır.  Azure yığın 1802 önce tamamlandı dağıtımlar için uygulanan güncelleştirme başvurmak ancak varsayılan olarak bu özellik Azure App Service, tüm yeni dağıtımlar sahip [App Service hata etki alanı belgeleri](azure-stack-app-service-fault-domain-update.md)
+- **Yüksek kullanılabilirlik, Azure App Service** -arasında dağıtılacak şekilde Azure yığın 1802 etkin güncelleştirme iş yükleri hata etki alanları. Bu nedenle uygulama hizmeti hata etki alanlarında dağıtılacak hataya dayanıklı olması mümkün altyapısıdır. Varsayılan olarak Azure App Service, tüm yeni dağıtımlar olan bu yetenek Azure yığın 1802 önce tamamlandı dağıtımlar için uygulanan güncelleştirme başvurmak ancak [App Service hata etki alanı belgeleri](azure-stack-app-service-fault-domain-update.md)
 
-- **Mevcut sanal ağda dağıtmak** -müşteriler var olan bir sanal ağ içindeki Azure yığın uygulama hizmeti şimdi dağıtabilir.  Varolan bir sanal ağı dağıtma özel bağlantı noktaları üzerinden Azure uygulama hizmeti için gerekli bir dosya sunucusu ve SQL Server için bağlanmasına olanak sağlar.  Dağıtım sırasında var olan bir sanal ağ içinde ancak dağıtmak için müşteriler seçebilirsiniz [uygulama hizmeti tarafından kullanım için alt ağlar oluşturmanız gerekir](azure-stack-app-service-before-you-get-started.md#virtual-network) dağıtımından önce.
+- **Mevcut sanal ağda dağıtmak** -müşteriler var olan bir sanal ağ içindeki Azure yığın uygulama hizmeti şimdi dağıtabilir. Varolan bir sanal ağı dağıtma özel bağlantı noktaları üzerinden Azure uygulama hizmeti için gerekli bir dosya sunucusu ve SQL Server için bağlanmasına olanak sağlar. Dağıtım sırasında var olan bir sanal ağ içinde ancak dağıtmak için müşteriler seçebilirsiniz [uygulama hizmeti tarafından kullanım için alt ağlar oluşturmanız gerekir](azure-stack-app-service-before-you-get-started.md#virtual-network) dağıtımından önce.
 
-- Güncelleştirmeleri **uygulama hizmet Kiracı, yönetim işlevleri portalları ve Kudu Araçları**.  Azure yığın portalı SDK sürümü ile tutarlı.
+- Güncelleştirmeleri **uygulama hizmet Kiracı, yönetim işlevleri portalları ve Kudu Araçları**. Azure yığın portalı SDK sürümü ile tutarlı.
 
 - **Aşağıdaki uygulama çerçeveleri ve Araçları güncelleştirmelerini**:
     - Eklenen **.Net 2.0 çekirdek** desteği
@@ -105,11 +105,11 @@ Azure uygulama hizmeti Azure yığın güncelleştirme 1 aşağıdaki geliştirm
 
 - Sertifika doğrulama hataları
 
-Bazı müşteriler, sertifikaları, yükleyici aşırı kısıtlayıcı doğrulama nedeniyle tümleşik bir sistemde dağıtırken uygulama hizmeti yükleyici sağlanırken sorunları karşılaşmıştır.  Uygulama Hizmeti Yükleyici yeniden yayımlandı, müşterilerin gereken [güncelleştirilmiş yükleyici indirmek](https://aka.ms/appsvconmasinstaller).  Güncelleştirilmiş yükleyici sertifikalarla doğrulama sorunları yaşamaya devam ederseniz, desteğe başvurun.
+Bazı müşteriler, sertifikaları, yükleyici aşırı kısıtlayıcı doğrulama nedeniyle tümleşik bir sistemde dağıtırken uygulama hizmeti yükleyici sağlanırken sorunları karşılaşmıştır. Uygulama Hizmeti Yükleyici yeniden yayımlandı, müşterilerin gereken [güncelleştirilmiş yükleyici indirmek](https://aka.ms/appsvconmasinstaller). Güncelleştirilmiş yükleyici sertifikalarla doğrulama sorunları yaşamaya devam ederseniz, desteğe başvurun.
 
 - Tümleşik sistemden Azure yığın kök sertifikası alınırken bir sorun oluştu.
 
-Get-AzureStackRootCert.ps1 hata müşteriler kök sertifikasının yüklü olmayan bir makineye komut dosyası yürütme zaman Azure yığın kök sertifikası almak başarısız olmasına neden oldu.  Komut ayrıca artık, bu sorun ve istek müşteriler çözme yeniden yayımlandı [güncelleştirilmiş yardımcı komut dosyalarını indirme](https://aka.ms/appsvconmashelpers).  Güncelleştirilmiş bir komut dosyası ile kök sertifika alma sorunları yaşamaya devam ederseniz, desteğe başvurun.
+Get-AzureStackRootCert.ps1 hata müşteriler kök sertifikasının yüklü olmayan bir makineye komut dosyası yürütme zaman Azure yığın kök sertifikası almak başarısız olmasına neden oldu. Komut ayrıca artık, bu sorun ve istek müşteriler çözme yeniden yayımlandı [güncelleştirilmiş yardımcı komut dosyalarını indirme](https://aka.ms/appsvconmashelpers). Güncelleştirilmiş bir komut dosyası ile kök sertifika alma sorunları yaşamaya devam ederseniz, desteğe başvurun.
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar
 
@@ -119,12 +119,12 @@ Get-AzureStackRootCert.ps1 hata müşteriler kök sertifikasının yüklü olmay
 
 - Yuva değiştirmenin çalışmaz
 
-Site yuvası takas bu sürümde ayrılır.  İşlevselliği geri yüklemek için aşağıdaki adımları tamamlayın:
+Site yuvası takas bu sürümde ayrılır. İşlevselliği geri yüklemek için aşağıdaki adımları tamamlayın:
 
-1. ControllersNSG ağ güvenlik grubu değiştirme **izin** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları.  AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
+1. ControllersNSG ağ güvenlik grubu değiştirme **izin** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları. AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
 
     ```powershell
-      Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+      Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
       $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -146,7 +146,7 @@ Site yuvası takas bu sürümde ayrılır.  İşlevselliği geri yüklemek için
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
       ```
 
-2. Göz atın **CN0 VM** sanal makineleri Azure yığın Yönetici portalı'nda altında ve **Bağlan'ı tıklatın** denetleyici örneği ile Uzak Masaüstü oturumu açın.  Uygulama hizmeti dağıtım sırasında belirtilen kimlik bilgilerini kullanın.
+2. Göz atın **CN0 VM** sanal makineleri Azure yığın Yönetici portalı'nda altında ve **Bağlan'ı tıklatın** denetleyici örneği ile Uzak Masaüstü oturumu açın. Uygulama hizmeti dağıtım sırasında belirtilen kimlik bilgilerini kullanın.
 3. Başlat **bir yönetici olarak PowerShell'i** ve aşağıdaki komut dosyası yürütme
 
     ```powershell
@@ -171,11 +171,11 @@ Site yuvası takas bu sürümde ayrılır.  İşlevselliği geri yüklemek için
     ```
 
 4. Uzak Masaüstü oturumu kapatın.
-5. ControllersNSG ağ güvenlik grubuna geri **reddetme** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları.  AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
+5. ControllersNSG ağ güvenlik grubuna geri **reddetme** uygulama hizmet denetleyicisi örnekleri için Uzak Masaüstü bağlantıları. AppService.local App Service'te dağıttığınız kaynak grubu adını değiştirin.
 
     ```powershell
 
-        Login-AzureRMAccount -EnvironmentName AzureStackAdmin
+        Connect-AzureRmAccount -EnvironmentName AzureStackAdmin
 
         $nsg = Get-AzureRmNetworkSecurityGroup -Name "ControllersNsg" -ResourceGroupName "AppService.local"
 
@@ -196,6 +196,18 @@ Site yuvası takas bu sürümde ayrılır.  İşlevselliği geri yüklemek için
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
+- Uygulama hizmeti var olan bir sanal ağda dağıtılmış ve dosya sunucusu yalnızca özel ağda kullanılabilir dosya sunucusuna erişemedi çalışanlardır.
+ 
+Varolan bir sanal ağı ve, DosyaSunucusu bağlanmak için bir iç IP adresi dağıtmak seçerseniz, çalışan alt ağ ve dosya sunucusu arasında SMB trafiği etkinleştirme bir giden güvenlik kuralı eklemeniz gerekir. Bunu yapmak için yönetim portalında WorkersNsg gidin ve aşağıdaki özelliklere sahip bir giden güvenlik kuralı ekleyin:
+ * Kaynak: tüm
+ * Kaynak bağlantı noktası aralığı: *
+ * Hedef: IP adresleri
+ * Hedef IP adresi aralığı: Dosya sunucunuz için IP aralığı
+ * Hedef bağlantı noktası aralığı: 445
+ * Protokol: TCP
+ * Eylem: izin ver
+ * Öncelik: 700
+ * Ad: Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Bulut Azure uygulama hizmeti Azure yığında işletim yöneticileri için bilinen sorunlar
 

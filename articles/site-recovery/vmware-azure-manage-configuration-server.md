@@ -1,17 +1,17 @@
 ---
-title: "Azure Site Recovery ile VMware olağanüstü durum kurtarma için yapılandırma sunucusu yönetme | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery ile azure'a VMware olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar."
+title: Azure Site Recovery ile VMware olağanüstü durum kurtarma için yapılandırma sunucusu yönetme | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile azure'a VMware olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar.
 services: site-recovery
 author: AnoopVasudavan
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: ddb1c9426874634fea54f1b67509d4ac2af70eba
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusu yönetme
 
@@ -112,7 +112,7 @@ PowerShell kullanarak, yapılandırma sunucusu isteğe bağlı olarak silebilirs
 1. [Yükleme](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell modülü.
 2. Bu komutu kullanarak Azure hesabınızda oturum açın:
     
-    `Login-AzureRmAccount`
+    `Connect-AzureRmAccount`
 3. Kasa abonelik seçin.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`

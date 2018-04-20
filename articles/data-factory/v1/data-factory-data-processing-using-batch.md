@@ -15,10 +15,10 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 8f0cd8aad2d5c5142fc66c78393b57ff210a7b83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Veri Fabrikası ve toplu kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
@@ -177,7 +177,7 @@ Yöntemi anlamanız için gereken birkaç önemli bileşeni vardır:
 #### <a name="procedure-create-the-custom-activity"></a>Yordam: özel etkinlik oluşturma
 1. Visual Studio'da .NET sınıf kitaplığı projesi oluşturun.
 
-   a. Start Visual Studio 2012/2013/2015.
+   a. Visual Studio 2012/2013/2015 başlatın.
 
    b. **Dosya** > **Yeni** > **Proje**’yi seçin.
 
@@ -723,11 +723,11 @@ Bu adımda, çıktı verilerini göstermek için AzureBlob türünde başka bir 
 
     | **Dilim** | **Başlangıç saati**          | **Çıkış dosyası**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16 -**00. txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16 -**01. txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16 -**02. txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16 -**03. txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16 -**04. txt** |
 
     Bir giriş klasöründeki tüm dosyalar (örneğin, 2015-11-16-00) bir dilim başlangıç saati 2015-11-16-00 ile bir parçası olduğunu unutmayın. Bu dilim işlendiğinde özel etkinlik her dosyası aracılığıyla tarar ve arama terimi "Microsoft" oluşum sayısı ile çıkış dosyasındaki bir satır oluşturur 2015-11-16-00 klasöründe üç dosya varsa, çıktı dosyası 2015-11-16-00.txt içinde üç satır vardır.
 

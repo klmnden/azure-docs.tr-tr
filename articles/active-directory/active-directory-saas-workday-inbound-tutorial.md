@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.openlocfilehash: 5c2c39db7ab89b06915c014778977915cca15190
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -156,12 +156,12 @@ Kısıtlanmamış tümleştirme sistemi güvenlik grubu oluşturun ve kullanıc�
 
 1. Girin arama kutusunda güvenlik grubu oluşturun ve ardından **güvenlik grubu oluşturma**. 
    
-    ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "CreateSecurity Group")
+    ![Güvenlik grubu oluştur](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "güvenlik grubu oluştur")
 2. Tamamlamak **güvenlik grubu oluşturma** görev.  
 3. Seçin **tümleştirme sistemi güvenlik grubunu (sınırlandırılmamış)** gelen **kiralanan güvenlik grubu türü** açılır.
 4. İçin açıkça üyeleri eklenecek bir güvenlik grubu oluşturun. 
    
-    ![CreateSecurity Group](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "CreateSecurity Group")
+    ![Güvenlik grubu oluştur](./media/active-directory-saas-workday-inbound-tutorial/IC750982.png "güvenlik grubu oluştur")
 
 ### <a name="assign-the-integration-system-user-to-the-security-group"></a>Tümleştirme sistemi kullanıcısı güvenlik grubuna atayın
 
@@ -363,24 +363,24 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | İŞ GÜNÜ ÖZNİTELİĞİ | ACTIVE DIRECTORY ÖZNİTELİĞİ |  KİMLİĞİ EŞLEŞİYOR MU? | OLUŞTUR / GÜNCELLEŞTİR |
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Evet** | Yazılan üzerinde yalnızca oluştur | 
-| **UserID**    |  cn    |   |   Yazılan üzerinde yalnızca oluştur |
+| **Kullanıcı Kimliği**    |  CN =    |   |   Yazılan üzerinde yalnızca oluştur |
 | **Birleştirme ("@", [UserID] "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur 
-| **Değiştirin (Mid (Değiştir (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
+| **Değiştirin (Mid (Değiştir (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
 | **Anahtar (\[etkin\],, "0", "True", "1")** |  AccountDisabled      |     | Oluştur + güncelleştir |
 | **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
-| **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
+| **PreferredNameData**  |  Görünen adı |     |   Oluştur + güncelleştir |
 | **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
 | **SupervisoryOrganization**  | Bölüm  |     |  Oluştur + güncelleştir |
 | **ManagerReference**   | Yöneticisi  |     |  Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir | 
-| **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
-| **Belediye**   |   l   |     | Oluştur + güncelleştir |
+| **AddressLineData**    |  StreetAddress  |     |   Oluştur + güncelleştir |
+| **Belediye**   |   m   |     | Oluştur + güncelleştir |
 | **CountryReferenceTwoLetter**      |   Ortak |     |   Oluştur + güncelleştir |
 | **CountryReferenceTwoLetter**    |  c  |     |         Oluştur + güncelleştir |
-| **CountryRegionReference** |  st     |     | Oluştur + güncelleştir |
+| **CountryRegionReference** |  St     |     | Oluştur + güncelleştir |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Oluştur + güncelleştir |
-| **PostalCode**  |   posta kodu  |     | Oluştur + güncelleştir |
+| **posta kodu**  |   posta kodu  |     | Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
 | **Faks**      | facsimileTelephoneNumber     |     |    Oluştur + güncelleştir |
 | **Mobil**  |    Mobil       |     |       Oluştur + güncelleştir |
@@ -397,20 +397,20 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 
 **#1 komutu**
 
-> cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent" Agent\\Modules\\AADSyncAgent
+> CD "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent sağlama" Aracısı\\modülleri\\AADSyncAgent
 
-> Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\Modules\AADSyncAgent\AADSyncAgent.psd1"
+> Import-Module "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent\AADSyncAgent.psd1 sağlama"
 
 **Komut #2**
 
-> Add-ADSyncAgentActiveDirectoryConfiguration
+> Ekleme ADSyncAgentActiveDirectoryConfiguration
 
 * Giriş: "Dizin", AD orman adı kısmen girildiği gibi adı \#2
 * Giriş: Yönetici kullanıcı adı ve parolası Active Directory ormanı için
 
 **Komut #3**
 
-> Add-ADSyncAgentAzureActiveDirectoryConfiguration
+> Ekleme ADSyncAgentAzureActiveDirectoryConfiguration
 
 * Giriş: Genel yönetici kullanıcı adı ve parola Azure AD kiracınız için
 
@@ -435,7 +435,7 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 >
 > Belgeli: yanlış
 >
-> Identifier    : WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
+> Tanımlayıcı: WDAYdnAppDelta.c2ef8d247a61499ba8af0a29208fb853.4725aa7b-1103-41e6-8929-75a5471a5203
 
 **Komut #5**
 
@@ -752,7 +752,7 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 16. Seçili özniteliğinizi dışı XPath ifadesi kopyalama **belgesinin yolu** alan.
 
-17. Remove the **/env:Envelope/env:Body/wd:Get_Workers_Response/wd:Response_Data/** prefix from the copied expression. 
+17. Kaldırma **/env:Envelope / env:Body / wd:Get_Workers_Response / wd:Response_Data /** kopyalanan ifadesinden öneki. 
 
 18. Kopyalanan ifade son öğenin bir düğüm olup olmadığını (örnek: "/ wd:Birth_Date"), ardından append **/text()** ifadesinin sonunda. Bu son öğenin bir özniteliği ise gerekli değildir (örnek: "/@wd:type").
 

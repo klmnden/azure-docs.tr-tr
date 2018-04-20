@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla | Microsoft Docs"
-description: "Çoklu oturum açma Azure Active Directory ve Tableau sunucusu arasındaki yapılandırmayı öğrenin."
+title: 'Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve Tableau sunucusu arasındaki yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 3b0390c8b95a46b2c134252532bef118ea4df52d
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla
 
@@ -158,7 +158,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
   
    b. Onay kutusunu işaretleyin **kullanım SAML çoklu oturum açma için**.
    
-   c. Tableau sunucu dönüşü URL — http://tableau_server gibi Tableau Server kullanıcıları erişecek URL. Http://localhost kullanılması önerilmez. Bir URL sondaki eğik çizgi (örneğin, http://tableau_server/) ile kullanılması desteklenmez. Kopya **Tableau sunucu dönüşü URL** ve Azure AD ile yapıştırma **oturum üzerinde URL'si** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
+   c. Tableau sunucu dönüşü URL — Tableau Server kullanıcıları, gibi erişecek URL http://tableau_server. Kullanarak http://localhost önerilmez. URL eğik ile kullanarak (örneğin, http://tableau_server/) desteklenmiyor. Kopya **Tableau sunucu dönüşü URL** ve Azure AD ile yapıştırma **oturum üzerinde URL'si** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
    
    d. SAML varlık kimliği — varlık kimliği Tableau Server yüklemenize IDP benzersiz olarak tanımlar. Tableau sunucu URL'si yeniden burada isterseniz girebilirsiniz, ancak Tableau sunucu URL'si olması gerekmez. Kopya **SAML varlık kimliği** ve Azure AD ile yapıştırma **tanımlayıcısı** metin kutusuna **Tableau sunucu etki alanı ve URL'leri** bölümü.
      

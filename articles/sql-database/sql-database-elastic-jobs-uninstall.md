@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/01/2018
 ms.author: sstein
 ms.openlocfilehash: f5d0579cbb5f787ce08e2a2cea58d3c39a967970
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="uninstall-elastic-database-jobs-components"></a>Esnek veritabanı işleri bileşenlerini Kaldır
 **Esnek veritabanı iş** bileşenleri Azure portal veya PowerShell kullanarak kaldırılması.
@@ -28,10 +28,10 @@ ms.lasthandoff: 04/06/2018
 ## <a name="uninstall--elastic-database-jobs-components-using-powershell"></a>PowerShell kullanarak esnek veritabanı işleri bileşenlerini Kaldır
 1. Microsoft Azure PowerShell komut penceresini başlatın ve Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x klasörü altındaki Araçlar alt dizinine gidin: türü **cd Araçları**.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x* > cd araçları
 2. .\UninstallElasticDatabaseJobs.ps1 PowerShell betiğini yürütün.
    
-     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\UninstallElasticDatabaseJobs.ps1   PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\UninstallElasticDatabaseJobs.ps1
+     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools > engellemesini dosya.\UninstallElasticDatabaseJobs.ps1 PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools >.\UninstallElasticDatabaseJobs.ps1
 
 Veya yalnızca varsayılan varsayılarak aşağıdaki komut dosyası yürütme bileşenleri yüklemesinde kullanılan burada değerler:
 

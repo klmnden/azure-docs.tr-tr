@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: sngun
 ms.openlocfilehash: 7f884589cc198bed95a4a5fe51325a72cb799b69
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB için Power BI Öğreticisi: Power BI Bağlayıcısı'nı kullanarak verileri Görselleştir
 [Powerbı.com adresinde](https://powerbi.microsoft.com/) nerede oluşturmak ve paylaşmak için kullanabileceğiniz panolar ve raporlar ve kuruluşunuz için önemli olan verileri ile çevrimiçi bir hizmettir.  Power BI Desktop yazma çeşitli veri kaynaklarından veri almak, birleştirme ve verileri dönüştürmek, güçlü raporları ve görselleştirmeleri oluşturmak ve Power BI raporları yayınlamak olanak tanıyan aracı adanmış bir rapordur.  Power BI Desktop en son sürümü ile artık Azure Cosmos DB bağlayıcısı aracılığıyla Azure Cosmos DB hesabınız için Power BI bağlanabilirsiniz.   
@@ -45,8 +45,8 @@ Bu Power BI öğreticide yönergeleri izlemeden önce aşağıdaki kaynaklara er
 * [Power BI Desktop'ın en son sürümünü](https://powerbi.microsoft.com/desktop).
 * Bizim demo hesabını ve Azure Cosmos DB hesabınızdaki verilere erişemezsiniz.
   * Demo hesabını, bu öğreticide gösterilen volcano verilerle doldurulur. Bu demo hesap tarafından herhangi bir SLA bağlı değil ve yalnızca tanıtım amacıyla tasarlanmıştır.  Biz bu demo hesabı da dahil olmak üzere değişiklikleri yapma hakkı yedek ancak bunlarla sınırlı olmamak hesap sonlandırma anahtarının değiştirilmesi, değiştirme, erişimi kısıtlamak için ve verileri önceden veya neden olmadan herhangi bir zamanda silin.
-    * URL: https://analytics.documents.azure.com
-    * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * URL'Sİ: https://analytics.documents.azure.com
+    * Salt okunur anahtar: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR + YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw ==
   * Veya, kendi hesabınızı oluşturmak için bkz: [Azure portalını kullanarak bir Azure Cosmos DB veritabanı hesabı oluşturma](https://azure.microsoft.com/documentation/articles/create-account/). Ardından, örnek volcano almak için ne benzer veri Bu öğreticide kullanılan (ancak GeoJSON blokları içermiyor), bkz: [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) ve ardından verileri kullanarak içeri [Azure Cosmos DB veri geçiş aracı](import-data.md).
 
 Powerbı.com'daki raporlarınızı paylaşmak için Powerbi.com'u bir hesabınızın olması gerekir.  Ücretsiz ve Power BI Pro için Power BI hakkında daha fazla bilgi için [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).

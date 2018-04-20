@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 04/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1c23aef0773ffddbc26e4090ecf137b632394ee3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f4323c4e68c639af9a5959af512c1cdd07cdf0c4
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Özel konu için Azure olay kılavuz sonrası
 
@@ -73,7 +73,7 @@ PowerShell ile özel bir konu için anahtar sağlamak için kullanın:
 ]
 ```
 
-Bu özellikleri açıklaması için bkz: [Azure olay kılavuz olay şema](event-schema.md).
+Bu özellikleri açıklaması için bkz: [Azure olay kılavuz olay şema](event-schema.md). Bir olay kılavuz konusu olaylarına nakil sırasında dizi toplam boyutu en fazla 1 MB olabilir. Her olay dizisindeki 64 KB ile sınırlıdır.
 
 Örneğin, geçerli olay veri şeması şöyledir:
 
@@ -98,9 +98,10 @@ Konu uç nakil sonra bir yanıtı alırsınız. Yanıta standart HTTP yanıt kod
 |Sonuç  |Yanıt  |
 |---------|---------|
 |Başarılı  | 200 TAMAM  |
-|Yanlış uç noktası | 404 Bulunamadı |
-|Geçersiz erişim anahtarı | 401 Yetkisiz |
 |Olay verileri hatalı biçim içeriyor | 400 Hatalı istek |
+|Geçersiz erişim anahtarı | 401 Yetkisiz |
+|Yanlış uç noktası | 404 Bulunamadı |
+|Dizi ya da olay boyut sınırını aşıyor | 413 yükü çok büyük |
 
 Hatalar için ileti gövdesinin biçimi aşağıdaki gibidir:
 

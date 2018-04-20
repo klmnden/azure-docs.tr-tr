@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management şablonu veri modeli başvurusu | Microsoft Docs"
-description: "Azure API Management'ta Geliştirici Portalı şablonları için veri modellerinde kullanılan ortak öğeler için varlık ve türü ifadeleri hakkında bilgi edinin."
+title: Azure API Management şablonu veri modeli başvurusu | Microsoft Docs
+description: Azure API Management'ta Geliştirici Portalı şablonları için veri modellerinde kullanılan ortak öğeler için varlık ve türü ifadeleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: b0ad7e15-9519-4517-bb73-32e593ed6380
 ms.service: api-management
 ms.workload: mobile
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
 ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management şablonu veri modeli başvurusu
 Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablonları için kullanılan ortak öğeler için varlık ve türü Beyanları açıklanmaktadır.  
@@ -62,7 +62,7 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |yol|string|Bu API ve tüm API Management hizmet örneği içinde kendi kaynak yolları tanıtan göreli URL'si. Bu API için genel bir URL oluşturmak için hizmet örneği oluşturma sırasında belirtilen API uç noktası temel URL'sini eklenir.|  
 |protokolleri|dizi numarası|Bu API işlemlerinde hangi protokollerine çağrılabilir açıklar. İzin verilen değerler `1 - http` ve `2 - https`, veya her ikisini de.|  
 |authenticationSettings|[Yetkilendirme sunucusu kimlik doğrulama ayarları](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#AuthenticationSettings)|Bu API içinde bulunan kimlik doğrulama ayarları koleksiyonu.|  
-|subscriptionKeyParameterNames|nesne|Abonelik anahtarı içeren sorgu ve/veya üstbilgi parametreleri için özel adların belirtmek için kullanılan isteğe bağlı özellik. Bu özellik varsa, iki aşağıdaki özellikleri en az birini içermelidir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
+|subscriptionKeyParameterNames|object|Abonelik anahtarı içeren sorgu ve/veya üstbilgi parametreleri için özel adların belirtmek için kullanılan isteğe bağlı özellik. Bu özellik varsa, iki aşağıdaki özellikleri en az birini içermelidir.<br /><br /> `{   "subscriptionKeyParameterNames":   {     "query": “customQueryParameterName",     "header": “customHeaderParameterName"   } }`|  
   
 ##  <a name="APISummary"></a> API özeti  
  `API summary` Varlık aşağıdaki özellikleri içerir:  
@@ -84,9 +84,9 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |Url|URI|Uygulama için URI.|  
 |Sürüm|string|Uygulama için sürüm bilgisi.|  
 |Gereksinimler|string|Uygulama için gereksinimleri açıklaması.|  
-|Durum|numarası|Uygulama geçerli durumu.<br /><br /> -0 - kayıtlı<br /><br /> -Gönderilen 1-<br /><br /> -Yayımlanan 2-<br /><br /> -Reddedilen 3-<br /><br /> -4 - yayımlanmamış|  
+|Durum|number|Uygulama geçerli durumu.<br /><br /> -0 - kayıtlı<br /><br /> -Gönderilen 1-<br /><br /> -Yayımlanan 2-<br /><br /> -Reddedilen 3-<br /><br /> -4 - yayımlanmamış|  
 |RegistrationDate|DateTime|Tarih ve saat uygulama kaydedildi.|  
-|Adlı kullanıcı, Categoryıd'si|numarası|Kategori uygulamanın (Finans, eğlence, vs.)|  
+|Adlı kullanıcı, Categoryıd'si|number|Kategori uygulamanın (Finans, eğlence, vs.)|  
 |DeveloperId|string|Uygulama gönderilen Geliştirici benzersiz tanımlayıcısı.|  
 |Ekler|Koleksiyonu [ek](#Attachment) varlıklar.|Herhangi bir ek ekran görüntüleri veya simgeler gibi uygulama için.|  
 |Simge|[Eki](#Attachment)|Simge uygulama için.|  
@@ -106,11 +106,11 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
 |başlık|string|İşlemin adı.|  
-|snippet|string|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
+|kod parçacığında|string|Bu özellik kullanım dışıdır ve kullanılmamalıdır.|  
 |Fırça|string|Kod örneği görüntülenirken kullanılacak şablon renklendirme hangi kod sözdizimi. İzin verilen değerler `plain`, `php`, `java`, `xml`, `objc`, `python`, `ruby`, ve `csharp`.|  
 |şablon|string|Bu kod örneği şablonunun adı.|  
 |body|string|Kod parçacığını kod örnek kısmı için bir yer tutucu.|  
-|yöntem|string|İşlemi HTTP yöntemi.|  
+|method|string|İşlemi HTTP yöntemi.|  
 |Düzeni|string|İşlem isteği için kullanılacak protokolü.|  
 |yol|string|İşlemi yolu.|  
 |sorgu|string|Sorgu dizesi örnek tanımlanan parametrelere sahip.|  
@@ -123,7 +123,7 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Kimlik|numarası|Açıklama kimliği.|  
+|Kimlik|number|Açıklama kimliği.|  
 |CommentText|string|Açıklama gövdesi. HTML içerebilir.|  
 |DeveloperCompany|string|Geliştirici şirket adı.|  
 |PostedOn|DateTime|Tarih ve saat yorum kopyalanmışsa.|  
@@ -160,10 +160,10 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |ad|string|Parametre adı.|  
 |açıklama|string|Parametre açıklaması.|  
 |değer|string|Üstbilgi değeri.|  
-|typeName|string|Üstbilgi değeri veri türü.|  
+|TypeName|string|Üstbilgi değeri veri türü.|  
 |seçenekler|string|Seçenekler.|  
 |Gerekli|boole|Üstbilgi gerekli olup olmadığı.|  
-|readOnly|boole|Üstbilgi salt okunur olup olmadığı.|  
+|salt okunur|boole|Üstbilgi salt okunur olup olmadığı.|  
   
 ##  <a name="HTTPRequest"></a> HTTP isteği  
  Bu bölümde açıklanmıştır `request` gösterimi.  
@@ -223,13 +223,13 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|Sayfa|numarası|Geçerli sayfa numarası.|  
-|PageSize|numarası|Tek bir sayfada gösterilecek en fazla sonuç.|  
-|TotalItemCount|numarası|Görüntülenecek öğe sayısı.|  
+|Sayfa|number|Geçerli sayfa numarası.|  
+|PageSize|number|Tek bir sayfada gösterilecek en fazla sonuç.|  
+|TotalItemCount|number|Görüntülenecek öğe sayısı.|  
 |ShowAll|boole|Kullanılıp kullanılmayacağını tüm sonuçları tek bir sayfada göster.|  
-|PageCount|numarası|Sayfa sonuç sayısı.|  
+|PageCount|number|Sayfa sonuç sayısı.|  
   
-##  <a name="Parameter">Parametre</a>  
+##  <a name="Parameter"></a> Parametre  
  Bu bölümde açıklanmıştır `parameter` gösterimi.  
   
 |Özellik|Açıklama|Tür|  
@@ -239,10 +239,10 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |değer|string|Parametre değeri.|  
 |seçenekler|Dize dizisi|Sorgu parametre değerleri için tanımlanan değerleri.|  
 |Gerekli|boole|Parametresi gerekli olup olmadığını belirtir.|  
-|türü|numarası|Bu parametre bir yol parametresi (1) veya bir sorgu dizesi parametresi (2) olup olmadığı.|  
-|typeName|string|Parametre türü.|  
+|türü|number|Bu parametre bir yol parametresi (1) veya bir sorgu dizesi parametresi (2) olup olmadığı.|  
+|TypeName|string|Parametre türü.|  
   
-##  <a name="Product">Ürün</a>  
+##  <a name="Product"></a> Ürün  
  `product` Varlık aşağıdaki özellikleri içerir:  
   
 |Özellik|Tür|Açıklama|  
@@ -251,9 +251,9 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |Başlık|string|Ürün adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |Açıklama|string|Ürün açıklaması. Boş olmamalıdır. HTML biçimlendirme etiketleriyle içerebilir. En fazla 1000 karakter olabilir.|  
 |Koşullar|string|Kullanım koşulları ürün. Ürüne abone olmayı deneyen geliştiricilere sunulan ve abonelik işlemi tamamlanmadan önce bu koşulları kabul etmeniz gerekir.|  
-|ProductState|numarası|Ürün veya yayımlanan belirtir. Yayımlanan ürün geliştiriciler Geliştirici Portalı tarafından bulunabilir. Olmayan yayımlanan ürünleri yalnızca yöneticiler tarafından görülebilir.<br /><br /> Ürün durumu için izin verilen değerler:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
+|ProductState|number|Ürün veya yayımlanan belirtir. Yayımlanan ürün geliştiriciler Geliştirici Portalı tarafından bulunabilir. Olmayan yayımlanan ürünleri yalnızca yöneticiler tarafından görülebilir.<br /><br /> Ürün durumu için izin verilen değerler:<br /><br /> - `0 - Not Published`<br /><br /> - `1 - Published`<br /><br /> - `2 - Deleted`|  
 |AllowMultipleSubscriptions|boole|Bir kullanıcı aynı anda birden fazla abonelik bu ürün için sahip olup olmadığını belirtir.|  
-|MultipleSubscriptionsCount|numarası|Bu ürün için abonelik maksimum sayısı bir kullanıcı aynı anda sahip olabilir.|  
+|MultipleSubscriptionsCount|number|Bu ürün için abonelik maksimum sayısı bir kullanıcı aynı anda sahip olabilir.|  
   
 ##  <a name="Provider"></a> Sağlayıcı  
  `provider` Varlık aşağıdaki özellikleri içerir:  
@@ -264,12 +264,12 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |authenticationType|string|Sağlayıcı türü. (Azure Active Directory, Facebook oturum açma, Google hesabı, Microsoft Account, Twitter).|  
 |Açıklamalı alt yazı|string|Sağlayıcının görünen adı.|  
   
-##  <a name="Representation">Gösterimi</a>  
+##  <a name="Representation"></a> Gösterimi  
  Bu bölümde açıklanmıştır bir `representation`.  
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|contentType|string|Kayıtlı ya da özel bir içerik türü için bu gösterim belirtir, örneğin, `application/xml`.|  
+|ContentType|string|Kayıtlı ya da özel bir içerik türü için bu gösterim belirtir, örneğin, `application/xml`.|  
 |Örnek|string|Gösterim örneği.|  
   
 ##  <a name="Subscription"></a> Abonelik  
@@ -313,7 +313,7 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |--------------|----------|-----------------|  
 |FirstName|string|İlk adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |Soyadı|string|Soyadı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
-|E-posta|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|Email|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |Parola|string|Kullanıcı hesabı parolası.|  
 |NameIdentifier|string|Hesap tanımlayıcısı, kullanıcı e-posta ile aynı.|  
 |ProviderName|string|Kimlik doğrulama sağlayıcısının adı.|  
@@ -324,7 +324,7 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
   
 |Özellik|Tür|Açıklama|  
 |--------------|----------|-----------------|  
-|E-posta|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|Email|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |Parola|string|Kullanıcı hesabı parolası.|  
 |ReturnUrl|string|Kullanıcı tıklattığınız sayfasının URL'sini oturum açın.|  
 |Kullandığınız Beni anımsa|boole|Mevcut kullanıcının bilgileri kaydedilip kaydedilmeyeceğini belirtir.|  
@@ -344,11 +344,11 @@ Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablo
 |--------------|----------|-----------------|  
 |PasswordConfirm|boole|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
 |Parola|string|Kullanıcı hesabı parolası.|  
-|PasswordVerdictLevel|numarası|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|PasswordVerdictLevel|number|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
 |UserRegistrationTerms|string|Bir kullanıcı oturum açmadan önce kabul etmeniz gerekir koşulları.|  
-|UserRegistrationTermsOptions|numarası|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
+|UserRegistrationTermsOptions|number|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
 |ConsentAccepted|boole|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up)kaydolma denetim.|  
-|E-posta|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
+|Email|string|E-posta adresi. Boş olmamalı ve hizmet örneği içinde benzersiz olmalıdır. En fazla uzunluğu 254 karakter olabilir.|  
 |FirstName|string|İlk adı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |Soyadı|string|Soyadı. Boş olmamalıdır. En fazla 100 karakter olabilir.|  
 |UserData|string|Tarafından kullanılan değer [kaydolma](api-management-page-controls.md#sign-up) denetim.|  
