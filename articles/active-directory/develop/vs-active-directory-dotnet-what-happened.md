@@ -17,7 +17,7 @@ ms.author: ghogen
 ms.custom: aaddev
 ms.openlocfilehash: 1925a32ce5745673c08af3f9cfe63090d4adfa23
 ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
 ---
@@ -27,7 +27,7 @@ ms.lasthandoff: 03/30/2018
 > - [Başlarken](vs-active-directory-dotnet-getting-started.md)
 > - [Ne oldu](vs-active-directory-dotnet-what-happened.md)
 
-Bu makalede ASP.NET MVC proje eklerken am tam değişikliklerinin tanımlayan [Azure Active Directory bağlı Visual Studio kullanarak hizmet](vs-active-directory-add-connected-service.md).
+Bu makalede ASP.NET MVC proje eklerken tam değişikliklerinin tanımlayan [Azure Active Directory bağlı Visual Studio kullanarak hizmet](vs-active-directory-add-connected-service.md).
 
 Bağlantılı hizmeti ile çalışma hakkında daha fazla bilgi için bkz: [Başlarken](vs-active-directory-dotnet-getting-started.md).
 

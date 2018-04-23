@@ -1,14 +1,14 @@
 ---
-title: "Coğrafi kodlama kapsamı Azure konumda temel Hizmetleri | Microsoft Docs"
-description: "Coğrafi kodlama hakkında bilgi edinin Azure konumda kapsamı temel Hizmetleri"
+title: Coğrafi kodlama kapsamı Azure konumda temel Hizmetleri | Microsoft Docs
+description: Coğrafi kodlama hakkında bilgi edinin Azure konumda kapsamı temel Hizmetleri
 services: location-based-services
-keywords: 
+keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
@@ -217,7 +217,7 @@ Azure konum tabanlı hizmetler (lb) adresleri, yerler ve dünyanın coğrafi di�
 | Cabo Verde|                 |                |       ✓      |      ✓     |          ✓         |
 | Orta Afrika Cumhuriyeti                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Çad                                                |                 |                |       ✓      |      ✓     |          ✓         |
-| Kongo                                               |                 |                |       ✓      |      ✓     |          ✓         |
+| Kongo Cumhuriyeti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Fildişi Sahili (Côte d’Ivoire)                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Kongo Demokratik Cumhuriyeti                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Cibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |

@@ -39,7 +39,7 @@ Azure zaman serisi Öngörüler yalnızca JSON verilerini destekler. JSON örnek
    Önceki görüntüde ilkelerinin ya da gösterildiği gibi **okuma** ve **yönetmek** çalışır, her ikisi de olduğundan **dinleme** izni.
 
 ### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>Olası neden tüketici grubu zaman serisi Insights'a özel değildir sağlanan C:
-IOT hub'ı am kaydı veya bir olay hub'ı sırasında verileri okumak için kullanılması gereken tüketici grubu belirtin. Bu bir tüketici grubundaki gerekir **değil** paylaştırılır. Tüketici grubu paylaşılıyorsa, temel olay hub'ı otomatik olarak okuyucular birini rastgele bağlantısını keser. Okunacak zaman serisi Öngörüler için benzersiz bir tüketici grubundaki sağlar.
+IOT hub'ı kaydı veya bir olay hub'ı sırasında verileri okumak için kullanılması gereken tüketici grubu belirtin. Bu bir tüketici grubundaki gerekir **değil** paylaştırılır. Tüketici grubu paylaşılıyorsa, temel olay hub'ı otomatik olarak okuyucular birini rastgele bağlantısını keser. Okunacak zaman serisi Öngörüler için benzersiz bir tüketici grubundaki sağlar.
 
 ## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>Sorun 2: Bazı veriler gösterilir, ancak bazı eksik
 Veri kısmen görebilirsiniz, ancak veri geciken, dikkate alınması gereken birkaç olasılık vardır:

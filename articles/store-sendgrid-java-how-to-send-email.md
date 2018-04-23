@@ -158,7 +158,7 @@ SendGrid kullanım yoluyla ek e-posta işlevselliği sağlar *filtreleri*. Bu iz
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>Nasıl yapılır: güncelleştirme e-posta özellikleri
-Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak * özellik*** veya kullanarak eklenmiş **ekleme*özelliği ***.
+Bazı e-posta özellikleri kullanılarak üzerine yazılabilir **ayarlamak*özellik*** veya kullanarak eklenmiş **ekleme*özelliği***.
 
 Örneğin, belirtmek için **ReplyTo** adresleri aşağıdakileri kullanın:
 

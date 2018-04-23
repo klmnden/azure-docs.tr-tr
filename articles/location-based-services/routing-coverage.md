@@ -1,14 +1,14 @@
 ---
-title: "Azure konumda yönlendirme kapsamı temel Hizmetleri | Microsoft Docs"
-description: "Yönlendirme hakkında Hizmetleri Azure konumda kapsamı temel bilgi edinin"
+title: Azure konumda yönlendirme kapsamı temel Hizmetleri | Microsoft Docs
+description: Yönlendirme hakkında Hizmetleri Azure konumda kapsamı temel bilgi edinin
 services: location-based-services
-keywords: 
+keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 3/6/2018
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
@@ -49,7 +49,7 @@ Aşağıdaki tabloda Azure konum tabanlı yönlendirme hizmetleri için kapsam b
 | Burkina Faso                   |        ✓       |
 | Burundi                        |        ✓       |
 | Kamerun                       |        ✓       |
-| Kongo                          |        ✓       |
+| Kongo Cumhuriyeti                          |        ✓       |
 | Kongo Demokratik Cumhuriyeti   |        ✓       |
 | Mısır                          |        ✓       |
 | Gabon                          |        ✓       |

@@ -73,7 +73,7 @@ VM hakkında bilgi almak için de dahil olmak üzere tırnak, her şeyi değişt
     Start-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 ## <a name="attach-a-data-disk"></a>Veri diski ekleme
-Bu görev birkaç adımı gerektirir. İlk olarak, kullandığınız *** Ekle-$vm nesnesine disk eklemek için AzureDataDisk *** cmdlet'i. Ardından, kullandığınız **güncelleştirme-AzureVM** cmdlet'i VM'ye yapılandırmasını güncelleştirmek için.
+Bu görev birkaç adımı gerektirir. İlk olarak, kullandığınız Ekle-$vm nesnesine disk eklemek için ****AzureDataDisk**** cmdlet'i. Ardından, kullandığınız **güncelleştirme-AzureVM** cmdlet'i VM'ye yapılandırmasını güncelleştirmek için.
 
 Ayrıca yeni bir disk veya veri içeren bir disk eklemeye karar vermeniz gerekir. Yeni bir disk için komut .vhd dosyası oluşturur ve bunları ekler.
 

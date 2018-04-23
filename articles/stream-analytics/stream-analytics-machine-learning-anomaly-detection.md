@@ -104,7 +104,7 @@ Diagrammatically, adımları aşağıdaki gibi görünür:
 
 * Model M1 okuma 11: 13'da iş başlatıldıktan sonra sonraki atlama olduğu 11:20:00, eğitim başlatır. İlk çıkış M1 ' 11:33 eğitim ile veri 13 dakika sonra da oluşturulur. 
 
-* Yeni bir model M2 de eğitim 11: 30'da başlar ancak kendi puan 11:40 ile 10 dakika veri eğitilmiş sonra olan am kadar kullanılmayan. 
+* Yeni bir model M2 de eğitim 11: 30'da başlar ancak kendi puan 11:40 ile 10 dakika veri eğitilmiş sonra olan kadar kullanılmayan. 
 
 * M3 M2 olarak aynı düzeni izler. 
 

@@ -179,7 +179,7 @@ Portalı'na gidin ve gidin **salixsalsa** > **genel bakış** izleme grafikleri 
 
 **Bir veritabanı yukarı ve aşağı kullanım desenlerini eşleştirmek için bir zamanlamaya göre ölçeklendirme**
 
-Tahmin edilebilir kullanım desenlerini toplama Kiracı kullanım aşağıdaki durumlarda, bir veritabanı bir zamanlamaya göre yukarı ve aşağı doğru ölçeklendirme için Azure Otomasyonu kullanabilirsiniz. Örneğin, bir veritabanı 6 pm sonra de ölçeklendirmeyi azaltın ve yukarı 6 am bildiğinizde hafta önce yeniden yok açılan kaynak gereksinimleri.
+Tahmin edilebilir kullanım desenlerini toplama Kiracı kullanım aşağıdaki durumlarda, bir veritabanı bir zamanlamaya göre yukarı ve aşağı doğru ölçeklendirme için Azure Otomasyonu kullanabilirsiniz. Örneğin, bir veritabanı 6 pm sonra de ölçeklendirmeyi azaltın ve yukarı 6 bildiğinizde hafta önce yeniden yok açılan kaynak gereksinimleri.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
