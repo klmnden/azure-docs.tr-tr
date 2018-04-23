@@ -51,10 +51,10 @@
         - name: Hassas sınıflandırma
           href: predict-twitter-sentiment.md
         - name: ABD içi gelir sınıflandırma
-          href: ../preview/scenario-tdsp-classifying-us-incomes.md
+          href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Biyomedikal varlık tanıma
-          href: ../preview/scenario-tdsp-biomedical-recognition.md
+          href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
     - name: PySpark ve Scala ile Spark
       href: walkthroughs-spark.md
@@ -82,7 +82,7 @@
 - name: Nasıl yapılır
   items:
     - name: Azure ML’de TDSP kullanma
-      href: ../preview/how-to-use-tdsp-in-azure-ml.md
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
       maintainContext: true
     - name: Veri bilimi ortamlarını ayarlama
       href: environment-setup.md

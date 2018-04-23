@@ -11,6 +11,8 @@
   items:
     - name: Oluşturma ve bağlanma - portal
       href: create-data-warehouse-portal.md
+    - name: Oluşturma - PowerShell
+      href: create-data-warehouse-powershell.md
     - name: İşlemi duraklatma ve sürdürme
       items:
         - name: Portal

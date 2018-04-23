@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 2b9ed5b3374c98740923790dac90cb1eb2f065d8
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme
 
@@ -42,7 +42,7 @@ Tüm kullanıcılar kimliklerini doğrulayan tek giriş dizinine sahiptir ancak 
 2. **Dizin değiştir**’e tıklayın.
 
     ![Dizin değiştir düğmesini gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Uyarıları gözden geçirin. Abonelik dizini değiştiğinde, erişim atanmış tüm [Rol Tabanlı Erişim Denetimi (RBAC)](role-based-access-control-configure.md) kullanıcıları ve tüm abonelik yöneticileri, erişimini kaybeder.
+3. Uyarıları gözden geçirin. Abonelik dizini değiştiğinde, erişim atanmış tüm [Rol Tabanlı Erişim Denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) kullanıcıları ve tüm abonelik yöneticileri, erişimini kaybeder.
 4. Bir dizin seçin.
 
     ![Değişiklik dizini kullanıcı arabirimini gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
@@ -60,7 +60,7 @@ Abonelik dizininin değiştirilmesi, hizmet düzeyinde bir işlemdir. Abonelik f
 
 * Ücretsiz olarak yeni bir Azure AD dizini oluşturma hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory kiracısı alma](develop/active-directory-howto-tenant.md)
 * Bir Azure aboneliğinin faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../billing/billing-subscription-transfer.md)
-* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](active-directory-understanding-resource-access.md)
+* Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure AD'de rol atama hakkında daha fazla bilgi için bkz. [Azure Active Directory'de yönetici rolü atama](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

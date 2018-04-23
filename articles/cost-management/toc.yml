@@ -55,3 +55,5 @@
       href: 'https://azure.microsoft.com/en-us/regions/services/'
     - name: SSS
       href: cost-mgt-faq.md
+    - name: Desteğe başvurun
+      href: support-request-cost-management.md

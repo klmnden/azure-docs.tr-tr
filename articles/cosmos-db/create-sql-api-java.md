@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 99b400d17164881f75cb8313c939d713610c221e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5be05ebd201796707934eac665793dd2c1dc8f2a
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Java ve Azure portalını kullanarak bir belge veritabanı oluşturma
 
@@ -54,43 +54,11 @@ Bir belge veritabanı oluşturmadan önce Azure Cosmos DB ile bir SQL API hesab�
 <a id="add-sample-data"></a>
 ## <a name="add-sample-data"></a>Örnek verileri ekleme
 
-Şimdi Veri Gezgini'ni kullanarak yeni koleksiyonunuza veri ekleyebilirsiniz.
-
-1. **Öğeler** koleksiyonunu genişletin, **Belgeler** > **Yeni Belge**’ye tıklayın.
-
-   ![Azure portalındaki Veri Gezgini'nde yeni belge oluşturma](./media/create-sql-api-java/azure-cosmosdb-data-explorer-new-document.png)
-  
-2. Şimdi koleksiyona aşağıdaki yapıya sahip bir belge ekleyin ve **Kaydet**’e tıklayın. Jason’ı panonuza kopyalamak için kod kutusundaki **Kopyala** düğmesini kullanın.
-
-     ```json
-     {
-         "id": "1",
-         "category": "personal",
-         "name": "groceries",
-         "description": "Pick up apples and strawberries.",
-         "isComplete": false
-     }
-     ```
-
-    ![Azure portalında JSON verilerini kopyalayın ve Veri Gezgini'ne kaydedin](./media/create-sql-api-java/azure-cosmosdb-data-explorer-save-document.png)
-
-3.  `id` özelliğini 2 olarak değiştirdiğiniz yerde bir veya daha fazla belge oluşturun ve kaydedin ve diğer özellikleri uygun şekilde değiştirin. Azure Cosmos DB, verilerinizin bir şemaya uygun olmasını şart koşmadığı için yeni belgelerinizin yapısını istediğiniz şekilde oluşturabilirsiniz.
+[!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
 ## <a name="query-your-data"></a>Verilerinizi sorgulayın
 
-Artık, verilerinizi almak ve filtrelemek için Veri Gezgini'ndeki sorguları kullanabilirsiniz.
-
-1. Sorgunun, varsayılan olarak `SELECT * FROM c` şeklinde ayarlandığına dikkat edin. Bu varsayılan sorgu, koleksiyondaki tüm belgeleri alır ve görüntüler. 
-
-    ![Veri Gezgini’ndeki varsayılan sorgu: `SELECT * FROM c`](./media/create-sql-api-java/azure-cosmosdb-data-explorer-query.png)
-
-2. **Documents** sekmesinde kalın ve **Filtreyi düzenle** düğmesine tıklayıp sorgu koşulu kutusuna `ORDER BY c._ts DESC` ekledikten sonra **Filtre Uygula** seçeneğine tıklayarak sorguyu değiştirin.
-
-    ![ORDER BY c._ts DESC ekleyerek ve Filtre Uygula’ya tıklayarak varsayılan sorguyu değiştirin](./media/create-sql-api-java/azure-cosmosdb-data-explorer-edit-query.png)
-
-Düzenlenen sorguda belgeler zaman damgalarına göre azalan sırada listelendiğinden, şimdi ikinci belgeniz ilk sırada görüntülenir. SQL söz dizimini biliyorsanız desteklenen [SQL sorgularını](sql-api-sql-query.md) bu kutuya girebilirsiniz. 
-
-Bu işlemle Veri Gezgini üzerindeki çalışmalarımız tamamlanmış olur. Kodlarla çalışmaya başlamadan önce, Veri Gezgini'ni kullanarak ayrıca saklı yordamlar, UDF'ler ve tetikleyiciler oluşturabileceğinizi, bu sayede sunucu tarafı iş mantığını gerçekleştirebileceğinizi ve aktarım hızını ölçeklendirebileceğinizi göz önünde bulundurun. Veri Gezgini, API'lerdeki tüm yerleşik programlı veri erişimini açığa çıkarır ancak Azure portalındaki verilerinize kolayca erişmenizi sağlar.
+[!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
 ## <a name="clone-the-sample-application"></a>Örnek uygulamayı kopyalama
 

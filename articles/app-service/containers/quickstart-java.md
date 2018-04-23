@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 46c97ae5bd6f53857f0b7df12462102a03e8e857
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 657a5a72650b330323406703d2c479c96c096f2e
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="preview-create-a-java-web-app-in-app-service-on-linux"></a>Önizleme: Linux üzerindeki App Service’te Java web uygulaması oluşturma
 
@@ -50,19 +50,7 @@ Bu hızlı başlangıcı tamamlamak için:
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-
-## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-
-Cloud Shell içinde [`az group create`](/cli/azure/group?view=azure-cli-latest#az_group_create) komutuyla bir kaynak grubu oluşturun. Aşağıdaki örnek *Batı Avrupa* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur. App Service için desteklenen tüm konumları görüntülemek için [`az appservice list-locations`](/cli/azure/appservice?view=azure-cli-latest#az_appservice_list_locations) komutunu çalıştırın.
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "West US"
-```
-
-Genellikle kaynak grubunuzu ve kaynakları kendinize yakın bir bölgede oluşturursunuz. 
-
-Komut tamamlandığında, bir JSON çıkışı size kaynak grubu özelliklerini gösterir.
-
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -72,7 +60,10 @@ Komut tamamlandığında, bir JSON çıkışı size kaynak grubu özelliklerini 
 Cloud Shell’de, `myAppServicePlan` App Service planında bir [web uygulaması](../app-service-web-overview.md) oluşturun. Bunu, [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) komutunu kullanarak yapabilirsiniz. Aşağıdaki örnekte *\<uygulama_adı>* kısmını genel olarak benzersiz bir uygulama adıyla değiştirin (geçerli karakterler `a-z`, `0-9` ve `-` şeklindedir). 
 
 ```azurecli-interactive
+# Bash
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
+# PowerShell
+az --% webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan --runtime "TOMCAT|8.5-jre8"
 ```
 
 **Çalışma zamanı** parametresi için aşağıdaki çalışma zamanlarından birini kullanın:

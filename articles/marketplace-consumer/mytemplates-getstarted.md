@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: mbaldwin
-ms.openlocfilehash: e3a0bbe75177ac25a0aeff89d171dfe88bd0880f
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c716f54a1361d41dbad00e2e45562d5fbf8fd6ca
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>Azure Portal'da özel Şablonları kullanmaya başlama
 [Azure Resource Manager ](../azure-resource-manager/resource-group-authoring-templates.md) şablonu, dağıtımınızı tanımlamak için kullanılan bildirim temelli bir şablondur. Bir çözümü dağıtmak amacıyla kaynaklarınızı tanımlayabilir ve farklı ortamlar için değer girmenizi sağlayan parametreler ve değişkenleri belirtebilirsiniz. Şablonda, JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler bulunur.
@@ -103,7 +103,7 @@ Açıklamayı veya Resource Manager şablonu metnini düzenleyebilirsiniz. Ad bi
 ![Şablon dağıtma](media/deploy-template-portal1b.png)
 
 ## <a name="share-a-template-resource"></a>Şablon kaynağı paylaşma
-Bir **Şablon** kaynağı iş arkadaşlarınızla paylaşılabilir. Paylaşma, [Azure'daki herhangi bir kaynak için rol ataması](../active-directory/role-based-access-control-configure.md) ile benzer şekilde davranır. **Şablon** sahibi, bir Şablon kaynağıyla etkileşim kurabilen diğer kullanıcılara izinler sağlar. **Şablon**'u paylaştığınız kişi veya grup, Resource Manager şablonunu ve bunun galeri özelliklerini görebilir.
+Bir **Şablon** kaynağı iş arkadaşlarınızla paylaşılabilir. Paylaşma, [Azure'daki herhangi bir kaynak için rol ataması](../role-based-access-control/role-assignments-portal.md) ile benzer şekilde davranır. **Şablon** sahibi, bir Şablon kaynağıyla etkileşim kurabilen diğer kullanıcılara izinler sağlar. **Şablon**'u paylaştığınız kişi veya grup, Resource Manager şablonunu ve bunun galeri özelliklerini görebilir.
 
 ### <a name="access-control-for-the-microsoftgallery-resources"></a>Microsoft.Gallery kaynakları için erişim denetimi
 | Rol | İzinler |

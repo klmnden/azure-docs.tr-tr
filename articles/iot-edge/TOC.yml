@@ -45,16 +45,12 @@
       href: how-to-install-iot-core.md
     - name: IoT Edge çözümlerini geliştirmek için VS Code kullanma
       items:
-        - name: 'C# modülü geliştirme ve dağıtma'
-          href: how-to-vscode-develop-csharp-module.md
-        - name: 'C# modülünde hata ayıklama'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Azure İşlevleri’ni geliştirme ve dağıtma
-          href: how-to-vscode-develop-azure-function.md
-        - name: Azure İşlevleri’nde hata ayıklama
-          href: how-to-vscode-debug-azure-function.md
         - name: Birden çok modül ile çalışma
           href: tutorial-multiple-modules-in-vscode.md
+        - name: 'C# modülünde hata ayıklama'
+          href: how-to-vscode-debug-csharp-module.md
+        - name: Azure İşlevleri’nde hata ayıklama
+          href: how-to-vscode-debug-azure-function.md
     - name: Uçta veri depolama
       href: sql-storage.md
     - name: Sorun giderme

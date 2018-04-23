@@ -1,13 +1,13 @@
 ---
-title: "Azure Portal'dan işlev uygulaması oluşturma | Microsoft Docs"
-description: "Portaldan Azure App Service’te yeni bir işlev uygulaması oluşturun."
+title: Azure Portal'dan işlev uygulaması oluşturma | Microsoft Docs
+description: Portaldan Azure App Service’te yeni bir işlev uygulaması oluşturun.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: quickstart
@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4f9882ebc86b8119e6e683c7442ee3448a8d111b
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 4716d29a7b8c0830e2311398f033f8358ef24529
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure portalından işlev uygulaması oluşturma
 
@@ -51,7 +51,7 @@ App Service’te bir işlev uygulaması oluştururken Blob, Kuyruk ve Tablo depo
 >[!NOTE]
 >Tüketim barındırma planı kullanılırken işlev kodunuz ve bağlama yapılandırma dosyalarınız ana depolama hesabındaki Azure Dosya depolama alanında saklanır. Ana depolama hesabını sildiğinizde bu içerik silinir ve kurtarılamaz.
 
-Depolama hesabı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure Depolama Hizmetlerine Giriş](../storage/common/storage-introduction.md#introducing-the-azure-storage-services). 
+Depolama hesabı türleri hakkında daha fazla bilgi edinmek için bkz. [Azure Depolama Hizmetlerine Giriş](../storage/common/storage-introduction.md#azure-storage-services). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

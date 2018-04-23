@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 03/19/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a03362ebd4b8502f12b7c7bb9aadc558f6a073d2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 169f68d179c7f895078fe649d0e2a69e58d148cb
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-three-node-test-service-fabric-cluster"></a>Üç düğümlü bir test Service Fabric kümesi oluşturma
 
@@ -27,7 +27,7 @@ Bu örnek betik bir X.509 sertifikasıyla güvenliği sağlanan üç düğümlü
 
 Komut otomatik olarak imzalanan bir sertifika oluşturur ve küme ile aynı kaynak grubunda oluşturulan yeni bir anahtar kasasına yükler. Sertifika aynı zamanda bir yerel dizine de kopyalanır.  Küme düğümleri üzerinde çalışan Windows veya Linux sürümünü seçmek için *-OS* parametresini ayarlayın.  Parametreleri gereken şekilde özelleştirin.
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Login-AzureRmAccount` öğesini çalıştırın. 
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeleri kullanarak Azure PowerShell’i yükleyin ve ardından Azure ile bir bağlantı oluşturmak için `Connect-AzureRmAccount` öğesini çalıştırın. 
 
 ## <a name="sample-script"></a>Örnek betik
 

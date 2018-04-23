@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 6668f02bb7ac9588e1bb11b3848d0a3e25cbed67
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 079eb7b89ff3d6c1e4ec0de6136cd934ba3a1f70
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux’ta App Service’te Ruby Uygulaması oluşturma
 
@@ -53,34 +53,6 @@ rails server
 ```
 
 Web tarayıcınızı kullanarak uygulamayı yerel olarak test etmek için `http://localhost:3000` yoluna gidin.
-
-![Hello-world](./media/quickstart-ruby/hello-world.png)
-
-## <a name="modify-app-to-display-welcome-message"></a>Uygulamayı karşılama iletisi görüntüleyecek şekilde değiştirme
-
-Uygulamayı bir karşılama iletisi görüntüleyecek şekilde değiştirin. İlk olarak *~/workspace/ruby-docs-hello-world/config/routes.rb* dosyasını `hello` adlı bir rota içerecek şekilde değiştirerek bir rota ayarlamanız gerekir.
-
-  ```ruby
-  Rails.application.routes.draw do
-      #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-      root 'application#hello'
-  end
-  ```
-
-Uygulamanın denetleyicisini, iletiyi tarayıcıya HTML olarak döndürecek şekilde değiştirin. 
-
-*~/workspace/hello-world/app/controllers/application_controller.rb* dosyasını düzenlemek üzere açın. `ApplicationController` sınıfını şu kod örneğinde görülen şekilde değiştirin:
-
-  ```ruby
-  class ApplicationController > ActionController :: base
-    protect_from_forgery with: :exception
-    def hello
-      render html: "Hello, world from Azure Web App on Linux!"
-    end
-  end
-  ```
-
-Uygulamanız artık yapılandırılmıştır. Kök giriş sayfasını doğrulamak için web tarayıcınızı kullanarak `http://localhost:3000` yoluna gidin.
 
 ![Hello World yapılandırıldı](./media/quickstart-ruby/hello-world-configured.png)
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 3b935d3a3c37b63386dfb2cbd25ceba59d91a998
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f57a4b87c239126d248cba5106e005103d8372b2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -35,7 +35,7 @@ Ağ güvenlik gruplarının bir ağ güvenlik grubu hem bir ağ arabirimi hem de
 - **Gelen trafik**: Önce ağ arabiriminin içinde bulunduğu alt ağ ile ilişkilendirilmiş olan ağ güvenlik grubu değerlendirilir. Alt ağ ile ilişkilendirilmiş olan ağ güvenlik grubunun izin verdiği trafik sonrasında ağ arabirimi ile ilişkilendirilmiş olan ağ güvenlik grubu tarafından değerlendirilir. Örneğin, bir sanal makineye İnternet ve 80 numaralı bağlantı noktası üzerinden erişim sağlamaya ihtiyaç duyabilirsiniz. Bir ağ güvenlik grubunu hem ağ arabirimi hem de ağ arabiriminin içinde bulunduğu alt ağ ile ilişkilendirirseniz, alt ağ ile ilişkilendirilmiş ağ güvenlik grubunun ve ağ arabiriminin 80 numaralı bağlantı noktasına izin vermesi gerekir. 80 numaralı bağlantı noktasına yalnızca alt ağ ile ilişkilendirilmiş ağ güvenlik grubunda veya alt ağın içinde bulunduğu ağ arabiriminde izin vermeniz halinde varsayılan güvenlik kuralları nedeniyle iletişim başarısız olur. Ayrıntılar için [varsayılan güvenlik kurallarına](#default-security-rules) bakın. Bir ağ güvenlik grubunu yalnızca alt ağa veya ağ arabirimine uygulamanız ve ağ güvenlik grubunda 80 numaralı bağlantı noktasından gelen trafiğe izin veren bir kural bulunması halinde iletişim başarılı olur. 
 - **Giden trafik**: Önce ağ arabirimi ile ilişkilendirilmiş olan ağ güvenlik grubu değerlendirilir. Ağ arabirimi ile ilişkilendirilmiş olan ağ güvenlik grubunun izin verdiği trafik sonrasında alt ağ ile ilişkilendirilmiş olan ağ güvenlik grubu tarafından değerlendirilir.
 
-Her zaman ağ güvenlik gruplarının hem bir ağ arabirimine hem de alt ağa uygulandığının farkında olmayabilirsiniz. Bir ağ arabirimi için [geçerli güvenlik kurallarını](virtual-network-nsg-troubleshoot-portal.md) görüntüleyerek bir ağ arabirimine uygulanmış olan toplu kuralları kolayca görüntüleyebilirsiniz. Azure Ağ İzleyicisi'ndeki [IP akışı doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özelliğini kullanarak da bir ağ arabirimine gelen veya dışarı giden iletişime izin verilip verilmediğini belirleyebilirsiniz. Bu araç iletişime izin verilip verilmediğini ve trafiğe izin veren veya onu reddeden ağ güvenlik kuralının hangisi olduğunu belirler.
+Her zaman ağ güvenlik gruplarının hem bir ağ arabirimine hem de alt ağa uygulandığının farkında olmayabilirsiniz. Bir ağ arabirimi için [geçerli güvenlik kurallarını](virtual-network-network-interface.md#view-effective-security-rules) görüntüleyerek bir ağ arabirimine uygulanmış olan toplu kuralları kolayca görüntüleyebilirsiniz. Azure Ağ İzleyicisi'ndeki [IP akışı doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) özelliğini kullanarak da bir ağ arabirimine gelen veya dışarı giden iletişime izin verilip verilmediğini belirleyebilirsiniz. Bu araç iletişime izin verilip verilmediğini ve trafiğe izin veren veya onu reddeden ağ güvenlik kuralının hangisi olduğunu belirler.
  
 > [!NOTE]
 > Ağ güvenlik grupları Resource Manager dağıtım modelindeki ağ arabirimlerinin yerine klasik dağıtım modelindeki alt ağlar veya sanal makineler ve bulut hizmetleri ile ilişkilendirilir. Azure dağıtım modelleri hakkında daha fazla bilgi edinmek için bkz. [Azure dağıtım modellerini kavrama](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

@@ -28,6 +28,8 @@
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
+    - name: Resource Manager şablonları
+      href: template-samples.md
 - name: Kavramlar
   items:
     - name: Güvenlik
@@ -70,16 +72,12 @@
               href: tutorial-filter-network-traffic-cli.md
             - name: Azure portalına
               href: virtual-networks-create-nsg-arm-pportal.md
-            - name: Şablon
-              href: virtual-networks-create-nsg-arm-template.md
         - name: Yol tabloları
           items:
             - name: Azure PowerShell
               href: tutorial-create-route-table-powershell.md
             - name: Azure CLI
               href: tutorial-create-route-table-cli.md
-            - name: Şablon
-              href: virtual-network-create-udr-arm-template.md
         - name: Hizmet uç noktaları
           items:
             - name: Azure PowerShell
@@ -110,8 +108,6 @@
                   href: virtual-network-deploy-static-pip-arm-ps.md
                 - name: Azure CLI
                   href: virtual-network-deploy-static-pip-arm-cli.md
-                - name: Şablon
-                  href: virtual-network-deploy-static-pip-arm-template.md
             - name: VM Oluşturma - Statik özel IP adresi
               items:
                 - name: Azure portalına
@@ -126,8 +122,6 @@
                   href: ../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                 - name: Azure CLI
                   href: ../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json
-                - name: Şablon
-                  href: virtual-network-deploy-multinic-arm-template.md
             - name: VM Oluşturma - Birden çok IP adresi
               items:
                 - name: Azure portalına
@@ -136,8 +130,6 @@
                   href: virtual-network-multiple-ip-addresses-powershell.md
                 - name: Azure CLI
                   href: virtual-network-multiple-ip-addresses-cli.md
-                - name: Şablon
-                  href: virtual-network-multiple-ip-addresses-template.md
             - name: VM Oluşturma - Hızlandırılmış ağ bağlantısı
               items:
                 - name: Azure PowerShell
@@ -190,11 +182,7 @@
             - name: Eşlemeler
               href: virtual-network-manage-peering.md
             - name: DDoS koruması
-              items:
-                - name: Azure portalına
-                  href: ddos-protection-manage-portal.md
-                - name: Azure PowerShell
-                  href: ddos-protection-manage-ps.md
+              href: manage-ddos-protection.md
         - name: Ağ güvenlik grupları
           href: manage-network-security-group.md
           items:

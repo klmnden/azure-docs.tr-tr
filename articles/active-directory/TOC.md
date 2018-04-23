@@ -134,24 +134,24 @@
 #### [Sertifikaları kullanma](active-directory-reporting-api-with-certificates.md)
 
 ## Parolaları yönetme
-### [Parolalara genel bakış](active-directory-passwords-overview.md)
+### [Parolalara genel bakış](authentication/active-directory-passwords-overview.md)
 ### Kullanıcı belgeleri
 #### [Parolanızı sıfırlama veya değiştirme](active-directory-passwords-update-your-own-password.md)
 #### [Parolalarla ilgili en iyi yöntemler](active-directory-secure-passwords.md)
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
-### [SSPR Nasıl çalışır?](active-directory-passwords-how-it-works.md)
-### [SSPR Dağıtım kılavuzu](active-directory-passwords-best-practices.md)
+### [SSPR Nasıl çalışır?](authentication/concept-sspr-howitworks.md)
+### [SSPR Dağıtım kılavuzu](authentication/howto-sspr-deployment.md)
 ### [SSPR ve Windows 10](active-directory-passwords-login.md)
-### [SSPR İlkeleri ](active-directory-passwords-policy.md)
-### [SSPR’yi Özelleştirme](active-directory-passwords-customize.md)
-### [SSPR Veri gereksinimleri](active-directory-passwords-data.md)
-### [SSPR Raporlama](active-directory-passwords-reporting.md)
+### [SSPR İlkeleri ](authentication/concept-sspr-policy.md)
+### [SSPR’yi Özelleştirme](authentication/concept-sspr-customization.md)
+### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
+### [SSPR Raporlama](authentication/howto-sspr-reporting.md)
 ### BT Yöneticileri: Parolaları sıfırlama
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
-### [SSPR lisanslama](active-directory-passwords-licensing.md)
+### [SSPR lisanslama](authentication/concept-sspr-licensing.md)
 ### [Parola geri yazma](active-directory-passwords-writeback.md)
-### [Sorun giderme](active-directory-passwords-troubleshoot.md)
-### [SSS](active-directory-passwords-faq.md)
+### [Sorun giderme](authentication/active-directory-passwords-troubleshoot.md)
+### [SSS](authentication/active-directory-passwords-faq.md)
 
 
 ## Cihazları yönetme

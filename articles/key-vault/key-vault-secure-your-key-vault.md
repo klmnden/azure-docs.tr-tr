@@ -1,8 +1,8 @@
 ---
-title: "Anahtar kasanızın güvenliğini sağlama | Microsoft Belgeleri"
-description: "Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasasına yönelik kimlik doğrulama ve yetkilendirme modeli ve anahtar kasanızın güvenliğini sağlama"
+title: Anahtar kasanızın güvenliğini sağlama | Microsoft Belgeleri
+description: Kasaları ve anahtarlar ile parolaları yönetmek için anahtar kasasına yönelik erişim izinlerini yönetin. Anahtar kasasına yönelik kimlik doğrulama ve yetkilendirme modeli ve anahtar kasanızın güvenliğini sağlama
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a769d15fe79a56d623399d0d38b6dd9c060db36
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="secure-your-key-vault"></a>Anahtar kasanızın güvenliğini sağlama
 Azure Anahtar Kasası, bulut uygulamalarınıza ait şifreleme anahtarlarını ve parolaları (sertifikalar, bağlantı dizeleri, parolalar gibi) koruyan bir bulut hizmetidir. Bu veriler hassas ve iş için önemli olduğundan, anahtar kasalarınıza erişimi yalnızca yetkili uygulamaların ve kullanıcıların erişebileceği şekilde güvenli hale getirmek istersiniz. Bu makalede anahtar kasası erişim modeline genel bakış sunulmakta, kimlik doğrulaması ve yetkilendirme açıklanmakta ve bulut uygulamalarınız için anahtar kasasına erişimin güvenliğini sağlama işlemi bir örnekle anlatılmaktadır.
@@ -76,7 +76,7 @@ Her Azure aboneliği bir Azure Active Directory’ye sahiptir. Bu dizindeki kull
 
 Azure Resource Manager modeliyle, bir kaynak grubunda anahtar kasanızı oluşturur ve Azure Active Directory’yi kullanarak bu anahtar kasasının yönetim düzlemine erişimi denetlersiniz. Örneğin, kullanıcılara veya bir gruba, belirli bir kaynak grubunun içindeki anahtar kasalarını yönetme olanağı verebilirsiniz.
 
-Belirli bir kapsamdaki kullanıcılara, gruplara ve uygulamalara uygun RBAC rollerini atayarak erişim verebilirsiniz. Örneğin, bir kullanıcıya anahtar kasalarını yönetmesi için erişim vermek amacıyla, belirli bir kapsamda bu kullanıcıya önceden tanımlı bir 'anahtar kasasına Katkıda Bulunan' rolü atarsınız. Bu örnekteki kapsam bir abonelik, bir kaynak grubu veya yalnızca belirli bir anahtar kasası olabilir. Abonelik düzeyinde atanmış bir rol, bu abonelikteki tüm kaynak grupları ve kaynaklar için geçerlidir. Kaynak grubu düzeyinde atanmış bir rol, ilgili kaynak grubundaki tüm kaynaklar için geçerli olur. Belirli bir kaynağa atanmış bir rol, yalnızca ilgili kaynak için geçerli olur. Önceden tanımlı birkaç rol vardır (bkz. [RBAC: Yerleşik roller](../active-directory/role-based-access-built-in-roles.md)) ve önceden tanımlı roller ihtiyaçlarınıza uygun değilse kendi rollerinizi de tanımlayabilirsiniz.
+Belirli bir kapsamdaki kullanıcılara, gruplara ve uygulamalara uygun RBAC rollerini atayarak erişim verebilirsiniz. Örneğin, bir kullanıcıya anahtar kasalarını yönetmesi için erişim vermek amacıyla, belirli bir kapsamda bu kullanıcıya önceden tanımlı bir 'anahtar kasasına Katkıda Bulunan' rolü atarsınız. Bu örnekteki kapsam bir abonelik, bir kaynak grubu veya yalnızca belirli bir anahtar kasası olabilir. Abonelik düzeyinde atanmış bir rol, bu abonelikteki tüm kaynak grupları ve kaynaklar için geçerlidir. Kaynak grubu düzeyinde atanmış bir rol, ilgili kaynak grubundaki tüm kaynaklar için geçerli olur. Belirli bir kaynağa atanmış bir rol, yalnızca ilgili kaynak için geçerli olur. Önceden tanımlı birkaç rol vardır (bkz. [RBAC: Yerleşik roller](../role-based-access-control/built-in-roles.md)) ve önceden tanımlı roller ihtiyaçlarınıza uygun değilse kendi rollerinizi de tanımlayabilirsiniz.
 
 > [!IMPORTANT]
 > Bir kullanıcı bir anahtar kasası yönetim düzleminde Katkıda Bulunan izinlerine (RBAC) sahipse, veri düzlemine erişimi denetleyen anahtar kasası erişim ilkesini ayarlayarak, kendisine veri düzlemine erişim verebilir. Bu nedenle, anahtar kasalarınıza, anahtarlarınıza, parolalarınıza ve sertifikalarınıza erişip bunları yönetebilen kullanıcıların yalnızca yetkili kişiler olduğundan emin olmak amacıyla anahtar kasalarınıza 'Katkıda Bulunan' erişimine kimlerin sahip olduğunun sıkı denetlenmesi önerilir.
@@ -134,7 +134,7 @@ Her bir rolün (ve uygulamanın) atanmış görevleri gerçekleştirmesi için g
 | Kullanıcı Rolü | Yönetim düzlemi izinleri | Veri düzlemi izinleri |
 | --- | --- | --- |
 | Güvenlik Ekibi |anahtar kasasına Katkıda Bulunan |Anahtarlar: yedekleme, oluşturma, silme, alma, içeri aktarma, listeleme, geri yükleme <br> Parolalar: tümü |
-| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |Yok |
+| Geliştiriciler/Operatörler |dağıttıkları VM’lerin parolaları anahtar kasasından getirebilmesi anahtar kasası dağıtma izni |None |
 | Denetçiler |Yok |Anahtarlar: listeleme<br>Parolalar: listeleme |
 | Uygulama |Yok |Anahtarlar: imzalama<br>Parolalar: imzalama |
 
@@ -204,19 +204,19 @@ Bu örnekte basit bir senaryo gösterilmektedir. Gerçek yaşam senaryoları dah
 > 
 
 ## <a name="resources"></a>Kaynaklar
-* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md)
+* [Azure Active Directory Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md)
   
   Bu makalede Azure Active Directory Rol Tabanlı Access Control ve nasıl çalıştığı açıklanmaktadır.
-* [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md)
+* [RBAC: Yerleşik Roller](../role-based-access-control/built-in-roles.md)
   
   Bu makalede RBAC’de kullanılabilen tüm yerleşik roller ayrıntılı olarak açıklanmaktadır.
 * [Resource Manager dağıtımını ve klasik dağıtımı anlama](../azure-resource-manager/resource-manager-deployment-model.md)
   
   Bu makalede Resource Manager dağıtımı ve klasik dağıtım modelleri açıklanmakta ve Resource Manager ile kaynak gruplarını kullanmanın avantajları anlatılmaktadır
-* [Rol Tabanlı Erişim Denetimini Azure PowerShell ile Yönetme](../active-directory/role-based-access-control-manage-access-powershell.md)
+* [Rol Tabanlı Erişim Denetimini Azure PowerShell ile Yönetme](../role-based-access-control/role-assignments-powershell.md)
   
   Bu makalede rol tabanlı erişim denetiminin Azure PowerShell ile nasıl denetleneceği açıklanmaktadır
-* [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../active-directory/role-based-access-control-manage-access-rest.md)
+* [Rol Tabanlı Erişim Denetimini REST API’si ile Yönetme](../role-based-access-control/role-assignments-rest.md)
   
   Bu makalede RBAC yönetimi için REST API’sinin nasıl kullanılacağı gösterilmektedir.
 * [Ignite’tan Microsoft Azure için Rol Tabanlı Erişim Denetimi](https://channel9.msdn.com/events/Ignite/2015/BRK2707)

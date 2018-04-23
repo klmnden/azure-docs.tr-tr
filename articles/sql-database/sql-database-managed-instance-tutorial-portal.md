@@ -12,10 +12,10 @@ ms.date: 03/14/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: 774a761465cfd886b85378a35dd43ac656a7ee48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/12/2018
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure portalında Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -203,9 +203,9 @@ Aşağıdaki adımlarda, SQL Server Management Studio yükleyip Yönetilen Örne
    | ------ | --------------- | ----------- |
    |**Ad**|Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Adres aralığı (CIDR bloğu)**|Sanal ağ içindeki geçerli bir adres aralığı (varsayılanı kullanın)||
-   |**Ağ güvenlik grubu**|Yok||
-   |**Yol tablosu**|Yok||
-   |**Hizmet uç noktaları**|Yok||
+   |**Ağ güvenlik grubu**|None||
+   |**Yol tablosu**|None||
+   |**Hizmet uç noktaları**|None||
 
    ![vm alt ağ ayrıntıları](./media/sql-database-managed-instance-tutorial/vm-subnet-details.png)
 

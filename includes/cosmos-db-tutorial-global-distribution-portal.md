@@ -2,17 +2,17 @@
 title: Azure Cosmos DB genel dağıtımı
 description: Azure portalında Azure Cosmos DB ile genel olarak verilerin nasıl çoğaltılacağını öğrenin
 services: cosmos-db
-author: mimig1
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
 ms.date: 03/26/2018
-ms.author: mimig
+ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: b62d1cc3b7ea79adbf24f214ba3bb9e92c3a1f0c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: fb9418d47d2888467e1c1c40862833029111b75b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/16/2018
 ---
 Azure Cosmos DB Program Yöneticisi Manager Andrew Liu’nun genel dağıtım işlevini açıkladığı aşağıdaki videodan Azure Cosmos DB genel dağıtımı hakkında bilgi edinebilirsiniz.
 

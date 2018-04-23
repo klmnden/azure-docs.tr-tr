@@ -12,15 +12,15 @@
 ## [Standard Loan Balancer ölçümleri ve tanılama](load-balancer-standard-diagnostics.md)
 
 # Başlarken
-## [Basic Load Balancer oluşturma](load-balancer-get-started-internet-portal.md)
-### [Basic Load Balancer (CLI) oluşturma](load-balancer-get-started-internet-arm-cli.md)
-### [Basic Load Balancer (PowerShell) oluşturma](load-balancer-get-started-internet-arm-ps.md)
-## [Standard Load Balancer oluşturma](load-balancer-standard-public-portal.md)
-### [Standard Load Balancer (CLI) oluşturma](load-balancer-standard-public-cli.md)
+## [Basic Load Balancer oluşturma](quickstart-create-basic-load-balancer-portal.md)
+### [Basic Load Balancer (CLI) oluşturma](quickstart-create-basic-load-balancer-cli.md)
+### [Basic Load Balancer (PowerShell) oluşturma](quickstart-create-basic-load-balancer-powershell.md)
+## [Standard Load Balancer oluşturma](quickstart-load-balancer-standard-public-portal.md)
+### [Standard Load Balancer (CLI) oluşturma](quickstart-load-balancer-standard-public-cli.md)
 
 # Nasıl yapılır
 
-## [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma](load-balancer-get-started-internet-az-portal.md)
+## [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 ### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
 ### [Bölgesel olarak yedekli genel Standard Load Balancer oluşturma (CLI)](load-balancer-get-started-internet-az-cli.md)
 ## [Bölgesel genel Standard Load Balancer oluşturma](load-balancer-get-started-internet-availability-zones-zonal-portal.md)

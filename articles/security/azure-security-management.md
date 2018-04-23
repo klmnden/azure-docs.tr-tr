@@ -1,6 +1,6 @@
 ---
-title: "Azure’da uzaktan yönetim güvenliğini artırma | Microsoft Docs"
-description: "Bu makalede bulut hizmetleri, Sanal Makineler ve özel uygulamalar dahil, Microsoft Azure ortamlarını yönetirken uzaktan yönetim güvenliğini geliştirme adımları açıklanmaktadır."
+title: Azure’da uzaktan yönetim güvenliğini artırma | Microsoft Docs
+description: Bu makalede bulut hizmetleri, Sanal Makineler ve özel uygulamalar dahil, Microsoft Azure ortamlarını yönetirken uzaktan yönetim güvenliğini geliştirme adımları açıklanmaktadır.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 026a22355ab1d35fa1fe6b7ba624fed5d10b3e38
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -64,7 +64,7 @@ Erişim kaynaklarını sağlamlaştırmak ve yönetilmeyen uç noktaları ortada
 ### <a name="providing-security-for-azure-remote-management"></a>Azure remote management için güvenlik sağlama
 Azure, Azure bulut hizmetlerini ve sanal makineleri yöneten yöneticilere yardım etmek amacıyla güvenlik mekanizmaları sağlar. Bu mekanizmalar şunları:
 
-* Kimlik doğrulama ve [rol tabanlı erişim denetimi](../active-directory/role-based-access-control-configure.md).
+* Kimlik doğrulama ve [rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md).
 * İzleme, günlük kaydı ve denetim.
 * Sertifikalar ve şifreli iletişim.
 * Web yönetim portalı.

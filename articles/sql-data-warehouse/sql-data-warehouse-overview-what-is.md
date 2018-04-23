@@ -1,25 +1,20 @@
 ---
-title: Azure SQL Data Warehouse Nedir? | Microsoft Belgeleri
-description: "İlişkisel ve ilişkisel olmayan petabaytlarca veriyi işleyebilen, kurumsal sınıf bir veritabanıdır. Saniyeler içinde büyütmenizi, küçültmenizi ve duraklatmanızı sağlayan, sektörün ilk bulut veri ambarıdır."
+title: Azure SQL Data Warehouse Nedir? | Microsoft Docs
+description: İlişkisel ve ilişkisel olmayan petabaytlarca veriyi işleyebilen, kurumsal sınıf bir veritabanıdır. Saniyeler içinde büyütmenizi, küçültmenizi ve duraklatmanızı sağlayan, sektörün ilk bulut veri ambarıdır.
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jenniehubbard
-editor: 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+author: igorstanko
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: hero-article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: overview
-ms.date: 10/23/2017
-ms.author: jrj
-ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.topic: overview
+ms.component: design
+ms.date: 04/17/2018
+ms.author: igorstan
+ms.reviewer: igorstan
+ms.openlocfilehash: 57b94a57ae0279a391cb4269f7b1625499748bae
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse Nedir?
 
@@ -37,13 +32,6 @@ SQL Veri Ambarı, verileri sütunlu depolama alanındaki ilişkisel tablolara ka
 
 Analiz sonuçları dünya çapındaki raporlama veritabanlarına veya uygulamalarına iletilebilir. Ardından iş analistleri işlerle ilgili destekli kararlar almak üzere öngörü sahibi olabilir.
 
-## <a name="optimization-choices"></a>İyileştirme seçenekleri
-
-SQL Veri Ambarı büyük veya küçük ölçekli veri ihtiyaçlarınızı karşılamak için gerekli esnekliği sunmak üzere tasarlanmış [performans katmanlarına](performance-tiers.md) sahiptir. Esneklik veya işlem gücü odaklı veri ambarları arasından seçim yapabilirsiniz. 
-
-- **Esneklik için İyileştirilmiş performans katmanı**, mimari içindeki işlem ve depolama katmanlarını birbirinden ayırır. Bu seçenek kısa süreli yüksek etkinlik dönemlerini desteklemek için sık ölçeklendirme gerçekleştirerek işlem ve depolama alanı arasındaki ayrımdan faydalanan iş yükleri için idealdir. Bu işlem katmanı en düşük giriş fiyatı noktasına sahiptir ve müşteri iş yüklerinin çoğunu destekleyecek şekilde ölçeklendirilir.
-
-- **İşlem için İyileştirilmiş performans katmanı** en güncel Azure donanımlarını kullanarak en çok erişilen verileri tam da istediğiniz yer olan CPU'ların yakınında tutmak için yeni NVMe Katı Hal Sürücü önbelleğini kullanır. Depolama alanını otomatik olarak katmanlayan bu performans katmanı, tüm giriş çıkış verileri işlem katmanında tutulduğundan karmaşık sorgular için idealdir. Ayrıca columnstore, SQL Veri Ambarınızda sınırsız miktarda veri saklayacak şekilde geliştirilmiştir. 30.000 işlem Veri Ambarı Birimine (cDWU) kadar ölçeklendirme yapmanızı sağlayan İşlem için İyileştirilmiş performans katmanı, en yüksek ölçeklendirme seviyesini sunar. Sürekli ve çok hızlı performansa ihtiyaç duyan iş yükleri için bu katmanı seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 SQL Veri Ambarı hakkında biraz bilgi sahibi olduğunuza göre hızlıca [SQL Veri Ambarı oluşturma][create a SQL Data Warehouse] ve [örnek verileri yükleme][load sample data] hakkında bilgi edinin. Azure'da yeniyseniz yeni terimlerle karşılaşabileceğinizi için [Azure sözlüğünü][Azure glossary] yararlı bulabilirsiniz. Alternatif olarak, aşağıdaki diğer SQL Veri Ambarı Kaynakları’na göz atın.  

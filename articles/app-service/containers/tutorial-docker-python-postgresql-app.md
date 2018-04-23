@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 01/28/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70cdbaa10d5e4ba39d4f378e05ae606a577ade99
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 673564ef7b5ff02a3809154a4dcf1669c2ed798b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Azure'da Docker Python ve PostgreSQL web uygulaması oluşturma
 
@@ -170,19 +170,19 @@ PostgreSQL sunucusu için Azure Veritabanı oluşturulduğunda Azure CLI, aşağ
 
 ### <a name="create-a-firewall-rule-for-the-azure-database-for-postgresql-server"></a>PostgreSQL için Azure Veritabanı'na bir güvenlik duvarı kuralı oluşturma
 
-Tüm IP adreslerinden veritabanına erişim izni vermek için şu Azure CLI komutunu çalıştırın.
+Tüm IP adreslerinden veritabanına erişim izni vermek için şu Azure CLI komutunu çalıştırın. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
-az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=255.255.255.255 --name AllowAllIPs
+az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql_name> --start-ip-address=0.0.0.0 --end-ip-address=0.0.0.0 --name AllowAzureIPs
 ```
 
 Azure CLI, şu örneğe benzer bir çıkışa sahip güvenlik duvarı kuralı oluşumunu onaylar:
 
 ```json
 {
-  "endIpAddress": "255.255.255.255",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAllIPs",
-  "name": "AllowAllIPs",
+  "endIpAddress": "0.0.0.0",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/<postgresql_name>/firewallRules/AllowAzureIPs",
+  "name": "AllowAzureIPs",
   "resourceGroup": "myResourceGroup",
   "startIpAddress": "0.0.0.0",
   "type": "Microsoft.DBforPostgreSQL/servers/firewallRules"
@@ -232,7 +232,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-Bir tarayıcıda http://localhost:5000 konumuna gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
+Bir tarayıcıda http://localhost:5000 sayfasına gidin. **Kaydet!** öğesine tıklayın ve bir test kaydı oluşturun. Artık Azure’da veritabanına veri yazıyorsunuz.
 
 ![Yerel olarak çalışan Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -462,7 +462,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 konumuna gidin. Test kaydı oluşturun.
+Değişiklikleri görüntülemek için tarayıcınızda http://localhost:5000 adresine gidin. Test kaydı oluşturun.
 
 ![Yerel olarak çalışan Docker kapsayıcısı tabanlı Python Flask uygulaması](./media/tutorial-docker-python-postgresql-app/local-app-v2.png)
 

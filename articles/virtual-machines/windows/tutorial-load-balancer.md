@@ -1,13 +1,13 @@
 ---
-title: "Azure’da Windows sanal makinelerinde yük dengeleme | Microsoft Docs"
-description: "Üç Windows VM’sinde yüksek oranda kullanılabilir ve güvenli bir uygulama oluşturmak için Azure yük dengeleyicisinin nasıl kullanılacağını öğrenin"
+title: Azure’da Windows sanal makinelerinde yük dengeleme | Microsoft Docs
+description: Üç Windows VM’sinde yüksek oranda kullanılabilir ve güvenli bir uygulama oluşturmak için Azure yük dengeleyicisinin nasıl kullanılacağını öğrenin
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: tutorial
@@ -16,18 +16,18 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: f0e154d0ac917d2ef2799431a72969a96415e0c0
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 0ac48844932c77ea4d597da6cb18a820a34e0f39
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="how-to-load-balance-windows-virtual-machines-in-azure-to-create-a-highly-available-application"></a>Yüksek oranda kullanılabilir bir uygulama oluşturmak için Azure’da Windows sanal makinelerinde yük dengeleme
 Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek düzeyde kullanılabilirlik sunar. Bu öğreticide, Azure yük dengeleyicisinin trafiği dağıtan ve yüksek kullanılabilirlik sağlayan farklı bileşenleri hakkında bilgi edinebilirsiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Azure yük dengeleyici oluşturma
-> * Yük dengeleyici durum araştırması oluşturma
+> * Yük dengeleyici durum yoklaması oluşturma
 > * Yük dengeleyici trafik kuralları oluşturma
 > * Temel bir IIS sitesi oluşturmak için Özel Betik Uzantısı kullanma
 > * Sanal makineler oluşturma ve yük dengeleyiciye ekleme
@@ -36,7 +36,7 @@ Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek d
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 5.3 veya sonraki bir sürümü gerektirir. Sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir. 
 
 
 ## <a name="azure-load-balancer-overview"></a>Azure yük dengeleyiciye genel bakış
@@ -96,11 +96,11 @@ $lb = New-AzureRmLoadBalancer `
 ```
 
 ### <a name="create-a-health-probe"></a>Durum araştırması oluşturma
-Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum araştırması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik bir şekilde yük dengeleyiciye dönüşümlü olarak ekler ve kaldırır. VM, 15 saniyelik aralıklarda art arda iki kez başarısız olursa varsayılan olarak yük dengeleyici dağıtımından kaldırılır. Bir protokolü temel alan bir durum araştırması veya uygulamanız için belirli bir sistem durumu denetim sayfası oluşturun. 
+Yük dengeleyicinin uygulamanızın durumunu izlemesine izin vermek için durum araştırması kullanabilirsiniz. Durum yoklaması, durum denetimlerine verdikleri yanıtlara göre VM’leri dinamik olarak yük dengeleyici rotasyonuna ekler ve kaldırır. VM, 15 saniyelik aralıklarda art arda iki kez başarısız olursa varsayılan olarak yük dengeleyici dağıtımından kaldırılır. Bir protokolü temel alan bir durum araştırması veya uygulamanız için belirli bir sistem durumu denetim sayfası oluşturun. 
 
-Aşağıdaki örnek bir TCP araştırması oluşturur. Ayrıca daha ayrıntılı sistem durumu denetimleri için özel HTTP araştırmaları oluşturabilirsiniz. Özel bir HTTP araştırması kullandığınızda *healthcheck.aspx* gibi bir sistem durumu denetimi sayfası oluşturmanız gerekir. Konağı dönüşüm içinde tutmak üzere araştırmanın yük dengeleyici için bir **HTTP 200 OK** yanıtı döndürmesi gerekir.
+Aşağıdaki örnek bir TCP araştırması oluşturur. Ayrıca daha ayrıntılı sistem durumu denetimleri için özel HTTP araştırmaları oluşturabilirsiniz. Özel bir HTTP yoklaması kullanırken *healthcheck.aspx* gibi bir durum denetimi sayfası oluşturmanız gerekir. Yük dengeleyicinin konağı rotasyonda tutması için yoklamanın **HTTP 200 OK** yanıtını döndürmesi gerekir.
 
-TCP durumu araştırması oluşturmak için [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) komutunu kullanın. Aşağıdaki örnek *myHealthProbe* adında *TCP*’de *80* numaralı bağlantı noktasındaki her VM’yi izleyen bir durum araştırması oluşturur:
+TCP durumu araştırması oluşturmak için [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) komutunu kullanın. Aşağıdaki örnek her VM’yi *80* numaralı *TCP* bağlantı noktasında izleyen *myHealthProbe* adında bir durum yoklaması oluşturur:
 
 ```azurepowershell-interactive
 Add-AzureRmLoadBalancerProbeConfig `
@@ -121,7 +121,7 @@ Set-AzureRmLoadBalancer -LoadBalancer $lb
 ### <a name="create-a-load-balancer-rule"></a>Yük dengeleyici kuralı oluşturma
 Trafiğin VM’lere dağıtımını tanımlamak için bir yük dengeleyici kuralı kullanılır. Gerekli kaynak ve hedef bağlantı noktalarının yanı sıra gelen trafik için ön uç IP yapılandırması ve trafiği almak için arka uç IP havuzu tanımlamanız gerekir. Yalnızca durumu iyi olan VM’lerin trafik almasını sağlamak için kullanılacak durum araştırmasını da tanımlamanız gerekir.
 
-[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *myLoadBalancerRule* adlı bir yük dengeleyici kuralı oluşturur ve *TCP*’de *80* numaralı bağlantı noktasında trafiği dengeler:
+[Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) ile bir yük dengeleyici kuralı oluşturun. Aşağıdaki örnek, *myLoadBalancerRule* adlı bir yük dengeleyici kuralı oluşturur ve *80* numaralı *TCP* bağlantı noktasında trafiği dengeler:
 
 ```azurepowershell-interactive
 $probe = Get-AzureRmLoadBalancerProbeConfig -LoadBalancer $lb -Name "myHealthProbe"
@@ -293,7 +293,7 @@ Bu öğreticide, bir yük dengeleyici oluşturdunuz ve ona sanal makineler ekled
 
 > [!div class="checklist"]
 > * Azure yük dengeleyici oluşturma
-> * Yük dengeleyici durum araştırması oluşturma
+> * Yük dengeleyici durum yoklaması oluşturma
 > * Yük dengeleyici trafik kuralları oluşturma
 > * Temel bir IIS sitesi oluşturmak için Özel Betik Uzantısı kullanma
 > * Sanal makineler oluşturma ve yük dengeleyiciye ekleme

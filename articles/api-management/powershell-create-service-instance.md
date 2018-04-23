@@ -1,22 +1,22 @@
 ---
-title: "PowerShell kullanarak Azure API Management örneği oluşturma | Microsoft Docs"
-description: "Yeni bir Azure API Management örneği oluşturmak için bu öğreticideki adımları izleyin."
+title: PowerShell kullanarak Azure API Management örneği oluşturma | Microsoft Docs
+description: Yeni bir Azure API Management örneği oluşturmak için bu öğreticideki adımları izleyin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: juliako
 manager: cflower
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/15/2017
 ms.author: apimpm
-ms.openlocfilehash: d33a37002f1e3a2684d4b93682dbd48327f3312b
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 4037666081395abc18543fc4dc8d26d40024e1ec
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Yeni bir Azure API Management hizmeti örneği oluşturma
 
@@ -28,11 +28,11 @@ Bu hızlı başlangıç, PowerShell betikleri kullanarak yeni bir API Management
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+http://portal.azure.com adresinden Azure portalında oturum açın.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Login-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma

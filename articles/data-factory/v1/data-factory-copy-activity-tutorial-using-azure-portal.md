@@ -1,11 +1,11 @@
 ---
-title: "Öğretici: Verileri kopyalamak amacıyla Azure Data Factory işlem hattı oluşturma | Microsoft Docs"
-description: "Bu öğreticide, Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Azure portalını kullanarak Kopyalama Etkinliği içeren Azure Data Factory işlem hattı oluşturursunuz."
+title: 'Öğretici: Verileri kopyalamak amacıyla Azure Data Factory işlem hattı oluşturma | Microsoft Docs'
+description: Bu öğreticide, Azure blob depolama alanından Azure SQL veritabanına veri kopyalamak için Azure portalını kullanarak Kopyalama Etkinliği içeren Azure Data Factory işlem hattı oluşturursunuz.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: d9317652-0170-4fd3-b9b2-37711272162b
 ms.service: data-factory
 ms.workload: data-services
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7f42cfda1684b7ff5bd2a1655154b6a11d4ffd31
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: c4e8de6b229fe027e43a2b13f2a7ad54b7c3eaf2
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Öğretici: Verileri kopyalamak amacıyla Data Factory işlem hattı oluşturmak için Azure portalını kullanma | Microsoft Docs 
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Bir veri fabrikasında bir veya daha fazla işlem hattı olabilir. İşlem hatt�
    6. **Oluştur**’a tıklayın.
       
       > [!IMPORTANT]
-      > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
+      > Data Factory örnekleri oluşturmak için abonelik/kaynak grubu düzeyinde [Data Factory Katılımcısı](../../role-based-access-control/built-in-roles.md#data-factory-contributor) rolünün üyesi olmanız gerekir.
       > 
       > Data factory adı gelecekte bir DNS adı olarak kaydedilmiş olabilir; bu nedenle herkese görünür hale gelmiştir.                
       > 

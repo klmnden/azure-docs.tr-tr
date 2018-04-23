@@ -1,8 +1,8 @@
 ---
-title: "VS Code uzantısıyla Azure Resource Manager şablonu | Microsoft Belgeleri"
-description: "Resource Manager şablonları üzerinde çalışmak için Azure Resource Manager Araçları uzantısını kullanın."
+title: VS Code uzantısıyla Azure Resource Manager şablonu | Microsoft Belgeleri
+description: Resource Manager şablonları üzerinde çalışmak için Azure Resource Manager Araçları uzantısını kullanın.
 services: azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: 0dd48146624052fbd00093066d79067b75e33c92
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 9d15d3e48f7e952e1454718759f4770be0d8d135
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Azure Resource Manager şablonu oluşturmak için Visual Studio Code uzantısı kullanma
 Bu makalede, Visual Studio Code içinde Azure Resource Manager Araçları uzantısını kullanmanın avantajları gösterilir. VS Code'da uzantısı olmadan Resource Manager şablonları oluşturabilirsiniz, ancak uzantı, şablon geliştirmeyi kolaylaştıran otomatik tamamlama seçenekleri sağlar. Şablon işlevleri, parametreler ve şablonda kullanılabilir değişkenler önerir.
@@ -261,7 +261,7 @@ Bu şablonu dağıtmaya hazırsınız. Bir kaynak grubu oluşturmak için PowerS
 * PowerShell için, şablonu içeren klasörden aşağıdaki komutları kullanın:
 
    ```powershell
-   Login-AzureRmAccount
+   Connect-AzureRmAccount
    
    New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
    New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile azuredeploy.json

@@ -5,7 +5,7 @@
 ## [Azure Kaynakları için PIM](azure-pim-resource-rbac.md)
 ## [PIM onayı iş akışı](azure-ad-pim-approval-workflow.md)
 ## [Roller](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-## [Privileged Identity Management Onay iş akışları](azure-ad-pim-approval-workflow.md)
+
 
 
 # başlarken

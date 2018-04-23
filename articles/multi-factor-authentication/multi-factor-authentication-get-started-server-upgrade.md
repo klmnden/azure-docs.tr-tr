@@ -1,8 +1,8 @@
 ---
-title: "PhoneFactor’u Azure MFA Sunucusuna yükseltme | Microsoft Belgeleri"
-description: "Eski phonefactor aracından yükseltme yaptığınızda Azure MFA Sunucusu ile çalışmaya başlayın."
+title: PhoneFactor’u Azure MFA Sunucusuna yükseltme | Microsoft Belgeleri
+description: Eski phonefactor aracından yükseltme yaptığınızda Azure MFA Sunucusu ile çalışmaya başlayın.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/06/2017
 ms.author: joflore
 ms.openlocfilehash: a3451adfe19d547812b1450a9028a48a5fe2d727
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 04/20/2018
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>PhoneFactor Aracısı’nı Azure Multi-Factor Authentication Sunucusu’na yükseltme
 PhoneFactor Aracısı v5.x veya önceki bir sürümünü Azure Multi-Factor Authentication Sunucusuna yükseltmek için ilk olarak PhoneFactor Aracısını ve bağlı bileşenleri kaldırın. Bundan sonra Multi-Factor Authentication Sunucusu ve bağlı bileşenleri yüklenebilir.
