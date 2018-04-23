@@ -15,17 +15,17 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6846d9d25fb4b6b884e39676f8dbaa6c2899436b
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 61a295d346d589af2beea190921a1cf64596781d
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="create-a-web-app-and-deploy-code-from-a-local-git-repository"></a>Bir web uygulaması oluşturma ve yerel Git deposundan kod dağıtma
 
 Bu örnek betik, App Service’te ilgili kaynaklarıyla birlikte bir web uygulaması oluşturur ve sonra web uygulaması kodunuzu yerel bir Git deposundan dağıtır.
 
-Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak en son Azure PowerShell’e güncelleştirin ve sonra Azure ile bağlantı oluşturmak için `Login-AzureRmAccount` çalıştırın. Ayrıca uygulama kodunuzun yerel bir Git deposuna yürütülmesi gerekir.
+Gerekirse, [Azure PowerShell kılavuzunda](/powershell/azure/overview) bulunan yönergeyi kullanarak en son Azure PowerShell’e güncelleştirin ve sonra Azure ile bağlantı oluşturmak için `Connect-AzureRmAccount` çalıştırın. Ayrıca uygulama kodunuzun yerel bir Git deposuna yürütülmesi gerekir.
 
 ## <a name="sample-script"></a>Örnek betik
 

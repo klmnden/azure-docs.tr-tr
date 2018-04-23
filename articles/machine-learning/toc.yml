@@ -1,5 +1,5 @@
 - name: Azure Machine Learning Services (Önizleme)
-  href: preview/index.yml
+  href: service/index.yml
 - name: Azure Machine Learning Studio
   href: studio/index.yml
 - name: Veri Bilimi Sanal Makinesi

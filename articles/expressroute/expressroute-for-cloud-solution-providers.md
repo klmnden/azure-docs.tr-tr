@@ -1,11 +1,11 @@
 ---
 title: Azure ExpressRoute for Cloud Solution Providers | Microsoft Belgeleri
-description: "Bu makale, Azure hizmetlerini ve ExpressRoute’u ürünleriyle birleştirmek isteyen Bulut Çözüm Sağlayıcıları için bilgi sağlar."
+description: Bu makale, Azure hizmetlerini ve ExpressRoute’u ürünleriyle birleştirmek isteyen Bulut Çözüm Sağlayıcıları için bilgi sağlar.
 documentationcenter: na
 services: expressroute
 author: richcar
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f6c5f8ee-40ba-41a1-ae31-67669ca419a6
 ms.service: expressroute
 ms.devlang: na
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9991da5d5ab6f43cc8c5ebf1672d7da0f1ad061e
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
 Microsoft, geleneksel satıcılar veya dağıtımcıların (CSP), yeni hizmetler geliştirmeye yatırım yapmaya gerek kalmadan müşterileriniz için hızlı bir şekilde yeni hizmetler ve çözümler sağlayabilmesi amacıyla hiper ölçekli hizmetler sağlar. Bulut Çözüm Sağlayıcısının (CSP) bu hizmetleri doğrudan yönetebilmesini sağlamak için Microsoft, CSP’nin Microsoft Azure kaynaklarını müşterilerinizin adına yönetebilmesine olanak sağlayan programlar ve API’ler sunar. Bu kaynaklardan biri de ExpressRoute’dur. ExpressRoute, CSP’nin var olan Azure hizmetlerine bağlanmasına olanak sağlar. ExpressRoute, Azure’daki hizmetlere yüksek hızlı özel iletişim bağlantısıdır. 
@@ -65,7 +65,7 @@ Bu bağlantı senaryosu, müşterinin CSP ile yönetilen Azure aboneliğine doğ
 
 Bu iki seçenekten hangisinin seçileceği, müşterinizin gereksinimlerine ve şu anda sağlamanız gereken Azure hizmet ihtiyaçlarına göre belirlenir. Bu modellere ve ilişkili rol tabanlı erişim denetimine, ağlara ve kimlik tasarımı desenlerine ilişkin ayrıntılar aşağıdaki linklerde ele alınmaktadır:
 
-* **Rol Tabanlı Erişim Denetimi (RBAC)** – RBAC, Azure Active Directory’i temel alır.  Azure RBAC hakkında daha fazla bilgi için [buraya](../active-directory/role-based-access-control-configure.md) bakın.
+* **Rol Tabanlı Erişim Denetimi (RBAC)** – RBAC, Azure Active Directory’i temel alır.  Azure RBAC hakkında daha fazla bilgi için [buraya](../role-based-access-control/role-assignments-portal.md) bakın.
 * **Ağlar** – Microsoft Azure’da ağlarla ilgili çeşitli konuları kapsar.
 * **Azure Active Directory (Azure AD)** – Azure AD, Microsoft Azure’da ve üçüncü taraf SaaS uygulamalarında kimlik yönetimini sağlar. Azure AAD hakkında daha fazla bilgi için [ buraya](https://azure.microsoft.com/documentation/services/active-directory/) bakın.  
 

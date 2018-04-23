@@ -2,23 +2,23 @@
 
 # Genel Bakış
 ## [Azure Multi-Factor Authentication nedir?](multi-factor-authentication.md)
-## [Nasıl çalışır?](multi-factor-authentication-how-it-works.md)
-## [Azure MFA’yı edinme](multi-factor-authentication-versions-plans.md)
+## [Nasıl çalışır?](../active-directory/authentication/concept-mfa-howitworks.md)
+## [Azure MFA’yı edinme](../active-directory/authentication/concept-mfa-licensing.md)
 
 # başlarken
-## [Dağıtılacağı yeri seçme](multi-factor-authentication-get-started.md)
-## [Bulutta MFA](multi-factor-authentication-get-started-cloud.md)
+## [Dağıtılacağı yeri seçme](../active-directory/authentication/concept-mfa-whichversion.md)
+## [Bulutta MFA](../active-directory/authentication/howto-mfa-getstarted.md)
 ## [Şirket içi MFA](multi-factor-authentication-get-started-server.md)
 ## [O365 kullanıcıları için MFA](https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba)
 ## [En iyi güvenlik uygulamaları](multi-factor-authentication-security-best-practices.md)
 
 # Nasıl yapılır
 ## Dağıtma ve kullanma
-### [Ayarları yapılandırma](multi-factor-authentication-whats-next.md)
+### [Ayarları yapılandırma](../active-directory/authentication/howto-mfa-mfasettings.md)
 ### [MFA’da raporlar](multi-factor-authentication-manage-reports.md)
-### [Mevcut ağ ilkesi sunucularını kullanma](multi-factor-authentication-nps-extension.md)
-#### [NPS uzantısı için gelişmiş yapılandırma](nps-extension-advanced-configuration.md)
-### [Kimlik Doğrulama Sağlayıcısı oluşturma](multi-factor-authentication-get-started-auth-provider.md)
+### [Mevcut ağ ilkesi sunucularını kullanma](../active-directory/authentication/howto-mfa-nps-extension.md)
+#### [NPS uzantısı için gelişmiş yapılandırma](../active-directory/authentication/howto-mfa-nps-extension-advanced.md)
+### [Kimlik Doğrulama Sağlayıcısı oluşturma](../active-directory/authentication/concept-mfa-authprovider.md)
 ### Şirket içi MFA dağıtma
 #### [Kullanıcı portalını yükleme](multi-factor-authentication-get-started-portal.md)
 #### [Gelişmiş VPN Yapılandırmaları](multi-factor-authentication-advanced-vpn-configurations.md)
@@ -38,9 +38,9 @@
 ### [VPN](nps-extension-vpn.md)
 ### Şirket içi MFA tümleştirmesi
 #### [Federasyon Hizmetleri](multi-factor-authentication-get-started-adfs.md)
-##### [AD FS kullanma](multi-factor-authentication-get-started-adfs-cloud.md)
+##### [AD FS kullanma](../active-directory/authentication/howto-mfa-adfs.md)
 ##### [AD FS 2.0 kullanma](multi-factor-authentication-get-started-adfs-adfs2.md)
-##### [Windows Server 2012 R2 AD FS kullanma](multi-factor-authentication-get-started-adfs-w2k12.md)
+##### [Windows Server 2012 R2 AD FS kullanma](../active-directory/authentication/howto-mfaserver-adfs-2012.md)
 #### Dizinler
 ##### [LDAP Kimlik Doğrulaması](multi-factor-authentication-get-started-server-ldap.md)
 ##### [Radius Kimlik Doğrulaması](multi-factor-authentication-get-started-server-radius.md)
@@ -54,7 +54,7 @@
 ## Sorun giderme
 ### [SSS](multi-factor-authentication-faq.md)
 ### [Özel Uygulamalarda (SDK) oluşturma](https://social.msdn.microsoft.com/Forums/newthread?category=windowsazureplatform&forum=windowsazureactiveauthentication&prof=required)
-### [NPS uzantı hataları](multi-factor-authentication-nps-errors.md)
+### [NPS uzantı hataları](../active-directory/authentication/howto-mfa-nps-extension-errors.md)
 
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=security-identity)

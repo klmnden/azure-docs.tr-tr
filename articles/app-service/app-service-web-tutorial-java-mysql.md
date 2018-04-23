@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 0712035f317adb318d60285637526f951bf5bdec
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 31951b609f7d819b532e6fa8cb02c702e9457253
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Öğretici: Azure’da Java ve MySQL web uygulaması derleme
 
@@ -137,7 +137,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 ### <a name="create-a-mysql-server"></a>MySQL sunucusu oluşturma
 
-Cloud Shell’de, MySQL için Azure Veritabanı içinde [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) komutuyla bir sunucu oluşturun. `<mysql_server_name>` yer tutucusunu gördüğünüz yerde kendi benzersiz MySQL sunucunuzun adıyla değiştirin. Bu ad, MySQL sunucusu konak adınızın (`<mysql_server_name>.mysql.database.azure.com`) bir parçasıdır ve genel olarak benzersiz olması gerekir. Ayrıca `<admin_user>` ve `<admin_password>` değerlerini de kendi değerlerinizle değiştirin.
+Cloud Shell’de, [`az mysql server create`](/cli/azure/mysql/server#az_mysql_server_create) komutuyla MySQL için Azure Veritabanı içinde bir sunucu oluşturun. `<mysql_server_name>` yer tutucusunu gördüğünüz yerde kendi benzersiz MySQL sunucunuzun adıyla değiştirin. Bu ad, MySQL sunucusu konak adınızın (`<mysql_server_name>.mysql.database.azure.com`) bir parçasıdır ve genel olarak benzersiz olması gerekir. Ayrıca `<admin_user>` ve `<admin_password>` değerlerini de kendi değerlerinizle değiştirin.
 
 ```azurecli-interactive
 az mysql server create --name <mysql_server_name> --resource-group myResourceGroup --location "North Europe" --admin-user <admin_user> --admin-password <admin_password>
@@ -161,14 +161,11 @@ MySQL sunucusu oluşturulduğunda Azure CLI, aşağıdaki örneğe benzer bilgil
 
 ### <a name="configure-server-firewall"></a>Sunucu güvenlik duvarını yapılandırma
 
-Cloud Shell’de, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. 
+Cloud Shell’de, [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create) komutunu kullanarak MySQL sunucunuzun istemci bağlantılarına izin vermesi için bir güvenlik duvarı kuralı oluşturun. Hem başlangıç hem bitiş IP’si 0.0.0.0 olarak ayarlandığında, güvenlik duvarı yalnızca diğer Azure kaynakları için açılır. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
+az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
-
-> [!NOTE]
-> MySQL için Azure Veritabanı şu anda Azure hizmetlerinden gelen bağlantıları otomatik olarak etkinleştirmemektedir. Azure’daki IP adresleri dinamik olarak atandığından, şimdilik tüm IP adreslerinin etkinleştirilmesi daha iyi olur. Veritabanınızın güvenliğini sağlamak için daha iyi yöntemler etkinleştirilecektir.
 
 ## <a name="configure-the-azure-mysql-database"></a>Azure MySQL veritabanını yapılandırma
 

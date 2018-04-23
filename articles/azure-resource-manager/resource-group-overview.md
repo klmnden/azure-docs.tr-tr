@@ -1,6 +1,6 @@
 ---
-title: "Azure Resource Manager’a Genel Bakış | Microsoft Belgeleri"
-description: "Azure’daki kaynakların dağıtımı, yönetimi ve erişim denetimi için Azure Resource Manager’ın nasıl kullanılacağı açıklanmaktadır."
+title: Azure Resource Manager’a Genel Bakış | Microsoft Belgeleri
+description: Azure’daki kaynakların dağıtımı, yönetimi ve erişim denetimi için Azure Resource Manager’ın nasıl kullanılacağı açıklanmaktadır.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: cc3402b56b12e82653f673d7a5ab527231599c5b
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: a7e3d817923b0f9a691d5acaba606bdcd0012e60
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 04/16/2018
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager genel bakış
 Uygulamanızın altyapısı genellikle bir sanal makine, depolama hesabı, sanal ağ veya web uygulaması, veritabanı, veritabanı sunucusu ya da 3. taraf hizmetler gibi birçok bileşenden meydana gelir.  Bu bileşenleri ayrı varlıklar olarak değerlendirmez, bunun yerine bunları tek bir varlığın ilgili ve birbirine bağımlı parçaları olarak kabul edersiniz. Bunları gruplar halinde dağıtmak, yönetmek ve izlemek isteyebilirsiniz. Azure Resource Manager, çözümünüzdeki kaynaklar ile gruplar halinde çalışmanıza olanak sağlar. Çözümünüzdeki tüm kaynakları tek ve eşgüdümlü bir işlemle dağıtabilir, güncelleştirebilir veya silebilirsiniz. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Resource Manager kaynaklarınızı dağıttıktan sonra yönetmenize yardımcı olmak için güvenlik, denetleme ve etiketleme özellikleri sunar. 
@@ -215,7 +215,7 @@ Azure ayrıca kaynağa özgü birkaç rol sağlar. Yaygın olanlarından bazıla
 4. SQL Server Katılımcısı - SQL sunucularını ve veritabanlarını yönetebilir, ancak güvenlikle ilgili ilkelerini yönetemez
 5. Web Sitesi Katılımcısı - Web sitelerini yönetebilir, ancak bağlı oldukları web planlarını yönetemez
 
-Rollerin ve izin verilen eylemlerin tam listesi için bkz. [RBAC: Yerleşik Roller](../active-directory/role-based-access-built-in-roles.md). Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure Rol Tabanlı Erişim Denetimi](../active-directory/role-based-access-control-configure.md). 
+Rollerin ve izin verilen eylemlerin tam listesi için bkz. [RBAC: Yerleşik Roller](../role-based-access-control/built-in-roles.md). Rol tabanlı erişim denetimi hakkında daha fazla bilgi için bkz. [Azure Rol Tabanlı Erişim Denetimi](../role-based-access-control/role-assignments-portal.md). 
 
 Bazı durumlarda, kaynaklara erişen bir kod ya da komut dosyası çalıştırmak istersiniz, ancak bunu bir kullanıcının kimlik bilgileri altında çalıştırmayı istemezsiniz. Bunun yerine, uygulama için hizmet sorumlusu adlı bir kimlik oluşturmak ve hizmet sorumlusu için uygun rolü atamak istersiniz. Resource Manager, uygulama için kimlik bilgileri oluşturmanızı ve uygulamanın kimliğini programlı olarak doğrulamanızı sağlar. Hizmet sorumluları oluşturma hakkında bilgi için aşağıdaki konulardan birine bakın:
 

@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9603ac779c7dbc640a7c24856c32f04edbac849d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae21fc7ab016071d075324bf813243cef58dcd04
+ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/19/2018
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>Hızlı başlangıç: PowerShell kullanarak Azure Container Registry oluşturma
 
@@ -25,10 +25,10 @@ Ayrıca sisteminizde yerel olarak Docker yüklü olması gerekir. Docker [Mac][d
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-`Login-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
+`Connect-AzureRmAccount` komutuyla Azure aboneliğinizde oturum açın ve ekrandaki yönergeleri izleyin.
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
