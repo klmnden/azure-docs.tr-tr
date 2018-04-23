@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 7ca5c7bcc82f0a77276f4f39a02d8abf2f47bc10
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4a6d4f903ff47970cb1fc6b3964ea78c735d5113
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile mobil uygulama kimlik doğrulamasını etkinleştirme
 
@@ -29,7 +29,8 @@ Microsoft Authenticator uygulaması ek bir bant dışı doğrulama seçeneği su
 
 Ortamınıza bağlı olarak, mobil uygulama web hizmetini Azure Multi-Factor Authentication sunucusu ile aynı sunucuya veya İnternet'e yönelik başka bir sunucuya dağıtmak isteyebilirsiniz.
 
-MFA Sunucusu 8.0 veya üzeri bir sürümü yüklediyseniz aşağıdaki adımların çoğu gerekmez. [Mobil uygulamayı yapılandırma](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) bölümündeki adımlar izlenerek mobil uygulama kimlik doğrulaması ayarlanabilir.
+> [!IMPORTANT]
+> MFA Sunucusu 8.0 veya üzeri bir sürümü yüklediyseniz aşağıdaki adımların çoğu gerekmez. [Mobil uygulamayı yapılandırma](#configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server) bölümündeki adımlar izlenerek mobil uygulama kimlik doğrulaması ayarlanabilir.
 
 ## <a name="requirements"></a>Gereksinimler
 
@@ -70,7 +71,7 @@ IIS sunucusunda bir SSL sertifikası yapılandırma hakkında sorularınız vars
 
 Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu amaç için otomatik olarak imzalanan bir sertifika kullanılabilir. Kullanıcı Portalı web sunucusunun SSL bağlantısı başlatırken bu sertifikaya güvenebilmesi için sertifikayı sunucudaki Yerel Bilgisayar hesabının “Güvenilen Kök Sertifika Yetkilileri” deposuna aktarın.
 
-![MFA Sunucusu yapılandırma kurulum Web hizmeti SDK'sı](./media/multi-factor-authentication-get-started-server-webservice/sdk.png)
+![MFA Sunucusu yapılandırma kurulum Web hizmeti SDK'sı](./media/howto-mfaserver-deploy-mobileapp/sdk.png)
 
 ### <a name="install-the-service"></a>Hizmeti yükleme
 
@@ -102,8 +103,8 @@ Web Hizmeti SDK’sı bir SSL sertifikası ile güvenli hale getirilmelidir. Bu 
 4. **Mobil Uygulama** simgesine tıklayın.
 5. v8.0 veya üzerini kullanıyorsanız şu adımı atlayın: **Mobil Uygulama Web Hizmeti URL'si:** alanına MultiFactorAuthenticationMobileAppWebServiceSetup64 yüklenirken oluşturulan sanal dizinle kullanılan URL’yi (Örnek: https://mfa.contoso.com/MultiFactorAuthMobileAppWebService/)) girin.
 6. **Hesap adı** alanına bu hesabın mobil uygulamasında görüntülenecek şirket veya kuruluş adını girin.
-   ![MFA Sunucusu yapılandırması Mobil Uygulama ayarları](./media/multi-factor-authentication-get-started-server-webservice/mobile.png)
+   ![MFA Sunucusu yapılandırması Mobil Uygulama ayarları](./media/howto-mfaserver-deploy-mobileapp/mobile.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- [Azure Multi-Factor Authentication ve üçüncü taraf VPN’ler ile gelişmiş senaryolar](multi-factor-authentication-advanced-vpn-configurations.md).
+- [Azure Multi-Factor Authentication ve üçüncü taraf VPN’ler ile gelişmiş senaryolar](howto-mfaserver-nps-vpn.md).

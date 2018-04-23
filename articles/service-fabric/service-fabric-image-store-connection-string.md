@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Fabric görüntü Mağazası'ndan dize | Microsoft Docs"
-description: "Görüntü deposu bağlantı dizesi anlama"
+title: Azure Service Fabric görüntü Mağazası'ndan dize | Microsoft Docs
+description: Görüntü deposu bağlantı dizesi anlama
 services: service-fabric
 documentationcenter: .net
 author: alexwun
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 00f8059d-9d53-4cb8-b44a-b25149de3030
 ms.service: service-fabric
 ms.devlang: dotnet

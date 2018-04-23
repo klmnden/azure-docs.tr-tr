@@ -1,8 +1,8 @@
 ---
-title: "Azure portalında bir Linux VM için FQDN oluşturma | Microsoft Docs"
-description: "FQDN, Azure portalında sanal makine için Resource Manager tabanlı veya tam etki alanı adının nasıl oluşturulacağını öğrenin."
+title: Azure portalında bir Linux VM için FQDN oluşturma | Microsoft Docs
+description: FQDN, Azure portalında sanal makine için Resource Manager tabanlı veya tam etki alanı adının nasıl oluşturulacağını öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn

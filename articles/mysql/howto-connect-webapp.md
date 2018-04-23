@@ -1,6 +1,6 @@
 ---
-title: "Var olan Azure App Service için MySQL Azure veritabanına bağlan"
-description: "Nasıl düzgün şekilde var olan bir Azure uygulama hizmeti için MySQL Azure veritabanına bağlanmak için yönergeler"
+title: Var olan Azure App Service için MySQL Azure veritabanına bağlan
+description: Nasıl düzgün şekilde var olan bir Azure uygulama hizmeti için MySQL Azure veritabanına bağlanmak için yönergeler
 services: mysql
 author: ajlam
 ms.author: andrela

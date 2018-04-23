@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı için MySQL server güvenlik duvarı kuralları"
-description: "MySQL sunucusu için Azure veritabanınız için güvenlik duvarı kuralları açıklar."
+title: Azure veritabanı için MySQL server güvenlik duvarı kuralları
+description: MySQL sunucusu için Azure veritabanınız için güvenlik duvarı kuralları açıklar.
 services: mysql
 author: ajlam
 ms.author: andrela

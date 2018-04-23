@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için"
-description: "Bu makalede, Azure veritabanınızın PostgreSQL sunucu için güvenlik duvarı kuralları açıklanır."
+title: Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için
+description: Bu makalede, Azure veritabanınızın PostgreSQL sunucu için güvenlik duvarı kuralları açıklanır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema

@@ -307,7 +307,7 @@ items:
                       - name: .NET
                         href: table-storage-how-to-use-dotnet.md
                       - name: 'F#'
-                        href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+                        href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
                       - name: Node.js
                         href: table-storage-cloud-service-nodejs.md
                       - name: Java
@@ -371,18 +371,17 @@ items:
           - name: Spark GraphX’e bağlanma
             href: spark-connector-graph.md
           - name: HDInsight üzerinde Kafka ve Spark ile akış yapma
-            href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md
-            maintainContext: true
+            href: 'https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Azure Uygulama Hizmeti ile web sitesi dağıtma
             href: create-website.md
           - name: Logic Apps ile uygulama günlüğü kaydı
-            href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md
+            href: 'https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json'
           - name: Azure İşlevlerine Bağlama
-            href: ../azure-functions/functions-bindings-cosmosdb.md
+            href: 'https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Azure Search ile Tümleştirme
-            href: ../search/search-howto-index-cosmosdb.md
+            href: 'https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json'
           - name: Azure Data Factory ile veri taşıma
-            href: ../data-factory/connector-azure-cosmos-db.md
+            href: 'https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json'
           - name: Azure Akış Analizi ile verileri gerçek zamanlı olarak çözümleme
             href: '../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db'
           - name: Logic Apps kullanarak HL7 FHIR kaydını değiştirme
@@ -394,7 +393,7 @@ items:
           - name: Veri görselleştirme için ODBC sürücüsünden yararlanma
             href: odbc-driver.md
           - name: Spring Boot Başlatıcı’yı SQL API’leriyle kullanma
-            href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
+            href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json'
   - name: Başvuru
     items:
       - name: Kod örnekleri

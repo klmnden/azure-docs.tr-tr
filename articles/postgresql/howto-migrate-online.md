@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için"
-description: "Bu makalede, bir PostgreSQL veritabanı dökümü dosyasına ayıklanması, PostgreSQL için Azure veritabanındaki pg_dump oluşturan bir arşiv dosyasına PostgreSQL veritabanına geri ve ilk yük ayarlama en düşük kapalı kalma geçiş işlemini gerçekleştirmek açıklar ve Attunity çoğaltmak için Microsoft Migrations kullanarak hedef veritabanı için sürekli veri eşitleme kaynak veritabanından."
+title: Azure veritabanı en düşük kapalı kalma geçiş PostgreSQL için
+description: Bu makalede, bir PostgreSQL veritabanı dökümü dosyasına ayıklanması, PostgreSQL için Azure veritabanındaki pg_dump oluşturan bir arşiv dosyasına PostgreSQL veritabanına geri ve ilk yük ayarlama en düşük kapalı kalma geçiş işlemini gerçekleştirmek açıklar ve Attunity çoğaltmak için Microsoft Migrations kullanarak hedef veritabanı için sürekli veri eşitleme kaynak veritabanından.
 services: postgresql
 author: HJToland3
 ms.author: jtoland

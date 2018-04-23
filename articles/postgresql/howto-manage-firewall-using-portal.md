@@ -1,6 +1,6 @@
 ---
-title: "Oluşturma ve güvenlik duvarı kuralları Azure veritabanındaki PostgreSQL için yönetme"
-description: "Oluşturma ve Azure veritabanı PostgreSQL güvenlik duvarı kuralları için Azure Portalı'nı kullanarak yönetme"
+title: Oluşturma ve güvenlik duvarı kuralları Azure veritabanındaki PostgreSQL için yönetme
+description: Oluşturma ve Azure veritabanı PostgreSQL güvenlik duvarı kuralları için Azure Portalı'nı kullanarak yönetme
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
