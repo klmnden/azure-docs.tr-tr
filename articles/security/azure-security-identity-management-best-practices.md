@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2017
 ms.author: yurid
-ms.openlocfilehash: 2b77167992704bd342d67dc03b66af1e55955532
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 761013ad82fb8fa7d84e7929341d2e7d9e2d724c
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>En iyi güvenlik uygulamaları Azure kimlik yönetimi ve erişim denetimi
 Birçok yeni bir sınır katman geleneksel ağ merkezli açısından bu rolü ele güvenlik için kimlik göz önünde bulundurun. Bu birincil Özet evrimi güvenlik dikkat ve Yatırımlar ağ çevreyi hale giderek porous ve bu çevre savunması kez bunlar olabildiğince etkili olamaz olgu gelen için önce Patlaması olan [KCG](http://aka.ms/byodcg) cihazlar ve bulut uygulamaları.
@@ -88,7 +88,7 @@ Kullanıcılarınız için Azure MFA etkinleştirerek, kullanıcı oturum açmal
 
 Örneğin: kullanıcılarınız için Azure MFA zorlamak ve bir telefon araması veya kısa mesaj doğrulama kullanacak şekilde yapılandırın. Kullanıcının kimlik bilgilerinin güvenliği aşıldığında saldırgan, kullanıcının telefonu erişimi olmadığı beri herhangi bir kaynağa erişim mümkün değil. Ek kimlik koruma katmanları eklemeyin kuruluşlar veri güvenliğinin aşılmasına neden kimlik bilgisi hırsızlığı saldırısına daha açıktır.
 
-Tüm kimlik doğrulama denetimi içi tutmak istediğiniz kuruluşlar için bir alternatif kullanmaktır [Azure çok faktörlü kimlik doğrulama sunucusu](../multi-factor-authentication/multi-factor-authentication-get-started-server.md), MFA şirket içi olarak da bilinir. Bu yöntemi kullanarak, çok faktörlü kimlik doğrulaması, MFA sunucusu şirket içi korurken zorlayabilir devam edersiniz.
+Tüm kimlik doğrulama denetimi içi tutmak istediğiniz kuruluşlar için bir alternatif kullanmaktır [Azure çok faktörlü kimlik doğrulama sunucusu](../active-directory/authentication/howto-mfaserver-deploy.md), MFA şirket içi olarak da bilinir. Bu yöntemi kullanarak, çok faktörlü kimlik doğrulaması, MFA sunucusu şirket içi korurken zorlayabilir devam edersiniz.
 
 Azure MFA hakkında daha fazla bilgi için bkz: [bulutta Azure multi-Factor Authentication kullanmaya Başlarken](../active-directory/authentication/howto-mfa-getstarted.md).
 

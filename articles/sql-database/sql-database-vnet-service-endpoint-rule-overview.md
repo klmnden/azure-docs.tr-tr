@@ -7,14 +7,14 @@ author: MightyPen
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 04/19/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 6037659eb419a785b01d4cbb6a2428cbd7f852da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d6b8ddaa0eaf560352bc0aa0127b33f32ee4574a
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -140,7 +140,7 @@ Azure SQL veritabanı için sanal ağ kuralları özelliği aşağıdaki sınır
 Azure SQL veritabanı için hizmet uç noktaları kullanırken, aşağıdaki konuları gözden geçirin:
 
 - **Azure SQL veritabanı genel IP'ler için giden gereklidir**: bağlantı izin vermek için Azure SQL veritabanı IP'leri için ağ güvenlik grupları (Nsg'ler) açılır. NSG kullanarak bunu yapabilirsiniz [hizmet etiketleri](../virtual-network/security-overview.md#service-tags) Azure SQL veritabanı için.
-- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu sahibiz; temasa *dmalik@microsoft.com*.
+- **Azure veritabanı PostgreSQL ve MySQL için desteklenmeyen**: hizmet uç noktaları PostgreSQL veya MySQL için Azure veritabanı için desteklenmiyor. SQL veritabanı için hizmet uç noktaları etkinleştirme bu hizmetleri için bağlantı çalışmamasına neden olur. Bir azaltma bu için sahip olduğumuz ve iletişim kurabiliriz *dmalik@microsoft.com* daha fazla bilgi için.
 
 #### <a name="expressroute"></a>ExpressRoute
 
@@ -178,7 +178,7 @@ Azure depolama, depolama hesabı bağlantı sınırlamak izin veren aynı özell
 Bir Azure SQL Server tarafından kullanılan bir depolama hesabıyla bu özelliği kullanmayı seçerseniz, sorunlar çalıştırabilirsiniz. Sonraki bir listesi ve bu tarafından etkilenen Azure SQLDB özelliklerinin tartışma olduğu.
 
 #### <a name="azure-sqldw-polybase"></a>Azure SQLDW PolyBase
-PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur; temasa *dmalik@microsoft.com* daha fazla bilgi için.
+PolyBase, veri depolama hesaplarından Azure SQLDW yüklemek için yaygın olarak kullanılır. Yalnızca bir sanal alt ağ kümesi erişim verilerini yükleme depolama hesabı sınırları, hesap PolyBase bağlantısını çalışmamasına neden olur. Bu azaltma yoktur ve iletişim kurabiliriz *dmalik@microsoft.com* daha fazla bilgi için.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob denetimi
 BLOB denetimi denetim günlüklerini kendi depolama hesabına iter. Bu depolama hesabını NCEKİ Hizmeti uç noktaları özelliğini kullanıyorsa, depolama hesabı Azure SQLDB bağlantısını kesintiye uğrar.
@@ -227,8 +227,9 @@ Birkaç SQL veritabanı hata iletilerinin listesini belgelenen [burada][sql-data
 Bu bölümde nasıl kullanabileceğinizi gösteren [Azure portal] [ http-azure-portal-link-ref-477t] oluşturmak için bir *sanal ağ kuralı* Azure SQL veritabanınızda. Kural olarak etiketlenmiş belirli bir alt ağ gelen iletişimi kabul etmek için SQL veritabanı söyler bir *sanal ağ hizmeti uç noktası*.
 
 > [!NOTE]
-> Lütfen bu hizmet uç noktaları sanal ağ güvenlik duvarı kuralları sunucunuzun eklemeyi düşündüğünüz VNET/alt ağ için açık olduğundan emin olun.
-> Hizmet uç noktaları, bunları etkinleştirmek için lütfen tıklayın portalında istenir VNET/alt ağ için etkin olmayan, kural eklemek dikey penceresinde etkinleştirin.
+> Azure SQL veritabanı sunucunuzun VNet güvenlik duvarı kuralları hizmet uç noktası eklemek istiyorsanız, ilk alt ağ için uç noktalar açık hizmet emin olun.
+>
+> Hizmet uç noktaları için alt açık değilse, portal, bunları etkinleştirmek ister. Tıklatın **etkinleştirmek** kural eklediğiniz aynı dikey düğmesi.
 
 #### <a name="powershell-alternative"></a>PowerShell alternatif
 
