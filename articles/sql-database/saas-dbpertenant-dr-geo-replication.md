@@ -89,8 +89,8 @@ Daha sonra bir ayrı repatriation adımında, özgün bölge kurtarma bölgede k
 Kurtarma işlemine başlamadan önce uygulamaya normal sağlıklı durumunu gözden geçirin.
 1. Web tarayıcınızda Wingtip biletleri olay hub'ı açın (http://events.wingtip-dpt.&lt; Kullanıcı&gt;. trafficmanager.net - Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
     * Sayfanın alt kısmına kaydırın ve Katalog sunucu adını ve konumunu altbilgisindeki dikkat edin. Konum, uygulamayı dağıttığınız bölgedir.
-    *İpucu: fare görüntü büyütmek için konum gelin. * 
-     ![Olayları hub sağlam durumda özgün bölge](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *İpucu: fare görüntü büyütmek için konum gelin.*
+    ![Olayları hub sağlam durumda özgün bölge](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Contoso birlikte Hall Kiracı'tıklayın ve kendi olay sayfası açın.
     * Altbilgisinde Kiracı sunucu adı dikkat edin. Konum katalog sunucusunun konumu ile aynı olacaktır.

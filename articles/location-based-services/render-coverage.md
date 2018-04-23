@@ -1,14 +1,14 @@
 ---
-title: "Azure'da kapsamı işlemek konumuna bağlı Hizmetleri | Microsoft Docs"
-description: "İşleme hakkında bilgi edinin Azure konumda kapsamı temel Hizmetleri"
+title: Azure'da kapsamı işlemek konumuna bağlı Hizmetleri | Microsoft Docs
+description: İşleme hakkında bilgi edinin Azure konumda kapsamı temel Hizmetleri
 services: location-based-services
-keywords: 
+keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 3/6/2018
 ms.topic: article
 ms.service: location-based-services
-documentationcenter: 
+documentationcenter: ''
 manager: cpendle
 ms.devlang: na
 ms.custom: mvc
@@ -51,7 +51,7 @@ Aşağıdaki tabloda Azure konum tabanlı Hizmetleri işlemek ızgara döşeme i
 |Burkina Faso|✓ |
 |Burundi|✓ |
 |Kamerun|✓ |
-|Kongo|✓ |
+|Kongo Cumhuriyeti|✓ |
 |Kongo Demokratik Cumhuriyeti|✓ |
 |Mısır|✓ |
 |Gabon|✓ |
@@ -191,7 +191,7 @@ Aşağıdaki tabloda Azure konum tabanlı Hizmetleri işlemek vektör döşeme i
 |Orta Afrika Cumhuriyeti|Ø|
 |Çad|Ø|
 |Komorolar|Ø|
-|Kongo|✓|
+|Kongo Cumhuriyeti|✓|
 |Kongo Demokratik Cumhuriyeti|✓|
 |Fildişi Sahili (Côte d’Ivoire)|Ø|
 |Cibuti|Ø|
