@@ -1,6 +1,6 @@
 ---
-title: "Kapasite planlama ve Azure Site Recovery ile Azure'da VMware çoğaltma işlemini ölçeklendirme | Microsoft Docs"
-description: "VMware Vm'leri Azure Site Recovery ile azure'a çoğaltırken planı kapasite ve ölçek bu makaleyi kullanın"
+title: Kapasite planlama ve Azure Site Recovery ile Azure'da VMware çoğaltma işlemini ölçeklendirme | Microsoft Docs
+description: VMware Vm'leri Azure Site Recovery ile azure'a çoğaltırken planı kapasite ve ölçek bu makaleyi kullanın
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

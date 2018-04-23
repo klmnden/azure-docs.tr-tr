@@ -1,8 +1,8 @@
 ---
-title: "Azure portalında bir Windows VM için FQDN oluşturmak | Microsoft Docs"
-description: "FQDN, Azure portalında sanal makine için Resource Manager tabanlı veya tam etki alanı adının nasıl oluşturulacağını öğrenin."
+title: Azure portalında bir Windows VM için FQDN oluşturmak | Microsoft Docs
+description: FQDN, Azure portalında sanal makine için Resource Manager tabanlı veya tam etki alanı adının nasıl oluşturulacağını öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn

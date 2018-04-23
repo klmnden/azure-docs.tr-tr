@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7575e25f06014caf962a4b7241a8a2d6bca8c918
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -99,7 +99,7 @@ Azure bulut hizmetleri yapılandırması Azure portal ya da SMAPI üzerinden, Wi
 
 Sanal Makine–dağıtılmış uygulamalar gerekliyse kendi istemci araçlarını ve arabirimlerini sağlar, örneğin, kurumsal bir yönetim konsolu olarak Microsoft Yönetim Konsolu (MMC) (Microsoft System Center ya da Windows Intune gibi) ya da başka bir yönetim uygulaması (örneğin, Microsoft SQL Server Management Studio). Bu araçlar, genellikle bir kurumsal ortamda veya istemci ağında bulunur. Bunlar, doğrudan, durum bilgisi olan bağlantılar gerektiren, Uzak Masaüstü Protokolü (RDP) gibi belirli ağ protokollerine bağlı olabilir. Bazıları açık yayımlanmaması ya da İnternet aracılığıyla erişilmemesi gereken web etkin arabirimlere sahip olabilir.
 
-[Multi-factor authentication](../multi-factor-authentication/multi-factor-authentication.md), [X.509 yönetim sertifikaları](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) ve güvenlik duvarları kullanarak Azure’da altyapı ve platform hizmetlerine erişimi kısıtlayabilirsiniz. Azure portal ve SMAPI Aktarım Katmanı Güvenliği (TLS) gerektirir. Ancak, Azure’a dağıttığınız hizmetler ve uygulamalar uygulamanıza dayalı uygun koruma önlemleri almanızı gerektirir. Bu mekanizmalar standart sağlamlaştırılmış iş istasyonu konfigürasyonuyla sık sık daha kolay etkinleştirilebilir.
+[Multi-factor authentication](../active-directory/authentication/multi-factor-authentication.md), [X.509 yönetim sertifikaları](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/) ve güvenlik duvarları kullanarak Azure’da altyapı ve platform hizmetlerine erişimi kısıtlayabilirsiniz. Azure portal ve SMAPI Aktarım Katmanı Güvenliği (TLS) gerektirir. Ancak, Azure’a dağıttığınız hizmetler ve uygulamalar uygulamanıza dayalı uygun koruma önlemleri almanızı gerektirir. Bu mekanizmalar standart sağlamlaştırılmış iş istasyonu konfigürasyonuyla sık sık daha kolay etkinleştirilebilir.
 
 ### <a name="management-gateway"></a>Yönetimi ağ geçidi
 Tüm yönetim erişimini merkezileştirmek ve izlemeyi ve günlüğe kaydetmeyi basitleştirmek için, Azure ortamınıza bağlı, şirket için ağınızdaki ayrılmış bir [Uzak Masaüstü Ağ Geçidi](https://technet.microsoft.com/library/dd560672) (RD Ağ Geçidi) sunucusu dağıtabilirsiniz.
@@ -110,7 +110,7 @@ Uzak Masaüstü Ağ geçidi, güvenlik gereksinimlerini uygulayan ilke tabanlı 
 * RD Ağ Geçidi’ni yönetici iş istasyonları olarak aynı [yönetim etki alanına](http://technet.microsoft.com/library/bb727085.aspx) ekleyin. Bu, Azure AD’ye tek yön trust sahibi olan bir etki alanında siteden siteye IPsec VPN ya da ExpressRoute kullanırken ya da şirket için AD DS örneği ve Azure AD’niz arasında kimlik bilgilerini birleştirirken gereklidir.
 * RD Ağ Geçidi’nin istemci makinesi adının geçerli (etki alanına katılmış) ve Azure portalına erişimine izin verilmiş olduğunu doğrulamasına izin vermek için, bir [istemci bağlantısı yetkilendirme ilkesi](http://technet.microsoft.com/library/cc753324.aspx) yapılandırın.
 * Yönetim trafiğini ileri gizli dinleme ve belirteç hırsızlığından korumak üzere [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) için IPsec kullanın ya da [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) aracılığıyla yalıtılmış bir İnternet bağlantısını dikkate alın.
-* RD Ağ Geçidi üzerinden oturum açan yöneticiler için multi-factor authentication ([Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) aracılığıyla) ya da akıllı kart kimlik doğrulamasını etkinleştirin.
+* RD Ağ Geçidi üzerinden oturum açan yöneticiler için multi-factor authentication ([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) aracılığıyla) ya da akıllı kart kimlik doğrulamasını etkinleştirin.
 * İzin verilen yönetim uç noktalarının sayısını en aza indirmek için Azure’da [IP adresi kısıtlamaları](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) ya da [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md) yapılandırın.
 
 ## <a name="security-guidelines"></a>Güvenlik yönergeleri

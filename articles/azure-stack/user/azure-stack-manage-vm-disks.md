@@ -1,11 +1,11 @@
 ---
-title: "Azure yığınında VM diskleri yönetme | Microsoft Docs"
-description: "Sanal makineler için diskleri için Azure yığınına sağlayın."
+title: Azure yığınında VM diskleri yönetme | Microsoft Docs
+description: Sanal makineler için diskleri için Azure yığınına sağlayın.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na

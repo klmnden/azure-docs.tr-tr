@@ -1,6 +1,6 @@
 ---
-title: "MySQL için güvenli bir şekilde Azure veritabanına bağlanmak için SSL bağlantısını yapılandır"
-description: "Azure veritabanı MySQL ve doğru SSL bağlantılarını kullanmak için ilişkili uygulamalar için düzgün şekilde hakkında yönergeler"
+title: MySQL için güvenli bir şekilde Azure veritabanına bağlanmak için SSL bağlantısını yapılandır
+description: Azure veritabanı MySQL ve doğru SSL bağlantılarını kullanmak için ilişkili uygulamalar için düzgün şekilde hakkında yönergeler
 services: mysql
 author: ajlam
 ms.author: andrela
