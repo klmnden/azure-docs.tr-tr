@@ -8,6 +8,7 @@
 ## [DNS SSS](dns-faq.md)
 ## [Özel DNS bölgelerini kullanma](private-dns-overview.md)
 ## [Özel DNS senaryoları](private-dns-scenarios.md)
+## [DNS ölçümleri ve uyarıları](dns-alerts-metrics.md)
 
 
 # Başlarken

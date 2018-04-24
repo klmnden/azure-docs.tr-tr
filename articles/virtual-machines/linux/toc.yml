@@ -470,6 +470,8 @@
           href: troubleshoot-app-connection.md
         - name: Ayırma hataları
           href: allocation-failure.md
+        - name: Ayırma hataları-klasik VM
+          href: allocation-failure-classic.md
         - name: Dağıtım sorunları
           href: troubleshoot-deploy-vm.md
         - name: VM oluşturma

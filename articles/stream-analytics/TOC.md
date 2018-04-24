@@ -25,6 +25,7 @@
 ## [Uyumluluk düzeyi](stream-analytics-compatibility-level.md)
 ## [Sık sorulan soru yapıları](stream-analytics-stream-analytics-query-patterns.md)
 ## [Olay sıralama konusunda dikkat edilmesi gerekenler](stream-analytics-out-of-order-and-late-events.md)
+## [Denetim noktası ve yeniden yürütme](stream-analytics-concepts-checkpoint-replay.md)
 
 # Nasıl yapılır kılavuzları
 
@@ -68,7 +69,7 @@
 
 ## Sorun giderme
 ### [Sorun giderme adımları](stream-analytics-troubleshooting-guide.md)
-### [Genel sorun giderme sorunları](stream-analytics-common-troubleshooting-issues.md)
+### [Yaygın sorunlar](stream-analytics-common-troubleshooting-issues.md)
 ### [İş diyagramı](stream-analytics-job-diagram-with-metrics.md)
 ### [Tanılama günlükleri](stream-analytics-job-diagnostic-logs.md)
 ### [Kaynak durumunu denetleme](stream-analytics-resource-health.md)
@@ -94,16 +95,8 @@
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
-## [Sürüm notları](stream-analytics-release-notes.md)
 ## [Hizmet güncelleştirmeleri](https://azure.microsoft.com/updates/?product=stream-analytics)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics)
 ## [Videolar](https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics)
 ## [Müşteri örnek olay incelemeleri](https://azure.microsoft.com/case-studies/?service=stream-analytics)
 ## [Teknik inceleme - Gerçek zamanlı olay işleme](stream-analytics-real-time-event-processing-reference-architecture.md)
-## [Storm ve Akış Analizi Karşılaştırması](stream-analytics-comparison-storm.md)
-
-
-
-
-
-

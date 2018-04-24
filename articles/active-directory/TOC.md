@@ -17,7 +17,7 @@
 ## [Şirket markası yapılandırma](customize-branding.md)
 ## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
 ## [Kullanıcılara lisans atama](license-users-groups.md)
-## [Self servis parola sıfırlamasını yapılandırma](active-directory-passwords-getting-started.md)
+## [Self servis parola sıfırlamasını yapılandırma](authentication/quickstart-sspr.md)
 
 
 # Nasıl yapılır
@@ -63,6 +63,8 @@
 #### [Dinamik gruplar ve B2B kullanıcıları](active-directory-b2b-dynamic-groups.md)
 #### [Denetim ve raporlar](active-directory-b2b-auditing-and-reporting.md)
 #### [Hibrit kuruluşlar için B2B](active-directory-b2b-hybrid-organizations.md)
+##### [B2B kullanıcılarına yerel uygulama erişimi verme](active-directory-b2b-hybrid-cloud-to-on-premises.md)
+##### [Yerel kullanıcılara bulut uygulamaları erişimi verme](active-directory-b2b-hybrid-on-premises-to-cloud.md)
 #### [B2B ve Office 365 dış paylaşım](active-directory-b2b-o365-external-user.md)
 #### [B2B lisansı](active-directory-b2b-licensing.md)
 #### [Geçerli sınırlamalar](active-directory-b2b-current-limitations.md)
@@ -119,6 +121,7 @@
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
+#### [Denetim etkinliği başvurusu](active-directory-reporting-activity-audit-reference.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### Sorun giderme
@@ -141,7 +144,7 @@
 #### [Self servis parola sıfırlama için kaydolma](active-directory-passwords-reset-register.md)
 ### [SSPR Nasıl çalışır?](authentication/concept-sspr-howitworks.md)
 ### [SSPR Dağıtım kılavuzu](authentication/howto-sspr-deployment.md)
-### [SSPR ve Windows 10](active-directory-passwords-login.md)
+### [SSPR ve Windows 10](authentication/tutorial-sspr-windows.md)
 ### [SSPR İlkeleri ](authentication/concept-sspr-policy.md)
 ### [SSPR’yi Özelleştirme](authentication/concept-sspr-customization.md)
 ### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
@@ -149,7 +152,7 @@
 ### BT Yöneticileri: Parolaları sıfırlama
 #### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
 ### [SSPR lisanslama](authentication/concept-sspr-licensing.md)
-### [Parola geri yazma](active-directory-passwords-writeback.md)
+### [Parola geri yazma](authentication/howto-sspr-writeback.md)
 ### [Sorun giderme](authentication/active-directory-passwords-troubleshoot.md)
 ### [SSS](authentication/active-directory-passwords-faq.md)
 

@@ -43,6 +43,8 @@
       href: container-instances-environment-variables.md
     - name: Dağıtımlarla ilgili sorunları giderme
       href: container-instances-troubleshooting.md
+    - name: ACI üzerindeki Jenkins derleme aracıları
+      href: container-instances-jenkins.md
     - name: Veri hacimlerini yapılandırma
       items:
         - name: Azure Dosyaları

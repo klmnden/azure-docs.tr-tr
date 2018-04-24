@@ -14,8 +14,12 @@
     - name: Hive ilkelerini yapılandırma
       href: apache-domain-joined-run-hive.md
       maintainContext: true
-    - name: Etki alanına katılmış kümeleri yönetme
-      href: apache-domain-joined-manage.md
+    - name: Etki alanına katılmış kümeye bağlamak için VSCode kullanma
+      href: ../hdinsight-for-vscode.md
+    - name: Etki alanına katılmış kümeye bağlamak için IntelliJ kullanma
+      href: ../spark/apache-spark-intellij-tool-plugin.md
+    - name: Etki alanına katılmış kümeye bağlamak için Eclipse kullanma
+      href: ../spark/apache-spark-eclipse-tool-plugin.md
 - name: Verilerin güvenliğini sağlama
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true

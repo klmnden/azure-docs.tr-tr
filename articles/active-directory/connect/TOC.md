@@ -50,7 +50,7 @@
 ### [Federasyon için çoklu etki alanı desteği](active-directory-aadconnect-multiple-domains.md)
 ### [Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [Çoklu Oturum Açma için SAML 2.0 Kimlik Sağlayıcısı (IdP) Kullanma](active-directory-aadconnect-federation-saml-idp.md)
-
+### [Oturum açmak için e-posta kullanan konuk kullanıcı hesaplarını eşitleme](active-directory-aadconnect-guest-sync.md)
 
 
 ## Azure AD Connect Sync'i yönetme

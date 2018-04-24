@@ -1,6 +1,8 @@
 # [Azure Market belgeleri](index.md)
 ## [Azure Market ve AppSource yayımcı kılavuzu](marketplace-publishers-guide.md)
 ## [İşletmenizi Azure Market ile büyütme](grow-your-business-azure-marketplace.md)
+## [Appsource nedir?](marketplace-what-is-appsource.md)
+## [AppSource ile işletmenizi büyütün](marketplace-grow-your-business-with-appsource.md)
 ## [Azure Market Danışmanlık Hizmetleri](consulting-services.md)
 ## [Azure Market SaaS uygulaması teknik yayımlama Kılavuzu](marketplace-saas-applications-technical-publishing-guide.md)
 ## [Bulut İş Ortağı Portalı](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)

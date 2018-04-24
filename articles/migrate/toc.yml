@@ -18,6 +18,12 @@
       href: concepts-dependency-visualization.md
 - name: Nasıl yapılır kılavuzları
   items:
+    - name: Şirket içi kaynaklarınızı Azure'a geçirme
+      items:
+        - name: Senaryoya genel bakış - Şirket içi kaynaklarınızı Azure'a geçirme
+          href: migrate-scenarios-overview.md
+        - name: Senaryo 1 - Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
+          href: migrate-scenarios-assessment.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri
