@@ -238,6 +238,8 @@
               href: service-fabric-cluster-resource-manager-advanced-throttling.md
             - name: Hizmet taşıma
               href: service-fabric-cluster-resource-manager-movement-cost.md
+            - name: Hizmetleri otomatik ölçeklendirme
+              href: service-fabric-cluster-resource-manager-autoscaling.md
     - name: İzleme ve tanılama
       items:
         - name: İzlemeye genel bakış
@@ -261,8 +263,6 @@
           href: service-fabric-health-introduction.md
         - name: Sistem durumu olaylarını bildirme
           href: service-fabric-report-health.md
-        - name: OMS ile izleme
-          href: service-fabric-diagnostics-event-analysis-oms.md
     - name: API Management ile tümleştirme
       href: service-fabric-api-management-overview.md
 - name: Nasıl yapılır kılavuzları
@@ -405,6 +405,10 @@
               href: service-fabric-securing-containers.md
             - name: Windows kapsayıcıları için gMSA ayarlama
               href: service-fabric-setup-gmsa-for-windows-containers.md
+        - name: Düzenli yedeklemeleri yapılandırma (Azure’daki Kümeler)
+          href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
+        - name: Düzenli yedeklemeleri yapılandırma (Tek Başına Kümeler)
+          href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
         - name: Maven’i desteklemek için eski Java Uygulamasını geçirme
           href: service-fabric-migrate-old-javaapp-to-use-maven.md
     - name: Bir Windows/VS geliştirme ortamında çalışma
@@ -555,6 +559,8 @@
               href: service-fabric-diagnostics-oms-setup.md
             - name: OMS Aracısı'nı ekleme
               href: service-fabric-diagnostics-oms-agent.md
+            - name: OMS ile izleme
+              href: service-fabric-diagnostics-event-analysis-oms.md
             - name: Kapsayıcıları izleme
               href: service-fabric-diagnostics-oms-containers.md
         - name: Application Insights ile analiz

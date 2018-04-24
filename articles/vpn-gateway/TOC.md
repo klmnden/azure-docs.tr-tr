@@ -3,13 +3,18 @@
 # Genel Bakış
 ## [VPN Gateway hakkında](vpn-gateway-about-vpngateways.md)
 ## [VPN Gateway ile ilgili SSS](vpn-gateway-vpn-faq.md)
-## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 
 # Başlarken
 ## Rota temelli VPN ağ geçidi oluşturma
 ### [Azure Portal](create-routebased-vpn-gateway-portal.md)
 ### [Azure PowerShell](create-routebased-vpn-gateway-powershell.md)
 ### [Azure CLI](create-routebased-vpn-gateway-cli.md)
+
+# Örnekler
+## [VPN ağ geçidi oluşturma](./scripts/vpn-gateway-sample-create-vpn-gateway-powershell.md)
+## [Noktadan Siteye - RADIUS kimlik doğrulaması](./scripts/vpn-gateway-sample-point-to-site-radius-authentication-powershell.md)
+## [Noktadan Siteye - Sertifika kimlik doğrulaması](./scripts/vpn-gateway-sample-point-to-site-certificate-authentication-powershell.md)
+## [Siteden Siteye](./scripts/vpn-gateway-sample-site-to-site-powershell.md)
 
 # Kavramlar
 ## [VPN Gateway için planlama ve tasarım](vpn-gateway-plan-design.md)
@@ -19,8 +24,9 @@
 ## [BGP ve VPN Gateway hakkında](vpn-gateway-bgp-overview.md)
 ## [Yüksek oranda kullanılabilir bağlantılar hakkında](vpn-gateway-highlyavailable.md)
 ## [Noktadan Siteye bağlantılar hakkında](point-to-site-about.md)
+## [Noktadan Siteye yönlendirme hakkında](vpn-gateway-about-point-to-site-routing.md)
 
-# Nasıl yapılır
+# Nasıl yapılır kılavuzları
 ## Siteden Siteye bağlantıları yapılandırma
 ### [Azure Portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
@@ -115,6 +121,7 @@
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Blog](https://azure.microsoft.com/blog/topics/networking)
 ## [Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Abonelik ve hizmet sınırlamaları](../azure-subscription-service-limits.md?toc=%2fazure%2fvpn-gateway%2ftoc.json)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
