@@ -121,7 +121,7 @@
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-how-to-configure.md)
 #### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-how-to-configure.md)
 #### [Python arka ucu/Python cihazı](iot-hub-python-python-twin-how-to-configure.md)
-### Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma
+### Cihaz üretici yazılımını güncelleştirmek için cihaz ikizlerini kullanma
 #### [Node arka ucu/Node cihazı](iot-hub-node-node-firmware-update.md)
 #### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-firmware-update.md)
 #### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-firmware-update.md)
