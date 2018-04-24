@@ -421,6 +421,8 @@
           href: troubleshoot-activation-problems.md
         - name: Ayırma hataları
           href: allocation-failure.md
+        - name: Ayırma hataları-klasik VM
+          href: allocation-failure-classic.md
         - name: Bir VM’yi yeniden dağıtma
           href: redeploy-to-new-node.md
         - name: Genel hata iletileri

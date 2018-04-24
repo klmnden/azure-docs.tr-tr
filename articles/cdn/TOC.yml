@@ -14,6 +14,8 @@
   items:
     - name: Özel etki alanı ekleme
       href: cdn-map-content-to-custom-domain.md
+    - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
+      href: cdn-custom-ssl.md
 - name: Örnekler
   items:
     - name: Kod örnekleri
@@ -38,10 +40,6 @@
               href: cdn-sas-storage-support.md
         - name: Çıkış noktaları arası kaynak paylaşma
           href: cdn-cors.md
-        - name: CDN uç noktanıza özel etki alanı ekleme
-          href: cdn-map-content-to-custom-domain.md
-        - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma
-          href: cdn-custom-ssl.md
     - name: İçeriği iyileştirme
       items:
         - name: İyileştirmeye genel bakış
@@ -137,6 +135,11 @@
           href: cdn-rules-engine-reference-match-conditions.md
         - name: Kural altyapısı özellikleri
           href: cdn-rules-engine-reference-features.md
+    - name: Verizon’a özgü HTTP üst bilgileri
+      href: cdn-verizon-http-headers.md
+      items:
+        - name: X-EC-Debug üst bilgileri
+          href: cdn-http-debug-headers.md
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cdn
     - name: .NET

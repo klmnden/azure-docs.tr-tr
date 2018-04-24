@@ -48,6 +48,7 @@
 ### [Tahmine dayalı bakım çözüm kılavuzu](iot-suite-predictive-walkthrough.md)
 
 ## Bağlı fabrika
+### [Bağlı fabrika nedir?](iot-suite-connected-factory-features.md)
 ### [Bağlı fabrika çözümüne genel bakış](iot-suite-connected-factory-overview.md)
 ### [Bağlı fabrika çözümü kılavuzu](iot-suite-connected-factory-sample-walkthrough.md)
 

@@ -374,7 +374,9 @@
           href: manage-azure-ssis-integration-runtime.md
         - name: Azure-SSIS tümleştirmesi çalışma zamanının performans ayarlarını yapılandırma
           href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Saklı yordam etkinliği kullanarak SSIS paketlerini çağırma
+        - name: SSIS etkinliğini kullanarak SSIS paketleri çalıştırma
+          href: how-to-invoke-ssis-package-ssis-activity.md
+        - name: Saklı yordam etkinliği kullanarak SSIS paketleri çalıştırma
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS tümleştirmesi çalışma zamanı zamanlama
           href: how-to-schedule-azure-ssis-integration-runtime.md

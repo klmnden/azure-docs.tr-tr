@@ -438,6 +438,8 @@
           href: sql-database-develop-cplusplus-simple.md
         - name: Excel
           href: sql-database-connect-excel.md
+        - name: Spark Bağlayıcısı kullanma
+          href: sql-database-spark-connector.md
 - name: Başvuru
   items:
     - name: Azure PowerShell
