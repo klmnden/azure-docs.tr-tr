@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: bd2b65c31e7736346957dde4edfb7c32894c833e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
 
 > [!IMPORTANT]
 > [Azure AD Connect, şirket içi dizininizi Azure AD'ye ve Office 365'e bağlamanın en iyi yoludur. Microsoft Azure Active Directory Eşitleme (DirSync) ve Azure AD Eşitleme araçları artık kullanım dışı olduğundan ve 13 Nisan 2017’den itibaren desteklenmediğinden şimdi Azure AD Connect’e yükseltmenin tam zamanı.](active-directory-aadconnect-dirsync-deprecated.md)  Ayrıca:
+
+
+
 > 
 > - Kullanıcıların Azure AD ile eşitlenmesi **ücretsiz bir özellik** olup müşterilerin ücretli bir aboneliğinin olmasını gerektirmez.
 >- Eşitlenmiş kullanıcılara **otomatik olarak herhangi bir** lisans *verilmez*. Yöneticiler, lisans ataması üzerinde halen tam denetime sahiptir. 
@@ -51,6 +54,10 @@ Azure Active Directory Connect üç birincil bileşenden oluşur: eşitleme hizm
 * Sistem Durumu İzleme - Azure AD Connect Health, iyi bir izleme olanağı sağlayarak bu etkinliğin Azure portalında görüntülenmesi için merkezi bir konum oluşturur. Ek bilgi için bkz. [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## <a name="install-azure-ad-connect"></a>Azure AD Connect'i yükleme
+
+> [!IMPORTANT]
+> Microsoft, resmi olarak belgelenen eylemler dışında Azure AD Connect eşitlemesinin değiştirilmesini veya çalıştırılmasını desteklemez. Bu eylemler, tutarsız veya desteklenmeyen Azure AD Connect eşitlemesi durumuyla sonuçlanabilir. Sonuç olarak Microsoft, bu tür dağıtımlar için teknik destek sağlayamaz.
+
 Azure AD Connect'i [Microsoft İndirme Merkezi](http://go.microsoft.com/fwlink/?LinkId=615771)'nden indirebilirsiniz.
 
 | Çözüm | Senaryo |

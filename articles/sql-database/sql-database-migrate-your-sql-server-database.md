@@ -1,23 +1,28 @@
 ---
-title: SQL Server DB'yi Azure SQL Veritabanına geçirme | Microsoft Docs
-description: SQL Server veritabanını Azure SQL Veritabanına geçirmeyi öğrenin.
+title: DMS kullanarak SQL Server DB’yi Azure SQL Veritabanı’na geçirme | Microsoft Docs
+description: DMS kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirmeyi öğrenin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/04/2018
+ms.date: 04/10/2018
 ms.author: carlrab
-ms.openlocfilehash: c4b4354cb1090b9abc388da9d1d1b135f135144d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 14e9949fe0c292a366fa55e3f16d14d885606f6b
+ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 04/16/2018
 ---
-# <a name="migrate-your-sql-server-database-to-azure-sql-database"></a>SQL Server veritabanını Azure SQL Veritabanına geçirme
+# <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dms"></a>DMS kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
 
-SQL Server veritabanınızı Azure SQL Veritabanına geçirmek çok basittir; Azure'da boş bir SQL veritabanı oluşturmanız ve ardından [Veri Geçiş Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)'nı (DMA) kullanarak veritabanını Azure'a aktarmanız yeterli olur. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
+SQL Server veritabanınızı Azure SQL Veritabanı’na taşımak, Azure’da boş bir SQL veritabanı oluşturup ardından [Data Migration Yardımcısı](https://www.microsoft.com/download/details.aspx?id=53595)’nı (DMA) kullanarak veritabanını Azure’a aktarmanız kadar basittir. Ek geçiş seçenekleri için bkz. [Veritabanınızı Azure SQL Veritabanı’na geçirme](sql-database-cloud-migrate.md).
+
+> [!IMPORTANT]
+> Azure SQL Veritabanı Yönetilen Örneği’ne geçiş için bkz. [SQL Server’dan Yönetilen Örneğe Geçirme](sql-database-managed-instance-migrate.md)
+
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Azure Portal'da boş bir Azure SQL veritabanı oluşturma (yeni veya mevcut Azure SQL Veritabanı sunucusunu kullanarak)

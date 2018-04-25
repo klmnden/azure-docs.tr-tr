@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7c14b241155e10f0bb325b50819e2277622e4dff
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5a6fd54e4d20e55116bc0fa771e039e5ea2bb30b
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/18/2018
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -149,7 +149,7 @@ Sertifika isteğinizi oluşturmak için IIS veya _Certreq.exe_ kullandıysanız,
 
 ### <a name="upload-your-ssl-certificate"></a>SSL sertifikanızı karşıya yükleme
 
-SSL sertifikanızı karşıya yüklemek için web uygulamanızın sol gezinti bölmesindeki **SSL sertifikaları** öğesine tıklayın.
+SSL sertifikanızı karşıya yüklemek için web uygulamanızın sol gezinti bölmesindeki **SSL ayarları** öğesine tıklayın.
 
 **Sertifikayı Karşıya Yükle**’ye tıklayın. 
 
@@ -159,7 +159,7 @@ SSL sertifikanızı karşıya yüklemek için web uygulamanızın sol gezinti b�
 
 ![Sertifikayı karşıya yükleme](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
-App Service sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız **SSL sertifikaları** sayfasında görünür.
+App Service, sertifikanızı karşıya yüklemeyi tamamladığında sertifikanız **SSL ayarları** sayfasında görüntülenir.
 
 ![Sertifika karşıya yüklendi](./media/app-service-web-tutorial-custom-ssl/certificate-uploaded.png)
 
@@ -216,7 +216,7 @@ Web uygulamanızın **Özel etki alanı** sayfası yeni ve ayrılmış IP adresi
 
 Varsayılan olarak, herkes HTTP kullanarak web uygulamanıza erişmeye devam edebilir. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
 
-Web uygulaması sayfanızın sol gezinti bölmesinde **Özel etki alanları**'nı seçin. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
+Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **Yalnızca HTTPS** menüsünde **Açık**’ı seçin.
 
 ![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
@@ -225,6 +225,16 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **Özel etki alanları**'n�
 - `http://<app_name>.azurewebsites.net`
 - `http://contoso.com`
 - `http://www.contoso.com`
+
+## <a name="enforce-tls-1112"></a>TLS 1.1/1.2 zorlama
+
+Uygulamanız varsayılan olarak [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0’a izin verir. Bu, [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard) gibi sektör standartlarıyla artık güvenli olarak değerlendirilmez. Daha yüksek TLS sürümlerini zorlamak için şu adımları izleyin:
+
+Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı seçin. Ardından **TLS sürümü**’nde istediğiniz en düşük TLS sürümünü seçin.
+
+![HTTPS zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
+
+İşlem tamamlandığında, uygulamanız daha düşük TLS sürümleriyle tüm bağlantıları reddeder.
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 

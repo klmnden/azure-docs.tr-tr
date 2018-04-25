@@ -1,28 +1,24 @@
 ---
-title: "Hızlı Başlangıç: Ölçek genişletme Azure SQL Data warehouse'da - T-SQL işlem | Microsoft Docs"
-description: Dwu ayarlayarak işlem kaynaklarını ölçeklendirme için T-SQL komutları.
+title: 'Hızlı Başlangıç: Azure SQL Veri Ambarı’nda işlem ölçeğini genişletme - T-SQL | Microsoft Docs'
+description: T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için işlemin ölçeğini genişletin veya maliyet tasarrufu sağlamak için işlemin ölçeğini geri daraltın.
 services: sql-data-warehouse
-documentationcenter: NA
-author: hirokib
-manager: jhubbard
-editor: ''
+author: kevinvngo
+manager: craigg-msft
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.custom: manage
-ms.date: 03/16/2018
-ms.author: elbutter;barbkess
-ms.openlocfilehash: 1591192c72f5bf201dbbef80acc5895c8324fca4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
-ms.translationtype: MT
+ms.topic: quickstart
+ms.component: manage
+ms.date: 04/17/2018
+ms.author: kevin
+ms.reviewer: igorstan
+ms.openlocfilehash: b4e123475679cf1afce09630c157377ee67b5202
+ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 04/18/2018
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak Azure SQL veri ambarındaki bilgi işlem
+# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Hızlı Başlangıç: T-SQL kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirme
 
-Bilgi işlem T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL veri ambarındaki. [Ölçeklendirme işlem](sql-data-warehouse-manage-compute-overview.md) daha iyi performans veya ölçek için maliyet tasarrufu sağlamak işlem yedekleyin. 
+T-SQL ve SQL Server Management Studio (SSMS) kullanarak Azure SQL Veri Ambarı’nda işlemi ölçeklendirin. Daha iyi performans için [işlemin ölçeğini genişletin](sql-data-warehouse-manage-compute-overview.md) veya maliyet tasarrufu sağlamak için işlemin ölçeğini geri daraltın. 
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
 
@@ -30,11 +26,11 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms.md)’nun (SSMS) en yeni sürümünü indirin ve yükleyin.
 
-Bu tamamladığınızdan varsayar [hızlı başlangıç: oluşturun ve bağlanın - portal](create-data-warehouse-portal.md). Oluşturma ve Connect hızlı başlangıç tamamladıktan sonra nasıl bağlanacağınızı bilmeniz: adlı bir veri ambarı oluşturulan **mySampleDataWarehouse**, bizim istemcinin yüklü olan sunucu erişmesine izin veren bir güvenlik duvarı kuralı oluşturdu.
+Burada [Hızlı Başlangıç: Oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) bölümünü tamamladığınız varsayılır. Oluşturma ve Bağlanma hızlı başlangıcını tamamladıktan sonra şunların nasıl yapılacağını öğrenmiş olursunuz: **mySampleDataWarehouse** adlı bir veri ambarı oluşturup buna bağlanma ve istemcimizin sunucuya erişmesini sağlayan güvenlik duvarı kuralı oluşturup yükleme.
  
 ## <a name="create-a-data-warehouse"></a>Veri ambarı oluşturma
 
-Kullanım [hızlı başlangıç: oluşturun ve bağlanın - portal](create-data-warehouse-portal.md) adlı bir veri ambarı oluşturmak için **mySampleDataWarehouse**. Bir güvenlik duvarı kuralı varsa ve, veri ambarı SQL Server Management Studio içinde bağlanıp emin olmak için hızlı başlangıç tamamlayın.
+[Hızlı Başlangıç: Oluşturma ve bağlanma - portal](create-data-warehouse-portal.md) bölümünü kullanarak **mySampleDataWarehouse** adlı bir veri ambarı oluşturun. Bir güvenlik duvarı kuralınız olduğundan ve SQL Server Management Studio içinden veri ambarınıza bağlanabildiğinizden emin olmak için hızlı başlangıcı tamamlayın.
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Sunucu yöneticisi olarak sunucuya bağlanma
 
@@ -60,14 +56,14 @@ Bu bölümde Azure SQL sunucunuzla bağlantı kurmak için [SQL Server Managemen
 
     ![veritabanı nesneleri](media/create-data-warehouse-portal/connected.png) 
 
-## <a name="view-service-objective"></a>Görünüm hizmet hedefi
-Hizmet hedefi ayarı veri ambarı için veri ambarı birim sayısını içerir. 
+## <a name="view-service-objective"></a>Hizmet hedefini görüntüleme
+Hizmet hedefi ayarı, veri ambarı için veri ambarı birimleri sayısını içerir. 
 
 Veri ambarınız için geçerli veri ambarı birimlerini görüntülemek için:
 
-1. Bağlantı altında **mynewserver 20171113.database.windows.net**, genişletin **sistem veritabanları**.
-2. Sağ **ana** seçip **yeni sorgu**. Yeni bir sorgu penceresi açılır.
-3. Sys.database_service_objectives dinamik yönetim görünümünden seçmek için aşağıdaki sorguyu çalıştırın. 
+1. **mynewserver-20171113.database.windows.net** bağlantısının altında **Sistem Veritabanları**’nı genişletin.
+2. **Ana** seçeneğine sağ tıklayıp **Yeni Sorgu**’yu seçin. Yeni bir sorgu penceresi açılır.
+3. sys.database_service_objectives dinamik yönetim görünümünden seçim yapmak için aşağıdaki sorguyu çalıştırın. 
 
     ```sql
     SELECT
@@ -82,18 +78,18 @@ Veri ambarınız için geçerli veri ambarı birimlerini görüntülemek için:
         db.name = 'mySampleDataWarehouse'
     ```
 
-4. Aşağıdaki sonuçları göster **mySampleDataWarehouse** bir hizmet hedefi DW400 olan sahiptir. 
+4. Aşağıdaki sonuçlar, **mySampleDataWarehouse** öğesinin DW400 hizmet hedefine sahip olduğunu gösterir. 
 
-    ![Görünüm geçerli Dwu](media/quickstart-scale-compute-tsql/view-current-dwu.png)
+    ![Geçerli DWU’ları görüntüleme](media/quickstart-scale-compute-tsql/view-current-dwu.png)
 
 
 ## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
-SQL veri ambarı'nda artırın veya işlem kaynakları data warehouse birimleri ayarlayarak azaltın. [Oluşturma ve Connect - portal](create-data-warehouse-portal.md) oluşturulan **mySampleDataWarehouse** ve 400 Dwu ile başlatıldı. Dwu için aşağıdaki adımları ayarlamak **mySampleDataWarehouse**.
+SQL Veri Ambarı’nda, veri ambarı birimlerini ayarlayarak işlem kaynaklarını artırabilir veya azaltabilirsiniz. [Oluşturma ve Bağlanma - portal](create-data-warehouse-portal.md) bölümünde **mySampleDataWarehouse** oluşturuldu ve 400 DWU ile başlatıldı. Aşağıdaki adımlar, **mySampleDataWarehouse** için DWU’ları ayarlar.
 
-Data warehouse birimleri değiştirmek için:
+Veri ambarı birimlerini değiştirmek için:
 
-1. Sağ **ana** seçip **yeni sorgu**.
-2. Kullanım [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) hizmet hedefi değiştirmek için T-SQL ifadesi. Hizmet hedefi için DW300 değiştirmek için aşağıdaki sorguyu çalıştırın. 
+1. **Ana** seçeneğine sağ tıklayıp **Yeni Sorgu**’yu seçin.
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) T-SQL deyimini kullanarak hizmet hedefini değiştirin. Hizmet hedefini için DW300 olarak değiştirmek için aşağıdaki sorguyu çalıştırın. 
 
 ```Sql
 ALTER DATABASE mySampleDataWarehouse
@@ -101,13 +97,13 @@ MODIFY (SERVICE_OBJECTIVE = 'DW300')
 ;
 ```
 
-## <a name="check-data-warehouse-state"></a>Veri ambarı durumunu denetle
+## <a name="check-data-warehouse-state"></a>Veri ambarı durumunu denetleme
 
-Bir veri ambarı duraklatıldığında için T-SQL ile bağlantı kurulamıyor. Veri ambarı geçerli durumunu görmek için bir PowerShell cmdlet'ini kullanabilirsiniz. Bir örnek için bkz: [veri ambarı durumu - Powershell denetleyin](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
+Bir veri ambarı duraklatıldığında için T-SQL ile buna bağlanamazsınız. Veri ambarının geçerli durumunu görmek için bir PowerShell cmdlet’ini kullanabilirsiniz. Bir örnek için bkz. [Veri ambarı durumunu denetleme - Powershell](quickstart-scale-compute-powershell.md#check-data-warehouse-state). 
 
-## <a name="check-operation-status"></a>Onay işlemi durumu
+## <a name="check-operation-status"></a>İşlem durumunu denetleme
 
-SQL veri ambarı üzerinde çeşitli yönetim işlemlerini hakkında bilgi döndürmek için aşağıdaki sorguyu çalıştırın [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV. Örneğin, işlem ve tamamlandı veya IN_PROGRESS olacaktır işlemin durumunu döndürür.
+Çeşitli yönetim işlemleriyle ilgili bilgileri SQL Veri Ambarı’na döndürmek için [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) DMV’de aşağıdaki sorguyu çalıştırın. Örneğin, bu işlemi ve işlemin durumunu (IN_PROGRESS veya COMPLETED) döndürür.
 
 ```sql
 SELECT *
@@ -121,7 +117,7 @@ AND
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Şimdi, veri ambarı için işlem ölçeklendirmek öğrendiniz. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
+Şimdi veri ambarınız için işlemin nasıl ölçeklendirileceğini öğrendiniz. Azure SQL Veri Ambarı hakkında daha fazla bilgi edinmek için, veri yükleme öğreticisiyle devam edin.
 
 > [!div class="nextstepaction"]
 >[SQL veri ambarına veri yükleme](load-data-from-azure-blob-storage-using-polybase.md)
