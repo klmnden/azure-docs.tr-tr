@@ -15,17 +15,17 @@ ms.date: 08/25/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 286ef523c1ba0ce76c412b319469c2627aade200
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0e0838aafdeb76339d79a8db1b3548407670dede
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Azure Multi-Factor Authentication Sunucusunu Windows Server’da AD FS ile çalışacak şekilde yapılandırma
 
 Active Directory Federasyon Hizmetleri (AD FS) kullanıyorsanız ve bulut ya da şirket içi kaynaklarınızı güvenli hale getirmek istiyorsanız Azure Multi-Factor Authentication Sunucusunu AD FS ile çalışmak üzere yapılandırabilirsiniz. Bu yapılandırma yüksek değerli uç noktalar için iki aşamalı doğrulamayı tetikler.
 
-Bu makale Windows Server 2012 R2 veya Windows Server 2016’da AD FS ile Multi-Factor Authentication Sunucusu kullanmayı ele alır. Daha fazla bilgi için [AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme](../../multi-factor-authentication/multi-factor-authentication-get-started-adfs-adfs2.md) konusunu okuyun.
+Bu makale Windows Server 2012 R2 veya Windows Server 2016’da AD FS ile Multi-Factor Authentication Sunucusu kullanmayı ele alır. Daha fazla bilgi için [AD FS 2.0 ile Azure Multi-Factor Authentication Sunucusu kullanarak bulut ve şirket içi kaynakları güvenli hale getirme](howto-mfaserver-adfs-2.md) konusunu okuyun.
 
 ## <a name="secure-windows-server-ad-fs-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Sunucusu ile Windows Server AD FS’yi güvenli hale getirme
 
@@ -40,11 +40,11 @@ Başlamadan önce, aşağıdaki bilgileri unutmayın:
 * Kuruluşunuz SMS mesajı ya da mobil uygulama doğrulama yöntemlerini kullanıyorsa, Şirket Ayarları’nda tanımlanan dizeler <$*uygulama_adı*$> şeklinde bir yer tutucu içerir. MFA Sunucusu v7.1’de bu yer tutucunun yerini alan bir uygulama adı belirtebilirsiniz. v7.0 veya daha eski sürümlerde, AD FS bağdaştırıcısı kullandığınızda bu yer tutucu otomatik olarak değiştirilmez. Bu eski sürümler için AD FS’yi güvenli hale getirdiğinizde yer tutucuyu uygun dizelerden kaldırın.
 * Oturum açmak için kullandığınız hesap, Active Directory hizmetinde güvenlik grupları oluşturmak için kullanıcı haklarına sahip olmalıdır.
 * Multi-Factor Authentication AD FS bağdaştırıcısı yükleme sihirbazı, Active Directory örneğinizde PhoneFactor Admins adlı bir güvenlik grubu oluşturur. Ardından federasyon hizmetinizin AD FS hizmet hesabını bu gruba ekler. Etki alanı denetleyicinizde PhoneFactor Admins grubunun oluşturulduğunu ve AD FS hizmet hesabının bu gruba üye olduğunu doğrulayın. Gerekirse, AD FS hizmeti hesabınızı etki alanı denetleyicinizde PhoneFactor Admins grubuna el ile ekleyin.
-* Kullanıcı portalıyla Hizmet SDK’sını yükleme hakkında bilgi edinmek için bkz. [Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma.](../../multi-factor-authentication/multi-factor-authentication-get-started-portal.md)
+* Kullanıcı portalıyla Hizmet SDK’sını yükleme hakkında bilgi edinmek için bkz. [Azure Multi-Factor Authentication Sunucusu için kullanıcı portalını dağıtma.](howto-mfaserver-deploy-userportal.md)
 
 ### <a name="install-azure-multi-factor-authentication-server-locally-on-the-ad-fs-server"></a>Azure Multi-Factor Authentication Sunucusu’nu yerel olarak AD FS sunucusuna yükleme
 
-1. Azure Multi-Factor Authentication Sunucusu’nu AD FS sunucunuza indirin ve yükleyin. Yükleme bilgileri için bkz. [Azure Multi-Factor Authentication Sunucusunu kullanmaya başlama](../../multi-factor-authentication/multi-factor-authentication-get-started-server.md).
+1. Azure Multi-Factor Authentication Sunucusu’nu AD FS sunucunuza indirin ve yükleyin. Yükleme bilgileri için bkz. [Azure Multi-Factor Authentication Sunucusunu kullanmaya başlama](howto-mfaserver-deploy.md).
 2. Azure Multi-Factor Authentication Sunucusu yönetim konsolunda **AD FS** simgesine tıklayın. **Kullanıcı kaydına izin ver** ve **Kullanıcıların yöntemi seçmesine izin ver** seçeneklerini belirleyin.
 3. Kuruluşunuz için belirtmek istediğiniz ek seçenekleri belirleyin.
 4. **AD FS Bağdaştırıcısı’nı Yükle**'ye tıklayın.
@@ -162,4 +162,4 @@ MFA Sunucusu AD FS Bağdaştırıcısı'yla ilgili sorunları gidermenize yardı
 
 ## <a name="related-topics"></a>İlgili konular
 
-Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](../../multi-factor-authentication/multi-factor-authentication-faq.md)
+Sorun giderme yardımı için bkz. [Azure Multi-Factor Authentication SSS](multi-factor-authentication-faq.md)

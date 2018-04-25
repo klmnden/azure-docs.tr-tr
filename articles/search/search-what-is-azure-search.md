@@ -3,15 +3,16 @@ title: Azure Search nedir? | Microsoft Docs
 description: Azure Search, tam olarak yönetilen bir barındırılan bulut arama hizmetidir. Bu özellik genel bakışında daha fazla bilgi edinin.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: overview
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: df726e26b6a6f9ff28c1c38253875897b49b4155
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ad5c60c246c2946e4dd3a5bb6b4d6e8d21d2b03d
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki içeriğinize yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür.

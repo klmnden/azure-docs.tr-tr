@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.author: billmath
-ms.openlocfilehash: 02849fb63a8d696fa4296f5ec885a2d24f9adca1
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7112b8af792dc245c1a2a68e130328d82b4958b3
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>Şirket içi dizinlerinizi Azure Active Directory ile tümleştirme
 Azure AD Connect, şirket içi dizinlerinizi Azure Active Directory ile tümleştirir. Bu sayede kullanıcılarınıza Azure AD ile tümleşik Office 365, Azure ve SaaS uygulamaları için ortak bir kimlik sağlayabilirsiniz. Planlama, dağıtım ve işlem adımları sırasında sizi yönlendirmesi için bu konu başlığından faydalanabilirsiniz. Bu alanla ilgili konu başlıklarına yönelik bağlantılar mevcuttur.
@@ -97,7 +97,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 
 [Parola karması eşitleme](active-directory-aadconnectsync-implement-password-hash-synchronization.md), Active Directory'deki parola karmasını Azure AD ile eşitler. Son kullanıcı, şirket içinde ve bulutta aynı parolayı kullanabilir ancak parolayı yalnızca tek bir konumda yönetebilir. Yetkili olarak şirket içi Active Directory'nizi kullandığından, kendi parola ilkenizi de kullanabilirsiniz.
 
-[Parola geri yazma](../active-directory-passwords-getting-started.md) özelliği, kullanıcılarınızın buluttaki parolalarını değiştirmelerine ve sıfırlamalarına olanak sağlamanın yanı sıra şirket içi parola ilkenizi uygular.
+[Parola geri yazma](../authentication/quickstart-sspr.md) özelliği, kullanıcılarınızın buluttaki parolalarını değiştirmelerine ve sıfırlamalarına olanak sağlamanın yanı sıra şirket içi parola ilkenizi uygular.
 
 [Cihaz geri yazma](active-directory-aadconnect-feature-device-writeback.md) Azure AD'de kayıtlı cihazın şirket içi Active Directory'ye geri yazılmasına izin verir, bu sayede koşullu erişim için kullanılabilir.
 
@@ -110,7 +110,7 @@ Azure AD Connect, isteğe bağlı olarak açabileceğiniz veya varsayılan olara
 | --- | --- |
 |Filtrelemeyi yapılandırma | [Azure AD Connect eşitleme: Filtrelemeyi yapılandırma](active-directory-aadconnectsync-configure-filtering.md)|
 |Parola karması eşitleme | [Azure AD Connect eşitleme: Parola karması eşitlemeyi uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md)|
-|Parola geri yazma | [Parola yönetimine başlarken](../active-directory-passwords-getting-started.md)|
+|Parola geri yazma | [Parola yönetimine başlarken](../authentication/quickstart-sspr.md)|
 |Cihaz geri yazma | [Azure AD Connect’te cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md)|
 |Yanlışlıkla silmeleri engelleme | [Azure AD Connect eşitleme: Yanlışlıkla Silmeleri Engelleme](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Otomatik yükseltme | [Azure AD Connect: Otomatik yükseltme](active-directory-aadconnect-feature-automatic-upgrade.md)|

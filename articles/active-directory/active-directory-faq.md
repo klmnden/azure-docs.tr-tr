@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 83586cff59d5beb7c48bc6bb8b72fd09e4d37bf8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: be5f5a6c39e27ae7fedab32fea12f5cf9b7cd3bd
+ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/23/2018
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory ile ilgili SSS
 Azure Active Directory (Azure AD), kimlik, erişim yönetimi ve güvenliği tüm yönleriyle kapsayan bir hizmet olarak kimlik (IDaaS) çözümüdür.
@@ -112,7 +112,7 @@ Daha fazla bilgi için bkz. [Bulutta şirket içi kimlik altyapınızı ve eşit
 
 **Y:** Parola geri yazma işlemi gerçek zamanlı olarak gerçekleşir.
 
-Daha fazla bilgi için bkz. [Parola yönetimine başlarken](active-directory-passwords-getting-started.md).
+Daha fazla bilgi için bkz. [Parola yönetimine başlarken](authentication/quickstart-sspr.md).
 
 - - -
 **S: Parola geri yazma özelliğini bir yönetici tarafından yönetilen parolalarla kullanabilir miyim?**
